@@ -23,6 +23,7 @@ const getMerklApys = require('./getMerklApys');
 const { getbeQIApy } = require('./getbeQIApy');
 const { getFxApys } = require('./getFxApys');
 const { getPenpieApys } = require('./getPenpieApys');
+const { getSkyApy } = require('./getSkyApy');
 
 const getApys = [
   getAcrossApys,
@@ -49,6 +50,7 @@ const getApys = [
   getPenpieApys,
   getETHCompoundV3Apys,
   getEthSiloApys,
+  getSkyApy,
   getMerklApys,
 ];
 

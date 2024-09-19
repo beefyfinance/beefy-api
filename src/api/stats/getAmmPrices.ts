@@ -376,6 +376,7 @@ const seedPeggedPrices = {
   xcUSDC: 'USDC', // Kusama
   xcUSDT: 'USDT', // Kusama
   WSEI: 'SEI', // Wrapped SEI
+  USDS: 'DAI',
 };
 
 export type BaseLpBreakdown = {

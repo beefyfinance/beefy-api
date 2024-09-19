@@ -2163,6 +2163,20 @@ export const tokens = {
       'pxETH is an Ethereum liquid staking solution that forms the foundation of the Dinero protocol.',
     bridge: 'native',
   },
+  USDS: {
+    name: 'USDS Stablecoin',
+    symbol: 'USDS',
+    oracleId: 'USDS',
+    address: '0xdC035D45d973E3EC169d2276DDab16f1e407384F',
+    chainId: 1,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://sky.money/',
+    documentation: 'https://docs.sky.money/',
+    description:
+      "USDS is the decentralized stablecoin of Sky. USDS replaces DAI as Sky's new stablecoin, offering stability plus new rewards and savings options.",
+    bridge: 'native',
+  },
   sDOLA: {
     name: 'Staked Dola',
     symbol: 'sDOLA',

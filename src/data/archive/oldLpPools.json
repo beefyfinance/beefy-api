@@ -1,5 +1,23 @@
 [
   {
+    "name": "uni-sky-usds",
+    "address": "0x2621CC0B3F3c079c1Db0E80794AA24976F0b9e3c",
+    "decimals": "1e18",
+    "chainId": 1,
+    "lp0": {
+      "address": "0x56072C95FAA701256059aa122697B133aDEd9279",
+      "oracle": "tokens",
+      "oracleId": "SKY",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xdC035D45d973E3EC169d2276DDab16f1e407384F",
+      "oracle": "tokens",
+      "oracleId": "USDS",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "dragonswap-isei-wsei",
     "address": "0xe7FEf2854AC5B89f116D1d8E93AD8506d85d8f31",
     "decimals": "1e18",
