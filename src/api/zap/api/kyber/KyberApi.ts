@@ -17,9 +17,11 @@ import { ApiResponse, isErrorApiResponse } from '../common';
 import { ApiChain } from '../../../../utils/chain';
 import { addressBook } from '../../../../../packages/address-book/src/address-book';
 
+const DEFAULT_ZAP_FEE = 0.0005;
+const customFeeConfig: Partial<Record<ApiChain, number>> = {};
 export class KyberApi implements IKyberApi {
   readonly feeReceiver: string;
-  readonly ZAP_FEE = 0.0005;
+  readonly ZAP_FEE: number;
   constructor(protected readonly baseUrl: string, protected readonly clientId: string, chain: ApiChain) {
     const beefyPlatform = addressBook[chain].platforms.beefyfinance;
     if (!beefyPlatform) {
@@ -27,6 +29,7 @@ export class KyberApi implements IKyberApi {
     }
     this.feeReceiver =
       beefyPlatform.treasurySwapper || beefyPlatform.treasuryMultisig || beefyPlatform.treasury;
+    this.ZAP_FEE = customFeeConfig[chain] || DEFAULT_ZAP_FEE;
   }
 
   protected buildUrl<T extends {}>(path: string, request?: T) {
