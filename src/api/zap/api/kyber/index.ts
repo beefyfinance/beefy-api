@@ -53,7 +53,7 @@ export function getKyberApi(chain: AnyChain): IKyberApi {
       throw new Error(`KYBER_CLIENT_ID env variable is not set`);
     }
 
-    swapApiByChain[apiChain] = new RateLimitedKyberApi(baseUrl, clientId, swapApiQueue);
+    swapApiByChain[apiChain] = new RateLimitedKyberApi(baseUrl, clientId, swapApiQueue, apiChain);
   }
 
   return swapApiByChain[apiChain];

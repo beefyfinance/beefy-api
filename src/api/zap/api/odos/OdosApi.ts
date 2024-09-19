@@ -11,7 +11,10 @@ import { redactSecrets } from '../../../../utils/secrets';
 import { ApiResponse, isErrorApiResponse } from '../common';
 
 export class OdosApi implements IOdosApi {
-  constructor(protected readonly baseUrl: string, protected readonly chainId: number) {}
+  readonly referralCode: number;
+  constructor(protected readonly baseUrl: string, protected readonly chainId: number) {
+    this.referralCode = Number(process.env.ODOS_CODE || 0);
+  }
 
   protected buildUrl<T extends {}>(path: string, request?: T) {
     const params = request ? new URLSearchParams(request).toString() : '';
@@ -22,6 +25,13 @@ export class OdosApi implements IOdosApi {
     return {
       ...request,
       chainId: this.chainId,
+    };
+  }
+
+  protected withReferralCode(request?: Record<string, unknown>): Record<string, unknown> {
+    return {
+      ...request,
+      referralCode: this.referralCode,
     };
   }
 
@@ -102,6 +112,10 @@ export class OdosApi implements IOdosApi {
     return response.data;
   }
 
+  async postProxiedQuote(request: QuoteRequest): Promise<ApiResponse<QuoteResponse>> {
+    return await this.priorityPost<QuoteResponse>('/sor/quote/v2', this.withReferralCode(request));
+  }
+
   async postSwap(request: SwapRequest): Promise<SwapResponse> {
     const response = await this.post<SwapResponse>('/sor/assemble', request);
 
@@ -110,10 +124,6 @@ export class OdosApi implements IOdosApi {
     }
 
     return response.data;
-  }
-
-  async postProxiedQuote(request: QuoteRequest): Promise<ApiResponse<QuoteResponse>> {
-    return await this.priorityPost<QuoteResponse>('/sor/quote/v2', request);
   }
 
   async postProxiedSwap(request: SwapRequest): Promise<ApiResponse<SwapResponse>> {
