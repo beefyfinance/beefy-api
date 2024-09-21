@@ -245,6 +245,8 @@ const coinGeckoCoins: Record<string, string[]> = {
   toshi: ['TOSHI'],
   somon: ['OwO'],
   'coinbase-wrapped-btc': ['cbBTC'],
+  shezmuusd: ['ShezUSD'],
+  shezmueth: ['ShezETH'],
 };
 
 /**
