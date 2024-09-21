@@ -26,7 +26,8 @@ const getGammaApys = async () => {
         if (key.toLowerCase() === pools[i].pool.toLowerCase()) {
           for (const [k, v] of Object.entries(value.alm)) {
             if (k.toLowerCase() === pools[i].address.toLowerCase()) {
-              apr = BigNumber(v.almAPR).dividedBy(100);
+              apr = BigNumber(value.aprs[`Gamma ` + k]).dividedBy(100);
+              // console.log(pools[i].name, apr.toString());
             }
           }
         }
