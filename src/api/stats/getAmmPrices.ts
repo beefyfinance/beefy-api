@@ -329,6 +329,11 @@ const dexscreenerCoins: OraclePriceRequest[] = [
     tokenAddress: '0x9dAbAE7274D28A45F0B65Bf8ED201A5731492ca0',
     chainId: 'optimism',
   },
+  {
+    oracleId: 'msOP',
+    tokenAddress: '0x33bCa143d9b41322479E8d26072a00a352404721',
+    chainId: 'optimism',
+  },
 ];
 
 /**
