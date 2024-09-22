@@ -1677,4 +1677,17 @@ export const tokens = {
     bridge: 'layer-zero',
     risks: ['NO_TIMELOCK'],
   },
+  oWELL: {
+    name: 'WELL',
+    symbol: 'WELL',
+    oracleId: 'oWELL',
+    address: '0xA88594D404727625A9437C3f886C7643872296AE',
+    chainId: 10,
+    decimals: 18,
+    logoURI: '',
+    description: 'WELL is the native governance token of the Moonwell protocol.',
+    website: 'https://moonwell.fi/',
+    documentation: 'https://docs.moonwell.fi/moonwell/discover/about-moonwell',
+    bridge: 'native',
+  },
 } as const satisfies Record<string, Token>;
