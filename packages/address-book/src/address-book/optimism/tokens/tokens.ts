@@ -1690,4 +1690,19 @@ export const tokens = {
     documentation: 'https://docs.moonwell.fi/moonwell/discover/about-moonwell',
     bridge: 'native',
   },
+  msOP: {
+    name: 'Metronome Synth OP',
+    symbol: 'msOP',
+    oracleId: 'msOP',
+    address: '0x33bCa143d9b41322479E8d26072a00a352404721',
+    chainId: 10,
+    decimals: 18,
+    logoURI: '',
+    description:
+      'msOP represents Metronome Synth OP. Through the Metronome dApp, users are able to deposit crypto assets as collateral, and use that collateral to mint popular crypto synthetics.',
+    website: 'https://metronome.io/',
+    documentation: 'https://docs.metronome.io/',
+    bridge: 'layer-zero',
+    risks: ['NO_TIMELOCK'],
+  },
 } as const satisfies Record<string, Token>;
