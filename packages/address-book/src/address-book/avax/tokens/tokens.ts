@@ -5469,4 +5469,18 @@ export const tokens = {
       'ZRO is the native asset of the LayerZero protocol. LayerZero is an omnichain interoperability protocol that supports censorship-resistant messages and permissionless development through immutable smart contracts called Endpoints.',
     bridge: 'layer-zero',
   },
+  PHAR: {
+    name: 'Pharaoh',
+    symbol: 'PHARAOH',
+    oracleId: 'PHAR',
+    address: '0xAAAB9D12A30504559b0C5a9A5977fEE4A6081c6b',
+    chainId: 43114,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://pharaoh.exchange/',
+    documentation: 'https://docs.pharaoh.exchange/',
+    description:
+      'PHARAOH is The Next Generation of Concentrated Liquidity. PHARAOH takes concentrated liquidity to the next level, optimizing for high frequency LPs and performance. The result is a hyper-efficient liquidity layer designed to attract the most effective liquidity providers, while delivering a clean and simple UX for traders. As a fork of RAMSES, PHARAOH inherits the proven proprietary Concentrated Liquidity ve(3,3) implementation-- bringing unparalleled efficiency to the Avalanche liquidity scene.',
+    bridge: 'native',
+  },
 } as const satisfies Record<string, Token>;
