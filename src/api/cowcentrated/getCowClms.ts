@@ -11,7 +11,7 @@ import mantaPools from '../../data/manta/beefyCowVaults.json';
 import mantlePools from '../../data/mantle/beefyCowVaults.json';
 import seiPools from '../../data/sei/beefyCowVaults.json';
 import bscPools from '../../data/bsc/beefyCowVaults.json';
-
+import avaxPools from '../../data/avax/beefyCowVaults.json';
 const chainToClms: Readonly<Partial<Record<ApiChain, CowClm[]>>> = {
   optimism: validateCowClms(optimismPools),
   base: validateCowClms(basePools),
@@ -24,6 +24,7 @@ const chainToClms: Readonly<Partial<Record<ApiChain, CowClm[]>>> = {
   mantle: validateCowClms(mantlePools),
   sei: validateCowClms(seiPools),
   bsc: validateCowClms(bscPools),
+  avax: validateCowClms(avaxPools),
 };
 
 const chainsWithClms = (Object.keys(chainToClms) as ReadonlyArray<ApiChain>).filter(
