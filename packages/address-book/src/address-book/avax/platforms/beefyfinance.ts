@@ -24,8 +24,8 @@ export const beefyfinance = {
 
   /// CLM Contracts
   clmFactory: '0xAF393b8ded8b8C1bd0c8707f43E6972C9bF19EE5',
-  clmStrategyFactory: '0xa5E8574a0BE6A7379611D2Fa0eA228c3a1778162',
-  clmRewardPoolFactory: '0xEB385232b72dAFe4Ad1906BC6C4968D064a30FC4',
+  clmStrategyFactory: '0xEB385232b72dAFe4Ad1906BC6C4968D064a30FC4',
+  clmRewardPoolFactory: '0xbE03cb9f257bBA76178965D9391cA283767FF7Fe',
   positionMulticall: '0xf87C6bD210DCbB87B8B73820E1B666b1fc253e8E',
 
   /// Beefy Swapper Contracts
