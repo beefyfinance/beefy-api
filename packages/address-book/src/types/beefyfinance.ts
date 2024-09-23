@@ -31,6 +31,7 @@ export interface BeefyFinance {
   clmFactory?: string;
   clmStrategyFactory?: string;
   clmRewardPoolFactory?: string;
+  positionMulticall?: string;
 
   /// Beefy Swapper Contracts
   beefySwapper?: string;
