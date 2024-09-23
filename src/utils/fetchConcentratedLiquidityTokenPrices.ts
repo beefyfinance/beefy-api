@@ -267,6 +267,14 @@ const tokens: Partial<Record<keyof typeof ChainId, ConcentratedLiquidityToken[]>
       firstToken: 'USTB',
       secondToken: 'MORE',
     },
+    {
+      type: 'UniV3',
+      oracleId: 'UKRE',
+      decimalDelta: 1,
+      pool: '0x72c20EBBffaE1fe4E9C759b326D97763E218F9F6',
+      firstToken: 'arcUSD',
+      secondToken: 'UKRE',
+    },
   ],
   optimism: [
     {
@@ -310,10 +318,8 @@ async function getConcentratedLiquidityPrices(
       const second = chainTokens[i].secondToken;
       prices[chainTokens[i].oracleId] =
         first == chainTokens[i].oracleId
-          ? (tokenPrices[second] || prices[second]) /
-            (chainTokens[i].decimalDelta * Math.pow(1.0001, v))
-          : (tokenPrices[first] || prices[first]) *
-            (chainTokens[i].decimalDelta * Math.pow(1.0001, v));
+          ? (tokenPrices[second] || prices[second]) / (chainTokens[i].decimalDelta * Math.pow(1.0001, v))
+          : (tokenPrices[first] || prices[first]) * (chainTokens[i].decimalDelta * Math.pow(1.0001, v));
     });
     return Object.values(prices);
   } catch (e) {
@@ -322,16 +328,10 @@ async function getConcentratedLiquidityPrices(
   }
 }
 
-export async function fetchConcentratedLiquidityTokenPrices(
-  tokenPrices
-): Promise<Record<string, number>> {
+export async function fetchConcentratedLiquidityTokenPrices(tokenPrices): Promise<Record<string, number>> {
   const pricesByChain: Record<string, number>[] = await Promise.all(
     Object.entries(tokens).map(async ([chainId, chainTokens]) => {
-      const prices = await getConcentratedLiquidityPrices(
-        tokenPrices,
-        chainTokens,
-        ChainId[chainId]
-      );
+      const prices = await getConcentratedLiquidityPrices(tokenPrices, chainTokens, ChainId[chainId]);
       return Object.fromEntries(chainTokens.map((token, i) => [token.oracleId, prices[i] || 0]));
     })
   );

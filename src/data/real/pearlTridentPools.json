@@ -1,5 +1,22 @@
 [
   {
+    "name": "pearl-trident-ukre-arcusd",
+    "address": "0xA7DF3FCaA03d21b35f18Ac13B2c1164BFd1472B8",
+    "gauge": "0xACFA44e1a687738Faf7182fc8ba40fEC02720348",
+    "chainId": 111188,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0x835d3E1C0aA079C6164AAd21DCb23E60eb71AF48",
+      "oracleId": "UKRE",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xAEC9e50e3397f9ddC635C6c429C8C7eca418a143",
+      "oracleId": "arcUSD",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "pearl-trident-more-ustb",
     "address": "0x76fd8777b0E34fAfeC162F01bC183566b2cf1EFa",
     "gauge": "0xc2736Fa436029edEaf228ECed4bEEEf58C4d7F13",

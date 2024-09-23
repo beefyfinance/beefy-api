@@ -45,6 +45,20 @@ export const tokens = {
     chainId: 111188,
     risks: ['NO_TIMELOCK'],
   },
+  UKRE: {
+    name: 'UK Real Estate',
+    address: '0x835d3E1C0aA079C6164AAd21DCb23E60eb71AF48',
+    symbol: 'UKRE',
+    oracleId: 'UKRE',
+    decimals: 18,
+    website: 'https://www.tangible.store/',
+    documentation: 'https://docs.tangible.store/',
+    description:
+      'UKRE is a Tangible Basket token backed by tokenized real estate in the UK. Tangible Baskets are permissionless, rebasing ERC-20 tokens—100% backed by tokenized, yield-generating real estate—that distributed yield back to token holders via daily rebase. Baskets price is soft-pegged to the TPV (true property value) of the assets in the pool and will fluctuate based on market demand and the activity of arbitrageurs. With Baskets, anyone, anywhere, at any budget can invest in income-producing real estate with just a few clicks.',
+    bridge: 'native',
+    chainId: 111188,
+    risks: ['NO_TIMELOCK'],
+  },
   USTB: {
     name: 'US T-Bill',
     address: '0x83feDBc0B85c6e29B589aA6BdefB1Cc581935ECD',
