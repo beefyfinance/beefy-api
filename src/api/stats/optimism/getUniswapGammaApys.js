@@ -1,15 +1,13 @@
-import { OPTIMISM_CHAIN_ID as chainId, SUSHI_LPF } from '../../../constants';
-
+import { OPTIMISM_CHAIN_ID as chainId } from '../../../constants';
 import { getMiniChefApys } from '../common/getMiniChefApys';
-// import { sushiPolyClient } from '../../../apollo/client';
-
 import pools from '../../../data/optimism/uniswapGammaLpPools.json';
 import merklGammaPools from '../../../data/optimism/merklGammaLpPools.json';
-import { addressBook } from '../../../../packages/address-book/src/address-book';
+import { addressBook, ChainId } from '../../../../packages/address-book/src/address-book';
 import SushiMiniChefV2 from '../../../abis/matic/SushiMiniChefV2';
 import BigNumber from 'bignumber.js';
 import { getApyBreakdown } from '../common/getApyBreakdown';
 import { merge } from 'lodash';
+import { getMerklAprs } from '../common/getMerklAprs';
 
 const {
   optimism: {
@@ -19,7 +17,6 @@ const {
   },
 } = addressBook;
 
-const merklApi = 'https://api.angle.money/v2/merkl?chainIds=10';
 const gammaApi = 'https://wire2.gamma.xyz/optimism/hypervisors/allData';
 
 export const getGammaApys = async () =>
@@ -44,31 +41,7 @@ export const getGammaApys = async () =>
   );
 
 const getMerklGammaApys = async () => {
-  let poolAprs = {};
-  try {
-    poolAprs = await fetch(merklApi).then(res => res.json());
-  } catch (e) {
-    console.error(`Failed to fetch Merkl APRs: ${chainId}`);
-  }
-
-  let aprs = [];
-  for (let i = 0; i < merklGammaPools.length; ++i) {
-    let apr = BigNumber(0);
-    let merklPools = poolAprs[chainId].pools;
-    if (Object.keys(merklPools).length !== 0) {
-      for (const [key, value] of Object.entries(merklPools)) {
-        if (key.toLowerCase() === merklGammaPools[i].pool.toLowerCase()) {
-          for (const [k, v] of Object.entries(value.alm)) {
-            if (k.toLowerCase() === merklGammaPools[i].address.toLowerCase()) {
-              apr = BigNumber(v.almAPR).dividedBy(100);
-            }
-          }
-        }
-      }
-    }
-
-    aprs.push(apr);
-  }
+  const merklAprs = await getMerklAprs(ChainId.optimism, pools);
 
   let tradingAprs = {};
   try {
@@ -86,7 +59,7 @@ const getMerklGammaApys = async () => {
     console.log('OP Gamma Api Error', e);
   }
 
-  return await getApyBreakdown(merklGammaPools, tradingAprs, aprs, 0);
+  return await getApyBreakdown(merklGammaPools, tradingAprs, merklAprs, 0);
 };
 
 module.exports = getGammaApys;

@@ -2,7 +2,7 @@ import { AppChain, fromChainNumber, toAppChain, toChainId } from '../../../../ut
 import { CampaignType, IOffchainRewardProvider, MerklCampaign, Vault } from '../../types';
 import { isProviderApiError, ProviderApiError, UnsupportedChainError } from '../../errors';
 import { CampaignTypeSetting, MerklApiCampaign, MerklApiCampaignsResponse } from './types';
-import { groupBy } from 'lodash';
+import { groupBy, mapKeys } from 'lodash';
 import { Address, getAddress, isAddressEqual } from 'viem';
 import { isFiniteNumber } from '../../../../utils/number';
 import { isDefined } from '../../../../utils/array';
@@ -109,9 +109,16 @@ export class MerklProvider implements IOffchainRewardProvider {
       });
 
       if (poolForwarders.length > 0) {
+        /*
+         * Each forwarder has an almApr field, however it is currently returning the same almApr for every campaign targeting the same pool.
+         * Therefore, we are using the campaign's `aprs` field to look up the APR for each forwarder (via its label).
+         * The `aprs` key includes checksummed addresses in its keys, so we build a map with lowercase keys for lookup.
+         */
+        const aprByLabel = mapKeys(apiCampaign.aprs, (_, key) => key.toLowerCase());
         totalApr = poolForwarders.reduce((acc, forwarder) => {
-          if (isFiniteNumber(forwarder.almAPR)) {
-            acc += forwarder.almAPR / 100;
+          const apr = aprByLabel[forwarder.label.toLowerCase()];
+          if (apr && isFiniteNumber(apr)) {
+            acc += apr / 100;
           }
           return acc;
         }, 0);
@@ -123,9 +130,7 @@ export class MerklProvider implements IOffchainRewardProvider {
       };
     });
 
-    const computeChain = apiCampaign.computeChainId
-      ? fromChainNumber(apiCampaign.computeChainId)
-      : undefined;
+    const computeChain = apiCampaign.computeChainId ? fromChainNumber(apiCampaign.computeChainId) : undefined;
     const claimChain = apiCampaign.chainId ? fromChainNumber(apiCampaign.chainId) : undefined;
 
     return {
@@ -149,9 +154,7 @@ export class MerklProvider implements IOffchainRewardProvider {
     };
   }
 
-  protected async fetchCampaignsForChain(
-    chainId: AppChain
-  ): Promise<MerklApiCampaignsResponse[string]> {
+  protected async fetchCampaignsForChain(chainId: AppChain): Promise<MerklApiCampaignsResponse[string]> {
     const numericChainId = toChainId(chainId);
 
     try {
@@ -162,18 +165,12 @@ export class MerklProvider implements IOffchainRewardProvider {
         },
       });
       if (!data || typeof data !== 'object') {
-        throw new ProviderApiError(
-          `fetchCampaignsForChain(${chainId}): response error`,
-          providerId
-        );
+        throw new ProviderApiError(`fetchCampaignsForChain(${chainId}): response error`, providerId);
       }
 
       if (Object.keys(data).length === 0) {
         if (throwIfNoData) {
-          throw new ProviderApiError(
-            `fetchCampaignsForChain(${chainId}): no data returned`,
-            providerId
-          );
+          throw new ProviderApiError(`fetchCampaignsForChain(${chainId}): no data returned`, providerId);
         }
         return {};
       }
@@ -192,9 +189,7 @@ export class MerklProvider implements IOffchainRewardProvider {
         throw err;
       }
       throw new ProviderApiError(
-        `fetchCampaignsForChain(${chainId}): ${
-          err && err instanceof Error ? err.message : 'unknown error'
-        }`,
+        `fetchCampaignsForChain(${chainId}): ${err && err instanceof Error ? err.message : 'unknown error'}`,
         providerId,
         err && err instanceof Error ? err : undefined
       );
