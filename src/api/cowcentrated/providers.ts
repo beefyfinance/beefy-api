@@ -3,6 +3,7 @@ import { optimism } from '../../../packages/address-book/src/address-book/optimi
 import { base } from '../../../packages/address-book/src/address-book/base';
 import { linea } from '../../../packages/address-book/src/address-book/linea';
 import { bsc } from '../../../packages/address-book/src/address-book/bsc';
+import { avax } from '../../../packages/address-book/src/address-book/avax';
 import { AnyCowClm, CowProvider } from './types';
 
 export const providers = {
@@ -30,6 +31,11 @@ export const providers = {
   nile: {
     poolTradingRewardTokens: {
       linea: [linea.tokens.NILE],
+    },
+  },
+  pharaoh: {
+    poolTradingRewardTokens: {
+      avax: [avax.tokens.PHAR, avax.tokens.sAVAX, avax.tokens.ggAVAX],
     },
   },
 } as const satisfies Record<string, CowProvider>;
