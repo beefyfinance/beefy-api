@@ -1,5 +1,23 @@
 [
   {
+    "name": "pharaoh-phar-wavax",
+    "address": "0xaaa3f202babcf7d6493afbc0caee03af9c64f984",
+    "decimals": "1e18",
+    "chainId": 43114,
+    "lp0": {
+      "address": "0xAAAB9D12A30504559b0C5a9A5977fEE4A6081c6b",
+      "oracle": "tokens",
+      "oracleId": "PHAR",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xB31f66AA3C1e785363F0875A1B74E27b85FD66c7",
+      "oracle": "tokens",
+      "oracleId": "WAVAX",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "uni-sky-usds",
     "address": "0x2621CC0B3F3c079c1Db0E80794AA24976F0b9e3c",
     "decimals": "1e18",

@@ -33,4 +33,5 @@ export const beefyfinance = {
   beefyOracle: '0xec27635CDD3F68cC6534b3bc381bb585a40bfeD3',
   beefyOracleChainlink: '0x6bA132aa39402241fDd69DDAD6ffCFc7350c3D02',
   beefyOracleUniswapV2: '0xE0345652c9E8e89A1345916A2B6232AeA1BA41f9',
+  beefyOracleUniswapV3: '0x9B04B32c42DE4559c9BaD87EC6ce64Fb72AB4C2e',
 } as const;

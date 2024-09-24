@@ -900,7 +900,7 @@ export const tokens = {
     decimals: 18,
     name: 'Ether',
     symbol: 'ETH',
-    oracleId: 'WETHe',
+    oracleId: 'WETH',
     website: 'https://ethereum.org/',
     description:
       'The native currency that flows within the Ethereum economy is called Ether (ETH). Ether is typically used to pay for transaction fees called Gas, and it is the base currency of the network.',
@@ -5481,6 +5481,20 @@ export const tokens = {
     documentation: 'https://docs.pharaoh.exchange/',
     description:
       'PHARAOH is The Next Generation of Concentrated Liquidity. PHARAOH takes concentrated liquidity to the next level, optimizing for high frequency LPs and performance. The result is a hyper-efficient liquidity layer designed to attract the most effective liquidity providers, while delivering a clean and simple UX for traders. As a fork of RAMSES, PHARAOH inherits the proven proprietary Concentrated Liquidity ve(3,3) implementation-- bringing unparalleled efficiency to the Avalanche liquidity scene.',
+    bridge: 'native',
+  },
+  ggAVAX: {
+    name: 'GoGoPool Staking Token',
+    symbol: 'ggAVAX',
+    oracleId: 'ggAVAX',
+    address: '0xA25EaF2906FA1a3a13EdAc9B9657108Af7B703e3',
+    chainId: 43114,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://www.gogopool.com/',
+    documentation: 'https://docs.gogopool.com/gogopool-primer',
+    description:
+      'Through liquid staking, GoGoPool allows users to stake their AVAX and earn returns without locking up their assets. They receive ggAVAX, which they can trade anytime, providing flexibility along with earning potential.',
     bridge: 'native',
   },
 } as const satisfies Record<string, Token>;

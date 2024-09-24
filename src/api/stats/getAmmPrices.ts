@@ -248,6 +248,7 @@ const coinGeckoCoins: Record<string, string[]> = {
   shezmuusd: ['ShezUSD'],
   shezmueth: ['ShezETH'],
   'knox-dollar': ['KNOX'],
+  'gogopool-ggavax': ['ggAVAX'],
 };
 
 /**
