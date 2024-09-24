@@ -54,6 +54,7 @@
     "tokenOracleIds": ["WAVAX", "USDC"],
     "decimals": [18, 6],
     "oracleId": "pharaoh-cow-wavax-usdc",
+    "providerId": "pharaoh",
     "rewardPool": {
       "address": "0x0faD7FA9d3d71EEa524f7989831c4Eb031488cC7",
       "oracleId": "pharaoh-cow-wavax-usdc-rp"
@@ -70,6 +71,7 @@
     "tokenOracleIds": ["WETH", "WAVAX"],
     "decimals": [18, 18],
     "oracleId": "pharaoh-cow-weth.e-wavax",
+    "providerId": "pharaoh",
     "rewardPool": {
       "address": "0x4A132000670179d6497170e315c1311Aefc66E8E",
       "oracleId": "pharaoh-cow-weth.e-wavax-rp"
@@ -86,6 +88,7 @@
     "tokenOracleIds": ["BTCb", "WAVAX"],
     "decimals": [8, 18],
     "oracleId": "pharaoh-cow-btc.b-wavax",
+    "providerId": "pharaoh",
     "rewardPool": {
       "address": "0x051B9D5f40727A35038a9ba1F1c27cbddD5fb54c",
       "oracleId": "pharaoh-cow-btc.b-wavax-rp"
@@ -102,6 +105,7 @@
     "tokenOracleIds": ["USDT", "USDC"],
     "decimals": [6, 6],
     "oracleId": "pharaoh-cow-usdt-usdc",
+    "providerId": "pharaoh",
     "rewardPool": {
       "address": "0x86Fc9a6cDEb75Cc6461120a000e925672524C0d4",
       "oracleId": "pharaoh-cow-usdt-usdc-rp"
