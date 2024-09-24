@@ -1677,7 +1677,7 @@ export const tokens = {
     bridge: 'layer-zero',
     risks: ['NO_TIMELOCK'],
   },
-  oWELL: {
+  WELL: {
     name: 'WELL',
     symbol: 'WELL',
     oracleId: 'oWELL',
