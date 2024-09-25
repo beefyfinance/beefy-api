@@ -24,6 +24,7 @@ const { getbeQIApy } = require('./getbeQIApy');
 const { getFxApys } = require('./getFxApys');
 const { getPenpieApys } = require('./getPenpieApys');
 const { getSkyApy } = require('./getSkyApy');
+const { getEquilibriaApys } = require('./getEquilibriaApys');
 
 const getApys = [
   getAcrossApys,
@@ -48,6 +49,7 @@ const getApys = [
   getVerseLpApys,
   getGammaApy,
   getPenpieApys,
+  getEquilibriaApys,
   getETHCompoundV3Apys,
   getEthSiloApys,
   getSkyApy,

@@ -1689,25 +1689,6 @@
     ]
   },
   {
-    "name": "convex-frax",
-    "pool": "0xd632f22692FaC7611d2AA1C0D552930D43CAEd3B",
-    "token": "0xd632f22692FaC7611d2AA1C0D552930D43CAEd3B",
-    "rewardPool": "0xB900EF131301B307dB5eFcbed9DBb50A3e209B2e",
-    "tokens": [
-      {
-        "oracle": "tokens",
-        "oracleId": "FRAX",
-        "decimals": "1e18"
-      },
-      {
-        "basePool": "convex-3pool",
-        "oracle": "lps",
-        "oracleId": "convex-3pool",
-        "decimals": "1e18"
-      }
-    ]
-  },
-  {
     "name": "convex-fraxusdc",
     "pool": "0xDcEF968d416a41Cdac0ED8702fAC8128A64241A2",
     "token": "0x3175Df0976dFA876431C2E9eE6Bc45b65d3473CC",

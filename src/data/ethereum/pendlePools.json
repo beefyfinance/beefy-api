@@ -1,7 +1,38 @@
 [
   {
+    "name": "pendle-solvbtc.bbn-26dec24",
+    "address": "0xeb4d3057738b9ed930f451be473c1ccc42988384",
+    "eqbGauge": "0x415d74E397168DA2d51360C82f8fbb16709C2fFF",
+    "oracle": "tokens",
+    "oracleId": "WBTC",
+    "decimals": "1e8",
+    "chainId": 1,
+    "beefyFee": 0.095
+  },
+  {
+    "name": "pendle-unibtc-26dec24",
+    "address": "0x40deae18c3ce932fdd5df1f44b54d8cf3902787b",
+    "eqbGauge": "0x126156B0D38149EDc01Eb2581F8c5d8506140920",
+    "oracle": "tokens",
+    "oracleId": "WBTC",
+    "decimals": "1e8",
+    "chainId": 1,
+    "beefyFee": 0.095
+  },
+  {
+    "name": "pendle-lbtc-26dec24",
+    "address": "0xCaE62858DB831272A03768f5844cbe1B40bB381f",
+    "eqbGauge": "0x08cef7aF62CDC92246515a81E87cC7DA633cC8B6",
+    "oracle": "tokens",
+    "oracleId": "WBTC",
+    "decimals": "1e8",
+    "chainId": 1,
+    "beefyFee": 0.095
+  },
+  {
     "name": "pendle-ebtc-26dec24",
     "address": "0x36d3ca43ae7939645c306e26603ce16e39a89192",
+    "eqbGauge": "0xb9245b221A48a2e4843473E663b41BFE7a2E6c6f",
     "oracle": "tokens",
     "oracleId": "WBTC",
     "decimals": "1e8",
