@@ -10,9 +10,24 @@ import {
 import { mapValues, omitBy } from 'lodash';
 import { redactSecrets } from '../../../../utils/secrets';
 import { isErrorApiResponse, ApiResponse } from '../common';
+import { ApiChain } from '../../../../utils/chain';
+import { getZapProviderFee } from '../../fees';
 
 export class OneInchSwapApi implements IOneInchSwapApi {
-  constructor(protected readonly baseUrl: string, protected readonly apiKey: string) {}
+  readonly feeReceiver: string;
+  readonly ZAP_FEE: number;
+  constructor(
+    protected readonly baseUrl: string,
+    protected readonly apiKey: string,
+    protected readonly chain: ApiChain
+  ) {
+    const feeData = getZapProviderFee('one-inch', chain);
+    this.ZAP_FEE = feeData.value;
+    if (!feeData.receiver) {
+      throw new Error('No fee receiver found for OneInch on ' + chain);
+    }
+    this.feeReceiver = feeData.receiver;
+  }
 
   protected buildUrl<T extends {}>(path: string, request?: T) {
     let queryString: string | undefined;
@@ -62,8 +77,7 @@ export class OneInchSwapApi implements IOneInchSwapApi {
 
     return {
       code: response.status === 200 ? 500 : response.status,
-      message:
-        response.status === 200 ? 'upstream response not json' : redactSecrets(response.statusText),
+      message: response.status === 200 ? 'upstream response not json' : redactSecrets(response.statusText),
     };
   }
 
@@ -88,12 +102,34 @@ export class OneInchSwapApi implements IOneInchSwapApi {
     };
   }
 
+  protected withFee(
+    request?: Record<string, string | number | boolean>
+  ): Record<string, string | number | boolean> {
+    return {
+      ...request,
+      fee: (this.ZAP_FEE * 100).toString(10),
+    };
+  }
+
+  protected withFeeReferrer(
+    request?: Record<string, string | number | boolean>
+  ): Record<string, string | number | boolean> {
+    return {
+      ...request,
+      fee: (this.ZAP_FEE * 100).toString(10),
+      referrer: this.feeReceiver,
+    };
+  }
+
   async getProxiedQuote(request: QuoteRequest): Promise<ApiResponse<QuoteResponse>> {
-    return await this.priorityGet('/quote', this.toStringDict(this.addRequiredParams(request)));
+    return await this.priorityGet('/quote', this.toStringDict(this.withFee(this.addRequiredParams(request))));
   }
 
   async getProxiedSwap(request: SwapRequest): Promise<ApiResponse<SwapResponse>> {
-    return await this.priorityGet('/swap', this.toStringDict(this.addRequiredParams(request)));
+    return await this.priorityGet(
+      '/swap',
+      this.toStringDict(this.withFeeReferrer(this.addRequiredParams(request)))
+    );
   }
 
   async getQuote(request: QuoteRequest): Promise<QuoteResponse> {
