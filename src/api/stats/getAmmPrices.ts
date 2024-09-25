@@ -335,6 +335,11 @@ const dexscreenerCoins: OraclePriceRequest[] = [
     tokenAddress: '0x33bCa143d9b41322479E8d26072a00a352404721',
     chainId: 'optimism',
   },
+  {
+    oracleId: 'baseETHFI',
+    tokenAddress: '0x6C240DDA6b5c336DF09A4D011139beAAa1eA2Aa2',
+    chainId: 'base',
+  },
 ];
 
 /**

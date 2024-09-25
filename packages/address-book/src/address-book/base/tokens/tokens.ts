@@ -1385,7 +1385,7 @@ export const tokens = {
   ETHFI: {
     name: 'ether.fi Governance Token',
     symbol: 'ETHFI',
-    oracleId: 'ETHFI',
+    oracleId: 'baseETHFI',
     address: '0x6C240DDA6b5c336DF09A4D011139beAAa1eA2Aa2',
     chainId: 8453,
     decimals: 18,
