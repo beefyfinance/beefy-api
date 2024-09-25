@@ -1382,4 +1382,19 @@ export const tokens = {
     documentation: 'https://www.coinbase.com/blog/coinbase-wrapped-btc-cbbtc-is-now-live',
     bridge: 'native',
   },
+  ETHFI: {
+    name: 'ether.fi Governance Token',
+    symbol: 'ETHFI',
+    oracleId: 'ETHFI',
+    address: '0x6C240DDA6b5c336DF09A4D011139beAAa1eA2Aa2',
+    chainId: 8453,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://www.ether.fi/',
+    documentation: 'https://etherfi.gitbook.io/etherfi',
+    bridge: 'wormhole',
+    description:
+      'ETHFI is the governance token of ether.fi, a restaking protocol on Ethereum. Token holders will have a say in the future of the protocol.',
+    risks: ['NO_TIMELOCK'],
+  },
 } as const satisfies Record<string, Token>;
