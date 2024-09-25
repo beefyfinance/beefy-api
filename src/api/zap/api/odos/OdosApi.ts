@@ -9,11 +9,20 @@ import {
 } from './types';
 import { redactSecrets } from '../../../../utils/secrets';
 import { ApiResponse, isErrorApiResponse } from '../common';
+import { getZapProviderFee } from '../../fees';
+import { ApiChain, toChainId } from '../../../../utils/chain';
 
 export class OdosApi implements IOdosApi {
+  readonly ZAP_FEE: number;
   readonly referralCode: number;
-  constructor(protected readonly baseUrl: string, protected readonly chainId: number) {
+  readonly chainId: number;
+  constructor(protected readonly baseUrl: string, protected readonly chain: ApiChain) {
     this.referralCode = Number(process.env.ODOS_CODE || 0);
+    this.ZAP_FEE = getZapProviderFee('odos', chain).value;
+    this.chainId = toChainId(chain);
+    if (this.chainId === undefined) {
+      throw new Error(`Invalid chain ${chain}`);
+    }
   }
 
   protected buildUrl<T extends {}>(path: string, request?: T) {
