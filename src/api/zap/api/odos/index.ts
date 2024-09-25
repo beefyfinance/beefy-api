@@ -46,7 +46,7 @@ export function getOdosApi(chain: AnyChain): IOdosApi {
     }
 
     const baseUrl = `https://api.odos.xyz`;
-    swapApiByChain[apiChain] = new RateLimitedOdosApi(baseUrl, odosChain, swapApiQueue);
+    swapApiByChain[apiChain] = new RateLimitedOdosApi(baseUrl, apiChain, swapApiQueue);
   }
 
   return swapApiByChain[apiChain];
