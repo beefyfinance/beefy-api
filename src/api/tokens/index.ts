@@ -1,4 +1,10 @@
-import { getAllTokensByChain, getTokensForChainById } from './tokens';
+import {
+  getAllTokensByChain,
+  getTokenById,
+  getTokenNative,
+  getTokensForChainById,
+  getTokenWrappedNative,
+} from './tokens';
 import { isApiChain } from '../../utils/chain';
 import { mapValues } from 'lodash';
 
@@ -28,5 +34,30 @@ export const getChainTokens = ctx => {
     }
   } else {
     ctx.status = 404;
+  }
+};
+
+export const getChainToken = ctx => {
+  try {
+    const token = getTokenById(ctx.params.tokenId, ctx.params.chainId);
+    ctx.status = token ? 200 : 404;
+    ctx.body = token ?? {};
+  } catch (err) {
+    console.error(err);
+    ctx.status = 500;
+  }
+};
+
+export const getChainNatives = ctx => {
+  try {
+    const chainId = ctx.params.chainId;
+    const native = getTokenNative(chainId);
+    const wrapped = getTokenWrappedNative(chainId);
+
+    ctx.status = native || wrapped ? 200 : 404;
+    ctx.body = { native, wrapped };
+  } catch (err) {
+    console.error(err);
+    ctx.status = 500;
   }
 };
