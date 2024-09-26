@@ -6,9 +6,9 @@ import { IOdosApi } from './types';
 // Configure rate limiting
 const API_QUEUE_CONFIG = {
   concurrency: 2,
-  intervalCap: 1, // 1 per 400ms is 2.5 RPS
-  interval: 400,
-  carryoverConcurrencyCount: true,
+  intervalCap: 2, // 2 per 600ms is 3.3 RPS
+  interval: 600,
+  carryoverConcurrencyCount: false,
   autoStart: true,
   timeout: 30 * 1000,
   throwOnTimeout: true,
