@@ -55,7 +55,27 @@ export const getChainNatives = ctx => {
     const wrapped = getTokenWrappedNative(chainId);
 
     ctx.status = native || wrapped ? 200 : 404;
-    ctx.body = { native, wrapped };
+    ctx.body = { NATIVE: native, WNATIVE: wrapped };
+  } catch (err) {
+    console.error(err);
+    ctx.status = 500;
+  }
+};
+
+export const getNativesFromAllChains = ctx => {
+  const natives = {};
+
+  try {
+    Object.keys(getAllTokensByChain()).forEach(chainId => {
+      if (isApiChain(chainId)) {
+        const native = getTokenNative(chainId);
+        const wrapped = getTokenWrappedNative(chainId);
+        natives[chainId] = { NATIVE: native, WNATIVE: wrapped };
+      }
+    });
+
+    ctx.status = 200;
+    ctx.body = natives;
   } catch (err) {
     console.error(err);
     ctx.status = 500;
