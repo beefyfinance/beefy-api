@@ -13,7 +13,7 @@ const tvl = require('./api/tvl');
 const multichainVaults = require('./api/vaults');
 const snapshot = require('./api/snapshot');
 const { boosts, chainBoosts } = require('./api/boosts');
-const { getTokens, getChainTokens } = require('./api/tokens');
+const { getTokens, getChainTokens, getChainNatives, getChainToken } = require('./api/tokens');
 const { getConfigs, getChainConfig } = require('./api/config');
 const { getTreasury, getMMBal, getAllTreasury } = require('./api/treasury');
 const { validatorPerformance } = require('./api/validators/index');
@@ -83,6 +83,8 @@ router.get('/boosts/:chainId', chainBoosts);
 
 router.get('/tokens', getTokens);
 router.get('/tokens/:chainId', getChainTokens);
+router.get('/tokens/:chainId/native', getChainNatives);
+router.get('/tokens/:chainId/:tokenId', getChainToken);
 
 router.get('/config', getConfigs);
 router.get('/config/:chainId', getChainConfig);
