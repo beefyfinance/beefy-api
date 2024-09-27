@@ -140,6 +140,26 @@
     }
   },
   {
+    "name": "aerodrome-usdz-dola",
+    "address": "0xcEa8ef6ce6235F2C2CdD13C9E8a3ED470725a638",
+    "gauge": "0x528aD6E380E7B3B9D7eE3a492a52c4D3AC8f5958",
+    "decimals": "1e18",
+    "chainId": 8453,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0x04D5ddf5f3a8939889F11E97f8c4BB48317F1938",
+      "oracle": "tokens",
+      "oracleId": "USDz",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x4621b7A9c75199271F773Ebd9A499dbd165c3191",
+      "oracle": "tokens",
+      "oracleId": "baseDOLA",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "aerodrome-usdz-usdc",
     "address": "0x6d0b9C9E92a3De30081563c3657B5258b3fFa38B",
     "gauge": "0xb7E4bBee04285F4B55d0A93b34E5dA95C3a7faf9",
