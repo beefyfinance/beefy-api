@@ -93,6 +93,9 @@ module.exports = {
   get seiWeb3() {
     return chainRandomClients.seiRandomClient();
   },
+  get rootstockWeb3() {
+    return chainRandomClients.rootstockRandomClient();
+  },
 
   web3Factory: _web3Factory,
 

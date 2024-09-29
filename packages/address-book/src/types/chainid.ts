@@ -29,6 +29,7 @@ export enum ChainId {
   manta = 169,
   real = 111188,
   sei = 1329,
+  rootstock = 30,
 }
 
 type ChainIdType = typeof ChainId;
