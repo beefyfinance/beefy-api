@@ -63,6 +63,8 @@ import {
   REAL_CHAIN_ID,
   SEI_RPC,
   SEI_CHAIN_ID,
+  ROOTSTOCK_RPC,
+  ROOTSTOCK_CHAIN_ID,
 } from '../constants';
 
 console.log(addressBookByChainId[ChainId.fantom].platforms.beefyfinance.multicall);
@@ -97,6 +99,7 @@ const MULTICALLS: Record<ChainId, Pick<BeefyFinance, 'multicall'>['multicall']> 
   [ChainId.manta]: addressBookByChainId[ChainId.manta].platforms.beefyfinance.multicall,
   [ChainId.real]: addressBookByChainId[ChainId.real].platforms.beefyfinance.multicall,
   [ChainId.sei]: addressBookByChainId[ChainId.sei].platforms.beefyfinance.multicall,
+  [ChainId.rootstock]: addressBookByChainId[ChainId.rootstock].platforms.beefyfinance.multicall,
 };
 
 const clients: Record<keyof typeof ChainId, ethers.providers.JsonRpcProvider[]> = {
@@ -130,6 +133,7 @@ const clients: Record<keyof typeof ChainId, ethers.providers.JsonRpcProvider[]> 
   manta: [],
   real: [],
   sei: [],
+  rootstock: [],
 };
 BSC_RPC_ENDPOINTS.forEach(endpoint => {
   clients.bsc.push(new ethers.providers.JsonRpcProvider(endpoint));
@@ -163,7 +167,7 @@ clients.mode.push(new ethers.providers.JsonRpcProvider(MODE_RPC));
 clients.manta.push(new ethers.providers.JsonRpcProvider(MANTA_RPC));
 clients.real.push(new ethers.providers.JsonRpcProvider(REAL_RPC));
 clients.sei.push(new ethers.providers.JsonRpcProvider(SEI_RPC));
-
+clients.rootstock.push(new ethers.providers.JsonRpcProvider(ROOTSTOCK_RPC));
 export const chainRandomClients = {
   bscRandomClient: () => clients.bsc[~~(clients.bsc.length * Math.random())],
   hecoRandomClient: () => clients.heco[~~(clients.heco.length * Math.random())],
@@ -195,6 +199,7 @@ export const chainRandomClients = {
   mantaRandomClient: () => clients.manta[~~(clients.manta.length * Math.random())],
   realRandomClient: () => clients.real[~~(clients.real.length * Math.random())],
   seiRandomClient: () => clients.sei[~~(clients.sei.length * Math.random())],
+  rootstockRandomClient: () => clients.rootstock[~~(clients.rootstock.length * Math.random())],
 };
 
 export const _ethersFactory = (chainId: ChainId) => {
@@ -259,6 +264,8 @@ export const _ethersFactory = (chainId: ChainId) => {
       return chainRandomClients.realRandomClient();
     case SEI_CHAIN_ID:
       return chainRandomClients.seiRandomClient();
+    case ROOTSTOCK_CHAIN_ID:
+      return chainRandomClients.rootstockRandomClient();
   }
 };
 

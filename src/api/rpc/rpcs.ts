@@ -254,6 +254,7 @@ const rpcs: Record<ChainId, string[]> = {
   [ChainId.manta]: ['https://manta-pacific.drpc.org'],
   [ChainId.real]: ['https://real.drpc.org'],
   [ChainId.sei]: ['https://evm-rpc.sei-apis.com'],
+  [ChainId.rootstock]: ['https://public-node.rsk.co'],
 };
 
 export const getChainRpcs = (chainId: ChainId): string[] => rpcs[chainId] ?? [];

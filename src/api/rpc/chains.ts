@@ -30,6 +30,7 @@ import {
   MANTA_RPC,
   REAL_RPC,
   SEI_RPC,
+  ROOTSTOCK_RPC,
 } from '../../constants';
 import { ChainId } from '../../../packages/address-book/src/address-book';
 
@@ -764,6 +765,29 @@ const seiChain = {
   },
 } as const satisfies Chain;
 
+const rootstockChain = {
+  id: 30,
+  name: 'Rootstock',
+  network: 'rootstock',
+  nativeCurrency: {
+    decimals: 18,
+    name: 'WRBTC',
+    symbol: 'WRBTC',
+  },
+  rpcUrls: {
+    public: { http: [ROOTSTOCK_RPC] },
+    default: { http: [ROOTSTOCK_RPC] },
+  },
+  blockExplorers: {
+    default: { name: 'rootstock explorer', url: 'https://rootstock.blockscout.com/' },
+  },
+  contracts: {
+    multicall3: {
+      address: '0xca11bde05977b3631167028862be2a173976ca11',
+    },
+  },
+} as const satisfies Chain;
+
 //build a map from chainId to chain object
 export const getChain: Partial<Record<ChainId, Chain>> = {
   [ChainId.avax]: avalancheChain,
@@ -796,4 +820,5 @@ export const getChain: Partial<Record<ChainId, Chain>> = {
   [ChainId.manta]: mantaChain,
   [ChainId.real]: realChain,
   [ChainId.sei]: seiChain,
+  [ChainId.rootstock]: rootstockChain,
 } as const;
