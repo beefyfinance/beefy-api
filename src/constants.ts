@@ -237,7 +237,7 @@ const MULTICHAIN_ENDPOINTS: Partial<Record<ApiChain, string>> = {
   manta: MANTA_VAULTS_ENDPOINT,
   real: REAL_VAULTS_ENDPOINT,
   sei: SEI_VAULTS_ENDPOINT,
-  // rootstock: ROOTSTOCK_VAULTS_ENDPOINT,
+  rootstock: ROOTSTOCK_VAULTS_ENDPOINT,
 } as const;
 
 const EXCLUDED_IDS_FROM_TVL = ['venus-wbnb'];

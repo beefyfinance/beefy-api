@@ -90,6 +90,9 @@ const {
 
   SEI_CHAIN_ID,
   SEI_VAULTS_ENDPOINT,
+
+  ROOTSTOCK_CHAIN_ID,
+  ROOTSTOCK_VAULTS_ENDPOINT,
 } = require('../../constants');
 const { getKey, setKey } = require('../../utils/cache');
 
@@ -218,6 +221,10 @@ const chains = [
   {
     chainId: SEI_CHAIN_ID,
     vaultsEndpoint: SEI_VAULTS_ENDPOINT,
+  },
+  {
+    chainId: ROOTSTOCK_CHAIN_ID,
+    vaultsEndpoint: ROOTSTOCK_VAULTS_ENDPOINT,
   },
 ];
 
