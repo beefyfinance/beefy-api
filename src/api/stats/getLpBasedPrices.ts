@@ -10,26 +10,27 @@ export async function getLpBasedPrices(
   let prices = {};
   let breakdown = {};
 
-  const promises = [
-    getPendleCommonPrices(
-      ARBITRUM_CHAIN_ID,
-      require('../../data/arbitrum/equilibriaPools.json'),
-      tokenPrices,
-      nonAmmPrices.prices
-    ),
-    getPendleCommonPrices(
-      ETH_CHAIN_ID,
-      require('../../data/ethereum/pendlePools.json'),
-      tokenPrices,
-      nonAmmPrices.prices
-    ),
-    getPendleCommonPrices(
-      ARBITRUM_CHAIN_ID,
-      require('../../data/arbitrum/pendlePools.json'),
-      tokenPrices,
-      nonAmmPrices.prices
-    ),
-  ];
+  const promises = [];
+  // const promises = [
+  //   getPendleCommonPrices(
+  //     ARBITRUM_CHAIN_ID,
+  //     require('../../data/arbitrum/equilibriaPools.json'),
+  //     tokenPrices,
+  //     nonAmmPrices.prices
+  //   ),
+  //   getPendleCommonPrices(
+  //     ETH_CHAIN_ID,
+  //     require('../../data/ethereum/pendlePools.json'),
+  //     tokenPrices,
+  //     nonAmmPrices.prices
+  //   ),
+  //   getPendleCommonPrices(
+  //     ARBITRUM_CHAIN_ID,
+  //     require('../../data/arbitrum/pendlePools.json'),
+  //     tokenPrices,
+  //     nonAmmPrices.prices
+  //   ),
+  // ];
 
   // Setup error logs
   promises.forEach((p, i) =>

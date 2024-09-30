@@ -105,6 +105,7 @@ import { getBeefyCowMantlePrices } from './mantle/getBeefyMantleCowPrices';
 import { getBeefyCowSeiPrices } from './sei/getBeefySeiCowPrices';
 import { getBeefyCowBscPrices } from './bsc/getBeefyCowBscPrices';
 import { getBeefyCowAvaxPrices } from './avax/getBeefyCowAvaxPrices';
+import { getPendleCommonPrices } from './common/getPendleCommonPrices';
 import { getMellowVeloPrices } from './common/getMellowVeloPrices';
 
 export type NonAmmPrices = {
@@ -226,6 +227,9 @@ export async function getNonAmmPrices(tokenPrices: Record<string, number>): Prom
     getBeefyCowBscPrices(tokenPrices),
     getBeefyCowAvaxPrices(tokenPrices),
     getFtmIchiPrices(tokenPrices),
+    getPendleCommonPrices(ARB_CHAIN_ID, require('../../data/arbitrum/equilibriaPools.json'), tokenPrices),
+    getPendleCommonPrices(ETH_CHAIN_ID, require('../../data/ethereum/pendlePools.json'), tokenPrices),
+    getPendleCommonPrices(ARB_CHAIN_ID, require('../../data/arbitrum/pendlePools.json'), tokenPrices),
     getMellowVeloPrices(OPTIMISM_CHAIN_ID, require('../../data/optimism/mellowVeloPools.json'), tokenPrices),
     getMellowVeloPrices(BASE_CHAIN_ID, require('../../data/base/mellowAeroPools.json'), tokenPrices),
     getPearlTridentPrices(tokenPrices),

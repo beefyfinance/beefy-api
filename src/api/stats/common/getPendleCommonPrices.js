@@ -14,15 +14,14 @@ const routerAbi = parseAbi([
   'function getLpToAssetRate(address market) external view returns (uint256)',
 ]);
 
-export const getPendleCommonPrices = async (chainId, pools, tokenPrices, lpPrices) => {
+export const getPendleCommonPrices = async (chainId, pools, tokenPrices) => {
+  const lpPrices = {};
   let prices = {};
 
   const isExpired = await Promise.all(
     pools.map(pool => fetchContract(pool.address, routerAbi, chainId).read.isExpired())
   );
-  const supplyCalls = pools.map(pool =>
-    fetchContract(pool.address, ERC20Abi, chainId).read.totalSupply()
-  );
+  const supplyCalls = pools.map(pool => fetchContract(pool.address, ERC20Abi, chainId).read.totalSupply());
   const lpRatesCalls = pools.map(async (pool, i) => {
     const router = routerStatic[chainId];
     const market = pool.address;
@@ -32,10 +31,7 @@ export const getPendleCommonPrices = async (chainId, pools, tokenPrices, lpPrice
     }
     return fetchContract(router, routerAbi, chainId).read.getLpToAssetRate([market]);
   });
-  const [supplyResults, lpRates] = await Promise.all([
-    Promise.all(supplyCalls),
-    Promise.all(lpRatesCalls),
-  ]);
+  const [supplyResults, lpRates] = await Promise.all([Promise.all(supplyCalls), Promise.all(lpRatesCalls)]);
 
   const poolsData = supplyResults.map((_, i) => {
     return {
