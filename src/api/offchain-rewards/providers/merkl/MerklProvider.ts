@@ -30,6 +30,7 @@ const supportedChains = new Set<AppChain>([
   'fraxtal',
   'celo',
   'sei',
+  'rootstock',
 ]);
 const campaignCreatorToType: Record<Address, CampaignTypeSetting> = {
   '0xb1F1000b4FCae7CD07370cE1A3E3b11270caC0dE': 'test',
@@ -123,9 +124,7 @@ export class MerklProvider implements IOffchainRewardProvider {
       };
     });
 
-    const computeChain = apiCampaign.computeChainId
-      ? fromChainNumber(apiCampaign.computeChainId)
-      : undefined;
+    const computeChain = apiCampaign.computeChainId ? fromChainNumber(apiCampaign.computeChainId) : undefined;
     const claimChain = apiCampaign.chainId ? fromChainNumber(apiCampaign.chainId) : undefined;
 
     return {
@@ -149,9 +148,7 @@ export class MerklProvider implements IOffchainRewardProvider {
     };
   }
 
-  protected async fetchCampaignsForChain(
-    chainId: AppChain
-  ): Promise<MerklApiCampaignsResponse[string]> {
+  protected async fetchCampaignsForChain(chainId: AppChain): Promise<MerklApiCampaignsResponse[string]> {
     const numericChainId = toChainId(chainId);
 
     try {
@@ -162,18 +159,12 @@ export class MerklProvider implements IOffchainRewardProvider {
         },
       });
       if (!data || typeof data !== 'object') {
-        throw new ProviderApiError(
-          `fetchCampaignsForChain(${chainId}): response error`,
-          providerId
-        );
+        throw new ProviderApiError(`fetchCampaignsForChain(${chainId}): response error`, providerId);
       }
 
       if (Object.keys(data).length === 0) {
         if (throwIfNoData) {
-          throw new ProviderApiError(
-            `fetchCampaignsForChain(${chainId}): no data returned`,
-            providerId
-          );
+          throw new ProviderApiError(`fetchCampaignsForChain(${chainId}): no data returned`, providerId);
         }
         return {};
       }
@@ -192,9 +183,7 @@ export class MerklProvider implements IOffchainRewardProvider {
         throw err;
       }
       throw new ProviderApiError(
-        `fetchCampaignsForChain(${chainId}): ${
-          err && err instanceof Error ? err.message : 'unknown error'
-        }`,
+        `fetchCampaignsForChain(${chainId}): ${err && err instanceof Error ? err.message : 'unknown error'}`,
         providerId,
         err && err instanceof Error ? err : undefined
       );

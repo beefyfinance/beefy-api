@@ -4,12 +4,12 @@ const RBTC = {
   name: 'Wrapped Rootstock BTC',
   address: '0x542fDA317318eBF1d3DEAf76E0b632741A7e677d',
   symbol: 'WRBTC',
-  oracleId: 'WRBTC',
+  oracleId: 'WBTC',
   decimals: 18,
   chainId: 30,
   website: 'https://rootstock.io/rbtc/',
   description:
-    'RBTC, the smart version of Bitcoin.Allowing BTC owners to interact with DeFi protocols and dApps on Rootstock network for minting, swaps, gas fees and more.',
+    'RBTC, the smart version of Bitcoin. Allowing BTC owners to interact with DeFi protocols and dApps on Rootstock network for minting, swaps, gas fees and more.',
   bridge: 'rootstock-canonical',
   logoURI: '',
   documentation:

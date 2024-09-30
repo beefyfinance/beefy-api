@@ -26,6 +26,7 @@ const { getModeApys } = require('./mode');
 const { getMantaApys } = require('./manta');
 const { getRealApys } = require('./real');
 const { getSeiApys } = require('./sei');
+const { getRootstockApys } = require('./rootstock');
 const { getKey, setKey } = require('../../utils/cache');
 const { fetchBoostAprs, BOOST_APR_EXPIRED } = require('./getBoostAprs');
 const { serviceEventBus } = require('../../utils/ServiceEventBus');
@@ -81,6 +82,7 @@ const updateApys = async () => {
       getMantaApys(),
       getRealApys(),
       getSeiApys(),
+      getRootstockApys(),
     ]);
 
     for (const result of results) {

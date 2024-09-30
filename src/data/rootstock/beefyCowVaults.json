@@ -1,0 +1,14 @@
+[
+  {
+    "address": "0x7AB03a37822014f4aba762F0a622bF0cc8A32F47",
+    "lpAddress": "0xCbA7aBe98fd6A65259837d76a3409841C1DD4288",
+    "tokens": ["0x1D931Bf8656d795E50eF6D639562C5bD8Ac2B78f", "0x542fDA317318eBF1d3DEAf76E0b632741A7e677d"],
+    "tokenOracleIds": ["WETH", "WBTC"],
+    "decimals": [18, 18],
+    "oracleId": "uniswap-cow-rootstock-eths-wrbtc",
+    "rewardPool": {
+      "address": "0xd9BcDF03D03D1F36d2B6dAf6b30b9eE6C014F610",
+      "oracleId": "uniswap-cow-rootstock-eths-wrbtc-rp"
+    }
+  }
+]

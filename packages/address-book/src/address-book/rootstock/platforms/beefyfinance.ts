@@ -17,8 +17,8 @@ export const beefyfinance = {
   voter: '0x5e1caC103F943Cd84A1E92dAde4145664ebf692A',
   beefyFeeConfig: '0xfc69704cC3cAac545cC7577009Ea4AA04F1a61Eb',
   vaultFactory: '0xe103ab2f922aa1a56EC058AbfDA2CeEa1e95bCd7',
-  //zap: '0x6f66F246Bb436B6f4E66A992C2218b57cD906109',
-  //zapTokenManager: '0xD3D46FF34cD495d5B91b8F3C5C552E81E5e3eab5',
+  zap: '0x2E0A7064A5bA7B9b7499997D91885BaDd5FC45f6',
+  zapTokenManager: '0xC01cE221D1da322A5B8322fC195b407FEa32240E',
 
   /// CLM Contracts
   clmFactory: '0xC2cEE7cf27D2Eda09fEc1743f3953dA77Bf1DA61',
