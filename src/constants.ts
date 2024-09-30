@@ -43,8 +43,7 @@ const CELO_RPC = process.env.CELO_RPC || 'https://forno.celo.org';
 const MOONRIVER_RPC = process.env.MOONRIVER_RPC || 'https://rpc.api.moonriver.moonbeam.network';
 const CRONOS_RPC = process.env.CRONOS_RPC || 'https://cronos.blockpi.network/v1/rpc/public';
 const AURORA_RPC =
-  process.env.AURORA_RPC ||
-  'https://mainnet.aurora.dev/Fon6fPMs5rCdJc4mxX4kiSK1vsKdzc3D8k6UF8aruek';
+  process.env.AURORA_RPC || 'https://mainnet.aurora.dev/Fon6fPMs5rCdJc4mxX4kiSK1vsKdzc3D8k6UF8aruek';
 const FUSE_RPC = process.env.FUSE_RPC || 'https://rpc.fuse.io';
 const METIS_RPC = process.env.METIS_RPC || 'https://andromeda.metis.io/?owner=1088';
 const MOONBEAM_RPC = process.env.MOONBEAM_RPC || 'https://rpc.api.moonbeam.network';
@@ -64,7 +63,7 @@ const MODE_RPC = process.env.MODE_RPC || 'https://mode.drpc.org';
 const MANTA_RPC = process.env.MANTA_RPC || 'https://manta-pacific.drpc.org';
 const REAL_RPC = process.env.REAL_RPC || 'https://real.drpc.org';
 const SEI_RPC = process.env.SEI_RPC || 'https://evm-rpc.sei-apis.com';
-const ROOTSTOCK_RPC = process.env.ROOTSTOCK_RPC || 'https://public-node.rsk.co';
+const ROOTSTOCK_RPC = process.env.ROOTSTOCK_RPC || 'https://rootstock-mainnet.public.blastapi.io';
 
 const BSC_CHAIN_ID = ChainId.bsc;
 const HECO_CHAIN_ID = ChainId.heco;
@@ -238,7 +237,7 @@ const MULTICHAIN_ENDPOINTS: Partial<Record<ApiChain, string>> = {
   manta: MANTA_VAULTS_ENDPOINT,
   real: REAL_VAULTS_ENDPOINT,
   sei: SEI_VAULTS_ENDPOINT,
- // rootstock: ROOTSTOCK_VAULTS_ENDPOINT,
+  // rootstock: ROOTSTOCK_VAULTS_ENDPOINT,
 } as const;
 
 const EXCLUDED_IDS_FROM_TVL = ['venus-wbnb'];

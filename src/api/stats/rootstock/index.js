@@ -42,7 +42,7 @@ const getRootstockApys = async () => {
   }
 
   const end = Date.now();
-  console.log(`> [APY] Sei finished updating in ${(end - start) / 1000}s`);
+  console.log(`> [APY] Rootstock finished updating in ${(end - start) / 1000}s`);
 
   return {
     apys,
