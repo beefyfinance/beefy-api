@@ -754,6 +754,18 @@
     "bptIndex": 1,
     "vaultPoolId": "0x8353157092ed8be69a9df8f95af097bbf33cb2af0000000000000000000005d9",
     "decimals": "1e18",
+    "rewards": [
+      {
+        "rewardGauge": "0x39C55cfC8b232454B01cc197039432cA12F6309a",
+        "oracleId": "AURA",
+        "decimals": "1e18"
+      },
+      {
+        "rewardGauge": "0xC140741af265897Ce46A6D4358EfFbc6669dAaA4",
+        "oracleId": "GHO",
+        "decimals": "1e18"
+      }
+    ],
     "tokens": [
       {
         "oracle": "tokens",
