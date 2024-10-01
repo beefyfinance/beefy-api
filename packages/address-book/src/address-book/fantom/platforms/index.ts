@@ -8,4 +8,4 @@ export { tombswap } from './tombswap.js';
 export { solace } from './solace.js';
 export { equalizer } from './equalizer.js';
 export { fvm } from './fvm.js';
-export { wigoswap } from './wigoswap';
+export { wigoswap } from './wigoswap.js';
