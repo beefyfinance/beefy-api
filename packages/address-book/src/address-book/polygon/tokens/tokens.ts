@@ -31,6 +31,11 @@ const MAI = {
 } as const satisfies Token;
 
 export const tokens = {
+  MATIC,
+  WMATIC: MATIC,
+  WNATIVE: MATIC,
+  POL: MATIC,
+  WPOL: MATIC,
   frxETH: {
     name: 'Frax Ether',
     symbol: 'frxETH',
@@ -1308,9 +1313,6 @@ export const tokens = {
     logoURI:
       'https://assets.coingecko.com/coins/images/16282/small/ws_purple_circle_200x200_%281%29.png',
   },
-  MATIC,
-  WMATIC: MATIC,
-  WNATIVE: MATIC,
   xMARK: {
     name: 'Standard',
     address: '0xf153EfF70DC0bf3b085134928daeEA248d9B30d0',
