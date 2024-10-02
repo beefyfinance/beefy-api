@@ -86,12 +86,12 @@ const bscChain = {
 
 const polygonChain = {
   id: 137,
-  name: 'Poylgon',
+  name: 'Polygon',
   network: 'polygon',
   nativeCurrency: {
     decimals: 18,
-    name: 'Matic',
-    symbol: 'MATIC',
+    name: 'Pol',
+    symbol: 'POL',
   },
   rpcUrls: {
     public: { http: [POLYGON_RPC] },
