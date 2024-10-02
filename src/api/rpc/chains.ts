@@ -86,7 +86,7 @@ const bscChain = {
 
 const polygonChain = {
   id: 137,
-  name: 'Pol',
+  name: 'Polygon',
   network: 'polygon',
   nativeCurrency: {
     decimals: 18,
