@@ -1,5 +1,25 @@
 [
   {
+    "name": "velodrome-v2-hai-pxeth",
+    "address": "0xD5fE49a4c0Fc482Ee757DF703A3a332DB209aC2e",
+    "gauge": "0xD2cd1217Fa7D2b2647F1052F128CBad85dd72c4B",
+    "decimals": "1e18",
+    "chainId": 10,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0x10398AbC267496E49106B07dd6BE13364D10dC71",
+      "oracle": "tokens",
+      "oracleId": "HAI",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x300d2c875C6fb8Ce4bf5480B4d34b7c9ea8a33A4",
+      "oracle": "tokens",
+      "oracleId": "pxETH",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "velodrome-v2-wsteth-weeth",
     "address": "0x5B70eB1D273dA41c40316bf7D3BAf7FDfaE6aBd2",
     "gauge": "0xBc5A46217b96946C6A57c5D0134980FFA2541CC5",
