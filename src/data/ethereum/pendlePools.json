@@ -1,5 +1,25 @@
 [
   {
+    "name": "pendle-lbtc-27mar25",
+    "address": "0x70B70Ac0445C3eF04E314DFdA6caafd825428221",
+    "eqbGauge": "0xAfD39D1eE745b3A8963dd73a94cF055A19346B20",
+    "oracle": "tokens",
+    "oracleId": "WBTC",
+    "decimals": "1e8",
+    "chainId": 1,
+    "beefyFee": 0.095
+  },
+  {
+    "name": "pendle-pumpbtc-26dec24",
+    "address": "0xf8208fB52BA80075aF09840A683143C22DC5B4dd",
+    "eqbGauge": "0x64A0a11543dD212DC5245cB6094d94820c62B55F",
+    "oracle": "tokens",
+    "oracleId": "WBTC",
+    "decimals": "1e8",
+    "chainId": 1,
+    "beefyFee": 0.095
+  },
+  {
     "name": "pendle-solvbtc.bbn-26dec24",
     "address": "0xeb4d3057738b9ed930f451be473c1ccc42988384",
     "eqbGauge": "0x415d74E397168DA2d51360C82f8fbb16709C2fFF",
@@ -20,7 +40,7 @@
     "beefyFee": 0.095
   },
   {
-    "name": "pendle-lbtc-26dec24",
+    "name": "pendle-lbtc-corn-26dec24",
     "address": "0xCaE62858DB831272A03768f5844cbe1B40bB381f",
     "eqbGauge": "0x08cef7aF62CDC92246515a81E87cC7DA633cC8B6",
     "oracle": "tokens",

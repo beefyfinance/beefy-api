@@ -21,7 +21,7 @@ export const getMellowVeloApys = async (chainId, pools) => {
     const rewardsInUsd = rewardRates[i].times(31536000).times(price).div('1e18');
     const apy = rewardsInUsd.div(totalStakedInUsd);
     apys.push(apy);
-    // console.log(pool.name, 'apy', apy.toString(10))
+    // console.log(pool.name, 'tvl', totalStakedInUsd.toString(10), 'apy', apy.toString(10))
   }
 
   return getApyBreakdown(pools.map((p, i) => ({ vaultId: p.name, vault: apys[i] })));

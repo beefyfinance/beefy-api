@@ -14,7 +14,7 @@ export async function getEquilibriaApys() {
   return getApyBreakdown(
     pools.map((p, i) => ({
       vaultId: p.name.replace('pendle-', 'pendle-eqb-'),
-      vault: eqbApys[p.address] || pendleApys[i],
+      vault: BigNumber.max(eqbApys[p.address] || 0, pendleApys[i]),
       trading: tradingApys[p.address.toLowerCase()],
     }))
   );
