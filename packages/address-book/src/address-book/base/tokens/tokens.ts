@@ -1411,4 +1411,16 @@ export const tokens = {
       'ETHFI is the governance token of ether.fi, a restaking protocol on Ethereum. Token holders will have a say in the future of the protocol.',
     risks: ['NO_TIMELOCK'],
   },
+  WIF: {
+    name: 'dogwifhat',
+    symbol: 'WIF',
+    oracleId: 'WIF',
+    address: '0x1fba65dE0a9cBD2D1DF82d141897042d36Bb6c86',
+    chainId: 8453,
+    decimals: 18,
+    logoURI: '',
+    description: 'LITERALLY JUST A DOG WIF A HAT',
+    website: 'https://dogwifcoin.org/',
+    bridge: 'layer-zero',
+  },
 } as const satisfies Record<string, Token>;
