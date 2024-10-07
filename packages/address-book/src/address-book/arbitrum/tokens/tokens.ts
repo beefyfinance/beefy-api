@@ -2198,4 +2198,18 @@ export const tokens = {
     staked: true,
     bridge: 'native',
   },
+  EIGEN: {
+    name: 'Eigen',
+    symbol: 'EIGEN',
+    oracleId: 'EIGEN',
+    address: '0x606C3e5075e5555e79Aa15F1E9FACB776F96C248',
+    chainId: 42161,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://www.eigenlayer.xyz/',
+    documentation: 'https://docs.eigenlayer.xyz/',
+    bridge: 'arbitrum-canonical',
+    description:
+      'EigenLayer is a protocol built on Ethereum that introduces restaking, a new primitive in cryptoeconomic security. This primitive enables the reuse of ETH on the consensus layer. Users that stake ETH natively or with a liquid staking token (LST) can opt-in to EigenLayer smart contracts to restake their ETH or LST and extend cryptoeconomic security to additional applications on the network to earn additional rewards.',
+  },
 } as const satisfies Record<string, Token>;

@@ -97,6 +97,14 @@ const tokens: Partial<Record<keyof typeof ChainId, ConcentratedLiquidityToken[]>
       firstToken: 'WETH',
       secondToken: 'DINERO',
     },
+    {
+      type: 'UniV3',
+      oracleId: 'EIGEN',
+      decimalDelta: 1,
+      pool: '0xC2C390c6CD3C4e6c2b70727d35a45e8a072F18cA',
+      firstToken: 'EIGEN',
+      secondToken: 'WETH',
+    },
   ],
   polygon: [
     {
