@@ -11,6 +11,11 @@ export async function getEquilibriaApys() {
   const eqbPools = pools.filter(p => p.eqbGauge);
   const eqbApys = await getPoolApys(chainId, eqbPools);
   let { tradingApys, pendleApys } = await getPendleApys(chainId, pools);
+
+  // pools.forEach(((p,i) => {
+  //   console.log(p.name, 'eqb-apy', (eqbApys[p.address] || 0).toString(10), 'pendle-apy', pendleApys[i].toString(10))
+  // }));
+
   return getApyBreakdown(
     pools.map((p, i) => ({
       vaultId: p.name.replace('pendle-', 'pendle-eqb-'),

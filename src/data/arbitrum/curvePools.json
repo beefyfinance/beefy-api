@@ -1,5 +1,21 @@
 [
   {
+    "name": "curve-arb-usde-usdx",
+    "pool": "0x096a8865367686290639bc50bf8d85c0110d9fea",
+    "gauge": "0x99178264ec6b9de40689ee4f2f561ca3885a4bd2",
+    "convex": true,
+    "tokens": [
+      {
+        "oracleId": "USDe",
+        "decimals": "1e18"
+      },
+      {
+        "oracleId": "USDx",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
     "name": "curve-arb-dlcbtc",
     "pool": "0xe957ce03ccdd88f02ed8b05c9a3a28abef38514a",
     "gauge": "0x02b8e750e68cb648db2c2ac4bbb47a10a5c12588",
