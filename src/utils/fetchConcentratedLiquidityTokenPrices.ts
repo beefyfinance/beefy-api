@@ -205,6 +205,14 @@ const tokens: Partial<Record<keyof typeof ChainId, ConcentratedLiquidityToken[]>
       firstToken: 'arbUSD+',
       secondToken: 'arbOVN',
     },
+    {
+      type: 'AlgebraV1',
+      oracleId: 'ORDER',
+      decimalDelta: 1,
+      pool: '0x256899bD2E99C6736B34caF298719Cc709925819',
+      firstToken: 'ETH',
+      secondToken: 'ORDER',
+    },
   ],
   moonbeam: [
     {

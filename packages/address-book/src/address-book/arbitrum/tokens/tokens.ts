@@ -2212,4 +2212,19 @@ export const tokens = {
     description:
       'EigenLayer is a protocol built on Ethereum that introduces restaking, a new primitive in cryptoeconomic security. This primitive enables the reuse of ETH on the consensus layer. Users that stake ETH natively or with a liquid staking token (LST) can opt-in to EigenLayer smart contracts to restake their ETH or LST and extend cryptoeconomic security to additional applications on the network to earn additional rewards.',
   },
+  ORDER: {
+    name: 'Orderly Network',
+    symbol: 'ORDER',
+    oracleId: 'ORDER',
+    address: '0x4E200fE2f3eFb977d5fd9c430A41531FB04d97B8',
+    chainId: 42161,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://orderly.network/',
+    documentation: 'https://orderly.network/docs/home',
+    description:
+      'ORDER is the governance token of the Orderly Network. Staking ORDER will boost trading and market making rewards.',
+    bridge: 'layer-zero',
+    risks: ['NO_TIMELOCK'],
+  },
 } as const satisfies Record<string, Token>;
