@@ -50,16 +50,12 @@ export const getCowApys = async (apiChain: ApiChain) => {
   ]);
 
   if (clmBreakdownsResult.status === 'rejected') {
-    throw new Error(
-      `Failed to get clm apy breakdowns for ${apiChain}: ${clmBreakdownsResult.reason}`
-    );
+    throw new Error(`Failed to get clm apy breakdowns for ${apiChain}: ${clmBreakdownsResult.reason}`);
   }
 
   const clmBreakdowns = clmBreakdownsResult.value;
   if (rewardPoolAprsResult.status === 'rejected') {
-    console.error(
-      `Failed to get clm reward pool aprs for ${apiChain}: ${rewardPoolAprsResult.reason}`
-    );
+    console.error(`Failed to get clm reward pool aprs for ${apiChain}: ${rewardPoolAprsResult.reason}`);
     // keep clm data even if reward pool data is missing
     return clmBreakdowns;
   }
@@ -97,9 +93,7 @@ export const getCowApys = async (apiChain: ApiChain) => {
   };
 };
 
-async function getOffchainCampaignsByVault(
-  apiChain: ApiChain
-): Promise<Record<string, OffchainVaultApr>> {
+async function getOffchainCampaignsByVault(apiChain: ApiChain): Promise<Record<string, OffchainVaultApr>> {
   const campaigns = await getCampaignsForChain(apiChain);
   if (!campaigns) {
     return {};
@@ -131,6 +125,8 @@ function getCowVaultApyBreakdown(
     .map((clm, index): ApyBreakdownRequest | undefined => {
       if (isCowClmWithVaultMeta(clm)) {
         const clmPoolBreakdown = clmBreakdowns.apyBreakdowns[clm.rewardPool.oracleId];
+        let merklApr = clmPoolBreakdown?.merklApr || 0;
+        if (clm.vault.excludeMerkl) merklApr = 0;
 
         return {
           vaultId: clm.vault.oracleId,
@@ -138,7 +134,7 @@ function getCowVaultApyBreakdown(
           vault:
             (clmPoolBreakdown?.rewardPoolApr || 0) +
             (clmPoolBreakdown?.rewardPoolTradingApr || 0) +
-            (clmPoolBreakdown?.merklApr || 0) +
+            merklApr +
             (clmPoolBreakdown?.stellaSwapApr || 0),
           compoundingsPerYear: DAILY_HPY,
         };
@@ -187,9 +183,7 @@ const getCowRewardPoolAprs = async (
 ): Promise<(RewardPoolApr | undefined)[]> => {
   const resolveUndefined = Promise.resolve(undefined);
   return Promise.all(
-    clms.map(clm =>
-      isCowClmWithRewardPoolMeta(clm) ? getCowRewardPoolApr(chainId, clm) : resolveUndefined
-    )
+    clms.map(clm => (isCowClmWithRewardPoolMeta(clm) ? getCowRewardPoolApr(chainId, clm) : resolveUndefined))
   );
 };
 

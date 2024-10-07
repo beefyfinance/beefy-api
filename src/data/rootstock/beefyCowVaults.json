@@ -12,7 +12,8 @@
     },
     "vault": {
       "address": "0xfcdCDb71FF7D0711F8F9A36032Aa3a77A659055D",
-      "oracleId": "uniswap-cow-rootstock-eths-wrbtc-vault"
+      "oracleId": "uniswap-cow-rootstock-eths-wrbtc-vault",
+      "excludeMerkl": true
     }
   },
   {
@@ -72,7 +73,8 @@
     },
     "vault": {
       "address": "0x41c8fDc1f2EB272CB51c224D4C68F277c3C7878B",
-      "oracleId": "sushi-cow-rootstock-doc-rusdt-vault"
+      "oracleId": "sushi-cow-rootstock-doc-rusdt-vault",
+      "excludeMerkl": true
     }
   },
   {

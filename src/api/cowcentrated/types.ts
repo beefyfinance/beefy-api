@@ -69,6 +69,7 @@ export type CowClmWithRewardPool = CowClm & {
 export type CowVault = {
   address: Address;
   oracleId: string;
+  excludeMerkl?: boolean;
 };
 
 export type CowClmWithVault = CowClmWithRewardPool & {
@@ -91,16 +92,13 @@ function isValidCowRewardPoolRewardConfig(
   return reward.id >= 0 && reward.oracleId && reward.decimals >= 0 && isAddress(reward.address);
 }
 
-function isValidCowClmRewardPoolConfig(
-  rewardPool: JsonCowClm['rewardPool']
-): rewardPool is CowRewardPool {
+function isValidCowClmRewardPoolConfig(rewardPool: JsonCowClm['rewardPool']): rewardPool is CowRewardPool {
   return (
     rewardPool &&
     rewardPool.oracleId &&
     isAddress(rewardPool.address) &&
     (!rewardPool.rewards ||
-      (isNonEmptyArray(rewardPool.rewards) &&
-        rewardPool.rewards.every(isValidCowRewardPoolRewardConfig)))
+      (isNonEmptyArray(rewardPool.rewards) && rewardPool.rewards.every(isValidCowRewardPoolRewardConfig)))
   );
 }
 
