@@ -1265,7 +1265,7 @@ export const tokens = {
   wUSDR: {
     name: 'Real USD',
     symbol: 'wUSDR',
-    oracleId: 'wUSDR',
+    oracleId: 'owUSDR',
     address: '0xC03b43d492d904406db2d7D57e67C7e8234bA752',
     chainId: 137,
     decimals: 9,
