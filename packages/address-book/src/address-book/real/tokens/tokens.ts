@@ -4,7 +4,7 @@ const ETH = {
   name: 'Wrapped Re.Al Ether',
   address: '0x90c6E93849E06EC7478ba24522329d14A5954Df4',
   symbol: 'WREETH',
-  oracleId: 'WREETH',
+  oracleId: 'reETH',
   decimals: 18,
   chainId: 111188,
   website: 'https://weth.io/',
