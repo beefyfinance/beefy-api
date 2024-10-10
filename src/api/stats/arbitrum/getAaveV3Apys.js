@@ -3,7 +3,7 @@ const pools = require('../../../data/arbitrum/aaveV3Pools.json');
 const { ARBITRUM_CHAIN_ID } = require('../../../constants');
 
 const config = {
-  dataProvider: '0x6b4E260b765B3cA1514e618C0215A6B7839fF93e',
+  dataProvider: '0x7F23D86Ee20D869112572136221e173428DD740B',
   incentives: '0x929EC64c34a17401F460460D4B9390518E5B473e',
   rewards: [
     {

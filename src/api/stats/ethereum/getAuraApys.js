@@ -36,7 +36,7 @@ const bbaUSDTokens = [
 ];
 
 const pools = require('../../../data/ethereum/auraBalancerLpPools.json');
-const aaveDataProvider = '0x057835Ad21a177dbdd3090bB1CAE03EaCF78Fc6d';
+const aaveDataProvider = '0x41393e5e337606dc3821075Af65AeE84D7688CBD';
 const eulerMarkets = '0x3520d5a913427E6F0D6A83E07ccD4A4da316e4d3';
 const bbaUSDPoolId = '0xa13a9247ea42d743238089903570127dda72fe4400000000000000000000035d';
 const bbeUSDPoolId = '0x50cf90b954958480b8df7958a9e965752f62712400000000000000000000046f';
