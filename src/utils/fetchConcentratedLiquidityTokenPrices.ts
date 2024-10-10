@@ -2,9 +2,9 @@ import IUniV3PoolAbi from '../abis/IUniV3Pool';
 import IKyberElasticPoolAbi from '../abis/IKyberElasticPool';
 import IAlgebraPool from '../abis/IAlgebraPool';
 import IAlgebraPoolV1 from '../abis/IAlgebraPoolV1';
+import ISlipstreamPool from '../abis/ISlipstreamPool';
 import { ChainId } from '../../packages/address-book/src/types/chainid';
 import { fetchContract } from '../api/rpc/client';
-import { chain } from 'lodash';
 
 type ConcentratedLiquidityToken = {
   type: string;
@@ -302,6 +302,16 @@ const tokens: Partial<Record<keyof typeof ChainId, ConcentratedLiquidityToken[]>
       secondToken: 'WBTC',
     },
   ],
+  base: [
+    {
+      type: 'Slipstream',
+      oracleId: 'basemooBIFI',
+      decimalDelta: 1,
+      pool: '0xb378137c90444BbceCD44a1f766851fbf53D2a9E',
+      firstToken: 'basemooBIFI',
+      secondToken: 'ETH',
+    },
+  ],
 };
 
 async function getConcentratedLiquidityPrices(
@@ -319,6 +329,9 @@ async function getConcentratedLiquidityPrices(
     } else if (token.type == 'AlgebraV1') {
       const tokenContract = fetchContract(token.pool, IAlgebraPoolV1, chainId);
       return tokenContract.read.globalState();
+    } else if (token.type == 'Slipstream') {
+      const tokenContract = fetchContract(token.pool, ISlipstreamPool, chainId);
+      return tokenContract.read.slot0();
     } else {
       const tokenContract = fetchContract(token.pool, IUniV3PoolAbi, chainId);
       return tokenContract.read.slot0();

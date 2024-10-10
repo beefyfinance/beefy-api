@@ -21,7 +21,7 @@ export const tokens = {
   mooBIFI: {
     name: 'Bridged BIFI Vault Receipt',
     symbol: 'mooBIFI',
-    oracleId: 'mooBIFI',
+    oracleId: 'basemooBIFI',
     address: '0xc55E93C62874D8100dBd2DfE307EDc1036ad5434',
     chainId: 8453,
     decimals: 18,

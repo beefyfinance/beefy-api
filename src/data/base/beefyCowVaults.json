@@ -20,7 +20,7 @@
     "address": "0xfE7bde43F2b6D1cd257CdEEa1Fea6A84FC1C49d2",
     "lpAddress": "0xb378137c90444BbceCD44a1f766851fbf53D2a9E",
     "tokens": ["0x4200000000000000000000000000000000000006", "0xc55E93C62874D8100dBd2DfE307EDc1036ad5434"],
-    "tokenOracleIds": ["WETH", "mooBIFI"],
+    "tokenOracleIds": ["WETH", "basemooBIFI"],
     "decimals": [18, 18],
     "oracleId": "aero-cow-weth-moobifi",
     "providerId": "aerodrome",

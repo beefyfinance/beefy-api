@@ -328,7 +328,7 @@
     "address": "0xD4768E30180786e875a4909472c9826b18931E43",
     "lpAddress": "0x173cDC71e29d5Cffa6D090AD99f555a24B8831f9",
     "tokens": ["0x0b2C639c533813f4Aa9D7837CAf62653d097Ff85", "0xc55E93C62874D8100dBd2DfE307EDc1036ad5434"],
-    "tokenOracleIds": ["USDC", "mooBIFI"],
+    "tokenOracleIds": ["USDC", "opmooBIFI"],
     "decimals": [6, 18],
     "oracleId": "velo-cow-op-moobifi-usdc",
     "providerId": "velodrome",

@@ -575,7 +575,7 @@
     "lp1": {
       "address": "0xc55E93C62874D8100dBd2DfE307EDc1036ad5434",
       "oracle": "tokens",
-      "oracleId": "mooBIFI",
+      "oracleId": "opmooBIFI",
       "decimals": "1e18"
     }
   },
