@@ -1423,4 +1423,17 @@ export const tokens = {
     website: 'https://dogwifcoin.org/',
     bridge: 'layer-zero',
   },
+  SPX: {
+    name: 'SPX6900',
+    symbol: 'SPX',
+    oracleId: 'SPX',
+    address: '0x50dA645f148798F68EF2d7dB7C1CB22A6819bb2C',
+    chainId: 8453,
+    decimals: 18,
+    logoURI: '',
+    description:
+      'SPX6900 is an advanced blockchain cryptography token coin capable of limitless possibilities and scientific utilization. Ethereum based memecoin.',
+    website: 'https://spx6900.com/',
+    bridge: 'wormhole',
+  },
 } as const satisfies Record<string, Token>;
