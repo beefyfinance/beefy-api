@@ -311,6 +311,14 @@ const tokens: Partial<Record<keyof typeof ChainId, ConcentratedLiquidityToken[]>
       firstToken: 'basemooBIFI',
       secondToken: 'ETH',
     },
+    {
+      type: 'Slipstream',
+      oracleId: 'wBLT',
+      decimalDelta: 1e12,
+      pool: '0x7cE345561E1690445eEfA0dB04F59d64b65598A8',
+      firstToken: 'USDC',
+      secondToken: 'wBLT',
+    },
   ],
 };
 

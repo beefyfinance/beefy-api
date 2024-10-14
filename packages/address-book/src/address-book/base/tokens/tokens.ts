@@ -1436,4 +1436,18 @@ export const tokens = {
     website: 'https://spx6900.com/',
     bridge: 'wormhole',
   },
+  wBLT: {
+    name: 'Wrapped BMX Liquidity Token',
+    symbol: 'wBLT',
+    oracleId: 'wBLT',
+    address: '0x4E74D4Db6c0726ccded4656d0BCE448876BB4C7A',
+    chainId: 8453,
+    decimals: 18,
+    logoURI: '',
+    description:
+      'A wrapped-BLT is when you replace bread with a tortilla and wrap the bacon, lettuce, and tomato. It provides a different experience, generally less carbs and leaves you feeling lighter. Bread or tortilla, the choice is yours! At BMX, wrapped-BLT (wBLT) is a token received as a result of depositing BLT into BMX’s native Yearn-architectured, auto-compounding reward vault. wBLT functions as a receipt token representing a claim on the underlying BLT within the vault.',
+    website: 'https://spx6900.com/',
+    documentation: 'https://docs.morphex.trade/bmx/wblt',
+    bridge: 'native',
+  },
 } as const satisfies Record<string, Token>;
