@@ -1,5 +1,15 @@
 [
   {
+    "name": "pendle-usds-27mar25",
+    "address": "0x977ebf77581f94de969349549ab2108a681e8f4c",
+    "eqbGauge": "0x09c8cd347047F2eEf6EE13BDCd1C2520f9b208B1",
+    "oracle": "tokens",
+    "oracleId": "USDS",
+    "decimals": "1e18",
+    "chainId": 1,
+    "beefyFee": 0.095
+  },
+  {
     "name": "pendle-lbtc-27mar25",
     "address": "0x70B70Ac0445C3eF04E314DFdA6caafd825428221",
     "eqbGauge": "0xAfD39D1eE745b3A8963dd73a94cF055A19346B20",
