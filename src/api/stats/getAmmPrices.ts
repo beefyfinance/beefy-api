@@ -86,7 +86,6 @@ import lynexPools from '../../data/linea/lynexVolatilePools.json';
 import nilePools from '../../data/linea/nileVolatilePools.json';
 import raPools from '../../data/fraxtal/raPools.json';
 import velodromeModePools from '../../data/mode/velodromeModePools.json';
-import { fetchVaultPrices } from '../../utils/fetchVaultPrices';
 import { addressBookByChainId } from '../../../packages/address-book/src/address-book';
 import { sleep } from '../../utils/time';
 import { isFiniteNumber } from '../../utils/number';
@@ -505,11 +504,9 @@ async function performUpdateAmmPrices() {
   const linearPoolPrice = ammPrices.then(async ({ tokenPrices }): Promise<Record<string, number>> => {
     const jbrlTokenPrice = await fetchJbrlPrice();
     const yVaultPrices = await fetchyVaultPrices(tokenPrices);
-    const vaultPrices = await fetchVaultPrices(tokenPrices);
     const wrappedAavePrices = await fetchWrappedAavePrices(tokenPrices);
     const prices = {
       ...tokenPrices,
-      ...vaultPrices,
       ...wrappedAavePrices,
       ...jbrlTokenPrice,
       ...yVaultPrices,
