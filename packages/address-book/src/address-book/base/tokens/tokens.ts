@@ -1450,4 +1450,32 @@ export const tokens = {
     documentation: 'https://docs.morphex.trade/bmx/wblt',
     bridge: 'native',
   },
+  superOETHb: {
+    name: 'Super OETH',
+    symbol: 'superOETHb',
+    oracleId: 'superOETHb',
+    address: '0xDBFeFD2e8460a6Ee4955A68582F85708BAEA60A3',
+    chainId: 8453,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://originprotocol.com/',
+    description:
+      "Super OETH is the first in a new class of yield product; Supercharged LSTs. By combining liquid staking yield from Ethereum with compounded rewards on layer 2, Supercharged LSTs offer materially higher APY compared to traditional LSTs without adding substantial risk of loss. Origin's first token to launch in this category is superOETHb, which derives Beacon Chain yield from bridged Wrapped OETH and rewards from Aerodrome through a protocol-owned, concentrated liquidity position on Base.",
+    documentation: 'https://docs.originprotocol.com/',
+    bridge: 'native',
+  },
+  SILO: {
+    name: 'SILO',
+    symbol: 'SILO',
+    oracleId: 'baseSILO',
+    address: '0xF734eFdE0C424BA2B547b186586dE417b0954802',
+    chainId: 8453,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://www.silo.finance/',
+    description:
+      'SILO is the native governance token of the SiloDAO and may be used to vote for governance over the Silo Protocol.',
+    documentation: 'https://silopedia.silo.finance/',
+    bridge: 'base-canonical',
+  },
 } as const satisfies Record<string, Token>;
