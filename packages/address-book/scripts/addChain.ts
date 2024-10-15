@@ -137,7 +137,7 @@ const ETH = {
   symbol: 'WETH',
   oracleId: 'WETH',
   decimals: 18,
-  chainId: 0, // Update this with the correct chain ID
+  chainId: ${chainId}, 
   website: 'https://weth.io/',
   description: 'Ether or ETH is the native currency built on the Ethereum blockchain.',
   bridge: 'canonical',
