@@ -33,7 +33,11 @@ async function fetchCowVaultsMeta(chainId: ApiChain): Promise<AnyCowClmMeta[]> {
     return [];
   }
 
-  const url = `${BEEFY_CLM_API}/api/v1/vaults/${chainId}/1.1d`;
+  // rootstock is expensive to harvest so we don't harvest it as often
+  // ask the api to compute metrics over a longer period of time
+  // to ensure we have some data to base metrics on
+  const period = chainId === 'rootstock' ? '3.1d' : '1.1d';
+  const url = `${BEEFY_CLM_API}/api/v1/vaults/${chainId}/${period}`;
   const response = await fetch(url);
   if (!response.ok) {
     throw new Error(
@@ -49,9 +53,7 @@ async function fetchCowVaultsMeta(chainId: ApiChain): Promise<AnyCowClmMeta[]> {
   return pools.map(pool => {
     const apiVault = data.find(v => isAddressEqual(v.vaultAddress, pool.address));
     if (!apiVault) {
-      console.error(
-        `Missing vault data from CLM API for ${chainId} ${pool.oracleId} ${pool.address}`
-      );
+      console.error(`Missing vault data from CLM API for ${chainId} ${pool.oracleId} ${pool.address}`);
       return {
         ...pool,
         currentPrice: '0',
