@@ -17,6 +17,7 @@
     "prettier:check": "prettier --check src/**/*",
     "prettier:fix": "prettier --write src/**/*",
     "prepare": "husky",
+    "addClm": "ts-node scripts/add-clm.ts",
     "addFarm": "ts-node scripts/add-farm.ts",
     "addSushi": "ts-node scripts/add-sushi.ts",
     "addSolidly": "ts-node scripts/add-solidly.ts",

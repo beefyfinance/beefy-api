@@ -271,7 +271,7 @@ async function getRewardConfigsInfo(
 
   if (activeRewards.length === 0) {
     if (WARN_REWARDS_ALL_INACTIVE) {
-      console.warn(`getRewardConfigsInfo for ${pool.oracleId}: no rewards are active`);
+      // console.warn(`getRewardConfigsInfo for ${pool.oracleId}: no rewards are active`);
     }
     return [];
   }

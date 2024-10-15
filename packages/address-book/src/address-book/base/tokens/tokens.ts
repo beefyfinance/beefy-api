@@ -700,6 +700,7 @@ export const tokens = {
       'Degen is an unofficial token that were distributed to the community on the decentralized social network, Farcaster.',
     documentation: 'https://www.degen.tips/faq',
     bridge: 'native',
+    risks: ['LARGE_HOLDERS', 'NO_TIMELOCK'],
   },
   doginme: {
     name: 'doginme',
