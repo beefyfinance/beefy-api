@@ -1,5 +1,56 @@
 [
   {
+    "address": "0x578a315E367c2503B5B2aC2081E56C56dB426FBd",
+    "lpAddress": "0xfD22D75b2FB405EE185155D57B0277b9DB2F8E29",
+    "tokens": ["0x2a06A17CBC6d0032Cac2c6696DA90f29D39a1a29", "0x4200000000000000000000000000000000000006"],
+    "tokenOracleIds": ["HarryPotterObamaSonic10Inu", "WETH"],
+    "decimals": [8, 18],
+    "oracleId": "aero-cow-bitcoin-weth",
+    "providerId": "aerodrome",
+    "rewardPool": {
+      "address": "0xc5Fe634266D9B84cF86438285D8078c2d43a8365",
+      "oracleId": "aero-cow-bitcoin-weth-rp"
+    },
+    "vault": {
+      "address": "0xc58234F67377E8d4Ac1338f161Eec052C82dDD66",
+      "oracleId": "aero-cow-bitcoin-weth-vault"
+    }
+  },
+  {
+    "address": "0x4aC69240bf5F4BeCc939c1Ea56A64e95943865AF",
+    "lpAddress": "0x138aceE5573fA09e7F215965ff60898cc33c6330",
+    "tokens": ["0x236aa50979D5f3De3Bd1Eeb40E81137F22ab794b", "0xcbB7C0000aB88B473b1f5aFd9ef808440eed33Bf"],
+    "tokenOracleIds": ["tBTC", "cbBTC"],
+    "decimals": [18, 8],
+    "oracleId": "aero-cow-tbtc-cbbtc",
+    "providerId": "aerodrome",
+    "rewardPool": {
+      "address": "0xE53803aBd9720BA5ea94bCDF077C4D418Ea37C8c",
+      "oracleId": "aero-cow-tbtc-cbbtc-rp"
+    },
+    "vault": {
+      "address": "0xcdaf1dBD0cedb5eB2D3daCd2528F75DE6970ad97",
+      "oracleId": "aero-cow-tbtc-cbbtc-vault"
+    }
+  },
+  {
+    "address": "0x5b65953661ff39819C58bE3BC25Fe983B59F0729",
+    "lpAddress": "0xB211a9DDff3a10806c8fdb92Dbc4c34596A23F84",
+    "tokens": ["0x4200000000000000000000000000000000000006", "0x9a26F5433671751C3276a065f57e5a02D2817973"],
+    "tokenOracleIds": ["WETH", "KEYCAT"],
+    "decimals": [18, 18],
+    "oracleId": "aero-cow-weth-keycat",
+    "providerId": "aerodrome",
+    "rewardPool": {
+      "address": "0xF2c37EB69a23630b7788752Aa472F757FdF981D9",
+      "oracleId": "aero-cow-weth-keycat-rp"
+    },
+    "vault": {
+      "address": "0x707B254DD3D75825345dA4bc4E585918842D5A30",
+      "oracleId": "aero-cow-weth-keycat-vault"
+    }
+  },
+  {
     "address": "0x121CFB31E59CEE8b8b83ED514629d3ee7F12F545",
     "lpAddress": "0x6446021F4E396dA3df4235C62537431372195D38",
     "tokens": ["0x4200000000000000000000000000000000000006", "0xDBFeFD2e8460a6Ee4955A68582F85708BAEA60A3"],
