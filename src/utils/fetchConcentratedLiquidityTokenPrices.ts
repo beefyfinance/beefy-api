@@ -327,6 +327,14 @@ const tokens: Partial<Record<keyof typeof ChainId, ConcentratedLiquidityToken[]>
       firstToken: 'ETH',
       secondToken: 'superOETHb',
     },
+    {
+      type: 'Slipstream',
+      oracleId: 'HarryPotterObamaSonic10Inu',
+      decimalDelta: 1e-10,
+      pool: '0xfD22D75b2FB405EE185155D57B0277b9DB2F8E29',
+      firstToken: 'ETH',
+      secondToken: 'HarryPotterObamaSonic10Inu',
+    },
   ],
 };
 

@@ -1478,4 +1478,18 @@ export const tokens = {
     documentation: 'https://silopedia.silo.finance/',
     bridge: 'base-canonical',
   },
+  HarryPotterObamaSonic10Inu: {
+    name: 'HarryPotterObamaSonic10Inu',
+    symbol: 'BITCOIN',
+    oracleId: 'HarryPotterObamaSonic10Inu',
+    address: '0x2a06A17CBC6d0032Cac2c6696DA90f29D39a1a29',
+    chainId: 8453,
+    decimals: 8,
+    logoURI: '',
+    website: 'https://hpos10i.com/',
+    description:
+      'BITCOIN is the ticker of HarryPotterObamaSonic10Inu, a meme coin that incentivizes the creation of novel and entertaining meme content.',
+    documentation: 'https://hpos10i.com/#Tokenomics',
+    bridge: 'base-canonical',
+  },
 } as const satisfies Record<string, Token>;
