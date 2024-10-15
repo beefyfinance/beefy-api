@@ -26,6 +26,7 @@
   "repository": "beefyfinance/beefy-api",
   "license": "MIT",
   "scripts": {
+    "addChain": "ts-node ./scripts/addChain.ts",
     "compile": "yarn compile:cjs && yarn compile:esm",
     "compile:cjs": "tsc --project tsconfig.cjs.json && echo '{\"type\": \"commonjs\"}' > ./build/package.json",
     "compile:esm": "tsc --project tsconfig.esm.json && echo '{\"type\": \"module\"}' > ./build-esm/package.json",
