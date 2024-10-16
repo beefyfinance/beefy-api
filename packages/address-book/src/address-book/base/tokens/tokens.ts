@@ -1506,6 +1506,6 @@ export const tokens = {
       'Origin Protocol is a suite of complimentary DeFi products designed to increase economic opportunity for all. These permissionless and composable smart contracts provide superior user experiences across DeFi in a groundbreaking multichain yield ecosystem. OGN is value accrual and governance token for all Origin products. When Origin scales OGN scales as it is the lifeblood of the Origin ecosystem.',
     documentation: 'https://docs.originprotocol.com/',
     bridge: 'base-canonical',
-    risks: ['LARGE_HOLDERS'],
+    risks: ['LARGE_HOLDERS', 'NO_TIMELOCK'],
   },
 } as const satisfies Record<string, Token>;
