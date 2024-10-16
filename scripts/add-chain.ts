@@ -5,6 +5,8 @@ function addChain() {
   const chainName = process.argv[2];
   const chainId = process.argv[3];
   const rpc = process.argv[4];
+  const explorer = process.argv[5];
+  const oracleId = process.argv[6];
 
   if (!chainName || !chainId || !rpc) {
     console.error('Please provide a chain name, chainId, and RPC as command-line arguments.');
@@ -149,6 +151,65 @@ function addChain() {
 
   fs.writeFileSync(constantsPath, constantsContent);
   console.log(`Added ${chainName} constants including Vaults Endpoint to constants.ts`);
+
+  // Add chain object to src/api/rpc/chains.ts
+  const chainsPath = path.join(__dirname, '..', 'src', 'api', 'rpc', 'chains.ts');
+  let chainsContent = fs.readFileSync(chainsPath, 'utf8');
+
+  // Add import for the new chain's RPC
+  const importStatement = `  ${chainName.toUpperCase()}_RPC,\n`;
+  const importRegex = /} from '\.\.\/\.\.\/constants';/;
+  chainsContent = chainsContent.replace(importRegex, match => {
+    return importStatement + match;
+  });
+
+  const chainObject = `
+const ${chainName}Chain = {
+  id: ${chainId},
+  name: '${chainName.charAt(0).toUpperCase() + chainName.slice(1)}',
+  network: '${chainName.toLowerCase()}',
+  nativeCurrency: {
+    decimals: 18,
+    name: '${oracleId}',
+    symbol: '${oracleId}',
+  },
+  rpcUrls: {
+    public: { http: [${chainName.toUpperCase()}_RPC] },
+    default: { http: [${chainName.toUpperCase()}_RPC] },
+  },
+  blockExplorers: {
+    default: { name: '${chainName} explorer', url: '${explorer}' },
+  },
+  contracts: {
+    multicall3: {
+      address: '0xca11bde05977b3631167028862be2a173976ca11',
+    },
+  },
+} as const satisfies Chain;
+`;
+
+  // Find the "New Chains" section and add the new chain object
+  const newChainsRegex = /\/\/\/ New Chains\n\n/;
+  const newChainsMatch = chainsContent.match(newChainsRegex);
+
+  if (newChainsMatch) {
+    const updatedNewChains = newChainsMatch[0] + chainObject + '\n';
+    chainsContent = chainsContent.replace(newChainsRegex, updatedNewChains);
+  } else {
+    console.warn('"New Chains" section not found in chains.ts');
+    chainsContent += '\n' + chainObject;
+  }
+
+  // Add the new chain to the getChain export
+  const getChainRegex = /export const getChain: Partial<Record<ChainId, Chain>> = {[\s\S]*?} as const;/;
+  chainsContent = chainsContent.replace(getChainRegex, match => {
+    return match.slice(0, -11) + `  [ChainId.${chainName}]: ${chainName}Chain,\n} as const;`;
+  });
+
+  fs.writeFileSync(chainsPath, chainsContent);
+  console.log(
+    `Added ${chainName} chain object to src/api/rpc/chains.ts under "New Chains", to getChain export, and imports`
+  );
 }
 
 Promise.resolve(addChain()).catch(console.error);

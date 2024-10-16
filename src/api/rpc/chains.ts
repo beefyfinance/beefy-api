@@ -788,6 +788,8 @@ const rootstockChain = {
   },
 } as const satisfies Chain;
 
+/// New Chains
+
 //build a map from chainId to chain object
 export const getChain: Partial<Record<ChainId, Chain>> = {
   [ChainId.avax]: avalancheChain,
