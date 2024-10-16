@@ -28,10 +28,10 @@ const MAINNET_BSC_RPC_ENDPOINTS = [
 
 const CUSTOM_BSC_RPC_ENDPOINTS = [process.env.BSC_RPC].filter(item => item);
 
+/// RPC Endpoints
 const BSC_RPC_ENDPOINTS = CUSTOM_BSC_RPC_ENDPOINTS.length
   ? CUSTOM_BSC_RPC_ENDPOINTS
   : MAINNET_BSC_RPC_ENDPOINTS;
-
 const BSC_RPC = process.env.BSC_RPC || BSC_RPC_ENDPOINTS[0];
 const HECO_RPC = process.env.HECO_RPC || 'https://http-mainnet.hecochain.com';
 const AVAX_RPC = process.env.AVAX_RPC || 'https://rpc.ankr.com/avalanche';
@@ -65,6 +65,7 @@ const REAL_RPC = process.env.REAL_RPC || 'https://real.drpc.org';
 const SEI_RPC = process.env.SEI_RPC || 'https://evm-rpc.sei-apis.com';
 const ROOTSTOCK_RPC = process.env.ROOTSTOCK_RPC || 'https://rootstock-mainnet.public.blastapi.io';
 
+/// Chain IDs
 const BSC_CHAIN_ID = ChainId.bsc;
 const HECO_CHAIN_ID = ChainId.heco;
 const POLYGON_CHAIN_ID = ChainId.polygon;
@@ -96,6 +97,8 @@ const MANTA_CHAIN_ID = ChainId.manta;
 const REAL_CHAIN_ID = ChainId.real;
 const SEI_CHAIN_ID = ChainId.sei;
 const ROOTSTOCK_CHAIN_ID = ChainId.rootstock;
+
+/// LP Fee
 const SUSHI_LPF = 0.003;
 const PCS_LPF = 0.0017;
 const SPOOKY_LPF = 0.002;
@@ -143,6 +146,7 @@ const MULTICHAIN_RPC: Record<ChainId, string> = {
   [ChainId.rootstock]: ROOTSTOCK_RPC,
 };
 
+/// Beefy Vaults Endpoints
 const BSC_VAULTS_ENDPOINT =
   'https://raw.githubusercontent.com/beefyfinance/beefy-v2/prod/src/config/vault/bsc.json';
 const HECO_VAULTS_ENDPOINT =
