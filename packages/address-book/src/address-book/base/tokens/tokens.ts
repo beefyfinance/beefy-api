@@ -1430,7 +1430,7 @@ export const tokens = {
     oracleId: 'SPX',
     address: '0x50dA645f148798F68EF2d7dB7C1CB22A6819bb2C',
     chainId: 8453,
-    decimals: 18,
+    decimals: 8,
     logoURI: '',
     description:
       'SPX6900 is an advanced blockchain cryptography token coin capable of limitless possibilities and scientific utilization. Ethereum based memecoin.',
