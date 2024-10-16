@@ -12,7 +12,7 @@ function addChain() {
     console.error('Please provide a chain name, chainId, and RPC as command-line arguments.');
     process.exit(1);
   }
-
+  /*
   const statsPath = path.join(__dirname, '..', 'src', 'api', 'stats');
   const dataPath = path.join(__dirname, '..', 'src', 'data');
 
@@ -223,6 +223,126 @@ const ${chainName}Chain = {
 
   fs.writeFileSync(rpcsPath, rpcsContent);
   console.log(`Added ${chainName} to src/api/rpc/rpcs.ts`);
+
+  // Add the blocked tokens set to src/api/zap/swap/blocked-tokens.ts
+  const blockedTokensPath = path.join(__dirname, '../src/api/zap/swap/blocked-tokens.ts');
+  let blockedTokensContent = fs.readFileSync(blockedTokensPath, 'utf8');
+
+  // Add the chain to the blocked tokens set
+  const blockedTokensObjectRegex = /export const blockedTokensByChain: Record<ApiChain, Set<string>> = \{[\s\S]*?\};/;
+  blockedTokensContent = blockedTokensContent.replace(blockedTokensObjectRegex, match => {
+    return match.slice(0, -2) + `  ${chainName}: new Set([]),\n};`;
+  });
+
+  fs.writeFileSync( blockedTokensPath, blockedTokensContent);
+  console.log(`Added ${chainName} to src/api/zap/swap/blocked-tokens.ts`);
+
+
+  // Add chain and imports to ethersHelpers.ts
+  const ethersHelpersPath = path.join(__dirname, '../src/utils/ethersHelpers.ts');
+  let ethersHelpersContent = fs.readFileSync(ethersHelpersPath, 'utf8');
+
+  // Add imports
+  const importHelpersRegex = /} from '\.\.\/constants';/;
+  const newImports = `  ${chainName.toUpperCase()}_RPC,\n  ${chainName.toUpperCase()}_CHAIN_ID,\n`;
+  ethersHelpersContent = ethersHelpersContent.replace(importHelpersRegex, match => {
+    return newImports + match;
+  });
+
+  // Add to MULTICALLS
+  const multicallsRegex = /const MULTICALLS: Record<ChainId, Pick<BeefyFinance, 'multicall'>\['multicall'\]> = {[\s\S]*?};/;
+  ethersHelpersContent = ethersHelpersContent.replace(multicallsRegex, match => {
+    return match.slice(0, -2) + `  [ChainId.${chainName}]: addressBookByChainId[ChainId.${chainName}].platforms.beefyfinance.multicall,\n};`;
+  });
+
+  // Add to clients
+  const clientsRegex = /const clients: Record<keyof typeof ChainId, ethers\.providers\.JsonRpcProvider\[\]> = {[\s\S]*?};/;
+  ethersHelpersContent = ethersHelpersContent.replace(clientsRegex, match => {
+    return match.slice(0, -2) + `  ${chainName}: [],\n};`;
+  });
+
+  // Add client initialization
+  const clientInitRegex = /clients\.rootstock\.push\(new ethers\.providers\.JsonRpcProvider\(ROOTSTOCK_RPC\)\);/;
+  const newClientInit = `clients.${chainName}.push(new ethers.providers.JsonRpcProvider(${chainName.toUpperCase()}_RPC));`;
+  ethersHelpersContent = ethersHelpersContent.replace(clientInitRegex, match => {
+    return match + '\n' + newClientInit;
+  });
+
+  // Add to chainRandomClients
+  const chainRandomClientsRegex = /export const chainRandomClients = {[\s\S]*?};/;
+  ethersHelpersContent = ethersHelpersContent.replace(chainRandomClientsRegex, match => {
+    return match.slice(0, -2) + `  ${chainName}RandomClient: () => clients.${chainName}[~~(clients.${chainName}.length * Math.random())],\n};`;
+  });
+
+  // Add to _ethersFactory
+  const ethersFactoryRegex = /switch \(chainId\) {[\s\S]*?}/;
+  ethersHelpersContent = ethersHelpersContent.replace(ethersFactoryRegex, match => {
+    return match.slice(0, -2) + `   case ${chainName.toUpperCase()}_CHAIN_ID:\n      return chainRandomClients.${chainName}RandomClient();\n  }`;
+  });
+
+  fs.writeFileSync(ethersHelpersPath, ethersHelpersContent);
+  console.log(`Updated ethersHelpers.ts with ${chainName} chain information`);
+*/
+  // Add chain and imports to web3Helpers.ts
+  const web3HelpersPath = path.join(__dirname, '../src/utils/web3Helpers.ts');
+  let web3HelpersContent = fs.readFileSync(web3HelpersPath, 'utf8');
+
+  // Add imports
+  const importWeb3HelpersRegex = /} from '\.\.\/constants';/;
+  const newWeb3Imports = `  ${chainName.toUpperCase()}_RPC,\n  ${chainName.toUpperCase()}_CHAIN_ID,\n`;
+  web3HelpersContent = web3HelpersContent.replace(importWeb3HelpersRegex, match => {
+    return newWeb3Imports + match;
+  });
+
+  // Add to MULTICALLS
+  const multicallsWeb3Regex =
+    /const MULTICALLS: Record<ChainId, Pick<BeefyFinance, 'multicall'>\['multicall'\]> = {[\s\S]*?};/;
+  web3HelpersContent = web3HelpersContent.replace(multicallsWeb3Regex, match => {
+    return (
+      match.slice(0, -2) +
+      `  [ChainId.${chainName}]: addressBookByChainId[ChainId.${chainName}].platforms.beefyfinance.multicall,\n};`
+    );
+  });
+
+  const multicallsV3Web3Regex =
+    /const MULTICALL_V3: Partial<Readonly<Record<ChainId, string>>> = {[\s\S]*?};/;
+  web3HelpersContent = web3HelpersContent.replace(multicallsV3Web3Regex, match => {
+    return match.slice(0, -2) + `  [ChainId.${chainName}]: '0xcA11bde05977b3631167028862bE2a173976CA11',\n};`;
+  });
+
+  // Add to clients
+  const clientsWeb3Regex = /const clients: Record<keyof typeof ChainId, Web3\[\]> = {[\s\S]*?};/;
+  web3HelpersContent = web3HelpersContent.replace(clientsWeb3Regex, match => {
+    return match.slice(0, -2) + `  ${chainName}: [],\n};`;
+  });
+
+  // Add client initialization
+  const clientInitWeb3Regex = /clients\.rootstock\.push\(new Web3\(ROOTSTOCK_RPC\)\);/;
+  const newClientInitWeb3 = `clients.${chainName}.push(new Web3(${chainName.toUpperCase()}_RPC));`;
+  web3HelpersContent = web3HelpersContent.replace(clientInitWeb3Regex, match => {
+    return match + '\n' + newClientInitWeb3;
+  });
+
+  // Add to chainRandomClients
+  const chainRandomClientsWeb3Regex = /export const chainRandomClients = {[\s\S]*?};/;
+  web3HelpersContent = web3HelpersContent.replace(chainRandomClientsWeb3Regex, match => {
+    return (
+      match.slice(0, -2) +
+      `  ${chainName}RandomClient: () => clients.${chainName}[~~(clients.${chainName}.length * Math.random())],\n};`
+    );
+  });
+
+  // Add to _ethersFactory
+  const ethersFactoryWeb3Regex = /switch \(chainId\) {[\s\S]*?}/;
+  web3HelpersContent = web3HelpersContent.replace(ethersFactoryWeb3Regex, match => {
+    return (
+      match.slice(0, -2) +
+      `   case ${chainName.toUpperCase()}_CHAIN_ID:\n      return chainRandomClients.${chainName}RandomClient();\n  }`
+    );
+  });
+
+  fs.writeFileSync(web3HelpersPath, web3HelpersContent);
+  console.log(`Updated web3Helpers.ts with ${chainName} chain information`);
 }
 
 Promise.resolve(addChain()).catch(console.error);
