@@ -1,5 +1,33 @@
 [
   {
+    "name": "aura-arb-more-gyd",
+    "address": "0x4284c68f567903537E2d9Ff726fdF8591E431DDC",
+    "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
+    "gauge": "0x159e8E79b63f345461613c97c58B21509287f647",
+    "vaultPoolId": "0x4284c68f567903537e2d9ff726fdf8591e431ddc0002000000000000000005b5",
+    "balancerApi": true,
+    "decimals": "1e18",
+    "rewards": [
+      {
+        "rewardGauge": "0xac658E0ADb13eE33227473999D040DdbCd416428",
+        "oracleId": "USDC",
+        "decimals": "1e6"
+      }
+    ],
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "MORE",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "GYD",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
     "name": "aura-arb-wsteth-reth",
     "address": "0xa899c63BA9ff275d6bfc83E43ee8E58fF6987584",
     "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
