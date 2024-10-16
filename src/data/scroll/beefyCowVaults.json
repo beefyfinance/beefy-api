@@ -1,1 +1,14 @@
-[]
+[
+  {
+    "address": "0x6089c1542C7dC09Ca27181491C37d9777ef9B1FA",
+    "lpAddress": "0x813Df550a32d4A9d42010D057386429ad2328ED9",
+    "tokens": ["0x06eFdBFf2a14a7c8E15944D1F4A48F9F95F663A4", "0x5300000000000000000000000000000000000004"],
+    "tokenOracleIds": ["USDC", "WETH"],
+    "decimals": [6, 18],
+    "oracleId": "oku-cow-scroll-usdc-weth",
+    "rewardPool": {
+      "address": "0x755BB320350CE5C69A8EE4183614F72C2A97813a",
+      "oracleId": "oku-cow-scroll-usdc-weth-rp"
+    }
+  }
+]

@@ -84,7 +84,7 @@ const updateApys = async () => {
       getRealApys(),
       getSeiApys(),
       getRootstockApys(),
-      // getScrollApys(),
+      getScrollApys(),
     ]);
 
     for (const result of results) {
