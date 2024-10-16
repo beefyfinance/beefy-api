@@ -32,6 +32,7 @@ import { manta } from './manta/index.js';
 import { real } from './real/index.js';
 import { sei } from './sei/index.js';
 import { rootstock } from './rootstock/index.js';
+import { scroll } from './scroll/index.js';
 
 export { ChainId }; // enum which is compiled to a JS object
 export type { Chain };
@@ -69,6 +70,7 @@ export const addressBook: ReadonlyRecord<ChainIdKey, Chain> = {
   real,
   sei,
   rootstock,
+  scroll,
 } as const;
 
 export const addressBookByChainId: ReadonlyRecord<`${ChainId}`, Chain> = {
@@ -103,4 +105,5 @@ export const addressBookByChainId: ReadonlyRecord<`${ChainId}`, Chain> = {
   [ChainId.real]: real,
   [ChainId.sei]: sei,
   [ChainId.rootstock]: rootstock,
+  [ChainId.scroll]: scroll,
 } as const;

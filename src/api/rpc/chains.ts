@@ -31,6 +31,7 @@ import {
   REAL_RPC,
   SEI_RPC,
   ROOTSTOCK_RPC,
+  SCROLL_RPC,
 } from '../../constants';
 import { ChainId } from '../../../packages/address-book/src/address-book';
 
@@ -790,6 +791,30 @@ const rootstockChain = {
 
 /// New Chains
 
+
+const scrollChain = {
+  id: 534352,
+  name: 'Scroll',
+  network: 'scroll',
+  nativeCurrency: {
+    decimals: 18,
+    name: 'WETH',
+    symbol: 'WETH',
+  },
+  rpcUrls: {
+    public: { http: [SCROLL_RPC] },
+    default: { http: [SCROLL_RPC] },
+  },
+  blockExplorers: {
+    default: { name: 'scroll explorer', url: 'https://scrollscan.com/' },
+  },
+  contracts: {
+    multicall3: {
+      address: '0xca11bde05977b3631167028862be2a173976ca11',
+    },
+  },
+} as const satisfies Chain;
+
 //build a map from chainId to chain object
 export const getChain: Partial<Record<ChainId, Chain>> = {
   [ChainId.avax]: avalancheChain,
@@ -823,4 +848,5 @@ export const getChain: Partial<Record<ChainId, Chain>> = {
   [ChainId.real]: realChain,
   [ChainId.sei]: seiChain,
   [ChainId.rootstock]: rootstockChain,
+  [ChainId.scroll]: scrollChain,
 } as const;

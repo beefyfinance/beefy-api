@@ -96,6 +96,9 @@ module.exports = {
   get rootstockWeb3() {
     return chainRandomClients.rootstockRandomClient();
   },
+  get scrollWeb3() {
+    return chainRandomClients.scrollRandomClient();
+  },
 
   web3Factory: _web3Factory,
 

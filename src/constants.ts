@@ -64,6 +64,7 @@ const MANTA_RPC = process.env.MANTA_RPC || 'https://manta-pacific.drpc.org';
 const REAL_RPC = process.env.REAL_RPC || 'https://real.drpc.org';
 const SEI_RPC = process.env.SEI_RPC || 'https://evm-rpc.sei-apis.com';
 const ROOTSTOCK_RPC = process.env.ROOTSTOCK_RPC || 'https://rootstock-mainnet.public.blastapi.io';
+const SCROLL_RPC = process.env.SCROLL_RPC || 'https://scroll-mainnet.public.blastapi.io';
 
 /// Chain IDs
 const BSC_CHAIN_ID = ChainId.bsc;
@@ -97,6 +98,7 @@ const MANTA_CHAIN_ID = ChainId.manta;
 const REAL_CHAIN_ID = ChainId.real;
 const SEI_CHAIN_ID = ChainId.sei;
 const ROOTSTOCK_CHAIN_ID = ChainId.rootstock;
+const SCROLL_CHAIN_ID = ChainId.scroll;
 
 /// LP Fee
 const SUSHI_LPF = 0.003;
@@ -144,6 +146,7 @@ const MULTICHAIN_RPC: Record<ChainId, string> = {
   [ChainId.real]: REAL_RPC,
   [ChainId.sei]: SEI_RPC,
   [ChainId.rootstock]: ROOTSTOCK_RPC,
+  [ChainId.scroll]: SCROLL_RPC,
 };
 
 /// Beefy Vaults Endpoints
@@ -209,6 +212,8 @@ const SEI_VAULTS_ENDPOINT =
   'https://raw.githubusercontent.com/beefyfinance/beefy-v2/prod/src/config/vault/sei.json';
 const ROOTSTOCK_VAULTS_ENDPOINT =
   'https://raw.githubusercontent.com/beefyfinance/beefy-v2/prod/src/config/vault/rootstock.json';
+const SCROLL_VAULTS_ENDPOINT =
+   'https://raw.githubusercontent.com/beefyfinance/beefy-v2/prod/src/config/vault/scroll.json';
 
 const MULTICHAIN_ENDPOINTS: Partial<Record<ApiChain, string>> = {
   bsc: BSC_VAULTS_ENDPOINT,
@@ -242,6 +247,7 @@ const MULTICHAIN_ENDPOINTS: Partial<Record<ApiChain, string>> = {
   real: REAL_VAULTS_ENDPOINT,
   sei: SEI_VAULTS_ENDPOINT,
   rootstock: ROOTSTOCK_VAULTS_ENDPOINT,
+  scroll: SCROLL_VAULTS_ENDPOINT,
 } as const;
 
 const EXCLUDED_IDS_FROM_TVL = ['venus-wbnb'];
@@ -362,4 +368,7 @@ export {
   BISWAP_LPF,
   HOP_LPF,
   EXCLUDED_IDS_FROM_TVL,
+  SCROLL_RPC,
+  SCROLL_CHAIN_ID,
+  SCROLL_VAULTS_ENDPOINT,
 };
