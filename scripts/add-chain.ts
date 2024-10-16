@@ -210,6 +210,19 @@ const ${chainName}Chain = {
   console.log(
     `Added ${chainName} chain object to src/api/rpc/chains.ts under "New Chains", to getChain export, and imports`
   );
+
+  // Add the chain to src/api/rpc/rpcs.ts
+  const rpcsPath = path.join(__dirname, '../src/api/rpc/rpcs.ts');
+  let rpcsContent = fs.readFileSync(rpcsPath, 'utf8');
+
+  // Add the chain to the rpcs object
+  const rpcsObjectRegex = /const rpcs: Record<ChainId, string\[\]> = {[\s\S]*?};/;
+  rpcsContent = rpcsContent.replace(rpcsObjectRegex, match => {
+    return match.slice(0, -2) + `  [ChainId.${chainName}]: ['${rpc}'],\n};`;
+  });
+
+  fs.writeFileSync(rpcsPath, rpcsContent);
+  console.log(`Added ${chainName} to src/api/rpc/rpcs.ts`);
 }
 
 Promise.resolve(addChain()).catch(console.error);
