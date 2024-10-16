@@ -138,6 +138,8 @@ const clients: Record<keyof typeof ChainId, ethers.providers.JsonRpcProvider[]> 
 BSC_RPC_ENDPOINTS.forEach(endpoint => {
   clients.bsc.push(new ethers.providers.JsonRpcProvider(endpoint));
 });
+
+// clients
 clients.heco.push(new ethers.providers.JsonRpcProvider(HECO_RPC));
 clients.avax.push(new ethers.providers.JsonRpcProvider(AVAX_RPC));
 clients.polygon.push(new ethers.providers.JsonRpcProvider(POLYGON_RPC));
@@ -168,6 +170,7 @@ clients.manta.push(new ethers.providers.JsonRpcProvider(MANTA_RPC));
 clients.real.push(new ethers.providers.JsonRpcProvider(REAL_RPC));
 clients.sei.push(new ethers.providers.JsonRpcProvider(SEI_RPC));
 clients.rootstock.push(new ethers.providers.JsonRpcProvider(ROOTSTOCK_RPC));
+
 export const chainRandomClients = {
   bscRandomClient: () => clients.bsc[~~(clients.bsc.length * Math.random())],
   hecoRandomClient: () => clients.heco[~~(clients.heco.length * Math.random())],

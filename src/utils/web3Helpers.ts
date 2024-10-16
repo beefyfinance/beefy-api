@@ -67,7 +67,6 @@ import {
   ROOTSTOCK_RPC,
   ROOTSTOCK_CHAIN_ID,
 } from '../constants';
-import { real } from '../../packages/address-book/src/address-book/real';
 
 const MULTICALLS: Record<ChainId, Pick<BeefyFinance, 'multicall'>['multicall']> = {
   [ChainId.bsc]: addressBookByChainId[ChainId.bsc].platforms.beefyfinance.multicall,
@@ -170,9 +169,12 @@ const clients: Record<keyof typeof ChainId, Web3[]> = {
   sei: [],
   rootstock: [],
 };
+
 BSC_RPC_ENDPOINTS.forEach(endpoint => {
   clients.bsc.push(new Web3(endpoint));
 });
+
+// clients
 clients.heco.push(new Web3(HECO_RPC));
 clients.avax.push(new Web3(AVAX_RPC));
 clients.polygon.push(new Web3(POLYGON_RPC));
@@ -203,6 +205,7 @@ clients.manta.push(new Web3(MANTA_RPC));
 clients.real.push(new Web3(REAL_RPC));
 clients.sei.push(new Web3(SEI_RPC));
 clients.rootstock.push(new Web3(ROOTSTOCK_RPC));
+
 export const chainRandomClients = {
   bscRandomClient: () => clients.bsc[~~(clients.bsc.length * Math.random())],
   hecoRandomClient: () => clients.heco[~~(clients.heco.length * Math.random())],
