@@ -1631,6 +1631,20 @@ export const tokens = {
     documentation: 'https://docs.pendle.finance/home?utm_source=landing&utm_medium=landing',
     bridge: 'arbitrum-canonical',
   },
+  mPENDLE: {
+    name: 'mPENDLE',
+    symbol: 'mPENDLE',
+    oracleId: 'mPENDLE',
+    address: '0xB688BA096b7Bb75d7841e47163Cd12D18B36A5bF',
+    chainId: 42161,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://www.pendle.magpiexyz.io/stake',
+    description:
+      'mPENDLE refers to "Magpie PENDLE", is a liquid version of vePENDLE that allows users to earn rewards for their active user engagement on Penpie. PENDLE holders can convert tokens into mPENDLE on Penpie. ',
+    documentation: 'https://docs.penpiexyz.io/tokens/mpendle-token',
+    bridge: 'layer-zero',
+  },
   fETH: {
     name: 'Fractional ETH',
     symbol: 'fETH',

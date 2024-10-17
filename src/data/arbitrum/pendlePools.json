@@ -9,6 +9,15 @@
     "beefyFee": 0.095
   },
   {
+    "name": "pendle-arb-mpendle-26dec24",
+    "address": "0xaceee1ae91bc2f9244d699aa11b8a591f88b3778",
+    "oracle": "tokens",
+    "oracleId": "mPENDLE",
+    "decimals": "1e18",
+    "chainId": 42161,
+    "beefyFee": 0.095
+  },
+  {
     "name": "pendle-arb-rseth-26dec24",
     "address": "0xcb471665bf23b2ac6196d84d947490fd5571215f",
     "oracle": "tokens",

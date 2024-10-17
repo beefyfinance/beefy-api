@@ -120,7 +120,7 @@ const getEllipsisBaseApys = async (pools, url) => {
       apys = { ...apys, ...{ [pool.address.toLowerCase()]: apy } };
     });
   } catch (err) {
-    console.error('Ellipsis base apy error ', url, err);
+    console.error('Ellipsis base apy error ', url, err.message);
   }
   return apys;
 };
