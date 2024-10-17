@@ -1,5 +1,22 @@
 [
   {
+    "address": "0x11261f2ccA8cc18374C3dB932300ADc1FEe2A264",
+    "lpAddress": "0x16F582eA9F07BDd207E37AA1A02d5335940bAFa3",
+    "tokens": ["0x0b2C639c533813f4Aa9D7837CAf62653d097Ff85", "0x57F5E098CaD7A3D1Eed53991D4d66C45C9AF7812"],
+    "tokenOracleIds": ["USDC", "opwUSDM"],
+    "decimals": [6, 18],
+    "oracleId": "velo-cow-op-usdc-wusdm",
+    "providerId": "velodrome",
+    "rewardPool": {
+      "address": "0xEd0f4FeCd394Ba5E282c535019c60626450A649a",
+      "oracleId": "velo-cow-op-usdc-wusdm-rp"
+    },
+    "vault": {
+      "address": "0x0102c38B0A699831116b0F552B9CA450a51F09Ba",
+      "oracleId": "velo-cow-op-usdc-wusdm-vault"
+    }
+  },
+  {
     "address": "0xada9092d89Bfef51E8f4172B7c16CF9FC374315B",
     "lpAddress": "0xe5cF854f63152067059AFd38e03FEFb6CBE25Df3",
     "tokens": ["0x1F32b1c2345538c0c6f582fCB022739c4A194Ebb", "0x4200000000000000000000000000000000000042"],
