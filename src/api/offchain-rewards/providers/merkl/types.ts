@@ -10,6 +10,7 @@ type MerklApiForwarder = {
   target: string;
   owner: string;
   type: number;
+  label: string;
 };
 
 type MerklApiCampaignParameters = {
@@ -29,6 +30,8 @@ export type MerklApiCampaign = {
   mainParameter: string;
   forwarders: MerklApiForwarder[];
   campaignParameters: MerklApiCampaignParameters;
+  /** e.g. { "Beefy 0xDbaF4a5Ad4352adCDD2E914C1B1515E6F7451A82": 6.0934309620835405 } */
+  aprs: { [label: string]: number };
 };
 
 export type MerklApiCampaignsResponse = {

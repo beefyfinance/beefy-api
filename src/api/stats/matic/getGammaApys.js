@@ -1,41 +1,16 @@
+import { getMerklAprs } from '../common/getMerklAprs';
+import { getApyBreakdown } from '../common/getApyBreakdown';
+import { ChainId } from '../../../../packages/address-book/src/types/chainid';
+
 const BigNumber = require('bignumber.js');
-const { POLYGON_CHAIN_ID: chainId } = require('../../../constants');
 const retroPools = require('../../../data/matic/retroGammaPools.json');
 const quickPools = require('../../../data/matic/quickGammaLpPools.json');
-import { getApyBreakdown } from '../common/getApyBreakdown';
 
+const gammaApi = 'https://wire2.gamma.xyz/quickswap/polygon/hypervisors/allData';
 const pools = [...retroPools, ...quickPools];
 
-const merklApi = 'https://api.angle.money/v2/merkl?chainIds=137';
-const gammaApi = 'https://wire2.gamma.xyz/quickswap/polygon/hypervisors/allData';
-
 const getGammaApys = async () => {
-  let poolAprs = {};
-  try {
-    poolAprs = await fetch(merklApi).then(res => res.json());
-  } catch (e) {
-    console.error(`Failed to fetch Merkl APRs: ${chainId}`);
-  }
-
-  let aprs = [];
-  for (let i = 0; i < pools.length; ++i) {
-    let apr = BigNumber(0);
-    let merklPools = poolAprs[chainId].pools;
-    if (Object.keys(merklPools).length !== 0) {
-      for (const [key, value] of Object.entries(merklPools)) {
-        if (key.toLowerCase() === pools[i].pool.toLowerCase()) {
-          for (const [k, v] of Object.entries(value.alm)) {
-            if (k.toLowerCase() === pools[i].address.toLowerCase()) {
-              apr = BigNumber(value.aprs[`Gamma ` + k]).dividedBy(100);
-              // console.log(pools[i].name, apr.toString());
-            }
-          }
-        }
-      }
-    }
-
-    aprs.push(apr);
-  }
+  const merklAprs = await getMerklAprs(ChainId.polygon, pools);
 
   let tradingAprs = {};
   try {
@@ -54,7 +29,7 @@ const getGammaApys = async () => {
     console.log('Polygon Gamma Api Error', e);
   }
 
-  return getApyBreakdown(pools, tradingAprs, aprs, 0);
+  return getApyBreakdown(pools, tradingAprs, merklAprs, 0);
 };
 
 module.exports = getGammaApys;
