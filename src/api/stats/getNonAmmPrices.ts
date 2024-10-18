@@ -109,6 +109,7 @@ import { getBeefyCowRootstockPrices } from './rootstock/getBeefyRootstockCowPric
 import { getBeefyCowScrollPrices } from './scroll/getBeefyScrollCowPrices';
 import { getPendleCommonPrices } from './common/getPendleCommonPrices';
 import { getMellowVeloPrices } from './common/getMellowVeloPrices';
+import getBaseSiloPrices from './base/getBaseSiloPrices';
 
 export type NonAmmPrices = {
   prices: Record<string, number>;
@@ -237,6 +238,7 @@ export async function getNonAmmPrices(tokenPrices: Record<string, number>): Prom
     getMellowVeloPrices(OPTIMISM_CHAIN_ID, require('../../data/optimism/mellowVeloPools.json'), tokenPrices),
     getMellowVeloPrices(BASE_CHAIN_ID, require('../../data/base/mellowAeroPools.json'), tokenPrices),
     getPearlTridentPrices(tokenPrices),
+    getBaseSiloPrices(tokenPrices),
   ];
 
   // Setup error logs

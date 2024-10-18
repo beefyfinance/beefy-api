@@ -16,9 +16,11 @@ const { getSonneApys } = require('./getSonneApys');
 const { getSeamlessApys } = require('./getSeamlessApys');
 const { getBeefyBaseCowApys } = require('./getBeefyBaseCowApys');
 const { getMellowVeloApys } = require('../common/getMellowVeloApys');
+const { getBaseSiloApys } = require('./getBaseSiloApys');
 const { BASE_CHAIN_ID } = require('../../../constants');
 
 const getApys = [
+  getBaseSiloApys,
   getSeamlessApys,
   getSonneApys,
   getAerodromeApys,
