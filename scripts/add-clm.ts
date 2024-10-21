@@ -35,6 +35,7 @@ const rewardPoolAddress = process.argv[7];
 const vaultAddress = process.argv[8] ?? '';
 const poolsJsonFile = vaultsFile.replace('$network', args['network']);
 const poolsJson = require(poolsJsonFile);
+const chainName = args['network'];
 
 const chainId = ChainId[args['network']];
 const provider = new ethers.providers.JsonRpcProvider(MULTICHAIN_RPC[chainId]);
@@ -84,7 +85,7 @@ async function main() {
   const lp = await fetchLiquidityPair(clmAddress);
   const token0 = await fetchToken(lp.token0);
   const token1 = await fetchToken(lp.token1);
-  const newPoolName = `${poolPrefix}-cow-${token0.symbol.toLowerCase()}-${token1.symbol.toLowerCase()}`;
+  const newPoolName = `${poolPrefix}-cow-${chainName}-${token0.symbol.toLowerCase()}-${token1.symbol.toLowerCase()}`;
   const newPool =
     vaultAddress !== ''
       ? {
@@ -111,7 +112,6 @@ async function main() {
           tokenOracleIds: [token0.symbol, token1.symbol],
           decimals: [token0.decimals, token1.decimals],
           oracleId: newPoolName,
-          providerId: poolPrefix,
           rewardPool: {
             address: rewardPoolAddress,
             oracleId: newPoolName + '-rp',

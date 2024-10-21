@@ -1,5 +1,41 @@
 [
   {
+    "address": "0xa2C5f75Dd1DAb086d30850B0e62e420ED83Bedfa",
+    "lpAddress": "0xAE5Aa896bB93F4c7C5660b7fC894b3892255D015",
+    "tokens": ["0x06eFdBFf2a14a7c8E15944D1F4A48F9F95F663A4", "0xf55BEC9cafDbE8730f096Aa55dad6D22d44099Df"],
+    "tokenOracleIds": ["USDC", "USDT"],
+    "decimals": [6, 6],
+    "oracleId": "sushi-cow-scroll-usdc-usdt",
+    "rewardPool": {
+      "address": "0x70B212EBe2bde9812ad63BA1AedD5179B4B3082E",
+      "oracleId": "sushi-cow-scroll-usdc-usdt-rp"
+    }
+  },
+  {
+    "address": "0x0feE8c0140752C62151Aa4F9eA9F564bd40E5B90",
+    "lpAddress": "0x34b7806f913C9D41243736947216305B3866B300",
+    "tokens": ["0x06eFdBFf2a14a7c8E15944D1F4A48F9F95F663A4", "0x5300000000000000000000000000000000000004"],
+    "tokenOracleIds": ["USDC", "WETH"],
+    "decimals": [6, 18],
+    "oracleId": "sushi-cow-scroll-usdc-weth",
+    "rewardPool": {
+      "address": "0xfcdCDb71FF7D0711F8F9A36032Aa3a77A659055D",
+      "oracleId": "sushi-cow-scroll-usdc-weth-rp"
+    }
+  },
+  {
+    "address": "0x0feE8c0140752C62151Aa4F9eA9F564bd40E5B90",
+    "lpAddress": "0x34b7806f913C9D41243736947216305B3866B300",
+    "tokens": ["0x06eFdBFf2a14a7c8E15944D1F4A48F9F95F663A4", "0x5300000000000000000000000000000000000004"],
+    "tokenOracleIds": ["USDC", "WETH"],
+    "decimals": [6, 18],
+    "oracleId": "sushi-cow-scroll-usdc-weth",
+    "rewardPool": {
+      "address": "0xfcdCDb71FF7D0711F8F9A36032Aa3a77A659055D",
+      "oracleId": "sushi-cow-scroll-usdc-weth-rp"
+    }
+  },
+  {
     "address": "0x6089c1542C7dC09Ca27181491C37d9777ef9B1FA",
     "lpAddress": "0x813Df550a32d4A9d42010D057386429ad2328ED9",
     "tokens": ["0x06eFdBFf2a14a7c8E15944D1F4A48F9F95F663A4", "0x5300000000000000000000000000000000000004"],
