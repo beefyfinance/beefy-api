@@ -1508,4 +1508,18 @@ export const tokens = {
     bridge: 'base-canonical',
     risks: ['LARGE_HOLDERS', 'NO_TIMELOCK'],
   },
+  BMX: {
+    name: 'BMX',
+    symbol: 'BMX',
+    oracleId: 'BMX',
+    address: '0x548f93779fBC992010C07467cBaf329DD5F059B7',
+    chainId: 8453,
+    decimals: 18,
+    logoURI: '',
+    description:
+      'BMX is the native-protocol token of Morphex, an innovative DEX that expands on GMX style exchanges where the escrowed tokens have been removed entirely.',
+    website: 'https://www.bmx.trade/',
+    documentation: 'https://docs.morphex.trade/bmx',
+    bridge: 'native',
+  },
 } as const satisfies Record<string, Token>;
