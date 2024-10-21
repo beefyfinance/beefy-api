@@ -254,10 +254,18 @@ const tokens: Partial<Record<keyof typeof ChainId, ConcentratedLiquidityToken[]>
     {
       type: 'UniV3',
       oracleId: 'PEARL',
-      decimalDelta: 1,
-      pool: '0x35BA384F9D30D68028898849ddBf5bda09bbE7EA',
+      decimalDelta: 1e-12,
+      pool: '0x374a765309B6D5a123f32971dcA1E6CeF9fa0066',
       firstToken: 'PEARL',
-      secondToken: 'USTB',
+      secondToken: 'USDC',
+    },
+    {
+      type: 'UniV3',
+      oracleId: 'CVR',
+      decimalDelta: 1,
+      pool: '0xfA88A4a7fF6D776c3D0A637095d7a9a4ed813872',
+      firstToken: 'PEARL',
+      secondToken: 'CVR',
     },
     {
       type: 'UniV3',

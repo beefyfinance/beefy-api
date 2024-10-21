@@ -1,5 +1,22 @@
 [
   {
+    "name": "pearl-trident-more-usdc",
+    "address": "0xf1B4f9337aa2426baeEbEB473b8933e56d8D8204",
+    "gauge": "0x6432f61cDcAB05a4281158C145eFdD4093b86342",
+    "chainId": 111188,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0x25ea98ac87A38142561eA70143fd44c4772A16b6",
+      "oracleId": "MORE",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xc518A88c67CECA8B3f24c4562CB71deeB2AF86B7",
+      "oracleId": "USDC",
+      "decimals": "1e6"
+    }
+  },
+  {
     "name": "pearl-trident-ukre-arcusd",
     "address": "0xA7DF3FCaA03d21b35f18Ac13B2c1164BFd1472B8",
     "gauge": "0xACFA44e1a687738Faf7182fc8ba40fEC02720348",
@@ -94,6 +111,40 @@
       "address": "0x83feDBc0B85c6e29B589aA6BdefB1Cc581935ECD",
       "oracleId": "USTB",
       "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xCE1581d7b4bA40176f0e219b2CaC30088Ad50C7A",
+      "oracleId": "PEARL",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "pearl-trident-cvr-pearl",
+    "address": "0xdd3324B644348C907146C0A7527a32384F2959fd",
+    "gauge": "0x20254A0a1bd2AeA0E4beBaAebca31BB9CFc5932A",
+    "chainId": 111188,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0xB08F026f8a096E6d92eb5BcbE102c273A7a2d51C",
+      "oracleId": "CVR",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xCE1581d7b4bA40176f0e219b2CaC30088Ad50C7A",
+      "oracleId": "PEARL",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "pearl-trident-usdc-pearl",
+    "address": "0xa235F603188754B6CD1deb3A7980E37CCeF779aC",
+    "gauge": "0x2a2c19F881C7Af745d5cf3b0999378938496C614",
+    "chainId": 111188,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0xc518A88c67CECA8B3f24c4562CB71deeB2AF86B7",
+      "oracleId": "USDC",
+      "decimals": "1e6"
     },
     "lp1": {
       "address": "0xCE1581d7b4bA40176f0e219b2CaC30088Ad50C7A",

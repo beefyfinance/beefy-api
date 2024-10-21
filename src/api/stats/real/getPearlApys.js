@@ -41,6 +41,7 @@ export const getPearlApys = async () => {
     const rewardRate = new BigNumber(rewardsResults[i][2]).div('1e18');
     const totalSupply = new BigNumber(totalSupplyResults[i]).div('1e18');
     const apy = rewardRate.times(31536000).times(price).div(totalSupply.times(lpPrice));
+    // console.log(pool.name, apy.toString(10), 'tvl', totalSupply.times(lpPrice).toString(10))
     apys.push(apy);
     //  const pointsData = points?.data?.find(r => r?.address?.toLowerCase() === pool.address.toLowerCase());
     //  pointsApys.push(Number(pointsData?.apy || 0) / 100);
