@@ -46,6 +46,10 @@ const campaignCreatorToType: Record<Address, CampaignTypeSetting> = {
     base: 'zap-v3',
     default: 'external', // we do not own this address on other chains
   },
+  '0x2cf13cEd9960Fd3a081108f283b7725Fe8d48C9e': {
+    mode: 'mode-grant',
+    default: 'external',
+  },
 };
 
 export class MerklProvider implements IOffchainRewardProvider {
