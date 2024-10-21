@@ -343,6 +343,11 @@ const dexscreenerCoins: OraclePriceRequest[] = [
     tokenAddress: '0x6C240DDA6b5c336DF09A4D011139beAAa1eA2Aa2',
     chainId: 'base',
   },
+  {
+    oracleId: 'OGN',
+    tokenAddress: '0x7002458B1DF59EccB57387bC79fFc7C29E22e6f7',
+    chainId: 'base',
+  },
 ];
 
 /**

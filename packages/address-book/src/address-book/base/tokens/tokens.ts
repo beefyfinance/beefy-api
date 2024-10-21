@@ -1447,7 +1447,7 @@ export const tokens = {
     logoURI: '',
     description:
       'A wrapped-BLT is when you replace bread with a tortilla and wrap the bacon, lettuce, and tomato. It provides a different experience, generally less carbs and leaves you feeling lighter. Bread or tortilla, the choice is yours! At BMX, wrapped-BLT (wBLT) is a token received as a result of depositing BLT into BMX’s native Yearn-architectured, auto-compounding reward vault. wBLT functions as a receipt token representing a claim on the underlying BLT within the vault.',
-    website: 'https://spx6900.com/',
+    website: 'https://www.morphex.trade/',
     documentation: 'https://docs.morphex.trade/bmx/wblt',
     bridge: 'native',
   },
@@ -1492,5 +1492,20 @@ export const tokens = {
       'BITCOIN is the ticker of HarryPotterObamaSonic10Inu, a meme coin that incentivizes the creation of novel and entertaining meme content.',
     documentation: 'https://hpos10i.com/#Tokenomics',
     bridge: 'base-canonical',
+  },
+  OGN: {
+    name: 'OriginToken',
+    symbol: 'OGN',
+    oracleId: 'OGN',
+    address: '0x7002458B1DF59EccB57387bC79fFc7C29E22e6f7',
+    chainId: 8453,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://originprotocol.com/',
+    description:
+      'Origin Protocol is a suite of complimentary DeFi products designed to increase economic opportunity for all. These permissionless and composable smart contracts provide superior user experiences across DeFi in a groundbreaking multichain yield ecosystem. OGN is value accrual and governance token for all Origin products. When Origin scales OGN scales as it is the lifeblood of the Origin ecosystem.',
+    documentation: 'https://docs.originprotocol.com/',
+    bridge: 'base-canonical',
+    risks: ['LARGE_HOLDERS', 'NO_TIMELOCK'],
   },
 } as const satisfies Record<string, Token>;
