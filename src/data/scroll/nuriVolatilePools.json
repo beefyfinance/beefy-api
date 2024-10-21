@@ -1,0 +1,42 @@
+[
+  {
+    "name": "nuri-weth-lore",
+    "address": "0x740EE3Ca03CA3f744CD510927b23A1F56966EBab",
+    "gauge": "0xd58F6FfEA0Eb4C7f1366F0c30F874d498Fe082E8",
+    "decimals": "1e18",
+    "chainId": 534352,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0x5300000000000000000000000000000000000004",
+      "oracle": "tokens",
+      "oracleId": "WETH",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x549423E69576b80E91dC836ae37e04209660c4ec",
+      "oracle": "tokens",
+      "oracleId": "LORE",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "nuri-weth-nuri",
+    "address": "0x8aE1C699C9c62fac468a1E253e15B571b69a7ffe",
+    "gauge": "0x52edC4da8423266D81F5CdA947F2d1B438d479a1",
+    "decimals": "1e18",
+    "chainId": 534352,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0x5300000000000000000000000000000000000004",
+      "oracle": "tokens",
+      "oracleId": "WETH",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xAAAE8378809bb8815c08D3C59Eb0c7D1529aD769",
+      "oracle": "tokens",
+      "oracleId": "NURI",
+      "decimals": "1e18"
+    }
+  }
+]

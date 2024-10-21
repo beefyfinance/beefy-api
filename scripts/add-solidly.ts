@@ -48,6 +48,9 @@ const {
   fraxtal: {
     platforms: { ra },
   },
+  scroll: {
+    platforms: { nuri },
+  },
 } = addressBook;
 
 const projects = {
@@ -175,6 +178,12 @@ const projects = {
     volatileFile: '../src/data/fraxtal/raPools.json',
     voter: ra.voter,
   },
+  nuri: {
+    prefix: 'nuri',
+    stableFile: '../src/data/scroll/nuriStablePools.json',
+    volatileFile: '../src/data/scroll/nuriVolatilePools.json',
+    voter: nuri.voter,
+  },
 };
 
 const args = yargs.options({
@@ -290,10 +299,7 @@ async function main() {
 
   const newPools = [newPool, ...poolsJson];
 
-  fs.writeFileSync(
-    path.resolve(__dirname, poolsJsonFile),
-    JSON.stringify(newPools, null, 2) + '\n'
-  );
+  fs.writeFileSync(path.resolve(__dirname, poolsJsonFile), JSON.stringify(newPools, null, 2) + '\n');
 
   console.log(newPool);
 }

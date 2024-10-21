@@ -1,4 +1,3 @@
-
 import type { Token } from '../../../types/token.js';
 
 const ETH = {
@@ -7,7 +6,7 @@ const ETH = {
   symbol: 'WETH',
   oracleId: 'WETH',
   decimals: 18,
-  chainId: 534352, 
+  chainId: 534352,
   website: 'https://weth.io/',
   description: 'Ether or ETH is the native currency built on the Ethereum blockchain.',
   bridge: 'scroll-canonical',
@@ -60,5 +59,48 @@ export const tokens = {
     bridge: 'scroll-canonical',
     logoURI: 'https://hecoinfo.com/token/images/USDTHECO_32.png',
     documentation: 'https://tether.to/en/how-it-works',
+  },
+  NURI: {
+    name: 'NURI Token',
+    symbol: 'NURI',
+    oracleId: 'NURI',
+    address: '0xAAAE8378809bb8815c08D3C59Eb0c7D1529aD769',
+    chainId: 534352,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://www.nuri.exchange/',
+    description:
+      'NURI takes concentrated liquidity to the next level, optimizing for high frequency LPs and Layer 2 cost structures. The result is a hyper-efficient liquidity layer designed to attract the most effective liquidity providers, while delivering a clean and simple UX for traders.',
+    documentation: 'https://docs.nuri.exchange/',
+    bridge: 'native',
+  },
+  loreUSD: {
+    name: 'Lore USD',
+    symbol: 'loreUSD',
+    oracleId: 'loreUSD',
+    address: '0x77fbf86399ed764A084F77B9acCb049F3DbC32d2',
+    chainId: 534352,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://www.lore.finance/',
+    description:
+      'Lore is a decentralized non-custodial liquidity market protocol on Scroll where users can participate as depositors or borrowers. Depositors provide liquidity to the market to earn a passive income, while borrowers are able to borrow in an overcollateralized (perpetually) or undercollateralized (one-block liquidity) fashion.',
+    documentation: 'https://docs.lore.finance/',
+    bridge: 'native',
+    risks: ['NO_TIMELOCK'],
+  },
+  LORE: {
+    name: 'Lore Token',
+    symbol: 'LORE',
+    oracleId: 'LORE',
+    address: '0x549423E69576b80E91dC836ae37e04209660c4ec',
+    chainId: 534352,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://www.lore.finance/',
+    description:
+      'Lore is a decentralized non-custodial liquidity market protocol on Scroll where users can participate as depositors or borrowers. Depositors provide liquidity to the market to earn a passive income, while borrowers are able to borrow in an overcollateralized (perpetually) or undercollateralized (one-block liquidity) fashion.',
+    documentation: 'https://docs.lore.finance/',
+    bridge: 'native',
   },
 } as const satisfies Record<string, Token>;

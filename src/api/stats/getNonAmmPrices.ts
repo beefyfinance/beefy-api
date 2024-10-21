@@ -76,6 +76,7 @@ import getArbitrumSiloPrices from './arbitrum/getArbitrumSiloPrices';
 import getAcrossPrices from './ethereum/getAcrossPrices';
 import getGammaMoonbeamPrices from './moonbeam/getGammaMoonbeamPrices';
 import getVelodromeModeStablePrices from './mode/getVelodromeModeStablePrices';
+import getNuriStablePrices from './scroll/getNuriStablePrices';
 import {
   ARBITRUM_CHAIN_ID as ARB_CHAIN_ID,
   BASE_CHAIN_ID,
@@ -239,6 +240,7 @@ export async function getNonAmmPrices(tokenPrices: Record<string, number>): Prom
     getMellowVeloPrices(BASE_CHAIN_ID, require('../../data/base/mellowAeroPools.json'), tokenPrices),
     getPearlTridentPrices(tokenPrices),
     getBaseSiloPrices(tokenPrices),
+    getNuriStablePrices(tokenPrices),
   ];
 
   // Setup error logs
