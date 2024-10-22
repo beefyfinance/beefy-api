@@ -1,5 +1,17 @@
 [
   {
+    "address": "0x0FA0245e0f41a3436Fd265E5B74eD33A76D8Ce5D",
+    "lpAddress": "0x48CFD18cC8BDa7109BFA777Db660E61ab551221E",
+    "tokens": ["0x06eFdBFf2a14a7c8E15944D1F4A48F9F95F663A4", "0xd29687c813D741E2F938F4aC377128810E217b1b"],
+    "tokenOracleIds": ["USDC", "SCR"],
+    "decimals": [6, 18],
+    "oracleId": "oku-cow-scroll-usdc-scr",
+    "rewardPool": {
+      "address": "0x5eC6Afb2163535631d738e8A7a92A1974Aa1E0B9",
+      "oracleId": "oku-cow-scroll-usdc-scr-rp"
+    }
+  },
+  {
     "address": "0x6D6B87256C0b653fEDA58F1a6c3A7B7e6dc9C41c",
     "lpAddress": "0xB40F3639feD2824D004bBcE0bb7CeCCFDA01cc10",
     "tokens": ["0x06eFdBFf2a14a7c8E15944D1F4A48F9F95F663A4", "0xd29687c813D741E2F938F4aC377128810E217b1b"],
