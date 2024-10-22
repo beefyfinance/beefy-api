@@ -1522,4 +1522,19 @@ export const tokens = {
     documentation: 'https://docs.morphex.trade/bmx',
     bridge: 'native',
   },
+  VIRTUAL: {
+    name: 'VIRTUAL',
+    symbol: 'VIRTUAL',
+    oracleId: 'VIRTUAL',
+    address: '0x0b3e328455c4059EEb9e3f84b5543F74E24e7E1b',
+    chainId: 8453,
+    decimals: 18,
+    logoURI: '',
+    description:
+      'Virtuals Protocol is building the co-ownership layer for AI agents in gaming and entertainment. These agents can operate across a wide range of applications and games, significantly expanding their revenue surface area.',
+    website: 'https://www.virtuals.io/',
+    documentation: 'https://whitepaper.virtuals.io/',
+    bridge: 'base-canonical',
+    risks: ['LARGE_HOLDERS'],
+  },
 } as const satisfies Record<string, Token>;
