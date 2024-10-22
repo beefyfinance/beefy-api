@@ -2255,4 +2255,18 @@ export const tokens = {
     chainId: 42161,
     risks: ['NO_TIMELOCK'],
   },
+  XVS: {
+    name: 'Venus',
+    symbol: 'XVS',
+    oracleId: 'arbXVS',
+    address: '0xc1Eb7689147C81aC840d4FF0D298489fc7986d52',
+    chainId: 42161,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://venus.io/',
+    documentation: 'https://docs-v4.venus.io/',
+    description: 'Venus is an algorithmic money market and synthetic stablecoin protocol.',
+    bridge: 'layer-zero',
+    risks: ['NO_TIMELOCK'],
+  },
 } as const satisfies Record<string, Token>;

@@ -112,6 +112,7 @@ import { getBeefyCowScrollPrices } from './scroll/getBeefyScrollCowPrices';
 import { getPendleCommonPrices } from './common/getPendleCommonPrices';
 import { getMellowVeloPrices } from './common/getMellowVeloPrices';
 import getBaseSiloPrices from './base/getBaseSiloPrices';
+import getVenusArbPrices from './arbitrum/getVenusArbPrices';
 
 export type NonAmmPrices = {
   prices: Record<string, number>;
@@ -243,6 +244,7 @@ export async function getNonAmmPrices(tokenPrices: Record<string, number>): Prom
     getBaseSiloPrices(tokenPrices),
     getNuriStablePrices(tokenPrices),
     getTokanStablePrices(tokenPrices),
+    getVenusArbPrices(tokenPrices),
   ];
 
   // Setup error logs
