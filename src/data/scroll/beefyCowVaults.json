@@ -12,6 +12,24 @@
     }
   },
   {
+
+    "address": "0xf4B6d62e50db95fCA8e8D7c26095c6879ae7eb2F",
+    "lpAddress": "0x76c662b1e25CB67D7365191B55813D8CD3Fdac02",
+    "tokens": ["0x5300000000000000000000000000000000000004", "0xd29687c813D741E2F938F4aC377128810E217b1b"],
+    "tokenOracleIds": ["WETH", "SCR"],
+    "decimals": [18, 18],
+    "oracleId": "nuri-cow-scroll-weth-scr",
+    "providerId": "nuri",
+    "rewardPool": {
+      "address": "0x5dd113919035f9998b0546E83f2f25C745da9221",
+      "oracleId": "nuri-cow-scroll-weth-scr-rp"
+    },
+    "vault": {
+      "address": "0x9cDcfD900E08bb4580EA79B0A8CdE4F69D0Dec3d",
+      "oracleId": "nuri-cow-scroll-weth-scr-vault"
+    }
+  },
+  {
     "address": "0x6D6B87256C0b653fEDA58F1a6c3A7B7e6dc9C41c",
     "lpAddress": "0xB40F3639feD2824D004bBcE0bb7CeCCFDA01cc10",
     "tokens": ["0x06eFdBFf2a14a7c8E15944D1F4A48F9F95F663A4", "0xd29687c813D741E2F938F4aC377128810E217b1b"],
