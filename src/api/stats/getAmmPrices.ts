@@ -86,6 +86,7 @@ import lynexPools from '../../data/linea/lynexVolatilePools.json';
 import nilePools from '../../data/linea/nileVolatilePools.json';
 import raPools from '../../data/fraxtal/raPools.json';
 import nuriPools from '../../data/scroll/nuriVolatilePools.json';
+import tokanPools from '../../data/scroll/tokanVolatilePools.json';
 import velodromeModePools from '../../data/mode/velodromeModePools.json';
 import { addressBookByChainId } from '../../../packages/address-book/src/address-book';
 import { sleep } from '../../utils/time';
@@ -105,6 +106,7 @@ const REFRESH_INTERVAL = 5 * 60 * 1000;
 // Implement in case of emergency -> https://github.com/beefyfinance/beefy-api/issues/103
 const pools = normalizePoolOracleIds([
   ...velodromeModePools,
+  ...tokanPools,
   ...nuriPools,
   ...raPools,
   ...moePools,

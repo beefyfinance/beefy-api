@@ -77,6 +77,7 @@ import getAcrossPrices from './ethereum/getAcrossPrices';
 import getGammaMoonbeamPrices from './moonbeam/getGammaMoonbeamPrices';
 import getVelodromeModeStablePrices from './mode/getVelodromeModeStablePrices';
 import getNuriStablePrices from './scroll/getNuriStablePrices';
+import getTokanStablePrices from './scroll/getTokanStablePrices';
 import {
   ARBITRUM_CHAIN_ID as ARB_CHAIN_ID,
   BASE_CHAIN_ID,
@@ -241,6 +242,7 @@ export async function getNonAmmPrices(tokenPrices: Record<string, number>): Prom
     getPearlTridentPrices(tokenPrices),
     getBaseSiloPrices(tokenPrices),
     getNuriStablePrices(tokenPrices),
+    getTokanStablePrices(tokenPrices),
   ];
 
   // Setup error logs

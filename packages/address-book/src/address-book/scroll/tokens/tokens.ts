@@ -103,4 +103,33 @@ export const tokens = {
     documentation: 'https://docs.lore.finance/',
     bridge: 'native',
   },
+  TKN: {
+    name: 'Tokan',
+    symbol: 'TKN',
+    oracleId: 'TKN',
+    address: '0x1a2fCB585b327fAdec91f55D45829472B15f17a4',
+    chainId: 534352,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://www.tokan.exchange/',
+    description:
+      'Tokan is a DEX and Liquidity Layer driven by the community and centered around the ecosystem. Built on the Scroll network, Tokan serves as the exchange layer and addresses liquidity issues at the protocol level within the network.',
+    documentation: 'https://docs.tokan.exchange/',
+    bridge: 'native',
+    risks: ['NO_TIMELOCK'],
+  },
+  wstETH: {
+    name: 'Wrapped liquid staked Ether 2.0',
+    symbol: 'wstETH',
+    oracleId: 'wstETH',
+    address: '0xf610A9dfB7C89644979b4A0f27063E9e7d7Cda32',
+    chainId: 534352,
+    decimals: 18,
+    website: 'https://lido.fi/',
+    description:
+      'Lido is a liquid staking solution for ETH backed by industry-leading staking providers. Lido lets users stake their ETH - without locking assets or maintaining infrastructure - whilst participating in on-chain activities, e.g. lending. Lido attempts to solve the problems associated with initial ETH staking - illiquidity, immovability and accessibility - making staked ETH liquid and allowing for participation with any amount of ETH to improve security of the Ethereum network.',
+    logoURI: '',
+    documentation: 'https://docs.lido.fi/',
+    bridge: 'scroll-canonical',
+  },
 } as const satisfies Record<string, Token>;

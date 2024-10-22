@@ -49,7 +49,7 @@ const {
     platforms: { ra },
   },
   scroll: {
-    platforms: { nuri },
+    platforms: { nuri, tokan },
   },
 } = addressBook;
 
@@ -183,6 +183,12 @@ const projects = {
     stableFile: '../src/data/scroll/nuriStablePools.json',
     volatileFile: '../src/data/scroll/nuriVolatilePools.json',
     voter: nuri.voter,
+  },
+  tokan: {
+    prefix: 'tokan',
+    stableFile: '../src/data/scroll/tokanStablePools.json',
+    volatileFile: '../src/data/scroll/tokanVolatilePools.json',
+    voter: tokan.voter,
   },
 };
 

@@ -209,25 +209,6 @@
     }
   },
   {
-    "name": "stellaswap-stella-usdc",
-    "address": "0x81e11a9374033d11Cc7e7485A7192AE37D0795D6",
-    "decimals": "1e18",
-    "poolId": 6,
-    "chainId": 1284,
-    "lp0": {
-      "address": "0x0E358838ce72d5e61E0018a2ffaC4bEC5F4c88d2",
-      "oracle": "tokens",
-      "oracleId": "STELLA",
-      "decimals": "1e18"
-    },
-    "lp1": {
-      "address": "0x818ec0A7Fe18Ff94269904fCED6AE3DaE6d6dC0b",
-      "oracle": "tokens",
-      "oracleId": "gmultiUSDC",
-      "decimals": "1e6"
-    }
-  },
-  {
     "name": "stellaswap-usdc-bnb",
     "address": "0xAc2657ba28768FE5F09052f07A9B7ea867A4608f",
     "decimals": "1e18",
