@@ -1535,6 +1535,6 @@ export const tokens = {
     website: 'https://www.virtuals.io/',
     documentation: 'https://whitepaper.virtuals.io/',
     bridge: 'base-canonical',
-    risks: ['LARGE_HOLDERS'],
+    risks: ['LARGE_HOLDERS', 'NO_TIMELOCK'],
   },
 } as const satisfies Record<string, Token>;
