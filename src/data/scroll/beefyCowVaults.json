@@ -1,5 +1,22 @@
 [
   {
+    "address": "0x27018026734665E4BA69c59854d9F0e7Bde2B6B9",
+    "lpAddress": "0xFDDAaB4813dC26E4756f91C175271572510d8D4E",
+    "tokens": ["0x06eFdBFf2a14a7c8E15944D1F4A48F9F95F663A4", "0xd29687c813D741E2F938F4aC377128810E217b1b"],
+    "tokenOracleIds": ["USDC", "SCR"],
+    "decimals": [6, 18],
+    "oracleId": "nuri-cow-scroll-usdc-scr",
+    "providerId": "nuri",
+    "rewardPool": {
+      "address": "0x0641086B7E719B3446c556301Ddf315DD5c4C65a",
+      "oracleId": "nuri-cow-scroll-usdc-scr-rp"
+    },
+    "vault": {
+      "address": "0xb72AfbdAFBBa235776C93a1a58D29A479fE8D863",
+      "oracleId": "nuri-cow-scroll-usdc-scr-vault"
+    }
+  },
+  {
     "address": "0x0FA0245e0f41a3436Fd265E5B74eD33A76D8Ce5D",
     "lpAddress": "0x48CFD18cC8BDa7109BFA777Db660E61ab551221E",
     "tokens": ["0x06eFdBFf2a14a7c8E15944D1F4A48F9F95F663A4", "0xd29687c813D741E2F938F4aC377128810E217b1b"],
@@ -12,7 +29,6 @@
     }
   },
   {
-
     "address": "0xf4B6d62e50db95fCA8e8D7c26095c6879ae7eb2F",
     "lpAddress": "0x76c662b1e25CB67D7365191B55813D8CD3Fdac02",
     "tokens": ["0x5300000000000000000000000000000000000004", "0xd29687c813D741E2F938F4aC377128810E217b1b"],
