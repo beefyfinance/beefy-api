@@ -132,4 +132,17 @@ export const tokens = {
     documentation: 'https://docs.lido.fi/',
     bridge: 'scroll-canonical',
   },
+  SCR: {
+    name: 'Scroll',
+    symbol: 'SCR',
+    oracleId: 'SCR',
+    address: '0xd29687c813D741E2F938F4aC377128810E217b1b',
+    chainId: 534352,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://scroll.io/',
+    description: 'Scroll is the leading zero-knowledge rollup. Scaling Ethereum for good.',
+    documentation: 'https://docs.scroll.io/en/home/',
+    bridge: 'native',
+  },
 } as const satisfies Record<string, Token>;

@@ -257,6 +257,7 @@ const coinGeckoCoins: Record<string, string[]> = {
   'dollar-on-chain': ['DOC'],
   mpendle: ['mPENDLE'],
   dogwifcoin: ['WIF'],
+  scroll: ['SCR'],
 };
 
 /**
