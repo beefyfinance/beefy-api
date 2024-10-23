@@ -1,5 +1,13 @@
 [
   {
+    "name": "besnARS",
+    "address": "0x2aaD03508B546659A33292878C9025CBf9509ce3",
+    "decimals": "1e18",
+    "chainId": 8453,
+    "oracle": "tokens",
+    "oracleId": "snARS"
+  },
+  {
     "name": "mooSonneOP",
     "address": "0x06D95ef15b41270818Ecb0B0f4E80c71F30F8CB1",
     "decimals": "1e18",
