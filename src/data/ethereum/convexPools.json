@@ -1,5 +1,24 @@
 [
   {
+    "name": "curve-eth-heth",
+    "pool": "0x1f7e9321ce32af1f9ea1185fd10d31fea31ffd95",
+    "gauge": "0xc548f3ab7bd06fbd968b83f3b197372e641deae3",
+    "rewardPool": "0x9AB157bfaD66De1aE0eFf4802895dD9C8B755e25",
+    "getDy": ["v1", 1, 0],
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "WETH",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "hETH",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
     "name": "curve-ebtc-wbtc",
     "pool": "0x7704d01908afd31bf647d969c295bb45230cd2d6",
     "getDy": ["v1", 0, 1],
