@@ -16,6 +16,7 @@ export interface BeefyFinance {
   voter: string;
   beefyFeeConfig?: string;
   vaultFactory?: string;
+  legacyStrategyFactory?: string;
   zap?: string;
   zapTokenManager?: string;
   treasurySwapper?: string;
