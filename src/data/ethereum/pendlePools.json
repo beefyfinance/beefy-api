@@ -1,5 +1,35 @@
 [
   {
+    "name": "pendle-syrupusdc-30jan25",
+    "address": "0x373DC7bE84FAdeBc2e879C98289fc662C6985946",
+    "eqbGauge": "0x839ea15588e397f809AfA3517d60360fC4b0A2BC",
+    "oracle": "tokens",
+    "oracleId": "USDC",
+    "decimals": "1e6",
+    "chainId": 1,
+    "beefyFee": 0.095
+  },
+  {
+    "name": "pendle-usd0++-27mar25",
+    "address": "0xaFDC922d0059147486cC1F0f32e3A2354b0d35CC",
+    "eqbGauge": "0x548b5771d2722e1272A341c339162D09b06c5f9E",
+    "oracle": "tokens",
+    "oracleId": "USD0",
+    "decimals": "1e18",
+    "chainId": 1,
+    "beefyFee": 0.095
+  },
+  {
+    "name": "pendle-susds-27mar25",
+    "address": "0xd3719a10991b6ca2cd32de536d6e81ccd46e9c02",
+    "eqbGauge": "0x19d418eee0Ec69401Fb602ddaE2A50fd99203EC2",
+    "oracle": "tokens",
+    "oracleId": "USDS",
+    "decimals": "1e18",
+    "chainId": 1,
+    "beefyFee": 0.095
+  },
+  {
     "name": "pendle-usds-27mar25",
     "address": "0x977ebf77581f94de969349549ab2108a681e8f4c",
     "eqbGauge": "0x09c8cd347047F2eEf6EE13BDCd1C2520f9b208B1",
@@ -171,6 +201,7 @@
   {
     "name": "pendle-steth-25dec25",
     "address": "0xC374f7eC85F8C7DE3207a10bB1978bA104bdA3B2",
+    "eqbGauge": "0x06fd8e5DaE63afCbfdF10604efCa3143Df534f37",
     "oracle": "tokens",
     "oracleId": "ETH",
     "decimals": "1e18",
