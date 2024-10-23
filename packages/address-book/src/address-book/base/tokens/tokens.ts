@@ -1556,7 +1556,7 @@ export const tokens = {
     name: 'Beefy Escrow snARS',
     symbol: 'besnARS',
     oracleId: 'besnARS',
-    address: '0x2aaD03508B546659A33292878C9025CBf9509ce3',
+    address: '0xf95aFD81727ca7a98E4d56b2D699148BDC1ed7Bd',
     chainId: 8453,
     decimals: 18,
     logoURI: '',
