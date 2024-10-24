@@ -41,8 +41,6 @@ import netswapPools from '../../data/metis/netswapLpPools.json';
 import tethysPools from '../../data/metis/tethysLpPools.json';
 import sushiFusePools from '../../data/fuse/sushiFuseLpPools.json';
 import trisolarisMiniPools from '../../data/aurora/trisolarisMiniLpPools.json';
-import beamswapPools from '../../data/moonbeam/beamswapLpPools.json';
-import beamswapMultiRewardLpPools from '../../data/moonbeam/beamswapMultiRewardLpPools.json';
 import stellaswapPools from '../../data/moonbeam/stellaswapLpPools.json';
 import stellaswapPoolsV2 from '../../data/moonbeam/stellaswapLpV2Pools.json';
 import darkCryptoPools from '../../data/cronos/darkCryptoLpPools.json';
@@ -159,8 +157,6 @@ const pools = normalizePoolOracleIds([
   ...liquidusPools,
   ...solarbeamDualLpV2Pools,
   ...oldPools,
-  ...beamswapMultiRewardLpPools,
-  ...beamswapPools,
   ...finnLpPools,
   ...trisolarisLpPools,
   ...solarbeamDualLpPools,
@@ -257,6 +253,7 @@ const coinGeckoCoins: Record<string, string[]> = {
   'dollar-on-chain': ['DOC'],
   mpendle: ['mPENDLE'],
   dogwifcoin: ['WIF'],
+  moonbeam: ['GLMR'],
   scroll: ['SCR'],
 };
 
