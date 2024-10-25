@@ -2321,4 +2321,46 @@ export const tokens = {
     description:
       'Tokemaks Autopilot was developed to address the many challenges liquidity providers (LPs) face when optimizing for best performance. No protocol currently offers fully autonomous, transparent and sophisticated rebalance solution focused solely on liquidity provision.',
   },
+  autoETH: {
+    name: 'Tokemak autoETH',
+    symbol: 'autoETH',
+    oracleId: 'autoETH',
+    address: '0x0A2b94F6871c1D7A32Fe58E1ab5e6deA2f114E56',
+    chainId: 1,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://app.tokemak.xyz/',
+    documentation: 'https://docs.tokemak.xyz/',
+    bridge: 'native',
+    description:
+      'Tokemaks Autopilot was developed to address the many challenges liquidity providers (LPs) face when optimizing for best performance. No protocol currently offers fully autonomous, transparent and sophisticated rebalance solution focused solely on liquidity provision.',
+  },
+  balETH: {
+    name: 'Tokemak balETH',
+    symbol: 'balETH',
+    oracleId: 'balETH',
+    address: '0x6dC3ce9C57b20131347FDc9089D740DAf6eB34c5',
+    chainId: 1,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://app.tokemak.xyz/',
+    documentation: 'https://docs.tokemak.xyz/',
+    bridge: 'native',
+    description:
+      'Tokemaks Autopilot was developed to address the many challenges liquidity providers (LPs) face when optimizing for best performance. No protocol currently offers fully autonomous, transparent and sophisticated rebalance solution focused solely on liquidity provision.',
+  },
+  autoLRT: {
+    name: 'Tokemak autoLRT',
+    symbol: 'autoLRT',
+    oracleId: 'autoLRT',
+    address: '0xE800e3760FC20aA98c5df6A9816147f190455AF3',
+    chainId: 1,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://app.tokemak.xyz/',
+    documentation: 'https://docs.tokemak.xyz/',
+    bridge: 'native',
+    description:
+      'Tokemaks Autopilot was developed to address the many challenges liquidity providers (LPs) face when optimizing for best performance. No protocol currently offers fully autonomous, transparent and sophisticated rebalance solution focused solely on liquidity provision.',
+  },
 } as const satisfies Record<string, Token>;
