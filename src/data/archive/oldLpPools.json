@@ -1,5 +1,24 @@
 [
   {
+    "name": "uniswap-token-weth",
+    "address": "0x5Fa464CEfe8901d66C09b85d5Fcdc55b3738c688",
+    "decimals": "1e18",
+    "chainId": 1,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0x2e9d63788249371f1DFC918a52f8d799F4a38C94",
+      "oracle": "tokens",
+      "oracleId": "TOKE",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2",
+      "oracle": "tokens",
+      "oracleId": "WETH",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "aerodrome-usdc-snars",
     "address": "0x51dEc91E5EEA170C6d07631e290A8B7eb9ED262E",
     "gauge": "0x0000000000000000000000000000000000000000",

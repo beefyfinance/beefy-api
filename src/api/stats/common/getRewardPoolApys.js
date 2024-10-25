@@ -7,6 +7,8 @@ import IRewardPool from '../../../abis/IRewardPool';
 import IWrapper from '../../../abis/IWrapper';
 import { fetchContract } from '../../rpc/client';
 import ERC20Abi from '../../../abis/ERC20Abi';
+import getBlockNumber from '../../../utils/getBlockNumber';
+import getBlockTime from '../../../utils/getBlockTime';
 
 export const getRewardPoolApys = async params => {
   const [tradingAprs, farmApys] = await Promise.all([getTradingAprs(params), getFarmApys(params)]);
@@ -58,22 +60,34 @@ export const getFarmApys = async params => {
     const stakedPrice = await fetchPrice({ oracle, id });
     const totalStakedInUsd = balances[i].times(stakedPrice).dividedBy(pool.decimals ?? '1e18');
 
-    const secondsPerYear = 31536000;
+    const blockTime = params.periodFinish === 'periodInBlockFinish' ? await getBlockTime(params.chainId) : 0;
+    const secondsPerYear = params.periodFinish === 'periodInBlockFinish' ? 31536000 / blockTime : 31536000;
     const yearlyRewards = rewardRates[i].times(secondsPerYear);
     const yearlyRewardsInUsd = yearlyRewards.times(rewardTokenPrice).dividedBy(params.decimals);
+    const block = params.periodFinish === 'periodInBlockFinish' ? await getBlockNumber(params.chainId) : 0;
 
-    const apy = periodFinishes[i].isGreaterThanOrEqualTo(Math.floor(Date.now() / 1000))
-      ? yearlyRewardsInUsd.dividedBy(totalStakedInUsd)
-      : new BigNumber(0);
+    const isActive =
+      params.periodFinish === 'periodInBlockFinish'
+        ? periodFinishes[i].isGreaterThanOrEqualTo(block)
+        : periodFinishes[i].isGreaterThanOrEqualTo(Math.floor(Date.now() / 1000));
+
+    const apy = isActive ? yearlyRewardsInUsd.dividedBy(totalStakedInUsd) : new BigNumber(0);
     apys.push(apy);
 
-    if (params.log) {
+    if (pool.name === 'tokemak-autoeth')
       console.log(
         pool.name,
-        apy.toNumber(),
-        totalStakedInUsd.valueOf(),
-        yearlyRewardsInUsd.valueOf()
+        isActive,
+        yearlyRewardsInUsd.toString(),
+        totalStakedInUsd.toString(),
+        apy.toString(),
+        balances[i].toString(),
+        stakedPrice,
+        block
       );
+
+    if (params.log) {
+      console.log(pool.name, apy.toNumber(), totalStakedInUsd.valueOf(), yearlyRewardsInUsd.valueOf());
     }
   }
   return apys;
@@ -87,22 +101,14 @@ export const getPoolsData = async params => {
   const abi = params.periodFinish ? getAbi(periodFinish) : params.cake ? IWrapper : IRewardPool;
 
   params.pools.forEach(pool => {
-    const rewardPool = fetchContract(
-      pool.rewardPool ? pool.rewardPool : pool.gauge,
-      abi,
-      params.chainId
-    );
+    const rewardPool = fetchContract(pool.rewardPool ? pool.rewardPool : pool.gauge, abi, params.chainId);
 
     const stakedTokenContract = fetchContract(pool.address, ERC20Abi, params.chainId);
     balanceCalls.push(
       params.cake ? stakedTokenContract.read.balanceOf([pool.gauge]) : rewardPool.read.totalSupply()
     );
-    rewardRateCalls.push(
-      params.cake ? rewardPool.read.rewardPerSecond() : rewardPool.read.rewardRate()
-    );
-    periodFinishCalls.push(
-      params.cake ? rewardPool.read.endTimestamp() : rewardPool.read[periodFinish]()
-    );
+    rewardRateCalls.push(params.cake ? rewardPool.read.rewardPerSecond() : rewardPool.read.rewardRate());
+    periodFinishCalls.push(params.cake ? rewardPool.read.endTimestamp() : rewardPool.read[periodFinish]());
   });
 
   const res = await Promise.all([

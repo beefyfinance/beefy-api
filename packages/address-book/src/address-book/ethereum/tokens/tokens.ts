@@ -2307,4 +2307,18 @@ export const tokens = {
     description: 'Staked Dola from Inverse Finance.',
     bridge: 'native',
   },
+  TOKE: {
+    name: 'Tokemak',
+    symbol: 'TOKE',
+    oracleId: 'TOKE',
+    address: '0x2e9d63788249371f1DFC918a52f8d799F4a38C94',
+    chainId: 1,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://app.tokemak.xyz/',
+    documentation: 'https://docs.tokemak.xyz/',
+    bridge: 'native',
+    description:
+      'Tokemaks Autopilot was developed to address the many challenges liquidity providers (LPs) face when optimizing for best performance. No protocol currently offers fully autonomous, transparent and sophisticated rebalance solution focused solely on liquidity provision.',
+  },
 } as const satisfies Record<string, Token>;

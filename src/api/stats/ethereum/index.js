@@ -25,6 +25,7 @@ const { getFxApys } = require('./getFxApys');
 const { getPenpieApys } = require('./getPenpieApys');
 const { getSkyApy } = require('./getSkyApy');
 const { getEquilibriaApys } = require('./getEquilibriaApys');
+const { getTokemakApys } = require('./getTokemakApys');
 
 const getApys = [
   getAcrossApys,
@@ -54,6 +55,7 @@ const getApys = [
   getEthSiloApys,
   getSkyApy,
   getMerklApys,
+  getTokemakApys,
 ];
 
 const getEthereumApys = async () => {

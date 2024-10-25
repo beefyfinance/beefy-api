@@ -1,0 +1,23 @@
+[
+  {
+    "name": "tokemak-autoeth",
+    "address": "0x0A2b94F6871c1D7A32Fe58E1ab5e6deA2f114E56",
+    "gauge": "0x60882D6f70857606Cdd37729ccCe882015d1755E",
+    "underlyingOracleId": "ETH",
+    "decimals": "1e18"
+  },
+  {
+    "name": "tokemak-baleth",
+    "address": "0x6dC3ce9C57b20131347FDc9089D740DAf6eB34c5",
+    "gauge": "0x74c260AE655DeddF3F5705d2498A726DCA2512c1",
+    "underlyingOracleId": "ETH",
+    "decimals": "1e18"
+  },
+  {
+    "name": "tokemak-autolrt",
+    "address": "0xE800e3760FC20aA98c5df6A9816147f190455AF3",
+    "gauge": "0x9597C17f323160D8462c194D72FAAcF7b4CBCd2b",
+    "underlyingOracleId": "ETH",
+    "decimals": "1e18"
+  }
+]
