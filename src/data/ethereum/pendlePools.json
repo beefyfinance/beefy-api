@@ -1,5 +1,15 @@
 [
   {
+    "name": "pendle-eigen-27mar25",
+    "address": "0x07c5b1f5265591a8E0e541466654B07DD2d1a6FD",
+    "eqbGauge": "0xA0A71dfc1Bf974FdB2A182430B8426b432A3205d",
+    "oracle": "tokens",
+    "oracleId": "EIGEN",
+    "decimals": "1e18",
+    "chainId": 1,
+    "beefyFee": 0.095
+  },
+  {
     "name": "pendle-syrupusdc-30jan25",
     "address": "0x373DC7bE84FAdeBc2e879C98289fc662C6985946",
     "eqbGauge": "0x839ea15588e397f809AfA3517d60360fC4b0A2BC",

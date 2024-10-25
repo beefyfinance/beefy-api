@@ -1645,6 +1645,20 @@ export const tokens = {
     documentation: 'https://docs.penpiexyz.io/tokens/mpendle-token',
     bridge: 'layer-zero',
   },
+  ePENDLE: {
+    name: 'Equilibria Pendle',
+    symbol: 'ePENDLE',
+    oracleId: 'ePENDLE',
+    address: '0x3EaBE18eAE267D1B57f917aBa085bb5906114600',
+    chainId: 42161,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://equilibria.fi/stake',
+    description:
+      'ePENDLE is a liquid wrapper of vePENDLE. It can be staked to earn fee/rewards generated on PENDLE.',
+    documentation: 'https://docs.equilibria.fi/token/ependle',
+    bridge: 'layer-zero',
+  },
   fETH: {
     name: 'Fractional ETH',
     symbol: 'fETH',

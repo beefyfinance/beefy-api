@@ -4738,6 +4738,21 @@ export const tokens = {
     bridge: 'layer-zero',
     risks: ['NO_TIMELOCK'],
   },
+  'SolvBTC.BBN': {
+    name: 'SolvBTC Babylon',
+    symbol: 'SolvBTC.BBN',
+    oracleId: 'SolvBTC.BBN',
+    address: '0x1346b618dC92810EC74163e4c27004c921D446a5',
+    chainId: 56,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://app.solv.finance/babylon',
+    description:
+      'SolvBTC.BBN is a liquid staking token (LST) for Bitcoin, representing the staked Bitcoin in Babylon. SolvBTC.BBN allows Bitcoin holders to earn staking yields, in exchange for sharing $1.3 trillion economic security of Bitcoin with PoS chains, while enabling them the flexibility to participate in DeFi.',
+    bridge: 'native',
+    documentation: 'https://docs.solv.finance/solv-documentation/getting-started-2/solvbtc.bbn',
+    risks: ['NO_TIMELOCK'],
+  },
   wstETH: {
     name: 'Lido Wrapped Staked ETH',
     symbol: 'wstETH',

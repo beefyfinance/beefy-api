@@ -251,6 +251,7 @@ const coinGeckoCoins: Record<string, string[]> = {
   'gogopool-ggavax': ['ggAVAX'],
   'rif-token': ['RIF'],
   'dollar-on-chain': ['DOC'],
+  'equilibria-finance-ependle': ['ePENDLE'],
   mpendle: ['mPENDLE'],
   dogwifcoin: ['WIF'],
   moonbeam: ['GLMR'],
