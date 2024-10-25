@@ -1,3 +1,6 @@
+const { ChainId } = require('../../../../packages/address-book/src/address-book');
+const { isFiniteNumber } = require('../../../utils/number');
+const { getCampaignsForChainWithMeta } = require('../../offchain-rewards');
 const getVelodromeModeApys = require('./getVelodromeModeApys');
 
 const getApys = [getVelodromeModeApys];
@@ -10,6 +13,8 @@ const getModeApys = async () => {
   let promises = [];
   getApys.forEach(getApy => promises.push(getApy()));
   const results = await Promise.allSettled(promises);
+  const offchainCampaigns = await getCampaignsForChainWithMeta('mode');
+  const activeCampaigns = offchainCampaigns.campaigns.filter(campaign => campaign.active === true);
 
   for (const result of results) {
     if (result.status !== 'fulfilled') {
@@ -39,6 +44,23 @@ const getModeApys = async () => {
     apys = { ...apys, ...mappedApyValues };
 
     apyBreakdowns = { ...apyBreakdowns, ...mappedApyBreakdownValues };
+  }
+
+  // Add off-chain reward data to APYs
+  for (const campaign of activeCampaigns) {
+    for (const vault of campaign.vaults) {
+      if (!apys[vault.id]) {
+        console.warn(`No base apy found for vault ${vault.id} which has an active campaign`);
+        continue;
+      }
+      if (!isFiniteNumber(vault.apr)) continue;
+      apys[vault.id] += apys[vault.id] + vault.apr;
+
+      if (!apyBreakdowns[vault.id]) continue;
+      apyBreakdowns[vault.id].totalApy += vault.apr;
+      apyBreakdowns[vault.id][campaign.providerId] =
+        (apyBreakdowns[vault.id][campaign.providerId] ?? 0) + vault.apr;
+    }
   }
 
   const end = Date.now();

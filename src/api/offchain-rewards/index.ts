@@ -7,12 +7,14 @@ import { AnyChain, isApiChain, toAppChain } from '../../utils/chain';
 import { typedEntries } from '../../utils/object';
 import { Context } from 'koa';
 import { sendBadRequest, sendServiceUnavailable, sendSuccess } from '../../utils/koa';
+import { getVaultsByChainId } from '../stats/getMultichainVaults';
+import { serviceEventBus } from '../../utils/ServiceEventBus';
 
 const TIME_BETWEEN_UPDATES = 10 * 60; // seconds
 const CACHE_KEY = 'OFFCHAIN_REWARDS';
 
 const getVaultsWithOffchainRewards = createFactory((): Vault[] => {
-  return typedEntries(getAllCowClmsByChain()).flatMap(([apiChain, clms]) => {
+  const clmVaults: Vault[] = typedEntries(getAllCowClmsByChain()).flatMap(([apiChain, clms]) => {
     const chainId = toAppChain(apiChain);
     return clms.flatMap(clm => {
       const clmVaults: Vault[] = [
@@ -45,6 +47,25 @@ const getVaultsWithOffchainRewards = createFactory((): Vault[] => {
       return clmVaults;
     });
   });
+  // Add standard vaults that are not part of the cowcentrated set
+  const existingVaults = new Set(
+    clmVaults.filter(v => v.type === 'standard').map(v => v.address.toLowerCase())
+  );
+  typedEntries(getVaultsByChainId()).forEach(([apiChain, vaults]) => {
+    const chainId = toAppChain(apiChain);
+    vaults
+      .filter(v => v.type === 'standard' && !existingVaults.has(v.earnContractAddress.toLowerCase()))
+      .forEach(v =>
+        clmVaults.push({
+          id: v.id,
+          address: v.earnContractAddress as `0x${string}`,
+          poolAddress: v.earnContractAddress as `0x${string}`,
+          chainId,
+          type: 'standard',
+        })
+      );
+  });
+  return clmVaults;
 });
 
 const getChainsWithOffchainRewards = createFactory(() => {
@@ -56,7 +77,8 @@ const getService = createFactory(async () => {
   return await OffchainRewards.create(vaults, TIME_BETWEEN_UPDATES, CACHE_KEY);
 });
 
-export function initOffchainRewardsService() {
+export async function initOffchainRewardsService() {
+  await Promise.all([serviceEventBus.waitForFirstEvent('vaults/updated')]);
   getService().catch(err => {
     console.error('> [Offchain Rewards] Failed to initialize service', err);
   });
@@ -99,9 +121,7 @@ export async function getAllCampaigns() {
 
 export async function getAllCampaignsWithMeta() {
   const chainIds = getChainsWithOffchainRewards();
-  const perChain = await Promise.all(
-    chainIds.map(chainId => getCampaignsForChainWithMeta(chainId))
-  );
+  const perChain = await Promise.all(chainIds.map(chainId => getCampaignsForChainWithMeta(chainId)));
   return {
     lastUpdated: perChain.map(chain => chain.lastUpdated).reduce((a, b) => Math.max(a, b), 0),
     campaigns: perChain.flatMap(chain => chain.campaigns),

@@ -4,6 +4,7 @@ import { ApiChain } from '../../utils/chain';
 export declare function initVaultService(): Promise<void>;
 
 export declare function getMultichainVaults(): Vault[];
+export declare function getVaultsByChainId(): Record<ApiChain, Vault[]>;
 export declare function getSingleChainVaults(chain: ApiChain): Vault[] | undefined;
 export declare function getVaultByID(vaultId: string): Vault | undefined;
 

@@ -29,6 +29,10 @@ export function getMultichainVaults() {
   return multichainVaults;
 }
 
+export function getVaultsByChainId() {
+  return vaultsByChain;
+}
+
 export function getSingleChainVaults(chain) {
   return vaultsByChain[chain];
 }
@@ -115,9 +119,7 @@ function buildFromGovChains() {
   multichainGovVaults = Object.values(govVaultsByChain).flat();
   govVaultsById = keyBy(multichainGovVaults, 'id');
 
-  Object.keys(multichainGovVaults).forEach(chain =>
-    serviceEventBus.emit(`gov-vaults/${chain}/ready`)
-  );
+  Object.keys(multichainGovVaults).forEach(chain => serviceEventBus.emit(`gov-vaults/${chain}/ready`));
   serviceEventBus.emit('gov-vaults/updated');
 }
 
@@ -125,9 +127,7 @@ function buildFromCowChains() {
   multichainCowVaults = Object.values(cowVaultsByChain).flat();
   cowVaultsById = keyBy(multichainCowVaults, 'id');
 
-  Object.keys(multichainCowVaults).forEach(chain =>
-    serviceEventBus.emit(`cow-vaults/${chain}/ready`)
-  );
+  Object.keys(multichainCowVaults).forEach(chain => serviceEventBus.emit(`cow-vaults/${chain}/ready`));
   serviceEventBus.emit('cow-vaults/updated');
 }
 
