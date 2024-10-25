@@ -74,18 +74,6 @@ export const getFarmApys = async params => {
     const apy = isActive ? yearlyRewardsInUsd.dividedBy(totalStakedInUsd) : new BigNumber(0);
     apys.push(apy);
 
-    if (pool.name === 'tokemak-autoeth')
-      console.log(
-        pool.name,
-        isActive,
-        yearlyRewardsInUsd.toString(),
-        totalStakedInUsd.toString(),
-        apy.toString(),
-        balances[i].toString(),
-        stakedPrice,
-        block
-      );
-
     if (params.log) {
       console.log(pool.name, apy.toNumber(), totalStakedInUsd.valueOf(), yearlyRewardsInUsd.valueOf());
     }
