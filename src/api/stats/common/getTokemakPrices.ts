@@ -22,6 +22,7 @@ const getPrice = async (chainId, vault, tokenPrices) => {
 
   const totalAssets = new BigNumber((await vaultContract.read.totalAssets()).toString());
   const totalSupply = new BigNumber((await vaultContract.read.totalSupply()).toString());
+  const underlying = await vaultContract.read.asset();
   const tokenPrice = getTokenPrice(tokenPrices, vault.underlyingOracleId);
   const price = totalAssets
     .multipliedBy(DECIMALS)
@@ -31,7 +32,7 @@ const getPrice = async (chainId, vault, tokenPrices) => {
     .toNumber();
   //console.log(`Price for ${vault.name} is ${price}`);
 
-  let tokens = [vault.underlying];
+  let tokens = [underlying];
   let balances = [totalAssets.multipliedBy(tokenPrice).dividedBy(vault.decimals).toString(10)];
 
   // console.log(`Vault: ${vault.name}, Tokens: ${tokens}, ${balances}, Total Supply: ${totalSupply.dividedBy(vault.decimals).toString(10)}`);
