@@ -60,7 +60,7 @@ export class MerklProvider implements IOffchainRewardProvider {
   }
 
   supportsVault(vault: Vault): boolean {
-    return vault.type !== 'standard' && this.supportsChain(vault.chainId);
+    return this.supportsChain(vault.chainId);
   }
 
   isActive(campaign: MerklCampaign, unixTime: number): boolean {
@@ -90,6 +90,38 @@ export class MerklProvider implements IOffchainRewardProvider {
     return type[chain] || type.default || 'external';
   }
 
+  protected getVaultsWithAprFromCampaign(vaults: Vault[], campaign: MerklApiCampaign) {
+    return vaults.map(vault => {
+      if (vault.type !== 'standard') {
+        let totalApr: number = 0;
+
+        const poolForwarders = campaign.forwarders.filter(forwarder => {
+          const almAddress = getAddress(forwarder.almAddress);
+          return isAddressEqual(almAddress, vault.address);
+        });
+
+        if (poolForwarders.length > 0) {
+          totalApr = poolForwarders.reduce((acc, forwarder) => {
+            if (isFiniteNumber(forwarder.almAPR)) {
+              acc += forwarder.almAPR / 100;
+            }
+            return acc;
+          }, 0);
+        }
+
+        return {
+          ...vault,
+          apr: totalApr,
+        };
+      } else {
+        return {
+          ...vault,
+          apr: isFiniteNumber(campaign.apr) ? campaign.apr / 100 : 0,
+        };
+      }
+    });
+  }
+
   protected getCampaign(
     apiCampaign: MerklApiCampaign,
     chainId: AppChain,
@@ -105,28 +137,7 @@ export class MerklProvider implements IOffchainRewardProvider {
       return undefined;
     }
 
-    const vaultsWithApr = vaults.map(vault => {
-      let totalApr: number = 0;
-
-      const poolForwarders = apiCampaign.forwarders.filter(forwarder => {
-        const almAddress = getAddress(forwarder.almAddress);
-        return isAddressEqual(almAddress, vault.address);
-      });
-
-      if (poolForwarders.length > 0) {
-        totalApr = poolForwarders.reduce((acc, forwarder) => {
-          if (isFiniteNumber(forwarder.almAPR)) {
-            acc += forwarder.almAPR / 100;
-          }
-          return acc;
-        }, 0);
-      }
-
-      return {
-        ...vault,
-        apr: totalApr,
-      };
-    });
+    const vaultsWithApr = this.getVaultsWithAprFromCampaign(vaults, apiCampaign);
 
     const computeChain = apiCampaign.computeChainId ? fromChainNumber(apiCampaign.computeChainId) : undefined;
     const claimChain = apiCampaign.chainId ? fromChainNumber(apiCampaign.chainId) : undefined;

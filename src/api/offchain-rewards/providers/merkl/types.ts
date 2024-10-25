@@ -29,6 +29,7 @@ export type MerklApiCampaign = {
   mainParameter: string;
   forwarders: MerklApiForwarder[];
   campaignParameters: MerklApiCampaignParameters;
+  apr: number; // used on erc20 campaigns on standard vaults
 };
 
 export type MerklApiCampaignsResponse = {
