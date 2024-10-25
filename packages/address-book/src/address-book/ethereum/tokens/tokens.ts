@@ -2324,7 +2324,7 @@ export const tokens = {
   autoETH: {
     name: 'Tokemak autoETH',
     symbol: 'autoETH',
-    oracleId: 'autoETH',
+    oracleId: 'tokemak-autoeth',
     address: '0x0A2b94F6871c1D7A32Fe58E1ab5e6deA2f114E56',
     chainId: 1,
     decimals: 18,
@@ -2338,7 +2338,7 @@ export const tokens = {
   balETH: {
     name: 'Tokemak balETH',
     symbol: 'balETH',
-    oracleId: 'balETH',
+    oracleId: 'tokemak-baleth',
     address: '0x6dC3ce9C57b20131347FDc9089D740DAf6eB34c5',
     chainId: 1,
     decimals: 18,
@@ -2352,7 +2352,7 @@ export const tokens = {
   autoLRT: {
     name: 'Tokemak autoLRT',
     symbol: 'autoLRT',
-    oracleId: 'autoLRT',
+    oracleId: 'tokemak-autolrt',
     address: '0xE800e3760FC20aA98c5df6A9816147f190455AF3',
     chainId: 1,
     decimals: 18,
