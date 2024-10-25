@@ -34,10 +34,11 @@ const getPrice = async (chainId, vault, tokenPrices) => {
 
   let tokens = [underlying];
   let balances = [totalAssets.dividedBy(vault.decimals).toString(10)];
+  const supply = totalSupply.dividedBy(vault.decimals).toString(10);
 
   // console.log(`Vault: ${vault.name}, Tokens: ${tokens}, ${balances}, Total Supply: ${totalSupply.dividedBy(vault.decimals).toString(10)}`);
 
-  return { [vault.name]: { price, tokens, balances, totalSupply } };
+  return { [vault.name]: { price, tokens, balances, supply } };
 };
 
 const getTokenPrice = (tokenPrices, oracleId) => {
