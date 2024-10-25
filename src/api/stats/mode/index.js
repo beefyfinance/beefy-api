@@ -58,7 +58,8 @@ const getModeApys = async () => {
 
       if (!apyBreakdowns[vault.id]) continue;
       apyBreakdowns[vault.id].totalApy += vault.apr;
-      apyBreakdowns[vault.id][campaign.providerId] = vault.apr;
+      apyBreakdowns[vault.id][campaign.providerId] =
+        (apyBreakdowns[vault.id][campaign.providerId] ?? 0) + vault.apr;
     }
   }
 
