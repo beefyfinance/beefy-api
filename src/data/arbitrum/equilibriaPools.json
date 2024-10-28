@@ -7,7 +7,13 @@
     "oracleId": "ePENDLE",
     "decimals": "1e18",
     "chainId": 42161,
-    "beefyFee": 0.095
+    "beefyFee": 0.095,
+    "rewards": [
+      {
+        "token": "0xbfbcfe8873fe28dfa25f1099282b088d52bbad9c",
+        "oracleId": "EQB"
+      }
+    ]
   },
   {
     "name": "equilibria-arb-mpendle-26dec24",
@@ -17,7 +23,13 @@
     "oracleId": "mPENDLE",
     "decimals": "1e18",
     "chainId": 42161,
-    "beefyFee": 0.095
+    "beefyFee": 0.095,
+    "rewards": [
+      {
+        "token": "0x2ac2b254bc18cd4999f64773a966e4f4869c34ee",
+        "oracleId": "PNP"
+      }
+    ]
   },
   {
     "name": "equilibria-arb-gdai-27mar25",
@@ -29,10 +41,6 @@
     "chainId": 42161,
     "beefyFee": 0.095,
     "rewards": [
-      {
-        "token": "0x0c880f6761F1af8d9Aa9C466984b80DAb9a8c9e8",
-        "oracleId": "PENDLE"
-      },
       {
         "token": "0x912CE59144191C1204E64559FE8253a0e49E6548",
         "oracleId": "ARB"
@@ -47,13 +55,7 @@
     "oracleId": "USDC",
     "decimals": "1e6",
     "chainId": 42161,
-    "beefyFee": 0.095,
-    "rewards": [
-      {
-        "token": "0x0c880f6761F1af8d9Aa9C466984b80DAb9a8c9e8",
-        "oracleId": "PENDLE"
-      }
-    ]
+    "beefyFee": 0.095
   },
   {
     "name": "equilibria-arb-rseth-26dec24",
@@ -65,10 +67,6 @@
     "chainId": 42161,
     "beefyFee": 0.095,
     "rewards": [
-      {
-        "token": "0x0c880f6761F1af8d9Aa9C466984b80DAb9a8c9e8",
-        "oracleId": "PENDLE"
-      },
       {
         "token": "0x912CE59144191C1204E64559FE8253a0e49E6548",
         "oracleId": "ARB"
@@ -86,10 +84,6 @@
     "beefyFee": 0.095,
     "rewards": [
       {
-        "token": "0x0c880f6761F1af8d9Aa9C466984b80DAb9a8c9e8",
-        "oracleId": "PENDLE"
-      },
-      {
         "token": "0x912CE59144191C1204E64559FE8253a0e49E6548",
         "oracleId": "ARB"
       }
@@ -106,10 +100,6 @@
     "beefyFee": 0.095,
     "rewards": [
       {
-        "token": "0x0c880f6761F1af8d9Aa9C466984b80DAb9a8c9e8",
-        "oracleId": "PENDLE"
-      },
-      {
         "token": "0x912CE59144191C1204E64559FE8253a0e49E6548",
         "oracleId": "ARB"
       }
@@ -123,13 +113,7 @@
     "oracleId": "USDe",
     "decimals": "1e18",
     "chainId": 42161,
-    "beefyFee": 0.095,
-    "rewards": [
-      {
-        "token": "0x0c880f6761F1af8d9Aa9C466984b80DAb9a8c9e8",
-        "oracleId": "PENDLE"
-      }
-    ]
+    "beefyFee": 0.095
   },
   {
     "name": "equilibria-arb-seth",
@@ -141,10 +125,6 @@
     "chainId": 42161,
     "beefyFee": 0.095,
     "rewards": [
-      {
-        "token": "0x0c880f6761F1af8d9Aa9C466984b80DAb9a8c9e8",
-        "oracleId": "PENDLE"
-      },
       {
         "token": "0x912CE59144191C1204E64559FE8253a0e49E6548",
         "oracleId": "ARB"
@@ -165,10 +145,6 @@
     "chainId": 42161,
     "beefyFee": 0.095,
     "rewards": [
-      {
-        "token": "0x0c880f6761F1af8d9Aa9C466984b80DAb9a8c9e8",
-        "oracleId": "PENDLE"
-      },
       {
         "token": "0x912CE59144191C1204E64559FE8253a0e49E6548",
         "oracleId": "ARB"

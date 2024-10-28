@@ -253,6 +253,7 @@ const coinGeckoCoins: Record<string, string[]> = {
   'dollar-on-chain': ['DOC'],
   'equilibria-finance-ependle': ['ePENDLE'],
   mpendle: ['mPENDLE'],
+  penpie: ['PNP'],
   dogwifcoin: ['WIF'],
   moonbeam: ['GLMR'],
   scroll: ['SCR'],

@@ -13,6 +13,8 @@ export const getEquilibriaApys = async pools => {
   return getApyBreakdown(pools, tradingAprs, farmApys);
 };
 
+const PENDLE = '0x0c880f6761f1af8d9aa9c466984b80dab9a8c9e8';
+
 const eqbMinter = {
   [ARBITRUM_CHAIN_ID]: '0x09bae4C38B1a9142726C6F08DC4d1260B0C8e94d',
   [ETH_CHAIN_ID]: '0x52f0Bbe0325097ac93e1EC85c32A950E47789Ca5',
@@ -35,8 +37,15 @@ const getPoolApys = async (chainId, pools) => {
     expiryCalls.push(fetchContract(pool.address, equilibriaAbi, chainId).read.expiry());
     const rewardPool = fetchContract(pool.gauge, equilibriaAbi, chainId);
     totalSupplyCalls.push(rewardPool.read.totalSupply());
+    extraRewardInfo.push({ pool: pool.name, token: PENDLE, oracle: 'tokens', oracleId: 'PENDLE' });
+    extraRewardsCalls.push(rewardPool.read.rewards([PENDLE]));
     pool.rewards?.forEach(extra => {
-      extraRewardInfo.push({ pool: pool.name, token: extra.token });
+      extraRewardInfo.push({
+        pool: pool.name,
+        token: extra.token,
+        oracle: extra.oracle ?? 'tokens',
+        oracleId: extra.oracleId,
+      });
       extraRewardsCalls.push(rewardPool.read.rewards([extra.token]));
     });
   });
@@ -75,17 +84,11 @@ const getPoolApys = async (chainId, pools) => {
     let yearlyRewardsInUsd = new BigNumber(0);
 
     for (const extra of extras.filter(e => e.pool === pool.name)) {
-      const poolExtra = pool.rewards.find(e => e.token === extra.token);
-      const price = await fetchPrice({
-        oracle: poolExtra.oracle ?? 'tokens',
-        id: poolExtra.oracleId,
-      });
+      const price = await fetchPrice({ oracle: extra.oracle, id: extra.oracleId });
       const extraRewardsInUsd = extra.rewardRate.times(31536000).times(price).div('1e18');
-      if (poolExtra.oracleId === 'ARB') {
+      if (extra.oracleId === 'ARB') {
         const poolArbApy =
-          extra.periodFinish < Date.now() / 1000
-            ? new BigNumber(0)
-            : extraRewardsInUsd.div(totalStakedInUsd);
+          extra.periodFinish < Date.now() / 1000 ? new BigNumber(0) : extraRewardsInUsd.div(totalStakedInUsd);
         const eqbArbApy = arbApys[pool.address] || 0;
         // console.log(pool.name, 'ARB', poolArbApy.valueOf(), eqbArbApy.valueOf());
         if (poolArbApy.gt(eqbArbApy)) {
@@ -97,9 +100,9 @@ const getPoolApys = async (chainId, pools) => {
         if (extra.periodFinish < Date.now() / 1000) continue;
         yearlyRewardsInUsd = yearlyRewardsInUsd.plus(extraRewardsInUsd);
       }
-      // console.log(pool.name, poolExtra.oracleId, extraRewardsInUsd.div(totalStakedInUsd).valueOf());
+      // console.log(pool.name, extra.oracleId, extraRewardsInUsd.div(totalStakedInUsd).valueOf());
 
-      if (poolExtra.oracleId === 'PENDLE') {
+      if (extra.oracleId === 'PENDLE') {
         const eqbPrice = await fetchPrice({ oracle: 'tokens', id: 'EQB' });
         const extraRewardsInUsd = extra.rewardRate
           .times(eqbFactor)
