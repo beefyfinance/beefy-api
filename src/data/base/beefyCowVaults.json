@@ -1,5 +1,29 @@
 [
   {
+    "address": "0x6FE9Ef95b73EF39c4543f6Ce4850A31fA68422C5",
+    "lpAddress": "0x3A3dc4A26d1ACEAE12fD1026a5856F12d20658EA",
+    "tokens": ["0x4200000000000000000000000000000000000006", "0x55cD6469F597452B5A7536e2CD98fDE4c1247ee4"],
+    "tokenOracleIds": ["ETH", "baseLUNA"],
+    "decimals": [18, 18],
+    "oracleId": "uniswap-cow-weth-luna",
+    "rewardPool": {
+      "address": "0x4C9340730e67ef52EB774Ff2C18Aa1C39EE22939",
+      "oracleId": "uniswap-cow-weth-luna-rp"
+    }
+  },
+  {
+    "address": "0xc6c0984D29a87dB5D15dE91236B024C5B9FeF192",
+    "lpAddress": "0x8055e6de251e414e8393b20AdAb096AfB3cF8399",
+    "tokens": ["0x4200000000000000000000000000000000000006", "0x96419929d7949D6A801A6909c145C8EEf6A40431"],
+    "tokenOracleIds": ["ETH", "SPEC"],
+    "decimals": [18, 18],
+    "oracleId": "uniswap-cow-weth-spec",
+    "rewardPool": {
+      "address": "0x3E7D079aA9a37d5559461567a78a126BCd3eC546",
+      "oracleId": "uniswap-cow-weth-spec-rp"
+    }
+  },
+  {
     "address": "0x9a591261e00F937477E54202B78306716466E6Ac",
     "lpAddress": "0xdE5Ff829fEF54d1BdEc957D9538A306f0EAD1368",
     "tokens": ["0x04D5ddf5f3a8939889F11E97f8c4BB48317F1938", "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913"],
