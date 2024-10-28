@@ -1567,4 +1567,33 @@ export const tokens = {
     bridge: 'native',
     risks: ['LARGE_HOLDERS', 'NO_TIMELOCK'],
   },
+  LUNA: {
+    name: 'Luna by Virtuals',
+    symbol: 'LUNA',
+    oracleId: 'baseLUNA',
+    address: '0x55cD6469F597452B5A7536e2CD98fDE4c1247ee4',
+    chainId: 8453,
+    decimals: 18,
+    logoURI: '',
+    description:
+      'Luna is an on-chain AI influencer. Her followers, affectionately known as her "kittens", are more than fans — they are holders of $LUNA, financially incentivized to see her succeed.',
+    website: 'https://app.virtuals.io/virtuals/68',
+    documentation: 'https://whitepaper.virtuals.io/',
+    bridge: 'native',
+  },
+  SPEC: {
+    name: 'Spectral Token',
+    symbol: 'SPEC',
+    oracleId: 'SPEC',
+    address: '0x96419929d7949D6A801A6909c145C8EEf6A40431',
+    chainId: 8453,
+    decimals: 18,
+    logoURI: '',
+    description:
+      'SPEC enables users building agents on Spectral Syntax and the Inferchain to propose and vote on platform upgrades, modifications, and parameter adjustments, ensuring a decentralized and inclusive approach to governance. Beyond governance, SPEC serves as a utility and value exchange mechanism, integral to the monetization and operation of agents within the network.',
+    website: 'https://www.spectrallabs.xyz/',
+    documentation: 'https://docs.spectrallabs.xyz/',
+    bridge: 'synapse',
+    risks: ['LARGE_HOLDERS', 'NO_TIMELOCK'],
+  },
 } as const satisfies Record<string, Token>;

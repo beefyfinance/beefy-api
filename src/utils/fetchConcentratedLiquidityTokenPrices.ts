@@ -343,6 +343,22 @@ const tokens: Partial<Record<keyof typeof ChainId, ConcentratedLiquidityToken[]>
       firstToken: 'ETH',
       secondToken: 'HarryPotterObamaSonic10Inu',
     },
+    {
+      type: 'UniV3',
+      oracleId: 'baseLUNA',
+      decimalDelta: 1,
+      pool: '0x3A3dc4A26d1ACEAE12fD1026a5856F12d20658EA',
+      firstToken: 'baseLUNA',
+      secondToken: 'ETH',
+    },
+    {
+      type: 'UniV3',
+      oracleId: 'SPEC',
+      decimalDelta: 1,
+      pool: '0x8055e6de251e414e8393b20AdAb096AfB3cF8399',
+      firstToken: 'SPEC',
+      secondToken: 'ETH',
+    },
   ],
 };
 
