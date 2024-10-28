@@ -1,5 +1,39 @@
 [
   {
+    "address": "0x9a591261e00F937477E54202B78306716466E6Ac",
+    "lpAddress": "0xdE5Ff829fEF54d1BdEc957D9538A306f0EAD1368",
+    "tokens": ["0x04D5ddf5f3a8939889F11E97f8c4BB48317F1938", "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913"],
+    "tokenOracleIds": ["USDz", "USDC"],
+    "decimals": [18, 6],
+    "oracleId": "aero-cow-usdz-usdc",
+    "providerId": "aerodrome",
+    "rewardPool": {
+      "address": "0xC933E3d0D36214488e269f56a4d6485429D02a8e",
+      "oracleId": "aero-cow-usdz-usdc-rp"
+    },
+    "vault": {
+      "address": "0xFF6630C8032aD9605e535B0F2099e07f9D777Ec8",
+      "oracleId": "aero-cow-usdz-usdc-vault"
+    }
+  },
+  {
+    "address": "0xeA46Bc8011A4414EB3F31E2f40CFD65BcAF8745f",
+    "lpAddress": "0x7f770A81811B58094b75CeA1dE76304aa8EAE72c",
+    "tokens": ["0x04D5ddf5f3a8939889F11E97f8c4BB48317F1938", "0xcbB7C0000aB88B473b1f5aFd9ef808440eed33Bf"],
+    "tokenOracleIds": ["USDz", "cbBTC"],
+    "decimals": [18, 8],
+    "oracleId": "aero-cow-usdz-cbbtc",
+    "providerId": "aerodrome",
+    "rewardPool": {
+      "address": "0x6A37Da6A8C0E6eeF3d04e6B4C0ff9e2acA80E4Be",
+      "oracleId": "aero-cow-usdz-cbbtc-rp"
+    },
+    "vault": {
+      "address": "0x5FC5f7b7eD001aE57C465c2412f9c1d09eC18b49",
+      "oracleId": "aero-cow-usdz-cbbtc-vault"
+    }
+  },
+  {
     "address": "0xf180a45d6bF3FbEdA3E17Ed0a691B6FcBbE975E2",
     "lpAddress": "0x8e0A7d4018fb2674346d5742055174f899Fe1826",
     "tokens": ["0x0b3e328455c4059EEb9e3f84b5543F74E24e7E1b", "0x4200000000000000000000000000000000000006"],
