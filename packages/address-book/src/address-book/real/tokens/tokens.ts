@@ -31,6 +31,22 @@ export const tokens = {
     chainId: 111188,
     documentation: 'https://developers.circle.com/docs',
   },
+  DAI: {
+    name: 'DAI Stablecoin',
+    symbol: 'DAI',
+    oracleId: 'DAI',
+    address: '0x75d0cBF342060b14c2fC756fd6E717dFeb5B1B70',
+    chainId: 111188,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://makerdao.com/en/',
+    bridge: 'real-canonical',
+    documentation:
+      'https://docs.makerdao.com/smart-contract-modules/dai-module/dai-detailed-documentation',
+    description:
+      'Dai is a stablecoin cryptocurrency which aims to keep its value as close to one United States dollar as possible through an automated system of smart contracts on the Ethereum blockchain',
+    risks: ['NO_TIMELOCK'],
+  },
   arcUSD: {
     name: 'arcUSD',
     address: '0xAEC9e50e3397f9ddC635C6c429C8C7eca418a143',
