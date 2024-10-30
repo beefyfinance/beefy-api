@@ -194,6 +194,7 @@ export async function getNonAmmPrices(tokenPrices: Record<string, number>): Prom
     getCurveArbitrumPrices(tokenPrices),
     getCurveLendPricesCommon(ARB_CHAIN_ID, require('../../data/arbitrum/curveLendPools.json'), tokenPrices),
     getCurveLendPricesCommon(ETH_CHAIN_ID, require('../../data/ethereum/curveLendPools.json'), tokenPrices),
+    getCurveLendPricesCommon(FRX_CHAIN_ID, require('../../data/fraxtal/curveLendPools.json'), tokenPrices),
     getCurveOptimismPrices(tokenPrices),
     getCurveKavaPrices(tokenPrices),
     getCurveCeloPrices(tokenPrices),
