@@ -28,6 +28,7 @@ export const beefyfinance = {
   /// Beefy Swapper Contracts
   beefySwapper: '0x78A89b50F3F36cF9F83c8e41c747DD2dA2476b9a',
   beefyOracle: '0xa07704e69fa64408BEfb3ac1891166d8bbC2585c',
+  beefyOracleChainlink: '0x4583fAC48BdD776096559514A42a957e3DF93C1A',
   beefyOraclePyth: '0x714A52Cdee18cD074BaA87F1f9631B13d302E516',
   beefyOracleUniswapV3: '0x06B515128cac164C63ba4Fd48229839Ba769f71F',
   beefyOracleAlgebra: '0xa7224e31367069637A8C2cc0aa10B7A90D9343C1',

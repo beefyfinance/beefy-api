@@ -1,9 +1,10 @@
 const { ChainId } = require('../../../../packages/address-book/src/address-book');
 const { isFiniteNumber } = require('../../../utils/number');
 const { getCampaignsForChainWithMeta } = require('../../offchain-rewards');
+const { getBeefyCowModeApys } = require('./getBeefyCowModeApys');
 const getVelodromeModeApys = require('./getVelodromeModeApys');
 
-const getApys = [getVelodromeModeApys];
+const getApys = [getBeefyCowModeApys, getVelodromeModeApys];
 
 const getModeApys = async () => {
   const start = Date.now();

@@ -101,4 +101,17 @@ export const tokens = {
     logoURI: 'https://assets.spookyswap.finance/tokens/DOLA.png',
     documentation: 'https://docs.inverse.finance/',
   },
+  xKIM: {
+    name: 'Escrowed KIM',
+    symbol: 'xKIM',
+    oracleId: 'xKIM',
+    address: '0x4D850FE01F07BEd416558A34dbde88bA60aE19BE',
+    chainId: 34443,
+    decimals: 18,
+    website: 'https://www.kim.exchange/',
+    description: 'xKIM is the non-transferable governance token of the Kim ecosystem.',
+    bridge: 'native',
+    logoURI: '',
+    documentation: 'https://docs.kim.exchange/',
+  },
 } as const satisfies Record<string, Token>;

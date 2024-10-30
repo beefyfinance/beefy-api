@@ -107,6 +107,7 @@ import { getBeefyCowBscPrices } from './bsc/getBeefyCowBscPrices';
 import { getBeefyCowAvaxPrices } from './avax/getBeefyCowAvaxPrices';
 import { getBeefyCowRootstockPrices } from './rootstock/getBeefyRootstockCowPrices';
 import { getBeefyCowScrollPrices } from './scroll/getBeefyScrollCowPrices';
+import { getBeefyCowModePrices } from './mode/getBeefyModeCowPrices';
 import { getPendleCommonPrices } from './common/getPendleCommonPrices';
 import { getMellowVeloPrices } from './common/getMellowVeloPrices';
 import getBaseSiloPrices from './base/getBaseSiloPrices';
@@ -229,6 +230,7 @@ export async function getNonAmmPrices(tokenPrices: Record<string, number>): Prom
     getBeefyCowAvaxPrices(tokenPrices),
     getBeefyCowRootstockPrices(tokenPrices),
     getBeefyCowScrollPrices(tokenPrices),
+    getBeefyCowModePrices(tokenPrices),
     getFtmIchiPrices(tokenPrices),
     getPendleCommonPrices(ARB_CHAIN_ID, require('../../data/arbitrum/equilibriaPools.json'), tokenPrices),
     getPendleCommonPrices(ARB_CHAIN_ID, require('../../data/arbitrum/pendlePools.json'), tokenPrices),
