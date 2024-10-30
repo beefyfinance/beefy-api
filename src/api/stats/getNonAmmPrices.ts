@@ -81,7 +81,9 @@ import {
   FRAXTAL_CHAIN_ID as FRX_CHAIN_ID,
   GNOSIS_CHAIN_ID as GNO_CHAIN_ID,
   OPTIMISM_CHAIN_ID,
+  REAL_CHAIN_ID,
 } from '../../constants';
+import getSolidlyStablePrices from './common/getSolidlyStablePrices';
 import getEthSiloPrices from './ethereum/getEthereumSiloPrices';
 import getEthRangePrices from './ethereum/getEthRangePrices';
 import getGammaLineaPrices from './linea/getGammaPrices';
@@ -234,6 +236,7 @@ export async function getNonAmmPrices(tokenPrices: Record<string, number>): Prom
     getMellowVeloPrices(OPTIMISM_CHAIN_ID, require('../../data/optimism/mellowVeloPools.json'), tokenPrices),
     getMellowVeloPrices(BASE_CHAIN_ID, require('../../data/base/mellowAeroPools.json'), tokenPrices),
     getPearlTridentPrices(tokenPrices),
+    getSolidlyStablePrices(REAL_CHAIN_ID, require('../../data/real/pearlStableLpPools.json'), tokenPrices),
     getBaseSiloPrices(tokenPrices),
     getNuriStablePrices(tokenPrices),
     getTokanStablePrices(tokenPrices),

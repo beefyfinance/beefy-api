@@ -117,6 +117,20 @@ export const tokens = {
     chainId: 111188,
     risks: ['NO_TIMELOCK'],
   },
+  stRWA: {
+    name: 'Liquid Staked RWA',
+    address: '0x154F5DB4950d2cd4a7Af425E11865215F90DdB07',
+    symbol: 'stRWA',
+    oracleId: 'stRWA',
+    decimals: 18,
+    website: 'https://re.al/',
+    documentation: 'https://docs.re.al/',
+    description:
+      'stRWA is a liquid version of veRWA that rebases to distribute accrued yield, making veRWA liquid and composable with DeFi protocols.',
+    bridge: 'native',
+    chainId: 111188,
+    risks: ['NO_TIMELOCK'],
+  },
   MORE: {
     name: 'MORE',
     address: '0x25ea98ac87A38142561eA70143fd44c4772A16b6',

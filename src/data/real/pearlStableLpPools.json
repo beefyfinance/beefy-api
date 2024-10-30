@@ -1,0 +1,34 @@
+[
+  {
+    "name": "pearl-ss-strwa-rwa",
+    "address": "0xb28d015563c81dd66Ab781853c03B7B66aa46C1b",
+    "gauge": "0x7F2a53896d4C3714E64616F5457028052B66F1B0",
+    "decimals": "1e18",
+    "lp0": {
+      "address": "0x154F5DB4950d2cd4a7Af425E11865215F90DdB07",
+      "oracleId": "stRWA",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x4644066f535Ead0cde82D209dF78d94572fCbf14",
+      "oracleId": "RWA",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "pearl-ss-more-usdc",
+    "address": "0x1733720f30EF013539Fa2EcEE00671A60B66243D",
+    "gauge": "0xEeEb242df68caaF38D9474196C8e222dB9F9B3F3",
+    "decimals": "1e18",
+    "lp0": {
+      "address": "0x25ea98ac87A38142561eA70143fd44c4772A16b6",
+      "oracleId": "MORE",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xc518A88c67CECA8B3f24c4562CB71deeB2AF86B7",
+      "oracleId": "USDC",
+      "decimals": "1e6"
+    }
+  }
+]

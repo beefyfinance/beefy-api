@@ -85,6 +85,7 @@ import nilePools from '../../data/linea/nileVolatilePools.json';
 import raPools from '../../data/fraxtal/raPools.json';
 import nuriPools from '../../data/scroll/nuriVolatilePools.json';
 import tokanPools from '../../data/scroll/tokanVolatilePools.json';
+import pearlPools from '../../data/real/pearlLpPools.json';
 import velodromeModePools from '../../data/mode/velodromeModePools.json';
 import { addressBookByChainId } from '../../../packages/address-book/src/address-book';
 import { sleep } from '../../utils/time';
@@ -95,7 +96,6 @@ import { fetchVenusPrices } from './bsc/venus/getVenusPrices';
 import { getLpBasedPrices } from './getLpBasedPrices';
 import uniswapLpPools from '../../data/ethereum/uniswapV2LpPools.json';
 import { fetchDexScreenerPriceOracles, OraclePriceRequest } from '../../utils/fetchDexScreenerPrices';
-import { nuri } from '../../../packages/address-book/src/address-book/scroll/platforms';
 
 const INIT_DELAY = 2 * 1000;
 const REFRESH_INTERVAL = 5 * 60 * 1000;
@@ -104,6 +104,7 @@ const REFRESH_INTERVAL = 5 * 60 * 1000;
 // Implement in case of emergency -> https://github.com/beefyfinance/beefy-api/issues/103
 const pools = normalizePoolOracleIds([
   ...velodromeModePools,
+  ...pearlPools,
   ...tokanPools,
   ...nuriPools,
   ...raPools,
@@ -254,6 +255,7 @@ const coinGeckoCoins: Record<string, string[]> = {
   'equilibria-finance-ependle': ['ePENDLE'],
   mpendle: ['mPENDLE'],
   penpie: ['PNP'],
+  're-al': ['RWA'],
   dogwifcoin: ['WIF'],
   moonbeam: ['GLMR'],
   scroll: ['SCR'],

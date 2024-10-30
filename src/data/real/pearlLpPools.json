@@ -1,0 +1,36 @@
+[
+  {
+    "name": "pearl-cp-arcusd-pearl",
+    "address": "0xd3Ae2AF8f1Fb00af2e363fe6592C19ABF9105FA9",
+    "gauge": "0x69d261aDF8f0D8deefF48A9cEDe9693A4620441f",
+    "decimals": "1e18",
+    "chainId": 111188,
+    "lp0": {
+      "address": "0xAEC9e50e3397f9ddC635C6c429C8C7eca418a143",
+      "oracleId": "arcUSD",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xCE1581d7b4bA40176f0e219b2CaC30088Ad50C7A",
+      "oracleId": "PEARL",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "pearl-cp-usdc-pearl",
+    "address": "0xAFb84DFe257cBA43d2f44B4367aDAc5a82775275",
+    "gauge": "0xC02A5CA718633090bA9CB086da5BDb5917D7d433",
+    "decimals": "1e18",
+    "chainId": 111188,
+    "lp0": {
+      "address": "0xc518A88c67CECA8B3f24c4562CB71deeB2AF86B7",
+      "oracleId": "USDC",
+      "decimals": "1e6"
+    },
+    "lp1": {
+      "address": "0xCE1581d7b4bA40176f0e219b2CaC30088Ad50C7A",
+      "oracleId": "PEARL",
+      "decimals": "1e18"
+    }
+  }
+]

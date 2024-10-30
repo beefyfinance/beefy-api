@@ -56,6 +56,17 @@ const tokens: Partial<Record<keyof typeof ChainId, StablePoolLiquidityToken[]>> 
       secondTokenAddress: '0xaf88d065e77c8cC2239327C5EDb3A432268e5831',
     },
   ],
+  real: [
+    {
+      oracleId: 'stRWA',
+      pool: '0xb28d015563c81dd66Ab781853c03B7B66aa46C1b',
+      firstToken: 'stRWA',
+      firstTokenDecimals: '1e18',
+      secondToken: 'RWA',
+      secondTokenDecimals: 1e18,
+      secondTokenAddress: '0x4644066f535Ead0cde82D209dF78d94572fCbf14',
+    },
+  ],
   scroll: [
     {
       oracleId: 'loreUSD',
