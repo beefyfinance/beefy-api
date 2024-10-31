@@ -20,7 +20,7 @@ import getCurveKavaPrices from './kava/getCurvePrices';
 import getSushiKavaPrices from './kava/getSushiPrices';
 import { getGmxV2ArbitrumPrices } from './arbitrum/getGmxV2Prices';
 import { getGmxArbitrumPrices } from './arbitrum/getGmxPrices';
-import getGmxAvalanchePrices from './avax/getGmxPrices';
+import { getGmxAvalanchePrices } from './avax/getGmxPrices';
 import getAuraBalancerPrices from './ethereum/getAuraBalancerPrices';
 import getFerroPrices from './cronos/getFerroPrices';
 import getHopArbPrices from './arbitrum/getHopArbPrices';
