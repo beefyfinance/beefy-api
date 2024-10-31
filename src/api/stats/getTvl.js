@@ -93,6 +93,9 @@ const {
 
   ROOTSTOCK_CHAIN_ID,
   ROOTSTOCK_VAULTS_ENDPOINT,
+
+  SCROLL_CHAIN_ID,
+  SCROLL_VAULTS_ENDPOINT,
 } = require('../../constants');
 const { getKey, setKey } = require('../../utils/cache');
 
@@ -225,6 +228,10 @@ const chains = [
   {
     chainId: ROOTSTOCK_CHAIN_ID,
     vaultsEndpoint: ROOTSTOCK_VAULTS_ENDPOINT,
+  },
+  {
+    chainId: SCROLL_CHAIN_ID,
+    vaultsEndpoint: SCROLL_VAULTS_ENDPOINT,
   },
 ];
 
