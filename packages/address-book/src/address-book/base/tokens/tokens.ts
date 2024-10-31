@@ -1596,4 +1596,32 @@ export const tokens = {
     bridge: 'synapse',
     risks: ['LARGE_HOLDERS', 'NO_TIMELOCK'],
   },
+  TALENT: {
+    name: 'Talent Protocol Token',
+    symbol: 'TALENT',
+    oracleId: 'TALENT',
+    address: '0x9a33406165f562E16C3abD82fd1185482E01b49a',
+    chainId: 8453,
+    decimals: 18,
+    logoURI: '',
+    description:
+      'TALENT is the utility token for Talent Protocol. The token incentivizes all ecosystem participants - apps, organizations, and individuals - to create and curate verifiable reputation data.',
+    website: 'https://talentprotocol.com/',
+    documentation: 'https://docs.talentprotocol.com/',
+    bridge: 'native',
+    risks: ['LARGE_HOLDERS', 'NO_TIMELOCK'],
+  },
+  HIGHER: {
+    name: 'Higher',
+    symbol: 'HIGHER',
+    oracleId: 'HIGHER',
+    address: '0x0578d8A44db98B23BF096A382e016e29a5Ce0ffe',
+    chainId: 8453,
+    decimals: 18,
+    logoURI: '',
+    description:
+      "Higher is an experiment in discovering a brand, together. It's yours, everyone's, no one's. You can add to it, remix it, destroy and rebuild it. It’s an open canvas for creativity. Meme coin on Base.",
+    website: 'https://www.aimhigher.net/',
+    bridge: 'native',
+  },
 } as const satisfies Record<string, Token>;
