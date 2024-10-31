@@ -38,7 +38,7 @@ export const getTokemakApys = async () => {
 
 const getTradingAprs = async () => {
   const tradingAprs = {};
-  const date = (Date.now() / 1000).toFixed() - 86400;
+  const date = (Date.now() / 1000).toFixed() - 30 * 86400;
 
   const fetchPool = async pool => {
     try {
@@ -56,10 +56,14 @@ const getTradingAprs = async () => {
       });
 
       const { data } = await response.json();
-      return [
-        pool.address.toLowerCase(),
-        new BigNumber(data.autopoolDayDatas[0].autopoolApy).dividedBy(1e18),
-      ];
+
+      let apy = new BigNumber(0);
+
+      data.autopoolDayDatas.forEach(data => (apy = apy.plus(new BigNumber(data.autopoolApy))));
+
+      apy = apy.dividedBy(new BigNumber(data.autopoolDayDatas.length)).dividedBy(1e18);
+
+      return [pool.address.toLowerCase(), apy];
     } catch (e) {
       console.log('Tokemak url fetch error for pool', pool.address, e);
       return null;
