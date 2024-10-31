@@ -1,5 +1,17 @@
 [
   {
+    "address": "0x611B6a9c0461c26Aa3ab04355e7813291652b1ad",
+    "lpAddress": "0xD0553A0853C57267c1F2E212347002B052595558",
+    "tokens": ["0x5Cf6826140C1C56Ff49C808A1A75407Cd1DF9423", "0xE30feDd158A2e3b13e9badaeABaFc5516e95e8C7"],
+    "tokenOracleIds": ["iSEI", "WSEI"],
+    "decimals": [6, 18],
+    "oracleId": "dragon-cow-isei-wsei-500",
+    "rewardPool": {
+      "address": "0xB80114171cA830e4575aD06A50aFDF392f7D67f2",
+      "oracleId": "dragon-cow-isei-wsei-500-rp"
+    }
+  },
+  {
     "address": "0xB99813c691d8A1825b839BA3a26642e39B63Cc06",
     "lpAddress": "0x882f62fe8E9594470D1da0f70Bc85096F6c60423",
     "tokens": ["0x3894085Ef7Ff0f0aeDf52E2A2704928d1Ec074F1", "0xE30feDd158A2e3b13e9badaeABaFc5516e95e8C7"],
