@@ -359,6 +359,22 @@ const tokens: Partial<Record<keyof typeof ChainId, ConcentratedLiquidityToken[]>
       firstToken: 'SPEC',
       secondToken: 'ETH',
     },
+    {
+      type: 'UniV3',
+      oracleId: 'HIGHER',
+      decimalDelta: 1,
+      pool: '0xCC28456d4Ff980CeE3457Ca809a257E52Cd9CDb0',
+      firstToken: 'ETH',
+      secondToken: 'HIGHER',
+    },
+    {
+      type: 'UniV3',
+      oracleId: 'TALENT',
+      decimalDelta: 1,
+      pool: '0xAfD8f9B89e2Af8246523573A369010DAF9489B12',
+      firstToken: 'TALENT',
+      secondToken: 'ETH',
+    },
   ],
 };
 
