@@ -5,10 +5,10 @@
     "tokens": ["0x1dd2d631c92b1aCdFCDd51A0F7145A50130050C4", "0x4200000000000000000000000000000000000006"],
     "tokenOracleIds": ["ALB", "ETH"],
     "decimals": [18, 18],
-    "oracleId": "uniswap-cow-alb-weth",
+    "oracleId": "uniswap-cow-base-alb-weth",
     "rewardPool": {
       "address": "0x0bf05FFCd6fdB5a370cF359d27322B372757E701",
-      "oracleId": "uniswap-cow-alb-weth-rp"
+      "oracleId": "uniswap-cow-base-alb-weth-rp"
     }
   },
   {
@@ -17,10 +17,10 @@
     "tokens": ["0x4200000000000000000000000000000000000006", "0x9a33406165f562E16C3abD82fd1185482E01b49a"],
     "tokenOracleIds": ["ETH", "TALENT"],
     "decimals": [18, 18],
-    "oracleId": "uniswap-cow-weth-talent",
+    "oracleId": "uniswap-cow-base-weth-talent",
     "rewardPool": {
       "address": "0x554207181866888ac29c9220aC650ffBA85788D7",
-      "oracleId": "uniswap-cow-weth-talent-rp"
+      "oracleId": "uniswap-cow-base-weth-talent-rp"
     }
   },
   {
@@ -29,10 +29,10 @@
     "tokens": ["0x0578d8A44db98B23BF096A382e016e29a5Ce0ffe", "0x4200000000000000000000000000000000000006"],
     "tokenOracleIds": ["HIGHER", "ETH"],
     "decimals": [18, 18],
-    "oracleId": "uniswap-cow-higher-weth",
+    "oracleId": "uniswap-cow-base-higher-weth",
     "rewardPool": {
       "address": "0xD964FF8Bb5390d11727d4899Ce5EE3bA760F9c26",
-      "oracleId": "uniswap-cow-higher-weth-rp"
+      "oracleId": "uniswap-cow-base-higher-weth-rp"
     }
   },
   {
