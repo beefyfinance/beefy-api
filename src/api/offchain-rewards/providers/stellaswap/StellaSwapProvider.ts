@@ -14,6 +14,7 @@ import { getJson } from '../../../../utils/http';
 
 const providerId = 'stellaswap' as const;
 const supportedChains = new Set<AppChain>(['moonbeam']);
+const supportedVaultTypes = new Set<Vault['type']>(['cowcentrated', 'cowcentrated-pool']);
 const rewardRegistryAddress: Address = '0x0e4cAEf48De8FEc07b7dfeae8D73848Aaa8be0cB';
 
 export class StellaSwapProvider implements IOffchainRewardProvider {
@@ -24,7 +25,7 @@ export class StellaSwapProvider implements IOffchainRewardProvider {
   }
 
   supportsVault(vault: Vault): boolean {
-    return vault.type !== 'standard' && this.supportsChain(vault.chainId);
+    return supportedVaultTypes.has(vault.type) && this.supportsChain(vault.chainId);
   }
 
   isActive(campaign: StellaSwapCampaign, unixTime: number): boolean {

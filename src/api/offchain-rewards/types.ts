@@ -15,7 +15,8 @@ export type Vault = {
   id: string;
   address: Address;
   poolAddress: Address;
-  type: 'standard' | 'gov' | 'cowcentrated';
+  /** @dev this does not match vault config */
+  type: 'standard' | 'gov' | 'cowcentrated' | 'cowcentrated-pool' | 'cowcentrated-vault';
   chainId: AppChain;
 };
 
