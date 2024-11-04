@@ -1,40 +1,8 @@
 [
   {
-    "name": "equilibria-arb-ependle-26dec24",
-    "address": "0xC0Cda2d5d4d75544Cdf01EF69B1E5e56EA366d17",
-    "gauge": "0x320A0C51D1876f16bd9b508EB5Ac2E3dce5A3203",
-    "oracle": "tokens",
-    "oracleId": "ePENDLE",
-    "decimals": "1e18",
-    "chainId": 42161,
-    "beefyFee": 0.095,
-    "rewards": [
-      {
-        "token": "0xbfbcfe8873fe28dfa25f1099282b088d52bbad9c",
-        "oracleId": "EQB"
-      }
-    ]
-  },
-  {
-    "name": "equilibria-arb-mpendle-26dec24",
-    "address": "0xaceee1ae91bc2f9244d699aa11b8a591f88b3778",
-    "gauge": "0xD64c8D303CE9d0B6dA9261Be55e408F26C15f0d8",
-    "oracle": "tokens",
-    "oracleId": "mPENDLE",
-    "decimals": "1e18",
-    "chainId": 42161,
-    "beefyFee": 0.095,
-    "rewards": [
-      {
-        "token": "0x2ac2b254bc18cd4999f64773a966e4f4869c34ee",
-        "oracleId": "PNP"
-      }
-    ]
-  },
-  {
     "name": "equilibria-arb-gdai-27mar25",
     "address": "0xA9104b8B6698979568852C30231871e28A482b3C",
-    "gauge": "0x518Ba876C34c688dD7a3d161602973A7705Bbff2",
+    "eqbGauge": "0x518Ba876C34c688dD7a3d161602973A7705Bbff2",
     "oracle": "tokens",
     "oracleId": "DAI",
     "decimals": "1e18",
@@ -50,7 +18,7 @@
   {
     "name": "equilibria-arb-gusdc-26dec24",
     "address": "0xa877a0e177b54a37066c1786f91a1dab68f094af",
-    "gauge": "0x7504115f3feCe387D95521FA2E5c533bda88f998",
+    "eqbGauge": "0x7504115f3feCe387D95521FA2E5c533bda88f998",
     "oracle": "tokens",
     "oracleId": "USDC",
     "decimals": "1e6",
@@ -60,7 +28,7 @@
   {
     "name": "equilibria-arb-rseth-26dec24",
     "address": "0xcb471665bf23b2ac6196d84d947490fd5571215f",
-    "gauge": "0x2222D30001a334A3Be2cF74d7341416Eb4dfE1d7",
+    "eqbGauge": "0x2222D30001a334A3Be2cF74d7341416Eb4dfE1d7",
     "oracle": "tokens",
     "oracleId": "ETH",
     "decimals": "1e18",
@@ -76,7 +44,7 @@
   {
     "name": "equilibria-arb-eeth-26dec24",
     "address": "0x6b92feb89ed16aa971b096e247fe234db4aaa262",
-    "gauge": "0x68404945A6038fe38452e9594E8AF2F4f6591D93",
+    "eqbGauge": "0x68404945A6038fe38452e9594E8AF2F4f6591D93",
     "oracle": "tokens",
     "oracleId": "ETH",
     "decimals": "1e18",
@@ -92,7 +60,7 @@
   {
     "name": "equilibria-arb-unieth-26dec24",
     "address": "0x279b44e48226d40ec389129061cb0b56c5c09e46",
-    "gauge": "0x54a64A549b52024Fd913ecb3cF872583215618fB",
+    "eqbGauge": "0x54a64A549b52024Fd913ecb3cF872583215618fB",
     "oracle": "tokens",
     "oracleId": "ETH",
     "decimals": "1e18",
@@ -108,7 +76,7 @@
   {
     "name": "equilibria-arb-usde-28nov24",
     "address": "0x281fe15fd3e08a282f52d5cf09a4d13c3709e66d",
-    "gauge": "0xA85c189E38F51d34bc797D097DF3e7cd283a84Cc",
+    "eqbGauge": "0xA85c189E38F51d34bc797D097DF3e7cd283a84Cc",
     "oracle": "tokens",
     "oracleId": "USDe",
     "decimals": "1e18",
@@ -118,7 +86,7 @@
   {
     "name": "equilibria-arb-seth",
     "address": "0xACcd9A7cb5518326BeD715f90bD32CDf2fEc2D14",
-    "gauge": "0x74ddFb121Ae1Da2DfF17f7e53d5021c5E52d0C34",
+    "eqbGauge": "0x74ddFb121Ae1Da2DfF17f7e53d5021c5E52d0C34",
     "oracle": "tokens",
     "oracleId": "ETH",
     "decimals": "1e18",
@@ -138,7 +106,7 @@
   {
     "name": "equilibria-arb-reth",
     "address": "0x14FbC760eFaF36781cB0eb3Cb255aD976117B9Bd",
-    "gauge": "0x16F46012dB0f308373Fa783a9f52655152D01594",
+    "eqbGauge": "0x16F46012dB0f308373Fa783a9f52655152D01594",
     "oracle": "tokens",
     "oracleId": "ETH",
     "decimals": "1e18",

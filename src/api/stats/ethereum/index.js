@@ -24,7 +24,7 @@ const { getbeQIApy } = require('./getbeQIApy');
 const { getFxApys } = require('./getFxApys');
 const { getPenpieApys } = require('./getPenpieApys');
 const { getSkyApy } = require('./getSkyApy');
-const { getEquilibriaApys } = require('./getEquilibriaApys');
+const { getEquilibriaApys } = require('../common/getEquilibriaApys');
 const { getTokemakApys } = require('./getTokemakApys');
 
 const getApys = [
@@ -50,7 +50,7 @@ const getApys = [
   getVerseLpApys,
   getGammaApy,
   getPenpieApys,
-  getEquilibriaApys,
+  () => getEquilibriaApys(require('../../../data/ethereum/pendlePools.json')),
   getETHCompoundV3Apys,
   getEthSiloApys,
   getSkyApy,

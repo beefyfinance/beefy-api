@@ -31,7 +31,11 @@ const getApys = [
   getAuraArbitrumApys,
   getGnsApys,
   getHopApys,
-  () => getEquilibriaApys(require('../../../data/arbitrum/equilibriaPools.json')),
+  () =>
+    getEquilibriaApys([
+      ...require('../../../data/arbitrum/pendlePools.json'),
+      ...require('../../../data/arbitrum/equilibriaPools.json'),
+    ]),
   getPenpieApys,
   getMimApys,
   getGmxV2Apys,
