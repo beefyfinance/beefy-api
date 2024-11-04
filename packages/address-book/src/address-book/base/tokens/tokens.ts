@@ -1624,4 +1624,19 @@ export const tokens = {
     website: 'https://www.aimhigher.net/',
     bridge: 'native',
   },
+  BRETT: {
+    name: 'Brett',
+    symbol: 'BRETT',
+    oracleId: 'BRETT',
+    address: '0x532f27101965dd16442E59d40670FaF5eBB142E4',
+    chainId: 8453,
+    decimals: 18,
+    logoURI: '',
+    description:
+      "Brett is the legendary character from Matt Furie’s Boys' club comic. He has become the blue mascot of the blue chain. Meme coin on base.",
+    website: 'https://www.basedbrett.com/',
+    documentation: 'https://www.basedbrett.com/#tokenomics',
+    bridge: 'native',
+    risks: ['LARGE_HOLDERS', 'NO_TIMELOCK'],
+  },
 } as const satisfies Record<string, Token>;
