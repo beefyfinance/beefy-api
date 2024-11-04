@@ -7,19 +7,7 @@ import { ETH_CHAIN_ID } from '../../../constants';
 import pools from '../../../data/ethereum/tokemakPools.json';
 import { timeStamp } from 'console';
 
-const url = 'https://subgraph.satsuma-prod.com/ba2506a7b20f/tokemak/v2-gen3-eth-mainnet/api';
-const query = `query GetAutopoolDayData($address:String!$timestamp:BigInt!){
-      autopoolDayDatas(
-        where:{id_contains_nocase:$address timestamp_gte:$timestamp}
-        orderBy:timestamp 
-        orderDirection:asc 
-        first:1000
-      ){
-        totalSupply nav date timestamp id autopoolApy autopoolDay7MAApy 
-        autopoolDay30MAApy rewarderApy rewarderDay7MAApy rewarderDay30MAApy 
-        vault{id registered}
-      }
-    }`;
+const url = 'https://yields.llama.fi/chart/';
 
 const params = {
   pools,
@@ -42,26 +30,14 @@ const getTradingAprs = async () => {
 
   const fetchPool = async pool => {
     try {
-      const response = await fetch(url, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          query,
-          variables: { address: pool.address.toLowerCase(), timestamp: date },
-          extensions: {
-            connectionParams: {},
-            endpoint: 'https://subgraph.satsuma-prod.com/ba2506a7b20f/tokemak/v2-gen3-eth-mainnet/api',
-          },
-        }),
-      });
+      const response = await fetch(url + pool.poolId);
 
       const { data } = await response.json();
 
       let apy = new BigNumber(0);
 
-      data.autopoolDayDatas.forEach(data => (apy = apy.plus(new BigNumber(data.autopoolApy))));
-
-      apy = apy.dividedBy(new BigNumber(data.autopoolDayDatas.length)).dividedBy(1e18);
+      const length = data.length;
+      apy = new BigNumber(data[length - 1].apyBase / 100);
 
       return [pool.address.toLowerCase(), apy];
     } catch (e) {
