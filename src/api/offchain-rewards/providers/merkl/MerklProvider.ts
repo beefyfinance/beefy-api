@@ -1,7 +1,12 @@
 import { AppChain, fromChainNumber, toAppChain, toChainId } from '../../../../utils/chain';
 import { CampaignType, IOffchainRewardProvider, MerklCampaign, Vault } from '../../types';
 import { isProviderApiError, ProviderApiError, UnsupportedChainError } from '../../errors';
-import { CampaignTypeSetting, MerklApiCampaign, MerklApiCampaignsResponse } from './types';
+import {
+  CampaignTypeSetting,
+  MerklApiCampaign,
+  MerklApiCampaignsResponse,
+  MerklApiCampaignType,
+} from './types';
 import { groupBy } from 'lodash';
 import { Address, getAddress, isAddressEqual } from 'viem';
 import { isFiniteNumber } from '../../../../utils/number';
@@ -32,6 +37,13 @@ const supportedChains = new Set<AppChain>([
   'sei',
   'rootstock',
 ]);
+const supportedCampaignTypeToVaultType: Map<MerklApiCampaignType, Set<Vault['type']>> = new Map([
+  [MerklApiCampaignType.ERC20, new Set<Vault['type']>(['standard'])],
+  [MerklApiCampaignType.ConcentratedLiquidity, new Set<Vault['type']>(['cowcentrated', 'cowcentrated-pool'])],
+]);
+const supportedVaultTypes = new Set<Vault['type']>(
+  Array.from(supportedCampaignTypeToVaultType.values(), v => Array.from(v.values())).flat()
+);
 const campaignCreatorToType: Record<Address, CampaignTypeSetting> = {
   '0xb1F1000b4FCae7CD07370cE1A3E3b11270caC0dE': 'test',
   '0xD80e5884C1E2771D4d2A6b3b7C240f10EfA0c766': {
@@ -60,7 +72,7 @@ export class MerklProvider implements IOffchainRewardProvider {
   }
 
   supportsVault(vault: Vault): boolean {
-    return this.supportsChain(vault.chainId);
+    return supportedVaultTypes.has(vault.type) && this.supportsChain(vault.chainId);
   }
 
   isActive(campaign: MerklCampaign, unixTime: number): boolean {
@@ -91,35 +103,45 @@ export class MerklProvider implements IOffchainRewardProvider {
   }
 
   protected getVaultsWithAprFromCampaign(vaults: Vault[], campaign: MerklApiCampaign) {
-    return vaults.map(vault => {
-      if (vault.type !== 'standard') {
-        let totalApr: number = 0;
-
-        const poolForwarders = campaign.forwarders.filter(forwarder => {
-          const almAddress = getAddress(forwarder.almAddress);
-          return isAddressEqual(almAddress, vault.address);
+    switch (campaign.campaignType) {
+      case MerklApiCampaignType.ERC20: {
+        // @dev `campaign.mainParameter` already matched against `vault.poolAddress`
+        return vaults.map(vault => {
+          return {
+            ...vault,
+            apr: isFiniteNumber(campaign.apr) ? campaign.apr / 100 : 0,
+          };
         });
-
-        if (poolForwarders.length > 0) {
-          totalApr = poolForwarders.reduce((acc, forwarder) => {
-            if (isFiniteNumber(forwarder.almAPR)) {
-              acc += forwarder.almAPR / 100;
-            }
-            return acc;
-          }, 0);
-        }
-
-        return {
-          ...vault,
-          apr: totalApr,
-        };
-      } else {
-        return {
-          ...vault,
-          apr: isFiniteNumber(campaign.apr) ? campaign.apr / 100 : 0,
-        };
       }
-    });
+      case MerklApiCampaignType.ConcentratedLiquidity: {
+        return vaults.map(vault => {
+          let totalApr: number = 0;
+
+          const poolForwarders = campaign.forwarders.filter(forwarder => {
+            const almAddress = getAddress(forwarder.almAddress);
+            return isAddressEqual(almAddress, vault.address);
+          });
+
+          if (poolForwarders.length > 0) {
+            totalApr = poolForwarders.reduce((acc, forwarder) => {
+              if (isFiniteNumber(forwarder.almAPR)) {
+                acc += forwarder.almAPR / 100;
+              }
+              return acc;
+            }, 0);
+          }
+
+          return {
+            ...vault,
+            apr: totalApr,
+          };
+        });
+      }
+      default: {
+        console.warn(`getVaultsWithAprFromCampaign: unsupported campaign type ${campaign.campaignType}`);
+        return [];
+      }
+    }
   }
 
   protected getCampaign(
@@ -132,12 +154,24 @@ export class MerklProvider implements IOffchainRewardProvider {
       return undefined;
     }
 
+    // skip unsupported campaign types
+    if (!supportedCampaignTypeToVaultType.has(apiCampaign.campaignType)) {
+      return undefined;
+    }
+
+    // match vaults by pool address and campaign type support
     const vaults = vaultsByPoolAddress[apiCampaign.mainParameter.toLowerCase()];
     if (!vaults) {
       return undefined;
     }
+    const vaultsSupportingCampaignType = vaults.filter(vault =>
+      supportedCampaignTypeToVaultType.get(apiCampaign.campaignType)?.has(vault.type)
+    );
+    if (vaultsSupportingCampaignType.length === 0) {
+      return undefined;
+    }
 
-    const vaultsWithApr = this.getVaultsWithAprFromCampaign(vaults, apiCampaign);
+    const vaultsWithApr = this.getVaultsWithAprFromCampaign(vaultsSupportingCampaignType, apiCampaign);
 
     const computeChain = apiCampaign.computeChainId ? fromChainNumber(apiCampaign.computeChainId) : undefined;
     const claimChain = apiCampaign.chainId ? fromChainNumber(apiCampaign.chainId) : undefined;

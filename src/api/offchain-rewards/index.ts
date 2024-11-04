@@ -9,11 +9,14 @@ import { Context } from 'koa';
 import { sendBadRequest, sendServiceUnavailable, sendSuccess } from '../../utils/koa';
 import { getVaultsByChainId } from '../stats/getMultichainVaults';
 import { serviceEventBus } from '../../utils/ServiceEventBus';
+import { Address } from 'viem';
+import { uniqBy } from 'lodash';
 
 const TIME_BETWEEN_UPDATES = 10 * 60; // seconds
 const CACHE_KEY = 'OFFCHAIN_REWARDS';
 
 const getVaultsWithOffchainRewards = createFactory((): Vault[] => {
+  // CLM vaults
   const clmVaults: Vault[] = typedEntries(getAllCowClmsByChain()).flatMap(([apiChain, clms]) => {
     const chainId = toAppChain(apiChain);
     return clms.flatMap(clm => {
@@ -32,7 +35,7 @@ const getVaultsWithOffchainRewards = createFactory((): Vault[] => {
           address: clm.rewardPool.address,
           poolAddress: clm.lpAddress,
           chainId,
-          type: 'gov',
+          type: 'cowcentrated-pool',
         });
       }
       if (isCowClmWithVault(clm)) {
@@ -41,31 +44,29 @@ const getVaultsWithOffchainRewards = createFactory((): Vault[] => {
           address: clm.vault.address,
           poolAddress: clm.lpAddress,
           chainId,
-          type: 'standard',
+          type: 'cowcentrated-vault',
         });
       }
       return clmVaults;
     });
   });
-  // Add standard vaults that are not part of the cowcentrated set
-  const existingVaults = new Set(
-    clmVaults.filter(v => v.type === 'standard').map(v => v.address.toLowerCase())
-  );
-  typedEntries(getVaultsByChainId()).forEach(([apiChain, vaults]) => {
+
+  // Standard vaults
+  const standardVaults: Vault[] = typedEntries(getVaultsByChainId()).flatMap(([apiChain, vaults]) => {
     const chainId = toAppChain(apiChain);
-    vaults
-      .filter(v => v.type === 'standard' && !existingVaults.has(v.earnContractAddress.toLowerCase()))
-      .forEach(v =>
-        clmVaults.push({
-          id: v.id,
-          address: v.earnContractAddress as `0x${string}`,
-          poolAddress: v.earnContractAddress as `0x${string}`,
-          chainId,
-          type: 'standard',
-        })
-      );
+    return vaults
+      .filter(v => v.type === 'standard')
+      .map(v => ({
+        id: v.id,
+        address: v.earnContractAddress as Address,
+        // This enables merkl ERC20 campaign support targeting standard vaults
+        poolAddress: v.earnContractAddress as Address,
+        chainId,
+        type: 'standard',
+      }));
   });
-  return clmVaults;
+
+  return uniqBy([...clmVaults, ...standardVaults], v => v.id);
 });
 
 const getChainsWithOffchainRewards = createFactory(() => {
