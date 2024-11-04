@@ -1639,4 +1639,18 @@ export const tokens = {
     bridge: 'native',
     risks: ['LARGE_HOLDERS', 'NO_TIMELOCK'],
   },
+  MORE: {
+    name: 'MORE',
+    address: '0x25ea98ac87A38142561eA70143fd44c4772A16b6',
+    symbol: 'MORE',
+    oracleId: 'MORE',
+    decimals: 18,
+    website: 'https://stackmore.xyz/',
+    documentation: 'https://docs.stackmore.xyz/',
+    description:
+      'Stack’s $MORE token is a non-algorithmic, collateral-backed stablecoin. This means that every $1 USD of $MORE should have more than $1 USD of collateral backing. Stack considers $MORE to be worth $1 however at times it may not trade at this value. In these instances, Stack has several options at its disposal to regain the $1 USD peg.',
+    bridge: 'native',
+    chainId: 8453,
+    risks: ['NO_TIMELOCK'],
+  },
 } as const satisfies Record<string, Token>;
