@@ -1,5 +1,46 @@
 [
   {
+    "address": "0x34b7eF665325E69c5f809668ed13f97732C0A053",
+    "lpAddress": "0x4e829F8A5213c42535AB84AA40BD4aDCCE9cBa02",
+    "tokens": ["0x4200000000000000000000000000000000000006", "0x532f27101965dd16442E59d40670FaF5eBB142E4"],
+    "tokenOracleIds": ["ETH", "BRETT"],
+    "decimals": [18, 18],
+    "oracleId": "aero-cow-weth-brett",
+    "providerId": "aerodrome",
+    "rewardPool": {
+      "address": "0x68Af3F09041EaC82201d17A0f868d44F9F3aEb75",
+      "oracleId": "aero-cow-weth-brett-rp"
+    },
+    "vault": {
+      "address": "0xd3e85C104D603939597b5aDA337125bbDf73bA8E",
+      "oracleId": "aero-cow-weth-brett-vault"
+    }
+  },
+  {
+    "address": "0x2Ffb71dD9A1F11254802469392a8c390132c233d",
+    "lpAddress": "0xBA3F945812a83471d709BCe9C3CA699A19FB46f7",
+    "tokens": ["0x4200000000000000000000000000000000000006", "0x532f27101965dd16442E59d40670FaF5eBB142E4"],
+    "tokenOracleIds": ["ETH", "BRETT"],
+    "decimals": [18, 18],
+    "oracleId": "uniswap-cow-base-weth-brett",
+    "rewardPool": {
+      "address": "0xfFC1e12c997f7c7B648C42738e8BCE24F2e226B6",
+      "oracleId": "uniswap-cow-base-weth-brett-rp"
+    }
+  },
+  {
+    "address": "0x8Ef0132d84Cbee6Ae1a975FCF1433EC66dd9427e",
+    "lpAddress": "0x722BcF6c16dAdcC29914E4E64290C46aa1406DE8",
+    "tokens": ["0x4200000000000000000000000000000000000006", "0xA88594D404727625A9437C3f886C7643872296AE"],
+    "tokenOracleIds": ["ETH", "bWELL"],
+    "decimals": [18, 18],
+    "oracleId": "uniswap-cow-base-weth-bwell",
+    "rewardPool": {
+      "address": "0x9b2347FBEEB538eF7aBee9ea9DEf401517f2A786",
+      "oracleId": "uniswap-cow-base-weth-bwell-rp"
+    }
+  },
+  {
     "address": "0x0B16068baf4f3Ef9dd9e41FD8D5554AF08979118",
     "lpAddress": "0xDC9bf303e72a5780C45d53fC12799164E5BA8271",
     "tokens": ["0x1dd2d631c92b1aCdFCDd51A0F7145A50130050C4", "0x4200000000000000000000000000000000000006"],
