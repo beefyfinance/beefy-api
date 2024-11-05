@@ -157,6 +157,7 @@ export interface SiloPool {
   incentivesController: string;
   lens: string;
   legacy?: boolean;
+  collateral?: boolean;
 }
 
 export interface SiloApyParams {

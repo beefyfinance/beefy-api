@@ -1,5 +1,19 @@
 [
   {
+    "name": "silo-arb-silo",
+    "address": "0x7d353420B3Eb3Cd9e7C819b4fEA369686fd26b32",
+    "underlying": "0x0341C0C0ec423328621788d4854119B97f44E391",
+    "silo": "0xae1Eb69e880670Ca47C50C9CE712eC2B48FaC3b6",
+    "oracleId": "SILO",
+    "decimals": "1e18",
+    "chainId": 42161,
+    "rewardOracleId": "ETH",
+    "rewardDecimals": "1e18",
+    "incentivesController": "0xB03A9C6b6eBDe80BC358c1bF8694f41B4f83Bb9D",
+    "lens": "0xBDb843c7a7e48Dc543424474d7Aa63b61B5D9536",
+    "collateral": true
+  },
+  {
     "name": "silo-eth-ezeth",
     "address": "0xe7F05eFb2A1572e96428bbfE5D1e4c9E3689b2ec",
     "underlying": "0x82aF49447D8a07e3bd95BD0d56f35241523fBab1",

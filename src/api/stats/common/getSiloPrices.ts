@@ -24,7 +24,9 @@ export const getSiloPrices = async (chainId, pools, tokenPrices) => {
   for (let i = 0; i < pools.length; i++) {
     const pool = pools[i];
     const token = pool.underlying;
-    const balance = new BigNumber(amountResults[i]['totalDeposits']).div(pool.decimals);
+    const balance = pool.collateral
+      ? new BigNumber(amountResults[i]['collateralOnlyDeposits']).div(pool.decimals)
+      : new BigNumber(amountResults[i]['totalDeposits']).div(pool.decimals);
     const totalSupply = new BigNumber(totalSupplyResults[i]).div(pool.decimals);
 
     const priceUnderlying = getTokenPrice(tokenPrices, pool.oracleId);
