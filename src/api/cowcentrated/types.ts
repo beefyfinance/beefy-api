@@ -4,7 +4,7 @@ import { isNonEmptyArray, NonEmptyArray } from '../../utils/array';
 import { Token } from '../../../packages/address-book/src/types/token';
 import { providers } from './providers';
 
-type JsonCowClm = {
+export type JsonCowClm = {
   beta?: boolean;
   address: string;
   lpAddress: string;

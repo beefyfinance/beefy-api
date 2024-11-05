@@ -5,4 +5,7 @@ module.exports = {
     `prettier --write ${stagedFiles.join(' ')}`,
     `tsc --noEmit`,
   ]),
+  './src/data/**/beefyCowVaults.json': ifStaged(stagedFiles => [
+    `yarn checkClms`,
+  ]),
 };
