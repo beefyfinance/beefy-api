@@ -1716,7 +1716,7 @@
       "oracleId": "uniswap-cow-arb-eusd-knox-rp"
     },
     "vault": {
-      "address": "0xDd84e4b6ec8A8c05c95f3eC3C7464029Cb900577",
+      "address": "0x63f20920Bd886D7FDB0c64Fcd4ddF28Ba45055cB",
       "oracleId": "uniswap-cow-arb-eusd-knox-vault"
     }
   },

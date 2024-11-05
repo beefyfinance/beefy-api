@@ -85,7 +85,7 @@
   },
   {
     "address": "0xb2158015044004366e6f72c8c82A0bd355e2ffb3",
-    "lpAddress": "0x5cfa8db453c9904511c4ea9eb0bfc903e36b9f5f",
+    "lpAddress": "0x5cFA8dB453C9904511C4eA9eb0bfc903E36b9F5F",
     "tokens": ["0x3894085Ef7Ff0f0aeDf52E2A2704928d1Ec074F1", "0xE30feDd158A2e3b13e9badaeABaFc5516e95e8C7"],
     "tokenOracleIds": ["USDC", "WSEI"],
     "decimals": [6, 18],
@@ -109,7 +109,7 @@
   },
   {
     "address": "0xE8d987e224e50Fb26986ccf11DD4248BF68CaF43",
-    "lpAddress": "0x0493f80f3d4da87aa0f3713e81e84062d769e5e1",
+    "lpAddress": "0x0493F80f3D4DA87aA0F3713e81e84062d769e5e1",
     "tokens": ["0xB75D0B03c06A926e488e2659DF1A861F860bD3d1", "0xE30feDd158A2e3b13e9badaeABaFc5516e95e8C7"],
     "tokenOracleIds": ["USDT", "WSEI"],
     "decimals": [6, 18],

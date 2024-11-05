@@ -44,7 +44,7 @@
       "oracleId": "uniswap-cow-rootstock-doc-rusdt-rp"
     },
     "vault": {
-      "address": "0x70B212EBe2bde9812ad63BA1AedD5179B4B3082E",
+      "address": "0x5eC6Afb2163535631d738e8A7a92A1974Aa1E0B9",
       "oracleId": "uniswap-cow-rootstock-doc-rusdt-vault"
     }
   },
