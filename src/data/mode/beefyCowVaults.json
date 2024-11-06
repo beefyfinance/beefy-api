@@ -10,5 +10,41 @@
       "address": "0x42A074525fe49a73a91c40dceb1C32428D068a57",
       "oracleId": "kim-cow-mode-weth-usdc-rp"
     }
+  },
+  {
+    "address": "0xdd97504448cC51b4De4944157838c4800C773C5A",
+    "lpAddress": "0x8cfE2A02dfBAbC56aE7e573170E35f88A38BeA55",
+    "tokens": ["0x4200000000000000000000000000000000000006", "0xDfc7C877a950e49D2610114102175A06C2e3167a"],
+    "tokenOracleIds": ["ETH", "MODE"],
+    "decimals": [18, 18],
+    "oracleId": "kim-cow-mode-weth-mode",
+    "rewardPool": {
+      "address": "0xBBD68F14F61bfcbB833618d83779e4Aa1Af5670e",
+      "oracleId": "kim-cow-mode-weth-mode-rp"
+    }
+  },
+  {
+    "address": "0x7c207cb731ebc0BA5dF699d7B36348302FD8480c",
+    "lpAddress": "0x3C3a173984e3152FEd868345904eC0C9325FA516",
+    "tokens": ["0x4200000000000000000000000000000000000006", "0x6863fb62Ed27A9DdF458105B507C15b5d741d62e"],
+    "tokenOracleIds": ["ETH", "KIM"],
+    "decimals": [18, 18],
+    "oracleId": "kim-cow-mode-weth-kim",
+    "rewardPool": {
+      "address": "0x3da7476152f7EFF205cBf56f67aBaB17CF9d37eE",
+      "oracleId": "kim-cow-mode-weth-kim-rp"
+    }
+  },
+  {
+    "address": "0x86166d85cd222F40E7d1De750bD58A946129Ec7A",
+    "lpAddress": "0x86D9d9dd7A2c3146c6FAd51646F210Cb2E5FC12F",
+    "tokens": ["0x6863fb62Ed27A9DdF458105B507C15b5d741d62e", "0xDfc7C877a950e49D2610114102175A06C2e3167a"],
+    "tokenOracleIds": ["KIM", "MODE"],
+    "decimals": [18, 18],
+    "oracleId": "kim-cow-mode-kim-mode",
+    "rewardPool": {
+      "address": "0x3D7357554978F0B64E5Ea9C4ED52F5e23474cA47",
+      "oracleId": "kim-cow-mode-kim-mode-rp"
+    }
   }
 ]

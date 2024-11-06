@@ -32,4 +32,5 @@ export const beefyfinance = {
   beefyOraclePyth: '0x714A52Cdee18cD074BaA87F1f9631B13d302E516',
   beefyOracleUniswapV3: '0x06B515128cac164C63ba4Fd48229839Ba769f71F',
   beefyOracleAlgebra: '0xa7224e31367069637A8C2cc0aa10B7A90D9343C1',
+  beefyOracleKim: '0xB386fe65748E23718E0b3D90B431F7eB1BFA14a9',
 } as const;
