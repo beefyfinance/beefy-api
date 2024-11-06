@@ -20,6 +20,7 @@
     "add:chain": "ts-node scripts/add-chain.ts",
     "add:chain:addressbook": "cd packages/address-book && yarn addChain",
     "addClm": "ts-node scripts/add-clm.ts",
+    "checkClms": "ts-node scripts/check-clms.ts",
     "addFarm": "ts-node scripts/add-farm.ts",
     "addSushi": "ts-node scripts/add-sushi.ts",
     "addSolidly": "ts-node scripts/add-solidly.ts",

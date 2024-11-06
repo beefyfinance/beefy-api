@@ -176,7 +176,7 @@
     "decimals": [18, 18],
     "oracleId": "uniswap-cow-virtual-weth",
     "rewardPool": {
-      "address": "0x1d50C6E9CCaAb3EC7545dd6C8970847019D4D04e",
+      "address": "0xD0DB4ca6D1AaA6DA81f9923788E09C597360426C",
       "oracleId": "uniswap-cow-virtual-weth-rp"
     }
   },

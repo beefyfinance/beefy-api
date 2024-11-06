@@ -83,7 +83,7 @@
   },
   {
     "address": "0x2f1C8dAb052CCcfaA131e303162b75Faede28E31",
-    "lpAddress": "0xa71ba3939cd6c50c674866e321bc6bba1c977dd0",
+    "lpAddress": "0xA71bA3939cD6C50C674866E321bC6bBa1c977dD0",
     "tokens": ["0x152b9d0FdC40C096757F570A51E494bd4b943E50", "0xB31f66AA3C1e785363F0875A1B74E27b85FD66c7"],
     "tokenOracleIds": ["BTCb", "WAVAX"],
     "decimals": [8, 18],
@@ -100,7 +100,7 @@
   },
   {
     "address": "0xDB4D3830b1FbCADB10cb40AB406bFCf953FAC014",
-    "lpAddress": "0x184b487c7e811f1d9734d49e78293e00b3768079",
+    "lpAddress": "0x184B487c7e811f1d9734D49E78293e00b3768079",
     "tokens": ["0x9702230A8Ea53601f5cD2dc00fDBc13d4dF4A8c7", "0xB97EF9Ef8734C71904D8002F8b6Bc66Dd9c48a6E"],
     "tokenOracleIds": ["USDT", "USDC"],
     "decimals": [6, 6],

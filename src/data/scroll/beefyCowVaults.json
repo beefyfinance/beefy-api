@@ -92,7 +92,7 @@
     "decimals": [6, 18],
     "oracleId": "oku-cow-scroll-usdc-scr",
     "rewardPool": {
-      "address": "0x5eC6Afb2163535631d738e8A7a92A1974Aa1E0B9",
+      "address": "0xD866b0034a04c82b551A2B9A172567EaA842927e",
       "oracleId": "oku-cow-scroll-usdc-scr-rp"
     }
   },
