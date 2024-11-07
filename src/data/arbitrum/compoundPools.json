@@ -5,5 +5,19 @@
     "oracle": "tokens",
     "oracleId": "USDC",
     "decimals": "1e6"
+  },
+  {
+    "name": "compound-arbitrum-usdt",
+    "cToken": "0xd98Be00b5D27fc98112BdE293e487f8D4cA57d07",
+    "oracle": "tokens",
+    "oracleId": "USDT",
+    "decimals": "1e6"
+  },
+  {
+    "name": "compound-arbitrum-eth",
+    "cToken": "0x6f7D514bbD4aFf3BcD1140B7344b32f063dEe486",
+    "oracle": "tokens",
+    "oracleId": "ETH",
+    "decimals": "1e18"
   }
 ]

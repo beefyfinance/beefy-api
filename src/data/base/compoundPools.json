@@ -19,5 +19,12 @@
     "oracle": "tokens",
     "oracleId": "ETH",
     "decimals": "1e18"
+  },
+  {
+    "name": "compound-base-aero",
+    "cToken": "0x784efeB622244d2348d4F2522f8860B96fbEcE89",
+    "oracle": "tokens",
+    "oracleId": "AERO",
+    "decimals": "1e18"
   }
 ]

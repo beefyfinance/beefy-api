@@ -5,5 +5,12 @@
     "oracle": "tokens",
     "oracleId": "pUSDCe",
     "decimals": "1e6"
+  },
+  {
+    "name": "compound-polygon-usdt",
+    "cToken": "0xaeB318360f27748Acb200CE616E389A6C9409a07",
+    "oracle": "tokens",
+    "oracleId": "USDT",
+    "decimals": "1e6"
   }
 ]
