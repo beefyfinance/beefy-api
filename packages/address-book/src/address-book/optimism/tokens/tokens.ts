@@ -1720,4 +1720,18 @@ export const tokens = {
     bridge: 'native',
     risks: ['NO_TIMELOCK'],
   },
+  ALCX: {
+    name: 'Alchemix',
+    symbol: 'ALCX',
+    oracleId: 'opALCX',
+    address: '0xE974B9b31dBFf4369b94a1bAB5e228f35ed44125',
+    chainId: 10,
+    decimals: 18,
+    logoURI: '',
+    description:
+      'Alchemix Finance is a future-yield-backed synthetic asset protocol and community DAO. The protocol gives you advances on various yield farming strategies via a synthetic token. The token represents a fungible claim on the underlying collateral in the Alchemix protocol, where the claim has to be made by a depositor of that collateral. The DAO will focus on funding projects that will help the Alchemix ecosystem grow, as well as the greater Ethereum community.',
+    website: 'https://alchemix.fi/',
+    documentation: 'https://alchemix-finance.gitbook.io/user-docs/',
+    bridge: 'connext',
+  },
 } as const satisfies Record<string, Token>;

@@ -1678,4 +1678,33 @@ export const tokens = {
     website: 'https://warpcast.com/aethernet/0x9b64c883',
     bridge: 'native',
   },
+  YFI: {
+    name: 'yearn.finance',
+    symbol: 'YFI',
+    oracleId: 'baseYFI',
+    address: '0x9EaF8C1E34F05a589EDa6BAfdF391Cf6Ad3CB239',
+    chainId: 8453,
+    decimals: 18,
+    logoURI: '',
+    description:
+      'Yearn is a decentralized suite of products helping individuals, DAOs, and other protocols earn yield on their digital assets.',
+    website: 'https://yearn.fi/',
+    documentation: 'https://docs.yearn.fi/',
+    bridge: 'base-canonical',
+  },
+  LRDS: {
+    name: 'BLOCKLORDS',
+    symbol: 'LRDS',
+    oracleId: 'LRDS',
+    address: '0xB676f87A6E701f0DE8De5Ab91B56b66109766DB1',
+    chainId: 8453,
+    decimals: 18,
+    logoURI: '',
+    description:
+      'BLOCKLORDS presents a player-driven medieval grand strategy game that immerses players in a world where their decisions and skills significantly shape the narrative and environment. $LRDS is the heartbeat of the BLOCKLORDS ecosystem, driving both gameplay and governance in unprecedented ways.',
+    website: 'https://blocklords.com/',
+    documentation: 'https://wiki.blocklords.com/economy/currencies/usdlrds',
+    bridge: 'base-canonical',
+    risks: ['LARGE_HOLDERS', 'NO_TIMELOCK'],
+  },
 } as const satisfies Record<string, Token>;
