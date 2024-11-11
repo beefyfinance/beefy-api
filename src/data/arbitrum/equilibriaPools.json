@@ -111,12 +111,6 @@
     "oracleId": "ETH",
     "decimals": "1e18",
     "chainId": 42161,
-    "beefyFee": 0.095,
-    "rewards": [
-      {
-        "token": "0x912CE59144191C1204E64559FE8253a0e49E6548",
-        "oracleId": "ARB"
-      }
-    ]
+    "beefyFee": 0.095
   }
 ]

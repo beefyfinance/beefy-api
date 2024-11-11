@@ -1,13 +1,60 @@
 [
   {
+    "name": "pendle-arb-eeth-26jun25",
+    "address": "0xBf5E60ddf654085F80DAe9DD33Ec0E345773E1F8",
+    "oracle": "tokens",
+    "oracleId": "ETH",
+    "decimals": "1e18",
+    "chainId": 42161
+  },
+  {
+    "name": "pendle-arb-rseth-26jun25",
+    "address": "0x816F59FfA2239Fd7106F94eAbdC0a9547a892F2f",
+    "oracle": "tokens",
+    "oracleId": "ETH",
+    "decimals": "1e18",
+    "chainId": 42161
+  },
+  {
+    "name": "pendle-arb-silo-27mar25",
+    "address": "0x3be83Cc235455Ae1B624Cf6e326505769AD8f9eA",
+    "eqbGauge": "0x85a497C0A3345C352c6ac96a39dB21e7be0061Ab",
+    "oracle": "tokens",
+    "oracleId": "SILO",
+    "decimals": "1e18",
+    "chainId": 42161,
+    "rewards": [
+      {
+        "token": "0x82af49447d8a07e3bd95bd0d56f35241523fbab1",
+        "oracleId": "WETH"
+      }
+    ]
+  },
+  {
+    "name": "pendle-arb-reth-26jun25",
+    "address": "0x14FbC760eFaF36781cB0eb3Cb255aD976117B9Bd",
+    "oracle": "tokens",
+    "oracleId": "ETH",
+    "decimals": "1e18",
+    "chainId": 42161
+  },
+  {
+    "name": "pendle-arb-wsteth-26jun25",
+    "address": "0x08a152834de126d2ef83d612ff36e4523fd0017f",
+    "eqbGauge": "0x06fd8e5DaE63afCbfdF10604efCa3143Df534f37",
+    "oracle": "tokens",
+    "oracleId": "stETH",
+    "decimals": "1e18",
+    "chainId": 42161
+  },
+  {
     "name": "pendle-arb-dwbtc-26jun25",
     "address": "0x8cAB5Fd029ae2FBF28c53E965E4194C7260aDF0C",
     "eqbGauge": "0x2F35DF137b64D1b62AE440b0D6A7b1cf9af4aB62",
     "oracle": "tokens",
     "oracleId": "WBTC",
     "decimals": "1e8",
-    "chainId": 42161,
-    "beefyFee": 0.095
+    "chainId": 42161
   },
   {
     "name": "pendle-arb-dusdc-26jun25",
@@ -16,8 +63,7 @@
     "oracle": "tokens",
     "oracleId": "USDC",
     "decimals": "1e6",
-    "chainId": 42161,
-    "beefyFee": 0.095
+    "chainId": 42161
   },
   {
     "name": "pendle-arb-ependle-26dec24",
@@ -27,7 +73,6 @@
     "oracleId": "ePENDLE",
     "decimals": "1e18",
     "chainId": 42161,
-    "beefyFee": 0.095,
     "rewards": [
       {
         "token": "0xbfbcfe8873fe28dfa25f1099282b088d52bbad9c",
