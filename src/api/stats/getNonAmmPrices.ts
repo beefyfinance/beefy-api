@@ -112,6 +112,7 @@ import { getPendleCommonPrices } from './common/getPendleCommonPrices';
 import { getMellowVeloPrices } from './common/getMellowVeloPrices';
 import getBaseSiloPrices from './base/getBaseSiloPrices';
 import getVenusArbPrices from './arbitrum/getVenusArbPrices';
+import getVenusZkPrices from './zksync/getVenusZkPrices';
 import getTokemakEthPrices from './ethereum/getTokemakEthPrices';
 
 export type NonAmmPrices = {
@@ -244,6 +245,7 @@ export async function getNonAmmPrices(tokenPrices: Record<string, number>): Prom
     getNuriStablePrices(tokenPrices),
     getTokanStablePrices(tokenPrices),
     getVenusArbPrices(tokenPrices),
+    getVenusZkPrices(tokenPrices),
     getTokemakEthPrices(tokenPrices),
   ];
 

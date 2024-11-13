@@ -400,6 +400,16 @@ const tokens: Partial<Record<keyof typeof ChainId, ConcentratedLiquidityToken[]>
       secondToken: 'LUM',
     },
   ],
+  zksync: [
+    {
+      type: 'UniV3',
+      oracleId: 'zkXVS',
+      decimalDelta: 1,
+      pool: '0x4152fDBf1CE1957B6FAFD55737f96A26b787eE9A',
+      firstToken: 'zkXVS',
+      secondToken: 'WETH',
+    },
+  ],
 };
 
 async function getConcentratedLiquidityPrices(

@@ -1,0 +1,32 @@
+[
+  {
+    "name": "venus-zksync-usdc.e",
+    "cToken": "0x1aF23bD57c62A99C59aD48236553D0Dd11e49D2D",
+    "oracleId": "USDC",
+    "decimals": "1e6"
+  },
+  {
+    "name": "venus-zksync-usdt",
+    "cToken": "0x69cDA960E3b20DFD480866fFfd377Ebe40bd0A46",
+    "oracleId": "USDT",
+    "decimals": "1e6"
+  },
+  {
+    "name": "venus-zksync-wbtc",
+    "cToken": "0xAF8fD83cFCbe963211FAaf1847F0F217F80B4719",
+    "oracleId": "WBTC",
+    "decimals": "1e8"
+  },
+  {
+    "name": "venus-zksync-weth",
+    "cToken": "0x1Fa916C27c7C2c4602124A14C77Dbb40a5FF1BE8",
+    "oracleId": "ETH",
+    "decimals": "1e18"
+  },
+  {
+    "name": "venus-zksync-zk",
+    "cToken": "0x697a70779C1A03Ba2BD28b7627a902BFf831b616",
+    "oracleId": "ZK",
+    "decimals": "1e18"
+  }
+]
