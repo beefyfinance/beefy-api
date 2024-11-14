@@ -1,5 +1,45 @@
 [
   {
+    "name": "aerodrome-weth-ox",
+    "address": "0xe140c5930889c4064A3d11b17Bb04fE7224a5CDC",
+    "gauge": "0xD4ECF20068e5fA849Abe62F9523A90F8c073f203",
+    "decimals": "1e18",
+    "chainId": 8453,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0x4200000000000000000000000000000000000006",
+      "oracle": "tokens",
+      "oracleId": "WETH",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xba0Dda8762C24dA9487f5FA026a9B64b695A07Ea",
+      "oracle": "tokens",
+      "oracleId": "OX",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "aerodrome-ion-weth",
+    "address": "0x0FAc819628a7F612AbAc1CaD939768058cc0170c",
+    "gauge": "0x9b42e5F8c45222b2715F804968251c747c588fd7",
+    "decimals": "1e18",
+    "chainId": 8453,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0x3eE5e23eEE121094f1cFc0Ccc79d6C809Ebd22e5",
+      "oracle": "tokens",
+      "oracleId": "ION",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x4200000000000000000000000000000000000006",
+      "oracle": "tokens",
+      "oracleId": "WETH",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "aerodrome-hbr-usdbc",
     "address": "0xf03794773236E3A4d2E773d6CE84F5a10E2E957c",
     "gauge": "0x58AE24495eD4aa7c5a0Cd978b62615398B76F149",
