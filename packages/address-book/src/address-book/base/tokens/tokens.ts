@@ -1737,4 +1737,18 @@ export const tokens = {
     bridge: 'base-canonical',
     risks: ['LARGE_HOLDERS', 'NO_TIMELOCK'],
   },
+  SUSHI: {
+    name: 'Sushi',
+    address: '0x7D49a065D17d6d4a55dc13649901fdBB98B2AFBA',
+    symbol: 'SUSHI',
+    oracleId: 'SUSHI',
+    decimals: 18,
+    chainId: 8453,
+    website: 'https://sushi.com/',
+    description:
+      'Sushi is the home of DeFi. Their community is building a comprehensive, decentralized trading platform for the future of finance. Swap, earn, stack yields, lend, borrow, leverage all on one decentralized, community driven platform.',
+    bridge: 'base-canonical',
+    logoURI: 'https://ftmscan.com/token/images/sushiswap_32.png',
+    documentation: 'https://dev.sushi.com/',
+  },
 } as const satisfies Record<string, Token>;
