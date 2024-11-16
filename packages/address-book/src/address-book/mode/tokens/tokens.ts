@@ -129,4 +129,17 @@ export const tokens = {
     documentation: 'https://docs.kim.exchange/',
     risks: ['LARGE_HOLDERS', 'NO_TIMELOCK'],
   },
+  XVELO: {
+    name: 'Superchain Velodrome',
+    symbol: 'XVELO',
+    oracleId: 'XVELO',
+    address: '0x7f9AdFbd38b669F03d1d11000Bc76b9AaEA28A81',
+    chainId: 34443,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://velodrome.finance/',
+    description: 'Superchain Bridge VELO',
+    documentation: 'https://velodrome.finance/docs',
+    bridge: 'superchain',
+  },
 } as const satisfies Record<string, Token>;
