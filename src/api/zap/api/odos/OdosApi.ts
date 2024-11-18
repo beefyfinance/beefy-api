@@ -16,7 +16,11 @@ export class OdosApi implements IOdosApi {
   readonly ZAP_FEE: number;
   readonly referralCode: number;
   readonly chainId: number;
-  constructor(protected readonly baseUrl: string, protected readonly chain: ApiChain) {
+  constructor(
+    protected readonly baseUrl: string,
+    protected readonly apiKey: string,
+    protected readonly chain: ApiChain
+  ) {
     this.referralCode = Number(process.env.ODOS_CODE || 0);
     this.ZAP_FEE = getZapProviderFee('odos', chain).value;
     this.chainId = toChainId(chain);
@@ -63,6 +67,7 @@ export class OdosApi implements IOdosApi {
       method: 'POST',
       headers: this.buildHeaders({
         'Content-Type': 'application/json',
+        'x-api-key': this.apiKey,
       }),
       body: JSON.stringify(this.withChainId(request)),
     });

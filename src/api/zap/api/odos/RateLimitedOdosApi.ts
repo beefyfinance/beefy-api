@@ -4,8 +4,8 @@ import { ApiResponse } from '../common';
 import { ApiChain } from '../../../../utils/chain';
 
 export class RateLimitedOdosApi extends OdosApi {
-  constructor(baseUrl: string, chain: ApiChain, protected readonly queue: PQueue) {
-    super(baseUrl, chain);
+  constructor(baseUrl: string, apiKey: string, chain: ApiChain, protected readonly queue: PQueue) {
+    super(baseUrl, apiKey, chain);
   }
 
   protected async post<ResponseType extends object>(
