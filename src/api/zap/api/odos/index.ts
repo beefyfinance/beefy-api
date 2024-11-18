@@ -7,7 +7,7 @@ import { IOdosApi } from './types';
 const API_QUEUE_CONFIG = {
   concurrency: 2,
   intervalCap: 2, // 2 per 600ms is 3.3 RPS
-  interval: 600,
+  interval: 200, // 600 for standard
   carryoverConcurrencyCount: false,
   autoStart: true,
   timeout: 30 * 1000,
@@ -45,9 +45,13 @@ export function getOdosApi(chain: AnyChain): IOdosApi {
     if (!swapApiQueue) {
       swapApiQueue = new PQueue(API_QUEUE_CONFIG);
     }
-
-    const baseUrl = `https://api.odos.xyz`;
-    swapApiByChain[apiChain] = new RateLimitedOdosApi(baseUrl, apiChain, swapApiQueue);
+    const apiKey = process.env.ODOS_API_KEY;
+    if (!apiKey) {
+      throw new Error(`ODOS_API_KEY env variable is not set`);
+    }
+    // Dropping public url `https://api.odos.xyz` for enterprise
+    const baseUrl = `https://enterprise-api.odos.xyz`;
+    swapApiByChain[apiChain] = new RateLimitedOdosApi(baseUrl, apiKey, apiChain, swapApiQueue);
   }
 
   return swapApiByChain[apiChain];
