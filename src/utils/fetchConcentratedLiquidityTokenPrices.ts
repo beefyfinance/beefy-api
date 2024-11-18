@@ -285,14 +285,6 @@ const tokens: Partial<Record<keyof typeof ChainId, ConcentratedLiquidityToken[]>
     },
     {
       type: 'UniV3',
-      oracleId: 'MORE',
-      decimalDelta: 1,
-      pool: '0x6b1a34df762f1d3367e7e93AE5661c88CA848423',
-      firstToken: 'USTB',
-      secondToken: 'MORE',
-    },
-    {
-      type: 'UniV3',
       oracleId: 'UKRE',
       decimalDelta: 1,
       pool: '0x72c20EBBffaE1fe4E9C759b326D97763E218F9F6',
