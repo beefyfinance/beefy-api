@@ -1,7 +1,17 @@
 [
   {
+    "name": "pendle-arb-unieth-26jun25",
+    "address": "0x3E4e3291Ed667FB4Dee680D19e5702eF8275493D",
+    "eqbGauge": "0x22cA3AdD4189a05bcf74fcaa9ae2B0Ab69A4c5E7",
+    "oracle": "tokens",
+    "oracleId": "ETH",
+    "decimals": "1e18",
+    "chainId": 42161
+  },
+  {
     "name": "pendle-arb-eeth-26jun25",
     "address": "0xBf5E60ddf654085F80DAe9DD33Ec0E345773E1F8",
+    "eqbGauge": "0xa88A72d9fCEfe69aF7f86FBb1B5E338e1989f83e",
     "oracle": "tokens",
     "oracleId": "ETH",
     "decimals": "1e18",
@@ -10,6 +20,7 @@
   {
     "name": "pendle-arb-rseth-26jun25",
     "address": "0x816F59FfA2239Fd7106F94eAbdC0a9547a892F2f",
+    "eqbGauge": "0xDfFb3baFc69Bcc4052Fb852a6a42b36BEf026Be3",
     "oracle": "tokens",
     "oracleId": "ETH",
     "decimals": "1e18",
