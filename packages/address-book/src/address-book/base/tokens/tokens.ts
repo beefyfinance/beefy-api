@@ -1765,4 +1765,31 @@ export const tokens = {
     description:
       'Tokemaks Autopilot was developed to address the many challenges liquidity providers (LPs) face when optimizing for best performance. No protocol currently offers fully autonomous, transparent and sophisticated rebalance solution focused solely on liquidity provision.',
   },
+  PARADOX: {
+    name: 'Paradox',
+    symbol: 'PARADOX',
+    oracleId: 'PARADOX',
+    address: '0x3c4b6Cd7874eDc945797123fcE2d9a871818524b',
+    chainId: 8453,
+    decimals: 18,
+    logoURI: '',
+    description:
+      'Deployed by an AI agent by request from another AI agent, PARADOX is a token without human intervention.',
+    website: 'https://warpcast.com/clanker/0x30f98af8',
+    bridge: 'native',
+  },
+  EIGEN: {
+    name: 'Eigen',
+    symbol: 'EIGEN',
+    oracleId: 'EIGEN',
+    address: '0x2081Ab0D9EC9e4303234Ab26D86b20B3367946ee',
+    chainId: 8453,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://www.eigenlayer.xyz/',
+    documentation: 'https://docs.eigenlayer.xyz/',
+    bridge: 'base-canonical',
+    description:
+      'EigenLayer is a protocol built on Ethereum that introduces restaking, a new primitive in cryptoeconomic security. This primitive enables the reuse of ETH on the consensus layer. Users that stake ETH natively or with a liquid staking token (LST) can opt-in to EigenLayer smart contracts to restake their ETH or LST and extend cryptoeconomic security to additional applications on the network to earn additional rewards.',
+  },
 } as const satisfies Record<string, Token>;
