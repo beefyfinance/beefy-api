@@ -114,6 +114,7 @@ import getBaseSiloPrices from './base/getBaseSiloPrices';
 import getVenusArbPrices from './arbitrum/getVenusArbPrices';
 import getVenusZkPrices from './zksync/getVenusZkPrices';
 import getTokemakEthPrices from './ethereum/getTokemakEthPrices';
+import getTokemakBasePrices from './base/getTokemakBasePrices';
 
 export type NonAmmPrices = {
   prices: Record<string, number>;
@@ -247,6 +248,7 @@ export async function getNonAmmPrices(tokenPrices: Record<string, number>): Prom
     getVenusArbPrices(tokenPrices),
     getVenusZkPrices(tokenPrices),
     getTokemakEthPrices(tokenPrices),
+    getTokemakBasePrices(tokenPrices),
   ];
 
   // Setup error logs

@@ -1751,4 +1751,18 @@ export const tokens = {
     logoURI: 'https://ftmscan.com/token/images/sushiswap_32.png',
     documentation: 'https://dev.sushi.com/',
   },
+  baseETH: {
+    name: 'Tokemak baseETH',
+    symbol: 'baseETH',
+    oracleId: 'tokemak-baseeth',
+    address: '0xAADf01DD90aE0A6Bb9Eb908294658037096E0404',
+    chainId: 8453,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://app.tokemak.xyz/',
+    documentation: 'https://docs.tokemak.xyz/',
+    bridge: 'native',
+    description:
+      'Tokemaks Autopilot was developed to address the many challenges liquidity providers (LPs) face when optimizing for best performance. No protocol currently offers fully autonomous, transparent and sophisticated rebalance solution focused solely on liquidity provision.',
+  },
 } as const satisfies Record<string, Token>;
