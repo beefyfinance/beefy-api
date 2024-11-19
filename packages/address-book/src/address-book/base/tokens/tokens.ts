@@ -1792,4 +1792,17 @@ export const tokens = {
     description:
       'EigenLayer is a protocol built on Ethereum that introduces restaking, a new primitive in cryptoeconomic security. This primitive enables the reuse of ETH on the consensus layer. Users that stake ETH natively or with a liquid staking token (LST) can opt-in to EigenLayer smart contracts to restake their ETH or LST and extend cryptoeconomic security to additional applications on the network to earn additional rewards.',
   },
+  bridgedPEPE: {
+    name: 'Pepe',
+    symbol: 'PEPE',
+    oracleId: 'PEPE',
+    address: '0xB4fDe59a779991bfB6a52253B51947828b982be3',
+    chainId: 8453,
+    decimals: 18,
+    logoURI: '',
+    description:
+      'The most memeable memecoin in existence. The dogs have had their day, it’s time for Pepe to take reign. Bridged from Ethereum using the Base bridge.',
+    website: 'https://www.pepe.vip/',
+    bridge: 'base-canonical',
+  },
 } as const satisfies Record<string, Token>;
