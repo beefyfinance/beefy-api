@@ -410,6 +410,16 @@ const tokens: Partial<Record<keyof typeof ChainId, ConcentratedLiquidityToken[]>
       secondToken: 'WETH',
     },
   ],
+  mode: [
+    {
+      type: 'Slipstream',
+      oracleId: 'XVELO',
+      decimalDelta: 1,
+      pool: '0xc2026f3fb6fc51F4EcAE40a88b4509cB6C143ed4',
+      firstToken: 'XVELO',
+      secondToken: 'WETH',
+    },
+  ],
 };
 
 async function getConcentratedLiquidityPrices(

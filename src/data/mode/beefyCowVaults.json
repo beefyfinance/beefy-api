@@ -1,6 +1,6 @@
 [
   {
-    "address": "0x2D766b67A8DF2127930d60c0A80D77544fF93013",
+    "address": "0xc8Cbbdb1990Cb4A17E2378017804FCB818bd39B5",
     "lpAddress": "0x3Adf15f77F2911f84b0FE9DbdfF43ef60D40012c",
     "tokens": ["0x4200000000000000000000000000000000000006", "0xd988097fb8612cc24eeC14542bC03424c656005f"],
     "tokenOracleIds": ["WETH", "USDC"],
@@ -8,16 +8,16 @@
     "oracleId": "velodrome-cow-mode-weth-usdc",
     "providerId": "velodrome",
     "rewardPool": {
-      "address": "0x693CC0Aa53Bd78A46f09Cf02a1A6D887FF2235B1",
+      "address": "0x6e54c0746E1363a628FE01344d4d4F6B12F01b8f",
       "oracleId": "velodrome-cow-mode-weth-usdc-rp"
     },
     "vault": {
-      "address": "0x0c1D104aF41c1CFAf2C124aa4358960c007BC593",
+      "address": "0x02059598A02E1662215B89da5E668096410c6bdb",
       "oracleId": "velodrome-cow-mode-weth-usdc-vault"
     }
   },
   {
-    "address": "0xD13790866e7603b0b83272b6b3a7Ca3167d45C83",
+    "address": "0x1484e6186546b485EcB0079D389CE177BF3dFdB1",
     "lpAddress": "0xc2026f3fb6fc51F4EcAE40a88b4509cB6C143ed4",
     "tokens": ["0x4200000000000000000000000000000000000006", "0x7f9AdFbd38b669F03d1d11000Bc76b9AaEA28A81"],
     "tokenOracleIds": ["WETH", "XVELO"],
@@ -25,11 +25,11 @@
     "oracleId": "velodrome-cow-mode-weth-xvelo",
     "providerId": "velodrome",
     "rewardPool": {
-      "address": "0x567E6273ac6c1E47A5f767B72e59600510Ecc9cd",
+      "address": "0x384e44da0209Cb3f57dE0586dfeeB756C18d93E5",
       "oracleId": "velodrome-cow-mode-weth-xvelo-rp"
     },
     "vault": {
-      "address": "0x0c565588D89D893D1B801be72e2dB72e1f63779F",
+      "address": "0x4833d17F2B61C2F23C13ba59cc7FC7a995120F25",
       "oracleId": "velodrome-cow-mode-weth-xvelo-vault"
     }
   },
