@@ -233,6 +233,14 @@ const tokens: Partial<Record<keyof typeof ChainId, ConcentratedLiquidityToken[]>
       firstToken: 'LYNX',
       secondToken: 'USDC',
     },
+    {
+      type: 'Algebra',
+      oracleId: 'FOXY',
+      decimalDelta: 1,
+      pool: '0x1Bace56A8C0AE13F5FA08198EabfBA21f6d588D2',
+      firstToken: 'ETH',
+      secondToken: 'FOXY',
+    },
   ],
   real: [
     {

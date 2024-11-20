@@ -291,4 +291,18 @@ export const tokens = {
     bridge: 'stargate',
     risks: ['NO_TIMELOCK'],
   },
+  FOXY: {
+    name: 'Foxy',
+    symbol: 'FOXY',
+    oracleId: 'FOXY',
+    address: '0x5FBDF89403270a1846F5ae7D113A989F850d1566',
+    chainId: 59144,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://www.welikethefox.io/',
+    description:
+      'Foxy is the mascot of the Linea blockchain. Every chain needs a champion, and we like the fox.',
+    bridge: 'native',
+    risks: ['NO_TIMELOCK', 'LARGE_HOLDERS'],
+  },
 } as const satisfies Record<string, Token>;
