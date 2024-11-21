@@ -20,7 +20,7 @@ const getGammaApys = async () => {
   let aprs = [];
   for (let i = 0; i < pools.length; ++i) {
     let apr = BigNumber(0);
-    let merklPools = poolAprs[chainId].pools;
+    let merklPools = poolAprs[chainId]?.pools || {};
     if (Object.keys(merklPools).length !== 0) {
       for (const [key, value] of Object.entries(merklPools)) {
         if (key.toLowerCase() === pools[i].pool.toLowerCase()) {

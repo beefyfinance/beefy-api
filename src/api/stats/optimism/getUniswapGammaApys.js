@@ -54,7 +54,7 @@ const getMerklGammaApys = async () => {
   let aprs = [];
   for (let i = 0; i < merklGammaPools.length; ++i) {
     let apr = BigNumber(0);
-    let merklPools = poolAprs[chainId].pools;
+    let merklPools = poolAprs[chainId]?.pools || {};
     if (Object.keys(merklPools).length !== 0) {
       for (const [key, value] of Object.entries(merklPools)) {
         if (key.toLowerCase() === merklGammaPools[i].pool.toLowerCase()) {

@@ -12,7 +12,6 @@ const { getBifiMaxiApy } = require('./getBifiMaxiApy');
 const { getConvexCvxTokensApy } = require('./getConvexCvxTokensApy');
 const { getCurveApys } = require('./getCurveApys');
 const { getConicApys } = require('./getConicApys');
-const { getApeStakingApy } = require('./getApeStakingApy');
 const { getConvexCvxApy } = require('./getConvexCvxApy');
 const getGammaApy = require('./getUniswapGammaApys');
 const { getETHCompoundV3Apys } = require('./getEthCompoundApys');
@@ -29,7 +28,6 @@ const { getTokemakApys } = require('./getTokemakApys');
 
 const getApys = [
   getAcrossApys,
-  getApeStakingApy,
   getAuraApys,
   getbeQIApy,
   getCurveApys,

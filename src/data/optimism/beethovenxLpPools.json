@@ -42,50 +42,6 @@
     ]
   },
   {
-    "name": "beets-overnight-pulse",
-    "address": "0xb1c9ac57594e9b1ec0f3787d9f6744ef4cb0a024",
-    "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
-    "gauge": "0xa066243Ba7DAd6C779caA1f9417910a4AE83cf4D",
-    "overnight": true,
-    "composable": true,
-    "bptIndex": 1,
-    "vaultPoolId": "0xb1c9ac57594e9b1ec0f3787d9f6744ef4cb0a02400000000000000000000006e",
-    "decimals": "1e18",
-    "rewards": [
-      {
-        "stream": "0x8801b45390095f7632C02392C4489985e0607E82",
-        "token": "0xFE8B128bA8C78aabC59d4c64cEE7fF28e9379921",
-        "oracleId": "BAL"
-      },
-      {
-        "stream": "0x8801b45390095f7632C02392C4489985e0607E82",
-        "token": "0x4200000000000000000000000000000000000042",
-        "oracleId": "OP"
-      },
-      {
-        "stream": "0x8801b45390095f7632C02392C4489985e0607E82",
-        "token": "0x73cb180bf0521828d8849bc8CF2B920918e23032",
-        "oracleId": "oUSD+",
-        "decimals": "1e6"
-      }
-    ],
-    "tokens": [
-      {
-        "oracle": "tokens",
-        "oracleId": "bbUSD+",
-        "decimals": "1e18"
-      },
-      {
-        "oracleId": "BPTToken"
-      },
-      {
-        "oracle": "tokens",
-        "oracleId": "bbDAI+",
-        "decimals": "1e18"
-      }
-    ]
-  },
-  {
     "name": "beets-helter-skelter",
     "address": "0x899f737750db562b88c1e412ee1902980d3a4844",
     "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
