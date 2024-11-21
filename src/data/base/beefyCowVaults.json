@@ -5,10 +5,10 @@
     "tokens": ["0x4200000000000000000000000000000000000006", "0xBAa5CC21fd487B8Fcc2F632f3F4E8D37262a0842"],
     "tokenOracleIds": ["WETH", "MORPHO"],
     "decimals": [18, 18],
-    "oracleId": "uniswap-cow-base-weth-morpho",
+    "oracleId": "uniswap-cow-base-weth-morpho-0.3",
     "rewardPool": {
       "address": "0x7B4FB8681D07d14258fA57E21917FA0a228FC80A",
-      "oracleId": "uniswap-cow-base-weth-morpho-rp"
+      "oracleId": "uniswap-cow-base-weth-morpho-0.3-rp"
     }
   },
   {
