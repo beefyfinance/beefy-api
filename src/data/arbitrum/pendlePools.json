@@ -1,5 +1,15 @@
 [
   {
+    "name": "pendle-arb-gusdc-26jun25",
+    "address": "0x22e0F26320aCE985e3CB2434095F18Bfe114E28e",
+    "eqbGauge": "0x2740020E987B5f361Cdee73Aa983Fe213A4387e9",
+    "oracle": "tokens",
+    "oracleId": "USDC",
+    "decimals": "1e6",
+    "chainId": 42161,
+    "beefyFee": 0.095
+  },
+  {
     "name": "pendle-arb-unieth-26jun25",
     "address": "0x3E4e3291Ed667FB4Dee680D19e5702eF8275493D",
     "eqbGauge": "0x22cA3AdD4189a05bcf74fcaa9ae2B0Ab69A4c5E7",
