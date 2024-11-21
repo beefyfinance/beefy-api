@@ -15,7 +15,7 @@
     "lp1": {
       "address": "0xc1CBa3fCea344f92D9239c08C0568f6F2F0ee452",
       "oracle": "tokens",
-      "oracleId": "WSTETH",
+      "oracleId": "wstETH",
       "decimals": "1e18"
     }
   },
