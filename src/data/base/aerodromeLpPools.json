@@ -1,5 +1,25 @@
 [
   {
+    "name": "aerodrome-weth-jarvis-v2",
+    "address": "0xeff0891e5a1bd47a8F1e77ABebfEE4145974D088",
+    "gauge": "0xf460124c6146800c6C061A6fC40C14677523BC90",
+    "decimals": "1e18",
+    "chainId": 8453,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0x4200000000000000000000000000000000000006",
+      "oracle": "tokens",
+      "oracleId": "WETH",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x777b2839832982B35213063d850848369390EE16",
+      "oracle": "tokens",
+      "oracleId": "JARVIS",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "aerodrome-weth-ox",
     "address": "0xe140c5930889c4064A3d11b17Bb04fE7224a5CDC",
     "gauge": "0xD4ECF20068e5fA849Abe62F9523A90F8c073f203",
