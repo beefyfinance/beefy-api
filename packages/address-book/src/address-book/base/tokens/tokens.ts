@@ -1805,4 +1805,18 @@ export const tokens = {
     website: 'https://www.pepe.vip/',
     bridge: 'base-canonical',
   },
+  ANON: {
+    name: 'Super Anon',
+    symbol: 'ANON',
+    oracleId: 'ANON',
+    address: '0x0Db510e79909666d6dEc7f5e49370838c16D950f',
+    chainId: 8453,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://warpcast.com/anoncast',
+    description:
+      'an anonymous token deployed by an autonomous AI powering social posting with ZK on anoncast',
+    documentation: '',
+    bridge: 'native',
+  },
 } as const satisfies Record<string, Token>;
