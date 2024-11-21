@@ -1819,4 +1819,19 @@ export const tokens = {
     documentation: '',
     bridge: 'native',
   },
+  MORPHO: {
+    name: 'Morpho Token',
+    symbol: 'MORPHO',
+    oracleId: 'MORPHO',
+    address: '0xBAa5CC21fd487B8Fcc2F632f3F4E8D37262a0842',
+    chainId: 8453,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://morpho.org/',
+    description:
+      'Morpho is a decentralized lending protocol with different entities and individuals contributing to its development and adoption. As a result, the documentation refers to different areas of “Morpho” which are worth distinguishing.',
+    documentation: 'https://docs.morpho.org/',
+    bridge: 'base-canonical',
+    risks: ['NO_TIMELOCK'],
+  },
 } as const satisfies Record<string, Token>;
