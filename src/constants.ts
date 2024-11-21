@@ -60,7 +60,7 @@ const LINEA_RPC = process.env.LINEA_RPC || 'https://rpc.linea.build';
 const MANTLE_RPC = process.env.MANTLE_RPC || 'https://rpc.mantle.xyz';
 const FRAXTAL_RPC = process.env.FRAXTAL_RPC || 'https://rpc.frax.com';
 const MODE_RPC = process.env.MODE_RPC || 'https://mode.drpc.org';
-const MANTA_RPC = process.env.MANTA_RPC || 'https://manta-pacific.drpc.org';
+const MANTA_RPC = process.env.MANTA_RPC || 'https://1rpc.io/manta';
 const REAL_RPC = process.env.REAL_RPC || 'https://real.drpc.org';
 const SEI_RPC = process.env.SEI_RPC || 'https://evm-rpc.sei-apis.com';
 const ROOTSTOCK_RPC = process.env.ROOTSTOCK_RPC || 'https://rootstock-mainnet.public.blastapi.io';
@@ -213,7 +213,7 @@ const SEI_VAULTS_ENDPOINT =
 const ROOTSTOCK_VAULTS_ENDPOINT =
   'https://raw.githubusercontent.com/beefyfinance/beefy-v2/prod/src/config/vault/rootstock.json';
 const SCROLL_VAULTS_ENDPOINT =
-   'https://raw.githubusercontent.com/beefyfinance/beefy-v2/prod/src/config/vault/scroll.json';
+  'https://raw.githubusercontent.com/beefyfinance/beefy-v2/prod/src/config/vault/scroll.json';
 
 const MULTICHAIN_ENDPOINTS: Partial<Record<ApiChain, string>> = {
   bsc: BSC_VAULTS_ENDPOINT,

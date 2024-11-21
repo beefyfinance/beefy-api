@@ -1,5 +1,22 @@
 [
   {
+    "address": "0x48145EBbabEcB70909F78b5FCF4320c80BBBF68E",
+    "lpAddress": "0x346eDb1aAa704dF6dDbfc604724AAFcdC12b2fed",
+    "tokens": ["0x4200000000000000000000000000000000000006", "0x9a33406165f562E16C3abD82fd1185482E01b49a"],
+    "tokenOracleIds": ["WETH", "TALENT"],
+    "decimals": [18, 18],
+    "oracleId": "aerodrome-cow-base-weth-talent",
+    "providerId": "aerodrome",
+    "rewardPool": {
+      "address": "0x43EC5Cb24eA7Db84044f2CBA31aeDc04284712c8",
+      "oracleId": "aerodrome-cow-base-weth-talent-rp"
+    },
+    "vault": {
+      "address": "0x9C8b97C5cE4CC26082B50A4AE706f0a5b4B83062",
+      "oracleId": "aerodrome-cow-base-weth-talent-vault"
+    }
+  },
+  {
     "address": "0xba522D7da7fAF2F5F9d1c25743C4D6B297dB241B",
     "lpAddress": "0x2F42Df4aF5312B492E9d7F7b2110D9c7bf2D9e4F",
     "tokens": ["0x4200000000000000000000000000000000000006", "0xBAa5CC21fd487B8Fcc2F632f3F4E8D37262a0842"],
