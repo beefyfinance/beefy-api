@@ -1834,4 +1834,16 @@ export const tokens = {
     bridge: 'base-canonical',
     risks: ['NO_TIMELOCK'],
   },
+  PUBLIUS: {
+    name: 'PUBLIUS',
+    symbol: 'PUBLIUS',
+    oracleId: 'PUBLIUS',
+    address: '0x3512208ea82A7df9AfFb5ed07F3CBb9D7dEB7418',
+    chainId: 8453,
+    decimals: 18,
+    logoURI: '',
+    description: 'Deployed by the AI agent Clanker.',
+    website: 'https://www.clanker.world/clanker/0x3512208ea82A7df9AfFb5ed07F3CBb9D7dEB7418',
+    bridge: 'native',
+  },
 } as const satisfies Record<string, Token>;
