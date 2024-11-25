@@ -73,7 +73,7 @@ const updateApys = async () => {
       getEthereumApys(),
       getCantoApys(),
       getZksyncApys(),
-      getZkevmApys(),
+      // getZkevmApys(),
       getBaseApys(),
       getGnosisApys(),
       getLineaApys(),
