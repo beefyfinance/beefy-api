@@ -1104,6 +1104,7 @@ export const tokens = {
     description:
       'KlimaDAO and its partners in the Klima ecosystem fosters the adoption of a new category of real world assets (RWA) on the blockchain: environmental assets like carbon credits.',
     bridge: 'axelar',
+    risks: ['LARGE_HOLDERS'],
   },
   USDz: {
     name: 'Anzen USDz',
