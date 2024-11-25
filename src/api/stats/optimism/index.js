@@ -15,7 +15,6 @@ const getMmyApys = require('./getMmyApys');
 const getBalancerOpApys = require('./getBalancerOpApys');
 const getAuraApys = require('./getAuraOptimismApys');
 const getBeVeloV2Apr = require('./getBeVeloV2Apr');
-const getUniswapGammaApys = require('./getUniswapGammaApys');
 const { getSonneApys } = require('./getSonneApys');
 const { getBeefyOPCowApys } = require('./getBeefyOPCowApys');
 const { getOpSiloApys } = require('./getOpSiloApys');
@@ -25,7 +24,6 @@ const { OPTIMISM_CHAIN_ID } = require('../../../constants');
 
 const getApys = [
   getSonneApys,
-  getUniswapGammaApys,
   getAuraApys,
   getBalancerOpApys,
   getMmyApys,

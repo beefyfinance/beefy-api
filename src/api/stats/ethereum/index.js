@@ -13,7 +13,6 @@ const { getConvexCvxTokensApy } = require('./getConvexCvxTokensApy');
 const { getCurveApys } = require('./getCurveApys');
 const { getConicApys } = require('./getConicApys');
 const { getConvexCvxApy } = require('./getConvexCvxApy');
-const getGammaApy = require('./getUniswapGammaApys');
 const { getETHCompoundV3Apys } = require('./getEthCompoundApys');
 const { getPrismaApys } = require('./getPrismaApys');
 const { getAcrossApys } = require('./getAcrossApys');
@@ -46,7 +45,6 @@ const getApys = [
   getSolidlyApys,
   // getEulerApys, // => delete this? code already doesn't work...
   getVerseLpApys,
-  getGammaApy,
   getPenpieApys,
   () => getEquilibriaApys(require('../../../data/ethereum/pendlePools.json')),
   getETHCompoundV3Apys,

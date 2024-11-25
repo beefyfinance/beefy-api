@@ -5,15 +5,11 @@ const getBalancerPolyApys = require('./getBalancerPolyApys');
 const { getHopApys } = require('./getHopApys');
 const { getAaveV3Apys } = require('./getAaveV3Apys');
 const { getGnsApys } = require('./getGnsApys');
-//const { getQuickGammaApys } = require('./getQuickGammaApys');
-const getGammaApys = require('./getGammaApys');
 const getAuraPolygonApys = require('./getAuraPolygonApys');
 const { getPolygonCompoundV3Apys } = require('./getPolygonCompoundApys');
-const { getUniswapGammaApys } = require('./getUniswapGammaApys');
 const { getBeefyCowPolyApys } = require('./getBeefyCowPolyApys');
 
 const getApys = [
-  // getQuickGammaApys,
   getCurveApys,
   getConvexApys,
   getStargateApys,
@@ -21,10 +17,8 @@ const getApys = [
   // getHopApys,
   // getAaveV3Apys,
   getGnsApys,
-  getGammaApys,
   getAuraPolygonApys,
   getPolygonCompoundV3Apys,
-  getUniswapGammaApys,
   getBeefyCowPolyApys,
 ];
 

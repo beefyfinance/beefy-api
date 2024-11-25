@@ -12,8 +12,6 @@ const getSolidLizardApys = require('./getSolidLizardApys');
 const getRamsesApys = require('./getRamsesApys');
 const getAuraArbitrumApys = require('./getAuraArbitrumApys');
 const { getJoeAutoArbApys } = require('./getJoeAutoArbApys');
-const getMerklGammaApys = require('./getMerklGammaApys');
-const getUniswapGammaApys = require('./getUniswapGammaApys');
 const { getArbCompoundV3Apys } = require('./getArbCompoundV3Apys');
 const { getArbSiloApys } = require('./getArbitrumSiloApys');
 const { getEquilibriaApys } = require('../common/getEquilibriaApys');
@@ -25,8 +23,6 @@ const getVenusApys = require('./getVenusApys');
 
 const getApys = [
   getArbSiloApys,
-  getMerklGammaApys,
-  getUniswapGammaApys,
   // getJoeAutoArbApys,
   getAuraArbitrumApys,
   getGnsApys,
