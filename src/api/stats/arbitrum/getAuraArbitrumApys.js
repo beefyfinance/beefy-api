@@ -18,7 +18,7 @@ const getAuraArbitrumApys = async () => {
   return getAuraApys({
     chainId: chainId,
     client: client,
-    pools: pools,
+    pools: pools.filter(p => !p.eol),
     balancerVault: balancer.router,
     aaveDataProvider: aaveDataProvider,
     auraMinter: auraMinter,
