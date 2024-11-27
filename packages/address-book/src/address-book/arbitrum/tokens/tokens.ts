@@ -2153,18 +2153,18 @@ export const tokens = {
     risks: ['NO_TIMELOCK'],
   },
   dlcBTC: {
-    name: 'dlcBTC',
-    symbol: 'dlcBTC',
+    name: 'iBTC (formerly dlcBTC)',
+    symbol: 'iBTC',
     oracleId: 'dlcBTC',
     address: '0x050C24dBf1eEc17babE5fc585F06116A259CC77A',
     chainId: 42161,
     decimals: 8,
     logoURI: '',
-    website: 'https://www.dlcbtc.com/',
-    documentation: 'https://docs.dlc.link/',
+    website: 'https://www.ibtc.network/',
+    documentation: 'https://docs.ibtc.network/',
     bridge: 'native',
     description:
-      'dlcBTC is a self-custodial representation of Bitcoin on Ethereum, enabling Bitcoin holders to participate in DeFi protocols while retaining full ownership of their assets. It employs Discreet Log Contracts (DLCs) to lock Bitcoin in a multisig UTXO, with one key held by the user and the other distributed across a decentralized network.',
+      'iBTC (formerly dlcBTC) is a self-custodial representation of Bitcoin on Ethereum, enabling Bitcoin holders to participate in DeFi protocols while retaining full ownership of their assets. It employs Discreet Log Contracts (DLCs) to lock Bitcoin in a multisig UTXO, with one key held by the user and the other distributed across a decentralized network.',
     risks: ['NO_TIMELOCK'],
   },
   sUSDe: {
