@@ -1,5 +1,29 @@
 [
   {
+    "address": "0xC603C4a517CB742Af8565F07a1A62284A396D11f",
+    "lpAddress": "0x9e209Ff07f80E829f417261aEE659771Ce797a7d",
+    "tokens": ["0x3c4b6Cd7874eDc945797123fcE2d9a871818524b", "0x4200000000000000000000000000000000000006"],
+    "tokenOracleIds": ["PARADOX", "WETH"],
+    "decimals": [18, 18],
+    "oracleId": "uniswap-cow-base-paradox-weth",
+    "rewardPool": {
+      "address": "0x9aEB53bDd3C31bD63A39c3ecF9dE338084fB055E",
+      "oracleId": "uniswap-cow-base-paradox-weth-rp"
+    }
+  },
+  {
+    "address": "0xC0AcD5767cF8c8FA6E186B487E52742B5fa6fC18",
+    "lpAddress": "0x4Ec1828654b4a28936701D08164721876e88f456",
+    "tokens": ["0x05019BE5A6750bbde6F889d6471c37ef923472d3", "0x4200000000000000000000000000000000000006"],
+    "tokenOracleIds": ["FCAST", "WETH"],
+    "decimals": [18, 18],
+    "oracleId": "uniswap-cow-base-fcast-weth",
+    "rewardPool": {
+      "address": "0xE264c51863100600408eB8e589Baece839b043bF",
+      "oracleId": "uniswap-cow-base-fcast-weth-rp"
+    }
+  },
+  {
     "address": "0xAC643bd7674ad6993067E54E73F6BED6f3868E74",
     "lpAddress": "0x3Ba9ce0f19cF3CcB631b973c83712C7E6E9585ae",
     "tokens": ["0x4200000000000000000000000000000000000006", "0xA88594D404727625A9437C3f886C7643872296AE"],

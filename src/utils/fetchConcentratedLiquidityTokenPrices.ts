@@ -431,6 +431,14 @@ const tokens: Partial<Record<keyof typeof ChainId, ConcentratedLiquidityToken[]>
       firstToken: 'ETH',
       secondToken: 'PUBLIUS',
     },
+    {
+      type: 'UniV3',
+      oracleId: 'FCAST',
+      decimalDelta: 1,
+      pool: '0x4Ec1828654b4a28936701D08164721876e88f456',
+      firstToken: 'ETH',
+      secondToken: 'FCAST',
+    },
   ],
   zksync: [
     {

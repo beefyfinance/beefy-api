@@ -1847,4 +1847,18 @@ export const tokens = {
     website: 'https://www.clanker.world/clanker/0x3512208ea82A7df9AfFb5ed07F3CBb9D7dEB7418',
     bridge: 'native',
   },
+  FCAST: {
+    name: 'FarCast',
+    symbol: 'FCAST',
+    oracleId: 'FCAST',
+    address: '0x05019BE5A6750bbde6F889d6471c37ef923472d3',
+    chainId: 8453,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://warpcast.com/clanker/0x1f4293e2',
+    description:
+      '$FCAST is the autonomous anomaly —Clanker AIs first and only self-initiated token deployment. Uniquely forged without external intervention, it stands as a singular testament to AIs creative autonomy, marking a breakthrough moment in decentralized innovation and the digital frontier.',
+    documentation: '',
+    bridge: 'native',
+  },
 } as const satisfies Record<string, Token>;
