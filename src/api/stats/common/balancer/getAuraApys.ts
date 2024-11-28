@@ -99,9 +99,7 @@ const getPoolApys = async (params: BalancerParams): Promise<FarmApyResult> => {
   const lsAprs = [];
   const cmpAprs = [];
 
-  const { tokenQtys, balances, rewardRates, periodFinishes, extras, auraRate } = await getPoolsData(
-    params
-  );
+  const { tokenQtys, balances, rewardRates, periodFinishes, extras, auraRate } = await getPoolsData(params);
 
   for (let i = 0; i < params.pools.length; i++) {
     const { rewardsApy, aprFixed, composableApr } = await getPoolApy(
@@ -178,9 +176,7 @@ const getPoolApy = async (
     try {
       const lsResponses: any[] = await Promise.all(
         lsUrls.map(url =>
-          url === 'DSR'
-            ? fetchDaiSavingsRate().then(res => res)
-            : fetch(url).then(res => res.json())
+          url === 'DSR' ? fetchDaiSavingsRate().then(res => res) : fetch(url).then(res => res.json())
         )
       );
 
@@ -201,7 +197,7 @@ const getPoolApy = async (
         }
       });
     } catch (err) {
-      console.error(`Aura: Liquid Staking URL Fetch Error ${pool.name}`);
+      console.error(`Aura: Failed to fetch ${pool.name} liquid staking APR`);
     }
   }
 
@@ -239,12 +235,7 @@ const getPoolApy = async (
   let composableApr = compApr.toNumber();
 
   if (params.log) {
-    console.log(
-      pool.name,
-      rewardsApy.toNumber(),
-      totalStakedInUsd.valueOf(),
-      yearlyRewardsInUsd.valueOf()
-    );
+    console.log(pool.name, rewardsApy.toNumber(), totalStakedInUsd.valueOf(), yearlyRewardsInUsd.valueOf());
   }
 
   return { rewardsApy, aprFixed, composableApr };
@@ -299,11 +290,7 @@ const getComposableAaveYield = async (
   tokenQtyCalls.push(balVault.read.getPoolTokens([poolId as `0x${string}`]));
 
   tokens.forEach(t => {
-    const dataProvider = fetchContract(
-      params.aaveDataProvider,
-      IAaveProtocolDataProvider,
-      params.chainId
-    );
+    const dataProvider = fetchContract(params.aaveDataProvider, IAaveProtocolDataProvider, params.chainId);
     supplyRateCalls.push(dataProvider.read.getReserveData([t.address as `0x${string}`]));
     tokenQtyCalls.push(balVault.read.getPoolTokens([t.poolId as `0x${string}`]));
   });

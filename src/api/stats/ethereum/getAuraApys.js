@@ -191,7 +191,7 @@ const getLiquidStakingPoolYield = async pool => {
           : (response = await fetch(pool.lsUrl[i]).then(res => res.json()));
         lsApr = await jp.query(response, pool.dataPath[i]);
       } catch (e) {
-        console.error(`Aura: Liquid Staking URL Fetch Error ${pool.name}`, e);
+        console.error(`Aura: Failed to fetch ${pool.name} liquid staking APR from ${pool.lsUrl[i]}`);
       }
 
       const divisor = pool.divisor ? pool.divisor[i] : 100;
@@ -212,7 +212,7 @@ const getLiquidStakingPoolYield = async pool => {
         : (response = await fetch(pool.lsUrl).then(res => res.json()));
       lsApr = await jp.query(response, pool.dataPath);
     } catch (e) {
-      console.error(`Aura: Liquid Staking URL Fetch Error ${pool.name}`);
+      console.error(`Aura: Failed to fetch ${pool.name} liquid staking APR from ${pool.lsUrl}`);
     }
 
     pool.balancerChargesFee

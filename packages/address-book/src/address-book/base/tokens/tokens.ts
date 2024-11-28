@@ -1779,6 +1779,21 @@ export const tokens = {
     website: 'https://warpcast.com/clanker/0x30f98af8',
     bridge: 'native',
   },
+  LBTC: {
+    name: 'Lombard Staked Bitcoin',
+    symbol: 'LBTC',
+    oracleId: 'LBTC',
+    address: '0xecAc9C5F704e954931349Da37F60E39f515c11c1',
+    chainId: 1,
+    decimals: 8,
+    logoURI: '',
+    website: 'https://www.lombard.finance/app/',
+    description:
+      "LBTC is liquid Bitcoin; it's yield-bearing, cross-chain, and 1:1 backed by BTC. LBTC enables yield-bearing BTC to move cross-chain without fragmenting liquidity, and is designed to seamlessly integrate Bitcoin into the decentralized finance (DeFi) ecosystem while maintaining the security and integrity of the underlying asset.",
+    bridge: 'native',
+    documentation: 'https://docs.lombard.finance/lbtc-liquid-bitcoin/introduction-to-lbtc',
+    risks: ['NO_TIMELOCK', 'LARGE_HOLDERS'],
+  },
   EIGEN: {
     name: 'Eigen',
     symbol: 'EIGEN',

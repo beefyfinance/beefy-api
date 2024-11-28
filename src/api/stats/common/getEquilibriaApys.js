@@ -15,10 +15,10 @@ const eqbMinter = {
   [ARBITRUM_CHAIN_ID]: '0x09bae4C38B1a9142726C6F08DC4d1260B0C8e94d',
 };
 
-export async function getEquilibriaApys(allPools) {
-  const chainId = allPools[0].chainId;
-  const pools = allPools.filter(p => p.eqbGauge);
-  const eqbApys = await getPoolApys(chainId, pools);
+export async function getEquilibriaApys(pools) {
+  const chainId = pools[0].chainId;
+  const eqbPools = pools.filter(p => p.eqbGauge);
+  const eqbApys = await getPoolApys(chainId, eqbPools);
   const { tradingApys, pendleApys } = await getPendleApys(chainId, pools);
 
   // pools.forEach((p, i) => {
@@ -92,7 +92,7 @@ const getPoolApys = async (chainId, pools) => {
     const info = poolInfo[i];
 
     if (info.expiry < Date.now() / 1000) {
-      apys.push(new BigNumber(0));
+      apys[pool.address] = new BigNumber(0);
       continue;
     }
 
