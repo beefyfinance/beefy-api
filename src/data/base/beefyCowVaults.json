@@ -1,5 +1,26 @@
 [
   {
+    "address": "0x9cDE59Eb5B67c3B6a6E629066f4F806933905539",
+    "lpAddress": "0xfBB6Eed8e7aa03B138556eeDaF5D271A5E1e43ef",
+    "tokens": [
+      "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+      "0xcbB7C0000aB88B473b1f5aFd9ef808440eed33Bf"
+    ],
+    "tokenOracleIds": [
+      "USDC",
+      "cbBTC"
+    ],
+    "decimals": [
+      6,
+      8
+    ],
+    "oracleId": "uniswap-cow-base-usdc-cbbtc",
+    "rewardPool": {
+      "address": "0xE6B2919d7779089162aD59EE55987b1781964D33",
+      "oracleId": "uniswap-cow-base-usdc-cbbtc-rp"
+    }
+  },
+  {
     "address": "0xC603C4a517CB742Af8565F07a1A62284A396D11f",
     "lpAddress": "0x9e209Ff07f80E829f417261aEE659771Ce797a7d",
     "tokens": ["0x3c4b6Cd7874eDc945797123fcE2d9a871818524b", "0x4200000000000000000000000000000000000006"],
