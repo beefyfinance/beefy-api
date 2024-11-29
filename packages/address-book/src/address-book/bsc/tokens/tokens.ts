@@ -206,7 +206,6 @@ export const tokens = {
       'We envision THENA as being the native liquidity layer of BNB Chain, enabling value creation by opening the gates for new protocols that wish to solve the cold start liquidity problem, as well as for established protocols looking for a long-term solution to reduce costs to incentivize their liquidity. THENA is a public good owned by protocols and users, with both parties contributing to THENAs status as the leading AMM. We believe that in a decentralized and open-source economy, a collaborative strategy is essential to outrun the competition and establish your product as a market leader.',
     documentation: 'https://thena.gitbook.io/thena/',
     bridge: 'native',
-    risks: ['NO_TIMELOCK'],
   },
   FISH: {
     name: 'SwapFish',
