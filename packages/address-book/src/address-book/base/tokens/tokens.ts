@@ -1876,4 +1876,17 @@ export const tokens = {
     documentation: '',
     bridge: 'native',
   },
+  SIMMI: {
+    name: 'Simmi Token',
+    symbol: 'SIMMI',
+    oracleId: 'SIMMI',
+    address: '0x161e113B8E9BBAEfb846F73F31624F6f9607bd44',
+    chainId: 8453,
+    decimals: 18,
+    logoURI: '',
+    description: 'Official AI agent for Simulacrum, an onchain AI agent protocol.',
+    website: 'https://simulacrum.network/',
+    documentation: 'https://docs.simulacrum.network/',
+    bridge: 'native',
+  },
 } as const satisfies Record<string, Token>;

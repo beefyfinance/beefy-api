@@ -439,6 +439,14 @@ const tokens: Partial<Record<keyof typeof ChainId, ConcentratedLiquidityToken[]>
       firstToken: 'ETH',
       secondToken: 'FCAST',
     },
+    {
+      type: 'UniV3',
+      oracleId: 'SIMMI',
+      decimalDelta: 1,
+      pool: '0xe9a65059E895DD5D49806f6A71B63FEd0fFffD4B',
+      firstToken: 'ETH',
+      secondToken: 'SIMMI',
+    },
   ],
   zksync: [
     {
