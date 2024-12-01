@@ -1,5 +1,17 @@
 [
   {
+    "address": "0x10069f0CBc948F63a744CfcD15c77C8F1004d2A0",
+    "lpAddress": "0xe9a65059E895DD5D49806f6A71B63FEd0fFffD4B",
+    "tokens": ["0x161e113B8E9BBAEfb846F73F31624F6f9607bd44", "0x4200000000000000000000000000000000000006"],
+    "tokenOracleIds": ["SIMMI", "ETH"],
+    "decimals": [18, 18],
+    "oracleId": "uniswap-cow-base-simmi-weth",
+    "rewardPool": {
+      "address": "0x6B215790df7aFB733B85644578C175C30AFa688D",
+      "oracleId": "uniswap-cow-base-simmi-weth-rp"
+    }
+  },
+  {
     "address": "0xC603C4a517CB742Af8565F07a1A62284A396D11f",
     "lpAddress": "0x9e209Ff07f80E829f417261aEE659771Ce797a7d",
     "tokens": ["0x3c4b6Cd7874eDc945797123fcE2d9a871818524b", "0x4200000000000000000000000000000000000006"],
