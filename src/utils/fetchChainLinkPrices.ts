@@ -178,12 +178,6 @@ const oracles: Oracle[] = [
     chain: 'ethereum',
     heartbeat: 864000,
   },
-  {
-    oracleId: 'ankrETH',
-    address: '0x5Fb73f7Af8a29297953d3611422826039338E5b4',
-    chain: 'arbitrum',
-    heartbeat: 864000,
-  },
 ];
 
 export async function fetchChainLinkPrices(): Promise<Record<string, number>> {

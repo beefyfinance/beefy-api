@@ -260,6 +260,7 @@ const coinGeckoCoins: Record<string, string[]> = {
   moonbeam: ['GLMR'],
   scroll: ['SCR'],
   'binance-bitcoin': ['BTCB'],
+  ankreth: ['ankrETH'],
   'kim-token': ['xKIM', 'KIM'],
 };
 
