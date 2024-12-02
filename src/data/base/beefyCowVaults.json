@@ -18,6 +18,27 @@
     "rewardPool": {
       "address": "0xE6B2919d7779089162aD59EE55987b1781964D33",
       "oracleId": "uniswap-cow-base-usdc-cbbtc-rp"
+    "address": "0xb37b4FaC09aF8d900E15Ac942a4Ee1E498Fa0989",
+    "lpAddress": "0x58C10E00c2915F1b12bf08e8b0963b762D509d8E",
+    "tokens": ["0x4200000000000000000000000000000000000006", "0xbDF317F9C153246C429F23f4093087164B145390"],
+    "tokenOracleIds": ["WETH", "AIFUN"],
+    "decimals": [18, 18],
+    "oracleId": "uniswap-cow-base-weth-aifun",
+    "rewardPool": {
+      "address": "0xa400B8401c965A673c74F8822c450F6E55D1E67f",
+      "oracleId": "uniswap-cow-base-weth-aifun-rp"
+    }
+  },
+  {
+    "address": "0x10069f0CBc948F63a744CfcD15c77C8F1004d2A0",
+    "lpAddress": "0xe9a65059E895DD5D49806f6A71B63FEd0fFffD4B",
+    "tokens": ["0x161e113B8E9BBAEfb846F73F31624F6f9607bd44", "0x4200000000000000000000000000000000000006"],
+    "tokenOracleIds": ["SIMMI", "ETH"],
+    "decimals": [18, 18],
+    "oracleId": "uniswap-cow-base-simmi-weth",
+    "rewardPool": {
+      "address": "0x6B215790df7aFB733B85644578C175C30AFa688D",
+      "oracleId": "uniswap-cow-base-simmi-weth-rp"
     }
   },
   {

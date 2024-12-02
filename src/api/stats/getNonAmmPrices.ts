@@ -182,6 +182,7 @@ export async function getNonAmmPrices(tokenPrices: Record<string, number>): Prom
     getVoltagePrices(tokenPrices),
     getVelodromeStablePrices(tokenPrices),
     getVelodromeModeStablePrices(tokenPrices),
+    getSolidlyStablePrices(FRX_CHAIN_ID, require('../../data/fraxtal/veloStablePools.json'), tokenPrices),
     getAerodromeStablePrices(tokenPrices),
     getBalancerAvaxPrices(tokenPrices),
     getBalancerBasePrices(tokenPrices),

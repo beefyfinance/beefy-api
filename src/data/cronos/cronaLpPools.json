@@ -133,25 +133,6 @@
     }
   },
   {
-    "name": "crona-busd-bnb",
-    "address": "0xe8B18116040acf83D6e1f873375adF61103AB45c",
-    "decimals": "1e18",
-    "poolId": 12,
-    "chainId": 25,
-    "lp0": {
-      "address": "0x6aB6d61428fde76768D7b45D8BFeec19c6eF91A8",
-      "oracle": "tokens",
-      "oracleId": "BUSD",
-      "decimals": "1e18"
-    },
-    "lp1": {
-      "address": "0xfA9343C3897324496A05fC75abeD6bAC29f8A40f",
-      "oracle": "tokens",
-      "oracleId": "cBNB",
-      "decimals": "1e18"
-    }
-  },
-  {
     "name": "crona-usdt-usdc",
     "address": "0x968fe4c06fdd503e278d89d5dfe29935a111476c",
     "decimals": "1e18",
@@ -224,25 +205,6 @@
       "address": "0xc9BAA8cfdDe8E328787E29b4B078abf2DaDc2055",
       "oracle": "tokens",
       "oracleId": "cMATIC",
-      "decimals": "1e18"
-    }
-  },
-  {
-    "name": "crona-usdt-busd",
-    "address": "0x503d56B2f535784B7f2bcD6581F7e1b46DC0e60c",
-    "decimals": "1e18",
-    "poolId": 7,
-    "chainId": 25,
-    "lp0": {
-      "address": "0x66e428c3f67a68878562e79A0234c1F83c208770",
-      "oracle": "tokens",
-      "oracleId": "USDT",
-      "decimals": "1e6"
-    },
-    "lp1": {
-      "address": "0x6aB6d61428fde76768D7b45D8BFeec19c6eF91A8",
-      "oracle": "tokens",
-      "oracleId": "BUSD",
       "decimals": "1e18"
     }
   },

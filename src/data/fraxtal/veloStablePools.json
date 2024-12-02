@@ -1,0 +1,22 @@
+[
+  {
+    "name": "velodrome-fraxtal-usdc-frax",
+    "address": "0x9067FB6AeFa1b3dbe64B0E290C17A19B050E3F15",
+    "gauge": "0x0fC884C7a3d32Ea0e9fA5b7d95572262E98BB62E",
+    "decimals": "1e18",
+    "chainId": 252,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0xDcc0F2D8F90FDe85b10aC1c8Ab57dc0AE946A543",
+      "oracle": "tokens",
+      "oracleId": "USDC",
+      "decimals": "1e6"
+    },
+    "lp1": {
+      "address": "0xFc00000000000000000000000000000000000001",
+      "oracle": "tokens",
+      "oracleId": "FRAX",
+      "decimals": "1e18"
+    }
+  }
+]
