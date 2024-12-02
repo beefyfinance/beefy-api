@@ -259,6 +259,7 @@ const coinGeckoCoins: Record<string, string[]> = {
   dogwifcoin: ['WIF'],
   moonbeam: ['GLMR'],
   scroll: ['SCR'],
+  'binance-bitcoin': ['BTCB'],
   'kim-token': ['xKIM', 'KIM'],
 };
 

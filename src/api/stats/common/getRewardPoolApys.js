@@ -47,7 +47,7 @@ export const getFarmApys = async params => {
     ? getXPrice(tokenPrice, params)
     : new Promise(resolve => resolve(tokenPrice));
 
-  const [rewardTokenPrice, { balances, rewardRates, periodFinishes }] = await Promise.all([
+  const [rewardTokenPrice, { balances, rewardRates, periodFinishes, extras }] = await Promise.all([
     rewardTokenPriceCall,
     getPoolsData(params),
   ]);
@@ -63,8 +63,17 @@ export const getFarmApys = async params => {
     const blockTime = params.periodFinish === 'periodInBlockFinish' ? await getBlockTime(params.chainId) : 0;
     const secondsPerYear = params.periodFinish === 'periodInBlockFinish' ? 31536000 / blockTime : 31536000;
     const yearlyRewards = rewardRates[i].times(secondsPerYear);
-    const yearlyRewardsInUsd = yearlyRewards.times(rewardTokenPrice).dividedBy(params.decimals);
+    let yearlyRewardsInUsd = yearlyRewards.times(rewardTokenPrice).dividedBy(params.decimals);
     const block = params.periodFinish === 'periodInBlockFinish' ? await getBlockNumber(params.chainId) : 0;
+
+    for (const extra of extras.filter(e => e.pool === pool.name)) {
+      const price = await fetchPrice({ oracle: 'tokens', id: extra.token });
+      const extraRewardsInUsd = extra.rewardRate
+        .times(secondsPerYear)
+        .times(price)
+        .div(extra.decimals || '1e18');
+      yearlyRewardsInUsd = yearlyRewardsInUsd.plus(extraRewardsInUsd);
+    }
 
     const isActive =
       params.periodFinish === 'periodInBlockFinish'
@@ -85,6 +94,8 @@ export const getPoolsData = async params => {
   const balanceCalls = [];
   const rewardRateCalls = [];
   const periodFinishCalls = [];
+  const extraCalls = [];
+  const extraData = [];
   const periodFinish = params.periodFinish ?? 'periodFinish';
   const abi = params.periodFinish ? getAbi(periodFinish) : params.cake ? IWrapper : IRewardPool;
 
@@ -97,18 +108,27 @@ export const getPoolsData = async params => {
     );
     rewardRateCalls.push(params.cake ? rewardPool.read.rewardPerSecond() : rewardPool.read.rewardRate());
     periodFinishCalls.push(params.cake ? rewardPool.read.endTimestamp() : rewardPool.read[periodFinish]());
+
+    pool.extras?.forEach(extra => {
+      const extraPool = fetchContract(extra.rewardPool, IWrapper, params.chainId);
+      extraCalls.push(extraPool.read.rewardPerSecond());
+      extraData.push({ pool: pool.name, token: extra.oracleId });
+    });
   });
 
   const res = await Promise.all([
     Promise.all(balanceCalls),
     Promise.all(rewardRateCalls),
     Promise.all(periodFinishCalls),
+    Promise.all(extraCalls),
   ]);
 
   const balances = res[0].map(v => new BigNumber(v.toString()));
   const rewardRates = res[1].map(v => new BigNumber(v.toString()));
   const periodFinishes = res[2].map(v => new BigNumber(v.toString()));
-  return { balances, rewardRates, periodFinishes };
+  const extraRates = res[3].map(v => new BigNumber(v.toString()));
+  const extras = extraData.map((v, i) => ({ ...v, rewardRate: extraRates[i] }));
+  return { balances, rewardRates, periodFinishes, extras };
 };
 
 const getXPrice = async (tokenPrice, params) => {

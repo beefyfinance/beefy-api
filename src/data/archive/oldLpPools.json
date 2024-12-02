@@ -1,5 +1,24 @@
 [
   {
+    "name": "pancake-quo-usdt",
+    "address": "0xa387A64D4E1711442FADeF1dd4C697d901DCCf05",
+    "decimals": "1e18",
+    "chainId": 56,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0x08b450e4a48C04CDF6DB2bD4cf24057f7B9563fF",
+      "oracle": "tokens",
+      "oracleId": "QUO",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x55d398326f99059fF775485246999027B3197955",
+      "oracle": "tokens",
+      "oracleId": "USDT",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "uniswap-token-weth",
     "address": "0x5Fa464CEfe8901d66C09b85d5Fcdc55b3738c688",
     "decimals": "1e18",

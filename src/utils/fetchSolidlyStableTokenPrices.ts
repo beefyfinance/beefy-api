@@ -87,6 +87,17 @@ const tokens: Partial<Record<keyof typeof ChainId, StablePoolLiquidityToken[]>> 
       secondTokenAddress: '0x06eFdBFf2a14a7c8E15944D1F4A48F9F95F663A4',
     },
   ],
+  bsc: [
+    {
+      oracleId: 'liveTHE',
+      pool: '0x3765476BfFE43Cf4c0656bF3A7529c54ae247056',
+      firstToken: 'liveTHE',
+      firstTokenDecimals: '1e18',
+      secondToken: 'THE',
+      secondTokenDecimals: 1e18,
+      secondTokenAddress: '0xF4C8E32EaDEC4BFe97E0F595AdD0f4450a863a11',
+    },
+  ],
 };
 
 async function getStablePoolPrices(
