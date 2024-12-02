@@ -1889,4 +1889,18 @@ export const tokens = {
     documentation: 'https://docs.simulacrum.network/',
     bridge: 'native',
   },
+  AIFUN: {
+    name: 'AI Agent Layer',
+    symbol: 'AIFUN',
+    oracleId: 'AIFUN',
+    address: '0xbDF317F9C153246C429F23f4093087164B145390',
+    chainId: 8453,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://aiagentlayer.com/',
+    description:
+      'The AI Agent Layer introduces a pioneering platform that allows users to create, personalize, and tokenize AI Agents in a fully decentralized ecosystem. Through a seamless and accessible interface, users can launch tradeable AI Agents in just 15 seconds, each represented by tokens paired with the native currency, $AIFUN.',
+    documentation: 'https://aifun-1.gitbook.io/aiagentlayer',
+    bridge: 'native',
+  },
 } as const satisfies Record<string, Token>;
