@@ -33,6 +33,7 @@ export const chainIdMap = {
   sei: 1329,
   rootstock: 30,
   scroll: 534352,
+  lisk: https://rpc.api.lisk.com,
 } satisfies ChainIdMap;
 
 // back-compat
