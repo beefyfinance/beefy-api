@@ -31,7 +31,7 @@ export enum ChainId {
   sei = 1329,
   rootstock = 30,
   scroll = 534352,
-  lisk = https://rpc.api.lisk.com,
+  lisk = 1135,
 }
 
 type ChainIdType = typeof ChainId;
