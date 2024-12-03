@@ -1,11 +1,16 @@
 import BigNumber from 'bignumber.js';
 import { fetchContract } from '../../rpc/client';
 import BunniLensAbi from '../../../abis/BunniLens';
+import { BASE_CHAIN_ID } from '../../../constants';
 
-export const getBunniPrices = async (chainId, pools, tokenPrices, lens) => {
+const lens = {
+  [BASE_CHAIN_ID]: '0x3eD7357337853E2Fd8d4b6CbABCDAA0858b40f01',
+};
+
+export const getBunniPrices = async (chainId, pools, tokenPrices) => {
   const [calls] = pools.reduce(
     (acc, pool) => {
-      const contract = fetchContract(lens, BunniLensAbi, chainId);
+      const contract = fetchContract(lens[chainId], BunniLensAbi, chainId);
       acc[0].push(contract.read.tokenBalances([pool.address]));
       return acc;
     },
@@ -48,5 +53,3 @@ const getTokenPrice = (tokenPrices, oracleId) => {
   }
   return tokenPrice;
 };
-
-module.exports = getBunniPrices;

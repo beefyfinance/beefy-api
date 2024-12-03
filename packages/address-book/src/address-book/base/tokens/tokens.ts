@@ -1903,4 +1903,17 @@ export const tokens = {
     documentation: 'https://aifun-1.gitbook.io/aiagentlayer',
     bridge: 'native',
   },
+  CHAOS: {
+    name: 'CHAOS',
+    symbol: 'CHAOS',
+    oracleId: 'CHAOS',
+    address: '0x20d704099B62aDa091028bcFc44445041eD16f09',
+    chainId: 8453,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://x.com/bitmar89/status/1863696009836036131',
+    description: 'CHAOS is a token created by ai agent AIXbt using Simulacrum',
+    documentation: '',
+    bridge: 'native',
+  },
 } as const satisfies Record<string, Token>;

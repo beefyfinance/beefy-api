@@ -455,6 +455,14 @@ const tokens: Partial<Record<keyof typeof ChainId, ConcentratedLiquidityToken[]>
       firstToken: 'AIFUN',
       secondToken: 'ETH',
     },
+    {
+      type: 'UniV3',
+      oracleId: 'CHAOS',
+      decimalDelta: 1,
+      pool: '0x01A1f5758c3a53057B6C819Ec7331e39c167794A',
+      firstToken: 'ETH',
+      secondToken: 'CHAOS',
+    },
   ],
   zksync: [
     {
