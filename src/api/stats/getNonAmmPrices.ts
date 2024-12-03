@@ -110,6 +110,7 @@ import { getBeefyCowScrollPrices } from './scroll/getBeefyScrollCowPrices';
 import { getBeefyCowModePrices } from './mode/getBeefyModeCowPrices';
 import { getPendleCommonPrices } from './common/getPendleCommonPrices';
 import { getMellowVeloPrices } from './common/getMellowVeloPrices';
+import { getBunniPrices } from './common/getBunniPrices';
 import getBaseSiloPrices from './base/getBaseSiloPrices';
 import getVenusArbPrices from './arbitrum/getVenusArbPrices';
 import getVenusZkPrices from './zksync/getVenusZkPrices';
@@ -242,6 +243,7 @@ export async function getNonAmmPrices(tokenPrices: Record<string, number>): Prom
     getPendleCommonPrices(BASE_CHAIN_ID, require('../../data/base/pendlePools.json'), tokenPrices),
     getMellowVeloPrices(OPTIMISM_CHAIN_ID, require('../../data/optimism/mellowVeloPools.json'), tokenPrices),
     getMellowVeloPrices(BASE_CHAIN_ID, require('../../data/base/mellowAeroPools.json'), tokenPrices),
+    getBunniPrices(BASE_CHAIN_ID, require('../../data/base/alienBaseBunniPools.json'), tokenPrices),
     getPearlTridentPrices(tokenPrices),
     getSolidlyStablePrices(REAL_CHAIN_ID, require('../../data/real/pearlStableLpPools.json'), tokenPrices),
     getBaseSiloPrices(tokenPrices),
