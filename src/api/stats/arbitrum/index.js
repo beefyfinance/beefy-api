@@ -1,6 +1,5 @@
 const { getCurveApys } = require('./getCurveApys');
 const { getCurveLendApys } = require('./getCurveLendApys');
-const { getSpellApys } = require('./getSpellApys');
 const getBalancerArbApys = require('./getBalancerArbApys');
 const getStargateArbApys = require('./getStargateArbApys');
 const { getGmxV2Apys } = require('./getGmxV2Apys');
@@ -39,7 +38,6 @@ const getApys = [
   getCurveApys,
   getCurveLendApys,
   getConvexApys,
-  getSpellApys,
   getBalancerArbApys,
   getStargateArbApys,
   getSolidLizardApys,

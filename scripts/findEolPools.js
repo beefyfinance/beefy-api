@@ -22,12 +22,18 @@ async function main() {
   initVaultService();
   await serviceEventBus.waitForFirstEvent('vaults/updated');
   const vaults = getMultichainVaults();
+
+  const res = await fetch('https://api.beefy.finance/tvl').then(r => r.json());
+  const tvl = Object.keys(res)
+    .map(k => res[k])
+    .reduce((p, c) => ({ ...p, ...c }), {});
+
   ids.forEach(id => {
     const v = vaults.find(v => v.id === id);
     if (!v) {
       console.error(id, 'not found');
     } else if (v.status === 'eol') {
-      console.warn(id, 'eol', v.retiredAt, new Date(v.retiredAt * 1000));
+      console.warn(id, 'eol', v.retiredAt, new Date(v.retiredAt * 1000).toLocaleDateString(), tvl[id]);
     }
   });
   process.exit(0);
