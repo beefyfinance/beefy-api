@@ -33,6 +33,7 @@ export const chainIdMap = {
   sei: 1329,
   rootstock: 30,
   scroll: 534352,
+  lisk: 1135,
 } satisfies ChainIdMap;
 
 // back-compat
