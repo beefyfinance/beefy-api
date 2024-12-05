@@ -14,10 +14,10 @@
       6,
       18
     ],
-    "oracleId": "uniswap-cow-base-hyUSD-USDC",
+    "oracleId": "uniswap-cow-base-hyusd-usdc",
     "rewardPool": {
       "address": "0x81E4675C6A312e502eF10aA038e6159B921132C6",
-      "oracleId": "uniswap-cow-base-hyUSD-USDC-rp"
+      "oracleId": "uniswap-cow-base-hyusd-usdc-rp"
     }
   },
   {
@@ -35,10 +35,10 @@
       18,
       18
     ],
-    "oracleId": "uniswap-cow-base-bsdETH-WETH",
+    "oracleId": "uniswap-cow-base-bsdeth-weth",
     "rewardPool": {
       "address": "0xd3CC4ba1eEf11cb11BfD44c8F2F48EF5A7d9020e",
-      "oracleId": "uniswap-cow-base-bsdETH-WETH-rp"
+      "oracleId": "uniswap-cow-base-bsdeth-weth-rp"
     }
   },
   {
