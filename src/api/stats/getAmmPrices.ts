@@ -261,6 +261,7 @@ const coinGeckoCoins: Record<string, string[]> = {
   scroll: ['SCR'],
   'binance-bitcoin': ['BTCB'],
   ankreth: ['ankrETH'],
+  'usda-2': ['USDa'],
   'kim-token': ['xKIM', 'KIM'],
 };
 

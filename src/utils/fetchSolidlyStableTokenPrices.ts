@@ -6,7 +6,6 @@ import BigNumber from 'bignumber.js';
 type StablePoolLiquidityToken = {
   oracleId: string;
   pool: `0x${string}`;
-  firstToken: string;
   firstTokenDecimals: string;
   secondToken: string;
   secondTokenDecimals: number;
@@ -18,7 +17,6 @@ const tokens: Partial<Record<keyof typeof ChainId, StablePoolLiquidityToken[]>> 
     {
       oracleId: 'bMAI',
       pool: '0xf6Aec4F97623E691a9426a69BaF5501509fCa05D',
-      firstToken: 'bMAI',
       firstTokenDecimals: '1e18',
       secondToken: 'USDbC',
       secondTokenDecimals: 1e6,
@@ -27,7 +25,6 @@ const tokens: Partial<Record<keyof typeof ChainId, StablePoolLiquidityToken[]>> 
     {
       oracleId: 'bUSDC+',
       pool: '0xE96c788E66a97Cf455f46C5b27786191fD3bC50B',
-      firstToken: 'bUSDC+',
       firstTokenDecimals: '1e6',
       secondToken: 'baseUSD+',
       secondTokenDecimals: 1e6,
@@ -38,7 +35,6 @@ const tokens: Partial<Record<keyof typeof ChainId, StablePoolLiquidityToken[]>> 
     {
       oracleId: 'lMAI',
       pool: '0xE9E146f5bceBD71Fb8C526EA036dE6bbFB1B0Ad7',
-      firstToken: 'lMAI',
       firstTokenDecimals: '1e18',
       secondToken: 'USDC',
       secondTokenDecimals: 1e6,
@@ -49,7 +45,6 @@ const tokens: Partial<Record<keyof typeof ChainId, StablePoolLiquidityToken[]>> 
     {
       oracleId: 'USDx',
       pool: '0x340F0c6E09bb2C13df14bb4B334CC8Dba0bb4881',
-      firstToken: 'USDx',
       firstTokenDecimals: '1e18',
       secondToken: 'USDC',
       secondTokenDecimals: 1e6,
@@ -60,7 +55,6 @@ const tokens: Partial<Record<keyof typeof ChainId, StablePoolLiquidityToken[]>> 
     {
       oracleId: 'stRWA',
       pool: '0xb28d015563c81dd66Ab781853c03B7B66aa46C1b',
-      firstToken: 'stRWA',
       firstTokenDecimals: '1e18',
       secondToken: 'RWA',
       secondTokenDecimals: 1e18,
@@ -69,7 +63,6 @@ const tokens: Partial<Record<keyof typeof ChainId, StablePoolLiquidityToken[]>> 
     {
       oracleId: 'MORE',
       pool: '0x1733720f30EF013539Fa2EcEE00671A60B66243D',
-      firstToken: 'MORE',
       firstTokenDecimals: '1e18',
       secondToken: 'USDC',
       secondTokenDecimals: 1e6,
@@ -80,7 +73,6 @@ const tokens: Partial<Record<keyof typeof ChainId, StablePoolLiquidityToken[]>> 
     {
       oracleId: 'loreUSD',
       pool: '0x4775dFFd8762eE4C8DE49f4FD6D02A1f0d8f1698',
-      firstToken: 'loreUSD',
       firstTokenDecimals: '1e18',
       secondToken: 'USDC',
       secondTokenDecimals: 1e6,
@@ -91,11 +83,18 @@ const tokens: Partial<Record<keyof typeof ChainId, StablePoolLiquidityToken[]>> 
     {
       oracleId: 'liveTHE',
       pool: '0x3765476BfFE43Cf4c0656bF3A7529c54ae247056',
-      firstToken: 'liveTHE',
       firstTokenDecimals: '1e18',
       secondToken: 'THE',
       secondTokenDecimals: 1e18,
       secondTokenAddress: '0xF4C8E32EaDEC4BFe97E0F595AdD0f4450a863a11',
+    },
+    {
+      oracleId: 'mCAKE',
+      firstTokenDecimals: '1e18',
+      pool: '0x7569Ae71A1832fa5F403471a01289222b1Daacb5',
+      secondToken: 'Cake',
+      secondTokenDecimals: 1e18,
+      secondTokenAddress: '0x0E09FaBB73Bd3Ade0a17ECC321fD13a19e81cE82',
     },
   ],
 };
