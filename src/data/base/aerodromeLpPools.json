@@ -1,5 +1,145 @@
 [
   {
+    "name": "aerodrome-cbbtc-klima",
+    "address": "0x6CD89bc86E4a418f7f11e453384904B4493C4077",
+    "gauge": "0xC913c26A4e8a79604fcd3d5a44560F5bE38aE32c",
+    "decimals": "1e18",
+    "chainId": 8453,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0xcbB7C0000aB88B473b1f5aFd9ef808440eed33Bf",
+      "oracle": "tokens",
+      "oracleId": "cbBTC",
+      "decimals": "1e8"
+    },
+    "lp1": {
+      "address": "0xDCEFd8C8fCc492630B943ABcaB3429F12Ea9Fea2",
+      "oracle": "tokens",
+      "oracleId": "KLIMA",
+      "decimals": "1e9"
+    }
+  },
+  {
+    "name": "aerodrome-cbbtc-tarot",
+    "address": "0x2E26a29f782e51296d9D31f78D4883462a2d339d",
+    "gauge": "0xD9f451A489d622E46E77b74dBD95A5616bca41e2",
+    "decimals": "1e18",
+    "chainId": 8453,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0xcbB7C0000aB88B473b1f5aFd9ef808440eed33Bf",
+      "oracle": "tokens",
+      "oracleId": "cbBTC",
+      "decimals": "1e8"
+    },
+    "lp1": {
+      "address": "0xF544251D25f3d243A36B07e7E7962a678f952691",
+      "oracle": "tokens",
+      "oracleId": "TAROT",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "aerodrome-aero-tarot",
+    "address": "0x7810F8f3253ced11e8c56C6C8497f3134055D44C",
+    "gauge": "0x65B4A4b9813E37DA640bbEf8AbDD8E47100bE5f8",
+    "decimals": "1e18",
+    "chainId": 8453,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0x940181a94A35A4569E4529A3CDfB74e38FD98631",
+      "oracle": "tokens",
+      "oracleId": "AERO",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xF544251D25f3d243A36B07e7E7962a678f952691",
+      "oracle": "tokens",
+      "oracleId": "TAROT",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "aerodrome-weth-tarot",
+    "address": "0x2d25E0514f23c6367687dE89Bd5167dc754D4934",
+    "gauge": "0xa81dac2e9caa218Fcd039D7CEdEB7847cf362213",
+    "decimals": "1e18",
+    "chainId": 8453,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0x4200000000000000000000000000000000000006",
+      "oracle": "tokens",
+      "oracleId": "WETH",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xF544251D25f3d243A36B07e7E7962a678f952691",
+      "oracle": "tokens",
+      "oracleId": "TAROT",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "aerodrome-weth-yfi",
+    "address": "0xA5B1C80B6ddC11e751e405d9374265055762F66e",
+    "gauge": "0x3DcB77970F4f6b6dCa82e845AAb2e2128fc280D6",
+    "decimals": "1e18",
+    "chainId": 8453,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0x4200000000000000000000000000000000000006",
+      "oracle": "tokens",
+      "oracleId": "WETH",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x9EaF8C1E34F05a589EDa6BAfdF391Cf6Ad3CB239",
+      "oracle": "tokens",
+      "oracleId": "YFI",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "aerodrome-usdc-g",
+    "address": "0x637E0567eDD057f865Afb4602F3B961909E09774",
+    "gauge": "0x509C953cDC289C476EA19f124c3E5804d479a1fb",
+    "decimals": "1e18",
+    "chainId": 8453,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+      "oracle": "tokens",
+      "oracleId": "USDC",
+      "decimals": "1e6"
+    },
+    "lp1": {
+      "address": "0x9C7BEBa8F6eF6643aBd725e45a4E8387eF260649",
+      "oracle": "tokens",
+      "oracleId": "G",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "aerodrome-ox-cbbtc",
+    "address": "0xdC4260f59CBc870c6BE271100430C23FD632D33E",
+    "gauge": "0x5AFCf03d8D37bcB6f3152C250F168bd70Fcb8119",
+    "decimals": "1e18",
+    "chainId": 8453,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0xba0Dda8762C24dA9487f5FA026a9B64b695A07Ea",
+      "oracle": "tokens",
+      "oracleId": "OX",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xcbB7C0000aB88B473b1f5aFd9ef808440eed33Bf",
+      "oracle": "tokens",
+      "oracleId": "cbBTC",
+      "decimals": "1e8"
+    }
+  },
+  {
     "name": "aerodrome-jarvis-wsteth",
     "address": "0xa5061aa5eB2e8abCE384B36a855549e8D9C8cEd5",
     "gauge": "0xc498a9a90516Ca3aD2d096BbAFaD169E7583Aa04",
