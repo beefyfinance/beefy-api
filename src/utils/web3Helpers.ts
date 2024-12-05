@@ -68,6 +68,8 @@ import {
   ROOTSTOCK_CHAIN_ID,
   SCROLL_RPC,
   SCROLL_CHAIN_ID,
+  LISK_RPC,
+  LISK_CHAIN_ID,
 } from '../constants';
 
 const MULTICALLS: Record<ChainId, Pick<BeefyFinance, 'multicall'>['multicall']> = {
@@ -103,6 +105,7 @@ const MULTICALLS: Record<ChainId, Pick<BeefyFinance, 'multicall'>['multicall']> 
   [ChainId.sei]: addressBookByChainId[ChainId.sei].platforms.beefyfinance.multicall,
   [ChainId.rootstock]: addressBookByChainId[ChainId.rootstock].platforms.beefyfinance.multicall,
   [ChainId.scroll]: addressBookByChainId[ChainId.scroll].platforms.beefyfinance.multicall,
+  [ChainId.lisk]: addressBookByChainId[ChainId.lisk].platforms.beefyfinance.multicall,
 };
 
 export const MULTICALL_V3: Partial<Readonly<Record<ChainId, string>>> = {
@@ -138,6 +141,7 @@ export const MULTICALL_V3: Partial<Readonly<Record<ChainId, string>>> = {
   [ChainId.sei]: '0xcA11bde05977b3631167028862bE2a173976CA11',
   [ChainId.rootstock]: '0xcA11bde05977b3631167028862bE2a173976CA11',
   [ChainId.scroll]: '0xcA11bde05977b3631167028862bE2a173976CA11',
+  [ChainId.lisk]: '0xcA11bde05977b3631167028862bE2a173976CA11',
 };
 
 const clients: Record<keyof typeof ChainId, Web3[]> = {
@@ -173,6 +177,7 @@ const clients: Record<keyof typeof ChainId, Web3[]> = {
   sei: [],
   rootstock: [],
   scroll: [],
+  lisk: [],
 };
 
 BSC_RPC_ENDPOINTS.forEach(endpoint => {
@@ -211,6 +216,7 @@ clients.real.push(new Web3(REAL_RPC));
 clients.sei.push(new Web3(SEI_RPC));
 clients.rootstock.push(new Web3(ROOTSTOCK_RPC));
 clients.scroll.push(new Web3(SCROLL_RPC));
+clients.lisk.push(new Web3(LISK_RPC));
 
 export const chainRandomClients = {
   bscRandomClient: () => clients.bsc[~~(clients.bsc.length * Math.random())],
@@ -245,6 +251,7 @@ export const chainRandomClients = {
   seiRandomClient: () => clients.sei[~~(clients.sei.length * Math.random())],
   rootstockRandomClient: () => clients.rootstock[~~(clients.rootstock.length * Math.random())],
   scrollRandomClient: () => clients.scroll[~~(clients.scroll.length * Math.random())],
+  liskRandomClient: () => clients.lisk[~~(clients.lisk.length * Math.random())],
 };
 
 export const _web3Factory = (chainId: ChainId) => {
@@ -313,6 +320,8 @@ export const _web3Factory = (chainId: ChainId) => {
       return chainRandomClients.rootstockRandomClient();
     case SCROLL_CHAIN_ID:
       return chainRandomClients.scrollRandomClient();
+    case LISK_CHAIN_ID:
+      return chainRandomClients.liskRandomClient();
   }
 };
 

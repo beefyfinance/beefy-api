@@ -67,6 +67,8 @@ import {
   ROOTSTOCK_CHAIN_ID,
   SCROLL_RPC,
   SCROLL_CHAIN_ID,
+  LISK_RPC,
+  LISK_CHAIN_ID,
 } from '../constants';
 
 console.log(addressBookByChainId[ChainId.fantom].platforms.beefyfinance.multicall);
@@ -103,6 +105,7 @@ const MULTICALLS: Record<ChainId, Pick<BeefyFinance, 'multicall'>['multicall']> 
   [ChainId.sei]: addressBookByChainId[ChainId.sei].platforms.beefyfinance.multicall,
   [ChainId.rootstock]: addressBookByChainId[ChainId.rootstock].platforms.beefyfinance.multicall,
   [ChainId.scroll]: addressBookByChainId[ChainId.scroll].platforms.beefyfinance.multicall,
+  [ChainId.lisk]: addressBookByChainId[ChainId.lisk].platforms.beefyfinance.multicall,
 };
 
 const clients: Record<keyof typeof ChainId, ethers.providers.JsonRpcProvider[]> = {
@@ -138,6 +141,7 @@ const clients: Record<keyof typeof ChainId, ethers.providers.JsonRpcProvider[]> 
   sei: [],
   rootstock: [],
   scroll: [],
+  lisk: [],
 };
 BSC_RPC_ENDPOINTS.forEach(endpoint => {
   clients.bsc.push(new ethers.providers.JsonRpcProvider(endpoint));
@@ -175,6 +179,7 @@ clients.real.push(new ethers.providers.JsonRpcProvider(REAL_RPC));
 clients.sei.push(new ethers.providers.JsonRpcProvider(SEI_RPC));
 clients.rootstock.push(new ethers.providers.JsonRpcProvider(ROOTSTOCK_RPC));
 clients.scroll.push(new ethers.providers.JsonRpcProvider(SCROLL_RPC));
+clients.lisk.push(new ethers.providers.JsonRpcProvider(LISK_RPC));
 
 export const chainRandomClients = {
   bscRandomClient: () => clients.bsc[~~(clients.bsc.length * Math.random())],
@@ -209,6 +214,7 @@ export const chainRandomClients = {
   seiRandomClient: () => clients.sei[~~(clients.sei.length * Math.random())],
   rootstockRandomClient: () => clients.rootstock[~~(clients.rootstock.length * Math.random())],
   scrollRandomClient: () => clients.scroll[~~(clients.scroll.length * Math.random())],
+  liskRandomClient: () => clients.lisk[~~(clients.lisk.length * Math.random())],
 };
 
 export const _ethersFactory = (chainId: ChainId) => {
@@ -277,6 +283,8 @@ export const _ethersFactory = (chainId: ChainId) => {
       return chainRandomClients.rootstockRandomClient();
     case SCROLL_CHAIN_ID:
       return chainRandomClients.scrollRandomClient();
+    case LISK_CHAIN_ID:
+      return chainRandomClients.liskRandomClient();
   }
 };
 
