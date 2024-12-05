@@ -1925,10 +1925,11 @@ export const tokens = {
     decimals: 18,
     logoURI: '',
     website: 'https://gravity.xyz/',
-    description: 'Gravity is a Layer 1 omnichain smart contract platform designed to deliver a more efficient, scalable, and secure mechanism for managing complex cross-chain interactions with minimal friction.',
+    description:
+      'Gravity is a Layer 1 omnichain smart contract platform designed to deliver a more efficient, scalable, and secure mechanism for managing complex cross-chain interactions with minimal friction.',
     documentation: 'https://docs.gravity.xyz/',
     bridge: 'native',
-    risks: ['NO_TIMELOCK'],
+    risks: ['LARGE_HOLDERS', 'NO_TIMELOCK'],
   },
   TAROT: {
     name: 'Tarot',
@@ -1939,9 +1940,10 @@ export const tokens = {
     decimals: 18,
     logoURI: '',
     website: 'https://www.tarot.to/',
-    description: 'Tarot is a decentralized lending protocol where users can participate as lenders or borrowers in isolated lending pools.',
+    description:
+      'Tarot is a decentralized lending protocol where users can participate as lenders or borrowers in isolated lending pools.',
     documentation: 'https://docs.tarot.to/',
     bridge: 'layer-zero',
-    risks: ['NO_TIMELOCK'],
+    risks: ['LARGE_HOLDERS', 'NO_TIMELOCK'],
   },
 } as const satisfies Record<string, Token>;
