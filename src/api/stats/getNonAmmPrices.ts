@@ -236,6 +236,7 @@ export async function getNonAmmPrices(tokenPrices: Record<string, number>): Prom
     getBeefyCowRootstockPrices(tokenPrices),
     getBeefyCowScrollPrices(tokenPrices),
     getBeefyCowModePrices(tokenPrices),
+    getBeefyCowLiskPrices(tokenPrices),
     getFtmIchiPrices(tokenPrices),
     getPendleCommonPrices(ARB_CHAIN_ID, require('../../data/arbitrum/equilibriaPools.json'), tokenPrices),
     getPendleCommonPrices(ARB_CHAIN_ID, require('../../data/arbitrum/pendlePools.json'), tokenPrices),
