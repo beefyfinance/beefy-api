@@ -48,6 +48,10 @@ export function sendNotFound(ctx: Context, body?: unknown, cache?: CacheOptions)
   sendStatusCode(ctx, 404, body, cache);
 }
 
+export function sendInternalServerError(ctx: Context, body?: unknown, cache?: CacheOptions) {
+  sendStatusCode(ctx, 500, body, cache);
+}
+
 export function sendServiceUnavailable(
   ctx: Context,
   body?: unknown,
@@ -60,4 +64,17 @@ export function sendServiceUnavailable(
   });
   ctx.headers['Retry-After'] = `${DEFAULT_RETRY_AFTER}`;
   ctx.headers['Cache-Control'] = `s-maxage=${DEFAULT_RETRY_AFTER}`;
+}
+
+export type KoaCallback = (ctx: Context) => Promise<void>;
+
+export function withErrorHandling(cb: KoaCallback): KoaCallback {
+  return async (ctx: Context) => {
+    try {
+      await cb(ctx);
+    } catch (error) {
+      console.error(error);
+      sendInternalServerError(ctx);
+    }
+  };
 }

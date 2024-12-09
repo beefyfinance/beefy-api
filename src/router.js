@@ -73,6 +73,8 @@ router.get('/cow-vaults/:chainId', multichainVaults.singleCowChainVaults);
 router.get('/harvestable-vaults', multichainVaults.multichainHarvestableVaults);
 router.get('/harvestable-vaults/id/:vaultId', multichainVaults.singleHarvestableVault);
 router.get('/harvestable-vaults/:chainId', multichainVaults.singleHarvestableVaults);
+router.get('/clm-vaults', multichainVaults.multiChainClms);
+router.get('/clm-vaults/:chainId', multichainVaults.singleChainClms);
 
 router.get('/cow-price-ranges', handleCowcentratedPriceRanges);
 router.get('/cow-dune-ltipp-merkl-campaigns', handleCowcentratedLTIPPCampaignsForDune);
