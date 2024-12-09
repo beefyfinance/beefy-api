@@ -32,6 +32,7 @@ import {
   SEI_RPC,
   ROOTSTOCK_RPC,
   SCROLL_RPC,
+  LISK_RPC,
 } from '../../constants';
 import { ChainId } from '../../../packages/address-book/src/address-book';
 
@@ -791,6 +792,28 @@ const rootstockChain = {
 
 /// New Chains
 
+const liskChain = {
+  id: 1135,
+  name: 'Lisk',
+  network: 'lisk',
+  nativeCurrency: {
+    decimals: 18,
+    name: 'WETH',
+    symbol: 'WETH',
+  },
+  rpcUrls: {
+    public: { http: [LISK_RPC] },
+    default: { http: [LISK_RPC] },
+  },
+  blockExplorers: {
+    default: { name: 'lisk explorer', url: 'https://blockscout.lisk.com/' },
+  },
+  contracts: {
+    multicall3: {
+      address: '0xca11bde05977b3631167028862be2a173976ca11',
+    },
+  },
+} as const satisfies Chain;
 
 const scrollChain = {
   id: 534352,
@@ -849,4 +872,5 @@ export const getChain: Partial<Record<ChainId, Chain>> = {
   [ChainId.sei]: seiChain,
   [ChainId.rootstock]: rootstockChain,
   [ChainId.scroll]: scrollChain,
+  [ChainId.lisk]: liskChain,
 } as const;

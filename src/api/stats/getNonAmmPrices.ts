@@ -108,6 +108,7 @@ import { getBeefyCowAvaxPrices } from './avax/getBeefyCowAvaxPrices';
 import { getBeefyCowRootstockPrices } from './rootstock/getBeefyRootstockCowPrices';
 import { getBeefyCowScrollPrices } from './scroll/getBeefyScrollCowPrices';
 import { getBeefyCowModePrices } from './mode/getBeefyModeCowPrices';
+import { getBeefyCowLiskPrices } from './lisk/getBeefyLiskCowPrices';
 import { getPendleCommonPrices } from './common/getPendleCommonPrices';
 import { getMellowVeloPrices } from './common/getMellowVeloPrices';
 import { getBunniPrices } from './common/getBunniPrices';

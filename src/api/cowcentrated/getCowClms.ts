@@ -15,6 +15,7 @@ import avaxPools from '../../data/avax/beefyCowVaults.json';
 import rootstockPools from '../../data/rootstock/beefyCowVaults.json';
 import scrollPools from '../../data/scroll/beefyCowVaults.json';
 import modePools from '../../data/mode/beefyCowVaults.json';
+import liskPools from '../../data/lisk/beefyCowVaults.json';
 const chainToClms: Readonly<Partial<Record<ApiChain, CowClm[]>>> = {
   optimism: validateCowClms(optimismPools),
   base: validateCowClms(basePools),
@@ -31,6 +32,7 @@ const chainToClms: Readonly<Partial<Record<ApiChain, CowClm[]>>> = {
   rootstock: validateCowClms(rootstockPools),
   scroll: validateCowClms(scrollPools),
   mode: validateCowClms(modePools),
+  lisk: validateCowClms(liskPools),
 };
 
 const chainsWithClms = (Object.keys(chainToClms) as ReadonlyArray<ApiChain>).filter(

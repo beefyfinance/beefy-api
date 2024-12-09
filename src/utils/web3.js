@@ -99,6 +99,9 @@ module.exports = {
   get scrollWeb3() {
     return chainRandomClients.scrollRandomClient();
   },
+  get liskWeb3() {
+    return chainRandomClients.liskRandomClient();
+  },
 
   web3Factory: _web3Factory,
 

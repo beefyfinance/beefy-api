@@ -492,6 +492,16 @@ const tokens: Partial<Record<keyof typeof ChainId, ConcentratedLiquidityToken[]>
       secondToken: 'WETH',
     },
   ],
+  lisk: [
+    {
+      type: 'UniV3',
+      oracleId: 'LSK',
+      decimalDelta: 1,
+      pool: '0xD501d4E381491F64274Cc65fdec32b47264a2422',
+      firstToken: 'LSK',
+      secondToken: 'WETH',
+    },
+  ],
 };
 
 async function getConcentratedLiquidityPrices(

@@ -178,6 +178,7 @@ clients.manta.push(new ethers.providers.JsonRpcProvider(MANTA_RPC));
 clients.real.push(new ethers.providers.JsonRpcProvider(REAL_RPC));
 clients.sei.push(new ethers.providers.JsonRpcProvider(SEI_RPC));
 clients.rootstock.push(new ethers.providers.JsonRpcProvider(ROOTSTOCK_RPC));
+clients.lisk.push(new ethers.providers.JsonRpcProvider(LISK_RPC));
 clients.scroll.push(new ethers.providers.JsonRpcProvider(SCROLL_RPC));
 clients.lisk.push(new ethers.providers.JsonRpcProvider(LISK_RPC));
 

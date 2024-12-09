@@ -28,6 +28,7 @@ const { getRealApys } = require('./real');
 const { getSeiApys } = require('./sei');
 const { getRootstockApys } = require('./rootstock');
 const { getScrollApys } = require('./scroll');
+const { getLiskApys } = require('./lisk');
 const { getKey, setKey } = require('../../utils/cache');
 const { fetchBoostAprs, BOOST_APR_EXPIRED } = require('./getBoostAprs');
 const { serviceEventBus } = require('../../utils/ServiceEventBus');
@@ -85,6 +86,7 @@ const updateApys = async () => {
       getSeiApys(),
       getRootstockApys(),
       getScrollApys(),
+      getLiskApys(),
     ]);
 
     for (const result of results) {

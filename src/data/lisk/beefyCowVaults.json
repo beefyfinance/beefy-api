@@ -1,0 +1,26 @@
+[
+  {
+    "address": "0x52115E698dC76Fc0ac75145c4f3F5d986E4CE162",
+    "lpAddress": "0xD501d4E381491F64274Cc65fdec32b47264a2422",
+    "tokens": ["0x4200000000000000000000000000000000000006", "0xac485391EB2d7D88253a7F1eF18C37f4242D1A24"],
+    "tokenOracleIds": ["WETH", "LSK"],
+    "decimals": [18, 18],
+    "oracleId": "uniswap-cow-lisk-weth-lsk",
+    "rewardPool": {
+      "address": "0xb321E8698E6587275Ca11AD63c40e912C8659cf6",
+      "oracleId": "uniswap-cow-lisk-weth-lsk-rp"
+    }
+  },
+  {
+    "address": "0xdC76e4fcE40C8224D6Bbc7Dd733165A8A07DCe0D",
+    "lpAddress": "0x3A670179BdecE7eB4f570e30Ee9D560f7ff4Fac3",
+    "tokens": ["0x05D032ac25d322df992303dCa074EE7392C117b9", "0x4200000000000000000000000000000000000006"],
+    "tokenOracleIds": ["USDT", "WETH"],
+    "decimals": [6, 18],
+    "oracleId": "uniswap-cow-lisk-usdt-weth",
+    "rewardPool": {
+      "address": "0x7BF7E5105b7AC0C8AAa37bCC632F5B9720A71F2a",
+      "oracleId": "uniswap-cow-lisk-usdt-weth-rp"
+    }
+  }
+]

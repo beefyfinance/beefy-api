@@ -65,7 +65,7 @@ const REAL_RPC = process.env.REAL_RPC || 'https://real.drpc.org';
 const SEI_RPC = process.env.SEI_RPC || 'https://evm-rpc.sei-apis.com';
 const ROOTSTOCK_RPC = process.env.ROOTSTOCK_RPC || 'https://rootstock-mainnet.public.blastapi.io';
 const SCROLL_RPC = process.env.SCROLL_RPC || 'https://scroll-mainnet.public.blastapi.io';
-const LISK_RPC = process.env.LISK_RPC || 'https://lisk.drpc.org';
+const LISK_RPC = process.env.LISK_RPC || 'https://rpc.api.lisk.com';
 
 /// Chain IDs
 const BSC_CHAIN_ID = ChainId.bsc;
@@ -254,6 +254,7 @@ const MULTICHAIN_ENDPOINTS: Partial<Record<ApiChain, string>> = {
   rootstock: ROOTSTOCK_VAULTS_ENDPOINT,
   scroll: SCROLL_VAULTS_ENDPOINT,
   // lisk: LISK_VAULTS_ENDPOINT,
+  lisk: LISK_VAULTS_ENDPOINT,
 } as const;
 
 const EXCLUDED_IDS_FROM_TVL = ['venus-wbnb'];

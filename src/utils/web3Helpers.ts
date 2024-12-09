@@ -215,8 +215,8 @@ clients.manta.push(new Web3(MANTA_RPC));
 clients.real.push(new Web3(REAL_RPC));
 clients.sei.push(new Web3(SEI_RPC));
 clients.rootstock.push(new Web3(ROOTSTOCK_RPC));
-clients.scroll.push(new Web3(SCROLL_RPC));
 clients.lisk.push(new Web3(LISK_RPC));
+clients.scroll.push(new Web3(SCROLL_RPC));
 
 export const chainRandomClients = {
   bscRandomClient: () => clients.bsc[~~(clients.bsc.length * Math.random())],
