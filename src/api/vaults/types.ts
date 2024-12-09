@@ -93,3 +93,12 @@ export type CowVault = {
   retiredAt?: number | undefined;
   chain: ApiChain;
 };
+
+export type HarvestableVault = Vault | CowVault;
+
+export type AnyVault = Vault | GovVault | CowVault;
+
+export type ClmWithVaultPool = CowVault & {
+  vault?: Vault;
+  pool?: GovVault;
+};

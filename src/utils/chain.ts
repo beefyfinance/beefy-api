@@ -1,5 +1,6 @@
 import { addressBook, ChainId } from '../../packages/address-book/src/address-book';
 import { invert } from 'lodash';
+import chainIdMap from '../../packages/address-book/src/util/chainIdMap';
 
 export type ApiChain = keyof typeof ChainId;
 export type AppChain = Exclude<ApiChain, 'one'> | 'harmony';
@@ -38,11 +39,11 @@ export function toApiChain(chain: AnyChain): ApiChain {
 }
 
 export function isApiChain(chain: string): chain is ApiChain {
-  return chain in ChainId;
+  return chain in chainIdMap;
 }
 
 export function isAppChain(chain: string): chain is AppChain {
-  return chain in appChainToApiChain || (chain in ChainId && !(chain in apiChainToAppChain));
+  return chain in appChainToApiChain || (chain in chainIdMap && !(chain in apiChainToAppChain));
 }
 
 export function toChainId(chain: AnyChain): number {

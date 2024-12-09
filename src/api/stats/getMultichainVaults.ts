@@ -1,29 +1,34 @@
 import BigNumber from 'bignumber.js';
 import { isResultFulfilled, isResultRejected, withTimeout } from '../../utils/promise';
 import { serviceEventBus } from '../../utils/ServiceEventBus';
-import { keyBy, sumBy } from 'lodash';
+import { first, keyBy, orderBy, sortBy, sumBy } from 'lodash';
+import { ApiChain } from '../../utils/chain';
+import { AnyVault, CowVault, GovVault, Vault } from '../vaults/types';
+import getVaults from '../../utils/getVaults.js';
+import { fetchChainVaultsPpfs } from '../../utils/fetchMooPrices';
+import { MULTICHAIN_ENDPOINTS } from '../../constants';
+import { getKey, setKey } from '../../utils/cache';
+import { envNumber } from '../../utils/env';
 
-const getVaults = require('../../utils/getVaults.js');
 const { getStrategies } = require('../../utils/getStrategies');
-const { getLastHarvests } = require('../../utils/getLastHarvests.js');
+const { getLastHarvests } = require('../../utils/getLastHarvests');
 const { getGovVaultsTotalSupply } = require('../../utils/getGovVaultsTotalSupply');
-const { fetchChainVaultsPpfs } = require('../../utils/fetchMooPrices');
-const { MULTICHAIN_ENDPOINTS } = require('../../constants');
-const { getKey, setKey } = require('../../utils/cache');
 
-const INIT_DELAY = process.env.VAULTS_INIT_DELAY || 2 * 1000;
+const INIT_DELAY = envNumber('VAULTS_INIT_DELAY', 2 * 1000);
 const REFRESH_INTERVAL = 5 * 60 * 1000;
 const LOG_PER_CHAIN = false;
 
-let vaultsByChain = {};
-let multichainVaults = [];
-let vaultsByID = {};
-let govVaultsByChain = {};
-let multichainGovVaults = [];
-let govVaultsById = {};
-let cowVaultsByChain = {};
-let cowVaultsById = {};
-let multichainCowVaults = [];
+type VaultsByChain<T> = Partial<Record<ApiChain, T[]>>;
+
+let vaultsByChain: VaultsByChain<Vault> = {};
+let multichainVaults: Vault[] = [];
+let vaultsByID: Record<string, Vault> = {};
+let govVaultsByChain: VaultsByChain<GovVault> = {};
+let multichainGovVaults: GovVault[] = [];
+let govVaultsById: Record<string, GovVault> = {};
+let cowVaultsByChain: VaultsByChain<CowVault> = {};
+let cowVaultsById: Record<string, CowVault> = {};
+let multichainCowVaults: CowVault[] = [];
 
 export function getMultichainVaults() {
   return multichainVaults;
@@ -33,11 +38,11 @@ export function getVaultsByChainId() {
   return vaultsByChain;
 }
 
-export function getSingleChainVaults(chain) {
+export function getSingleChainVaults(chain: ApiChain) {
   return vaultsByChain[chain];
 }
 
-export function getVaultByID(vaultId) {
+export function getVaultByID(vaultId: string) {
   return vaultsByID[vaultId];
 }
 
@@ -45,11 +50,11 @@ export function getMultichainGovVaults() {
   return multichainGovVaults;
 }
 
-export function getSingleChainGovVaults(chain) {
+export function getSingleChainGovVaults(chain: ApiChain) {
   return govVaultsByChain[chain];
 }
 
-export function getGovVaultBtId(vaultId) {
+export function getGovVaultById(vaultId: string) {
   return govVaultsById[vaultId];
 }
 
@@ -57,12 +62,57 @@ export function getMultichainCowVaults() {
   return multichainCowVaults;
 }
 
-export function getSingleChainCowVaults(chain) {
+export function getSingleChainCowVaults(chain: ApiChain) {
   return cowVaultsByChain[chain];
 }
 
-export function getCowVaultById(vaultId) {
+export function getCowVaultById(vaultId: string) {
   return cowVaultsById[vaultId];
+}
+
+export function getSingleClms(chain: ApiChain) {
+  const cowVaults = cowVaultsByChain[chain] || [];
+  if (cowVaults.length === 0) {
+    return cowVaults;
+  }
+
+  const standardVaults = vaultsByChain[chain] || [];
+  const govVaults = govVaultsByChain[chain] || [];
+  if (standardVaults.length === 0 && govVaults.length === 0) {
+    return cowVaults;
+  }
+
+  return sortBy(
+    cowVaults.map(cowVault => {
+      const vault = first(
+        orderBy(
+          standardVaults.filter(v => v.tokenAddress === cowVault.earnedTokenAddress),
+          [v => (v.status === 'active' ? 0 : v.status === 'paused' ? 1 : 2), v => v.createdAt],
+          ['asc', 'desc']
+        )
+      );
+      const pool = first(
+        orderBy(
+          govVaults.filter(v => v.tokenAddress === cowVault.earnedTokenAddress),
+          [v => (v.status === 'active' ? 0 : v.status === 'paused' ? 1 : 2), v => v.createdAt],
+          ['asc', 'desc']
+        )
+      );
+      return {
+        ...cowVault,
+        vault,
+        pool,
+      };
+    }),
+    v => v.earnContractAddress.toLowerCase()
+  );
+}
+
+export function getMultichainClms() {
+  return sortBy(
+    Object.keys(cowVaultsByChain).flatMap(chain => getSingleClms(chain as ApiChain)),
+    v => v.earnContractAddress.toLowerCase()
+  );
 }
 
 async function updateMultichainVaults() {
@@ -85,7 +135,7 @@ async function updateMultichainVaults() {
     }
 
     const activeIdscounter = sumBy(
-      multichainVaults.concat(multichainGovVaults).concat(multichainCowVaults),
+      (multichainVaults as AnyVault[]).concat(multichainGovVaults).concat(multichainCowVaults),
       vault => (vault.status === 'active' ? 1 : 0)
     );
 
@@ -170,9 +220,9 @@ async function updateChainVaults(chain) {
 }
 
 async function loadFromRedis() {
-  const cachedVaults = await getKey('VAULTS_BY_CHAIN');
-  const cachedGovVaults = await getKey('GOV_VAULTS_BY_CHAIN');
-  const cachedCowVaults = await getKey('COW_VAULTS_BY_CHAIN');
+  const cachedVaults = await getKey<VaultsByChain<Vault>>('VAULTS_BY_CHAIN');
+  const cachedGovVaults = await getKey<VaultsByChain<GovVault>>('GOV_VAULTS_BY_CHAIN');
+  const cachedCowVaults = await getKey<VaultsByChain<CowVault>>('COW_VAULTS_BY_CHAIN');
 
   if (cachedVaults && typeof cachedVaults === 'object') {
     let cachedCount = 0;
@@ -195,12 +245,9 @@ async function loadFromRedis() {
   if (cachedGovVaults && typeof cachedGovVaults === 'object') {
     let cachedCount = 0;
 
-    Object.values(cachedVaults).forEach(vaults => {
-      vaults.forEach(vault => {
+    Object.values(cachedGovVaults).forEach(vaults => {
+      vaults.forEach(() => {
         ++cachedCount;
-        if (vault.totalSupply) {
-          vault.totalSupply = new BigNumber(vault.totalSupply);
-        }
       });
     });
 
@@ -214,7 +261,7 @@ async function loadFromRedis() {
     let cachedCount = 0;
 
     Object.values(cachedCowVaults).forEach(vaults => {
-      vaults.forEach(vault => {
+      vaults.forEach(() => {
         ++cachedCount;
       });
     });
