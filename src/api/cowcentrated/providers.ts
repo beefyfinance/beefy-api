@@ -6,6 +6,7 @@ import { bsc } from '../../../packages/address-book/src/address-book/bsc';
 import { avax } from '../../../packages/address-book/src/address-book/avax';
 import { scroll } from '../../../packages/address-book/src/address-book/scroll';
 import { mode } from '../../../packages/address-book/src/address-book/mode';
+import { lisk } from '../../../packages/address-book/src/address-book/lisk';
 import { AnyCowClm, CowProvider } from './types';
 
 export const providers = {
@@ -24,6 +25,7 @@ export const providers = {
     poolTradingRewardTokens: {
       optimism: [optimism.tokens.VELOV2],
       mode: [mode.tokens.XVELO],
+      lisk: [lisk.tokens.XVELO],
     },
   },
   aerodrome: {

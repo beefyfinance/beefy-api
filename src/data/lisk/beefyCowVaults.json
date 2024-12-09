@@ -1,5 +1,56 @@
 [
   {
+    "address": "0x57B4160A82786aCDe84594048dE024F9301Ab70C",
+    "lpAddress": "0x25B559e6E64226C0A1637B8E94f3f4740fa0D562",
+    "tokens": ["0x05D032ac25d322df992303dCa074EE7392C117b9", "0x4200000000000000000000000000000000000006"],
+    "tokenOracleIds": ["USDT", "WETH"],
+    "decimals": [6, 18],
+    "oracleId": "velodrome-cow-lisk-usdt-weth",
+    "providerId": "velodrome",
+    "rewardPool": {
+      "address": "0x162a85a9482d12984610a209E25EDd6397F33493",
+      "oracleId": "velodrome-cow-lisk-usdt-weth-rp"
+    },
+    "vault": {
+      "address": "0xb58E4B1f4ba8E0c6a9f26262EE76Ea1D417E3228",
+      "oracleId": "velodrome-cow-lisk-usdt-weth-vault"
+    }
+  },
+  {
+    "address": "0x0d372Ab96C19A894F47313318040b3C87dA1AcFb",
+    "lpAddress": "0x18Eb25a15eC48Db3C42A0F41EC0a716Ba6b54514",
+    "tokens": ["0x05D032ac25d322df992303dCa074EE7392C117b9", "0xF242275d3a6527d877f2c927a82D9b057609cc71"],
+    "tokenOracleIds": ["USDT", "USDC.e"],
+    "decimals": [6, 6],
+    "oracleId": "velodrome-cow-lisk-usdt-usdc.e",
+    "providerId": "velodrome",
+    "rewardPool": {
+      "address": "0x26f83235d7C87286577374A1830253Ef4D5ca60f",
+      "oracleId": "velodrome-cow-lisk-usdt-usdc.e-rp"
+    },
+    "vault": {
+      "address": "0x5aF45b3A8cB44B444dDf9cCEB90F5998EAc0FC97",
+      "oracleId": "velodrome-cow-lisk-usdt-usdc.e-vault"
+    }
+  },
+  {
+    "address": "0xbf18216043C5C0200F6ffaDD09537DEEE318a732",
+    "lpAddress": "0xc2026f3fb6fc51F4EcAE40a88b4509cB6C143ed4",
+    "tokens": ["0x4200000000000000000000000000000000000006", "0x7f9AdFbd38b669F03d1d11000Bc76b9AaEA28A81"],
+    "tokenOracleIds": ["WETH", "XVELO"],
+    "decimals": [18, 18],
+    "oracleId": "velodrome-cow-lisk-weth-xvelo",
+    "providerId": "velodrome",
+    "rewardPool": {
+      "address": "0x493720A08281824D5E6d61cDC91E711335F99eD0",
+      "oracleId": "velodrome-cow-lisk-weth-xvelo-rp"
+    },
+    "vault": {
+      "address": "0x4ad02BF095B8FFB6E0aC687BEEE5610ca3EBe6b1",
+      "oracleId": "velodrome-cow-lisk-weth-xvelo-vault"
+    }
+  },
+  {
     "address": "0x52115E698dC76Fc0ac75145c4f3F5d986E4CE162",
     "lpAddress": "0xD501d4E381491F64274Cc65fdec32b47264a2422",
     "tokens": ["0x4200000000000000000000000000000000000006", "0xac485391EB2d7D88253a7F1eF18C37f4242D1A24"],
