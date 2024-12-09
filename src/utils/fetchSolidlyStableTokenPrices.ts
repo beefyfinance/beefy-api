@@ -96,6 +96,14 @@ const tokens: Partial<Record<keyof typeof ChainId, StablePoolLiquidityToken[]>> 
       secondTokenDecimals: 1e18,
       secondTokenAddress: '0x0E09FaBB73Bd3Ade0a17ECC321fD13a19e81cE82',
     },
+    {
+      oracleId: 'mBTC',
+      firstTokenDecimals: '1e8',
+      pool: '0x01e4a13b64A35EC29C490374C0aC6a585FF7cE79',
+      secondToken: 'BTCB',
+      secondTokenDecimals: 1e18,
+      secondTokenAddress: '0x7130d2A12B9BCbFAe4f2634d864A1Ee1Ce3Ead9c',
+    },
   ],
 };
 

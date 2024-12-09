@@ -287,6 +287,21 @@ export const tokens = {
     bridge: 'native',
     risks: ['NO_TIMELOCK'],
   },
+  mBTC: {
+    name: 'Magpie-Peg BTC',
+    symbol: 'mBTC',
+    oracleId: 'mBTC',
+    address: '0x7c1cCA5b25Fa0bC9AF9275Fb53cBA89DC172b878',
+    chainId: 56,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://www.babylon.magpiexyz.io/stake',
+    description:
+      'Babypie is a liquid staking platform that allows BTC to be staked on Babylon and utilized across DeFi. Bitcoin holders can deposit their native BTC on Babypie to mint mBTC, which is a ERC-20 token pegged to BTC on a 1:1 basis and does not accrue any underlying yield.',
+    documentation: 'https://docs.babypiexyz.io/',
+    bridge: 'chainlink-ccip',
+    risks: ['NO_TIMELOCK'],
+  },
   FISH: {
     name: 'SwapFish',
     symbol: 'FISH',
