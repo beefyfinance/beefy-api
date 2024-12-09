@@ -111,9 +111,31 @@
     ]
   },
   {
+    "name": "curve-fraxtal-frax-susde",
+    "pool": "0x8b4e5263e8d6cc0bbf31edf14491fc6077b88229",
+    "gauge": "0x59005665c5060d3abee291a21de0375cf1bbed03",
+    "rewards": [
+      {
+        "token": "0xFc00000000000000000000000000000000000002",
+        "oracleId": "FXS"
+      }
+    ],
+    "tokens": [
+      {
+        "oracleId": "FRAX",
+        "decimals": "1e18"
+      },
+      {
+        "oracleId": "sUSDe",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
     "name": "curve-fraxtal-frax-usde",
     "pool": "0x1e199dbe1f7aa237282fe941d5bcc3b167c8ce48",
     "gauge": "0x86a79cee2734e5357ff6b5495c4a30915921223a",
+    "convex": true,
     "getDy": ["v1", 1, 0],
     "rewards": [
       {
