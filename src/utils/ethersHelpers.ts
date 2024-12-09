@@ -180,7 +180,6 @@ clients.sei.push(new ethers.providers.JsonRpcProvider(SEI_RPC));
 clients.rootstock.push(new ethers.providers.JsonRpcProvider(ROOTSTOCK_RPC));
 clients.lisk.push(new ethers.providers.JsonRpcProvider(LISK_RPC));
 clients.scroll.push(new ethers.providers.JsonRpcProvider(SCROLL_RPC));
-clients.lisk.push(new ethers.providers.JsonRpcProvider(LISK_RPC));
 
 export const chainRandomClients = {
   bscRandomClient: () => clients.bsc[~~(clients.bsc.length * Math.random())],
