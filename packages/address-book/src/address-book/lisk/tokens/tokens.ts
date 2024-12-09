@@ -62,7 +62,7 @@ export const tokens = {
   USDCe: {
     name: 'Bridged USDC (Lisk)',
     symbol: 'USDC.e',
-    oracleId: 'USDC.e',
+    oracleId: 'USDC',
     address: '0xF242275d3a6527d877f2c927a82D9b057609cc71',
     chainId: 1135,
     decimals: 6,
