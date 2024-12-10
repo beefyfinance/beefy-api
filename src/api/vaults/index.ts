@@ -1,5 +1,6 @@
 import {
   getCowVaultById,
+  getGovVaultById,
   getMultichainClms,
   getMultichainCowVaults,
   getMultichainGovVaults,
@@ -49,7 +50,7 @@ export const multiChainClms = withErrorHandling(async ctx => {
 
 // Single chain
 
-export const singleHarvestableVaults = withChainId(async (ctx, chainId) => {
+export const singleChainHarvestableVaults = withChainId(async (ctx, chainId) => {
   const chainVaults = (getSingleChainVaults(chainId) as HarvestableVault[]).concat(
     getSingleChainCowVaults(chainId)
   );
@@ -63,13 +64,13 @@ export const singleChainVaults = withChainId(async (ctx, chainId) => {
   ctx.body = chainVaults ? [...chainVaults] : [];
 });
 
-export const singleGovChainVaults = withChainId(async (ctx, chainId) => {
+export const singleChainGovVaults = withChainId(async (ctx, chainId) => {
   const chainVaults = getSingleChainGovVaults(chainId);
   ctx.status = 200;
   ctx.body = chainVaults ? [...chainVaults] : [];
 });
 
-export const singleCowChainVaults = withChainId(async (ctx, chainId) => {
+export const singleChainCowVaults = withChainId(async (ctx, chainId) => {
   const chainVaults = getSingleChainCowVaults(chainId);
   ctx.status = 200;
   ctx.body = chainVaults ? [...chainVaults] : [];
@@ -89,6 +90,12 @@ export const singleVault = withErrorHandling(async ctx => {
   ctx.body = vault ?? {};
 });
 
+export const singleGovVault = withErrorHandling(async ctx => {
+  const vault = getGovVaultById(ctx.params.vaultId);
+  ctx.status = vault ? 200 : 404;
+  ctx.body = vault ?? {};
+});
+
 export const singleCowVault = withErrorHandling(async ctx => {
   const vault = getCowVaultById(ctx.params.vaultId);
   ctx.status = vault ? 200 : 404;
@@ -97,6 +104,18 @@ export const singleCowVault = withErrorHandling(async ctx => {
 
 export const singleHarvestableVault = withErrorHandling(async ctx => {
   let vault: HarvestableVault = getVaultByID(ctx.params.vaultId);
+  if (!vault) {
+    vault = getCowVaultById(ctx.params.vaultId);
+  }
+  ctx.status = vault ? 200 : 404;
+  ctx.body = vault ?? {};
+});
+
+export const singleAnyVault = withErrorHandling(async ctx => {
+  let vault: AnyVault = getVaultByID(ctx.params.vaultId);
+  if (!vault) {
+    vault = getGovVaultById(ctx.params.vaultId);
+  }
   if (!vault) {
     vault = getCowVaultById(ctx.params.vaultId);
   }

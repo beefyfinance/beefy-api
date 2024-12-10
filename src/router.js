@@ -61,20 +61,28 @@ router.get('/lps/breakdown', price.lpsBreakdown);
 router.get('/prices', price.tokenPrices);
 router.get('/mootokenprices', price.mooTokenPrices);
 
-router.get('/vaults', multichainVaults.multichainVaults);
+router.get('/vault/:vaultId', multichainVaults.singleAnyVault);
+
 router.get('/vaults/last-harvest', multichainVaults.vaultsLastHarvest);
+
 router.get('/vaults/id/:vaultId', multichainVaults.singleVault);
 router.get('/vaults/:chainId', multichainVaults.singleChainVaults);
+router.get('/vaults', multichainVaults.multichainVaults);
+
+router.get('/gov-vaults/id/:vaultId', multichainVaults.singleGovVault);
+router.get('/gov-vaults/:chainId', multichainVaults.singleChainGovVaults);
 router.get('/gov-vaults', multichainVaults.multichainGovVaults);
-router.get('/gov-vaults/:chainId', multichainVaults.singleGovChainVaults);
-router.get('/cow-vaults', multichainVaults.multichainCowVaults);
+
 router.get('/cow-vaults/id/:vaultId', multichainVaults.singleCowVault);
-router.get('/cow-vaults/:chainId', multichainVaults.singleCowChainVaults);
-router.get('/harvestable-vaults', multichainVaults.multichainHarvestableVaults);
+router.get('/cow-vaults/:chainId', multichainVaults.singleChainCowVaults);
+router.get('/cow-vaults', multichainVaults.multichainCowVaults);
+
 router.get('/harvestable-vaults/id/:vaultId', multichainVaults.singleHarvestableVault);
-router.get('/harvestable-vaults/:chainId', multichainVaults.singleHarvestableVaults);
-router.get('/clm-vaults', multichainVaults.multiChainClms);
+router.get('/harvestable-vaults/:chainId', multichainVaults.singleChainHarvestableVaults);
+router.get('/harvestable-vaults', multichainVaults.multichainHarvestableVaults);
+
 router.get('/clm-vaults/:chainId', multichainVaults.singleChainClms);
+router.get('/clm-vaults', multichainVaults.multiChainClms);
 
 router.get('/cow-price-ranges', handleCowcentratedPriceRanges);
 router.get('/cow-dune-ltipp-merkl-campaigns', handleCowcentratedLTIPPCampaignsForDune);
