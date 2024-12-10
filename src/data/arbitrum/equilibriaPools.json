@@ -42,22 +42,6 @@
     ]
   },
   {
-    "name": "equilibria-arb-eeth-26dec24",
-    "address": "0x6b92feb89ed16aa971b096e247fe234db4aaa262",
-    "eqbGauge": "0x68404945A6038fe38452e9594E8AF2F4f6591D93",
-    "oracle": "tokens",
-    "oracleId": "ETH",
-    "decimals": "1e18",
-    "chainId": 42161,
-    "beefyFee": 0.095,
-    "rewards": [
-      {
-        "token": "0x912CE59144191C1204E64559FE8253a0e49E6548",
-        "oracleId": "ARB"
-      }
-    ]
-  },
-  {
     "name": "equilibria-arb-unieth-26dec24",
     "address": "0x279b44e48226d40ec389129061cb0b56c5c09e46",
     "eqbGauge": "0x54a64A549b52024Fd913ecb3cF872583215618fB",
@@ -72,16 +56,6 @@
         "oracleId": "ARB"
       }
     ]
-  },
-  {
-    "name": "equilibria-arb-usde-28nov24",
-    "address": "0x281fe15fd3e08a282f52d5cf09a4d13c3709e66d",
-    "eqbGauge": "0xA85c189E38F51d34bc797D097DF3e7cd283a84Cc",
-    "oracle": "tokens",
-    "oracleId": "USDe",
-    "decimals": "1e18",
-    "chainId": 42161,
-    "beefyFee": 0.095
   },
   {
     "name": "equilibria-arb-seth",

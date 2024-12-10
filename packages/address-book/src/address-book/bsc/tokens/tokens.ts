@@ -302,6 +302,20 @@ export const tokens = {
     bridge: 'chainlink-ccip',
     risks: ['NO_TIMELOCK'],
   },
+  PENDLE: {
+    name: 'Pendle',
+    symbol: 'PENDLE',
+    oracleId: 'PENDLE',
+    address: '0xb3Ed0A426155B79B898849803E3B36552f7ED507',
+    chainId: 56,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://www.pendle.finance/',
+    description:
+      'Pendle is a permissionless yield-trading protocol where users can execute various yield-management strategies.',
+    documentation: 'https://docs.pendle.finance/home?utm_source=landing&utm_medium=landing',
+    bridge: 'wormhole',
+  },
   FISH: {
     name: 'SwapFish',
     symbol: 'FISH',
