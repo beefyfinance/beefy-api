@@ -58,6 +58,7 @@ export type GovVault = {
   retiredAt?: number | undefined;
   totalSupply: number;
   chain: ApiChain;
+  lastHarvest?: number; // for CLM Pools only (copied from CLM base)
 };
 
 export type CowVault = {
