@@ -71,6 +71,7 @@ import { getCurveLendPricesCommon } from './common/curve/getCurveLendPricesCommo
 import getArbitrumSiloPrices from './arbitrum/getArbitrumSiloPrices';
 import getAcrossPrices from './ethereum/getAcrossPrices';
 import getVelodromeModeStablePrices from './mode/getVelodromeModeStablePrices';
+import getVelodromeLiskStablePrices from './lisk/getVelodromeLiskStablePrices';
 import getNuriStablePrices from './scroll/getNuriStablePrices';
 import getTokanStablePrices from './scroll/getTokanStablePrices';
 import {
@@ -184,6 +185,7 @@ export async function getNonAmmPrices(tokenPrices: Record<string, number>): Prom
     getVoltagePrices(tokenPrices),
     getVelodromeStablePrices(tokenPrices),
     getVelodromeModeStablePrices(tokenPrices),
+    getVelodromeLiskStablePrices(tokenPrices),
     getSolidlyStablePrices(FRX_CHAIN_ID, require('../../data/fraxtal/veloStablePools.json'), tokenPrices),
     getAerodromeStablePrices(tokenPrices),
     getBalancerAvaxPrices(tokenPrices),
