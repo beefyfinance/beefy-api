@@ -158,7 +158,7 @@ async function updateMultichainVaults() {
 }
 
 function buildFromChains() {
-  multichainVaults = Object.values(vaultsByChain).flat();
+  multichainVaults = sortBy(Object.values(vaultsByChain).flat(), v => v.earnContractAddress.toLowerCase());
   vaultsByID = keyBy(multichainVaults, 'id');
 
   Object.keys(vaultsByChain).forEach(chain => serviceEventBus.emit(`vaults/${chain}/ready`));
@@ -166,7 +166,9 @@ function buildFromChains() {
 }
 
 function buildFromGovChains() {
-  multichainGovVaults = Object.values(govVaultsByChain).flat();
+  multichainGovVaults = sortBy(Object.values(govVaultsByChain).flat(), v =>
+    v.earnContractAddress.toLowerCase()
+  );
   govVaultsById = keyBy(multichainGovVaults, 'id');
 
   Object.keys(multichainGovVaults).forEach(chain => serviceEventBus.emit(`gov-vaults/${chain}/ready`));
@@ -174,7 +176,9 @@ function buildFromGovChains() {
 }
 
 function buildFromCowChains() {
-  multichainCowVaults = Object.values(cowVaultsByChain).flat();
+  multichainCowVaults = sortBy(Object.values(cowVaultsByChain).flat(), v =>
+    v.earnContractAddress.toLowerCase()
+  );
   cowVaultsById = keyBy(multichainCowVaults, 'id');
 
   Object.keys(multichainCowVaults).forEach(chain => serviceEventBus.emit(`cow-vaults/${chain}/ready`));
@@ -190,15 +194,15 @@ async function updateChainVaults(chain) {
   const vaults = await getVaults(endpoint);
   vaults.forEach(vault => (vault.chain = chain));
 
-  let chainVaults = vaults.filter(vault => vault.type === 'standard');
+  let chainVaults: Vault[] = vaults.filter(vault => vault.type === 'standard');
   chainVaults = await getStrategies(chainVaults, chain);
   chainVaults = await getLastHarvests(chainVaults, chain);
   chainVaults = await fetchChainVaultsPpfs(chainVaults, chain);
 
-  let govVaults = vaults.filter(vault => vault.type === 'gov');
+  let govVaults: GovVault[] = vaults.filter(vault => vault.type === 'gov');
   govVaults = await getGovVaultsTotalSupply(govVaults, chain);
 
-  let cowVaults = vaults.filter(vault => vault.type === 'cowcentrated');
+  let cowVaults: CowVault[] = vaults.filter(vault => vault.type === 'cowcentrated');
   cowVaults = await getStrategies(cowVaults, chain);
   cowVaults = await getLastHarvests(cowVaults, chain);
 
@@ -210,9 +214,9 @@ async function updateChainVaults(chain) {
     }
   }
 
-  vaultsByChain[chain] = chainVaults;
-  govVaultsByChain[chain] = govVaults;
-  cowVaultsByChain[chain] = cowVaults;
+  vaultsByChain[chain] = sortBy(chainVaults, v => v.earnContractAddress.toLowerCase());
+  govVaultsByChain[chain] = sortBy(govVaults, v => v.earnContractAddress.toLowerCase());
+  cowVaultsByChain[chain] = sortBy(cowVaults, v => v.earnContractAddress.toLowerCase());
 
   if (LOG_PER_CHAIN) {
     console.log(`> updated vaults on ${chain} - ${chainVaults.length}`);
