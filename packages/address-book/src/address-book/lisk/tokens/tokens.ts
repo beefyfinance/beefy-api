@@ -73,4 +73,17 @@ export const tokens = {
     bridge: 'canonical',
     documentation: 'https://developers.circle.com/docs',
   },
+  WBTC: {
+    name: 'Wrapped BTC',
+    symbol: 'WBTC',
+    oracleId: 'WBTC',
+    address: '0x03C7054BCB39f7b2e5B2c7AcB37583e32D70Cfa3',
+    chainId: 1135,
+    decimals: 8,
+    logoURI: '',
+    website: 'https://wbtc.network/',
+    description:
+      'Wrapped Bitcoin (WBTC) is the first ERC20 token backed 1:1 with Bitcoin. Completely transparent. 100% verifiable. Community led.',
+    bridge: 'canonical',
+  },
 } as const satisfies Record<string, Token>;

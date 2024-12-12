@@ -1,5 +1,22 @@
 [
   {
+    "address": "0x129E66F12e46D0B529786BA517dd00CECA343a73",
+    "lpAddress": "0xDC1479FD1Db51cA0079ceCfaA879232e168c8246",
+    "tokens": ["0x03C7054BCB39f7b2e5B2c7AcB37583e32D70Cfa3", "0x4200000000000000000000000000000000000006"],
+    "tokenOracleIds": ["WBTC", "WETH"],
+    "decimals": [8, 18],
+    "oracleId": "velodrome-cow-lisk-wbtc-weth",
+    "providerId": "velodrome",
+    "rewardPool": {
+      "address": "0xb1A1A9486d6FC5146525C010Df70e1E095ADD9a3",
+      "oracleId": "velodrome-cow-lisk-wbtc-weth-rp"
+    },
+    "vault": {
+      "address": "0xAc0E6ba47A20EE95E3149910dA3844b851537f25",
+      "oracleId": "velodrome-cow-lisk-wbtc-weth-vault"
+    }
+  },
+  {
     "address": "0x38Dfe64d47E54feD51eAc11813a2a648e0024BFe",
     "lpAddress": "0xc2026f3fb6fc51F4EcAE40a88b4509cB6C143ed4",
     "tokens": ["0x4200000000000000000000000000000000000006", "0x7f9AdFbd38b669F03d1d11000Bc76b9AaEA28A81"],
