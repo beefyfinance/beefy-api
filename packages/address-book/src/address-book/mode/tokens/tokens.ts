@@ -145,7 +145,7 @@ export const tokens = {
   sUSDe: {
     name: 'Staked USDe',
     symbol: 'sUSDe',
-    oracleId: 'sUSDe',
+    oracleId: 'modesUSDe',
     address: '0x211Cc4DD073734dA055fbF44a2b4667d5E5fE5d2',
     chainId: 34443,
     decimals: 18,
