@@ -142,4 +142,19 @@ export const tokens = {
     documentation: 'https://velodrome.finance/docs',
     bridge: 'superchain',
   },
+  sUSDe: {
+    name: 'Staked USDe',
+    symbol: 'sUSDe',
+    oracleId: 'modesUSDe',
+    address: '0x211Cc4DD073734dA055fbF44a2b4667d5E5fE5d2',
+    chainId: 34443,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://ethena.fi/',
+    documentation: 'https://ethena-labs.gitbook.io/ethena-labs',
+    description:
+      'Users are able to stake their USDe for sUSDe through the Ethena front-end. sUSDe is a reward-bearing token that accrues value from the yield that Ethena’s underlying delta-neutral position generates. sUSDe is subject to a 7-day un-staking period.',
+    bridge: 'layer-zero',
+    risks: ['NO_TIMELOCK'],
+  },
 } as const satisfies Record<string, Token>;
