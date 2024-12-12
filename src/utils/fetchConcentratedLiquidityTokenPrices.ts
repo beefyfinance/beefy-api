@@ -491,6 +491,14 @@ const tokens: Partial<Record<keyof typeof ChainId, ConcentratedLiquidityToken[]>
       firstToken: 'XVELO',
       secondToken: 'WETH',
     },
+    {
+      type: 'Slipstream',
+      oracleId: 'modesUSDe',
+      decimalDelta: 1e12,
+      pool: '0xa2E74518fe27B0FC04Ea36024ea837d26cd09CDa',
+      firstToken: 'USDC',
+      secondToken: 'modesUSDe',
+    }
   ],
   lisk: [
     {
