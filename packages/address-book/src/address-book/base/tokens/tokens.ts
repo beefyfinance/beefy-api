@@ -1931,6 +1931,21 @@ export const tokens = {
     bridge: 'native',
     risks: ['LARGE_HOLDERS', 'NO_TIMELOCK'],
   },
+  ANZ: {
+    name: 'Anzen Token',
+    symbol: 'ANZ',
+    oracleId: 'ANZ',
+    address: '0xeeC468333ccc16D4BF1cEf497A56cf8C0aAe4Ca3',
+    chainId: 8453,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://app.anzen.finance/',
+    description:
+      'Anzen is a decentralized platform providing access to USDz, which is a digital token backed by a diversified portfolio of private credit assets.',
+    documentation: 'https://docs.anzen.finance/',
+    bridge: 'native',
+    risks: ['LARGE_HOLDERS', 'NO_TIMELOCK'],
+  },
   TAROT: {
     name: 'Tarot',
     symbol: 'TAROT',
