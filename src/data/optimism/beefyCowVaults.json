@@ -1,5 +1,22 @@
 [
   {
+    "address": "0x3Fd005c3A6DfD2CB143beEF5665706CfAc6e27d3",
+    "lpAddress": "0x844BdA8C554D3F14C2C068314b294A5b0Ed2E0dF",
+    "tokens": ["0x3E29D3A9316dAB217754d13b28646B76607c5f04", "0xCB8FA9a76b8e203D8C3797bF438d8FB81Ea3326A"],
+    "tokenOracleIds": ["alETH", "alUSD"],
+    "decimals": [18, 18],
+    "oracleId": "velodrome-cow-optimism-aleth-alusd",
+    "providerId": "velodrome",
+    "rewardPool": {
+      "address": "0xE1c263fa0F94Fd340b8AE0a3d5F9720A06F3eE95",
+      "oracleId": "velodrome-cow-optimism-aleth-alusd-rp"
+    },
+    "vault": {
+      "address": "0x935aFdB7A1445e365BB86E58989c37E6c275dB52",
+      "oracleId": "velodrome-cow-optimism-aleth-alusd-vault"
+    }
+  },
+  {
     "address": "0x11261f2ccA8cc18374C3dB932300ADc1FEe2A264",
     "lpAddress": "0x16F582eA9F07BDd207E37AA1A02d5335940bAFa3",
     "tokens": ["0x0b2C639c533813f4Aa9D7837CAf62653d097Ff85", "0x57F5E098CaD7A3D1Eed53991D4d66C45C9AF7812"],
