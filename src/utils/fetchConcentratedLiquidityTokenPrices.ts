@@ -223,6 +223,14 @@ const tokens: Partial<Record<keyof typeof ChainId, ConcentratedLiquidityToken[]>
       firstToken: 'GLMR',
       secondToken: 'USDCwh',
     },
+    {
+      type: 'Algebra',
+      oracleId: 'stDOT',
+      decimalDelta: 1,
+      pool: '0xD9d1064E32704BDd540F90D3A9ecAF037748b966',
+      firstToken: 'xcDOT',
+      secondToken: 'stDOT',
+    },
   ],
   linea: [
     {
@@ -498,7 +506,7 @@ const tokens: Partial<Record<keyof typeof ChainId, ConcentratedLiquidityToken[]>
       pool: '0xa2E74518fe27B0FC04Ea36024ea837d26cd09CDa',
       firstToken: 'USDC',
       secondToken: 'modesUSDe',
-    }
+    },
   ],
   lisk: [
     {

@@ -539,7 +539,7 @@ export const tokens = {
     description:
       'Polkadot is an open-source sharding multichain protocol that facilitates the cross-chain transfer of any data or asset types, not just tokens, thereby making a wide range of blockchains interoperable with each other.',
   },
-  stDOT: {
+  stDOTold: {
     name: 'Liquid staked DOT',
     symbol: 'stDOT',
     oracleId: 'stDOT',
@@ -551,6 +551,19 @@ export const tokens = {
     website: 'https://polkadot.lido.fi/',
     description:
       'Lido for Polkadot is a liquid staking solution for DOT backed by industry-leading staking providers.',
+  },
+  stDOT: {
+    name: 'Stella stDOT',
+    symbol: 'stDOT',
+    oracleId: 'stDOT',
+    address: '0xbc7E02c4178a7dF7d3E564323a5c359dc96C4db4',
+    chainId: 1284,
+    decimals: 10,
+    logoURI: '',
+    website: 'https://app.stellaswap.com/stdot',
+    description: 'Stake DOT.xc for stDOT',
+    documentation: 'https://docs.stellaswap.com/',
+    bridge: 'native',
   },
   veFLARE: {
     name: 'Vested Flare Token',

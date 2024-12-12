@@ -1,5 +1,17 @@
 [
   {
+    "address": "0x505450e20Bfc7F192073AcC85bE2d072155C1e16",
+    "lpAddress": "0xD9d1064E32704BDd540F90D3A9ecAF037748b966",
+    "tokens": ["0xbc7E02c4178a7dF7d3E564323a5c359dc96C4db4", "0xFfFFfFff1FcaCBd218EDc0EbA20Fc2308C778080"],
+    "tokenOracleIds": ["stDOT", "xcDOT"],
+    "decimals": [10, 10],
+    "oracleId": "stellaswap-cow-moonbeam-stdot-xcdot",
+    "rewardPool": {
+      "address": "0x66e5662411cc6e3a62387354fa3F80dEa097fceD",
+      "oracleId": "stellaswap-cow-moonbeam-stdot-xcdot-rp"
+    }
+  },
+  {
     "address": "0x58873a92A2eF097CdedeA11e72C30f4E85C10a29",
     "lpAddress": "0x53c1341cd81562c1b1a7562fff712CD7be95D51e",
     "tokens": ["0xFFfffffF7D2B0B761Af01Ca8e25242976ac0aD7D", "0xFFFFFFfFea09FB06d082fd1275CD48b191cbCD1d"],
