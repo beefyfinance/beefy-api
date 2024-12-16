@@ -222,6 +222,7 @@
   },
   {
     "name": "aura-arb-susde-sfrax",
+    "eol": true,
     "address": "0x59743f1812bb85Db83e9e4EE061D124AAa642900",
     "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
     "gauge": "0x0a6a427867a3274909A04276cB5589AE8Cc2dfc7",
@@ -308,6 +309,7 @@
   },
   {
     "name": "aura-arb-gyro-ausdt-usdt",
+    "eol": true,
     "address": "0x14ABD18d1FA335E9F630a658a2799B33208763Fa",
     "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
     "gauge": "0x49A0213Bb5Eea803aCdEDD7a3d9D044b84fD918F",
