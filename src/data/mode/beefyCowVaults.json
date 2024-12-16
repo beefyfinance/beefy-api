@@ -3,7 +3,7 @@
     "address": "0x2ab1C2776149041A230F6958aE5258682c109Da6",
     "lpAddress": "0xa2E74518fe27B0FC04Ea36024ea837d26cd09CDa",
     "tokens": ["0x211Cc4DD073734dA055fbF44a2b4667d5E5fE5d2", "0xd988097fb8612cc24eeC14542bC03424c656005f"],
-    "tokenOracleIds": ["sUSDe", "USDC"],
+    "tokenOracleIds": ["modesUSDe", "USDC"],
     "decimals": [18, 6],
     "oracleId": "velodrome-cow-mode-susde-usdc",
     "providerId": "velodrome",
