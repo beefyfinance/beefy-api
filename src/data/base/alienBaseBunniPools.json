@@ -1,5 +1,22 @@
 [
   {
+    "name": "alienbase-weth-cbbtc-narrow",
+    "address": "0xaE7368f93a3604846C6fD44E7FD34122486A64A4",
+    "poolId": 67,
+    "lp0": {
+      "address": "0x4200000000000000000000000000000000000006",
+      "oracle": "tokens",
+      "oracleId": "WETH",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xcbB7C0000aB88B473b1f5aFd9ef808440eed33Bf",
+      "oracle": "tokens",
+      "oracleId": "cbBTC",
+      "decimals": "1e8"
+    }
+  },
+  {
     "name": "alienbase-alb-usdc-wide",
     "address": "0x7FE2c28497cb2bbD282b98e93b805ac1E4399d55",
     "poolId": 69,
