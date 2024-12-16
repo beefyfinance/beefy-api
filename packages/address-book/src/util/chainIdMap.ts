@@ -34,6 +34,7 @@ export const chainIdMap = {
   rootstock: 30,
   scroll: 534352,
   lisk: 1135,
+  sonic: 146,
 } satisfies ChainIdMap;
 
 // back-compat
