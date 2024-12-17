@@ -143,6 +143,14 @@ const tokens: Partial<Record<keyof typeof ChainId, ConcentratedLiquidityToken[]>
   arbitrum: [
     {
       type: 'UniV3',
+      oracleId: 'GNS',
+      decimalDelta: 1,
+      pool: '0xC91B7b39BBB2c733f0e7459348FD0c80259c8471',
+      firstToken: 'WETH',
+      secondToken: 'GNS',
+    },
+    {
+      type: 'UniV3',
       oracleId: 'SVY',
       decimalDelta: 1,
       pool: '0xc3fCF0EF6635f0157f567f92050a23D407976dAa',
