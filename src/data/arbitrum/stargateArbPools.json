@@ -19,12 +19,5 @@
     "address": "0x915A55e36A01285A14f05dE6e81ED9cE89772f8e",
     "decimals": "1e18",
     "underlying": "ETH"
-  },
-  {
-    "name": "stargate-arb-frax",
-    "poolId": 3,
-    "address": "0xaa4BF442F024820B2C28Cd0FD72b82c63e66F56C",
-    "decimals": "1e6",
-    "underlying": "FRAX"
   }
 ]
