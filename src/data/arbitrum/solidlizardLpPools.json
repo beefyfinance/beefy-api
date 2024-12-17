@@ -60,26 +60,6 @@
     }
   },
   {
-    "name": "solidlizard-jeur-usdc",
-    "address": "0x897aD79112b47ef5a95Eda0b2300047a324EBA80",
-    "gauge": "0xb46EEd060AB29017d571760e75Cd15221578e39b",
-    "decimals": "1e18",
-    "chainId": 42161,
-    "beefyFee": 0.095,
-    "lp0": {
-      "address": "0xAD435674417520aeeED6b504bBe654d4f556182F",
-      "oracle": "tokens",
-      "oracleId": "jEUR",
-      "decimals": "1e18"
-    },
-    "lp1": {
-      "address": "0xFF970A61A04b1cA14834A43f5dE4533eBDDB5CC8",
-      "oracle": "tokens",
-      "oracleId": "arbUSDCe",
-      "decimals": "1e6"
-    }
-  },
-  {
     "name": "solidlizard-jrt-weth",
     "address": "0x769fDe1b25a48Ea6D25F3e34F7de0f3C593cc841",
     "gauge": "0x5aDfc21C8CAaFF22AbF8DdC32f1947e2D782847A",

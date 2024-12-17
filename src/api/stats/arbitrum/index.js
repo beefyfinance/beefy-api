@@ -7,7 +7,6 @@ const { getGmxApys } = require('./getGmxApys');
 const { getHopApys } = require('./getHopApys');
 const { getConvexApys } = require('./getConvexApys');
 const { getGnsApys } = require('./getGnsApys');
-const getSolidLizardApys = require('./getSolidLizardApys');
 const getRamsesApys = require('./getRamsesApys');
 const getAuraArbitrumApys = require('./getAuraArbitrumApys');
 const { getJoeAutoArbApys } = require('./getJoeAutoArbApys');
@@ -40,7 +39,6 @@ const getApys = [
   getConvexApys,
   getBalancerArbApys,
   getStargateArbApys,
-  getSolidLizardApys,
   getRamsesApys,
   getArbCompoundV3Apys,
   getBeefyArbCowApys,
