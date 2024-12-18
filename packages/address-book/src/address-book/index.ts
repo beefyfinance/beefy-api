@@ -34,6 +34,7 @@ import { sei } from './sei/index.js';
 import { rootstock } from './rootstock/index.js';
 import { scroll } from './scroll/index.js';
 import { lisk } from './lisk/index.js';
+import { sonic } from './sonic/index.js';
 
 export { ChainId }; // enum which is compiled to a JS object
 export type { Chain };
@@ -73,6 +74,7 @@ export const addressBook: ReadonlyRecord<ChainIdKey, Chain> = {
   rootstock,
   scroll,
   lisk,
+  sonic,
 } as const;
 
 export const addressBookByChainId: ReadonlyRecord<`${ChainId}`, Chain> = {
@@ -109,4 +111,5 @@ export const addressBookByChainId: ReadonlyRecord<`${ChainId}`, Chain> = {
   [ChainId.rootstock]: rootstock,
   [ChainId.scroll]: scroll,
   [ChainId.lisk]: lisk,
+  [ChainId.sonic]: sonic,
 } as const;
