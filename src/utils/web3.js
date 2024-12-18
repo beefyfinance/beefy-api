@@ -102,6 +102,9 @@ module.exports = {
   get liskWeb3() {
     return chainRandomClients.liskRandomClient();
   },
+  get sonicWeb3() {
+    return chainRandomClients.sonicRandomClient();
+  },
 
   web3Factory: _web3Factory,
 

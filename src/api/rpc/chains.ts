@@ -33,6 +33,7 @@ import {
   ROOTSTOCK_RPC,
   SCROLL_RPC,
   LISK_RPC,
+  SONIC_RPC,
 } from '../../constants';
 import { ChainId } from '../../../packages/address-book/src/address-book';
 
@@ -792,6 +793,29 @@ const rootstockChain = {
 
 /// New Chains
 
+const sonicChain = {
+  id: 146,
+  name: 'Sonic',
+  network: 'sonic',
+  nativeCurrency: {
+    decimals: 18,
+    name: 'WS',
+    symbol: 'WS',
+  },
+  rpcUrls: {
+    public: { http: [SONIC_RPC] },
+    default: { http: [SONIC_RPC] },
+  },
+  blockExplorers: {
+    default: { name: 'sonic explorer', url: 'https://sonicscan.org/' },
+  },
+  contracts: {
+    multicall3: {
+      address: '0xca11bde05977b3631167028862be2a173976ca11',
+    },
+  },
+} as const satisfies Chain;
+
 const liskChain = {
   id: 1135,
   name: 'Lisk',
@@ -873,4 +897,5 @@ export const getChain: Partial<Record<ChainId, Chain>> = {
   [ChainId.rootstock]: rootstockChain,
   [ChainId.scroll]: scrollChain,
   [ChainId.lisk]: liskChain,
+  [ChainId.sonic]: sonicChain,
 } as const;

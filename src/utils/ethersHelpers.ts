@@ -69,6 +69,8 @@ import {
   SCROLL_CHAIN_ID,
   LISK_RPC,
   LISK_CHAIN_ID,
+  SONIC_RPC,
+  SONIC_CHAIN_ID,
 } from '../constants';
 
 console.log(addressBookByChainId[ChainId.fantom].platforms.beefyfinance.multicall);
@@ -106,6 +108,7 @@ const MULTICALLS: Record<ChainId, Pick<BeefyFinance, 'multicall'>['multicall']> 
   [ChainId.rootstock]: addressBookByChainId[ChainId.rootstock].platforms.beefyfinance.multicall,
   [ChainId.scroll]: addressBookByChainId[ChainId.scroll].platforms.beefyfinance.multicall,
   [ChainId.lisk]: addressBookByChainId[ChainId.lisk].platforms.beefyfinance.multicall,
+  [ChainId.sonic]: addressBookByChainId[ChainId.sonic].platforms.beefyfinance.multicall,
 };
 
 const clients: Record<keyof typeof ChainId, ethers.providers.JsonRpcProvider[]> = {
@@ -142,6 +145,7 @@ const clients: Record<keyof typeof ChainId, ethers.providers.JsonRpcProvider[]> 
   rootstock: [],
   scroll: [],
   lisk: [],
+  sonic: [],
 };
 BSC_RPC_ENDPOINTS.forEach(endpoint => {
   clients.bsc.push(new ethers.providers.JsonRpcProvider(endpoint));
@@ -178,6 +182,7 @@ clients.manta.push(new ethers.providers.JsonRpcProvider(MANTA_RPC));
 clients.real.push(new ethers.providers.JsonRpcProvider(REAL_RPC));
 clients.sei.push(new ethers.providers.JsonRpcProvider(SEI_RPC));
 clients.rootstock.push(new ethers.providers.JsonRpcProvider(ROOTSTOCK_RPC));
+clients.sonic.push(new ethers.providers.JsonRpcProvider(SONIC_RPC));
 clients.lisk.push(new ethers.providers.JsonRpcProvider(LISK_RPC));
 clients.scroll.push(new ethers.providers.JsonRpcProvider(SCROLL_RPC));
 
@@ -215,6 +220,7 @@ export const chainRandomClients = {
   rootstockRandomClient: () => clients.rootstock[~~(clients.rootstock.length * Math.random())],
   scrollRandomClient: () => clients.scroll[~~(clients.scroll.length * Math.random())],
   liskRandomClient: () => clients.lisk[~~(clients.lisk.length * Math.random())],
+  sonicRandomClient: () => clients.sonic[~~(clients.sonic.length * Math.random())],
 };
 
 export const _ethersFactory = (chainId: ChainId) => {
@@ -285,6 +291,8 @@ export const _ethersFactory = (chainId: ChainId) => {
       return chainRandomClients.scrollRandomClient();
     case LISK_CHAIN_ID:
       return chainRandomClients.liskRandomClient();
+    case SONIC_CHAIN_ID:
+      return chainRandomClients.sonicRandomClient();
   }
 };
 
