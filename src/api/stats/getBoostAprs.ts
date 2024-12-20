@@ -42,7 +42,7 @@ const updateBoostV2AprsForChain = async (chain: ApiChain, boosts: Boost[]) => {
             stakedToken: {
               oracleId: vault.oracleId,
               address: vault.earnContractAddress,
-              decimals: 18,
+              decimals: vault.tokenDecimals || 18,
               pricePerFullShare: vault.pricePerFullShare,
             },
           } satisfies BeefyRewardPoolV2Config;
