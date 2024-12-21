@@ -134,18 +134,20 @@ const validatorsByChain: Partial<Record<ApiChain, ValidatorAsset[]>> = {
       assetType: 'validator',
     },
   ],
-  fuse: [
+  sonic: [
     {
-      id: 'fuse-validator',
-      name: 'Fuse Validator',
+      id: 'sonic-validator',
+      numberId: 31,
+      name: 'SONIC Validator',
       address: 'native',
-      oracleId: 'FUSE',
+      oracleId: 'wS',
       oracleType: 'tokens',
       decimals: 18,
-      symbol: 'FUSE',
+      symbol: 'S',
       method: 'contract',
-      methodPath: '0xa852A119a29d44e13A4B939B482D522808437BAe',
+      methodPath: '0x10E13f11419165beB0F456eC8a230899E4013BBD',
       assetType: 'validator',
+      helpers: ['0xFC00FACE00000000000000000000000000000000'],
     },
   ],
 };

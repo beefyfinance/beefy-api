@@ -33,6 +33,13 @@ const validatorContractAbi = [
     stateMutability: 'view',
     type: 'function',
   },
+  {
+    inputs: [{ internalType: 'uint256', name: 'validatorID', type: 'uint256' }],
+    name: 'getSelfStake',
+    outputs: [{ internalType: 'uint256', name: '', type: 'uint256' }],
+    stateMutability: 'view',
+    type: 'function',
+  },
 ] as const;
 
 export const mapAssetToCall = (
@@ -54,8 +61,14 @@ export const mapAssetToCall = (
     return [getLpBreakdownForOracle(asset.oracleId)];
   } else if (isValidatorAsset(asset)) {
     if (asset.method === 'contract') {
+      // // sonic validator
+      // if (chainId === 146) {
+      //   const contract = fetchContract(asset.helpers[0], validatorContractAbi, chainId);
+      //   return [contract.read.getSelfStake([asset.numberId]) as bigint];
+      // } else {
       const contract = fetchContract(asset.methodPath, validatorContractAbi, chainId);
       return [contract.read.balance()];
+      // }
     } else {
       return [fetchAPIBalance(asset as ValidatorAsset)];
     }

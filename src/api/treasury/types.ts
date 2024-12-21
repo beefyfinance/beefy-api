@@ -47,6 +47,7 @@ export type ValidatorAsset = Asset & {
   method: 'api' | 'contract';
   methodPath: string;
   numberId?: number;
+  helpers?: string[];
 };
 
 export type ConcLiquidityAsset = Asset & {
