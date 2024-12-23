@@ -44,10 +44,10 @@ export type NativeAsset = Asset & {
 export type ValidatorAsset = Asset & {
   id: string;
   assetType: 'validator';
-  method: 'api' | 'contract';
+  method: 'api' | 'sonic-contract';
   methodPath: string;
   numberId?: number;
-  helpers?: string[];
+  helper?: string;
 };
 
 export type ConcLiquidityAsset = Asset & {

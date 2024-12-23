@@ -17,30 +17,7 @@ import { fetchContract } from '../rpc/client';
 import ERC20Abi from '../../abis/ERC20Abi';
 import { MULTICALL_V3 } from '../../utils/web3Helpers';
 import MulticallAbi from '../../abis/common/Multicall/MulticallAbi';
-
-const validatorContractAbi = [
-  {
-    constant: true,
-    inputs: [],
-    name: 'balance',
-    outputs: [
-      {
-        name: '',
-        type: 'uint256',
-      },
-    ],
-    payable: false,
-    stateMutability: 'view',
-    type: 'function',
-  },
-  {
-    inputs: [{ internalType: 'uint256', name: 'validatorID', type: 'uint256' }],
-    name: 'getSelfStake',
-    outputs: [{ internalType: 'uint256', name: '', type: 'uint256' }],
-    stateMutability: 'view',
-    type: 'function',
-  },
-] as const;
+import { fetchAPIBalance, fetchSonicValidatorBalance } from './validatorHelpers';
 
 export const mapAssetToCall = (
   asset: TreasuryAsset,
@@ -60,29 +37,12 @@ export const mapAssetToCall = (
   } else if (isConcLiquidityAsset(asset)) {
     return [getLpBreakdownForOracle(asset.oracleId)];
   } else if (isValidatorAsset(asset)) {
-    if (asset.method === 'contract') {
-      // // sonic validator
-      // if (chainId === 146) {
-      //   const contract = fetchContract(asset.helpers[0], validatorContractAbi, chainId);
-      //   return [contract.read.getSelfStake([asset.numberId]) as bigint];
-      // } else {
-      const contract = fetchContract(asset.methodPath, validatorContractAbi, chainId);
-      return [contract.read.balance()];
-      // }
+    if (asset.method === 'sonic-contract') {
+      return [fetchSonicValidatorBalance(asset, chainId)];
     } else {
       return [fetchAPIBalance(asset as ValidatorAsset)];
     }
   }
-};
-
-export const fetchAPIBalance = async (apiAsset: ValidatorAsset): Promise<TreasuryApiResult> => {
-  let balance: number = await fetch(apiAsset.methodPath)
-    .then(res => res.json())
-    .then((res: any) => ((res.data?.length ?? 0) > 0 ? res.data[0].balance : res.data.balance));
-  return {
-    apiAsset,
-    balance: new BigNumber(balance).shiftedBy(9),
-  };
 };
 
 export const extractBalancesFromTreasuryCallResults = (
@@ -107,7 +67,7 @@ export const extractBalancesFromTreasuryCallResults = (
         });
         allBalances.push(bal);
       } else if (isValidatorAsset(asset)) {
-        if (asset.method === 'contract') {
+        if (asset.method === 'sonic-contract') {
           const value = callResult.value as bigint[];
           allBalances.push({
             address: asset.id,
