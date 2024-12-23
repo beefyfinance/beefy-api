@@ -1466,6 +1466,20 @@ export const tokens = {
     documentation: 'https://docs.originprotocol.com/',
     bridge: 'native',
   },
+  wsuperOETHb: {
+    name: 'Wrapped Super OETH',
+    symbol: 'wsuperOETHb',
+    oracleId: 'wsuperOETHb',
+    address: '0x7FcD174E80f264448ebeE8c88a7C4476AAF58Ea6',
+    chainId: 8453,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://originprotocol.com/',
+    description:
+      "Super OETH is the first in a new class of yield product; Supercharged LSTs. By combining liquid staking yield from Ethereum with compounded rewards on layer 2, Supercharged LSTs offer materially higher APY compared to traditional LSTs without adding substantial risk of loss. Origin's first token to launch in this category is superOETHb, which derives Beacon Chain yield from bridged Wrapped OETH and rewards from Aerodrome through a protocol-owned, concentrated liquidity position on Base.",
+    documentation: 'https://docs.originprotocol.com/',
+    bridge: 'native',
+  },
   SILO: {
     name: 'SILO',
     symbol: 'SILO',

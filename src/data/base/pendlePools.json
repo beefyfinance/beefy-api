@@ -1,7 +1,32 @@
 [
   {
+    "name": "pendle-base-wsuperoethb-26jun25",
+    "address": "0xeCc2c994aA0C599a7f69a7Cfb9106fe4dfFb4341",
+    "eqbGauge": "0x8B3977197f96e796c32Af1AC33f9d647a7836917",
+    "oracle": "tokens",
+    "oracleId": "WETH",
+    "decimals": "1e18",
+    "chainId": 8453
+  },
+  {
+    "name": "pendle-base-musdc-26jun25",
+    "address": "0x3124d41708edbdc7995a55183e802e3d9d0d5ef1",
+    "eqbGauge": "0x50D45b4dbc9815aDb8b0016c952B712732bb78dc",
+    "oracle": "tokens",
+    "oracleId": "USDC",
+    "decimals": "1e8",
+    "chainId": 8453,
+    "rewards": [
+      {
+        "token": "0xA88594D404727625A9437C3f886C7643872296AE",
+        "oracleId": "bWELL"
+      }
+    ]
+  },
+  {
     "name": "pendle-base-cbeth-25dec25",
     "address": "0x483f2e223c58a5ef19c4b32fbc6de57709749cb3",
+    "eqbGauge": "0x2367f42B1d6a78930E107bE0ACdaE28EC577237D",
     "oracle": "tokens",
     "oracleId": "WETH",
     "decimals": "1e18",
@@ -10,6 +35,7 @@
   {
     "name": "pendle-base-lbtc-29may25",
     "address": "0x727cebacfb10ffd353fc221d06a862b437ec1735",
+    "eqbGauge": "0xBA0f08909AF43ed21aC54D44fF863835F22ADDF0",
     "oracle": "tokens",
     "oracleId": "WBTC",
     "decimals": "1e8",
