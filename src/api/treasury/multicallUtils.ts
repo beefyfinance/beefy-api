@@ -17,7 +17,7 @@ import { fetchContract } from '../rpc/client';
 import ERC20Abi from '../../abis/ERC20Abi';
 import { MULTICALL_V3 } from '../../utils/web3Helpers';
 import MulticallAbi from '../../abis/common/Multicall/MulticallAbi';
-import { fetchAPIBalance, fetchSonicValidatorBalance } from './validatorHelpers';
+import { fetchAPIBalance, fetchSonicValidatorBalance, isSonicValidator } from './validatorHelpers';
 
 export const mapAssetToCall = (
   asset: TreasuryAsset,
@@ -37,7 +37,7 @@ export const mapAssetToCall = (
   } else if (isConcLiquidityAsset(asset)) {
     return [getLpBreakdownForOracle(asset.oracleId)];
   } else if (isValidatorAsset(asset)) {
-    if (asset.method === 'sonic-contract') {
+    if (isSonicValidator(asset)) {
       return [fetchSonicValidatorBalance(asset, chainId)];
     } else {
       return [fetchAPIBalance(asset as ValidatorAsset)];

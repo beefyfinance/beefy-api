@@ -159,6 +159,12 @@ export const hasChainValidator = (chain: ApiChain): boolean => !!validatorsByCha
 
 export const getChainValidators = (chain: ApiChain): ValidatorAsset[] => validatorsByChain[chain];
 
+type SonicValidator = Required<ValidatorAsset>;
+
+export function isSonicValidator(asset: ValidatorAsset): asset is SonicValidator {
+  return asset.method === 'sonic-contract';
+}
+
 const sonicValidatorContractAbi = [
   {
     inputs: [{ internalType: 'uint256', name: 'validatorID', type: 'uint256' }],
@@ -181,18 +187,14 @@ const sonicValidatorContractAbi = [
   },
 ] as const;
 
-export const fetchSonicValidatorBalance = async (asset: ValidatorAsset, chainId: number): Promise<bigint> => {
-  if (!!asset.helper && !!asset.numberId) {
-    const contract = fetchContract(asset.helper, sonicValidatorContractAbi, chainId);
-    const [selfStaked, pending] = await Promise.all([
-      contract.read.getSelfStake([BigInt(asset.numberId)]),
-      contract.read.pendingRewards([asset.methodPath as `0x${string}`, BigInt(asset.numberId)]),
-    ]);
+export const fetchSonicValidatorBalance = async (asset: SonicValidator, chainId: number): Promise<bigint> => {
+  const contract = fetchContract(asset.helper, sonicValidatorContractAbi, chainId);
+  const [selfStaked, pending] = await Promise.all([
+    contract.read.getSelfStake([BigInt(asset.numberId)]),
+    contract.read.pendingRewards([asset.methodPath as `0x${string}`, BigInt(asset.numberId)]),
+  ]);
 
-    return selfStaked + pending;
-  }
-
-  return BigInt(0);
+  return selfStaked + pending;
 };
 
 export const fetchAPIBalance = async (apiAsset: ValidatorAsset): Promise<TreasuryApiResult> => {
