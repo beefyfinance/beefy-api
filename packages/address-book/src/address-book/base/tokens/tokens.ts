@@ -1975,4 +1975,17 @@ export const tokens = {
     bridge: 'layer-zero',
     risks: ['LARGE_HOLDERS', 'NO_TIMELOCK'],
   },
+  ODOS: {
+    name: 'Odos Token',
+    symbol: 'ODOS',
+    oracleId: 'ODOS',
+    address: '0xca73ed1815e5915489570014e024b7EbE65dE679',
+    chainId: 8453,
+    decimals: 18,
+    logoURI: '',
+    website: '',
+    description: '',
+    documentation: '',
+    bridge: '',
+  },
 } as const satisfies Record<string, Token>;
