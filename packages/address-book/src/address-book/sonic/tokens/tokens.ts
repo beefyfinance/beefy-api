@@ -10,7 +10,7 @@ const S = {
   website: 'https://www.soniclabs.com/',
   description:
     'Wrapped S, (S) Sonic is an EVM layer-1 platform that offers developers attractive incentives and powerful infrastructure.',
-  bridge: 'canonical',
+  bridge: 'sonic-canonical',
   logoURI: '',
   documentation: 'https://www.soniclabs.com/developer-resources',
 } as const satisfies Token;

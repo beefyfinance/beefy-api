@@ -557,6 +557,7 @@ async function performUpdateAmmPrices() {
       beQI: tokenPrices['QI'],
       beCAKE: tokenPrices['Cake'],
       beVelo: tokenPrices['BeVELO'],
+      wS: tokenPrices['WS'],
     };
   });
 
