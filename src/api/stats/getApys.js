@@ -29,6 +29,7 @@ const { getSeiApys } = require('./sei');
 const { getRootstockApys } = require('./rootstock');
 const { getScrollApys } = require('./scroll');
 const { getLiskApys } = require('./lisk');
+const { getSonicApys } = require('./sonic');
 const { getKey, setKey } = require('../../utils/cache');
 const { fetchBoostAprs, BOOST_APR_EXPIRED } = require('./getBoostAprs');
 const { serviceEventBus } = require('../../utils/ServiceEventBus');
@@ -87,6 +88,7 @@ const updateApys = async () => {
       getRootstockApys(),
       getScrollApys(),
       getLiskApys(),
+      getSonicApys(),
     ]);
 
     for (const result of results) {

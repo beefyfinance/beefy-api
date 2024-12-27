@@ -65,6 +65,7 @@ import { getAerodromeStablePrices } from './base/getAerodromeStablePrices';
 import getGammaArbPrices from './arbitrum/getGammaPrices';
 import { getKinetixPrices } from './kava/getKinetixPrices';
 import getEqualizerStableBasePrices from './base/getEqualizerStablePrices';
+import getEqualizerStableSonicPrices from './sonic/getEqualizerStablePrices';
 import getBalancerGnosisPrices from './gnosis/getBalancerGnosisPrices';
 import getCurvePricesCommon from './common/curve/getCurvePricesCommon';
 import { getCurveLendPricesCommon } from './common/curve/getCurveLendPricesCommon';
@@ -142,6 +143,7 @@ export async function getNonAmmPrices(tokenPrices: Record<string, number>): Prom
     getEthSiloPrices(tokenPrices),
     getOptimismSiloPrices(tokenPrices),
     getEqualizerStableBasePrices(tokenPrices),
+    getEqualizerStableSonicPrices(tokenPrices),
     getKinetixPrices(tokenPrices),
     getBasoStablePrices(tokenPrices),
     getUniswapGammaPrices(tokenPrices),
