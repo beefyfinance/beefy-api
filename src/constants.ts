@@ -259,7 +259,7 @@ const MULTICHAIN_ENDPOINTS: Partial<Record<ApiChain, string>> = {
   rootstock: ROOTSTOCK_VAULTS_ENDPOINT,
   scroll: SCROLL_VAULTS_ENDPOINT,
   lisk: LISK_VAULTS_ENDPOINT,
-  // sonic: SONIC_VAULTS_ENDPOINT,
+  sonic: SONIC_VAULTS_ENDPOINT,
 } as const;
 
 const EXCLUDED_IDS_FROM_TVL = ['venus-wbnb'];
