@@ -35,8 +35,8 @@ export const tokens = {
   },
   USDCe: {
     name: 'Bridged USDC (Sonic Labs)',
-    symbol: 'sUSDC.e',
-    oracleId: 'sUSDC.e',
+    symbol: 'USDC.e',
+    oracleId: 'sUSDCe',
     address: '0x29219dd400f2Bf60E5a23d13Be72B486D4038894',
     chainId: 146,
     decimals: 6,
