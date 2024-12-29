@@ -268,6 +268,7 @@ const coinGeckoCoins: Record<string, string[]> = {
   ankreth: ['ankrETH'],
   'usda-2': ['USDa'],
   'kim-token': ['xKIM', 'KIM'],
+  'beets-staked-sonic': ['stS'],
 };
 
 /**
@@ -368,6 +369,11 @@ const dexscreenerCoins: OraclePriceRequest[] = [
     oracleId: 'arbXVS',
     tokenAddress: '0xc1Eb7689147C81aC840d4FF0D298489fc7986d52',
     chainId: 'arbitrum',
+  },
+  {
+    oracleId: 'scUSD',
+    tokenAddress: '0xd3DCe716f3eF535C5Ff8d041c1A41C3bd89b97aE',
+    chainId: 'sonic',
   },
 ];
 

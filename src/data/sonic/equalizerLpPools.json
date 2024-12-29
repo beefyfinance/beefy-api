@@ -1,5 +1,25 @@
 [
   {
+    "name": "equalizer-sonic-ws-brush",
+    "address": "0x38cFA6cB37d074B6E954C52d10a4cf0e4268607b",
+    "gauge": "0xA4Df0a210a5E242BE68E8a2b780ecc854ADD3583",
+    "decimals": "1e18",
+    "chainId": 146,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0x039e2fB66102314Ce7b64Ce5Ce3E5183bc94aD38",
+      "oracle": "tokens",
+      "oracleId": "wS",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xE51EE9868C1f0d6cd968A8B8C8376Dc2991BFE44",
+      "oracle": "tokens",
+      "oracleId": "BRUSH",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "equalizer-sonic-ws-weth",
     "address": "0xcD7D89FF7bB263a5C45aD81ddE4Eed5892Ad540C",
     "gauge": "0x09548deFD1016cFFd6f74417bE3503b1e6aA6c51",
