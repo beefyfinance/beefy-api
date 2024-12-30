@@ -28,6 +28,7 @@ const getChainName = chain => {
 export const getBalTradingAndLstApr = async (chain, poolAddresses) => {
   let tradingAprMap = {};
   let lstAprs = [];
+  let lstMap = {};
   const api = 'https://api-v3.balancer.fi/graphql';
 
   const queryString = `query apr {
@@ -59,22 +60,20 @@ export const getBalTradingAndLstApr = async (chain, poolAddresses) => {
 
     const responseData = await data.json();
 
-    responseData.data.poolGetPools.forEach(pool => {
-      const poolAddressesLowerCase = poolAddresses.map(address => address.toLowerCase());
-
-      poolAddressesLowerCase.forEach(address => {
+    const poolAddressesLowerCase = poolAddresses.map(address => address.toLowerCase());
+    poolAddressesLowerCase.forEach(address => {
+      responseData.data.poolGetPools.forEach(pool => {
         if (pool.address.toLowerCase() === address) {
           let tradingApr = 0;
-          let lstApr = 0;
+          let lstApr = new BigNumber(0);
           pool.dynamicData.aprItems.forEach(aprItem => {
             if (aprItem.type === 'SWAP_FEE_24H') {
               tradingApr = aprItem.apr;
             } else if (aprItem.type === 'IB_YIELD') {
-              lstApr += aprItem.apr;
+              lstApr = lstApr.plus(new BigNumber(aprItem.apr));
             }
           });
-
-          tradingAprMap[pool.address] = new BigNumber(tradingApr);
+          tradingAprMap[address.address] = tradingApr;
           lstAprs.push(lstApr);
         }
       });
