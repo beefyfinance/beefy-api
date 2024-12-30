@@ -72,5 +72,37 @@
         "decimals": "1e6"
       }
     ]
+  },
+  {
+    "name": "beets-sonic-put-a-ring-on-it",
+    "address": "0x25ca5451CD5a50AB1d324B5E64F32C0799661891",
+    "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
+    "gauge": "0xa472438718Fe7785107fCbE584d39183a6420D36",
+    "vaultPoolId": "0x25ca5451cd5a50ab1d324b5e64f32c0799661891000200000000000000000018",
+    "decimals": "1e18",
+    "rewards": [
+      {
+        "newGauge": true,
+        "stream": "0xa472438718Fe7785107fCbE584d39183a6420D36",
+        "oracleId": "BAL"
+      },
+      {
+        "stream": "0xa472438718Fe7785107fCbE584d39183a6420D36",
+        "rewardToken": "0x2D0E0814E62D80056181F5cd932274405966e4f0",
+        "oracleId": "BEETS"
+      }
+    ],
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "scUSD",
+        "decimals": "1e6"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "stS",
+        "decimals": "1e18"
+      }
+    ]
   }
 ]
