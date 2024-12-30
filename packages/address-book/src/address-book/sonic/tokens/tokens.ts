@@ -102,4 +102,17 @@ export const tokens = {
     documentation: 'https://docs.paintswap.finance/tokenomics/brush',
     bridge: 'layer-zero',
   },
+  LUDWIG: {
+    name: 'LUDWIG',
+    symbol: 'LUDWIG',
+    oracleId: 'LUDWIG',
+    address: '0xe6cc4D855B4fD4A9D02F46B9adae4C5EfB1764B5',
+    chainId: 146,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://ludwigonsonic.com/',
+    description:
+      'Ludwig On Sonic (LUDWIG) is your meme gateway to exploring Balancer technology on the Sonic network. The phrase "High Speed, Perfect Beets" highlights the Sonic network’s lightning-fast performance, while "Beets" refers to the DEX where our primary pools and liquidity are hosted.',
+    bridge: 'native',
+  },
 } as const satisfies Record<string, Token>;

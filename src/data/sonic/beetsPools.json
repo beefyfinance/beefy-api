@@ -104,5 +104,42 @@
         "decimals": "1e18"
       }
     ]
+  },
+  {
+    "name": "beets-sonic-high-speed-perfect-beets",
+    "address": "0x21FeD4063BF8ebf4F51f4ADF4ECFC9717aa4cA9D",
+    "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
+    "gauge": "0xf6a0071f5607f589DF253E0991Ba6aBdDE7a6d32",
+    "vaultPoolId": "0x21fed4063bf8ebf4f51f4adf4ecfc9717aa4ca9d000100000000000000000044",
+    "decimals": "1e18",
+    "rewards": [
+      {
+        "newGauge": true,
+        "stream": "0xf6a0071f5607f589DF253E0991Ba6aBdDE7a6d32",
+        "oracleId": "BAL"
+      },
+      {
+        "stream": "0xf6a0071f5607f589DF253E0991Ba6aBdDE7a6d32",
+        "rewardToken": "0xE5DA20F15420aD15DE0fa650600aFc998bbE3955",
+        "oracleId": "stS"
+      }
+    ],
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "BEETS",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "stS",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "LUDWIG",
+        "decimals": "1e18"
+      }
+    ]
   }
 ]
