@@ -115,4 +115,18 @@ export const tokens = {
       'Ludwig On Sonic (LUDWIG) is your meme gateway to exploring Balancer technology on the Sonic network. The phrase "High Speed, Perfect Beets" highlights the Sonic network’s lightning-fast performance, while "Beets" refers to the DEX where our primary pools and liquidity are hosted.',
     bridge: 'native',
   },
+  BEETS: {
+    name: 'BEETS',
+    symbol: 'BEETS',
+    oracleId: 'BEETS',
+    address: '0x2D0E0814E62D80056181F5cd932274405966e4f0',
+    chainId: 146,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://beets.fi/',
+    bridge: 'native',
+    description:
+      'BEETS is the governance token for the Beethoven X protocol. Built on Balancer V2, Beethoven X is the first next-generation AMM protocol on Fantom.',
+    documentation: 'https://docs.beets.fi/beets/tokenomics',
+  },
 } as const satisfies Record<string, Token>;
