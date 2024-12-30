@@ -63,9 +63,9 @@ export const getBalTradingAndLstApr = async (chain, poolAddresses) => {
       const poolAddressesLowerCase = poolAddresses.map(address => address.toLowerCase());
 
       poolAddressesLowerCase.forEach(address => {
-        let tradingApr = 0;
-        let lstApr = 0;
         if (pool.address.toLowerCase() === address) {
+          let tradingApr = 0;
+          let lstApr = 0;
           pool.dynamicData.aprItems.forEach(aprItem => {
             if (aprItem.type === 'SWAP_FEE_24H') {
               tradingApr = aprItem.apr;
