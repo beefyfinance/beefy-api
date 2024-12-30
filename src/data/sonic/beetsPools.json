@@ -35,5 +35,42 @@
         "decimals": "1e18"
       }
     ]
+  },
+  {
+    "name": "beets-sonic-ringing-stable-beets",
+    "address": "0xCd4D2b142235D5650fFA6A38787eD0b7d7A51c0C",
+    "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
+    "gauge": "0x33B29bcf17e866A35941e07CbAd54f1807B337f5",
+    "vaultPoolId": "0xcd4d2b142235d5650ffa6a38787ed0b7d7a51c0c000000000000000000000037",
+    "composable": true,
+    "bptIndex": 1,
+    "decimals": "1e18",
+    "rewards": [
+      {
+        "newGauge": true,
+        "stream": "0x33B29bcf17e866A35941e07CbAd54f1807B337f5",
+        "oracleId": "BAL"
+      },
+      {
+        "stream": "0x33B29bcf17e866A35941e07CbAd54f1807B337f5",
+        "rewardToken": "0x2D0E0814E62D80056181F5cd932274405966e4f0",
+        "oracleId": "BEETS"
+      }
+    ],
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "sUSDCe",
+        "decimals": "1e6"
+      },
+      {
+        "oracleId": "BPTToken"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "scUSD",
+        "decimals": "1e6"
+      }
+    ]
   }
 ]
