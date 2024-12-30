@@ -60,27 +60,18 @@ const secondsInAYear = 31536000;
 export const getAuraApys = async (params: BalancerParams): Promise<ApyBreakdownResult> => {
   const pairAddresses = params.pools.map(pool => pool.address);
 
-  /*
   const [tradingAprAndLstData, farmApys] = await Promise.all([
     getTradingFeeAprBalancer(params.chainId, pairAddresses),
     getPoolApys(params),
-  ]);*/
+  ]);
 
-  const farmApys = await getPoolApys(params);
-  console.log(farmApys);
-  const tradingAprAndLstData = await getTradingFeeAprBalancer(params.chainId, pairAddresses);
-  console.log(tradingAprAndLstData);
-
-  const apyBreakdown = getApyBreakdown(
+  return getApyBreakdown(
     params.pools,
     tradingAprAndLstData.tradingAprMap as Record<string, BigNumber>,
     farmApys,
     liquidityProviderFee,
     tradingAprAndLstData.lstAprs
   );
-
-  console.log(apyBreakdown);
-  return apyBreakdown;
 };
 
 const getTradingFeeAprBalancer = async (chainId, pairAddresses) => {
@@ -151,7 +142,6 @@ const getYearlyRewardsInUsd = async (pool, rewardRate, finish, extras, auraRate)
     auraYearlyRewardsInUsd = auraYearlyRewards.times(auraPrice).dividedBy('1e18');
     yearlyRewardsInUsd = yearlyRewards.times(balPrice).dividedBy('1e18');
   }
-  console.log(pool.name, yearlyRewardsInUsd.toString(), auraYearlyRewardsInUsd.toString());
 
   let extraRewardsInUsd = new BigNumber(0);
   for (const extra of extras.filter(e => e.pool === pool.name)) {
