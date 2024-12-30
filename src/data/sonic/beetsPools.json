@@ -1,0 +1,39 @@
+[
+  {
+    "name": "beets-sonic-staked-sonic-symphony",
+    "address": "0x374641076B68371e69D03C417DAc3E5F236c32FA",
+    "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
+    "gauge": "0x8476F3A8DA52092e7835167AFe27835dC171C133",
+    "vaultPoolId": "0x374641076b68371e69d03c417dac3e5f236c32fa000000000000000000000006",
+    "composable": true,
+    "bptIndex": 1,
+    "decimals": "1e18",
+    "rewards": [
+      {
+        "newGauge": true,
+        "stream": "0x8476F3A8DA52092e7835167AFe27835dC171C133",
+        "oracleId": "BAL"
+      },
+      {
+        "stream": "0x8476F3A8DA52092e7835167AFe27835dC171C133",
+        "rewardToken": "0x2D0E0814E62D80056181F5cd932274405966e4f0",
+        "oracleId": "BEETS"
+      }
+    ],
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "wS",
+        "decimals": "1e18"
+      },
+      {
+        "oracleId": "BPTToken"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "stS",
+        "decimals": "1e18"
+      }
+    ]
+  }
+]

@@ -1,9 +1,11 @@
 //const { getBeefyCowSonicApys } = require('./getBeefyCowSonicApys');
 const getEqualizerApys = require('./getEqualizerApys');
+const getBeetsSonicApys = require('./getBeetsSonicApys');
 
 const getApys = [
   // getBeefyCowSonicApys,
   getEqualizerApys,
+  getBeetsSonicApys,
 ];
 
 const getSonicApys = async () => {
