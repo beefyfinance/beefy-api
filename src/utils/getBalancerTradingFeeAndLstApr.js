@@ -60,10 +60,9 @@ export const getBalTradingAndLstApr = async (chain, poolAddresses) => {
 
     const responseData = await data.json();
 
-    const poolAddressesLowerCase = poolAddresses.map(address => address.toLowerCase());
-    poolAddressesLowerCase.forEach(address => {
+    poolAddresses.forEach(address => {
       responseData.data.poolGetPools.forEach(pool => {
-        if (pool.address.toLowerCase() === address) {
+        if (pool.address.toLowerCase() === address.toLowerCase()) {
           let tradingApr = 0;
           let lstApr = new BigNumber(0);
           pool.dynamicData.aprItems.forEach(aprItem => {
@@ -73,7 +72,7 @@ export const getBalTradingAndLstApr = async (chain, poolAddresses) => {
               lstApr = lstApr.plus(new BigNumber(aprItem.apr));
             }
           });
-          tradingAprMap[address.address] = tradingApr;
+          tradingAprMap[address.toLowerCase()] = tradingApr;
           lstAprs.push(lstApr);
         }
       });
