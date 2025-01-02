@@ -10,7 +10,10 @@ import { ChainId } from '../packages/address-book/src/types/chainid';
 async function main() {
   const poolsFile = process.argv[2];
   const pools = JSON.parse(fs.readFileSync(poolsFile, 'utf8'));
-  const chain = process.argv[3] || ChainId[pools.find(p => p.chainId)?.chainId];
+  const chain =
+    process.argv[3] ||
+    ChainId[pools.find(p => p.chainId)?.chainId] ||
+    poolsFile.split('/')[poolsFile.split('/').length - 2];
   console.log(`check ${pools.length} pools on ${chain}`);
   const ids = pools.map(p => p.name);
   if (chain) {
