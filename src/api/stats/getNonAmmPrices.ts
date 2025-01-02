@@ -14,11 +14,9 @@ import getBeetsSonicPrices from './sonic/getBeetsSonicPrices';
 import getBalancerZkevmPrices from './zkevm/getBalancerPrices';
 import getVelodromeStablePrices from './optimism/getVelodromeStablePrices';
 import getEquilibreStablePrices from './kava/getEquilibreStablePrices';
-import getVoltagePrices from './fuse/getVoltagePrices';
 import getTrisolarisPrices from './aurora/getTrisolarisPrices';
 import getHermesStablePrices from './metis/getHermesStablePrices';
 import getCurveKavaPrices from './kava/getCurvePrices';
-import getSushiKavaPrices from './kava/getSushiPrices';
 import { getGmxV2ArbitrumPrices } from './arbitrum/getGmxV2Prices';
 import { getGmxArbitrumPrices } from './arbitrum/getGmxPrices';
 import { getGmxAvalanchePrices } from './avax/getGmxPrices';
@@ -35,7 +33,6 @@ import getStargatePolygonPrices from './matic/getStargatePolygonPrices';
 import getStargateOpPrices from './optimism/getStargateOpPrices';
 import getStargateMetisPrices from './metis/getStargateMetisPrices';
 import getStargateBasePrices from './base/getStargateBasePrices';
-import getStargateKavaPrices from './kava/getStargateKavaPrices';
 import getStargateMantlePrices from './mantle/getStargateMantlePrices';
 import getStargateSeiPrices from './sei/getStargateSeiPrices';
 import getOlpPrices from './optimism/getOlpPrices';
@@ -44,7 +41,6 @@ import getSolidlyEthStablePrices from './ethereum/getSolidlyStablePrices';
 import getCantoStablePrices from './canto/getCantoStablePrices';
 import { getKyberOptimismPrices } from './optimism/getKyberOptimismPrices';
 import getSolidLizardStablePrices from './arbitrum/getSolidLizardStablePrices';
-import getVelocimeterStablePrices from './canto/getVelocimeterStablePrices';
 import getRamsesStablePrices from './arbitrum/getRamsesStablePrices';
 import getMmyOptimismPrices from './optimism/getMmyOptimismPrices';
 import getVelocoreStablePrices from './zksync/getVelocoreStablePrices';
@@ -84,7 +80,6 @@ import {
   FRAXTAL_CHAIN_ID as FRX_CHAIN_ID,
   GNOSIS_CHAIN_ID as GNO_CHAIN_ID,
   OPTIMISM_CHAIN_ID,
-  REAL_CHAIN_ID,
 } from '../../constants';
 import getSolidlyStablePrices from './common/getSolidlyStablePrices';
 import getEthSiloPrices from './ethereum/getEthereumSiloPrices';
@@ -93,7 +88,6 @@ import getGammaLineaPrices from './linea/getGammaPrices';
 import getLynexStablePrices from './linea/getLynexStablePrices';
 import getNileStablePrices from './linea/getNileStablePrices';
 import { getMimSwapPrices } from './arbitrum/getMimSwapPrices';
-import { getPearlTridentPrices } from './real/getPearlTridentPrices';
 import { getBeefyCowArbPrices } from './arbitrum/getBeefyCowArbPrices';
 import { getBeefyCowOPPrices } from './optimism/getBeefyCowOPPrices';
 import getFtmIchiPrices from './fantom/getFtmIchiPrices';
@@ -154,7 +148,6 @@ export async function getNonAmmPrices(tokenPrices: Record<string, number>): Prom
     getMmyOptimismPrices(tokenPrices),
     getRamsesStablePrices(tokenPrices),
     getEquilibreStablePrices(tokenPrices),
-    getVelocimeterStablePrices(tokenPrices),
     getSolidLizardStablePrices(tokenPrices),
     getCantoStablePrices(tokenPrices),
     getKyberOptimismPrices(tokenPrices),
@@ -170,7 +163,6 @@ export async function getNonAmmPrices(tokenPrices: Record<string, number>): Prom
     getStargateAvaxPrices(tokenPrices),
     getStargateArbPrices(tokenPrices),
     getStargateEthPrices(tokenPrices),
-    getStargateKavaPrices(tokenPrices),
     getStargateLineaPrices(tokenPrices),
     getStargateMantlePrices(tokenPrices),
     getStargateSeiPrices(tokenPrices),
@@ -182,10 +174,8 @@ export async function getNonAmmPrices(tokenPrices: Record<string, number>): Prom
     getGmxV2ArbitrumPrices(),
     getGmxAvalanchePrices(tokenPrices),
     getGmxArbitrumPrices(tokenPrices),
-    getSushiKavaPrices(tokenPrices),
     getHermesStablePrices(tokenPrices),
     getTrisolarisPrices(tokenPrices),
-    getVoltagePrices(tokenPrices),
     getVelodromeStablePrices(tokenPrices),
     getVelodromeModeStablePrices(tokenPrices),
     getVelodromeLiskStablePrices(tokenPrices),
@@ -252,8 +242,6 @@ export async function getNonAmmPrices(tokenPrices: Record<string, number>): Prom
     getMellowVeloPrices(OPTIMISM_CHAIN_ID, require('../../data/optimism/mellowVeloPools.json'), tokenPrices),
     getMellowVeloPrices(BASE_CHAIN_ID, require('../../data/base/mellowAeroPools.json'), tokenPrices),
     getBunniPrices(BASE_CHAIN_ID, require('../../data/base/alienBaseBunniPools.json'), tokenPrices),
-    getPearlTridentPrices(tokenPrices),
-    getSolidlyStablePrices(REAL_CHAIN_ID, require('../../data/real/pearlStableLpPools.json'), tokenPrices),
     getBaseSiloPrices(tokenPrices),
     getNuriStablePrices(tokenPrices),
     getTokanStablePrices(tokenPrices),

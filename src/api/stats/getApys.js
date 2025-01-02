@@ -24,7 +24,6 @@ const { getMantleApys } = require('./mantle');
 const { getFraxtalApys } = require('./fraxtal');
 const { getModeApys } = require('./mode');
 const { getMantaApys } = require('./manta');
-const { getRealApys } = require('./real');
 const { getSeiApys } = require('./sei');
 const { getRootstockApys } = require('./rootstock');
 const { getScrollApys } = require('./scroll');
@@ -71,9 +70,9 @@ const updateApys = async () => {
       getMoonbeamApys(),
       // getEmeraldApys(),
       getOptimismApys(),
-      getKavaApys(),
+      // getKavaApys(),
       getEthereumApys(),
-      getCantoApys(),
+      // getCantoApys(),
       getZksyncApys(),
       // getZkevmApys(),
       getBaseApys(),
@@ -82,8 +81,7 @@ const updateApys = async () => {
       getMantleApys(),
       getFraxtalApys(),
       getModeApys(),
-      getMantaApys(),
-      getRealApys(),
+      // getMantaApys(),
       getSeiApys(),
       getRootstockApys(),
       getScrollApys(),
