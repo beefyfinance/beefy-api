@@ -114,6 +114,7 @@ import getVenusArbPrices from './arbitrum/getVenusArbPrices';
 import getVenusZkPrices from './zksync/getVenusZkPrices';
 import getTokemakEthPrices from './ethereum/getTokemakEthPrices';
 import getTokemakBasePrices from './base/getTokemakBasePrices';
+import { getBeefyCowSonicPrices } from './sonic/getBeefySonicCowPrices';
 
 export type NonAmmPrices = {
   prices: Record<string, number>;
@@ -236,6 +237,7 @@ export async function getNonAmmPrices(
     getBeefyCowScrollPrices(tokenPrices),
     getBeefyCowModePrices(tokenPrices),
     getBeefyCowLiskPrices(tokenPrices),
+    getBeefyCowSonicPrices(tokenPrices),
     getFtmIchiPrices(tokenPrices),
     getPendleCommonPrices(ARB_CHAIN_ID, require('../../data/arbitrum/equilibriaPools.json'), tokenPrices),
     getPendleCommonPrices(ARB_CHAIN_ID, require('../../data/arbitrum/pendlePools.json'), tokenPrices, {}),
