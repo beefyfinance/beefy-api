@@ -1,5 +1,20 @@
 [
   {
+    "name": "pendle-base-virtual-cbbtc-26jun25",
+    "address": "0x621d4d92e9bed484e6d2cb8a37d342c804a0908c",
+    "eqbGauge": "0xDBA1C701b3c2Fe06F136b922EA3ce8fb2eeDeE86",
+    "oracle": "lps",
+    "oracleId": "aerodrome-virtual-cbbtc",
+    "decimals": "1e18",
+    "chainId": 8453,
+    "rewards": [
+      {
+        "token": "0x940181a94A35A4569E4529A3CDfB74e38FD98631",
+        "oracleId": "AERO"
+      }
+    ]
+  },
+  {
     "name": "pendle-base-susdz-27mar25",
     "address": "0x14936c9b8eb798ca6291c2d6ce5de2c6cb5f1f9c",
     "eqbGauge": "0x7084864136999597872A48c04C866321Eb05581a",

@@ -589,7 +589,7 @@ async function performUpdateAmmPrices() {
   });
 
   const lpData = ammPrices.then(async ({ poolPrices, lpsBreakdown }) => {
-    const nonAmmPrices = await getNonAmmPrices(await tokenPrices);
+    const nonAmmPrices = await getNonAmmPrices(await tokenPrices, poolPrices);
     const pendlePrices = await getLpBasedPrices(await tokenPrices, poolPrices, nonAmmPrices);
 
     return {
