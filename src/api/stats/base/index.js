@@ -16,6 +16,7 @@ const { getSeamlessApys } = require('./getSeamlessApys');
 const { getBeefyBaseCowApys } = require('./getBeefyBaseCowApys');
 const { getMellowVeloApys } = require('../common/getMellowVeloApys');
 const { getEquilibriaApys } = require('../common/getEquilibriaApys');
+const { getPenpieApys } = require('./getPenpieApys');
 const { getBaseSiloApys } = require('./getBaseSiloApys');
 const { getBesnARSApy } = require('./getBesnARSApy');
 const { getTokemakApys } = require('./getTokemakApys');
@@ -42,6 +43,7 @@ const getApys = [
   getAuraBaseApys,
   () => getMellowVeloApys(BASE_CHAIN_ID, require('../../../data/base/mellowAeroPools.json')),
   () => getEquilibriaApys(require('../../../data/base/pendlePools.json')),
+  getPenpieApys,
   getBeefyBaseCowApys,
 ];
 
