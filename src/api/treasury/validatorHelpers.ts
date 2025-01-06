@@ -159,7 +159,7 @@ export const hasChainValidator = (chain: ApiChain): boolean => !!validatorsByCha
 
 export const getChainValidators = (chain: ApiChain): ValidatorAsset[] => validatorsByChain[chain];
 
-type SonicValidator = Required<ValidatorAsset>;
+type SonicValidator = Omit<Required<ValidatorAsset>, 'method'> & { method: 'sonic-contract' };
 
 export function isSonicValidator(asset: ValidatorAsset): asset is SonicValidator {
   return asset.method === 'sonic-contract';
@@ -197,7 +197,7 @@ export const fetchSonicValidatorBalance = async (asset: SonicValidator, chainId:
   return selfStaked + pending;
 };
 
-export const fetchAPIBalance = async (apiAsset: ValidatorAsset): Promise<TreasuryApiResult> => {
+export const fetchAPIValidatorBalance = async (apiAsset: ValidatorAsset): Promise<TreasuryApiResult> => {
   let balance: number = await fetch(apiAsset.methodPath)
     .then(res => res.json())
     .then((res: any) => ((res.data?.length ?? 0) > 0 ? res.data[0].balance : res.data.balance));

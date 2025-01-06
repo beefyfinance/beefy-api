@@ -1,23 +1,22 @@
 import BigNumber from 'bignumber.js';
 import {
+  AssetBalance,
+  ChainTreasuryBalance,
+  isConcLiquidityAsset,
   isNativeAsset,
   isTokenAsset,
-  isVaultAsset,
-  TreasuryAsset,
-  ChainTreasuryBalance,
-  TreasuryWallet,
-  AssetBalance,
-  ValidatorAsset,
-  TreasuryApiResult,
-  isConcLiquidityAsset,
   isValidatorAsset,
+  isVaultAsset,
+  TreasuryApiResult,
+  TreasuryAsset,
+  TreasuryWallet,
 } from './types';
-import { LpBreakdown, getLpBreakdownForOracle } from '../stats/getAmmPrices';
+import { getLpBreakdownForOracle, LpBreakdown } from '../stats/getAmmPrices';
 import { fetchContract } from '../rpc/client';
 import ERC20Abi from '../../abis/ERC20Abi';
 import { MULTICALL_V3 } from '../../utils/web3Helpers';
 import MulticallAbi from '../../abis/common/Multicall/MulticallAbi';
-import { fetchAPIBalance, fetchSonicValidatorBalance, isSonicValidator } from './validatorHelpers';
+import { fetchAPIValidatorBalance, fetchSonicValidatorBalance, isSonicValidator } from './validatorHelpers';
 
 export const mapAssetToCall = (
   asset: TreasuryAsset,
@@ -40,7 +39,7 @@ export const mapAssetToCall = (
     if (isSonicValidator(asset)) {
       return [fetchSonicValidatorBalance(asset, chainId)];
     } else {
-      return [fetchAPIBalance(asset as ValidatorAsset)];
+      return [fetchAPIValidatorBalance(asset)];
     }
   }
 };
