@@ -1,39 +1,22 @@
 import BigNumber from 'bignumber.js';
 import {
+  AssetBalance,
+  ChainTreasuryBalance,
+  isConcLiquidityAsset,
   isNativeAsset,
   isTokenAsset,
-  isVaultAsset,
-  TreasuryAsset,
-  ChainTreasuryBalance,
-  TreasuryWallet,
-  AssetBalance,
-  ValidatorAsset,
-  TreasuryApiResult,
-  isConcLiquidityAsset,
   isValidatorAsset,
+  isVaultAsset,
+  TreasuryApiResult,
+  TreasuryAsset,
+  TreasuryWallet,
 } from './types';
-import { LpBreakdown, getLpBreakdownForOracle } from '../stats/getAmmPrices';
+import { getLpBreakdownForOracle, LpBreakdown } from '../stats/getAmmPrices';
 import { fetchContract } from '../rpc/client';
 import ERC20Abi from '../../abis/ERC20Abi';
 import { MULTICALL_V3 } from '../../utils/web3Helpers';
 import MulticallAbi from '../../abis/common/Multicall/MulticallAbi';
-
-const validatorContractAbi = [
-  {
-    constant: true,
-    inputs: [],
-    name: 'balance',
-    outputs: [
-      {
-        name: '',
-        type: 'uint256',
-      },
-    ],
-    payable: false,
-    stateMutability: 'view',
-    type: 'function',
-  },
-] as const;
+import { fetchAPIValidatorBalance, fetchSonicValidatorBalance, isSonicValidator } from './validatorHelpers';
 
 export const mapAssetToCall = (
   asset: TreasuryAsset,
@@ -53,23 +36,12 @@ export const mapAssetToCall = (
   } else if (isConcLiquidityAsset(asset)) {
     return [getLpBreakdownForOracle(asset.oracleId)];
   } else if (isValidatorAsset(asset)) {
-    if (asset.method === 'contract') {
-      const contract = fetchContract(asset.methodPath, validatorContractAbi, chainId);
-      return [contract.read.balance()];
+    if (isSonicValidator(asset)) {
+      return [fetchSonicValidatorBalance(asset, chainId)];
     } else {
-      return [fetchAPIBalance(asset as ValidatorAsset)];
+      return [fetchAPIValidatorBalance(asset)];
     }
   }
-};
-
-export const fetchAPIBalance = async (apiAsset: ValidatorAsset): Promise<TreasuryApiResult> => {
-  let balance: number = await fetch(apiAsset.methodPath)
-    .then(res => res.json())
-    .then((res: any) => ((res.data?.length ?? 0) > 0 ? res.data[0].balance : res.data.balance));
-  return {
-    apiAsset,
-    balance: new BigNumber(balance).shiftedBy(9),
-  };
 };
 
 export const extractBalancesFromTreasuryCallResults = (
@@ -94,7 +66,7 @@ export const extractBalancesFromTreasuryCallResults = (
         });
         allBalances.push(bal);
       } else if (isValidatorAsset(asset)) {
-        if (asset.method === 'contract') {
+        if (asset.method === 'sonic-contract') {
           const value = callResult.value as bigint[];
           allBalances.push({
             address: asset.id,
