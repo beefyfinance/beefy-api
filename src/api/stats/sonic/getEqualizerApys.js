@@ -1,25 +1,18 @@
-const { FANTOM_CHAIN_ID: chainId } = require('../../../constants');
-import { getEDecimals } from '../../../utils/getEDecimals';
+const { SONIC_CHAIN_ID: chainId } = require('../../../constants');
 const { getSolidlyGaugeApys } = require('../common/getSolidlyGaugeApys');
 
-const volatileV2Pools = require('../../../data/fantom/equalizerV2LpPools.json');
-const ichiPools = require('../../../data/fantom/equalizerIchiPools.json');
-import { addressBook } from '../../../../packages/address-book/src/address-book';
-const {
-  fantom: {
-    tokens: { EQUAL },
-  },
-} = addressBook;
+const stablePools = require('../../../data/sonic/equalizerStableLpPools.json');
+const volatilePools = require('../../../data/sonic/equalizerLpPools.json');
 
-const pools = [...volatileV2Pools, ...ichiPools];
+const pools = [...stablePools, ...volatilePools];
 const getEqualizerApys = async () => {
   const gaugeApys = getSolidlyGaugeApys({
     chainId: chainId,
     pools: pools,
-    oracleId: 'ftmEQUAL',
+    oracleId: 'EQUAL',
     oracle: 'tokens',
-    decimals: getEDecimals(EQUAL.decimals),
-    reward: EQUAL.address,
+    decimals: '1e18',
+    reward: '0xddF26B42C1d903De8962d3F79a74a501420d5F19',
     boosted: false,
     // log: true,
   });
@@ -30,7 +23,7 @@ const getEqualizerApys = async () => {
   const results = await Promise.allSettled([gaugeApys]);
   for (const result of results) {
     if (result.status !== 'fulfilled') {
-      console.warn('getEqualizerApys error', result.reason);
+      console.warn('getEqualizerSonicApys error', result.reason);
     } else {
       apys = { ...apys, ...result.value.apys };
       apyBreakdowns = { ...apyBreakdowns, ...result.value.apyBreakdowns };

@@ -1,7 +1,56 @@
 [
   {
+    "name": "pendle-base-virtual-cbbtc-26jun25",
+    "address": "0x621d4d92e9bed484e6d2cb8a37d342c804a0908c",
+    "eqbGauge": "0xDBA1C701b3c2Fe06F136b922EA3ce8fb2eeDeE86",
+    "oracle": "lps",
+    "oracleId": "aerodrome-virtual-cbbtc",
+    "decimals": "1e18",
+    "chainId": 8453,
+    "rewards": [
+      {
+        "token": "0x940181a94A35A4569E4529A3CDfB74e38FD98631",
+        "oracleId": "AERO"
+      }
+    ]
+  },
+  {
+    "name": "pendle-base-susdz-27mar25",
+    "address": "0x14936c9b8eb798ca6291c2d6ce5de2c6cb5f1f9c",
+    "eqbGauge": "0x7084864136999597872A48c04C866321Eb05581a",
+    "oracle": "tokens",
+    "oracleId": "USDz",
+    "decimals": "1e18",
+    "chainId": 8453
+  },
+  {
+    "name": "pendle-base-wsuperoethb-26jun25",
+    "address": "0xeCc2c994aA0C599a7f69a7Cfb9106fe4dfFb4341",
+    "eqbGauge": "0x8B3977197f96e796c32Af1AC33f9d647a7836917",
+    "oracle": "tokens",
+    "oracleId": "WETH",
+    "decimals": "1e18",
+    "chainId": 8453
+  },
+  {
+    "name": "pendle-base-musdc-26jun25",
+    "address": "0x3124d41708edbdc7995a55183e802e3d9d0d5ef1",
+    "eqbGauge": "0x50D45b4dbc9815aDb8b0016c952B712732bb78dc",
+    "oracle": "tokens",
+    "oracleId": "USDC",
+    "decimals": "1e6",
+    "chainId": 8453,
+    "rewards": [
+      {
+        "token": "0xA88594D404727625A9437C3f886C7643872296AE",
+        "oracleId": "bWELL"
+      }
+    ]
+  },
+  {
     "name": "pendle-base-cbeth-25dec25",
     "address": "0x483f2e223c58a5ef19c4b32fbc6de57709749cb3",
+    "eqbGauge": "0x2367f42B1d6a78930E107bE0ACdaE28EC577237D",
     "oracle": "tokens",
     "oracleId": "WETH",
     "decimals": "1e18",
@@ -10,6 +59,7 @@
   {
     "name": "pendle-base-lbtc-29may25",
     "address": "0x727cebacfb10ffd353fc221d06a862b437ec1735",
+    "eqbGauge": "0xBA0f08909AF43ed21aC54D44fF863835F22ADDF0",
     "oracle": "tokens",
     "oracleId": "WBTC",
     "decimals": "1e8",

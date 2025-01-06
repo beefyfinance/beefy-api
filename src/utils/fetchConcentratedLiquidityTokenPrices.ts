@@ -329,6 +329,14 @@ const tokens: Partial<Record<keyof typeof ChainId, ConcentratedLiquidityToken[]>
   base: [
     {
       type: 'Slipstream',
+      oracleId: 'ODOS',
+      decimalDelta: 1e-12,
+      pool: '0xb7068556049dF8Fb3ae77CCbb9611FE0e85B2641',
+      firstToken: 'ODOS',
+      secondToken: 'USDC',
+    },
+    {
+      type: 'Slipstream',
       oracleId: 'basemooBIFI',
       decimalDelta: 1,
       pool: '0xb378137c90444BbceCD44a1f766851fbf53D2a9E',

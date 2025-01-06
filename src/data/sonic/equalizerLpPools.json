@@ -1,0 +1,102 @@
+[
+  {
+    "name": "equalizer-sonic-ws-brush",
+    "address": "0x38cFA6cB37d074B6E954C52d10a4cf0e4268607b",
+    "gauge": "0xA4Df0a210a5E242BE68E8a2b780ecc854ADD3583",
+    "decimals": "1e18",
+    "chainId": 146,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0x039e2fB66102314Ce7b64Ce5Ce3E5183bc94aD38",
+      "oracle": "tokens",
+      "oracleId": "wS",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xE51EE9868C1f0d6cd968A8B8C8376Dc2991BFE44",
+      "oracle": "tokens",
+      "oracleId": "BRUSH",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "equalizer-sonic-ws-weth",
+    "address": "0xcD7D89FF7bB263a5C45aD81ddE4Eed5892Ad540C",
+    "gauge": "0x09548deFD1016cFFd6f74417bE3503b1e6aA6c51",
+    "decimals": "1e18",
+    "chainId": 146,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0x039e2fB66102314Ce7b64Ce5Ce3E5183bc94aD38",
+      "oracle": "tokens",
+      "oracleId": "wS",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x50c42dEAcD8Fc9773493ED674b675bE577f2634b",
+      "oracle": "tokens",
+      "oracleId": "WETH",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "equalizer-sonic-ws-usdc.e",
+    "address": "0xdc85F86d5E3189e0d4a776e6Ae3B3911eC7B0133",
+    "gauge": "0x9b55Fbd8Cd27B81aCc6adfd42D441858FeDe4326",
+    "decimals": "1e18",
+    "chainId": 146,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0x039e2fB66102314Ce7b64Ce5Ce3E5183bc94aD38",
+      "oracle": "tokens",
+      "oracleId": "wS",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x29219dd400f2Bf60E5a23d13Be72B486D4038894",
+      "oracle": "tokens",
+      "oracleId": "sUSDCe",
+      "decimals": "1e6"
+    }
+  },
+  {
+    "name": "equalizer-sonic-ws-equal",
+    "address": "0x139f8eCC5fC8Ef11226a83911FEBecC08476cfB1",
+    "gauge": "0xe73267246Aa678A28D8e7B957135faEc1Db48aEF",
+    "decimals": "1e18",
+    "chainId": 146,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0x039e2fB66102314Ce7b64Ce5Ce3E5183bc94aD38",
+      "oracle": "tokens",
+      "oracleId": "wS",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xddF26B42C1d903De8962d3F79a74a501420d5F19",
+      "oracle": "tokens",
+      "oracleId": "EQUAL",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "equalizer-sonic-usdc.e-weth",
+    "address": "0xbCbC5777537c0D0462fb82BA48Eeb6cb361E853f",
+    "gauge": "0xf8F2462A8Fa08Df933C0d6bbaf34108Fd7af526E",
+    "decimals": "1e18",
+    "chainId": 146,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0x29219dd400f2Bf60E5a23d13Be72B486D4038894",
+      "oracle": "tokens",
+      "oracleId": "sUSDCe",
+      "decimals": "1e6"
+    },
+    "lp1": {
+      "address": "0x50c42dEAcD8Fc9773493ED674b675bE577f2634b",
+      "oracle": "tokens",
+      "oracleId": "WETH",
+      "decimals": "1e18"
+    }
+  }
+]

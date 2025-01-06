@@ -2307,6 +2307,32 @@ export const tokens = {
     description: 'Staked Dola from Inverse Finance.',
     bridge: 'native',
   },
+  USR: {
+    name: 'Resolv USD',
+    symbol: 'USR',
+    oracleId: 'USR',
+    address: '0x66a1E37c9b0eAddca17d3662D6c05F4DECf3e110',
+    chainId: 1,
+    decimals: 18,
+    website: 'https://app.resolv.xyz/',
+    documentation: 'https://docs.resolv.xyz/',
+    description:
+      'Resolv is a protocol maintaining USR, a stablecoin natively backed by Ether (ETH) and pegged to US Dollar',
+    bridge: 'native',
+  },
+  wstUSR: {
+    name: 'Wrapped stUSR',
+    symbol: 'wstUSR',
+    oracleId: 'wstUSR',
+    address: '0x1202F5C7b4B9E47a1A484E8B270be34dbbC75055',
+    chainId: 1,
+    decimals: 18,
+    website: 'https://app.resolv.xyz/',
+    documentation: 'https://docs.resolv.xyz/',
+    description:
+      'wstUSR is a non-rebasing version of staked USR, value of which accrues over time from staking rewards.',
+    bridge: 'native',
+  },
   TOKE: {
     name: 'Tokemak',
     symbol: 'TOKE',

@@ -98,17 +98,8 @@
     "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
     "gauge": "0x83Ed440E7122FE3EFA28d3BC9d9eFca1952Ccb4b",
     "vaultPoolId": "0xd00f9ca46ce0e4a63067c4657986f0167b0de1e5000000000000000000000b42",
-    "includesComposableAaveTokens": true,
-    "lsUrl": "https://api.frax.finance/v2/frxeth/summary/latest",
-    "dataPath": "$.sfrxethApr",
-    "balancerChargesFee": false,
     "composable": true,
     "bptIndex": 1,
-    "bbIndex": 0,
-    "bbPoolId": "0x43894de14462b421372bcfe445fa51b1b4a0ff3d000000000000000000000b36",
-    "lsIndex": 1,
-    "cmpIndex": 0,
-    "composableSplit": true,
     "decimals": "1e18",
     "rewards": [
       {
@@ -147,17 +138,8 @@
     "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
     "gauge": "0xB95397A17ACbb5824535ebE69Cd9DCF8fA7aFC50",
     "vaultPoolId": "0x4a77ef015ddcd972fd9ba2c7d5d658689d090f1a000000000000000000000b38",
-    "includesComposableAaveTokens": true,
-    "lsUrl": "https://eth-api.lido.fi/v1/protocol/steth/apr/sma",
-    "dataPath": "$.data.smaApr",
-    "balancerChargesFee": false,
     "composable": true,
     "bptIndex": 2,
-    "bbIndex": 0,
-    "bbPoolId": "0x43894de14462b421372bcfe445fa51b1b4a0ff3d000000000000000000000b36",
-    "lsIndex": 0,
-    "cmpIndex": 1,
-    "composableSplit": true,
     "decimals": "1e18",
     "rewards": [
       {
@@ -208,17 +190,8 @@
     "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
     "gauge": "0x956074628A64a316086f7125074a8A52d3306321",
     "vaultPoolId": "0xe78b25c06db117fdf8f98583cdaaa6c92b79e917000000000000000000000b2b",
-    "includesComposableAaveTokens": true,
-    "lsUrl": "https://universe.staderlabs.com/polygon/apy",
-    "dataPath": "$.value",
-    "balancerChargesFee": false,
     "composable": true,
     "bptIndex": 1,
-    "bbIndex": 0,
-    "bbPoolId": "0xe4885ed2818cc9e840a25f94f9b2a28169d1aea7000000000000000000000b29",
-    "lsIndex": 1,
-    "cmpIndex": 0,
-    "composableSplit": true,
     "decimals": "1e18",
     "rewards": [
       {
@@ -262,17 +235,8 @@
     "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
     "gauge": "0x1e916950A659Da9813EE34479BFf04C732E03deb",
     "vaultPoolId": "0x216690738aac4aa0c4770253ca26a28f0115c595000000000000000000000b2c",
-    "includesComposableAaveTokens": true,
-    "lsUrl": "https://polygon.lido.fi/api/stats",
-    "dataPath": "$.apr",
-    "balancerChargesFee": false,
     "composable": true,
     "bptIndex": 0,
-    "bbIndex": 0,
-    "bbPoolId": "0xe4885ed2818cc9e840a25f94f9b2a28169d1aea7000000000000000000000b29",
-    "lsIndex": 0,
-    "cmpIndex": 1,
-    "composableSplit": true,
     "decimals": "1e18",
     "rewards": [
       {
@@ -410,12 +374,8 @@
     "gauge": "0x94e5C0270250d9E13B0545279807eF8c6c4Ed2a3",
     "vaultPoolId": "0x65fe9314be50890fb01457be076fafd05ff32b9a000000000000000000000a96",
     "decimals": "1e18",
-    "lsUrl": "https://eth-api.lido.fi/v1/protocol/steth/apr/sma",
-    "dataPath": "$.data.smaApr",
-    "balancerChargesFee": true,
     "composable": true,
     "bptIndex": 1,
-    "lsIndex": 0,
     "rewards": [
       {
         "stream": "0xc3dEd5f9338160Dd66902976bbC23A67BE5E048c",
@@ -514,9 +474,6 @@
     "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
     "gauge": "0x75108A554A34BB2846ABfb00D889BFD0Bb34E1d6",
     "vaultPoolId": "0x4a0b73f0d13ff6d43e304a174697e3d5cfd310a400020000000000000000091c",
-    "bbIndex": 2,
-    "bbPoolId": "0x48e6b98ef6329f8f0a30ebb8c7c960330d64808500000000000000000000075b",
-    "lsIndex": 0,
     "decimals": "1e18",
     "rewards": [
       {
@@ -580,8 +537,6 @@
     "chainId": 137,
     "beefyFee": 0.095,
     "composable": true,
-    "bbIndex": 2,
-    "bbPoolId": "0x48e6b98ef6329f8f0a30ebb8c7c960330d64808500000000000000000000075b",
     "bptIndex": 1,
     "rewards": [
       {
@@ -616,15 +571,11 @@
     "address": "0xb20fC01D21A50d2C734C4a1262B4404d41fA7BF0",
     "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
     "gauge": "0xdFFe97094394680362Ec9706a759eB9366d804C2",
-    "lsUrl": "https://universe.staderlabs.com/polygon/apy",
-    "dataPath": "$.value",
-    "balancerChargesFee": true,
     "vaultPoolId": "0xb20fc01d21a50d2c734c4a1262b4404d41fa7bf000000000000000000000075c",
     "decimals": "1e18",
     "beefyFee": 0.095,
     "composable": true,
     "bptIndex": 1,
-    "lsIndex": 1,
     "rewards": [
       {
         "stream": "0x0AF97133f1d922EFD383416be5f34Cb584476D40",
@@ -660,12 +611,8 @@
     "gauge": "0x2Aa6fB79EfE19A3fcE71c46AE48EFc16372ED6dD",
     "vaultPoolId": "0x8159462d255c1d24915cb51ec361f700174cd99400000000000000000000075d",
     "decimals": "1e18",
-    "lsUrl": "https://polygon.lido.fi/api/stats",
-    "dataPath": "$.apr",
-    "balancerChargesFee": true,
     "composable": true,
     "bptIndex": 2,
-    "lsIndex": 1,
     "rewards": [
       {
         "stream": "0xF428556c5f2a2890269c8Eb5Ce8fc91d9744A6aA",

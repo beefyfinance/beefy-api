@@ -1,5 +1,5 @@
 import BigNumber from 'bignumber.js';
-import { ARBITRUM_CHAIN_ID, BSC_CHAIN_ID, ETH_CHAIN_ID } from '../../../constants';
+import { ARBITRUM_CHAIN_ID, BASE_CHAIN_ID, BSC_CHAIN_ID, ETH_CHAIN_ID } from '../../../constants';
 import { fetchContract } from '../../rpc/client';
 import { fetchPrice } from '../../../utils/fetchPrice';
 import { parseAbi } from 'viem';
@@ -10,6 +10,7 @@ const PENDLE = {
   [ARBITRUM_CHAIN_ID]: '0x0c880f6761f1af8d9aa9c466984b80dab9a8c9e8',
   [ETH_CHAIN_ID]: '0x808507121B80c02388fAd14726482e061B8da827',
   [BSC_CHAIN_ID]: '0xb3Ed0A426155B79B898849803E3B36552f7ED507',
+  [BASE_CHAIN_ID]: '0xa99f6e6785da0f5d6fb42495fe424bce029eeb3e',
 };
 const eqbMinter = {
   [ARBITRUM_CHAIN_ID]: '0x09bae4C38B1a9142726C6F08DC4d1260B0C8e94d',
@@ -19,16 +20,16 @@ export async function getEquilibriaApys(pools) {
   const chainId = pools[0].chainId;
   const eqbPools = pools.filter(p => p.eqbGauge);
   const eqbApys = await getPoolApys(chainId, eqbPools);
-  const { tradingApys, pendleApys } = await getPendleApys(chainId, pools);
+  const { tradingApys, pendleApys, syRewardsApys } = await getPendleApys(chainId, pools);
 
   // pools.forEach((p, i) => {
-  //   console.log(p.name,'eqb-apy',(eqbApys[p.address] || 0).toString(10),'pendle-apy',pendleApys[i].toString(10));
+  //   console.log(p.name,'eqb-apy',(eqbApys[p.address] || 0).toString(10),'pendle-apy',pendleApys[i].plus(syRewardsApys[i]).toString(10));
   // });
 
   return getApyBreakdown(
     pools.map((p, i) => ({
       vaultId: p.name.replace('pendle-', 'pendle-eqb-'),
-      vault: BigNumber.max(eqbApys[p.address] || 0, pendleApys[i]),
+      vault: BigNumber.max(eqbApys[p.address] || 0, pendleApys[i].plus(syRewardsApys[i])),
       trading: tradingApys[p.address.toLowerCase()],
     }))
   );

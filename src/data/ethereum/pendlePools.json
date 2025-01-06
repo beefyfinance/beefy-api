@@ -1,5 +1,15 @@
 [
   {
+    "name": "pendle-wstusr-27mar25",
+    "address": "0x353d0b2efb5b3a7987fb06d30ad6160522d08426",
+    "eqbGauge": "0x1EAbc97A0aEE2B4AB90812fACcef4bb8f78f39E8",
+    "oracle": "tokens",
+    "oracleId": "USR",
+    "decimals": "1e18",
+    "chainId": 1,
+    "beefyFee": 0.095
+  },
+  {
     "name": "pendle-stkgho-24apr25",
     "address": "0xff81180a7f949ba1F940EAE6aA3B3CeB890b1912",
     "eqbGauge": "0xCD5F3Ba69000D6678e8E87d74e3cEf5115F1e801",
