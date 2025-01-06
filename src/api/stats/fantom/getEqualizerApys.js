@@ -16,7 +16,7 @@ const getEqualizerApys = async () => {
   const gaugeApys = getSolidlyGaugeApys({
     chainId: chainId,
     pools: pools,
-    oracleId: 'EQUAL',
+    oracleId: 'ftmEQUAL',
     oracle: 'tokens',
     decimals: getEDecimals(EQUAL.decimals),
     reward: EQUAL.address,
