@@ -4,20 +4,30 @@ export type Space = {
   admins: string;
 };
 
+export type SpaceWithAuthors = Space & {
+  proposalUrl: (proposalId: string, spaceId: string) => string;
+  authors: string[];
+};
+
+export type Spaces = {
+  spaces: Space[];
+};
+
 export type ProposalApiResponse = {
   id: string;
   title: string;
   start: number;
   end: number;
   author: string;
+  space: {
+    id: string;
+  };
 };
 
-export type Proposal = ProposalApiResponse & {
+export type Proposal = Omit<ProposalApiResponse, 'space'> & {
+  space: string;
+  url: string;
   coreProposal: boolean;
-};
-
-export type NoOpenProposal = {
-  id: 'no-open-proposal';
 };
 
 export type Proposals = {
@@ -28,13 +38,5 @@ export type Cached<T extends {}> = T & {
   updatedAt: number;
 };
 
-export type CachedSpace = Cached<Space>;
+export type CachedSpaces = Cached<Spaces>;
 export type CachedProposals = Cached<Proposals>;
-
-function isObject(value: unknown): value is Record<string, unknown> {
-  return value && typeof value === 'object';
-}
-
-export function isCachedSpace(space: unknown): space is CachedSpace {
-  return isObject(space) && !!space.id && !!space.members && !!space.admins && !!space.updatedAt;
-}
