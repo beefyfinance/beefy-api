@@ -2,7 +2,7 @@ import { getKey, setKey } from '../../utils/cache';
 import { Cached, CachedProposals, CachedSpaces, Proposal, Proposals, SpaceWithAuthors } from './types';
 import { getSnapshotApi } from './getSnapshotApi';
 import { isBefore, sub } from 'date-fns';
-import { groupBy, keyBy, omit } from 'lodash';
+import { keyBy, omit } from 'lodash';
 
 const SPACES = {
   'beefydao.eth': {
