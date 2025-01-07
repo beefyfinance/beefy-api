@@ -3,9 +3,9 @@ import { client } from '../../apollo/client';
 import { Proposal, ProposalApiResponse, Space } from './types';
 
 // https://docs.snapshot.org/graphql-api#space
-const QUERY_SPACE = gql`
-  query Space($spaceId: String!) {
-    space(id: $spaceId) {
+const QUERY_SPACES = gql`
+  query Spaces($spaceIds: [String]!) {
+    spaces(where: { id_in: $spaceIds }) {
       id
       admins
       members
@@ -15,11 +15,11 @@ const QUERY_SPACE = gql`
 
 // https://docs.snapshot.org/graphql-api#proposal
 const QUERY_PROPOSALS = gql`
-  query Space($spaceId: String!, $state: String!, $first: Int!, $skip: Int!) {
+  query Proposals($spaceIds: [String]!, $state: String!, $first: Int!, $skip: Int!) {
     proposals(
       first: $first
       skip: $skip
-      where: { space: $spaceId, state: $state }
+      where: { space_in: $spaceIds, state: $state }
       orderBy: "created"
       orderDirection: desc
     ) {
@@ -28,6 +28,9 @@ const QUERY_PROPOSALS = gql`
       start
       end
       author
+      space {
+        id
+      }
     }
   }
 `;
@@ -39,19 +42,19 @@ class SnapshotApi {
     this.client = client('https://hub.snapshot.org/graphql');
   }
 
-  async getSpace(spaceId: string): Promise<Space> {
-    const result = await this.client.query<{ space: Space }>({
-      query: QUERY_SPACE,
+  async getSpaces(spaceIds: string[]): Promise<Space[]> {
+    const result = await this.client.query<{ spaces: Space[] }>({
+      query: QUERY_SPACES,
       variables: {
-        spaceId,
+        spaceIds,
       },
     });
 
-    return result.data.space;
+    return result.data.spaces;
   }
 
   async getProposals(
-    spaceId: string,
+    spaceIds: string[],
     state: 'open' | 'closed' = 'open',
     first: number = 10,
     skip: number = 0
@@ -59,7 +62,7 @@ class SnapshotApi {
     const result = await this.client.query<{ proposals: ProposalApiResponse[] }>({
       query: QUERY_PROPOSALS,
       variables: {
-        spaceId,
+        spaceIds,
         state: state || 'open',
         first: first || 10,
         skip: skip || 0,
