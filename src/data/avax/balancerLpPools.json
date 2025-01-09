@@ -7,11 +7,6 @@
     "vaultPoolId": "0xfd2620c9cfcec7d152467633b3b0ca338d3d78cc00000000000000000000001c",
     "composable": true,
     "bptIndex": 2,
-    "lsUrl": "https://api.benqi.fi/liquidstaking/apr",
-    "dataPath": "$.apr",
-    "balancerChargesFee": true,
-    "lsIndex": 0,
-    "lsAprFactor": 100,
     "decimals": "1e18",
     "rewards": [
       {

@@ -1,5 +1,8 @@
-import { ValidatorAsset } from './types';
+import { TreasuryApiResult, ValidatorAsset } from './types';
 import { ApiChain } from '../../utils/chain';
+import { fetchContract } from '../rpc/client';
+import { ChainId } from '../../../packages/address-book/src/address-book';
+import BigNumber from 'bignumber.js';
 
 const validatorsByChain: Partial<Record<ApiChain, ValidatorAsset[]>> = {
   ethereum: [
@@ -134,18 +137,20 @@ const validatorsByChain: Partial<Record<ApiChain, ValidatorAsset[]>> = {
       assetType: 'validator',
     },
   ],
-  fuse: [
+  sonic: [
     {
-      id: 'fuse-validator',
-      name: 'Fuse Validator',
+      id: 'sonic-validator',
+      numberId: 31,
+      name: 'SONIC Validator',
       address: 'native',
-      oracleId: 'FUSE',
+      oracleId: 'wS',
       oracleType: 'tokens',
       decimals: 18,
-      symbol: 'FUSE',
-      method: 'contract',
-      methodPath: '0xa852A119a29d44e13A4B939B482D522808437BAe',
+      symbol: 'S',
+      method: 'sonic-contract',
+      methodPath: '0x10E13f11419165beB0F456eC8a230899E4013BBD',
       assetType: 'validator',
+      helper: '0xFC00FACE00000000000000000000000000000000',
     },
   ],
 };
@@ -153,3 +158,51 @@ const validatorsByChain: Partial<Record<ApiChain, ValidatorAsset[]>> = {
 export const hasChainValidator = (chain: ApiChain): boolean => !!validatorsByChain[chain];
 
 export const getChainValidators = (chain: ApiChain): ValidatorAsset[] => validatorsByChain[chain];
+
+type SonicValidator = Omit<Required<ValidatorAsset>, 'method'> & { method: 'sonic-contract' };
+
+export function isSonicValidator(asset: ValidatorAsset): asset is SonicValidator {
+  return asset.method === 'sonic-contract';
+}
+
+const sonicValidatorContractAbi = [
+  {
+    inputs: [{ internalType: 'uint256', name: 'validatorID', type: 'uint256' }],
+    name: 'getSelfStake',
+    outputs: [{ name: '', type: 'uint256' }],
+    payable: false,
+    stateMutability: 'view',
+    type: 'function',
+  },
+  {
+    inputs: [
+      { internalType: 'address', name: 'delegator', type: 'address' },
+      { internalType: 'uint256', name: 'toValidatorID', type: 'uint256' },
+    ],
+    name: 'pendingRewards',
+    outputs: [{ name: '', type: 'uint256' }],
+    payable: false,
+    stateMutability: 'view',
+    type: 'function',
+  },
+] as const;
+
+export const fetchSonicValidatorBalance = async (asset: SonicValidator, chainId: number): Promise<bigint> => {
+  const contract = fetchContract(asset.helper, sonicValidatorContractAbi, chainId);
+  const [selfStaked, pending] = await Promise.all([
+    contract.read.getSelfStake([BigInt(asset.numberId)]),
+    contract.read.pendingRewards([asset.methodPath as `0x${string}`, BigInt(asset.numberId)]),
+  ]);
+
+  return selfStaked + pending;
+};
+
+export const fetchAPIValidatorBalance = async (apiAsset: ValidatorAsset): Promise<TreasuryApiResult> => {
+  let balance: number = await fetch(apiAsset.methodPath)
+    .then(res => res.json())
+    .then((res: any) => ((res.data?.length ?? 0) > 0 ? res.data[0].balance : res.data.balance));
+  return {
+    apiAsset,
+    balance: new BigNumber(balance).shiftedBy(9),
+  };
+};

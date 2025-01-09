@@ -20,16 +20,16 @@ export async function getEquilibriaApys(pools) {
   const chainId = pools[0].chainId;
   const eqbPools = pools.filter(p => p.eqbGauge);
   const eqbApys = await getPoolApys(chainId, eqbPools);
-  const { tradingApys, pendleApys } = await getPendleApys(chainId, pools);
+  const { tradingApys, pendleApys, syRewardsApys } = await getPendleApys(chainId, pools);
 
   // pools.forEach((p, i) => {
-  //   console.log(p.name,'eqb-apy',(eqbApys[p.address] || 0).toString(10),'pendle-apy',pendleApys[i].toString(10));
+  //   console.log(p.name,'eqb-apy',(eqbApys[p.address] || 0).toString(10),'pendle-apy',pendleApys[i].plus(syRewardsApys[i]).toString(10));
   // });
 
   return getApyBreakdown(
     pools.map((p, i) => ({
       vaultId: p.name.replace('pendle-', 'pendle-eqb-'),
-      vault: BigNumber.max(eqbApys[p.address] || 0, pendleApys[i]),
+      vault: BigNumber.max(eqbApys[p.address] || 0, pendleApys[i].plus(syRewardsApys[i])),
       trading: tradingApys[p.address.toLowerCase()],
     }))
   );

@@ -99,6 +99,9 @@ const {
 
   LISK_CHAIN_ID,
   LISK_VAULTS_ENDPOINT,
+
+  SONIC_CHAIN_ID,
+  SONIC_VAULTS_ENDPOINT,
 } = require('../../constants');
 const { getKey, setKey } = require('../../utils/cache');
 
@@ -239,6 +242,10 @@ const chains = [
   {
     chainId: LISK_CHAIN_ID,
     vaultsEndpoint: LISK_VAULTS_ENDPOINT,
+  },
+  {
+    chainId: SONIC_CHAIN_ID,
+    vaultsEndpoint: SONIC_VAULTS_ENDPOINT,
   },
 ];
 

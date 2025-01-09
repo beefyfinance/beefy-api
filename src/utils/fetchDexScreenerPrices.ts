@@ -27,6 +27,7 @@ const chainIdToDexScreenerChainId = {
   one: 'harmony',
   fuse: 'fuse',
   mantle: 'mantle',
+  sonic: 'sonic',
 } as const satisfies Partial<Record<ApiChain, string>>;
 const dexScreenerChainIdToChainId = Object.fromEntries(
   Object.entries(chainIdToDexScreenerChainId).map(([k, v]) => [v, k])
@@ -120,17 +121,13 @@ async function fetchDexScreenerPairsWithRetry(
     return results;
   }
 
-  const unfulfilled = requests.filter(
-    request => !results.some(pair => pairIsForRequest(pair, request))
-  );
+  const unfulfilled = requests.filter(request => !results.some(pair => pairIsForRequest(pair, request)));
   if (unfulfilled.length === 0) {
     return results;
   }
 
   console.debug(
-    `Retrying ${unfulfilled.length} unfulfilled DexScreener price requests (${
-      retriesLeft - 1
-    } retries left)`
+    `Retrying ${unfulfilled.length} unfulfilled DexScreener price requests (${retriesLeft - 1} retries left)`
   );
   const extraResults = await fetchDexScreenerPairsWithRetry(unfulfilled, --retriesLeft);
   return results.concat(extraResults);
@@ -147,8 +144,7 @@ function getRequestAddresses(requests: PriceRequest[]): string[] {
 function pairIsForRequest(pair: EnhancedPair, request: PriceRequest): boolean {
   return (
     pair.chainId === request.chainId &&
-    (pair.baseToken.address === request.tokenAddress ||
-      pair.quoteToken.address === request.tokenAddress)
+    (pair.baseToken.address === request.tokenAddress || pair.quoteToken.address === request.tokenAddress)
   );
 }
 
@@ -193,9 +189,7 @@ export async function fetchDexScreenerPriceOracles(
 
     if (isFiniteNumber(price)) {
       if (oracleId in acc) {
-        console.warn(
-          `Duplicate price for oracle ${oracleId} via fetchDexScreenerPriceOracles, ignoring`
-        );
+        console.warn(`Duplicate price for oracle ${oracleId} via fetchDexScreenerPriceOracles, ignoring`);
       } else {
         acc[oracleId] = price;
       }

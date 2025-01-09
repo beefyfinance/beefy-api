@@ -16,8 +16,7 @@ const routerAbi = parseAbi([
   'function getLpToAssetRate(address market) external view returns (uint256)',
 ]);
 
-export const getPendleCommonPrices = async (chainId, pools, tokenPrices) => {
-  const lpPrices = {};
+export const getPendleCommonPrices = async (chainId, pools, tokenPrices, lpPrices) => {
   let prices = {};
 
   const isExpired = await Promise.all(

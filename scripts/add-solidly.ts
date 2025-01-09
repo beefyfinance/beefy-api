@@ -51,6 +51,9 @@ const {
   scroll: {
     platforms: { nuri, tokan },
   },
+  sonic: {
+    platforms: { equalizer: sonicEqualizer },
+  },
 } = addressBook;
 
 const projects = {
@@ -111,12 +114,6 @@ const projects = {
     stableFile: '../src/data/ethereum/solidlyStableLpPools.json',
     volatileFile: '../src/data/ethereum/solidlyLpPools.json',
     voter: solidly.voter,
-  },
-  solidlizard: {
-    prefix: 'solidlizard',
-    stableFile: '../src/data/arbitrum/solidlizardStableLpPools.json',
-    volatileFile: '../src/data/arbitrum/solidlizardLpPools.json',
-    voter: solidlizard.voter,
   },
   cvm: {
     prefix: 'cvm',
@@ -189,6 +186,12 @@ const projects = {
     stableFile: '../src/data/scroll/tokanStablePools.json',
     volatileFile: '../src/data/scroll/tokanVolatilePools.json',
     voter: tokan.voter,
+  },
+  sonicEqualizer: {
+    prefix: 'equalizer-sonic',
+    stableFile: '../src/data/sonic/equalizerStableLpPools.json',
+    volatileFile: '../src/data/sonic/equalizerLpPools.json',
+    voter: sonicEqualizer.voter,
   },
 };
 

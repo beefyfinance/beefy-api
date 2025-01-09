@@ -8,16 +8,21 @@ import { MULTICHAIN_ENDPOINTS } from '../src/constants';
 import { ChainId } from '../packages/address-book/src/types/chainid';
 
 async function main() {
-  const poolsFile = process.argv[2];
-  const pools = JSON.parse(fs.readFileSync(poolsFile, 'utf8'));
-  const chain = process.argv[3] || ChainId[pools.find(p => p.chainId)?.chainId];
-  console.log(`check ${pools.length} pools on ${chain}`);
-  const ids = pools.map(p => p.name);
-  if (chain) {
-    Object.keys(ChainId)
-      .filter(c => c !== chain)
-      .forEach(c => delete MULTICHAIN_ENDPOINTS[c]);
-  }
+  const poolsFiles = process.argv.splice(2);
+  const pools = [];
+  const chains = [];
+  poolsFiles.forEach(file => {
+    pools.push(...JSON.parse(fs.readFileSync(file, 'utf8')));
+    let chain = ChainId[pools.find(p => p.chainId)?.chainId] || file.split('/')[file.split('/').length - 2];
+    if (chain === 'matic') chain = 'polygon';
+    if (!chains.includes(chain)) chains.push(chain);
+  });
+  console.log(`check ${pools.length} pools on ${chains}`);
+
+  // delete unused MULTICHAIN_ENDPOINTS to avoid loading in initVaultService
+  Object.keys(ChainId)
+    .filter(c => !chains.includes(c))
+    .forEach(c => delete MULTICHAIN_ENDPOINTS[c]);
   await initCache();
   initVaultService();
   await serviceEventBus.waitForFirstEvent('vaults/updated');
@@ -27,8 +32,8 @@ async function main() {
   const tvl = Object.keys(res)
     .map(k => res[k])
     .reduce((p, c) => ({ ...p, ...c }), {});
-
-  ids.forEach(id => {
+  pools.forEach(p => {
+    const id = p.name;
     const v = vaults.find(v => v.id === id);
     if (!v) {
       console.error(id, 'not found');

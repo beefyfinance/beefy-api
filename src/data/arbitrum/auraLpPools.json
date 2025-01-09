@@ -64,14 +64,6 @@
     "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
     "gauge": "0xe48D1173EE577c1daE45C9CD2D29BD3DfaF02BD6",
     "vaultPoolId": "0x46472cba35e6800012aa9fcc7939ff07478c473e00020000000000000000056c",
-    "lsIndex": [0],
-    "lsUrl": [
-      "https://api.balancer.fi/pools/42161/0x46472cba35e6800012aa9fcc7939ff07478c473e00020000000000000000056c"
-    ],
-    "dataPath": ["$.apr.tokenAprs.breakdown['0x7cfadfd5645b50be87d546f42699d863648251ad']"],
-    "lsAprFactor": [1],
-    "divisor": [10000],
-    "balancerApi": true,
     "decimals": "1e18",
     "rewards": [
       {
@@ -104,14 +96,6 @@
     "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
     "gauge": "0x78118Bc631b0eb2FB6A350f12e0334535783e49F",
     "vaultPoolId": "0x6e822c64c00393b2078f2a5bb75c575ab505b55c000200000000000000000548",
-    "lsIndex": [0],
-    "lsUrl": [
-      "https://api.balancer.fi/pools/42161/0x6e822c64c00393b2078f2a5bb75c575ab505b55c000200000000000000000548"
-    ],
-    "dataPath": ["$.apr.tokenAprs.breakdown['0x7cfadfd5645b50be87d546f42699d863648251ad']"],
-    "lsAprFactor": [1],
-    "divisor": [10000],
-    "balancerApi": true,
     "decimals": "1e18",
     "rewards": [
       {
@@ -144,14 +128,6 @@
     "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
     "gauge": "0x66EeE72121E64Cd5fb67B306087511ca20B1956E",
     "vaultPoolId": "0x7272163a931dac5bbe1cb5fefaf959bb65f7346f000200000000000000000549",
-    "lsIndex": [0],
-    "lsUrl": [
-      "https://api.balancer.fi/pools/42161/0x7272163a931dac5bbe1cb5fefaf959bb65f7346f000200000000000000000549"
-    ],
-    "dataPath": ["$.apr.tokenAprs.breakdown['0xb165a74407fe1e519d6bcbdec1ed3202b35a4140']"],
-    "lsAprFactor": [1],
-    "divisor": [10000],
-    "balancerApi": true,
     "decimals": "1e18",
     "rewards": [
       {
@@ -229,14 +205,6 @@
     "vaultPoolId": "0x59743f1812bb85db83e9e4ee061d124aaa64290000000000000000000000052b",
     "composable": true,
     "bptIndex": 1,
-    "lsIndex": [0, 1],
-    "lsUrl": [
-      "https://app.ethena.fi/api/yields/protocol-and-staking-yield",
-      "https://api.frax.finance/v2/frax/sfrax/summary/latest"
-    ],
-    "dataPath": ["$.stakingYield.value", "$.sfraxApy"],
-    "lsAprFactor": [1, 1],
-    "balancerChargesFee": true,
     "decimals": "1e18",
     "rewards": [
       {
@@ -274,10 +242,6 @@
     "vaultPoolId": "0xdfa752ca3ff49d4b6dbe08e2d5a111f51773d3950000000000000000000004e8",
     "composable": true,
     "bptIndex": 1,
-    "lsIndex": 1,
-    "lsUrl": "https://api.frax.finance/v2/frax/sfrax/summary/latest",
-    "dataPath": "$.sfraxApy",
-    "balancerChargesFee": true,
     "decimals": "1e18",
     "rewards": [
       {
@@ -314,14 +278,6 @@
     "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
     "gauge": "0x49A0213Bb5Eea803aCdEDD7a3d9D044b84fD918F",
     "vaultPoolId": "0x14abd18d1fa335e9f630a658a2799b33208763fa00020000000000000000051f",
-    "lsIndex": [0],
-    "lsUrl": [
-      "https://api.balancer.fi/pools/42161/0x14abd18d1fa335e9f630a658a2799b33208763fa00020000000000000000051f"
-    ],
-    "dataPath": ["$.apr.tokenAprs.breakdown['0xb165a74407fe1e519d6bcbdec1ed3202b35a4140']"],
-    "lsAprFactor": [1],
-    "divisor": [10000],
-    "balancerApi": true,
     "decimals": "1e18",
     "rewards": [
       {
@@ -354,14 +310,6 @@
     "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
     "gauge": "0x59cAF46695700827cFD232603a18BD834D7ef266",
     "vaultPoolId": "0xca8ecd05a289b1fbc2e0eaec07360c4bfec07b6100020000000000000000051d",
-    "lsIndex": [0],
-    "lsUrl": [
-      "https://api.balancer.fi/pools/42161/0xca8ecd05a289b1fbc2e0eaec07360c4bfec07b6100020000000000000000051d"
-    ],
-    "dataPath": ["$.apr.tokenAprs.breakdown['0x7cfadfd5645b50be87d546f42699d863648251ad']"],
-    "lsAprFactor": [1],
-    "divisor": [10000],
-    "balancerApi": true,
     "decimals": "1e18",
     "rewards": [
       {
@@ -394,11 +342,6 @@
     "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
     "gauge": "0x93e567b423ED470562911078b4d7A902d4E0BEea",
     "vaultPoolId": "0x7967fa58b9501600d96bd843173b9334983ee6e600020000000000000000056e",
-    "lsIndex": 0,
-    "lsUrl": "https://eth-api.lido.fi/v1/protocol/steth/apr/sma",
-    "dataPath": "$.data.smaApr",
-    "lsAprFactor": 1,
-    "balancerChargesFee": true,
     "decimals": "1e18",
     "rewards": [
       {
@@ -463,11 +406,6 @@
     "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
     "gauge": "0x40bF10900a55c69c9dADdc3dC52465e01AcEF4A4",
     "vaultPoolId": "0xcdcef9765d369954a4a936064535710f7235110a000200000000000000000558",
-    "lsIndex": [0, 1],
-    "lsUrl": ["https://www.etherfi.bid/api/etherfi/apr", "https://eth-api.lido.fi/v1/protocol/steth/apr/sma"],
-    "dataPath": ["$.latest_aprs[0]", "$.data.smaApr"],
-    "lsAprFactor": [0.01, 1],
-    "balancerChargesFee": true,
     "decimals": "1e18",
     "rewards": [
       {
@@ -502,11 +440,6 @@
     "vaultPoolId": "0x90e6cb5249f5e1572afbf8a96d8a1ca6acffd73900000000000000000000055c",
     "composable": true,
     "bptIndex": 2,
-    "lsIndex": 0,
-    "lsUrl": "https://universe.kelpdao.xyz/rseth/apy",
-    "dataPath": "$.value",
-    "lsAprFactor": 1,
-    "balancerChargesFee": true,
     "decimals": "1e18",
     "rewards": [
       {
@@ -544,11 +477,6 @@
     "vaultPoolId": "0x7b54c44fbe6db6d97fd22b8756f89c0af16202cc00000000000000000000053c",
     "composable": true,
     "bptIndex": 1,
-    "lsIndex": [0, 1],
-    "lsUrl": ["https://eth-api.lido.fi/v1/protocol/steth/apr/sma", "https://universe.staderlabs.com/eth/apy"],
-    "dataPath": ["$.data.smaApr", "$.value"],
-    "lsAprFactor": [1, 1],
-    "balancerChargesFee": true,
     "decimals": "1e18",
     "rewards": [
       {
@@ -584,18 +512,6 @@
     "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
     "gauge": "0x6dC88e123461EF646F3d2de91Ec6b7C60AFc0fFd",
     "vaultPoolId": "0x125bc5a031b2db6733bfa35d914ffa428095978b000200000000000000000514",
-    "lsIndex": [0, 1],
-    "lsUrl": [
-      "https://api.balancer.fi/pools/42161/0x125bc5a031b2db6733bfa35d914ffa428095978b000200000000000000000514",
-      "https://api.balancer.fi/pools/42161/0x125bc5a031b2db6733bfa35d914ffa428095978b000200000000000000000514"
-    ],
-    "dataPath": [
-      "$.apr.tokenAprs.breakdown['0xb165a74407fe1e519d6bcbdec1ed3202b35a4140']",
-      "$.apr.tokenAprs.breakdown['0x7cfadfd5645b50be87d546f42699d863648251ad']"
-    ],
-    "lsAprFactor": [1, 1],
-    "divisor": [10000, 10000],
-    "balancerApi": true,
     "decimals": "1e18",
     "rewards": [
       {
@@ -635,14 +551,6 @@
     "composable": true,
     "bptIndex": 2,
     "vaultPoolId": "0xb61371ab661b1acec81c699854d2f911070c059e000000000000000000000516",
-    "lsIndex": [0, 1],
-    "lsUrl": [
-      "https://app.renzoprotocol.com/api/stats?chainId=42161",
-      "https://eth-api.lido.fi/v1/protocol/steth/apr/sma"
-    ],
-    "dataPath": ["$.data.apr.data.rate", "$.data.smaApr"],
-    "lsAprFactor": [1, 1],
-    "balancerChargesFee": true,
     "decimals": "1e18",
     "rewards": [
       {
@@ -680,14 +588,6 @@
     "composable": true,
     "bptIndex": 2,
     "vaultPoolId": "0xc2598280bfea1fe18dfcabd21c7165c40c6859d30000000000000000000004f3",
-    "lsIndex": [0, 1],
-    "lsUrl": [
-      "https://eth-api.lido.fi/v1/protocol/steth/apr/sma",
-      "https://api.frax.finance/v2/frxeth/summary/latest"
-    ],
-    "dataPath": ["$.data.smaApr", "$.sfrxethApr"],
-    "lsAprFactor": [1, 1],
-    "balancerChargesFee": true,
     "decimals": "1e18",
     "rewards": [
       {
@@ -725,15 +625,6 @@
     "composable": true,
     "bptIndex": 1,
     "vaultPoolId": "0x2d6ced12420a9af5a83765a8c48be2afcd1a8feb000000000000000000000500",
-    "lsIndex": [0, 1, 2],
-    "lsUrl": [
-      "https://api.exchange.coinbase.com/wrapped-assets/CBETH",
-      "https://eth-api.lido.fi/v1/protocol/steth/apr/sma",
-      "https://api.rocketpool.net/api/apr"
-    ],
-    "dataPath": ["$.apy", "$.data.smaApr", "$.yearlyAPR"],
-    "lsAprFactor": [100, 1, 1],
-    "balancerChargesFee": true,
     "decimals": "1e18",
     "rewards": [
       {
@@ -775,10 +666,6 @@
     "gauge": "0x17F061160A167d4303d5a6D32C2AC693AC87375b",
     "vaultPoolId": "0xd0ec47c54ca5e20aaae4616c25c825c7f48d40690000000000000000000004ef",
     "decimals": "1e18",
-    "lsUrl": "https://api.rocketpool.net/api/apr",
-    "dataPath": "$.yearlyAPR",
-    "lsIndex": 1,
-    "balancerChargesFee": true,
     "composable": true,
     "bptIndex": 1,
     "rewards": [
@@ -819,11 +706,7 @@
     "address": "0x2CE4457aCac29dA4736aE6f5Cd9F583a6b335c27",
     "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
     "gauge": "0x8212c6944E4D4C139ec2803904C6afA583c9ff98",
-    "lsUrl": "https://api.frax.finance/v2/frax/sfrax/summary/latest",
-    "dataPath": "$.sfraxApy",
-    "balancerChargesFee": true,
     "vaultPoolId": "0x2ce4457acac29da4736ae6f5cd9f583a6b335c270000000000000000000004dc",
-    "lsIndex": 1,
     "composable": true,
     "bptIndex": 0,
     "decimals": "1e18",
@@ -863,10 +746,6 @@
     "gauge": "0x129A44AC6ff0f965C907579F96F2eD682E52c84A",
     "vaultPoolId": "0xade4a71bb62bec25154cfc7e6ff49a513b491e81000000000000000000000497",
     "decimals": "1e18",
-    "lsUrl": "https://api.rocketpool.net/api/apr",
-    "dataPath": "$.yearlyAPR",
-    "lsIndex": 1,
-    "balancerChargesFee": true,
     "composable": true,
     "bptIndex": 1,
     "rewards": [
@@ -984,10 +863,6 @@
     "gauge": "0xa7BdaD177D474f946f3cDEB4bcea9d24Cf017471",
     "vaultPoolId": "0x9791d590788598535278552eecd4b211bfc790cb000000000000000000000498",
     "decimals": "1e18",
-    "lsUrl": "https://eth-api.lido.fi/v1/protocol/steth/apr/sma",
-    "dataPath": "$.data.smaApr",
-    "lsIndex": 0,
-    "balancerChargesFee": true,
     "composable": true,
     "bptIndex": 2,
     "rewards": [
@@ -1026,10 +901,6 @@
     "gauge": "0x49e998899FF11598182918098588E8b90d7f60D3",
     "vaultPoolId": "0x36bf227d6bac96e2ab1ebb5492ecec69c691943f000200000000000000000316",
     "decimals": "1e18",
-    "lsUrl": "https://eth-api.lido.fi/v1/protocol/steth/apr/sma",
-    "dataPath": "$.data.smaApr",
-    "lsIndex": 0,
-    "balancerChargesFee": true,
     "rewards": [
       {
         "rewardGauge": "0x755f7897F4b1bE426FEe416d26F5518f9eEAaa02",
@@ -1064,15 +935,6 @@
     "composable": true,
     "bptIndex": 1,
     "vaultPoolId": "0x4a2f6ae7f3e5d715689530873ec35593dc28951b000000000000000000000481",
-    "lsIndex": [0, 1, 2],
-    "lsUrl": [
-      "https://api.exchange.coinbase.com/wrapped-assets/CBETH",
-      "https://eth-api.lido.fi/v1/protocol/steth/apr/sma",
-      "https://api.rocketpool.net/api/apr"
-    ],
-    "dataPath": ["$.apy", "$.data.smaApr", "$.yearlyAPR"],
-    "lsAprFactor": [100, 1, 1],
-    "balancerChargesFee": true,
     "decimals": "1e18",
     "rewards": [
       {
@@ -1115,10 +977,6 @@
     "vaultPoolId": "0x3fd4954a851ead144c2ff72b1f5a38ea5976bd54000000000000000000000480",
     "composable": true,
     "bptIndex": 0,
-    "lsIndex": 0,
-    "lsUrl": "https://eth-api.lido.fi/v1/protocol/steth/apr/sma",
-    "dataPath": "$.data.smaApr",
-    "balancerChargesFee": true,
     "decimals": "1e18",
     "rewards": [
       {
@@ -1223,10 +1081,6 @@
     "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
     "gauge": "0x1597010ffE2e25a584D9705C1e48585BbfE56fC0",
     "vaultPoolId": "0xc7fa3a3527435720f0e2a4c1378335324dd4f9b3000200000000000000000459",
-    "lsUrl": "https://eth-api.lido.fi/v1/protocol/steth/apr/sma",
-    "lsIndex": 1,
-    "dataPath": "$.data.smaApr",
-    "balancerChargesFee": true,
     "decimals": "1e18",
     "rewards": [
       {

@@ -61,7 +61,6 @@ import synapseLpPools from '../../data/ethereum/synapseLpPools.json';
 import solidlyLpPools from '../../data/ethereum/solidlyLpPools.json';
 import cantoLpPools from '../../data/canto/cantoLpPools.json';
 import solidLizardPools from '../../data/arbitrum/solidlizardLpPools.json';
-import velocimeterPools from '../../data/canto/velocimeterLpPools.json';
 import velocimeterV2Pools from '../../data/canto/velocimeterV2LpPools.json';
 import equilibrePools from '../../data/kava/equilibreLpPools.json';
 import versePools from '../../data/ethereum/verseLpPools.json';
@@ -70,7 +69,6 @@ import velocorePools from '../../data/zksync/velocoreLpPools.json';
 import veSyncPools from '../../data/zksync/veSyncLpPools.json';
 import fvmPools from '../../data/fantom/fvmLpPools.json';
 import bvmPools from '../../data/base/bvmLpPools.json';
-import cvmPools from '../../data/canto/cvmLpPools.json';
 import baseSwapPools from '../../data/base/baseSwapLpPools.json';
 import ooeV2Pools from '../../data/bsc/ooeV2LpPools.json';
 import draculaPools from '../../data/zksync/draculaLpPools.json';
@@ -85,9 +83,9 @@ import nilePools from '../../data/linea/nileVolatilePools.json';
 import raPools from '../../data/fraxtal/raPools.json';
 import nuriPools from '../../data/scroll/nuriVolatilePools.json';
 import tokanPools from '../../data/scroll/tokanVolatilePools.json';
-import pearlPools from '../../data/real/pearlLpPools.json';
 import velodromeModePools from '../../data/mode/velodromeModePools.json';
 import velodromeLiskPools from '../../data/lisk/velodromeLiskPools.json';
+import equalizerSonicPools from '../../data/sonic/equalizerLpPools.json';
 import { addressBookByChainId } from '../../../packages/address-book/src/address-book';
 import { sleep } from '../../utils/time';
 import { isFiniteNumber } from '../../utils/number';
@@ -97,6 +95,7 @@ import { fetchVenusPrices } from './bsc/venus/getVenusPrices';
 import { getLpBasedPrices } from './getLpBasedPrices';
 import uniswapLpPools from '../../data/ethereum/uniswapV2LpPools.json';
 import { fetchDexScreenerPriceOracles, OraclePriceRequest } from '../../utils/fetchDexScreenerPrices';
+import { eq } from 'lodash';
 
 const INIT_DELAY = 2 * 1000;
 const REFRESH_INTERVAL = 5 * 60 * 1000;
@@ -104,9 +103,9 @@ const REFRESH_INTERVAL = 5 * 60 * 1000;
 // FIXME: if this list grows too big we might hit the ratelimit on initialization everytime
 // Implement in case of emergency -> https://github.com/beefyfinance/beefy-api/issues/103
 const pools = normalizePoolOracleIds([
+  ...equalizerSonicPools,
   ...velodromeLiskPools,
   ...velodromeModePools,
-  ...pearlPools,
   ...tokanPools,
   ...nuriPools,
   ...raPools,
@@ -123,14 +122,12 @@ const pools = normalizePoolOracleIds([
   ...baseSwapPools,
   ...fvmPools,
   ...bvmPools,
-  ...cvmPools,
   ...veSyncPools,
   ...velocorePools,
   ...ramsesPools,
   ...versePools,
   ...equilibrePools,
   ...velocimeterV2Pools,
-  ...velocimeterPools,
   ...solidLizardPools,
   ...cantoLpPools,
   ...solidlyLpPools,
@@ -265,6 +262,7 @@ const coinGeckoCoins: Record<string, string[]> = {
   ankreth: ['ankrETH'],
   'usda-2': ['USDa'],
   'kim-token': ['xKIM', 'KIM'],
+  'beets-staked-sonic': ['stS'],
 };
 
 /**
@@ -365,6 +363,16 @@ const dexscreenerCoins: OraclePriceRequest[] = [
     oracleId: 'arbXVS',
     tokenAddress: '0xc1Eb7689147C81aC840d4FF0D298489fc7986d52',
     chainId: 'arbitrum',
+  },
+  {
+    oracleId: 'scUSD',
+    tokenAddress: '0xd3DCe716f3eF535C5Ff8d041c1A41C3bd89b97aE',
+    chainId: 'sonic',
+  },
+  {
+    oracleId: 'LUDWIG',
+    tokenAddress: '0xe6cc4D855B4fD4A9D02F46B9adae4C5EfB1764B5',
+    chainId: 'sonic',
   },
 ];
 
@@ -554,6 +562,7 @@ async function performUpdateAmmPrices() {
       beQI: tokenPrices['QI'],
       beCAKE: tokenPrices['Cake'],
       beVelo: tokenPrices['BeVELO'],
+      wS: tokenPrices['WS'],
     };
   });
 
@@ -580,7 +589,7 @@ async function performUpdateAmmPrices() {
   });
 
   const lpData = ammPrices.then(async ({ poolPrices, lpsBreakdown }) => {
-    const nonAmmPrices = await getNonAmmPrices(await tokenPrices);
+    const nonAmmPrices = await getNonAmmPrices(await tokenPrices, poolPrices);
     const pendlePrices = await getLpBasedPrices(await tokenPrices, poolPrices, nonAmmPrices);
 
     return {

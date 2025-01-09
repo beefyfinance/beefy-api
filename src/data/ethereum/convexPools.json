@@ -1,5 +1,21 @@
 [
   {
+    "name": "curve-usr-usdc",
+    "pool": "0x3ee841f47947fefbe510366e4bbb49e145484195",
+    "gauge": "0xf589273a91622f1f48c0cd378881f0b3e6c40a95",
+    "getDy": ["v1", 0, 1],
+    "tokens": [
+      {
+        "oracleId": "USR",
+        "decimals": "1e18"
+      },
+      {
+        "oracleId": "USDC",
+        "decimals": "1e6"
+      }
+    ]
+  },
+  {
     "name": "curve-eth-heth",
     "pool": "0x1f7e9321ce32af1f9ea1185fd10d31fea31ffd95",
     "gauge": "0xc548f3ab7bd06fbd968b83f3b197372e641deae3",
