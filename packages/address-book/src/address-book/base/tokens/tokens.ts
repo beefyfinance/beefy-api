@@ -1983,9 +1983,10 @@ export const tokens = {
     chainId: 8453,
     decimals: 18,
     logoURI: '',
-    website: '',
-    description: '',
-    documentation: '',
+    website: 'https://www.odos.xyz/',
+    description:
+      'Odos is a smart order routing solution that uses a sophisticated optimization algorithm to unify fragmented liquidity and maximize the output of every trade. As order routing drives all digital asset transactions and DeFi growth, Odos stands at the forefront—providing top-tier infrastructure for both retail users and those building on it.',
+    documentation: 'https://docs.odos.xyz/',
     bridge: '',
   },
 } as const satisfies Record<string, Token>;
