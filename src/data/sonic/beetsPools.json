@@ -55,6 +55,11 @@
         "stream": "0x33B29bcf17e866A35941e07CbAd54f1807B337f5",
         "rewardToken": "0x2D0E0814E62D80056181F5cd932274405966e4f0",
         "oracleId": "BEETS"
+      },
+      {
+        "stream": "0x33B29bcf17e866A35941e07CbAd54f1807B337f5",
+        "rewardToken": "0xE5DA20F15420aD15DE0fa650600aFc998bbE3955",
+        "oracleId": "stS"
       }
     ],
     "tokens": [
