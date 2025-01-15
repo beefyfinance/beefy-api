@@ -1989,4 +1989,19 @@ export const tokens = {
     documentation: 'https://docs.odos.xyz/',
     bridge: '',
   },
+  DRV: {
+    name: 'Derive',
+    symbol: 'DRV',
+    oracleId: 'DRV',
+    address: '0x9d0E8f5b25384C7310CB8C6aE32C8fbeb645d083',
+    chainId: 8453,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://www.derive.xyz/',
+    description:
+      'The Derive Protocol is a collection of smart contracts that collectively create a decentralised and self-custodial derivatives protocol.',
+    documentation: 'https://docs.derive.xyz/',
+    bridge: 'layer-zero',
+    risks: ['LARGE_HOLDERS', 'NO_TIMELOCK'],
+  },
 } as const satisfies Record<string, Token>;
