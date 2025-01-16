@@ -20,6 +20,6 @@ export const beefyfinance = {
   strategyFactory: '0x4b5f7De737531673B23ceB43D45ea3f1297e4C6d',
   zap: '0x63B257a372AA04c8a078D43BCAAdaD359ce1faa2',
   zapTokenManager: '0xBFd177B973AC0F760782abedFDdec1C18e163aeE',
-  
-  clmRewardPoolFactory: '0xf7f67234d4e33b199b6f9c932bda92244495aa41',
+
+  clmRewardPoolFactory: '0xf7F67234d4E33B199B6f9c932BDA92244495Aa41',
 } as const;
