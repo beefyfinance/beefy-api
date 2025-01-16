@@ -47,7 +47,7 @@ export const treasuryConcLiquidityAssets: Partial<Record<ApiChain, ConcLiquidity
       decimals: 18,
       assetType: 'concLiquidity',
       oracleType: 'lps',
-      oracleId: 'shadow-sonic-usdce-bifi-1',
+      oracleId: 'shadow-sonic-usdc.e-moobifi-1',
       id: 4651,
     },
   ],

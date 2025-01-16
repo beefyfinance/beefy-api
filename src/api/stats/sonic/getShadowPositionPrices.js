@@ -6,7 +6,7 @@ const getShadowPositionPrices = async tokenPrices => {
     pools: pools,
     tokenPrices: tokenPrices,
     chainId: 146,
-    beefyHelper: '0xFA06a20bF32C8c74a53aFF0e1E1639F300d514a1',
+    beefyHelper: '0x5BDC0dFEe73De1bFf5480307335f7D7F90d437fC',
     nftManager: '0x12E66C8F215DdD5d48d150c8f46aD0c6fB0F4406',
   };
 

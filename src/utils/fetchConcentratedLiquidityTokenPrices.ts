@@ -552,6 +552,14 @@ const tokens: Partial<Record<keyof typeof ChainId, ConcentratedLiquidityToken[]>
       firstToken: 'stS',
       secondToken: 'SHADOW',
     },
+    {
+      type: 'UniV3',
+      oracleId: 'smooBIFI',
+      decimalDelta: 1e-12,
+      pool: '0xFD8fc59E65860e7FAaf09482e6Be4af65741DEba',
+      firstToken: 'smooBIFI',
+      secondToken: 'sUSDCe',
+    },
   ],
 };
 
