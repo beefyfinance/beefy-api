@@ -129,4 +129,18 @@ export const tokens = {
       'BEETS is the governance token for the Beethoven X protocol. Built on Balancer V2, Beethoven X is the first next-generation AMM protocol on Fantom.',
     documentation: 'https://docs.beets.fi/beets/tokenomics',
   },
+  mooBIFI: {
+    name: 'Bridged BIFI Vault Receipt',
+    symbol: 'mooBIFI',
+    oracleId: 'smooBIFI',
+    address: '0xc55E93C62874D8100dBd2DfE307EDc1036ad5434',
+    chainId: 146,
+    decimals: 18,
+    website: 'https://beefy.com',
+    description:
+      "The incentive-bearing Beefy Token (mooBIFI) applies the magic of Beefy's autocompounding technology to the BIFI token. It is the vault token for the BIFI Vault, which automatically claims and swaps governance incentives into more BIFI, and redeposits to unlock exponential growth. On chains other than Ethereum, mooBIFI is a bridged copy of the native Ethereum token, and cannot be returned to BIFI without first bridging back to Ethereum. mooBIFI holders on all chains retain their full voting power corresponding to the underlying amount of BIFI deposited and compounding on Ethereum.",
+    logoURI: 'https://beefy.com/icons/128/mooBIFI.png',
+    documentation: 'https://docs.beefy.finance/',
+    bridge: 'beefy',
+  },
 } as const satisfies Record<string, Token>;

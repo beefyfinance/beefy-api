@@ -72,6 +72,7 @@ import getVelodromeModeStablePrices from './mode/getVelodromeModeStablePrices';
 import getVelodromeLiskStablePrices from './lisk/getVelodromeLiskStablePrices';
 import getNuriStablePrices from './scroll/getNuriStablePrices';
 import getTokanStablePrices from './scroll/getTokanStablePrices';
+import getShadowPositionPrices from './sonic/getShadowPositionPrices';
 import {
   ARBITRUM_CHAIN_ID as ARB_CHAIN_ID,
   BASE_CHAIN_ID,
@@ -256,6 +257,7 @@ export async function getNonAmmPrices(
     getVenusZkPrices(tokenPrices),
     getTokemakEthPrices(tokenPrices),
     getTokemakBasePrices(tokenPrices),
+    getShadowPositionPrices(tokenPrices),
   ];
 
   // Setup error logs
