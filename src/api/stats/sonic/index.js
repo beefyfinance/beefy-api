@@ -2,8 +2,9 @@
 const getEqualizerApys = require('./getEqualizerApys');
 const getBeetsSonicApys = require('./getBeetsSonicApys');
 const { getBeefyCowSonicApys } = require('./getBeefyCowSonicApys');
+const { getSwapxApys } = require('./getSwapxApys');
 
-const getApys = [getBeefyCowSonicApys, getEqualizerApys, getBeetsSonicApys];
+const getApys = [getBeefyCowSonicApys, getEqualizerApys, getBeetsSonicApys, getSwapxApys];
 
 const getSonicApys = async () => {
   const start = Date.now();

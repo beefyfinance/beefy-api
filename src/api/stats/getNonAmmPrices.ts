@@ -81,6 +81,7 @@ import {
   FRAXTAL_CHAIN_ID as FRX_CHAIN_ID,
   GNOSIS_CHAIN_ID as GNO_CHAIN_ID,
   OPTIMISM_CHAIN_ID,
+  SONIC_CHAIN_ID,
 } from '../../constants';
 import getSolidlyStablePrices from './common/getSolidlyStablePrices';
 import getEthSiloPrices from './ethereum/getEthereumSiloPrices';
@@ -117,6 +118,8 @@ import getTokemakEthPrices from './ethereum/getTokemakEthPrices';
 import getTokemakBasePrices from './base/getTokemakBasePrices';
 import { getBeefyCowSonicPrices } from './sonic/getBeefySonicCowPrices';
 import { getMorphoPrices } from './common/morpho/getMorphoPrices';
+
+const getGammaPrices = require('./common/getGammaPrices');
 
 export type NonAmmPrices = {
   prices: Record<string, number>;
@@ -250,6 +253,8 @@ export async function getNonAmmPrices(
     getMellowVeloPrices(BASE_CHAIN_ID, require('../../data/base/mellowAeroPools.json'), tokenPrices),
     getBunniPrices(BASE_CHAIN_ID, require('../../data/base/alienBaseBunniPools.json'), tokenPrices),
     getMorphoPrices(BASE_CHAIN_ID, require('../../data/base/morphoPools.json'), tokenPrices),
+    getGammaPrices(SONIC_CHAIN_ID, require('../../data/sonic/swapxIchiPools.json'), tokenPrices),
+    getSolidlyStablePrices(SONIC_CHAIN_ID, require('../../data/sonic/swapxStableLpPools.json'), tokenPrices),
     getBaseSiloPrices(tokenPrices),
     getNuriStablePrices(tokenPrices),
     getTokanStablePrices(tokenPrices),
