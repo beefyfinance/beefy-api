@@ -544,6 +544,14 @@ const tokens: Partial<Record<keyof typeof ChainId, ConcentratedLiquidityToken[]>
       firstToken: 'SWPx',
       secondToken: 'WS',
     },
+    {
+      type: 'UniV3',
+      oracleId: 'SHADOW',
+      decimalDelta: 1,
+      pool: '0x66af3655e14a045F1742b3c9544553Ef7915ed35',
+      firstToken: 'stS',
+      secondToken: 'SHADOW',
+    },
   ],
 };
 

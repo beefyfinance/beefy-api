@@ -129,4 +129,19 @@ export const tokens = {
       'BEETS is the governance token for the Beethoven X protocol. Built on Balancer V2, Beethoven X is the first next-generation AMM protocol on Fantom.',
     documentation: 'https://docs.beets.fi/beets/tokenomics',
   },
+  SHADOW: {
+    name: 'SHADOW',
+    symbol: 'SHADOW',
+    oracleId: 'SHADOW',
+    address: '0x3333b97138D4b086720b5aE8A7844b1345a33333',
+    chainId: 146,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://www.shadow.so/',
+    bridge: 'native',
+    description:
+      'SHADOW is the governance token for the Shadow Exchange. Shadow Exchange is a concentrated liquidity layer and exchange built on the Sonic network, powered by x(3,3) — a more fluid and accessible incentive model.',
+    documentation: 'https://docs.shadow.so/',
+    risks: ['LARGE_HOLDERS'],
+  },
 } as const satisfies Record<string, Token>;
