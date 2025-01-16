@@ -1,0 +1,22 @@
+[
+  {
+    "name": "swapx-usdc.e-scusd",
+    "address": "0xBb8aE5b889243561ac9261F22F592B72250AFd1F",
+    "gauge": "0x2036D05eCA7fe86cD224927883490A255EF552BA",
+    "decimals": "1e18",
+    "chainId": 146,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0x29219dd400f2Bf60E5a23d13Be72B486D4038894",
+      "oracle": "tokens",
+      "oracleId": "sUSDCe",
+      "decimals": "1e6"
+    },
+    "lp1": {
+      "address": "0xd3DCe716f3eF535C5Ff8d041c1A41C3bd89b97aE",
+      "oracle": "tokens",
+      "oracleId": "scUSD",
+      "decimals": "1e6"
+    }
+  }
+]
