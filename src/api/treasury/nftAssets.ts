@@ -40,9 +40,18 @@ export const treasuryConcLiquidityAssets: Partial<Record<ApiChain, ConcLiquidity
       id: 747836,
     },
   ],
+  sonic: [
+    {
+      name: 'USDCe-mooBIFI 1%',
+      address: '0xFD8fc59E65860e7FAaf09482e6Be4af65741DEba-4651',
+      decimals: 18,
+      assetType: 'concLiquidity',
+      oracleType: 'lps',
+      oracleId: 'shadow-sonic-usdc.e-moobifi-1',
+      id: 4651,
+    },
+  ],
 };
 
-export const hasChainConcentratedLiquidityAssets = (chain: ApiChain) =>
-  !!treasuryConcLiquidityAssets[chain];
-export const getChainConcentratedLiquidityAssets = (chain: ApiChain) =>
-  treasuryConcLiquidityAssets[chain];
+export const hasChainConcentratedLiquidityAssets = (chain: ApiChain) => !!treasuryConcLiquidityAssets[chain];
+export const getChainConcentratedLiquidityAssets = (chain: ApiChain) => treasuryConcLiquidityAssets[chain];
