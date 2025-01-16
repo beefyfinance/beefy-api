@@ -6,6 +6,7 @@
     "tokenOracleIds": ["SHADOW", "stS"],
     "decimals": [18, 18],
     "oracleId": "shadow-cow-sonic-shadow-sts",
+    "provider": "shadow",
     "rewardPool": {
       "address": "0x57B4160A82786aCDe84594048dE024F9301Ab70C",
       "oracleId": "shadow-cow-sonic-shadow-sts-rp"
@@ -22,6 +23,7 @@
     "tokenOracleIds": ["sUSDCe", "WETH"],
     "decimals": [6, 18],
     "oracleId": "shadow-cow-sonic-usdc.e-weth",
+    "provider": "shadow",
     "rewardPool": {
       "address": "0x0d372Ab96C19A894F47313318040b3C87dA1AcFb",
       "oracleId": "shadow-cow-sonic-usdc.e-weth-rp"
@@ -38,6 +40,7 @@
     "tokenOracleIds": ["wS", "sUSDCe"],
     "decimals": [18, 6],
     "oracleId": "shadow-cow-sonic-ws-usdc.e",
+    "provider": "shadow",
     "rewardPool": {
       "address": "0xbf18216043C5C0200F6ffaDD09537DEEE318a732",
       "oracleId": "shadow-cow-sonic-ws-usdc.e-rp"

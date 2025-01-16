@@ -7,6 +7,7 @@ import { avax } from '../../../packages/address-book/src/address-book/avax';
 import { scroll } from '../../../packages/address-book/src/address-book/scroll';
 import { mode } from '../../../packages/address-book/src/address-book/mode';
 import { lisk } from '../../../packages/address-book/src/address-book/lisk';
+import { sonic } from '../../../packages/address-book/src/address-book/sonic';
 import { AnyCowClm, CowProvider } from './types';
 
 export const providers = {
@@ -46,6 +47,11 @@ export const providers = {
   nuri: {
     poolTradingRewardTokens: {
       scroll: [scroll.tokens.NURI],
+    },
+  },
+  shadow: {
+    poolTradingRewardTokens: {
+      sonic: [sonic.tokens.SHADOW],
     },
   },
 } as const satisfies Record<string, CowProvider>;
