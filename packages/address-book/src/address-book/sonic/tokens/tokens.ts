@@ -144,6 +144,21 @@ export const tokens = {
     documentation: 'https://docs.shadow.so/',
     risks: ['LARGE_HOLDERS'],
   },
+  SWPx: {
+    name: 'SwapX',
+    symbol: 'SWPx',
+    oracleId: 'SWPx',
+    address: '0xA04BC7140c26fc9BB1F36B1A604C7A5a88fb0E70',
+    chainId: 146,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://swapx.fi/',
+    bridge: 'native',
+    description:
+      'SWPx is the governance token for the SwapX. SwapX is a decentralized exchange (DEX) which aims to become the leading platform for native concentrated liquidity on Sonic Blockchain.',
+    documentation: 'https://swapxfi.gitbook.io/swapx-docs',
+    risks: ['NO_TIMELOCK'],
+  },
   mooBIFI: {
     name: 'Bridged BIFI Vault Receipt',
     symbol: 'mooBIFI',

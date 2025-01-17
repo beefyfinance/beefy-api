@@ -13,7 +13,6 @@ export const getSwapxApys = async () => {
     oracleId: 'SWPx',
     oracle: 'tokens',
     decimals: '1e18',
-    reward: '0xA04BC7140c26fc9BB1F36B1A604C7A5a88fb0E70',
     boosted: false,
     singleReward: true,
     // log: true,
