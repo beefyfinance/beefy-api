@@ -112,6 +112,7 @@ import { getPendleCommonPrices } from './common/getPendleCommonPrices';
 import { getMellowVeloPrices } from './common/getMellowVeloPrices';
 import { getBunniPrices } from './common/getBunniPrices';
 import getBaseSiloPrices from './base/getBaseSiloPrices';
+import getSonicSiloPrices from './sonic/getSonicSiloPrices';
 import getVenusArbPrices from './arbitrum/getVenusArbPrices';
 import getVenusZkPrices from './zksync/getVenusZkPrices';
 import getTokemakEthPrices from './ethereum/getTokemakEthPrices';
@@ -146,6 +147,7 @@ export async function getNonAmmPrices(
     getArbitrumSiloPrices(tokenPrices),
     getEthSiloPrices(tokenPrices),
     getOptimismSiloPrices(tokenPrices),
+    getSonicSiloPrices(tokenPrices),
     getEqualizerStableBasePrices(tokenPrices),
     getEqualizerStableSonicPrices(tokenPrices),
     getKinetixPrices(tokenPrices),

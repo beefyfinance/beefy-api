@@ -2,13 +2,19 @@ import BigNumber from 'bignumber.js';
 import { fetchContract } from '../../rpc/client';
 import SiloTokenAbi from '../../../abis/arbitrum/SiloToken';
 import SiloAbi from '../../../abis/arbitrum/Silo';
+import SiloV2Abi from '../../../abis/SiloV2';
 
 export const getSiloPrices = async (chainId, pools, tokenPrices) => {
   const [amountCalls, totalSupplyCalls] = pools.reduce(
     (acc, pool) => {
       const siloTokenContract = fetchContract(pool.address, SiloTokenAbi, chainId);
-      const siloContract = fetchContract(pool.silo, SiloAbi, chainId);
-      acc[0].push(siloContract.read.assetStorage([pool.underlying]));
+      if (pool.v2) {
+        const siloContract = fetchContract(pool.silo, SiloV2Abi, chainId);
+        acc[0].push(siloContract.read.totalAssets());
+      } else {
+        const siloContract = fetchContract(pool.silo, SiloAbi, chainId);
+        acc[0].push(siloContract.read.assetStorage([pool.underlying]));
+      }
       acc[1].push(siloTokenContract.read.totalSupply());
       return acc;
     },
@@ -24,7 +30,9 @@ export const getSiloPrices = async (chainId, pools, tokenPrices) => {
   for (let i = 0; i < pools.length; i++) {
     const pool = pools[i];
     const token = pool.underlying;
-    const balance = pool.collateral
+    const balance = pool.v2
+      ? new BigNumber(amountResults[i]).div(pool.decimals)
+      : pool.collateral
       ? new BigNumber(amountResults[i]['collateralOnlyDeposits']).div(pool.decimals)
       : new BigNumber(amountResults[i]['totalDeposits']).div(pool.decimals);
     const totalSupply = new BigNumber(totalSupplyResults[i]).div(pool.decimals);
