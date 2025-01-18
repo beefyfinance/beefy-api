@@ -9,6 +9,7 @@ import SiloV2Lens from '../../../abis/SiloV2Lens';
 import { fetchContract } from '../../rpc/client';
 import getApyBreakdown from './getApyBreakdown';
 import jp from 'jsonpath';
+import { getBifiGovApr } from './getBifiGovApr';
 
 const SECONDS_PER_YEAR = 31536000;
 
@@ -139,7 +140,7 @@ const getPoolsData = async (params: SiloApyParams): Promise<PoolsData> => {
 
   const supplyRates: BigNumber[] = res[0].map(v => new BigNumber(v.toString()));
   const rewardSpeeds: BigNumber[] = res[1].map(v =>
-    v['emissionPerSecond'] ? v['emissionPerSecond'] : new BigNumber(v['1'].toString())
+    typeof v['1'] === 'string' ? new BigNumber(v['2'].toString()) : new BigNumber(v['1'].toString())
   );
   const totalSupplies: BigNumber[] = res[2].map(v => new BigNumber(v.toString()));
 

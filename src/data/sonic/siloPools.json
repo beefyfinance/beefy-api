@@ -5,13 +5,13 @@
     "underlying": "0x29219dd400f2Bf60E5a23d13Be72B486D4038894",
     "silo": "0x4E216C15697C1392fE59e1014B009505E05810Df",
     "v2": true,
-    "incentivesProgramId": "0x77535f73555344435f3030370000000000000000000000000000000000000000",
+    "incentivesProgramId": "0x77535f73555344435f3030380000000000000000000000000000000000000000",
     "oracleId": "sUSDCe",
     "decimals": "1e6",
     "chainId": 146,
     "rewardOracleId": "S",
     "rewardDecimals": "1e18",
-    "incentivesController": "0x31bFB77eF861d9273658d5e943a7BF2E2c8B0b7f",
+    "incentivesController": "0x0dd368Cd6D8869F2b21BA3Cb4fd7bA107a2e3752",
     "lens": "0xB6AdBb29f2D8ae731C7C72036A7FD5A7E970B198"
   }
 ]
