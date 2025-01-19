@@ -2018,10 +2018,10 @@ export const tokens = {
     documentation: 'https://framework.freysa.ai/overview',
     bridge: '',
   },
-  CHAMPS: {
+  CHAMP: {
     name: 'Super Champs',
-    symbol: 'CHAMPS',
-    oracleId: 'CHAMPS',
+    symbol: 'CHAMP',
+    oracleId: 'CHAMP',
     address: '0xEb6d78148F001F3aA2f588997c5E102E489Ad341',
     chainId: 8453,
     decimals: 18,
