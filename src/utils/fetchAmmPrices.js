@@ -3,6 +3,7 @@ const { fetchContract } = require('../api/rpc/client');
 const { chunk } = require('lodash');
 const { default: BeefyPriceMulticall } = require('../abis/BeefyPriceMulticall');
 const { retryPromiseWithBackOff } = require('./promise');
+const { promiseTiming } = require('./timing');
 
 const MULTICALLS = {
   56: '0xbcf79F67c2d93AD5fd1b919ac4F5613c493ca34F',
@@ -95,7 +96,7 @@ const fetchAmmPrices = async (pools, knownPrices) => {
     if (chain == '56') {
       chainPools = pools.filter(p => p.chainId === undefined).concat(chainPools);
     }
-    await fetchChainPools(chain, chainPools);
+    await promiseTiming(fetchChainPools(chain, chainPools), `fetchChainPools for chain ${chain}`);
     return chainPools;
   });
 

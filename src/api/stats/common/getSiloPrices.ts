@@ -19,7 +19,7 @@ export const getSiloPrices = async (chainId, pools, tokenPrices) => {
       acc[2].push(siloTokenContract.read.decimals());
       return acc;
     },
-    [[], []]
+    [[], [], []]
   );
 
   const [amountResults, totalSupplyResults, decimalsResults] = await Promise.all([
@@ -32,13 +32,13 @@ export const getSiloPrices = async (chainId, pools, tokenPrices) => {
   for (let i = 0; i < pools.length; i++) {
     const pool = pools[i];
     const token = pool.underlying;
-    const totalSupplyDecimals = new BigNumber(decimalsResults[i]); // [as X, not Xe18] Needed as V2 uses SiloMathLib._DECIMALS_OFFSET extra decimals for LP tokens
+    const totalSupplyDecimals = new BigNumber(decimalsResults[i]).toNumber(); // [as X, not Xe18] Needed as V2 uses SiloMathLib._DECIMALS_OFFSET extra decimals for LP tokens
     const balance = pool.v2
       ? new BigNumber(amountResults[i]).div(pool.decimals)
       : pool.collateral
       ? new BigNumber(amountResults[i]['collateralOnlyDeposits']).div(pool.decimals)
       : new BigNumber(amountResults[i]['totalDeposits']).div(pool.decimals);
-    const totalSupply = new BigNumber(totalSupplyResults[i]).shiftedBy(-totalSupplyDecimals.toNumber());
+    const totalSupply = new BigNumber(totalSupplyResults[i]).shiftedBy(-totalSupplyDecimals);
 
     const priceUnderlying = getTokenPrice(tokenPrices, pool.oracleId);
     const price = balance.times(priceUnderlying).div(totalSupply).toNumber();

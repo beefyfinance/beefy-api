@@ -119,6 +119,7 @@ import getTokemakEthPrices from './ethereum/getTokemakEthPrices';
 import getTokemakBasePrices from './base/getTokemakBasePrices';
 import { getBeefyCowSonicPrices } from './sonic/getBeefySonicCowPrices';
 import { getMorphoPrices } from './common/morpho/getMorphoPrices';
+import { promiseArrayTiming } from '../../utils/timing';
 
 const getGammaPrices = require('./common/getGammaPrices');
 
@@ -268,7 +269,7 @@ export async function getNonAmmPrices(
   ];
 
   // Setup error logs
-  promises.forEach((p, i) =>
+  promiseArrayTiming(promises, i => `getNonAmmPrices[${i}]`).forEach((p, i) =>
     p.catch(e => console.warn('getNonAmmPrices error', i, e.shortMessage ?? e.message))
   );
 

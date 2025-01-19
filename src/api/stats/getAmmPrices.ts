@@ -95,7 +95,7 @@ import { fetchVenusPrices } from './bsc/venus/getVenusPrices';
 import { getLpBasedPrices } from './getLpBasedPrices';
 import uniswapLpPools from '../../data/ethereum/uniswapV2LpPools.json';
 import { fetchDexScreenerPriceOracles, OraclePriceRequest } from '../../utils/fetchDexScreenerPrices';
-import { eq } from 'lodash';
+import { promiseTiming } from '../../utils/timing';
 
 const INIT_DELAY = 2 * 1000;
 const REFRESH_INTERVAL = 5 * 60 * 1000;
@@ -504,29 +504,32 @@ async function performUpdateAmmPrices() {
   });
 
   const venusPrices = ammPrices.then(async ({ tokenPrices }) => {
-    return await fetchVenusPrices(tokenPrices);
+    return await promiseTiming(fetchVenusPrices(tokenPrices), 'fetchVenusPrices');
   });
 
   const curveTokenPrices = ammPrices.then(async ({ tokenPrices }) => {
-    return await fetchCurveTokenPrices(tokenPrices);
+    return await promiseTiming(fetchCurveTokenPrices(tokenPrices), 'fetchCurveTokenPrices');
   });
 
   const solidlyStableTokenPrices = ammPrices.then(async ({ tokenPrices }) => {
-    return await fetchSolidlyStableTokenPrices(tokenPrices);
+    return await promiseTiming(fetchSolidlyStableTokenPrices(tokenPrices), 'fetchSolidlyStableTokenPrices');
   });
 
   const xPrices = ammPrices.then(async ({ tokenPrices }) => {
-    return await fetchXPrices(tokenPrices);
+    return await promiseTiming(fetchXPrices(tokenPrices), 'fetchXPrices');
   });
 
   const mooPrices = ammPrices.then(async ({ poolPrices, tokenPrices }) => {
-    return await fetchMooPrices(mooTokens, tokenPrices, poolPrices);
+    return await promiseTiming(fetchMooPrices(mooTokens, tokenPrices, poolPrices), 'fetchMooPrices');
   });
 
   const optionPrices = ammPrices.then(async ({ tokenPrices }) => {
-    const concLiqPrices = await fetchConcentratedLiquidityTokenPrices(tokenPrices);
+    const concLiqPrices = await promiseTiming(
+      fetchConcentratedLiquidityTokenPrices(tokenPrices),
+      'fetchConcentratedLiquidityTokenPrices'
+    );
     const prices = { ...tokenPrices, ...concLiqPrices };
-    const optionPrices = await fetchOptionTokenPrices(prices);
+    const optionPrices = await promiseTiming(fetchOptionTokenPrices(prices), 'fetchOptionTokenPrices');
     return {
       ...optionPrices,
       ...concLiqPrices,
@@ -534,9 +537,12 @@ async function performUpdateAmmPrices() {
   });
 
   const linearPoolPrice = ammPrices.then(async ({ tokenPrices }): Promise<Record<string, number>> => {
-    const jbrlTokenPrice = await fetchJbrlPrice();
-    const yVaultPrices = await fetchyVaultPrices(tokenPrices);
-    const wrappedAavePrices = await fetchWrappedAavePrices(tokenPrices);
+    const jbrlTokenPrice = await promiseTiming(fetchJbrlPrice(), 'fetchJbrlPrice');
+    const yVaultPrices = await promiseTiming(fetchyVaultPrices(tokenPrices), 'fetchyVaultPrices');
+    const wrappedAavePrices = await promiseTiming(
+      fetchWrappedAavePrices(tokenPrices),
+      'fetchWrappedAavePrices'
+    );
     const prices = {
       ...tokenPrices,
       ...wrappedAavePrices,
@@ -544,8 +550,14 @@ async function performUpdateAmmPrices() {
       ...yVaultPrices,
     };
 
-    const linearPrices = await fetchBalancerLinearPoolPrice(prices);
-    const balancerStablePoolPrice = await fetchBalancerStablePoolPrice(linearPrices);
+    const linearPrices = await promiseTiming(
+      fetchBalancerLinearPoolPrice(prices),
+      'fetchBalancerLinearPoolPrice'
+    );
+    const balancerStablePoolPrice = await promiseTiming(
+      fetchBalancerStablePoolPrice(linearPrices),
+      'fetchBalancerStablePoolPrice'
+    );
 
     return {
       ...linearPrices,
@@ -589,8 +601,14 @@ async function performUpdateAmmPrices() {
   });
 
   const lpData = ammPrices.then(async ({ poolPrices, lpsBreakdown }) => {
-    const nonAmmPrices = await getNonAmmPrices(await tokenPrices, poolPrices);
-    const pendlePrices = await getLpBasedPrices(await tokenPrices, poolPrices, nonAmmPrices);
+    const nonAmmPrices = await promiseTiming(
+      getNonAmmPrices(await tokenPrices, poolPrices),
+      'getNonAmmPrices'
+    );
+    const pendlePrices = await promiseTiming(
+      getLpBasedPrices(await tokenPrices, poolPrices, nonAmmPrices),
+      'getLpBasedPrices'
+    );
 
     return {
       prices: { ...poolPrices, ...nonAmmPrices.prices, ...pendlePrices.prices },
