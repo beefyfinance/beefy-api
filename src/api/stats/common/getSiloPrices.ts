@@ -30,12 +30,14 @@ export const getSiloPrices = async (chainId, pools, tokenPrices) => {
   for (let i = 0; i < pools.length; i++) {
     const pool = pools[i];
     const token = pool.underlying;
+    const collateralDecimals = new BigNumber(pool.decimals);
+    const totalSupplyDecimals = pool.v2 ? collateralDecimals.shiftedBy(3) : pool.decimals; // + SiloMathLib._DECIMALS_OFFSET on v2
     const balance = pool.v2
-      ? new BigNumber(amountResults[i]).div(pool.decimals)
+      ? new BigNumber(amountResults[i]).div(collateralDecimals)
       : pool.collateral
-      ? new BigNumber(amountResults[i]['collateralOnlyDeposits']).div(pool.decimals)
-      : new BigNumber(amountResults[i]['totalDeposits']).div(pool.decimals);
-    const totalSupply = new BigNumber(totalSupplyResults[i]).div(pool.decimals);
+      ? new BigNumber(amountResults[i]['collateralOnlyDeposits']).div(collateralDecimals)
+      : new BigNumber(amountResults[i]['totalDeposits']).div(collateralDecimals);
+    const totalSupply = new BigNumber(totalSupplyResults[i]).div(totalSupplyDecimals);
 
     const priceUnderlying = getTokenPrice(tokenPrices, pool.oracleId);
     const price = balance.times(priceUnderlying).div(totalSupply).toNumber();
