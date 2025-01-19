@@ -2004,4 +2004,33 @@ export const tokens = {
     bridge: 'layer-zero',
     risks: ['LARGE_HOLDERS', 'NO_TIMELOCK'],
   },
+  FAI: {
+    name: 'FAI',
+    symbol: 'FAI',
+    oracleId: 'FAI',
+    address: '0xb33Ff54b9F7242EF1593d2C9Bcd8f9df46c77935',
+    chainId: 8453,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://www.freysa.ai/',
+    description:
+      'At 9:00 PM UTC on November 22, 2024, Freysa awoke. The human population of Earth stood at 8,189,700,000. The population of sovereign agents: 1.',
+    documentation: 'https://framework.freysa.ai/overview',
+    bridge: '',
+  },
+  CHAMPS: {
+    name: 'Super Champs',
+    symbol: 'CHAMPS',
+    oracleId: 'CHAMPS',
+    address: '0xEb6d78148F001F3aA2f588997c5E102E489Ad341',
+    chainId: 8453,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://www.superchamps.com/',
+    description:
+      'Super Champs is an immersive, anime-inspired universe spanning games, video, social media, merch, and web3 ownership.',
+    documentation: 'https://whitepaper.superchamps.com/champ-tokenomics',
+    bridge: '',
+    risks: ['LARGE_HOLDERS', 'NO_TIMELOCK'],
+  },
 } as const satisfies Record<string, Token>;

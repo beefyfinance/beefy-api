@@ -1,5 +1,65 @@
 [
   {
+    "name": "aerodrome-cbbtc-champ",
+    "address": "0x32450CEBe156B2Ca77Dd517e0182409d89b723Ff",
+    "gauge": "0xCFede447ca3b4885720B5a327e3BFb02078f06e8",
+    "decimals": "1e18",
+    "chainId": 8453,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0xcbB7C0000aB88B473b1f5aFd9ef808440eed33Bf",
+      "oracle": "tokens",
+      "oracleId": "cbBTC",
+      "decimals": "1e8"
+    },
+    "lp1": {
+      "address": "0xEb6d78148F001F3aA2f588997c5E102E489Ad341",
+      "oracle": "tokens",
+      "oracleId": "CHAMP",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "aerodrome-weth-champ",
+    "address": "0x26029Ed89A19B919b5698F10cf776a4f4AEA1529",
+    "gauge": "0xf2c38dE50A250C0060fB45eBE4504B67f6F1be3C",
+    "decimals": "1e18",
+    "chainId": 8453,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0x4200000000000000000000000000000000000006",
+      "oracle": "tokens",
+      "oracleId": "WETH",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xEb6d78148F001F3aA2f588997c5E102E489Ad341",
+      "oracle": "tokens",
+      "oracleId": "CHAMP",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "aerodrome-weth-fai",
+    "address": "0x5447F7FE76894d98753A0A6d69B9cb840037c13D",
+    "gauge": "0xC8A601c97574088a50A63fca15aF9448fd36579A",
+    "decimals": "1e18",
+    "chainId": 8453,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0x4200000000000000000000000000000000000006",
+      "oracle": "tokens",
+      "oracleId": "WETH",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xb33Ff54b9F7242EF1593d2C9Bcd8f9df46c77935",
+      "oracle": "tokens",
+      "oracleId": "FAI",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "aerodrome-weth-drv",
     "address": "0xaC4e562d7C6108f971321F14238E24AE2cC398ac",
     "gauge": "0x9788Bd681f47986d1008939A79f630ecA207351A",
