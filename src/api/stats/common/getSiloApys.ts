@@ -44,7 +44,6 @@ const getPoolsApys = async (params: SiloApyParams, data: PoolsData) => {
     const pool = params.pools[i];
     const oracle = pool.rewardOracle ?? 'tokens';
     const price = await fetchPrice({ oracle: oracle, id: pool.rewardOracleId });
-
     const numerator = pool.legacy ? 90 : 75;
 
     supplyApys.push(data.supplyRates[i].times(numerator).div(100).div('1e18'));
@@ -53,7 +52,7 @@ const getPoolsApys = async (params: SiloApyParams, data: PoolsData) => {
       data.rewardSpeeds[i].times(SECONDS_PER_YEAR).div(pool.rewardDecimals).times(price)
     );
 
-    totalSuppliesInUsd.push(data.totalSupplies[i].div(pool.decimals).times(data.tokenPrices[i]));
+    totalSuppliesInUsd.push(data.totalSupplies[i].shiftedBy(-data.decimals[i]).times(data.tokenPrices[i]));
   }
 
   const supplySiloApys = annualRewardsInUsd.map((v, i) => v.div(totalSuppliesInUsd[i]));
@@ -98,6 +97,7 @@ const getPoolsData = async (params: SiloApyParams): Promise<PoolsData> => {
   const supplyRateCalls = [];
   const rewardsPerSecondCalls = [];
   const totalSupplyCalls = [];
+  const decimalsCalls = [];
 
   let pricePromises = params.pools.map(pool => fetchPrice({ oracle: 'lps', id: pool.name }));
 
@@ -129,12 +129,14 @@ const getPoolsData = async (params: SiloApyParams): Promise<PoolsData> => {
     }
 
     totalSupplyCalls.push(siloTokenContract.read.totalSupply());
+    decimalsCalls.push(siloTokenContract.read.decimals());
   }
 
   const res = await Promise.all([
     Promise.all(supplyRateCalls),
     Promise.all(rewardsPerSecondCalls),
     Promise.all(totalSupplyCalls),
+    Promise.all(decimalsCalls),
     Promise.all(pricePromises),
   ]);
 
@@ -143,14 +145,16 @@ const getPoolsData = async (params: SiloApyParams): Promise<PoolsData> => {
     typeof v['1'] === 'string' ? new BigNumber(v['2'].toString()) : new BigNumber(v['1'].toString())
   );
   const totalSupplies: BigNumber[] = res[2].map(v => new BigNumber(v.toString()));
+  const decimals: number[] = res[3].map(v => Number(v.toString()));
 
-  const tokenPrices = res[3];
+  const tokenPrices = res[4];
 
   return {
     tokenPrices,
     supplyRates,
     rewardSpeeds,
     totalSupplies,
+    decimals,
   };
 };
 
@@ -159,6 +163,8 @@ export interface PoolsData {
   supplyRates: BigNumber[];
   rewardSpeeds: BigNumber[];
   totalSupplies: BigNumber[];
+  /** of the LP token, as X, not Xe18 */
+  decimals: number[];
 }
 
 export interface SiloPool {
