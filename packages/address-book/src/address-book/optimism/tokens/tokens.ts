@@ -1734,4 +1734,19 @@ export const tokens = {
     documentation: 'https://alchemix-finance.gitbook.io/user-docs/',
     bridge: 'connext',
   },
+  SYN: {
+    name: 'Synapse',
+    symbol: 'SYN',
+    oracleId: 'SYN',
+    address: '0x5A5fFf6F753d7C11A56A52FE47a177a87e431655',
+    chainId: 10,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://synapseprotocol.com/',
+    documentation: 'https://synapse-3.gitbook.io/synapse-protocol',
+    description:
+      'Synapse (SYN) is an interoperability protocol designed for safely and securely sending arbitrary data between blockchains.',
+    bridge: 'synapse',
+    risks: ['NO_TIMELOCK'],
+  },
 } as const satisfies Record<string, Token>;
