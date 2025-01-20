@@ -1,5 +1,25 @@
 [
   {
+    "name": "swapx-ichi-usdc.e-scusd",
+    "address": "0xf77ceed15596bfc127d17ba45dea9767bc349be0",
+    "gauge": "0x640429B0633851F487639BcDd8Ed523DDf1Bbff8",
+    "decimals": "1e18",
+    "chainId": 146,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0x29219dd400f2Bf60E5a23d13Be72B486D4038894",
+      "oracle": "tokens",
+      "oracleId": "sUSDCe",
+      "decimals": "1e6"
+    },
+    "lp1": {
+      "address": "0xd3DCe716f3eF535C5Ff8d041c1A41C3bd89b97aE",
+      "oracle": "tokens",
+      "oracleId": "scUSD",
+      "decimals": "1e6"
+    }
+  },
+  {
     "name": "swapx-ichi-ws-sts",
     "address": "0xfd10ac67449c16f368a4bb49f544e0a865a77614",
     "gauge": "0xC693c6fc1d2b44DfB5C5aa05Ca2b02A91DB97528",
