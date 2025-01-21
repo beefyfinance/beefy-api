@@ -17,24 +17,5 @@
       "oracleId": "FLARE",
       "decimals": "1e18"
     }
-  },
-  {
-    "name": "solarflare-usdc-wglmr",
-    "address": "0xAb89eD43D10c7CE0f4D6F21616556AeCb71b9c5f",
-    "decimals": "1e18",
-    "poolId": 1,
-    "chainId": 1284,
-    "lp0": {
-      "address": "0x8f552a71EFE5eeFc207Bf75485b356A0b3f01eC9",
-      "oracle": "tokens",
-      "oracleId": "gmultiUSDC",
-      "decimals": "1e6"
-    },
-    "lp1": {
-      "address": "0xAcc15dC74880C9944775448304B263D191c6077F",
-      "oracle": "tokens",
-      "oracleId": "WGLMR",
-      "decimals": "1e18"
-    }
   }
 ]

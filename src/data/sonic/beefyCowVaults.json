@@ -1,0 +1,65 @@
+[
+  {
+    "address": "0x72cE11866e242Cd7d302cDAE9588cB32Cf2a2bB1",
+    "lpAddress": "0x66af3655e14a045F1742b3c9544553Ef7915ed35",
+    "tokens": ["0x3333b97138D4b086720b5aE8A7844b1345a33333", "0xE5DA20F15420aD15DE0fa650600aFc998bbE3955"],
+    "tokenOracleIds": ["SHADOW", "stS"],
+    "decimals": [18, 18],
+    "oracleId": "shadow-cow-sonic-shadow-sts",
+    "providerId": "shadow",
+    "rewardPool": {
+      "address": "0x57B4160A82786aCDe84594048dE024F9301Ab70C",
+      "oracleId": "shadow-cow-sonic-shadow-sts-rp"
+    },
+    "vault": {
+      "address": "0x84aD5B236605F7a6425DE729A8C941fc0b89890F",
+      "oracleId": "shadow-cow-sonic-shadow-sts-vault"
+    }
+  },
+  {
+    "address": "0xDd4E83EDD68AcD40139923B06C51da23C76C2C43",
+    "lpAddress": "0x6Fb30F3FCB864D49cdff15061ed5c6ADFEE40B40",
+    "tokens": ["0x29219dd400f2Bf60E5a23d13Be72B486D4038894", "0x50c42dEAcD8Fc9773493ED674b675bE577f2634b"],
+    "tokenOracleIds": ["sUSDCe", "WETH"],
+    "decimals": [6, 18],
+    "oracleId": "shadow-cow-sonic-usdc.e-weth",
+    "providerId": "shadow",
+    "rewardPool": {
+      "address": "0x0d372Ab96C19A894F47313318040b3C87dA1AcFb",
+      "oracleId": "shadow-cow-sonic-usdc.e-weth-rp"
+    },
+    "vault": {
+      "address": "0xA233A41B4a2711b704b0daCeD3956f378a8cB6aA",
+      "oracleId": "shadow-cow-sonic-usdc.e-weth-vault"
+    }
+  },
+  {
+    "address": "0xc46833F6217Db6586fD129cC2f61361dfCE4c21D",
+    "lpAddress": "0x324963c267C354c7660Ce8CA3F5f167E05649970",
+    "tokens": ["0x039e2fB66102314Ce7b64Ce5Ce3E5183bc94aD38", "0x29219dd400f2Bf60E5a23d13Be72B486D4038894"],
+    "tokenOracleIds": ["wS", "sUSDCe"],
+    "decimals": [18, 6],
+    "oracleId": "shadow-cow-sonic-ws-usdc.e",
+    "providerId": "shadow",
+    "rewardPool": {
+      "address": "0xbf18216043C5C0200F6ffaDD09537DEEE318a732",
+      "oracleId": "shadow-cow-sonic-ws-usdc.e-rp"
+    },
+    "vault": {
+      "address": "0x90dEfd0D2D69FBFF5C5eC3D271A5D24b12FB96F1",
+      "oracleId": "shadow-cow-sonic-ws-usdc.e-vault"
+    }
+  },
+  {
+    "address": "0xE7e6a718218d737945E6f039c161D3C3c550CBA8",
+    "lpAddress": "0x25f746bB206041Ed8dA6F08Ed1D32454A5856D37",
+    "tokens": ["0x039e2fB66102314Ce7b64Ce5Ce3E5183bc94aD38", "0x29219dd400f2Bf60E5a23d13Be72B486D4038894"],
+    "tokenOracleIds": ["wS", "sUSDCe"],
+    "decimals": [18, 6],
+    "oracleId": "wagmi-cow-sonic-ws-usdc.e",
+    "rewardPool": {
+      "address": "0x52115E698dC76Fc0ac75145c4f3F5d986E4CE162",
+      "oracleId": "wagmi-cow-sonic-ws-usdc.e-rp"
+    }
+  }
+]

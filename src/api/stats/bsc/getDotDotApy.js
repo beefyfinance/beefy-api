@@ -7,7 +7,6 @@ import EllipsisLpStaking from '../../../abis/bsc/EllipsisLpStaking';
 import EllipsisRewardToken from '../../../abis/EllipsisRewardToken';
 import { fetchContract } from '../../rpc/client';
 
-const baseApyUrl = 'https://api.ellipsis.finance/api/getAPRs';
 const tradingFees = 0.0002;
 const secondsPerYear = 31536000;
 const shareAfterDotDotFee = 0.85;
@@ -15,13 +14,8 @@ const dotProxy = '0xD4d01C4367ed2D4AB5c2F734d640F7ffe558E8A8';
 const ellipsisLpStaking = '0x5B74C99AA2356B4eAa7B85dC486843eDff8Dfdbe';
 
 export const getDotDotApy = async () => {
-  const [baseApys, farmApys] = await Promise.all([
-    getEllipsisBaseApys(pools, baseApyUrl),
-    getPoolApys(pools),
-  ]);
-  const apy = getApyBreakdown(pools, baseApys, farmApys, tradingFees);
-  // console.log(apy);
-  return apy;
+  const farmApys = await getPoolApys(pools);
+  return getApyBreakdown(pools, {}, farmApys, tradingFees);
 };
 
 const getPoolApys = async pools => {
@@ -107,20 +101,5 @@ const getPoolApys = async pools => {
     apys.push(apy);
   }
 
-  return apys;
-};
-
-const getEllipsisBaseApys = async (pools, url) => {
-  let apys = {};
-  try {
-    const response = await fetch(url).then(res => res.json());
-    let apyData = Object.fromEntries(Object.values(response.data).map(v => [v.address, v.baseApr]));
-    pools.forEach(pool => {
-      let apy = new BigNumber(apyData[pool.minter] ?? 0).div(100);
-      apys = { ...apys, ...{ [pool.address.toLowerCase()]: apy } };
-    });
-  } catch (err) {
-    console.error('Ellipsis base apy error ', url, err);
-  }
   return apys;
 };

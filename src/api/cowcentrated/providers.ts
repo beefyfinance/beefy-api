@@ -3,6 +3,11 @@ import { optimism } from '../../../packages/address-book/src/address-book/optimi
 import { base } from '../../../packages/address-book/src/address-book/base';
 import { linea } from '../../../packages/address-book/src/address-book/linea';
 import { bsc } from '../../../packages/address-book/src/address-book/bsc';
+import { avax } from '../../../packages/address-book/src/address-book/avax';
+import { scroll } from '../../../packages/address-book/src/address-book/scroll';
+import { mode } from '../../../packages/address-book/src/address-book/mode';
+import { lisk } from '../../../packages/address-book/src/address-book/lisk';
+import { sonic } from '../../../packages/address-book/src/address-book/sonic';
 import { AnyCowClm, CowProvider } from './types';
 
 export const providers = {
@@ -20,6 +25,8 @@ export const providers = {
   velodrome: {
     poolTradingRewardTokens: {
       optimism: [optimism.tokens.VELOV2],
+      mode: [mode.tokens.XVELO],
+      lisk: [lisk.tokens.XVELO],
     },
   },
   aerodrome: {
@@ -30,6 +37,21 @@ export const providers = {
   nile: {
     poolTradingRewardTokens: {
       linea: [linea.tokens.NILE],
+    },
+  },
+  pharaoh: {
+    poolTradingRewardTokens: {
+      avax: [avax.tokens.PHAR, avax.tokens.sAVAX, avax.tokens.ggAVAX],
+    },
+  },
+  nuri: {
+    poolTradingRewardTokens: {
+      scroll: [scroll.tokens.NURI],
+    },
+  },
+  shadow: {
+    poolTradingRewardTokens: {
+      sonic: [sonic.tokens.SHADOW],
     },
   },
 } as const satisfies Record<string, CowProvider>;

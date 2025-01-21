@@ -4,7 +4,7 @@ const ETH = {
   name: 'Wrapped Re.Al Ether',
   address: '0x90c6E93849E06EC7478ba24522329d14A5954Df4',
   symbol: 'WREETH',
-  oracleId: 'WREETH',
+  oracleId: 'reETH',
   decimals: 18,
   chainId: 111188,
   website: 'https://weth.io/',
@@ -31,6 +31,22 @@ export const tokens = {
     chainId: 111188,
     documentation: 'https://developers.circle.com/docs',
   },
+  DAI: {
+    name: 'DAI Stablecoin',
+    symbol: 'DAI',
+    oracleId: 'DAI',
+    address: '0x75d0cBF342060b14c2fC756fd6E717dFeb5B1B70',
+    chainId: 111188,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://makerdao.com/en/',
+    bridge: 'real-canonical',
+    documentation:
+      'https://docs.makerdao.com/smart-contract-modules/dai-module/dai-detailed-documentation',
+    description:
+      'Dai is a stablecoin cryptocurrency which aims to keep its value as close to one United States dollar as possible through an automated system of smart contracts on the Ethereum blockchain',
+    risks: ['NO_TIMELOCK'],
+  },
   arcUSD: {
     name: 'arcUSD',
     address: '0xAEC9e50e3397f9ddC635C6c429C8C7eca418a143',
@@ -41,6 +57,20 @@ export const tokens = {
     documentation: 'https://docs.arcana.finance/',
     description:
       'Arcana distributes the yield generated from delta-neutral strategies through arcUSD, a rebasing token soft-pegged to the dollar. The yield is distributed to arcUSD holders in the form of daily rebases, increasing their balance each period. On top of the rebases, arcUSD can be deployed in DeFi to unlock additional reward composability.',
+    bridge: 'native',
+    chainId: 111188,
+    risks: ['NO_TIMELOCK'],
+  },
+  UKRE: {
+    name: 'UK Real Estate',
+    address: '0x835d3E1C0aA079C6164AAd21DCb23E60eb71AF48',
+    symbol: 'UKRE',
+    oracleId: 'UKRE',
+    decimals: 18,
+    website: 'https://www.tangible.store/',
+    documentation: 'https://docs.tangible.store/',
+    description:
+      'UKRE is a Tangible Basket token backed by tokenized real estate in the UK. Tangible Baskets are permissionless, rebasing ERC-20 tokens—100% backed by tokenized, yield-generating real estate—that distributed yield back to token holders via daily rebase. Baskets price is soft-pegged to the TPV (true property value) of the assets in the pool and will fluctuate based on market demand and the activity of arbitrageurs. With Baskets, anyone, anywhere, at any budget can invest in income-producing real estate with just a few clicks.',
     bridge: 'native',
     chainId: 111188,
     risks: ['NO_TIMELOCK'],
@@ -83,6 +113,20 @@ export const tokens = {
     documentation: 'https://docs.re.al/',
     description:
       'The RWA token is the governance token to the re.al ecosystem. RWA will exist unlocked as RWA (ERC-20) and locked as veRWA (ERC-721). When locked into veRWA it will provide holders two primary benefits: Value Accrual and Governance Rights',
+    bridge: 'native',
+    chainId: 111188,
+    risks: ['NO_TIMELOCK'],
+  },
+  stRWA: {
+    name: 'Liquid Staked RWA',
+    address: '0x154F5DB4950d2cd4a7Af425E11865215F90DdB07',
+    symbol: 'stRWA',
+    oracleId: 'stRWA',
+    decimals: 18,
+    website: 'https://re.al/',
+    documentation: 'https://docs.re.al/',
+    description:
+      'stRWA is a liquid version of veRWA that rebases to distribute accrued yield, making veRWA liquid and composable with DeFi protocols.',
     bridge: 'native',
     chainId: 111188,
     risks: ['NO_TIMELOCK'],

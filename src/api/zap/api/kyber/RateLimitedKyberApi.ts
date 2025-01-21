@@ -1,10 +1,11 @@
 import { KyberApi } from './KyberApi';
 import PQueue from 'p-queue';
 import { ApiResponse } from '../common';
+import { ApiChain } from '../../../../utils/chain';
 
 export class RateLimitedKyberApi extends KyberApi {
-  constructor(baseUrl: string, clientId: string, protected readonly queue: PQueue) {
-    super(baseUrl, clientId);
+  constructor(baseUrl: string, clientId: string, protected readonly queue: PQueue, chain: ApiChain) {
+    super(baseUrl, clientId, chain);
   }
 
   protected async get<ResponseType extends object>(

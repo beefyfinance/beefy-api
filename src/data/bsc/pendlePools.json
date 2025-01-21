@@ -1,0 +1,22 @@
+[
+  {
+    "name": "pendle-bsc-vbnb-26jun25",
+    "address": "0x0921CcC98956B1599003Fd9739d5e66BF319A161",
+    "eqbGauge": "0x96DB998c5C6C82f6aB3999661A425454eF002202",
+    "oracle": "tokens",
+    "oracleId": "BNB",
+    "decimals": "1e18",
+    "chainId": 56,
+    "beefyFee": 0.095
+  },
+  {
+    "name": "pendle-bsc-solvbtc.bbn-27mar25",
+    "address": "0x9daa2878a8739e66e08e7ad35316c5143c0ea7c7",
+    "eqbGauge": "0x93462B02Cf30F93e6635E3acaCc867744A7078DA",
+    "oracle": "tokens",
+    "oracleId": "BTCB",
+    "decimals": "1e18",
+    "chainId": 56,
+    "beefyFee": 0.095
+  }
+]

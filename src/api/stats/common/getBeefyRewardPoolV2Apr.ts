@@ -4,7 +4,7 @@ import type { GetContractReturnType } from 'viem/_types/actions/getContract';
 import { IBeefyRewardPool } from '../../../abis/IBeefyRewardPool';
 import { TokenWithId } from '../../../../packages/address-book/src/types/token';
 import BigNumber from 'bignumber.js';
-import { BIG_ZERO, fromWei, toBigNumber } from '../../../utils/big-number';
+import { BIG_ONE, BIG_ZERO, fromWei, toBigNumber } from '../../../utils/big-number';
 import { SECONDS_PER_YEAR } from '../../../utils/time';
 import { getAmmPrice } from '../getAmmPrices';
 import { isFiniteNumber } from '../../../utils/number';
@@ -35,6 +35,11 @@ export type Token = {
   decimals: number;
 };
 
+export type StakedToken = Token & {
+  /** needed if standard vault; must be in wei */
+  pricePerFullShare?: BigNumber;
+};
+
 export type RewardConfig = Token & {
   id: number;
 };
@@ -53,7 +58,7 @@ type RewardConfigInfo = RewardConfigPrice & {
 export type BeefyRewardPoolV2Config = {
   oracleId: string;
   address: Address;
-  stakedToken: Token;
+  stakedToken: StakedToken;
   rewards?: NonEmptyArray<RewardConfig> | undefined;
 };
 
@@ -84,9 +89,7 @@ export const getBeefyRewardPoolV2Aprs = async (
   chainId: ChainId,
   pools: BeefyRewardPoolV2Config[]
 ): Promise<BeefyRewardPoolV2Result[]> => {
-  const results = await Promise.allSettled(
-    pools.map(pool => getBeefyRewardPoolV2Apr(chainId, pool))
-  );
+  const results = await Promise.allSettled(pools.map(pool => getBeefyRewardPoolV2Apr(chainId, pool)));
   return results
     .filter(isResultFulfilled)
     .map(result => result.value)
@@ -142,9 +145,7 @@ async function getRewardConfigsFromContract(
   const [rewardAddresses] = earned;
   if (rewardAddresses.length === 0) {
     if (WARN_REWARDS_NONE_IN_CONTRACT) {
-      console.warn(
-        `getRewardConfigsFromContract for ${pool.oracleId}: no rewards found via contract`
-      );
+      console.warn(`getRewardConfigsFromContract for ${pool.oracleId}: no rewards found via contract`);
     }
     return [];
   }
@@ -270,7 +271,7 @@ async function getRewardConfigsInfo(
 
   if (activeRewards.length === 0) {
     if (WARN_REWARDS_ALL_INACTIVE) {
-      console.warn(`getRewardConfigsInfo for ${pool.oracleId}: no rewards are active`);
+      // console.warn(`getRewardConfigsInfo for ${pool.oracleId}: no rewards are active`);
     }
     return [];
   }
@@ -313,10 +314,7 @@ async function getYearlyRewardsInUsd(
   }));
 }
 
-async function getTotalStakedInUsd(
-  chainId: ChainId,
-  pool: BeefyRewardPoolV2Config
-): Promise<BigNumber> {
+async function getTotalStakedInUsd(chainId: ChainId, pool: BeefyRewardPoolV2Config): Promise<BigNumber> {
   const stakedTokenContract = fetchContract(pool.stakedToken.address, ERC20Abi, chainId);
 
   const [price, totalStaked] = await Promise.all([
@@ -340,5 +338,9 @@ async function getTotalStakedInUsd(
     return BIG_ZERO;
   }
 
-  return fromWei(toBigNumber(totalStaked), pool.stakedToken.decimals).times(price);
+  // shares -> want (if pricePerFullShare is provided)
+  const totalUnderlyingStaked = fromWei(toBigNumber(totalStaked), pool.stakedToken.decimals).times(
+    pool.stakedToken.pricePerFullShare ? pool.stakedToken.pricePerFullShare.shiftedBy(-18) : BIG_ONE
+  );
+  return totalUnderlyingStaked.times(price);
 }

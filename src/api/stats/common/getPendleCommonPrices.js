@@ -2,11 +2,13 @@ import BigNumber from 'bignumber.js';
 import { parseAbi } from 'viem';
 import { fetchContract } from '../../rpc/client';
 import ERC20Abi from '../../../abis/ERC20Abi';
-import { ARBITRUM_CHAIN_ID, ETH_CHAIN_ID } from '../../../constants';
+import { ARBITRUM_CHAIN_ID, BASE_CHAIN_ID, BSC_CHAIN_ID, ETH_CHAIN_ID } from '../../../constants';
 
 const routerStatic = {
   [ARBITRUM_CHAIN_ID]: '0xAdB09F65bd90d19e3148D9ccb693F3161C6DB3E8',
   [ETH_CHAIN_ID]: '0x263833d47eA3fA4a30f269323aba6a107f9eB14C',
+  [BSC_CHAIN_ID]: '0x2700ADB035F82a11899ce1D3f1BF8451c296eABb',
+  [BASE_CHAIN_ID]: '0xB4205a645c7e920BD8504181B1D7f2c5C955C3e7',
 };
 const routerAbi = parseAbi([
   'function isExpired() external view returns (bool)',
@@ -20,9 +22,7 @@ export const getPendleCommonPrices = async (chainId, pools, tokenPrices, lpPrice
   const isExpired = await Promise.all(
     pools.map(pool => fetchContract(pool.address, routerAbi, chainId).read.isExpired())
   );
-  const supplyCalls = pools.map(pool =>
-    fetchContract(pool.address, ERC20Abi, chainId).read.totalSupply()
-  );
+  const supplyCalls = pools.map(pool => fetchContract(pool.address, ERC20Abi, chainId).read.totalSupply());
   const lpRatesCalls = pools.map(async (pool, i) => {
     const router = routerStatic[chainId];
     const market = pool.address;
@@ -32,10 +32,7 @@ export const getPendleCommonPrices = async (chainId, pools, tokenPrices, lpPrice
     }
     return fetchContract(router, routerAbi, chainId).read.getLpToAssetRate([market]);
   });
-  const [supplyResults, lpRates] = await Promise.all([
-    Promise.all(supplyCalls),
-    Promise.all(lpRatesCalls),
-  ]);
+  const [supplyResults, lpRates] = await Promise.all([Promise.all(supplyCalls), Promise.all(lpRatesCalls)]);
 
   const poolsData = supplyResults.map((_, i) => {
     return {

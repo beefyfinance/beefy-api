@@ -607,4 +607,8 @@ export const blockedTokensByChain: Record<ApiChain, Set<string>> = {
   manta: new Set([]),
   real: new Set([]),
   sei: new Set([]),
+  rootstock: new Set([]),
+  scroll: new Set([]),
+  lisk: new Set([]),
+  sonic: new Set([]),
 };

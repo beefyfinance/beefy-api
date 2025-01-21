@@ -1,5 +1,43 @@
 [
   {
+    "name": "balancer-base-more-usdc",
+    "address": "0x2AE2fd72448afC7B29955f48f63b96cD6Cd72C2D",
+    "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
+    "gauge": "0x60ED9E5DA6437A6e19B7815e013e3426161e8044",
+    "vaultPoolId": "0x2ae2fd72448afc7b29955f48f63b96cd6cd72c2d00000000000000000000019d",
+    "composable": true,
+    "bptIndex": 1,
+    "decimals": "1e18",
+    "rewards": [
+      {
+        "newGauge": true,
+        "stream": "0x60ED9E5DA6437A6e19B7815e013e3426161e8044",
+        "oracleId": "BAL"
+      },
+      {
+        "stream": "0x60ED9E5DA6437A6e19B7815e013e3426161e8044",
+        "rewardToken": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+        "oracleId": "USDC",
+        "decimals": "1e6"
+      }
+    ],
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "MORE",
+        "decimals": "1e18"
+      },
+      {
+        "oracleId": "BPTToken"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "USDC",
+        "decimals": "1e6"
+      }
+    ]
+  },
+  {
     "name": "balancer-base-usdbc-axlusdc",
     "address": "0xE58cA65f418D4121d6C70d4C133E60cf6fDa363C",
     "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",

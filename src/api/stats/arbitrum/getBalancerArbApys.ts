@@ -11,7 +11,7 @@ const {
 
 const pools = require('../../../data/arbitrum/balancerArbLpPools.json');
 
-const aaveDataProvider = '0x69FA688f1Dc47d4B5d8029D5a35FB7a548310654';
+const aaveDataProvider = '0x7F23D86Ee20D869112572136221e173428DD740B';
 
 const getBalancerArbApys = async () => {
   return getBalancerApys({

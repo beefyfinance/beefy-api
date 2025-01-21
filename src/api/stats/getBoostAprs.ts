@@ -8,7 +8,7 @@ import BeefyBoostAbi from '../../abis/BeefyBoost';
 import { fetchContract } from '../rpc/client';
 import { isFiniteNumber } from '../../utils/number';
 import { partition } from 'lodash';
-import { getBeefyRewardPoolV2Aprs } from './common/getBeefyRewardPoolV2Apr';
+import { BeefyRewardPoolV2Config, getBeefyRewardPoolV2Aprs } from './common/getBeefyRewardPoolV2Apr';
 import { getAddress } from 'viem';
 import { isDefined } from '../../utils/array';
 
@@ -42,20 +42,16 @@ const updateBoostV2AprsForChain = async (chain: ApiChain, boosts: Boost[]) => {
             stakedToken: {
               oracleId: vault.oracleId,
               address: vault.earnContractAddress,
-              decimals: 18,
+              decimals: vault.tokenDecimals || 18,
+              pricePerFullShare: vault.pricePerFullShare,
             },
-          };
+          } satisfies BeefyRewardPoolV2Config;
         })
         .filter(isDefined)
     );
 
     return results.reduce((aprs: Record<string, number>, result) => {
-      if (
-        result &&
-        result.totalApr !== undefined &&
-        result.rewardsApr &&
-        result.rewardsApr.length > 0
-      ) {
+      if (result && result.totalApr !== undefined && result.rewardsApr && result.rewardsApr.length > 0) {
         aprs[result.oracleId] = result.totalApr;
       }
       return aprs;
@@ -93,12 +89,7 @@ const updateBoostV1AprsForChain = async (chain: ApiChain, boosts: Boost[]) => {
 
     const boostAprs: { [boostId: string]: number } = {};
     for (let i = 0; i < boosts.length; i++) {
-      const apr = await mapResponseToBoostApr(
-        boosts[i],
-        totalSupply[i],
-        rewardRate[i],
-        periodFinish[i]
-      );
+      const apr = await mapResponseToBoostApr(boosts[i], totalSupply[i], rewardRate[i], periodFinish[i]);
       if (isFiniteNumber(apr)) {
         boostAprs[boosts[i].id] = apr;
       }
@@ -111,10 +102,7 @@ const updateBoostV1AprsForChain = async (chain: ApiChain, boosts: Boost[]) => {
   }
 };
 
-const updateBoostAprsForChain = async (
-  chain: ApiChain,
-  boosts: Boost[]
-): Promise<Record<string, number>> => {
+const updateBoostAprsForChain = async (chain: ApiChain, boosts: Boost[]): Promise<Record<string, number>> => {
   const [boostsV2, boostsV1] = partition(boosts, boost => boost.version >= 2);
   const [aprsV2, aprsV1] = await Promise.all([
     updateBoostV2AprsForChain(chain, boostsV2),
@@ -142,9 +130,7 @@ const mapResponseToBoostApr = async (
   try {
     const vault: Vault = getVaultByID(boost.poolId);
     if (!vault) {
-      console.error(
-        `[boost aprs] error calculating apr for ${boost.id}: vault ${boost.poolId} not found`
-      );
+      console.error(`[boost aprs] error calculating apr for ${boost.id}: vault ${boost.poolId} not found`);
       return null;
     }
 
@@ -184,14 +170,11 @@ const mapResponseToBoostApr = async (
 };
 
 export const fetchBoostAprs = async () => {
-  const boostByChain: { [chain: string]: Boost[] } = getAllBoosts().reduce(
-    (allBoosts, previousBoost) => {
-      if (!allBoosts[previousBoost.chain]) allBoosts[previousBoost.chain] = [];
-      allBoosts[previousBoost.chain].push(previousBoost);
-      return allBoosts;
-    },
-    {}
-  );
+  const boostByChain: { [chain: string]: Boost[] } = getAllBoosts().reduce((allBoosts, previousBoost) => {
+    if (!allBoosts[previousBoost.chain]) allBoosts[previousBoost.chain] = [];
+    allBoosts[previousBoost.chain].push(previousBoost);
+    return allBoosts;
+  }, {});
 
   const chainPromises = Object.keys(boostByChain).map(chain =>
     updateBoostAprsForChain(chain as ApiChain, boostByChain[chain])

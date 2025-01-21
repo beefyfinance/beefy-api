@@ -30,6 +30,8 @@ export const supportedChains: Partial<Record<ApiChain, string>> = {
   zkevm: 'polygon-zkevm',
   aurora: 'aurora',
   mantle: 'mantle',
+  scroll: 'scroll',
+  sonic: 'sonic',
 } as const;
 
 const swapApiByChain: Partial<Record<ApiChain, IKyberApi>> = {};
@@ -53,7 +55,7 @@ export function getKyberApi(chain: AnyChain): IKyberApi {
       throw new Error(`KYBER_CLIENT_ID env variable is not set`);
     }
 
-    swapApiByChain[apiChain] = new RateLimitedKyberApi(baseUrl, clientId, swapApiQueue);
+    swapApiByChain[apiChain] = new RateLimitedKyberApi(baseUrl, clientId, swapApiQueue, apiChain);
   }
 
   return swapApiByChain[apiChain];

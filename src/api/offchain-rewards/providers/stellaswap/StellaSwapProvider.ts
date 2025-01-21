@@ -3,7 +3,7 @@ import { IOffchainRewardProvider, RewardToken, StellaSwapCampaign, Vault } from 
 import { groupBy, mapKeys } from 'lodash';
 import { isProviderApiError, ProviderApiError, UnsupportedChainError } from '../../errors';
 import { Address, getAddress } from 'viem';
-import { toNumber } from '../../../../utils/number';
+import { isFiniteNumber, toNumber } from '../../../../utils/number';
 import { bigintRange, isDefined } from '../../../../utils/array';
 import { FarmingAprResponse, FarmingAprResult, RewarderEntry, RewardInfo } from './types';
 import { fetchContract } from '../../../rpc/client';
@@ -14,6 +14,7 @@ import { getJson } from '../../../../utils/http';
 
 const providerId = 'stellaswap' as const;
 const supportedChains = new Set<AppChain>(['moonbeam']);
+const supportedVaultTypes = new Set<Vault['type']>(['cowcentrated', 'cowcentrated-pool']);
 const rewardRegistryAddress: Address = '0x0e4cAEf48De8FEc07b7dfeae8D73848Aaa8be0cB';
 
 export class StellaSwapProvider implements IOffchainRewardProvider {
@@ -24,13 +25,11 @@ export class StellaSwapProvider implements IOffchainRewardProvider {
   }
 
   supportsVault(vault: Vault): boolean {
-    return vault.type !== 'standard' && this.supportsChain(vault.chainId);
+    return supportedVaultTypes.has(vault.type) && this.supportsChain(vault.chainId);
   }
 
   isActive(campaign: StellaSwapCampaign, unixTime: number): boolean {
-    return (
-      !campaign.isPaused && isUnixBetween(campaign.startTimestamp, campaign.endTimestamp, unixTime)
-    );
+    return !campaign.isPaused && isUnixBetween(campaign.startTimestamp, campaign.endTimestamp, unixTime);
   }
 
   async getCampaigns(chainId: AppChain, vaults: Vault[]): Promise<StellaSwapCampaign[]> {
@@ -44,9 +43,7 @@ export class StellaSwapProvider implements IOffchainRewardProvider {
       return [];
     }
 
-    const rewardersForVaults = rewarders.filter(
-      p => !!vaultsByPoolAddress[p.poolAddress.toLowerCase()]
-    );
+    const rewardersForVaults = rewarders.filter(p => !!vaultsByPoolAddress[p.poolAddress.toLowerCase()]);
     if (rewardersForVaults.length === 0) {
       return [];
     }
@@ -69,9 +66,7 @@ export class StellaSwapProvider implements IOffchainRewardProvider {
           }
 
           const tokenAprs = tokenAprsForPool
-            ? mapKeys(tokenAprsForPool.tokenRewards, (_, tokenAddress) =>
-                tokenAddress.toLowerCase()
-              )
+            ? mapKeys(tokenAprsForPool.tokenRewards, (_, tokenAddress) => tokenAddress.toLowerCase())
             : {};
 
           return rewardInfos.map(reward => {
@@ -79,12 +74,12 @@ export class StellaSwapProvider implements IOffchainRewardProvider {
             const tokenApr = tokenAprs[tokenAddress.toLowerCase()];
             const rewardActive =
               !rewarder.isPaused && isUnixBetween(reward.startTimestamp, reward.endTimestamp);
-            if (!tokenApr && rewardActive) {
+            if (rewardActive && (!tokenApr || !isFiniteNumber(tokenApr.beefyApr))) {
               console.warn(
-                `StellaSwapProvider: missing APR for active reward ${tokenAddress} for pool ${rewarder.poolAddress}`
+                `StellaSwapProvider: missing beefyApr for active reward ${tokenAddress} for pool ${rewarder.poolAddress}`
               );
             }
-            const apr = tokenApr && rewardActive ? toNumber(tokenApr.apr) / 100 : 0;
+            const apr = tokenApr && rewardActive ? toNumber(tokenApr.beefyApr, 0) / 100 : 0;
             const rewardToken = this.getRewardToken(chainId, reward, tokenApr);
             if (!rewardToken) {
               console.error(
@@ -176,16 +171,11 @@ export class StellaSwapProvider implements IOffchainRewardProvider {
     }));
   }
 
-  protected async fetchRewardInfos(
-    appChain: AppChain,
-    rewarderAddress: Address
-  ): Promise<RewardInfo[]> {
+  protected async fetchRewardInfos(appChain: AppChain, rewarderAddress: Address): Promise<RewardInfo[]> {
     const chainId = toChainId(appChain);
     const rewarder = fetchContract(rewarderAddress, rewarderAbi, chainId);
     const numRewards = await rewarder.read.rewardInfoLength();
-    const rewards = await Promise.all(
-      bigintRange(numRewards).map(i => rewarder.read.rewardInfo([i]))
-    );
+    const rewards = await Promise.all(bigintRange(numRewards).map(i => rewarder.read.rewardInfo([i])));
 
     return rewards.map((reward, rewardId) => ({
       rewardId,

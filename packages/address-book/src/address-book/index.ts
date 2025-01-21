@@ -31,6 +31,10 @@ import { mode } from './mode/index.js';
 import { manta } from './manta/index.js';
 import { real } from './real/index.js';
 import { sei } from './sei/index.js';
+import { rootstock } from './rootstock/index.js';
+import { scroll } from './scroll/index.js';
+import { lisk } from './lisk/index.js';
+import { sonic } from './sonic/index.js';
 
 export { ChainId }; // enum which is compiled to a JS object
 export type { Chain };
@@ -67,6 +71,10 @@ export const addressBook: ReadonlyRecord<ChainIdKey, Chain> = {
   manta,
   real,
   sei,
+  rootstock,
+  scroll,
+  lisk,
+  sonic,
 } as const;
 
 export const addressBookByChainId: ReadonlyRecord<`${ChainId}`, Chain> = {
@@ -100,4 +108,8 @@ export const addressBookByChainId: ReadonlyRecord<`${ChainId}`, Chain> = {
   [ChainId.manta]: manta,
   [ChainId.real]: real,
   [ChainId.sei]: sei,
+  [ChainId.rootstock]: rootstock,
+  [ChainId.scroll]: scroll,
+  [ChainId.lisk]: lisk,
+  [ChainId.sonic]: sonic,
 } as const;

@@ -1,0 +1,23 @@
+[
+  {
+    "name": "morpho-morpho-eusd",
+    "address": "0xbb819D845b573B5D7C538F5b85057160cfb5f313",
+    "oracle": "tokens",
+    "oracleId": "eUSD",
+    "decimals": "1e18"
+  },
+  {
+    "name": "morpho-ionic-usdc",
+    "address": "0x23479229e52Ab6aaD312D0B03DF9F33B46753B5e",
+    "oracle": "tokens",
+    "oracleId": "USDC",
+    "decimals": "1e6"
+  },
+  {
+    "name": "morpho-ionic-weth",
+    "address": "0x5A32099837D89E3a794a44fb131CBbAD41f87a8C",
+    "oracle": "tokens",
+    "oracleId": "WETH",
+    "decimals": "1e18"
+  }
+]

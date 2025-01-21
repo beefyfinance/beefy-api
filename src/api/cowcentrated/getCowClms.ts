@@ -11,7 +11,12 @@ import mantaPools from '../../data/manta/beefyCowVaults.json';
 import mantlePools from '../../data/mantle/beefyCowVaults.json';
 import seiPools from '../../data/sei/beefyCowVaults.json';
 import bscPools from '../../data/bsc/beefyCowVaults.json';
-
+import avaxPools from '../../data/avax/beefyCowVaults.json';
+import rootstockPools from '../../data/rootstock/beefyCowVaults.json';
+import scrollPools from '../../data/scroll/beefyCowVaults.json';
+import modePools from '../../data/mode/beefyCowVaults.json';
+import liskPools from '../../data/lisk/beefyCowVaults.json';
+import sonicPools from '../../data/sonic/beefyCowVaults.json';
 const chainToClms: Readonly<Partial<Record<ApiChain, CowClm[]>>> = {
   optimism: validateCowClms(optimismPools),
   base: validateCowClms(basePools),
@@ -24,6 +29,12 @@ const chainToClms: Readonly<Partial<Record<ApiChain, CowClm[]>>> = {
   mantle: validateCowClms(mantlePools),
   sei: validateCowClms(seiPools),
   bsc: validateCowClms(bscPools),
+  avax: validateCowClms(avaxPools),
+  rootstock: validateCowClms(rootstockPools),
+  scroll: validateCowClms(scrollPools),
+  mode: validateCowClms(modePools),
+  lisk: validateCowClms(liskPools),
+  sonic: validateCowClms(sonicPools),
 };
 
 const chainsWithClms = (Object.keys(chainToClms) as ReadonlyArray<ApiChain>).filter(

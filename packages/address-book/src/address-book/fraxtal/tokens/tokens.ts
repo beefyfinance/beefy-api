@@ -115,6 +115,19 @@ export const tokens = {
     bridge: 'fraxtal-canonical',
     logoURI: '',
   },
+  sdFXS: {
+    name: 'Stake DAO FXS',
+    address: '0x1AEe2382e05Dc68BDfC472F1E46d570feCca5814',
+    symbol: 'sdFXS',
+    oracleId: 'sdFXS',
+    decimals: 18,
+    chainId: 252,
+    website: 'https://www.stakedao.org/lockers/fxs',
+    documentation: 'https://docs.stakedao.org/liquidlockers',
+    description: "sdFXS is Stake DAO's liquid locker, built for Frax Finance's governance token.",
+    bridge: 'fraxtal-canonical',
+    logoURI: '',
+  },
   USDe: {
     name: 'USDe',
     symbol: 'USDe',
@@ -128,6 +141,21 @@ export const tokens = {
     description:
       "Ethena's synthetic dollar, USDe, provides the crypto-native, scalable solution for money achieved by delta-hedging Ethereum and Bitcoin collateral. USDe is fully-backed and free to compose throughout CeFi & DeFi.",
     bridge: 'stargate',
+    risks: ['NO_TIMELOCK'],
+  },
+  sUSDe: {
+    name: 'Staked USDe',
+    symbol: 'sUSDe',
+    oracleId: 'sUSDe',
+    address: '0x211Cc4DD073734dA055fbF44a2b4667d5E5fE5d2',
+    chainId: 252,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://ethena.fi/',
+    documentation: 'https://ethena-labs.gitbook.io/ethena-labs',
+    description:
+      'Users are able to stake their USDe for sUSDe through the Ethena front-end. sUSDe is a reward-bearing token that accrues value from the yield that Ethena’s underlying delta-neutral position generates. sUSDe is subject to a 7-day un-staking period.',
+    bridge: 'layer-zero',
     risks: ['NO_TIMELOCK'],
   },
   FXB20251231: {

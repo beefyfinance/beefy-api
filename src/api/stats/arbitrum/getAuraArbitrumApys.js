@@ -11,14 +11,14 @@ const {
 
 const pools = require('../../../data/arbitrum/auraLpPools.json');
 
-const aaveDataProvider = '0x69FA688f1Dc47d4B5d8029D5a35FB7a548310654';
+const aaveDataProvider = '0x7F23D86Ee20D869112572136221e173428DD740B';
 const auraMinter = '0xeC1c780A275438916E7CEb174D80878f29580606';
 
 const getAuraArbitrumApys = async () => {
   return getAuraApys({
     chainId: chainId,
     client: client,
-    pools: pools,
+    pools: pools.filter(p => !p.eol),
     balancerVault: balancer.router,
     aaveDataProvider: aaveDataProvider,
     auraMinter: auraMinter,

@@ -23,13 +23,10 @@ import { ApiChain, ApiChains } from '../../utils/chain';
 import { getTokensForChain, isTokenNative } from '../tokens/tokens';
 import { getAmmPrice } from '../stats/getAmmPrices';
 import { keysToObject } from '../../utils/array';
-import {
-  getChainConcentratedLiquidityAssets,
-  hasChainConcentratedLiquidityAssets,
-} from './nftAssets';
+import { getChainConcentratedLiquidityAssets, hasChainConcentratedLiquidityAssets } from './nftAssets';
 import { ZERO_ADDRESS } from '../../utils/address';
 
-const REFRESH_INTERVAL = 60000 * 10;
+const REFRESH_INTERVAL = 6000 * 10;
 
 // treasury addresses that should be queried for balances
 let treasuryAddressesByChain: TreasuryWalletRegistry;
@@ -297,11 +294,7 @@ async function buildTreasuryReportForChain(chain: ApiChain): Promise<TreasuryRep
   return balanceReport;
 }
 
-function findUsdValueForBalance(
-  tokenInfo: TreasuryAsset,
-  tokenPrice: number,
-  balance: BigNumber
-): BigNumber {
+function findUsdValueForBalance(tokenInfo: TreasuryAsset, tokenPrice: number, balance: BigNumber): BigNumber {
   if (isVaultAsset(tokenInfo)) {
     return balance
       .multipliedBy(tokenPrice)

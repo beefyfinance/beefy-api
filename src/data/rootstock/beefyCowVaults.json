@@ -1,0 +1,112 @@
+[
+  {
+    "address": "0x7AB03a37822014f4aba762F0a622bF0cc8A32F47",
+    "lpAddress": "0xCbA7aBe98fd6A65259837d76a3409841C1DD4288",
+    "tokens": ["0x1D931Bf8656d795E50eF6D639562C5bD8Ac2B78f", "0x542fDA317318eBF1d3DEAf76E0b632741A7e677d"],
+    "tokenOracleIds": ["WETH", "WBTC"],
+    "decimals": [18, 18],
+    "oracleId": "uniswap-cow-rootstock-eths-wrbtc",
+    "rewardPool": {
+      "address": "0xd9BcDF03D03D1F36d2B6dAf6b30b9eE6C014F610",
+      "oracleId": "uniswap-cow-rootstock-eths-wrbtc-rp"
+    },
+    "vault": {
+      "address": "0xfcdCDb71FF7D0711F8F9A36032Aa3a77A659055D",
+      "oracleId": "uniswap-cow-rootstock-eths-wrbtc-vault",
+      "excludeMerkl": true
+    }
+  },
+  {
+    "address": "0xc35Ce6b18Eb792F97991e5ee3439A965FF99396A",
+    "lpAddress": "0xD2Ffe51aB4E622a411abBe634832a19D919E9c55",
+    "tokens": ["0x542fDA317318eBF1d3DEAf76E0b632741A7e677d", "0xef213441A85dF4d7ACbDaE0Cf78004e1E486bB96"],
+    "tokenOracleIds": ["WBTC", "USDT"],
+    "decimals": [18, 18],
+    "oracleId": "uniswap-cow-rootstock-wrbtc-rusdt",
+    "rewardPool": {
+      "address": "0xccA0a5E330d7640d2599B4F0aC6067d658d46688",
+      "oracleId": "uniswap-cow-rootstock-wrbtc-rusdt-rp"
+    },
+    "vault": {
+      "address": "0x70B212EBe2bde9812ad63BA1AedD5179B4B3082E",
+      "oracleId": "uniswap-cow-rootstock-wrbtc-rusdt-vault"
+    }
+  },
+  {
+    "address": "0xc517fcde06661b001af97273a3599D5454703732",
+    "lpAddress": "0x3151d3093797412642685ad16e74a83859F2011C",
+    "tokens": ["0xe700691dA7b9851F2F35f8b8182c69c53CcaD9Db", "0xef213441A85dF4d7ACbDaE0Cf78004e1E486bB96"],
+    "tokenOracleIds": ["DOC", "USDT"],
+    "decimals": [18, 18],
+    "oracleId": "uniswap-cow-rootstock-doc-rusdt",
+    "rewardPool": {
+      "address": "0x716D2dD531d826eb3fa1f1fFcFdd7102217a3199",
+      "oracleId": "uniswap-cow-rootstock-doc-rusdt-rp"
+    },
+    "vault": {
+      "address": "0x5eC6Afb2163535631d738e8A7a92A1974Aa1E0B9",
+      "oracleId": "uniswap-cow-rootstock-doc-rusdt-vault"
+    }
+  },
+  {
+    "address": "0x411564724f8FE3fc0308A52c462847e0807c56A4",
+    "lpAddress": "0x022650756421F2e636d4138054331CBFafB55D9E",
+    "tokens": ["0x2AcC95758f8b5F583470ba265EB685a8F45fC9D5", "0xef213441A85dF4d7ACbDaE0Cf78004e1E486bB96"],
+    "tokenOracleIds": ["RIF", "USDT"],
+    "decimals": [18, 18],
+    "oracleId": "uniswap-cow-rootstock-rif-rusdt",
+    "rewardPool": {
+      "address": "0x82e9dB204D8243538E04958FdAEDFaF21B58D014",
+      "oracleId": "uniswap-cow-rootstock-rif-rusdt-rp"
+    }
+  },
+  {
+    "address": "0x5e273560B9DBde75d90EA9340a61f8798C57dCD4",
+    "lpAddress": "0x6699C20948585B9307024Ae5D940aa6cFd87403D",
+    "tokens": ["0xe700691dA7b9851F2F35f8b8182c69c53CcaD9Db", "0xef213441A85dF4d7ACbDaE0Cf78004e1E486bB96"],
+    "tokenOracleIds": ["DOC", "USDT"],
+    "decimals": [18, 18],
+    "oracleId": "sushi-cow-rootstock-doc-rusdt",
+    "rewardPool": {
+      "address": "0xE055CCfC930E4b702D92dB85EdcEC99c9E441d76",
+      "oracleId": "sushi-cow-rootstock-doc-rusdt-rp"
+    },
+    "vault": {
+      "address": "0x41c8fDc1f2EB272CB51c224D4C68F277c3C7878B",
+      "oracleId": "sushi-cow-rootstock-doc-rusdt-vault",
+      "excludeMerkl": true
+    }
+  },
+  {
+    "address": "0xB77db1F96578b04d963a5bA063CfF17CEf55fB1B",
+    "lpAddress": "0x926D6832eA10672231b251D329BaDaaDe5E6BDb7",
+    "tokens": ["0x542fDA317318eBF1d3DEAf76E0b632741A7e677d", "0xef213441A85dF4d7ACbDaE0Cf78004e1E486bB96"],
+    "tokenOracleIds": ["WBTC", "USDT"],
+    "decimals": [18, 18],
+    "oracleId": "sushi-cow-rootstock-wrbtc-rusdt",
+    "rewardPool": {
+      "address": "0xC007B460999b33D237D89Eed29266191CE4b393E",
+      "oracleId": "sushi-cow-rootstock-wrbtc-rusdt-rp"
+    },
+    "vault": {
+      "address": "0xe7D3015A4f647F14CDD9c8c95a41FD5ad65cEF7c",
+      "oracleId": "sushi-cow-rootstock-wrbtc-rusdt-vault"
+    }
+  },
+  {
+    "address": "0x2ca732484427FC2dB0eAd8EeDEb97869A422845d",
+    "lpAddress": "0xD29CB356D84Cd9F7f00D44aedea841292cb0f1ED",
+    "tokens": ["0x1D931Bf8656d795E50eF6D639562C5bD8Ac2B78f", "0x542fDA317318eBF1d3DEAf76E0b632741A7e677d"],
+    "tokenOracleIds": ["WETH", "WBTC"],
+    "decimals": [18, 18],
+    "oracleId": "sushi-cow-rootstock-eths-wrbtc",
+    "rewardPool": {
+      "address": "0x0fE958d31C0Aa613A0b08901fB26a7761C5B14f4",
+      "oracleId": "sushi-cow-rootstock-eths-wrbtc-rp"
+    },
+    "vault": {
+      "address": "0xACA6fEDb6885A455961500A9A2871F4a209669d9",
+      "oracleId": "sushi-cow-rootstock-eths-wrbtc-vault"
+    }
+  }
+]

@@ -15,14 +15,15 @@ const getMmyApys = require('./getMmyApys');
 const getBalancerOpApys = require('./getBalancerOpApys');
 const getAuraApys = require('./getAuraOptimismApys');
 const getBeVeloV2Apr = require('./getBeVeloV2Apr');
-const getUniswapGammaApys = require('./getUniswapGammaApys');
 const { getSonneApys } = require('./getSonneApys');
 const { getBeefyOPCowApys } = require('./getBeefyOPCowApys');
 const { getOpSiloApys } = require('./getOpSiloApys');
+const { getMellowVeloApys } = require('../common/getMellowVeloApys');
+const { getOpCompoundV3Apys } = require('./getOpCompoundV3Apys');
+const { OPTIMISM_CHAIN_ID } = require('../../../constants');
 
 const getApys = [
   getSonneApys,
-  getUniswapGammaApys,
   getAuraApys,
   getBalancerOpApys,
   getMmyApys,
@@ -41,7 +42,9 @@ const getApys = [
   getBeOpxEarnApy,
   getBeVeloV2Apr,
   getBeefyOPCowApys,
+  () => getMellowVeloApys(OPTIMISM_CHAIN_ID, require('../../../data/optimism/mellowVeloPools.json')),
   getOpSiloApys,
+  getOpCompoundV3Apys,
 ];
 
 const getOptimismApys = async () => {

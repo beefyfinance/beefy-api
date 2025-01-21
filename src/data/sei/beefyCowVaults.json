@@ -1,11 +1,68 @@
 [
   {
+    "address": "0x611B6a9c0461c26Aa3ab04355e7813291652b1ad",
+    "lpAddress": "0xD0553A0853C57267c1F2E212347002B052595558",
+    "tokens": ["0x5Cf6826140C1C56Ff49C808A1A75407Cd1DF9423", "0xE30feDd158A2e3b13e9badaeABaFc5516e95e8C7"],
+    "tokenOracleIds": ["iSEI", "WSEI"],
+    "decimals": [6, 18],
+    "oracleId": "dragon-cow-isei-wsei-500",
+    "rewardPool": {
+      "address": "0xB80114171cA830e4575aD06A50aFDF392f7D67f2",
+      "oracleId": "dragon-cow-isei-wsei-500-rp"
+    }
+  },
+  {
+    "address": "0xB99813c691d8A1825b839BA3a26642e39B63Cc06",
+    "lpAddress": "0x882f62fe8E9594470D1da0f70Bc85096F6c60423",
+    "tokens": ["0x3894085Ef7Ff0f0aeDf52E2A2704928d1Ec074F1", "0xE30feDd158A2e3b13e9badaeABaFc5516e95e8C7"],
+    "tokenOracleIds": ["USDC", "WSEI"],
+    "decimals": [6, 18],
+    "oracleId": "dragon-cow-usdc-wsei",
+    "rewardPool": {
+      "address": "0xF977607D9762E3Bf4Bc592135Fc80B21B2DcCD0b",
+      "oracleId": "dragon-cow-usdc-wsei-rp"
+    }
+  },
+  {
+    "address": "0x2790E03f36Ea15256005BEB7DAD34a32052fBc92",
+    "lpAddress": "0x48904b7B93F4AF97a687168fdBfaaB80F28eAE54",
+    "tokens": ["0xB75D0B03c06A926e488e2659DF1A861F860bD3d1", "0xE30feDd158A2e3b13e9badaeABaFc5516e95e8C7"],
+    "tokenOracleIds": ["USDT", "WSEI"],
+    "decimals": [6, 18],
+    "oracleId": "dragon-cow-usdt-wsei",
+    "rewardPool": {
+      "address": "0x8A69092cA0097e61EF1fE3C87121cF683b16E5Ad",
+      "oracleId": "dragon-cow-usdt-wsei-rp"
+    }
+  },
+  {
+    "address": "0xE4b150c9235755771c5aBFb807a7483c44ab17a2",
+    "lpAddress": "0x9788C190C55a1C6e20597d52506bD49BB758E984",
+    "tokens": ["0x5Cf6826140C1C56Ff49C808A1A75407Cd1DF9423", "0xE30feDd158A2e3b13e9badaeABaFc5516e95e8C7"],
+    "tokenOracleIds": ["iSEI", "WSEI"],
+    "decimals": [6, 18],
+    "oracleId": "dragon-cow-isei-wsei",
+    "rewardPool": {
+      "address": "0x844fDc2AD949143Be35E65cA30BA25d36b9118a1",
+      "oracleId": "dragon-cow-isei-wsei-rp"
+    }
+  },
+  {
+    "address": "0x5963A36AB64e9Da637b1344e8ed514144a59dA3E",
+    "lpAddress": "0xdEfD8471d614C7194824c140eFE17C005CB36008",
+    "tokens": ["0x3894085Ef7Ff0f0aeDf52E2A2704928d1Ec074F1", "0x5Cf6826140C1C56Ff49C808A1A75407Cd1DF9423"],
+    "tokenOracleIds": ["USDC", "iSEI"],
+    "decimals": [6, 6],
+    "oracleId": "dragon-cow-usdc-isei",
+    "rewardPool": {
+      "address": "0xf3791f31c6143837d9d4A3A78f3212771FdAA6c2",
+      "oracleId": "dragon-cow-usdc-isei-rp"
+    }
+  },
+  {
     "address": "0x0feE8c0140752C62151Aa4F9eA9F564bd40E5B90",
     "lpAddress": "0x8A1a9Efb7f7F74ACe10A31F2f5f9F7E804f957b1",
-    "tokens": [
-      "0x160345fC359604fC6e70E3c5fAcbdE5F7A9342d8",
-      "0x3894085Ef7Ff0f0aeDf52E2A2704928d1Ec074F1"
-    ],
+    "tokens": ["0x160345fC359604fC6e70E3c5fAcbdE5F7A9342d8", "0x3894085Ef7Ff0f0aeDf52E2A2704928d1Ec074F1"],
     "tokenOracleIds": ["WETH", "USDC"],
     "decimals": [18, 6],
     "oracleId": "uniswap-cow-sei-weth-usdc",
@@ -17,10 +74,7 @@
   {
     "address": "0x946907408c076180bD2c6aEAd56908fe93Cc8629",
     "lpAddress": "0xa3A573c8D14C93FCa8FDEcb7DB168619563D9B00",
-    "tokens": [
-      "0x160345fC359604fC6e70E3c5fAcbdE5F7A9342d8",
-      "0xE30feDd158A2e3b13e9badaeABaFc5516e95e8C7"
-    ],
+    "tokens": ["0x160345fC359604fC6e70E3c5fAcbdE5F7A9342d8", "0xE30feDd158A2e3b13e9badaeABaFc5516e95e8C7"],
     "tokenOracleIds": ["WETH", "WSEI"],
     "decimals": [18, 18],
     "oracleId": "uniswap-cow-sei-weth-wsei",
@@ -31,11 +85,8 @@
   },
   {
     "address": "0xb2158015044004366e6f72c8c82A0bd355e2ffb3",
-    "lpAddress": "0x5cfa8db453c9904511c4ea9eb0bfc903e36b9f5f",
-    "tokens": [
-      "0x3894085Ef7Ff0f0aeDf52E2A2704928d1Ec074F1",
-      "0xE30feDd158A2e3b13e9badaeABaFc5516e95e8C7"
-    ],
+    "lpAddress": "0x5cFA8dB453C9904511C4eA9eb0bfc903E36b9F5F",
+    "tokens": ["0x3894085Ef7Ff0f0aeDf52E2A2704928d1Ec074F1", "0xE30feDd158A2e3b13e9badaeABaFc5516e95e8C7"],
     "tokenOracleIds": ["USDC", "WSEI"],
     "decimals": [6, 18],
     "oracleId": "uniswap-cow-sei-usdc-wsei",
@@ -47,10 +98,7 @@
   {
     "address": "0x171897D0e083A5900Fbcd6B68176f5F7261EF7c2",
     "lpAddress": "0x41eEa09c971294FcDE3B6E553902B04a47be7442",
-    "tokens": [
-      "0x3894085Ef7Ff0f0aeDf52E2A2704928d1Ec074F1",
-      "0xB75D0B03c06A926e488e2659DF1A861F860bD3d1"
-    ],
+    "tokens": ["0x3894085Ef7Ff0f0aeDf52E2A2704928d1Ec074F1", "0xB75D0B03c06A926e488e2659DF1A861F860bD3d1"],
     "tokenOracleIds": ["USDC", "USDT"],
     "decimals": [6, 6],
     "oracleId": "uniswap-cow-sei-usdc-usdt",
@@ -61,11 +109,8 @@
   },
   {
     "address": "0xE8d987e224e50Fb26986ccf11DD4248BF68CaF43",
-    "lpAddress": "0x0493f80f3d4da87aa0f3713e81e84062d769e5e1",
-    "tokens": [
-      "0xB75D0B03c06A926e488e2659DF1A861F860bD3d1",
-      "0xE30feDd158A2e3b13e9badaeABaFc5516e95e8C7"
-    ],
+    "lpAddress": "0x0493F80f3D4DA87aA0F3713e81e84062d769e5e1",
+    "tokens": ["0xB75D0B03c06A926e488e2659DF1A861F860bD3d1", "0xE30feDd158A2e3b13e9badaeABaFc5516e95e8C7"],
     "tokenOracleIds": ["USDT", "WSEI"],
     "decimals": [6, 18],
     "oracleId": "uniswap-cow-sei-usdt-wsei",

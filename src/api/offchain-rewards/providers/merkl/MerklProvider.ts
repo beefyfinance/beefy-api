@@ -1,7 +1,12 @@
 import { AppChain, fromChainNumber, toAppChain, toChainId } from '../../../../utils/chain';
 import { CampaignType, IOffchainRewardProvider, MerklCampaign, Vault } from '../../types';
 import { isProviderApiError, ProviderApiError, UnsupportedChainError } from '../../errors';
-import { CampaignTypeSetting, MerklApiCampaign, MerklApiCampaignsResponse } from './types';
+import {
+  CampaignTypeSetting,
+  MerklApiCampaign,
+  MerklApiCampaignsResponse,
+  MerklApiCampaignType,
+} from './types';
 import { groupBy } from 'lodash';
 import { Address, getAddress, isAddressEqual } from 'viem';
 import { isFiniteNumber } from '../../../../utils/number';
@@ -30,7 +35,15 @@ const supportedChains = new Set<AppChain>([
   'fraxtal',
   'celo',
   'sei',
+  'rootstock',
 ]);
+const supportedCampaignTypeToVaultType: Map<MerklApiCampaignType, Set<Vault['type']>> = new Map([
+  [MerklApiCampaignType.ERC20, new Set<Vault['type']>(['standard'])],
+  [MerklApiCampaignType.ConcentratedLiquidity, new Set<Vault['type']>(['cowcentrated', 'cowcentrated-pool'])],
+]);
+const supportedVaultTypes = new Set<Vault['type']>(
+  Array.from(supportedCampaignTypeToVaultType.values(), v => Array.from(v.values())).flat()
+);
 const campaignCreatorToType: Record<Address, CampaignTypeSetting> = {
   '0xb1F1000b4FCae7CD07370cE1A3E3b11270caC0dE': 'test',
   '0xD80e5884C1E2771D4d2A6b3b7C240f10EfA0c766': {
@@ -45,6 +58,10 @@ const campaignCreatorToType: Record<Address, CampaignTypeSetting> = {
     base: 'zap-v3',
     default: 'external', // we do not own this address on other chains
   },
+  '0x2cf13cEd9960Fd3a081108f283b7725Fe8d48C9e': {
+    mode: 'mode-grant',
+    default: 'external',
+  },
 };
 
 export class MerklProvider implements IOffchainRewardProvider {
@@ -55,7 +72,7 @@ export class MerklProvider implements IOffchainRewardProvider {
   }
 
   supportsVault(vault: Vault): boolean {
-    return vault.type !== 'standard' && this.supportsChain(vault.chainId);
+    return supportedVaultTypes.has(vault.type) && this.supportsChain(vault.chainId);
   }
 
   isActive(campaign: MerklCampaign, unixTime: number): boolean {
@@ -85,6 +102,48 @@ export class MerklProvider implements IOffchainRewardProvider {
     return type[chain] || type.default || 'external';
   }
 
+  protected getVaultsWithAprFromCampaign(vaults: Vault[], campaign: MerklApiCampaign) {
+    switch (campaign.campaignType) {
+      case MerklApiCampaignType.ERC20: {
+        // @dev `campaign.mainParameter` already matched against `vault.poolAddress`
+        return vaults.map(vault => {
+          return {
+            ...vault,
+            apr: isFiniteNumber(campaign.apr) ? campaign.apr / 100 : 0,
+          };
+        });
+      }
+      case MerklApiCampaignType.ConcentratedLiquidity: {
+        return vaults.map(vault => {
+          let totalApr: number = 0;
+
+          const poolForwarders = campaign.forwarders.filter(forwarder => {
+            const almAddress = getAddress(forwarder.almAddress);
+            return isAddressEqual(almAddress, vault.address);
+          });
+
+          if (poolForwarders.length > 0) {
+            totalApr = poolForwarders.reduce((acc, forwarder) => {
+              if (isFiniteNumber(forwarder.almAPR)) {
+                acc += forwarder.almAPR / 100;
+              }
+              return acc;
+            }, 0);
+          }
+
+          return {
+            ...vault,
+            apr: totalApr,
+          };
+        });
+      }
+      default: {
+        console.warn(`getVaultsWithAprFromCampaign: unsupported campaign type ${campaign.campaignType}`);
+        return [];
+      }
+    }
+  }
+
   protected getCampaign(
     apiCampaign: MerklApiCampaign,
     chainId: AppChain,
@@ -95,37 +154,26 @@ export class MerklProvider implements IOffchainRewardProvider {
       return undefined;
     }
 
+    // skip unsupported campaign types
+    if (!supportedCampaignTypeToVaultType.has(apiCampaign.campaignType)) {
+      return undefined;
+    }
+
+    // match vaults by pool address and campaign type support
     const vaults = vaultsByPoolAddress[apiCampaign.mainParameter.toLowerCase()];
     if (!vaults) {
       return undefined;
     }
+    const vaultsSupportingCampaignType = vaults.filter(vault =>
+      supportedCampaignTypeToVaultType.get(apiCampaign.campaignType)?.has(vault.type)
+    );
+    if (vaultsSupportingCampaignType.length === 0) {
+      return undefined;
+    }
 
-    const vaultsWithApr = vaults.map(vault => {
-      let totalApr: number = 0;
+    const vaultsWithApr = this.getVaultsWithAprFromCampaign(vaultsSupportingCampaignType, apiCampaign);
 
-      const poolForwarders = apiCampaign.forwarders.filter(forwarder => {
-        const almAddress = getAddress(forwarder.almAddress);
-        return isAddressEqual(almAddress, vault.address);
-      });
-
-      if (poolForwarders.length > 0) {
-        totalApr = poolForwarders.reduce((acc, forwarder) => {
-          if (isFiniteNumber(forwarder.almAPR)) {
-            acc += forwarder.almAPR / 100;
-          }
-          return acc;
-        }, 0);
-      }
-
-      return {
-        ...vault,
-        apr: totalApr,
-      };
-    });
-
-    const computeChain = apiCampaign.computeChainId
-      ? fromChainNumber(apiCampaign.computeChainId)
-      : undefined;
+    const computeChain = apiCampaign.computeChainId ? fromChainNumber(apiCampaign.computeChainId) : undefined;
     const claimChain = apiCampaign.chainId ? fromChainNumber(apiCampaign.chainId) : undefined;
 
     return {
@@ -149,9 +197,7 @@ export class MerklProvider implements IOffchainRewardProvider {
     };
   }
 
-  protected async fetchCampaignsForChain(
-    chainId: AppChain
-  ): Promise<MerklApiCampaignsResponse[string]> {
+  protected async fetchCampaignsForChain(chainId: AppChain): Promise<MerklApiCampaignsResponse[string]> {
     const numericChainId = toChainId(chainId);
 
     try {
@@ -162,18 +208,12 @@ export class MerklProvider implements IOffchainRewardProvider {
         },
       });
       if (!data || typeof data !== 'object') {
-        throw new ProviderApiError(
-          `fetchCampaignsForChain(${chainId}): response error`,
-          providerId
-        );
+        throw new ProviderApiError(`fetchCampaignsForChain(${chainId}): response error`, providerId);
       }
 
       if (Object.keys(data).length === 0) {
         if (throwIfNoData) {
-          throw new ProviderApiError(
-            `fetchCampaignsForChain(${chainId}): no data returned`,
-            providerId
-          );
+          throw new ProviderApiError(`fetchCampaignsForChain(${chainId}): no data returned`, providerId);
         }
         return {};
       }
@@ -192,9 +232,7 @@ export class MerklProvider implements IOffchainRewardProvider {
         throw err;
       }
       throw new ProviderApiError(
-        `fetchCampaignsForChain(${chainId}): ${
-          err && err instanceof Error ? err.message : 'unknown error'
-        }`,
+        `fetchCampaignsForChain(${chainId}): ${err && err instanceof Error ? err.message : 'unknown error'}`,
         providerId,
         err && err instanceof Error ? err : undefined
       );

@@ -1,0 +1,9 @@
+[
+  {
+    "name": "compound-mantle-usde",
+    "cToken": "0x606174f62cd968d8e684c645080fa694c1D7786E",
+    "oracle": "tokens",
+    "oracleId": "USDe",
+    "decimals": "1e18"
+  }
+]

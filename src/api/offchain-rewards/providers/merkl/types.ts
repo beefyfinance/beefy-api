@@ -17,9 +17,25 @@ type MerklApiCampaignParameters = {
   decimalsRewardToken: number;
 };
 
+export enum MerklApiCampaignType {
+  ERC20 = 1,
+  ConcentratedLiquidity,
+  ERC20Snapshot,
+  Airdrops,
+  Silo,
+  Radiant,
+  Morpho,
+  Dolomite,
+  Badger,
+  CompoundV2,
+  Anja,
+  EulerFinance,
+}
+
 export type MerklApiCampaign = {
   chainId: number;
   computeChainId?: number;
+  campaignType: MerklApiCampaignType;
   campaignId: string;
   creator: string;
   startTimestamp: number;
@@ -29,6 +45,7 @@ export type MerklApiCampaign = {
   mainParameter: string;
   forwarders: MerklApiForwarder[];
   campaignParameters: MerklApiCampaignParameters;
+  apr: number; // used on erc20 campaigns on standard vaults
 };
 
 export type MerklApiCampaignsResponse = {

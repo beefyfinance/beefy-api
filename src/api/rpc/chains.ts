@@ -30,6 +30,10 @@ import {
   MANTA_RPC,
   REAL_RPC,
   SEI_RPC,
+  ROOTSTOCK_RPC,
+  SCROLL_RPC,
+  LISK_RPC,
+  SONIC_RPC,
 } from '../../constants';
 import { ChainId } from '../../../packages/address-book/src/address-book';
 
@@ -85,12 +89,12 @@ const bscChain = {
 
 const polygonChain = {
   id: 137,
-  name: 'Poylgon',
+  name: 'Polygon',
   network: 'polygon',
   nativeCurrency: {
     decimals: 18,
-    name: 'Matic',
-    symbol: 'MATIC',
+    name: 'Pol',
+    symbol: 'POL',
   },
   rpcUrls: {
     public: { http: [POLYGON_RPC] },
@@ -764,6 +768,100 @@ const seiChain = {
   },
 } as const satisfies Chain;
 
+const rootstockChain = {
+  id: 30,
+  name: 'Rootstock',
+  network: 'rootstock',
+  nativeCurrency: {
+    decimals: 18,
+    name: 'WRBTC',
+    symbol: 'WRBTC',
+  },
+  rpcUrls: {
+    public: { http: [ROOTSTOCK_RPC] },
+    default: { http: [ROOTSTOCK_RPC] },
+  },
+  blockExplorers: {
+    default: { name: 'rootstock explorer', url: 'https://rootstock.blockscout.com/' },
+  },
+  contracts: {
+    multicall3: {
+      address: '0xca11bde05977b3631167028862be2a173976ca11',
+    },
+  },
+} as const satisfies Chain;
+
+/// New Chains
+
+const sonicChain = {
+  id: 146,
+  name: 'Sonic',
+  network: 'sonic',
+  nativeCurrency: {
+    decimals: 18,
+    name: 'WS',
+    symbol: 'WS',
+  },
+  rpcUrls: {
+    public: { http: [SONIC_RPC] },
+    default: { http: [SONIC_RPC] },
+  },
+  blockExplorers: {
+    default: { name: 'sonic explorer', url: 'https://sonicscan.org/' },
+  },
+  contracts: {
+    multicall3: {
+      address: '0xca11bde05977b3631167028862be2a173976ca11',
+    },
+  },
+} as const satisfies Chain;
+
+const liskChain = {
+  id: 1135,
+  name: 'Lisk',
+  network: 'lisk',
+  nativeCurrency: {
+    decimals: 18,
+    name: 'WETH',
+    symbol: 'WETH',
+  },
+  rpcUrls: {
+    public: { http: [LISK_RPC] },
+    default: { http: [LISK_RPC] },
+  },
+  blockExplorers: {
+    default: { name: 'lisk explorer', url: 'https://blockscout.lisk.com/' },
+  },
+  contracts: {
+    multicall3: {
+      address: '0xca11bde05977b3631167028862be2a173976ca11',
+    },
+  },
+} as const satisfies Chain;
+
+const scrollChain = {
+  id: 534352,
+  name: 'Scroll',
+  network: 'scroll',
+  nativeCurrency: {
+    decimals: 18,
+    name: 'WETH',
+    symbol: 'WETH',
+  },
+  rpcUrls: {
+    public: { http: [SCROLL_RPC] },
+    default: { http: [SCROLL_RPC] },
+  },
+  blockExplorers: {
+    default: { name: 'scroll explorer', url: 'https://scrollscan.com/' },
+  },
+  contracts: {
+    multicall3: {
+      address: '0xca11bde05977b3631167028862be2a173976ca11',
+    },
+  },
+} as const satisfies Chain;
+
 //build a map from chainId to chain object
 export const getChain: Partial<Record<ChainId, Chain>> = {
   [ChainId.avax]: avalancheChain,
@@ -796,4 +894,8 @@ export const getChain: Partial<Record<ChainId, Chain>> = {
   [ChainId.manta]: mantaChain,
   [ChainId.real]: realChain,
   [ChainId.sei]: seiChain,
+  [ChainId.rootstock]: rootstockChain,
+  [ChainId.scroll]: scrollChain,
+  [ChainId.lisk]: liskChain,
+  [ChainId.sonic]: sonicChain,
 } as const;

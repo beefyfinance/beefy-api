@@ -1,6 +1,5 @@
 const { getCurveApys } = require('./getCurveApys');
 const { getCurveLendApys } = require('./getCurveLendApys');
-const { getSpellApys } = require('./getSpellApys');
 const getBalancerArbApys = require('./getBalancerArbApys');
 const getStargateArbApys = require('./getStargateArbApys');
 const { getGmxV2Apys } = require('./getGmxV2Apys');
@@ -8,12 +7,9 @@ const { getGmxApys } = require('./getGmxApys');
 const { getHopApys } = require('./getHopApys');
 const { getConvexApys } = require('./getConvexApys');
 const { getGnsApys } = require('./getGnsApys');
-const getSolidLizardApys = require('./getSolidLizardApys');
 const getRamsesApys = require('./getRamsesApys');
 const getAuraArbitrumApys = require('./getAuraArbitrumApys');
 const { getJoeAutoArbApys } = require('./getJoeAutoArbApys');
-const getMerklGammaApys = require('./getMerklGammaApys');
-const getUniswapGammaApys = require('./getUniswapGammaApys');
 const { getArbCompoundV3Apys } = require('./getArbCompoundV3Apys');
 const { getArbSiloApys } = require('./getArbitrumSiloApys');
 const { getEquilibriaApys } = require('../common/getEquilibriaApys');
@@ -21,16 +17,19 @@ const { getBeefyArbCowApys } = require('./getBeefyArbCowApys');
 const { getAaveV3Apys } = require('./getAaveV3Apys');
 const { getPenpieApys } = require('./getPenpieApys');
 const { getMimApys } = require('./getMimApys');
+const getVenusApys = require('./getVenusApys');
 
 const getApys = [
   getArbSiloApys,
-  getMerklGammaApys,
-  getUniswapGammaApys,
   // getJoeAutoArbApys,
   getAuraArbitrumApys,
   getGnsApys,
   getHopApys,
-  () => getEquilibriaApys(require('../../../data/arbitrum/equilibriaPools.json')),
+  () =>
+    getEquilibriaApys([
+      ...require('../../../data/arbitrum/pendlePools.json'),
+      ...require('../../../data/arbitrum/equilibriaPools.json'),
+    ]),
   getPenpieApys,
   getMimApys,
   getGmxV2Apys,
@@ -38,14 +37,13 @@ const getApys = [
   getCurveApys,
   getCurveLendApys,
   getConvexApys,
-  getSpellApys,
   getBalancerArbApys,
   getStargateArbApys,
-  getSolidLizardApys,
   getRamsesApys,
   getArbCompoundV3Apys,
   getBeefyArbCowApys,
   getAaveV3Apys,
+  getVenusApys,
 ];
 
 const getArbitrumApys = async () => {

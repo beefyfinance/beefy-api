@@ -7,12 +7,17 @@ import { AnyChain, isApiChain, toAppChain } from '../../utils/chain';
 import { typedEntries } from '../../utils/object';
 import { Context } from 'koa';
 import { sendBadRequest, sendServiceUnavailable, sendSuccess } from '../../utils/koa';
+import { getVaultsByChainId } from '../stats/getMultichainVaults';
+import { serviceEventBus } from '../../utils/ServiceEventBus';
+import { Address } from 'viem';
+import { uniqBy } from 'lodash';
 
 const TIME_BETWEEN_UPDATES = 10 * 60; // seconds
 const CACHE_KEY = 'OFFCHAIN_REWARDS';
 
 const getVaultsWithOffchainRewards = createFactory((): Vault[] => {
-  return typedEntries(getAllCowClmsByChain()).flatMap(([apiChain, clms]) => {
+  // CLM vaults
+  const clmVaults: Vault[] = typedEntries(getAllCowClmsByChain()).flatMap(([apiChain, clms]) => {
     const chainId = toAppChain(apiChain);
     return clms.flatMap(clm => {
       const clmVaults: Vault[] = [
@@ -30,7 +35,7 @@ const getVaultsWithOffchainRewards = createFactory((): Vault[] => {
           address: clm.rewardPool.address,
           poolAddress: clm.lpAddress,
           chainId,
-          type: 'gov',
+          type: 'cowcentrated-pool',
         });
       }
       if (isCowClmWithVault(clm)) {
@@ -39,12 +44,29 @@ const getVaultsWithOffchainRewards = createFactory((): Vault[] => {
           address: clm.vault.address,
           poolAddress: clm.lpAddress,
           chainId,
-          type: 'standard',
+          type: 'cowcentrated-vault',
         });
       }
       return clmVaults;
     });
   });
+
+  // Standard vaults
+  const standardVaults: Vault[] = typedEntries(getVaultsByChainId()).flatMap(([apiChain, vaults]) => {
+    const chainId = toAppChain(apiChain);
+    return vaults
+      .filter(v => v.type === 'standard')
+      .map(v => ({
+        id: v.id,
+        address: v.earnContractAddress as Address,
+        // This enables merkl ERC20 campaign support targeting standard vaults
+        poolAddress: v.earnContractAddress as Address,
+        chainId,
+        type: 'standard',
+      }));
+  });
+
+  return uniqBy([...clmVaults, ...standardVaults], v => v.id);
 });
 
 const getChainsWithOffchainRewards = createFactory(() => {
@@ -56,7 +78,8 @@ const getService = createFactory(async () => {
   return await OffchainRewards.create(vaults, TIME_BETWEEN_UPDATES, CACHE_KEY);
 });
 
-export function initOffchainRewardsService() {
+export async function initOffchainRewardsService() {
+  await Promise.all([serviceEventBus.waitForFirstEvent('vaults/updated')]);
   getService().catch(err => {
     console.error('> [Offchain Rewards] Failed to initialize service', err);
   });
@@ -99,9 +122,7 @@ export async function getAllCampaigns() {
 
 export async function getAllCampaignsWithMeta() {
   const chainIds = getChainsWithOffchainRewards();
-  const perChain = await Promise.all(
-    chainIds.map(chainId => getCampaignsForChainWithMeta(chainId))
-  );
+  const perChain = await Promise.all(chainIds.map(chainId => getCampaignsForChainWithMeta(chainId)));
   return {
     lastUpdated: perChain.map(chain => chain.lastUpdated).reduce((a, b) => Math.max(a, b), 0),
     campaigns: perChain.flatMap(chain => chain.campaigns),

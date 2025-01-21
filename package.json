@@ -17,6 +17,10 @@
     "prettier:check": "prettier --check src/**/*",
     "prettier:fix": "prettier --write src/**/*",
     "prepare": "husky",
+    "add:chain": "ts-node scripts/add-chain.ts",
+    "add:chain:addressbook": "cd packages/address-book && yarn addChain",
+    "addClm": "ts-node scripts/add-clm.ts",
+    "checkClms": "ts-node scripts/check-clms.ts",
     "addFarm": "ts-node scripts/add-farm.ts",
     "addSushi": "ts-node scripts/add-sushi.ts",
     "addSolidly": "ts-node scripts/add-solidly.ts",
@@ -73,8 +77,8 @@
     "zksync:velocore:add": "ts-node scripts/add-solidly.ts --network zksync --project velocore --newFee true --lp",
     "zksync:vesync:add": "ts-node scripts/add-solidly.ts --network zksync --project vesync --newFee true --lp",
     "zksync:dracula:add": "ts-node scripts/add-solidly.ts --network zksync --project dracula --newFee true --lp",
-    "zkevm:quick:add": "ts-node scripts/add-sushi.ts --network zkevm --project quickZkevm --newFee true --pool",
-    "gen-abi-types": "abi-types-generator ./src/abis/StableSwap.json --output='./src/abis/StableSwap/types'"
+    "sonic:equalizer:add": "ts-node scripts/add-solidly.ts --network sonic --project sonicEqualizer --newFee true --lp",
+    "eols": "ts-node scripts/findEolPools.js"
   },
   "dependencies": {
     "@apollo/client": "^3.5.6",

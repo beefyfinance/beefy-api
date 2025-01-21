@@ -15,7 +15,8 @@ export type Vault = {
   id: string;
   address: Address;
   poolAddress: Address;
-  type: 'standard' | 'gov' | 'cowcentrated';
+  /** @dev this does not match vault config */
+  type: 'standard' | 'gov' | 'cowcentrated' | 'cowcentrated-pool' | 'cowcentrated-vault';
   chainId: AppChain;
 };
 
@@ -23,7 +24,7 @@ export type CampaignVault = Vault & {
   apr: number;
 };
 
-export type BeefyCampaignType = 'test' | 'arb-ltipp' | 'op-gov-fund' | 'zap-v3' | 'other';
+export type BeefyCampaignType = 'test' | 'arb-ltipp' | 'op-gov-fund' | 'zap-v3' | 'mode-grant' | 'other';
 export type ExternalCampaignType = 'external';
 export type CampaignType = BeefyCampaignType | ExternalCampaignType;
 

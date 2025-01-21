@@ -1,14 +1,12 @@
 const { getCurveApys } = require('./getCurveApys');
 const { getSushiLpApys } = require('./getSushiLpApys');
 const getEquilibreApys = require('./getEquilibreApys');
-const { getKinetixApys } = require('./getKinetixApys');
 const getStargateKavaApys = require('./getStargateKavaApys');
 
 const getApys = [
   getCurveApys,
   // getSushiLpApys,
   getEquilibreApys,
-  getKinetixApys,
   getStargateKavaApys,
 ];
 

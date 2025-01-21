@@ -48,6 +48,12 @@ const {
   fraxtal: {
     platforms: { ra },
   },
+  scroll: {
+    platforms: { nuri, tokan },
+  },
+  sonic: {
+    platforms: { equalizer: sonicEqualizer },
+  },
 } = addressBook;
 
 const projects = {
@@ -77,8 +83,8 @@ const projects = {
   },
   thena: {
     prefix: 'thena',
-    stableFile: '../src/data/degens/thenaStableLpPools.json',
-    volatileFile: '../src/data/degens/thenaLpPools.json',
+    stableFile: '../src/data/bsc/thenaStableLpPools.json',
+    volatileFile: '../src/data/bsc/thenaLpPools.json',
     voter: thena.voter,
   },
   spiritVolatile: {
@@ -108,12 +114,6 @@ const projects = {
     stableFile: '../src/data/ethereum/solidlyStableLpPools.json',
     volatileFile: '../src/data/ethereum/solidlyLpPools.json',
     voter: solidly.voter,
-  },
-  solidlizard: {
-    prefix: 'solidlizard',
-    stableFile: '../src/data/arbitrum/solidlizardStableLpPools.json',
-    volatileFile: '../src/data/arbitrum/solidlizardLpPools.json',
-    voter: solidlizard.voter,
   },
   cvm: {
     prefix: 'cvm',
@@ -174,6 +174,24 @@ const projects = {
     stableFile: '../src/data/fraxtal/raStablePools.json',
     volatileFile: '../src/data/fraxtal/raPools.json',
     voter: ra.voter,
+  },
+  nuri: {
+    prefix: 'nuri',
+    stableFile: '../src/data/scroll/nuriStablePools.json',
+    volatileFile: '../src/data/scroll/nuriVolatilePools.json',
+    voter: nuri.voter,
+  },
+  tokan: {
+    prefix: 'tokan',
+    stableFile: '../src/data/scroll/tokanStablePools.json',
+    volatileFile: '../src/data/scroll/tokanVolatilePools.json',
+    voter: tokan.voter,
+  },
+  sonicEqualizer: {
+    prefix: 'equalizer-sonic',
+    stableFile: '../src/data/sonic/equalizerStableLpPools.json',
+    volatileFile: '../src/data/sonic/equalizerLpPools.json',
+    voter: sonicEqualizer.voter,
   },
 };
 
@@ -290,10 +308,7 @@ async function main() {
 
   const newPools = [newPool, ...poolsJson];
 
-  fs.writeFileSync(
-    path.resolve(__dirname, poolsJsonFile),
-    JSON.stringify(newPools, null, 2) + '\n'
-  );
+  fs.writeFileSync(path.resolve(__dirname, poolsJsonFile), JSON.stringify(newPools, null, 2) + '\n');
 
   console.log(newPool);
 }

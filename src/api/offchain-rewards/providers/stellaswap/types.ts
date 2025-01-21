@@ -21,6 +21,7 @@ export type FarmingAprResult = {
   pools: {
     [poolAddress: string]: {
       apr: string;
+      beefyApr: number | null;
       totalNativeAmount: string;
       totalNativeReward: string;
       tokenRewards: {
@@ -33,6 +34,7 @@ export type FarmingAprResult = {
           tokenRPS: string;
           glmrPerSecond: string;
           apr: string;
+          beefyApr: number | null;
         };
       };
     };

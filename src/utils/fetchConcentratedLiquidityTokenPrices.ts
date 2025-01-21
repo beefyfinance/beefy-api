@@ -2,9 +2,10 @@ import IUniV3PoolAbi from '../abis/IUniV3Pool';
 import IKyberElasticPoolAbi from '../abis/IKyberElasticPool';
 import IAlgebraPool from '../abis/IAlgebraPool';
 import IAlgebraPoolV1 from '../abis/IAlgebraPoolV1';
+import IAlgebraPoolV2 from '../abis/IAlgebraPoolV2';
+import ISlipstreamPool from '../abis/ISlipstreamPool';
 import { ChainId } from '../../packages/address-book/src/types/chainid';
 import { fetchContract } from '../api/rpc/client';
-import { chain } from 'lodash';
 
 type ConcentratedLiquidityToken = {
   type: string;
@@ -97,6 +98,14 @@ const tokens: Partial<Record<keyof typeof ChainId, ConcentratedLiquidityToken[]>
       firstToken: 'WETH',
       secondToken: 'DINERO',
     },
+    {
+      type: 'UniV3',
+      oracleId: 'EIGEN',
+      decimalDelta: 1,
+      pool: '0xC2C390c6CD3C4e6c2b70727d35a45e8a072F18cA',
+      firstToken: 'EIGEN',
+      secondToken: 'WETH',
+    },
   ],
   polygon: [
     {
@@ -133,6 +142,14 @@ const tokens: Partial<Record<keyof typeof ChainId, ConcentratedLiquidityToken[]>
     },
   ],
   arbitrum: [
+    {
+      type: 'UniV3',
+      oracleId: 'GNS',
+      decimalDelta: 1,
+      pool: '0xC91B7b39BBB2c733f0e7459348FD0c80259c8471',
+      firstToken: 'WETH',
+      secondToken: 'GNS',
+    },
     {
       type: 'UniV3',
       oracleId: 'SVY',
@@ -197,6 +214,14 @@ const tokens: Partial<Record<keyof typeof ChainId, ConcentratedLiquidityToken[]>
       firstToken: 'arbUSD+',
       secondToken: 'arbOVN',
     },
+    {
+      type: 'AlgebraV1',
+      oracleId: 'ORDER',
+      decimalDelta: 1,
+      pool: '0x256899bD2E99C6736B34caF298719Cc709925819',
+      firstToken: 'ETH',
+      secondToken: 'ORDER',
+    },
   ],
   moonbeam: [
     {
@@ -207,6 +232,14 @@ const tokens: Partial<Record<keyof typeof ChainId, ConcentratedLiquidityToken[]>
       firstToken: 'GLMR',
       secondToken: 'USDCwh',
     },
+    {
+      type: 'Algebra',
+      oracleId: 'stDOT',
+      decimalDelta: 1,
+      pool: '0xD9d1064E32704BDd540F90D3A9ecAF037748b966',
+      firstToken: 'xcDOT',
+      secondToken: 'stDOT',
+    },
   ],
   linea: [
     {
@@ -216,6 +249,14 @@ const tokens: Partial<Record<keyof typeof ChainId, ConcentratedLiquidityToken[]>
       pool: '0xdDa5Ec5Af00AB99dC80c33E08881EB80C027d498',
       firstToken: 'LYNX',
       secondToken: 'USDC',
+    },
+    {
+      type: 'Algebra',
+      oracleId: 'FOXY',
+      decimalDelta: 1,
+      pool: '0x1Bace56A8C0AE13F5FA08198EabfBA21f6d588D2',
+      firstToken: 'ETH',
+      secondToken: 'FOXY',
     },
   ],
   real: [
@@ -238,10 +279,18 @@ const tokens: Partial<Record<keyof typeof ChainId, ConcentratedLiquidityToken[]>
     {
       type: 'UniV3',
       oracleId: 'PEARL',
-      decimalDelta: 1,
-      pool: '0x35BA384F9D30D68028898849ddBf5bda09bbE7EA',
+      decimalDelta: 1e-12,
+      pool: '0x374a765309B6D5a123f32971dcA1E6CeF9fa0066',
       firstToken: 'PEARL',
-      secondToken: 'USTB',
+      secondToken: 'USDC',
+    },
+    {
+      type: 'UniV3',
+      oracleId: 'CVR',
+      decimalDelta: 1,
+      pool: '0xfA88A4a7fF6D776c3D0A637095d7a9a4ed813872',
+      firstToken: 'PEARL',
+      secondToken: 'CVR',
     },
     {
       type: 'UniV3',
@@ -261,11 +310,11 @@ const tokens: Partial<Record<keyof typeof ChainId, ConcentratedLiquidityToken[]>
     },
     {
       type: 'UniV3',
-      oracleId: 'MORE',
+      oracleId: 'UKRE',
       decimalDelta: 1,
-      pool: '0x6b1a34df762f1d3367e7e93AE5661c88CA848423',
-      firstToken: 'USTB',
-      secondToken: 'MORE',
+      pool: '0x72c20EBBffaE1fe4E9C759b326D97763E218F9F6',
+      firstToken: 'arcUSD',
+      secondToken: 'UKRE',
     },
   ],
   optimism: [
@@ -276,6 +325,240 @@ const tokens: Partial<Record<keyof typeof ChainId, ConcentratedLiquidityToken[]>
       pool: '0xa5B6d588CEb3aA1BF543d095038479188f884690',
       firstToken: 'uniBTC',
       secondToken: 'WBTC',
+    },
+  ],
+  base: [
+    {
+      type: 'Slipstream',
+      oracleId: 'ODOS',
+      decimalDelta: 1e-12,
+      pool: '0xb7068556049dF8Fb3ae77CCbb9611FE0e85B2641',
+      firstToken: 'ODOS',
+      secondToken: 'USDC',
+    },
+    {
+      type: 'Slipstream',
+      oracleId: 'basemooBIFI',
+      decimalDelta: 1,
+      pool: '0xb378137c90444BbceCD44a1f766851fbf53D2a9E',
+      firstToken: 'basemooBIFI',
+      secondToken: 'ETH',
+    },
+    {
+      type: 'Slipstream',
+      oracleId: 'wBLT',
+      decimalDelta: 1e12,
+      pool: '0x7cE345561E1690445eEfA0dB04F59d64b65598A8',
+      firstToken: 'USDC',
+      secondToken: 'wBLT',
+    },
+    {
+      type: 'Slipstream',
+      oracleId: 'superOETHb',
+      decimalDelta: 1,
+      pool: '0x6446021F4E396dA3df4235C62537431372195D38',
+      firstToken: 'ETH',
+      secondToken: 'superOETHb',
+    },
+    {
+      type: 'Slipstream',
+      oracleId: 'HarryPotterObamaSonic10Inu',
+      decimalDelta: 1e-10,
+      pool: '0xfD22D75b2FB405EE185155D57B0277b9DB2F8E29',
+      firstToken: 'ETH',
+      secondToken: 'HarryPotterObamaSonic10Inu',
+    },
+    {
+      type: 'UniV3',
+      oracleId: 'baseLUNA',
+      decimalDelta: 1,
+      pool: '0x3A3dc4A26d1ACEAE12fD1026a5856F12d20658EA',
+      firstToken: 'baseLUNA',
+      secondToken: 'ETH',
+    },
+    {
+      type: 'UniV3',
+      oracleId: 'SPEC',
+      decimalDelta: 1,
+      pool: '0x8055e6de251e414e8393b20AdAb096AfB3cF8399',
+      firstToken: 'SPEC',
+      secondToken: 'ETH',
+    },
+    {
+      type: 'UniV3',
+      oracleId: 'HIGHER',
+      decimalDelta: 1,
+      pool: '0xCC28456d4Ff980CeE3457Ca809a257E52Cd9CDb0',
+      firstToken: 'ETH',
+      secondToken: 'HIGHER',
+    },
+    {
+      type: 'UniV3',
+      oracleId: 'TALENT',
+      decimalDelta: 1,
+      pool: '0xAfD8f9B89e2Af8246523573A369010DAF9489B12',
+      firstToken: 'TALENT',
+      secondToken: 'ETH',
+    },
+    {
+      type: 'UniV3',
+      oracleId: 'BRETT',
+      decimalDelta: 1,
+      pool: '0xBA3F945812a83471d709BCe9C3CA699A19FB46f7',
+      firstToken: 'BRETT',
+      secondToken: 'ETH',
+    },
+    {
+      type: 'UniV3',
+      oracleId: 'CLANKER',
+      decimalDelta: 1,
+      pool: '0xC1a6FBeDAe68E1472DbB91FE29B51F7a0Bd44F97',
+      firstToken: 'ETH',
+      secondToken: 'CLANKER',
+    },
+    {
+      type: 'UniV3',
+      oracleId: 'LUM',
+      decimalDelta: 1,
+      pool: '0x717358A47AC99f3Cd233e723be331756b3951164',
+      firstToken: 'ETH',
+      secondToken: 'LUM',
+    },
+    {
+      type: 'UniV3',
+      oracleId: 'PARADOX',
+      decimalDelta: 1,
+      pool: '0x9e209Ff07f80E829f417261aEE659771Ce797a7d',
+      firstToken: 'ETH',
+      secondToken: 'PARADOX',
+    },
+    {
+      type: 'UniV3',
+      oracleId: 'ANON',
+      decimalDelta: 1,
+      pool: '0xc4eCaf115CBcE3985748c58dccfC4722fEf8247c',
+      firstToken: 'ETH',
+      secondToken: 'ANON',
+    },
+    {
+      type: 'UniV3',
+      oracleId: 'MORPHO',
+      decimalDelta: 1,
+      pool: '0x2F42Df4aF5312B492E9d7F7b2110D9c7bf2D9e4F',
+      firstToken: 'MORPHO',
+      secondToken: 'ETH',
+    },
+    {
+      type: 'UniV3',
+      oracleId: 'PUBLIUS',
+      decimalDelta: 1,
+      pool: '0x6cbCc650ac3D287BaD441F8fCce19aB9CD66c3d5',
+      firstToken: 'ETH',
+      secondToken: 'PUBLIUS',
+    },
+    {
+      type: 'UniV3',
+      oracleId: 'FCAST',
+      decimalDelta: 1,
+      pool: '0x4Ec1828654b4a28936701D08164721876e88f456',
+      firstToken: 'ETH',
+      secondToken: 'FCAST',
+    },
+    {
+      type: 'UniV3',
+      oracleId: 'SIMMI',
+      decimalDelta: 1,
+      pool: '0xe9a65059E895DD5D49806f6A71B63FEd0fFffD4B',
+      firstToken: 'ETH',
+      secondToken: 'SIMMI',
+    },
+    {
+      type: 'UniV3',
+      oracleId: 'AIFUN',
+      decimalDelta: 1,
+      pool: '0x58C10E00c2915F1b12bf08e8b0963b762D509d8E',
+      firstToken: 'AIFUN',
+      secondToken: 'ETH',
+    },
+    {
+      type: 'UniV3',
+      oracleId: 'CHAOS',
+      decimalDelta: 1,
+      pool: '0x01A1f5758c3a53057B6C819Ec7331e39c167794A',
+      firstToken: 'ETH',
+      secondToken: 'CHAOS',
+    },
+    {
+      type: 'UniV3',
+      oracleId: 'hyUSD',
+      decimalDelta: 1,
+      pool: '0xDaBfC89ceeF22AD623F57ffe8165531153fE6591',
+      firstToken: 'eUSD',
+      secondToken: 'hyUSD',
+    },
+  ],
+  zksync: [
+    {
+      type: 'UniV3',
+      oracleId: 'zkXVS',
+      decimalDelta: 1,
+      pool: '0x4152fDBf1CE1957B6FAFD55737f96A26b787eE9A',
+      firstToken: 'zkXVS',
+      secondToken: 'WETH',
+    },
+  ],
+  mode: [
+    {
+      type: 'Slipstream',
+      oracleId: 'XVELO',
+      decimalDelta: 1,
+      pool: '0xc2026f3fb6fc51F4EcAE40a88b4509cB6C143ed4',
+      firstToken: 'XVELO',
+      secondToken: 'WETH',
+    },
+    {
+      type: 'Slipstream',
+      oracleId: 'modesUSDe',
+      decimalDelta: 1e12,
+      pool: '0xa2E74518fe27B0FC04Ea36024ea837d26cd09CDa',
+      firstToken: 'USDC',
+      secondToken: 'modesUSDe',
+    },
+  ],
+  lisk: [
+    {
+      type: 'UniV3',
+      oracleId: 'LSK',
+      decimalDelta: 1,
+      pool: '0xD501d4E381491F64274Cc65fdec32b47264a2422',
+      firstToken: 'LSK',
+      secondToken: 'WETH',
+    },
+  ],
+  sonic: [
+    {
+      type: 'AlgebraV2',
+      oracleId: 'SWPx',
+      decimalDelta: 1,
+      pool: '0xbeca246a76942502f61bfe88f60bbc87dafefe80',
+      firstToken: 'SWPx',
+      secondToken: 'WS',
+    },
+    {
+      type: 'UniV3',
+      oracleId: 'SHADOW',
+      decimalDelta: 1,
+      pool: '0x66af3655e14a045F1742b3c9544553Ef7915ed35',
+      firstToken: 'stS',
+      secondToken: 'SHADOW',
+    },
+    {
+      type: 'UniV3',
+      oracleId: 'smooBIFI',
+      decimalDelta: 1e-12,
+      pool: '0xFD8fc59E65860e7FAaf09482e6Be4af65741DEba',
+      firstToken: 'smooBIFI',
+      secondToken: 'sUSDCe',
     },
   ],
 };
@@ -295,6 +578,12 @@ async function getConcentratedLiquidityPrices(
     } else if (token.type == 'AlgebraV1') {
       const tokenContract = fetchContract(token.pool, IAlgebraPoolV1, chainId);
       return tokenContract.read.globalState();
+    } else if (token.type == 'AlgebraV2') {
+      const tokenContract = fetchContract(token.pool, IAlgebraPoolV2, chainId);
+      return tokenContract.read.globalState();
+    } else if (token.type == 'Slipstream') {
+      const tokenContract = fetchContract(token.pool, ISlipstreamPool, chainId);
+      return tokenContract.read.slot0();
     } else {
       const tokenContract = fetchContract(token.pool, IUniV3PoolAbi, chainId);
       return tokenContract.read.slot0();
@@ -310,10 +599,8 @@ async function getConcentratedLiquidityPrices(
       const second = chainTokens[i].secondToken;
       prices[chainTokens[i].oracleId] =
         first == chainTokens[i].oracleId
-          ? (tokenPrices[second] || prices[second]) /
-            (chainTokens[i].decimalDelta * Math.pow(1.0001, v))
-          : (tokenPrices[first] || prices[first]) *
-            (chainTokens[i].decimalDelta * Math.pow(1.0001, v));
+          ? (tokenPrices[second] || prices[second]) / (chainTokens[i].decimalDelta * Math.pow(1.0001, v))
+          : (tokenPrices[first] || prices[first]) * (chainTokens[i].decimalDelta * Math.pow(1.0001, v));
     });
     return Object.values(prices);
   } catch (e) {
@@ -322,16 +609,10 @@ async function getConcentratedLiquidityPrices(
   }
 }
 
-export async function fetchConcentratedLiquidityTokenPrices(
-  tokenPrices
-): Promise<Record<string, number>> {
+export async function fetchConcentratedLiquidityTokenPrices(tokenPrices): Promise<Record<string, number>> {
   const pricesByChain: Record<string, number>[] = await Promise.all(
     Object.entries(tokens).map(async ([chainId, chainTokens]) => {
-      const prices = await getConcentratedLiquidityPrices(
-        tokenPrices,
-        chainTokens,
-        ChainId[chainId]
-      );
+      const prices = await getConcentratedLiquidityPrices(tokenPrices, chainTokens, ChainId[chainId]);
       return Object.fromEntries(chainTokens.map((token, i) => [token.oracleId, prices[i] || 0]));
     })
   );

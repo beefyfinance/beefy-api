@@ -1,9 +1,9 @@
 import type { Token } from '../../../types/token.js';
 
 const MATIC = {
-  name: 'Wrapped Matic',
+  name: 'Wrapped POL',
   address: '0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270',
-  symbol: 'WMATIC',
+  symbol: 'WPOL',
   oracleId: 'WMATIC',
   decimals: 18,
   chainId: 137,
@@ -31,6 +31,11 @@ const MAI = {
 } as const satisfies Token;
 
 export const tokens = {
+  MATIC,
+  WMATIC: MATIC,
+  WNATIVE: MATIC,
+  POL: MATIC,
+  WPOL: MATIC,
   frxETH: {
     name: 'Frax Ether',
     symbol: 'frxETH',
@@ -1308,9 +1313,6 @@ export const tokens = {
     logoURI:
       'https://assets.coingecko.com/coins/images/16282/small/ws_purple_circle_200x200_%281%29.png',
   },
-  MATIC,
-  WMATIC: MATIC,
-  WNATIVE: MATIC,
   xMARK: {
     name: 'Standard',
     address: '0xf153EfF70DC0bf3b085134928daeEA248d9B30d0',

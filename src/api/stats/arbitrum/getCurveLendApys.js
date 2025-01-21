@@ -10,8 +10,8 @@ export const getCurveLendApys = async () => {
   if (curvePools.length === 0) return {};
 
   const [baseApys, curveApys, convexApys] = await Promise.all([
-    await getCurveLendSupplyApys(chainId, pools),
-    await getCurveApysCommon(chainId, curvePools),
+    getCurveLendSupplyApys(chainId, pools),
+    getCurveApysCommon(chainId, curvePools),
     [],
   ]);
   const poolsMap = pools.map(p => ({ name: p.name, address: p.name }));

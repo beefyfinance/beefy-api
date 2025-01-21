@@ -1,7 +1,6 @@
 const BigNumber = require('bignumber.js');
 import { fetchPrice } from '../../../utils/fetchPrice';
 const voltageLpPools = require('../../../data/fuse/voltageLpPools.json');
-const voltageStableLpPools = require('../../../data/fuse/voltageStableLpPools.json');
 const { BASE_HPY, FUSE_CHAIN_ID } = require('../../../constants');
 const { getTradingFeeApr } = require('../../../utils/getTradingFeeApr');
 import { getFarmWithTradingFeesApy } from '../../../utils/getFarmWithTradingFeesApy';
@@ -45,21 +44,18 @@ const getVoltageApys = async () => {
 
   const tokenPriceA = await fetchPrice({ oracle: oracleA, id: oracleIdA });
 
-  const pools = [...voltageLpPools, ...voltageStableLpPools, ...xVOLT];
+  const pools = [...voltageLpPools, ...xVOLT];
 
-  const [
-    { rewardPerSecond, totalAllocPoint },
-    tradingAprs,
-    { balances, allocPoints, tokenPerSecData },
-  ] = await Promise.all([
-    getMasterChefData(),
-    getTradingFeeApr(
-      fusefiClient,
-      voltageLpPools.map(pool => pool.address),
-      liquidityProviderFee
-    ),
-    getPoolsData(pools),
-  ]);
+  const [{ rewardPerSecond, totalAllocPoint }, tradingAprs, { balances, allocPoints, tokenPerSecData }] =
+    await Promise.all([
+      getMasterChefData(),
+      getTradingFeeApr(
+        fusefiClient,
+        voltageLpPools.map(pool => pool.address),
+        liquidityProviderFee
+      ),
+      getPoolsData(pools),
+    ]);
 
   for (let i = 0; i < pools.length; i++) {
     const pool = pools[i];

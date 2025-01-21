@@ -1,0 +1,42 @@
+[
+  {
+    "name": "velodrome-lisk-lsk-weth",
+    "address": "0x79a7dBF4d7eA058F0d3B94db7fF86F1c1A7BDb25",
+    "gauge": "0xAD6a17F3DeB425371730198073D69c83052351D6",
+    "decimals": "1e18",
+    "chainId": 1135,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0x4200000000000000000000000000000000000006",
+      "oracle": "tokens",
+      "oracleId": "WETH",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xac485391EB2d7D88253a7F1eF18C37f4242D1A24",
+      "oracle": "tokens",
+      "oracleId": "LSK",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "velodrome-lisk-weth-usdc.e",
+    "address": "0x5C2bb5Fcb384D7244e5892926985bF5Ec6cE3488",
+    "gauge": "0x0277d114BD08E3Ffdc25D289A2094A9E0aB801cF",
+    "decimals": "1e18",
+    "chainId": 1135,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0x4200000000000000000000000000000000000006",
+      "oracle": "tokens",
+      "oracleId": "WETH",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xF242275d3a6527d877f2c927a82D9b057609cc71",
+      "oracle": "tokens",
+      "oracleId": "USDC",
+      "decimals": "1e6"
+    }
+  }
+]

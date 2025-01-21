@@ -41,8 +41,6 @@ import netswapPools from '../../data/metis/netswapLpPools.json';
 import tethysPools from '../../data/metis/tethysLpPools.json';
 import sushiFusePools from '../../data/fuse/sushiFuseLpPools.json';
 import trisolarisMiniPools from '../../data/aurora/trisolarisMiniLpPools.json';
-import beamswapPools from '../../data/moonbeam/beamswapLpPools.json';
-import beamswapMultiRewardLpPools from '../../data/moonbeam/beamswapMultiRewardLpPools.json';
 import stellaswapPools from '../../data/moonbeam/stellaswapLpPools.json';
 import stellaswapPoolsV2 from '../../data/moonbeam/stellaswapLpV2Pools.json';
 import darkCryptoPools from '../../data/cronos/darkCryptoLpPools.json';
@@ -63,7 +61,6 @@ import synapseLpPools from '../../data/ethereum/synapseLpPools.json';
 import solidlyLpPools from '../../data/ethereum/solidlyLpPools.json';
 import cantoLpPools from '../../data/canto/cantoLpPools.json';
 import solidLizardPools from '../../data/arbitrum/solidlizardLpPools.json';
-import velocimeterPools from '../../data/canto/velocimeterLpPools.json';
 import velocimeterV2Pools from '../../data/canto/velocimeterV2LpPools.json';
 import equilibrePools from '../../data/kava/equilibreLpPools.json';
 import versePools from '../../data/ethereum/verseLpPools.json';
@@ -72,7 +69,6 @@ import velocorePools from '../../data/zksync/velocoreLpPools.json';
 import veSyncPools from '../../data/zksync/veSyncLpPools.json';
 import fvmPools from '../../data/fantom/fvmLpPools.json';
 import bvmPools from '../../data/base/bvmLpPools.json';
-import cvmPools from '../../data/canto/cvmLpPools.json';
 import baseSwapPools from '../../data/base/baseSwapLpPools.json';
 import ooeV2Pools from '../../data/bsc/ooeV2LpPools.json';
 import draculaPools from '../../data/zksync/draculaLpPools.json';
@@ -85,8 +81,11 @@ import moePools from '../../data/mantle/moeLpPools.json';
 import lynexPools from '../../data/linea/lynexVolatilePools.json';
 import nilePools from '../../data/linea/nileVolatilePools.json';
 import raPools from '../../data/fraxtal/raPools.json';
+import nuriPools from '../../data/scroll/nuriVolatilePools.json';
+import tokanPools from '../../data/scroll/tokanVolatilePools.json';
 import velodromeModePools from '../../data/mode/velodromeModePools.json';
-import { fetchVaultPrices } from '../../utils/fetchVaultPrices';
+import velodromeLiskPools from '../../data/lisk/velodromeLiskPools.json';
+import equalizerSonicPools from '../../data/sonic/equalizerLpPools.json';
 import { addressBookByChainId } from '../../../packages/address-book/src/address-book';
 import { sleep } from '../../utils/time';
 import { isFiniteNumber } from '../../utils/number';
@@ -96,6 +95,7 @@ import { fetchVenusPrices } from './bsc/venus/getVenusPrices';
 import { getLpBasedPrices } from './getLpBasedPrices';
 import uniswapLpPools from '../../data/ethereum/uniswapV2LpPools.json';
 import { fetchDexScreenerPriceOracles, OraclePriceRequest } from '../../utils/fetchDexScreenerPrices';
+import { promiseTiming } from '../../utils/timing';
 
 const INIT_DELAY = 2 * 1000;
 const REFRESH_INTERVAL = 5 * 60 * 1000;
@@ -103,7 +103,11 @@ const REFRESH_INTERVAL = 5 * 60 * 1000;
 // FIXME: if this list grows too big we might hit the ratelimit on initialization everytime
 // Implement in case of emergency -> https://github.com/beefyfinance/beefy-api/issues/103
 const pools = normalizePoolOracleIds([
+  ...equalizerSonicPools,
+  ...velodromeLiskPools,
   ...velodromeModePools,
+  ...tokanPools,
+  ...nuriPools,
   ...raPools,
   ...moePools,
   ...equalizerBasePools,
@@ -118,14 +122,12 @@ const pools = normalizePoolOracleIds([
   ...baseSwapPools,
   ...fvmPools,
   ...bvmPools,
-  ...cvmPools,
   ...veSyncPools,
   ...velocorePools,
   ...ramsesPools,
   ...versePools,
   ...equilibrePools,
   ...velocimeterV2Pools,
-  ...velocimeterPools,
   ...solidLizardPools,
   ...cantoLpPools,
   ...solidlyLpPools,
@@ -155,8 +157,6 @@ const pools = normalizePoolOracleIds([
   ...liquidusPools,
   ...solarbeamDualLpV2Pools,
   ...oldPools,
-  ...beamswapMultiRewardLpPools,
-  ...beamswapPools,
   ...finnLpPools,
   ...trisolarisLpPools,
   ...solarbeamDualLpPools,
@@ -244,6 +244,25 @@ const coinGeckoCoins: Record<string, string[]> = {
   'based-pepe': ['basePEPE'],
   toshi: ['TOSHI'],
   somon: ['OwO'],
+  'coinbase-wrapped-btc': ['cbBTC'],
+  shezmuusd: ['ShezUSD'],
+  shezmueth: ['ShezETH'],
+  'knox-dollar': ['KNOX'],
+  'gogopool-ggavax': ['ggAVAX'],
+  'rif-token': ['RIF'],
+  'dollar-on-chain': ['DOC'],
+  'equilibria-finance-ependle': ['ePENDLE'],
+  mpendle: ['mPENDLE'],
+  penpie: ['PNP'],
+  're-al': ['RWA'],
+  dogwifcoin: ['WIF'],
+  moonbeam: ['GLMR'],
+  scroll: ['SCR'],
+  'binance-bitcoin': ['BTCB'],
+  ankreth: ['ankrETH'],
+  'usda-2': ['USDa'],
+  'kim-token': ['xKIM', 'KIM'],
+  'beets-staked-sonic': ['stS'],
 };
 
 /**
@@ -291,11 +310,6 @@ const dexscreenerCoins: OraclePriceRequest[] = [
     chainId: 'linea',
   },
   {
-    oracleId: 'KNOX',
-    tokenAddress: '0x0BBF664D46becc28593368c97236FAa0fb397595',
-    chainId: 'arbitrum',
-  },
-  {
     oracleId: 'NORMUS',
     tokenAddress: '0xBA5EDE8d98ab88CEa9f0D69918ddE28Dc23c2553',
     chainId: 'base',
@@ -329,6 +343,36 @@ const dexscreenerCoins: OraclePriceRequest[] = [
     oracleId: 'opmsUSD',
     tokenAddress: '0x9dAbAE7274D28A45F0B65Bf8ED201A5731492ca0',
     chainId: 'optimism',
+  },
+  {
+    oracleId: 'msOP',
+    tokenAddress: '0x33bCa143d9b41322479E8d26072a00a352404721',
+    chainId: 'optimism',
+  },
+  {
+    oracleId: 'baseETHFI',
+    tokenAddress: '0x6C240DDA6b5c336DF09A4D011139beAAa1eA2Aa2',
+    chainId: 'base',
+  },
+  {
+    oracleId: 'OGN',
+    tokenAddress: '0x7002458B1DF59EccB57387bC79fFc7C29E22e6f7',
+    chainId: 'base',
+  },
+  {
+    oracleId: 'arbXVS',
+    tokenAddress: '0xc1Eb7689147C81aC840d4FF0D298489fc7986d52',
+    chainId: 'arbitrum',
+  },
+  {
+    oracleId: 'scUSD',
+    tokenAddress: '0xd3DCe716f3eF535C5Ff8d041c1A41C3bd89b97aE',
+    chainId: 'sonic',
+  },
+  {
+    oracleId: 'LUDWIG',
+    tokenAddress: '0xe6cc4D855B4fD4A9D02F46B9adae4C5EfB1764B5',
+    chainId: 'sonic',
   },
 ];
 
@@ -375,6 +419,7 @@ const seedPeggedPrices = {
   xcUSDC: 'USDC', // Kusama
   xcUSDT: 'USDT', // Kusama
   WSEI: 'SEI', // Wrapped SEI
+  USDS: 'DAI',
 };
 
 export type BaseLpBreakdown = {
@@ -459,29 +504,32 @@ async function performUpdateAmmPrices() {
   });
 
   const venusPrices = ammPrices.then(async ({ tokenPrices }) => {
-    return await fetchVenusPrices(tokenPrices);
+    return await promiseTiming(fetchVenusPrices(tokenPrices), 'fetchVenusPrices');
   });
 
   const curveTokenPrices = ammPrices.then(async ({ tokenPrices }) => {
-    return await fetchCurveTokenPrices(tokenPrices);
+    return await promiseTiming(fetchCurveTokenPrices(tokenPrices), 'fetchCurveTokenPrices');
   });
 
   const solidlyStableTokenPrices = ammPrices.then(async ({ tokenPrices }) => {
-    return await fetchSolidlyStableTokenPrices(tokenPrices);
+    return await promiseTiming(fetchSolidlyStableTokenPrices(tokenPrices), 'fetchSolidlyStableTokenPrices');
   });
 
   const xPrices = ammPrices.then(async ({ tokenPrices }) => {
-    return await fetchXPrices(tokenPrices);
+    return await promiseTiming(fetchXPrices(tokenPrices), 'fetchXPrices');
   });
 
   const mooPrices = ammPrices.then(async ({ poolPrices, tokenPrices }) => {
-    return await fetchMooPrices(mooTokens, tokenPrices, poolPrices);
+    return await promiseTiming(fetchMooPrices(mooTokens, tokenPrices, poolPrices), 'fetchMooPrices');
   });
 
   const optionPrices = ammPrices.then(async ({ tokenPrices }) => {
-    const concLiqPrices = await fetchConcentratedLiquidityTokenPrices(tokenPrices);
+    const concLiqPrices = await promiseTiming(
+      fetchConcentratedLiquidityTokenPrices(tokenPrices),
+      'fetchConcentratedLiquidityTokenPrices'
+    );
     const prices = { ...tokenPrices, ...concLiqPrices };
-    const optionPrices = await fetchOptionTokenPrices(prices);
+    const optionPrices = await promiseTiming(fetchOptionTokenPrices(prices), 'fetchOptionTokenPrices');
     return {
       ...optionPrices,
       ...concLiqPrices,
@@ -489,20 +537,27 @@ async function performUpdateAmmPrices() {
   });
 
   const linearPoolPrice = ammPrices.then(async ({ tokenPrices }): Promise<Record<string, number>> => {
-    const jbrlTokenPrice = await fetchJbrlPrice();
-    const yVaultPrices = await fetchyVaultPrices(tokenPrices);
-    const vaultPrices = await fetchVaultPrices(tokenPrices);
-    const wrappedAavePrices = await fetchWrappedAavePrices(tokenPrices);
+    const jbrlTokenPrice = await promiseTiming(fetchJbrlPrice(), 'fetchJbrlPrice');
+    const yVaultPrices = await promiseTiming(fetchyVaultPrices(tokenPrices), 'fetchyVaultPrices');
+    const wrappedAavePrices = await promiseTiming(
+      fetchWrappedAavePrices(tokenPrices),
+      'fetchWrappedAavePrices'
+    );
     const prices = {
       ...tokenPrices,
-      ...vaultPrices,
       ...wrappedAavePrices,
       ...jbrlTokenPrice,
       ...yVaultPrices,
     };
 
-    const linearPrices = await fetchBalancerLinearPoolPrice(prices);
-    const balancerStablePoolPrice = await fetchBalancerStablePoolPrice(linearPrices);
+    const linearPrices = await promiseTiming(
+      fetchBalancerLinearPoolPrice(prices),
+      'fetchBalancerLinearPoolPrice'
+    );
+    const balancerStablePoolPrice = await promiseTiming(
+      fetchBalancerStablePoolPrice(linearPrices),
+      'fetchBalancerStablePoolPrice'
+    );
 
     return {
       ...linearPrices,
@@ -519,6 +574,7 @@ async function performUpdateAmmPrices() {
       beQI: tokenPrices['QI'],
       beCAKE: tokenPrices['Cake'],
       beVelo: tokenPrices['BeVELO'],
+      wS: tokenPrices['WS'],
     };
   });
 
@@ -545,8 +601,14 @@ async function performUpdateAmmPrices() {
   });
 
   const lpData = ammPrices.then(async ({ poolPrices, lpsBreakdown }) => {
-    const nonAmmPrices = await getNonAmmPrices(await tokenPrices);
-    const pendlePrices = await getLpBasedPrices(await tokenPrices, poolPrices, nonAmmPrices);
+    const nonAmmPrices = await promiseTiming(
+      getNonAmmPrices(await tokenPrices, poolPrices),
+      'getNonAmmPrices'
+    );
+    const pendlePrices = await promiseTiming(
+      getLpBasedPrices(await tokenPrices, poolPrices, nonAmmPrices),
+      'getLpBasedPrices'
+    );
 
     return {
       prices: { ...poolPrices, ...nonAmmPrices.prices, ...pendlePrices.prices },

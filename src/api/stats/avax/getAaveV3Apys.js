@@ -3,7 +3,7 @@ const pools = require('../../../data/avax/aaveV3Pools.json');
 const { AVAX_CHAIN_ID } = require('../../../constants');
 
 const config = {
-  dataProvider: '0x69FA688f1Dc47d4B5d8029D5a35FB7a548310654',
+  dataProvider: '0x7F23D86Ee20D869112572136221e173428DD740B',
   incentives: '0x929EC64c34a17401F460460D4B9390518E5B473e',
   rewards: [
     {

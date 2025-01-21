@@ -1,0 +1,111 @@
+[
+  {
+    "address": "0xac763E75B02164b39A240DA60b060281BAd66a55",
+    "lpAddress": "0xa913882766Af5fFD34E72Bdd646e8E8957Fe1842",
+    "tokens": ["0x4200000000000000000000000000000000000006", "0xac485391EB2d7D88253a7F1eF18C37f4242D1A24"],
+    "tokenOracleIds": ["WETH", "LSK"],
+    "decimals": [18, 18],
+    "oracleId": "velodrome-cow-lisk-weth-lsk",
+    "providerId": "velodrome",
+    "rewardPool": {
+      "address": "0x74BE1F8930e7547dA19eE9D9035F7A185FC4C251",
+      "oracleId": "velodrome-cow-lisk-weth-lsk-rp"
+    },
+    "vault": {
+      "address": "0xA2A2Eff23093461098F51f58d9Bb0A1A4d46B304",
+      "oracleId": "velodrome-cow-lisk-weth-lsk-vault"
+    }
+  },
+  {
+    "address": "0x129E66F12e46D0B529786BA517dd00CECA343a73",
+    "lpAddress": "0xDC1479FD1Db51cA0079ceCfaA879232e168c8246",
+    "tokens": ["0x03C7054BCB39f7b2e5B2c7AcB37583e32D70Cfa3", "0x4200000000000000000000000000000000000006"],
+    "tokenOracleIds": ["WBTC", "WETH"],
+    "decimals": [8, 18],
+    "oracleId": "velodrome-cow-lisk-wbtc-weth",
+    "providerId": "velodrome",
+    "rewardPool": {
+      "address": "0xb1A1A9486d6FC5146525C010Df70e1E095ADD9a3",
+      "oracleId": "velodrome-cow-lisk-wbtc-weth-rp"
+    },
+    "vault": {
+      "address": "0xAc0E6ba47A20EE95E3149910dA3844b851537f25",
+      "oracleId": "velodrome-cow-lisk-wbtc-weth-vault"
+    }
+  },
+  {
+    "address": "0x38Dfe64d47E54feD51eAc11813a2a648e0024BFe",
+    "lpAddress": "0xc2026f3fb6fc51F4EcAE40a88b4509cB6C143ed4",
+    "tokens": ["0x4200000000000000000000000000000000000006", "0x7f9AdFbd38b669F03d1d11000Bc76b9AaEA28A81"],
+    "tokenOracleIds": ["WETH", "XVELO"],
+    "decimals": [18, 18],
+    "oracleId": "velodrome-cow-lisk-weth-xvelo",
+    "providerId": "velodrome",
+    "rewardPool": {
+      "address": "0x23C9159A4429c90dD250a900ea9F11222e6E88bd",
+      "oracleId": "velodrome-cow-lisk-weth-xvelo-rp"
+    },
+    "vault": {
+      "address": "0x8F4488c0423d418c4e4796A912Dd3E8c23624969",
+      "oracleId": "velodrome-cow-lisk-weth-xvelo-vault"
+    }
+  },
+  {
+    "address": "0xB3AAc1293632706E134E4cC41976B49EC89fAb1b",
+    "lpAddress": "0x18Eb25a15eC48Db3C42A0F41EC0a716Ba6b54514",
+    "tokens": ["0x05D032ac25d322df992303dCa074EE7392C117b9", "0xF242275d3a6527d877f2c927a82D9b057609cc71"],
+    "tokenOracleIds": ["USDT", "USDC"],
+    "decimals": [6, 6],
+    "oracleId": "velodrome-cow-lisk-usdt-usdc.e",
+    "providerId": "velodrome",
+    "rewardPool": {
+      "address": "0x6b18251437f88b8f169ecC5d950Cc7c4b885614E",
+      "oracleId": "velodrome-cow-lisk-usdt-usdc.e-rp"
+    },
+    "vault": {
+      "address": "0x19D1F0A1a2FE5807958b34ADBc0d0569A93727C7",
+      "oracleId": "velodrome-cow-lisk-usdt-usdc.e-vault"
+    }
+  },
+  {
+    "address": "0x270c72285aa76233AdAd07b6C20ac81d4fE68F8e",
+    "lpAddress": "0x25B559e6E64226C0A1637B8E94f3f4740fa0D562",
+    "tokens": ["0x05D032ac25d322df992303dCa074EE7392C117b9", "0x4200000000000000000000000000000000000006"],
+    "tokenOracleIds": ["USDT", "WETH"],
+    "decimals": [6, 18],
+    "oracleId": "velodrome-cow-lisk-usdt-weth",
+    "providerId": "velodrome",
+    "rewardPool": {
+      "address": "0x7C491106dc9583f4cAC26e226E0f44E8884F0C93",
+      "oracleId": "velodrome-cow-lisk-usdt-weth-rp"
+    },
+    "vault": {
+      "address": "0x54d91365cB1eA8F454DaA43af91f9198d32b62FD",
+      "oracleId": "velodrome-cow-lisk-usdt-weth-vault"
+    }
+  },
+  {
+    "address": "0x52115E698dC76Fc0ac75145c4f3F5d986E4CE162",
+    "lpAddress": "0xD501d4E381491F64274Cc65fdec32b47264a2422",
+    "tokens": ["0x4200000000000000000000000000000000000006", "0xac485391EB2d7D88253a7F1eF18C37f4242D1A24"],
+    "tokenOracleIds": ["WETH", "LSK"],
+    "decimals": [18, 18],
+    "oracleId": "uniswap-cow-lisk-weth-lsk",
+    "rewardPool": {
+      "address": "0xb321E8698E6587275Ca11AD63c40e912C8659cf6",
+      "oracleId": "uniswap-cow-lisk-weth-lsk-rp"
+    }
+  },
+  {
+    "address": "0xdC76e4fcE40C8224D6Bbc7Dd733165A8A07DCe0D",
+    "lpAddress": "0x3A670179BdecE7eB4f570e30Ee9D560f7ff4Fac3",
+    "tokens": ["0x05D032ac25d322df992303dCa074EE7392C117b9", "0x4200000000000000000000000000000000000006"],
+    "tokenOracleIds": ["USDT", "WETH"],
+    "decimals": [6, 18],
+    "oracleId": "uniswap-cow-lisk-usdt-weth",
+    "rewardPool": {
+      "address": "0x7BF7E5105b7AC0C8AAa37bCC632F5B9720A71F2a",
+      "oracleId": "uniswap-cow-lisk-usdt-weth-rp"
+    }
+  }
+]

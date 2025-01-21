@@ -1,5 +1,45 @@
 [
   {
+    "name": "aerodrome-jeur-eurc",
+    "address": "0xC75799e0646470128a42D07335aB3BFa9E8Ee7C2",
+    "gauge": "0x533eb2cEf740654D09764334Bd86E62F0a253d1a",
+    "decimals": "1e18",
+    "chainId": 8453,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0x4154550f4Db74Dc38d1FE98e1F3F28ed6daD627d",
+      "oracle": "tokens",
+      "oracleId": "jEUR",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x60a3E35Cc302bFA44Cb288Bc5a4F316Fdb1adb42",
+      "oracle": "tokens",
+      "oracleId": "EURC",
+      "decimals": "1e6"
+    }
+  },
+  {
+    "name": "aerodrome-tbtc-cbbtc",
+    "address": "0x488d6ea6064eEE9352fdCDB7BC50d98A7fF3AD4E",
+    "gauge": "0x80AAd55965d1eA36bAf15Ae6Ed798145ec65916F",
+    "decimals": "1e18",
+    "chainId": 8453,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0x236aa50979D5f3De3Bd1Eeb40E81137F22ab794b",
+      "oracle": "tokens",
+      "oracleId": "tBTC",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xcbB7C0000aB88B473b1f5aFd9ef808440eed33Bf",
+      "oracle": "tokens",
+      "oracleId": "cbBTC",
+      "decimals": "1e8"
+    }
+  },
+  {
     "name": "aerodrome-msusd-usdc",
     "address": "0xcEFC8B799a8EE5D9b312aeca73262645D664AaF7",
     "gauge": "0xDBF852464fC906C744E52Dbd68C1b07dD33A922a",
@@ -116,6 +156,26 @@
       "address": "0xCfA3Ef56d303AE4fAabA0592388F19d7C3399FB4",
       "oracle": "tokens",
       "oracleId": "eUSD",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "aerodrome-usdz-dola",
+    "address": "0xcEa8ef6ce6235F2C2CdD13C9E8a3ED470725a638",
+    "gauge": "0x528aD6E380E7B3B9D7eE3a492a52c4D3AC8f5958",
+    "decimals": "1e18",
+    "chainId": 8453,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0x04D5ddf5f3a8939889F11E97f8c4BB48317F1938",
+      "oracle": "tokens",
+      "oracleId": "USDz",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x4621b7A9c75199271F773Ebd9A499dbd165c3191",
+      "oracle": "tokens",
+      "oracleId": "baseDOLA",
       "decimals": "1e18"
     }
   },

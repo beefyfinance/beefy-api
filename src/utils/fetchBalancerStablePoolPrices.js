@@ -1,15 +1,13 @@
 import getBalancerPrices from '../api/stats/common/balancer/getBalancerPrices';
-import beetsPools from '../data/optimism/beethovenxSteadyBeets.json';
 import bbaUSD from '../data/ethereum/bbaUSD.json';
 import bbamUSD from '../data/matic/bbamUSD.json';
-import bbaaUSD from '../data/arbitrum/bbaaUSD.json';
 import beetsLinearPools from '../data/optimism/beethovenxLinearPools.json';
 import balancerLinearPools from '../data/ethereum/balancerLinearPools.json';
 import balancerPolyLinearPools from '../data/matic/balancerLinearPools.json';
 import balancerArbLinearPools from '../data/arbitrum/balancerLinearPools.json';
 import balancerBaseLinearPools from '../data/base/balancerLinearPools.json';
 
-const stablePoolPools = [...beetsPools, ...bbaUSD, ...bbamUSD, ...bbaaUSD];
+const stablePoolPools = [...bbaUSD, ...bbamUSD];
 const linearPoolPools = [
   ...beetsLinearPools,
   ...balancerLinearPools,

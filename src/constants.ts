@@ -28,10 +28,10 @@ const MAINNET_BSC_RPC_ENDPOINTS = [
 
 const CUSTOM_BSC_RPC_ENDPOINTS = [process.env.BSC_RPC].filter(item => item);
 
+/// RPC Endpoints
 const BSC_RPC_ENDPOINTS = CUSTOM_BSC_RPC_ENDPOINTS.length
   ? CUSTOM_BSC_RPC_ENDPOINTS
   : MAINNET_BSC_RPC_ENDPOINTS;
-
 const BSC_RPC = process.env.BSC_RPC || BSC_RPC_ENDPOINTS[0];
 const HECO_RPC = process.env.HECO_RPC || 'https://http-mainnet.hecochain.com';
 const AVAX_RPC = process.env.AVAX_RPC || 'https://rpc.ankr.com/avalanche';
@@ -41,10 +41,9 @@ const ONE_RPC = process.env.ONE_RPC || 'https://api.harmony.one/';
 const ARBITRUM_RPC = process.env.ARBITRUM_RPC || 'https://arb1.arbitrum.io/rpc';
 const CELO_RPC = process.env.CELO_RPC || 'https://forno.celo.org';
 const MOONRIVER_RPC = process.env.MOONRIVER_RPC || 'https://rpc.api.moonriver.moonbeam.network';
-const CRONOS_RPC = process.env.CRONOS_RPC || 'https://cronos.blockpi.network/v1/rpc/public';
+const CRONOS_RPC = process.env.CRONOS_RPC || 'https://rpc.vvs.finance';
 const AURORA_RPC =
-  process.env.AURORA_RPC ||
-  'https://mainnet.aurora.dev/Fon6fPMs5rCdJc4mxX4kiSK1vsKdzc3D8k6UF8aruek';
+  process.env.AURORA_RPC || 'https://mainnet.aurora.dev/Fon6fPMs5rCdJc4mxX4kiSK1vsKdzc3D8k6UF8aruek';
 const FUSE_RPC = process.env.FUSE_RPC || 'https://rpc.fuse.io';
 const METIS_RPC = process.env.METIS_RPC || 'https://andromeda.metis.io/?owner=1088';
 const MOONBEAM_RPC = process.env.MOONBEAM_RPC || 'https://rpc.api.moonbeam.network';
@@ -61,10 +60,15 @@ const LINEA_RPC = process.env.LINEA_RPC || 'https://rpc.linea.build';
 const MANTLE_RPC = process.env.MANTLE_RPC || 'https://rpc.mantle.xyz';
 const FRAXTAL_RPC = process.env.FRAXTAL_RPC || 'https://rpc.frax.com';
 const MODE_RPC = process.env.MODE_RPC || 'https://mode.drpc.org';
-const MANTA_RPC = process.env.MANTA_RPC || 'https://manta-pacific.drpc.org';
+const MANTA_RPC = process.env.MANTA_RPC || 'https://1rpc.io/manta';
 const REAL_RPC = process.env.REAL_RPC || 'https://real.drpc.org';
 const SEI_RPC = process.env.SEI_RPC || 'https://evm-rpc.sei-apis.com';
+const ROOTSTOCK_RPC = process.env.ROOTSTOCK_RPC || 'https://rootstock-mainnet.public.blastapi.io';
+const SCROLL_RPC = process.env.SCROLL_RPC || 'https://scroll-mainnet.public.blastapi.io';
+const LISK_RPC = process.env.LISK_RPC || 'https://rpc.api.lisk.com';
+const SONIC_RPC = process.env.SONIC_RPC || 'https://rpc.soniclabs.com';
 
+/// Chain IDs
 const BSC_CHAIN_ID = ChainId.bsc;
 const HECO_CHAIN_ID = ChainId.heco;
 const POLYGON_CHAIN_ID = ChainId.polygon;
@@ -95,7 +99,12 @@ const MODE_CHAIN_ID = ChainId.mode;
 const MANTA_CHAIN_ID = ChainId.manta;
 const REAL_CHAIN_ID = ChainId.real;
 const SEI_CHAIN_ID = ChainId.sei;
+const ROOTSTOCK_CHAIN_ID = ChainId.rootstock;
+const SCROLL_CHAIN_ID = ChainId.scroll;
+const LISK_CHAIN_ID = ChainId.lisk;
+const SONIC_CHAIN_ID = ChainId.sonic;
 
+/// LP Fee
 const SUSHI_LPF = 0.003;
 const PCS_LPF = 0.0017;
 const SPOOKY_LPF = 0.002;
@@ -140,8 +149,13 @@ const MULTICHAIN_RPC: Record<ChainId, string> = {
   [ChainId.manta]: MANTA_RPC,
   [ChainId.real]: REAL_RPC,
   [ChainId.sei]: SEI_RPC,
+  [ChainId.rootstock]: ROOTSTOCK_RPC,
+  [ChainId.scroll]: SCROLL_RPC,
+  [ChainId.lisk]: LISK_RPC,
+  [ChainId.sonic]: SONIC_RPC,
 };
 
+/// Beefy Vaults Endpoints
 const BSC_VAULTS_ENDPOINT =
   'https://raw.githubusercontent.com/beefyfinance/beefy-v2/prod/src/config/vault/bsc.json';
 const HECO_VAULTS_ENDPOINT =
@@ -202,6 +216,14 @@ const REAL_VAULTS_ENDPOINT =
   'https://raw.githubusercontent.com/beefyfinance/beefy-v2/prod/src/config/vault/real.json';
 const SEI_VAULTS_ENDPOINT =
   'https://raw.githubusercontent.com/beefyfinance/beefy-v2/prod/src/config/vault/sei.json';
+const ROOTSTOCK_VAULTS_ENDPOINT =
+  'https://raw.githubusercontent.com/beefyfinance/beefy-v2/prod/src/config/vault/rootstock.json';
+const SCROLL_VAULTS_ENDPOINT =
+  'https://raw.githubusercontent.com/beefyfinance/beefy-v2/prod/src/config/vault/scroll.json';
+const LISK_VAULTS_ENDPOINT =
+  'https://raw.githubusercontent.com/beefyfinance/beefy-v2/prod/src/config/vault/lisk.json';
+const SONIC_VAULTS_ENDPOINT =
+  'https://raw.githubusercontent.com/beefyfinance/beefy-v2/prod/src/config/vault/sonic.json';
 
 const MULTICHAIN_ENDPOINTS: Partial<Record<ApiChain, string>> = {
   bsc: BSC_VAULTS_ENDPOINT,
@@ -234,6 +256,10 @@ const MULTICHAIN_ENDPOINTS: Partial<Record<ApiChain, string>> = {
   manta: MANTA_VAULTS_ENDPOINT,
   real: REAL_VAULTS_ENDPOINT,
   sei: SEI_VAULTS_ENDPOINT,
+  rootstock: ROOTSTOCK_VAULTS_ENDPOINT,
+  scroll: SCROLL_VAULTS_ENDPOINT,
+  lisk: LISK_VAULTS_ENDPOINT,
+  sonic: SONIC_VAULTS_ENDPOINT,
 } as const;
 
 const EXCLUDED_IDS_FROM_TVL = ['venus-wbnb'];
@@ -331,6 +357,9 @@ export {
   SEI_RPC,
   SEI_CHAIN_ID,
   SEI_VAULTS_ENDPOINT,
+  ROOTSTOCK_RPC,
+  ROOTSTOCK_CHAIN_ID,
+  ROOTSTOCK_VAULTS_ENDPOINT,
   BASE_HPY,
   MINUTELY_HPY,
   HOURLY_HPY,
@@ -351,4 +380,13 @@ export {
   BISWAP_LPF,
   HOP_LPF,
   EXCLUDED_IDS_FROM_TVL,
+  SCROLL_RPC,
+  SCROLL_CHAIN_ID,
+  SCROLL_VAULTS_ENDPOINT,
+  LISK_RPC,
+  LISK_CHAIN_ID,
+  LISK_VAULTS_ENDPOINT,
+  SONIC_RPC,
+  SONIC_CHAIN_ID,
+  SONIC_VAULTS_ENDPOINT,
 };

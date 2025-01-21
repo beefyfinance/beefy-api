@@ -90,6 +90,18 @@ const {
 
   SEI_CHAIN_ID,
   SEI_VAULTS_ENDPOINT,
+
+  ROOTSTOCK_CHAIN_ID,
+  ROOTSTOCK_VAULTS_ENDPOINT,
+
+  SCROLL_CHAIN_ID,
+  SCROLL_VAULTS_ENDPOINT,
+
+  LISK_CHAIN_ID,
+  LISK_VAULTS_ENDPOINT,
+
+  SONIC_CHAIN_ID,
+  SONIC_VAULTS_ENDPOINT,
 } = require('../../constants');
 const { getKey, setKey } = require('../../utils/cache');
 
@@ -218,6 +230,22 @@ const chains = [
   {
     chainId: SEI_CHAIN_ID,
     vaultsEndpoint: SEI_VAULTS_ENDPOINT,
+  },
+  {
+    chainId: ROOTSTOCK_CHAIN_ID,
+    vaultsEndpoint: ROOTSTOCK_VAULTS_ENDPOINT,
+  },
+  {
+    chainId: SCROLL_CHAIN_ID,
+    vaultsEndpoint: SCROLL_VAULTS_ENDPOINT,
+  },
+  {
+    chainId: LISK_CHAIN_ID,
+    vaultsEndpoint: LISK_VAULTS_ENDPOINT,
+  },
+  {
+    chainId: SONIC_CHAIN_ID,
+    vaultsEndpoint: SONIC_VAULTS_ENDPOINT,
   },
 ];
 

@@ -16,7 +16,7 @@ const config = {
       token: '0x5Cf6826140C1C56Ff49C808A1A75407Cd1DF9423',
       oracle: 'tokens',
       oracleId: 'iSEI',
-      decimals: '1e6',
+      decimals: '1e18',
     },
   ],
 };

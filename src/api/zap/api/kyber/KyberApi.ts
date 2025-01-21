@@ -6,26 +6,33 @@ import {
   KyberResponse,
   QuoteData,
   QuoteRequest,
-  QuoteResponse,
   SwapData,
   SwapRequest,
-  SwapResponse,
 } from './types';
 import { mapValues, omitBy } from 'lodash';
 import { redactSecrets } from '../../../../utils/secrets';
 import { ApiResponse, isErrorApiResponse } from '../common';
+import { ApiChain } from '../../../../utils/chain';
+import { getZapProviderFee } from '../../fees';
 
 export class KyberApi implements IKyberApi {
-  constructor(protected readonly baseUrl: string, protected readonly clientId: string) {}
+  readonly feeReceiver: string;
+  readonly ZAP_FEE: number;
+  constructor(protected readonly baseUrl: string, protected readonly clientId: string, chain: ApiChain) {
+    const feeData = getZapProviderFee('kyber', chain);
+    this.ZAP_FEE = feeData.value;
+    if (!feeData.receiver) {
+      throw new Error('No fee receiver found for Kyber on ' + chain);
+    }
+    this.feeReceiver = feeData.receiver;
+  }
 
   protected buildUrl<T extends {}>(path: string, request?: T) {
     const params = request ? new URLSearchParams(request).toString() : '';
     return params ? `${this.baseUrl}${path}?${params}` : `${this.baseUrl}${path}`;
   }
 
-  protected toStringDict(
-    obj: Record<string, string | number | boolean | string[]>
-  ): Record<string, string> {
+  protected toStringDict(obj: Record<string, string | number | boolean | string[]>): Record<string, string> {
     return mapValues(
       omitBy(obj, v => v === undefined),
       v => (Array.isArray(v) ? v.join(',') : String(v))
@@ -47,6 +54,20 @@ export class KyberApi implements IKyberApi {
       ...request,
       source: this.clientId,
     };
+  }
+
+  protected withFeeReceiver(
+    request?: Record<string, string | number | boolean | string[]>
+  ): Record<string, string | number | boolean | string[]> {
+    return this.feeReceiver && (this.ZAP_FEE || 0) > 0
+      ? {
+          ...request,
+          feeAmount: (this.ZAP_FEE * 10000).toString(10), // *10000 to bps
+          isInBps: true,
+          chargeFeeBy: 'currency_in',
+          feeReceiver: this.feeReceiver,
+        }
+      : request;
   }
 
   protected async doGet<ResponseType extends object>(
@@ -131,8 +152,7 @@ export class KyberApi implements IKyberApi {
 
     return {
       code: response.status === 200 ? 500 : response.status,
-      message:
-        response.status === 200 ? 'upstream response not json' : redactSecrets(response.statusText),
+      message: response.status === 200 ? 'upstream response not json' : redactSecrets(response.statusText),
     };
   }
 
@@ -157,7 +177,7 @@ export class KyberApi implements IKyberApi {
   }
 
   async getProxiedQuote(request: QuoteRequest): Promise<ApiResponse<QuoteData>> {
-    return await this.priorityGet<QuoteData>('/routes', this.toStringDict(request));
+    return await this.priorityGet<QuoteData>('/routes', this.toStringDict(this.withFeeReceiver(request)));
   }
 
   async postProxiedSwap(request: SwapRequest): Promise<ApiResponse<SwapData>> {

@@ -64,8 +64,15 @@ import {
   REAL_CHAIN_ID,
   SEI_RPC,
   SEI_CHAIN_ID,
+  ROOTSTOCK_RPC,
+  ROOTSTOCK_CHAIN_ID,
+  SCROLL_RPC,
+  SCROLL_CHAIN_ID,
+  LISK_RPC,
+  LISK_CHAIN_ID,
+  SONIC_RPC,
+  SONIC_CHAIN_ID,
 } from '../constants';
-import { real } from '../../packages/address-book/src/address-book/real';
 
 const MULTICALLS: Record<ChainId, Pick<BeefyFinance, 'multicall'>['multicall']> = {
   [ChainId.bsc]: addressBookByChainId[ChainId.bsc].platforms.beefyfinance.multicall,
@@ -98,6 +105,10 @@ const MULTICALLS: Record<ChainId, Pick<BeefyFinance, 'multicall'>['multicall']> 
   [ChainId.manta]: addressBookByChainId[ChainId.manta].platforms.beefyfinance.multicall,
   [ChainId.real]: addressBookByChainId[ChainId.real].platforms.beefyfinance.multicall,
   [ChainId.sei]: addressBookByChainId[ChainId.sei].platforms.beefyfinance.multicall,
+  [ChainId.rootstock]: addressBookByChainId[ChainId.rootstock].platforms.beefyfinance.multicall,
+  [ChainId.scroll]: addressBookByChainId[ChainId.scroll].platforms.beefyfinance.multicall,
+  [ChainId.lisk]: addressBookByChainId[ChainId.lisk].platforms.beefyfinance.multicall,
+  [ChainId.sonic]: addressBookByChainId[ChainId.sonic].platforms.beefyfinance.multicall,
 };
 
 export const MULTICALL_V3: Partial<Readonly<Record<ChainId, string>>> = {
@@ -131,6 +142,10 @@ export const MULTICALL_V3: Partial<Readonly<Record<ChainId, string>>> = {
   [ChainId.manta]: '0xcA11bde05977b3631167028862bE2a173976CA11',
   [ChainId.real]: '0xcA11bde05977b3631167028862bE2a173976CA11',
   [ChainId.sei]: '0xcA11bde05977b3631167028862bE2a173976CA11',
+  [ChainId.rootstock]: '0xcA11bde05977b3631167028862bE2a173976CA11',
+  [ChainId.scroll]: '0xcA11bde05977b3631167028862bE2a173976CA11',
+  [ChainId.lisk]: '0xcA11bde05977b3631167028862bE2a173976CA11',
+  [ChainId.sonic]: '0xcA11bde05977b3631167028862bE2a173976CA11',
 };
 
 const clients: Record<keyof typeof ChainId, Web3[]> = {
@@ -164,10 +179,17 @@ const clients: Record<keyof typeof ChainId, Web3[]> = {
   manta: [],
   real: [],
   sei: [],
+  rootstock: [],
+  scroll: [],
+  lisk: [],
+  sonic: [],
 };
+
 BSC_RPC_ENDPOINTS.forEach(endpoint => {
   clients.bsc.push(new Web3(endpoint));
 });
+
+// clients
 clients.heco.push(new Web3(HECO_RPC));
 clients.avax.push(new Web3(AVAX_RPC));
 clients.polygon.push(new Web3(POLYGON_RPC));
@@ -197,6 +219,10 @@ clients.mode.push(new Web3(MODE_RPC));
 clients.manta.push(new Web3(MANTA_RPC));
 clients.real.push(new Web3(REAL_RPC));
 clients.sei.push(new Web3(SEI_RPC));
+clients.rootstock.push(new Web3(ROOTSTOCK_RPC));
+clients.sonic.push(new Web3(SONIC_RPC));
+clients.lisk.push(new Web3(LISK_RPC));
+clients.scroll.push(new Web3(SCROLL_RPC));
 
 export const chainRandomClients = {
   bscRandomClient: () => clients.bsc[~~(clients.bsc.length * Math.random())],
@@ -229,6 +255,10 @@ export const chainRandomClients = {
   mantaRandomClient: () => clients.manta[~~(clients.manta.length * Math.random())],
   realRandomClient: () => clients.real[~~(clients.real.length * Math.random())],
   seiRandomClient: () => clients.sei[~~(clients.sei.length * Math.random())],
+  rootstockRandomClient: () => clients.rootstock[~~(clients.rootstock.length * Math.random())],
+  scrollRandomClient: () => clients.scroll[~~(clients.scroll.length * Math.random())],
+  liskRandomClient: () => clients.lisk[~~(clients.lisk.length * Math.random())],
+  sonicRandomClient: () => clients.sonic[~~(clients.sonic.length * Math.random())],
 };
 
 export const _web3Factory = (chainId: ChainId) => {
@@ -293,6 +323,14 @@ export const _web3Factory = (chainId: ChainId) => {
       return chainRandomClients.realRandomClient();
     case SEI_CHAIN_ID:
       return chainRandomClients.seiRandomClient();
+    case ROOTSTOCK_CHAIN_ID:
+      return chainRandomClients.rootstockRandomClient();
+    case SCROLL_CHAIN_ID:
+      return chainRandomClients.scrollRandomClient();
+    case LISK_CHAIN_ID:
+      return chainRandomClients.liskRandomClient();
+    case SONIC_CHAIN_ID:
+      return chainRandomClients.sonicRandomClient();
   }
 };
 

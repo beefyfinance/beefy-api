@@ -13,7 +13,7 @@ const {
 
 const pools = require('../../../data/matic/auraLpPools.json');
 
-const aaveDataProvider = '0x69FA688f1Dc47d4B5d8029D5a35FB7a548310654';
+const aaveDataProvider = '0x7F23D86Ee20D869112572136221e173428DD740B';
 const auraMinter = '0x8b2970c237656d3895588B99a8bFe977D5618201';
 
 const getAuraPolygonApys = async () => {

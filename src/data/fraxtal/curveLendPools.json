@@ -1,0 +1,23 @@
+[
+  {
+    "name": "curve-lend-fraxtal-fxs-crvusd",
+    "address": "0xa7573CBD8738Ed268B931B038079f993e78D4216",
+    "gauge": "0xFC6891C8482aeF6AEF71a09A09ce14432617A403",
+    "oracleId": "crvUSD",
+    "convex": true
+  },
+  {
+    "name": "curve-lend-fraxtal-sfrax-crvusd",
+    "address": "0x0Edf4a3762Deb5329ECdbDEDA98d287aE41fbB7e",
+    "gauge": "0xf868B47717F4739EE142b3BE6EE0f84Da868E917",
+    "oracleId": "crvUSD",
+    "convex": true
+  },
+  {
+    "name": "curve-lend-fraxtal-sfrxeth-crvusd",
+    "address": "0x279A23349Fa48Ea5215D31666aFF359DBBec1404",
+    "gauge": "0x541f57aB2032A042CE6B02Fd435347fBaE1F6d0A",
+    "oracleId": "crvUSD",
+    "convex": true
+  }
+]

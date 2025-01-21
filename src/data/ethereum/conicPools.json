@@ -1,5 +1,12 @@
 [
   {
+    "name": "conic-usdt",
+    "address": "0x72c23c94f68669C7B6A5B6e8c87aa9B70c263140",
+    "token": "0xb822e711951C0cdA5221a70219f32a2FedA8bDe8",
+    "underlying": "USDT",
+    "decimals": "1e6"
+  },
+  {
     "name": "conic-crvusd",
     "address": "0x89dc3E9d493512F6CFb923E15369ebFddE591988",
     "token": "0x9961BdBE8B7091E584c2bF9D0a160C583f564A8c",

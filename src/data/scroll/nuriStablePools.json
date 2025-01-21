@@ -1,0 +1,22 @@
+[
+  {
+    "name": "nuri-usdc-loreusd",
+    "address": "0x4775dFFd8762eE4C8DE49f4FD6D02A1f0d8f1698",
+    "gauge": "0x261205218a35286C8A2aaF48070Afc8d72856C54",
+    "decimals": "1e18",
+    "chainId": 534352,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0x06eFdBFf2a14a7c8E15944D1F4A48F9F95F663A4",
+      "oracle": "tokens",
+      "oracleId": "USDC",
+      "decimals": "1e6"
+    },
+    "lp1": {
+      "address": "0x77fbf86399ed764A084F77B9acCb049F3DbC32d2",
+      "oracle": "tokens",
+      "oracleId": "loreUSD",
+      "decimals": "1e18"
+    }
+  }
+]

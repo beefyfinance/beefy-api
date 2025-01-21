@@ -1,0 +1,25 @@
+[
+  {
+    "name": "venus-arb-ls-weth",
+    "cToken": "0x39D6d13Ea59548637104E40e729E4aABE27FE106",
+    "oracleId": "ETH",
+    "decimals": "1e18"
+  },
+  {
+    "name": "venus-arb-ls-weeth",
+    "cToken": "0x246a35E79a3a0618535A469aDaF5091cAA9f7E88",
+    "oracleId": "weETH",
+    "decimals": "1e18",
+    "lsUrl": "https://www.etherfi.bid/api/etherfi/apr",
+    "dataPath": "$.latest_aprs[0]",
+    "lsAprFactor": 0.01
+  },
+  {
+    "name": "venus-arb-ls-wsteth",
+    "cToken": "0x9df6B5132135f14719696bBAe3C54BAb272fDb16",
+    "oracleId": "wstETH",
+    "decimals": "1e18",
+    "lsUrl": "https://eth-api.lido.fi/v1/protocol/steth/apr/sma",
+    "dataPath": "$.data.smaApr"
+  }
+]

@@ -1,0 +1,26 @@
+[
+  {
+    "address": "0x4d268a7d4C16ceB5a606c173Bd974984343fea13",
+    "distributor": "0x03F349b3CC4f200D7FAE4d8DdaF1507f5A40D356",
+    "reward": {
+      "symbol": "AVAX",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "address": "0xd2D1162512F927a7e282Ef43a362659E4F2a728F",
+    "distributor": "0x1DE098faF30bD74F22753c28DB17A2560D4F5554",
+    "reward": {
+      "symbol": "AVAX",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "address": "0xB0D12Bf95CC1341d6C845C978daaf36F70b5910d",
+    "distributor": "0x8Db453a068613f956d6f87bEAE6AD3040a779064",
+    "reward": {
+      "symbol": "GMX",
+      "decimals": "1e18"
+    }
+  }
+]

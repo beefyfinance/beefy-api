@@ -25,6 +25,7 @@ const getFerroApys = async () => {
 };
 
 const getTradingApys = async () => {
+  return {};
   let apys = {};
   try {
     const response = await fetch(factoryUrl).then(res => res.json());
@@ -116,21 +117,15 @@ const getMasterChefData = async () => {
   const ferContract = fetchContract(fer, ERC20Abi, CRONOS_CHAIN_ID);
   const xFerBoostContract = fetchContract(xFerBoost, ERC20Abi, CRONOS_CHAIN_ID);
 
-  const [
-    blockRewards,
-    totalAllocPoint,
-    xFerAllocPoint,
-    xFerTotalSupply,
-    ferBalance,
-    xFerBoostTotalSupply,
-  ] = await Promise.all([
-    masterchefContract.read.ferPerBlock().then(v => new BigNumber(v.toString())),
-    masterchefContract.read.totalAllocPoint().then(v => new BigNumber(v.toString())),
-    masterchefContract.read.poolInfo([0]).then(v => new BigNumber(v['1'].toString())),
-    xFerContract.read.totalSupply().then(v => new BigNumber(v.toString())),
-    ferContract.read.balanceOf([xFer]).then(v => new BigNumber(v.toString())),
-    xFerBoostContract.read.totalSupply().then(v => new BigNumber(v.toString())),
-  ]);
+  const [blockRewards, totalAllocPoint, xFerAllocPoint, xFerTotalSupply, ferBalance, xFerBoostTotalSupply] =
+    await Promise.all([
+      masterchefContract.read.ferPerBlock().then(v => new BigNumber(v.toString())),
+      masterchefContract.read.totalAllocPoint().then(v => new BigNumber(v.toString())),
+      masterchefContract.read.poolInfo([0]).then(v => new BigNumber(v['1'].toString())),
+      xFerContract.read.totalSupply().then(v => new BigNumber(v.toString())),
+      ferContract.read.balanceOf([xFer]).then(v => new BigNumber(v.toString())),
+      xFerBoostContract.read.totalSupply().then(v => new BigNumber(v.toString())),
+    ]);
 
   const xFerToFer = ferBalance.dividedBy(xFerTotalSupply);
 

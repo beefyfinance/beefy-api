@@ -77,44 +77,5 @@
         "decimals": "1e6"
       }
     ]
-  },
-  {
-    "name": "beets-overnight-pulse-v2",
-    "address": "0x43da214fab3315aA6c02e0B8f2BfB7Ef2E3C60A5",
-    "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
-    "gauge": "0x3bbFB3BD4CE5764373e2F9bbbecC3113b0a42828",
-    "overnight": true,
-    "composable": true,
-    "balancerChargesFee": true,
-    "bptIndex": 0,
-    "vaultPoolId": "0x43da214fab3315aa6c02e0b8f2bfb7ef2e3c60a50000000000000000000000ae",
-    "decimals": "1e18",
-    "rewards": [
-      {
-        "newGauge": true,
-        "stream": "0x3bbFB3BD4CE5764373e2F9bbbecC3113b0a42828",
-        "oracleId": "BAL"
-      },
-      {
-        "stream": "0x3bbFB3BD4CE5764373e2F9bbbecC3113b0a42828",
-        "rewardToken": "0x4200000000000000000000000000000000000042",
-        "oracleId": "OP"
-      }
-    ],
-    "tokens": [
-      {
-        "oracleId": "BPTToken"
-      },
-      {
-        "oracle": "tokens",
-        "oracleId": "bbUSD+",
-        "decimals": "1e18"
-      },
-      {
-        "oracle": "tokens",
-        "oracleId": "bbDAI+",
-        "decimals": "1e18"
-      }
-    ]
   }
 ]

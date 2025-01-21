@@ -1,0 +1,21 @@
+[
+  {
+    "name": "balancerv3-gnosis-wsteth-gno",
+    "address": "0x272d6BE442E30D7c87390eDEb9B96f1E84cEcD8d",
+    "gauge": "0x37748422F82b0c07CCbD40347abC1Da55ac138a0",
+    "decimals": "1e18",
+    "rewards": [],
+    "tokens": [
+      {
+        "address": "0x773CDA0CADe2A3d86E6D4e30699d40bB95174ff2",
+        "oracleId": "wstETH",
+        "decimals": "1e18"
+      },
+      {
+        "address": "0x7c16F0185A26Db0AE7a9377f23BC18ea7ce5d644",
+        "oracleId": "GNO",
+        "decimals": "1e18"
+      }
+    ]
+  }
+]

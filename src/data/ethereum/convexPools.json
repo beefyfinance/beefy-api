@@ -1,5 +1,40 @@
 [
   {
+    "name": "curve-usr-usdc",
+    "pool": "0x3ee841f47947fefbe510366e4bbb49e145484195",
+    "gauge": "0xf589273a91622f1f48c0cd378881f0b3e6c40a95",
+    "getDy": ["v1", 0, 1],
+    "tokens": [
+      {
+        "oracleId": "USR",
+        "decimals": "1e18"
+      },
+      {
+        "oracleId": "USDC",
+        "decimals": "1e6"
+      }
+    ]
+  },
+  {
+    "name": "curve-eth-heth",
+    "pool": "0x1f7e9321ce32af1f9ea1185fd10d31fea31ffd95",
+    "gauge": "0xc548f3ab7bd06fbd968b83f3b197372e641deae3",
+    "rewardPool": "0x9AB157bfaD66De1aE0eFf4802895dD9C8B755e25",
+    "getDy": ["v1", 1, 0],
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "WETH",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "hETH",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
     "name": "curve-ebtc-wbtc",
     "pool": "0x7704d01908afd31bf647d969c295bb45230cd2d6",
     "getDy": ["v1", 0, 1],
@@ -102,7 +137,6 @@
     "name": "curve-shezeth-eth",
     "pool": "0x637213593e31bc25f49d37c74b43a89eb1743d73",
     "gauge": "0xe32705721f284fb47f53cf5f9f1af2d74758d7de",
-    "getDy": ["v1", 0, 1],
     "rewards": [
       {
         "token": "0x5fe72ed557d8a02fff49b3b826792c765d5ce162",
@@ -124,7 +158,6 @@
     "name": "curve-shezusd-usdc",
     "pool": "0x66267c6e24fbcdebf06ae9104e0ccfb9c8b2ae08",
     "gauge": "0x55a3a857598b500fd844610ed875ec73ff296c4b",
-    "getDy": ["v1", 0, 1],
     "rewards": [
       {
         "token": "0x5fe72ed557d8a02fff49b3b826792c765d5ce162",
@@ -1680,25 +1713,6 @@
       {
         "oracle": "tokens",
         "oracleId": "MIM",
-        "decimals": "1e18"
-      },
-      {
-        "basePool": "convex-3pool",
-        "oracle": "lps",
-        "oracleId": "convex-3pool",
-        "decimals": "1e18"
-      }
-    ]
-  },
-  {
-    "name": "convex-frax",
-    "pool": "0xd632f22692FaC7611d2AA1C0D552930D43CAEd3B",
-    "token": "0xd632f22692FaC7611d2AA1C0D552930D43CAEd3B",
-    "rewardPool": "0xB900EF131301B307dB5eFcbed9DBb50A3e209B2e",
-    "tokens": [
-      {
-        "oracle": "tokens",
-        "oracleId": "FRAX",
         "decimals": "1e18"
       },
       {

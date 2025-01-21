@@ -394,9 +394,9 @@ export const tokens = {
     description:
       'Tether is a stablecoin pegged to the US Dollar. A stablecoin is a type of cryptocurrency whose value is pegged to another fiat currency like the US Dollar or to a commodity like Gold. Tether is the first stablecoin to be created and it is the most popular stablecoin used in the ecosystem.',
   },
-  USDTxc: {
-    name: 'Tether USD (XCM)',
-    symbol: 'USDTxc',
+  xcUSDT: {
+    name: 'Tether USD',
+    symbol: 'xcUSDT',
     oracleId: 'USDT',
     address: '0xFFFFFFfFea09FB06d082fd1275CD48b191cbCD1d',
     chainId: 1284,
@@ -406,7 +406,7 @@ export const tokens = {
     website: 'https://tether.to/',
     description:
       'Bridged by XCM from Kusama. Tether is a stablecoin pegged to the US Dollar. A stablecoin is a type of cryptocurrency whose value is pegged to another fiat currency like the US Dollar or to a commodity like Gold. Tether is the first stablecoin to be created and it is the most popular stablecoin used in the ecosystem.',
-    documentation: 'https://moonbeam.network/announcements/usdt-on-moonbeam/',
+    documentation: 'https://moonbeam.network/news/polkadot-native-usdt-now-available-on-moonbeam',
     bridge: 'kusama',
   },
   DAI: {
@@ -539,7 +539,7 @@ export const tokens = {
     description:
       'Polkadot is an open-source sharding multichain protocol that facilitates the cross-chain transfer of any data or asset types, not just tokens, thereby making a wide range of blockchains interoperable with each other.',
   },
-  stDOT: {
+  stDOTold: {
     name: 'Liquid staked DOT',
     symbol: 'stDOT',
     oracleId: 'stDOT',
@@ -551,6 +551,19 @@ export const tokens = {
     website: 'https://polkadot.lido.fi/',
     description:
       'Lido for Polkadot is a liquid staking solution for DOT backed by industry-leading staking providers.',
+  },
+  stDOT: {
+    name: 'Stella stDOT',
+    symbol: 'stDOT',
+    oracleId: 'stDOT',
+    address: '0xbc7E02c4178a7dF7d3E564323a5c359dc96C4db4',
+    chainId: 1284,
+    decimals: 10,
+    logoURI: '',
+    website: 'https://app.stellaswap.com/stdot',
+    description: 'Stake DOT.xc for stDOT',
+    documentation: 'https://docs.stellaswap.com/',
+    bridge: 'native',
   },
   veFLARE: {
     name: 'Vested Flare Token',
@@ -711,19 +724,5 @@ export const tokens = {
     bridge: 'axelar',
     description:
       'USDC is a fully collateralized US dollar stablecoin. USDC is issued by regulated financial institutions, backed by fully reserved assets, redeemable on a 1:1 basis for US dollars.',
-  },
-  xcUSDT: {
-    name: 'Tether USD',
-    symbol: 'xcUSDT',
-    oracleId: 'USDT',
-    address: '0xFFFFFFfFea09FB06d082fd1275CD48b191cbCD1d',
-    chainId: 1284,
-    decimals: 6,
-    logoURI: '',
-    website: 'https://tether.to/',
-    documentation: 'https://tether.to/en/how-it-works',
-    description:
-      'Tether is a stablecoin pegged to the US Dollar. A stablecoin is a type of cryptocurrency whose value is pegged to another fiat currency like the US Dollar or to a commodity like Gold. Tether is the first stablecoin to be created and it is the most popular stablecoin used in the ecosystem.',
-    bridge: 'kusama',
   },
 } as const satisfies Record<string, Token>;

@@ -13,7 +13,13 @@ const tvl = require('./api/tvl');
 const multichainVaults = require('./api/vaults');
 const snapshot = require('./api/snapshot');
 const { boosts, chainBoosts } = require('./api/boosts');
-const { getTokens, getChainTokens } = require('./api/tokens');
+const {
+  getTokens,
+  getChainTokens,
+  getChainNatives,
+  getChainToken,
+  getNativesFromAllChains,
+} = require('./api/tokens');
 const { getConfigs, getChainConfig } = require('./api/config');
 const { getTreasury, getMMBal, getAllTreasury } = require('./api/treasury');
 const { validatorPerformance } = require('./api/validators/index');
@@ -32,6 +38,7 @@ const {
   handleOffChainRewardsActiveForChain,
 } = require('./api/offchain-rewards');
 const { pointStructures } = require('./api/points');
+const { proxyOdosQuote, proxyOdosSwap } = require('./api/zap/proxy/odos');
 
 router.get('/validator-performance', validatorPerformance);
 
@@ -54,18 +61,28 @@ router.get('/lps/breakdown', price.lpsBreakdown);
 router.get('/prices', price.tokenPrices);
 router.get('/mootokenprices', price.mooTokenPrices);
 
-router.get('/vaults', multichainVaults.multichainVaults);
+router.get('/vault/:vaultId', multichainVaults.singleAnyVault);
+
 router.get('/vaults/last-harvest', multichainVaults.vaultsLastHarvest);
+
 router.get('/vaults/id/:vaultId', multichainVaults.singleVault);
 router.get('/vaults/:chainId', multichainVaults.singleChainVaults);
+router.get('/vaults', multichainVaults.multichainVaults);
+
+router.get('/gov-vaults/id/:vaultId', multichainVaults.singleGovVault);
+router.get('/gov-vaults/:chainId', multichainVaults.singleChainGovVaults);
 router.get('/gov-vaults', multichainVaults.multichainGovVaults);
-router.get('/gov-vaults/:chainId', multichainVaults.singleGovChainVaults);
-router.get('/cow-vaults', multichainVaults.multichainCowVaults);
+
 router.get('/cow-vaults/id/:vaultId', multichainVaults.singleCowVault);
-router.get('/cow-vaults/:chainId', multichainVaults.singleCowChainVaults);
-router.get('/harvestable-vaults', multichainVaults.multichainHarvestableVaults);
+router.get('/cow-vaults/:chainId', multichainVaults.singleChainCowVaults);
+router.get('/cow-vaults', multichainVaults.multichainCowVaults);
+
 router.get('/harvestable-vaults/id/:vaultId', multichainVaults.singleHarvestableVault);
-router.get('/harvestable-vaults/:chainId', multichainVaults.singleHarvestableVaults);
+router.get('/harvestable-vaults/:chainId', multichainVaults.singleChainHarvestableVaults);
+router.get('/harvestable-vaults', multichainVaults.multichainHarvestableVaults);
+
+router.get('/clm-vaults/:chainId', multichainVaults.singleChainClms);
+router.get('/clm-vaults', multichainVaults.multiChainClms);
 
 router.get('/cow-price-ranges', handleCowcentratedPriceRanges);
 router.get('/cow-dune-ltipp-merkl-campaigns', handleCowcentratedLTIPPCampaignsForDune);
@@ -81,7 +98,10 @@ router.get('/boosts', boosts);
 router.get('/boosts/:chainId', chainBoosts);
 
 router.get('/tokens', getTokens);
+router.get('/tokens/native', getNativesFromAllChains);
 router.get('/tokens/:chainId', getChainTokens);
+router.get('/tokens/:chainId/native', getChainNatives);
+router.get('/tokens/:chainId/:tokenId', getChainToken);
 
 router.get('/config', getConfigs);
 router.get('/config/:chainId', getChainConfig);
@@ -99,6 +119,8 @@ router.get('/zap/providers/oneinch/:chainId/quote', proxyOneInchQuote);
 router.get('/zap/providers/oneinch/:chainId/swap', proxyOneInchSwap);
 router.get('/zap/providers/kyber/:chainId/quote', proxyKyberQuote);
 router.post('/zap/providers/kyber/:chainId/swap', proxyKyberSwap);
+router.post('/zap/providers/odos/:chainId/quote', proxyOdosQuote);
+router.post('/zap/providers/odos/:chainId/swap', proxyOdosSwap);
 
 router.get('/articles', getArticles);
 router.get('/articles/latest', getLatestArticle);

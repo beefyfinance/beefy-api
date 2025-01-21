@@ -31,6 +31,10 @@ export const chainIdMap = {
   manta: 169,
   real: 111188,
   sei: 1329,
+  rootstock: 30,
+  scroll: 534352,
+  lisk: 1135,
+  sonic: 146,
 } satisfies ChainIdMap;
 
 // back-compat

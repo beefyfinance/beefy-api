@@ -34,13 +34,6 @@
     "vaultPoolId": "0x264062ca46a1322c2e6464471764089e01f22f1900000000000000000000066b",
     "composable": true,
     "bptIndex": 0,
-    "lsUrl": [
-      "https://api.balancer.fi/pools/1/0x264062ca46a1322c2e6464471764089e01f22f1900000000000000000000066b"
-    ],
-    "dataPath": ["$.apr.tokenAprs.breakdown['0xb45ad160634c528cc3d2926d9807104fa3157305']"],
-    "lsIndex": [0],
-    "divisor": [10000],
-    "useBalancerLsApr": true,
     "decimals": "1e18",
     "rewards": [
       {
@@ -135,13 +128,6 @@
     "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
     "gauge": "0x2C0D60f986cDe7eE59489055aa22A8E49b6825aD",
     "vaultPoolId": "0x1cce5169bde03f3d5ad0206f6bd057953539dae600020000000000000000062b",
-    "lsUrl": [
-      "https://api.balancer.fi/pools/1/0x1cce5169bde03f3d5ad0206f6bd057953539dae600020000000000000000062b"
-    ],
-    "dataPath": ["$.apr.tokenAprs.breakdown['0x83f20f44975d03b1b09e64809b757c47f942beea']"],
-    "lsIndex": [0],
-    "divisor": [10000],
-    "useBalancerLsApr": true,
     "decimals": "1e18",
     "rewards": [
       {
@@ -209,13 +195,6 @@
     "decimals": "1e18",
     "composable": true,
     "bptIndex": 1,
-    "lsUrl": [
-      "https://api.balancer.fi/pools/1/0x88794c65550deb6b4087b7552ecf295113794410000000000000000000000648"
-    ],
-    "dataPath": ["$.apr.tokenAprs.breakdown['0x6df0e641fc9847c0c6fde39be6253045440c14d3']"],
-    "lsIndex": [0],
-    "divisor": [10000],
-    "useBalancerLsApr": true,
     "rewards": [
       {
         "rewardGauge": "0xcb554b9c16bDb5e5FC421b6477cB42FAc20e72b9",
@@ -253,13 +232,6 @@
     "decimals": "1e18",
     "composable": true,
     "bptIndex": 0,
-    "lsUrl": [
-      "https://api.balancer.fi/pools/1/0x58aadfb1afac0ad7fca1148f3cde6aedf5236b6d00000000000000000000067f"
-    ],
-    "dataPath": ["$.apr.tokenAprs.breakdown['0xa1290d69c65a6fe4df752f95823fae25cb99e5a7']"],
-    "lsIndex": [0],
-    "divisor": [10000],
-    "useBalancerLsApr": true,
     "rewards": [
       {
         "rewardGauge": "0x37602cA3a3d86054F1Eb94483b25c23B6deEa88c",
@@ -297,13 +269,6 @@
     "decimals": "1e18",
     "composable": true,
     "bptIndex": 2,
-    "lsUrl": [
-      "https://api.balancer.fi/pools/1/0xb819feef8f0fcdc268afe14162983a69f6bf179e000000000000000000000689"
-    ],
-    "dataPath": ["$.apr.tokenAprs.breakdown['0x9d39a5de30e57443bff2a8307a4256c8797a3497']"],
-    "lsIndex": [0],
-    "divisor": [10000],
-    "useBalancerLsApr": true,
     "rewards": [
       {
         "rewardGauge": "0x290e5a1c54e09097769e0cFd55ba61B604f627db",
@@ -336,13 +301,6 @@
     "decimals": "1e18",
     "composable": true,
     "bptIndex": 2,
-    "lsUrl": [
-      "https://api.balancer.fi/pools/1/0xdb1f2e1655477d08fb0992f82eede0053b8cd3820000000000000000000006ae"
-    ],
-    "dataPath": ["$.apr.tokenAprs.breakdown['0x7f39c581f595b53c5cb19bd0b3f8da6c935e2ca0']"],
-    "lsIndex": [1],
-    "divisor": [10000],
-    "useBalancerLsApr": true,
     "rewards": [
       {
         "rewardGauge": "0xC5f74cC88D183d2Ce977797D54a7CF075264ABC0",
@@ -380,13 +338,6 @@
     "decimals": "1e18",
     "composable": true,
     "bptIndex": 2,
-    "lsUrl": [
-      "https://api.balancer.fi/pools/1/0xed0df9cd16d806e8a523805e53cf0c56e6db4d1d000000000000000000000687"
-    ],
-    "dataPath": ["$.apr.tokenAprs.breakdown['0x83f20f44975d03b1b09e64809b757c47f942beea']"],
-    "lsIndex": [0],
-    "divisor": [10000],
-    "useBalancerLsApr": true,
     "rewards": [
       {
         "rewardGauge": "0xef79a535c05EDBce1fC0119540d03dc04126A942",
@@ -424,19 +375,6 @@
     "decimals": "1e18",
     "composable": true,
     "bptIndex": 0,
-    "lsUrl": [
-      "https://api.balancer.fi/pools/1/0x848a5564158d84b8a8fb68ab5d004fae11619a5400000000000000000000066a",
-      "https://api.balancer.fi/pools/1/0x848a5564158d84b8a8fb68ab5d004fae11619a5400000000000000000000066a",
-      "https://api.balancer.fi/pools/1/0x848a5564158d84b8a8fb68ab5d004fae11619a5400000000000000000000066a"
-    ],
-    "dataPath": [
-      "$.apr.tokenAprs.breakdown['0xbf5495efe5db9ce00f80364c8b423567e58d2110']",
-      "$.apr.tokenAprs.breakdown['0xcd5fe23c85820f7b72d0926fc9b05b43e359b7ee']",
-      "$.apr.tokenAprs.breakdown['0xfae103dc9cf190ed75350761e95403b7b8afa6c0']"
-    ],
-    "lsIndex": [0, 1, 2],
-    "divisor": [10000, 10000, 10000],
-    "useBalancerLsApr": true,
     "rewards": [
       {
         "rewardGauge": "0x607858e1c3C4a9E462556A7CC752bB2192A42391",
@@ -473,9 +411,6 @@
     "vaultPoolId": "0x05ff47afada98a98982113758878f9a8b9fdda0a000000000000000000000645",
     "decimals": "1e18",
     "composable": true,
-    "lsUrl": "https://api.rocketpool.net/api/apr",
-    "dataPath": "$.yearlyAPR",
-    "lsIndex": 0,
     "bptIndex": 0,
     "rewards": [
       {
@@ -592,9 +527,6 @@
     "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
     "gauge": "0x4B9f8F3cA7443f1ebcd959D9Bf169a4F03f12eaF",
     "vaultPoolId": "0x9f9d900462492d4c21e9523ca95a7cd86142f298000200000000000000000462",
-    "lsUrl": "https://api.rocketpool.net/api/apr",
-    "dataPath": "$.yearlyAPR",
-    "lsIndex": 0,
     "decimals": "1e18",
     "rewards": [
       {
@@ -648,13 +580,6 @@
     "address": "0xdfE6e7e18f6Cc65FA13C8D8966013d4FdA74b6ba",
     "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
     "gauge": "0xfCCb9288bf2a583b918E4eA810d8a75563404B21",
-    "lsUrl": [
-      "https://eth-api.lido.fi/v1/protocol/steth/apr/sma",
-      "https://api.staking.ankr.com/v1alpha/metrics/eth"
-    ],
-    "dataPath": ["$.data.smaApr", "$.apy"],
-    "lsIndex": [0, 1],
-    "balancerChargesFee": true,
     "composable": true,
     "bptIndex": 1,
     "vaultPoolId": "0xdfe6e7e18f6cc65fa13c8d8966013d4fda74b6ba000000000000000000000558",
@@ -690,10 +615,6 @@
     "vaultPoolId": "0x49cbd67651fbabce12d1df18499896ec87bef46f00000000000000000000064a",
     "composable": true,
     "bptIndex": 0,
-    "lsUrl": "DSR",
-    "dataPath": "$.savingsRate",
-    "balancerChargesFee": true,
-    "lsIndex": 1,
     "decimals": "1e18",
     "rewards": [
       {
@@ -754,6 +675,18 @@
     "bptIndex": 1,
     "vaultPoolId": "0x8353157092ed8be69a9df8f95af097bbf33cb2af0000000000000000000005d9",
     "decimals": "1e18",
+    "rewards": [
+      {
+        "rewardGauge": "0x39C55cfC8b232454B01cc197039432cA12F6309a",
+        "oracleId": "AURA",
+        "decimals": "1e18"
+      },
+      {
+        "rewardGauge": "0xC140741af265897Ce46A6D4358EfFbc6669dAaA4",
+        "oracleId": "GHO",
+        "decimals": "1e18"
+      }
+    ],
     "tokens": [
       {
         "oracle": "tokens",
@@ -780,10 +713,6 @@
     "address": "0xf01b0684C98CD7aDA480BFDF6e43876422fa1Fc1",
     "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
     "gauge": "0x35113146E7f2dF77Fb40606774e0a3F402035Ffb",
-    "lsUrl": "https://eth-api.lido.fi/v1/protocol/steth/apr/sma",
-    "dataPath": "$.data.smaApr",
-    "lsIndex": 0,
-    "balancerChargesFee": true,
     "vaultPoolId": "0xf01b0684c98cd7ada480bfdf6e43876422fa1fc10002000000000000000005de",
     "decimals": "1e18",
     "rewards": [
@@ -811,10 +740,6 @@
     "address": "0xF7A826D47c8E02835D94fb0Aa40F0cC9505cb134",
     "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
     "gauge": "0xC2E2D76a5e02eA65Ecd3be6c9cd3Fa29022f4548",
-    "lsUrl": "https://eth-api.lido.fi/v1/protocol/steth/apr/sma",
-    "dataPath": "$.data.smaApr",
-    "lsIndex": 0,
-    "balancerChargesFee": true,
     "vaultPoolId": "0xf7a826d47c8e02835d94fb0aa40f0cc9505cb1340002000000000000000005e0",
     "decimals": "1e18",
     "tokens": [
@@ -910,10 +835,6 @@
     "address": "0x4CbdE5C4B4B53EBE4aF4adB85404725985406163",
     "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
     "gauge": "0xD7a1c1CD199dBBc0A39B8Aff3c85999D09dA1195",
-    "lsUrl": "https://universe.staderlabs.com/eth/apy",
-    "dataPath": "$.value",
-    "lsIndex": 0,
-    "balancerChargesFee": true,
     "composable": true,
     "bptIndex": 0,
     "vaultPoolId": "0x4cbde5c4b4b53ebe4af4adb85404725985406163000000000000000000000595",
@@ -969,10 +890,6 @@
     "address": "0x380aAbE019ed2a9C2d632b51eDDD30fd804d0fAD",
     "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
     "gauge": "0xb83aA654fDAF392F0b19f0ca1537786546febaD0",
-    "lsUrl": "https://eth-api.lido.fi/v1/protocol/steth/apr/sma",
-    "dataPath": "$.data.smaApr",
-    "lsIndex": 1,
-    "balancerChargesFee": false,
     "vaultPoolId": "0x380aabe019ed2a9c2d632b51eddd30fd804d0fad000200000000000000000554",
     "decimals": "1e18",
     "rewards": [
@@ -1034,9 +951,6 @@
     "gauge": "0xeE66a8958EBFEEfA209769530b5E05A38762509a",
     "composable": true,
     "bptIndex": 0,
-    "lsUrl": "https://eth-api.lido.fi/v1/protocol/steth/apr/sma",
-    "dataPath": "$.data.smaApr",
-    "lsIndex": 0,
     "vaultPoolId": "0x2e848426aec6dbf2260535a5bea048ed94d9ff3d000000000000000000000536",
     "decimals": "1e18",
     "tokens": [
@@ -1082,7 +996,6 @@
     "gauge": "0xd26948E7a0223700e3C3cdEA21cA2471abCb8d47",
     "composable": true,
     "bptIndex": 0,
-    "balancerChargesFee": false,
     "vaultPoolId": "0x5aee1e99fe86960377de9f88689616916d5dcabe000000000000000000000467",
     "decimals": "1e18",
     "tokens": [
@@ -1112,8 +1025,6 @@
     "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
     "gauge": "0xe35ae62Ff773D518172d4B0b1af293704790B670",
     "vaultPoolId": "0x9c6d47ff73e0f5e51be5fd53236e3f595c5793f200020000000000000000042c",
-    "lsIndex": 0,
-    "lsUrl": "https://eth-api.lido.fi/v1/protocol/steth/apr/sma",
     "dataPath": "$.data.smaApr",
     "decimals": "1e18",
     "tokens": [
@@ -1181,10 +1092,6 @@
     "address": "0x798b112420AD6391A4129Ac25eF59663a44C88bB",
     "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
     "gauge": "0x9AccD370C03a3cc4Bf717a81aD5A46e6c88FA109",
-    "lsUrl": "https://eth-api.lido.fi/v1/protocol/steth/apr/sma",
-    "dataPath": "$.data.smaApr",
-    "lsIndex": 1,
-    "balancerChargesFee": false,
     "vaultPoolId": "0x798b112420ad6391a4129ac25ef59663a44c88bb0002000000000000000003f4",
     "decimals": "1e18",
     "tokens": [
@@ -1207,10 +1114,6 @@
     "gauge": "0x7D67BeB5cF289B015FCA7B3fc408860731d826E1",
     "composable": true,
     "bptIndex": 0,
-    "lsIndex": 0,
-    "lsUrl": "https://eth-api.lido.fi/v1/protocol/steth/apr/sma",
-    "dataPath": "$.data.smaApr",
-    "balancerChargesFee": false,
     "vaultPoolId": "0x4edcb2b46377530bc18bb4d2c7fe46a992c73e100000000000000000000003ec",
     "decimals": "1e18",
     "tokens": [
@@ -1264,10 +1167,6 @@
     "address": "0x32296969Ef14EB0c6d29669C550D4a0449130230",
     "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
     "gauge": "0x59d66c58e83a26d6a0e35114323f65c3945c89c1",
-    "lsIndex": 0,
-    "lsUrl": "https://eth-api.lido.fi/v1/protocol/steth/apr/sma",
-    "dataPath": "$.data.smaApr",
-    "balancerChargesFee": false,
     "vaultPoolId": "0x32296969ef14eb0c6d29669c550d4a0449130230000200000000000000000080",
     "decimals": "1e18",
     "tokens": [
@@ -1329,8 +1228,6 @@
     "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
     "gauge": "0xdd1fe5ad401d4777ce89959b7fa587e569bf125d",
     "vaultPoolId": "0x1e19cf2d73a72ef1332c882f20534b6519be0276000200000000000000000112",
-    "rocketUrl": "https://api.rocketpool.net/api/apr",
-    "lsIndex": 0,
     "balancerChargesFee": false,
     "decimals": "1e18",
     "tokens": [
@@ -1352,11 +1249,6 @@
     "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
     "gauge": "0xe5d920029556a49a9cA4DD808CD62a1876C10eBA",
     "vaultPoolId": "0x25accb7943fd73dda5e23ba6329085a3c24bfb6a000200000000000000000387",
-    "lsUrl": "https://eth-api.lido.fi/v1/protocol/steth/apr/sma",
-    "dataPath": "$.data.smaApr",
-    "lsIndex": 0,
-    "includesComposableStable": false,
-    "composableSplit": 2,
     "decimals": "1e18",
     "tokens": [
       {
@@ -1378,7 +1270,6 @@
     "gauge": "0x1e9f147241da9009417811ad5858f22ed1f9f9fd",
     "vaultPoolId": "0xa13a9247ea42d743238089903570127dda72fe4400000000000000000000035d",
     "composable": true,
-    "includesComposableStable": true,
     "bptIndex": 2,
     "decimals": "1e18",
     "tokens": [
@@ -1408,10 +1299,8 @@
     "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
     "gauge": "0xa0e1d9619979f06ff375251afe90de2801b009d8",
     "vaultPoolId": "0x5b3240b6be3e7487d61cd1afdfc7fe4fa1d81e6400000000000000000000037b",
-    "includesComposableStable": true,
     "composable": true,
     "bptIndex": 0,
-    "composableSplit": 2,
     "decimals": "1e18",
     "tokens": [
       {
@@ -1435,9 +1324,6 @@
     "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
     "gauge": "0x19d94045f1ade0ed253d30a34e0845be99aab194",
     "vaultPoolId": "0x334c96d792e4b26b841d28f53235281cec1be1f200020000000000000000038a",
-    "includesComposableStable": true,
-    "lsIndex": 1,
-    "composableSplit": 2,
     "decimals": "1e18",
     "tokens": [
       {

@@ -63,6 +63,14 @@ import {
   REAL_CHAIN_ID,
   SEI_RPC,
   SEI_CHAIN_ID,
+  ROOTSTOCK_RPC,
+  ROOTSTOCK_CHAIN_ID,
+  SCROLL_RPC,
+  SCROLL_CHAIN_ID,
+  LISK_RPC,
+  LISK_CHAIN_ID,
+  SONIC_RPC,
+  SONIC_CHAIN_ID,
 } from '../constants';
 
 console.log(addressBookByChainId[ChainId.fantom].platforms.beefyfinance.multicall);
@@ -97,6 +105,10 @@ const MULTICALLS: Record<ChainId, Pick<BeefyFinance, 'multicall'>['multicall']> 
   [ChainId.manta]: addressBookByChainId[ChainId.manta].platforms.beefyfinance.multicall,
   [ChainId.real]: addressBookByChainId[ChainId.real].platforms.beefyfinance.multicall,
   [ChainId.sei]: addressBookByChainId[ChainId.sei].platforms.beefyfinance.multicall,
+  [ChainId.rootstock]: addressBookByChainId[ChainId.rootstock].platforms.beefyfinance.multicall,
+  [ChainId.scroll]: addressBookByChainId[ChainId.scroll].platforms.beefyfinance.multicall,
+  [ChainId.lisk]: addressBookByChainId[ChainId.lisk].platforms.beefyfinance.multicall,
+  [ChainId.sonic]: addressBookByChainId[ChainId.sonic].platforms.beefyfinance.multicall,
 };
 
 const clients: Record<keyof typeof ChainId, ethers.providers.JsonRpcProvider[]> = {
@@ -130,10 +142,16 @@ const clients: Record<keyof typeof ChainId, ethers.providers.JsonRpcProvider[]> 
   manta: [],
   real: [],
   sei: [],
+  rootstock: [],
+  scroll: [],
+  lisk: [],
+  sonic: [],
 };
 BSC_RPC_ENDPOINTS.forEach(endpoint => {
   clients.bsc.push(new ethers.providers.JsonRpcProvider(endpoint));
 });
+
+// clients
 clients.heco.push(new ethers.providers.JsonRpcProvider(HECO_RPC));
 clients.avax.push(new ethers.providers.JsonRpcProvider(AVAX_RPC));
 clients.polygon.push(new ethers.providers.JsonRpcProvider(POLYGON_RPC));
@@ -163,6 +181,10 @@ clients.mode.push(new ethers.providers.JsonRpcProvider(MODE_RPC));
 clients.manta.push(new ethers.providers.JsonRpcProvider(MANTA_RPC));
 clients.real.push(new ethers.providers.JsonRpcProvider(REAL_RPC));
 clients.sei.push(new ethers.providers.JsonRpcProvider(SEI_RPC));
+clients.rootstock.push(new ethers.providers.JsonRpcProvider(ROOTSTOCK_RPC));
+clients.sonic.push(new ethers.providers.JsonRpcProvider(SONIC_RPC));
+clients.lisk.push(new ethers.providers.JsonRpcProvider(LISK_RPC));
+clients.scroll.push(new ethers.providers.JsonRpcProvider(SCROLL_RPC));
 
 export const chainRandomClients = {
   bscRandomClient: () => clients.bsc[~~(clients.bsc.length * Math.random())],
@@ -195,6 +217,10 @@ export const chainRandomClients = {
   mantaRandomClient: () => clients.manta[~~(clients.manta.length * Math.random())],
   realRandomClient: () => clients.real[~~(clients.real.length * Math.random())],
   seiRandomClient: () => clients.sei[~~(clients.sei.length * Math.random())],
+  rootstockRandomClient: () => clients.rootstock[~~(clients.rootstock.length * Math.random())],
+  scrollRandomClient: () => clients.scroll[~~(clients.scroll.length * Math.random())],
+  liskRandomClient: () => clients.lisk[~~(clients.lisk.length * Math.random())],
+  sonicRandomClient: () => clients.sonic[~~(clients.sonic.length * Math.random())],
 };
 
 export const _ethersFactory = (chainId: ChainId) => {
@@ -259,6 +285,14 @@ export const _ethersFactory = (chainId: ChainId) => {
       return chainRandomClients.realRandomClient();
     case SEI_CHAIN_ID:
       return chainRandomClients.seiRandomClient();
+    case ROOTSTOCK_CHAIN_ID:
+      return chainRandomClients.rootstockRandomClient();
+    case SCROLL_CHAIN_ID:
+      return chainRandomClients.scrollRandomClient();
+    case LISK_CHAIN_ID:
+      return chainRandomClients.liskRandomClient();
+    case SONIC_CHAIN_ID:
+      return chainRandomClients.sonicRandomClient();
   }
 };
 

@@ -12,9 +12,7 @@ const { getBifiMaxiApy } = require('./getBifiMaxiApy');
 const { getConvexCvxTokensApy } = require('./getConvexCvxTokensApy');
 const { getCurveApys } = require('./getCurveApys');
 const { getConicApys } = require('./getConicApys');
-const { getApeStakingApy } = require('./getApeStakingApy');
 const { getConvexCvxApy } = require('./getConvexCvxApy');
-const getGammaApy = require('./getUniswapGammaApys');
 const { getETHCompoundV3Apys } = require('./getEthCompoundApys');
 const { getPrismaApys } = require('./getPrismaApys');
 const { getAcrossApys } = require('./getAcrossApys');
@@ -23,10 +21,12 @@ const getMerklApys = require('./getMerklApys');
 const { getbeQIApy } = require('./getbeQIApy');
 const { getFxApys } = require('./getFxApys');
 const { getPenpieApys } = require('./getPenpieApys');
+const { getSkyApy } = require('./getSkyApy');
+const { getEquilibriaApys } = require('../common/getEquilibriaApys');
+const { getTokemakApys } = require('./getTokemakApys');
 
 const getApys = [
   getAcrossApys,
-  getApeStakingApy,
   getAuraApys,
   getbeQIApy,
   getCurveApys,
@@ -45,11 +45,13 @@ const getApys = [
   getSolidlyApys,
   // getEulerApys, // => delete this? code already doesn't work...
   getVerseLpApys,
-  getGammaApy,
   getPenpieApys,
+  () => getEquilibriaApys(require('../../../data/ethereum/pendlePools.json')),
   getETHCompoundV3Apys,
   getEthSiloApys,
+  getSkyApy,
   getMerklApys,
+  getTokemakApys,
 ];
 
 const getEthereumApys = async () => {
