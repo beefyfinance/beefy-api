@@ -6,7 +6,7 @@ One of the mechanisms to reward dev work are treasury bounties. Bounties can be 
 1. You are a dev and would like to help with a task but want or need a compensation to tackle it. 
 2. You are a dev who already did a task and would like some compensation for the effort.
 3. You are not a dev but feel like a task is particularly important and/or difficult.
-4. If you are a dev with some cred with Beefy, you can propose a regular reward for continued contributions. 
+4. If you are a dev with some credibility with Beefy, you can propose a regular reward for continued contributions. 
 
 ## Steps
 
@@ -40,7 +40,7 @@ The basic choices to give are a Yes and a No.
 1. Yes
 2. No
 
-Feel free to add aditional options that might make the proposal more likely to pass, or to give you additional info. for example:
+Feel free to add additional options that might make the proposal more likely to pass, or to give you additional info. for example:
 
 1. Yes, full bounty 
 2. Yes, 70% of the funds
@@ -59,7 +59,7 @@ Unless there's a particular reason, the starting date should be pretty close to 
 
 ### 2. Engage the community
 You should go to our [Discord](https://discord.gg/yq8wfHd) and engage the community on why the proposal is important. 
-The #development channel is a good place to get the attention of other beefy devs. If you can post in #citadel, that's a great place to get the atention influential members of Beefy as well.
+The #development channel is a good place to get the attention of other beefy devs. If you can post in #citadel, that's a great place to get the attention influential members of Beefy as well.
 
 ### 3. Outcome
 If the proposal passed, you'll be contacted by a member of the team, or feel free to PM anyone with the team tag on discord to move forwards. 
