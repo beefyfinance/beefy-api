@@ -293,7 +293,7 @@ export const tokens = {
     oracleId: 'mBTC',
     address: '0x7c1cCA5b25Fa0bC9AF9275Fb53cBA89DC172b878',
     chainId: 56,
-    decimals: 18,
+    decimals: 8,
     logoURI: '',
     website: 'https://www.babylon.magpiexyz.io/stake',
     description:

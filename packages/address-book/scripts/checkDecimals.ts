@@ -5,6 +5,10 @@ import { Address, decodeAbiParameters, getAddress, getFunctionSelector } from 'v
 type ChainId = keyof typeof addressBook;
 const allChains = Object.keys(addressBook) as ChainId[];
 
+function isChainId(chainId: string): chainId is ChainId {
+  return !!addressBook[chainId as ChainId];
+}
+
 const selector = getFunctionSelector({
   name: 'decimals',
   type: 'function',
@@ -14,6 +18,7 @@ const selector = getFunctionSelector({
 });
 
 function shouldSkip(chainId: ChainId, token: Token) {
+  // Not sure if weird x-chain native-code token or something else but can't call .decimals on this
   if (chainId === 'moonbeam' && token.address === '0xFFfffFFecB45aFD30a637967995394Cc88C0c194') {
     return true;
   }
@@ -56,6 +61,8 @@ async function checkChain(chainId: ChainId) {
     if (token.decimals === undefined) {
       console.error(`Decimals not set in address book for ${id} on ${chainId}`);
       ++mismatches;
+    } else if (decimals === undefined) {
+      console.warn(`Could not check ${token.decimals} decimals is correct for ${id} on ${chainId}`);
     } else if (token.decimals !== decimals) {
       ++mismatches;
       console.error(
@@ -67,8 +74,8 @@ async function checkChain(chainId: ChainId) {
   return mismatches;
 }
 
-async function start() {
-  const mismatchesPerChain = await Promise.allSettled(allChains.map(checkChain));
+async function checkChains(chains: ChainId[]) {
+  const mismatchesPerChain = await Promise.allSettled(chains.map(checkChain));
   if (
     !mismatchesPerChain.every(
       (result): result is PromiseFulfilledResult<number> => result.status === 'fulfilled'
@@ -82,9 +89,31 @@ async function start() {
   }
 }
 
-start()
-  .then(() => process.exit(0))
-  .catch(err => {
-    console.error(err);
-    process.exit(-1);
-  });
+async function checkAllChains() {
+  return checkChains(allChains);
+}
+
+function handleReturnCode<T>(promise: Promise<T>) {
+  promise
+    .then(() => process.exit(0))
+    .catch(err => {
+      console.error(err);
+      process.exit(-1);
+    });
+}
+
+if (process.argv.length > 2) {
+  const chains = process.argv.slice(2);
+  const includeChains = chains.map(c => (c.startsWith('+') ? c.slice(1) : c)).filter(isChainId);
+  const excludeChains = chains.map(c => (c.startsWith('-') ? c.slice(1) : '')).filter(isChainId);
+  const chainsToCheck = (includeChains.length > 0 ? includeChains : allChains).filter(
+    c => !excludeChains.includes(c)
+  );
+  if (chainsToCheck.length === 0) {
+    console.error('No chains to check');
+    process.exit(1);
+  }
+  handleReturnCode(checkChains(chainsToCheck));
+} else {
+  handleReturnCode(checkAllChains());
+}
