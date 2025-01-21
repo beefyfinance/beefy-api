@@ -2211,7 +2211,7 @@ export const tokens = {
     oracleId: 'syrupUSDC',
     address: '0x80ac24aA929eaF5013f6436cdA2a7ba190f5Cc0b',
     chainId: 1,
-    decimals: 18,
+    decimals: 6,
     logoURI: '',
     website: 'https://syrup.fi/lend',
     documentation: 'https://syrup.gitbook.io/syrup',

@@ -14,14 +14,15 @@ module.exports = {
     }
     return [withArgs('ts-node', '--transpileOnly', './scripts/checkDuplicates.ts', chains)];
   }),
-  './src/address-book/**/*.ts': ifStaged(stagedFiles => {
+  './src/address-book/*/**/*.ts': ifStaged(stagedFiles => {
     const changed = stagedFiles.reduce(
       (acc, file) => {
         const matches = file.match(
           /^src\/address-book\/(?<chain>[^/]+)\/((?<type>[^/]+)\/)?(?<file>[^.]+)\.ts$/
         );
         if (!matches) {
-          throw new Error('Matched files do not match expected path structure');
+          console.error(`Matched file does not match expected path structure: ${file}`);
+          throw new Error(`Matched files do not match expected path structure`);
         }
         if (!matches.groups.type) {
           acc.all.add(matches.groups.chain);

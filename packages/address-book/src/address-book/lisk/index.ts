@@ -1,4 +1,3 @@
-
 import type { Chain } from '../../types/chain.js';
 import { convertSymbolTokenMapToAddressTokenMap } from '../../util/convertSymbolTokenMapToAddressTokenMap.js';
 import * as platforms from './platforms/index.js';
