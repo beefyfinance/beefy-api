@@ -300,10 +300,11 @@
         "oracleId": "OP"
       }
     ],
+    "getDy": ["v1", 0, 2, "opUSDCe"],
     "tokens": [
       {
         "oracle": "tokens",
-        "oracleId": "sUSD",
+        "oracleId": "opsUSD",
         "decimals": "1e18"
       },
       {
