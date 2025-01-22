@@ -173,4 +173,18 @@ export const tokens = {
     documentation: 'https://docs.beefy.finance/',
     bridge: 'beefy',
   },
+  scETH: {
+    name: 'Sonic ETH',
+    symbol: 'scETH',
+    oracleId: 'scETH',
+    address: '0x3bcE5CB273F0F148010BbEa2470e7b5df84C7812',
+    chainId: 146,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://rings.money/',
+    description:
+      'Rings is a meta-stablecoin for USD & ETH offering competitive yield for stakers, providing deep liquidity for Sonic DeFi, and funding Sonic DeFi projects via its lockers.',
+    documentation: 'https://docs.rings.money/',
+    bridge: 'layer-zero',
+  },
 } as const satisfies Record<string, Token>;
