@@ -36,6 +36,7 @@ const supportedChains = new Set<AppChain>([
   'celo',
   'sei',
   'rootstock',
+  'sonic',
 ]);
 const supportedCampaignTypeToVaultType: Map<MerklApiCampaignType, Set<Vault['type']>> = new Map([
   [MerklApiCampaignType.ERC20, new Set<Vault['type']>(['standard'])],
