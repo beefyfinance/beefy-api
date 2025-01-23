@@ -133,7 +133,7 @@
     "address": "0xEE1CA97823F6f359eBF1c37cbD245b4CD3B664af",
     "lpAddress": "0xE2101D19B78e695982975CC1A27b6A9117e02b09",
     "tokens": ["0x0b2C639c533813f4Aa9D7837CAf62653d097Ff85", "0x8c6f28f2F1A3C87F0f938b96d27520d9751ec8d9"],
-    "tokenOracleIds": ["USDC", "sUSD"],
+    "tokenOracleIds": ["USDC", "opsUSD"],
     "decimals": [6, 18],
     "oracleId": "uniswap-cow-op-usdc-susd",
     "rewardPool": {
@@ -345,7 +345,7 @@
     "address": "0x688EFffb4212E98D47d6617665575EAe7b7dc85B",
     "lpAddress": "0x3C01ec09D15D5450FC702DC4353b17Cd2978d8a5",
     "tokens": ["0x0b2C639c533813f4Aa9D7837CAf62653d097Ff85", "0x8c6f28f2F1A3C87F0f938b96d27520d9751ec8d9"],
-    "tokenOracleIds": ["USDC", "sUSD"],
+    "tokenOracleIds": ["USDC", "opsUSD"],
     "decimals": [6, 18],
     "oracleId": "velo-cow-op-susd-usdc",
     "providerId": "velodrome",

@@ -1,5 +1,22 @@
 [
   {
+    "address": "0x03BdAf7eb1b109E3C3348ee98cde734a82aea8FD",
+    "lpAddress": "0xFD8fc59E65860e7FAaf09482e6Be4af65741DEba",
+    "tokens": ["0x29219dd400f2Bf60E5a23d13Be72B486D4038894", "0xc55E93C62874D8100dBd2DfE307EDc1036ad5434"],
+    "tokenOracleIds": ["sUSDCe", "smooBIFI"],
+    "decimals": [6, 18],
+    "oracleId": "shadow-cow-sonic-usdc.e-moobifi",
+    "providerId": "shadow",
+    "rewardPool": {
+      "address": "0x270c72285aa76233AdAd07b6C20ac81d4fE68F8e",
+      "oracleId": "shadow-cow-sonic-usdc.e-moobifi-rp"
+    },
+    "vault": {
+      "address": "0xAFFcd41595f83918A3cF360C5909C577E8F74b77",
+      "oracleId": "shadow-cow-sonic-usdc.e-moobifi-vault"
+    }
+  },
+  {
     "address": "0x72cE11866e242Cd7d302cDAE9588cB32Cf2a2bB1",
     "lpAddress": "0x66af3655e14a045F1742b3c9544553Ef7915ed35",
     "tokens": ["0x3333b97138D4b086720b5aE8A7844b1345a33333", "0xE5DA20F15420aD15DE0fa650600aFc998bbE3955"],
