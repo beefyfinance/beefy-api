@@ -60,7 +60,7 @@
     }
   },
   {
-    "address": "0xcA76A5dF98cBe5962335BD72AC4Ed6b25615b031",
+    "address": "0x0385C8018DaFE36fFEB5387026aCf508Fc57553A",
     "lpAddress": "0x859c91f9Fe1EC10e38a7CCaD0B87f0aAE0b88cFE",
     "tokens": ["0x4200000000000000000000000000000000000006", "0x71a67215a2025F501f386A49858A9ceD2FC0249d"],
     "tokenOracleIds": ["WETH", "uSEI"],
@@ -68,11 +68,11 @@
     "oracleId": "aerodrome-cow-base-weth-usei",
     "providerId": "aerodrome",
     "rewardPool": {
-      "address": "0x1ba3735FC29271973b1fBA25d1E2f1f86FDB2aEb",
+      "address": "0x886344208C98BDbeC6CB76E95e56E9581b60B57E",
       "oracleId": "aerodrome-cow-base-weth-usei-rp"
     },
     "vault": {
-      "address": "0xFD40040b8C9033907866e92B2c85d9C4d54DfEB2",
+      "address": "0xf092CA55c282923d96b0E1f19EAa0372F19AAfa8",
       "oracleId": "aerodrome-cow-base-weth-usei-vault"
     }
   },
