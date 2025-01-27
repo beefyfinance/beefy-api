@@ -2196,4 +2196,19 @@ export const tokens = {
     documentation: '',
     bridge: 'native',
   },
+  VVV: {
+    name: 'Venice Token',
+    symbol: 'VVV',
+    oracleId: 'VVV',
+    address: '0xacfE6019Ed1A7Dc6f7B508C02d1b04ec88cC21bf',
+    chainId: 8453,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://venice.ai/',
+    description:
+      'Unlike other leading AI platforms, Venice provides a private and uncensored AI experience, with your prompts and data only stored on your device, never on our servers.',
+    documentation: 'https://venice.ai/blog',
+    bridge: 'native',
+    risks: ['NO_TIMELOCK'],
+  },
 } as const satisfies Record<string, Token>;
