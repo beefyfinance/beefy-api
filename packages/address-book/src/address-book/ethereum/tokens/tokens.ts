@@ -2333,6 +2333,19 @@ export const tokens = {
       'wstUSR is a non-rebasing version of staked USR, value of which accrues over time from staking rewards.',
     bridge: 'native',
   },
+  BOLD: {
+    name: 'Bold Stablecoin',
+    symbol: 'BOLD',
+    oracleId: 'BOLD',
+    address: '0xb01dd87B29d187F3E3a4Bf6cdAebfb97F3D9aB98',
+    chainId: 1,
+    decimals: 18,
+    website: 'https://www.liquity.org/',
+    documentation: 'https://docs.liquity.org/',
+    description:
+      'BOLD is the USD-pegged stablecoin issued in Liquity V2. It’s fully decentralized, overcollateralized and backed only by WETH, wstETH and rETH.',
+    bridge: 'native',
+  },
   TOKE: {
     name: 'Tokemak',
     symbol: 'TOKE',

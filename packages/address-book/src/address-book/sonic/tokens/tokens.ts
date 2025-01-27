@@ -87,7 +87,6 @@ export const tokens = {
       'Origin Sonic (OS) is a liquid staking token on the Sonic network designed to offer enhanced security, higher yield, and a tighter peg to S when compared to other Sonic LSTs. ',
     documentation: 'https://docs.originprotocol.com/protocol/os',
     bridge: 'native',
-    risks: ['NO_TIMELOCK'],
   },
   scUSD: {
     name: 'Sonic USD',

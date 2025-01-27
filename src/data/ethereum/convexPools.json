@@ -1,5 +1,48 @@
 [
   {
+    "name": "curve-bold-lusd",
+    "pool": "0x29a760138fa530d51a100171cb5ce4ddf506af2e",
+    "gauge": "0x3ac4b6da715e7963bbcfb31de39a1b139f426223",
+    "rewards": [
+      {
+        "token": "0x5f98805A4E8be255a32880FDeC7F6728C6568bA0",
+        "oracleId": "LUSD"
+      }
+    ],
+    "tokens": [
+      {
+        "oracleId": "BOLD",
+        "decimals": "1e18"
+      },
+      {
+        "oracleId": "LUSD",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
+    "name": "curve-bold-usdc",
+    "pool": "0xadb6851875b7496e3d565b754d8a79508480a203",
+    "gauge": "0xa8bb51606db8e81f0ac964f0855c20d9e474ab63",
+    "getDy": ["v1", 0, 1],
+    "rewards": [
+      {
+        "token": "0x5f98805A4E8be255a32880FDeC7F6728C6568bA0",
+        "oracleId": "LUSD"
+      }
+    ],
+    "tokens": [
+      {
+        "oracleId": "BOLD",
+        "decimals": "1e18"
+      },
+      {
+        "oracleId": "USDC",
+        "decimals": "1e6"
+      }
+    ]
+  },
+  {
     "name": "curve-usr-usdc",
     "pool": "0x3ee841f47947fefbe510366e4bbb49e145484195",
     "gauge": "0xf589273a91622f1f48c0cd378881f0b3e6c40a95",
