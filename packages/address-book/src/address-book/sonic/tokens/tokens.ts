@@ -74,6 +74,21 @@ export const tokens = {
     documentation: 'https://docs.beets.fi/',
     bridge: 'native',
   },
+  OS: {
+    name: 'Origin Sonic',
+    symbol: 'OS',
+    oracleId: 'OS',
+    address: '0xb1e25689D55734FD3ffFc939c4C3Eb52DFf8A794',
+    chainId: 146,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://app.originprotocol.com/#/os/',
+    description:
+      'Origin Sonic (OS) is a liquid staking token on the Sonic network designed to offer enhanced security, higher yield, and a tighter peg to S when compared to other Sonic LSTs. ',
+    documentation: 'https://docs.originprotocol.com/protocol/os',
+    bridge: 'native',
+    risks: ['NO_TIMELOCK'],
+  },
   scUSD: {
     name: 'Sonic USD',
     symbol: 'scUSD',
