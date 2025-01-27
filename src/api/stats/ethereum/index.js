@@ -24,6 +24,8 @@ const { getPenpieApys } = require('./getPenpieApys');
 const { getSkyApy } = require('./getSkyApy');
 const { getEquilibriaApys } = require('../common/getEquilibriaApys');
 const { getTokemakApys } = require('./getTokemakApys');
+const { getMorphoApys } = require('../common/morpho/getMorphoApys');
+const { ETH_CHAIN_ID } = require('../../../constants');
 
 const getApys = [
   getAcrossApys,
@@ -47,6 +49,7 @@ const getApys = [
   getVerseLpApys,
   getPenpieApys,
   () => getEquilibriaApys(require('../../../data/ethereum/pendlePools.json')),
+  () => getMorphoApys(ETH_CHAIN_ID, require('../../../data/ethereum/morphoPools.json')),
   getETHCompoundV3Apys,
   getEthSiloApys,
   getSkyApy,

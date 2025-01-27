@@ -13,6 +13,11 @@ export const getMorphoApys = async (chainId, pools) => {
           netApy
           netApyWithoutRewards
         }
+        asset {
+          yield {
+            apr
+          }
+        }
       }
     }}`,
   };
@@ -31,10 +36,12 @@ export const getMorphoApys = async (chainId, pools) => {
   return getApyBreakdown(
     pools.map(p => {
       const apy = apys.find(item => item.address === p.address);
-      const trading = new BigNumber(apy?.state?.netApyWithoutRewards || 0);
+      const base = new BigNumber(apy?.state?.netApyWithoutRewards || 0);
+      const assetYield = new BigNumber(apy?.asset?.yield?.apr || 0);
+      const trading = base.plus(assetYield);
       return {
         vaultId: p.name,
-        vault: new BigNumber(apy?.state?.netApy || 0).minus(trading),
+        vault: new BigNumber(apy?.state?.netApy || 0).minus(base),
         trading,
       };
     })
