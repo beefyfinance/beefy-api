@@ -28,5 +28,12 @@
     "cToken": "0x697a70779C1A03Ba2BD28b7627a902BFf831b616",
     "oracleId": "ZK",
     "decimals": "1e18"
+  },
+  {
+    "name": "venus-zksync-usdc",
+    "cToken": "0x84064c058F2EFea4AB648bB6Bd7e40f83fFDe39a",
+    "oracleId": "USDC",
+    "decimals": "1e6",
+    "merkl": true
   }
 ]

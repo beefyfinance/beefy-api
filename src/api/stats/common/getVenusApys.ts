@@ -20,7 +20,8 @@ const getVenusApyData = async (params: VenusApyParams) => {
     Object.fromEntries(params.pools.map((p, i) => [p.name, supplyApys[i]])),
     supplyCompApys,
     0,
-    poolsData.lsAprs
+    poolsData.lsAprs,
+    poolsData.merklAprs
   );
 };
 
@@ -81,11 +82,32 @@ const getPoolsData = async (params: VenusApyParams): Promise<VenusPoolsData> => 
   const tokenPrices = res[4];
   const lsAprs = res[5];
 
+  let merklPools = {};
+  let chainId = params.chainId;
+  let merklApi = `https://api.angle.money/v3/opportunity?chainId=${chainId}`;
+  try {
+    merklPools = await fetch(merklApi).then(res => res.json());
+  } catch (e) {
+    console.error(`Failed to fetch Merkl APRs: ${chainId}`);
+  }
+
+  let merklAprs = params.pools.map(pool => {
+    if (Object.keys(merklPools).length !== 0 && pool.merkl) {
+      for (const [key, value] of Object.entries(merklPools)) {
+        const typedValue = value as MerklValue;
+        if (key.toLowerCase() === `1_${pool.cToken.toLowerCase()}`) {
+          return (typedValue.dailyrewards * 365) / typedValue.tvl;
+        }
+      }
+    }
+  });
+
   return {
     tokenPrices,
     supplyRates,
     compSupplySpeeds,
     lsAprs,
+    merklAprs,
     totalSupplies,
     exchangeRatesStored,
   };
@@ -120,6 +142,7 @@ export interface VenusPoolsData {
   supplyRates: BigNumber[];
   compSupplySpeeds: BigNumber[];
   lsAprs: number[];
+  merklAprs: number[];
   totalSupplies: BigNumber[];
   exchangeRatesStored: BigNumber[];
 }
@@ -132,6 +155,7 @@ export interface VenusPool {
   lsUrl?: string;
   lsAprFactor?: number;
   dataPath?: string;
+  merkl?: boolean;
 }
 
 export interface VenusApyParams {
@@ -140,5 +164,10 @@ export interface VenusApyParams {
   compOracleId: string;
   pools: VenusPool[];
 }
+
+type MerklValue = {
+  dailyrewards: number;
+  tvl: number;
+};
 
 export default getVenusApyData;
