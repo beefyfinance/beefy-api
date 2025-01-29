@@ -233,6 +233,16 @@
         "stream": "0xf6a0071f5607f589DF253E0991Ba6aBdDE7a6d32",
         "rewardToken": "0xE5DA20F15420aD15DE0fa650600aFc998bbE3955",
         "oracleId": "stS"
+      },
+      {
+        "stream": "0xf6a0071f5607f589DF253E0991Ba6aBdDE7a6d32",
+        "rewardToken": "0x2D0E0814E62D80056181F5cd932274405966e4f0",
+        "oracleId": "BEETS"
+      },
+      {
+        "stream": "0xf6a0071f5607f589DF253E0991Ba6aBdDE7a6d32",
+        "rewardToken": "0xe6cc4D855B4fD4A9D02F46B9adae4C5EfB1764B5",
+        "oracleId": "LUDWIG"
       }
     ],
     "tokens": [
