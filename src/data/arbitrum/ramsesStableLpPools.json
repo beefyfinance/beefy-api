@@ -1,5 +1,25 @@
 [
   {
+    "name": "ramses-bold-usdc",
+    "address": "0x5Ad0Fa13871DBB53786845E2F317Ee4B6600495D",
+    "gauge": "0x22E2751e0D2A5Dc8F220a75CA543a890202B8211",
+    "decimals": "1e18",
+    "chainId": 42161,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0x087C440F251Ff6Cfe62B86DdE1bE558B95b4bb9b",
+      "oracle": "tokens",
+      "oracleId": "Bold",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xaf88d065e77c8cC2239327C5EDb3A432268e5831",
+      "oracle": "tokens",
+      "oracleId": "USDC",
+      "decimals": "1e6"
+    }
+  },
+  {
     "name": "ramses-usdx-usdc",
     "address": "0x340F0c6E09bb2C13df14bb4B334CC8Dba0bb4881",
     "gauge": "0x6097B366e47776a23C7e1Add572c50349E9C20A6",

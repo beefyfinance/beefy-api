@@ -1,5 +1,45 @@
 [
   {
+    "name": "aerodrome-weth-vvv",
+    "address": "0x01784ef301D79e4B2DF3a21ad9a536d4cF09A5Ce",
+    "gauge": "0x37a70295FCefebBB0a29735A53E2e6786A02F930",
+    "decimals": "1e18",
+    "chainId": 8453,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0x4200000000000000000000000000000000000006",
+      "oracle": "tokens",
+      "oracleId": "WETH",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xacfE6019Ed1A7Dc6f7B508C02d1b04ec88cC21bf",
+      "oracle": "tokens",
+      "oracleId": "VVV",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "aerodrome-weth-veil",
+    "address": "0xf207d02BECD4417aAA3383804b6B87b17602c86D",
+    "gauge": "0xd2eBB7D16503BF671142e031A2FDC0cE9ce9253f",
+    "decimals": "1e18",
+    "chainId": 8453,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0x4200000000000000000000000000000000000006",
+      "oracle": "tokens",
+      "oracleId": "WETH",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x767A739D1A152639e9Ea1D8c1BD55FDC5B217D7f",
+      "oracle": "tokens",
+      "oracleId": "VEIL",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "aerodrome-usdc-ox",
     "address": "0x33A20Ce534aE0F2fC00BC28e7133836B34415E7B",
     "gauge": "0x271cc28Fac66b40515a31D28FB95Eed8D17e2853",

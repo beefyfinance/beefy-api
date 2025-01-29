@@ -2211,4 +2211,32 @@ export const tokens = {
     bridge: 'native',
     risks: ['NO_TIMELOCK'],
   },
+  Bold: {
+    name: 'Bold Stablecoin',
+    symbol: 'Bold',
+    oracleId: 'Bold',
+    address: '0x087C440F251Ff6Cfe62B86DdE1bE558B95b4bb9b',
+    chainId: 8453,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://www.liquity.org/',
+    description:
+      'BOLD is the USD-pegged stablecoin issued in Liquity V2. It is over-collateralized and backed only by WETH, wstETH, and rETH.',
+    documentation: 'https://docs.liquity.org/',
+    bridge: 'chainlink-ccip',
+  },
+  VEIL: {
+    name: 'VEIL Token',
+    symbol: 'VEIL',
+    oracleId: 'VEIL',
+    address: '0x767A739D1A152639e9Ea1D8c1BD55FDC5B217D7f',
+    chainId: 8453,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://www.veil.cash/',
+    description:
+      'Veil Cash is a non-custodial privacy protocol deployed on the Base Layer 2 (L2) blockchain. It leverages zk-SNARKs (Zero-Knowledge Succinct Non-Interactive Arguments of Knowledge) to enable users to achieve on-chain privacy and anonymity within trusted pools.',
+    documentation: 'https://docs.veil.cash/',
+    bridge: 'native',
+  },
 } as const satisfies Record<string, Token>;

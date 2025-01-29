@@ -2283,4 +2283,18 @@ export const tokens = {
     bridge: 'layer-zero',
     risks: ['NO_TIMELOCK'],
   },
+  Bold: {
+    name: 'Bold Stablecoin',
+    symbol: 'Bold',
+    oracleId: 'Bold',
+    address: '0x087C440F251Ff6Cfe62B86DdE1bE558B95b4bb9b',
+    chainId: 42161,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://www.liquity.org/',
+    documentation: 'https://docs.liquity.org/',
+    description:
+      'BOLD is the USD-pegged stablecoin issued in Liquity V2. It is over-collateralized and backed only by WETH, wstETH, and rETH.',
+    bridge: 'chainlink-ccip',
+  },
 } as const satisfies Record<string, Token>;
