@@ -35,7 +35,7 @@ export const tokens = {
   },
   USDCe: {
     name: 'Bridged USDC (Sonic Labs)',
-    symbol: 'USDC.e',
+    symbol: 'USDCe',
     oracleId: 'sUSDCe',
     address: '0x29219dd400f2Bf60E5a23d13Be72B486D4038894',
     chainId: 146,
@@ -72,20 +72,6 @@ export const tokens = {
     description:
       'stS is a liquid-staked token that users receive when they stake $S on the Beets platform. The value of stS naturally appreciates in relation to $S thanks to native network staking rewards from validator delegation being automatically compounded within the token.',
     documentation: 'https://docs.beets.fi/',
-    bridge: 'native',
-  },
-  OS: {
-    name: 'Origin Sonic',
-    symbol: 'OS',
-    oracleId: 'OS',
-    address: '0xb1e25689D55734FD3ffFc939c4C3Eb52DFf8A794',
-    chainId: 146,
-    decimals: 18,
-    logoURI: '',
-    website: 'https://app.originprotocol.com/#/os/',
-    description:
-      'Origin Sonic (OS) is a liquid staking token on the Sonic network designed to offer enhanced security, higher yield, and a tighter peg to S when compared to other Sonic LSTs. ',
-    documentation: 'https://docs.originprotocol.com/protocol/os',
     bridge: 'native',
   },
   scUSD: {
@@ -158,21 +144,6 @@ export const tokens = {
     documentation: 'https://docs.shadow.so/',
     risks: ['LARGE_HOLDERS'],
   },
-  SWPx: {
-    name: 'SwapX',
-    symbol: 'SWPx',
-    oracleId: 'SWPx',
-    address: '0xA04BC7140c26fc9BB1F36B1A604C7A5a88fb0E70',
-    chainId: 146,
-    decimals: 18,
-    logoURI: '',
-    website: 'https://swapx.fi/',
-    bridge: 'native',
-    description:
-      'SWPx is the governance token for the SwapX. SwapX is a decentralized exchange (DEX) which aims to become the leading platform for native concentrated liquidity on Sonic Blockchain.',
-    documentation: 'https://swapxfi.gitbook.io/swapx-docs',
-    risks: ['NO_TIMELOCK'],
-  },
   mooBIFI: {
     name: 'Bridged BIFI Vault Receipt',
     symbol: 'mooBIFI',
@@ -186,19 +157,5 @@ export const tokens = {
     logoURI: 'https://beefy.com/icons/128/mooBIFI.png',
     documentation: 'https://docs.beefy.finance/',
     bridge: 'beefy',
-  },
-  scETH: {
-    name: 'Sonic ETH',
-    symbol: 'scETH',
-    oracleId: 'scETH',
-    address: '0x3bcE5CB273F0F148010BbEa2470e7b5df84C7812',
-    chainId: 146,
-    decimals: 18,
-    logoURI: '',
-    website: 'https://rings.money/',
-    description:
-      'Rings is a meta-stablecoin for USD & ETH offering competitive yield for stakers, providing deep liquidity for Sonic DeFi, and funding Sonic DeFi projects via its lockers.',
-    documentation: 'https://docs.rings.money/',
-    bridge: 'layer-zero',
   },
 } as const satisfies Record<string, Token>;
