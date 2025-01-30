@@ -1752,7 +1752,7 @@ export const tokens = {
   Bold: {
     name: 'Bold Stablecoin',
     symbol: 'Bold',
-    oracleId: 'Bold',
+    oracleId: 'BOLD',
     address: '0x087C440F251Ff6Cfe62B86DdE1bE558B95b4bb9b',
     chainId: 10,
     decimals: 18,
