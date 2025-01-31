@@ -1,0 +1,32 @@
+[
+  {
+    "name": "beetsv3-sonic-beefyusdce-scusd",
+    "address": "0x43026d483f42fb35efe03c20b251142d022783f2",
+    "gauge": "0x5D9e8B588F1D9e28ea1963681180d8b5938D26BA",
+    "decimals": "1e18",
+    "rewards": [
+      {
+        "newGauge": true,
+        "stream": "0x5D9e8B588F1D9e28ea1963681180d8b5938D26BA",
+        "oracleId": "BAL"
+      },
+      {
+        "stream": "0x5D9e8B588F1D9e28ea1963681180d8b5938D26BA",
+        "rewardToken": "0xE5DA20F15420aD15DE0fa650600aFc998bbE3955",
+        "oracleId": "stS"
+      }
+    ],
+    "tokens": [
+      {
+        "address": "0x7870ddFd5ACA4E977B2287e9A212bcbe8FC4135a",
+        "oracleId": "mooSiloSonicUSDCe",
+        "decimals": "1e18"
+      },
+      {
+        "address": "0xd3DCe716f3eF535C5Ff8d041c1A41C3bd89b97aE",
+        "oracleId": "scUSD",
+        "decimals": "1e6"
+      }
+    ]
+  }
+]

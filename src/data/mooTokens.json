@@ -38,5 +38,13 @@
     "chainId": 56,
     "oracle": "tokens",
     "oracleId": "NFTY"
+  },
+  {
+    "name": "mooSiloSonicUSDCe",
+    "address": "0xdb6E5dC4C6748EcECb97b565F6C074f24384fD07",
+    "decimals": "1e6",
+    "chainId": 146,
+    "oracle": "tokens",
+    "oracleId": "sUSDCe"
   }
 ]
