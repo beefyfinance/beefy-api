@@ -176,7 +176,7 @@ export const tokens = {
   },
   USDCe: {
     name: 'Bridged USDC (Gnosis)',
-    symbol: 'USDC.e',
+    symbol: 'USDCe',
     oracleId: 'USDCe',
     address: '0x2a22f9c3b484c3629090FeED35F17Ff8F88f76F0',
     chainId: 100,

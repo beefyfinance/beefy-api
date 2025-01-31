@@ -42,7 +42,7 @@ export const treasuryConcLiquidityAssets: Partial<Record<ApiChain, ConcLiquidity
   ],
   sonic: [
     {
-      name: 'USDCe-mooBIFI 1%',
+      name: 'USDCe-mooBIFI V3',
       address: '0xFD8fc59E65860e7FAaf09482e6Be4af65741DEba-4651',
       decimals: 18,
       assetType: 'concLiquidity',
