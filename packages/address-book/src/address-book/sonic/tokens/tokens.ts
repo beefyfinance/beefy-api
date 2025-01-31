@@ -201,4 +201,17 @@ export const tokens = {
     documentation: 'https://docs.rings.money/',
     bridge: 'layer-zero',
   },
+  mooSiloSonicUSDCe: {
+    name: 'Moo Silo Sonic USDCe',
+    symbol: 'mooSiloSonicUSDCe',
+    oracleId: 'mooSiloSonicUSDCe',
+    address: '0xdb6E5dC4C6748EcECb97b565F6C074f24384fD07',
+    chainId: 146,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://beefy.com',
+    description: 'Staked USDC.e via Silo on Beefy.',
+    documentation: 'https://docs.beefy.finance/',
+    bridge: 'native',
+  },
 } as const satisfies Record<string, Token>;
