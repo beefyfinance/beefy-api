@@ -1,5 +1,85 @@
 [
   {
+    "name": "swapx-ichi-sceth-weth-sceth",
+    "address": "0x6E8A8037533aA74FfFEb92390E443294d034d769",
+    "gauge": "0x0ceEb9B74f2b94CAC261E92e484f368efF8ab681",
+    "decimals": "1e18",
+    "chainId": 146,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0x3bcE5CB273F0F148010BbEa2470e7b5df84C7812",
+      "oracle": "tokens",
+      "oracleId": "scETH",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x50c42dEAcD8Fc9773493ED674b675bE577f2634b",
+      "oracle": "tokens",
+      "oracleId": "WETH",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "swapx-ichi-sceth-weth-weth",
+    "address": "0x0f385EEa80cB6909A1dbA5CDc763e97F8589f47D",
+    "gauge": "0x882A10B15F2cdC893a5109C4b4B562674aBb18b0",
+    "decimals": "1e18",
+    "chainId": 146,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0x3bcE5CB273F0F148010BbEa2470e7b5df84C7812",
+      "oracle": "tokens",
+      "oracleId": "scETH",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x50c42dEAcD8Fc9773493ED674b675bE577f2634b",
+      "oracle": "tokens",
+      "oracleId": "WETH",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "swapx-ichi-weth-swpx-weth",
+    "address": "0x31d3419c0A2780836C603C086266f803f655e7F0",
+    "gauge": "0x639d5aCaCC34aFf29379DCe402f480741D1aBAE3",
+    "decimals": "1e18",
+    "chainId": 146,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0x50c42dEAcD8Fc9773493ED674b675bE577f2634b",
+      "oracle": "tokens",
+      "oracleId": "WETH",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xA04BC7140c26fc9BB1F36B1A604C7A5a88fb0E70",
+      "oracle": "tokens",
+      "oracleId": "SWPx",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "swapx-ichi-swpx-os-os",
+    "address": "0x3E11010699adc07C950d854A8d442F956208F895",
+    "gauge": "0x8B205d9183E9049afD8e315d31b35b9EfbC37828",
+    "decimals": "1e18",
+    "chainId": 146,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0xA04BC7140c26fc9BB1F36B1A604C7A5a88fb0E70",
+      "oracle": "tokens",
+      "oracleId": "SWPx",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xb1e25689D55734FD3ffFc939c4C3Eb52DFf8A794",
+      "oracle": "tokens",
+      "oracleId": "OS",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "swapx-ichi-ws-os-os",
     "address": "0xc4A71981DC8ee8ee704b6217DaebAd6ECe185aeb",
     "gauge": "0x3a4A0040475575638beB4051d8950ea21686ce27",
