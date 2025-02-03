@@ -1,5 +1,12 @@
 [
   {
+    "name": "morpho-seamless-usdc",
+    "address": "0x616a4E1db48e22028f6bbf20444Cd3b8e3273738",
+    "oracle": "tokens",
+    "oracleId": "USDC",
+    "decimals": "1e6"
+  },
+  {
     "name": "morpho-morpho-eusd",
     "address": "0xbb819D845b573B5D7C538F5b85057160cfb5f313",
     "oracle": "tokens",
