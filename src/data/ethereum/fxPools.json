@@ -64,11 +64,26 @@
     "name": "fx-dola-fxusd",
     "pool": "0x189b4e49b5caf33565095097b4b960f14032c7d0",
     "gauge": "0x61F32964C39Cca4353144A6DB2F8Efdb3216b35B",
-    "getDy": ["v1", 1, 0],
     "tokens": [
       {
         "oracleId": "DOLA",
         "decimals": "1e18"
+      },
+      {
+        "oracleId": "fxUSD",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
+    "name": "fx-usdc-fxusd",
+    "pool": "0x5018BE882DccE5E3F2f3B0913AE2096B9b3fB61f",
+    "gauge": "0xf1E141C804BA39b4a031fDF46e8c08dBa7a0df60",
+    "getDy": ["v1", 1, 0],
+    "tokens": [
+      {
+        "oracleId": "USDC",
+        "decimals": "1e6"
       },
       {
         "oracleId": "fxUSD",
