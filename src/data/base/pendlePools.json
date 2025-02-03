@@ -1,5 +1,14 @@
 [
   {
+    "name": "pendle-base-usr-24apr25",
+    "address": "0xe15578523937ed7f08e8f7a1fa8a021e07025a08",
+    "eqbGauge": "0xe575a035283e67AF9bEEe2D89b3fF21F103d300D",
+    "oracle": "tokens",
+    "oracleId": "USR",
+    "decimals": "1e18",
+    "chainId": 8453
+  },
+  {
     "name": "pendle-base-virtual-cbbtc-26jun25",
     "address": "0x621d4d92e9bed484e6d2cb8a37d342c804a0908c",
     "eqbGauge": "0xDBA1C701b3c2Fe06F136b922EA3ce8fb2eeDeE86",

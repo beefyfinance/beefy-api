@@ -2225,6 +2225,19 @@ export const tokens = {
     documentation: 'https://docs.liquity.org/',
     bridge: 'chainlink-ccip',
   },
+  USR: {
+    name: 'Resolv USD',
+    symbol: 'USR',
+    oracleId: 'USR',
+    address: '0x35E5dB674D8e93a03d814FA0ADa70731efe8a4b9',
+    chainId: 1,
+    decimals: 18,
+    website: 'https://app.resolv.xyz/',
+    documentation: 'https://docs.resolv.xyz/',
+    description:
+      'Resolv is a protocol maintaining USR, a stablecoin natively backed by Ether (ETH) and pegged to US Dollar',
+    bridge: 'layer-zero',
+  },
   VEIL: {
     name: 'VEIL Token',
     symbol: 'VEIL',
