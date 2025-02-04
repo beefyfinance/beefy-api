@@ -2346,6 +2346,20 @@ export const tokens = {
       'BOLD is the USD-pegged stablecoin issued in Liquity V2. It’s fully decentralized, overcollateralized and backed only by WETH, wstETH and rETH.',
     bridge: 'native',
   },
+  AIOZ: {
+    name: 'AIOZ Network',
+    symbol: 'AIOZ',
+    oracleId: 'AIOZ',
+    address: '0x626E8036dEB333b408Be468F951bdB42433cBF18',
+    chainId: 1,
+    decimals: 18,
+    website: 'https://aioz.network/',
+    documentation: 'https://docs.aioz.network/',
+    description:
+      'AIOZ Network is a comprehensive infrastructure solution for web3 storage, decentralized AI computation, live streaming and video on demand (VOD), powered by people.',
+    bridge: 'native',
+    risks: ['NO_TIMELOCK'],
+  },
   TOKE: {
     name: 'Tokemak',
     symbol: 'TOKE',

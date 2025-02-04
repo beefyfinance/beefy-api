@@ -1,5 +1,22 @@
 [
   {
+    "name": "curve-aioz-weth",
+    "pool": "0x8d688646ebb400f7de2b713b80b6a58fcf35d2d9",
+    "gauge": "0x41af8cc0811dd07f167752b821cf5b11dba7ca85",
+    "rewardPool": "0x7292586Fd198C8a2fB92652457224965B10cFd2D",
+    "getDy": ["v2", 1, 0],
+    "tokens": [
+      {
+        "oracleId": "WETH",
+        "decimals": "1e18"
+      },
+      {
+        "oracleId": "AIOZ",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
     "name": "curve-bold-lusd",
     "pool": "0x29a760138fa530d51a100171cb5ce4ddf506af2e",
     "gauge": "0x3ac4b6da715e7963bbcfb31de39a1b139f426223",
@@ -7,6 +24,10 @@
       {
         "token": "0x5f98805A4E8be255a32880FDeC7F6728C6568bA0",
         "oracleId": "LUSD"
+      },
+      {
+        "token": "0xb01dd87b29d187f3e3a4bf6cdaebfb97f3d9ab98",
+        "oracleId": "BOLD"
       }
     ],
     "tokens": [
@@ -29,6 +50,10 @@
       {
         "token": "0x5f98805A4E8be255a32880FDeC7F6728C6568bA0",
         "oracleId": "LUSD"
+      },
+      {
+        "token": "0xb01dd87b29d187f3e3a4bf6cdaebfb97f3d9ab98",
+        "oracleId": "BOLD"
       }
     ],
     "tokens": [
