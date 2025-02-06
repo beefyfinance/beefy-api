@@ -80,6 +80,12 @@
     "pool": "0x5018BE882DccE5E3F2f3B0913AE2096B9b3fB61f",
     "gauge": "0xf1E141C804BA39b4a031fDF46e8c08dBa7a0df60",
     "getDy": ["v1", 1, 0],
+    "rewards": [
+      {
+        "token": "0x7f39C581F595B53c5cb19bD0b3f8dA6c935E2Ca0",
+        "oracleId": "wstETH"
+      }
+    ],
     "tokens": [
       {
         "oracleId": "USDC",
