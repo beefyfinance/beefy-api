@@ -2,7 +2,7 @@ import type { Token } from '../../../types/token.js';
 
 const BERA = {
   name: 'Wrapped Bera',
-  address: '0x0000000000000000000000000000000000000000',
+  address: '0x6969696969696969696969696969696969696969',
   symbol: 'WBERA',
   oracleId: 'WBERA',
   decimals: 18,
