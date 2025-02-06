@@ -33,6 +33,7 @@ export enum ChainId {
   scroll = 534352,
   lisk = 1135,
   sonic = 146,
+  bera = 80094,
 }
 
 type ChainIdType = typeof ChainId;
