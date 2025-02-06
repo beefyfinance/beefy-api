@@ -247,6 +247,10 @@ const chains = [
     chainId: SONIC_CHAIN_ID,
     vaultsEndpoint: SONIC_VAULTS_ENDPOINT,
   },
+  /*{
+    chainId: BERA_CHAIN_ID,
+    vaultsEndpoint: BERA_VAULTS_ENDPOINT,
+  },*/
 ];
 
 const CACHE_KEY = 'TVL';
