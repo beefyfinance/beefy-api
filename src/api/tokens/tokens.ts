@@ -4,7 +4,7 @@ import { addressBook } from '../../../packages/address-book/src/address-book';
 import Token from '../../../packages/address-book/src/types/token';
 import { MULTICHAIN_ENDPOINTS } from '../../constants';
 import { serviceEventBus } from '../../utils/ServiceEventBus';
-import { ApiChain, isApiChain } from '../../utils/chain';
+import { ApiChain, isApiChain, toApiChain } from '../../utils/chain';
 import { ChainTokens, TokenEntity, TokenErc20, TokenNative, TokensByChain } from './types';
 import { mapValues } from 'lodash';
 import { getAddress } from 'viem';
@@ -83,9 +83,7 @@ export function isTokenErc20(token: TokenEntity): token is TokenErc20 {
 
 export function areTokensEqual(tokenA: TokenEntity, tokenB: TokenEntity): boolean {
   return (
-    tokenA.chainId === tokenB.chainId &&
-    tokenA.address === tokenB.address &&
-    tokenA.type === tokenB.type
+    tokenA.chainId === tokenB.chainId && tokenA.address === tokenB.address && tokenA.type === tokenB.type
   );
 }
 
@@ -138,24 +136,26 @@ async function fetchBoostTokensForChain(chainId: ApiChain): Promise<TokenEntity[
   );
 
   return boosts.reduce((tokens: TokenEntity[], boost) => {
-    if (
-      boost.earnedTokenAddress &&
-      boost.earnedTokenAddress !== 'native' &&
-      !vaultAddresses.has(boost.earnedTokenAddress)
-    ) {
-      tokens.push({
-        type: 'erc20',
-        id: boost.earnedToken,
-        symbol: boost.earnedToken,
-        name: boost.earnedToken,
-        chainId,
-        oracleId: boost.earnedOracleId || boost.earnedToken,
-        oracle: boost.earnedOracle,
-        address: boost.earnedTokenAddress,
-        decimals: boost.earnedTokenDecimals || 18,
-      });
+    for (const reward of boost.rewards) {
+      if (
+        reward.type === 'token' &&
+        reward.address &&
+        reward.address !== 'native' &&
+        !vaultAddresses.has(reward.address)
+      ) {
+        tokens.push({
+          type: 'erc20',
+          id: reward.symbol,
+          symbol: reward.symbol,
+          name: reward.symbol,
+          chainId: reward.chainId ? toApiChain(reward.chainId) : chainId,
+          oracleId: reward.oracleId || reward.symbol,
+          oracle: reward.oracle || 'tokens',
+          address: reward.address,
+          decimals: reward.decimals || 18,
+        });
+      }
     }
-
     return tokens;
   }, []);
 }

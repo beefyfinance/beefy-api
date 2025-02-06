@@ -26,19 +26,19 @@ const updateBoostV2AprsForChain = async (chain: ApiChain, boosts: Boost[]) => {
       chainId,
       boosts
         .map(boost => {
-          const vault = getVaultByID(boost.poolId);
+          const vault = getVaultByID(boost.vaultId);
           if (!vault) {
             console.warn(
               `updateBoostV2AprsForChain`,
               chain,
-              `vault ${boost.poolId} not found for boost ${boost.id}`
+              `vault ${boost.vaultId} not found for boost ${boost.id}`
             );
             return undefined;
           }
 
           return {
             oracleId: boost.id,
-            address: getAddress(boost.earnContractAddress),
+            address: getAddress(boost.contractAddress),
             stakedToken: {
               oracleId: vault.oracleId,
               address: vault.earnContractAddress,
@@ -68,15 +68,15 @@ const updateBoostV1AprsForChain = async (chain: ApiChain, boosts: Boost[]) => {
   //TODO: check boost update data frequency (/boosts already has periodFinish property) to see if periodFinish is still valid and rpc call can be avoided
 
   const totalSupplyCalls = boosts.map(boost => {
-    const contract = fetchContract(boost.earnContractAddress, BeefyBoostAbi, chainId);
+    const contract = fetchContract(boost.contractAddress, BeefyBoostAbi, chainId);
     return contract.read.totalSupply();
   });
   const rewardRateCalls = boosts.map(boost => {
-    const contract = fetchContract(boost.earnContractAddress, BeefyBoostAbi, chainId);
+    const contract = fetchContract(boost.contractAddress, BeefyBoostAbi, chainId);
     return contract.read.rewardRate();
   });
   const periodFinishCalls = boosts.map(boost => {
-    const contract = fetchContract(boost.earnContractAddress, BeefyBoostAbi, chainId);
+    const contract = fetchContract(boost.contractAddress, BeefyBoostAbi, chainId);
     return contract.read.periodFinish();
   });
 
@@ -128,16 +128,21 @@ const mapResponseToBoostApr = async (
   if (periodFinish.times(1000).lte(new BigNumber(Date.now()))) return BOOST_APR_EXPIRED;
 
   try {
-    const vault: Vault = getVaultByID(boost.poolId);
+    const vault: Vault = getVaultByID(boost.vaultId);
     if (!vault) {
-      console.error(`[boost aprs] error calculating apr for ${boost.id}: vault ${boost.poolId} not found`);
+      console.error(`[boost aprs] error calculating apr for ${boost.id}: vault ${boost.vaultId} not found`);
       return null;
     }
 
+    const reward = boost.rewards[0];
+    if (!reward) {
+      console.error(`[boost aprs] error calculating apr for ${boost.id}: no rewards found`);
+      return null;
+    }
     const depositTokenPrice = await fetchPrice({ oracle: vault.oracle, id: vault.oracleId });
     const earnedTokenPrice = await fetchPrice({
-      oracle: boost.earnedOracle,
-      id: boost.earnedOracleId,
+      oracle: reward.oracle,
+      id: reward.oracleId,
     });
 
     //Price is missing, we can't consider this as a successful calculation
@@ -160,7 +165,7 @@ const mapResponseToBoostApr = async (
     const yearlyRewardsInUsd = rewardRate
       .times(earnedTokenPrice)
       .times(365 * 24 * 3600)
-      .shiftedBy(-boost.earnedTokenDecimals);
+      .shiftedBy(-reward.decimals);
 
     return yearlyRewardsInUsd.dividedBy(amountStakedInUsd).toNumber();
   } catch (err) {

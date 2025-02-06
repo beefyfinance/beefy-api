@@ -1,7 +1,7 @@
 import { MULTICHAIN_ENDPOINTS } from '../../constants';
 import { getKey, setKey } from '../../utils/cache';
 import { getBoostPeriodFinish, getBoosts } from './fetchBoostData';
-import { Boost, BoostConfig } from './types';
+import { Boost, BoostEntity } from './types';
 import { serviceEventBus } from '../../utils/ServiceEventBus';
 import { isResultFulfilled, isResultRejected, withTimeout } from '../../utils/promise';
 import { ApiChain } from '../../utils/chain';
@@ -10,8 +10,16 @@ const REDIS_KEY = 'BOOSTS_BY_CHAIN';
 
 const INIT_DELAY = Number(process.env.BOOSTS_INIT_DELAY || 4 * 1000);
 const REFRESH_INTERVAL = 5 * 60 * 1000;
+const CACHE_SCHEMA_VERSION: number = 2; // increment when changing cache schema
 
-let boostsByChain: Record<string, Boost[]> = {};
+type BoostsByChain = Record<string, Boost[]>;
+type BoostsByChainCacheSchema = {
+  version: number;
+  timestamp: number;
+  data: BoostsByChain;
+};
+
+let boostsByChain: BoostsByChain = {};
 let allBoosts: Boost[] = [];
 
 export const getAllBoosts = () => {
@@ -42,9 +50,9 @@ const updateBoosts = async () => {
     }
 
     console.log(
-      `> Boosts for ${fulfilled.length}/${results.length} chains updated: ${
-        allBoosts.length
-      } boosts (${(Date.now() - start) / 1000}s)`
+      `> Boosts for ${fulfilled.length}/${results.length} chains updated: ${allBoosts.length} boosts (${
+        (Date.now() - start) / 1000
+      }s)`
     );
 
     if (fulfilled.length < results.length) {
@@ -67,21 +75,31 @@ function buildFromChains() {
 }
 
 async function updateChainBoosts(chain: ApiChain) {
-  const chainBoosts: BoostConfig[] = await getBoosts(chain);
+  const chainBoosts: BoostEntity[] = await getBoosts(chain);
   boostsByChain[chain] = await getBoostPeriodFinish(chain, chainBoosts);
 }
 
 async function loadFromRedis() {
-  const cachedBoosts = await getKey<Record<string, Boost[]>>(REDIS_KEY);
+  const cached = await getKey<BoostsByChainCacheSchema>(REDIS_KEY);
 
-  if (cachedBoosts && typeof cachedBoosts === 'object') {
-    boostsByChain = cachedBoosts;
+  if (
+    cached &&
+    typeof cached === 'object' &&
+    'version' in cached &&
+    'data' in cached &&
+    cached.version === CACHE_SCHEMA_VERSION
+  ) {
+    boostsByChain = cached.data;
     buildFromChains();
   }
 }
 
 async function saveToRedis() {
-  await setKey(REDIS_KEY, boostsByChain);
+  await setKey(REDIS_KEY, {
+    version: CACHE_SCHEMA_VERSION,
+    timestamp: Math.trunc(Date.now() / 1000),
+    data: boostsByChain,
+  });
 }
 
 export async function initBoostService() {
