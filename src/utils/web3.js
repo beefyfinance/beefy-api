@@ -105,6 +105,9 @@ module.exports = {
   get sonicWeb3() {
     return chainRandomClients.sonicRandomClient();
   },
+  get beraWeb3() {
+    return chainRandomClients.beraRandomClient();
+  },
 
   web3Factory: _web3Factory,
 
