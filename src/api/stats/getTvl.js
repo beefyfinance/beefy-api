@@ -248,8 +248,8 @@ const chains = [
     vaultsEndpoint: SONIC_VAULTS_ENDPOINT,
   },
   /*{
-    chainId: BERA_CHAIN_ID,
-    vaultsEndpoint: BERA_VAULTS_ENDPOINT,
+    chainId: BEARCHAIN_CHAIN_ID,
+    vaultsEndpoint: BEARCHAIN_VAULTS_ENDPOINT,
   },*/
 ];
 

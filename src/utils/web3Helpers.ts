@@ -72,8 +72,8 @@ import {
   LISK_CHAIN_ID,
   SONIC_RPC,
   SONIC_CHAIN_ID,
-  BERA_RPC,
-  BERA_CHAIN_ID,
+  BEARCHAIN_RPC,
+  BEARCHAIN_CHAIN_ID,
 } from '../constants';
 
 const MULTICALLS: Record<ChainId, Pick<BeefyFinance, 'multicall'>['multicall']> = {
@@ -111,7 +111,7 @@ const MULTICALLS: Record<ChainId, Pick<BeefyFinance, 'multicall'>['multicall']> 
   [ChainId.scroll]: addressBookByChainId[ChainId.scroll].platforms.beefyfinance.multicall,
   [ChainId.lisk]: addressBookByChainId[ChainId.lisk].platforms.beefyfinance.multicall,
   [ChainId.sonic]: addressBookByChainId[ChainId.sonic].platforms.beefyfinance.multicall,
-  [ChainId.bera]: addressBookByChainId[ChainId.bera].platforms.beefyfinance.multicall,
+  [ChainId.berachain]: addressBookByChainId[ChainId.berachain].platforms.beefyfinance.multicall,
 };
 
 export const MULTICALL_V3: Partial<Readonly<Record<ChainId, string>>> = {
@@ -149,7 +149,7 @@ export const MULTICALL_V3: Partial<Readonly<Record<ChainId, string>>> = {
   [ChainId.scroll]: '0xcA11bde05977b3631167028862bE2a173976CA11',
   [ChainId.lisk]: '0xcA11bde05977b3631167028862bE2a173976CA11',
   [ChainId.sonic]: '0xcA11bde05977b3631167028862bE2a173976CA11',
-  [ChainId.bera]: '0xcA11bde05977b3631167028862bE2a173976CA11',
+  [ChainId.berachain]: '0xcA11bde05977b3631167028862bE2a173976CA11',
 };
 
 const clients: Record<keyof typeof ChainId, Web3[]> = {
@@ -187,7 +187,7 @@ const clients: Record<keyof typeof ChainId, Web3[]> = {
   scroll: [],
   lisk: [],
   sonic: [],
-  bera: [],
+  berachain: [],
 };
 
 BSC_RPC_ENDPOINTS.forEach(endpoint => {
@@ -225,7 +225,7 @@ clients.manta.push(new Web3(MANTA_RPC));
 clients.real.push(new Web3(REAL_RPC));
 clients.sei.push(new Web3(SEI_RPC));
 clients.rootstock.push(new Web3(ROOTSTOCK_RPC));
-clients.bera.push(new Web3(BERA_RPC));
+clients.berachain.push(new Web3(BEARCHAIN_RPC));
 clients.sonic.push(new Web3(SONIC_RPC));
 clients.lisk.push(new Web3(LISK_RPC));
 clients.scroll.push(new Web3(SCROLL_RPC));
@@ -265,7 +265,7 @@ export const chainRandomClients = {
   scrollRandomClient: () => clients.scroll[~~(clients.scroll.length * Math.random())],
   liskRandomClient: () => clients.lisk[~~(clients.lisk.length * Math.random())],
   sonicRandomClient: () => clients.sonic[~~(clients.sonic.length * Math.random())],
-  beraRandomClient: () => clients.bera[~~(clients.bera.length * Math.random())],
+  berachainRandomClient: () => clients.berachain[~~(clients.berachain.length * Math.random())],
 };
 
 export const _web3Factory = (chainId: ChainId) => {
@@ -338,8 +338,8 @@ export const _web3Factory = (chainId: ChainId) => {
       return chainRandomClients.liskRandomClient();
     case SONIC_CHAIN_ID:
       return chainRandomClients.sonicRandomClient();
-    case BERA_CHAIN_ID:
-      return chainRandomClients.beraRandomClient();
+    case BEARCHAIN_CHAIN_ID:
+      return chainRandomClients.berachainRandomClient();
   }
 };
 

@@ -3,7 +3,7 @@ import { convertSymbolTokenMapToAddressTokenMap } from '../../util/convertSymbol
 import * as platforms from './platforms/index.js';
 import { tokens } from './tokens/tokens.js';
 
-export const bera = {
+export const berachain = {
   platforms,
   tokens,
   tokenAddressMap: convertSymbolTokenMapToAddressTokenMap(tokens),

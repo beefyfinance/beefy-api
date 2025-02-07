@@ -7,11 +7,11 @@ const BERA = {
   oracleId: 'WBERA',
   decimals: 18,
   chainId: 80094,
-  website: 'https://www.berachain.com/',
+  website: 'https://www.berachainchain.com/',
   description: 'Learn, integrate, and build on a new modular EVM with Berachain.',
-  bridge: 'bera-canonical',
+  bridge: 'berachain-canonical',
   logoURI: '',
-  documentation: 'https://docs.berachain.com/',
+  documentation: 'https://docs.berachainchain.com/',
 } as const satisfies Token;
 
 export const tokens = {

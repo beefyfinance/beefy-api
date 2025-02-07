@@ -34,7 +34,7 @@ import {
   SCROLL_RPC,
   LISK_RPC,
   SONIC_RPC,
-  BERA_RPC,
+  BEARCHAIN_RPC,
 } from '../../constants';
 import { ChainId } from '../../../packages/address-book/src/address-book';
 
@@ -793,21 +793,21 @@ const rootstockChain = {
 } as const satisfies Chain;
 
 /// New Chains
-const beraChain = {
+const berachainChain = {
   id: 80094,
   name: 'Bera',
-  network: 'bera',
+  network: 'berachain',
   nativeCurrency: {
     decimals: 18,
-    name: 'WBERA',
-    symbol: 'WBERA',
+    name: 'WBEARCHAIN',
+    symbol: 'WBEARCHAIN',
   },
   rpcUrls: {
-    public: { http: [BERA_RPC] },
-    default: { http: [BERA_RPC] },
+    public: { http: [BEARCHAIN_RPC] },
+    default: { http: [BEARCHAIN_RPC] },
   },
   blockExplorers: {
-    default: { name: 'bera explorer', url: 'https://berascan.com/' },
+    default: { name: 'berachain explorer', url: 'https://berachainscan.com/' },
   },
   contracts: {
     multicall3: {
@@ -921,5 +921,5 @@ export const getChain: Partial<Record<ChainId, Chain>> = {
   [ChainId.scroll]: scrollChain,
   [ChainId.lisk]: liskChain,
   [ChainId.sonic]: sonicChain,
-  [ChainId.bera]: beraChain,
+  [ChainId.berachain]: berachainChain,
 } as const;

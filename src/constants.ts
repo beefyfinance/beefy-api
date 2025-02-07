@@ -41,7 +41,7 @@ const ONE_RPC = process.env.ONE_RPC || 'https://api.harmony.one/';
 const ARBITRUM_RPC = process.env.ARBITRUM_RPC || 'https://arb1.arbitrum.io/rpc';
 const CELO_RPC = process.env.CELO_RPC || 'https://forno.celo.org';
 const MOONRIVER_RPC = process.env.MOONRIVER_RPC || 'https://rpc.api.moonriver.moonbeam.network';
-const CRONOS_RPC = process.env.CRONOS_RPC || 'https://rpc.vvs.finance';
+const CRONOS_RPC = process.env.CRONOS_RPC || 'https://cronos-evm-rpc.publicnode.com';
 const AURORA_RPC =
   process.env.AURORA_RPC || 'https://mainnet.aurora.dev/Fon6fPMs5rCdJc4mxX4kiSK1vsKdzc3D8k6UF8aruek';
 const FUSE_RPC = process.env.FUSE_RPC || 'https://rpc.fuse.io';
@@ -67,7 +67,7 @@ const ROOTSTOCK_RPC = process.env.ROOTSTOCK_RPC || 'https://rootstock-mainnet.pu
 const SCROLL_RPC = process.env.SCROLL_RPC || 'https://scroll-mainnet.public.blastapi.io';
 const LISK_RPC = process.env.LISK_RPC || 'https://rpc.api.lisk.com';
 const SONIC_RPC = process.env.SONIC_RPC || 'https://rpc.soniclabs.com';
-const BERA_RPC = process.env.BERA_RPC || 'https://rpc.berachain.com';
+const BEARCHAIN_RPC = process.env.BEARCHAIN_RPC || 'https://rpc.berachainchain.com';
 
 /// Chain IDs
 const BSC_CHAIN_ID = ChainId.bsc;
@@ -104,7 +104,7 @@ const ROOTSTOCK_CHAIN_ID = ChainId.rootstock;
 const SCROLL_CHAIN_ID = ChainId.scroll;
 const LISK_CHAIN_ID = ChainId.lisk;
 const SONIC_CHAIN_ID = ChainId.sonic;
-const BERA_CHAIN_ID = ChainId.bera;
+const BEARCHAIN_CHAIN_ID = ChainId.berachain;
 
 /// LP Fee
 const SUSHI_LPF = 0.003;
@@ -155,7 +155,7 @@ const MULTICHAIN_RPC: Record<ChainId, string> = {
   [ChainId.scroll]: SCROLL_RPC,
   [ChainId.lisk]: LISK_RPC,
   [ChainId.sonic]: SONIC_RPC,
-  [ChainId.bera]: BERA_RPC,
+  [ChainId.berachain]: BEARCHAIN_RPC,
 };
 
 /// Beefy Vaults Endpoints
@@ -227,8 +227,8 @@ const LISK_VAULTS_ENDPOINT =
   'https://raw.githubusercontent.com/beefyfinance/beefy-v2/prod/src/config/vault/lisk.json';
 const SONIC_VAULTS_ENDPOINT =
   'https://raw.githubusercontent.com/beefyfinance/beefy-v2/prod/src/config/vault/sonic.json';
-const BERA_VAULTS_ENDPOINT =
-  'https://raw.githubusercontent.com/beefyfinance/beefy-v2/prod/src/config/vault/bera.json';
+const BEARCHAIN_VAULTS_ENDPOINT =
+  'https://raw.githubusercontent.com/beefyfinance/beefy-v2/prod/src/config/vault/berachain.json';
 
 const MULTICHAIN_ENDPOINTS: Partial<Record<ApiChain, string>> = {
   bsc: BSC_VAULTS_ENDPOINT,
@@ -265,7 +265,7 @@ const MULTICHAIN_ENDPOINTS: Partial<Record<ApiChain, string>> = {
   scroll: SCROLL_VAULTS_ENDPOINT,
   lisk: LISK_VAULTS_ENDPOINT,
   sonic: SONIC_VAULTS_ENDPOINT,
-  bera: BERA_VAULTS_ENDPOINT,
+  berachain: BEARCHAIN_VAULTS_ENDPOINT,
 } as const;
 
 const EXCLUDED_IDS_FROM_TVL = ['venus-wbnb'];
@@ -395,7 +395,7 @@ export {
   SONIC_RPC,
   SONIC_CHAIN_ID,
   SONIC_VAULTS_ENDPOINT,
-  BERA_RPC,
-  BERA_CHAIN_ID,
-  BERA_VAULTS_ENDPOINT,
+  BEARCHAIN_RPC,
+  BEARCHAIN_CHAIN_ID,
+  BEARCHAIN_VAULTS_ENDPOINT,
 };
