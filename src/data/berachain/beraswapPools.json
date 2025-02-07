@@ -100,7 +100,7 @@
       {
         "oracle": "tokens",
         "oracleId": "WBTC",
-        "decimals": "1e18"
+        "decimals": "1e8"
       },
       {
         "oracle": "tokens",
