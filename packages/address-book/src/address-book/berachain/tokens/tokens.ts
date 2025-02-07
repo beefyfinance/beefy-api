@@ -32,20 +32,6 @@ export const tokens = {
     bridge: 'layerzero',
   },
   HONEY: {
-    name: 'Bera Governance Token',
-    symbol: 'BGT',
-    oracleId: 'BGT',
-    address: '0x656b95E550C07a9ffe548bd4085c72418Ceb1dba',
-    chainId: 80094,
-    decimals: 18,
-    logoURI: '',
-    website: 'https://bartio.honey.berachain.com/',
-    description:
-      '$BGT is earned by performing certain actions in dApps with whitelisted Reward Vaults. Most of the time, this is related to providing liquidity, but it is not limited to this. Reward Vault deposits correspond to some form of productive activity on Berachain.',
-    documentation: 'https://docs.berachain.com/learn/pol/tokens/bgt',
-    bridge: 'native',
-  },
-  BGT: {
     name: 'Honey',
     symbol: 'HONEY',
     oracleId: 'HONEY',
@@ -53,10 +39,24 @@ export const tokens = {
     chainId: 80094,
     decimals: 18,
     logoURI: '',
-    website: 'https://www.berachain.com/',
+    website: 'https://bartio.honey.berachain.com/',
     description:
       'Turn your favorite stables into Honey. Leverage liquidity incentives on various platforms.',
     documentation: 'https://docs.berachain.com/',
+    bridge: 'native',
+  },
+  BGT: {
+    name: 'Bera Governance Token',
+    symbol: 'BGT',
+    oracleId: 'BGT',
+    address: '0x656b95E550C07a9ffe548bd4085c72418Ceb1dba',
+    chainId: 80094,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://www.berachain.com/',
+    description:
+      '$BGT is earned by performing certain actions in dApps with whitelisted Reward Vaults. Most of the time, this is related to providing liquidity, but it is not limited to this. Reward Vault deposits correspond to some form of productive activity on Berachain.',
+    documentation: 'https://docs.berachain.com/learn/pol/tokens/bgt',
     bridge: 'native',
   },
   USDCe: {
