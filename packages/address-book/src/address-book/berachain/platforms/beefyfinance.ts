@@ -19,8 +19,8 @@ export const beefyfinance = {
   vaultFactory: '0x9818dF1Bdce8D0E79B982e2C3a93ac821b3c17e0',
   strategyFactory: '0x8e0B63846ebEFf857EE35eF3BD3A2df9EF7D6456',
   wrapperFactory: '0x0000000000000000000000000000000000000000',
-  zap: '0xd0019D13d2F2eb3BA81bca1650cD45cD2Db6526E',
-  zapTokenManager: '0xe103ab2f922aa1a56EC058AbfDA2CeEa1e95bCd7',
+  zap: '0xe103ab2f922aa1a56EC058AbfDA2CeEa1e95bCd7',
+  zapTokenManager: '0xd0019D13d2F2eb3BA81bca1650cD45cD2Db6526E',
   treasurySwapper: '0x0000000000000000000000000000000000000000',
 
   /// CLM Contracts

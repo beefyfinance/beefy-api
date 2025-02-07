@@ -42,7 +42,7 @@ const getBerachainApys = async () => {
   }
 
   const end = Date.now();
-  console.log('> [APY] Berachain finished updating in '`${(end - start) / 1000}s`);
+  console.log(`> [APY] Berachain finished updating in ${(end - start) / 1000}s`);
 
   return {
     apys,
