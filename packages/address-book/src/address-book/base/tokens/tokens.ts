@@ -2247,8 +2247,8 @@ export const tokens = {
     decimals: 18,
     logoURI: '',
     website: 'https://flaunch.gg/',
-    description: 'https://docs.flaunch.gg/flaunch-docs',
-    documentation: 'FLAY is the token of Flaunch.',
+    description: 'FLAY is the token of Flaunch.',
+    documentation: 'https://docs.flaunch.gg/flaunch-docs',
     bridge: 'superchain',
   },
   VEIL: {
