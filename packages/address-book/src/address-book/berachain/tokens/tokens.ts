@@ -39,7 +39,7 @@ export const tokens = {
     chainId: 80094,
     decimals: 18,
     logoURI: '',
-    website: 'https://bartio.honey.berachain.com/',
+    website: 'https://honey.berachain.com/',
     description:
       'Turn your favorite stables into Honey. Leverage liquidity incentives on various platforms.',
     documentation: 'https://docs.berachain.com/',
