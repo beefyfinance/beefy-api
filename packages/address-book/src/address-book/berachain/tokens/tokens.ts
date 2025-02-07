@@ -45,4 +45,32 @@ export const tokens = {
     documentation: 'https://docs.berachain.com/',
     bridge: 'native',
   },
+  USDCe: {
+    name: 'Bridged USDC (Stargate)',
+    symbol: 'USDCe',
+    oracleId: 'USDCe',
+    address: '0x549943e04f40284185054145c6E4e9568C1D3241',
+    chainId: 80094,
+    decimals: 6,
+    logoURI: '',
+    website: 'https://www.centre.io/',
+    description:
+      'USDC is a fully collateralized US dollar stablecoin. USDC is issued by regulated financial institutions, backed by fully reserved assets, redeemable on a 1:1 basis for US dollars.',
+    documentation: '',
+    bridge: 'layerzero',
+  },
+  WBTC: {
+    name: 'Wrapped BTC',
+    symbol: 'WBTC',
+    oracleId: 'WBTC',
+    address: '0x0555E30da8f98308EdB960aa94C0Db47230d2B9c',
+    chainId: 80094,
+    decimals: 8,
+    logoURI: '',
+    website: 'https://wbtc.network/',
+    description:
+      'Wrapped Bitcoin (WBTC) is the first ERC20 token backed 1:1 with Bitcoin. Completely transparent. 100% verifiable. Community led.',
+    documentation: '',
+    bridge: 'layerzero',
+  },
 } as const satisfies Record<string, Token>;
