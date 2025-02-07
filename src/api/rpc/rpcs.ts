@@ -247,7 +247,7 @@ const rpcs: Record<ChainId, string[]> = {
   [ChainId.scroll]: ['https://scroll-mainnet.public.blastapi.io'],
   [ChainId.lisk]: ['https://rpc.api.lisk.com'],
   [ChainId.sonic]: ['https://rpc.soniclabs.com'],
-  [ChainId.berachain]: ['https://rpc.berachainchain.com'],
+  [ChainId.berachain]: ['https://rpc.berachain.com'],
 };
 
 export const getChainRpcs = (chainId: ChainId): string[] => rpcs[chainId] ?? [];

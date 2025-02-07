@@ -1,8 +1,8 @@
-const { getBeefyCowBeraApys } = require('./getBeefyCowBeraApys');
+const { getBeefyCowBerachainApys } = require('./getBeefyCowBerachainApys');
 
-const getApys = [];
+const getApys = [getBeefyCowBerachainApys];
 
-const getBeraApys = async () => {
+const getBerachainApys = async () => {
   const start = Date.now();
   let apys = {};
   let apyBreakdowns = {};
@@ -13,7 +13,7 @@ const getBeraApys = async () => {
 
   for (const result of results) {
     if (result.status !== 'fulfilled') {
-      console.warn('getBeraApys error', result.reason);
+      console.warn('getBerachainApys error', result.reason);
       continue;
     }
 
@@ -42,7 +42,7 @@ const getBeraApys = async () => {
   }
 
   const end = Date.now();
-  console.log('> [APY] Bera finished updating in '`${(end - start) / 1000}s`);
+  console.log('> [APY] Berachain finished updating in '`${(end - start) / 1000}s`);
 
   return {
     apys,
@@ -50,4 +50,4 @@ const getBeraApys = async () => {
   };
 };
 
-module.exports = { getBeraApys };
+module.exports = { getBerachainApys };

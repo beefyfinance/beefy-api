@@ -665,6 +665,24 @@ const tokens: Partial<Record<keyof typeof ChainId, ConcentratedLiquidityToken[]>
       secondToken: 'scETH',
     },
   ],
+  berachain: [
+    {
+      type: 'UniV3',
+      oracleId: 'WBERA',
+      decimalDelta: 1,
+      pool: '0xCda0ca7C3a609773067261D86E817bf777a2870d',
+      firstToken: 'WBERA',
+      secondToken: 'WETH',
+    },
+    {
+      type: 'UniV3',
+      oracleId: 'HONEY',
+      decimalDelta: 1,
+      pool: '0x9EB897D400f245E151daFD4c81176397D7798C9c',
+      firstToken: 'HONEY',
+      secondToken: 'WETH',
+    },
+  ],
 };
 
 async function getConcentratedLiquidityPrices(

@@ -67,7 +67,7 @@ const ROOTSTOCK_RPC = process.env.ROOTSTOCK_RPC || 'https://rootstock-mainnet.pu
 const SCROLL_RPC = process.env.SCROLL_RPC || 'https://scroll-mainnet.public.blastapi.io';
 const LISK_RPC = process.env.LISK_RPC || 'https://rpc.api.lisk.com';
 const SONIC_RPC = process.env.SONIC_RPC || 'https://rpc.soniclabs.com';
-const BEARCHAIN_RPC = process.env.BEARCHAIN_RPC || 'https://rpc.berachainchain.com';
+const BEARCHAIN_RPC = process.env.BEARCHAIN_RPC || 'https://rpc.berachain.com';
 
 /// Chain IDs
 const BSC_CHAIN_ID = ChainId.bsc;

@@ -36,7 +36,7 @@ const chainToClms: Readonly<Partial<Record<ApiChain, CowClm[]>>> = {
   mode: validateCowClms(modePools),
   lisk: validateCowClms(liskPools),
   sonic: validateCowClms(sonicPools),
-  // berachain: validateCowClms(berachainPools),
+  berachain: validateCowClms(berachainPools),
 };
 
 const chainsWithClms = (Object.keys(chainToClms) as ReadonlyArray<ApiChain>).filter(

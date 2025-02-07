@@ -18,4 +18,17 @@ export const tokens = {
   BERA,
   WBERA: BERA,
   WNATIVE: BERA,
+  WETH: {
+    name: 'WETH',
+    symbol: 'WETH',
+    oracleId: 'WETH',
+    address: '0x2F6F07CDcf3588944Bf4C42aC74ff24bF56e7590',
+    chainId: 80094,
+    decimals: 18,
+    website: 'https://weth.io/',
+    description: 'Ether or ETH is the native currency built on the Ethereum blockchain.',
+    logoURI: 'https://arbiscan.io/token/images/weth_28.png',
+    documentation: 'https://ethereum.org/en/developers/docs/',
+    bridge: 'layerzero',
+  },
 } as const satisfies Record<string, Token>;
