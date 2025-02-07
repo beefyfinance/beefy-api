@@ -72,8 +72,8 @@ import {
   LISK_CHAIN_ID,
   SONIC_RPC,
   SONIC_CHAIN_ID,
-  BEARCHAIN_RPC,
-  BEARCHAIN_CHAIN_ID,
+  BERACHAIN_RPC,
+  BERACHAIN_CHAIN_ID,
 } from '../constants';
 
 const MULTICALLS: Record<ChainId, Pick<BeefyFinance, 'multicall'>['multicall']> = {
@@ -225,7 +225,7 @@ clients.manta.push(new Web3(MANTA_RPC));
 clients.real.push(new Web3(REAL_RPC));
 clients.sei.push(new Web3(SEI_RPC));
 clients.rootstock.push(new Web3(ROOTSTOCK_RPC));
-clients.berachain.push(new Web3(BEARCHAIN_RPC));
+clients.berachain.push(new Web3(BERACHAIN_RPC));
 clients.sonic.push(new Web3(SONIC_RPC));
 clients.lisk.push(new Web3(LISK_RPC));
 clients.scroll.push(new Web3(SCROLL_RPC));
@@ -338,7 +338,7 @@ export const _web3Factory = (chainId: ChainId) => {
       return chainRandomClients.liskRandomClient();
     case SONIC_CHAIN_ID:
       return chainRandomClients.sonicRandomClient();
-    case BEARCHAIN_CHAIN_ID:
+    case BERACHAIN_CHAIN_ID:
       return chainRandomClients.berachainRandomClient();
   }
 };

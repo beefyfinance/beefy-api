@@ -34,7 +34,7 @@ import {
   SCROLL_RPC,
   LISK_RPC,
   SONIC_RPC,
-  BEARCHAIN_RPC,
+  BERACHAIN_RPC,
 } from '../../constants';
 import { ChainId } from '../../../packages/address-book/src/address-book';
 
@@ -799,12 +799,12 @@ const berachainChain = {
   network: 'berachain',
   nativeCurrency: {
     decimals: 18,
-    name: 'WBEARCHAIN',
-    symbol: 'WBEARCHAIN',
+    name: 'WBERACHAIN',
+    symbol: 'WBERACHAIN',
   },
   rpcUrls: {
-    public: { http: [BEARCHAIN_RPC] },
-    default: { http: [BEARCHAIN_RPC] },
+    public: { http: [BERACHAIN_RPC] },
+    default: { http: [BERACHAIN_RPC] },
   },
   blockExplorers: {
     default: { name: 'berachain explorer', url: 'https://berachainscan.com/' },

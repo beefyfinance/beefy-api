@@ -71,8 +71,8 @@ import {
   LISK_CHAIN_ID,
   SONIC_RPC,
   SONIC_CHAIN_ID,
-  BEARCHAIN_RPC,
-  BEARCHAIN_CHAIN_ID,
+  BERACHAIN_RPC,
+  BERACHAIN_CHAIN_ID,
 } from '../constants';
 
 console.log(addressBookByChainId[ChainId.fantom].platforms.beefyfinance.multicall);
@@ -186,7 +186,7 @@ clients.manta.push(new ethers.providers.JsonRpcProvider(MANTA_RPC));
 clients.real.push(new ethers.providers.JsonRpcProvider(REAL_RPC));
 clients.sei.push(new ethers.providers.JsonRpcProvider(SEI_RPC));
 clients.rootstock.push(new ethers.providers.JsonRpcProvider(ROOTSTOCK_RPC));
-clients.berachain.push(new ethers.providers.JsonRpcProvider(BEARCHAIN_RPC));
+clients.berachain.push(new ethers.providers.JsonRpcProvider(BERACHAIN_RPC));
 clients.sonic.push(new ethers.providers.JsonRpcProvider(SONIC_RPC));
 clients.lisk.push(new ethers.providers.JsonRpcProvider(LISK_RPC));
 clients.scroll.push(new ethers.providers.JsonRpcProvider(SCROLL_RPC));
@@ -299,7 +299,7 @@ export const _ethersFactory = (chainId: ChainId) => {
       return chainRandomClients.liskRandomClient();
     case SONIC_CHAIN_ID:
       return chainRandomClients.sonicRandomClient();
-    case BEARCHAIN_CHAIN_ID:
+    case BERACHAIN_CHAIN_ID:
       return chainRandomClients.berachainRandomClient();
   }
 };

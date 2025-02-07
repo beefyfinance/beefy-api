@@ -102,6 +102,9 @@ const {
 
   SONIC_CHAIN_ID,
   SONIC_VAULTS_ENDPOINT,
+
+  BERACHAIN_CHAIN_ID,
+  BERACHAIN_VAULTS_ENDPOINT,
 } = require('../../constants');
 const { getKey, setKey } = require('../../utils/cache');
 
@@ -247,10 +250,10 @@ const chains = [
     chainId: SONIC_CHAIN_ID,
     vaultsEndpoint: SONIC_VAULTS_ENDPOINT,
   },
-  /*{
-    chainId: BEARCHAIN_CHAIN_ID,
-    vaultsEndpoint: BEARCHAIN_VAULTS_ENDPOINT,
-  },*/
+  {
+    chainId: BERACHAIN_CHAIN_ID,
+    vaultsEndpoint: BERACHAIN_VAULTS_ENDPOINT,
+  },
 ];
 
 const CACHE_KEY = 'TVL';
