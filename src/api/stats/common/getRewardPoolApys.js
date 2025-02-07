@@ -84,7 +84,15 @@ export const getFarmApys = async params => {
     apys.push(apy);
 
     if (params.log) {
-      console.log(pool.name, apy.toNumber(), totalStakedInUsd.valueOf(), yearlyRewardsInUsd.valueOf());
+      console.log(
+        pool.name,
+        apy.toNumber(),
+        totalStakedInUsd.valueOf(),
+        yearlyRewardsInUsd.valueOf(),
+        rewardTokenPrice.valueOf(),
+        rewardRates[i].valueOf(),
+        periodFinishes[i].valueOf()
+      );
     }
   }
   return apys;

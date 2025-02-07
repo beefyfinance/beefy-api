@@ -73,6 +73,7 @@ import getVelodromeLiskStablePrices from './lisk/getVelodromeLiskStablePrices';
 import getNuriStablePrices from './scroll/getNuriStablePrices';
 import getTokanStablePrices from './scroll/getTokanStablePrices';
 import getShadowPositionPrices from './sonic/getShadowPositionPrices';
+import getBeraswapPrices from './berachain/getBeraswapPrices';
 import {
   ARBITRUM_CHAIN_ID as ARB_CHAIN_ID,
   BASE_CHAIN_ID,
@@ -203,6 +204,7 @@ export async function getNonAmmPrices(
     getBeethovenxPrices(tokenPrices),
     getBeetsSonicPrices(tokenPrices),
     getBeetsOPPrices(tokenPrices),
+    getBeraswapPrices(tokenPrices),
     getEllipsisPrices(tokenPrices),
     getCurveEthereumPrices(tokenPrices),
     getCurvePolygonPrices(tokenPrices),

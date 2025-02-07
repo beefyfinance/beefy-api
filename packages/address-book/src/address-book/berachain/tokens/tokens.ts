@@ -7,11 +7,11 @@ const BERA = {
   oracleId: 'WBERA',
   decimals: 18,
   chainId: 80094,
-  website: 'https://www.berachainchain.com/',
+  website: 'https://www.berachain.com/',
   description: 'Learn, integrate, and build on a new modular EVM with Berachain.',
   bridge: 'berachain-canonical',
   logoURI: '',
-  documentation: 'https://docs.berachainchain.com/',
+  documentation: 'https://docs.berachain.com/',
 } as const satisfies Token;
 
 export const tokens = {
@@ -32,6 +32,20 @@ export const tokens = {
     bridge: 'layerzero',
   },
   HONEY: {
+    name: 'Bera Governance Token',
+    symbol: 'BGT',
+    oracleId: 'BGT',
+    address: '0x656b95E550C07a9ffe548bd4085c72418Ceb1dba',
+    chainId: 80094,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://bartio.honey.berachain.com/',
+    description:
+      '$BGT is earned by performing certain actions in dApps with whitelisted Reward Vaults. Most of the time, this is related to providing liquidity, but it is not limited to this. Reward Vault deposits correspond to some form of productive activity on Berachain.',
+    documentation: 'https://docs.berachain.com/learn/pol/tokens/bgt',
+    bridge: 'native',
+  },
+  BGT: {
     name: 'Honey',
     symbol: 'HONEY',
     oracleId: 'HONEY',
@@ -39,7 +53,7 @@ export const tokens = {
     chainId: 80094,
     decimals: 18,
     logoURI: '',
-    website: 'https://bartio.honey.berachain.com/',
+    website: 'https://www.berachain.com/',
     description:
       'Turn your favorite stables into Honey. Leverage liquidity incentives on various platforms.',
     documentation: 'https://docs.berachain.com/',
@@ -56,6 +70,20 @@ export const tokens = {
     website: 'https://www.centre.io/',
     description:
       'USDC is a fully collateralized US dollar stablecoin. USDC is issued by regulated financial institutions, backed by fully reserved assets, redeemable on a 1:1 basis for US dollars.',
+    documentation: '',
+    bridge: 'layerzero',
+  },
+  BYUSD: {
+    name: 'Bera pyUSD',
+    symbol: 'BYUSD',
+    oracleId: 'BYUSD',
+    address: '0x688e72142674041f8f6Af4c808a4045cA1D6aC82',
+    chainId: 80094,
+    decimals: 6,
+    logoURI: '',
+    website: 'https://www.paypal.com/us/digital-wallet/manage-money/crypto/pyusd',
+    description:
+      'Bera LayerZero Bridged PYUSD. PayPal USD (PYUSD) is a stablecoin backed by secure and highly liquid assets.',
     documentation: '',
     bridge: 'layerzero',
   },

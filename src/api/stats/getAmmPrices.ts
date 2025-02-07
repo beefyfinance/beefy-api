@@ -263,6 +263,7 @@ const coinGeckoCoins: Record<string, string[]> = {
   'usda-2': ['USDa'],
   'kim-token': ['xKIM', 'KIM'],
   'beets-staked-sonic': ['stS'],
+  'paypal-usd': ['BYUSD'],
 };
 
 /**
