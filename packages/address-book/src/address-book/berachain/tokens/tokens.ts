@@ -31,4 +31,18 @@ export const tokens = {
     documentation: 'https://ethereum.org/en/developers/docs/',
     bridge: 'layerzero',
   },
+  HONEY: {
+    name: 'Honey',
+    symbol: 'HONEY',
+    oracleId: 'HONEY',
+    address: '0xFCBD14DC51f0A4d49d5E53C2E0950e0bC26d0Dce',
+    chainId: 80094,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://bartio.honey.berachain.com/',
+    description:
+      'Turn your favorite stables into Honey. Leverage liquidity incentives on various platforms.',
+    documentation: 'https://docs.berachain.com/',
+    bridge: 'native',
+  },
 } as const satisfies Record<string, Token>;

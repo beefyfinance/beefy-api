@@ -1,5 +1,17 @@
 [
   {
+    "address": "0x730c6F352e585EA0c29e30f8AbaE1FC2117A1035",
+    "lpAddress": "0x1127f801Cb3ab7BDF8923272949AA7Dba94B5805",
+    "tokens": ["0x6969696969696969696969696969696969696969", "0xFCBD14DC51f0A4d49d5E53C2E0950e0bC26d0Dce"],
+    "tokenOracleIds": ["WBERA", "HONEY"],
+    "decimals": [18, 18],
+    "oracleId": "kodiak-cow-berachain-wbera-honey",
+    "rewardPool": {
+      "address": "0x4b56306EFCE792BC8d4079973B35DA7497728407",
+      "oracleId": "kodiak-cow-berachain-wbera-honey-rp"
+    }
+  },
+  {
     "address": "0xb06D2126645024c35347bf1A59b30fC213839840",
     "lpAddress": "0xCda0ca7C3a609773067261D86E817bf777a2870d",
     "tokens": ["0x2F6F07CDcf3588944Bf4C42aC74ff24bF56e7590", "0x6969696969696969696969696969696969696969"],
