@@ -1,5 +1,12 @@
 [
   {
+    "name": "morpho-seamless-cbbtc",
+    "address": "0x5a47C803488FE2BB0A0EAaf346b420e4dF22F3C7",
+    "oracle": "tokens",
+    "oracleId": "cbBTC",
+    "decimals": "1e8"
+  },
+  {
     "name": "morpho-seamless-usdc",
     "address": "0x616a4E1db48e22028f6bbf20444Cd3b8e3273738",
     "oracle": "tokens",
