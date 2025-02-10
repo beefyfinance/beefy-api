@@ -1,19 +1,50 @@
 [
   {
-    "name": "balancerv3-gnosis-wsteth-gno",
+    "name": "balancerv3-gnosis-wagwsteth-waggno",
     "address": "0x272d6BE442E30D7c87390eDEb9B96f1E84cEcD8d",
-    "gauge": "0x37748422F82b0c07CCbD40347abC1Da55ac138a0",
+    "gauge": "0x8F37b65A7d17295C1D9489Da13100C4349aF5d26",
     "decimals": "1e18",
-    "rewards": [],
+    "rewards": [
+      {
+        "rewardGauge": "0xCF54A239C4fce25e9Bb1763c8d34ce549D5fb20A",
+        "oracleId": "AURA",
+        "decimals": "1e18"
+      }
+    ],
     "tokens": [
       {
         "address": "0x773CDA0CADe2A3d86E6D4e30699d40bB95174ff2",
-        "oracleId": "wstETH",
+        "oracleId": "wagwstETH",
         "decimals": "1e18"
       },
       {
         "address": "0x7c16F0185A26Db0AE7a9377f23BC18ea7ce5d644",
-        "oracleId": "GNO",
+        "oracleId": "wagGNO",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
+    "name": "balancerv3-gnosis-wagwsteth-wageth",
+    "address": "0x6e6bb18449fCF15B79EFa2CfA70ACF7593088029",
+    "gauge": "0xfb7f44C0cC0d9f258641dFaB5bB019112402EFAa",
+    "decimals": "1e18",
+    "rewards": [
+      {
+        "rewardGauge": "0x50A8d68951f8dEA1FA9533CC2Aa859B1f066dC05",
+        "oracleId": "AURA",
+        "decimals": "1e18"
+      }
+    ],
+    "tokens": [
+      {
+        "address": "0x57f664882F762FA37903FC864e2B633D384B411A",
+        "oracleId": "wagETH",
+        "decimals": "1e18"
+      },
+      {
+        "address": "0x773CDA0CADe2A3d86E6D4e30699d40bB95174ff2",
+        "oracleId": "wagwstETH",
         "decimals": "1e18"
       }
     ]

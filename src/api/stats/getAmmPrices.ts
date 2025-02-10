@@ -421,6 +421,9 @@ const seedPeggedPrices = {
   xcUSDT: 'USDT', // Kusama
   WSEI: 'SEI', // Wrapped SEI
   USDS: 'DAI',
+  agETH: 'ETH', // Aave
+  agwstETH: 'wstETH', // Aave
+  agGNO: 'GNO', // Aave
 };
 
 export type BaseLpBreakdown = {

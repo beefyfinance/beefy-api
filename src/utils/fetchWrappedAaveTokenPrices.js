@@ -52,7 +52,7 @@ const {
     tokens: { aavAVAX, waavAVAX, aavUSDC, waavUSDC, aavUSDT, waavUSDT },
   },
   gnosis: {
-    tokens: { stEUR, EURA },
+    tokens: { stEUR, EURA, agETH, wagETH, agwstETH, wagwstETH, agGNO, wagGNO },
   },
 } = addressBook;
 
@@ -100,7 +100,12 @@ const tokens = {
     [aavUSDC, waavUSDC],
     [aavUSDT, waavUSDT],
   ],
-  gnosis: [[EURA, stEUR, true]],
+  gnosis: [
+    [EURA, stEUR, true],
+    [agETH, wagETH, true],
+    [agwstETH, wagwstETH, true],
+    [agGNO, wagGNO, true],
+  ],
 };
 
 const getWrappedAavePrices = async (tokenPrices, tokens, chainId) => {
