@@ -20,7 +20,10 @@ const {
   },
 } = addressBook;
 
-const pools = require('../../../data/ethereum/auraBalancerLpPools.json');
+const balancerPools = require('../../../data/ethereum/auraBalancerLpPools.json');
+const balV3Pools = require('../../../data/ethereum/balancerV3pools.json');
+
+const pools = [...balancerPools, ...balV3Pools];
 
 const liquidityProviderFee = 0.0025;
 const secondsInAYear = 31536000;
@@ -77,6 +80,8 @@ const getPoolApy = async (pool, auraData, balance, rewardRate, finish, multiplie
     getYearlyRewardsInUsd(auraData, pool, rewardRate, finish, multiplier, extras),
     getTotalStakedInUsd(pool, balance),
   ]);
+
+  // console.log(pool.name, yearlyRewardsInUsd.toString(), totalStakedInUsd.toString());
 
   let rewardsApy = yearlyRewardsInUsd.dividedBy(totalStakedInUsd);
 

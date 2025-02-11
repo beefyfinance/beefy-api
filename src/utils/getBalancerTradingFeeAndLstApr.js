@@ -68,7 +68,7 @@ export const getBalTradingAndLstApr = async (chain, poolAddresses) => {
           pool.dynamicData.aprItems.forEach(aprItem => {
             if (aprItem.type === 'SWAP_FEE_24H') {
               tradingApr = aprItem.apr;
-            } else if (aprItem.type === 'IB_YIELD') {
+            } else if (aprItem.type === 'IB_YIELD' || aprItem.type === 'MERKL') {
               lstApr = lstApr.plus(new BigNumber(aprItem.apr));
             }
           });

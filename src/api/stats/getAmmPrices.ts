@@ -424,6 +424,7 @@ const seedPeggedPrices = {
   agETH: 'ETH', // Aave
   agwstETH: 'wstETH', // Aave
   agGNO: 'GNO', // Aave
+  USDL: 'USDC',
 };
 
 export type BaseLpBreakdown = {
