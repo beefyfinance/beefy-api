@@ -1485,7 +1485,7 @@ export const tokens = {
     chainId: 42161,
     decimals: 18,
     logoURI: '',
-    website: 'https://app.balancer.fi/#/',
+    website: 'https://balancer.fi/',
     documentation: 'https://docs.balancer.fi/concepts/pools/composable-stable.html',
     description:
       'Composable Stable Pools are designed for assets that are either expected to consistently swap at near parity, or at a known exchange rate. Composable Stable Pools use Stable Math (based on StableSwap, popularized by Curve) which allows for swaps of significant size before encountering substantial price impact, vastly increasing capital efficiency for like-kind and correlated-kind swaps.',
