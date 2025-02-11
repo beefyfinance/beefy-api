@@ -182,7 +182,6 @@ const coinGeckoCoins: Record<string, string[]> = {
   'stasis-eurs': ['EURS'],
   'tether-eurt': ['EURt'],
   'par-stablecoin': ['PAR'],
-  'jarvis-synthetic-euro': ['jEUR'],
   'monerium-eur-money': ['EURe'],
   jpyc: ['JPYC', 'jJPY'],
   'cad-coin': ['CADC', 'jCAD'],
