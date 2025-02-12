@@ -2251,6 +2251,20 @@ export const tokens = {
     documentation: 'https://docs.flaunch.gg/flaunch-docs',
     bridge: 'superchain',
   },
+  B3: {
+    name: 'B3',
+    symbol: 'B3',
+    oracleId: 'B3',
+    address: '0xB3B32F9f8827D4634fE7d973Fa1034Ec9fdDB3B3',
+    chainId: 8453,
+    decimals: 18,
+    website: 'https://www.b3.fun/',
+    description:
+      'The B3 token is the engine powering the Open Gaming ecosystem, designed to grow, scale and transform gaming by empowering players, game developers, and holders.',
+    documentation: 'https://learn.b3.fun/claim-comprehensive-faq',
+    bridge: 'native',
+    risks: ['LARGE_HOLDERS', 'NO_TIMELOCK'],
+  },
   VEIL: {
     name: 'VEIL Token',
     symbol: 'VEIL',

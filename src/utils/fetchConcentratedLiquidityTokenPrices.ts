@@ -569,6 +569,14 @@ const tokens: Partial<Record<keyof typeof ChainId, ConcentratedLiquidityToken[]>
       secondToken: 'WETH',
     },
     {
+      type: 'Slipstream',
+      oracleId: 'B3',
+      decimalDelta: 1,
+      pool: '0xB099C658e784b41EE435d48a8eb67e8f27285C93',
+      firstToken: 'B3',
+      secondToken: 'WETH',
+    },
+    {
       type: 'UniV3',
       oracleId: 'REI',
       decimalDelta: 1,
