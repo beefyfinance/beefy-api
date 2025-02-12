@@ -5,6 +5,7 @@ import { fetchMooPrices } from '../../utils/fetchMooPrices';
 import { fetchXPrices } from '../../utils/fetchXPrices';
 import { fetchOptionTokenPrices } from '../../utils/fetchOptionTokenPrices';
 import { fetchWrappedAavePrices } from '../../utils/fetchWrappedAaveTokenPrices';
+import { fetchUnwrappedAavePrices } from '../../utils/fetchUnwrappedAaveTokenPrices';
 import { fetchJbrlPrice } from '../../utils/fetchJbrlPrice';
 import { fetchyVaultPrices } from '../../utils/fetchyVaultPrices';
 import { fetchCurveTokenPrices } from '../../utils/fetchCurveTokenPrices';
@@ -86,6 +87,7 @@ import tokanPools from '../../data/scroll/tokanVolatilePools.json';
 import velodromeModePools from '../../data/mode/velodromeModePools.json';
 import velodromeLiskPools from '../../data/lisk/velodromeLiskPools.json';
 import equalizerSonicPools from '../../data/sonic/equalizerLpPools.json';
+import shadowPools from '../../data/sonic/shadowLpPools.json';
 import { addressBookByChainId } from '../../../packages/address-book/src/address-book';
 import { sleep } from '../../utils/time';
 import { isFiniteNumber } from '../../utils/number';
@@ -103,6 +105,7 @@ const REFRESH_INTERVAL = 5 * 60 * 1000;
 // FIXME: if this list grows too big we might hit the ratelimit on initialization everytime
 // Implement in case of emergency -> https://github.com/beefyfinance/beefy-api/issues/103
 const pools = normalizePoolOracleIds([
+  ...shadowPools,
   ...equalizerSonicPools,
   ...velodromeLiskPools,
   ...velodromeModePools,
@@ -374,6 +377,11 @@ const dexscreenerCoins: OraclePriceRequest[] = [
     tokenAddress: '0xe6cc4D855B4fD4A9D02F46B9adae4C5EfB1764B5',
     chainId: 'sonic',
   },
+  {
+    oracleId: 'x33',
+    tokenAddress: '0x3333111A391cC08fa51353E9195526A70b333333',
+    chainId: 'sonic',
+  },
 ];
 
 /**
@@ -547,9 +555,14 @@ async function performUpdateAmmPrices() {
       fetchWrappedAavePrices(tokenPrices),
       'fetchWrappedAavePrices'
     );
+    const unwrappedAavePrices = await promiseTiming(
+      fetchUnwrappedAavePrices(tokenPrices),
+      'fetchUnwrappedAavePrices'
+    );
     const prices = {
       ...tokenPrices,
       ...wrappedAavePrices,
+      ...unwrappedAavePrices,
       ...jbrlTokenPrice,
       ...yVaultPrices,
     };
@@ -567,6 +580,7 @@ async function performUpdateAmmPrices() {
       ...linearPrices,
       ...balancerStablePoolPrice,
       ...wrappedAavePrices,
+      ...unwrappedAavePrices,
       ...jbrlTokenPrice,
       ...yVaultPrices,
     };

@@ -64,12 +64,7 @@ const getFarmApys = async params => {
         boost = true;
         gaugeDeposit = depositBalances[i].dividedBy('1e18');
         derived = gaugeDeposit.times(40).dividedBy(100);
-        adjusted = balances[i]
-          .times(veBalance)
-          .dividedBy(supply)
-          .dividedBy('1e18')
-          .times(60)
-          .dividedBy(100);
+        adjusted = balances[i].times(veBalance).dividedBy(supply).dividedBy('1e18').times(60).dividedBy(100);
       }
 
       totalStakedInUsd = balances[i].times(stakedPrice).dividedBy(pool.decimals ?? '1e18');
@@ -79,9 +74,7 @@ const getFarmApys = async params => {
       if (params.boosted) {
         if (boost) {
           yearlyRewards = gaugeDeposit.gt(derived.plus(adjusted))
-            ? rewardRates[i]
-                .times(secondsPerYear)
-                .times(derived.plus(adjusted).dividedBy(gaugeDeposit))
+            ? rewardRates[i].times(secondsPerYear).times(derived.plus(adjusted).dividedBy(gaugeDeposit))
             : rewardRates[i].times(secondsPerYear);
         } else if (params.spirit) {
           yearlyRewards = rewardRates[i]
@@ -97,6 +90,7 @@ const getFarmApys = async params => {
 
       yearlyRewardsInUsd = yearlyRewards.times(rewardTokenPrice).dividedBy(params.decimals);
       if (pool.bribe) yearlyRewardsInUsd = yearlyRewardsInUsd.times(1 - pool.bribe);
+      if (params.rewardScale) yearlyRewardsInUsd = yearlyRewardsInUsd.dividedBy(params.rewardScale);
 
       for (const [index, reward] of Object.entries(pool.rewards ?? [])) {
         const rate = rewardsRates[i][index];
@@ -118,12 +112,7 @@ const getFarmApys = async params => {
     apys.push(apy);
 
     if (params.log) {
-      console.log(
-        pool.name,
-        apy.toNumber(),
-        totalStakedInUsd.valueOf(),
-        yearlyRewardsInUsd.valueOf()
-      );
+      console.log(pool.name, apy.toNumber(), totalStakedInUsd.valueOf(), yearlyRewardsInUsd.valueOf());
     }
   }
   return apys;
@@ -141,18 +130,12 @@ const getPoolsData = async params => {
   params.pools.forEach(pool => {
     const poolContract = fetchContract(
       pool.gauge,
-      params.spirit || params.singleReward
-        ? ISpiritGauge
-        : params.ramses
-        ? RamsesGauge
-        : ISolidlyGauge,
+      params.spirit || params.singleReward ? ISpiritGauge : params.ramses ? RamsesGauge : ISolidlyGauge,
       params.chainId
     );
 
     balanceCalls.push(
-      params.boosted && params.NFTid
-        ? poolContract.read.derivedSupply()
-        : poolContract.read.totalSupply()
+      params.boosted && params.NFTid ? poolContract.read.derivedSupply() : poolContract.read.totalSupply()
     );
 
     rateCalls.push(
