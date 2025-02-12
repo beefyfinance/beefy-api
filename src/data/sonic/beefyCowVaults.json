@@ -1,5 +1,22 @@
 [
   {
+    "address": "0xB68236718883c7Ed3566Cc2a14e18568982C6A15",
+    "lpAddress": "0xB6d9B069F6B96A507243d501d1a23b3fCCFC85d3",
+    "tokens": ["0x039e2fB66102314Ce7b64Ce5Ce3E5183bc94aD38", "0x50c42dEAcD8Fc9773493ED674b675bE577f2634b"],
+    "tokenOracleIds": ["wS", "WETH"],
+    "decimals": [18, 18],
+    "oracleId": "shadow-cow-sonic-ws-weth",
+    "providerId": "shadow",
+    "rewardPool": {
+      "address": "0x6f29Cf4aEc56350F08a05951427928510775F157",
+      "oracleId": "shadow-cow-sonic-ws-weth-rp"
+    },
+    "vault": {
+      "address": "0x7821Fc48A8E3547519b49853c8dDBa47b51f29Cd",
+      "oracleId": "shadow-cow-sonic-ws-weth-vault"
+    }
+  },
+  {
     "address": "0x78e665d178062F266412fbeDa705aB193E3Fe74d",
     "lpAddress": "0x21043D7Ad92d9e7bC45C055AF29771E37307B111",
     "tokens": ["0x039e2fB66102314Ce7b64Ce5Ce3E5183bc94aD38", "0x50c42dEAcD8Fc9773493ED674b675bE577f2634b"],
