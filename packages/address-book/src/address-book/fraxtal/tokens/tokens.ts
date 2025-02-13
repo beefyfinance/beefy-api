@@ -311,4 +311,18 @@ export const tokens = {
     documentation: 'https://wbtc.network/',
     bridge: 'fraxtal-canonical',
   },
+  scrvUSD: {
+    name: 'Savings crvUSD',
+    symbol: 'scrvUSD',
+    oracleId: 'scrvUSD',
+    address: '0xaB94C721040b33aA8b0b4D159Da9878e2a836Ed0',
+    chainId: 252,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://curve.fi/crvusd/#/ethereum/scrvUSD',
+    description:
+      'Savings crvUSD is an interest-bearing stablecoin that earns yield simply by holding the token. Users do not need to take any action whatsoever, as the yield is passively accrued.',
+    documentation: 'https://resources.curve.fi/crvusd/scrvusd/',
+    bridge: 'fraxtal-canonical',
+  },
 } as const satisfies Record<string, Token>;

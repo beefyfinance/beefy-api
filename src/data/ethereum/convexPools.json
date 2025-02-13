@@ -1,5 +1,21 @@
 [
   {
+    "name": "curve-dola-scrvusd",
+    "pool": "0xff17dab22f1e61078aba2623c89ce6110e878b3c",
+    "gauge": "0xd51e1eee15ef7dc924aaa8b82ff2d2e73408f58c",
+    "getDy": ["v1", 1, 0],
+    "tokens": [
+      {
+        "oracleId": "DOLA",
+        "decimals": "1e18"
+      },
+      {
+        "oracleId": "scrvUSD",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
     "name": "curve-aioz-weth",
     "pool": "0x8d688646ebb400f7de2b713b80b6a58fcf35d2d9",
     "gauge": "0x41af8cc0811dd07f167752b821cf5b11dba7ca85",
