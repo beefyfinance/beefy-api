@@ -47,6 +47,19 @@ export const tokens = {
     documentation: '',
     bridge: 'sonic-canonical',
   },
+  USDT: {
+    name: 'Bridged USDT (Sonic Labs)',
+    symbol: 'USDCe',
+    oracleId: 'sUSDT',
+    address: '0x6047828dc181963ba44974801FF68e538dA5eaF9',
+    chainId: 146,
+    decimals: 6,
+    website: 'https://tether.to/',
+    description:
+      'Tether is a stablecoin pegged to the US Dollar. A stablecoin is a type of cryptocurrency whose value is pegged to another fiat currency like the US Dollar or to a commodity like Gold. Tether is the first stablecoin to be created and it is the most popular stablecoin used in the ecosystem.',
+    documentation: 'https://tether.to/en/how-it-works',
+    bridge: 'sonic-canonical',
+  },
   WETH: {
     name: 'Wrapped Ether on Sonic',
     symbol: 'WETH',
@@ -230,6 +243,32 @@ export const tokens = {
       'Rings is a meta-stablecoin for USD & ETH offering competitive yield for stakers, providing deep liquidity for Sonic DeFi, and funding Sonic DeFi projects via its lockers.',
     documentation: 'https://docs.rings.money/',
     bridge: 'layer-zero',
+  },
+  frxETH: {
+    name: 'Frax Ether',
+    symbol: 'frxETH',
+    oracleId: 'frxETH',
+    address: '0x43eDD7f3831b08FE70B7555ddD373C8bF65a9050',
+    decimals: 18,
+    chainId: 146,
+    website: 'https://app.frax.finance/frxeth/mint',
+    description:
+      'frxETH acts as a stablecoin loosely pegged to ETH, so that 1 frxETH always represents 1 ETH and the amount of frxETH in circulation matches the amount of ETH in the Frax ETH system. When ETH is sent to the frxETHMinter, an equivalent amount of frxETH is minted. Holding frxETH on its own is not eligible for staking yield and should be thought of as analogous as holding ETH.',
+    bridge: 'layer-zero',
+    documentation: 'https://docs.frax.finance/frax-ether/frxeth-and-sfrxeth',
+  },
+  frxUSD: {
+    name: 'Frax USD',
+    symbol: 'frxUSD',
+    oracleId: 'frxUSD',
+    chainId: 146,
+    address: '0x80Eede496655FB9047dd39d9f418d5483ED600df',
+    decimals: 18,
+    website: 'https://frax.finance/',
+    description:
+      'frxUSD is a dollar-pegged stablecoin that uses “Algorithmic Market Operation” (AMO) smart contracts and permissionless, non-custodial subprotocols as stability mechanisms.',
+    bridge: 'layer-zero',
+    documentation: 'https://docs.frax.finance/',
   },
   mooSiloSonicUSDCe: {
     name: 'Moo Silo Sonic USDCe',

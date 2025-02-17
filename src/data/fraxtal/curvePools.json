@@ -327,28 +327,6 @@
     ]
   },
   {
-    "name": "curve-fraxtal-frax-usdt",
-    "pool": "0xcaef324bea3ff5c7a08710081294f3344ffadc54",
-    "gauge": "0xe049aa6fbd64210bdeddc15f5a861084e6ee8b57",
-    "convex": true,
-    "rewards": [
-      {
-        "token": "0xFc00000000000000000000000000000000000002",
-        "oracleId": "FXS"
-      }
-    ],
-    "tokens": [
-      {
-        "oracleId": "FRAX",
-        "decimals": "1e18"
-      },
-      {
-        "oracleId": "USDT",
-        "decimals": "1e6"
-      }
-    ]
-  },
-  {
     "name": "curve-fraxtal-crvusd-frax",
     "pool": "0x63eb7846642630456707c3efbb50a03c79b89d81",
     "gauge": "0x98a6c35546be6f7c545c99efb48f4673ed2c99fc",
@@ -438,6 +416,29 @@
       {
         "oracleId": "sfrxETH",
         "decimals": "1e18"
+      }
+    ]
+  },
+  {
+    "name": "curve-fraxtal-frax-usdt",
+    "pool": "0xcaef324bea3ff5c7a08710081294f3344ffadc54",
+    "gauge": "0xe049aa6fbd64210bdeddc15f5a861084e6ee8b57",
+    "convex": true,
+    "getDy": ["v1", 0, 1],
+    "rewards": [
+      {
+        "token": "0xFc00000000000000000000000000000000000002",
+        "oracleId": "FXS"
+      }
+    ],
+    "tokens": [
+      {
+        "oracleId": "frxUSD",
+        "decimals": "1e18"
+      },
+      {
+        "oracleId": "USDT",
+        "decimals": "1e6"
       }
     ]
   }

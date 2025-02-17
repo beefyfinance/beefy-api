@@ -634,6 +634,14 @@ const tokens: Partial<Record<keyof typeof ChainId, ConcentratedLiquidityToken[]>
   sonic: [
     {
       type: 'AlgebraV2',
+      oracleId: 'sUSDT',
+      decimalDelta: 1,
+      pool: '0x0d13400CC7c46D77a43957fE614ba58C827dfde6',
+      firstToken: 'sUSDT',
+      secondToken: 'sUSDCe',
+    },
+    {
+      type: 'AlgebraV2',
       oracleId: 'OS',
       decimalDelta: 1,
       pool: '0xa76Beaf111BaD5dD866fa4835D66b9aA2Eb1FdEc',
