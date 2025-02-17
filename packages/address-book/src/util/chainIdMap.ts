@@ -36,6 +36,7 @@ export const chainIdMap = {
   lisk: 1135,
   sonic: 146,
   berachain: 80094,
+  unichain: 130,
 } satisfies ChainIdMap;
 
 // back-compat
