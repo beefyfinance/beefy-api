@@ -73,6 +73,8 @@ import {
   SONIC_CHAIN_ID,
   BERACHAIN_RPC,
   BERACHAIN_CHAIN_ID,
+  UNICHAIN_RPC,
+  UNICHAIN_CHAIN_ID,
 } from '../constants';
 
 console.log(addressBookByChainId[ChainId.fantom].platforms.beefyfinance.multicall);
@@ -112,6 +114,7 @@ const MULTICALLS: Record<ChainId, Pick<BeefyFinance, 'multicall'>['multicall']> 
   [ChainId.lisk]: addressBookByChainId[ChainId.lisk].platforms.beefyfinance.multicall,
   [ChainId.sonic]: addressBookByChainId[ChainId.sonic].platforms.beefyfinance.multicall,
   [ChainId.berachain]: addressBookByChainId[ChainId.berachain].platforms.beefyfinance.multicall,
+  [ChainId.unichain]: addressBookByChainId[ChainId.unichain].platforms.beefyfinance.multicall,
 };
 
 const clients: Record<keyof typeof ChainId, ethers.providers.JsonRpcProvider[]> = {
@@ -150,6 +153,7 @@ const clients: Record<keyof typeof ChainId, ethers.providers.JsonRpcProvider[]> 
   lisk: [],
   sonic: [],
   berachain: [],
+  unichain: [],
 };
 BSC_RPC_ENDPOINTS.forEach(endpoint => {
   clients.bsc.push(new ethers.providers.JsonRpcProvider(endpoint));
@@ -186,6 +190,7 @@ clients.manta.push(new ethers.providers.JsonRpcProvider(MANTA_RPC));
 clients.real.push(new ethers.providers.JsonRpcProvider(REAL_RPC));
 clients.sei.push(new ethers.providers.JsonRpcProvider(SEI_RPC));
 clients.rootstock.push(new ethers.providers.JsonRpcProvider(ROOTSTOCK_RPC));
+clients.unichain.push(new ethers.providers.JsonRpcProvider(UNICHAIN_RPC));
 clients.berachain.push(new ethers.providers.JsonRpcProvider(BERACHAIN_RPC));
 clients.sonic.push(new ethers.providers.JsonRpcProvider(SONIC_RPC));
 clients.lisk.push(new ethers.providers.JsonRpcProvider(LISK_RPC));
@@ -227,6 +232,7 @@ export const chainRandomClients = {
   liskRandomClient: () => clients.lisk[~~(clients.lisk.length * Math.random())],
   sonicRandomClient: () => clients.sonic[~~(clients.sonic.length * Math.random())],
   berachainRandomClient: () => clients.berachain[~~(clients.berachain.length * Math.random())],
+  unichainRandomClient: () => clients.unichain[~~(clients.unichain.length * Math.random())],
 };
 
 export const _ethersFactory = (chainId: ChainId) => {
@@ -301,6 +307,8 @@ export const _ethersFactory = (chainId: ChainId) => {
       return chainRandomClients.sonicRandomClient();
     case BERACHAIN_CHAIN_ID:
       return chainRandomClients.berachainRandomClient();
+    case UNICHAIN_CHAIN_ID:
+      return chainRandomClients.unichainRandomClient();
   }
 };
 
