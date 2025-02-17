@@ -49,7 +49,7 @@ export const tokens = {
   },
   USDT: {
     name: 'Bridged USDT (Sonic Labs)',
-    symbol: 'USDCe',
+    symbol: 'USDT',
     oracleId: 'sUSDT',
     address: '0x6047828dc181963ba44974801FF68e538dA5eaF9',
     chainId: 146,
