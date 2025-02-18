@@ -1,32 +1,17 @@
 [
   {
     "name": "mellow-velo-usdc-weth",
-    "address": "0x7243936FBA26190299D38eCB7069C7A539F8cA3a",
-    "gauge": "0x739C53D4434Db94e782D82e310e50f9A655cf525",
+    "address": "0xcd975e6a5F55137755487F0918b8ca74aCCe7925",
     "tokens": ["USDC", "WETH"]
   },
   {
+    "name": "mellow-velo-wsteth-weth",
+    "address": "0xFcD4bE2aDb8cdB01e5308Cd96ba06F5b92aebBa1",
+    "tokens": ["wstETH", "WETH"]
+  },
+  {
     "name": "mellow-velo-weth-op",
-    "address": "0x9b0c181987fb01081258E1863D39A2BE55aaFE3A",
-    "gauge": "0x4E90232c38ed817D5f03a3DCF13a43D5d015a1cE",
+    "address": "0xf7511B7433241A2873e089965578FF34b3eceb84",
     "tokens": ["WETH", "OP"]
-  },
-  {
-    "name": "mellow-velo-usdc-usdt",
-    "address": "0x65Cd4f08709D1d1C1eBCbe91073C390afABC3144",
-    "gauge": "0xB55da32e47914be05348547367bde9f95CE2dAB9",
-    "tokens": ["USDC", "USDT"]
-  },
-  {
-    "name": "mellow-velo-usdc-susd",
-    "address": "0x9128eCebafb428f52aF9dd863d1bbB36a677FB59",
-    "gauge": "0x59AA940f2A7135Ca824310AC107F30C829738fE0",
-    "tokens": ["USDC", "sUSD"]
-  },
-  {
-    "name": "mellow-velo-usdc-usdc.e",
-    "address": "0x67fE54E339949346e99bC65aE4C425abAB7EF502",
-    "gauge": "0x7DB963A6EDc02473dBc9F4acDBF0D58a455d58bE",
-    "tokens": ["USDC", "opUSDCe"]
   }
 ]
