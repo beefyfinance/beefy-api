@@ -795,29 +795,6 @@ const rootstockChain = {
 
 /// New Chains
 
-const unichainChain = {
-  id: 130,
-  name: 'Unichain',
-  network: 'unichain',
-  nativeCurrency: {
-    decimals: 18,
-    name: 'WETH',
-    symbol: 'WETH',
-  },
-  rpcUrls: {
-    public: { http: [UNICHAIN_RPC] },
-    default: { http: [UNICHAIN_RPC] },
-  },
-  blockExplorers: {
-    default: { name: 'unichain explorer', url: 'https://uniscan.xyz/' },
-  },
-  contracts: {
-    multicall3: {
-      address: '0xca11bde05977b3631167028862be2a173976ca11',
-    },
-  },
-} as const satisfies Chain;
-
 const berachainChain = {
   id: 80094,
   name: 'Bera',
