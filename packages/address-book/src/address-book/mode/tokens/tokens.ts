@@ -157,4 +157,18 @@ export const tokens = {
     bridge: 'layer-zero',
     risks: ['NO_TIMELOCK'],
   },
+  wMLT: {
+    name: 'Wrapped BMX Mode Liquidity Token',
+    symbol: 'wMLT',
+    oracleId: 'wMLT',
+    address: '0x8b2EeA0999876AAB1E7955fe01A5D261b570452C',
+    chainId: 34443,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://www.bmx.trade/',
+    documentation: 'https://docs.morphex.trade/',
+    description:
+      'At BMX, wrapped-MLT (wMLT) is a token received as a result of depositing MLT into BMX’s native Yearn-architectured, auto-compounding reward vault. wMLT functions as a receipt token representing a claim on the underlying MLT within the vault.',
+    bridge: 'native',
+  },
 } as const satisfies Record<string, Token>;
