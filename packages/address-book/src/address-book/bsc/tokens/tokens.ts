@@ -4875,4 +4875,19 @@ export const tokens = {
       'Lido is a liquid staking solution for ETH backed by industry-leading staking providers. Lido lets users stake their ETH - without locking assets or maintaining infrastructure - whilst participating in on-chain activities, e.g. lending. Lido attempts to solve the problems associated with initial ETH staking - illiquidity, immovability and accessibility - making staked ETH liquid and allowing for participation with any amount of ETH to improve security of the Ethereum network.',
     bridge: 'wormhole',
   },
+  SHELL: {
+    name: 'MyShell Token',
+    symbol: 'SHELL',
+    oracleId: 'SHELL',
+    address: '0xf2c88757f8d03634671208935974B60a2a28Bdb3',
+    chainId: 56,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://myshell.ai/',
+    description:
+      'MyShell is a decentralized AI consumer layer, connecting consumers, AI agent creators, and open-source researchers. ',
+    documentation: 'https://docs.myshell.ai/',
+    bridge: 'layer-zero',
+    risks: ['LARGE_HOLDERS', 'NO_TIMELOCK'],
+  },
 } as const satisfies Record<string, Token>;

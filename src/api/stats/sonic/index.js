@@ -4,8 +4,16 @@ const getBeetsSonicApys = require('./getBeetsSonicApys');
 const { getBeefyCowSonicApys } = require('./getBeefyCowSonicApys');
 const { getSwapxApys } = require('./getSwapxApys');
 const { getSonicSiloApys } = require('./getSonicSiloApys');
+const getShadowApys = require('./getShadowApys');
 
-const getApys = [getBeefyCowSonicApys, getEqualizerApys, getBeetsSonicApys, getSwapxApys, getSonicSiloApys];
+const getApys = [
+  getBeefyCowSonicApys,
+  getEqualizerApys,
+  getBeetsSonicApys,
+  getSwapxApys,
+  getSonicSiloApys,
+  getShadowApys,
+];
 
 const getSonicApys = async () => {
   const start = Date.now();

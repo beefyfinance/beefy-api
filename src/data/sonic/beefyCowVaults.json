@@ -1,5 +1,39 @@
 [
   {
+    "address": "0x5Eb126927242BaB536Ea9067624e78d8f7A9d4Ce",
+    "lpAddress": "0xB8bda81EcCb1a21198899ac8F1f2F73C82bD7695",
+    "tokens": ["0x039e2fB66102314Ce7b64Ce5Ce3E5183bc94aD38", "0xE51EE9868C1f0d6cd968A8B8C8376Dc2991BFE44"],
+    "tokenOracleIds": ["wS", "BRUSH"],
+    "decimals": [18, 18],
+    "oracleId": "shadow-cow-sonic-ws-brush",
+    "providerId": "shadow",
+    "rewardPool": {
+      "address": "0x97A3Edd21800F2bF43BB600cd64A18f6403daEad",
+      "oracleId": "shadow-cow-sonic-ws-brush-rp"
+    },
+    "vault": {
+      "address": "0x7a271775B163045f8C7D3e29dd5F24831a3c9c58",
+      "oracleId": "shadow-cow-sonic-ws-brush-vault"
+    }
+  },
+  {
+    "address": "0xB68236718883c7Ed3566Cc2a14e18568982C6A15",
+    "lpAddress": "0xB6d9B069F6B96A507243d501d1a23b3fCCFC85d3",
+    "tokens": ["0x039e2fB66102314Ce7b64Ce5Ce3E5183bc94aD38", "0x50c42dEAcD8Fc9773493ED674b675bE577f2634b"],
+    "tokenOracleIds": ["wS", "WETH"],
+    "decimals": [18, 18],
+    "oracleId": "shadow-cow-sonic-ws-weth",
+    "providerId": "shadow",
+    "rewardPool": {
+      "address": "0x6f29Cf4aEc56350F08a05951427928510775F157",
+      "oracleId": "shadow-cow-sonic-ws-weth-rp"
+    },
+    "vault": {
+      "address": "0x7821Fc48A8E3547519b49853c8dDBa47b51f29Cd",
+      "oracleId": "shadow-cow-sonic-ws-weth-vault"
+    }
+  },
+  {
     "address": "0x78e665d178062F266412fbeDa705aB193E3Fe74d",
     "lpAddress": "0x21043D7Ad92d9e7bC45C055AF29771E37307B111",
     "tokens": ["0x039e2fB66102314Ce7b64Ce5Ce3E5183bc94aD38", "0x50c42dEAcD8Fc9773493ED674b675bE577f2634b"],

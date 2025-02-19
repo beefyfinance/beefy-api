@@ -5,6 +5,7 @@ import { fetchMooPrices } from '../../utils/fetchMooPrices';
 import { fetchXPrices } from '../../utils/fetchXPrices';
 import { fetchOptionTokenPrices } from '../../utils/fetchOptionTokenPrices';
 import { fetchWrappedAavePrices } from '../../utils/fetchWrappedAaveTokenPrices';
+import { fetchUnwrappedAavePrices } from '../../utils/fetchUnwrappedAaveTokenPrices';
 import { fetchJbrlPrice } from '../../utils/fetchJbrlPrice';
 import { fetchyVaultPrices } from '../../utils/fetchyVaultPrices';
 import { fetchCurveTokenPrices } from '../../utils/fetchCurveTokenPrices';
@@ -86,6 +87,7 @@ import tokanPools from '../../data/scroll/tokanVolatilePools.json';
 import velodromeModePools from '../../data/mode/velodromeModePools.json';
 import velodromeLiskPools from '../../data/lisk/velodromeLiskPools.json';
 import equalizerSonicPools from '../../data/sonic/equalizerLpPools.json';
+import shadowPools from '../../data/sonic/shadowLpPools.json';
 import { addressBookByChainId } from '../../../packages/address-book/src/address-book';
 import { sleep } from '../../utils/time';
 import { isFiniteNumber } from '../../utils/number';
@@ -103,6 +105,7 @@ const REFRESH_INTERVAL = 5 * 60 * 1000;
 // FIXME: if this list grows too big we might hit the ratelimit on initialization everytime
 // Implement in case of emergency -> https://github.com/beefyfinance/beefy-api/issues/103
 const pools = normalizePoolOracleIds([
+  ...shadowPools,
   ...equalizerSonicPools,
   ...velodromeLiskPools,
   ...velodromeModePools,
@@ -182,7 +185,6 @@ const coinGeckoCoins: Record<string, string[]> = {
   'stasis-eurs': ['EURS'],
   'tether-eurt': ['EURt'],
   'par-stablecoin': ['PAR'],
-  'jarvis-synthetic-euro': ['jEUR'],
   'monerium-eur-money': ['EURe'],
   jpyc: ['JPYC', 'jJPY'],
   'cad-coin': ['CADC', 'jCAD'],
@@ -263,6 +265,7 @@ const coinGeckoCoins: Record<string, string[]> = {
   'usda-2': ['USDa'],
   'kim-token': ['xKIM', 'KIM'],
   'beets-staked-sonic': ['stS'],
+  'paypal-usd': ['BYUSD'],
 };
 
 /**
@@ -308,11 +311,6 @@ const dexscreenerCoins: OraclePriceRequest[] = [
     oracleId: 'lineainETH',
     tokenAddress: '0x5A7a183B6B44Dc4EC2E3d2eF43F98C5152b1d76d',
     chainId: 'linea',
-  },
-  {
-    oracleId: 'NORMUS',
-    tokenAddress: '0xBA5EDE8d98ab88CEa9f0D69918ddE28Dc23c2553',
-    chainId: 'base',
   },
   {
     oracleId: 'arbwUSDM',
@@ -374,6 +372,11 @@ const dexscreenerCoins: OraclePriceRequest[] = [
     tokenAddress: '0xe6cc4D855B4fD4A9D02F46B9adae4C5EfB1764B5',
     chainId: 'sonic',
   },
+  {
+    oracleId: 'x33',
+    tokenAddress: '0x3333111A391cC08fa51353E9195526A70b333333',
+    chainId: 'sonic',
+  },
 ];
 
 /**
@@ -420,6 +423,10 @@ const seedPeggedPrices = {
   xcUSDT: 'USDT', // Kusama
   WSEI: 'SEI', // Wrapped SEI
   USDS: 'DAI',
+  agETH: 'ETH', // Aave
+  agwstETH: 'wstETH', // Aave
+  agGNO: 'GNO', // Aave
+  USDL: 'USDC',
 };
 
 export type BaseLpBreakdown = {
@@ -543,9 +550,14 @@ async function performUpdateAmmPrices() {
       fetchWrappedAavePrices(tokenPrices),
       'fetchWrappedAavePrices'
     );
+    const unwrappedAavePrices = await promiseTiming(
+      fetchUnwrappedAavePrices(tokenPrices),
+      'fetchUnwrappedAavePrices'
+    );
     const prices = {
       ...tokenPrices,
       ...wrappedAavePrices,
+      ...unwrappedAavePrices,
       ...jbrlTokenPrice,
       ...yVaultPrices,
     };
@@ -563,6 +575,7 @@ async function performUpdateAmmPrices() {
       ...linearPrices,
       ...balancerStablePoolPrice,
       ...wrappedAavePrices,
+      ...unwrappedAavePrices,
       ...jbrlTokenPrice,
       ...yVaultPrices,
     };

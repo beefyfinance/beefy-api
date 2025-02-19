@@ -34,6 +34,8 @@ import {
   SCROLL_RPC,
   LISK_RPC,
   SONIC_RPC,
+  BERACHAIN_RPC,
+  UNICHAIN_RPC,
 } from '../../constants';
 import { ChainId } from '../../../packages/address-book/src/address-book';
 
@@ -793,6 +795,29 @@ const rootstockChain = {
 
 /// New Chains
 
+const berachainChain = {
+  id: 80094,
+  name: 'Bera',
+  network: 'berachain',
+  nativeCurrency: {
+    decimals: 18,
+    name: 'WBERACHAIN',
+    symbol: 'WBERACHAIN',
+  },
+  rpcUrls: {
+    public: { http: [BERACHAIN_RPC] },
+    default: { http: [BERACHAIN_RPC] },
+  },
+  blockExplorers: {
+    default: { name: 'berachain explorer', url: 'https://berachainscan.com/' },
+  },
+  contracts: {
+    multicall3: {
+      address: '0xca11bde05977b3631167028862be2a173976ca11',
+    },
+  },
+} as const satisfies Chain;
+
 const sonicChain = {
   id: 146,
   name: 'Sonic',
@@ -862,6 +887,29 @@ const scrollChain = {
   },
 } as const satisfies Chain;
 
+const unichainChain = {
+  id: 130,
+  name: 'Unichain',
+  network: 'unichain',
+  nativeCurrency: {
+    decimals: 18,
+    name: 'WETH',
+    symbol: 'WETH',
+  },
+  rpcUrls: {
+    public: { http: [UNICHAIN_RPC] },
+    default: { http: [UNICHAIN_RPC] },
+  },
+  blockExplorers: {
+    default: { name: 'unichain explorer', url: 'https://uniscan.xyz' },
+  },
+  contracts: {
+    multicall3: {
+      address: '0xca11bde05977b3631167028862be2a173976ca11',
+    },
+  },
+} as const satisfies Chain;
+
 //build a map from chainId to chain object
 export const getChain: Partial<Record<ChainId, Chain>> = {
   [ChainId.avax]: avalancheChain,
@@ -898,4 +946,6 @@ export const getChain: Partial<Record<ChainId, Chain>> = {
   [ChainId.scroll]: scrollChain,
   [ChainId.lisk]: liskChain,
   [ChainId.sonic]: sonicChain,
+  [ChainId.berachain]: berachainChain,
+  [ChainId.unichain]: unichainChain,
 } as const;

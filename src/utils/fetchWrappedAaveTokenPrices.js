@@ -12,12 +12,43 @@ import { fetchContract } from '../api/rpc/client';
 import WrappedAaveTokenAbi from '../abis/WrappedAaveToken';
 import WrappedAave4626TokenAbi from '../abis/WrappedAave4626Token';
 import rswETHAbi from '../abis/rswETH';
+import { getEDecimals } from './getEDecimals';
 
 const RAY_DECIMALS = '1e27';
 
 const {
   ethereum: {
-    tokens: { aUSDT, waUSDT, aUSDC, waUSDC, aDAI, waDAI, aETH, waETH, DAI, sDAI, rsETH, rswETH, DOLA, sDOLA },
+    tokens: {
+      aUSDT,
+      waUSDT,
+      aUSDC,
+      waUSDC,
+      aDAI,
+      waDAI,
+      aETH,
+      waETH,
+      DAI,
+      sDAI,
+      rsETH,
+      rswETH,
+      DOLA,
+      sDOLA,
+      USDC: ethUSDC,
+      csUSDC,
+      USDL,
+      wUSDL,
+      csUSDL,
+      waEthUSDT,
+      waEthUSDC,
+      waEthLidoGHO,
+      GHO: ethGHO,
+      USDe,
+      waEthUSDe,
+      wstETH,
+      waEthLidowstETH,
+      WETH,
+      waEthLidoWETH,
+    },
   },
   polygon: {
     tokens: { amUSDT, wamUSDT, amUSDC, wamUSDC, amDAI, wamDAI, aWMATIC, waWMATIC, aWETH, waWETH },
@@ -52,7 +83,7 @@ const {
     tokens: { aavAVAX, waavAVAX, aavUSDC, waavUSDC, aavUSDT, waavUSDT },
   },
   gnosis: {
-    tokens: { stEUR, EURA },
+    tokens: { stEUR, EURA, agETH, wagETH, agwstETH, wagwstETH, agGNO, wagGNO },
   },
 } = addressBook;
 
@@ -65,6 +96,15 @@ const tokens = {
     [DAI, sDAI, true],
     [rsETH, rswETH, true, true],
     [DOLA, sDOLA, true],
+    [ethUSDC, csUSDC, true],
+    [USDL, wUSDL, true],
+    [wUSDL, csUSDL, true],
+    [aUSDT, waEthUSDT, true],
+    [ethUSDC, waEthUSDC, true],
+    [ethGHO, waEthLidoGHO, true],
+    [USDe, waEthUSDe, true],
+    [wstETH, waEthLidowstETH, true],
+    [WETH, waEthLidoWETH, true],
   ],
   polygon: [
     [amUSDT, wamUSDT],
@@ -100,7 +140,12 @@ const tokens = {
     [aavUSDC, waavUSDC],
     [aavUSDT, waavUSDT],
   ],
-  gnosis: [[EURA, stEUR, true]],
+  gnosis: [
+    [EURA, stEUR, true],
+    [agETH, wagETH, true],
+    [agwstETH, wagwstETH, true],
+    [agGNO, wagGNO, true],
+  ],
 };
 
 const getWrappedAavePrices = async (tokenPrices, tokens, chainId) => {
@@ -113,7 +158,7 @@ const getWrappedAavePrices = async (tokenPrices, tokens, chainId) => {
       return contract.read.getRate();
     } else {
       const contract = fetchContract(token[1].address, WrappedAave4626TokenAbi, chainId);
-      return contract.read.convertToShares([1e18]);
+      return contract.read.convertToShares([Number(getEDecimals(token[0].decimals))]);
     }
   });
 
@@ -126,13 +171,30 @@ const getWrappedAavePrices = async (tokenPrices, tokens, chainId) => {
   }
   const wrappedRates = res.map(v => new BigNumber(v.toString()));
 
-  return wrappedRates.map((v, i) =>
-    !tokens[i][2]
-      ? v.times(tokenPrices[tokens[i][0].oracleId]).dividedBy(RAY_DECIMALS).toNumber()
-      : tokens[i][0].oracleId === 'rsETH'
-      ? v.times(tokenPrices[tokens[i][0].oracleId]).dividedBy('1e18').toNumber()
-      : new BigNumber(tokenPrices[tokens[i][0].oracleId]).times('1e18').dividedBy(v).toNumber()
-  );
+  const mergedPrices = { ...tokenPrices };
+  const results = [];
+
+  for (let i = 0; i < wrappedRates.length; i++) {
+    const v = wrappedRates[i];
+    const tokenGroup = tokens[i];
+
+    let price;
+    if (!tokenGroup[2]) {
+      price = v.times(mergedPrices[tokenGroup[0].oracleId]).dividedBy(RAY_DECIMALS).toNumber();
+    } else if (tokenGroup[0].oracleId === 'rsETH') {
+      price = v.times(mergedPrices[tokenGroup[0].oracleId]).dividedBy('1e18').toNumber();
+    } else {
+      price = new BigNumber(mergedPrices[tokenGroup[0].oracleId])
+        .times(getEDecimals(tokenGroup[1].decimals))
+        .dividedBy(v)
+        .toNumber();
+    }
+
+    results.push(price);
+    mergedPrices[tokenGroup[1].oracleId] = price;
+  }
+
+  return results;
 };
 
 const fetchWrappedAavePrices = async tokenPrices =>

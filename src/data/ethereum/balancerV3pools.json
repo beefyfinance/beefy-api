@@ -1,0 +1,137 @@
+[
+  {
+    "name": "balancerv3-ethereum-csusdc-csusdl",
+    "address": "0x10A04efbA5B880e169920Fd4348527C64FB29d4D",
+    "gauge": "0x1D2714C00246Ee6A2fB83Dfd0787E2Dffd6a5993",
+    "decimals": "1e18",
+    "rewards": [
+      {
+        "rewardGauge": "0x70EC72F0686fa0cB87f5c8D6F899cA0895E7eCf8",
+        "oracleId": "AURA",
+        "decimals": "1e18"
+      }
+    ],
+    "tokens": [
+      {
+        "address": "0x7204B7Dbf9412567835633B6F00C3Edc3a8D6330",
+        "oracleId": "csUSDC",
+        "decimals": "1e18"
+      },
+      {
+        "address": "0xbEeFc011e94f43b8B7b455eBaB290C7Ab4E216f1",
+        "oracleId": "csUSDL",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
+    "name": "balancerv3-ethereum-waethusdc-waethusdt-waethlidogho",
+    "address": "0x85B2b559bC2D21104C4DEFdd6EFcA8A20343361D",
+    "gauge": "0x8e89d41c563e6C3d9901ad75B75e2d8e140DEF04",
+    "decimals": "1e18",
+    "rewards": [
+      {
+        "rewardGauge": "0xCDe0E651C141D5186F97E392EB50B04473Ea75c3",
+        "oracleId": "AURA",
+        "decimals": "1e18"
+      },
+      {
+        "rewardGauge": "0xbBDf1CaD7a1e0C4e9b0Fc0969998Ff36d7d7d521",
+        "oracleId": "GHO",
+        "decimals": "1e18"
+      }
+    ],
+    "tokens": [
+      {
+        "address": "0x7Bc3485026Ac48b6cf9BaF0A377477Fff5703Af8",
+        "oracleId": "waEthUSDT",
+        "decimals": "1e6"
+      },
+      {
+        "address": "0xC71Ea051a5F82c67ADcF634c36FFE6334793D24C",
+        "oracleId": "waEthLidoGHO",
+        "decimals": "1e18"
+      },
+      {
+        "address": "0xD4fa2D31b7968E448877f69A96DE69f5de8cD23E",
+        "oracleId": "waEthUSDC",
+        "decimals": "1e6"
+      }
+    ]
+  },
+  {
+    "name": "balancerv3-ethereum-waethusdc-waethusdt",
+    "address": "0x89BB794097234E5E930446C0CeC0ea66b35D7570",
+    "gauge": "0xA68646458D5591e53D1eb8f2CcbaAC58a33Fb27B",
+    "decimals": "1e18",
+    "rewards": [
+      {
+        "rewardGauge": "0xFd08E3E65D94D57f80FAbe994c32B6Ec8d0f1a52",
+        "oracleId": "AURA",
+        "decimals": "1e18"
+      }
+    ],
+    "tokens": [
+      {
+        "address": "0x7Bc3485026Ac48b6cf9BaF0A377477Fff5703Af8",
+        "oracleId": "waEthUSDT",
+        "decimals": "1e6"
+      },
+      {
+        "address": "0xD4fa2D31b7968E448877f69A96DE69f5de8cD23E",
+        "oracleId": "waEthUSDC",
+        "decimals": "1e6"
+      }
+    ]
+  },
+  {
+    "name": "balancerv3-ethereum-waethusdt-waethusde",
+    "address": "0xc1D48bB722a22Cc6Abf19faCbE27470F08B3dB8c",
+    "gauge": "0xe2FB0C7F8e9b39bf9E952f16fce0Eb79EfACe4f7",
+    "decimals": "1e18",
+    "rewards": [
+      {
+        "rewardGauge": "0xC4493B6DB6072201E6eD9F7308b2042513b31F72",
+        "oracleId": "AURA",
+        "decimals": "1e18"
+      }
+    ],
+    "tokens": [
+      {
+        "address": "0x5F9D59db355b4A60501544637b00e94082cA575b",
+        "oracleId": "waEthUSDe",
+        "decimals": "1e18"
+      },
+      {
+        "address": "0x7Bc3485026Ac48b6cf9BaF0A377477Fff5703Af8",
+        "oracleId": "waEthUSDT",
+        "decimals": "1e6"
+      }
+    ]
+  },
+  {
+    "name": "balancerv3-ethereum-waethlidowsteth-waethlidoweth",
+    "address": "0xc4Ce391d82D164c166dF9c8336DDF84206b2F812",
+    "gauge": "0xCF370C3279452143f68e350b824714B49593a334",
+    "decimals": "1e18",
+    "rewards": [
+      {
+        "rewardGauge": "0x0c0f9E576467Ea7C69e6D4cfC57bdd9838B734f7",
+        "oracleId": "AURA",
+        "decimals": "1e18"
+      }
+    ],
+    "tokens": [
+      {
+        "address": "0x0FE906e030a44eF24CA8c7dC7B7c53A6C4F00ce9",
+        "oracleId": "waEthLidoWETH",
+        "decimals": "1e18"
+      },
+      {
+        "address": "0x775F661b0bD1739349b9A2A3EF60be277c5d2D29",
+        "oracleId": "waEthLidowstETH",
+        "decimals": "1e18"
+      }
+    ]
+  }
+]

@@ -611,4 +611,6 @@ export const blockedTokensByChain: Record<ApiChain, Set<string>> = {
   scroll: new Set([]),
   lisk: new Set([]),
   sonic: new Set([]),
+  berachain: new Set([]),
+  unichain: new Set([]),
 };

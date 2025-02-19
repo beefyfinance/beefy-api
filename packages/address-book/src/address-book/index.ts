@@ -35,6 +35,8 @@ import { rootstock } from './rootstock/index.js';
 import { scroll } from './scroll/index.js';
 import { lisk } from './lisk/index.js';
 import { sonic } from './sonic/index.js';
+import { berachain } from './berachain/index.js';
+import { unichain } from './unichain/index.js';
 
 export { ChainId }; // enum which is compiled to a JS object
 export type { Chain };
@@ -75,6 +77,8 @@ export const addressBook: ReadonlyRecord<ChainIdKey, Chain> = {
   scroll,
   lisk,
   sonic,
+  berachain,
+  unichain,
 } as const;
 
 export const addressBookByChainId: ReadonlyRecord<`${ChainId}`, Chain> = {
@@ -112,4 +116,6 @@ export const addressBookByChainId: ReadonlyRecord<`${ChainId}`, Chain> = {
   [ChainId.scroll]: scroll,
   [ChainId.lisk]: lisk,
   [ChainId.sonic]: sonic,
+  [ChainId.berachain]: berachain,
+  [ChainId.unichain]: unichain,
 } as const;

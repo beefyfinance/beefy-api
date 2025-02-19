@@ -32,6 +32,7 @@ export const supportedChains: Partial<Record<ApiChain, string>> = {
   mantle: 'mantle',
   scroll: 'scroll',
   sonic: 'sonic',
+  berachain: 'berachain',
 } as const;
 
 const swapApiByChain: Partial<Record<ApiChain, IKyberApi>> = {};

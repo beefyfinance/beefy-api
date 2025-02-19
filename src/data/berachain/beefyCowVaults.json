@@ -1,0 +1,86 @@
+[
+  {
+    "address": "0xb7525a9Da6a936f86878B7975aCEc2563f7c9e12",
+    "lpAddress": "0x3c098ca2e84143742A7dCeC3a341caBdd706412B",
+    "tokens": ["0x0555E30da8f98308EdB960aa94C0Db47230d2B9c", "0x2F6F07CDcf3588944Bf4C42aC74ff24bF56e7590"],
+    "tokenOracleIds": ["WBTC", "WETH"],
+    "decimals": [8, 18],
+    "oracleId": "kodiak-cow-berachain-wbtc-weth",
+    "rewardPool": {
+      "address": "0xfD5Ff1411e0b864dbFE05e6aE3d7f49e5c6B89d6",
+      "oracleId": "kodiak-cow-berachain-wbtc-weth-rp"
+    }
+  },
+  {
+    "address": "0xB5c685D15F703Ec8A5aDE962A49542eB448FC275",
+    "lpAddress": "0x545Bea6Ea7F8fD8dCC5C9A6802a8ebF3DbFc1C6E",
+    "tokens": ["0x0555E30da8f98308EdB960aa94C0Db47230d2B9c", "0xFCBD14DC51f0A4d49d5E53C2E0950e0bC26d0Dce"],
+    "tokenOracleIds": ["WBTC", "HONEY"],
+    "decimals": [8, 18],
+    "oracleId": "kodiak-cow-berachain-wbtc-honey",
+    "rewardPool": {
+      "address": "0xE71359DFc752BE4e10578e65dc72b1d522632D06",
+      "oracleId": "kodiak-cow-berachain-wbtc-honey-rp"
+    }
+  },
+  {
+    "address": "0x3509BF22271a59b62971953Eaa9FdADf8555E1c8",
+    "lpAddress": "0x610d4f0eCA45Cb04CC576BEd0E547139213720e9",
+    "tokens": ["0x549943e04f40284185054145c6E4e9568C1D3241", "0xFCBD14DC51f0A4d49d5E53C2E0950e0bC26d0Dce"],
+    "tokenOracleIds": ["USDCe", "HONEY"],
+    "decimals": [6, 18],
+    "oracleId": "kodiak-cow-berachain-usdc.e-honey",
+    "rewardPool": {
+      "address": "0x4c4846612902A942295A8D8DCefA1a595ae673Cf",
+      "oracleId": "kodiak-cow-berachain-usdc.e-honey-rp"
+    }
+  },
+  {
+    "address": "0x6c439972253c64B384B493c69011a497d1a74D0E",
+    "lpAddress": "0xA6956e09A67C9E0d70dc47d6eB438E134823C439",
+    "tokens": ["0x549943e04f40284185054145c6E4e9568C1D3241", "0x6969696969696969696969696969696969696969"],
+    "tokenOracleIds": ["USDCe", "WBERA"],
+    "decimals": [6, 18],
+    "oracleId": "kodiak-cow-berachain-usdc.e-wbera",
+    "rewardPool": {
+      "address": "0x36F7cf65679D91F720e1864B08Ec4bf6cfA2988D",
+      "oracleId": "kodiak-cow-berachain-usdc.e-wbera-rp"
+    }
+  },
+  {
+    "address": "0xdE3fD1875d263bE3320ed300E0Be2C0bA31dAA3B",
+    "lpAddress": "0x9EB897D400f245E151daFD4c81176397D7798C9c",
+    "tokens": ["0x2F6F07CDcf3588944Bf4C42aC74ff24bF56e7590", "0xFCBD14DC51f0A4d49d5E53C2E0950e0bC26d0Dce"],
+    "tokenOracleIds": ["WETH", "HONEY"],
+    "decimals": [18, 18],
+    "oracleId": "kodiak-cow-berachain-weth-honey",
+    "rewardPool": {
+      "address": "0x3B61F60eC8875d740ae22e1a66b96D8fC04213CD",
+      "oracleId": "kodiak-cow-berachain-weth-honey-rp"
+    }
+  },
+  {
+    "address": "0x730c6F352e585EA0c29e30f8AbaE1FC2117A1035",
+    "lpAddress": "0x1127f801Cb3ab7BDF8923272949AA7Dba94B5805",
+    "tokens": ["0x6969696969696969696969696969696969696969", "0xFCBD14DC51f0A4d49d5E53C2E0950e0bC26d0Dce"],
+    "tokenOracleIds": ["WBERA", "HONEY"],
+    "decimals": [18, 18],
+    "oracleId": "kodiak-cow-berachain-wbera-honey",
+    "rewardPool": {
+      "address": "0x4b56306EFCE792BC8d4079973B35DA7497728407",
+      "oracleId": "kodiak-cow-berachain-wbera-honey-rp"
+    }
+  },
+  {
+    "address": "0xb06D2126645024c35347bf1A59b30fC213839840",
+    "lpAddress": "0xCda0ca7C3a609773067261D86E817bf777a2870d",
+    "tokens": ["0x2F6F07CDcf3588944Bf4C42aC74ff24bF56e7590", "0x6969696969696969696969696969696969696969"],
+    "tokenOracleIds": ["WETH", "WBERA"],
+    "decimals": [18, 18],
+    "oracleId": "kodiak-cow-berachain-weth-wbera",
+    "rewardPool": {
+      "address": "0x06AEb8790E49DD13A874e90c7Ff956Df7CA43CB6",
+      "oracleId": "kodiak-cow-berachain-weth-wbera-rp"
+    }
+  }
+]

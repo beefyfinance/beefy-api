@@ -30,6 +30,14 @@ const tokens: Partial<Record<keyof typeof ChainId, StablePoolLiquidityToken[]>> 
       secondTokenDecimals: 1e6,
       secondTokenAddress: '0xB79DD08EA68A908A97220C76d19A6aA9cBDE4376',
     },
+    {
+      oracleId: 'jEUR',
+      pool: '0xC75799e0646470128a42D07335aB3BFa9E8Ee7C2',
+      firstTokenDecimals: '1e18',
+      secondToken: 'EURC',
+      secondTokenDecimals: 1e6,
+      secondTokenAddress: '0x60a3E35Cc302bFA44Cb288Bc5a4F316Fdb1adb42',
+    },
   ],
   linea: [
     {

@@ -1,21 +1,21 @@
 [
   {
-    "name": "shadow-sonic-usdc.e-moobifi-1",
-    "address": "0xFD8fc59E65860e7FAaf09482e6Be4af65741DEba",
-    "nftId": 4651,
-    "beefyFee": 0,
-    "poolFee": 1,
+    "name": "shadow-ws-shadow",
+    "address": "0xF19748a0E269c6965a84f8C98ca8C47A064D4dd0",
+    "gauge": "0xCBcAd939E2bbbe01850A141F204f25DF63b8FC5B",
+    "decimals": "1e18",
     "chainId": 146,
+    "beefyFee": 0.095,
     "lp0": {
-      "address": "0x29219dd400f2Bf60E5a23d13Be72B486D4038894",
+      "address": "0x039e2fB66102314Ce7b64Ce5Ce3E5183bc94aD38",
       "oracle": "tokens",
-      "oracleId": "sUSDCe",
-      "decimals": "1e6"
+      "oracleId": "wS",
+      "decimals": "1e18"
     },
     "lp1": {
-      "address": "0xc55E93C62874D8100dBd2DfE307EDc1036ad5434",
+      "address": "0x3333b97138D4b086720b5aE8A7844b1345a33333",
       "oracle": "tokens",
-      "oracleId": "smooBIFI",
+      "oracleId": "SHADOW",
       "decimals": "1e18"
     }
   }

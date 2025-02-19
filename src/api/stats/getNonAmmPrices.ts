@@ -72,7 +72,7 @@ import getVelodromeModeStablePrices from './mode/getVelodromeModeStablePrices';
 import getVelodromeLiskStablePrices from './lisk/getVelodromeLiskStablePrices';
 import getNuriStablePrices from './scroll/getNuriStablePrices';
 import getTokanStablePrices from './scroll/getTokanStablePrices';
-import getShadowPositionPrices from './sonic/getShadowPositionPrices';
+import getBeraswapPrices from './berachain/getBeraswapPrices';
 import {
   ARBITRUM_CHAIN_ID as ARB_CHAIN_ID,
   BASE_CHAIN_ID,
@@ -108,6 +108,7 @@ import { getBeefyCowRootstockPrices } from './rootstock/getBeefyRootstockCowPric
 import { getBeefyCowScrollPrices } from './scroll/getBeefyScrollCowPrices';
 import { getBeefyCowModePrices } from './mode/getBeefyModeCowPrices';
 import { getBeefyCowLiskPrices } from './lisk/getBeefyLiskCowPrices';
+import { getBeefyCowBerachainPrices } from './berachain/getBeefyBerachainCowPrices';
 import { getPendleCommonPrices } from './common/getPendleCommonPrices';
 import { getMellowVeloPrices } from './common/getMellowVeloPrices';
 import { getBunniPrices } from './common/getBunniPrices';
@@ -119,9 +120,8 @@ import getTokemakEthPrices from './ethereum/getTokemakEthPrices';
 import getTokemakBasePrices from './base/getTokemakBasePrices';
 import { getBeefyCowSonicPrices } from './sonic/getBeefySonicCowPrices';
 import { getMorphoPrices } from './common/morpho/getMorphoPrices';
+import { getIchiPrices } from './common/getIchiPrices';
 import { promiseArrayTiming } from '../../utils/timing';
-
-const getGammaPrices = require('./common/getGammaPrices');
 
 export type NonAmmPrices = {
   prices: Record<string, number>;
@@ -202,6 +202,7 @@ export async function getNonAmmPrices(
     getBeethovenxPrices(tokenPrices),
     getBeetsSonicPrices(tokenPrices),
     getBeetsOPPrices(tokenPrices),
+    getBeraswapPrices(tokenPrices),
     getEllipsisPrices(tokenPrices),
     getCurveEthereumPrices(tokenPrices),
     getCurvePolygonPrices(tokenPrices),
@@ -246,6 +247,7 @@ export async function getNonAmmPrices(
     getBeefyCowModePrices(tokenPrices),
     getBeefyCowLiskPrices(tokenPrices),
     getBeefyCowSonicPrices(tokenPrices),
+    getBeefyCowBerachainPrices(tokenPrices),
     getFtmIchiPrices(tokenPrices),
     getPendleCommonPrices(ARB_CHAIN_ID, require('../../data/arbitrum/equilibriaPools.json'), tokenPrices),
     getPendleCommonPrices(ARB_CHAIN_ID, require('../../data/arbitrum/pendlePools.json'), tokenPrices, {}),
@@ -257,7 +259,7 @@ export async function getNonAmmPrices(
     getBunniPrices(BASE_CHAIN_ID, require('../../data/base/alienBaseBunniPools.json'), tokenPrices),
     getMorphoPrices(BASE_CHAIN_ID, require('../../data/base/morphoPools.json'), tokenPrices),
     getMorphoPrices(ETH_CHAIN_ID, require('../../data/ethereum/morphoPools.json'), tokenPrices),
-    getGammaPrices(SONIC_CHAIN_ID, require('../../data/sonic/swapxIchiPools.json'), tokenPrices),
+    getIchiPrices(SONIC_CHAIN_ID, require('../../data/sonic/swapxIchiPools.json'), tokenPrices),
     getSolidlyStablePrices(SONIC_CHAIN_ID, require('../../data/sonic/swapxStableLpPools.json'), tokenPrices),
     getBaseSiloPrices(tokenPrices),
     getNuriStablePrices(tokenPrices),
@@ -266,7 +268,6 @@ export async function getNonAmmPrices(
     getVenusZkPrices(tokenPrices),
     getTokemakEthPrices(tokenPrices),
     getTokemakBasePrices(tokenPrices),
-    getShadowPositionPrices(tokenPrices),
   ];
 
   // Setup error logs
