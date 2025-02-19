@@ -272,7 +272,7 @@ export const tokens = {
   },
   mooSiloSonicUSDCe: {
     name: 'Moo Silo Sonic USDCe',
-    symbol: 'mooSiloV2SonicUSDCe (wS Market)',
+    symbol: 'USDC.e (Silo vault)',
     oracleId: 'mooSiloSonicUSDCe',
     address: '0xdb6E5dC4C6748EcECb97b565F6C074f24384fD07',
     chainId: 146,
