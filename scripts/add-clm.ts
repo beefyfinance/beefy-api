@@ -45,6 +45,7 @@ async function fetchLiquidityPair(clmAddress) {
   const clmContract = new ethers.Contract(clmAddress, CowVault as any, provider);
   const lpAddress = await clmContract.want();
   const lpContract = new ethers.Contract(lpAddress, UniV3LPPairABI, provider);
+
   interface Results {
     address: String;
     token0: String;
@@ -86,6 +87,7 @@ async function main() {
   const token0 = await fetchToken(lp.token0);
   const token1 = await fetchToken(lp.token1);
   const newPoolName = `${poolPrefix}-cow-${chainName}-${token0.symbol.toLowerCase()}-${token1.symbol.toLowerCase()}`;
+  const providerId = poolPrefix === 'pancake' ? 'pancakeswap' : poolPrefix;
   const newPool =
     vaultAddress !== ''
       ? {
@@ -95,7 +97,7 @@ async function main() {
           tokenOracleIds: [token0.symbol, token1.symbol],
           decimals: [token0.decimals, token1.decimals],
           oracleId: newPoolName,
-          providerId: poolPrefix,
+          providerId,
           rewardPool: {
             address: rewardPoolAddress,
             oracleId: newPoolName + '-rp',
