@@ -309,4 +309,18 @@ export const tokens = {
     documentation: 'https://docs.aave.com/developers/v/2.0/the-core-protocol/atokens',
     description: 'Wrapped Aave interest bearing ETH.',
   },
+  SAFE: {
+    name: 'SAFE Token',
+    symbol: 'SAFE',
+    oracleId: 'SAFE',
+    address: '0x4d18815D14fe5c3304e87B3FA18318baa5c23820',
+    chainId: 100,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://safe.global/token',
+    documentation: 'https://safe.global/blog/safe-tokenomics',
+    description:
+      'SAFE Token acts as your key to participate in web3’s transition to smart accounts. Token holders tap into a diverse and ever-evolving ecosystem and govern the future of Safe.',
+    bridge: 'gnosis-canonical',
+  },
 } as const satisfies Record<string, Token>;
