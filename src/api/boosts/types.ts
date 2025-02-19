@@ -23,6 +23,10 @@ export type BasePromoConfig = {
   /** defaults to title */
   by?: string;
   vaultId: string;
+  /** @deprecated use vaultId to retrieve from vault entity */
+  assets: string[];
+  /** @deprecated use vaultId to retrieve from vault entity */
+  tokenAddress: string;
   tag?: {
     /** defaults to title */
     text?: string;
@@ -81,4 +85,27 @@ export type BoostEntity = Omit<BoostPromoConfig, 'version'> & {
 export type Boost = BoostEntity & {
   periodFinish: number;
   periodFinishes: number[];
+};
+
+export type OldBoost = {
+  id: string;
+  poolId: string;
+  name: string;
+  assets: string[];
+  tokenAddress: string;
+  earnedToken: string;
+  earnedTokenDecimals: number;
+  earnedTokenAddress: string;
+  earnContractAddress: string;
+  earnedOracle: 'tokens' | 'lps';
+  earnedOracleId: string;
+  partnership: boolean;
+  status: 'active' | 'prestake' | 'closed';
+  isMooStaked: boolean;
+  partners: string[];
+  chain: string;
+  version?: number;
+  periodFinish: number;
+  periodFinishes: number[];
+  campaign?: string;
 };

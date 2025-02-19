@@ -1,4 +1,4 @@
-import { getAllBoosts } from '../boosts/getBoosts';
+import { getAllNewBoosts } from '../boosts/getBoosts';
 import { Boost } from '../boosts/types';
 import BigNumber from 'bignumber.js';
 import { fetchPrice } from '../../utils/fetchPrice';
@@ -175,7 +175,7 @@ const mapResponseToBoostApr = async (
 };
 
 export const fetchBoostAprs = async () => {
-  const boostByChain: { [chain: string]: Boost[] } = getAllBoosts().reduce((allBoosts, previousBoost) => {
+  const boostByChain: { [chain: string]: Boost[] } = getAllNewBoosts().reduce((allBoosts, previousBoost) => {
     if (!allBoosts[previousBoost.chain]) allBoosts[previousBoost.chain] = [];
     allBoosts[previousBoost.chain].push(previousBoost);
     return allBoosts;

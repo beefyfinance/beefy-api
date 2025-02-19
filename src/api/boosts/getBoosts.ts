@@ -1,7 +1,7 @@
 import { MULTICHAIN_ENDPOINTS } from '../../constants';
 import { getKey, setKey } from '../../utils/cache';
 import { getBoostPeriodFinish, getBoosts } from './fetchBoostData';
-import { Boost, BoostEntity } from './types';
+import { Boost, BoostEntity, OldBoost, PromoTokenRewardConfig } from './types';
 import { serviceEventBus } from '../../utils/ServiceEventBus';
 import { isResultFulfilled, isResultRejected, withTimeout } from '../../utils/promise';
 import { ApiChain } from '../../utils/chain';
@@ -22,11 +22,48 @@ type BoostsByChainCacheSchema = {
 let boostsByChain: BoostsByChain = {};
 let allBoosts: Boost[] = [];
 
-export const getAllBoosts = () => {
+function convertBoostToOldFormat(boost: Boost): OldBoost {
+  const tokenRewards = boost.rewards.filter(
+    (reward): reward is PromoTokenRewardConfig => reward.type === 'token'
+  );
+
+  return {
+    id: boost.id,
+    name: boost.title,
+    assets: boost.assets, // @deprecated
+    chain: boost.chain,
+    poolId: boost.vaultId,
+    version: boost.version || 1,
+    status: boost.status === 'inactive' ? 'closed' : boost.status || 'active',
+    earnContractAddress: boost.contractAddress,
+    tokenAddress: boost.tokenAddress, // @deprecated
+    earnedToken: tokenRewards[0]?.symbol,
+    earnedTokenDecimals: tokenRewards[0]?.decimals,
+    earnedTokenAddress: tokenRewards[0]?.address,
+    earnedOracle: tokenRewards[0]?.oracle || 'tokens',
+    earnedOracleId: tokenRewards[0]?.oracleId,
+    partners: boost.partners || [],
+    partnership: !!boost.partners?.length,
+    isMooStaked: true,
+    periodFinish: boost.periodFinish,
+    periodFinishes: boost.periodFinishes,
+    campaign: boost.campaign,
+  };
+}
+
+export const getAllOldBoosts = () => {
+  return allBoosts.map(convertBoostToOldFormat);
+};
+
+export const getChainOldBoosts = chain => {
+  return (boostsByChain[chain] || []).map(convertBoostToOldFormat);
+};
+
+export const getAllNewBoosts = () => {
   return allBoosts;
 };
 
-export const getChainBoosts = chain => {
+export const getChainNewBoosts = chain => {
   return boostsByChain[chain];
 };
 

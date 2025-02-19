@@ -12,7 +12,7 @@ const cmc = require('./api/cmc');
 const tvl = require('./api/tvl');
 const multichainVaults = require('./api/vaults');
 const snapshot = require('./api/snapshot');
-const { boosts, chainBoosts } = require('./api/boosts');
+const { boosts, chainBoosts, boostsV2, chainBoostsV2 } = require('./api/boosts');
 const {
   getTokens,
   getChainTokens,
@@ -96,6 +96,11 @@ router.get('/fees', multichainVaults.vaultFees);
 
 router.get('/boosts', boosts);
 router.get('/boosts/:chainId', chainBoosts);
+
+router.get('/boosts/v2/:chainId', chainBoostsV2);
+router.get('/boosts/v2', boostsV2);
+router.get('/boosts/:chainId', chainBoosts);
+router.get('/boosts', boosts);
 
 router.get('/tokens', getTokens);
 router.get('/tokens/native', getNativesFromAllChains);

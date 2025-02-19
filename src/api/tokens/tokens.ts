@@ -1,5 +1,5 @@
 import { getSingleChainVaults } from '../stats/getMultichainVaults';
-import { getChainBoosts } from '../boosts/getBoosts';
+import { getChainNewBoosts } from '../boosts/getBoosts';
 import { addressBook } from '../../../packages/address-book/src/address-book';
 import Token from '../../../packages/address-book/src/types/token';
 import { MULTICHAIN_ENDPOINTS } from '../../constants';
@@ -130,7 +130,7 @@ async function fetchVaultTokensForChain(chainId: ApiChain): Promise<TokenEntity[
 }
 
 async function fetchBoostTokensForChain(chainId: ApiChain): Promise<TokenEntity[]> {
-  const boosts = getChainBoosts(chainId) || [];
+  const boosts = getChainNewBoosts(chainId) || [];
   const vaultAddresses = new Set(
     (getSingleChainVaults(chainId) || []).map(vault => vault.earnContractAddress)
   );
