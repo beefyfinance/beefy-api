@@ -279,7 +279,7 @@ export const tokens = {
     decimals: 18,
     logoURI: '',
     website: 'https://beefy.com',
-    description: 'Staked USDC.e via Silo on Beefy.',
+    description: 'USDC.e staked into the Silo (wS Market) vault.',
     documentation: 'https://docs.beefy.finance/',
     bridge: 'native',
   },
