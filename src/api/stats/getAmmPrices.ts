@@ -313,11 +313,6 @@ const dexscreenerCoins: OraclePriceRequest[] = [
     chainId: 'linea',
   },
   {
-    oracleId: 'NORMUS',
-    tokenAddress: '0xBA5EDE8d98ab88CEa9f0D69918ddE28Dc23c2553',
-    chainId: 'base',
-  },
-  {
     oracleId: 'arbwUSDM',
     tokenAddress: '0x57F5E098CaD7A3D1Eed53991D4d66C45C9AF7812',
     chainId: 'arbitrum',
