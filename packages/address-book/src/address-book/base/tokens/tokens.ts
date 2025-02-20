@@ -2334,4 +2334,18 @@ export const tokens = {
     bridge: 'native',
     risks: ['NO_TIMELOCK'],
   },
+  KAITO: {
+    name: 'KAITO',
+    symbol: 'KAITO',
+    oracleId: 'KAITO',
+    address: '0x98d0baa52b2D063E780DE12F615f963Fe8537553',
+    chainId: 8453,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://yaps.kaito.ai/',
+    description:
+      'Enter the New Era of InfoFi. With $KAITO, we are redefining the relationships among creators, users, brands and platforms.',
+    documentation: 'https://www.kaito.ai/portal',
+    bridge: 'native',
+  },
 } as const satisfies Record<string, Token>;

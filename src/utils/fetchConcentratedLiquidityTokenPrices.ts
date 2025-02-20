@@ -632,6 +632,14 @@ const tokens: Partial<Record<keyof typeof ChainId, ConcentratedLiquidityToken[]>
       firstToken: 'NORMUS',
       secondToken: 'WETH',
     },
+    {
+      type: 'UniV3',
+      oracleId: 'KAITO',
+      decimalDelta: 1,
+      pool: '0x2eA054c177Abd8b8C87704EaA08680DB5C6d805c',
+      firstToken: 'KAITO',
+      secondToken: 'WETH',
+    },
   ],
   zksync: [
     {

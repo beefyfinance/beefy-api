@@ -1,5 +1,17 @@
 [
   {
+    "address": "0xcbBC79eE06A8371Be91a511b4Bd4268f856f3135",
+    "lpAddress": "0x2eA054c177Abd8b8C87704EaA08680DB5C6d805c",
+    "tokens": ["0x4200000000000000000000000000000000000006", "0x98d0baa52b2D063E780DE12F615f963Fe8537553"],
+    "tokenOracleIds": ["WETH", "KAITO"],
+    "decimals": [18, 18],
+    "oracleId": "uniswap-cow-base-weth-kaito",
+    "rewardPool": {
+      "address": "0x6D692E6D6212278a4aC084A82423410CC89282E8",
+      "oracleId": "uniswap-cow-base-weth-kaito-rp"
+    }
+  },
+  {
     "address": "0x24a68b76D821aDd3E44D68F268093BE45c9A94e7",
     "lpAddress": "0x83212D59403D96A95Fd750d5b6880F77d0CAb337",
     "tokens": ["0x239b9C1F24F3423062B0d364796e07Ee905E9FcE", "0x4200000000000000000000000000000000000006"],
