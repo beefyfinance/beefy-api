@@ -94,9 +94,6 @@ router.get('/offchain-rewards/', handleOffChainRewardsAll);
 
 router.get('/fees', multichainVaults.vaultFees);
 
-router.get('/boosts', boosts);
-router.get('/boosts/:chainId', chainBoosts);
-
 router.get('/boosts/v2/:chainId', chainBoostsV2);
 router.get('/boosts/v2', boostsV2);
 router.get('/boosts/:chainId', chainBoosts);
