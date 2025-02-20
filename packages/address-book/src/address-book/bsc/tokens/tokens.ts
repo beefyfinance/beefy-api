@@ -4890,4 +4890,16 @@ export const tokens = {
     bridge: 'layer-zero',
     risks: ['LARGE_HOLDERS', 'NO_TIMELOCK'],
   },
+  TST: {
+    name: 'Test',
+    symbol: 'TST',
+    oracleId: 'TST',
+    address: '0x86Bb94DdD16Efc8bc58e6b056e8df71D9e666429',
+    chainId: 56,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://testtoken.vip/',
+    description: '$TST is a test token deployed by BNBCHAIN on FOUR.MEME',
+    bridge: 'native',
+  },
 } as const satisfies Record<string, Token>;

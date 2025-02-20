@@ -756,6 +756,14 @@ const tokens: Partial<Record<keyof typeof ChainId, ConcentratedLiquidityToken[]>
       firstToken: 'SHELL',
       secondToken: 'WBNB',
     },
+    {
+      type: 'UniV3',
+      oracleId: 'TST',
+      decimalDelta: 1,
+      pool: '0x16969FA79651Bae11736F2f6576a86fE2726b42B',
+      firstToken: 'WBNB',
+      secondToken: 'TST',
+    },
   ],
 };
 

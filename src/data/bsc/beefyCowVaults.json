@@ -1,5 +1,22 @@
 [
   {
+    "address": "0x167e740b1Bf51100e210B3663a9e3eb49459F164",
+    "lpAddress": "0x16969FA79651Bae11736F2f6576a86fE2726b42B",
+    "tokens": ["0x86Bb94DdD16Efc8bc58e6b056e8df71D9e666429", "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c"],
+    "tokenOracleIds": ["TST", "WBNB"],
+    "decimals": [18, 18],
+    "oracleId": "pancake-cow-bsc-tst-wbnb",
+    "providerId": "pancakeswap",
+    "rewardPool": {
+      "address": "0xd9e260B956565897d215d503b441E9D67dfd3147",
+      "oracleId": "pancake-cow-bsc-tst-wbnb-rp"
+    },
+    "vault": {
+      "address": "0xe1890F641CA387E94fbBDD8E5F7de0F4A9353C51",
+      "oracleId": "pancake-cow-bsc-tst-wbnb-vault"
+    }
+  },
+  {
     "address": "0xb1f9EA84780BEeA0A9D2c89c0163511aA1f1328D",
     "lpAddress": "0x1D519280255d5D90F469f79dC8f5ABE05F64429f",
     "tokens": ["0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c", "0xf2c88757f8d03634671208935974B60a2a28Bdb3"],
