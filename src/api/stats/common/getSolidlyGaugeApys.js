@@ -4,6 +4,7 @@ import { getApyBreakdown } from '../common/getApyBreakdown';
 import ISpiritGauge from '../../../abis/fantom/ISpiritGauge';
 import ISolidlyGauge from '../../../abis/ISolidlyGauge';
 import RamsesGauge from '../../../abis/RamsesGauge';
+import InfraredGauge from '../../../abis/InfraredGauge';
 import IinSpirit from '../../../abis/fantom/IinSpirit';
 import IVe from '../../../abis/IVe';
 import { fetchContract } from '../../rpc/client';
@@ -20,6 +21,7 @@ const getFarmApys = async params => {
   let veBalance = new BigNumber(0);
 
   const poolDataCalls = getPoolsData(params);
+
   const nftCalls = [];
   const rewardTokenPrice = await fetchPrice({ oracle: params.oracle, id: params.oracleId });
 
@@ -130,7 +132,13 @@ const getPoolsData = async params => {
   params.pools.forEach(pool => {
     const poolContract = fetchContract(
       pool.gauge,
-      params.spirit || params.singleReward ? ISpiritGauge : params.ramses ? RamsesGauge : ISolidlyGauge,
+      params.spirit || params.singleReward
+        ? ISpiritGauge
+        : params.ramses
+        ? RamsesGauge
+        : params.infrared
+        ? InfraredGauge
+        : ISolidlyGauge,
       params.chainId
     );
 
@@ -141,14 +149,14 @@ const getPoolsData = async params => {
     rateCalls.push(
       params.spirit || params.singleReward
         ? poolContract.read.rewardRate()
-        : params.ramses
+        : params.ramses || params.infrared
         ? poolContract.read.rewardData([params.reward])
         : poolContract.read.rewardRate([params.reward])
     );
     periodFinishCalls.push(
       params.spirit || params.singleReward
         ? poolContract.read.periodFinish()
-        : params.ramses
+        : params.ramses || params.infrared
         ? poolContract.read.rewardData([params.reward])
         : poolContract.read.periodFinish([params.reward])
     );
@@ -197,11 +205,15 @@ const getPoolsData = async params => {
   const balances = balanceResults.map(v => new BigNumber(v.toString()));
   const rates = params.ramses
     ? rateResults.map(v => new BigNumber(v['rewardRate'].toString()))
+    : params.infrared
+    ? rateResults.map(v => new BigNumber(v[3].toString()))
     : rateResults.map(v => new BigNumber(v.toString()));
   const depositBalances = depositBalanceResults.map(v => new BigNumber(v.toString()));
   const derivedBalances = derivedBalanceResults.map(v => new BigNumber(v.toString()));
   const periodFinishes = params.ramses
     ? periodFinishResults.map(v => v['periodFinish'].toString())
+    : params.infrared
+    ? periodFinishResults.map(v => v[2].toString())
     : periodFinishResults.map(v => new BigNumber(v.toString()));
   const rewardRateFlat = rewardRateResults.map(v => new BigNumber(v.toString()));
   const rewardDataFlat = rewardDataResults.map(v => new BigNumber(v.toString()));

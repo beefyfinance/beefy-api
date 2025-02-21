@@ -754,6 +754,14 @@ const tokens: Partial<Record<keyof typeof ChainId, ConcentratedLiquidityToken[]>
       firstToken: 'HONEY',
       secondToken: 'WETH',
     },
+    {
+      type: 'UniV3',
+      oracleId: 'iBGT',
+      decimalDelta: 1,
+      pool: '0x03Ea726B2fcF01C9819A9ECAACc81f3Aa1cBd89B',
+      firstToken: 'iBGT',
+      secondToken: 'WBERA',
+    },
   ],
   bsc: [
     {
