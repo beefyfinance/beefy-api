@@ -1,5 +1,39 @@
 [
   {
+    "address": "0x7D31356E48A296A09b9Aadb495B749fc83a6b62f",
+    "lpAddress": "0x9053fE060f412ad5677f934F89e07524343eE8E7",
+    "tokens": ["0x29219dd400f2Bf60E5a23d13Be72B486D4038894", "0x6047828dc181963ba44974801FF68e538dA5eaF9"],
+    "tokenOracleIds": ["sUSDCe", "sUSDT"],
+    "decimals": [6, 6],
+    "oracleId": "shadow-cow-sonic-usdc.e-usdt",
+    "providerId": "shadow",
+    "rewardPool": {
+      "address": "0x65EbD1e745290d32791373431bd9e0cf363255e4",
+      "oracleId": "shadow-cow-sonic-usdc.e-usdt-rp"
+    },
+    "vault": {
+      "address": "0x2f2dF796D53a511cAf1F1818123fb90631346CdE",
+      "oracleId": "shadow-cow-sonic-usdc.e-usdt-vault"
+    }
+  },
+  {
+    "address": "0x7168464Ac7330EC5177694005e60FBe319DC40c2",
+    "lpAddress": "0x779cA4E7F14d10489cd32655fc513641bA3a8d8F",
+    "tokens": ["0x29219dd400f2Bf60E5a23d13Be72B486D4038894", "0x3333b97138D4b086720b5aE8A7844b1345a33333"],
+    "tokenOracleIds": ["sUSDCe", "SHADOW"],
+    "decimals": [6, 18],
+    "oracleId": "shadow-cow-sonic-usdc.e-shadow",
+    "providerId": "shadow",
+    "rewardPool": {
+      "address": "0x83c55d2e17908f4103C5c9f420Ff0D88D8fa375b",
+      "oracleId": "shadow-cow-sonic-usdc.e-shadow-rp"
+    },
+    "vault": {
+      "address": "0xf5Be0aF42862eE909b83a78757b27d8A3efffcCa",
+      "oracleId": "shadow-cow-sonic-usdc.e-shadow-vault"
+    }
+  },
+  {
     "address": "0x5Eb126927242BaB536Ea9067624e78d8f7A9d4Ce",
     "lpAddress": "0xB8bda81EcCb1a21198899ac8F1f2F73C82bD7695",
     "tokens": ["0x039e2fB66102314Ce7b64Ce5Ce3E5183bc94aD38", "0xE51EE9868C1f0d6cd968A8B8C8376Dc2991BFE44"],
