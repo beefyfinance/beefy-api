@@ -1,6 +1,7 @@
 import { BERACHAIN_CHAIN_ID as chainId } from '../../../constants';
 import beraswapPools from '../../../data/berachain/beraswapPools.json';
 import { getSolidlyGaugeApys } from '../common/getSolidlyGaugeApys';
+import { getRewardPoolApys } from '../common/getRewardPoolApys';
 
 const getBeraswapApys = async () => {
   const data = await getSolidlyGaugeApys({
@@ -14,7 +15,28 @@ const getBeraswapApys = async () => {
     //log: true,
   });
 
-  return data;
+  const single = await getRewardPoolApys({
+    pools: [
+      {
+        name: 'infrared-ibgt',
+        address: '0xac03CABA51e17c86c921E1f6CBFBdC91F8BB2E6b',
+        rewardPool: '0x75F3Be06b02E235f6d0E7EF2D462b29739168301',
+        decimals: '1e18',
+        oracleId: 'iBGT',
+        oracle: 'tokens',
+        chainId: chainId,
+      },
+    ],
+    reward: '0xFCBD14DC51f0A4d49d5E53C2E0950e0bC26d0Dce',
+    infrared: true,
+    oracleId: 'HONEY',
+    oracle: 'tokens',
+    decimals: '1e18',
+    chainId: chainId,
+    // log: true,
+  });
+
+  return { ...data, ...single };
 };
 
 module.exports = getBeraswapApys;

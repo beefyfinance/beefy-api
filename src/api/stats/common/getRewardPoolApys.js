@@ -4,6 +4,7 @@ import getApyBreakdown from '../common/getApyBreakdown';
 import { isSushiClient } from '../../../apollo/client';
 import { getTradingFeeApr, getTradingFeeAprSushi } from '../../../utils/getTradingFeeApr';
 import IRewardPool from '../../../abis/IRewardPool';
+import InfraredGauge from '../../../abis/InfraredGauge';
 import IWrapper from '../../../abis/IWrapper';
 import { fetchContract } from '../../rpc/client';
 import ERC20Abi from '../../../abis/ERC20Abi';
@@ -105,7 +106,13 @@ export const getPoolsData = async params => {
   const extraCalls = [];
   const extraData = [];
   const periodFinish = params.periodFinish ?? 'periodFinish';
-  const abi = params.periodFinish ? getAbi(periodFinish) : params.cake ? IWrapper : IRewardPool;
+  const abi = params.periodFinish
+    ? getAbi(periodFinish)
+    : params.cake
+    ? IWrapper
+    : params.infrared
+    ? InfraredGauge
+    : IRewardPool;
 
   params.pools.forEach(pool => {
     const rewardPool = fetchContract(pool.rewardPool ? pool.rewardPool : pool.gauge, abi, params.chainId);
@@ -114,8 +121,20 @@ export const getPoolsData = async params => {
     balanceCalls.push(
       params.cake ? stakedTokenContract.read.balanceOf([pool.gauge]) : rewardPool.read.totalSupply()
     );
-    rewardRateCalls.push(params.cake ? rewardPool.read.rewardPerSecond() : rewardPool.read.rewardRate());
-    periodFinishCalls.push(params.cake ? rewardPool.read.endTimestamp() : rewardPool.read[periodFinish]());
+    rewardRateCalls.push(
+      params.cake
+        ? rewardPool.read.rewardPerSecond()
+        : params.infrared
+        ? rewardPool.read.rewardData([params.reward])
+        : rewardPool.read.rewardRate()
+    );
+    periodFinishCalls.push(
+      params.cake
+        ? rewardPool.read.endTimestamp()
+        : params.infrared
+        ? rewardPool.read.rewardData([params.reward])
+        : rewardPool.read[periodFinish]()
+    );
 
     pool.extras?.forEach(extra => {
       const extraPool = fetchContract(extra.rewardPool, IWrapper, params.chainId);
@@ -132,10 +151,11 @@ export const getPoolsData = async params => {
   ]);
 
   const balances = res[0].map(v => new BigNumber(v.toString()));
-  const rewardRates = res[1].map(v => new BigNumber(v.toString()));
-  const periodFinishes = res[2].map(v => new BigNumber(v.toString()));
+  const rewardRates = res[1].map(v => new BigNumber(params.infrared ? v[3].toString() : v.toString()));
+  const periodFinishes = res[2].map(v => new BigNumber(params.infrared ? v[2].toString() : v.toString()));
   const extraRates = res[3].map(v => new BigNumber(v.toString()));
   const extras = extraData.map((v, i) => ({ ...v, rewardRate: extraRates[i] }));
+
   return { balances, rewardRates, periodFinishes, extras };
 };
 
