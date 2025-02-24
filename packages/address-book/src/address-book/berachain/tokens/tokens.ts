@@ -101,4 +101,18 @@ export const tokens = {
     documentation: '',
     bridge: 'layerzero',
   },
+  iBGT: {
+    name: 'Infrared Bera Governance Token',
+    symbol: 'iBGT',
+    oracleId: 'iBGT',
+    address: '0xac03CABA51e17c86c921E1f6CBFBdC91F8BB2E6b',
+    chainId: 80094,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://infrared.finance/ibgt',
+    description:
+      'Infrared’s iBGT, a liquid version of Berachain’s Governance Token (BGT), helps you maximize Proof of Liquidity (PoL) rewards.',
+    documentation: 'https://infrared.finance/docs/ibgt-rewards',
+    bridge: 'native',
+  },
 } as const satisfies Record<string, Token>;
