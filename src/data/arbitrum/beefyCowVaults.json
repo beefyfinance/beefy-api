@@ -853,22 +853,6 @@
     }
   },
   {
-    "address": "0x240939C5e1B63F9bb4c17D69f9BF98dc1bEcb699",
-    "lpAddress": "0xF9bA609869a46c06BE6689fc0a314CE5f4Fdad41",
-    "tokens": ["0x57F5E098CaD7A3D1Eed53991D4d66C45C9AF7812", "0x5979D7b546E38E414F7E9822514be443A4800529"],
-    "tokenOracleIds": ["arbwUSDM", "wstETH"],
-    "decimals": [18, 18],
-    "oracleId": "uniswap-cow-arb-wusdm-wsteth",
-    "rewardPool": {
-      "address": "0x8E136e09DeE2076D0451ae7F5713F64fE5d2B77C",
-      "oracleId": "uniswap-cow-arb-wusdm-wsteth-rp"
-    },
-    "vault": {
-      "address": "0xDa2Fb8c737e0D1FdaA1B44aD1051aC8D4a1cB1eF",
-      "oracleId": "uniswap-cow-arb-wusdm-wsteth-vault"
-    }
-  },
-  {
     "address": "0x2668eC44880464412Bb3674875941a014103eD2a",
     "lpAddress": "0xe9e6b9aAAfaf6816C3364345F6eF745CcFC8660a",
     "tokens": ["0x2f2a2543B76A4166549F7aaB2e75Bef0aefC5B0f", "0x6c84a8f1c29108F47a79964b5Fe888D4f4D0dE40"],

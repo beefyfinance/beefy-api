@@ -257,6 +257,19 @@ export const tokens = {
     bridge: 'layer-zero',
     documentation: 'https://docs.frax.finance/frax-ether/frxeth-and-sfrxeth',
   },
+  sfrxETH: {
+    name: 'Staked Frax Ether',
+    symbol: 'sfrxETH',
+    oracleId: 'sfrxETH',
+    address: '0x3Ec3849C33291a9eF4c5dB86De593EB4A37fDe45',
+    chainId: 146,
+    decimals: 18,
+    website: 'https://app.frax.finance/frxeth/mint',
+    documentation: 'https://docs.frax.finance/frax-ether/frxeth-and-sfrxeth',
+    description:
+      'sfrxETH is a ERC-4626 vault designed to accrue the staking yield of the Frax ETH validators. At any time, frxETH can be exchanged for sfrxETH by depositing it into the sfrxETH vault, which allows users to earn staking yield on their frxETH. Over time, as validators accrue staking yield, an equivalent amount of frxETH is minted and added to the vault, allowing users to redeem their sfrxETH for an greater amount of frxETH than they deposited.',
+    bridge: 'layer-zero',
+  },
   frxUSD: {
     name: 'Frax USD',
     symbol: 'frxUSD',
@@ -267,6 +280,19 @@ export const tokens = {
     website: 'https://frax.finance/',
     description:
       'frxUSD is a dollar-pegged stablecoin that uses “Algorithmic Market Operation” (AMO) smart contracts and permissionless, non-custodial subprotocols as stability mechanisms.',
+    bridge: 'layer-zero',
+    documentation: 'https://docs.frax.finance/',
+  },
+  sfrxUSD: {
+    name: 'Staked Frax USD',
+    symbol: 'sfrxUSD',
+    oracleId: 'sFRAX',
+    chainId: 146,
+    address: '0x5Bff88cA1442c2496f7E475E9e7786383Bc070c0',
+    decimals: 18,
+    website: 'https://frax.finance/',
+    description:
+      'Staked Frax USD (sfrxUSD) is an ERC4626 staking vault that distributes part of the Frax Protocol yield weekly to stakers denominated in frxUSD stablecoins. The sfrxUSD token represents pro rata deposits within the vault and is always withdrawable for frxUSD stablecoins at the pro rata rate at all times. sfrxUSD APY attempts to roughly track the interest on reserve balances (IORB) rate of the United States Federal Reserve using the IORB oracle. This benchmark rate is generally accepted as the “risk free rate” of the US Dollar. The frxUSD staking vault attempts, but does not guarantee in any way, to target this rate.',
     bridge: 'layer-zero',
     documentation: 'https://docs.frax.finance/',
   },
@@ -282,5 +308,33 @@ export const tokens = {
     description: 'USDC.e staked into the Silo (wS Market) vault.',
     documentation: 'https://docs.beefy.finance/',
     bridge: 'native',
+  },
+  WBTC: {
+    name: 'Wrapped BTC',
+    symbol: 'WBTC',
+    oracleId: 'WBTC',
+    address: '0x0555E30da8f98308EdB960aa94C0Db47230d2B9c',
+    chainId: 146,
+    decimals: 8,
+    logoURI: '',
+    website: 'https://wbtc.network/',
+    description:
+      'Wrapped Bitcoin (WBTC) is the first ERC20 token backed 1:1 with Bitcoin. Completely transparent. 100% verifiable. Community led.',
+    documentation: '',
+    bridge: 'layer-zero',
+  },
+  scBTC: {
+    name: 'Sonic BTC',
+    symbol: 'scBTC',
+    oracleId: 'scBTC',
+    address: '0xBb30e76d9Bb2CC9631F7fC5Eb8e87B5Aff32bFbd',
+    chainId: 146,
+    decimals: 8,
+    logoURI: '',
+    website: 'https://rings.money/',
+    description:
+      'Rings is a meta-stablecoin for USD, ETH & BTC offering competitive yield for stakers, providing deep liquidity for Sonic DeFi, and funding Sonic DeFi projects via its lockers.',
+    documentation: 'https://docs.rings.money/',
+    bridge: 'layer-zero',
   },
 } as const satisfies Record<string, Token>;

@@ -1,9 +1,57 @@
 [
   {
+    "name": "swapx-ichi-wbtc-scbtc",
+    "address": "0x59BFaa386CcBf648eaCd28c91834Ce7C6C8E773A",
+    "gauge": "0xCF16469420ed4351CB290C9906ed79D505565ceA",
+    "tokens": ["WBTC", "scBTC"]
+  },
+  {
+    "name": "swapx-ichi-scbtc-wbtc",
+    "address": "0xe1D0c34d6A7eEa99C87005147D950BE89294C632",
+    "gauge": "0x810687Eb359c563c1af11aF89C001f905a5989F0",
+    "tokens": ["WBTC", "scBTC"]
+  },
+  {
+    "name": "swapx-ichi-sfrxusd-frxusd",
+    "address": "0xe33108e60906c3122c76e8f3e68a9c272f8dcd1b",
+    "gauge": "0xe59e52f99a0f8443dc420bb532856fafd7dd32d8",
+    "tokens": ["sfrxUSD", "frxUSD"]
+  },
+  {
+    "name": "swapx-ichi-frxusd-sfrxusd",
+    "address": "0x65b970bcb133650d02b4d96901f2f5c855d1f2f7",
+    "gauge": "0xcea30c3ba4a6d987855daa86534dcb49a7dd2894",
+    "tokens": ["sfrxUSD", "frxUSD"]
+  },
+  {
+    "name": "swapx-ichi-sfrxeth-frxeth",
+    "address": "0x5746f9777954e8dd2835020ba8b7c950f52c6251",
+    "gauge": "0x3243039728f62c1236fcc5800d04b42f12cccd5b",
+    "tokens": ["sfrxETH", "frxETH"]
+  },
+  {
+    "name": "swapx-ichi-frxeth-sfrxeth",
+    "address": "0x8c30686dc5aa85c5861163174bdeb22a011bb749",
+    "gauge": "0xa583912c73c7b5af562f7dfcbe36740b91c97784",
+    "tokens": ["sfrxETH", "frxETH"]
+  },
+  {
+    "name": "swapx-ichi-scusd-frxusd",
+    "address": "0x8bcf8ad9c16f455b54a077f48717c08afa326296",
+    "gauge": "0xd3a997d00ff56a631924b85bfcd44dd80ae00a6b",
+    "tokens": ["frxUSD", "scUSD"]
+  },
+  {
     "name": "swapx-ichi-frxusd-scusd",
     "address": "0x1B282d69a54a983714bB6Bea8cAAcB29D4cb45B5",
     "gauge": "0xB02506CAe9FC5BB61E21c11d7E0614cd56f4b131",
     "tokens": ["frxUSD", "scUSD"]
+  },
+  {
+    "name": "swapx-ichi-sceth-frxeth",
+    "address": "0x587be5ab130d972e737e4873770b8e63965b8aaa",
+    "gauge": "0x38e948d178397636340b3da7234eba7317a260af",
+    "tokens": ["scETH", "frxETH"]
   },
   {
     "name": "swapx-ichi-frxeth-sceth",
