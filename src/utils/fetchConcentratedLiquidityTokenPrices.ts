@@ -788,6 +788,22 @@ const tokens: Partial<Record<keyof typeof ChainId, ConcentratedLiquidityToken[]>
       firstToken: 'WBNB',
       secondToken: 'TST',
     },
+    {
+      type: 'UniV3',
+      oracleId: 'SIREN',
+      decimalDelta: 1,
+      pool: '0xb2AF49dBF526054FAf19602860A5E298a79F3D05',
+      firstToken: 'WBNB',
+      secondToken: 'SIREN',
+    },
+    {
+      type: 'UniV3',
+      oracleId: 'Broccoli',
+      decimalDelta: 1,
+      pool: '0xdB25C09d96C165B62F6e6F9d9b17174738d897BA',
+      firstToken: 'WBNB',
+      secondToken: 'Broccoli',
+    },
   ],
 };
 
