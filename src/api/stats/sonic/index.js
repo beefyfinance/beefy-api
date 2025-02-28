@@ -4,6 +4,7 @@ const getBeetsSonicApys = require('./getBeetsSonicApys');
 const { getBeefyCowSonicApys } = require('./getBeefyCowSonicApys');
 const { getSwapxApys } = require('./getSwapxApys');
 const { getSonicSiloApys } = require('./getSonicSiloApys');
+const { getPenpieApys } = require('./getPenpieApys');
 const getShadowApys = require('./getShadowApys');
 
 const getApys = [
@@ -11,6 +12,7 @@ const getApys = [
   getEqualizerApys,
   getBeetsSonicApys,
   getSwapxApys,
+  getPenpieApys,
   getSonicSiloApys,
   getShadowApys,
 ];
