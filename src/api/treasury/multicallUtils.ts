@@ -3,6 +3,7 @@ import {
   AssetBalance,
   ChainTreasuryBalance,
   isConcLiquidityAsset,
+  isLockedAsset,
   isNativeAsset,
   isTokenAsset,
   isValidatorAsset,
@@ -17,6 +18,7 @@ import ERC20Abi from '../../abis/ERC20Abi';
 import { MULTICALL_V3 } from '../../utils/web3Helpers';
 import MulticallAbi from '../../abis/common/Multicall/MulticallAbi';
 import { fetchAPIValidatorBalance, fetchSonicValidatorBalance, isSonicValidator } from './validatorHelpers';
+import { fetchXShadowBalance } from './lockedAssetHelpers';
 
 export const mapAssetToCall = (
   asset: TreasuryAsset,
@@ -41,6 +43,10 @@ export const mapAssetToCall = (
     } else {
       return [fetchAPIValidatorBalance(asset)];
     }
+  } else if (isLockedAsset(asset)) {
+    treasuryAddressesForChain.forEach(treasuryData => {
+      return fetchXShadowBalance(asset, chainId, treasuryData.address);
+    });
   }
 };
 
