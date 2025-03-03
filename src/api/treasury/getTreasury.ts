@@ -120,7 +120,7 @@ function getTokenAddressesByChain(): TreasuryAssetRegistry {
     if (hasChainLockedAssets(chain)) {
       const lockedAssets = getChainLockedAssets(chain);
       for (let i = 0; i < lockedAssets.length; i++) {
-        tokens[lockedAssets[i].address] = lockedAssets[i];
+        tokens[lockedAssets[i].address.toLowerCase()] = lockedAssets[i];
       }
     }
 
