@@ -44,7 +44,7 @@ export const mapAssetToCall = (
       return [fetchAPIValidatorBalance(asset)];
     }
   } else if (isLockedAsset(asset)) {
-    treasuryAddressesForChain.forEach(treasuryData => {
+    return treasuryAddressesForChain.map(treasuryData => {
       return fetchXShadowBalance(asset, chainId, treasuryData.address);
     });
   }
@@ -61,7 +61,7 @@ export const extractBalancesFromTreasuryCallResults = (
       const callResult = callResults[i] as PromiseFulfilledResult<
         bigint[] | LpBreakdown[] | TreasuryApiResult[]
       >;
-      if (isTokenAsset(asset) || isVaultAsset(asset) || isNativeAsset(asset)) {
+      if (isTokenAsset(asset) || isVaultAsset(asset) || isNativeAsset(asset) || isLockedAsset(asset)) {
         const value = callResult.value as bigint[];
         const bal = {
           address: asset.address.toLowerCase(),
@@ -100,6 +100,8 @@ export const extractBalancesFromTreasuryCallResults = (
       } else {
         console.warn('Unknown treasury asset type:', asset);
       }
+    } else {
+      // console.error('Failed to fetch treasury balance for asset:', asset, callResults[i]);
     }
   });
   return allBalances.reduce((all, cur) => ((all[cur.address] = cur), all), {});
