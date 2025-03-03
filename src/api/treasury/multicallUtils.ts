@@ -17,8 +17,8 @@ import { fetchContract } from '../rpc/client';
 import ERC20Abi from '../../abis/ERC20Abi';
 import { MULTICALL_V3 } from '../../utils/web3Helpers';
 import MulticallAbi from '../../abis/common/Multicall/MulticallAbi';
-import { fetchAPIValidatorBalance, fetchSonicValidatorBalance, isSonicValidator } from './validatorHelpers';
-import { fetchXShadowBalance } from './lockedAssetHelpers';
+import { getValidatorBalanceCall } from './validatorHelpers';
+import { getLockedAssetBalanceCall } from './lockedAssetHelpers';
 
 export const mapAssetToCall = (
   asset: TreasuryAsset,
@@ -38,14 +38,10 @@ export const mapAssetToCall = (
   } else if (isConcLiquidityAsset(asset)) {
     return [getLpBreakdownForOracle(asset.oracleId)];
   } else if (isValidatorAsset(asset)) {
-    if (isSonicValidator(asset)) {
-      return [fetchSonicValidatorBalance(asset, chainId)];
-    } else {
-      return [fetchAPIValidatorBalance(asset)];
-    }
+    return getValidatorBalanceCall(asset, chainId);
   } else if (isLockedAsset(asset)) {
     return treasuryAddressesForChain.map(treasuryData => {
-      return fetchXShadowBalance(asset, chainId, treasuryData.address);
+      return getLockedAssetBalanceCall(asset, chainId, treasuryData.address);
     });
   }
 };

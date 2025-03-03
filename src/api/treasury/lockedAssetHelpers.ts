@@ -40,6 +40,9 @@ export const fetchXShadowBalance = async (
 ): Promise<bigint> => {
   const contract = fetchContract(asset.methodPath, ShadowVoteModuleAbi, chainId);
   const xShadowBalance = await contract.read.balanceOf([treasuryAddress as `0x${string}`]);
-
   return xShadowBalance;
+};
+
+export const getLockedAssetBalanceCall = (asset: LockedAsset, chainId: number, treasuryAddress: string) => {
+  return fetchXShadowBalance(asset, chainId, treasuryAddress);
 };
