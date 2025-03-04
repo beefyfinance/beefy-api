@@ -1,5 +1,12 @@
 [
   {
+    "name": "morpho-gauntlet-eusd",
+    "address": "0xc080f56504e0278828A403269DB945F6c6D6E014",
+    "oracle": "tokens",
+    "oracleId": "eUSD",
+    "decimals": "1e18"
+  },
+  {
     "name": "morpho-steakhouse-usdc",
     "address": "0xBEEF01735c132Ada46AA9aA4c54623cAA92A64CB",
     "oracle": "tokens",
