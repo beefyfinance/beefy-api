@@ -36,7 +36,13 @@ const getBeraswapApys = async () => {
     // log: true,
   });
 
-  return { ...data, ...single };
+  // Combine the APY data
+  const combinedApys = {
+    apys: { ...data.apys, ...single.apys },
+    apyBreakdowns: { ...data.apyBreakdowns, ...single.apyBreakdowns },
+  };
+
+  return combinedApys;
 };
 
 module.exports = getBeraswapApys;
