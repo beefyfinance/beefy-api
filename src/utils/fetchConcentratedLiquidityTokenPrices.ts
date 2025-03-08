@@ -736,6 +736,14 @@ const tokens: Partial<Record<keyof typeof ChainId, ConcentratedLiquidityToken[]>
       firstToken: 'WETH',
       secondToken: 'scETH',
     },
+    {
+      type: 'UniV3',
+      oracleId: 'GEMS',
+      decimalDelta: 1,
+      pool: '0x95F808CC1E83dbA7818DD728fe720b2a8088ff61',
+      firstToken: 'GEMS',
+      secondToken: 'WS',
+    },
   ],
   berachain: [
     {
