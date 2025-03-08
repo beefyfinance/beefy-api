@@ -337,4 +337,17 @@ export const tokens = {
     documentation: 'https://docs.rings.money/',
     bridge: 'layer-zero',
   },
+  GEMS: {
+    name: 'Shadow wrapped Gems',
+    symbol: 'GEMS',
+    oracleId: 'GEMS',
+    address: '0x5555b2733602DEd58D47b8D3D989E631CBee5555',
+    chainId: 146,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://www.shadow.so/',
+    description: 'Shadow wrapped GEMS',
+    documentation: '',
+    bridge: 'native',
+  },
 } as const satisfies Record<string, Token>;
