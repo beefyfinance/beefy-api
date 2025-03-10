@@ -1,0 +1,32 @@
+[
+  {
+    "name": "curve-sonic-sceth-weth",
+    "pool": "0xff11f56281247ead18db76fd23b252156738fa94",
+    "gauge": "0x4f7fc3f5112eaef10495b04b5dd376e50c42da51",
+    "tokens": [
+      {
+        "oracleId": "scETH",
+        "decimals": "1e18"
+      },
+      {
+        "oracleId": "WETH",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
+    "name": "curve-sonic-scusd-usdc.e",
+    "pool": "0x2fd7ccda50ed88fe17e15f3d5d8d51da4ccb43f3",
+    "gauge": "0x12f89168c995e54ec2ce9ee461d663a6dc72793a",
+    "tokens": [
+      {
+        "oracleId": "scUSD",
+        "decimals": "1e6"
+      },
+      {
+        "oracleId": "sUSDCe",
+        "decimals": "1e6"
+      }
+    ]
+  }
+]
