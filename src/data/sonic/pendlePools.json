@@ -1,5 +1,19 @@
 [
   {
+    "name": "pendle-sonic-wos-29may25",
+    "address": "0x4e82347bc41cfd5d62cef483c7f0a739a8158963",
+    "oracle": "tokens",
+    "oracleId": "OS",
+    "decimals": "1e18"
+  },
+  {
+    "name": "pendle-sonic-sts-29may25",
+    "address": "0x3aef1d372d0a7a7e482f465bc14a42d78f920392",
+    "oracle": "tokens",
+    "oracleId": "stS",
+    "decimals": "1e18"
+  },
+  {
     "name": "pendle-sonic-wstkscusd-29may25",
     "address": "0x6e4e95fab7db1f0524b4b0a05f0b9c96380b7dfa",
     "oracle": "tokens",

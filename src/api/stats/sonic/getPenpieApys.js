@@ -8,8 +8,7 @@ import { SONIC_CHAIN_ID as chainId } from '../../../constants';
 
 export const getPenpieApys = async () => {
   let { tradingApys, pendleApys, syRewardsApys } = await getPendleApys(chainId, pools);
-  // const farmApys = await applyPenpieBoost(pools, pendleApys, syRewardsApys);
-  const farmApys = pendleApys.map((apy, i) => apy.plus(syRewardsApys[i]));
+  const farmApys = await applyPenpieBoost(pools, pendleApys, syRewardsApys);
   // pools.forEach((p, i) => {
   //   console.log(p.name, pendleApys[i].toString(10), syRewardsApys[i].toString(10), farmApys[i].toString(10));
   // });
@@ -17,7 +16,7 @@ export const getPenpieApys = async () => {
 };
 
 async function applyPenpieBoost(pools, pendleApys, syRewardsApys) {
-  const penpieStaking = '0x7A89614B596720D4D0f51A69D6C1d55dB97E9aAB';
+  const penpieStaking = '0xF9619e8B01Acc23FAc7Ee0AEb1258433b85814ec';
   const penpieFee = 0.22;
   const abi = parseAbi([
     'function balanceOf(address) view returns (uint256)',
