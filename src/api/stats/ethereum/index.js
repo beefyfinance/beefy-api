@@ -11,7 +11,6 @@ const { getVerseLpApys } = require('./getVerseApys');
 const { getBifiMaxiApy } = require('./getBifiMaxiApy');
 const { getConvexCvxTokensApy } = require('./getConvexCvxTokensApy');
 const { getCurveApys } = require('./getCurveApys');
-const { getConicApys } = require('./getConicApys');
 const { getConvexCvxApy } = require('./getConvexCvxApy');
 const { getETHCompoundV3Apys } = require('./getEthCompoundApys');
 const { getPrismaApys } = require('./getPrismaApys');
@@ -37,7 +36,6 @@ const getApys = [
   getConvexCvxApy,
   getConvexCvxTokensApy,
   getFxApys,
-  getConicApys,
   getPrismaApys,
   getStargateEthApys,
   getBifiMaxiApy,
