@@ -206,3 +206,11 @@ export const fetchAPIValidatorBalance = async (apiAsset: ValidatorAsset): Promis
     balance: new BigNumber(balance).shiftedBy(9),
   };
 };
+
+export const getValidatorBalanceCall = (asset: ValidatorAsset, chainId: ChainId) => {
+  if (isSonicValidator(asset)) {
+    return [fetchSonicValidatorBalance(asset, chainId)];
+  } else {
+    return [fetchAPIValidatorBalance(asset)];
+  }
+};
