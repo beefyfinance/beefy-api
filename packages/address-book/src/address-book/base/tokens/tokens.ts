@@ -2348,4 +2348,27 @@ export const tokens = {
     documentation: 'https://www.kaito.ai/portal',
     bridge: 'native',
   },
+  GRK: {
+    name: 'Grokster',
+    symbol: 'GRK',
+    oracleId: 'GRK',
+    address: '0x2E2cc4DfCe60257F091980631e75f5c436b71C87',
+    chainId: 8453,
+    decimals: 18,
+    website: 'https://grokster.ai/',
+    description:
+      'Bankr, in collaboration with Grok, officially deploys the $GRK Grokster token on the Base chain, as announced through a post on X.',
+    bridge: 'native',
+  },
+  DRB: {
+    name: 'DebtReliefBot',
+    symbol: 'DRB',
+    oracleId: 'DRB',
+    address: '0x3ec2156D4c0A9CBdAB4a016633b7BcF6a8d68Ea2',
+    chainId: 8453,
+    decimals: 18,
+    website: 'https://drbgrok.com/',
+    description: 'The first token proposed by Grok AI. Built on Base chain.',
+    bridge: 'native',
+  },
 } as const satisfies Record<string, Token>;

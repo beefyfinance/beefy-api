@@ -640,6 +640,22 @@ const tokens: Partial<Record<keyof typeof ChainId, ConcentratedLiquidityToken[]>
       firstToken: 'KAITO',
       secondToken: 'WETH',
     },
+    {
+      type: 'UniV3',
+      oracleId: 'DRB',
+      decimalDelta: 1,
+      pool: '0x5116773e18A9C7bB03EBB961b38678E45E238923',
+      firstToken: 'WETH',
+      secondToken: 'DRB',
+    },
+    {
+      type: 'UniV3',
+      oracleId: 'GRK',
+      decimalDelta: 1,
+      pool: '0xb5a0dA376245E67b2e55e4F011B4daA464278cFA',
+      firstToken: 'WETH',
+      secondToken: 'GRK',
+    },
   ],
   zksync: [
     {
