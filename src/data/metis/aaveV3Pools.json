@@ -9,16 +9,5 @@
     "decimals": "1e18",
     "borrowDepth": 1,
     "borrowPercent": 0
-  },
-  {
-    "name": "aavev3-metis-weth",
-    "token": "0x420000000000000000000000000000000000000A",
-    "aToken": "0x8acAe35059C9aE27709028fF6689386a44c09f3a",
-    "debtToken": "0x8Bb19e3DD277a73D4A95EE434F14cE4B92898421",
-    "oracle": "tokens",
-    "oracleId": "WETH",
-    "decimals": "1e18",
-    "borrowDepth": 1,
-    "borrowPercent": 0
   }
 ]

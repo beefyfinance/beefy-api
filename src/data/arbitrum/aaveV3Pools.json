@@ -1,13 +1,1 @@
-[
-  {
-    "name": "aavev3-arb-usdc",
-    "token": "0xaf88d065e77c8cC2239327C5EDb3A432268e5831",
-    "aToken": "0x724dc807b04555b71ed48a6896b6F41593b8C637",
-    "debtToken": "0xf611aEb5013fD2c0511c9CD55c7dc5C1140741A6",
-    "oracle": "tokens",
-    "oracleId": "USDC",
-    "decimals": "1e6",
-    "borrowDepth": 1,
-    "borrowPercent": 0
-  }
-]
+[]
