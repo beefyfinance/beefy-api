@@ -8,6 +8,7 @@ const { getGnsApys } = require('./getGnsApys');
 const getAuraPolygonApys = require('./getAuraPolygonApys');
 const { getPolygonCompoundV3Apys } = require('./getPolygonCompoundApys');
 const { getBeefyCowPolyApys } = require('./getBeefyCowPolyApys');
+const { getMorphoMerklApys } = require('./getMorphoMerklApys');
 
 const getApys = [
   getCurveApys,
@@ -20,6 +21,7 @@ const getApys = [
   getAuraPolygonApys,
   getPolygonCompoundV3Apys,
   getBeefyCowPolyApys,
+  getMorphoMerklApys,
 ];
 
 const BATCH_SIZE = 15;
