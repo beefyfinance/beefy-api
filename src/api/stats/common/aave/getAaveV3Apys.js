@@ -17,12 +17,11 @@ const getAaveV3ApyData = async (config, pools, chainId) => {
   const lendingApys = [];
   const lsApys = [];
 
-  let promises = [];
-  pools.forEach(pool => promises.push(getPoolApy(config, pool, chainId)));
-  const values = await Promise.all(promises);
+  const values = await Promise.all(pools.map(pool => getPoolApy(config, pool, chainId)));
+  const meritApys = await getMeritApys(pools);
 
-  values.forEach(item => {
-    rewardApys.push(item[0]);
+  values.forEach((item, i) => {
+    rewardApys.push(item[0].plus(meritApys[i]));
     lendingApys.push(item[1]);
     lsApys.push(item[2]);
   });
@@ -35,6 +34,19 @@ const getAaveV3ApyData = async (config, pools, chainId) => {
     lsApys
   );
 };
+
+async function getMeritApys(pools) {
+  let meritData = {};
+  if (pools.some(p => p.merit)) {
+    try {
+      const res = await fetch('https://apps.aavechan.com/api/merit/aprs').then(res => res.json());
+      meritData = res.currentAPR.actionsAPR;
+    } catch (e) {
+      console.error('AAVE getMeritApys', e);
+    }
+  }
+  return pools.map(p => new BigNumber(meritData[p.merit] || 0).div(100));
+}
 
 const getPoolApy = async (config, pool, chainId) => {
   const { supplyBase, supplyNative, borrowBase, borrowNative } = await getAaveV3PoolData(
@@ -87,9 +99,7 @@ const getAaveV3PoolData = async (config, pool, chainId) => {
   const totalBorrowInUsd = new BigNumber(totalVariableDebt).div(pool.decimals).times(tokenPrice);
 
   const supplyNative = supplyNativeInUsd.div(totalSupplyInUsd);
-  const borrowNative = totalBorrowInUsd.isZero()
-    ? new BigNumber(0)
-    : borrowNativeInUsd.div(totalBorrowInUsd);
+  const borrowNative = totalBorrowInUsd.isZero() ? new BigNumber(0) : borrowNativeInUsd.div(totalBorrowInUsd);
 
   return { supplyBase, supplyNative, borrowBase, borrowNative };
 };
@@ -133,14 +143,7 @@ const getRewardsPerYear = async (config, pool, chainId) => {
   return { supplyNativeInUsd, borrowNativeInUsd };
 };
 
-const getLeveragedApys = (
-  supplyBase,
-  borrowBase,
-  supplyNative,
-  borrowNative,
-  depth,
-  borrowPercent
-) => {
+const getLeveragedApys = (supplyBase, borrowBase, supplyNative, borrowNative, depth, borrowPercent) => {
   borrowPercent = new BigNumber(borrowPercent);
   let leveragedSupplyBase = new BigNumber(0);
   let leveragedBorrowBase = new BigNumber(0);
@@ -148,16 +151,10 @@ const getLeveragedApys = (
   let leveragedBorrowNative = new BigNumber(0);
 
   for (let i = 0; i < depth; i++) {
-    leveragedSupplyBase = leveragedSupplyBase.plus(
-      supplyBase.times(borrowPercent.exponentiatedBy(i))
-    );
-    leveragedSupplyNative = leveragedSupplyNative.plus(
-      supplyNative.times(borrowPercent.exponentiatedBy(i))
-    );
+    leveragedSupplyBase = leveragedSupplyBase.plus(supplyBase.times(borrowPercent.exponentiatedBy(i)));
+    leveragedSupplyNative = leveragedSupplyNative.plus(supplyNative.times(borrowPercent.exponentiatedBy(i)));
 
-    leveragedBorrowBase = leveragedBorrowBase.plus(
-      borrowBase.times(borrowPercent.exponentiatedBy(i + 1))
-    );
+    leveragedBorrowBase = leveragedBorrowBase.plus(borrowBase.times(borrowPercent.exponentiatedBy(i + 1)));
     leveragedBorrowNative = leveragedBorrowNative.plus(
       borrowNative.times(borrowPercent.exponentiatedBy(i + 1))
     );

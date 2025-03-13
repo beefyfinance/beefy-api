@@ -1,0 +1,14 @@
+[
+  {
+    "name": "aavev3-sonic-usdc.e",
+    "token": "0x29219dd400f2Bf60E5a23d13Be72B486D4038894",
+    "aToken": "0x578Ee1ca3a8E1b54554Da1Bf7C583506C4CD11c6",
+    "debtToken": "0x2273caBAd63b7D247A6b107E723c803fc49953A0",
+    "merit": "sonic-supply-usdce",
+    "oracle": "tokens",
+    "oracleId": "sUSDCe",
+    "decimals": "1e6",
+    "borrowDepth": 1,
+    "borrowPercent": 0
+  }
+]

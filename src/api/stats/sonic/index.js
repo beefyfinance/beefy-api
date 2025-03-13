@@ -6,9 +6,11 @@ const { getSwapxApys } = require('./getSwapxApys');
 const { getSonicSiloApys } = require('./getSonicSiloApys');
 const { getPenpieApys } = require('./getPenpieApys');
 const { getCurveApys } = require('./getCurveApys');
+const { getAaveV3Apys } = require('./getAaveV3Apys');
 const getShadowApys = require('./getShadowApys');
 
 const getApys = [
+  getAaveV3Apys,
   getBeefyCowSonicApys,
   getEqualizerApys,
   getBeetsSonicApys,
