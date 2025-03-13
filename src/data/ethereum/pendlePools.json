@@ -54,7 +54,7 @@
     "address": "0xaFDC922d0059147486cC1F0f32e3A2354b0d35CC",
     "eqbGauge": "0x548b5771d2722e1272A341c339162D09b06c5f9E",
     "oracle": "tokens",
-    "oracleId": "USD0",
+    "oracleId": "USD0++",
     "decimals": "1e18",
     "chainId": 1,
     "beefyFee": 0.095
@@ -170,7 +170,7 @@
     "name": "pendle-usd0-31oct24",
     "address": "0x00b321d89a8c36b3929f20b7955080baed706d1b",
     "oracle": "tokens",
-    "oracleId": "USD0",
+    "oracleId": "USD0++",
     "decimals": "1e18",
     "chainId": 1,
     "beefyFee": 0.095
