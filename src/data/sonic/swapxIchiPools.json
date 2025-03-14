@@ -132,9 +132,9 @@
     "tokens": ["WS", "OS"]
   },
   {
-    "name": "swapx-ichi-ws-weth-ws",
-    "address": "0x0f5AcFC6D67410232589265a71E80661d0352848",
-    "gauge": "0x05B8BCD4e028A112B6e69b3B1D0BaD65f6088d54",
+    "name": "swapx-ichi-ws-weth-weth",
+    "address": "0x04A5AE9fc90A66244E1448A01adA904A68CcCc68",
+    "gauge": "0xbA9212b9475FEf60c4405f52961aDbd36527be74",
     "tokens": ["WS", "WETH"]
   },
   {
