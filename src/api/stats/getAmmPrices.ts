@@ -24,30 +24,17 @@ import ellipsisPools from '../../data/bsc/ellipsisLpPools.json';
 import mdexBscPools from '../../data/bsc/mdexBscLpPools.json';
 import geistPools from '../../data/fantom/geistLpPools.json';
 import oldPools from '../../data/archive/oldLpPools.json';
-import sushiCeloPools from '../../data/celo/sushiLpPools.json';
 import mooTokens from '../../data/mooTokens.json';
-import solarbeamPools from '../../data/moonriver/solarbeamLpPools.json';
-import sushiMr from '../../data/moonriver/sushiLp.json';
-import sushiMrPools from '../../data/moonriver/sushiLpPools.json';
 import vvsPools from '../../data/cronos/vvsLpPools.json';
 import cronaPools from '../../data/cronos/cronaLpPools.json';
-import solarbeamDualLpPools from '../../data/moonriver/solarbeamDualLpPools.json';
-import trisolarisLpPools from '../../data/aurora/trisolarisLpPools.json';
-import finnLpPools from '../../data/moonriver/finnLpPools.json';
-import solarbeamDualLpV2Pools from '../../data/moonriver/solarbeamDualLpV2Pools.json';
 import liquidusPools from '../../data/cronos/liquidusLpPools.json';
-import sushiv2Celo from '../../data/celo/sushiv2LpPools.json';
-import fusefiPools from '../../data/fuse/fusefiLpPools.json';
 import netswapPools from '../../data/metis/netswapLpPools.json';
 import tethysPools from '../../data/metis/tethysLpPools.json';
-import sushiFusePools from '../../data/fuse/sushiFuseLpPools.json';
-import trisolarisMiniPools from '../../data/aurora/trisolarisMiniLpPools.json';
 import stellaswapPools from '../../data/moonbeam/stellaswapLpPools.json';
 import stellaswapPoolsV2 from '../../data/moonbeam/stellaswapLpV2Pools.json';
 import darkCryptoPools from '../../data/cronos/darkCryptoLpPools.json';
 import wigoPools from '../../data/fantom/wigoLpPools.json';
 import solarflare from '../../data/moonbeam/solarFlareLpPools.json';
-import voltagePools from '../../data/fuse/voltageLpPools.json';
 import vvsDualPools from '../../data/cronos/vvsDualLpPools.json';
 import spookyV2LpPools from '../../data/fantom/spookyV2LpPools.json';
 import spookyV3LpPools from '../../data/fantom/spookyV3LpPools.json';
@@ -145,30 +132,17 @@ const pools = normalizePoolOracleIds([
   ...spookyV2LpPools,
   ...spookyV3LpPools,
   ...vvsDualPools,
-  ...voltagePools,
   ...stellaswapPools,
   ...stellaswapPoolsV2,
   ...solarflare,
   ...wigoPools,
   ...darkCryptoPools,
-  ...trisolarisMiniPools,
-  ...sushiFusePools,
   ...tethysPools,
   ...netswapPools,
-  ...fusefiPools,
-  ...sushiv2Celo,
   ...liquidusPools,
-  ...solarbeamDualLpV2Pools,
   ...oldPools,
-  ...finnLpPools,
-  ...trisolarisLpPools,
-  ...solarbeamDualLpPools,
   ...cronaPools,
   ...vvsPools,
-  ...sushiMrPools,
-  ...sushiMr,
-  ...solarbeamPools,
-  ...sushiCeloPools,
   ...geistPools,
   ...mdexBscPools,
   ...ellipsisPools,
@@ -256,7 +230,6 @@ const coinGeckoCoins: Record<string, string[]> = {
   'equilibria-finance-ependle': ['ePENDLE'],
   mpendle: ['mPENDLE'],
   penpie: ['PNP'],
-  're-al': ['RWA'],
   dogwifcoin: ['WIF'],
   moonbeam: ['GLMR'],
   scroll: ['SCR'],

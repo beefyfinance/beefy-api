@@ -8,19 +8,6 @@ import ICurvePool from '../abis/ICurvePool';
 import StableSwap from '../abis/StableSwap';
 
 const tokens: Partial<Record<keyof typeof ChainId, CurveToken[]>> = {
-  aurora: [
-    {
-      oracleId: 'aurMAI',
-      decimals: '1e18',
-      index0: 0,
-      index1: 2,
-      pool: '0x65a761136815B45A9d78d9781d22d47247B49D23',
-      useUnderlying: true,
-      secondToken: 'USDC',
-      secondTokenDecimals: '1e6',
-      abi: ICurvePool,
-    },
-  ],
   optimism: toCurveTokens(ChainId.optimism, require('../data/optimism/curvePools.json')),
   fraxtal: toCurveTokens(ChainId.fraxtal, require('../data/fraxtal/curvePools.json')),
   arbitrum: [
@@ -46,7 +33,6 @@ const tokens: Partial<Record<keyof typeof ChainId, CurveToken[]>> = {
       abi: ICurvePoolV2Abi,
     },
   ],
-  kava: toCurveTokens(ChainId.kava, require('../data/kava/curvePools.json')),
   polygon: toCurveTokens(ChainId.polygon, [...require('../data/matic/curvePools.json')]),
   ethereum: [
     ...toCurveTokens(ChainId.ethereum, [

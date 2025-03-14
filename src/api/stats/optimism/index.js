@@ -10,7 +10,6 @@ const { getHopOpApys } = require('./getHopOpApys');
 const { getOlpApys } = require('./getOlpApys');
 const getBeOpxApy = require('./getBeOpxApy');
 const getBeOpxEarnApy = require('./getBeOpxEarnApy');
-const getKyberOptimismApys = require('./getKyberOptimismApys');
 const getMmyApys = require('./getMmyApys');
 const getBalancerOpApys = require('./getBalancerOpApys');
 const getAuraApys = require('./getAuraOptimismApys');
@@ -27,7 +26,6 @@ const getApys = [
   getAuraApys,
   getBalancerOpApys,
   getMmyApys,
-  getKyberOptimismApys,
   getBeetsOpApys,
   getCurveApys,
   getVelodromeApys,

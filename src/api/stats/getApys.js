@@ -3,20 +3,14 @@ const { getMaticApys } = require('./matic');
 const { getFantomApys } = require('./fantom');
 const { getBSCApys } = require('./bsc');
 const { getArbitrumApys } = require('./arbitrum');
-const { getCeloApys } = require('./celo');
-const { getMoonriverApys } = require('./moonriver');
 const { getCronosApys } = require('./cronos');
-const { getAuroraApys } = require('./aurora');
-const { getFuseApys } = require('./fuse');
 const { getMetisApys } = require('./metis');
 const { getMoonbeamApys } = require('./moonbeam');
-const { getEmeraldApys } = require('./emerald');
 const { getOptimismApys } = require('./optimism');
 const { getKavaApys } = require('./kava');
 const { getCantoApys } = require('./canto');
 const { getEthereumApys } = require('./ethereum');
 const { getZksyncApys } = require('./zksync');
-const { getZkevmApys } = require('./zkevm');
 const { getBaseApys } = require('./base');
 const { getGnosisApys } = require('./gnosis');
 const { getLineaApys } = require('./linea');
@@ -62,20 +56,14 @@ const updateApys = async () => {
       getFantomApys(),
       getBSCApys(),
       getArbitrumApys(),
-      // getCeloApys(),
-      // getMoonriverApys(),
       getCronosApys(),
-      // getAuroraApys(),
-      // getFuseApys(),
       getMetisApys(),
       getMoonbeamApys(),
-      // getEmeraldApys(),
       getOptimismApys(),
       // getKavaApys(),
       getEthereumApys(),
       // getCantoApys(),
       getZksyncApys(),
-      // getZkevmApys(),
       getBaseApys(),
       getGnosisApys(),
       getLineaApys(),

@@ -2,7 +2,6 @@ const { getCurveApys } = require('./getCurveApys');
 const { getConvexApys } = require('./getConvexApys');
 const getStargateApys = require('./getStargatePolygonApys');
 const getBalancerPolyApys = require('./getBalancerPolyApys');
-const { getHopApys } = require('./getHopApys');
 const { getAaveV3Apys } = require('./getAaveV3Apys');
 const { getGnsApys } = require('./getGnsApys');
 const getAuraPolygonApys = require('./getAuraPolygonApys');
@@ -15,8 +14,7 @@ const getApys = [
   getConvexApys,
   getStargateApys,
   getBalancerPolyApys,
-  // getHopApys,
-  // getAaveV3Apys,
+  getAaveV3Apys,
   getGnsApys,
   getAuraPolygonApys,
   getPolygonCompoundV3Apys,

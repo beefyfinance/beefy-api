@@ -1,7 +1,6 @@
 const getBalancerBaseApys = require('./getBalancerApys');
 const getBaseSwapApys = require('./getBaseSwapApys');
 const getStargateBaseApys = require('./getStargateBaseApys');
-const getBvmApys = require('./getBvmApys');
 const getAlienBaseApys = require('./getAlienBaseApys');
 const getMoonwellBaseApys = require('./getMoonwellBaseApys');
 const { getSwapBasedApys } = require('./getSwapBasedApys');
@@ -34,7 +33,6 @@ const getApys = [
   getBalancerBaseApys,
   getBaseSwapApys,
   getStargateBaseApys,
-  getBvmApys,
   getAlienBaseApys,
   getMoonwellBaseApys,
   getSwapBasedApys,

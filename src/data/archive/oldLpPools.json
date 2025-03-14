@@ -702,24 +702,6 @@
     }
   },
   {
-    "name": "solar-wmovr-mfam",
-    "address": "0xE6Bfc609A2e58530310D6964ccdd236fc93b4ADB",
-    "decimals": "1e18",
-    "chainId": 1285,
-    "lp0": {
-      "address": "0x98878B06940aE243284CA214f92Bb71a2b032B8A",
-      "oracle": "tokens",
-      "oracleId": "WMOVR",
-      "decimals": "1e18"
-    },
-    "lp1": {
-      "address": "0xBb8d88bcD9749636BC4D2bE22aaC4Bb3B01A58F1",
-      "oracle": "tokens",
-      "oracleId": "MFAM",
-      "decimals": "1e18"
-    }
-  },
-  {
     "name": "cakev2-hay-busd",
     "address": "0x70c26e9805ec5Df3d4aB0b2a3dF86BBA2231B6c1",
     "decimals": "1e18",
@@ -869,24 +851,6 @@
     }
   },
   {
-    "name": "zenlink-wmovr-xckint",
-    "address": "0xe7Ed65F8eA198AdB2B890c6797022f341bB5D425",
-    "decimals": "1e18",
-    "chainId": 1285,
-    "lp0": {
-      "address": "0x98878B06940aE243284CA214f92Bb71a2b032B8A",
-      "oracle": "tokens",
-      "oracleId": "WMOVR",
-      "decimals": "1e18"
-    },
-    "lp1": {
-      "address": "0xfffFFFFF83F4f317d3cbF6EC6250AeC3697b3fF2",
-      "oracle": "tokens",
-      "oracleId": "xcKINT",
-      "decimals": "1e12"
-    }
-  },
-  {
     "name": "quick-wmatic-ixt",
     "address": "0x8fcB93C0D9fA361c57c1d31bbF1c4d8C61af7d3d",
     "decimals": "1e18",
@@ -1010,42 +974,6 @@
       "oracle": "tokens",
       "oracleId": "LDO",
       "decimals": "1e18"
-    }
-  },
-  {
-    "name": "pad-rose-pad",
-    "address": "0xC6C3cc84EabD4643C382C988fA2830657fc70a6B",
-    "decimals": "1e18",
-    "chainId": 1313161554,
-    "lp0": {
-      "address": "0x885f8CF6E45bdd3fdcDc644efdcd0AC93880c781",
-      "oracle": "tokens",
-      "oracleId": "PAD",
-      "decimals": "1e18"
-    },
-    "lp1": {
-      "address": "0xdcD6D4e2B3e1D1E1E6Fa8C21C8A323DcbecfF970",
-      "oracle": "tokens",
-      "oracleId": "ROSE",
-      "decimals": "1e18"
-    }
-  },
-  {
-    "name": "pad-near-pad",
-    "address": "0xc374776Cf5C497Adeef6b505588b00cB298531FD",
-    "decimals": "1e18",
-    "chainId": 1313161554,
-    "lp0": {
-      "address": "0x885f8CF6E45bdd3fdcDc644efdcd0AC93880c781",
-      "oracle": "tokens",
-      "oracleId": "PAD",
-      "decimals": "1e18"
-    },
-    "lp1": {
-      "address": "0xC42C30aC6Cc15faC9bD938618BcaA1a1FaE8501d",
-      "oracle": "tokens",
-      "oracleId": "NEAR",
-      "decimals": "1e24"
     }
   },
   {

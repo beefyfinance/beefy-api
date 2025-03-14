@@ -1,4 +1,4 @@
-const { getAaveV3ApyData, getAaveV3PoolData } = require('../common/aave/getAaveV3Apys');
+const { getAaveV3ApyData } = require('../common/aave/getAaveV3Apys');
 const pools = require('../../../data/matic/aaveV3Pools.json');
 const { POLYGON_CHAIN_ID } = require('../../../constants');
 
@@ -27,12 +27,6 @@ const config = {
   ],
 };
 
-const getAaveV3Apys = async () => {
+export const getAaveV3Apys = async () => {
   return getAaveV3ApyData(config, pools, POLYGON_CHAIN_ID);
 };
-
-const getAavePoolData = async pool => {
-  return getAaveV3PoolData(config, pool, POLYGON_CHAIN_ID);
-};
-
-module.exports = { getAaveV3Apys, getAavePoolData };

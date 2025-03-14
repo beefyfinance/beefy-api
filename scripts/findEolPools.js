@@ -1,4 +1,5 @@
 import fs from 'fs';
+import path from 'path';
 
 process.env.VAULTS_INIT_DELAY = 0;
 import { getMultichainVaults, initVaultService } from '../src/api/stats/getMultichainVaults';
@@ -8,7 +9,11 @@ import { MULTICHAIN_ENDPOINTS } from '../src/constants';
 import { ChainId } from '../packages/address-book/src/types/chainid';
 
 async function main() {
-  const poolsFiles = process.argv.splice(2);
+  const paths = process.argv.splice(2);
+  let poolsFiles = paths;
+  if (paths.length === 1 && fs.lstatSync(paths[0]).isDirectory()) {
+    poolsFiles = fs.readdirSync(paths[0]).map(file => path.join(paths[0], file));
+  }
   const pools = [];
   const chains = [];
   poolsFiles.forEach(file => {
