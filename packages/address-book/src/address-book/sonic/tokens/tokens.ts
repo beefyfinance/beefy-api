@@ -129,6 +129,20 @@ export const tokens = {
     documentation: 'https://docs.rings.money/',
     bridge: 'layer-zero',
   },
+  wstkscUSD: {
+    name: 'Wrapped stkscUSD',
+    symbol: 'wstkscUSD',
+    oracleId: 'wstkscUSD',
+    address: '0x9fb76f7ce5FCeAA2C42887ff441D46095E494206',
+    chainId: 146,
+    decimals: 6,
+    logoURI: '',
+    website: 'https://rings.money/',
+    description:
+      'Rings is a meta-stablecoin for USD & ETH offering competitive yield for stakers, providing deep liquidity for Sonic DeFi, and funding Sonic DeFi projects via its lockers.',
+    documentation: 'https://docs.rings.money/',
+    bridge: 'native',
+  },
   BRUSH: {
     name: 'PaintSwap',
     symbol: 'BRUSH',
