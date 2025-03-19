@@ -14,7 +14,7 @@ export const getSolidlyGaugeApys = async params => {
   return getApyBreakdown(params.pools, 0, apys, 0);
 };
 
-const getFarmApys = async params => {
+export const getFarmApys = async params => {
   const apys = [];
 
   let supply = new BigNumber(0);
@@ -245,5 +245,3 @@ const getPoolsData = async params => {
     rewardData,
   };
 };
-
-module.exports = { getSolidlyGaugeApys };
