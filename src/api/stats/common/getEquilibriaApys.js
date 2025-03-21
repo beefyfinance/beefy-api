@@ -12,15 +12,15 @@ const PENDLE = {
   [BSC_CHAIN_ID]: '0xb3Ed0A426155B79B898849803E3B36552f7ED507',
   [BASE_CHAIN_ID]: '0xa99f6e6785da0f5d6fb42495fe424bce029eeb3e',
 };
-const eqbMinter = {
-  [ARBITRUM_CHAIN_ID]: '0x09bae4C38B1a9142726C6F08DC4d1260B0C8e94d',
+const eqbPendleProxy = {
+  [ETH_CHAIN_ID]: '0x64627901dAdb46eD7f275fD4FC87d086cfF1e6E3',
 };
 
-export async function getEquilibriaApys(pools) {
-  const chainId = pools[0].chainId;
-  const eqbPools = pools.filter(p => p.eqbGauge);
-  const eqbApys = await getPoolApys(chainId, eqbPools);
+export async function getEquilibriaApys(allPools) {
+  const chainId = allPools[0].chainId;
+  const pools = allPools.filter(p => p.eqbGauge);
   const { tradingApys, pendleApys, syRewardsApys } = await getPendleApys(chainId, pools);
+  const eqbApys = await getPoolApys(chainId, pools, syRewardsApys);
 
   // pools.forEach((p, i) => {
   //   console.log(p.name,'eqb-apy',(eqbApys[p.address] || 0).toString(10),'pendle-apy',pendleApys[i].plus(syRewardsApys[i]).toString(10));
@@ -35,23 +35,32 @@ export async function getEquilibriaApys(pools) {
   );
 }
 
-const equilibriaAbi = parseAbi([
+const abi = parseAbi([
   'function totalSupply() view returns (uint256)',
   'function rewards(address token) view returns (uint periodFinish, uint rewardRate)',
-  'function getFactor() view returns (uint)',
   'function expiry() view returns (uint)',
+  'function balanceOf(address) view returns (uint256)',
+  'function activeBalance(address) view returns (uint256)',
 ]);
 
-const getPoolApys = async (chainId, pools) => {
+const getPoolApys = async (chainId, pools, syRewardsApys) => {
   const apys = {};
 
+  const pendleProxy = eqbPendleProxy[chainId];
   const totalSupplyCalls = [],
     expiryCalls = [],
+    balancesCalls = [],
+    activeBalancesCalls = [],
     extraRewardInfo = [],
     extraRewardsCalls = [];
   pools.forEach(pool => {
-    expiryCalls.push(fetchContract(pool.address, equilibriaAbi, chainId).read.expiry());
-    const rewardPool = fetchContract(pool.eqbGauge, equilibriaAbi, chainId);
+    const lp = fetchContract(pool.address, abi, chainId);
+    expiryCalls.push(lp.read.expiry());
+    if (pendleProxy) {
+      balancesCalls.push(lp.read.balanceOf([pendleProxy]).then(v => new BigNumber(v)));
+      activeBalancesCalls.push(lp.read.activeBalance([pendleProxy]).then(v => new BigNumber(v)));
+    }
+    const rewardPool = fetchContract(pool.eqbGauge, abi, chainId);
     totalSupplyCalls.push(rewardPool.read.totalSupply());
     extraRewardInfo.push({ pool: pool.name, token: PENDLE[chainId], oracle: 'tokens', oracleId: 'PENDLE' });
     extraRewardsCalls.push(rewardPool.read.rewards([PENDLE[chainId]]));
@@ -65,28 +74,25 @@ const getPoolApys = async (chainId, pools) => {
       extraRewardsCalls.push(rewardPool.read.rewards([extra.token]));
     });
   });
-  const useEqbRewards = eqbMinter[chainId];
-  const eqbFactorCall = useEqbRewards
-    ? fetchContract(eqbMinter[chainId], equilibriaAbi, chainId).read.getFactor()
-    : 0;
 
   const res = await Promise.all([
     Promise.all(totalSupplyCalls),
     Promise.all(extraRewardsCalls),
     Promise.all(expiryCalls),
-    eqbFactorCall,
+    Promise.all(balancesCalls),
+    Promise.all(activeBalancesCalls),
   ]);
 
   const poolInfo = res[0].map((_, i) => ({
     totalSupply: new BigNumber(res[0][i]),
     expiry: new BigNumber(res[2][i]),
+    boost: pendleProxy ? (res[3][i].isZero() ? 2.5 : res[4][i].div(res[3][i]).times(2.5)) : 2.5,
   }));
   const extras = extraRewardInfo.map((_, i) => ({
     ...extraRewardInfo[i],
     rewardRate: new BigNumber(res[1][i]['1']),
     periodFinish: new BigNumber(res[1][i]['0']),
   }));
-  const eqbFactor = new BigNumber(res[3]).div(10000);
 
   for (let i = 0; i < pools.length; i++) {
     const pool = pools[i];
@@ -107,32 +113,15 @@ const getPoolApys = async (chainId, pools) => {
       const extraRewardsInUsd = extra.rewardRate.times(31536000).times(price).div('1e18');
       yearlyRewardsInUsd = yearlyRewardsInUsd.plus(extraRewardsInUsd);
       // console.log(pool.name, extra.oracleId, extraRewardsInUsd.div(totalStakedInUsd).valueOf());
-
-      if (useEqbRewards && extra.oracleId === 'PENDLE') {
-        const eqbPrice = await fetchPrice({ oracle: 'tokens', id: 'EQB' });
-        const extraRewardsInUsd = extra.rewardRate
-          .times(eqbFactor)
-          .times(31536000)
-          .times(eqbPrice)
-          .div('1e18');
-        yearlyRewardsInUsd = yearlyRewardsInUsd.plus(extraRewardsInUsd);
-        // console.log(pool.name, 'EQB', extraRewardsInUsd.div(totalStakedInUsd).valueOf());
-      }
     }
     apys[pool.address] = yearlyRewardsInUsd.div(totalStakedInUsd);
+
+    // USUAL is boosted by Eqb but claimed via merkl (not included in extras)
+    if (pool.eqbExternalSy) {
+      apys[pool.address] = apys[pool.address].plus(syRewardsApys[i].times(info.boost));
+    }
+
     // console.log(pool.name, apys[pool.address].valueOf(), yearlyRewardsInUsd.valueOf(), totalStakedInUsd.valueOf());
   }
   return apys;
 };
-
-async function getEqbArbApy(chainId) {
-  let apys = {};
-  try {
-    const response = await fetch('https://equilibria.fi/api/chain-info').then(res => res.json());
-    const pools = response[chainId].poolInfos;
-    pools.forEach(p => (apys[p.market] = new BigNumber(p.arbApy || 0)));
-  } catch (err) {
-    console.error('getEqbArbApy error', err.message);
-  }
-  return apys;
-}
