@@ -1,5 +1,37 @@
 [
   {
+    "name": "beets-sonic-silo-super-sonic",
+    "address": "0xC5954B1B9Df8a0c0B7788d2cc2Bc18D4BaE9b0C2",
+    "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
+    "gauge": "0xC216ff0c4D9E030330958e6A6D6d5ed8d0B38442",
+    "vaultPoolId": "0xc5954b1b9df8a0c0b7788d2cc2bc18d4bae9b0c2000200000000000000000099",
+    "decimals": "1e18",
+    "rewards": [
+      {
+        "newGauge": true,
+        "stream": "0xC216ff0c4D9E030330958e6A6D6d5ed8d0B38442",
+        "oracleId": "BAL"
+      },
+      {
+        "stream": "0xC216ff0c4D9E030330958e6A6D6d5ed8d0B38442",
+        "rewardToken": "0x2D0E0814E62D80056181F5cd932274405966e4f0",
+        "oracleId": "BEETS"
+      }
+    ],
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "WS",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "SILO",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
     "name": "beets-sonic-sonic-quartet-audition-act-ii",
     "address": "0xbd4a2ecdcd7acb0d2b20744AC4Cc1368Dd8fdC41",
     "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
