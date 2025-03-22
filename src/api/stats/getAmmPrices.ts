@@ -350,6 +350,11 @@ const dexscreenerCoins: OraclePriceRequest[] = [
     tokenAddress: '0x3333111A391cC08fa51353E9195526A70b333333',
     chainId: 'sonic',
   },
+  {
+    oracleId: 'BeetsFragmentsS1',
+    tokenAddress: '0x3419966bC74fa8f951108d15b053bEd233974d3D',
+    chainId: 'sonic',
+  },
 ];
 
 /**
