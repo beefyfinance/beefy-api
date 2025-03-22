@@ -378,4 +378,19 @@ export const tokens = {
     documentation: '',
     bridge: 'native',
   },
+  SILO: {
+    name: 'Silo',
+    symbol: 'SILO',
+    oracleId: 'SILO',
+    address: '0x53f753E4B17F4075D6fa2c6909033d224b81e698',
+    chainId: 146,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://www.silo.finance/',
+    description:
+      'Silo is a non-custodial lending protocol to borrow any crypto asset with another.',
+    documentation: 'https://devdocs.silo.finance/',
+    bridge: 'sonic-canonical',
+    risks: ['NO_TIMELOCK'],
+  },
 } as const satisfies Record<string, Token>;
