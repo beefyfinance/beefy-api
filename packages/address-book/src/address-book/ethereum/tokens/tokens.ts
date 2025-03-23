@@ -437,6 +437,32 @@ export const tokens = {
     logoURI: '',
     documentation: 'https://curve.readthedocs.io/',
   },
+  scrvUSD: {
+    name: 'Savings crvUSD',
+    symbol: 'scrvUSD',
+    oracleId: 'scrvUSD',
+    address: '0x0655977FEb2f289A4aB78af67BAB0d17aAb84367',
+    chainId: 1,
+    decimals: 18,
+    logoURI: 'https://resources.curve.fi/images/scrvusd/scrvusd_150.png',
+    website: 'https://www.curve.fi/',
+    description:
+      'Savings crvUSD, abbreviated as scrvUSD, is an interest-bearing stablecoin that earns yield simply by holding the token.',
+    documentation: 'https://resources.curve.fi/crvusd/scrvusd',
+  },
+  reUSD: {
+    name: 'Resupply USD',
+    symbol: 'reUSD',
+    oracleId: 'reUSD',
+    address: '0x57aB1E0003F623289CD798B1824Be09a793e4Bec',
+    chainId: 1,
+    decimals: 18,
+    logoURI: 'https://resources.curve.fi/images/scrvusd/scrvusd_150.png',
+    website: 'https://resupply.fi/',
+    description:
+      'A decentralized stablecoin backed by Collateralized Debt Positions (CDP), leveraging the liquidity and stability of lending markets.',
+    documentation: 'https://docs.resupply.fi/',
+  },
   CVX: {
     name: 'CVX',
     address: '0x4e3FBD56CD56c3e72c1403e103b45Db9da5B9D2B',
