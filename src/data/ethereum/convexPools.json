@@ -1,5 +1,22 @@
 [
   {
+    "name": "curve-reusd-scrvusd",
+    "pool": "0xc522A6606BBA746d7960404F22a3DB936B6F4F50",
+    "gauge": "0xaF01d68714E7eA67f43f08b5947e367126B889b1",
+    "rewardPool": "0x7Fafc1876970dBD9F6568586EFa7d0FAc0FE8EA8",
+    "getDy": ["v1", 0, 1],
+    "tokens": [
+      {
+        "oracleId": "reUSD",
+        "decimals": "1e18"
+      },
+      {
+        "oracleId": "scrvUSD",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
     "name": "curve-dola-scrvusd",
     "pool": "0xff17dab22f1e61078aba2623c89ce6110e878b3c",
     "gauge": "0xd51e1eee15ef7dc924aaa8b82ff2d2e73408f58c",
@@ -172,22 +189,6 @@
       },
       {
         "oracleId": "crvUSD",
-        "decimals": "1e18"
-      }
-    ]
-  },
-  {
-    "name": "curve-reusd-scrvusd",
-    "pool": "0xc522A6606BBA746d7960404F22a3DB936B6F4F50",
-    "gauge": "0xaF01d68714E7eA67f43f08b5947e367126B889b1",
-    "rewardPool": "0x7Fafc1876970dBD9F6568586EFa7d0FAc0FE8EA8",
-    "tokens": [
-      {
-        "oracleId": "reUSD",
-        "decimals": "1e18"
-      },
-      {
-        "oracleId": "scrvUSD",
         "decimals": "1e18"
       }
     ]
