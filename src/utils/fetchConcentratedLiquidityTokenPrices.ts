@@ -598,6 +598,22 @@ const tokens: Partial<Record<keyof typeof ChainId, ConcentratedLiquidityToken[]>
       firstToken: 'WETH',
       secondToken: 'GRK',
     },
+    {
+      type: 'Slipstream',
+      oracleId: 'BRZ',
+      decimalDelta: 1e-12,
+      pool: '0xD43Decd5Df4BDFFd5A4Cf35cA1f9557E33B7246C',
+      firstToken: 'BRZ',
+      secondToken: 'USDC',
+    },
+    {
+      type: 'Slipstream',
+      oracleId: 'CADC',
+      decimalDelta: 1e12,
+      pool: '0x09Da4832d34BeBBB55783340d5bede7A70F5c48e',
+      firstToken: 'USDC',
+      secondToken: 'CADC',
+    },
   ],
   zksync: [
     {
