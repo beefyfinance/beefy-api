@@ -115,4 +115,17 @@ export const tokens = {
     documentation: 'https://infrared.finance/docs/ibgt-rewards',
     bridge: 'native',
   },
+  iBERA: {
+    name: 'Infrared Bera',
+    symbol: 'iBERA',
+    oracleId: 'iBERA',
+    address: '0x9b6761bf2397Bb5a6624a856cC84A3A14Dcd3fe5',
+    chainId: 80094,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://infrared.finance/ibera',
+    description:
+      'iBERA is Infrared’s liquid staking solution that makes staking BERA tokens accessible to everyone.',
+    documentation: 'https://infrared.finance/education/ibera',
+  },
 } as const satisfies Record<string, Token>;
