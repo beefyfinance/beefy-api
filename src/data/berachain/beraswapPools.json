@@ -1,5 +1,30 @@
 [
   {
+    "name": "beraswap-ibgt-wbera",
+    "address": "0x62C030B29a6Fef1B32677499e4a1F1852a8808c0",
+    "vault": "0x4Be03f781C497A489E3cB0287833452cA9B9E80B",
+    "gauge": "0xD3d50Fe6Dbbb452eD30c7736D70678E4E0D277C8",
+    "composable": true,
+    "bptIndex": 0,
+    "vaultPoolId": "0x62c030b29a6fef1b32677499e4a1f1852a8808c00000000000000000000000c6",
+    "decimals": "1e18",
+    "tokens": [
+      {
+        "oracleId": "BPTToken"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "WBERA",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "iBGT",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
     "name": "beraswap-usdc.e-honey",
     "address": "0xF961a8f6d8c69E7321e78d254ecAfBcc3A637621",
     "vault": "0x4Be03f781C497A489E3cB0287833452cA9B9E80B",
