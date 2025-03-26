@@ -1,7 +1,8 @@
 const { getBeefyCowBerachainApys } = require('./getBeefyCowBerachainApys');
 const getBeraswapApys = require('./getBeraswapApys');
+const { getKodiakApys } = require('./getKodiakApys');
 
-const getApys = [getBeefyCowBerachainApys, getBeraswapApys];
+const getApys = [getBeefyCowBerachainApys, getBeraswapApys, getKodiakApys];
 
 const getBerachainApys = async () => {
   const start = Date.now();
