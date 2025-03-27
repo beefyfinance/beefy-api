@@ -388,7 +388,7 @@ export const tokens = {
     logoURI: '',
     website: 'https://www.silo.finance/',
     description:
-      'Silo is a non-custodial lending protocol to borrow any crypto asset with another.',
+      'Silo Finance borrowable USDC.e deposit token, reflecting USDC.e deposited into Silo. Deposit tokens are issued at a ratio of 1,000 token per dollar deposited (or $0.001 per dollar deposited).',
     documentation: 'https://devdocs.silo.finance/',
     bridge: 'native',
   },
