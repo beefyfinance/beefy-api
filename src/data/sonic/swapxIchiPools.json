@@ -1,5 +1,17 @@
 [
   {
+    "name": "swapx-ichi-busdc.e-20-wstkscusd",
+    "address": "0x3151f7289Cecf8E92fBc68CdA307491d9DAb2E03",
+    "gauge": "0xFc463D9bE936DEe0cEcBB600433aDE1b921813C7",
+    "tokens": ["bUSDCe-20", "wstkscUSD"]
+  },
+  {
+    "name": "swapx-ichi-wstkscusd-busdc.e-20",
+    "address": "0x619f5B53969f8A9Cc1f244E422970f0E1C9152aE",
+    "gauge": "0x1009f1dE14Cdb1161658F346437156dF4DBf1A38",
+    "tokens": ["bUSDCe-20", "wstkscUSD"]
+  },
+  {
     "name": "swapx-ichi-sfrxusd-os",
     "address": "0x9D66955662F1823bA1e454F5A214c5489f9b807b",
     "gauge": "0x88d6c63f1EF23bDff2bD483831074dc23d8416d4",

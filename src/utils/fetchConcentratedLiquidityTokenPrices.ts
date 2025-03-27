@@ -672,6 +672,14 @@ const tokens: Partial<Record<keyof typeof ChainId, ConcentratedLiquidityToken[]>
     },
     {
       type: 'AlgebraV2',
+      oracleId: 'bUSDCe-20',
+      decimalDelta: 1,
+      pool: '0x85279f76f6ce5bB26F721931Ba4e3188cd28Ad51',
+      firstToken: 'wstkscUSD',
+      secondToken: 'bUSDCe-20',
+    },
+    {
+      type: 'AlgebraV2',
       oracleId: 'scBTC',
       decimalDelta: 1,
       pool: '0xb96F401F789271bc14ADe2229E6189084805c50C',

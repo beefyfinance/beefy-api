@@ -378,6 +378,20 @@ export const tokens = {
     documentation: '',
     bridge: 'native',
   },
+  'bUSDCe-20': {
+    name: 'Silo Finance Borrowable USDC.e Deposit, SiloId: 20',
+    symbol: 'bUSDCe-20',
+    oracleId: 'bUSDCe-20',
+    address: '0x322e1d5384aa4ED66AeCa770B95686271de61dc3',
+    chainId: 146,
+    decimals: 6,
+    logoURI: '',
+    website: 'https://www.silo.finance/',
+    description:
+      'Silo is a non-custodial lending protocol to borrow any crypto asset with another.',
+    documentation: 'https://devdocs.silo.finance/',
+    bridge: 'native',
+  },
   SILO: {
     name: 'Silo',
     symbol: 'SILO',
