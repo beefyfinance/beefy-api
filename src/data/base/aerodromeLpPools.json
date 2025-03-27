@@ -1,5 +1,45 @@
 [
   {
+    "name": "aerodrome-ytryb-usdc",
+    "address": "0xE63296472be7Fcb0160B1f65D12E1a7774BA1069",
+    "gauge": "0x8cb85753524E8eebDA5Df1aE7bd5016BcD617357",
+    "decimals": "1e18",
+    "chainId": 8453,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0x1A9Be8a692De04bCB7cE5cDDD03afCA97D732c62",
+      "oracle": "tokens",
+      "oracleId": "yTRYB",
+      "decimals": "1e8"
+    },
+    "lp1": {
+      "address": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+      "oracle": "tokens",
+      "oracleId": "USDC",
+      "decimals": "1e6"
+    }
+  },
+  {
+    "name": "aerodrome-idrx-usdc",
+    "address": "0xE22C335Bc83f4013930768c450a5E50318DEe2DB",
+    "gauge": "0xC5C27Ee3E56C2063628b21027206892F69e054cB",
+    "decimals": "1e18",
+    "chainId": 8453,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0x18Bc5bcC660cf2B9cE3cd51a404aFe1a0cBD3C22",
+      "oracle": "tokens",
+      "oracleId": "IDRX",
+      "decimals": "1e2"
+    },
+    "lp1": {
+      "address": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+      "oracle": "tokens",
+      "oracleId": "USDC",
+      "decimals": "1e6"
+    }
+  },
+  {
     "name": "aerodrome-weth-kta",
     "address": "0xd9eDC75a3a797Ec92Ca370F19051BAbebfb2edEe",
     "gauge": "0x0e62c181134Ca74837694a7D6d7501C3D4fe6363",
