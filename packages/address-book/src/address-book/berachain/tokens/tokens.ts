@@ -165,5 +165,6 @@ export const tokens = {
     description:
       'bm, short for Bera Morning, is a widely recognized term in the Berachain community and the first meme coin ever launched on Berachain.',
     bridge: 'native',
+    risks: ['LARGE_HOLDERS'],
   },
 } as const satisfies Record<string, Token>;
