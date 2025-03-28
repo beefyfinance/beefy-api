@@ -4917,7 +4917,7 @@ export const tokens = {
   },
   BroccoliCZDog: {
     name: "CZ'S DOG",
-    symbol: 'Broccoli',
+    symbol: 'BroccoliCZDog',
     oracleId: 'BroccoliCZDog',
     address: '0x6d5AD1592ed9D6D1dF9b93c793AB759573Ed6714',
     chainId: 56,
