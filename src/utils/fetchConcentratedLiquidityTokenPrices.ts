@@ -834,6 +834,30 @@ const tokens: Partial<Record<keyof typeof ChainId, ConcentratedLiquidityToken[]>
       firstToken: 'WBNB',
       secondToken: 'Broccoli',
     },
+    {
+      type: 'UniV3',
+      oracleId: 'BroccoliCZDog',
+      decimalDelta: 1,
+      pool: '0xA5067360b13Fc7A2685Dc82dcD1bF2B4B8D7868B',
+      firstToken: 'WBNB',
+      secondToken: 'BroccoliCZDog',
+    },
+    {
+      type: 'UniV3',
+      oracleId: 'mubarak',
+      decimalDelta: 1,
+      pool: '0x90A54475D512B8f3852351611c38faD30a513491',
+      firstToken: 'WBNB',
+      secondToken: 'mubarak',
+    },
+    {
+      type: 'UniV3',
+      oracleId: 'TUT',
+      decimalDelta: 1,
+      pool: '0x6dAfBf0AB4FD72e2a5C0Ad5a1ED277d3bf8a8d1f',
+      firstToken: 'TUT',
+      secondToken: 'WBNB',
+    },
   ],
 };
 
