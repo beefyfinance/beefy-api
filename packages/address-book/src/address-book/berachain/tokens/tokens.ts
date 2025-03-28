@@ -128,4 +128,42 @@ export const tokens = {
       'iBERA is Infrared’s liquid staking solution that makes staking BERA tokens accessible to everyone.',
     documentation: 'https://infrared.finance/education/ibera',
   },
+  OHM: {
+    name: 'Olympus',
+    address: '0x18878Df23e2a36f81e820e4b47b4A40576D3159C',
+    symbol: 'OHM',
+    oracleId: 'OHM',
+    decimals: 9,
+    chainId: 80094,
+    website: 'https://www.olympusdao.finance/',
+    description:
+      'Olympus is building OHM, a community-owned, decentralized and censorship-resistant reserve currency that is asset-backed, deeply liquid and used widely across Web3.',
+    documentation: 'https://docs.olympusdao.finance/',
+    bridge: 'layerzero',
+  },
+  NAV: {
+    name: 'NavFinance',
+    address: '0x6536cEAD649249cae42FC9bfb1F999429b3ec755',
+    symbol: 'NAV',
+    oracleId: 'NAV',
+    decimals: 18,
+    chainId: 80094,
+    website: 'https://nav.finance/',
+    documentation: 'https://docs.nav.finance/',
+    description:
+      'NAV Finance is a regulated on-chain hedge fund offering Structured Investment Products (SIPs) designed for high-growth opportunities in DeFi.',
+    bridge: 'native',
+  },
+  bm: {
+    name: 'bm',
+    address: '0xb749584F9fC418Cf905d54f462fdbFdC7462011b',
+    symbol: 'bm',
+    oracleId: 'bm',
+    decimals: 18,
+    chainId: 80094,
+    website: 'https://www.bmbm.lol/',
+    description:
+      'bm, short for Bera Morning, is a widely recognized term in the Berachain community and the first meme coin ever launched on Berachain.',
+    bridge: 'native',
+  },
 } as const satisfies Record<string, Token>;

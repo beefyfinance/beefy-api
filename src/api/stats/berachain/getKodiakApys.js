@@ -8,7 +8,7 @@ export const getKodiakApys = async () => {
   const [farmApys, tradingApys] = await Promise.all([
     getFarmApys({
       chainId: chainId,
-      pools: pools.map(p => ({ ...p, gauge: p.infraredGauge })),
+      pools,
       reward: '0xac03CABA51e17c86c921E1f6CBFBdC91F8BB2E6b',
       oracle: 'tokens',
       oracleId: 'iBGT',

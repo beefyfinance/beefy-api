@@ -784,6 +784,22 @@ const tokens: Partial<Record<keyof typeof ChainId, ConcentratedLiquidityToken[]>
       firstToken: 'iBERA',
       secondToken: 'WBERA',
     },
+    {
+      type: 'UniV3',
+      oracleId: 'NAV',
+      decimalDelta: 1,
+      pool: '0xe8e7B2F176Ae6E9eeA745dD25b30d2e13a982441',
+      firstToken: 'WBERA',
+      secondToken: 'NAV',
+    },
+    {
+      type: 'UniV3',
+      oracleId: 'bm',
+      decimalDelta: 1,
+      pool: '0xaD6Ca17dDAc740005f3cDE58d3D0E223B21129b2',
+      firstToken: 'bm',
+      secondToken: 'WBERA',
+    },
   ],
   bsc: [
     {
