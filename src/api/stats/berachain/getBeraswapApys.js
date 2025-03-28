@@ -25,6 +25,14 @@ const getBeraswapApys = async () => {
         oracleId: 'iBGT',
         oracle: 'tokens',
         chainId: chainId,
+        extras: [
+          {
+            rewardPool: '0x75F3Be06b02E235f6d0E7EF2D462b29739168301',
+            rewardToken: '0x6969696969696969696969696969696969696969',
+            oracleId: 'WBERA',
+            infrared: true,
+          },
+        ],
       },
     ],
     reward: '0xFCBD14DC51f0A4d49d5E53C2E0950e0bC26d0Dce',

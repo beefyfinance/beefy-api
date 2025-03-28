@@ -137,8 +137,14 @@ export const getPoolsData = async params => {
     );
 
     pool.extras?.forEach(extra => {
-      const extraPool = fetchContract(extra.rewardPool, IWrapper, params.chainId);
-      extraCalls.push(extraPool.read.rewardPerSecond());
+      const extraPool = fetchContract(
+        extra.rewardPool,
+        extra.infrared ? InfraredGauge : IWrapper,
+        params.chainId
+      );
+      extraCalls.push(
+        extra.infrared ? extraPool.read.rewardData([extra.rewardToken]) : extraPool.read.rewardPerSecond()
+      );
       extraData.push({ pool: pool.name, token: extra.oracleId });
     });
   });
@@ -153,7 +159,7 @@ export const getPoolsData = async params => {
   const balances = res[0].map(v => new BigNumber(v.toString()));
   const rewardRates = res[1].map(v => new BigNumber(params.infrared ? v[3].toString() : v.toString()));
   const periodFinishes = res[2].map(v => new BigNumber(params.infrared ? v[2].toString() : v.toString()));
-  const extraRates = res[3].map(v => new BigNumber(v.toString()));
+  const extraRates = res[3].map(v => new BigNumber(params.infrared ? v[3].toString() : v.toString()));
   const extras = extraData.map((v, i) => ({ ...v, rewardRate: extraRates[i] }));
 
   return { balances, rewardRates, periodFinishes, extras };
