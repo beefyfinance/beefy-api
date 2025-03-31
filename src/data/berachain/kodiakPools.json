@@ -1,5 +1,17 @@
 [
   {
+    "name": "kodiak-usdbr-honey",
+    "address": "0x28a54EaeEc63fBb1175d13466a9ada5f3175D577",
+    "gauge": "0xd3B4c14d7eb1701271Ffe67ac4E2074C873027CB",
+    "tokens": ["USDbr", "HONEY"]
+  },
+  {
+    "name": "kodiak-wbtc-bera",
+    "address": "0xF06EA29FCF4765200742d29E685973a1870EaC98",
+    "gauge": "0x8Ea5F10E039C718e9991108E795CdC154c3008A9",
+    "tokens": ["WBTC", "WBERA"]
+  },
+  {
     "name": "kodiak-bera-nav",
     "address": "0xEf8C3239E0D8Be9d58f145E18F5909Ddad681365",
     "gauge": "0x19A13d1855b6ed39EDF1e3A8343Ae8CFfECDf498",

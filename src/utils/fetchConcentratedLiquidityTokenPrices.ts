@@ -800,6 +800,14 @@ const tokens: Partial<Record<keyof typeof ChainId, ConcentratedLiquidityToken[]>
       firstToken: 'bm',
       secondToken: 'WBERA',
     },
+    {
+      type: 'UniV3',
+      oracleId: 'USDbr',
+      decimalDelta: 1,
+      pool: '0xf4D9e842a5D388758aD6d48b1e4739224Cd8Fa94',
+      firstToken: 'HONEY',
+      secondToken: 'USDbr',
+    },
   ],
   bsc: [
     {

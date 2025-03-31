@@ -167,4 +167,18 @@ export const tokens = {
     bridge: 'native',
     risks: ['LARGE_HOLDERS'],
   },
+  USDbr: {
+    name: 'USDbr',
+    address: '0x6d4223DAE2a8744a85a6d44e97f3F61679f87ee6',
+    symbol: 'USDbr',
+    oracleId: 'USDbr',
+    decimals: 18,
+    chainId: 80094,
+    website: 'https://nome.gg/',
+    documentation: 'https://nome-protocol.gitbook.io/nomeprotocol',
+    description:
+      'Nome Protocol is a synthetic asset protocol designed to provide scalable, algorithmic liquidity for the Berachain ecosystem. It operates through $USDbr, an elastic, algorithmic stablecoin, and $NOME, its governance and staking asset.',
+    bridge: 'native',
+    risks: ['NO_TIMELOCK'],
+  },
 } as const satisfies Record<string, Token>;
