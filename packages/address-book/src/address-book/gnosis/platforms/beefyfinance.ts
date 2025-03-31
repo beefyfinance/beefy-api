@@ -23,10 +23,10 @@ export const beefyfinance = {
   zapTokenManager: '0xA59BB0da9565e03f53AeFC94fcC205c52Fc925B7',
 
   /// CLM Contracts
-  clmFactory: '0xb60dD550c246EB6b6c9000c78D62AF98Dbcc1ec0',
-  clmStrategyFactory: '0x83679030CC0A4cBC1b397fce1A59fE2772F8C5E2',
-  clmRewardPoolFactory: '0x6b933E01730199a47532915a6CEAc6f0C3f9755F',
-  positionMulticall: '0xf817FfE9cA2698d8a7C06b3fDe946F391147b177',
+  clmFactory: '0xFa423f283ff7e03F3c2471E83896ba718d3dE4B4',
+  clmStrategyFactory: '0x50fcE35b5fEFb174FD8A170cf12297c5B2808FC8',
+  clmRewardPoolFactory: '0x89607F5bA649ab2a72921D9b406eb830041f82ef',
+  positionMulticall: '0x4a902F6596cCf51c6c1FF5Cc055f69Aa1DD06277',
 
   /// Beefy Swapper Contracts
   beefySwapper: '0x83e61C634BCD5f7cD79B11d63f27B8005Aa8Fd54',
