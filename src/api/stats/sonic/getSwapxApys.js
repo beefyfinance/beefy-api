@@ -1,6 +1,9 @@
 import BigNumber from 'bignumber.js';
 import { getFarmApys } from '../common/getSolidlyGaugeApys';
 import { getApyBreakdown } from '../common/getApyBreakdownNew';
+import { fetchContract } from '../../rpc/client';
+import ERC20Abi from '../../../abis/ERC20Abi';
+import { fetchPrice } from '../../../utils/fetchPrice';
 
 const { SONIC_CHAIN_ID: chainId } = require('../../../constants');
 const stablePools = require('../../../data/sonic/swapxStableLpPools.json');
@@ -29,17 +32,29 @@ async function getGemsxApy(pools) {
   const apys = [];
   try {
     const url = `https://api.merkl.xyz/v3/opportunity?campaigns=false&testTokens=false&chainId=${chainId}`;
-    const res = Object.values(await fetch(url).then(r => r.json())).filter(
+    const campaigns = Object.values(await fetch(url).then(r => r.json())).filter(
       r => r.status === 'live' && r.tags.includes('SwapXGemsX')
     );
-    pools.forEach(p => {
-      const targets = [p.address.toLowerCase(), p.gauge.toLowerCase()];
-      const campaign = res.find(r =>
-        Object.values(r.aprBreakdown).some(v => targets.includes(v.address.toLowerCase()))
+
+    const supplies = await Promise.all(
+      pools.map(p => fetchContract(p.gauge, ERC20Abi, chainId).read.totalSupply())
+    );
+
+    for (let i = 0; i < pools.length; i++) {
+      const p = pools[i];
+      const campaign = campaigns.find(c =>
+        Object.values(c.aprBreakdown).some(v => v.address.toLowerCase() === p.gauge.toLowerCase())
       );
-      // if (campaign) console.log(p.name, campaign?.apr)
-      apys.push(new BigNumber(campaign?.apr || 0).div(100));
-    });
+      if (!campaign) {
+        apys.push(new BigNumber(0));
+      } else {
+        // rewards are for both gauges so div(2)
+        const rewards = new BigNumber(campaign.dailyrewards || 0).div(2).times(365);
+        const lpPrice = await fetchPrice({ oracle: 'lps', id: p.name });
+        const totalStakedInUsd = new BigNumber(supplies[i]).div('1e18').times(lpPrice);
+        apys.push(rewards.div(totalStakedInUsd));
+      }
+    }
   } catch (err) {
     console.error('Swapx Gemsx apy error', err.message);
   }
