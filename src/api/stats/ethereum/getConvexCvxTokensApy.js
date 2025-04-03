@@ -27,16 +27,6 @@ const pools = [
     ],
   },
   {
-    name: 'convex-staked-cvxPRISMA',
-    oracleId: 'cvxPRISMA',
-    address: '0x0c73f1cFd5C9dFc150C8707Aa47Acbd14F0BE108',
-    rewards: [
-      { address: '0xdA47862a83dac0c112BA89c6abC2159b95afd71C', oracleId: 'PRISMA' },
-      { address: '0x4e3FBD56CD56c3e72c1403e103b45Db9da5B9D2B', oracleId: 'CVX' },
-      { address: '0x4591dbff62656e7859afe5e45f6f47d3669fbb28', oracleId: 'mkUSD' },
-    ],
-  },
-  {
     name: 'convex-staked-cvxFXN',
     oracleId: 'cvxFXN',
     address: '0xEC60Cd4a5866fb3B0DD317A46d3B474a24e06beF',

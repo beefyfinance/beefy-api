@@ -44,9 +44,6 @@ import ripaeCronosPools from '../../data/cronos/ripaeLpPools.json';
 import hermesPools from '../../data/metis/hermesLpPools.json';
 import equalizerV2Pools from '../../data/fantom/equalizerV2LpPools.json';
 import thenaPools from '../../data/bsc/thenaLpPools.json';
-import sushiMainnetPools from '../../data/ethereum/sushiLpPools.json';
-import synapseLpPools from '../../data/ethereum/synapseLpPools.json';
-import solidlyLpPools from '../../data/ethereum/solidlyLpPools.json';
 import cantoLpPools from '../../data/canto/cantoLpPools.json';
 import solidLizardPools from '../../data/arbitrum/solidlizardLpPools.json';
 import velocimeterV2Pools from '../../data/canto/velocimeterV2LpPools.json';
@@ -64,7 +61,6 @@ import aerodromePools from '../../data/base/aerodromeLpPools.json';
 import alienBasePools from '../../data/base/alienBaseLpPools.json';
 import swapBasedPools from '../../data/base/swapBasedLpPools.json';
 import basoPools from '../../data/base/basoLpPools.json';
-import equalizerBasePools from '../../data/base/equalizerLpPools.json';
 import moePools from '../../data/mantle/moeLpPools.json';
 import lynexPools from '../../data/linea/lynexVolatilePools.json';
 import nilePools from '../../data/linea/nileVolatilePools.json';
@@ -82,7 +78,6 @@ import { serviceEventBus } from '../../utils/ServiceEventBus';
 import { fetchChainLinkPrices } from '../../utils/fetchChainLinkPrices';
 import { fetchVenusPrices } from './bsc/venus/getVenusPrices';
 import { getLpBasedPrices } from './getLpBasedPrices';
-import uniswapLpPools from '../../data/ethereum/uniswapV2LpPools.json';
 import { fetchDexScreenerPriceOracles, OraclePriceRequest } from '../../utils/fetchDexScreenerPrices';
 import { promiseTiming } from '../../utils/timing';
 
@@ -100,7 +95,6 @@ const pools = normalizePoolOracleIds([
   ...nuriPools,
   ...raPools,
   ...moePools,
-  ...equalizerBasePools,
   ...lynexPools,
   ...nilePools,
   ...basoPools,
@@ -120,9 +114,6 @@ const pools = normalizePoolOracleIds([
   ...velocimeterV2Pools,
   ...solidLizardPools,
   ...cantoLpPools,
-  ...solidlyLpPools,
-  ...synapseLpPools,
-  ...sushiMainnetPools,
   ...thenaPools,
   ...equalizerV2Pools,
   ...hermesPools,
@@ -146,7 +137,6 @@ const pools = normalizePoolOracleIds([
   ...geistPools,
   ...mdexBscPools,
   ...ellipsisPools,
-  ...uniswapLpPools,
 ]);
 
 /**
@@ -238,6 +228,7 @@ const coinGeckoCoins: Record<string, string[]> = {
   'usda-2': ['USDa'],
   'kim-token': ['xKIM', 'KIM'],
   'beets-staked-sonic': ['stS'],
+  'convex-fxs': ['cvxFXS'],
   'paypal-usd': ['BYUSD'],
 };
 
