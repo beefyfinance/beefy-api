@@ -1769,7 +1769,7 @@ export const tokens = {
     oracleId: 'OVER',
     address: '0xedF38688b27036816A50185cAA430D5479e1C63e',
     chainId: 10,
-    decimals: 2,
+    decimals: 18,
     logoURI: '',
     website: 'https://www.overtime.io/',
     description:
