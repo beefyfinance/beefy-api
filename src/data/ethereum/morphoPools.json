@@ -1,5 +1,12 @@
 [
   {
+    "name": "morpho-gauntlet-usdc",
+    "address": "0xc582F04d8a82795aa2Ff9c8bb4c1c889fe7b754e",
+    "oracle": "tokens",
+    "oracleId": "USDC",
+    "decimals": "1e6"
+  },
+  {
     "name": "morpho-gauntlet-eusd",
     "address": "0xc080f56504e0278828A403269DB945F6c6D6E014",
     "oracle": "tokens",
