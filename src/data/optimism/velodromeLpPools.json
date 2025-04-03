@@ -1,6 +1,6 @@
 [
   {
-    "name": "velodrome-weth-over",
+    "name": "velodrome-v2-weth-over",
     "address": "0x1EaA860dca29a5124F665F7d80AffED92e877681",
     "gauge": "0x1DbCe37C220000DFaC4528E658f44d2cc3FAB9a6",
     "decimals": "1e18",
