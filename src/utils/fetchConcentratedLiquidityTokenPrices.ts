@@ -818,6 +818,22 @@ const tokens: Partial<Record<keyof typeof ChainId, ConcentratedLiquidityToken[]>
       firstToken: 'WBNB',
       secondToken: 'Broccoli',
     },
+    {
+      type: 'UniV3',
+      oracleId: 'bCSPX',
+      decimalDelta: 1,
+      pool: '0x0439847e20dac107ddacc19a4530c694c465e9c0',
+      firstToken: 'sDAI',
+      secondToken: 'bCSPX',
+    },
+    {
+      type: 'UniV3',
+      oracleId: 'wbTSLA',
+      decimalDelta: 1,
+      pool: '0x0cf44132a7df09ba82d5c4010e73e151d31a42ae',
+      firstToken: 'sDAI',
+      secondToken: 'wbTSLA',
+    },
   ],
 };
 
