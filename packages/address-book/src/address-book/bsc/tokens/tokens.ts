@@ -4915,6 +4915,42 @@ export const tokens = {
     documentation: '',
     bridge: 'native',
   },
+  BroccoliCZDog: {
+    name: "CZ'S DOG",
+    symbol: 'BroccoliCZDog',
+    oracleId: 'BroccoliCZDog',
+    address: '0x6d5AD1592ed9D6D1dF9b93c793AB759573Ed6714',
+    chainId: 56,
+    decimals: 18,
+    website: 'https://www.broccoli.gg/',
+    description:
+      "Paying homage to CZ's dog Broccoli, this token was the first to be deployed on BNB Chain through the platform four.meme.",
+    bridge: 'native',
+  },
+  TUT: {
+    name: 'Tutorial',
+    symbol: 'TUT',
+    oracleId: 'TUT',
+    address: '0xCAAE2A2F939F51d97CdFa9A86e79e3F085b799f3',
+    chainId: 56,
+    decimals: 18,
+    website: 'https://tutorialtoken.com/',
+    description:
+      'Tutorial is a token created by a developer who initially made a tutorial on launching a token on the BNB Chain. The original Tutorial token was on the testnet, and the developer decided to launch it on the mainnet as a meme.',
+    bridge: 'native',
+  },
+  mubarak: {
+    name: 'mubarak',
+    symbol: 'mubarak',
+    oracleId: 'mubarak',
+    address: '0x5C85D6C6825aB4032337F11Ee92a72DF936b46F6',
+    chainId: 56,
+    decimals: 18,
+    website: 'https://www.mubarak-cto.com/',
+    description:
+      'Mubarak - a crypto meme launched on the Fourmeme platform, now taken over and developed by the community.',
+    bridge: 'native',
+  },
   SIREN: {
     name: 'SIREN',
     symbol: 'SIREN',

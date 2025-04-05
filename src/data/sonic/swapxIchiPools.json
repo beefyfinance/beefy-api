@@ -24,18 +24,6 @@
     "tokens": ["OS", "sfrxUSD"]
   },
   {
-    "name": "swapx-ichi-usdc.e-sts",
-    "address": "0x86D13feF5e2F4F96c2c592aE7Fd096EB5AC424AC",
-    "gauge": "0x6bd21754fB317ABA1F112c3d01904669e7D34803",
-    "tokens": ["stS", "USDCe"]
-  },
-  {
-    "name": "swapx-ichi-sts-usdc.e",
-    "address": "0x79cFAb400429c81f1656DF4D65363cb5FD340509",
-    "gauge": "0x7791ECC02Ce43f877DF2D39d8073572Ded64617e",
-    "tokens": ["stS", "USDCe"]
-  },
-  {
     "name": "swapx-ichi-scusd-wstkscusd",
     "address": "0xb9A95F011b74dD3ECE3e13bC5c1ebb24518Bc244",
     "gauge": "0xECDd1Df06b5b0C598348678F83B74ADDcbD45835",

@@ -34,7 +34,6 @@ import getStargateMantlePrices from './mantle/getStargateMantlePrices';
 import getStargateSeiPrices from './sei/getStargateSeiPrices';
 import getOlpPrices from './optimism/getOlpPrices';
 import getThenaStablePrices from './bsc/getThenaStablePrices';
-import getSolidlyEthStablePrices from './ethereum/getSolidlyStablePrices';
 import getCantoStablePrices from './canto/getCantoStablePrices';
 import getSolidLizardStablePrices from './arbitrum/getSolidLizardStablePrices';
 import getRamsesStablePrices from './arbitrum/getRamsesStablePrices';
@@ -42,24 +41,19 @@ import getMmyOptimismPrices from './optimism/getMmyOptimismPrices';
 import getVelocoreStablePrices from './zksync/getVelocoreStablePrices';
 import getBscGammaPrices from './bsc/getBscGammaPrices';
 import { getCurveBasePrices } from './base/getCurvePrices';
-import { getConicPrices } from './ethereum/getConicPrices';
 import getUniswapArbitrumPrices from './arbitrum/getUniswapPositionPrices';
 import getUniswapEthereumPrices from './ethereum/getUniswapPositionPrices';
 import getUniswapEthereumGammaPrices from './ethereum/getUniswapGammaPrices';
-import getGammaBasePrices from './base/getGammaPrices';
 import getGammaPolygonPrices from './matic/getGammaPolygonPrices';
 import getUniswapGammaPrices from './optimism/getUniswapGammaPrices';
 import getBasoStablePrices from './base/getBasoStablePrices';
 import { getAerodromeStablePrices } from './base/getAerodromeStablePrices';
-import getGammaArbPrices from './arbitrum/getGammaPrices';
 import { getKinetixPrices } from './kava/getKinetixPrices';
-import getEqualizerStableBasePrices from './base/getEqualizerStablePrices';
 import getEqualizerStableSonicPrices from './sonic/getEqualizerStablePrices';
 import getBalancerGnosisPrices from './gnosis/getBalancerGnosisPrices';
 import getCurvePricesCommon from './common/curve/getCurvePricesCommon';
 import { getCurveLendPricesCommon } from './common/curve/getCurveLendPricesCommon';
 import getArbitrumSiloPrices from './arbitrum/getArbitrumSiloPrices';
-import getAcrossPrices from './ethereum/getAcrossPrices';
 import getVelodromeModeStablePrices from './mode/getVelodromeModeStablePrices';
 import getVelodromeLiskStablePrices from './lisk/getVelodromeLiskStablePrices';
 import getNuriStablePrices from './scroll/getNuriStablePrices';
@@ -79,7 +73,6 @@ import {
 } from '../../constants';
 import getSolidlyStablePrices from './common/getSolidlyStablePrices';
 import getEthSiloPrices from './ethereum/getEthereumSiloPrices';
-import getEthRangePrices from './ethereum/getEthRangePrices';
 import getGammaLineaPrices from './linea/getGammaPrices';
 import getLynexStablePrices from './linea/getLynexStablePrices';
 import getNileStablePrices from './linea/getNileStablePrices';
@@ -138,12 +131,10 @@ export async function getNonAmmPrices(
   let breakdown = {};
 
   const promises = [
-    getAcrossPrices(tokenPrices),
     getArbitrumSiloPrices(tokenPrices),
     getEthSiloPrices(tokenPrices),
     getOptimismSiloPrices(tokenPrices),
     getSonicSiloPrices(tokenPrices),
-    getEqualizerStableBasePrices(tokenPrices),
     getEqualizerStableSonicPrices(tokenPrices),
     getKinetixPrices(tokenPrices),
     getBasoStablePrices(tokenPrices),
@@ -157,7 +148,6 @@ export async function getNonAmmPrices(
     getSolidLizardStablePrices(tokenPrices),
     getCantoStablePrices(tokenPrices),
     getMimSwapPrices(tokenPrices),
-    getSolidlyEthStablePrices(tokenPrices),
     getThenaStablePrices(tokenPrices),
     getOlpPrices(),
     getStargateBasePrices(tokenPrices),
@@ -207,14 +197,10 @@ export async function getNonAmmPrices(
     getCurvePricesCommon(FRX_CHAIN_ID, require('../../data/fraxtal/curvePools.json'), tokenPrices),
     getCurvePricesCommon(SONIC_CHAIN_ID, require('../../data/sonic/curvePools.json'), tokenPrices),
     getCurveBasePrices(tokenPrices),
-    getConicPrices(),
     getBscGammaPrices(tokenPrices),
     getGammaPolygonPrices(tokenPrices),
-    getGammaArbPrices(tokenPrices),
     getUniswapEthereumGammaPrices(tokenPrices),
-    getGammaBasePrices(tokenPrices),
     getGammaLineaPrices(tokenPrices),
-    getEthRangePrices(tokenPrices),
     getLynexStablePrices(tokenPrices),
     getNileStablePrices(tokenPrices),
     getBeefyCowArbPrices(tokenPrices),

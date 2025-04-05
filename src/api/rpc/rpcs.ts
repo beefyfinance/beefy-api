@@ -115,9 +115,9 @@ const rpcs: Record<ChainId, string[]> = {
     'https://polygon.api.onfinality.io/public',
   ],
   [ChainId.avax]: [
+    'https://ava-mainnet.public.blastapi.io/ext/bc/C/rpc',
     'https://avalanche.public-rpc.com',
     'https://avalanche.blockpi.network/v1/rpc/public',
-    'https://ava-mainnet.public.blastapi.io/ext/bc/C/rpc',
     'https://api.avax.network/ext/bc/C/rpc',
     'https://rpc.ankr.com/avalanche',
     'https://avax-pokt.nodies.app/ext/bc/C/rpc',

@@ -1763,4 +1763,19 @@ export const tokens = {
       'BOLD is the USD-pegged stablecoin issued in Liquity V2. It is over-collateralized and backed only by WETH, wstETH, and rETH.',
     bridge: 'chainlink-ccip',
   },
+  OVER: {
+    name: 'Overtime DAO Token',
+    symbol: 'OVER',
+    oracleId: 'OVER',
+    address: '0xedF38688b27036816A50185cAA430D5479e1C63e',
+    chainId: 10,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://www.overtime.io/',
+    description:
+      'Overtime is an onchain sportsbook ecosystem with platforms for placing bets on popular sporting events and digital options trading.',
+    documentation: 'https://docs.overtime.io/',
+    bridge: 'chainlink-ccip',
+    risks: ['LARGE_HOLDERS', 'NO_TIMELOCK'],
+  },
 } as const satisfies Record<string, Token>;

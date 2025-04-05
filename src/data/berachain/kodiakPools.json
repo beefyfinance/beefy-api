@@ -1,16 +1,44 @@
 [
   {
+    "name": "kodiak-usdbr-honey",
+    "address": "0x28a54EaeEc63fBb1175d13466a9ada5f3175D577",
+    "gauge": "0xd3B4c14d7eb1701271Ffe67ac4E2074C873027CB",
+    "tokens": ["USDbr", "HONEY"]
+  },
+  {
+    "name": "kodiak-wbtc-bera",
+    "address": "0xF06EA29FCF4765200742d29E685973a1870EaC98",
+    "gauge": "0x8Ea5F10E039C718e9991108E795CdC154c3008A9",
+    "tokens": ["WBTC", "WBERA"]
+  },
+  {
+    "name": "kodiak-bera-nav",
+    "address": "0xEf8C3239E0D8Be9d58f145E18F5909Ddad681365",
+    "gauge": "0x19A13d1855b6ed39EDF1e3A8343Ae8CFfECDf498",
+    "tokens": ["NAV", "WBERA"]
+  },
+  {
+    "name": "kodiak-bera-bm",
+    "address": "0x0FD67ac75F9DF51f5d81F582417B318F44b45f5c",
+    "gauge": "0xD2d46C07C32236e7BdAFF782518b200342F12A58",
+    "tokens": ["WBERA", "bm"]
+  },
+  {
+    "name": "kodiak-ohm-honey",
+    "address": "0x98bDEEde9A45C28d229285d9d6e9139e9F505391",
+    "gauge": "0xa57Cb177Beebc35A1A26A286951a306d9B752524",
+    "tokens": ["OHM", "HONEY"]
+  },
+  {
     "name": "kodiak-bera-ibera",
     "address": "0xE3EeB9e48934634d8B5B39A0d15DD89eE0F969C4",
-    "gauge": "0xa2c5adB20A446Fa71A1762002E3C9B4Dd37DBAf4",
-    "infraredGauge": "0x5f044b3bf3fa10d51ab157998c70d07807baf5c4",
+    "gauge": "0x5f044b3bf3fa10d51ab157998c70d07807baf5c4",
     "tokens": ["WBERA", "iBERA"]
   },
   {
     "name": "kodiak-bera-ibgt",
     "address": "0x564f011D557aAd1cA09BFC956Eb8a17C35d490e0",
-    "gauge": "0x3Be1bE98eFAcA8c1Eb786Cbf38234c84B5052EeB",
-    "infraredGauge": "0xE1897e3eb930AAd6f9ea9eCF96EA846B5D23b0a6",
+    "gauge": "0xE1897e3eb930AAd6f9ea9eCF96EA846B5D23b0a6",
     "tokens": ["WBERA", "iBGT"]
   }
 ]
