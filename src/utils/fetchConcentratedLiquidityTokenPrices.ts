@@ -882,6 +882,22 @@ const tokens: Partial<Record<keyof typeof ChainId, ConcentratedLiquidityToken[]>
       firstToken: 'wbTSLA',
       secondToken: 'sDAI',
     },
+    {
+      type: 'UniV3',
+      oracleId: 'sDAI',
+      decimalDelta: 1,
+      pool: '0xe8a249626d3f3b876b887c30a3355513cb3fa9e4',
+      firstToken: 'wstETH',
+      secondToken: 'sDAI',
+    },
+    {
+      type: 'UniV3',
+      oracleId: 'gUSDCe',
+      decimalDelta: 1,
+      pool: '0xf5e40cc12f69121b0329c256a99f4ab3ebdfaa2e',
+      firstToken: 'gUSDCe',
+      secondToken: 'WXDAI',
+    },
   ],
 };
 
