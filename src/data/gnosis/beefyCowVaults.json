@@ -49,7 +49,7 @@
       "0xaf204776c7245bF4147c2612BF6e5972Ee483701"
     ],
     "tokenOracleIds": [
-      "USDC.e",
+      "gUSDCe",
       "sDAI"
     ],
     "decimals": [
@@ -91,7 +91,7 @@
       "0xe91D153E0b41518A2Ce8Dd3D7944Fa863463a97d"
     ],
     "tokenOracleIds": [
-      "USDC.e",
+      "gUSDCe",
       "WXDAI"
     ],
     "decimals": [
