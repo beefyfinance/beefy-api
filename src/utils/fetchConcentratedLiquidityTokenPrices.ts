@@ -866,6 +866,38 @@ const tokens: Partial<Record<keyof typeof ChainId, ConcentratedLiquidityToken[]>
       firstToken: 'TUT',
       secondToken: 'WBNB',
     },
+    {
+      type: 'UniV3',
+      oracleId: 'bCSPX',
+      decimalDelta: 1,
+      pool: '0x0439847e20dac107ddacc19a4530c694c465e9c0',
+      firstToken: 'bCSPX',
+      secondToken: 'sDAI',
+    },
+    {
+      type: 'UniV3',
+      oracleId: 'wbTSLA',
+      decimalDelta: 1,
+      pool: '0x0cf44132a7df09ba82d5c4010e73e151d31a42ae',
+      firstToken: 'wbTSLA',
+      secondToken: 'sDAI',
+    },
+    {
+      type: 'UniV3',
+      oracleId: 'sDAI',
+      decimalDelta: 1,
+      pool: '0xe8a249626d3f3b876b887c30a3355513cb3fa9e4',
+      firstToken: 'wstETH',
+      secondToken: 'sDAI',
+    },
+    {
+      type: 'UniV3',
+      oracleId: 'gUSDCe',
+      decimalDelta: 1,
+      pool: '0xf5e40cc12f69121b0329c256a99f4ab3ebdfaa2e',
+      firstToken: 'gUSDCe',
+      secondToken: 'WXDAI',
+    },
   ],
 };
 
