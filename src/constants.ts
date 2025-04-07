@@ -1,5 +1,7 @@
 import { ChainId } from '../packages/address-book/src/address-book';
-import { ApiChain } from './utils/chain';
+import { ApiChain, fromChainId, toChainId } from './utils/chain';
+import { mapValues, shuffle, uniq } from 'lodash';
+import { getChainRpcs } from './api/rpc/rpcs';
 
 const API_BASE_URL = process.env.API_BASE_URL || 'http://localhost:3000';
 
@@ -10,65 +12,110 @@ const DAILY_HPY = 365;
 const ETH_HPY = DAILY_HPY / 3;
 const WEEKLY_HPY = 52;
 
-const MAINNET_BSC_RPC_ENDPOINTS = [
-  'https://bsc-dataseed.binance.org',
-  'https://bsc-dataseed1.defibit.io',
-  'https://bsc-dataseed1.ninicoin.io',
-  'https://bsc-dataseed2.defibit.io',
-  'https://bsc-dataseed3.defibit.io',
-  'https://bsc-dataseed4.defibit.io',
-  'https://bsc-dataseed2.ninicoin.io',
-  'https://bsc-dataseed3.ninicoin.io',
-  'https://bsc-dataseed4.ninicoin.io',
-  'https://bsc-dataseed1.binance.org',
-  'https://bsc-dataseed2.binance.org',
-  'https://bsc-dataseed3.binance.org',
-  'https://bsc-dataseed4.binance.org',
-];
+type ApiChainToRpcs = Readonly<Record<ApiChain, ReadonlyArray<string>>>;
 
-const CUSTOM_BSC_RPC_ENDPOINTS = [process.env.BSC_RPC].filter(item => item);
+// FIXME we should only have one list of rpcs
+const DEFAULT_RPCS: ApiChainToRpcs = {
+  bsc: [
+    'https://bsc-dataseed.bnbchain.org',
+    'https://bsc-dataseed1.defibit.io',
+    'https://bsc-dataseed1.ninicoin.io',
+    'https://bsc-dataseed2.defibit.io',
+    'https://bsc-dataseed3.defibit.io',
+    'https://bsc-dataseed4.defibit.io',
+    'https://bsc-dataseed2.ninicoin.io',
+    'https://bsc-dataseed3.ninicoin.io',
+    'https://bsc-dataseed4.ninicoin.io',
+    'https://bsc-dataseed1.bnbchain.org',
+    'https://bsc-dataseed2.bnbchain.org',
+    'https://bsc-dataseed3.bnbchain.org',
+    'https://bsc-dataseed4.bnbchain.org',
+  ],
+  heco: ['https://http-mainnet.hecochain.com'],
+  avax: ['https://rpc.ankr.com/avalanche'],
+  polygon: ['https://polygon-rpc.com/'],
+  fantom: ['https://rpc.ftm.tools'],
+  one: ['https://api.harmony.one/'],
+  arbitrum: ['https://arb1.arbitrum.io/rpc'],
+  celo: ['https://forno.celo.org'],
+  moonriver: ['https://rpc.api.moonriver.moonbeam.network'],
+  cronos: ['https://cronos-evm-rpc.publicnode.com'],
+  aurora: ['https://mainnet.aurora.dev/Fon6fPMs5rCdJc4mxX4kiSK1vsKdzc3D8k6UF8aruek'],
+  fuse: ['https://rpc.fuse.io'],
+  metis: ['https://andromeda.metis.io/?owner=1088'],
+  moonbeam: ['https://rpc.api.moonbeam.network'],
+  emerald: ['https://emerald.oasis.dev'],
+  optimism: ['https://rpc.ankr.com/optimism'],
+  kava: ['https://kava-evm.publicnode.com'],
+  ethereum: ['https://rpc.ankr.com/eth'],
+  canto: ['https://canto.slingshot.finance'],
+  zksync: ['https://mainnet.era.zksync.io'],
+  zkevm: ['https://zkevm-rpc.com'],
+  base: ['https://mainnet.base.org'],
+  gnosis: ['https://gnosis.publicnode.com'],
+  linea: ['https://rpc.linea.build'],
+  mantle: ['https://rpc.mantle.xyz'],
+  fraxtal: ['https://rpc.frax.com'],
+  mode: ['https://mode.drpc.org'],
+  manta: ['https://1rpc.io/manta'],
+  real: ['https://real.drpc.org'],
+  sei: ['https://evm-rpc.sei-apis.com'],
+  rootstock: ['https://rootstock-mainnet.public.blastapi.io'],
+  scroll: ['https://scroll-mainnet.public.blastapi.io'],
+  lisk: ['https://rpc.api.lisk.com'],
+  sonic: ['https://rpc.soniclabs.com'],
+  berachain: ['https://rpc.berachain.com'],
+  unichain: ['https://mainnet.unichain.org'],
+} as const;
 
-/// RPC Endpoints
-const BSC_RPC_ENDPOINTS = CUSTOM_BSC_RPC_ENDPOINTS.length
-  ? CUSTOM_BSC_RPC_ENDPOINTS
-  : MAINNET_BSC_RPC_ENDPOINTS;
-const BSC_RPC = process.env.BSC_RPC || BSC_RPC_ENDPOINTS[0];
-const HECO_RPC = process.env.HECO_RPC || 'https://http-mainnet.hecochain.com';
-const AVAX_RPC = process.env.AVAX_RPC || 'https://rpc.ankr.com/avalanche';
-const POLYGON_RPC = process.env.POLYGON_RPC || 'https://polygon-rpc.com/';
-const FANTOM_RPC = process.env.FANTOM_RPC || 'https://rpc.ftm.tools';
-const ONE_RPC = process.env.ONE_RPC || 'https://api.harmony.one/';
-const ARBITRUM_RPC = process.env.ARBITRUM_RPC || 'https://arb1.arbitrum.io/rpc';
-const CELO_RPC = process.env.CELO_RPC || 'https://forno.celo.org';
-const MOONRIVER_RPC = process.env.MOONRIVER_RPC || 'https://rpc.api.moonriver.moonbeam.network';
-const CRONOS_RPC = process.env.CRONOS_RPC || 'https://cronos-evm-rpc.publicnode.com';
-const AURORA_RPC =
-  process.env.AURORA_RPC || 'https://mainnet.aurora.dev/Fon6fPMs5rCdJc4mxX4kiSK1vsKdzc3D8k6UF8aruek';
-const FUSE_RPC = process.env.FUSE_RPC || 'https://rpc.fuse.io';
-const METIS_RPC = process.env.METIS_RPC || 'https://andromeda.metis.io/?owner=1088';
-const MOONBEAM_RPC = process.env.MOONBEAM_RPC || 'https://rpc.api.moonbeam.network';
-const EMERALD_RPC = process.env.EMERALD_RPC || 'https://emerald.oasis.dev';
-const OPTIMISM_RPC = process.env.OPTIMISM_RPC || 'https://rpc.ankr.com/optimism';
-const KAVA_RPC = process.env.KAVA_RPC || 'https://kava-evm.publicnode.com';
-const ETH_RPC = process.env.ETH_RPC || 'https://rpc.ankr.com/eth';
-const CANTO_RPC = process.env.CANTO_RPC || 'https://canto.slingshot.finance';
-const ZKSYNC_RPC = process.env.ZKSYNC_RPC || 'https://mainnet.era.zksync.io';
-const ZKEVM_RPC = process.env.ZKEVM_RPC || 'https://zkevm-rpc.com';
-const BASE_RPC = process.env.BASE_RPC || 'https://mainnet.base.org';
-const GNOSIS_RPC = process.env.GNOSIS_RPC || 'https://gnosis.publicnode.com';
-const LINEA_RPC = process.env.LINEA_RPC || 'https://rpc.linea.build';
-const MANTLE_RPC = process.env.MANTLE_RPC || 'https://rpc.mantle.xyz';
-const FRAXTAL_RPC = process.env.FRAXTAL_RPC || 'https://rpc.frax.com';
-const MODE_RPC = process.env.MODE_RPC || 'https://mode.drpc.org';
-const MANTA_RPC = process.env.MANTA_RPC || 'https://1rpc.io/manta';
-const REAL_RPC = process.env.REAL_RPC || 'https://real.drpc.org';
-const SEI_RPC = process.env.SEI_RPC || 'https://evm-rpc.sei-apis.com';
-const ROOTSTOCK_RPC = process.env.ROOTSTOCK_RPC || 'https://rootstock-mainnet.public.blastapi.io';
-const SCROLL_RPC = process.env.SCROLL_RPC || 'https://scroll-mainnet.public.blastapi.io';
-const LISK_RPC = process.env.LISK_RPC || 'https://rpc.api.lisk.com';
-const SONIC_RPC = process.env.SONIC_RPC || 'https://rpc.soniclabs.com';
-const BERACHAIN_RPC = process.env.BERACHAIN_RPC || 'https://rpc.berachain.com';
-const UNICHAIN_RPC = process.env.UNICHAIN_RPC || 'https://mainnet.unichain.org';
+const chainToRpcEnvKeyPrefix = {
+  ethereum: 'ETH',
+} as const satisfies Partial<Record<ApiChain, string>>;
+
+type ApiChainToRpcEnvKeyPrefix = typeof chainToRpcEnvKeyPrefix;
+type ApiChainToRpcEnvKey<T extends ApiChain> = {
+  [K in T]: `${Uppercase<
+    ApiChainToRpcEnvKeyPrefix extends { [P in K]: string } ? ApiChainToRpcEnvKeyPrefix[K] : K
+  >}_RPC`;
+}[T];
+
+type EnvChainToRpc = Readonly<{
+  [K in ApiChain as ApiChainToRpcEnvKey<K>]: string;
+}>;
+
+type Writable<T> = {
+  -readonly [K in keyof T]: T[K];
+};
+
+const getRpcEnvKey = <T extends ApiChain>(chain: T): ApiChainToRpcEnvKey<T> => {
+  const prefix = ((chainToRpcEnvKeyPrefix as Record<ApiChain, string>)[chain] || chain).toUpperCase();
+  return `${prefix}_RPC` as ApiChainToRpcEnvKey<T>;
+};
+
+const getRpcsFromEnv = (chain: ApiChain): string[] => {
+  const envKey = getRpcEnvKey(chain);
+  const envValue = process.env[envKey];
+  if (envValue) {
+    return envValue.split(',').map(url => url.trim());
+  }
+  return [];
+};
+
+const RPCS_BY_CHAIN = mapValues(DEFAULT_RPCS, (hereDefaultRpcs, chain: ApiChain) => {
+  const customRpcs = getRpcsFromEnv(chain);
+  const otherDefaultRpcs = getChainRpcs(toChainId(chain));
+  // FIXME we should only have one list of rpcs
+  return uniq([...customRpcs, ...hereDefaultRpcs, ...otherDefaultRpcs]) as ReadonlyArray<string>;
+});
+
+const RPC_BY_ENV_KEY = Object.entries(RPCS_BY_CHAIN).reduce(
+  (acc, [chainId, rpcs]: [ApiChain, ReadonlyArray<string>]) => {
+    const key = getRpcEnvKey(chainId);
+    acc[key] = rpcs[0];
+    return acc;
+  },
+  {} as Writable<EnvChainToRpc>
+) as EnvChainToRpc;
 
 /// Chain IDs
 const BSC_CHAIN_ID = ChainId.bsc;
@@ -122,44 +169,9 @@ const BEAMSWAP_LPF = 0.0017;
 const BISWAP_LPF = 0.0005;
 const HOP_LPF = 0.0004;
 
-const MULTICHAIN_RPC: Record<ChainId, string> = {
-  [ChainId.bsc]: BSC_RPC,
-  [ChainId.heco]: HECO_RPC,
-  [ChainId.polygon]: POLYGON_RPC,
-  [ChainId.avax]: AVAX_RPC,
-  [ChainId.fantom]: FANTOM_RPC,
-  [ChainId.one]: ONE_RPC,
-  [ChainId.arbitrum]: ARBITRUM_RPC,
-  [ChainId.celo]: CELO_RPC,
-  [ChainId.moonriver]: MOONRIVER_RPC,
-  [ChainId.cronos]: CRONOS_RPC,
-  [ChainId.aurora]: AURORA_RPC,
-  [ChainId.fuse]: FUSE_RPC,
-  [ChainId.metis]: METIS_RPC,
-  [ChainId.moonbeam]: MOONBEAM_RPC,
-  [ChainId.emerald]: EMERALD_RPC,
-  [ChainId.optimism]: OPTIMISM_RPC,
-  [ChainId.kava]: KAVA_RPC,
-  [ChainId.ethereum]: ETH_RPC,
-  [ChainId.canto]: CANTO_RPC,
-  [ChainId.zksync]: ZKSYNC_RPC,
-  [ChainId.zkevm]: ZKEVM_RPC,
-  [ChainId.base]: BASE_RPC,
-  [ChainId.gnosis]: GNOSIS_RPC,
-  [ChainId.linea]: LINEA_RPC,
-  [ChainId.mantle]: MANTLE_RPC,
-  [ChainId.fraxtal]: FRAXTAL_RPC,
-  [ChainId.mode]: MODE_RPC,
-  [ChainId.manta]: MANTA_RPC,
-  [ChainId.real]: REAL_RPC,
-  [ChainId.sei]: SEI_RPC,
-  [ChainId.rootstock]: ROOTSTOCK_RPC,
-  [ChainId.scroll]: SCROLL_RPC,
-  [ChainId.lisk]: LISK_RPC,
-  [ChainId.sonic]: SONIC_RPC,
-  [ChainId.berachain]: BERACHAIN_RPC,
-  [ChainId.unichain]: UNICHAIN_RPC,
-};
+const MULTICHAIN_RPC: Record<ChainId, string> = Object.fromEntries(
+  Object.entries(RPCS_BY_CHAIN).map(([key, value]: [ApiChain, string[]]) => [ChainId[key], value[0]])
+) as Record<ChainId, string>;
 
 /// Beefy Vaults Endpoints
 const BSC_VAULTS_ENDPOINT =
@@ -276,100 +288,122 @@ const MULTICHAIN_ENDPOINTS: Partial<Record<ApiChain, string>> = {
 
 const EXCLUDED_IDS_FROM_TVL = ['venus-wbnb'];
 
+/**
+ * Get RPCs for a given chain
+ * @param chain
+ * @returns RPCs from environment variables, followed by shuffled default RPCs
+ */
+export function getRpcsForChain(chain: ApiChain | ChainId): readonly string[] {
+  const apiChain = typeof chain === 'string' ? chain : fromChainId(chain);
+  const rpcs = RPCS_BY_CHAIN[apiChain];
+  if (!rpcs) {
+    throw new Error(`No RPCs found for chain ${apiChain}`);
+  }
+  return rpcs;
+}
+
+// @dev legacy, use getRpcsForChain instead
+export const {
+  BSC_RPC,
+  HECO_RPC,
+  AVAX_RPC,
+  POLYGON_RPC,
+  FANTOM_RPC,
+  ONE_RPC,
+  ARBITRUM_RPC,
+  CELO_RPC,
+  MOONRIVER_RPC,
+  CRONOS_RPC,
+  AURORA_RPC,
+  FUSE_RPC,
+  METIS_RPC,
+  MOONBEAM_RPC,
+  EMERALD_RPC,
+  OPTIMISM_RPC,
+  KAVA_RPC,
+  ETH_RPC,
+  CANTO_RPC,
+  ZKSYNC_RPC,
+  ZKEVM_RPC,
+  BASE_RPC,
+  GNOSIS_RPC,
+  LINEA_RPC,
+  MANTLE_RPC,
+  FRAXTAL_RPC,
+  MODE_RPC,
+  MANTA_RPC,
+  REAL_RPC,
+  SEI_RPC,
+  ROOTSTOCK_RPC,
+  SCROLL_RPC,
+  LISK_RPC,
+  SONIC_RPC,
+  BERACHAIN_RPC,
+  UNICHAIN_RPC,
+} = RPC_BY_ENV_KEY;
+
 export {
   API_BASE_URL,
-  BSC_RPC,
-  BSC_RPC_ENDPOINTS,
   BSC_CHAIN_ID,
   BSC_VAULTS_ENDPOINT,
-  HECO_RPC,
   HECO_CHAIN_ID,
   HECO_VAULTS_ENDPOINT,
-  AVAX_RPC,
   AVAX_CHAIN_ID,
   AVAX_VAULTS_ENDPOINT,
-  POLYGON_RPC,
   POLYGON_CHAIN_ID,
   POLYGON_VAULTS_ENDPOINT,
-  FANTOM_RPC,
   FANTOM_CHAIN_ID,
   FANTOM_VAULTS_ENDPOINT,
-  ONE_RPC,
   ONE_CHAIN_ID,
   ONE_VAULTS_ENDPOINT,
-  ARBITRUM_RPC,
   ARBITRUM_CHAIN_ID,
   ARBITRUM_VAULTS_ENDPOINT,
-  CELO_RPC,
   CELO_CHAIN_ID,
   CELO_VAULTS_ENDPOINT,
-  MOONRIVER_RPC,
   MOONRIVER_CHAIN_ID,
   MOONRIVER_VAULTS_ENDPOINT,
-  CRONOS_RPC,
   CRONOS_CHAIN_ID,
   CRONOS_VAULTS_ENDPOINT,
-  AURORA_RPC,
   AURORA_CHAIN_ID,
   AURORA_VAULTS_ENDPOINT,
-  FUSE_RPC,
   FUSE_CHAIN_ID,
   FUSE_VAULTS_ENDPOINT,
-  METIS_RPC,
   METIS_CHAIN_ID,
   METIS_VAULTS_ENDPOINT,
-  MOONBEAM_RPC,
   MOONBEAM_CHAIN_ID,
   MOONBEAM_VAULTS_ENDPOINT,
-  EMERALD_RPC,
   EMERALD_CHAIN_ID,
   EMERALD_VAULTS_ENDPOINT,
-  OPTIMISM_RPC,
   OPTIMISM_CHAIN_ID,
   OPTIMISM_VAULTS_ENDPOINT,
-  KAVA_RPC,
   KAVA_CHAIN_ID,
   KAVA_VAULTS_ENDPOINT,
-  ETH_RPC,
   ETH_CHAIN_ID,
   ETHEREUM_VAULTS_ENDPOINT,
-  CANTO_RPC,
   CANTO_CHAIN_ID,
   CANTO_VAULTS_ENDPOINT,
-  ZKSYNC_RPC,
   ZKSYNC_CHAIN_ID,
   ZKSYNC_VAULTS_ENDPOINT,
-  ZKEVM_RPC,
   ZKEVM_CHAIN_ID,
   ZKEVM_VAULTS_ENDPOINT,
-  BASE_RPC,
   BASE_CHAIN_ID,
   BASE_VAULTS_ENDPOINT,
-  GNOSIS_RPC,
   GNOSIS_CHAIN_ID,
   GNOSIS_VAULTS_ENDPOINT,
-  LINEA_RPC,
   LINEA_CHAIN_ID,
   LINEA_VAULTS_ENDPOINT,
-  MANTLE_RPC,
   MANTLE_CHAIN_ID,
   MANTLE_VAULTS_ENDPOINT,
-  FRAXTAL_RPC,
   FRAXTAL_CHAIN_ID,
   FRAXTAL_VAULTS_ENDPOINT,
-  MODE_RPC,
   MODE_CHAIN_ID,
   MODE_VAULTS_ENDPOINT,
-  MANTA_RPC,
   MANTA_CHAIN_ID,
   MANTA_VAULTS_ENDPOINT,
-  REAL_RPC,
   REAL_CHAIN_ID,
   REAL_VAULTS_ENDPOINT,
-  SEI_RPC,
   SEI_CHAIN_ID,
   SEI_VAULTS_ENDPOINT,
-  ROOTSTOCK_RPC,
   ROOTSTOCK_CHAIN_ID,
   ROOTSTOCK_VAULTS_ENDPOINT,
   BASE_HPY,
@@ -392,19 +426,14 @@ export {
   BISWAP_LPF,
   HOP_LPF,
   EXCLUDED_IDS_FROM_TVL,
-  SCROLL_RPC,
   SCROLL_CHAIN_ID,
   SCROLL_VAULTS_ENDPOINT,
-  LISK_RPC,
   LISK_CHAIN_ID,
   LISK_VAULTS_ENDPOINT,
-  SONIC_RPC,
   SONIC_CHAIN_ID,
   SONIC_VAULTS_ENDPOINT,
-  BERACHAIN_RPC,
   BERACHAIN_CHAIN_ID,
   BERACHAIN_VAULTS_ENDPOINT,
-  UNICHAIN_RPC,
   UNICHAIN_CHAIN_ID,
   UNICHAIN_VAULTS_ENDPOINT,
 };

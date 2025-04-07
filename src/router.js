@@ -7,7 +7,6 @@ const noop = require('./api/noop');
 const stats = require('./api/stats');
 const supply = require('./api/supply');
 const price = require('./api/price');
-const gov = require('./api/stats/gov');
 const cmc = require('./api/cmc');
 const tvl = require('./api/tvl');
 const multichainVaults = require('./api/vaults');
@@ -53,8 +52,8 @@ router.get('/supply', supply.supply);
 router.get('/supply/total', supply.total);
 router.get('/supply/circulating', supply.circulating);
 
-router.get('/earnings', gov.earnings);
-router.get('/holders', gov.holderCount);
+// router.get('/earnings', gov.earnings);
+// router.get('/holders', gov.holderCount);
 
 router.get('/lps', price.lpsPrices);
 router.get('/lps/breakdown', price.lpsBreakdown);
@@ -62,12 +61,14 @@ router.get('/prices', price.tokenPrices);
 router.get('/mootokenprices', price.mooTokenPrices);
 
 router.get('/vault/:vaultId', multichainVaults.singleAnyVault);
+router.get('/vaults/all/:chainId', multichainVaults.singleChainAllVaults);
+router.get('/vaults/all', multichainVaults.multichainAllVaults);
 
 router.get('/vaults/last-harvest', multichainVaults.vaultsLastHarvest);
 
 router.get('/vaults/id/:vaultId', multichainVaults.singleVault);
-router.get('/vaults/:chainId', multichainVaults.singleChainVaults);
-router.get('/vaults', multichainVaults.multichainVaults);
+router.get('/vaults/:chainId', multichainVaults.singleChainStandardVaults);
+router.get('/vaults', multichainVaults.multichainStandardVaults);
 
 router.get('/gov-vaults/id/:vaultId', multichainVaults.singleGovVault);
 router.get('/gov-vaults/:chainId', multichainVaults.singleChainGovVaults);

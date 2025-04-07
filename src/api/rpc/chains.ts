@@ -1,42 +1,5 @@
 import { Chain } from 'viem/chains';
-import {
-  ARBITRUM_RPC,
-  AURORA_RPC,
-  AVAX_RPC,
-  BSC_RPC,
-  CANTO_RPC,
-  CELO_RPC,
-  CRONOS_RPC,
-  EMERALD_RPC,
-  ETH_RPC,
-  FANTOM_RPC,
-  FUSE_RPC,
-  HECO_RPC,
-  KAVA_RPC,
-  METIS_RPC,
-  MOONBEAM_RPC,
-  MOONRIVER_RPC,
-  ONE_RPC,
-  OPTIMISM_RPC,
-  POLYGON_RPC,
-  ZKEVM_RPC,
-  ZKSYNC_RPC,
-  BASE_RPC,
-  GNOSIS_RPC,
-  LINEA_RPC,
-  MANTLE_RPC,
-  FRAXTAL_RPC,
-  MODE_RPC,
-  MANTA_RPC,
-  REAL_RPC,
-  SEI_RPC,
-  ROOTSTOCK_RPC,
-  SCROLL_RPC,
-  LISK_RPC,
-  SONIC_RPC,
-  BERACHAIN_RPC,
-  UNICHAIN_RPC,
-} from '../../constants';
+import { getRpcsForChain } from '../../constants';
 import { ChainId } from '../../../packages/address-book/src/address-book';
 
 const avalancheChain = {
@@ -49,8 +12,8 @@ const avalancheChain = {
     symbol: 'AVAX',
   },
   rpcUrls: {
-    public: { http: [AVAX_RPC] },
-    default: { http: [AVAX_RPC] },
+    public: { http: getRpcsForChain('avax') },
+    default: { http: getRpcsForChain('avax') },
   },
   blockExplorers: {
     etherscan: { name: 'SnowTrace', url: 'https://snowtrace.io' },
@@ -74,8 +37,8 @@ const bscChain = {
     symbol: 'BSC',
   },
   rpcUrls: {
-    public: { http: [BSC_RPC] },
-    default: { http: [BSC_RPC] },
+    public: { http: getRpcsForChain('bsc') },
+    default: { http: getRpcsForChain('bsc') },
   },
   blockExplorers: {
     etherscan: { name: 'BscScan', url: 'https://bscscan.com' },
@@ -99,8 +62,8 @@ const polygonChain = {
     symbol: 'POL',
   },
   rpcUrls: {
-    public: { http: [POLYGON_RPC] },
-    default: { http: [POLYGON_RPC] },
+    public: { http: getRpcsForChain('polygon') },
+    default: { http: getRpcsForChain('polygon') },
   },
   blockExplorers: {
     etherscan: { name: 'PolygonScan', url: 'https://polygonscan.com' },
@@ -124,8 +87,8 @@ const fantomChain = {
     symbol: 'FTM',
   },
   rpcUrls: {
-    public: { http: [FANTOM_RPC] },
-    default: { http: [FANTOM_RPC] },
+    public: { http: getRpcsForChain('fantom') },
+    default: { http: getRpcsForChain('fantom') },
   },
   blockExplorers: {
     etherscan: { name: 'BscScan', url: 'https://bscscan.com' },
@@ -149,8 +112,8 @@ const harmonyChain = {
     symbol: 'ONE',
   },
   rpcUrls: {
-    public: { http: [ONE_RPC] },
-    default: { http: [ONE_RPC] },
+    public: { http: getRpcsForChain('one') },
+    default: { http: getRpcsForChain('one') },
   },
   blockExplorers: {
     default: { name: 'Harmony Explorer', url: 'https://explorer.harmony.one' },
@@ -173,8 +136,8 @@ const arbitrumChain = {
     symbol: 'ARB',
   },
   rpcUrls: {
-    public: { http: [ARBITRUM_RPC] },
-    default: { http: [ARBITRUM_RPC] },
+    public: { http: getRpcsForChain('arbitrum') },
+    default: { http: getRpcsForChain('arbitrum') },
   },
   blockExplorers: {
     etherscan: { name: 'Arbitrum Explorer', url: 'https://arbiscan.io' },
@@ -198,8 +161,8 @@ const celoChain = {
     symbol: 'CELO',
   },
   rpcUrls: {
-    public: { http: [CELO_RPC] },
-    default: { http: [CELO_RPC] },
+    public: { http: getRpcsForChain('celo') },
+    default: { http: getRpcsForChain('celo') },
   },
   blockExplorers: {
     default: { name: 'Celo Explorer', url: 'https://explorer.celo.org' },
@@ -223,8 +186,8 @@ const moonriverChain = {
     symbol: 'MOVR',
   },
   rpcUrls: {
-    public: { http: [MOONRIVER_RPC] },
-    default: { http: [MOONRIVER_RPC] },
+    public: { http: getRpcsForChain('moonriver') },
+    default: { http: getRpcsForChain('moonriver') },
   },
   blockExplorers: {
     etherscan: { name: 'Moonriver Explorer', url: 'https://moonriver.subscan.io' },
@@ -248,8 +211,8 @@ const moonbeamChain = {
     symbol: 'GLMR',
   },
   rpcUrls: {
-    public: { http: [MOONBEAM_RPC] },
-    default: { http: [MOONBEAM_RPC] },
+    public: { http: getRpcsForChain('moonbeam') },
+    default: { http: getRpcsForChain('moonbeam') },
   },
   blockExplorers: {
     etherscan: { name: 'Moonbeam Explorer', url: 'https://moonbeam-explorer.netlify.app' },
@@ -273,8 +236,8 @@ const cronosChain = {
     symbol: 'CRO',
   },
   rpcUrls: {
-    public: { http: [CRONOS_RPC] },
-    default: { http: [CRONOS_RPC] },
+    public: { http: getRpcsForChain('cronos') },
+    default: { http: getRpcsForChain('cronos') },
   },
   blockExplorers: {
     etherscan: { name: 'CronosScan', url: 'https://cronoscan.com' },
@@ -299,10 +262,10 @@ const auroraChain = {
   },
   rpcUrls: {
     default: {
-      http: [AURORA_RPC],
+      http: getRpcsForChain('aurora'),
     },
     public: {
-      http: [AURORA_RPC],
+      http: getRpcsForChain('aurora'),
     },
   },
   blockExplorers: {
@@ -333,8 +296,8 @@ const fuseChain = {
     symbol: 'FUSE',
   },
   rpcUrls: {
-    public: { http: [FUSE_RPC] },
-    default: { http: [FUSE_RPC] },
+    public: { http: getRpcsForChain('fuse') },
+    default: { http: getRpcsForChain('fuse') },
   },
   blockExplorers: {
     default: { name: 'FuseScan', url: 'https://explorer.fuse.io' },
@@ -357,8 +320,8 @@ const metisChain = {
     symbol: 'METIS',
   },
   rpcUrls: {
-    public: { http: [METIS_RPC] },
-    default: { http: [METIS_RPC] },
+    public: { http: getRpcsForChain('metis') },
+    default: { http: getRpcsForChain('metis') },
   },
   blockExplorers: {
     default: { name: 'Metis Explorer', url: 'https://explorer.metis.io' },
@@ -381,8 +344,8 @@ const emeraldChain = {
     symbol: 'ROSE',
   },
   rpcUrls: {
-    public: { http: [EMERALD_RPC] },
-    default: { http: [EMERALD_RPC] },
+    public: { http: getRpcsForChain('emerald') },
+    default: { http: getRpcsForChain('emerald') },
   },
   blockExplorers: {
     default: { name: 'Emerald Explorer', url: 'https://explorer.emerald.oasis.dev/' },
@@ -405,8 +368,8 @@ const optimismChain = {
     symbol: 'ETH',
   },
   rpcUrls: {
-    public: { http: [OPTIMISM_RPC] },
-    default: { http: [OPTIMISM_RPC] },
+    public: { http: getRpcsForChain('optimism') },
+    default: { http: getRpcsForChain('optimism') },
   },
   blockExplorers: {
     etherscan: { name: 'Optimistic Explorer', url: 'https://optimistic.etherscan.io' },
@@ -430,8 +393,8 @@ const kavaChain = {
     symbol: 'KAVA',
   },
   rpcUrls: {
-    public: { http: [KAVA_RPC] },
-    default: { http: [KAVA_RPC] },
+    public: { http: getRpcsForChain('kava') },
+    default: { http: getRpcsForChain('kava') },
   },
   blockExplorers: {
     default: { name: 'Kava Explorer', url: 'https://explorer.kava.io' },
@@ -454,8 +417,8 @@ const ethereumChain = {
     symbol: 'ETH',
   },
   rpcUrls: {
-    public: { http: [ETH_RPC] },
-    default: { http: [ETH_RPC] },
+    public: { http: getRpcsForChain('ethereum') },
+    default: { http: getRpcsForChain('ethereum') },
   },
   blockExplorers: {
     etherscan: { name: 'Etherscan', url: 'https://etherscan.io' },
@@ -479,8 +442,8 @@ const cantoChain = {
     symbol: 'CANTO',
   },
   rpcUrls: {
-    public: { http: [CANTO_RPC] },
-    default: { http: [CANTO_RPC] },
+    public: { http: getRpcsForChain('canto') },
+    default: { http: getRpcsForChain('canto') },
   },
   blockExplorers: {
     default: { name: 'Canto Explorer', url: 'https://cantoscan.com/' },
@@ -503,8 +466,8 @@ const zkSyncChain = {
     symbol: 'ETH',
   },
   rpcUrls: {
-    public: { http: [ZKSYNC_RPC] },
-    default: { http: [ZKSYNC_RPC] },
+    public: { http: getRpcsForChain('zksync') },
+    default: { http: getRpcsForChain('zksync') },
   },
   blockExplorers: {
     default: { name: 'Canto Explorer', url: 'https://cantoscan.com/' },
@@ -527,8 +490,8 @@ const hecoChain = {
     symbol: 'HT',
   },
   rpcUrls: {
-    public: { http: [HECO_RPC] },
-    default: { http: [HECO_RPC] },
+    public: { http: getRpcsForChain('heco') },
+    default: { http: getRpcsForChain('heco') },
   },
   blockExplorers: {
     default: { name: 'Heco Explorer', url: 'https://hecoinfo.com' },
@@ -550,8 +513,8 @@ const zkEvmChain = {
     symbol: 'ETH',
   },
   rpcUrls: {
-    public: { http: [ZKEVM_RPC] },
-    default: { http: [ZKEVM_RPC] },
+    public: { http: getRpcsForChain('zkevm') },
+    default: { http: getRpcsForChain('zkevm') },
   },
   blockExplorers: {
     default: { name: 'zkEvm Explorer', url: 'https://zkevm.polygonscan.com/' },
@@ -573,8 +536,8 @@ const baseChain = {
     symbol: 'ETH',
   },
   rpcUrls: {
-    public: { http: [BASE_RPC] },
-    default: { http: [BASE_RPC] },
+    public: { http: getRpcsForChain('base') },
+    default: { http: getRpcsForChain('base') },
   },
   blockExplorers: {
     default: { name: 'Base Explorer', url: 'https://basescan.org/' },
@@ -596,8 +559,8 @@ const gnosisChain = {
     symbol: 'xDAI',
   },
   rpcUrls: {
-    public: { http: [GNOSIS_RPC] },
-    default: { http: [GNOSIS_RPC] },
+    public: { http: getRpcsForChain('gnosis') },
+    default: { http: getRpcsForChain('gnosis') },
   },
   blockExplorers: {
     default: { name: 'Gnosis Explorer', url: 'https://gnosisscan.io/' },
@@ -619,8 +582,8 @@ const lineaChain = {
     symbol: 'ETH',
   },
   rpcUrls: {
-    public: { http: [LINEA_RPC] },
-    default: { http: [LINEA_RPC] },
+    public: { http: getRpcsForChain('linea') },
+    default: { http: getRpcsForChain('linea') },
   },
   blockExplorers: {
     default: { name: 'Linea Explorer', url: 'https://explorer.linea.build/' },
@@ -642,8 +605,8 @@ const mantleChain = {
     symbol: 'MNT',
   },
   rpcUrls: {
-    public: { http: [MANTLE_RPC] },
-    default: { http: [MANTLE_RPC] },
+    public: { http: getRpcsForChain('mantle') },
+    default: { http: getRpcsForChain('mantle') },
   },
   blockExplorers: {
     default: { name: 'Mantle Explorer', url: 'https://mantlescan.info/' },
@@ -665,8 +628,8 @@ const fraxtalChain = {
     symbol: 'frxETH',
   },
   rpcUrls: {
-    public: { http: [FRAXTAL_RPC] },
-    default: { http: [FRAXTAL_RPC] },
+    public: { http: getRpcsForChain('fraxtal') },
+    default: { http: getRpcsForChain('fraxtal') },
   },
   blockExplorers: {
     default: { name: 'Fraxtal Explorer', url: 'https://fraxscan.com/' },
@@ -688,8 +651,8 @@ const modeChain = {
     symbol: 'ETH',
   },
   rpcUrls: {
-    public: { http: [MODE_RPC] },
-    default: { http: [MODE_RPC] },
+    public: { http: getRpcsForChain('mode') },
+    default: { http: getRpcsForChain('mode') },
   },
   blockExplorers: {
     default: { name: 'Mode Explorer', url: 'https://explorer.mode.network/' },
@@ -711,8 +674,8 @@ const mantaChain = {
     symbol: 'ETH',
   },
   rpcUrls: {
-    public: { http: [MANTA_RPC] },
-    default: { http: [MANTA_RPC] },
+    public: { http: getRpcsForChain('manta') },
+    default: { http: getRpcsForChain('manta') },
   },
   blockExplorers: {
     default: { name: 'Manta Pacific Explorer', url: 'https://pacific-explorer.manta.network/' },
@@ -734,8 +697,8 @@ const realChain = {
     symbol: 'WREETH',
   },
   rpcUrls: {
-    public: { http: [REAL_RPC] },
-    default: { http: [REAL_RPC] },
+    public: { http: getRpcsForChain('real') },
+    default: { http: getRpcsForChain('real') },
   },
   blockExplorers: {
     default: { name: 're.al explorer', url: 'https://explorer.re.al/' },
@@ -757,8 +720,8 @@ const seiChain = {
     symbol: 'WSEI',
   },
   rpcUrls: {
-    public: { http: [SEI_RPC] },
-    default: { http: [SEI_RPC] },
+    public: { http: getRpcsForChain('sei') },
+    default: { http: getRpcsForChain('sei') },
   },
   blockExplorers: {
     default: { name: 'sei explorer', url: 'https://seitrace.com/' },
@@ -780,8 +743,8 @@ const rootstockChain = {
     symbol: 'WRBTC',
   },
   rpcUrls: {
-    public: { http: [ROOTSTOCK_RPC] },
-    default: { http: [ROOTSTOCK_RPC] },
+    public: { http: getRpcsForChain('rootstock') },
+    default: { http: getRpcsForChain('rootstock') },
   },
   blockExplorers: {
     default: { name: 'rootstock explorer', url: 'https://rootstock.blockscout.com/' },
@@ -805,8 +768,8 @@ const berachainChain = {
     symbol: 'WBERACHAIN',
   },
   rpcUrls: {
-    public: { http: [BERACHAIN_RPC] },
-    default: { http: [BERACHAIN_RPC] },
+    public: { http: getRpcsForChain('berachain') },
+    default: { http: getRpcsForChain('berachain') },
   },
   blockExplorers: {
     default: { name: 'berachain explorer', url: 'https://berachainscan.com/' },
@@ -828,8 +791,8 @@ const sonicChain = {
     symbol: 'WS',
   },
   rpcUrls: {
-    public: { http: [SONIC_RPC] },
-    default: { http: [SONIC_RPC] },
+    public: { http: getRpcsForChain('sonic') },
+    default: { http: getRpcsForChain('sonic') },
   },
   blockExplorers: {
     default: { name: 'sonic explorer', url: 'https://sonicscan.org/' },
@@ -851,8 +814,8 @@ const liskChain = {
     symbol: 'WETH',
   },
   rpcUrls: {
-    public: { http: [LISK_RPC] },
-    default: { http: [LISK_RPC] },
+    public: { http: getRpcsForChain('lisk') },
+    default: { http: getRpcsForChain('lisk') },
   },
   blockExplorers: {
     default: { name: 'lisk explorer', url: 'https://blockscout.lisk.com/' },
@@ -874,8 +837,8 @@ const scrollChain = {
     symbol: 'WETH',
   },
   rpcUrls: {
-    public: { http: [SCROLL_RPC] },
-    default: { http: [SCROLL_RPC] },
+    public: { http: getRpcsForChain('scroll') },
+    default: { http: getRpcsForChain('scroll') },
   },
   blockExplorers: {
     default: { name: 'scroll explorer', url: 'https://scrollscan.com/' },
@@ -897,8 +860,8 @@ const unichainChain = {
     symbol: 'WETH',
   },
   rpcUrls: {
-    public: { http: [UNICHAIN_RPC] },
-    default: { http: [UNICHAIN_RPC] },
+    public: { http: getRpcsForChain('unichain') },
+    default: { http: getRpcsForChain('unichain') },
   },
   blockExplorers: {
     default: { name: 'unichain explorer', url: 'https://uniscan.xyz' },

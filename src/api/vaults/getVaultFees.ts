@@ -1,10 +1,13 @@
 import BigNumber from 'bignumber.js';
 import { addressBookByChainId, ChainId } from '../../../packages/address-book/src/address-book';
 import { getKey, setKey } from '../../utils/cache';
-import { ApiChain } from '../../utils/chain';
+import { ApiChain, ApiChains } from '../../utils/chain';
 import { fetchContract } from '../rpc/client';
 import FeeABI from '../../abis/FeeABI';
-const { getMultichainVaults, getMultichainCowVaults } = require('../stats/getMultichainVaults');
+import { HarvestableVault } from './types';
+import { getHarvestableVaultsByChain } from '../stats/getMultichainVaults';
+import { isDefined } from '../../utils/array';
+import { Address, BaseError } from 'viem';
 
 const feeBatchTreasurySplitMethodABI = [
   {
@@ -19,10 +22,6 @@ const feeBatchTreasurySplitMethodABI = [
 const INIT_DELAY = Number(process.env.FEES_INIT_DELAY || 15000);
 const REFRESH_INTERVAL = 5 * 60 * 1000;
 const CACHE_EXPIRY = 1000 * 60 * 60 * 12;
-const MULTICALL_BATCH_SIZES: Partial<Record<ApiChain, number>> = {
-  polygon: 25,
-};
-
 const VAULT_FEES_KEY = 'VAULT_FEES';
 const FEE_BATCH_KEY = 'FEE_BATCHES';
 
@@ -32,6 +31,7 @@ interface PerformanceFee {
   strategist: number;
   treasury: number;
   stakers: number;
+  liquidity?: number;
 }
 
 interface VaultFeeBreakdown {
@@ -54,49 +54,24 @@ interface PerformanceFeeCallResponse {
   call: BigNumber;
 }
 
-interface StrategyCallResponse {
-  id: string;
-  strategy: string;
-  strategist?: number;
-  strategist2?: number;
-  call?: number;
-  call2?: number;
-  call3?: number;
-  call4?: number;
-  maxCallFee?: number;
-  beefy?: number;
-  fee?: number;
-  treasury?: number;
-  rewards?: number;
-  rewards2?: number;
-  breakdown?: PerformanceFeeCallResponse;
-  allFees?: {
-    performance: PerformanceFeeCallResponse;
-    withdraw: BigNumber;
-    deposit: BigNumber;
-  };
-  maxFee?: number;
-  maxFee2?: number;
-  maxFee3?: number;
-  withdraw?: number;
-  withdraw2?: number;
-  withdrawMax?: number;
-  withdrawMax2?: number;
-  paused?: boolean;
+interface AllFeesCallResponse {
+  performance: PerformanceFeeCallResponse;
+  withdraw: BigNumber;
+  deposit: BigNumber;
 }
+
+type StrategyCallResponse = {
+  id: string;
+  strategy: Address;
+} & CallResponseMap;
 
 let feeBatches: Partial<Record<ChainId, FeeBatchDetail>> = {};
 let vaultFees: Record<string, VaultFeeBreakdown> = {};
 
 const updateFeeBatch = async () => {
   const chainId = ChainId.ethereum;
-  const { beefyFeeRecipient: feeBatchAddress } =
-    addressBookByChainId[chainId].platforms.beefyfinance;
-  const feeBatchContract = fetchContract(
-    feeBatchAddress,
-    feeBatchTreasurySplitMethodABI,
-    Number(chainId)
-  );
+  const { beefyFeeRecipient: feeBatchAddress } = addressBookByChainId[chainId].platforms.beefyfinance;
+  const feeBatchContract = fetchContract(feeBatchAddress, feeBatchTreasurySplitMethodABI, Number(chainId));
 
   let treasurySplit;
 
@@ -122,17 +97,16 @@ const updateVaultFees = async () => {
   console.log(`> updating vault fees`);
   const start = Date.now();
 
-  // Cow vaults have fees too
-  const vaults = getMultichainVaults().concat(getMultichainCowVaults());
-
-  const promises = [];
-
-  for (const chain of Object.keys(addressBookByChainId).map(c => Number(c))) {
-    const chainVaults = vaults
-      .filter(vault => vault.chain === ChainId[chain])
-      .filter(v => !vaultFees[v.id] || Date.now() - vaultFees[v.id].lastUpdated > CACHE_EXPIRY);
-    promises.push(getChainFees(chainVaults, chain, feeBatches[ChainId.ethereum])); // Use ethereum feeBatch for all chains (only place where revenue is split)
-  }
+  const expiredBefore = start - CACHE_EXPIRY;
+  const promises = ApiChains.map(chain => {
+    const chainVaults = getHarvestableVaultsByChain(chain).filter(
+      v => (vaultFees[v.id]?.lastUpdated || 0) < expiredBefore
+    );
+    if (chainVaults.length > 0) {
+      // Use ethereum feeBatch for all chains (only place where revenue is split)
+      return getChainFees(chainVaults, ChainId[chain], feeBatches[ChainId.ethereum]);
+    }
+  }).filter(isDefined);
 
   await Promise.allSettled(promises);
   await saveToRedis();
@@ -145,77 +119,108 @@ const saveToRedis = async () => {
   await setKey(VAULT_FEES_KEY, vaultFees);
 };
 
-const catchMissingFunctionError = err => {
-  if (err.shortMessage.includes('reverted')) {
-    return undefined;
+async function undefinedIfReverts<T extends Promise<unknown>>(promise: T): Promise<Awaited<T> | undefined> {
+  try {
+    return await promise;
+  } catch (error) {
+    if (error instanceof BaseError && error.shortMessage.includes('reverted')) {
+      return undefined;
+    }
+    throw error;
   }
-  throw err;
+}
+
+type FeeAbiContract = ReturnType<typeof fetchContract<typeof FeeABI>>;
+type FeeAbiContractMethods = keyof FeeAbiContract['read'];
+type FeeAbiContractMethodsOfType<T> = {
+  [K in FeeAbiContractMethods]: FeeAbiContract['read'][K] extends (...args: any[]) => Promise<T> ? K : never;
+}[FeeAbiContractMethods];
+
+function makeBigIntToNumberHandler(methodName: FeeAbiContractMethodsOfType<bigint>) {
+  return async (contract: FeeAbiContract) => {
+    const value = await contract.read[methodName]();
+    return new BigNumber(value.toString(10)).toNumber();
+  };
+}
+
+const callHandlers = {
+  strategist: makeBigIntToNumberHandler('strategistFee'),
+  strategist2: makeBigIntToNumberHandler('STRATEGIST_FEE'),
+  call: makeBigIntToNumberHandler('callFee'),
+  call2: makeBigIntToNumberHandler('CALL_FEE'),
+  call3: makeBigIntToNumberHandler('callfee'),
+  call4: makeBigIntToNumberHandler('callFeeAmount'),
+  maxCallFee: makeBigIntToNumberHandler('MAX_CALL_FEE'),
+  beefy: makeBigIntToNumberHandler('beefyFee'),
+  fee: makeBigIntToNumberHandler('fee'),
+  treasury: makeBigIntToNumberHandler('TREASURY_FEE'),
+  rewards: makeBigIntToNumberHandler('REWARDS_FEE'),
+  rewards2: makeBigIntToNumberHandler('rewardsFee'),
+  maxFee: makeBigIntToNumberHandler('MAX_FEE'),
+  maxFee2: makeBigIntToNumberHandler('max'),
+  maxFee3: makeBigIntToNumberHandler('maxfee'),
+  withdraw: makeBigIntToNumberHandler('withdrawalFee'),
+  withdraw2: makeBigIntToNumberHandler('WITHDRAWAL_FEE'),
+  withdrawMax: makeBigIntToNumberHandler('WITHDRAWAL_MAX'),
+  withdrawMax2: makeBigIntToNumberHandler('withdrawalMax'),
+  liquidityFee: async (contract: FeeAbiContract) =>
+    new BigNumber((await contract.read.liquidityFee()).toString(10)),
+  breakdown: async (contract: FeeAbiContract) => {
+    const value = await contract.read.getFees();
+    return {
+      total: new BigNumber(value.total.toString()),
+      beefy: new BigNumber(value.beefy.toString()),
+      call: new BigNumber(value.call.toString()),
+      strategist: new BigNumber(value.strategist.toString()),
+    } satisfies PerformanceFeeCallResponse;
+  },
+  allFees: async (contract: FeeAbiContract) => {
+    const value = await contract.read.getAllFees();
+    return {
+      performance: {
+        total: new BigNumber(value.beefy.total.toString()),
+        beefy: new BigNumber(value.beefy.beefy.toString()),
+        call: new BigNumber(value.beefy.call.toString()),
+        strategist: new BigNumber(value.beefy.strategist.toString()),
+      },
+      deposit: new BigNumber(value.deposit.toString()),
+      withdraw: new BigNumber(value.withdraw.toString()),
+    } satisfies AllFeesCallResponse;
+  },
+  paused: async (contract: FeeAbiContract) => await contract.read.paused(),
+} as const;
+
+type CallResponseMap = {
+  [T in keyof typeof callHandlers]?: Awaited<ReturnType<(typeof callHandlers)[T]>>;
 };
 
 // I'm so sorry for whoever comes across this file, it was a nightmare to get working, blame the strategists, ily
-const getChainFees = async (vaults, chainId: number, feeBatch: FeeBatchDetail) => {
+const getChainFees = async (vaults: HarvestableVault[], chainId: number, feeBatch: FeeBatchDetail) => {
   try {
-    const callToName = [
-      'strategist',
-      'strategist2',
-      'call',
-      'call2',
-      'call3',
-      'call4',
-      'maxCallFee',
-      'beefy',
-      'fee',
-      'treasury',
-      'rewards',
-      'rewards2',
-      'breakdown',
-      'allFees',
-      'maxFee',
-      'maxFee2',
-      'maxFee3',
-      'withdraw',
-      'withdraw2',
-      'withdrawMax',
-      'withdrawMax2',
-      'paused',
-    ];
-    const calls: Promise<bigint[] | bigint>[] = vaults.map(vault => {
+    const calls = vaults.map(async vault => {
       const contract = fetchContract(vault.strategy, FeeABI, chainId);
-      return Promise.all([
-        contract.read.strategistFee().catch(catchMissingFunctionError),
-        contract.read.STRATEGIST_FEE().catch(catchMissingFunctionError),
-        contract.read.callFee().catch(catchMissingFunctionError),
-        contract.read.CALL_FEE().catch(catchMissingFunctionError),
-        contract.read.callfee().catch(catchMissingFunctionError),
-        contract.read.callFeeAmount().catch(catchMissingFunctionError),
-        contract.read.MAX_CALL_FEE().catch(catchMissingFunctionError),
-        contract.read.beefyFee().catch(catchMissingFunctionError),
-        contract.read.fee().catch(catchMissingFunctionError),
-        contract.read.TREASURY_FEE().catch(catchMissingFunctionError),
-        contract.read.REWARDS_FEE().catch(catchMissingFunctionError),
-        contract.read.rewardsFee().catch(catchMissingFunctionError),
-        contract.read.getFees().catch(catchMissingFunctionError),
-        contract.read.getAllFees().catch(catchMissingFunctionError),
-        contract.read.MAX_FEE().catch(catchMissingFunctionError),
-        contract.read.max().catch(catchMissingFunctionError),
-        contract.read.maxfee().catch(catchMissingFunctionError),
-        contract.read.withdrawalFee().catch(catchMissingFunctionError),
-        contract.read.WITHDRAWAL_FEE().catch(catchMissingFunctionError),
-        contract.read.WITHDRAWAL_MAX().catch(catchMissingFunctionError),
-        contract.read.withdrawalMax().catch(catchMissingFunctionError),
-        contract.read.paused().catch(catchMissingFunctionError),
-      ]);
+      const results = Object.fromEntries(
+        (
+          await Promise.all(
+            Object.entries(callHandlers).map(async ([key, handler]) => [
+              key,
+              await undefinedIfReverts(handler(contract)),
+            ])
+          )
+        ).filter((_, value) => value !== undefined)
+      ) as CallResponseMap;
+      return {
+        id: vault.id,
+        strategy: vault.strategy as Address,
+        ...results,
+      } satisfies StrategyCallResponse;
     });
-
     const results = await Promise.allSettled(calls);
     const failed = results.filter(res => res.status === 'rejected');
+
     results.forEach((res, index) => {
       if (res.status === 'fulfilled') {
-        const callResponse: StrategyCallResponse = mapMulticallResultForSingleVault(
-          vaults[index],
-          res.value,
-          callToName
-        );
+        const callResponse: StrategyCallResponse = res.value;
         const fees = mapStrategyCallsToFeeBreakdown(callResponse, feeBatch);
         if (fees) {
           vaultFees[vaults[index].id] = fees;
@@ -225,50 +230,13 @@ const getChainFees = async (vaults, chainId: number, feeBatch: FeeBatchDetail) =
       }
     });
 
-    if (failed.length > 0)
+    if (failed.length > 0) {
       console.log(`> feeUpdate failed on chain ${chainId} for ${failed.length} vaults}`);
+    }
   } catch (err) {
     console.log('> feeUpdate error on chain ' + chainId);
-    console.log(err);
+    console.error(err);
   }
-};
-
-const mapMulticallResultForSingleVault = (vault, result, callToNames): StrategyCallResponse => {
-  const mappedObject: StrategyCallResponse = {
-    id: vault.id,
-    strategy: vault.strategy,
-  };
-
-  result.forEach((res, i) => {
-    if (res !== undefined) {
-      if (callToNames[i] === 'allFees') {
-        // has allFees response
-        mappedObject[callToNames[i]] = {
-          performance: {
-            total: new BigNumber(res.beefy.total.toString()),
-            beefy: new BigNumber(res.beefy.beefy.toString()),
-            call: new BigNumber(res.beefy.call.toString()),
-            strategist: new BigNumber(res.beefy.strategist.toString()),
-          },
-          deposit: new BigNumber(res.deposit.toString()),
-          withdraw: new BigNumber(res.withdraw.toString()),
-        };
-      } else if (callToNames[i] === 'breakdown') {
-        //has breakdown response
-        mappedObject[callToNames[i]] = {
-          total: new BigNumber(res.total.toString()),
-          beefy: new BigNumber(res.beefy.toString()),
-          call: new BigNumber(res.call.toString()),
-          strategist: new BigNumber(res.strategist.toString()),
-        };
-      } else {
-        mappedObject[callToNames[i]] =
-          typeof res === 'bigint' ? new BigNumber(res.toString()).toNumber() : res;
-      }
-    }
-  });
-
-  return mappedObject;
 };
 
 const mapStrategyCallsToFeeBreakdown = (
@@ -324,10 +292,16 @@ const performanceFeesFromCalls = (
   contractCalls: StrategyCallResponse,
   feeBatch: FeeBatchDetail
 ): PerformanceFee => {
-  if (contractCalls.allFees !== undefined) {
+  if (contractCalls.liquidityFee && contractCalls.allFees) {
+    // beSonic as additional liquidity fee
+    return performanceFromGetFeesWithLiquidity(
+      contractCalls.allFees.performance,
+      feeBatch,
+      contractCalls.liquidityFee
+    );
+  } else if (contractCalls.allFees !== undefined) {
     return performanceFromGetFees(contractCalls.allFees.performance, feeBatch);
   } else if (contractCalls.breakdown !== undefined) {
-    //newest method
     return performanceFromGetFees(contractCalls.breakdown, feeBatch);
   } else if (contractCalls.id.includes('-maxi')) {
     return performanceForMaxi(contractCalls);
@@ -336,15 +310,11 @@ const performanceFeesFromCalls = (
   }
 };
 
-const legacyFeeMappings = (
-  contractCalls: StrategyCallResponse,
-  feeBatch: FeeBatchDetail
-): PerformanceFee => {
+const legacyFeeMappings = (contractCalls: StrategyCallResponse, feeBatch: FeeBatchDetail): PerformanceFee => {
   let total = 0.045;
   let performanceFee: PerformanceFee;
 
-  let callFee =
-    contractCalls.call ?? contractCalls.call2 ?? contractCalls.call3 ?? contractCalls.call4;
+  let callFee = contractCalls.call ?? contractCalls.call2 ?? contractCalls.call3 ?? contractCalls.call4;
   let strategistFee = contractCalls.strategist ?? contractCalls.strategist2;
   let maxFee = contractCalls.maxFee ?? contractCalls.maxFee2 ?? contractCalls.maxFee3;
   let beefyFee = contractCalls.beefy;
@@ -419,9 +389,7 @@ const legacyFeeMappings = (
       stakers: (total * fee) / maxFee,
     };
   } else {
-    console.log(
-      `> Performance fee fetch failed for: ${contractCalls.id} - ${contractCalls.strategy}`
-    );
+    console.log(`> Performance fee fetch failed for: ${contractCalls.id} - ${contractCalls.strategy}`);
   }
 
   return performanceFee;
@@ -439,21 +407,34 @@ const performanceFromGetFees = (
   const feeSum = beefy + call + strategist;
   const beefySplit = (total * beefy) / feeSum;
 
-  let feeBreakdown = {
+  return {
     total: total,
     call: (total * call) / feeSum,
     strategist: (total * strategist) / feeSum,
     treasury: feeBatch.treasurySplit * beefySplit,
     stakers: feeBatch.stakerSplit * beefySplit,
   };
-  return feeBreakdown;
+};
+
+const performanceFromGetFeesWithLiquidity = (
+  fees: PerformanceFeeCallResponse,
+  feeBatch: FeeBatchDetail,
+  liquidityFee: BigNumber
+): PerformanceFee => {
+  const base = performanceFromGetFees(fees, feeBatch);
+  const liquidity = liquidityFee.shiftedBy(-18).toNumber();
+
+  return {
+    ...base,
+    total: base.total + liquidity,
+    liquidity,
+  };
 };
 
 const performanceForMaxi = (contractCalls: StrategyCallResponse): PerformanceFee => {
   let performanceFee: PerformanceFee;
 
-  let callFee =
-    contractCalls.call ?? contractCalls.call2 ?? contractCalls.call3 ?? contractCalls.call4;
+  let callFee = contractCalls.call ?? contractCalls.call2 ?? contractCalls.call3 ?? contractCalls.call4;
   let maxCallFee = contractCalls.maxCallFee ?? 1000;
   let maxFee = contractCalls.maxFee ?? contractCalls.maxFee2 ?? contractCalls.maxFee3;
   let rewards = contractCalls.rewards ?? contractCalls.rewards2;

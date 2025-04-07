@@ -62,7 +62,7 @@ const oracles: Oracle[] = [
     oracleId: 'BNB',
     address: '0x0567f2323251f0aab15c8dfb1967e4e8a7d42aee',
     chain: 'bsc',
-    heartbeat: 27,
+    heartbeat: 60,
   },
   {
     oracleId: 'LINK',
@@ -92,13 +92,13 @@ const oracles: Oracle[] = [
     oracleId: 'Cake',
     address: '0xB6064eD41d4f67e353768aA239cA86f4F73665a1',
     chain: 'bsc',
-    heartbeat: 3600,
+    heartbeat: 60,
   },
   {
     oracleId: 'XVS',
     address: '0xBF63F430A79D4036A5900C19818aFf1fa710f206',
     chain: 'bsc',
-    heartbeat: 3600,
+    heartbeat: 900,
   },
   {
     oracleId: 'USDT',

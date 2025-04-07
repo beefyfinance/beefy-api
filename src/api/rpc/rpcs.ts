@@ -1,5 +1,6 @@
 import { ChainId } from '../../../packages/address-book/src/address-book';
 
+// FIXME we should only have one list of rpcs
 const rpcs: Record<ChainId, string[]> = {
   [ChainId.ethereum]: [
     'https://eth.llamarpc.com',

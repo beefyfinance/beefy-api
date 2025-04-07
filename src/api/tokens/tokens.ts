@@ -1,4 +1,4 @@
-import { getSingleChainVaults } from '../stats/getMultichainVaults';
+import { getSingleChainVaults, getVaultsByChain } from '../stats/getMultichainVaults';
 import { getChainNewBoosts } from '../boosts/getBoosts';
 import { addressBook } from '../../../packages/address-book/src/address-book';
 import Token from '../../../packages/address-book/src/types/token';
@@ -88,7 +88,7 @@ export function areTokensEqual(tokenA: TokenEntity, tokenB: TokenEntity): boolea
 }
 
 async function fetchVaultTokensForChain(chainId: ApiChain): Promise<TokenEntity[]> {
-  const vaults = getSingleChainVaults(chainId) || [];
+  const vaults = getVaultsByChain(chainId) || [];
 
   return vaults.reduce((tokens: TokenEntity[], vault) => {
     // Native comes from address book
@@ -119,7 +119,7 @@ async function fetchVaultTokensForChain(chainId: ApiChain): Promise<TokenEntity[
         name: vault.earnedToken,
         chainId,
         oracle: 'tokens', // ???
-        oracleId: vault.earnedOracleId || vault.earnedToken,
+        oracleId: vault.earnedToken, // this is oracle of deposit token not the receipt/share token...
         address: vault.earnedTokenAddress,
         decimals: vault.earnedTokenDecimals || 18,
       });
