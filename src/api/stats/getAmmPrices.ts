@@ -22,7 +22,7 @@ import { getKey, setKey } from '../../utils/cache';
 import getNonAmmPrices from './getNonAmmPrices';
 import ellipsisPools from '../../data/bsc/ellipsisLpPools.json';
 import mdexBscPools from '../../data/bsc/mdexBscLpPools.json';
-import geistPools from '../../data/fantom/geistLpPools.json';
+// import geistPools from '../../data/fantom/geistLpPools.json';
 import oldPools from '../../data/archive/oldLpPools.json';
 import mooTokens from '../../data/mooTokens.json';
 import vvsPools from '../../data/cronos/vvsLpPools.json';
@@ -33,16 +33,16 @@ import tethysPools from '../../data/metis/tethysLpPools.json';
 import stellaswapPools from '../../data/moonbeam/stellaswapLpPools.json';
 import stellaswapPoolsV2 from '../../data/moonbeam/stellaswapLpV2Pools.json';
 import darkCryptoPools from '../../data/cronos/darkCryptoLpPools.json';
-import wigoPools from '../../data/fantom/wigoLpPools.json';
+// import wigoPools from '../../data/fantom/wigoLpPools.json';
 import solarflare from '../../data/moonbeam/solarFlareLpPools.json';
 import vvsDualPools from '../../data/cronos/vvsDualLpPools.json';
-import spookyV2LpPools from '../../data/fantom/spookyV2LpPools.json';
-import spookyV3LpPools from '../../data/fantom/spookyV3LpPools.json';
+// import spookyV2LpPools from '../../data/fantom/spookyV2LpPools.json';
+// import spookyV3LpPools from '../../data/fantom/spookyV3LpPools.json';
 import velodromePools from '../../data/optimism/velodromeLpPools.json';
 import oldVelodromePools from '../../data/optimism/oldVelodromeLpPools.json';
 import ripaeCronosPools from '../../data/cronos/ripaeLpPools.json';
 import hermesPools from '../../data/metis/hermesLpPools.json';
-import equalizerV2Pools from '../../data/fantom/equalizerV2LpPools.json';
+// import equalizerV2Pools from '../../data/fantom/equalizerV2LpPools.json';
 import thenaPools from '../../data/bsc/thenaLpPools.json';
 import cantoLpPools from '../../data/canto/cantoLpPools.json';
 import solidLizardPools from '../../data/arbitrum/solidlizardLpPools.json';
@@ -52,7 +52,7 @@ import versePools from '../../data/ethereum/verseLpPools.json';
 import ramsesPools from '../../data/arbitrum/ramsesLpPools.json';
 import velocorePools from '../../data/zksync/velocoreLpPools.json';
 import veSyncPools from '../../data/zksync/veSyncLpPools.json';
-import fvmPools from '../../data/fantom/fvmLpPools.json';
+// import fvmPools from '../../data/fantom/fvmLpPools.json';
 import bvmPools from '../../data/base/bvmLpPools.json';
 import baseSwapPools from '../../data/base/baseSwapLpPools.json';
 import ooeV2Pools from '../../data/bsc/ooeV2LpPools.json';
@@ -104,7 +104,7 @@ const pools = normalizePoolOracleIds([
   ...draculaPools,
   ...ooeV2Pools,
   ...baseSwapPools,
-  ...fvmPools,
+  // ...fvmPools,
   ...bvmPools,
   ...veSyncPools,
   ...velocorePools,
@@ -115,18 +115,18 @@ const pools = normalizePoolOracleIds([
   ...solidLizardPools,
   ...cantoLpPools,
   ...thenaPools,
-  ...equalizerV2Pools,
+  // ...equalizerV2Pools,
   ...hermesPools,
   ...ripaeCronosPools,
   ...velodromePools,
   ...oldVelodromePools,
-  ...spookyV2LpPools,
-  ...spookyV3LpPools,
+  // ...spookyV2LpPools,
+  // ...spookyV3LpPools,
   ...vvsDualPools,
   ...stellaswapPools,
   ...stellaswapPoolsV2,
   ...solarflare,
-  ...wigoPools,
+  // ...wigoPools,
   ...darkCryptoPools,
   ...tethysPools,
   ...netswapPools,
@@ -134,7 +134,7 @@ const pools = normalizePoolOracleIds([
   ...oldPools,
   ...cronaPools,
   ...vvsPools,
-  ...geistPools,
+  // ...geistPools,
   ...mdexBscPools,
   ...ellipsisPools,
 ]);
@@ -228,6 +228,7 @@ const coinGeckoCoins: Record<string, string[]> = {
   'usda-2': ['USDa'],
   'kim-token': ['xKIM', 'KIM'],
   'beets-staked-sonic': ['stS'],
+  beets: ['BEETS'],
   'convex-fxs': ['cvxFXS'],
   'paypal-usd': ['BYUSD'],
 };
@@ -360,7 +361,6 @@ const seedPeggedPrices = {
   WMATIC: 'MATIC', // Wrapped native
   WAVAX: 'AVAX', // Wrapped native
   WBNB: 'BNB', // Wrapped native
-  WFTM: 'FTM', // Wrapped native
   WKAVA: 'KAVA', // Wrapped native
   asUSDC: 'USDC', // Solana
   aUSDT: 'USDT', // Aave

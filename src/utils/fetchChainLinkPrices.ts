@@ -136,12 +136,12 @@ const oracles: Oracle[] = [
     chain: 'ethereum',
     heartbeat: 864000,
   },
-  {
-    oracleId: 'FTM',
-    address: '0xf4766552D15AE4d256Ad41B6cf2933482B0680dc',
-    chain: 'fantom',
-    heartbeat: 3600,
-  },
+  // {
+  //   oracleId: 'FTM',
+  //   address: '0xf4766552D15AE4d256Ad41B6cf2933482B0680dc',
+  //   chain: 'fantom',
+  //   heartbeat: 3600,
+  // },
   {
     oracleId: 'KAVA',
     address: '0x7899dd75C329eFe63e35b02bC7d60D3739FB23c5',
