@@ -1,5 +1,11 @@
 [
   {
+    "name": "kodiak-bera-honey",
+    "address": "0x4a254B11810B8EBb63C5468E438FC561Cb1bB1da",
+    "gauge": "0x418D63947889e55C16280Cb7785cF84EF081F224",
+    "tokens": ["WBERA", "HONEY"]
+  },
+  {
     "name": "kodiak-usdbr-honey",
     "address": "0x28a54EaeEc63fBb1175d13466a9ada5f3175D577",
     "gauge": "0xd3B4c14d7eb1701271Ffe67ac4E2074C873027CB",
