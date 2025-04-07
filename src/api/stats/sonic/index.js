@@ -8,6 +8,7 @@ const { getPenpieApys } = require('./getPenpieApys');
 const { getCurveApys } = require('./getCurveApys');
 const { getAaveV3Apys } = require('./getAaveV3Apys');
 const getShadowApys = require('./getShadowApys');
+const { getBeSApys } = require('./getBeSApys');
 
 const getApys = [
   getAaveV3Apys,
@@ -19,6 +20,7 @@ const getApys = [
   getCurveApys,
   getSonicSiloApys,
   getShadowApys,
+  getBeSApys,
 ];
 
 const getSonicApys = async () => {
