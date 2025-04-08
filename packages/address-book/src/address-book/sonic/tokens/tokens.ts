@@ -407,4 +407,18 @@ export const tokens = {
     bridge: 'sonic-canonical',
     risks: ['NO_TIMELOCK'],
   },
+  beS: {
+    name: 'beSonic',
+    symbol: 'beS',
+    oracleId: 'beS',
+    address: '0x871A101Dcf22fE4fE37be7B654098c801CBA1c88',
+    chainId: 146,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://www.beefy.com/',
+    description:
+      'Beefy-escrowed Sonic (beS) is a liquid staking derivative of Sonic (S). It automatically stakes a user’s wS tokens to earn staking rewards. Each beS token represents a proportional share of the staked wS, including any rewards accrued over time. Users can convert beS back to wS with a 14-day unbonding period, or freely trade beS on the open market.',
+    documentation: 'https://docs.beefy.finance/beefy-products/beefy-escrowed-tokens/bes',
+    bridge: 'native',
+  },
 } as const satisfies Record<string, Token>;

@@ -14,7 +14,6 @@ import { ChainId } from '../../../packages/address-book/src/address-book';
 import { rateLimitedHttp } from './transport';
 import PQueue from 'p-queue';
 import { envBoolean, envNumber } from '../../utils/env';
-import { getChainRpcs } from './rpcs';
 import { customFallback, CustomFallbackTransport } from './fallbackTransport';
 
 const multicallClientsByChain: Record<number, Client> = {};
@@ -55,8 +54,8 @@ function makeHttpTransport(url: string, config: HttpTransportConfig = {}): HttpT
   return http(url, config);
 }
 
-function makeCustomFallbackTransport(rpcUrls: string[]): CustomFallbackTransport {
-  const transports = rpcUrls.map(url =>
+function makeCustomFallbackTransport(rpcUrls: string[] | readonly string[]): CustomFallbackTransport {
+  const transports = rpcUrls.map((url: string) =>
     makeHttpTransport(url, {
       timeout: 15000,
       retryCount: 5,
@@ -66,11 +65,10 @@ function makeCustomFallbackTransport(rpcUrls: string[]): CustomFallbackTransport
   return customFallback(transports, { rank: true });
 }
 
-const getMulticallClientForChain = (chainId: ChainId): Client => {
+export const getMulticallClientForChain = (chainId: ChainId): Client => {
   const chain = getChain[chainId];
   if (!chain) throw new Error('Unknown chainId ' + chainId);
   if (!multicallClientsByChain[chain.id]) {
-    const rpcs = getChainRpcs(chainId);
     multicallClientsByChain[chain.id] = createClient({
       batch: {
         multicall: {
@@ -79,7 +77,7 @@ const getMulticallClientForChain = (chainId: ChainId): Client => {
         },
       },
       chain: chain,
-      transport: makeCustomFallbackTransport([chain.rpcUrls.public.http[0], ...rpcs]),
+      transport: makeCustomFallbackTransport(chain.rpcUrls.public.http),
     });
   }
   return multicallClientsByChain[chain.id];
@@ -89,7 +87,6 @@ const getPublicClientForChain = (chainId: ChainId): PublicClient => {
   const chain = getChain[chainId];
   if (!chain) throw new Error('Unknown chainId ' + chainId);
   if (!publicClientsByChain[chain.id]) {
-    const rpcs = getChainRpcs(chainId);
     publicClientsByChain[chain.id] = createPublicClient({
       batch: {
         multicall: {
@@ -98,7 +95,7 @@ const getPublicClientForChain = (chainId: ChainId): PublicClient => {
         },
       },
       chain: chain,
-      transport: makeCustomFallbackTransport([chain.rpcUrls.public.http[0], ...rpcs]),
+      transport: makeCustomFallbackTransport(chain.rpcUrls.public.http),
     });
   }
   return publicClientsByChain[chain.id];
@@ -108,10 +105,9 @@ const getSingleCallClientForChain = (chainId: ChainId): Client => {
   const chain = getChain[chainId];
   if (!chain) throw new Error('Unknown chainId ' + chainId);
   if (!singleCallClientsByChain[chain.id]) {
-    const rpcs = getChainRpcs(chainId);
     singleCallClientsByChain[chain.id] = createClient({
       chain: chain,
-      transport: makeCustomFallbackTransport([chain.rpcUrls.public.http[0], ...rpcs]),
+      transport: makeCustomFallbackTransport(chain.rpcUrls.public.http),
     });
   }
   return singleCallClientsByChain[chain.id];

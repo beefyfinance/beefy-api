@@ -7,7 +7,7 @@ import { AnyChain, isApiChain, toAppChain } from '../../utils/chain';
 import { typedEntries } from '../../utils/object';
 import { Context } from 'koa';
 import { sendBadRequest, sendServiceUnavailable, sendSuccess } from '../../utils/koa';
-import { getVaultsByChainId } from '../stats/getMultichainVaults';
+import { getVaultsByType } from '../stats/getMultichainVaults';
 import { serviceEventBus } from '../../utils/ServiceEventBus';
 import { Address } from 'viem';
 import { uniqBy } from 'lodash';
@@ -52,19 +52,14 @@ const getVaultsWithOffchainRewards = createFactory((): Vault[] => {
   });
 
   // Standard vaults
-  const standardVaults: Vault[] = typedEntries(getVaultsByChainId()).flatMap(([apiChain, vaults]) => {
-    const chainId = toAppChain(apiChain);
-    return vaults
-      .filter(v => v.type === 'standard')
-      .map(v => ({
-        id: v.id,
-        address: v.earnContractAddress as Address,
-        // This enables merkl ERC20 campaign support targeting standard vaults
-        poolAddress: v.earnContractAddress as Address,
-        chainId,
-        type: 'standard',
-      }));
-  });
+  const standardVaults: Vault[] = getVaultsByType('standard').map(v => ({
+    id: v.id,
+    address: v.earnContractAddress as Address,
+    // This enables merkl ERC20 campaign support targeting standard vaults
+    poolAddress: v.earnContractAddress as Address,
+    chainId: v.network,
+    type: 'standard',
+  }));
 
   return uniqBy([...clmVaults, ...standardVaults], v => v.id);
 });

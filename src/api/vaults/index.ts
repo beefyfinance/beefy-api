@@ -1,126 +1,182 @@
 import {
-  getCowVaultById,
-  getGovVaultById,
+  getAllHarvestableVaults,
+  getAllVaults,
+  getHarvestableVaultsByChain,
   getMultichainClms,
-  getMultichainCowVaults,
-  getMultichainGovVaults,
-  getMultichainVaults,
-  getSingleChainCowVaults,
-  getSingleChainGovVaults,
-  getSingleChainVaults,
   getSingleClms,
-  getVaultByID,
+  getVaultById,
+  getVaultsByChain,
+  getVaultsByType,
+  getVaultsByTypeChain,
 } from '../stats/getMultichainVaults';
 import { getVaultFees } from './getVaultFees';
-import { withErrorHandling } from '../../utils/koa';
-import { AnyVault, HarvestableVault } from './types';
+import { sendBadRequest, sendNotFound, sendSuccess, withErrorHandling } from '../../utils/koa';
 import { withChainId } from './helpers';
 
 // Multichain
 
 export const multichainHarvestableVaults = withErrorHandling(async ctx => {
-  const multichainVaults = (getMultichainVaults() as HarvestableVault[]).concat(getMultichainCowVaults());
-  ctx.status = 200;
-  ctx.body = [...multichainVaults];
+  const multichainVaults = getAllHarvestableVaults();
+  sendSuccess(ctx, multichainVaults);
 });
 
-export const multichainVaults = withErrorHandling(async ctx => {
-  const multichainVaults = getMultichainVaults();
-  ctx.status = 200;
-  ctx.body = [...multichainVaults];
+export const multichainAllVaults = withErrorHandling(async ctx => {
+  const multichainVaults = getAllVaults();
+  sendSuccess(ctx, multichainVaults);
+});
+
+export const multichainStandardVaults = withErrorHandling(async ctx => {
+  const multichainVaults = getVaultsByType('standard');
+  sendSuccess(ctx, multichainVaults);
 });
 
 export const multichainGovVaults = withErrorHandling(async ctx => {
-  const multichainGovVaults = getMultichainGovVaults();
-  ctx.status = 200;
-  ctx.body = [...multichainGovVaults];
+  const multichainVaults = getVaultsByType('gov');
+  sendSuccess(ctx, multichainVaults);
 });
 
 export const multichainCowVaults = withErrorHandling(async ctx => {
-  const multichainCowVaults = getMultichainCowVaults();
-  ctx.status = 200;
-  ctx.body = [...multichainCowVaults];
+  const multichainVaults = getVaultsByType('cowcentrated');
+  sendSuccess(ctx, multichainVaults);
 });
 
 export const multiChainClms = withErrorHandling(async ctx => {
   const multichainCowVaults = getMultichainClms();
-  ctx.status = 200;
-  ctx.body = [...multichainCowVaults];
+  sendSuccess(ctx, multichainCowVaults);
 });
 
 // Single chain
 
 export const singleChainHarvestableVaults = withChainId(async (ctx, chainId) => {
-  const chainVaults = (getSingleChainVaults(chainId) as HarvestableVault[]).concat(
-    getSingleChainCowVaults(chainId)
-  );
-  ctx.status = 200;
-  ctx.body = [...chainVaults];
+  const chainVaults = getHarvestableVaultsByChain(chainId);
+  sendSuccess(ctx, chainVaults);
 });
 
-export const singleChainVaults = withChainId(async (ctx, chainId) => {
-  const chainVaults = getSingleChainVaults(chainId);
-  ctx.status = 200;
-  ctx.body = chainVaults ? [...chainVaults] : [];
+export const singleChainAllVaults = withChainId(async (ctx, chainId) => {
+  const chainVaults = getVaultsByChain(chainId);
+  sendSuccess(ctx, chainVaults);
+});
+
+export const singleChainStandardVaults = withChainId(async (ctx, chainId) => {
+  const chainVaults = getVaultsByTypeChain('standard', chainId);
+  sendSuccess(ctx, chainVaults);
 });
 
 export const singleChainGovVaults = withChainId(async (ctx, chainId) => {
-  const chainVaults = getSingleChainGovVaults(chainId);
-  ctx.status = 200;
-  ctx.body = chainVaults ? [...chainVaults] : [];
+  const chainVaults = getVaultsByTypeChain('gov', chainId);
+  sendSuccess(ctx, chainVaults);
 });
 
 export const singleChainCowVaults = withChainId(async (ctx, chainId) => {
-  const chainVaults = getSingleChainCowVaults(chainId);
-  ctx.status = 200;
-  ctx.body = chainVaults ? [...chainVaults] : [];
+  const chainVaults = getVaultsByTypeChain('cowcentrated', chainId);
+  sendSuccess(ctx, chainVaults);
 });
 
 export const singleChainClms = withChainId(async (ctx, chainId) => {
   const chainVaults = getSingleClms(chainId);
-  ctx.status = 200;
-  ctx.body = chainVaults ? [...chainVaults] : [];
+  sendSuccess(ctx, chainVaults);
 });
 
 // Single vault
 
 export const singleVault = withErrorHandling(async ctx => {
-  const vault = getVaultByID(ctx.params.vaultId);
-  ctx.status = vault ? 200 : 404;
-  ctx.body = vault ?? {};
+  const vaultId = ctx.params.vaultId;
+  if (typeof vaultId !== 'string' || vaultId.length === 0) {
+    sendBadRequest(ctx, { error: 'Missing vaultId parameter' });
+    return;
+  }
+
+  const vault = getVaultById(vaultId);
+  if (!vault) {
+    sendNotFound(ctx, { error: `Vault with id ${vaultId} not found` });
+    return;
+  }
+
+  if (vault.type !== 'standard') {
+    sendBadRequest(ctx, { error: `Vault with id ${vaultId} is not a standard vault` });
+    return;
+  }
+
+  sendSuccess(ctx, vault);
 });
 
 export const singleGovVault = withErrorHandling(async ctx => {
-  const vault = getGovVaultById(ctx.params.vaultId);
-  ctx.status = vault ? 200 : 404;
-  ctx.body = vault ?? {};
+  const vaultId = ctx.params.vaultId;
+  if (typeof vaultId !== 'string' || vaultId.length === 0) {
+    sendBadRequest(ctx, { error: 'Missing vaultId parameter' });
+    return;
+  }
+
+  const vault = getVaultById(vaultId);
+  if (!vault) {
+    sendNotFound(ctx, { error: `Vault with id ${vaultId} not found` });
+    return;
+  }
+
+  if (vault.type !== 'gov') {
+    sendBadRequest(ctx, { error: `Vault with id ${vaultId} is not a gov vault` });
+    return;
+  }
+
+  sendSuccess(ctx, vault);
 });
 
 export const singleCowVault = withErrorHandling(async ctx => {
-  const vault = getCowVaultById(ctx.params.vaultId);
-  ctx.status = vault ? 200 : 404;
-  ctx.body = vault ?? {};
+  const vaultId = ctx.params.vaultId;
+  if (typeof vaultId !== 'string' || vaultId.length === 0) {
+    sendBadRequest(ctx, { error: 'Missing vaultId parameter' });
+    return;
+  }
+
+  const vault = getVaultById(vaultId);
+  if (!vault) {
+    sendNotFound(ctx, { error: `Vault with id ${vaultId} not found` });
+    return;
+  }
+
+  if (vault.type !== 'cowcentrated') {
+    sendBadRequest(ctx, { error: `Vault with id ${vaultId} is not a cowcentrated vault` });
+    return;
+  }
+
+  sendSuccess(ctx, vault);
 });
 
 export const singleHarvestableVault = withErrorHandling(async ctx => {
-  let vault: HarvestableVault = getVaultByID(ctx.params.vaultId);
-  if (!vault) {
-    vault = getCowVaultById(ctx.params.vaultId);
+  const vaultId = ctx.params.vaultId;
+  if (typeof vaultId !== 'string' || vaultId.length === 0) {
+    sendBadRequest(ctx, { error: 'Missing vaultId parameter' });
+    return;
   }
-  ctx.status = vault ? 200 : 404;
-  ctx.body = vault ?? {};
+
+  const vault = getVaultById(vaultId);
+  if (!vault) {
+    sendNotFound(ctx, { error: `Vault with id ${vaultId} not found` });
+    return;
+  }
+
+  if (!['standard', 'cowcentrated', 'erc4624'].includes(vault.type)) {
+    sendBadRequest(ctx, { error: `Vault with id ${vaultId} is not harvestable` });
+    return;
+  }
+
+  sendSuccess(ctx, vault);
 });
 
 export const singleAnyVault = withErrorHandling(async ctx => {
-  let vault: AnyVault = getVaultByID(ctx.params.vaultId);
-  if (!vault) {
-    vault = getGovVaultById(ctx.params.vaultId);
+  const vaultId = ctx.params.vaultId;
+  if (typeof vaultId !== 'string' || vaultId.length === 0) {
+    sendBadRequest(ctx, { error: 'Missing vaultId parameter' });
+    return;
   }
+
+  const vault = getVaultById(vaultId);
   if (!vault) {
-    vault = getCowVaultById(ctx.params.vaultId);
+    sendNotFound(ctx, { error: `Vault with id ${vaultId} not found` });
+    return;
   }
-  ctx.status = vault ? 200 : 404;
-  ctx.body = vault ?? {};
+
+  sendSuccess(ctx, vault);
 });
 
 // Other
@@ -132,16 +188,13 @@ export const vaultFees = withErrorHandling(async ctx => {
 });
 
 export const vaultsLastHarvest = withErrorHandling(async ctx => {
-  const lastHarvests = (getMultichainVaults() as AnyVault[])
-    .concat(getMultichainCowVaults())
-    .concat(getMultichainGovVaults())
-    .reduce((res, vault) => {
-      if ('lastHarvest' in vault) {
-        const { id, lastHarvest } = vault;
-        res[id] = lastHarvest;
-      }
-      return res;
-    }, {});
+  const lastHarvests = getAllVaults().reduce((res, vault) => {
+    if ('lastHarvest' in vault) {
+      const { id, lastHarvest } = vault;
+      res[id] = lastHarvest;
+    }
+    return res;
+  }, {});
   ctx.status = 200;
   ctx.body = lastHarvests;
 });

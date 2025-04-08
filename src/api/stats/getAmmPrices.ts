@@ -80,6 +80,7 @@ import { fetchVenusPrices } from './bsc/venus/getVenusPrices';
 import { getLpBasedPrices } from './getLpBasedPrices';
 import { fetchDexScreenerPriceOracles, OraclePriceRequest } from '../../utils/fetchDexScreenerPrices';
 import { promiseTiming } from '../../utils/timing';
+import { getBeTokenPrices } from './getBeTokenPrices';
 
 const INIT_DELAY = 2 * 1000;
 const REFRESH_INTERVAL = 5 * 60 * 1000;
@@ -551,13 +552,7 @@ async function performUpdateAmmPrices() {
   });
 
   const beTokenPrice = ammPrices.then(async ({ tokenPrices }) => {
-    return {
-      beJOE: tokenPrices['JOE'],
-      beQI: tokenPrices['QI'],
-      beCAKE: tokenPrices['Cake'],
-      beVelo: tokenPrices['BeVELO'],
-      wS: tokenPrices['WS'],
-    };
+    return getBeTokenPrices(tokenPrices);
   });
 
   const tokenPrices = ammPrices.then(async ({ tokenPrices }) => {

@@ -15,7 +15,7 @@ import {
 import { getLpBreakdownForOracle, LpBreakdown } from '../stats/getAmmPrices';
 import { fetchContract } from '../rpc/client';
 import ERC20Abi from '../../abis/ERC20Abi';
-import { MULTICALL_V3 } from '../../utils/web3Helpers';
+import { MULTICALL_V3 } from '../../utils/multicallHelpers';
 import MulticallAbi from '../../abis/common/Multicall/MulticallAbi';
 import { getValidatorBalanceCall } from './validatorHelpers';
 import { getLockedAssetBalanceCall } from './lockedAssetHelpers';

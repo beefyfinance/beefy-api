@@ -2,7 +2,7 @@ import { getAllNewBoosts } from '../boosts/getBoosts';
 import { Boost } from '../boosts/types';
 import BigNumber from 'bignumber.js';
 import { fetchPrice } from '../../utils/fetchPrice';
-import { Vault } from '../vaults/types';
+import { StandardVault } from '../vaults/types';
 import { ApiChain, toChainId } from '../../utils/chain';
 import BeefyBoostAbi from '../../abis/BeefyBoost';
 import { fetchContract } from '../rpc/client';
@@ -12,7 +12,7 @@ import { BeefyRewardPoolV2Config, getBeefyRewardPoolV2Aprs } from './common/getB
 import { getAddress } from 'viem';
 import { isDefined } from '../../utils/array';
 
-const { getVaultByID } = require('../stats/getMultichainVaults');
+const { getVaultById } = require('../stats/getMultichainVaults');
 
 export const BOOST_APR_EXPIRED = -1;
 
@@ -26,7 +26,7 @@ const updateBoostV2AprsForChain = async (chain: ApiChain, boosts: Boost[]) => {
       chainId,
       boosts
         .map(boost => {
-          const vault = getVaultByID(boost.vaultId);
+          const vault = getVaultById(boost.vaultId);
           if (!vault) {
             console.warn(
               `updateBoostV2AprsForChain`,
@@ -128,7 +128,7 @@ const mapResponseToBoostApr = async (
   if (periodFinish.times(1000).lte(new BigNumber(Date.now()))) return BOOST_APR_EXPIRED;
 
   try {
-    const vault: Vault = getVaultByID(boost.vaultId);
+    const vault: StandardVault = getVaultById(boost.vaultId);
     if (!vault) {
       console.error(`[boost aprs] error calculating apr for ${boost.id}: vault ${boost.vaultId} not found`);
       return null;
