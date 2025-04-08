@@ -1,7 +1,7 @@
 import BigNumber from 'bignumber.js';
 import { addressBookByChainId, ChainId } from '../../../packages/address-book/src/address-book';
 import { getKey, setKey } from '../../utils/cache';
-import { ApiChain, ApiChains } from '../../utils/chain';
+import { ApiChains } from '../../utils/chain';
 import { fetchContract } from '../rpc/client';
 import FeeABI from '../../abis/FeeABI';
 import { HarvestableVault } from './types';
