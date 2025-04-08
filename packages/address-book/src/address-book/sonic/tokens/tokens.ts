@@ -421,4 +421,32 @@ export const tokens = {
     documentation: 'https://docs.beefy.finance/beefy-products/beefy-escrowed-tokens/bes',
     bridge: 'native',
   },
+  FIVE: {
+    name: 'FIVE',
+    symbol: 'FIVE',
+    oracleId: 'FIVE',
+    address: '0xb0695ce12c56AAe40894235e2d1888D0b62Dd110',
+    chainId: 146,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://defive.com/',
+    description:
+      'DeFive, previously known as WigoSwap on Fantom (with over $1 billion in transaction volume), is a redefined and progressive DeFi platform built on Sonic.',
+    documentation: 'https://docs.defive.com/overview',
+    bridge: 'native',
+  },
+  EURC: {
+    name: 'EURC',
+    symbol: 'EURC',
+    oracleId: 'EURC',
+    address: '0xe715cbA7B5cCb33790ceBFF1436809d36cb17E57',
+    chainId: 146,
+    decimals: 6,
+    logoURI: '',
+    website: 'https://www.circle.com/en/eurc',
+    description:
+      'EURC is a euro-backed stablecoin that’s accessible globally on Avalanche, Ethereum, Base and Stellar. Similar to USDC, EURC is issued by Circle under a full-reserve model.',
+    documentation: 'https://www.circle.com/en/eurc',
+    bridge: 'sonic-canonical',
+  },
 } as const satisfies Record<string, Token>;

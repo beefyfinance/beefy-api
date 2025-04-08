@@ -1,0 +1,102 @@
+[
+  {
+    "name": "defive-ws-five",
+    "address": "0x969481d58C45DA5AcAc07CD50cE287c850a2A240",
+    "decimals": "1e18",
+    "beefyFee": 0.095,
+    "poolId": 2,
+    "chainId": 146,
+    "lp0": {
+      "address": "0x039e2fB66102314Ce7b64Ce5Ce3E5183bc94aD38",
+      "oracle": "tokens",
+      "oracleId": "wS",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xb0695ce12c56AAe40894235e2d1888D0b62Dd110",
+      "oracle": "tokens",
+      "oracleId": "FIVE",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "defive-ws-usdc.e",
+    "address": "0x6eB32C8dB5Ff2878acbCB6a1Ec5e301F60884dA4",
+    "decimals": "1e18",
+    "beefyFee": 0.095,
+    "poolId": 1,
+    "chainId": 146,
+    "lp0": {
+      "address": "0x039e2fB66102314Ce7b64Ce5Ce3E5183bc94aD38",
+      "oracle": "tokens",
+      "oracleId": "wS",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x29219dd400f2Bf60E5a23d13Be72B486D4038894",
+      "oracle": "tokens",
+      "oracleId": "sUSDCe",
+      "decimals": "1e6"
+    }
+  },
+  {
+    "name": "defive-ws-eurc.e",
+    "address": "0x6cA85F19C4b3bfD45f537fe0e95e0357ea823FCd",
+    "decimals": "1e18",
+    "beefyFee": 0.095,
+    "poolId": 6,
+    "chainId": 146,
+    "lp0": {
+      "address": "0x039e2fB66102314Ce7b64Ce5Ce3E5183bc94aD38",
+      "oracle": "tokens",
+      "oracleId": "wS",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xe715cbA7B5cCb33790ceBFF1436809d36cb17E57",
+      "oracle": "tokens",
+      "oracleId": "EURC",
+      "decimals": "1e6"
+    }
+  },
+  {
+    "name": "defive-ws-weth",
+    "address": "0x0f4dD4c3cCB1729f099b79d83540049758a5E9ff",
+    "decimals": "1e18",
+    "beefyFee": 0.095,
+    "poolId": 7,
+    "chainId": 146,
+    "lp0": {
+      "address": "0x039e2fB66102314Ce7b64Ce5Ce3E5183bc94aD38",
+      "oracle": "tokens",
+      "oracleId": "wS",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x50c42dEAcD8Fc9773493ED674b675bE577f2634b",
+      "oracle": "tokens",
+      "oracleId": "WETH",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "defive-usdc.e-weth",
+    "address": "0x7E50357098dA4d25735127128B2ffce21A269913",
+    "decimals": "1e18",
+    "beefyFee": 0.095,
+    "poolId": 8,
+    "chainId": 146,
+    "lp0": {
+      "address": "0x29219dd400f2Bf60E5a23d13Be72B486D4038894",
+      "oracle": "tokens",
+      "oracleId": "sUSDCe",
+      "decimals": "1e6"
+    },
+    "lp1": {
+      "address": "0x50c42dEAcD8Fc9773493ED674b675bE577f2634b",
+      "oracle": "tokens",
+      "oracleId": "WETH",
+      "decimals": "1e18"
+    }
+  }
+]
