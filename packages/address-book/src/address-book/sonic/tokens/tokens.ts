@@ -449,4 +449,18 @@ export const tokens = {
     documentation: 'https://www.circle.com/en/eurc',
     bridge: 'sonic-canonical',
   },
+  aSonUSDC: {
+    name: 'Aave Sonic USDC',
+    symbol: 'aSonUSDC',
+    oracleId: 'aSonUSDC',
+    address: '0x578Ee1ca3a8E1b54554Da1Bf7C583506C4CD11c6',
+    chainId: 146,
+    decimals: 6,
+    logoURI: '',
+    website: 'https://www.circle.com/usdc',
+    documentation: 'https://docs.aave.com/developers/v/2.0/the-core-protocol/atokens',
+    description:
+      'Aave interest bearing USDC. USDC is a fully collateralized US dollar stablecoin. USDC is issued by regulated financial institutions, backed by fully reserved assets, redeemable on a 1:1 basis for US dollars.',
+    staked: true,
+  },
 } as const satisfies Record<string, Token>;

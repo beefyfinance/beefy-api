@@ -29,12 +29,10 @@ export const getSwapxApys = async () => {
 };
 
 async function getGemsxApy(pools) {
-  const apys = [];
+  const apys = pools.map(_ => new BigNumber(0));
   try {
     const url = `https://api.merkl.xyz/v3/opportunity?campaigns=false&testTokens=false&chainId=${chainId}`;
-    const campaigns = Object.values(await fetch(url).then(r => r.json())).filter(
-      r => r.status === 'live' && r.tags.includes('SwapXGemsX')
-    );
+    const campaigns = Object.values(await fetch(url).then(r => r.json())).filter(r => r.status === 'live');
 
     const supplies = await Promise.all(
       pools.map(p => fetchContract(p.gauge, ERC20Abi, chainId).read.totalSupply())
@@ -43,20 +41,18 @@ async function getGemsxApy(pools) {
     for (let i = 0; i < pools.length; i++) {
       const p = pools[i];
       const campaign = campaigns.find(c =>
-        Object.values(c.aprBreakdown).some(v => v.address.toLowerCase() === p.gauge.toLowerCase())
+        Object.values(c.aprBreakdown || {}).some(v => v.address.toLowerCase() === p.gauge.toLowerCase())
       );
-      if (!campaign) {
-        apys.push(new BigNumber(0));
-      } else {
+      if (campaign) {
         // rewards are for both gauges so div(2)
         const rewards = new BigNumber(campaign.dailyrewards || 0).div(2).times(365);
         const lpPrice = await fetchPrice({ oracle: 'lps', id: p.name });
         const totalStakedInUsd = new BigNumber(supplies[i]).div('1e18').times(lpPrice);
-        apys.push(rewards.div(totalStakedInUsd));
+        apys[i] = rewards.div(totalStakedInUsd);
       }
     }
-  } catch (err) {
-    console.error('Swapx Gemsx apy error', err.message);
+  } catch (e) {
+    console.error('Swapx Gemsx apy error', e.message, e);
   }
   return apys;
 }

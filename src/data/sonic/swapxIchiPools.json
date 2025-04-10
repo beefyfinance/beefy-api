@@ -1,5 +1,41 @@
 [
   {
+    "name": "swapx-ichi-bes-os",
+    "address": "0x052D43B9207FCef4D03DbE75e77756937C94B48f",
+    "gauge": "0xfBA3606310f3d492031176eC85DFbeD67F5799F2",
+    "tokens": ["beS", "OS"]
+  },
+  {
+    "name": "swapx-ichi-os-bes",
+    "address": "0x39C3999D062126c8e59B2143Dd2f83f950A96e12",
+    "gauge": "0x77546B40445d3eca6111944DFe902de0514A4F80",
+    "tokens": ["beS", "OS"]
+  },
+  {
+    "name": "swapx-ichi-usdce-bes",
+    "address": "0x454dF27D1797e68C2b79E798614228205f81Bc59",
+    "gauge": "0x411Fe96600e6eF261E558aA39268D94C042E4EEE",
+    "tokens": ["USDCe", "beS"]
+  },
+  {
+    "name": "swapx-ichi-bes-usdce",
+    "address": "0x68fa46A01538773B213b6d8571Cb676A4d0AbDc6",
+    "gauge": "0x49c99Bb126E1C4a9114Ad5506C78D5Ee9f5bCaED",
+    "tokens": ["USDCe", "beS"]
+  },
+  {
+    "name": "swapx-ichi-asonusdc-wstkscusd",
+    "address": "0xf248b0EF6d45Aa492C73699B71748b5D1a6770C6",
+    "gauge": "0x55aA8F27dAFe5Ce79F052FBdC817698C2bf889D5",
+    "tokens": ["aSonUSDC", "wstkscUSD"]
+  },
+  {
+    "name": "swapx-ichi-wstkscusd-asonusdc",
+    "address": "0xF2a497F783C6bfEe0670757462a31f9429fdE53d",
+    "gauge": "0x36b356fAA33567e7Dd7E1641bDc474755Fe17E8f",
+    "tokens": ["aSonUSDC", "wstkscUSD"]
+  },
+  {
     "name": "swapx-ichi-busdc.e-20-wstkscusd",
     "address": "0x3151f7289Cecf8E92fBc68CdA307491d9DAb2E03",
     "gauge": "0xFc463D9bE936DEe0cEcBB600433aDE1b921813C7",
@@ -10,18 +46,6 @@
     "address": "0x619f5B53969f8A9Cc1f244E422970f0E1C9152aE",
     "gauge": "0x1009f1dE14Cdb1161658F346437156dF4DBf1A38",
     "tokens": ["bUSDCe-20", "wstkscUSD"]
-  },
-  {
-    "name": "swapx-ichi-sfrxusd-os",
-    "address": "0x9D66955662F1823bA1e454F5A214c5489f9b807b",
-    "gauge": "0x88d6c63f1EF23bDff2bD483831074dc23d8416d4",
-    "tokens": ["OS", "sfrxUSD"]
-  },
-  {
-    "name": "swapx-ichi-os-sfrxusd",
-    "address": "0x4f7d951c981923E8f7AC2239d5FB22b762aD9C51",
-    "gauge": "0x99d8E114F1a6359c6048Ae5Cce163786c0Ce97DF",
-    "tokens": ["OS", "sfrxUSD"]
   },
   {
     "name": "swapx-ichi-scusd-wstkscusd",
@@ -165,12 +189,6 @@
     "name": "swapx-ichi-usdc.e-weth-weth",
     "address": "0x6c7b6f02e9f5E525fc70f120f47D4A893f977d0E",
     "gauge": "0xc9eEf8C5cF38990CaDF0CB9c912085FB877C113C",
-    "tokens": ["USDCe", "WETH"]
-  },
-  {
-    "name": "swapx-ichi-usdc.e-weth-usdc.e",
-    "address": "0x048d4F8DdeE53dD41c35a1A2a691C0Ef91eff3D6",
-    "gauge": "0x0e9C8F42349a9eB074605ba175E751BD158C1165",
     "tokens": ["USDCe", "WETH"]
   },
   {

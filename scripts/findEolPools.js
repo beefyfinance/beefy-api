@@ -1,11 +1,6 @@
 import fs from 'fs';
 import path from 'path';
-
-process.env.VAULTS_INIT_DELAY = 0;
-import { getMultichainVaults, initVaultService } from '../src/api/stats/getMultichainVaults';
-import { initCache } from '../src/utils/cache';
-import { serviceEventBus } from '../src/utils/ServiceEventBus';
-import { MULTICHAIN_ENDPOINTS } from '../src/constants';
+import { getVaults } from '../src/utils/getVaults';
 import { ChainId } from '../packages/address-book/src/types/chainid';
 
 async function main() {
@@ -24,14 +19,8 @@ async function main() {
   });
   console.log(`check ${pools.length} pools on ${chains}`);
 
-  // delete unused MULTICHAIN_ENDPOINTS to avoid loading in initVaultService
-  Object.keys(ChainId)
-    .filter(c => !chains.includes(c))
-    .forEach(c => delete MULTICHAIN_ENDPOINTS[c]);
-  await initCache();
-  initVaultService();
-  await serviceEventBus.waitForFirstEvent('vaults/updated');
-  const vaults = getMultichainVaults();
+  const chainVaults = await Promise.all(chains.map(c => getVaults(c)));
+  const vaults = chainVaults.flat();
 
   const res = await fetch('https://api.beefy.finance/tvl').then(r => r.json());
   const tvl = Object.keys(res)
