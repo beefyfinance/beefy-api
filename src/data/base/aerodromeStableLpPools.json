@@ -1,5 +1,25 @@
 [
   {
+    "name": "aerodrome-ousdt-usdc",
+    "address": "0xc84f7c63742EA1894EE04e5F49fbaE8C3a4a734d",
+    "gauge": "0xe68921DD3923E90e7970c109B0d6f3c4a8B28Ca7",
+    "decimals": "1e18",
+    "chainId": 8453,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0x1217BfE6c773EEC6cc4A38b5Dc45B92292B6E189",
+      "oracle": "tokens",
+      "oracleId": "oUSDT",
+      "decimals": "1e6"
+    },
+    "lp1": {
+      "address": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+      "oracle": "tokens",
+      "oracleId": "USDC",
+      "decimals": "1e6"
+    }
+  },
+  {
     "name": "aerodrome-bold-lusd",
     "address": "0x285De0b9fDa5dC3f3704b1c1510A5D7a1A28d355",
     "gauge": "0xbF3ba1e264798f91Cfa39cdf44500a17B96A9bc1",
