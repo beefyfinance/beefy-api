@@ -2504,4 +2504,19 @@ export const tokens = {
     bridge: 'native',
     risks: ['LARGE_HOLDERS', 'NO_TIMELOCK'],
   },
+  OUSDT: {
+    name: 'OpenUSDT',
+    symbol: 'oUSDT',
+    oracleId: 'oUSDT',
+    address: '0x1217BfE6c773EEC6cc4A38b5Dc45B92292B6E189',
+    chainId: 8453,
+    decimals: 6,
+    logoURI: '',
+    website: 'https://www.openusdt.xyz/',
+    description:
+      'OpenUSDT is a future-proof interoperable USDT stablecoin for the OP Superchain enabling shared liquidity and interchain applications.',
+    documentation: 'https://docs.openusdt.xyz/',
+    bridge: 'chainlink-ccip',
+    risks: ['NO_TIMELOCK'],
+  },
 } as const satisfies Record<string, Token>;
