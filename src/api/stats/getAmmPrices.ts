@@ -208,7 +208,6 @@ const coinGeckoCoins: Record<string, string[]> = {
   'usual-usd': ['USD0'],
   'usd0-liquid-bond': ['USD0++'],
   'badger-dao': ['BADGER'],
-  'overnight-finance': ['oOVN'],
   'dinero-staked-eth': ['pxETH'],
   'based-pepe': ['basePEPE'],
   toshi: ['TOSHI'],
@@ -234,32 +233,13 @@ const coinGeckoCoins: Record<string, string[]> = {
   beets: ['BEETS'],
   'convex-fxs': ['cvxFXS'],
   'paypal-usd': ['BYUSD'],
+  'stader-ethx': ['ETHx'],
 };
 
 /**
  * Coins to fetch from dexscreener
  */
 const dexscreenerCoins: OraclePriceRequest[] = [
-  {
-    oracleId: 'lineaUSDT+',
-    tokenAddress: '0x1E1F509963A6D33e169D9497b11c7DbFe73B7F13',
-    chainId: 'linea',
-  },
-  {
-    oracleId: 'lineaUSD+',
-    tokenAddress: '0xB79DD08EA68A908A97220C76d19A6aA9cBDE4376',
-    chainId: 'linea',
-  },
-  {
-    oracleId: 'arbOVN',
-    tokenAddress: '0xA3d1a8DEB97B111454B294E2324EfAD13a9d8396',
-    chainId: 'arbitrum',
-  },
-  {
-    oracleId: 'oOVN',
-    tokenAddress: '0x3b08fcd15280e7B5A6e404c4abb87F7C774D1B2e',
-    chainId: 'optimism',
-  },
   {
     oracleId: 'arbUSD+',
     tokenAddress: '0xe80772Eaf6e2E18B651F160Bc9158b2A5caFCA65',
@@ -281,11 +261,6 @@ const dexscreenerCoins: OraclePriceRequest[] = [
     chainId: 'linea',
   },
   {
-    oracleId: 'arbwUSDM',
-    tokenAddress: '0x57F5E098CaD7A3D1Eed53991D4d66C45C9AF7812',
-    chainId: 'arbitrum',
-  },
-  {
     oracleId: 'baseDOLA',
     tokenAddress: '0x4621b7A9c75199271F773Ebd9A499dbd165c3191',
     chainId: 'base',
@@ -294,11 +269,6 @@ const dexscreenerCoins: OraclePriceRequest[] = [
     oracleId: 'lineaZERO',
     tokenAddress: '0x78354f8DcCB269a615A7e0a24f9B0718FDC3C7A7',
     chainId: 'linea',
-  },
-  {
-    oracleId: 'arbETHx',
-    tokenAddress: '0xED65C5085a18Fa160Af0313E60dcc7905E944Dc7',
-    chainId: 'arbitrum',
   },
   {
     oracleId: 'basemsUSD',
@@ -400,6 +370,7 @@ const seedPeggedPrices = {
   agwstETH: 'wstETH', // Aave
   agGNO: 'GNO', // Aave
   USDL: 'USDC',
+  arbETHx: 'ETHx',
 };
 
 export type BaseLpBreakdown = {

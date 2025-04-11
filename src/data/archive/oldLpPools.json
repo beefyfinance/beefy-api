@@ -1,5 +1,25 @@
 [
   {
+    "name": "velodrome-v2-weth-wld",
+    "address": "0xe188C32a2aa8e65f9AB141f5E96F8FA96b1b7757",
+    "gauge": "0xb91F873D3fed53B21ac348Ee86DEaf924D1f3818",
+    "decimals": "1e18",
+    "chainId": 10,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0x4200000000000000000000000000000000000006",
+      "oracle": "tokens",
+      "oracleId": "WETH",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xdC6fF44d5d932Cbd77B52E5612Ba0529DC6226F1",
+      "oracle": "tokens",
+      "oracleId": "WLD",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "velo-wmlt-usdc",
     "address": "0xd65EaCAed50706254b5001f22963C8615968AF7d",
     "decimals": "1e18",

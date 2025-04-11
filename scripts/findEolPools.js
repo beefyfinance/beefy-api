@@ -27,7 +27,7 @@ async function main() {
     .map(k => res[k])
     .reduce((p, c) => ({ ...p, ...c }), {});
   pools.forEach(p => {
-    const id = p.name;
+    const id = p.name || p.oracleId;
     const v = vaults.find(v => v.id === id);
     if (!v) {
       console.error(id, 'not found');

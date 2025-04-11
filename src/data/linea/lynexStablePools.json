@@ -20,46 +20,6 @@
     }
   },
   {
-    "name": "lynex-usdt+-usd+",
-    "address": "0xc5f4C5C2077BbbaC5a8381Cf30eCdf18fde42a91",
-    "gauge": "0x58AC068Eef3F49E019A88C7ecc9Ac2Fdd63fA755",
-    "decimals": "1e18",
-    "chainId": 59144,
-    "beefyFee": 0.095,
-    "lp0": {
-      "address": "0x1E1F509963A6D33e169D9497b11c7DbFe73B7F13",
-      "oracle": "tokens",
-      "oracleId": "lineaUSDT+",
-      "decimals": "1e6"
-    },
-    "lp1": {
-      "address": "0xB79DD08EA68A908A97220C76d19A6aA9cBDE4376",
-      "oracle": "tokens",
-      "oracleId": "lineaUSD+",
-      "decimals": "1e6"
-    }
-  },
-  {
-    "name": "lynex-usdc-usd+",
-    "address": "0x58AaCbccAeC30938cb2bb11653Cad726e5c4194a",
-    "gauge": "0xEaf988C649f44c4DDFd7FDe1a8cB290569B66253",
-    "decimals": "1e18",
-    "chainId": 59144,
-    "beefyFee": 0.095,
-    "lp0": {
-      "address": "0x176211869cA2b568f2A7D4EE941E073a821EE1ff",
-      "oracle": "tokens",
-      "oracleId": "USDC",
-      "decimals": "1e6"
-    },
-    "lp1": {
-      "address": "0xB79DD08EA68A908A97220C76d19A6aA9cBDE4376",
-      "oracle": "tokens",
-      "oracleId": "lineaUSD+",
-      "decimals": "1e6"
-    }
-  },
-  {
     "name": "lynex-usdc-dusd",
     "address": "0x7088A31d53Fc1fA300Ceb5F9103343137A62b545",
     "gauge": "0xe9E48c99C9cb2b5a5deb85E913f52A22e5B53026",

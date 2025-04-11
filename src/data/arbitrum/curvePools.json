@@ -248,12 +248,6 @@
     "pool": "0x1446999b0b0e4f7ada6ee73f2ae12a2cfdc5d9e7",
     "gauge": "0xd68089d9daa2da7888b7ef54158480e09ecc3580",
     "convex": true,
-    "rewards": [
-      {
-        "token": "0xa3d1a8deb97b111454b294e2324efad13a9d8396",
-        "oracleId": "arbOVN"
-      }
-    ],
     "getDy": ["v1", 1, 0],
     "tokens": [
       {
@@ -557,20 +551,6 @@
     "pool": "0xb34a7d1444a707349bc7b981b7f2e1f20f81f013",
     "gauge": "0x4645e6476d3a5595be9efd39426cc10586a8393d",
     "convex": true,
-    "rewards": [
-      {
-        "token": "0xa3d1a8deb97b111454b294e2324efad13a9d8396",
-        "oracleId": "arbOVN"
-      },
-      {
-        "token": "0x9d2F299715D94d8A7E6F5eaa8E654E8c74a988A7",
-        "oracleId": "FXS"
-      },
-      {
-        "token": "0x912CE59144191C1204E64559FE8253a0e49E6548",
-        "oracleId": "ARB"
-      }
-    ],
     "getDy": ["v1", 0, 2, "USDC"],
     "tokens": [
       {
