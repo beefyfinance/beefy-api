@@ -18,6 +18,10 @@
     "rewardPool": {
       "address": "0xa651c7c43a53328284747C89c56Ef5fB15A7161d",
       "oracleId": "uniswap-cow-gnosis-wbtsla-sdai-rp"
+    },
+    "vault": {
+      "address": "0x72685de19A82398496521872FF60FC85bF0b0d34",
+      "oracleId": "uniswap-cow-gnosis-wbtsla-sdai-vault"
     }
   },
   {
