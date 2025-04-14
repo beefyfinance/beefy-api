@@ -1,0 +1,26 @@
+[
+  {
+    "name": "berapaw-ohm-honey",
+    "address": "0x98bDEEde9A45C28d229285d9d6e9139e9F505391",
+    "gauge": "0x815596fA7C4d983d1Ca5304e5b48978424C1B448",
+    "tokens": ["OHM", "HONEY"]
+  },
+  {
+    "name": "berapaw-yeet-bera",
+    "address": "0xEc8BA456b4e009408d0776cdE8B91f8717D13Fa1",
+    "gauge": "0x0710ABFfB1A54211a5e88d18Bf9854Cba86d0819",
+    "tokens": ["YEET", "WBERA"]
+  },
+  {
+    "name": "berapaw-bera-honey",
+    "address": "0x4a254B11810B8EBb63C5468E438FC561Cb1bB1da",
+    "gauge": "0x45325Df4A6A6ebD268f4693474AaAa1f3f0ce8Ca",
+    "tokens": ["WBERA", "HONEY"]
+  },
+  {
+    "name": "berapaw-nav-bera",
+    "address": "0xEf8C3239E0D8Be9d58f145E18F5909Ddad681365",
+    "gauge": "0x66EB42C499372E897929eFBF6026821B0a148119",
+    "tokens": ["NAV", "WBERA"]
+  }
+]

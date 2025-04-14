@@ -58,7 +58,7 @@ import getVelodromeModeStablePrices from './mode/getVelodromeModeStablePrices';
 import getVelodromeLiskStablePrices from './lisk/getVelodromeLiskStablePrices';
 import getNuriStablePrices from './scroll/getNuriStablePrices';
 import getTokanStablePrices from './scroll/getTokanStablePrices';
-import getBeraswapPrices from './berachain/getBeraswapPrices';
+import { getBeraswapPrices } from './berachain/getBeraswapPrices';
 import { getKodiakPrices } from './berachain/getKodiakPrices';
 import {
   ARBITRUM_CHAIN_ID as ARB_CHAIN_ID,

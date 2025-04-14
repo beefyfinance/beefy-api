@@ -7,13 +7,7 @@ const getBalancerPrices = async (chainId, pools, tokenPrices) => {
   let prices = {};
   const { tokenAddresses, balances, totalSupplys } = await getPoolsData(chainId, pools);
   for (let i = 0; i < pools.length; i++) {
-    let price = await getPoolPrice(
-      pools[i],
-      tokenAddresses[i],
-      balances[i],
-      totalSupplys[i],
-      tokenPrices
-    );
+    const price = getPoolPrice(pools[i], tokenAddresses[i], balances[i], totalSupplys[i], tokenPrices);
     prices = { ...prices, ...price };
   }
 
@@ -42,23 +36,15 @@ const getPoolsData = async (chainId, pools) => {
   return { tokenAddresses, balances, totalSupplys };
 };
 
-const getPoolPrice = async (pool, tokenAddresses, balance, totalSupply, tokenPrices) => {
+const getPoolPrice = (pool, tokenAddresses, balance, totalSupply, tokenPrices) => {
   let tokenPrice;
   let tokenBalInUsd = new BigNumber(0);
   let totalStakedinUsd = new BigNumber(0);
   let shiftedBalances = [];
   let tokens = [];
   for (let i = 0; i < pool.tokens.length; i++) {
-    if (pool.composable) {
-      if (i != pool.bptIndex) {
-        tokenPrice = await getTokenPrice(tokenPrices, pool.tokens[i].oracleId);
-        tokenBalInUsd = balance[i].times(tokenPrice).dividedBy(pool.tokens[i].decimals);
-        totalStakedinUsd = totalStakedinUsd.plus(tokenBalInUsd);
-        shiftedBalances.push(balance[i].dividedBy(pool.tokens[i].decimals).toString(10));
-        tokens.push(tokenAddresses[i]);
-      }
-    } else {
-      tokenPrice = await getTokenPrice(tokenPrices, pool.tokens[i].oracleId);
+    if (!pool.composable || i != pool.bptIndex) {
+      tokenPrice = getTokenPrice(tokenPrices, pool.tokens[i].oracleId);
       tokenBalInUsd = balance[i].times(tokenPrice).dividedBy(pool.tokens[i].decimals);
       totalStakedinUsd = totalStakedinUsd.plus(tokenBalInUsd);
       shiftedBalances.push(balance[i].dividedBy(pool.tokens[i].decimals).toString(10));
@@ -87,7 +73,7 @@ const getTokenPrice = (tokenPrices, oracleId) => {
   if (tokenPrices.hasOwnProperty(tokenSymbol)) {
     tokenPrice = tokenPrices[tokenSymbol];
   } else {
-    console.error(`Unknown token '${tokenSymbol}'. Consider adding it to .json file`);
+    console.trace(`Unknown token '${tokenSymbol}'. Consider adding it to .json file`);
   }
   return tokenPrice;
 };

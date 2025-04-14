@@ -167,6 +167,19 @@ export const tokens = {
     bridge: 'native',
     risks: ['LARGE_HOLDERS'],
   },
+  YEET: {
+    name: 'YEET',
+    address: '0x08A38Caa631DE329FF2DAD1656CE789F31AF3142',
+    symbol: 'YEET',
+    oracleId: 'YEET',
+    decimals: 18,
+    chainId: 80094,
+    website: 'https://www.yeetit.xyz/',
+    description:
+      'Yeet offers three core products: the Yeet Game, YeetBonds, and Vault. The Yeet Game combines DeFi and on-chain gaming, allowing players to win $BERA and $YEET prizes. YeetBonds is an open marketplace for OTC sales where users can buy Berachain ecosystem tokens at a discount, in collaboration with Bond Protocol. The Vault is a yield product that farms liquidity and compounds rewards using a complex DeFi yield farming strategy, simplified for users.',
+    bridge: 'native',
+    risks: ['LARGE_HOLDERS'],
+  },
   USDbr: {
     name: 'USDbr',
     address: '0x6d4223DAE2a8744a85a6d44e97f3F61679f87ee6',

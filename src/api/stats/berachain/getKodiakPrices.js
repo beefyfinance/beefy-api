@@ -3,7 +3,10 @@ import { fetchContract } from '../../rpc/client';
 import { addressBookByChainId, ChainId } from '../../../../packages/address-book/src/address-book';
 import RangeAbi from '../../../abis/Range';
 import { BERACHAIN_CHAIN_ID as chainId } from '../../../constants';
-import pools from '../../../data/berachain/kodiakPools.json';
+import kodiak from '../../../data/berachain/kodiakPools.json';
+import berapaw from '../../../data/berachain/kodiakBeraPawPools.json';
+
+const pools = [...kodiak, ...berapaw];
 
 export const getKodiakPrices = async tokenPrices => {
   const contracts = pools.map(p => fetchContract(p.address, RangeAbi, chainId));

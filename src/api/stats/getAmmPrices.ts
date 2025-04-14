@@ -234,6 +234,7 @@ const coinGeckoCoins: Record<string, string[]> = {
   'convex-fxs': ['cvxFXS'],
   'paypal-usd': ['BYUSD'],
   'stader-ethx': ['ETHx'],
+  'liquid-bgt': ['LBGT'],
 };
 
 /**
