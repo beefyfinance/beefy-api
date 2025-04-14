@@ -167,6 +167,20 @@ export const tokens = {
     bridge: 'native',
     risks: ['LARGE_HOLDERS'],
   },
+  LBGT: {
+    name: 'Liquid BGT',
+    address: '0xBaadCC2962417C01Af99fb2B7C75706B9bd6Babe',
+    symbol: 'LBGT',
+    oracleId: 'LBGT',
+    decimals: 18,
+    chainId: 80094,
+    website: 'https://www.berapaw.com/',
+    documentation: 'https://docs.berapaw.com/',
+    description:
+      'The Liquid Bera Governance Token ($LBGT) is a core component of BeraPaw. It tokenizes Berachain’s native Governance, BGT, into a liquid, transferable asset. This innovation simplifies participation in Berachain’s Proof of Liquidity (PoL) by automating rewards and delegations while providing users with the flexibility to trade and utilize $LBGT across decentralized finance (DeFi) ecosystems.',
+    bridge: 'native',
+    risks: ['NO_TIMELOCK'],
+  },
   YEET: {
     name: 'YEET',
     address: '0x08A38Caa631DE329FF2DAD1656CE789F31AF3142',
@@ -175,6 +189,7 @@ export const tokens = {
     decimals: 18,
     chainId: 80094,
     website: 'https://www.yeetit.xyz/',
+    documentation: 'https://docs.yeetit.xyz/',
     description:
       'Yeet offers three core products: the Yeet Game, YeetBonds, and Vault. The Yeet Game combines DeFi and on-chain gaming, allowing players to win $BERA and $YEET prizes. YeetBonds is an open marketplace for OTC sales where users can buy Berachain ecosystem tokens at a discount, in collaboration with Bond Protocol. The Vault is a yield product that farms liquidity and compounds rewards using a complex DeFi yield farming strategy, simplified for users.',
     bridge: 'native',
