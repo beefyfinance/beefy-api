@@ -6,6 +6,7 @@ import {
   GNOSIS_CHAIN_ID,
   OPTIMISM_CHAIN_ID,
   POLYGON_CHAIN_ID,
+  BASE_CHAIN_ID,
 } from '../constants';
 import { addressBook } from '../../packages/address-book/src/address-book';
 import { fetchContract } from '../api/rpc/client';
@@ -85,6 +86,9 @@ const {
   gnosis: {
     tokens: { stEUR, EURA, agETH, wagETH, agwstETH, wagwstETH, agGNO, wagGNO },
   },
+  base: {
+    tokens: { GHO: baseGHO, waBasGHO, USDC: baseUSDC, waBasUSDC },
+  },
 } = addressBook;
 
 const tokens = {
@@ -146,6 +150,10 @@ const tokens = {
     [agwstETH, wagwstETH, true],
     [agGNO, wagGNO, true],
   ],
+  base: [
+    [baseGHO, waBasGHO, true],
+    [baseUSDC, waBasUSDC, true],
+  ],
 };
 
 const getWrappedAavePrices = async (tokenPrices, tokens, chainId) => {
@@ -205,6 +213,7 @@ const fetchWrappedAavePrices = async tokenPrices =>
     getWrappedAavePrices(tokenPrices, tokens.arbitrum, ARBITRUM_CHAIN_ID),
     getWrappedAavePrices(tokenPrices, tokens.avax, AVAX_CHAIN_ID),
     getWrappedAavePrices(tokenPrices, tokens.gnosis, GNOSIS_CHAIN_ID),
+    getWrappedAavePrices(tokenPrices, tokens.base, BASE_CHAIN_ID),
   ]).then(data =>
     data.flat().reduce((acc, cur, i) => ((acc[Object.values(tokens).flat()[i][1].oracleId] = cur), acc), {})
   );
