@@ -1,5 +1,11 @@
 [
   {
+    "name": "swapx-ichi-sts-swpx",
+    "address": "0x8063B7e5Ee1d772B38B13a80a1AD3feA538ee8D5",
+    "gauge": "0x110f0c53aDaa8015001d5Ae2ec36f2CC128954F3",
+    "tokens": ["SWPx", "stS"]
+  },
+  {
     "name": "swapx-ichi-bes-os",
     "address": "0x052D43B9207FCef4D03DbE75e77756937C94B48f",
     "gauge": "0xfBA3606310f3d492031176eC85DFbeD67F5799F2",
