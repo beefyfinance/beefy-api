@@ -766,7 +766,7 @@ export const tokens = {
     decimals: 18,
     oracleId: 'CHAD',
     logoURI: '',
-    website: 'https://basedchad.io/',
+    website: 'https://basedchad.com/',
     description:
       'You can’t say anything is more based than putting the best meme of all time on the most based L2.',
     bridge: 'native',
