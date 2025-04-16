@@ -235,6 +235,19 @@ export const tokens = {
     bridge: 'layerzero',
     risks: ['NO_TIMELOCK'],
   },
+  BREAD: {
+    name: 'BREAD',
+    symbol: 'BREAD',
+    oracleId: 'BREAD',
+    address: '0x0003eEDFdd020bf60D10cf684ABAc7C4534B7eAd',
+    decimals: 18,
+    chainId: 80094,
+    website: 'https://www.bakerdao.io/',
+    documentation: 'https://documentation.bakerdao.io/',
+    description:
+      'BakerDAO combines token economics, collateralized lending, leverage, and Proof-of-Liquidity into a single cohesive financial ecosystem. The $BREAD token features a mathematically-enforced upward price trajectory, backed by $BERA tokens.',
+    bridge: 'native',
+  },
   USDbr: {
     name: 'USDbr',
     address: '0x6d4223DAE2a8744a85a6d44e97f3F61679f87ee6',
