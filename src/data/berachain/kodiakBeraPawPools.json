@@ -1,5 +1,17 @@
 [
   {
+    "name": "berapaw-solvbtc-xsolvbtc",
+    "address": "0x43E487126c4F37D1915cF02a90B5C5295AFb1790",
+    "gauge": "0x3fc5cB0290C82680Afe9EF8CddE5468d74C85705",
+    "tokens": ["SolvBTC", "xSolvBTC"]
+  },
+  {
+    "name": "berapaw-bera-ramen",
+    "address": "0x93A913351CaE2D8C82C4b85f699726947eB76d32",
+    "gauge": "0x6B23E121C6A13c959d69493Ea5cA015A5847596A",
+    "tokens": ["WBERA", "RAMEN"]
+  },
+  {
     "name": "berapaw-ohm-honey",
     "address": "0x98bDEEde9A45C28d229285d9d6e9139e9F505391",
     "gauge": "0x815596fA7C4d983d1Ca5304e5b48978424C1B448",

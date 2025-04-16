@@ -235,6 +235,8 @@ const coinGeckoCoins: Record<string, string[]> = {
   'paypal-usd': ['BYUSD'],
   'stader-ethx': ['ETHx'],
   'liquid-bgt': ['LBGT'],
+  'solv-btc': ['SolvBTC'],
+  'solv-protocol-solvbtc-bbn': ['xSolvBTC'],
 };
 
 /**

@@ -24,7 +24,7 @@ const getAuraBaseApys = async () => {
     balancerVault: balancer.router,
     aaveDataProvider: aaveDataProvider,
     auraMinter: auraMinter,
-    log: true,
+    // log: true,
   });
 };
 
