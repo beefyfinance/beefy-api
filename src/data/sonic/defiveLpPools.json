@@ -98,5 +98,45 @@
       "oracleId": "WETH",
       "decimals": "1e18"
     }
+  },
+  {
+    "name": "defive-ws-bes",
+    "address": "0x6885DAdc124B281b3AAbBDB7F2F35C789D87C3EF",
+    "decimals": "1e18",
+    "beefyFee": 0.095,
+    "poolId": 11,
+    "chainId": 146,
+    "lp0": {
+      "address": "0x039e2fB66102314Ce7b64Ce5Ce3E5183bc94aD38",
+      "oracle": "tokens",
+      "oracleId": "wS",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x871A101Dcf22fE4fE37be7B654098c801CBA1c88",
+      "oracle": "tokens",
+      "oracleId": "beS",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "defive-usdc.e-bes",
+    "address": "0x0d0e7C58ac2a52cca1385E105a0A91652328Afa4",
+    "decimals": "1e18",
+    "beefyFee": 0.095,
+    "poolId": 12,
+    "chainId": 146,
+    "lp0": {
+      "address": "0x29219dd400f2Bf60E5a23d13Be72B486D4038894",
+      "oracle": "tokens",
+      "oracleId": "sUSDCe",
+      "decimals": "1e6"
+    },
+    "lp1": {
+      "address": "0x871A101Dcf22fE4fE37be7B654098c801CBA1c88",
+      "oracle": "tokens",
+      "oracleId": "beS",
+      "decimals": "1e18"
+    }
   }
 ]
