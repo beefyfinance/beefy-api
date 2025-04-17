@@ -5497,4 +5497,62 @@ export const tokens = {
       'Through liquid staking, GoGoPool allows users to stake their AVAX and earn returns without locking up their assets. They receive ggAVAX, which they can trade anytime, providing flexibility along with earning potential.',
     bridge: 'native',
   },
+  waAvaWAVAX: {
+    chainId: 43114,
+    address: '0xD7da0De6Ef4f51d6206bF2A35fCd2030F54c3F7B',
+    decimals: 18,
+    name: 'Wrapped Aave Avalanche WAVAX',
+    symbol: 'waAvaWAVAX',
+    oracleId: 'waAvaWAVAX',
+    website: 'https://www.avalabs.org/',
+    description:
+      'Wrapped Aave Staked AVAX. Avalanche is the fastest smart contracts platform in the blockchain industry, as measured by time-to-finality, and has the most validators securing its activity of any proof-of-stake protocol.',
+    bridge: 'native',
+    logoURI:
+      'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0xB31f66AA3C1e785363F0875A1B74E27b85FD66c7/logo.png',
+    documentation: 'https://docs.avax.network/learn/avalanche/avax',
+  },
+  waAvaWETH: {
+    chainId: 43114,
+    address: '0xdFD2b2437a94108323045C282fF1916de5Ac6Af7',
+    decimals: 18,
+    name: 'Wrapped Aave Avalanche WETH',
+    symbol: 'waAvaWETH',
+    oracleId: 'waAvaWETH',
+    website: 'https://ethereum.org/',
+    description:
+      'Wrapped Aave Staked ETH. The native currency that flows within the Ethereum economy is called Ether (ETH). Ether is typically used to pay for transaction fees called Gas, and it is the base currency of the network.',
+    bridge: 'native',
+    logoURI:
+      'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0xf20d962a6c8f70c731bd838a3a388D7d48fA6e15/logo.png',
+    documentation: 'https://ethereum.org/en/developers/docs/',
+  },
+  waAvaBTCb: {
+    address: '0x2d324fD1Ca86D90f61B0965d2db2f86d22eA4B74',
+    name: 'Wrapped Aave Avalanche BTCb',
+    symbol: 'waAvaBTCb',
+    oracleId: 'waAvaBTCb',
+    chainId: 43114,
+    decimals: 8,
+    logoURI:
+      'https://tokens.pancakeswap.finance/images/0x152b9d0FdC40C096757F570A51E494bd4b943E50.svg',
+    website: 'https://bridge.avax.network/',
+    description: 'Wrapped Aave Avalanche BTCb',
+    bridge: 'native',
+  },
+  waAvaUSDC: {
+    address: '0xe1bFC96d95BAdCB10Ff013Cb0C9C6c737ca07009',
+    name: 'Wrapped Aave Avalanche USDC',
+    symbol: 'waAvaUSDC',
+    oracleId: 'waAvaUSDC',
+    chainId: 43114,
+    decimals: 6,
+    website: 'https://www.circle.com/usdc',
+    documentation: 'https://developers.circle.com/docs',
+    description:
+      'USDC is a fully collateralized US dollar stablecoin. USDC is issued by regulated financial institutions, backed by fully reserved assets, redeemable on a 1:1 basis for US dollars.',
+    bridge: 'native',
+    logoURI:
+      'https://tokens.pancakeswap.finance/images/0x8ac76a51cc950d9822d68b83fe1ad97b32cd580d.png',
+  },
 } as const satisfies Record<string, Token>;

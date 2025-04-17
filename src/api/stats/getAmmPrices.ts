@@ -237,6 +237,7 @@ const coinGeckoCoins: Record<string, string[]> = {
   'liquid-bgt': ['LBGT'],
   'solv-btc': ['SolvBTC'],
   'solv-protocol-solvbtc-bbn': ['xSolvBTC'],
+  'agora-dollar': ['AUSD'],
 };
 
 /**

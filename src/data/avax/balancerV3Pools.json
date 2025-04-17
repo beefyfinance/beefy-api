@@ -1,0 +1,92 @@
+[
+  {
+    "name": "balancerv3-avalanche-waavaweth-waavawavax",
+    "address": "0x1C39Ebe0ee53B52Ab24D3945e9CDE9E6c09D0851",
+    "gauge": "0x4a3550D03F702Ef61798bdfc2A57aAaa7B4Ec19a",
+    "decimals": "1e18",
+    "rewards": [
+      {
+        "newGauge": true,
+        "stream": "0x4a3550D03F702Ef61798bdfc2A57aAaa7B4Ec19a",
+        "oracleId": "BAL"
+      },
+      {
+        "rewardToken": "0xB31f66AA3C1e785363F0875A1B74E27b85FD66c7",
+        "oracleId": "WAVAX",
+        "decimals": "1e18"
+      }
+    ],
+    "tokens": [
+      {
+        "address": "0xD7da0De6Ef4f51d6206bF2A35fCd2030F54c3F7B",
+        "oracleId": "waAvaWAVAX",
+        "decimals": "1e18"
+      },
+      {
+        "address": "0xdFD2b2437a94108323045C282fF1916de5Ac6Af7",
+        "oracleId": "waAvaWETH",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
+    "name": "balancerv3-avalanche-waavabtcb-waavawavax",
+    "address": "0x58374fFF35d1F3023bbFC646fb9eCd2b180cA0b0",
+    "gauge": "0xd6CF1ADC6bF14634435b66dEB2900B9441fb3739",
+    "decimals": "1e18",
+    "rewards": [
+      {
+        "newGauge": true,
+        "stream": "0xd6CF1ADC6bF14634435b66dEB2900B9441fb3739",
+        "oracleId": "BAL"
+      },
+      {
+        "rewardToken": "0xB31f66AA3C1e785363F0875A1B74E27b85FD66c7",
+        "oracleId": "WAVAX",
+        "decimals": "1e18"
+      }
+    ],
+    "tokens": [
+      {
+        "address": "0x2d324fd1ca86d90f61b0965d2db2f86d22ea4b74",
+        "oracleId": "waAvaBTCb",
+        "decimals": "1e8"
+      },
+      {
+        "address": "0xD7da0De6Ef4f51d6206bF2A35fCd2030F54c3F7B",
+        "oracleId": "waAvaWAVAX",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
+    "name": "balancerv3-avalanche-wavausdc-waavawavax",
+    "address": "0xa4E1B0DDFFC0E3Aa63dBCa462cf370E4f1dC9b8B",
+    "gauge": "0x40F9a910685D2a41a66D13D56627505747117563",
+    "decimals": "1e18",
+    "rewards": [
+      {
+        "newGauge": true,
+        "stream": "0x40F9a910685D2a41a66D13D56627505747117563",
+        "oracleId": "BAL"
+      },
+      {
+        "rewardToken": "0xB31f66AA3C1e785363F0875A1B74E27b85FD66c7",
+        "oracleId": "WAVAX",
+        "decimals": "1e18"
+      }
+    ],
+    "tokens": [
+      {
+        "address": "0xD7da0De6Ef4f51d6206bF2A35fCd2030F54c3F7B",
+        "oracleId": "waAvaWAVAX",
+        "decimals": "1e18"
+      },
+      {
+        "address": "0xe1bFC96d95BAdCB10Ff013Cb0C9C6c737ca07009",
+        "oracleId": "waAvaUSDC",
+        "decimals": "1e6"
+      }
+    ]
+  }
+]
