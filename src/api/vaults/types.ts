@@ -1,19 +1,64 @@
 import BigNumber from 'bignumber.js';
 import { ApiChain, AppChain } from '../../utils/chain';
+import { Address } from 'viem';
+
+/** Added to all vault configs by API */
+type ApiCommonVault = {
+  /** Same as {network} except for harmony->one */
+  chain: ApiChain;
+  /** @deprecated use type === 'gov' */
+  isGovVault?: boolean;
+};
+
+/** Added to standard vault configs by API */
+type ApiStandardVault = ApiCommonVault & {
+  /** Fetched on-chain, may not be available immediately after API start */
+  pricePerFullShare?: BigNumber;
+  /** Fetched on-chain, may not be available immediately after API start */
+  strategy?: string;
+  /** Fetched on-chain, may not be available immediately after API start */
+  lastHarvest?: number;
+};
+
+/** Added to gov vault configs by API */
+type ApiGovVault = ApiCommonVault & {
+  /** CLM Pools only - Fetched on-chain, may not be available immediately after API start */
+  lastHarvest?: number;
+  /** Fetched on-chain, may not be available immediately after API start */
+  totalSupply?: number;
+};
+
+/** Added to cowcentrated vault configs by API */
+type ApiCowVault = ApiCommonVault & {
+  /** Fetched on-chain, may not be available immediately after API start */
+  strategy?: string;
+  /** Fetched on-chain, may not be available immediately after API start */
+  lastHarvest?: number;
+};
+
+/** Added to erc4626 vault configs by API */
+type ApiErc4626Vault = ApiCommonVault & {
+  /** Fetched on-chain, may not be available immediately after API start */
+  pricePerFullShare?: BigNumber;
+  /** For ERC4626 harvest() / lastHarvest() is on the vault contract itself, so this is same as earnContractAddress */
+  strategy?: string;
+  /** Fetched on-chain, may not be available immediately after API start */
+  lastHarvest?: number;
+};
 
 export type StandardVault = {
   id: string;
   name: string;
   token: string;
-  tokenAddress?: string | null;
+  tokenAddress?: Address | null;
   tokenDecimals: number;
   tokenProviderId?: string;
   tokenAmmId?: string;
   earnedToken: string;
-  earnedTokenAddress: string;
+  earnedTokenAddress: Address;
   earnedTokenDecimals?: number;
   earnedOracleId?: string;
-  earnContractAddress: string;
+  earnContractAddress: Address;
   oracle: 'lps' | 'tokens';
   oracleId: string;
   status: 'active' | 'paused' | 'eol';
@@ -24,27 +69,21 @@ export type StandardVault = {
   addLiquidityUrl?: string;
   removeLiquidityUrl?: string;
   network: AppChain;
-  /** @deprecated */
-  isGovVault?: boolean;
   type: 'standard';
-  strategy: string;
-  lastHarvest?: number;
-  pricePerFullShare: BigNumber;
   createdAt: number;
   retiredAt?: number | undefined;
-  chain: ApiChain;
-};
+} & ApiStandardVault;
 
 export type GovVault = {
   id: string;
   name: string;
   token: string;
-  tokenAddress: string;
+  tokenAddress: Address;
   tokenDecimals: number;
   earnedToken: string;
   earnedTokenAddress: string;
   earnedTokenDecimals: number;
-  earnContractAddress: string;
+  earnContractAddress: Address;
   oracle: 'lps' | 'tokens';
   oracleId: string;
   status: 'active' | 'paused' | 'eol';
@@ -52,30 +91,26 @@ export type GovVault = {
   assets: string[];
   risks: string[];
   strategyTypeId: string;
-  isGovVault: boolean;
   type: 'gov';
   network: AppChain;
   createdAt: number;
   retiredAt?: number | undefined;
-  totalSupply: number;
-  chain: ApiChain;
-  lastHarvest?: number; // for CLM Pools only (copied from CLM base)
-};
+} & ApiGovVault;
 
 export type CowVault = {
   id: string;
   name: string;
   token: string;
-  tokenAddress?: string | null;
+  tokenAddress?: Address | null;
   tokenDecimals: number;
   depositTokenAddresses: string[];
   tokenProviderId?: string;
   tokenAmmId?: string;
   earnedToken: string;
-  earnedTokenAddress: string;
+  earnedTokenAddress: Address;
   earnedTokenDecimals?: number;
   earnedOracleId?: string;
-  earnContractAddress: string;
+  earnContractAddress: Address;
   oracle: 'lps' | 'tokens';
   oracleId: string;
   status: 'active' | 'paused' | 'eol';
@@ -86,29 +121,24 @@ export type CowVault = {
   addLiquidityUrl?: string;
   removeLiquidityUrl?: string;
   network: AppChain;
-  /** @deprecated */
-  isGovVault?: boolean;
   type: 'cowcentrated';
-  strategy: string;
-  lastHarvest?: number;
   createdAt: number;
   retiredAt?: number | undefined;
-  chain: ApiChain;
-};
+} & ApiCowVault;
 
 export type Erc4626Vault = {
   id: string;
   name: string;
   token: string;
-  tokenAddress?: string | null;
+  tokenAddress?: Address | null;
   tokenDecimals: number;
   tokenProviderId?: string;
   tokenAmmId?: string;
   earnedToken: string;
-  earnedTokenAddress: string;
+  earnedTokenAddress: Address;
   earnedTokenDecimals?: number;
   earnedOracleId?: string;
-  earnContractAddress: string;
+  earnContractAddress: Address;
   oracle: 'lps' | 'tokens';
   oracleId: string;
   status: 'active' | 'paused' | 'eol';
@@ -119,17 +149,10 @@ export type Erc4626Vault = {
   addLiquidityUrl?: string;
   removeLiquidityUrl?: string;
   network: AppChain;
-  /** @deprecated */
-  isGovVault?: boolean;
   type: 'erc4626';
-  /** for ERC4626 harvest() / lastHarvest() is on the vault contract itself, so this is same as earnContractAddress */
-  strategy: string;
-  lastHarvest?: number;
-  pricePerFullShare: BigNumber;
   createdAt: number;
   retiredAt?: number | undefined;
-  chain: ApiChain;
-};
+} & ApiErc4626Vault;
 
 export type HarvestableVault = StandardVault | CowVault | Erc4626Vault;
 

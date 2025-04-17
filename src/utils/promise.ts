@@ -52,33 +52,57 @@ export const retryPromiseWithBackOff = async <T>(
     if (nthTry > maxTries) {
       return Promise.reject(e);
     }
-    console.log(
-      `retrying [${label}]: ${nthTry}/${maxTries}, awaiting ${2 ** (nthTry + 1) * delayTime}`
-    );
+    console.log(`retrying [${label}]: ${nthTry}/${maxTries}, awaiting ${2 ** (nthTry + 1) * delayTime}`);
 
     await sleep(2 ** (nthTry + 1) * delayTime);
     return retryPromiseWithBackOff(f, args, label, nthTry + 1, delayTime, maxTries);
   }
 };
 
-export function isResultFulfilled<T>(
-  result: PromiseSettledResult<T>
-): result is PromiseFulfilledResult<T> {
+export function isResultFulfilled<T>(result: PromiseSettledResult<T>): result is PromiseFulfilledResult<T> {
   return result.status === 'fulfilled';
 }
 
-export function isResultRejected<T>(
-  result: PromiseSettledResult<T>
-): result is PromiseRejectedResult {
+export function isResultRejected<T>(result: PromiseSettledResult<T>): result is PromiseRejectedResult {
   return result.status === 'rejected';
 }
 
-export function onlyFulfilledValues<T>(results: PromiseSettledResult<T>[]): T[] {
-  return results.filter(isResultFulfilled).map(result => result.value);
+type PromiseContextFulfilledResult<TContext, TResult> = PromiseFulfilledResult<TResult> & {
+  context: TContext;
+  elapsed: number;
+};
+type PromiseContextRejectedResult<TContext> = PromiseRejectedResult & { context: TContext };
+type PromiseContextResult<TContext, TResult> =
+  | PromiseContextFulfilledResult<TContext, TResult>
+  | PromiseContextRejectedResult<TContext>;
+
+export function contextAllSettled<TContext, TResult>(
+  contexts: TContext[],
+  mapper: (context: TContext) => Promise<TResult>
+): Promise<Array<PromiseContextResult<TContext, TResult>>> {
+  return Promise.all(
+    contexts.map(async context => {
+      const start = Date.now();
+      try {
+        const value = await mapper(context);
+        return { status: 'fulfilled', value, context, elapsed: Date.now() - start };
+      } catch (reason) {
+        return { status: 'rejected', reason, context, elapsed: Date.now() - start };
+      }
+    })
+  );
 }
 
-export function onlyRejectedReasons<T>(results: PromiseSettledResult<T>[]): any[] {
-  return results.filter(isResultRejected).map(result => result.reason);
+export function isContextResultFulfilled<TContext, TResult>(
+  result: PromiseContextResult<TContext, TResult>
+): result is PromiseContextFulfilledResult<TContext, TResult> {
+  return result.status === 'fulfilled';
+}
+
+export function isContextResultRejected<TContext, TResult>(
+  result: PromiseContextResult<TContext, TResult>
+): result is PromiseContextRejectedResult<TContext> {
+  return result.status === 'rejected';
 }
 
 export function getTimeoutAbortSignal(timeout: number): AbortSignal {

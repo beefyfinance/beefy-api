@@ -3,8 +3,7 @@ import { getKey, setKey } from '../../utils/cache';
 import { serviceEventBus } from '../../utils/ServiceEventBus';
 import { BIG_ZERO, isFiniteBigNumber } from '../../utils/big-number';
 import { isFiniteNumber } from '../../utils/number';
-
-const { getMultichainVaults } = require('../stats/getMultichainVaults');
+import { getMultichainVaults } from './getMultichainVaults';
 
 let mooTokenPrices = {};
 
