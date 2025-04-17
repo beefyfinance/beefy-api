@@ -2561,4 +2561,17 @@ export const tokens = {
     logoURI: 'https://ftmscan.com/token/images/USDC_32.png',
     documentation: 'https://www.circle.com/en/usdc-multichain/base',
   },
+  'Base is for everyone': {
+    name: 'Base is for everyone',
+    symbol: 'Base is for everyone',
+    oracleId: 'Base is for everyone',
+    address: '0xD769d56f479E9E72a77bB1523e866A33098Feec5',
+    chainId: 8453,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://x.com/base/status/1912584945127813533',
+    description: 'Base Meme',
+    documentation: '',
+    bridge: 'native',
+  },
 } as const satisfies Record<string, Token>;

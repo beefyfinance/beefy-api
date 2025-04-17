@@ -1,5 +1,22 @@
 [
   {
+    "address": "0x8c0919AE1fAcD6695Ad236Ea618d1018e5c4d42c",
+    "lpAddress": "0x0157699E0A26dbdf42a0a1DcF7426d0Df408C60e",
+    "tokens": ["0x29219dd400f2Bf60E5a23d13Be72B486D4038894", "0x871A101Dcf22fE4fE37be7B654098c801CBA1c88"],
+    "tokenOracleIds": ["sUSDCe", "beS"],
+    "decimals": [6, 18],
+    "oracleId": "shadow-cow-sonic-usdc.e-bes",
+    "providerId": "shadow",
+    "rewardPool": {
+      "address": "0x35768877220cae8492020957C35E4d9F96D2770c",
+      "oracleId": "shadow-cow-sonic-usdc.e-bes-rp"
+    },
+    "vault": {
+      "address": "0x91D2cB866C64089B72AA749bAF69592b50ab724f",
+      "oracleId": "shadow-cow-sonic-usdc.e-bes-vault"
+    }
+  },
+  {
     "address": "0xa9dD662358ca26F80c7A1ee12cEaE463a6D6Dd42",
     "lpAddress": "0xFc4060dB484F759B822B3AEA7e85826C61F9DFD8",
     "tokens": ["0x039e2fB66102314Ce7b64Ce5Ce3E5183bc94aD38", "0x871A101Dcf22fE4fE37be7B654098c801CBA1c88"],
