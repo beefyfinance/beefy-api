@@ -1,13 +1,13 @@
 [
   {
-    "address": "0x6209A7bEb9c1EBee2Ce861e862851f300B90f1B3",
+    "address": "0xF315b9Bde1E18E71F879dD47b32697a01b3671fb",
     "lpAddress": "0x06D7874037E622d6eF42294Cf32EB259806Cb1C6",
     "tokens": ["0x4200000000000000000000000000000000000006", "0xD769d56f479E9E72a77bB1523e866A33098Feec5"],
     "tokenOracleIds": ["WETH", "Base is for everyone"],
     "decimals": [18, 18],
     "oracleId": "uniswap-cow-base-weth-base is for everyone",
     "rewardPool": {
-      "address": "0xF74db50709274AF284e1Ee64616E30b3595f593D",
+      "address": "0x06e39569023AF9808C660E6e5833665C01E79cC2",
       "oracleId": "uniswap-cow-base-weth-base is for everyone-rp"
     }
   },
