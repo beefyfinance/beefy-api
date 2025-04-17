@@ -39,15 +39,14 @@ export function withTimeout<T>(promise: Promise<T>, timeout: number): Promise<T>
 
 export const retryPromiseWithBackOff = async <T>(
   f: (...args: any[]) => Promise<T>,
-  args: any[],
+  args: any[] | undefined,
   label: string,
   nthTry = 1,
   delayTime: number = 200,
   maxTries: number = 5
 ): Promise<T> => {
   try {
-    const res = args ? await f(args) : await f();
-    return res;
+    return args ? await f(args) : await f();
   } catch (e) {
     if (nthTry > maxTries) {
       return Promise.reject(e);

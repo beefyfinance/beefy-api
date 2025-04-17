@@ -40,7 +40,7 @@ let tokenBalancesByChain: TreasuryBalances = keysToObject(ApiChains, () => ({}))
 let treasurySummary: TreasuryReport = keysToObject(ApiChains, () => ({}));
 
 // market maker
-let marketMakerReport: MMReport;
+let marketMakerReport: MMReport = {};
 
 function updateTreasuryAddressesByChain() {
   treasuryAddressesByChain = keysToObject(ApiChains, chain => {
