@@ -5,10 +5,10 @@
     "tokens": ["0x4200000000000000000000000000000000000006", "0xD769d56f479E9E72a77bB1523e866A33098Feec5"],
     "tokenOracleIds": ["WETH", "Base is for everyone"],
     "decimals": [18, 18],
-    "oracleId": "uniswap-cow-base-weth-base is for everyone",
+    "oracleId": "uniswap-cow-base-weth-base-is-for-everyone",
     "rewardPool": {
       "address": "0x06e39569023AF9808C660E6e5833665C01E79cC2",
-      "oracleId": "uniswap-cow-base-weth-base is for everyone-rp"
+      "oracleId": "uniswap-cow-base-weth-base-is-for-everyone-rp"
     }
   },
   {
