@@ -46,19 +46,6 @@ const fetchPpfs = async (pools: any[]) => {
   }
 };
 
-//Fetches ppfs for **vaults** from a single chain
-export const fetchChainVaultsPpfs = async (vaults: any[], chain) => {
-  const chainId = ChainId[chain];
-  const contracts = vaults
-    .map(v => v.earnContractAddress)
-    .map((address: `0x${string}`) =>
-      fetchContract<typeof BeefyVaultV6Abi>(address, BeefyVaultV6Abi, parseInt(chainId))
-    );
-  const ppfs = await Promise.all(contracts.map(c => c.read.getPricePerFullShare()));
-  vaults.forEach((vault, i) => (vault.pricePerFullShare = new BigNumber(ppfs[i].toString())));
-  return vaults;
-};
-
 function calcMooPrice(
   pool: any,
   tokenPrices: Record<string, number>,

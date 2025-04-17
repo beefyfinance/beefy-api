@@ -7,7 +7,7 @@ import { serviceEventBus } from '../../utils/ServiceEventBus';
 import { ApiChain, isApiChain, toApiChain } from '../../utils/chain';
 import { ChainTokens, TokenEntity, TokenErc20, TokenNative, TokensByChain } from './types';
 import { mapValues } from 'lodash';
-import { getAddress } from 'viem';
+import { Address, getAddress } from 'viem';
 
 const tokensByChain: Partial<TokensByChain> = {};
 
@@ -92,7 +92,7 @@ async function fetchVaultTokensForChain(chainId: ApiChain): Promise<TokenEntity[
 
   return vaults.reduce((tokens: TokenEntity[], vault) => {
     // Native comes from address book
-    if (vault.tokenAddress && vault.tokenAddress !== 'native' && vault.type !== 'cowcentrated') {
+    if (vault.tokenAddress && vault.type !== 'cowcentrated') {
       tokens.push({
         type: 'erc20',
         id: vault.token,
@@ -141,7 +141,7 @@ async function fetchBoostTokensForChain(chainId: ApiChain): Promise<TokenEntity[
         reward.type === 'token' &&
         reward.address &&
         reward.address !== 'native' &&
-        !vaultAddresses.has(reward.address)
+        !vaultAddresses.has(reward.address as Address)
       ) {
         tokens.push({
           type: 'erc20',

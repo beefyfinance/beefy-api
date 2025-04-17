@@ -191,10 +191,12 @@ export const vaultsLastHarvest = withErrorHandling(async ctx => {
   const lastHarvests = getAllVaults().reduce((res, vault) => {
     if ('lastHarvest' in vault) {
       const { id, lastHarvest } = vault;
-      res[id] = lastHarvest;
+      if (lastHarvest) {
+        res[id] = lastHarvest;
+      }
     }
     return res;
-  }, {});
+  }, {} as Record<string, number>);
   ctx.status = 200;
   ctx.body = lastHarvests;
 });

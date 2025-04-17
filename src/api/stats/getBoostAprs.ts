@@ -2,7 +2,6 @@ import { getAllNewBoosts } from '../boosts/getBoosts';
 import { Boost } from '../boosts/types';
 import BigNumber from 'bignumber.js';
 import { fetchPrice } from '../../utils/fetchPrice';
-import { StandardVault } from '../vaults/types';
 import { ApiChain, toChainId } from '../../utils/chain';
 import BeefyBoostAbi from '../../abis/BeefyBoost';
 import { fetchContract } from '../rpc/client';
@@ -11,8 +10,7 @@ import { partition } from 'lodash';
 import { BeefyRewardPoolV2Config, getBeefyRewardPoolV2Aprs } from './common/getBeefyRewardPoolV2Apr';
 import { getAddress } from 'viem';
 import { isDefined } from '../../utils/array';
-
-const { getVaultById } = require('../stats/getMultichainVaults');
+import { getVaultByIdOfType } from './getMultichainVaults';
 
 export const BOOST_APR_EXPIRED = -1;
 
@@ -26,7 +24,7 @@ const updateBoostV2AprsForChain = async (chain: ApiChain, boosts: Boost[]) => {
       chainId,
       boosts
         .map(boost => {
-          const vault = getVaultById(boost.vaultId);
+          const vault = getVaultByIdOfType(boost.vaultId, 'standard');
           if (!vault) {
             console.warn(
               `updateBoostV2AprsForChain`,
@@ -39,11 +37,12 @@ const updateBoostV2AprsForChain = async (chain: ApiChain, boosts: Boost[]) => {
           return {
             oracleId: boost.id,
             address: getAddress(boost.contractAddress),
+            // bit of a hack for {getTotalStakedInUsd}
             stakedToken: {
-              oracleId: vault.oracleId,
-              address: vault.earnContractAddress,
-              decimals: vault.tokenDecimals || 18,
-              pricePerFullShare: vault.pricePerFullShare,
+              address: vault.earnContractAddress, // mooToken address
+              pricePerFullShare: vault.pricePerFullShare, // mooToken -> depositToken ratio
+              oracleId: vault.oracleId, // depositToken oracle
+              decimals: vault.tokenDecimals || 18, // depositToken decimals
             },
           } satisfies BeefyRewardPoolV2Config;
         })
@@ -128,9 +127,16 @@ const mapResponseToBoostApr = async (
   if (periodFinish.times(1000).lte(new BigNumber(Date.now()))) return BOOST_APR_EXPIRED;
 
   try {
-    const vault: StandardVault = getVaultById(boost.vaultId);
+    const vault = getVaultByIdOfType(boost.vaultId, 'standard', true);
     if (!vault) {
       console.error(`[boost aprs] error calculating apr for ${boost.id}: vault ${boost.vaultId} not found`);
+      return null;
+    }
+
+    if (!vault.pricePerFullShare) {
+      console.error(
+        `[boost aprs] error calculating apr for ${boost.id}: vault ${boost.vaultId} PPFS not available`
+      );
       return null;
     }
 

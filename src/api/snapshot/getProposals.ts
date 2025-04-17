@@ -3,6 +3,7 @@ import { Cached, CachedProposals, CachedSpaces, Proposal, Proposals, SpaceWithAu
 import { getSnapshotApi } from './getSnapshotApi';
 import { isBefore, sub } from 'date-fns';
 import { keyBy, omit } from 'lodash';
+import { retryPromiseWithBackOff } from '../../utils/promise';
 
 const SPACES = {
   'beefydao.eth': {
@@ -154,7 +155,9 @@ async function updateIfNeeded() {
 export async function initProposalsService() {
   [cachedSpaces, cachedProposals] = await Promise.all([getCachedSpaces(), getCachedProposals()]);
 
-  setTimeout(updateIfNeeded, INIT_DELAY);
+  setTimeout(() => {
+    retryPromiseWithBackOff(updateIfNeeded, undefined, 'initProposalsService');
+  }, INIT_DELAY);
 
   setInterval(() => {
     updateIfNeeded().catch(err => console.error(err));

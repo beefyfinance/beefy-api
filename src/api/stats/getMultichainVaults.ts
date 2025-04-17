@@ -1,5 +1,10 @@
 import BigNumber from 'bignumber.js';
-import { isResultFulfilled, isResultRejected, withTimeout } from '../../utils/promise';
+import {
+  contextAllSettled,
+  isContextResultFulfilled,
+  isContextResultRejected,
+  withTimeout,
+} from '../../utils/promise';
 import { serviceEventBus } from '../../utils/ServiceEventBus';
 import { first, groupBy, mapValues, orderBy, sumBy } from 'lodash';
 import { ApiChain, ApiChains } from '../../utils/chain';
@@ -352,42 +357,75 @@ export function getMultichainClms() {
   return sortVaults(ApiChains.flatMap(chain => getSingleClms(chain)));
 }
 
-type VaultHandler<T extends AnyVault> = (chain: ApiChain, vault: T) => Promise<T>;
+type VaultHandler<T extends AnyVault> = (chain: ApiChain, vault: T, existing?: T | undefined) => Promise<T>;
 
 type VaultTypeHandlers = {
   [T in AnyVault as T['type']]: VaultHandler<T>;
 };
 
+function keepStaleOnError<T extends AnyVault>(
+  handler: VaultHandler<T>,
+  keys: Array<keyof T>
+): VaultHandler<T> {
+  return async (chain: ApiChain, vault: T, existing: T | undefined) => {
+    try {
+      return await handler(chain, vault, existing);
+    } catch (err) {
+      if (existing && keys.every(v => !!existing[v])) {
+        console.error(`> failed to get update ${vault.id} on ${chain}, using stale data`, err);
+        for (const key of keys) {
+          vault[key] = existing[key];
+        }
+        return vault;
+      }
+
+      throw err;
+    }
+  };
+}
+
 const vaultTypeHandlers: VaultTypeHandlers = {
-  standard: async (chain, vault) => {
-    const [strategyAddress, pricePerFullShare] = await Promise.all([
-      getStrategyAddress(chain, vault.earnContractAddress as Address),
-      getPricePerFullShare(chain, vault.earnContractAddress as Address),
-    ]);
-    vault.strategy = strategyAddress;
-    vault.pricePerFullShare = pricePerFullShare;
-    vault.lastHarvest = await getLastHarvest(chain, vault.strategy as Address);
-    return vault;
-  },
-  gov: async (chain, vault) => {
-    vault.totalSupply = await getTotalSupply(chain, vault.earnContractAddress as Address);
-    return vault;
-  },
-  cowcentrated: async (chain, vault) => {
-    vault.strategy = await getStrategyAddress(chain, vault.earnContractAddress as Address);
-    vault.lastHarvest = await getLastHarvest(chain, vault.strategy as Address);
-    return vault;
-  },
-  erc4626: async (chain, vault) => {
-    vault.strategy = vault.earnContractAddress;
-    const [pricePerFullShare, lastHarvest] = await Promise.all([
-      getPricePerFullShare(chain, vault.earnContractAddress as Address),
-      getLastHarvest(chain, vault.strategy as Address),
-    ]);
-    vault.pricePerFullShare = pricePerFullShare;
-    vault.lastHarvest = lastHarvest;
-    return vault;
-  },
+  standard: keepStaleOnError(
+    async (chain, vault) => {
+      const [strategyAddress, pricePerFullShare] = await Promise.all([
+        getStrategyAddress(chain, vault.earnContractAddress as Address),
+        getPricePerFullShare(chain, vault.earnContractAddress as Address),
+      ]);
+      vault.strategy = strategyAddress;
+      vault.pricePerFullShare = pricePerFullShare;
+      vault.lastHarvest = await getLastHarvest(chain, vault.strategy as Address);
+      return vault;
+    },
+    ['strategy', 'pricePerFullShare', 'lastHarvest']
+  ),
+  gov: keepStaleOnError(
+    async (chain, vault) => {
+      vault.totalSupply = await getTotalSupply(chain, vault.earnContractAddress as Address);
+      return vault;
+    },
+    ['totalSupply']
+  ),
+  cowcentrated: keepStaleOnError(
+    async (chain, vault) => {
+      vault.strategy = await getStrategyAddress(chain, vault.earnContractAddress as Address);
+      vault.lastHarvest = await getLastHarvest(chain, vault.strategy as Address);
+      return vault;
+    },
+    ['strategy', 'lastHarvest']
+  ),
+  erc4626: keepStaleOnError(
+    async (chain, vault) => {
+      vault.strategy = vault.earnContractAddress;
+      const [pricePerFullShare, lastHarvest] = await Promise.all([
+        getPricePerFullShare(chain, vault.earnContractAddress as Address),
+        getLastHarvest(chain, vault.strategy as Address),
+      ]);
+      vault.pricePerFullShare = pricePerFullShare;
+      vault.lastHarvest = lastHarvest;
+      return vault;
+    },
+    ['strategy', 'pricePerFullShare', 'lastHarvest']
+  ),
 };
 
 const strategySelector = getFunctionSelector('strategy()');
@@ -464,7 +502,8 @@ async function updateChainVaults(chain: ApiChain) {
     allVaults.map(async vault => {
       const handler = vaultTypeHandlers[vault.type] as VaultHandler<AnyVault>;
       try {
-        return await handler(chain, vault);
+        const existing = storage.getVaultByIdOfType(vault.id, vault.type);
+        return await handler(chain, vault, existing);
       } catch (err) {
         console.error(`> failed to process vault ${vault.id} on ${chain}`, err);
         return vault;
@@ -501,11 +540,11 @@ async function updateMultichainVaults() {
 
   try {
     const start = Date.now();
-    const timeout = Math.floor(REFRESH_INTERVAL / 2);
-    const results = await Promise.allSettled(
-      ApiChains.map(chain => withTimeout(updateChainVaults(chain), timeout))
+    const timeout = Math.min(30_000, REFRESH_INTERVAL / 2);
+    const results = await contextAllSettled(ApiChains, chain =>
+      withTimeout(updateChainVaults(chain), timeout)
     );
-    const fulfilled = results.filter(isResultFulfilled);
+    const fulfilled = results.filter(isContextResultFulfilled);
 
     if (fulfilled.length) {
       // TODO: add TTL so entries are removed if not updated (e.g. chain rpc is down)
@@ -523,9 +562,9 @@ async function updateMultichainVaults() {
     );
 
     if (fulfilled.length < results.length) {
-      const rejected = results.filter(isResultRejected);
+      const rejected = results.filter(isContextResultRejected);
       console.error(` - ${rejected.length} chains failed to update:`);
-      rejected.forEach(result => console.error(`  - ${result.reason}`));
+      rejected.forEach(result => console.error(`  - ${result.context}`, result.reason));
     }
   } catch (err) {
     console.error(`> vaults update failed `, err);
