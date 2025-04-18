@@ -88,5 +88,40 @@
         "decimals": "1e6"
       }
     ]
+  },
+  {
+    "name": "balancerv3-avalanche-waavasavax-ggavax-waavawavax",
+    "address": "0x99a9a471DBe0Dcc6855b4cD4bbabECCb1280F5e8",
+    "gauge": "0x8647a995CC10C6C529a680F446797849163bE9E4",
+    "decimals": "1e18",
+    "rewards": [
+      {
+        "newGauge": true,
+        "stream": "0x8647a995CC10C6C529a680F446797849163bE9E4",
+        "oracleId": "BAL"
+      },
+      {
+        "rewardToken": "0xB31f66AA3C1e785363F0875A1B74E27b85FD66c7",
+        "oracleId": "WAVAX",
+        "decimals": "1e18"
+      }
+    ],
+    "tokens": [
+      {
+        "address": "0x7D0394F8898fBA73836Bf12bD606228887705895",
+        "oracleId": "waAvaSAVAX",
+        "decimals": "1e18"
+      },
+      {
+        "address": "0xA25EaF2906FA1a3a13EdAc9B9657108Af7B703e3",
+        "oracleId": "ggAVAX",
+        "decimals": "1e18"
+      },
+      {
+        "address": "0xD7da0De6Ef4f51d6206bF2A35fCd2030F54c3F7B",
+        "oracleId": "waAvaWAVAX",
+        "decimals": "1e18"
+      }
+    ]
   }
 ]

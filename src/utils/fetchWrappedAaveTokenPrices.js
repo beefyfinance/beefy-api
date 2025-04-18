@@ -96,6 +96,8 @@ const {
       waAvaBTCb,
       waAvaUSDC,
       USDC: avaUSDC,
+      sAVAX,
+      waAvaSAVAX,
     },
   },
   gnosis: {
@@ -162,6 +164,7 @@ const tokens = {
     [avaWETH, waAvaWETH, true],
     [BTCb, waAvaBTCb, true],
     [avaUSDC, waAvaUSDC, true],
+    [sAVAX, waAvaSAVAX, true],
   ],
   gnosis: [
     [EURA, stEUR, true],

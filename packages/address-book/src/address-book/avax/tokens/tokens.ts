@@ -5555,4 +5555,17 @@ export const tokens = {
     logoURI:
       'https://tokens.pancakeswap.finance/images/0x8ac76a51cc950d9822d68b83fe1ad97b32cd580d.png',
   },
+  waAvaSAVAX: {
+    address: '0x7D0394F8898fBA73836Bf12bD606228887705895',
+    name: 'Wrapped Aave Avalanche SAVAX',
+    symbol: 'waAvaSAVAX',
+    oracleId: 'waAvaSAVAX',
+    chainId: 43114,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://benqi.fi/',
+    description:
+      'BENQI Liquid Staking is a protocol enabling users to stake AVAX to receive sAVAX, an interest bearing version of AVAX',
+    bridge: 'native',
+  },
 } as const satisfies Record<string, Token>;
