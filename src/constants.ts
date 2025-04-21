@@ -58,7 +58,7 @@ const DEFAULT_RPCS: ApiChainToRpcs = {
   fraxtal: ['https://rpc.frax.com'],
   mode: ['https://mode.drpc.org'],
   manta: ['https://1rpc.io/manta'],
-  real: ['https://121.rpc.thirdweb.com/'],
+  real: ['https://rpc.realforreal.gelato.digital'],
   sei: ['https://evm-rpc.sei-apis.com'],
   rootstock: ['https://rootstock-mainnet.public.blastapi.io'],
   scroll: ['https://scroll-mainnet.public.blastapi.io'],

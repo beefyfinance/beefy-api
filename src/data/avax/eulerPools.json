@@ -1,0 +1,14 @@
+[
+  {
+    "name": "euler-avax-k3capital-usdt",
+    "address": "0xa446938b0204Aa4055cdFEd68Ddf0E0d1BAB3E9E",
+    "oracleId": "USDT",
+    "decimals": "1e6"
+  },
+  {
+    "name": "euler-avax-re7labs-usdc",
+    "address": "0x39dE0f00189306062D79eDEC6DcA5bb6bFd108f9",
+    "oracleId": "USDC",
+    "decimals": "1e6"
+  }
+]

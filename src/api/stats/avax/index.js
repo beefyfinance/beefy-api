@@ -5,6 +5,7 @@ const { getGmxApys } = require('./getGmxApys');
 const getBalancerApys = require('./getBalancerAvaxApys');
 const getAuraAvaxApys = require('./getAuraAvaxApys');
 const { getBeefyAvaxCowApys } = require('./getBeefyAvaxCowApys');
+const { getEulerAvaxApys } = require('./getEulerAvaxApys');
 
 const getApys = [
   // getAaveV3Apys,
@@ -14,6 +15,7 @@ const getApys = [
   getJoeApy,
   getStargateApys,
   getBeefyAvaxCowApys,
+  getEulerAvaxApys,
 ];
 
 const getAvaxApys = async () => {

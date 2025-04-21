@@ -62,6 +62,7 @@ import { getBeraswapPrices } from './berachain/getBeraswapPrices';
 import { getKodiakPrices } from './berachain/getKodiakPrices';
 import {
   ARBITRUM_CHAIN_ID as ARB_CHAIN_ID,
+  AVAX_CHAIN_ID,
   BASE_CHAIN_ID,
   BSC_CHAIN_ID,
   ETH_CHAIN_ID,
@@ -109,6 +110,7 @@ import getTokemakBasePrices from './base/getTokemakBasePrices';
 import { getBeefyCowSonicPrices } from './sonic/getBeefySonicCowPrices';
 import { getMorphoPrices } from './common/morpho/getMorphoPrices';
 import { getIchiPrices } from './common/getIchiPrices';
+import { getEulerPrices } from './common/euler/getEulerPrices';
 import { promiseArrayTiming } from '../../utils/timing';
 
 export type NonAmmPrices = {
@@ -238,6 +240,8 @@ export async function getNonAmmPrices(
     getMorphoPrices(POLYGON_CHAIN_ID, require('../../data/matic/morphoPools.json'), tokenPrices),
     getIchiPrices(SONIC_CHAIN_ID, require('../../data/sonic/swapxIchiPools.json'), tokenPrices),
     getSolidlyStablePrices(SONIC_CHAIN_ID, require('../../data/sonic/swapxStableLpPools.json'), tokenPrices),
+    getEulerPrices(SONIC_CHAIN_ID, require('../../data/sonic/eulerPools.json'), tokenPrices),
+    getEulerPrices(AVAX_CHAIN_ID, require('../../data/avax/eulerPools.json'), tokenPrices),
     getBaseSiloPrices(tokenPrices),
     getNuriStablePrices(tokenPrices),
     getTokanStablePrices(tokenPrices),

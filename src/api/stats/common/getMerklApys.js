@@ -10,7 +10,7 @@ export const getMerklApys = async (chainId, pools) => {
   let merklAprs = pools.map(pool => {
     if (Object.keys(merklPools).length !== 0) {
       for (const [key, value] of Object.entries(merklPools)) {
-        if (key.toLowerCase().slice(2) === `${pool.address.toLowerCase()}`) {
+        if (key.toLowerCase().slice(key.indexOf('_') + 1) === `${pool.address.toLowerCase()}`) {
           return (value.dailyrewards * 365) / value.tvl;
         }
       }

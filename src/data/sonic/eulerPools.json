@@ -1,0 +1,14 @@
+[
+  {
+    "name": "euler-sonic-mevcapital-usdc.e",
+    "address": "0x196F3C7443E940911EE2Bb88e019Fd71400349D9",
+    "oracleId": "sUSDCe",
+    "decimals": "1e6"
+  },
+  {
+    "name": "euler-sonic-re7labs-usdc.e",
+    "address": "0x3D9e5462A940684073EED7e4a13d19AE0Dcd13bc",
+    "oracleId": "sUSDCe",
+    "decimals": "1e6"
+  }
+]
