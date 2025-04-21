@@ -2,6 +2,8 @@ import { BASE_CHAIN_ID as chainId } from '../../../constants';
 import { balancerBaseClient as client } from '../../../apollo/client';
 const { getBalancerApys } = require('../common/balancer/getBalancerApys');
 import { addressBook } from '../../../../packages/address-book/src/address-book';
+import balancerV3Pools from '../../../data/base/balancerV3pools.json';
+import balancerPools from '../../../data/base/balancerPools.json';
 
 const {
   base: {
@@ -9,10 +11,7 @@ const {
   },
 } = addressBook;
 
-const v3Pools = require('../../../data/base/balancerV3Pools.json');
-const balancerPools = require('../../../data/base/balancerPools.json');
-
-const pools = [...v3Pools, ...balancerPools];
+const pools = [...balancerV3Pools, ...balancerPools];
 
 //const aaveDataProvider = '0x69FA688f1Dc47d4B5d8029D5a35FB7a548310654';
 
