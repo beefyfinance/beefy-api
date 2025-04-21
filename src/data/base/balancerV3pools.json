@@ -2,16 +2,16 @@
   {
     "name": "balancerv3-base-wabasgho-wabasusdc",
     "address": "0x7AB124EC4029316c2A42F713828ddf2a192B36db",
-    "gauge": "0x28a002a98F4DA7A7B541b5e4d7a42E0F64E4aeF1",
+    "gauge": "0x70DB188E5953f67a4B16979a2ceA26248b315401",
     "decimals": "1e18",
     "rewards": [
       {
-        "rewardGauge": "0xef62c4d4f521fF2c05217D1ab75e37404687c238",
-        "oracleId": "AURA",
-        "decimals": "1e18"
+        "newGauge": true,
+        "stream": "0x70DB188E5953f67a4B16979a2ceA26248b315401",
+        "oracleId": "BAL"
       },
       {
-        "rewardGauge": "0xF1256F4Be26dc66345E75ED8911aBDB9f95e8101",
+        "rewardToken": "0x6Bb7a212910682DCFdbd5BCBb3e28FB4E8da10Ee",
         "oracleId": "GHO",
         "decimals": "1e18"
       }

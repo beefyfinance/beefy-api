@@ -1,0 +1,92 @@
+[
+  {
+    "name": "balancerv3-base-wabaswsteth-wabasezeth",
+    "address": "0xb5bfB5aDB736Ea852bD58fEc71db3B356C2a3938",
+    "gauge": "0x9Adf24Fa7aC9B1bc5a89232e18F2cF5fA9BD8B72",
+    "decimals": "1e18",
+    "rewards": [
+      {
+        "rewardGauge": "0x6b3D1cB40213E8c0115C66AbCBD5875C76714680",
+        "oracleId": "AURA",
+        "decimals": "1e18"
+      },
+      {
+        "rewardGauge": "0x8d00903b235B445104b089C63daFAC175f8e925B",
+        "oracleId": "USDC",
+        "decimals": "1e6"
+      }
+    ],
+    "tokens": [
+      {
+        "address": "0x0830820D1A9aa1554364752d6D8F55C836871B74",
+        "oracleId": "waBaswstETH",
+        "decimals": "1e18"
+      },
+      {
+        "address": "0xF8F10f39116716e89498c1c5E94137ADa11b2BC7",
+        "oracleId": "waBasezETH",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
+    "name": "balancerv3-base-wabaswsteth-wabasweth",
+    "address": "0xaCBa78d745FaaE7751C09489d5F15A26EB27f1aD",
+    "gauge": "0xB52f3A2Ec6b2373671B592D0849DB466D32120B7",
+    "decimals": "1e18",
+    "rewards": [
+      {
+        "rewardGauge": "0x0F8eCE0a1e1631a6ce46ae1e13839BD032e4Da1f",
+        "oracleId": "AURA",
+        "decimals": "1e18"
+      },
+      {
+        "rewardGauge": "0xA8B18d0664042100e7C05e8df60f1a0A4762e5f3",
+        "oracleId": "USDC",
+        "decimals": "1e6"
+      }
+    ],
+    "tokens": [
+      {
+        "address": "0x0830820D1A9aa1554364752d6D8F55C836871B74",
+        "oracleId": "waBaswstETH",
+        "decimals": "1e18"
+      },
+      {
+        "address": "0xe298b938631f750dd409fb18227c4a23dcdaab9b",
+        "oracleId": "waBasezETH",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
+    "name": "balancerv3-base-susds-smusdc",
+    "address": "0x4147D8AeECb75bc9f5c973c3B73D2dfC4DCCe131",
+    "gauge": "0x318fA87e4f1E61614A7aFA3e2D059Bf0aE4D3616",
+    "decimals": "1e18",
+    "rewards": [
+      {
+        "rewardGauge": "0x9c0202693e4a42fD691494dab7Fe7C5E81dF4821",
+        "oracleId": "AURA",
+        "decimals": "1e18"
+      },
+      {
+        "rewardGauge": "0xfC9BfE136a744268FF4E48d2Ef0D4c7a650a0EBF",
+        "oracleId": "USDC",
+        "decimals": "1e6"
+      }
+    ],
+    "tokens": [
+      {
+        "address": "0x5875eEE11Cf8398102FdAd704C9E96607675467a",
+        "oracleId": "sUSDS",
+        "decimals": "1e18"
+      },
+      {
+        "address": "0x616a4E1db48e22028f6bbf20444Cd3b8e3273738",
+        "oracleId": "smUSDC",
+        "decimals": "1e18"
+      }
+    ]
+  }
+]

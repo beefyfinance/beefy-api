@@ -9,9 +9,9 @@ const {
   },
 } = addressBook;
 
-const balancerPools = require('../../../data/base/auraLpPools.json');
-const balancerV3Pools = require('../../../data/base/balancerV3pools.json');
-const pools = [...balancerPools, ...balancerV3Pools];
+const auraLpPools = require('../../../data/base/auraLpPools.json');
+const auraV3pools = require('../../../data/base/auraV3pools.json');
+const pools = [...auraLpPools, ...auraV3pools];
 
 const aaveDataProvider = '0x69FA688f1Dc47d4B5d8029D5a35FB7a548310654';
 const auraMinter = '0x8b2970c237656d3895588B99a8bFe977D5618201';

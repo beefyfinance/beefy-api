@@ -9,7 +9,10 @@ const {
   },
 } = addressBook;
 
-const pools = require('../../../data/base/balancerPools.json');
+const v3Pools = require('../../../data/base/balancerV3Pools.json');
+const balancerPools = require('../../../data/base/balancerPools.json');
+
+const pools = [...v3Pools, ...balancerPools];
 
 //const aaveDataProvider = '0x69FA688f1Dc47d4B5d8029D5a35FB7a548310654';
 

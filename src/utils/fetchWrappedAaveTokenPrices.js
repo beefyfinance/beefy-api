@@ -104,7 +104,19 @@ const {
     tokens: { stEUR, EURA, agETH, wagETH, agwstETH, wagwstETH, agGNO, wagGNO },
   },
   base: {
-    tokens: { GHO: baseGHO, waBasGHO, USDC: baseUSDC, waBasUSDC },
+    tokens: {
+      GHO: baseGHO,
+      waBasGHO,
+      USDC: baseUSDC,
+      waBasUSDC,
+      wstETH: basewstETH,
+      waBaswstETH,
+      ezETH: baseezETH,
+      waBasezETH,
+      WETH: baseWETH,
+      waBasWETH,
+      smUSDC,
+    },
   },
 } = addressBook;
 
@@ -175,6 +187,10 @@ const tokens = {
   base: [
     [baseGHO, waBasGHO, true],
     [baseUSDC, waBasUSDC, true],
+    [basewstETH, waBaswstETH, true],
+    [baseezETH, waBasezETH, true],
+    [baseWETH, waBasWETH, true],
+    [baseUSDC, smUSDC, true],
   ],
 };
 
