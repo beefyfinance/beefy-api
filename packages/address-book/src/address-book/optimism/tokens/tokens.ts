@@ -1387,6 +1387,20 @@ export const tokens = {
       'crvUSD is a collateralized-debt-position (CDP) stablecoin pegged to the US Dollar',
     documentation: 'https://docs.curve.fi/crvUSD/crvUSD/',
   },
+  scrvUSD: {
+    name: 'Savings crvUSD',
+    symbol: 'scrvUSD',
+    oracleId: 'scrvUSD',
+    address: '0x289f635106d5b822A505b39AC237A0AE9189335B',
+    chainId: 10,
+    decimals: 18,
+    logoURI: 'https://resources.curve.fi/images/scrvusd/scrvusd_150.png',
+    website: 'https://www.curve.fi/',
+    description:
+      'Savings crvUSD, abbreviated as scrvUSD, is an interest-bearing stablecoin that earns yield simply by holding the token.',
+    documentation: 'https://resources.curve.fi/crvusd/scrvusd',
+    bridge: 'optimism-canonical',
+  },
   sFRAX: {
     name: 'Staked FRAX',
     symbol: 'sFRAX',
