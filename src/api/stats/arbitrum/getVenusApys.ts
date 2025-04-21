@@ -1,7 +1,5 @@
-import { merge } from 'lodash';
 import { ARBITRUM_CHAIN_ID as chainId } from '../../../constants';
-import getVenusApyData from '../common/getVenusApys';
-import { VenusApyParams, VenusPool } from '../common/getVenusApys';
+import getVenusApyData, { VenusApyParams, VenusPool } from '../common/getVenusApys';
 
 const corePools: VenusPool[] = require('../../../data/arbitrum/venusCorePools.json');
 const lsPools: VenusPool[] = require('../../../data/arbitrum/venusLsPools.json');
@@ -20,8 +18,7 @@ const lsParams: VenusApyParams = {
 };
 
 const getVenusApys = async () => {
-  const coreApys = await getVenusApyData(coreParams);
-  const lsApys = await getVenusApyData(lsParams);
+  const [coreApys, lsApys] = await Promise.all([getVenusApyData(coreParams), getVenusApyData(lsParams)]);
 
   const apys = { ...coreApys.apys, ...lsApys.apys };
   const apyBreakdowns = { ...coreApys.apyBreakdowns, ...lsApys.apyBreakdowns };

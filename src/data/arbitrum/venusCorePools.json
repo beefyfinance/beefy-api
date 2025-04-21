@@ -1,23 +1,5 @@
 [
   {
-    "name": "venus-arb-usdc",
-    "cToken": "0x7D8609f8da70fF9027E9bc5229Af4F6727662707",
-    "oracleId": "USDC",
-    "decimals": "1e6"
-  },
-  {
-    "name": "venus-arb-usdt",
-    "cToken": "0xB9F9117d4200dC296F9AcD1e8bE1937df834a2fD",
-    "oracleId": "USDT",
-    "decimals": "1e6"
-  },
-  {
-    "name": "venus-arb-weth",
-    "cToken": "0x68a34332983f4Bf866768DD6D6E638b02eF5e1f0",
-    "oracleId": "ETH",
-    "decimals": "1e18"
-  },
-  {
     "name": "venus-arb-arb",
     "cToken": "0xAeB0FEd69354f34831fe1D16475D9A83ddaCaDA6",
     "oracleId": "ARB",
