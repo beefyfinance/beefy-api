@@ -22,7 +22,7 @@ const getBalancerAvaxApys = async () => {
     pools: pools,
     balancerVault: balancer.router,
     aaveDataProvider: aaveDataProvider,
-    log: true,
+    // log: true,
   });
 };
 

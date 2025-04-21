@@ -253,6 +253,7 @@ export async function getNonAmmPrices(
   );
 
   const results = await Promise.allSettled(promises);
+  // results.forEach((r: any, i) => console.log(i, Object.keys(r.value)[0]));
 
   results
     .filter((r): r is PromiseFulfilledResult<any> => r.status === 'fulfilled')

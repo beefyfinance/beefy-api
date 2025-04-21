@@ -26,9 +26,16 @@ const routerAbi = parseAbi([
 export const getPendleCommonPrices = async (chainId, pools, tokenPrices, lpPrices) => {
   let prices = {};
 
-  const isExpired = await Promise.all(
-    pools.map(pool => fetchContract(pool.address, routerAbi, chainId).read.isExpired())
-  );
+  const isExpired = pools.map(p => {
+    const old = { 'equilibria-arb-seth': '26dec24', 'equilibria-arb-reth': '26jun25' };
+    const date = old[p.name] || p.name.split('-').pop();
+    const timestamp = Date.parse(`${date} UTC`) || 0;
+    if (timestamp === 0) console.error(p.name, 'no expiry date');
+    return Date.now() > timestamp;
+  });
+  // const isExpired = await Promise.all(
+  //   pools.map(pool => fetchContract(pool.address, routerAbi, chainId).read.isExpired())
+  // );
   const supplyCalls = pools.map(pool => fetchContract(pool.address, ERC20Abi, chainId).read.totalSupply());
   const lpRatesCalls = pools.map(async (pool, i) => {
     const router = routerStatic[chainId];
