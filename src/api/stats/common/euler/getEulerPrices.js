@@ -3,20 +3,12 @@ import { parseAbi } from 'viem';
 import { fetchContract } from '../../../rpc/client';
 import ERC20Abi from '../../../../abis/ERC20Abi';
 
-const abi = parseAbi([
-  'function convertToAssets(uint shares) external view returns (uint)',
-  'function asset() external view returns (address)',
-]);
+const abi = parseAbi(['function convertToAssets(uint shares) external view returns (uint)']);
 
 export const getEulerPrices = async (chainId, pools, tokenPrices) => {
   const ppsCalls = pools.map(pool => fetchContract(pool.address, abi, chainId).read.convertToAssets([1e18]));
   const supplyCalls = pools.map(pool => fetchContract(pool.address, ERC20Abi, chainId).read.totalSupply());
-  const assetCalls = pools.map(pool => fetchContract(pool.address, abi, chainId).read.asset());
-  const [ppsRes, supplyRes, assetRes] = await Promise.all([
-    Promise.all(ppsCalls),
-    Promise.all(supplyCalls),
-    Promise.all(assetCalls),
-  ]);
+  const [ppsRes, supplyRes] = await Promise.all([Promise.all(ppsCalls), Promise.all(supplyCalls)]);
 
   let prices = {};
   for (let i = 0; i < pools.length; i++) {
@@ -28,8 +20,8 @@ export const getEulerPrices = async (chainId, pools, tokenPrices) => {
     prices[pool.name] = {
       price,
       totalSupply,
-      tokens: [assetRes[i]],
-      balances: [new BigNumber(totalSupply).times(pps).toString(10)],
+      tokens: [],
+      balances: [],
     };
   }
   return prices;
