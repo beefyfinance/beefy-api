@@ -1,7 +1,5 @@
 const { getCurveApys } = require('./getCurveApys');
-const { getCurveLendApys } = require('./getCurveLendApys');
 const getBalancerArbApys = require('./getBalancerArbApys');
-const getStargateArbApys = require('./getStargateArbApys');
 const { getGmxV2Apys } = require('./getGmxV2Apys');
 const { getGmxApys } = require('./getGmxApys');
 const { getHopApys } = require('./getHopApys');
@@ -9,7 +7,6 @@ const { getConvexApys } = require('./getConvexApys');
 const { getGnsApys } = require('./getGnsApys');
 const getRamsesApys = require('./getRamsesApys');
 const getAuraArbitrumApys = require('./getAuraArbitrumApys');
-const { getJoeAutoArbApys } = require('./getJoeAutoArbApys');
 const { getArbCompoundV3Apys } = require('./getArbCompoundV3Apys');
 const { getArbSiloApys } = require('./getArbitrumSiloApys');
 const { getEquilibriaApys } = require('../common/getEquilibriaApys');
@@ -21,7 +18,6 @@ const getVenusApys = require('./getVenusApys');
 
 const getApys = [
   getArbSiloApys,
-  // getJoeAutoArbApys,
   getAuraArbitrumApys,
   getGnsApys,
   getHopApys,
@@ -35,10 +31,8 @@ const getApys = [
   getGmxV2Apys,
   getGmxApys,
   getCurveApys,
-  getCurveLendApys,
   getConvexApys,
   getBalancerArbApys,
-  getStargateArbApys,
   getRamsesApys,
   getArbCompoundV3Apys,
   getBeefyArbCowApys,

@@ -2283,6 +2283,20 @@ export const tokens = {
     bridge: 'layer-zero',
     risks: ['NO_TIMELOCK'],
   },
+  EURe: {
+    name: 'Monerium EURe emoney',
+    symbol: 'EURe',
+    oracleId: 'EURe',
+    address: '0x0c06cCF38114ddfc35e07427B9424adcca9F44F8',
+    chainId: 42161,
+    decimals: 18,
+    logoURI: 'https://assets.coingecko.com/coins/images/23354/small/eur.png?1643926562',
+    website: 'https://monerium.com/',
+    bridge: 'arbitrum-canonical',
+    documentation: 'https://monerium.dev/',
+    description:
+      'EURe is a Euro stable-coin from Monerium. Monerium is the first company authorized to issue money on blockchains under European financial regulation. They have issued EUR, USD, GBP, and ISK as e-money tokens on Ethereum and EUR on Algorand. Monerium also operates a gateway for instant transfers of EUR between bank accounts and blockchain wallets/smart contracts.',
+  },
   Bold: {
     name: 'Bold Stablecoin',
     symbol: 'Bold',

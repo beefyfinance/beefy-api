@@ -1,5 +1,27 @@
 [
   {
+    "name": "curve-arb-usdc-eure",
+    "pool": "0x590f7e2b211Fa5Ff7840Dd3c425B543363797701",
+    "gauge": "0x576673a39CCa0F0E4333aC0617638acEbF15536E",
+    "convex": false,
+    "rewards": [
+      {
+        "token": "0x0c06cCF38114ddfc35e07427B9424adcca9F44F8",
+        "oracleId": "EURe"
+      }
+    ],
+    "tokens": [
+      {
+        "oracleId": "USDC",
+        "decimals": "1e6"
+      },
+      {
+        "oracleId": "EURe",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
     "name": "curve-arb-usde-usdx",
     "pool": "0x096a8865367686290639bc50bf8d85c0110d9fea",
     "gauge": "0x99178264ec6b9de40689ee4f2f561ca3885a4bd2",
