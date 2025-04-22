@@ -1,45 +1,5 @@
 [
   {
-    "name": "retro-ichi-wbtc-weth",
-    "address": "0x0B0302014DD4FB6A77da03bF9034db5FEcB68eA8",
-    "pool": "0xb694E3bdd4BCdF843510983D257679D1E627C474",
-    "decimals": "1e18",
-    "chainId": 137,
-    "beefyFee": 0.095,
-    "lp0": {
-      "address": "0x1BFD67037B42Cf73acF2047067bd4F2C47D9BfD6",
-      "oracle": "tokens",
-      "oracleId": "WBTC",
-      "decimals": "1e8"
-    },
-    "lp1": {
-      "address": "0x7ceB23fD6bC0adD59E62ac25578270cFf1b9f619",
-      "oracle": "tokens",
-      "oracleId": "WETH",
-      "decimals": "1e18"
-    }
-  },
-  {
-    "name": "retro-ichi-usdc-weth",
-    "address": "0x7c96bE1026A5461418C557f2CDECfD0F50244371",
-    "pool": "0xCE67850420c82dB45eb7fEeCcD2d181300D2BDB3",
-    "decimals": "1e18",
-    "chainId": 137,
-    "beefyFee": 0.095,
-    "lp0": {
-      "address": "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174",
-      "oracle": "tokens",
-      "oracleId": "pUSDCe",
-      "decimals": "1e6"
-    },
-    "lp1": {
-      "address": "0x7ceB23fD6bC0adD59E62ac25578270cFf1b9f619",
-      "oracle": "tokens",
-      "oracleId": "WETH",
-      "decimals": "1e18"
-    }
-  },
-  {
     "name": "retro-gamma-cash-weth",
     "address": "0xE933e973d1B8Bea29e8CAD58457200EBb670a39c",
     "pool": "0x0A46B0712974F201BeD15c2458a023EbED25eF4F",
@@ -316,26 +276,6 @@
       "address": "0xEe327F889d5947c1dc1934Bb208a1E792F953E96",
       "oracle": "tokens",
       "oracleId": "frxETH",
-      "decimals": "1e18"
-    }
-  },
-  {
-    "name": "retro-gamma-usdc-dai",
-    "address": "0x47884cCF20765A6B3b53333b752B28BBA48c5Ea9",
-    "pool": "0x219116F23BDC11EB25e4D0FbE92eD0972d86BE20",
-    "decimals": "1e18",
-    "chainId": 137,
-    "beefyFee": 0.095,
-    "lp0": {
-      "address": "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174",
-      "oracle": "tokens",
-      "oracleId": "pUSDCe",
-      "decimals": "1e6"
-    },
-    "lp1": {
-      "address": "0x8f3Cf7ad23Cd3CaDbD9735AFf958023239c6A063",
-      "oracle": "tokens",
-      "oracleId": "DAI",
       "decimals": "1e18"
     }
   },

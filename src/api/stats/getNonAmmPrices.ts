@@ -44,7 +44,6 @@ import getUniswapArbitrumPrices from './arbitrum/getUniswapPositionPrices';
 import getUniswapEthereumPrices from './ethereum/getUniswapPositionPrices';
 import getUniswapEthereumGammaPrices from './ethereum/getUniswapGammaPrices';
 import getGammaPolygonPrices from './matic/getGammaPolygonPrices';
-import getUniswapGammaPrices from './optimism/getUniswapGammaPrices';
 import getBasoStablePrices from './base/getBasoStablePrices';
 import { getAerodromeStablePrices } from './base/getAerodromeStablePrices';
 import { getKinetixPrices } from './kava/getKinetixPrices';
@@ -139,7 +138,6 @@ export async function getNonAmmPrices(
     getEqualizerStableSonicPrices(tokenPrices),
     getKinetixPrices(tokenPrices),
     getBasoStablePrices(tokenPrices),
-    getUniswapGammaPrices(tokenPrices),
     getUniswapArbitrumPrices(tokenPrices),
     getUniswapEthereumPrices(tokenPrices),
     getVelocoreStablePrices(tokenPrices),
