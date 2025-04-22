@@ -3,7 +3,6 @@ import getCurvePolygonPrices from './matic/getCurvePrices';
 import getCurveArbitrumPrices from './arbitrum/getCurvePrices';
 import getCurveOptimismPrices from './optimism/getCurvePrices';
 import { getCurveEthereumPrices } from './ethereum/getCurvePrices';
-// import getBeethovenxPrices from './fantom/getBeethovenxPrices';
 import getBeetsOPPrices from './optimism/getBeetsOPPrices';
 import getBalancerArbPrices from './arbitrum/getBalancerArbPrices';
 import getBalancerAvaxPrices from './avax/getBalancerPrices';
@@ -80,7 +79,6 @@ import getNileStablePrices from './linea/getNileStablePrices';
 import { getMimSwapPrices } from './arbitrum/getMimSwapPrices';
 import { getBeefyCowArbPrices } from './arbitrum/getBeefyCowArbPrices';
 import { getBeefyCowOPPrices } from './optimism/getBeefyCowOPPrices';
-// import getFtmIchiPrices from './fantom/getFtmIchiPrices';
 import { getBeefyCowBasePrices } from './base/getBeefyCowBasePrices';
 import { getBeefyCowMoonbeamPrices } from './moonbeam/getBeefyCowMoonbeamPricis';
 import { getBeefyCowLineaPrices } from './linea/getBeefyLineaCowPrices';
@@ -182,7 +180,6 @@ export async function getNonAmmPrices(
     getBalancerPolyPrices(tokenPrices),
     getBalancerArbPrices(tokenPrices),
     getBalancerGnosisPrices(tokenPrices),
-    // getBeethovenxPrices(tokenPrices),
     getBeetsSonicPrices(tokenPrices),
     getBeetsOPPrices(tokenPrices),
     getBeraswapPrices(tokenPrices),
@@ -225,7 +222,6 @@ export async function getNonAmmPrices(
     getBeefyCowSonicPrices(tokenPrices),
     getBeefyCowBerachainPrices(tokenPrices),
     getBeefyCowGnosisPrices(tokenPrices),
-    // getFtmIchiPrices(tokenPrices),
     getPendleCommonPrices(ARB_CHAIN_ID, require('../../data/arbitrum/equilibriaPools.json'), tokenPrices),
     getPendleCommonPrices(ARB_CHAIN_ID, require('../../data/arbitrum/pendlePools.json'), tokenPrices, {}),
     getPendleCommonPrices(ETH_CHAIN_ID, require('../../data/ethereum/pendlePools.json'), tokenPrices, {}),
