@@ -1,0 +1,62 @@
+[
+  {
+    "name": "balancerv3-arbitrum-ebtc-waarbusdcn",
+    "address": "0xA0E5e7728e026bDE02810D255a6b94A9aA47b5F9",
+    "gauge": "0x946FB8Fcfa21DbDD2152dAC1D39bD30c10679d76",
+    "decimals": "1e18",
+    "rewards": [
+      {
+        "newGauge": true,
+        "stream": "0x946FB8Fcfa21DbDD2152dAC1D39bD30c10679d76",
+        "oracleId": "BAL"
+      },
+      {
+        "rewardToken": "0xaf88d065e77c8cC2239327C5EDb3A432268e5831",
+        "oracleId": "USDC",
+        "decimals": "1e6"
+      }
+    ],
+    "tokens": [
+      {
+        "address": "0x657e8C867D8B37dCC18fA4Caead9C45EB088C642",
+        "oracleId": "eBTC",
+        "decimals": "1e8"
+      },
+      {
+        "address": "0x7F6501d3B98eE91f9b9535E4b0ac710Fb0f9e0bc",
+        "oracleId": "waArbUSDCn",
+        "decimals": "1e6"
+      }
+    ]
+  },
+  {
+    "name": "balancerv3-arbitrum-ebtc-waarbwbtc",
+    "address": "0x10F9E54AeEA2FeFA124238087DCFD919BA32f14d",
+    "gauge": "0xB4259ce2724Fe85182fEE38AC78b794291FaD997",
+    "decimals": "1e18",
+    "rewards": [
+      {
+        "newGauge": true,
+        "stream": "0xB4259ce2724Fe85182fEE38AC78b794291FaD997",
+        "oracleId": "BAL"
+      },
+      {
+        "rewardToken": "0xaf88d065e77c8cC2239327C5EDb3A432268e5831",
+        "oracleId": "USDC",
+        "decimals": "1e6"
+      }
+    ],
+    "tokens": [
+      {
+        "address": "0x52Dc1FEeFA4f9a99221F93D79da46Ae89b8c0967",
+        "oracleId": "waArbWBTC",
+        "decimals": "1e8"
+      },
+      {
+        "address": "0x657e8C867D8B37dCC18fA4Caead9C45EB088C642",
+        "oracleId": "eBTC",
+        "decimals": "1e8"
+      }
+    ]
+  }
+]

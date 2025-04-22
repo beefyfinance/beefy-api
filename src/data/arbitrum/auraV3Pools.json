@@ -1,0 +1,127 @@
+[
+  {
+    "name": "balancerv3-arbitrum-waarbusdcn-waarbusdt-waarbgho",
+    "address": "0x19B001e6Bc2d89154c18e2216eec5C8c6047b6d8",
+    "gauge": "0x627305fF273640e0468D3c5DFE4FC2Adb1D013e8",
+    "decimals": "1e18",
+    "rewards": [
+      {
+        "rewardGauge": "0x73aDe3e0775Df8Dd9AD53789180C9C3a324DFA67",
+        "oracleId": "AURA",
+        "decimals": "1e18"
+      },
+      {
+        "rewardGauge": "0x4278650a1650F930F6529D88326794E4831a7660",
+        "oracleId": "GHO",
+        "decimals": "1e18"
+      }
+    ],
+    "tokens": [
+      {
+        "address": "0x7F6501d3B98eE91f9b9535E4b0ac710Fb0f9e0bc",
+        "oracleId": "waArbUSDCn",
+        "decimals": "1e6"
+      },
+      {
+        "address": "0xa6D12574eFB239FC1D2099732bd8b5dC6306897F",
+        "oracleId": "waArbUSDT",
+        "decimals": "1e6"
+      },
+      {
+        "address": "0xD089B4cb88Dacf4e27be869A00e9f7e2E3C18193",
+        "oracleId": "waArbGHO",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
+    "name": "balancerv3-arbitrum-waarbweth-orbeth",
+    "address": "0x2ecE6781BAce5e37386aDEf7a3d45D0bB05F8FCE",
+    "gauge": "0xe3503Cc523519c337df8493f5D26C1Df616557a4",
+    "decimals": "1e18",
+    "rewards": [
+      {
+        "rewardGauge": "0x575a0ee9cbd8B05796069223a5831EEdacfFe0b7",
+        "oracleId": "AURA",
+        "decimals": "1e18"
+      },
+      {
+        "rewardGauge": "0xcBaB4ac48246EC3d79F1B8A346AeB67d22AFCe97",
+        "oracleId": "USDC",
+        "decimals": "1e6"
+      }
+    ],
+    "tokens": [
+      {
+        "address": "0x4cE13a79f45C1Be00BdABD38B764aC28C082704E",
+        "oracleId": "waArbWETH",
+        "decimals": "1e18"
+      },
+      {
+        "address": "0xcF6C2bb97a8978321C9e207afE8A2037fa9be45C",
+        "oracleId": "orbETH",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
+    "name": "balancerv3-arbitrum-waarbezeth-waarbwsteth",
+    "address": "0x9C5F17d96ca66748B459788148B7357220F2d100",
+    "gauge": "0x5713d4893aD05803700C04ce5b61BE4001ECcb1D",
+    "decimals": "1e18",
+    "rewards": [
+      {
+        "rewardGauge": "0xa36515f7C6e9655315995Dde7B5Bf2989612ed25",
+        "oracleId": "AURA",
+        "decimals": "1e18"
+      },
+      {
+        "rewardGauge": "0x344B5342F32D186544963e782CCEbE7F622556D7",
+        "oracleId": "USDC",
+        "decimals": "1e6"
+      }
+    ],
+    "tokens": [
+      {
+        "address": "0x4ff50C17df0D1b788d021ACd85039810a1aA68A1",
+        "oracleId": "waArbezETH",
+        "decimals": "1e18"
+      },
+      {
+        "address": "0xe98fc055c99DECD8Da0c111B090885d5d15C774E",
+        "oracleId": "waArbwstETH",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
+    "name": "balancerv3-arbitrum-waarbweth-waarbwsteth",
+    "address": "0xc072880E1BC0bcDdc99Db882c7f3e7A839281CF4",
+    "gauge": "0xB45eb8E1DeeDAeAc1176Bee82ad9Aa198d73c36b",
+    "decimals": "1e18",
+    "rewards": [
+      {
+        "rewardGauge": "0x8a54c1B9AC44d1e97a929f3C9B8E1A63A5F9732e",
+        "oracleId": "AURA",
+        "decimals": "1e18"
+      },
+      {
+        "rewardGauge": "0x10ae1aB5f54CA9481fCA4e85DeEFC35147d534cD",
+        "oracleId": "USDC",
+        "decimals": "1e6"
+      }
+    ],
+    "tokens": [
+      {
+        "address": "0x4cE13a79f45C1Be00BdABD38B764aC28C082704E",
+        "oracleId": "waArbWETH",
+        "decimals": "1e18"
+      },
+      {
+        "address": "0xe98fc055c99DECD8Da0c111B090885d5d15C774E",
+        "oracleId": "waArbwstETH",
+        "decimals": "1e18"
+      }
+    ]
+  }
+]

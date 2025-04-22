@@ -313,6 +313,11 @@ const dexscreenerCoins: OraclePriceRequest[] = [
     tokenAddress: '0x3419966bC74fa8f951108d15b053bEd233974d3D',
     chainId: 'sonic',
   },
+  {
+    oracleId: 'orbETH',
+    tokenAddress: '0xcF6C2bb97a8978321C9e207afE8A2037fa9be45C',
+    chainId: 'arbitrum',
+  },
 ];
 
 /**
