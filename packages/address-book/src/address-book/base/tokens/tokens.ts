@@ -2230,7 +2230,7 @@ export const tokens = {
     symbol: 'USR',
     oracleId: 'USR',
     address: '0x35E5dB674D8e93a03d814FA0ADa70731efe8a4b9',
-    chainId: 1,
+    chainId: 8453,
     decimals: 18,
     website: 'https://app.resolv.xyz/',
     documentation: 'https://docs.resolv.xyz/',

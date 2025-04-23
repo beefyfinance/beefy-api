@@ -1,5 +1,24 @@
 [
   {
+    "name": "aerodrome-usr-usdc",
+    "address": "0xd3eE0a3B349237D68517DF30bFB66Be971f46Ad9",
+    "decimals": "1e18",
+    "chainId": 8453,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0x35E5dB674D8e93a03d814FA0ADa70731efe8a4b9",
+      "oracle": "tokens",
+      "oracleId": "USR",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+      "oracle": "tokens",
+      "oracleId": "USDC",
+      "decimals": "1e6"
+    }
+  },
+  {
     "name": "velodrome-v2-weth-wld",
     "address": "0xe188C32a2aa8e65f9AB141f5E96F8FA96b1b7757",
     "gauge": "0xb91F873D3fed53B21ac348Ee86DEaf924D1f3818",
