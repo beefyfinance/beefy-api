@@ -1,5 +1,15 @@
 [
   {
+    "name": "pendle-sonic-ausdc-14aug25",
+    "address": "0x3f5ea53d1160177445b1898afbb16da111182418",
+    "eqbGauge": "0x2FA11DBcbF955467E6B6f81816B21250F8f3Ac30",
+    "eqbExternalSy": true,
+    "oracle": "tokens",
+    "oracleId": "sUSDCe",
+    "decimals": "1e6",
+    "chainId": 146
+  },
+  {
     "name": "pendle-sonic-wos-29may25",
     "address": "0x4e82347bc41cfd5d62cef483c7f0a739a8158963",
     "oracle": "tokens",

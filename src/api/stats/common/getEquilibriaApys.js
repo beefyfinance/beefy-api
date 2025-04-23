@@ -1,5 +1,11 @@
 import BigNumber from 'bignumber.js';
-import { ARBITRUM_CHAIN_ID, BASE_CHAIN_ID, BSC_CHAIN_ID, ETH_CHAIN_ID } from '../../../constants';
+import {
+  ARBITRUM_CHAIN_ID,
+  BASE_CHAIN_ID,
+  BSC_CHAIN_ID,
+  ETH_CHAIN_ID,
+  SONIC_CHAIN_ID,
+} from '../../../constants';
 import { fetchContract } from '../../rpc/client';
 import { fetchPrice } from '../../../utils/fetchPrice';
 import { parseAbi } from 'viem';
@@ -11,9 +17,11 @@ const PENDLE = {
   [ETH_CHAIN_ID]: '0x808507121B80c02388fAd14726482e061B8da827',
   [BSC_CHAIN_ID]: '0xb3Ed0A426155B79B898849803E3B36552f7ED507',
   [BASE_CHAIN_ID]: '0xa99f6e6785da0f5d6fb42495fe424bce029eeb3e',
+  [SONIC_CHAIN_ID]: '0xf1ef7d2d4c0c881cd634481e0586ed5d2871a74b',
 };
 const eqbPendleProxy = {
   [ETH_CHAIN_ID]: '0x64627901dAdb46eD7f275fD4FC87d086cfF1e6E3',
+  [SONIC_CHAIN_ID]: '0x479603DE0a8B6D2f4D4eaA1058Eea0d7Ac9E218d',
 };
 
 export async function getEquilibriaApys(allPools) {
