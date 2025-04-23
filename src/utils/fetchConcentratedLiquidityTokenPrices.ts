@@ -818,6 +818,14 @@ const tokens: Partial<Record<keyof typeof ChainId, ConcentratedLiquidityToken[]>
     },
     {
       type: 'UniV3',
+      oracleId: 'OOGA',
+      decimalDelta: 1,
+      pool: '0x51F92915e44Bb9D7f90f59c9CE559F09e338e7e9',
+      firstToken: 'WBERA',
+      secondToken: 'OOGA',
+    },
+    {
+      type: 'UniV3',
       oracleId: 'USDbr',
       decimalDelta: 1,
       pool: '0xf4D9e842a5D388758aD6d48b1e4739224Cd8Fa94',

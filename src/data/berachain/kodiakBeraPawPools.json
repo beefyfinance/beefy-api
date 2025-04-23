@@ -1,5 +1,11 @@
 [
   {
+    "name": "berapaw-ooga-bera",
+    "address": "0x9B155cF7a4E5911AC35AB2173D0f58e1d39570Fd",
+    "gauge": "0x124ca134dd2CD67362E259fb33A2c762d8BAF961",
+    "tokens": ["OOGA", "WBERA"]
+  },
+  {
     "name": "berapaw-bread-ohm",
     "address": "0xd9a747880393f7c33cEf1aea36909b36d421F7E5",
     "gauge": "0xf10f34547f4b8659058F10D29759a89Eb790aA80",

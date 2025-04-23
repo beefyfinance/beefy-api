@@ -248,6 +248,20 @@ export const tokens = {
       'BakerDAO combines token economics, collateralized lending, leverage, and Proof-of-Liquidity into a single cohesive financial ecosystem. The $BREAD token features a mathematically-enforced upward price trajectory, backed by $BERA tokens.',
     bridge: 'native',
   },
+  OOGA: {
+    name: 'OOGA',
+    symbol: 'OOGA',
+    oracleId: 'OOGA',
+    address: '0x009af46Df68DB0E76BFe9EA35663f6Ed17877956',
+    decimals: 18,
+    chainId: 80094,
+    website: 'https://app.oogabooga.io/',
+    documentation: 'https://docs.oogabooga.io/',
+    description:
+      "Ooga Booga is a decentralized exchange aggregator built on Berachain, designed to help traders find the most cost-effective crypto swaps across various exchanges. It serves as Berachain's native liquidity aggregator, enhancing the efficiency and accessibility of decentralized trading on the platform.",
+    bridge: 'native',
+    risks: ['LARGE_HOLDERS'],
+  },
   USDbr: {
     name: 'USDbr',
     address: '0x6d4223DAE2a8744a85a6d44e97f3F61679f87ee6',
