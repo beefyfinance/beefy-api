@@ -2642,4 +2642,17 @@ export const tokens = {
       "SavingsUSDS is the decentralized stablecoin of Sky. USDS replaces DAI as Sky's new stablecoin, offering stability plus new rewards and savings options.",
     bridge: 'base-canonical',
   },
+  ZORA: {
+    name: 'ZORA',
+    symbol: 'ZORA',
+    oracleId: 'ZORA',
+    address: '0x1111111111166b7FE7bd91427724B487980aFc69',
+    chainId: 8453,
+    decimals: 18,
+    website: 'https://zora.co/',
+    documentation: 'https://docs.zora.co/',
+    description: 'A social network where every post is a coin.',
+    bridge: 'native',
+    risks: ['NO_TIMELOCK', 'LARGE_HOLDERS'],
+  },
 } as const satisfies Record<string, Token>;

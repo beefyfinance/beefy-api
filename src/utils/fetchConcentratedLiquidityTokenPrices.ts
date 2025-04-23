@@ -614,6 +614,14 @@ const tokens: Partial<Record<keyof typeof ChainId, ConcentratedLiquidityToken[]>
       firstToken: 'Base is for everyone',
       secondToken: 'WETH',
     },
+    {
+      type: 'UniV3',
+      oracleId: 'ZORA',
+      decimalDelta: 1e12,
+      pool: '0x36B4869995672DF7E3aFc36BE795Dbb998Bc639d',
+      firstToken: 'USDC',
+      secondToken: 'ZORA',
+    },
   ],
   zksync: [
     {
