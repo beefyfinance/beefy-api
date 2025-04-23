@@ -1,5 +1,34 @@
 [
   {
+    "address": "0x39079221508989999578cA3B0005130E5e451D14",
+    "lpAddress": "0x3f53f1Fd5b7723DDf38D93a584D280B9b94C3111",
+    "tokens": ["0x1111111111166b7FE7bd91427724B487980aFc69", "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913"],
+    "tokenOracleIds": ["ZORA", "USDC"],
+    "decimals": [18, 6],
+    "oracleId": "aerodrome-cow-base-zora-usdc",
+    "providerId": "aerodrome",
+    "rewardPool": {
+      "address": "0x79C26EAF080958A86eB82c0E24F9AD8DF979E2Ae",
+      "oracleId": "aerodrome-cow-base-zora-usdc-rp"
+    },
+    "vault": {
+      "address": "0x7Ac9F45317ECE6964D176bb8850A654C328539C8",
+      "oracleId": "aerodrome-cow-base-zora-usdc-vault"
+    }
+  },
+  {
+    "address": "0xbF7e7f77224Bee020Cf92bD4b14bDCeBD9182641",
+    "lpAddress": "0x36B4869995672DF7E3aFc36BE795Dbb998Bc639d",
+    "tokens": ["0x1111111111166b7FE7bd91427724B487980aFc69", "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913"],
+    "tokenOracleIds": ["ZORA", "USDC"],
+    "decimals": [18, 6],
+    "oracleId": "uniswap-cow-base-zora-usdc",
+    "rewardPool": {
+      "address": "0xc1CE1429703695E7B551D5CA132d026aad1eB30b",
+      "oracleId": "uniswap-cow-base-zora-usdc-rp"
+    }
+  },
+  {
     "address": "0xF315b9Bde1E18E71F879dD47b32697a01b3671fb",
     "lpAddress": "0x06D7874037E622d6eF42294Cf32EB259806Cb1C6",
     "tokens": ["0x4200000000000000000000000000000000000006", "0xD769d56f479E9E72a77bB1523e866A33098Feec5"],
