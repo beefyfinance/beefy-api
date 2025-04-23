@@ -2655,4 +2655,17 @@ export const tokens = {
     bridge: 'native',
     risks: ['NO_TIMELOCK', 'LARGE_HOLDERS'],
   },
+  TRUE: {
+    name: 'TRUE',
+    symbol: 'TRUE',
+    oracleId: 'TRUE',
+    address: '0x21CFCFc3d8F98fC728f48341D10Ad8283F6EB7AB',
+    chainId: 8453,
+    decimals: 18,
+    website: 'https://truemarkets.org/',
+    documentation: 'https://truemarkets.gitbook.io/truemarkets',
+    description:
+      'Truemarkets is a news and information source on the frontier of alternative media.',
+    bridge: 'native',
+  },
 } as const satisfies Record<string, Token>;

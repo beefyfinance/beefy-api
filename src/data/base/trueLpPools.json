@@ -1,0 +1,22 @@
+[
+  {
+    "name": "true-true-weth",
+    "address": "0x1FAE246b1b2D0ce47126bBb109850Da355352D77",
+    "gauge": "0x688F5B490Edb7F466A89a6Db4fb30829558aF014",
+    "decimals": "1e18",
+    "beefyFee": 0.095,
+    "chainId": 8453,
+    "lp0": {
+      "address": "0x21CFCFc3d8F98fC728f48341D10Ad8283F6EB7AB",
+      "oracle": "tokens",
+      "oracleId": "TRUE",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x4200000000000000000000000000000000000006",
+      "oracle": "tokens",
+      "oracleId": "WETH",
+      "decimals": "1e18"
+    }
+  }
+]

@@ -19,9 +19,11 @@ const { getBaseSiloApys } = require('./getBaseSiloApys');
 const { getBesnARSApy } = require('./getBesnARSApy');
 const { getTokemakApys } = require('./getTokemakApys');
 const { getMorphoApys } = require('../common/morpho/getMorphoApys');
+const { getTrueApys } = require('./getTrueApys');
 const { BASE_CHAIN_ID } = require('../../../constants');
 
 const getApys = [
+  getTrueApys,
   getTokemakApys,
   getBesnARSApy,
   getBaseSiloApys,
