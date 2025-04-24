@@ -1,0 +1,10 @@
+[
+  {
+    "name": "true-true",
+    "address": "0x21CFCFc3d8F98fC728f48341D10Ad8283F6EB7AB",
+    "gauge": "0x1a40621C54330940B081F925aA027458a4c035eD",
+    "oracle": "tokens",
+    "oracleId": "TRUE",
+    "decimals": "1e18"
+  }
+]

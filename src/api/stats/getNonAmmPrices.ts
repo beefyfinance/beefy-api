@@ -108,6 +108,7 @@ import { getBeefyCowSonicPrices } from './sonic/getBeefySonicCowPrices';
 import { getMorphoPrices } from './common/morpho/getMorphoPrices';
 import { getIchiPrices } from './common/getIchiPrices';
 import { getEulerPrices } from './common/euler/getEulerPrices';
+import { getTruePrices } from './base/getTruePrices';
 import { promiseArrayTiming } from '../../utils/timing';
 
 export type NonAmmPrices = {
@@ -235,6 +236,7 @@ export async function getNonAmmPrices(
     getSolidlyStablePrices(SONIC_CHAIN_ID, require('../../data/sonic/swapxStableLpPools.json'), tokenPrices),
     getEulerPrices(SONIC_CHAIN_ID, require('../../data/sonic/eulerPools.json'), tokenPrices),
     getEulerPrices(AVAX_CHAIN_ID, require('../../data/avax/eulerPools.json'), tokenPrices),
+    getTruePrices(BASE_CHAIN_ID, require('../../data/base/truePools.json'), tokenPrices),
     getBaseSiloPrices(tokenPrices),
     getNuriStablePrices(tokenPrices),
     getTokanStablePrices(tokenPrices),
