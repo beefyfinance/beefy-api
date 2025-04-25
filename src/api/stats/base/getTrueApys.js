@@ -3,7 +3,7 @@ const { getRewardPoolApys } = require('../common/getRewardPoolApys');
 const trueLpPools = require('../../../data/base/trueLpPools.json');
 const truePools = require('../../../data/base/truePools.json');
 
-const pools = [...trueLpPools, truePools];
+const pools = [...trueLpPools, ...truePools];
 
 const getTrueApys = async () => {
   return getRewardPoolApys({
