@@ -229,6 +229,7 @@ const coinGeckoCoins: Record<string, string[]> = {
   'solv-protocol-solvbtc-bbn': ['xSolvBTC'],
   'agora-dollar': ['AUSD'],
   'falcon-finance': ['USDf'],
+  'ripple-usd': ['RLUSD'],
   susds: ['sUSDS'],
 };
 

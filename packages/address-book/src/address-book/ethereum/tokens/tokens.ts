@@ -2525,6 +2525,19 @@ export const tokens = {
     description:
       'Falcon is the next-generation platform transforming synthetic dollars into sustainable yield opportunities. Falcon aims to empower users and institutions to unlock the true yield potential of their digital assets.',
     bridge: 'native',
+    risks: ['NO_TIMELOCK'],
+  },
+  RLUSD: {
+    name: 'RLUSD',
+    symbol: 'RLUSD',
+    oracleId: 'RLUSD',
+    address: '0x8292Bb45bf1Ee4d140127049757C2E0fF06317eD',
+    chainId: 1,
+    decimals: 18,
+    website: 'https://ripple.com/solutions/stablecoin/',
+    description:
+      'Ripple USD (RLUSD) is designed to maintain a constant value of one US dollar. Natively issued on XRP Ledger and Ethereum blockchains, Ripple USD is fully backed by a segregated reserve of cash and cash equivalents and redeemable 1:1 for US dollars.',
+    bridge: 'native',
   },
   waEthUSDT: {
     name: 'Wrapped Aave Ethereum USDT',

@@ -1,5 +1,26 @@
 [
   {
+    "name": "curve-usdc-rlusd",
+    "pool": "0xD001aE433f254283FeCE51d4ACcE8c53263aa186",
+    "gauge": "0xFc3212Bd9Ad9A28Da6B2bd50a2918969C126894F",
+    "rewards": [
+      {
+        "token": "0x8292Bb45bf1Ee4d140127049757C2E0fF06317eD",
+        "oracleId": "RLUSD"
+      }
+    ],
+    "tokens": [
+      {
+        "oracleId": "USDC",
+        "decimals": "1e6"
+      },
+      {
+        "oracleId": "RLUSD",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
     "name": "curve-reusd-scrvusd",
     "pool": "0xc522A6606BBA746d7960404F22a3DB936B6F4F50",
     "gauge": "0xaF01d68714E7eA67f43f08b5947e367126B889b1",
