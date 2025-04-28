@@ -2513,6 +2513,19 @@ export const tokens = {
       'USDL is a US dollar-backed stablecoin that distributes yield to its holders every day. USDL reserves are held in short-term, highly liquid assets. USDL can always be redeemed at a rate of 1 USDL = 1 US dollar. The token is issued by Paxos Issuance MENA Ltd. (Paxos International), which is regulated by the Financial Services Regulatory Authority (FSRA) of the Abu Dhabi Global Market (ADGM)',
     bridge: 'native',
   },
+  USDf: {
+    name: 'USDf',
+    symbol: 'USDf',
+    oracleId: 'USDf',
+    address: '0xFa2B947eEc368f42195f24F36d2aF29f7c24CeC2',
+    chainId: 1,
+    decimals: 18,
+    website: 'https://app.falcon.finance/',
+    documentation: 'https://docs.falcon.finance/',
+    description:
+      'Falcon is the next-generation platform transforming synthetic dollars into sustainable yield opportunities. Falcon aims to empower users and institutions to unlock the true yield potential of their digital assets.',
+    bridge: 'native',
+  },
   waEthUSDT: {
     name: 'Wrapped Aave Ethereum USDT',
     symbol: 'waEthUSDT',
