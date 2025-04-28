@@ -12,6 +12,7 @@ import { addressBook } from '../../packages/address-book/src/address-book';
 import { fetchContract } from '../api/rpc/client';
 import WrappedAaveTokenAbi from '../abis/WrappedAaveToken';
 import WrappedAave4626TokenAbi from '../abis/WrappedAave4626Token';
+import OrbETHAbi from '../abis/OrbETH';
 import rswETHAbi from '../abis/rswETH';
 import { getEDecimals } from './getEDecimals';
 
@@ -90,6 +91,7 @@ const {
       waArbwstETH,
       ezETH: arbezETH,
       waArbezETH,
+      orbETH,
     },
   },
   avax: {
@@ -186,6 +188,7 @@ const tokens = {
     [arbWBTC, waArbWBTC, true],
     [arbwstETH, waArbwstETH, true],
     [arbezETH, waArbezETH, true],
+    [arbWETH, orbETH, true],
   ],
   avax: [
     [aavAVAX, waavAVAX],
@@ -222,6 +225,10 @@ const getWrappedAavePrices = async (tokenPrices, tokens, chainId) => {
       const contract = fetchContract(token[1].address, rswETHAbi, chainId);
       return contract.read.getRate();
     } else {
+      if (token[1].oracleId === 'orbETH') {
+        const contract = fetchContract(token[1].address, OrbETHAbi, chainId);
+        return contract.read.tokensPerLST();
+      }
       const contract = fetchContract(token[1].address, WrappedAave4626TokenAbi, chainId);
       return contract.read.convertToShares([Number(getEDecimals(token[0].decimals))]);
     }
