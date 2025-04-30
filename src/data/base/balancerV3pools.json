@@ -1,35 +1,5 @@
 [
   {
-    "name": "balancerv3-base-wabasgho-wabasusdc",
-    "address": "0x7AB124EC4029316c2A42F713828ddf2a192B36db",
-    "gauge": "0x70DB188E5953f67a4B16979a2ceA26248b315401",
-    "decimals": "1e18",
-    "rewards": [
-      {
-        "newGauge": true,
-        "stream": "0x70DB188E5953f67a4B16979a2ceA26248b315401",
-        "oracleId": "BAL"
-      },
-      {
-        "rewardToken": "0x6Bb7a212910682DCFdbd5BCBb3e28FB4E8da10Ee",
-        "oracleId": "GHO",
-        "decimals": "1e18"
-      }
-    ],
-    "tokens": [
-      {
-        "address": "0x88b1Cd4b430D95b406E382C3cDBaE54697a0286E",
-        "oracleId": "waBasGHO",
-        "decimals": "1e18"
-      },
-      {
-        "address": "0xC768c589647798a6EE01A91FdE98EF2ed046DBD6",
-        "oracleId": "waBasUSDC",
-        "decimals": "1e6"
-      }
-    ]
-  },
-  {
     "name": "balancerv3-base-usr-wabasgho",
     "address": "0x5b14ce8DE84448e9A6F6aF652af318472aA4FCAF",
     "gauge": "0xec16621C9bD547d64B93c17B51838Ff173bB6DD1",

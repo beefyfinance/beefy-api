@@ -51,7 +51,7 @@ const DEFAULT_RPCS: ApiChainToRpcs = {
   canto: ['https://canto.slingshot.finance'],
   zksync: ['https://mainnet.era.zksync.io'],
   zkevm: ['https://zkevm-rpc.com'],
-  base: ['https://mainnet.base.org'],
+  base: ['https://base.rpc.subquery.network/public'],
   gnosis: ['https://gnosis.publicnode.com'],
   linea: ['https://rpc.linea.build'],
   mantle: ['https://rpc.mantle.xyz'],
