@@ -9,7 +9,7 @@
     "oracleId": "S",
     "decimals": "1e18",
     "chainId": 146,
-    "rewardOracleId": "S",
+    "rewardOracleId": "beS",
     "rewardDecimals": "1e18",
     "incentivesController": "0x0e4077F055C1c5802d6084954afd15DD1B53a575",
     "lens": "0xB6AdBb29f2D8ae731C7C72036A7FD5A7E970B198"
