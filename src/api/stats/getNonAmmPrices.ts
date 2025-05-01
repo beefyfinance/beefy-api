@@ -11,7 +11,6 @@ import getBalancerPolyPrices from './matic/getBalancerPolyPrices';
 import getBeetsSonicPrices from './sonic/getBeetsSonicPrices';
 import getVelodromeStablePrices from './optimism/getVelodromeStablePrices';
 import getEquilibreStablePrices from './kava/getEquilibreStablePrices';
-import getHermesStablePrices from './metis/getHermesStablePrices';
 import getCurveKavaPrices from './kava/getCurvePrices';
 import { getGmxV2ArbitrumPrices } from './arbitrum/getGmxV2Prices';
 import { getGmxArbitrumPrices } from './arbitrum/getGmxPrices';
@@ -27,7 +26,6 @@ import getStargateAvaxPrices from './avax/getStargateAvaxPrices';
 import getStargateBscPrices from './bsc/stargate/getStargateBscPrices';
 import getStargatePolygonPrices from './matic/getStargatePolygonPrices';
 import getStargateOpPrices from './optimism/getStargateOpPrices';
-import getStargateMetisPrices from './metis/getStargateMetisPrices';
 import getStargateBasePrices from './base/getStargateBasePrices';
 import getStargateMantlePrices from './mantle/getStargateMantlePrices';
 import getStargateSeiPrices from './sei/getStargateSeiPrices';
@@ -151,7 +149,6 @@ export async function getNonAmmPrices(
     getThenaStablePrices(tokenPrices),
     getOlpPrices(),
     getStargateBasePrices(tokenPrices),
-    getStargateMetisPrices(tokenPrices),
     getStargateOpPrices(tokenPrices),
     getStargatePolygonPrices(tokenPrices),
     getStargateBscPrices(tokenPrices),
@@ -168,7 +165,6 @@ export async function getNonAmmPrices(
     getGmxV2ArbitrumPrices(),
     getGmxAvalanchePrices(tokenPrices),
     getGmxArbitrumPrices(tokenPrices),
-    getHermesStablePrices(tokenPrices),
     getVelodromeStablePrices(tokenPrices),
     getVelodromeModeStablePrices(tokenPrices),
     getVelodromeLiskStablePrices(tokenPrices),

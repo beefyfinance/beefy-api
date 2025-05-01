@@ -28,7 +28,6 @@ import vvsPools from '../../data/cronos/vvsLpPools.json';
 import cronaPools from '../../data/cronos/cronaLpPools.json';
 import liquidusPools from '../../data/cronos/liquidusLpPools.json';
 import netswapPools from '../../data/metis/netswapLpPools.json';
-import tethysPools from '../../data/metis/tethysLpPools.json';
 import stellaswapPools from '../../data/moonbeam/stellaswapLpPools.json';
 import stellaswapPoolsV2 from '../../data/moonbeam/stellaswapLpV2Pools.json';
 import darkCryptoPools from '../../data/cronos/darkCryptoLpPools.json';
@@ -37,7 +36,6 @@ import vvsDualPools from '../../data/cronos/vvsDualLpPools.json';
 import velodromePools from '../../data/optimism/velodromeLpPools.json';
 import oldVelodromePools from '../../data/optimism/oldVelodromeLpPools.json';
 import ripaeCronosPools from '../../data/cronos/ripaeLpPools.json';
-import hermesPools from '../../data/metis/hermesLpPools.json';
 import thenaPools from '../../data/bsc/thenaLpPools.json';
 import cantoLpPools from '../../data/canto/cantoLpPools.json';
 import solidLizardPools from '../../data/arbitrum/solidlizardLpPools.json';
@@ -113,7 +111,6 @@ const pools = normalizePoolOracleIds([
   ...solidLizardPools,
   ...cantoLpPools,
   ...thenaPools,
-  ...hermesPools,
   ...ripaeCronosPools,
   ...velodromePools,
   ...oldVelodromePools,
@@ -122,7 +119,6 @@ const pools = normalizePoolOracleIds([
   ...stellaswapPoolsV2,
   ...solarflare,
   ...darkCryptoPools,
-  ...tethysPools,
   ...netswapPools,
   ...liquidusPools,
   ...oldPools,
