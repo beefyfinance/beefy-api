@@ -1,18 +1,20 @@
 const BigNumber = require('bignumber.js');
 
 import { fetchPrice } from '../../../utils/fetchPrice';
-const pools = require('../../../data/metis/netswapLpPools.json');
-const { BASE_HPY, METIS_CHAIN_ID } = require('../../../constants');
-const { getTradingFeeApr } = require('../../../utils/getTradingFeeApr');
 import { getFarmWithTradingFeesApy } from '../../../utils/getFarmWithTradingFeesApy';
-const { netswapClient } = require('../../../apollo/client');
-const { compound } = require('../../../utils/compound');
 import { NET_LPF } from '../../../constants';
 import { getTotalPerformanceFeeForVault } from '../../vaults/getVaultFees';
 import NettChef from '../../../abis/metis/NettChef';
 import { fetchContract } from '../../rpc/client';
 import ERC20Abi from '../../../abis/ERC20Abi';
 import SimpleRewarderPerSec from '../../../abis/avax/SimpleRewarderPerSec';
+
+const pools = require('../../../data/metis/netswapLpPools.json');
+const { BASE_HPY, METIS_CHAIN_ID } = require('../../../constants');
+const { getTradingFeeApr } = require('../../../utils/getTradingFeeApr');
+
+const { netswapClient } = require('../../../apollo/client');
+const { compound } = require('../../../utils/compound');
 
 const masterchef = '0x9d1dbB49b2744A1555EDbF1708D64dC71B0CB052';
 const oracleIdA = 'NETT';
@@ -29,11 +31,12 @@ const getNetswapApys = async () => {
   let apyBreakdowns = {};
 
   const tokenPriceA = await fetchPrice({ oracle: oracleA, id: oracleIdA });
-  const { rewardPerSecond, totalAllocPoint } = await getMasterChefData();
-  const { balances, allocPoints, tokenPerSecData } = await getPoolsData(pools);
+  const [{ rewardPerSecond, totalAllocPoint }, { balances, allocPoints, tokenPerSecData }] =
+    await Promise.all([getMasterChefData(), getPoolsData(pools)]);
 
   const pairAddresses = pools.map(pool => pool.address);
-  const tradingAprs = await getTradingFeeApr(netswapClient, pairAddresses, liquidityProviderFee);
+  // const tradingAprs = await getTradingFeeApr(netswapClient, pairAddresses, liquidityProviderFee);
+  const tradingAprs = {};
 
   for (let i = 0; i < pools.length; i++) {
     const pool = pools[i];
