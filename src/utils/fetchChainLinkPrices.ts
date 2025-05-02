@@ -41,16 +41,10 @@ const oracles: Oracle[] = [
     heartbeat: 3600,
   },
   {
-    oracleId: 'ETH',
-    address: '0xf9680d99d6c9589e2a93a78a04a279e509205945',
-    chain: 'polygon',
-    heartbeat: 27,
-  },
-  {
     oracleId: 'MATIC',
     address: '0xab594600376ec9fd91f8e885dadf0ce036862de0',
     chain: 'polygon',
-    heartbeat: 27,
+    heartbeat: 3600,
   },
   {
     oracleId: 'AVAX',
@@ -113,12 +107,6 @@ const oracles: Oracle[] = [
     heartbeat: 3600,
   },
   {
-    oracleId: 'BTC',
-    address: '0xc907e116054ad103354f2d350fd2514433d57f6f',
-    chain: 'polygon',
-    heartbeat: 27,
-  },
-  {
     oracleId: 'USDC',
     address: '0x8fffffd4afb6115b954bd326cbe7b4ba576818f6',
     chain: 'ethereum',
@@ -136,12 +124,6 @@ const oracles: Oracle[] = [
     chain: 'ethereum',
     heartbeat: 864000,
   },
-  // {
-  //   oracleId: 'FTM',
-  //   address: '0xf4766552D15AE4d256Ad41B6cf2933482B0680dc',
-  //   chain: 'fantom',
-  //   heartbeat: 3600,
-  // },
   {
     oracleId: 'KAVA',
     address: '0x7899dd75C329eFe63e35b02bC7d60D3739FB23c5',
