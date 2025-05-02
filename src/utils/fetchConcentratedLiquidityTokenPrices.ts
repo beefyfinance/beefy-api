@@ -712,6 +712,14 @@ const tokens: Partial<Record<keyof typeof ChainId, ConcentratedLiquidityToken[]>
     },
     {
       type: 'AlgebraV2',
+      oracleId: 'GEMSx',
+      decimalDelta: 1,
+      pool: '0xeDFa946815c5CDb14BF894aEd1542D3049a7Be0c',
+      firstToken: 'OS',
+      secondToken: 'GEMSx',
+    },
+    {
+      type: 'AlgebraV2',
       oracleId: 'SWPx',
       decimalDelta: 1,
       pool: '0xbeca246a76942502f61bfe88f60bbc87dafefe80',

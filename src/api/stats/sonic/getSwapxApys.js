@@ -43,9 +43,10 @@ async function getGemsxApy(pools) {
       const campaign = campaigns.find(c =>
         Object.values(c.aprBreakdown || {}).some(v => v.address.toLowerCase() === p.gauge.toLowerCase())
       );
-      if (campaign) {
-        // rewards are for both gauges so div(2)
-        const rewards = new BigNumber(campaign.dailyrewards || 0).div(2).times(365);
+      const gemsx = campaign?.dailyRewardTokens?.find(r => r.symbol === 'GEMSx');
+      if (gemsx) {
+        const gemsxPrice = await fetchPrice({ oracle: 'tokens', id: 'GEMSx' });
+        const rewards = new BigNumber(gemsx.amount || 0).div('1e18').times(365).times(gemsxPrice);
         const lpPrice = await fetchPrice({ oracle: 'lps', id: p.name });
         const totalStakedInUsd = new BigNumber(supplies[i]).div('1e18').times(lpPrice);
         apys[i] = rewards.div(totalStakedInUsd);
