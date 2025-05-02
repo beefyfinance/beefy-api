@@ -125,7 +125,9 @@ const oracles: Oracle[] = [
     heartbeat: 864000,
   },
   {
-    oracleId: 'FRAX',
+    // given this is on Ethereum, it is probably the price of LFRAX
+    // there is a new frxUSD token on Ethereum so this oracle might become outdated
+    oracleId: 'FRAX', // reminder: FRAX is oracle for frxUSD on Fraxtal
     address: '0xB9E1E3A9feFf48998E45Fa90847ed4D467E8BcfD',
     chain: 'ethereum',
     heartbeat: 3600,

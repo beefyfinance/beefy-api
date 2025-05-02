@@ -624,8 +624,8 @@ const fraxtalChain = {
   network: 'fraxtal',
   nativeCurrency: {
     decimals: 18,
-    name: 'Frax Staked Ether',
-    symbol: 'frxETH',
+    name: 'Frax',
+    symbol: 'FRAX',
   },
   rpcUrls: {
     public: { http: getRpcsForChain('fraxtal') },

@@ -1,10 +1,25 @@
 import type { Token } from '../../../types/token.js';
 
+const FXS = {
+  name: 'Wrapped Frax', // previously "Frax Share"
+  symbol: 'wFRAX', // previously "FXS"
+  oracleId: 'FXS', // keep the same so we don't lose historical data
+  address: '0xFc00000000000000000000000000000000000002',
+  chainId: 252,
+  decimals: 18,
+  website: 'https://frax.finance/',
+  bridge: 'native', // previously "fraxtal-canonical" (no longer OptimismMintableERC20, it is like WETH now)
+  description:
+    'FRAX (previously FXS) is the governance token of the Frax Finance protocol and the gas token of the Fraxtal chain.',
+  logoURI: 'https://app.sushi.com/images/tokens/fxs-square.jpg',
+  documentation: 'https://docs.frax.finance/',
+};
+
 const frxETH = {
-  name: 'Frax Wrapped Ether',
+  name: 'Frax Ether', // previously "Frax Wrapped Ether"
   address: '0xFC00000000000000000000000000000000000006',
-  symbol: 'wfrxETH',
-  oracleId: 'wfrxETH',
+  symbol: 'frxETH', // previously "wfrxETH"
+  oracleId: 'frxETH', // previously "wfrxETH" here (but both existed)
   decimals: 18,
   chainId: 252,
   website: 'https://app.frax.finance/frxeth/mint/',
@@ -16,9 +31,25 @@ const frxETH = {
 } as const satisfies Token;
 
 export const tokens = {
+  FXS, // now FRAX
+  WFXS: FXS, // now wFRAX
+  WNATIVE: FXS, // now wFRAX, previously wfrxETH
+  FRAX: {
+    chainId: 252,
+    address: '0xFc00000000000000000000000000000000000001',
+    decimals: 18,
+    name: 'Frax USD', // previously "Frax Dollar"
+    symbol: 'frxUSD', // previously "FRAX",
+    oracleId: 'FRAX', // keep the same so we don't lose historical data
+    website: 'https://frax.finance/',
+    description:
+      'frxUSD (previously FRAX) is a crypto collateralized stablecoin pegged to the US dollar',
+    bridge: 'fraxtal-canonical',
+    logoURI: '',
+    documentation: 'https://docs.frax.finance/',
+  },
   frxETH,
   wfrxETH: frxETH,
-  WNATIVE: frxETH,
   sfrxETH: {
     name: 'Staked Frax Ether',
     symbol: 'sfrxETH',
@@ -32,19 +63,6 @@ export const tokens = {
     bridge: 'fraxtal-canonical',
     logoURI: '',
     documentation: 'https://docs.frax.finance/frax-ether/frxeth-and-sfrxeth',
-  },
-  FRAX: {
-    chainId: 252,
-    address: '0xFc00000000000000000000000000000000000001',
-    decimals: 18,
-    name: 'Frax USD',
-    symbol: 'frxUSD',
-    oracleId: 'FRAX',
-    website: 'https://frax.finance/',
-    description: 'Frax is the first fractional-algorithmic stablecoin protocol.',
-    bridge: 'fraxtal-canonical',
-    logoURI: '',
-    documentation: 'https://docs.frax.finance/',
   },
   CRV: {
     name: 'CRV',
@@ -86,20 +104,6 @@ export const tokens = {
     chainId: 252,
     logoURI: 'https://ftmscan.com/token/images/USDC_32.png',
     documentation: 'https://developers.circle.com/docs',
-  },
-  FXS: {
-    name: 'Frax Share',
-    symbol: 'FXS',
-    oracleId: 'FXS',
-    address: '0xFc00000000000000000000000000000000000002',
-    chainId: 252,
-    decimals: 18,
-    website: 'https://frax.finance/',
-    bridge: 'fraxtal-canonical',
-    description:
-      'The Frax Share token (FXS) is the non-stable, utility token in the protocol. It is meant to be volatile and hold rights to governance and all utility of the system. It is important to note that we take a highly governance-minimized approach to designing trustless money in the same ethos as Bitcoin. We eschew DAO-like active management such as MakerDAO. The less parameters for a community to be able to actively manage, the less there is to disagree on. Parameters that are up for governance through FXS include adding/adjusting collateral pools, adjusting various fees (like minting or redeeming), and refreshing the rate of the collateral ratio. No other actions such as active management of collateral or addition of human-modifiable parameters are possible other than a hardfork that would require voluntarily moving to a new implementation entirely. ',
-    logoURI: 'https://app.sushi.com/images/tokens/fxs-square.jpg',
-    documentation: 'https://docs.frax.finance/',
   },
   cvxFXS: {
     name: 'Convex FXS',

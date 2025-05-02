@@ -196,16 +196,30 @@ export const tokens = {
   },
   FRAX: {
     chainId: 1,
-    address: '0x853d955aCEf822Db058eb8505911ED77F175b99e',
+    address: '0x853d955aCEf822Db058eb8505911ED77F175b99e', // LFRAX, convertable to frxUSD
     decimals: 18,
-    name: 'Frax',
-    symbol: 'FRAX',
+    name: 'Frax', // onchain: "Frax", offchain: "Legacy Frax Dollar"
+    symbol: 'FRAX', // onchain: "FRAX", offchain: "LFRAX"
     oracleId: 'FRAX',
     website: 'https://frax.finance/',
-    description: 'Frax is the first fractional-algorithmic stablecoin protocol.',
+    description:
+      'FRAX (LFRAX, Legacy Frax) is the original stablecoin of the Frax protocol. Users can migrate 1:1 to frxUSD.',
     bridge: 'native',
-    logoURI:
-      'https://raw.githubusercontent.com/pangolindex/tokens/main/assets/0xD24C2Ad096400B6FBcd2ad8B24E7acBc21A1da64/logo.png',
+    logoURI: '',
+    documentation: 'https://docs.frax.finance/',
+  },
+  frxUSD: {
+    chainId: 1,
+    address: '0xCAcd6fd266aF91b8AeD52aCCc382b4e165586E29', // new
+    decimals: 18,
+    name: 'Frax USD',
+    symbol: 'frxUSD',
+    oracleId: 'frxUSD', // TODO could be "FRAX" since it should be 1:1?
+    website: 'https://frax.finance/',
+    description:
+      'frxUSD is a replacement for FRAX on Ethereum. frxUSD is a crypto collateralized stablecoin pegged to the US dollar.',
+    bridge: 'native',
+    logoURI: '',
     documentation: 'https://docs.frax.finance/',
   },
   WBTC: {
@@ -1343,16 +1357,16 @@ export const tokens = {
     documentation: 'https://docs-new.staderlabs.com/intro',
   },
   FXS: {
-    name: 'Frax Share',
-    symbol: 'FXS',
+    name: 'Frax Share', // onchain: "Frax Share", offchain: "Frax"
+    symbol: 'FXS', // onchain: "FXS", offchain: "FRAX"
     oracleId: 'FXS',
-    address: '0x3432B6A60D23Ca0dFCa7761B7ab56459D9C964D0',
+    address: '0x3432B6A60D23Ca0dFCa7761B7ab56459D9C964D0', // now FRAX on Fraxtal
     chainId: 1,
     decimals: 18,
     logoURI: '',
     website: 'https://frax.finance/',
     description:
-      'The Frax Protocol introduced the world to the concept of a cryptocurrency being partially backed by collateral and partially stabilized algorithmically.',
+      'FRAX (previously FXS) is the governance token of the Frax Finance protocol and the gas token of the Fraxtal chain.',
     bridge: 'native',
   },
   wBETH: {
