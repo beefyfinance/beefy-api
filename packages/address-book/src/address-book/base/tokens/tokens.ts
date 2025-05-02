@@ -2642,6 +2642,18 @@ export const tokens = {
       "SavingsUSDS is the decentralized stablecoin of Sky. USDS replaces DAI as Sky's new stablecoin, offering stability plus new rewards and savings options.",
     bridge: 'base-canonical',
   },
+  scrvUSD: {
+    name: 'Savings crvUSD',
+    symbol: 'scrvUSD',
+    oracleId: 'scrvUSD',
+    address: '0x646A737B9B6024e49f5908762B3fF73e65B5160c',
+    chainId: 8453,
+    decimals: 18,
+    website: 'https://www.curve.fi/',
+    description:
+      'Savings crvUSD, abbreviated as scrvUSD, is an interest-bearing stablecoin that earns yield simply by holding the token.',
+    documentation: 'https://resources.curve.fi/crvusd/scrvusd',
+  },
   ZORA: {
     name: 'ZORA',
     symbol: 'ZORA',
