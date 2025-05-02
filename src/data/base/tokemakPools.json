@@ -1,10 +1,1 @@
-[
-  {
-    "name": "tokemak-baseeth",
-    "address": "0xAADf01DD90aE0A6Bb9Eb908294658037096E0404",
-    "gauge": "0xb592c1539AC22EdD9784eA4d6a22199C16314498",
-    "poolId": "fb969501-889f-4cab-b9b5-dfd67d9e298d",
-    "underlyingOracleId": "ETH",
-    "decimals": "1e18"
-  }
-]
+[]

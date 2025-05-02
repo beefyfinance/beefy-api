@@ -45,14 +45,11 @@ import versePools from '../../data/ethereum/verseLpPools.json';
 import ramsesPools from '../../data/arbitrum/ramsesLpPools.json';
 import velocorePools from '../../data/zksync/velocoreLpPools.json';
 import veSyncPools from '../../data/zksync/veSyncLpPools.json';
-import bvmPools from '../../data/base/bvmLpPools.json';
 import baseSwapPools from '../../data/base/baseSwapLpPools.json';
 import ooeV2Pools from '../../data/bsc/ooeV2LpPools.json';
 import draculaPools from '../../data/zksync/draculaLpPools.json';
 import aerodromePools from '../../data/base/aerodromeLpPools.json';
 import alienBasePools from '../../data/base/alienBaseLpPools.json';
-import swapBasedPools from '../../data/base/swapBasedLpPools.json';
-import basoPools from '../../data/base/basoLpPools.json';
 import moePools from '../../data/mantle/moeLpPools.json';
 import lynexPools from '../../data/linea/lynexVolatilePools.json';
 import nilePools from '../../data/linea/nileVolatilePools.json';
@@ -94,14 +91,11 @@ const pools = normalizePoolOracleIds([
   ...moePools,
   ...lynexPools,
   ...nilePools,
-  ...basoPools,
-  ...swapBasedPools,
   ...alienBasePools,
   ...aerodromePools,
   ...draculaPools,
   ...ooeV2Pools,
   ...baseSwapPools,
-  ...bvmPools,
   ...veSyncPools,
   ...velocorePools,
   ...ramsesPools,

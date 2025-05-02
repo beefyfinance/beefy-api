@@ -1,14 +1,5 @@
 [
   {
-    "name": "pendle-base-usr-24apr25",
-    "address": "0xe15578523937ed7f08e8f7a1fa8a021e07025a08",
-    "eqbGauge": "0xe575a035283e67AF9bEEe2D89b3fF21F103d300D",
-    "oracle": "tokens",
-    "oracleId": "USR",
-    "decimals": "1e18",
-    "chainId": 8453
-  },
-  {
     "name": "pendle-base-virtual-cbbtc-26jun25",
     "address": "0x621d4d92e9bed484e6d2cb8a37d342c804a0908c",
     "eqbGauge": "0xDBA1C701b3c2Fe06F136b922EA3ce8fb2eeDeE86",
@@ -24,24 +15,6 @@
     ]
   },
   {
-    "name": "pendle-base-susdz-27mar25",
-    "address": "0x14936c9b8eb798ca6291c2d6ce5de2c6cb5f1f9c",
-    "eqbGauge": "0x7084864136999597872A48c04C866321Eb05581a",
-    "oracle": "tokens",
-    "oracleId": "USDz",
-    "decimals": "1e18",
-    "chainId": 8453
-  },
-  {
-    "name": "pendle-base-wsuperoethb-26jun25",
-    "address": "0xeCc2c994aA0C599a7f69a7Cfb9106fe4dfFb4341",
-    "eqbGauge": "0x8B3977197f96e796c32Af1AC33f9d647a7836917",
-    "oracle": "tokens",
-    "oracleId": "WETH",
-    "decimals": "1e18",
-    "chainId": 8453
-  },
-  {
     "name": "pendle-base-musdc-26jun25",
     "address": "0x3124d41708edbdc7995a55183e802e3d9d0d5ef1",
     "eqbGauge": "0x50D45b4dbc9815aDb8b0016c952B712732bb78dc",
@@ -55,15 +28,6 @@
         "oracleId": "bWELL"
       }
     ]
-  },
-  {
-    "name": "pendle-base-cbeth-25dec25",
-    "address": "0x483f2e223c58a5ef19c4b32fbc6de57709749cb3",
-    "eqbGauge": "0x2367f42B1d6a78930E107bE0ACdaE28EC577237D",
-    "oracle": "tokens",
-    "oracleId": "WETH",
-    "decimals": "1e18",
-    "chainId": 8453
   },
   {
     "name": "pendle-base-lbtc-29may25",

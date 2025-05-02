@@ -26,7 +26,6 @@ import getStargateAvaxPrices from './avax/getStargateAvaxPrices';
 import getStargateBscPrices from './bsc/stargate/getStargateBscPrices';
 import getStargatePolygonPrices from './matic/getStargatePolygonPrices';
 import getStargateOpPrices from './optimism/getStargateOpPrices';
-import getStargateBasePrices from './base/getStargateBasePrices';
 import getStargateMantlePrices from './mantle/getStargateMantlePrices';
 import getStargateSeiPrices from './sei/getStargateSeiPrices';
 import getOlpPrices from './optimism/getOlpPrices';
@@ -42,7 +41,6 @@ import getUniswapArbitrumPrices from './arbitrum/getUniswapPositionPrices';
 import getUniswapEthereumPrices from './ethereum/getUniswapPositionPrices';
 import getUniswapEthereumGammaPrices from './ethereum/getUniswapGammaPrices';
 import getGammaPolygonPrices from './matic/getGammaPolygonPrices';
-import getBasoStablePrices from './base/getBasoStablePrices';
 import { getAerodromeStablePrices } from './base/getAerodromeStablePrices';
 import { getKinetixPrices } from './kava/getKinetixPrices';
 import getEqualizerStableSonicPrices from './sonic/getEqualizerStablePrices';
@@ -136,7 +134,6 @@ export async function getNonAmmPrices(
     getSonicSiloPrices(tokenPrices),
     getEqualizerStableSonicPrices(tokenPrices),
     getKinetixPrices(tokenPrices),
-    getBasoStablePrices(tokenPrices),
     getUniswapArbitrumPrices(tokenPrices),
     getUniswapEthereumPrices(tokenPrices),
     getVelocoreStablePrices(tokenPrices),
@@ -148,7 +145,6 @@ export async function getNonAmmPrices(
     getMimSwapPrices(tokenPrices),
     getThenaStablePrices(tokenPrices),
     getOlpPrices(),
-    getStargateBasePrices(tokenPrices),
     getStargateOpPrices(tokenPrices),
     getStargatePolygonPrices(tokenPrices),
     getStargateBscPrices(tokenPrices),

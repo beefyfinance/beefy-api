@@ -16,24 +16,7 @@ const getAlienBaseApys = async () =>
     oracle: 'tokens',
     decimals: '1e18',
     liquidityProviderFee: 0.0016,
-    tradingAprs: await getTradingAprs(v3Pools),
     // log: true,
   });
-
-async function getTradingAprs(pools) {
-  let aprs = {};
-  try {
-    const response = await fetch(
-      'https://nri7mhlmac.execute-api.eu-central-1.amazonaws.com/farmsData/aprData'
-    ).then(res => res.json());
-    pools.forEach(p => {
-      const poolData = response.body.find(r => r.pool.toLowerCase() === p.address.toLowerCase());
-      aprs[p.address.toLowerCase()] = new BigNumber(poolData.apyBase).div(100);
-    });
-  } catch (e) {
-    console.error('AlienBase trading aprs error ', e.message);
-  }
-  return aprs;
-}
 
 module.exports = getAlienBaseApys;
