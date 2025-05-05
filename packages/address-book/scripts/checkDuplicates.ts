@@ -29,11 +29,18 @@ function checkChain(chainId: ChainId) {
     if (duplicates.length > 1) {
       const uniqueOracles = Array.from(new Set(duplicates.map(t => t.oracleId)));
       if (uniqueOracles.length > 1) {
-        // Always error if oracleIds are different for same token address
-        console.error(
-          `[ERROR] Different oracleIds for ${address} on ${chainId}: ${uniqueOracles.join(', ')}`
-        );
-        ++errors;
+        // FXS oracle is without W for historical data
+        if (uniqueOracles.some(id => id === 'FXS')) {
+          console.warn(
+            `[WARN] Different oracleIds for ${address} on ${chainId}: ${uniqueOracles.join(', ')}`
+          );
+        } else {
+          // Always error if oracleIds are different for same token address
+          console.error(
+            `[ERROR] Different oracleIds for ${address} on ${chainId}: ${uniqueOracles.join(', ')}`
+          );
+          ++errors;
+        }
       } else if (duplicates[0].address !== tokens.WNATIVE.address) {
         // Only warn if same token address is used for multiple tokens and oracleIds are the same
         // (exclude WNATIVE as it is always duplicated)
