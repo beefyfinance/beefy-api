@@ -2,7 +2,7 @@ import type { Token } from '../../../types/token.js';
 
 const FXS = {
   name: 'Wrapped Frax', // previously "Frax Share"
-  symbol: 'WFRAX', // previously "FXS"
+  symbol: 'wFRAX', // previously "FXS"
   oracleId: 'FXS', // keep the same so we don't lose historical data
   address: '0xFc00000000000000000000000000000000000002',
   chainId: 252,
@@ -32,8 +32,8 @@ const frxETH = {
 
 export const tokens = {
   FXS, // now FRAX
-  WFXS: { ...FXS, oracleId: 'WFXS' }, // now WFRAX
-  WNATIVE: { ...FXS, oracleId: 'WFXS' }, // now WFRAX, previously wfrxETH
+  WFXS: FXS, // now wFRAX
+  WNATIVE: FXS, // now wFRAX, previously wfrxETH
   FRAX: {
     chainId: 252,
     address: '0xFc00000000000000000000000000000000000001',
