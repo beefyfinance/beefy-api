@@ -2,8 +2,8 @@ import type { Token } from '../../../types/token.js';
 
 const FXS = {
   name: 'Wrapped Frax', // previously "Frax Share"
-  symbol: 'wFRAX', // previously "FXS"
-  oracleId: 'FXS', // keep the same so we don't lose historical data
+  symbol: 'WFRAX', // previously "FXS"
+  oracleId: 'WFXS', // keep the same so we don't lose historical data
   address: '0xFc00000000000000000000000000000000000002',
   chainId: 252,
   decimals: 18,
