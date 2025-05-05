@@ -35,7 +35,7 @@
     "lp1": {
       "address": "0xFC00000000000000000000000000000000000006",
       "oracle": "tokens",
-      "oracleId": "wfrxETH",
+      "oracleId": "frxETH",
       "decimals": "1e18"
     }
   },
@@ -55,7 +55,7 @@
     "lp1": {
       "address": "0xFC00000000000000000000000000000000000006",
       "oracle": "tokens",
-      "oracleId": "wfrxETH",
+      "oracleId": "frxETH",
       "decimals": "1e18"
     }
   },
@@ -75,7 +75,7 @@
     "lp1": {
       "address": "0xFC00000000000000000000000000000000000006",
       "oracle": "tokens",
-      "oracleId": "wfrxETH",
+      "oracleId": "frxETH",
       "decimals": "1e18"
     }
   }
