@@ -130,6 +130,7 @@
     "name": "curve-fraxtal-frax-susde",
     "pool": "0x8b4e5263e8d6cc0bbf31edf14491fc6077b88229",
     "gauge": "0x59005665c5060d3abee291a21de0375cf1bbed03",
+    "convex": true,
     "rewards": [
       {
         "token": "0xFc00000000000000000000000000000000000002",
