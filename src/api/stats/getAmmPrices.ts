@@ -220,6 +220,7 @@ const coinGeckoCoins: Record<string, string[]> = {
   'agora-dollar': ['AUSD'],
   'falcon-finance': ['USDf'],
   'ripple-usd': ['RLUSD'],
+  'staked-frax-usd': ['sfrxUSD'],
   susds: ['sUSDS'],
 };
 

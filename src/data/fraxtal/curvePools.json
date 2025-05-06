@@ -10,7 +10,7 @@
         "decimals": "1e18"
       },
       {
-        "oracleId": "sFRAX",
+        "oracleId": "sfrxUSD",
         "decimals": "1e18"
       }
     ]

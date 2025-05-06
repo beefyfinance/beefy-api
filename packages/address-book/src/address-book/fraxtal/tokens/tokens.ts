@@ -329,4 +329,17 @@ export const tokens = {
     documentation: 'https://resources.curve.fi/crvusd/scrvusd/',
     bridge: 'fraxtal-canonical',
   },
+  sfrxUSD: {
+    name: 'Staked Frax USD',
+    symbol: 'sfrxUSD',
+    oracleId: 'sfrxUSD',
+    chainId: 252,
+    address: '0xfc00000000000000000000000000000000000008',
+    decimals: 18,
+    website: 'https://frax.finance/',
+    description:
+      'Staked Frax USD (sfrxUSD) is an ERC4626 staking vault that distributes part of the Frax Protocol yield weekly to stakers denominated in frxUSD stablecoins. The sfrxUSD token represents pro rata deposits within the vault and is always withdrawable for frxUSD stablecoins at the pro rata rate at all times. sfrxUSD APY attempts to roughly track the interest on reserve balances (IORB) rate of the United States Federal Reserve using the IORB oracle. This benchmark rate is generally accepted as the “risk free rate” of the US Dollar. The frxUSD staking vault attempts, but does not guarantee in any way, to target this rate.',
+    bridge: 'layer-zero',
+    documentation: 'https://docs.frax.finance/',
+  },
 } as const satisfies Record<string, Token>;
