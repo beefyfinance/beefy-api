@@ -332,7 +332,8 @@ export const tokens = {
     decimals: 18,
     logoURI: '',
     website: 'https://assets.backed.fi/products/bcspx',
-    documentation: 'https://cdn.prod.website-files.com/655f3efc4be468487052e35a/6751b3cb9df2755163702cde_KID%20bCSPX%20-%20EN.pdf',
+    documentation:
+      'https://cdn.prod.website-files.com/655f3efc4be468487052e35a/6751b3cb9df2755163702cde_KID%20bCSPX%20-%20EN.pdf',
     description:
       'The Backed CSPX Core S&P 500 (ticker symbol: bCSPX) is a tracker certificate issued as an ERC-20 token. bCSPX tracks the price of the iShares Core S&P 500 UCITS ETF USD (the underlying). The investment objective of the underlying is to deliver the net total return performance of S&P 500 index, less the fees and expenses of the fund. bCSPX is designed to give eligible cryptocurrency market participants regulatory-compliant access to the S&P 500’s performance, whilst maintaining the benefits of blockchain technology.',
     bridge: 'gnosis-canonical',
@@ -346,7 +347,8 @@ export const tokens = {
     decimals: 18,
     logoURI: '',
     website: 'https://assets.backed.fi/products/btsla',
-    documentation: 'https://cdn.prod.website-files.com/655f3efc4be468487052e35a/6751b142345d4106258dcdc6_KID%20-%20bTSLA%20-%20EN.pdf',
+    documentation:
+      'https://cdn.prod.website-files.com/655f3efc4be468487052e35a/6751b142345d4106258dcdc6_KID%20-%20bTSLA%20-%20EN.pdf',
     description:
       'Backed Tesla (bTSLA) is a tracker certificate issued as an ERC-20 token. bTSLA tracks the price of Tesla Inc. (the underlying). bTSLA is designed to give eligible cryptocurrency market participants regulatory-compliant access to the stock price of Tesla Inc.',
   },
