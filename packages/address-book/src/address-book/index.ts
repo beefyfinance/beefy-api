@@ -37,6 +37,7 @@ import { lisk } from './lisk/index.js';
 import { sonic } from './sonic/index.js';
 import { berachain } from './berachain/index.js';
 import { unichain } from './unichain/index.js';
+import { saga } from './saga/index.js';
 
 export { ChainId }; // enum which is compiled to a JS object
 export type { Chain };
@@ -79,6 +80,7 @@ export const addressBook: ReadonlyRecord<ChainIdKey, Chain> = {
   sonic,
   berachain,
   unichain,
+  saga,
 } as const;
 
 export const addressBookByChainId: ReadonlyRecord<`${ChainId}`, Chain> = {
@@ -118,4 +120,5 @@ export const addressBookByChainId: ReadonlyRecord<`${ChainId}`, Chain> = {
   [ChainId.sonic]: sonic,
   [ChainId.berachain]: berachain,
   [ChainId.unichain]: unichain,
+  [ChainId.saga]: saga,
 } as const;

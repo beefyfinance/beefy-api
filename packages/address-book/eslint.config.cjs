@@ -3,7 +3,7 @@ const tseslint = require('typescript-eslint');
 
 module.exports = tseslint.config(
   {
-    ignores: ['eslint.config.cjs', 'build/', 'build-esm/']
+    ignores: ['eslint.config.cjs', '.lintstagedrc.cjs', 'build/', 'build-esm/']
   },
   eslint.configs.recommended,
   ...tseslint.configs.recommendedTypeChecked,
