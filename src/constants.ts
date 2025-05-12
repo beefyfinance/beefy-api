@@ -66,6 +66,7 @@ const DEFAULT_RPCS: ApiChainToRpcs = {
   sonic: ['https://rpc.soniclabs.com'],
   berachain: ['https://rpc.berachain.com'],
   unichain: ['https://mainnet.unichain.org'],
+  saga: ['https://sagaevm.jsonrpc.sagarpc.io'],
 } as const;
 
 const chainToRpcEnvKeyPrefix = {
