@@ -5,7 +5,7 @@ import { ARBITRUM_CHAIN_ID } from '../../../constants';
 import { getStakeDaoApyCommon } from '../common/curve/getStakeDaoApyCommon';
 
 const pools = require('../../../data/arbitrum/curvePools.json');
-const baseApyUrl = 'https://api.curve.fi/api/getSubgraphData/arbitrum';
+const baseApyUrl = 'https://api.curve.finance/api/getSubgraphData/arbitrum';
 const tradingFees = 0.0002;
 
 const stakeDaoPools = [

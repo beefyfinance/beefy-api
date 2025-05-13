@@ -168,10 +168,10 @@ export const tokens = {
     chainId: 100,
     decimals: 18,
     logoURI: '',
-    website: 'https://crvusd.curve.fi/',
+    website: 'https://crvusd.curve.finance/',
     description:
       'crvUSD is a collateralized-debt-position (CDP) stablecoin pegged to the US Dollar',
-    documentation: 'https://docs.curve.fi/crvUSD/crvUSD/',
+    documentation: 'https://docs.curve.finance/crvUSD/crvUSD/',
     bridge: 'gnosis-canonical',
   },
   USDCe: {

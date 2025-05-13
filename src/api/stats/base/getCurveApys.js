@@ -4,7 +4,7 @@ import { getCurveApysCommon } from '../common/curve/getCurveApysCommon';
 import { BASE_CHAIN_ID as chainId } from '../../../constants';
 
 const pools = require('../../../data/base/curvePools.json').filter(p => p.gauge && !p.convex);
-const factoryApyUrl = 'https://api.curve.fi/api/getFactoryAPYs-base';
+const factoryApyUrl = 'https://api.curve.finance/api/getFactoryAPYs-base';
 const tradingFees = 0.0002;
 
 export const getCurveApys = async () => {

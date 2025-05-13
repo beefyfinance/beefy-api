@@ -4,7 +4,7 @@ import { getCurveApysCommon } from '../common/curve/getCurveApysCommon';
 import { OPTIMISM_CHAIN_ID } from '../../../constants';
 
 const pools = require('../../../data/optimism/curvePools.json').filter(p => p.gauge && !p.convex);
-const baseApyUrl = 'https://api.curve.fi/api/getSubgraphData/optimism';
+const baseApyUrl = 'https://api.curve.finance/api/getSubgraphData/optimism';
 const tradingFees = 0.0002;
 
 export const getCurveApys = async () => {

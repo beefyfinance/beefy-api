@@ -439,10 +439,10 @@ export const tokens = {
     chainId: 8453,
     decimals: 18,
     logoURI: '',
-    website: 'https://crvusd.curve.fi/',
+    website: 'https://crvusd.curve.finance/',
     description:
       'crvUSD is a collateralized-debt-position (CDP) stablecoin pegged to the US Dollar',
-    documentation: 'https://docs.curve.fi/crvUSD/overview/',
+    documentation: 'https://docs.curve.finance/crvUSD/overview/',
     bridge: 'base-canonical',
   },
   bsUSD: {
@@ -580,7 +580,7 @@ export const tokens = {
     chainId: 8453,
     decimals: 18,
     logoURI: '',
-    website: 'https://curve.fi/',
+    website: 'https://curve.finance/',
     description:
       'Curve is an exchange liquidity pool on Ethereum. Curve is designed for extremely efficient stablecoin trading and low risk, supplemental fee income for liquidity providers, without an opportunity cost.',
     documentation: 'https://curve.readthedocs.io/',
@@ -2649,10 +2649,10 @@ export const tokens = {
     address: '0x646A737B9B6024e49f5908762B3fF73e65B5160c',
     chainId: 8453,
     decimals: 18,
-    website: 'https://www.curve.fi/',
+    website: 'https://www.curve.finance/',
     description:
       'Savings crvUSD, abbreviated as scrvUSD, is an interest-bearing stablecoin that earns yield simply by holding the token.',
-    documentation: 'https://resources.curve.fi/crvusd/scrvusd',
+    documentation: 'https://resources.curve.finance/crvusd/scrvusd',
   },
   ZORA: {
     name: 'ZORA',

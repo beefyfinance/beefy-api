@@ -1129,7 +1129,7 @@ export const tokens = {
     chainId: 1,
     decimals: 18,
     logoURI: '',
-    website: 'https://curve.fi/',
+    website: 'https://curve.finance/',
     oracle: 'lps',
     oracleId: 'curve-op-3crv',
     description: 'Curve Optimism base 3pool consisting of DAI, USDC and USDT',
@@ -1142,7 +1142,7 @@ export const tokens = {
     oracleId: 'CRV',
     decimals: 18,
     chainId: 10,
-    website: 'https://curve.fi/',
+    website: 'https://curve.finance/',
     description:
       'Curve is an exchange liquidity pool on Ethereum. Curve is designed for extremely efficient stablecoin trading and low risk, supplemental fee income for liquidity providers, without an opportunity cost.',
     bridge: 'optimism-canonical',
@@ -1382,10 +1382,10 @@ export const tokens = {
     decimals: 18,
     logoURI: '',
     bridge: 'optimism-canonical',
-    website: 'https://crvusd.curve.fi/',
+    website: 'https://crvusd.curve.finance/',
     description:
       'crvUSD is a collateralized-debt-position (CDP) stablecoin pegged to the US Dollar',
-    documentation: 'https://docs.curve.fi/crvUSD/crvUSD/',
+    documentation: 'https://docs.curve.finance/crvUSD/crvUSD/',
   },
   scrvUSD: {
     name: 'Savings crvUSD',
@@ -1394,11 +1394,11 @@ export const tokens = {
     address: '0x289f635106d5b822A505b39AC237A0AE9189335B',
     chainId: 10,
     decimals: 18,
-    logoURI: 'https://resources.curve.fi/images/scrvusd/scrvusd_150.png',
-    website: 'https://www.curve.fi/',
+    logoURI: 'https://resources.curve.finance/images/scrvusd/scrvusd_150.png',
+    website: 'https://www.curve.finance/',
     description:
       'Savings crvUSD, abbreviated as scrvUSD, is an interest-bearing stablecoin that earns yield simply by holding the token.',
-    documentation: 'https://resources.curve.fi/crvusd/scrvusd',
+    documentation: 'https://resources.curve.finance/crvusd/scrvusd',
     bridge: 'optimism-canonical',
   },
   sFRAX: {

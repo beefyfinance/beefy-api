@@ -52,10 +52,10 @@ export const tokens = {
     name: 'Curve',
     symbol: 'CRV',
     oracleId: 'CRV',
-    website: 'https://curve.fi/',
+    website: 'https://curve.finance/',
     description:
       'Curve is an exchange liquidity pool on Ethereum. Curve is designed for extremely efficient stablecoin trading and low risk, supplemental fee income for liquidity providers, without an opportunity cost.',
-    logoURI: 'https://external-content.duckduckgo.com/ip3/resources.curve.fi.ico',
+    logoURI: 'https://external-content.duckduckgo.com/ip3/curve.finance.ico',
   },
   WBTC: {
     chainId: 1666600000,

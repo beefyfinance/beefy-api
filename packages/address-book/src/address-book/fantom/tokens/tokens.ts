@@ -1341,7 +1341,7 @@ export const tokens = {
     oracleId: 'fmcCRV',
     decimals: 18,
     chainId: 250,
-    website: 'https://curve.fi/',
+    website: 'https://curve.finance/',
     description:
       'Curve is an exchange liquidity pool on Ethereum. Curve is designed for extremely efficient stablecoin trading and low risk, supplemental fee income for liquidity providers, without an opportunity cost.',
     logoURI: 'https://ftmscan.com/token/images/CurveFi_32.png',

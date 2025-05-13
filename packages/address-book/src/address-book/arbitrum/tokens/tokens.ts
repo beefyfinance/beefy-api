@@ -1416,7 +1416,7 @@ export const tokens = {
     oracleId: 'CRV',
     decimals: 18,
     chainId: 42161,
-    website: 'https://curve.fi/',
+    website: 'https://curve.finance/',
     description:
       'Curve is an exchange liquidity pool on Ethereum. Curve is designed for extremely efficient stablecoin trading and low risk, supplemental fee income for liquidity providers, without an opportunity cost.',
     bridge: 'arbitrum-canonical',
@@ -1458,10 +1458,10 @@ export const tokens = {
     decimals: 18,
     logoURI: '',
     bridge: 'arbitrum-canonical',
-    website: 'https://crvusd.curve.fi/',
+    website: 'https://crvusd.curve.finance/',
     description:
       'crvUSD is a collateralized-debt-position (CDP) stablecoin pegged to the US Dollar',
-    documentation: 'https://docs.curve.fi/crvUSD/crvUSD/',
+    documentation: 'https://docs.curve.finance/crvUSD/crvUSD/',
   },
   sFRAX: {
     name: 'Staked FRAX',
