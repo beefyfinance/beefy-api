@@ -222,6 +222,7 @@ const coinGeckoCoins: Record<string, string[]> = {
   'ripple-usd': ['RLUSD'],
   'staked-frax-usd': ['sfrxUSD'],
   susds: ['sUSDS'],
+  'stake-link-staked-link': ['stLINK'],
 };
 
 /**

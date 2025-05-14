@@ -3,7 +3,6 @@
     "name": "curve-link-stlink-ng",
     "pool": "0x7E13876B92F1a62C599C231f783f682E96B91761",
     "gauge": "0x985ca600257BFc1adC2b630B8A7E2110b834A20e",
-    "getDy": ["v1", 1, 0],
     "rewards": [
       {
         "token": "0x7E13876B92F1a62C599C231f783f682E96B91761",
