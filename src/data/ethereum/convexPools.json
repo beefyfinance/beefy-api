@@ -1,5 +1,45 @@
 [
   {
+    "name": "curve-link-stlink-ng",
+    "pool": "0x7E13876B92F1a62C599C231f783f682E96B91761",
+    "gauge": "0x985ca600257BFc1adC2b630B8A7E2110b834A20e",
+    "getDy": ["v1", 1, 0],
+    "rewards": [
+      {
+        "token": "0x7E13876B92F1a62C599C231f783f682E96B91761",
+        "oracle": "lps",
+        "oracleId": "curve-link-stlink-ng"
+      }
+    ],
+    "tokens": [
+      {
+        "oracleId": "LINK",
+        "decimals": "1e18"
+      },
+      {
+        "oracleId": "stLINK",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
+    "name": "curve-usdc-usdf",
+    "pool": "0x72310DAAed61321b02B08A547150c07522c6a976",
+    "gauge": "0x156527deF9a2AB4F54C849575f23dC4BB439d9d9",
+    "rewardPool": "0x4A87e4219f10510b0943DCD0cD0247868Ec59E85",
+    "getDy": ["v1", 1, 0],
+    "tokens": [
+      {
+        "oracleId": "USDC",
+        "decimals": "1e6"
+      },
+      {
+        "oracleId": "USDf",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
     "name": "curve-reusd-sdola",
     "pool": "0x48d670D189B4b48757992D36897bCa6E3f889040",
     "gauge": "0xCB25249bFA8CdB6012a75070E5C2885151368Bef",
