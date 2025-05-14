@@ -71,7 +71,7 @@ export const tokens = {
     oracleId: 'CRV',
     decimals: 18,
     chainId: 252,
-    website: 'https://curve.fi/',
+    website: 'https://curve.finance/',
     description:
       'Curve is an exchange liquidity pool on Ethereum. Curve is designed for extremely efficient stablecoin trading and low risk, supplemental fee income for liquidity providers, without an opportunity cost.',
     bridge: 'fraxtal-canonical',
@@ -79,7 +79,7 @@ export const tokens = {
     documentation: 'https://curve.readthedocs.io/',
   },
   crvUSD: {
-    name: 'Curve.Fi USD Stablecoin',
+    name: 'Curve USD Stablecoin',
     symbol: 'crvUSD',
     oracleId: 'crvUSD',
     address: '0xB102f7Efa0d5dE071A8D37B3548e1C7CB148Caf3',
@@ -87,10 +87,10 @@ export const tokens = {
     decimals: 18,
     logoURI: '',
     bridge: 'fraxtal-canonical',
-    website: 'https://crvusd.curve.fi/',
+    website: 'https://curve.finance/crvusd',
     description:
       'crvUSD is a collateralized-debt-position (CDP) stablecoin pegged to the US Dollar',
-    documentation: 'https://docs.curve.fi/crvUSD/crvUSD/',
+    documentation: 'https://docs.curve.finance/crvUSD/crvUSD/',
   },
   frxUSDC: {
     name: 'USD Coin',
@@ -115,7 +115,7 @@ export const tokens = {
     website: 'https://frax.convexfinance.com/',
     documentation: 'https://docs.convexfinance.com/',
     description:
-      'Convex Finance has expanded to optimize opportunities for liquidity providers on Frax the same way it has done so for Curve.fi LPs.',
+      'Convex Finance has expanded to optimize opportunities for liquidity providers on Frax the same way it has done so for Curve LPs.',
     bridge: 'fraxtal-canonical',
     logoURI: '',
   },
@@ -323,10 +323,10 @@ export const tokens = {
     chainId: 252,
     decimals: 18,
     logoURI: '',
-    website: 'https://curve.fi/crvusd/#/ethereum/scrvUSD',
+    website: 'https://curve.finance/crvusd/#/ethereum/scrvUSD',
     description:
       'Savings crvUSD is an interest-bearing stablecoin that earns yield simply by holding the token. Users do not need to take any action whatsoever, as the yield is passively accrued.',
-    documentation: 'https://resources.curve.fi/crvusd/scrvusd/',
+    documentation: 'https://resources.curve.finance/crvusd/scrvusd/',
     bridge: 'fraxtal-canonical',
   },
   sfrxUSD: {

@@ -4,7 +4,7 @@ import { getCurveApysCommon } from '../common/curve/getCurveApysCommon';
 import { POLYGON_CHAIN_ID } from '../../../constants';
 
 const pools = require('../../../data/matic/curvePools.json').filter(p => p.gauge && !p.convex);
-const baseApyUrl = 'https://api.curve.fi/api/getSubgraphData/polygon';
+const baseApyUrl = 'https://api.curve.finance/api/getSubgraphData/polygon';
 const tradingFees = 0.00015;
 
 export const getCurveApys = async () => {

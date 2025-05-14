@@ -13,7 +13,7 @@ const crv = '0xD533a949740bb3306d119CC777fa900bA034cd52';
 const gaugeController = '0x2F50D538606Fa9EDD2B11E2446BEb18C9D5846bB';
 const secondsPerYear = 31536000;
 const tradingFees = 0.0002;
-const subgraphUrl = 'https://api.curve.fi/api/getSubgraphData/ethereum';
+const subgraphUrl = 'https://api.curve.finance/api/getSubgraphData/ethereum';
 
 const lpPools = require('../../../data/ethereum/convexPools.json');
 const lendPools = require('../../../data/ethereum/curveLendPools.json');
@@ -59,9 +59,7 @@ const getPoolApys = async pools => {
     inflationRateCall,
   ]);
   const poolInfo = res[0].map((_, i) => ({
-    rewardRate: new BigNumber(res[4].toString())
-      .times(new BigNumber(res[3][i].toString()))
-      .div('1e18'),
+    rewardRate: new BigNumber(res[4].toString()).times(new BigNumber(res[3][i].toString())).div('1e18'),
     totalSupply: new BigNumber(res[0][i].toString()),
     workingSupply: new BigNumber(res[1][i].toString()),
   }));

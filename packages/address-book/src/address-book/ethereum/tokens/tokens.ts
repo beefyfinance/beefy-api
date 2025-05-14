@@ -444,7 +444,7 @@ export const tokens = {
     oracleId: 'CRV',
     decimals: 18,
     chainId: 1,
-    website: 'https://curve.fi/',
+    website: 'https://curve.finance/',
     description:
       'Curve is an exchange liquidity pool on Ethereum. Curve is designed for extremely efficient stablecoin trading and low risk, supplemental fee income for liquidity providers, without an opportunity cost.',
     bridge: 'native',
@@ -458,11 +458,10 @@ export const tokens = {
     address: '0x0655977FEb2f289A4aB78af67BAB0d17aAb84367',
     chainId: 1,
     decimals: 18,
-    logoURI: 'https://resources.curve.fi/images/scrvusd/scrvusd_150.png',
-    website: 'https://www.curve.fi/',
+    website: 'https://www.curve.finance/',
     description:
       'Savings crvUSD, abbreviated as scrvUSD, is an interest-bearing stablecoin that earns yield simply by holding the token.',
-    documentation: 'https://resources.curve.fi/crvusd/scrvusd',
+    documentation: 'https://resources.curve.finance/crvusd/scrvusd',
   },
   reUSD: {
     name: 'Resupply USD',
@@ -471,7 +470,6 @@ export const tokens = {
     address: '0x57aB1E0003F623289CD798B1824Be09a793e4Bec',
     chainId: 1,
     decimals: 18,
-    logoURI: 'https://resources.curve.fi/images/scrvusd/scrvusd_150.png',
     website: 'https://resupply.fi/',
     description:
       'A decentralized stablecoin backed by Collateralized Debt Positions (CDP), leveraging the liquidity and stability of lending markets.',
@@ -487,7 +485,7 @@ export const tokens = {
     website: 'https://www.convexfinance.com/',
     documentation: 'https://docs.convexfinance.com/',
     description:
-      'Convex allows Curve.fi liquidity providers to earn trading fees and claim boosted CRV without locking CRV themselves. Liquidity providers can receive boosted CRV and liquidity mining rewards with minimal effort.',
+      'Convex allows Curve liquidity providers to earn trading fees and claim boosted CRV without locking CRV themselves. Liquidity providers can receive boosted CRV and liquidity mining rewards with minimal effort.',
     bridge: 'native',
     logoURI: '',
   },
@@ -501,7 +499,7 @@ export const tokens = {
     website: 'https://www.convexfinance.com/',
     documentation: 'https://docs.convexfinance.com/',
     description:
-      'Convex allows Curve.fi liquidity providers to earn trading fees and claim boosted CRV without locking CRV themselves. Liquidity providers can receive boosted CRV and liquidity mining rewards with minimal effort.',
+      'Convex allows Curve liquidity providers to earn trading fees and claim boosted CRV without locking CRV themselves. Liquidity providers can receive boosted CRV and liquidity mining rewards with minimal effort.',
     bridge: 'native',
     logoURI: '',
   },
@@ -515,7 +513,7 @@ export const tokens = {
     website: 'https://frax.convexfinance.com/',
     documentation: 'https://docs.convexfinance.com/',
     description:
-      'Convex Finance has expanded to optimize opportunities for liquidity providers on Frax the same way it has done so for Curve.fi LPs.',
+      'Convex Finance has expanded to optimize opportunities for liquidity providers on Frax the same way it has done so for Curve LPs.',
     bridge: 'native',
     logoURI: '',
   },
@@ -543,7 +541,7 @@ export const tokens = {
     website: 'https://fx.convexfinance.com/',
     documentation: 'https://docs.convexfinance.com/',
     description:
-      'Convex Finance has extended its optimization efforts to benefit liquidity providers on FX Protocol, similar to its approach with Curve.fi LPs.',
+      'Convex Finance has extended its optimization efforts to benefit liquidity providers on FX Protocol, similar to its approach with Curve LPs.',
     bridge: 'native',
     logoURI: '',
   },
@@ -1398,18 +1396,18 @@ export const tokens = {
     bridge: 'native',
   },
   crvUSD: {
-    name: 'Curve.Fi USD Stablecoin',
+    name: 'Curve USD Stablecoin',
     symbol: 'crvUSD',
     oracleId: 'crvUSD',
     address: '0xf939E0A03FB07F59A73314E73794Be0E57ac1b4E',
     chainId: 1,
     decimals: 18,
     logoURI: '',
-    website: 'https://crvusd.curve.fi/',
+    website: 'https://curve.finance/crvusd',
     description:
       'crvUSD is a collateralized-debt-position (CDP) stablecoin pegged to the US Dollar',
     bridge: 'native',
-    documentation: 'https://docs.curve.fi/crvUSD/overview/',
+    documentation: 'https://docs.curve.finance/crvUSD/overview/',
   },
   hyUSD: {
     name: 'High Yield USD',
@@ -1479,13 +1477,13 @@ export const tokens = {
       'USDC PLUS (USDC+): A community governed yield bearing USDC index optimized for yield to holders and overcollateralization protection.',
   },
   '3CRV': {
-    name: 'Curve.fi DAI/USDC/USDT',
+    name: 'Curve DAI/USDC/USDT',
     symbol: '3CRV',
     address: '0x6c3F90f043a72FA612cbac8115EE7e52BDe6E490',
     chainId: 1,
     decimals: 18,
     logoURI: '',
-    website: 'https://curve.fi/',
+    website: 'https://curve.finance/',
     oracle: 'lps',
     oracleId: 'convex-3pool',
     description: 'Curve base 3pool consisting of DAI, USDC and USDT',
@@ -1568,7 +1566,7 @@ export const tokens = {
     chainId: 1,
     decimals: 18,
     logoURI: '',
-    website: 'https://curve.fi/#/ethereum/pools/factory-stable-ng-43/deposit',
+    website: 'https://curve.finance/#/ethereum/pools/factory-stable-ng-43/deposit',
     description: 'Curve base pool consisting of PYUSD and USDC',
     bridge: 'native',
   },
@@ -1599,7 +1597,7 @@ export const tokens = {
       'https://docs.convexfinance.com/convexfinance/general-information/convex-for-prisma-finance',
     bridge: 'native',
     description:
-      'Convex Finance has expanded to optimize opportunities for liquidity providers on Prisma the same way it has done so for Curve.fi LPs.',
+      'Convex Finance has expanded to optimize opportunities for liquidity providers on Prisma the same way it has done so for Curve LPs.',
   },
   yPRISMA: {
     name: 'Yearn Prisma',

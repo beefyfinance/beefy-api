@@ -234,17 +234,17 @@ export const tokens = {
     description: '',
   },
   crvUSD: {
-    name: 'Curve.Fi USD Stablecoin',
+    name: 'Curve USD Stablecoin',
     symbol: 'crvUSD',
     oracleId: 'crvUSD',
     address: '0xc4Ce1D6F5D98D65eE25Cf85e9F2E9DcFEe6Cb5d6',
     chainId: 137,
     decimals: 18,
     logoURI: '',
-    website: 'https://crvusd.curve.fi/',
+    website: 'https://curve.finance/',
     description:
       'crvUSD is a collateralized-debt-position (CDP) stablecoin pegged to the US Dollar',
-    documentation: 'https://docs.curve.fi/crvUSD/crvUSD/',
+    documentation: 'https://docs.curve.finance/crvUSD/crvUSD/',
     bridge: 'polygon-canonical',
   },
   NZDS: {
@@ -303,7 +303,7 @@ export const tokens = {
     chainId: 137,
     decimals: 18,
     logoURI: '',
-    website: 'https://polygon.curve.fi',
+    website: 'https://polygon.curve.finance',
     description: 'Curves Factory 4EUR Pool',
   },
   MaticX: {
@@ -1440,11 +1440,10 @@ export const tokens = {
     address: '0x172370d5Cd63279eFa6d502DAB29171933a610AF',
     chainId: 137,
     decimals: 18,
-    website: 'https://curve.fi/',
+    website: 'https://curve.finance/',
     description:
       'Curve is an exchange liquidity pool on Ethereum. Curve is designed for extremely efficient stablecoin trading and low risk, supplemental fee income for liquidity providers, without an opportunity cost.',
     bridge: 'polygon-canonical',
-    logoURI: 'https://external-content.duckduckgo.com/ip3/resources.curve.fi.ico',
     documentation: 'https://curve.readthedocs.io/',
   },
   DOKI: {

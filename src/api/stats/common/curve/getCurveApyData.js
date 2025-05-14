@@ -36,7 +36,7 @@ const getSubgraphDataApy = (apyData, poolAddress) => {
   }
 };
 
-// https://api.curve.fi/v1/getBaseApys/chain
+// https://api.curve.finance/v1/getBaseApys/chain
 export const getCurveGetBaseApys = async (pools, url) => {
   let apys = {};
   try {

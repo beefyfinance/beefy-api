@@ -4,7 +4,7 @@ import { getCurveApysCommon } from '../common/curve/getCurveApysCommon';
 import { GNOSIS_CHAIN_ID as chainId } from '../../../constants';
 
 const pools = require('../../../data/gnosis/curvePools.json').filter(p => p.gauge && !p.convex);
-const baseApyUrl = 'https://api.curve.fi/api/getSubgraphData/xdai';
+const baseApyUrl = 'https://api.curve.finance/api/getSubgraphData/xdai';
 const tradingFees = 0.0002;
 
 export const getCurveApys = async () => {

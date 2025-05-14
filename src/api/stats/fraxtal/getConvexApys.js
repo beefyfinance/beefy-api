@@ -4,7 +4,7 @@ import { FRAXTAL_CHAIN_ID as chainId } from '../../../constants';
 import { getConvexApyData } from '../common/curve/getConvexApyData';
 
 const pools = require('../../../data/fraxtal/curvePools.json').filter(p => p.convex);
-const baseApyUrl = 'https://api.curve.fi/v1/getBaseApys/fraxtal';
+const baseApyUrl = 'https://api.curve.finance/v1/getBaseApys/fraxtal';
 const tradingFees = 0.0002;
 
 export const getConvexApys = async () => {

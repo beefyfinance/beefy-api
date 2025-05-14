@@ -4,7 +4,7 @@ import { getCurveApysCommon } from '../common/curve/getCurveApysCommon';
 import { SONIC_CHAIN_ID as chainId } from '../../../constants';
 
 const pools = require('../../../data/sonic/curvePools.json').filter(p => p.gauge && !p.convex);
-const subgraphApyUrl = 'https://api.curve.fi/api/getSubgraphData/sonic';
+const subgraphApyUrl = 'https://api.curve.finance/api/getSubgraphData/sonic';
 const tradingFees = 0.0002;
 
 export const getCurveApys = async () => {

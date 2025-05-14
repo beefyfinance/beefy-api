@@ -215,7 +215,7 @@ export const tokens = {
     oracleId: 'CRV',
     decimals: 18,
     chainId: 1101,
-    website: 'https://curve.fi/',
+    website: 'https://curve.finance/',
     description:
       'Curve is an exchange liquidity pool on Ethereum. Curve is designed for extremely efficient stablecoin trading and low risk, supplemental fee income for liquidity providers, without an opportunity cost.',
     bridge: 'zkevm-canonical',

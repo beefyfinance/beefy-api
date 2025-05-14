@@ -17,7 +17,7 @@ const cvxVoterProxy = '0xd11a4Ee017cA0BECA8FA45fF2abFe9C6267b7881';
 const cvxFees = '0x4f258feCc91b2ff162cA702c2Bd9ABf2AF089611';
 const secondsPerYear = 31536000;
 const tradingFees = 0.0002;
-const subgraphUrl = 'https://api.curve.fi/api/getSubgraphData/ethereum';
+const subgraphUrl = 'https://api.curve.finance/api/getSubgraphData/ethereum';
 const pools = require('../../../data/ethereum/fxPools.json');
 
 const defaultRewards = [
@@ -77,9 +77,7 @@ const getPoolApys = async pools => {
     fetchContract(cvxFees, IFees, ETH_CHAIN_ID).read.totalFees(),
   ]);
   const poolInfo = res[0].map((_, i) => ({
-    rewardRate: new BigNumber(res[4].toString())
-      .times(new BigNumber(res[3][i].toString()))
-      .div('1e18'),
+    rewardRate: new BigNumber(res[4].toString()).times(new BigNumber(res[3][i].toString())).div('1e18'),
     totalSupply: new BigNumber(res[0][i].toString()),
     workingSupply: new BigNumber(res[1][i].toString()),
     cvxSharedBal: new BigNumber(res[5][i].toString()),
@@ -106,9 +104,7 @@ const getPoolApys = async pools => {
     // min (Individual TVL x 0.4 + (Total TVL x Individual veFXN for the epoch) x 0.6 / Total veFXN for the epoch, Individual TVL) / (Individual TVL x 0.4)
     if (info.cvxSharedBal > 0) {
       boost = BigNumber.min(
-        info.cvxSharedBal
-          .times(0.4)
-          .plus(info.totalSupply.times(cvxVeBal).times(0.6).div(veSupply)),
+        info.cvxSharedBal.times(0.4).plus(info.totalSupply.times(cvxVeBal).times(0.6).div(veSupply)),
         info.cvxSharedBal
       ).div(info.cvxSharedBal.times(0.4));
     }

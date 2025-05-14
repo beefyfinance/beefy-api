@@ -10,7 +10,7 @@ import { getCurveLendSupplyApys } from '../common/curve/getCurveLendSupplyApys';
 
 const lpPools = require('../../../data/ethereum/convexPools.json').filter(p => p.rewardPool);
 const lendPools = require('../../../data/ethereum/curveLendPools.json').filter(p => p.rewardPool);
-const subgraphUrl = 'https://api.curve.fi/api/getSubgraphData/ethereum';
+const subgraphUrl = 'https://api.curve.finance/api/getSubgraphData/ethereum';
 const tradingFees = 0.0002;
 const secondsPerYear = 31536000;
 const cvxAddress = '0x4e3FBD56CD56c3e72c1403e103b45Db9da5B9D2B';
