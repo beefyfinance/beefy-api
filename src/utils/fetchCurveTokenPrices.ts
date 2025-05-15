@@ -151,16 +151,17 @@ async function getCurveTokenPrices(
   });
 
   try {
-    const results = await Promise.all(curvePriceCalls);
-    const prices = results.map(v => new BigNumber(v.toString()));
-    const curvePrices = {};
-    for (let i = 0; i < prices.length; i++) {
-      curvePrices[chainTokens[i].oracleId] = prices[i]
-        .times(tokenPrices[chainTokens[i].secondToken] || curvePrices[chainTokens[i].secondToken])
+    const res = await Promise.all(curvePriceCalls);
+    const prices = [];
+    const pricesById = {};
+    for (let i = 0; i < res.length; i++) {
+      pricesById[chainTokens[i].oracleId] = new BigNumber(res[i].toString())
+        .times(tokenPrices[chainTokens[i].secondToken] || pricesById[chainTokens[i].secondToken])
         .dividedBy(chainTokens[i].secondTokenDecimals)
         .toNumber();
+      prices.push(pricesById[chainTokens[i].oracleId]);
     }
-    return Object.values(curvePrices);
+    return prices;
   } catch (e) {
     console.error('getCurveTokenPrices', e);
     return chainTokens.map(() => 0);
