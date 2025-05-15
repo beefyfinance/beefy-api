@@ -42,7 +42,7 @@
     "name": "curve-reusd-sdola",
     "pool": "0x48d670D189B4b48757992D36897bCa6E3f889040",
     "gauge": "0xCB25249bFA8CdB6012a75070E5C2885151368Bef",
-    "rewardPool_": "0x2042468f1D356F78717818531958d744114347B4",
+    "rewardPool": "0x2042468f1D356F78717818531958d744114347B4",
     "tokens": [
       {
         "oracleId": "reUSD",
