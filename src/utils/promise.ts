@@ -1,5 +1,6 @@
 import { sleep } from './time';
 import { ABORT_REASON_TIMEOUT } from './http/helpers';
+import { chunk } from 'lodash';
 
 export type DeferredPromise<T> = Promise<T> & {
   resolve: (value: T) => void;
@@ -46,7 +47,7 @@ export const retryPromiseWithBackOff = async <T>(
   maxTries: number = 5
 ): Promise<T> => {
   try {
-    return args ? await f(args) : await f();
+    return args ? await f(...args) : await f();
   } catch (e) {
     if (nthTry > maxTries) {
       return Promise.reject(e);
@@ -66,12 +67,15 @@ export function isResultRejected<T>(result: PromiseSettledResult<T>): result is 
   return result.status === 'rejected';
 }
 
-type PromiseContextFulfilledResult<TContext, TResult> = PromiseFulfilledResult<TResult> & {
+export type PromiseContextFulfilledResult<TContext, TResult> = PromiseFulfilledResult<TResult> & {
   context: TContext;
   elapsed: number;
 };
-type PromiseContextRejectedResult<TContext> = PromiseRejectedResult & { context: TContext };
-type PromiseContextResult<TContext, TResult> =
+export type PromiseContextRejectedResult<TContext> = PromiseRejectedResult & {
+  context: TContext;
+  elapsed: number;
+};
+export type PromiseContextResult<TContext, TResult> =
   | PromiseContextFulfilledResult<TContext, TResult>
   | PromiseContextRejectedResult<TContext>;
 
@@ -146,4 +150,44 @@ export class AsyncLock {
     }
     return locks[0].acquire(() => AsyncLock.acquireAll(locks.slice(1), callback));
   }
+}
+
+type BatchMapParams<T, R> = {
+  items: T[];
+  batchSize: number;
+  handleFn: (batchItems: T[]) => Promise<R[]>;
+  retryDelay?: number;
+  retryLimit?: number;
+  retryLabel: string;
+};
+
+export async function batchMapRetry<T, R>({
+  items,
+  batchSize,
+  handleFn,
+  retryLabel,
+  retryDelay = 200,
+  retryLimit = 5,
+}: BatchMapParams<T, R>): Promise<PromiseContextResult<T, R>[]> {
+  const batches = chunk(items, batchSize);
+  const batchResults = await contextAllSettled(batches, async batchItems =>
+    retryPromiseWithBackOff(handleFn, [batchItems], retryLabel, 1, retryDelay, retryLimit)
+  );
+  return batchResults.flatMap((results): PromiseContextResult<T, R>[] => {
+    if (isContextResultFulfilled(results)) {
+      return results.value.map((result, i) => ({
+        value: result,
+        context: results.context[i],
+        elapsed: results.elapsed,
+        status: results.status,
+      }));
+    }
+
+    return results.context.map((context, i) => ({
+      context: context,
+      elapsed: results.elapsed,
+      status: results.status,
+      reason: results.reason,
+    }));
+  });
 }
