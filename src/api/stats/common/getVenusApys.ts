@@ -83,15 +83,17 @@ const getPoolsData = async (params: VenusApyParams): Promise<VenusPoolsData> => 
   const lsAprs = res[5];
 
   let merklPools = {};
-  let chainId = params.chainId;
-  let merklApi = `https://api.angle.money/v3/opportunity?chainId=${chainId}`;
-  try {
-    merklPools = await fetch(merklApi).then(res => res.json());
-  } catch (e) {
-    console.error(`Failed to fetch Merkl APRs: ${chainId}`);
+  if (params.pools.some(p => p.merkl)) {
+    const chainId = params.chainId;
+    const merklApi = `https://api.angle.money/v3/opportunity?chainId=${chainId}`;
+    try {
+      merklPools = await fetch(merklApi).then(res => res.json());
+    } catch (e) {
+      console.error(`Failed to fetch Merkl APRs: ${chainId}`);
+    }
   }
 
-  let merklAprs = params.pools.map(pool => {
+  const merklAprs = params.pools.map(pool => {
     if (Object.keys(merklPools).length !== 0 && pool.merkl) {
       for (const [key, value] of Object.entries(merklPools)) {
         const typedValue = value as MerklValue;
