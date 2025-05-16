@@ -941,6 +941,16 @@ const tokens: Partial<Record<keyof typeof ChainId, ConcentratedLiquidityToken[]>
       secondToken: 'gUSDCe',
     },
   ],
+  saga: [
+    {
+      type: 'UniV3',
+      oracleId: 'SAGA',
+      decimalDelta: 1e-12,
+      pool: '0x387b99a979c79f827f0ca8a752893472dc34b7ec',
+      firstToken: 'WETH',
+      secondToken: 'SAGA',
+    },
+  ],
 };
 
 async function getConcentratedLiquidityPrices(
