@@ -17,7 +17,7 @@ const { getMimApys } = require('./getMimApys');
 const getVenusApys = require('./getVenusApys');
 
 const getApys = [
-  getArbSiloApys,
+  // getArbSiloApys,
   getAuraArbitrumApys,
   getGnsApys,
   getHopApys,
@@ -28,7 +28,7 @@ const getApys = [
     ]),
   getPenpieApys,
   getMimApys,
-  getGmxV2Apys,
+  // getGmxV2Apys,
   getGmxApys,
   getCurveApys,
   getConvexApys,
