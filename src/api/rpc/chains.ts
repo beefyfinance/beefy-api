@@ -757,6 +757,28 @@ const rootstockChain = {
 } as const satisfies Chain;
 
 /// New Chains
+const sagaChain = {
+  id: 5464,
+  name: 'Saga',
+  network: 'saga',
+  nativeCurrency: {
+    decimals: 18,
+    name: 'GAS',
+    symbol: 'GAS',
+  },
+  rpcUrls: {
+    public: { http: getRpcsForChain('saga') },
+    default: { http: getRpcsForChain('saga') },
+  },
+  blockExplorers: {
+    default: { name: 'saga explorer', url: 'https://sagaevm-5464-1.sagaexplorer.io/' },
+  },
+  contracts: {
+    multicall3: {
+      address: '0x864DDc9B50B9A0dF676d826c9B9EDe9F8913a160',
+    },
+  },
+} as const satisfies Chain;
 
 const berachainChain = {
   id: 80094,
@@ -911,4 +933,5 @@ export const getChain: Partial<Record<ChainId, Chain>> = {
   [ChainId.sonic]: sonicChain,
   [ChainId.berachain]: berachainChain,
   [ChainId.unichain]: unichainChain,
+  [ChainId.saga]: sagaChain,
 } as const;

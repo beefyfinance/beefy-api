@@ -1,0 +1,14 @@
+[
+  {
+    "address": "0x69C8653D8288E560a9e861B73f093fe2DF63321a",
+    "lpAddress": "0xbBf2219c49eFdE9C64Cd5f94a952c90e4E5B6E41",
+    "tokens": ["0xeb41D53F14Cb9a67907f2b8b5DBc223944158cCb", "0xfc960C233B8E98e0Cf282e29BDE8d3f105fc24d5"],
+    "tokenOracleIds": ["WETH", "USDC"],
+    "decimals": [18, 6],
+    "oracleId": "uniswap-cow-saga-weth-usdc",
+    "rewardPool": {
+      "address": "0x8DBCE37EEbda8810FA4D0B0c6553c536e6e874b4",
+      "oracleId": "uniswap-cow-saga-weth-usdc-rp"
+    }
+  }
+]

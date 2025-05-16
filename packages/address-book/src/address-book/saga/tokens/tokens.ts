@@ -18,6 +18,7 @@ const GAS = {
 export const tokens = {
   GAS,
   WGAS: GAS,
+  NATIVE: GAS,
   WNATIVE: GAS,
   USDC: GAS,
   SAGA: {

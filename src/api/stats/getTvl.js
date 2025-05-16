@@ -105,6 +105,9 @@ const {
 
   BERACHAIN_CHAIN_ID,
   BERACHAIN_VAULTS_ENDPOINT,
+
+  SAGA_CHAIN_ID,
+  SAGA_VAULTS_ENDPOINT,
 } = require('../../constants');
 const { getKey, setKey } = require('../../utils/cache');
 
@@ -253,6 +256,10 @@ const chains = [
   {
     chainId: BERACHAIN_CHAIN_ID,
     vaultsEndpoint: BERACHAIN_VAULTS_ENDPOINT,
+  },
+  {
+    chainId: SAGA_CHAIN_ID,
+    vaultsEndpoint: SAGA_VAULTS_ENDPOINT,
   },
 ];
 

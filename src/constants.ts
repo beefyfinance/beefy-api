@@ -155,6 +155,7 @@ const LISK_CHAIN_ID = ChainId.lisk;
 const SONIC_CHAIN_ID = ChainId.sonic;
 const BERACHAIN_CHAIN_ID = ChainId.berachain;
 const UNICHAIN_CHAIN_ID = ChainId.unichain;
+const SAGA_CHAIN_ID = ChainId.saga;
 
 /// LP Fee
 const SUSHI_LPF = 0.003;
@@ -247,6 +248,8 @@ const BERACHAIN_VAULTS_ENDPOINT =
   'https://raw.githubusercontent.com/beefyfinance/beefy-v2/prod/src/config/vault/berachain.json';
 const UNICHAIN_VAULTS_ENDPOINT =
   'https://raw.githubusercontent.com/beefyfinance/beefy-v2/prod/src/config/vault/unichain.json';
+const SAGA_VAULTS_ENDPOINT =
+  'https://raw.githubusercontent.com/beefyfinance/beefy-v2/prod/src/config/vault/saga.json';
 
 const MULTICHAIN_ENDPOINTS: Partial<Record<ApiChain, string>> = {
   bsc: BSC_VAULTS_ENDPOINT,
@@ -285,6 +288,7 @@ const MULTICHAIN_ENDPOINTS: Partial<Record<ApiChain, string>> = {
   sonic: SONIC_VAULTS_ENDPOINT,
   berachain: BERACHAIN_VAULTS_ENDPOINT,
   unichain: UNICHAIN_VAULTS_ENDPOINT,
+  saga: SAGA_VAULTS_ENDPOINT,
 } as const;
 
 const EXCLUDED_IDS_FROM_TVL = ['venus-wbnb'];
@@ -341,6 +345,7 @@ export const {
   SONIC_RPC,
   BERACHAIN_RPC,
   UNICHAIN_RPC,
+  SAGA_RPC,
 } = RPC_BY_ENV_KEY;
 
 export {
@@ -437,4 +442,6 @@ export {
   BERACHAIN_VAULTS_ENDPOINT,
   UNICHAIN_CHAIN_ID,
   UNICHAIN_VAULTS_ENDPOINT,
+  SAGA_CHAIN_ID,
+  SAGA_VAULTS_ENDPOINT,
 };
