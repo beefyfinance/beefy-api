@@ -21,6 +21,7 @@ export const tokens = {
   NATIVE: GAS,
   WNATIVE: GAS,
   USDC: GAS,
+  WUSDC: GAS,
   SAGA: {
     name: 'Saga',
     address: '0xA19377761FED745723B90993988E04d641c2CfFE',
