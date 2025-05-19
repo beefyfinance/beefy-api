@@ -1,5 +1,15 @@
 [
   {
+    "name": "pendle-fgho-31jul25",
+    "address": "0xc64d59eb11c869012c686349d24e1d7c91c86ee2",
+    "eqbGauge": "0xba0928d9d0C2dA79522E45244CE859838999b21c",
+    "oracle": "tokens",
+    "oracleId": "GHO",
+    "decimals": "1e18",
+    "chainId": 1,
+    "beefyFee": 0.095
+  },
+  {
     "name": "pendle-usd0++-27nov25",
     "address": "0xF8094570485B124b4f2aBE98909A87511489C162",
     "eqbGauge": "0x8D46eB11FD63Cc9167C9737a5621A2B1078Fa858",
