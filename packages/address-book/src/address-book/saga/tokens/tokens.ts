@@ -31,7 +31,7 @@ export const tokens = {
     chainId: 5464,
     website: 'https://www.saga.xyz/',
     description:
-      'The blockchain revolution started with Bitcoin but Vitalik Buterin saw the potential for blockchain technology to not just create a decentralized currency but also decentralized applications. This was the start of Ethereum.',
+      'The blockchain revolution started with Bitcoin but Vitalik Buterin saw the potential for blockchain technology to not just create a decentralized currency but also decentralized applications. This was the start of Ethereum. ',
     bridge: 'saga-canonical',
     logoURI: '',
     documentation: 'https://www.saga.xyz/saga-protocol',
