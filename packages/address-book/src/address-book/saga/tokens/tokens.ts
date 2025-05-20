@@ -1,9 +1,9 @@
 import type { Token } from '../../../types/token.js';
 
-const GAS = {
+const USDC = {
   name: 'USDC',
   address: '0xfc960C233B8E98e0Cf282e29BDE8d3f105fc24d5',
-  symbol: 'USDC',
+  symbol: 'WUSDC',
   oracleId: 'USDC',
   decimals: 6,
   chainId: 5464,
@@ -16,12 +16,10 @@ const GAS = {
 } as const satisfies Token;
 
 export const tokens = {
-  GAS,
-  WGAS: GAS,
-  NATIVE: GAS,
-  WNATIVE: GAS,
-  USDC: GAS,
-  WUSDC: GAS,
+  GAS: USDC,
+  WGAS: USDC,
+  WNATIVE: USDC,
+  USDC,
   SAGA: {
     name: 'Saga',
     address: '0xA19377761FED745723B90993988E04d641c2CfFE',
