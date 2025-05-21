@@ -29,7 +29,7 @@ export const tokens = {
     chainId: 5464,
     website: 'https://www.saga.xyz/',
     description:
-      'The blockchain revolution started with Bitcoin but Vitalik Buterin saw the potential for blockchain technology to not just create a decentralized currency but also decentralized applications. This was the start of Ethereum. ',
+      'Saga is a layer 1 to launch L1s, or “Chainlets.” Instead of competing for blockspace on one monolithic chain, each application on Saga is hosted on one or more parallelized and interoperable dedicated chains that can be elastically scaled with the application needs. Saga is better for users, developers and the blockchain ecosystem.',
     bridge: 'saga-canonical',
     logoURI: '',
     documentation: 'https://www.saga.xyz/saga-protocol',
