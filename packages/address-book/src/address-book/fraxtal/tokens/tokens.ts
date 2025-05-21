@@ -32,7 +32,7 @@ const frxETH = {
 
 export const tokens = {
   WNATIVE: FXS, // now wFRAX, previously wfrxETH
-  FEES: FXS,
+  FEES: frxETH,
   FXS, // now FRAX
   WFXS: FXS, // now wFRAX
   FRAX: {
