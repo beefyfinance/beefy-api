@@ -55,6 +55,15 @@ export function getTokenWrappedNative(chainId: ApiChain): TokenErc20 {
   return wnative;
 }
 
+export function getTokenFees(chainId: ApiChain): TokenErc20 {
+  const fees = getTokenById('FEES', chainId);
+  if (!fees || !isTokenErc20(fees)) {
+    throw new Error(`No fees token found for chain ${chainId}`);
+  }
+
+  return fees;
+}
+
 export function wrappedToNative(token: TokenEntity): TokenEntity {
   const wnative = getTokenWrappedNative(token.chainId);
 
@@ -161,56 +170,47 @@ async function fetchBoostTokensForChain(chainId: ApiChain): Promise<TokenEntity[
 }
 
 async function fetchAddressBookTokensForChain(chainId: ApiChain): Promise<TokenEntity[]> {
-  const abTokens: Record<string, Token> = addressBook[chainId]?.tokens;
+  const chainBook = addressBook[chainId];
+  if (!chainBook) {
+    console.error(`Missing address book for ${chainId}`);
+    return [];
+  }
+  const abTokens: Record<string, Token> = chainBook.tokens;
   if (!abTokens || !Object.keys(abTokens).length || !abTokens.WNATIVE) {
     console.warn(`No address book tokens found for chain ${chainId}`);
     return [];
   }
 
-  const wnative = abTokens.WNATIVE;
-  const wnativeSymbol = wnative.symbol;
-  const nativeSymbol = wnativeSymbol.substring(1);
+  const nativeSymbol = chainBook.native.symbol;
+  const nativeOracleId = chainBook.native.oracleId;
 
   return Object.entries(abTokens).reduce((tokens: TokenEntity[], [id, token]) => {
-    if (id.toLowerCase() === nativeSymbol.toLowerCase()) {
-      tokens.push({
-        type: 'native',
-        id,
-        symbol: id,
-        name: token.name,
-        chainId,
-        oracle: token.oracle || 'tokens',
-        oracleId: token.oracleId || id,
-        address: 'native',
-        decimals: token.decimals,
-        ...(token.bridge ? { bridge: token.bridge } : {}),
-      });
+    tokens.push({
+      type: 'erc20',
+      id,
+      symbol: token.symbol,
+      name: token.name,
+      chainId,
+      oracle: token.oracle || 'tokens',
+      oracleId: token.oracleId || id,
+      address: token.address,
+      decimals: token.decimals,
+      ...(token.bridge ? { bridge: token.bridge } : {}),
+      ...(token.staked ? { staked: token.staked } : {}),
+    });
 
+    if (id === 'WNATIVE') {
       tokens.push({
         type: 'native',
         id: 'NATIVE',
-        symbol: id,
+        symbol: nativeSymbol,
         name: token.name,
         chainId,
-        oracle: token.oracle || 'tokens',
-        oracleId: token.oracleId || id,
+        oracle: 'tokens',
+        oracleId: nativeOracleId,
         address: 'native',
         decimals: token.decimals,
-        ...(token.bridge ? { bridge: token.bridge } : {}),
-      });
-    } else {
-      tokens.push({
-        type: 'erc20',
-        id,
-        symbol: token.symbol,
-        name: token.name,
-        chainId,
-        oracle: token.oracle || 'tokens',
-        oracleId: token.oracleId || id,
-        address: token.address,
-        decimals: token.decimals,
-        ...(token.bridge ? { bridge: token.bridge } : {}),
-        ...(token.staked ? { staked: token.staked } : {}),
+        bridge: 'native',
       });
     }
 

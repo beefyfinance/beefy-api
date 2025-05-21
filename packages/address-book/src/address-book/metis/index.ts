@@ -7,4 +7,8 @@ export const metis = {
   platforms,
   tokens,
   tokenAddressMap: convertSymbolTokenMapToAddressTokenMap(tokens),
+  native: {
+    symbol: 'METIS',
+    oracleId: 'METIS',
+  },
 } as const satisfies Chain;

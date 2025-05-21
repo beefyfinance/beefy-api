@@ -7,4 +7,8 @@ export const ethereum = {
   platforms,
   tokens,
   tokenAddressMap: convertSymbolTokenMapToAddressTokenMap(tokens),
+  native: {
+    symbol: 'ETH',
+    oracleId: 'ETH',
+  },
 } as const satisfies Chain;

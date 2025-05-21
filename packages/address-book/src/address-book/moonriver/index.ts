@@ -7,4 +7,8 @@ export const moonriver = {
   platforms,
   tokens,
   tokenAddressMap: convertSymbolTokenMapToAddressTokenMap(tokens),
+  native: {
+    symbol: 'MOVR',
+    oracleId: 'MOVR',
+  },
 } as const satisfies Chain;

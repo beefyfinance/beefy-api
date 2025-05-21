@@ -7,4 +7,8 @@ export const sonic = {
   platforms,
   tokens,
   tokenAddressMap: convertSymbolTokenMapToAddressTokenMap(tokens),
+  native: {
+    symbol: 'S',
+    oracleId: 'S',
+  },
 } as const satisfies Chain;

@@ -7,4 +7,8 @@ export const fraxtal = {
   platforms,
   tokens,
   tokenAddressMap: convertSymbolTokenMapToAddressTokenMap(tokens),
+  native: {
+    symbol: 'FRAX',
+    oracleId: 'FXS',
+  },
 } as const satisfies Chain;

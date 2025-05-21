@@ -15,10 +15,11 @@ const ETH = {
 } as const satisfies Token;
 
 export const tokens = {
+  WNATIVE: ETH,
+  FEES: ETH,
   ETH,
   reETH: ETH,
   WREETH: ETH,
-  WNATIVE: ETH,
   USDC: {
     name: 'USD Coin',
     address: '0xc518A88c67CECA8B3f24c4562CB71deeB2AF86B7',

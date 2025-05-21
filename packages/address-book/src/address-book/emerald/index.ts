@@ -7,4 +7,8 @@ export const emerald = {
   platforms,
   tokens,
   tokenAddressMap: convertSymbolTokenMapToAddressTokenMap(tokens),
+  native: {
+    symbol: 'ROSE',
+    oracleId: 'ROSE',
+  },
 } as const satisfies Chain;

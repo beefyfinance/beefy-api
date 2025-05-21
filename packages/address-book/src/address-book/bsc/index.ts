@@ -7,4 +7,8 @@ export const bsc = {
   platforms,
   tokens,
   tokenAddressMap: convertSymbolTokenMapToAddressTokenMap(tokens),
+  native: {
+    symbol: 'BNB',
+    oracleId: 'BNB',
+  },
 } as const satisfies Chain;

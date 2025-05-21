@@ -7,4 +7,8 @@ export const rootstock = {
   platforms,
   tokens,
   tokenAddressMap: convertSymbolTokenMapToAddressTokenMap(tokens),
+  native: {
+    symbol: 'RBTC',
+    oracleId: 'WBTC',
+  },
 } as const satisfies Chain;

@@ -15,7 +15,8 @@ const ETH = {
 } as const satisfies Token;
 
 export const tokens = {
+  WNATIVE: ETH,
+  FEES: ETH,
   ETH,
   WETH: ETH,
-  WNATIVE: ETH,
 } as const satisfies Record<string, Token>;

@@ -15,9 +15,10 @@ const BERA = {
 } as const satisfies Token;
 
 export const tokens = {
+  WNATIVE: BERA,
+  FEES: BERA,
   BERA,
   WBERA: BERA,
-  WNATIVE: BERA,
   WETH: {
     name: 'WETH',
     symbol: 'WETH',

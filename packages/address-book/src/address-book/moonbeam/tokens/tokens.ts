@@ -16,9 +16,10 @@ const GLMR = {
 } as const satisfies Token;
 
 export const tokens = {
+  WNATIVE: GLMR,
+  FEES: GLMR,
   GLMR,
   WGLMR: GLMR,
-  WNATIVE: GLMR,
   erc20GLMR: {
     ...GLMR,
     symbol: 'GLMR',

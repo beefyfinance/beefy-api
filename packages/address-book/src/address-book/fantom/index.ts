@@ -7,4 +7,8 @@ export const fantom = {
   platforms,
   tokens,
   tokenAddressMap: convertSymbolTokenMapToAddressTokenMap(tokens),
+  native: {
+    symbol: 'FTM',
+    oracleId: 'FTM',
+  },
 } as const satisfies Chain;

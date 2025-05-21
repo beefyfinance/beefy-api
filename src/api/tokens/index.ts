@@ -1,6 +1,7 @@
 import {
   getAllTokensByChain,
   getTokenById,
+  getTokenFees,
   getTokenNative,
   getTokensForChainById,
   getTokenWrappedNative,
@@ -53,9 +54,10 @@ export const getChainNatives = ctx => {
     const chainId = ctx.params.chainId;
     const native = getTokenNative(chainId);
     const wrapped = getTokenWrappedNative(chainId);
+    const fees = getTokenFees(chainId);
 
     ctx.status = native || wrapped ? 200 : 404;
-    ctx.body = { NATIVE: native, WNATIVE: wrapped };
+    ctx.body = { NATIVE: native, WNATIVE: wrapped, FEES: fees };
   } catch (err) {
     console.error(err);
     ctx.status = 500;
@@ -70,7 +72,9 @@ export const getNativesFromAllChains = ctx => {
       if (isApiChain(chainId)) {
         const native = getTokenNative(chainId);
         const wrapped = getTokenWrappedNative(chainId);
-        natives[chainId] = { NATIVE: native, WNATIVE: wrapped };
+        const fees = getTokenFees(chainId);
+
+        natives[chainId] = { NATIVE: native, WNATIVE: wrapped, FEES: fees };
       }
     });
 

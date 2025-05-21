@@ -7,4 +7,8 @@ export const celo = {
   platforms,
   tokens,
   tokenAddressMap: convertSymbolTokenMapToAddressTokenMap(tokens),
+  native: {
+    symbol: 'CELO',
+    oracleId: 'CELO',
+  },
 } as const satisfies Chain;

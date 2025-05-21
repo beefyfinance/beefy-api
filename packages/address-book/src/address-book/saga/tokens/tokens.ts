@@ -1,9 +1,23 @@
 import type { Token } from '../../../types/token.js';
 
+const GAS = {
+  name: 'Wrapped GAS',
+  address: '0xE3dbcD53f4Ce1b06Ab200f4912BD35672e68f1FA', // dummy wrapped gas
+  symbol: 'WGAS',
+  oracleId: 'WGAS',
+  decimals: 18,
+  chainId: 5464,
+  website: 'https://www.saga.xyz/',
+  description:
+    'Meta-token for gas on Saga. Saga is gasless for users. Do not use the token at this address.',
+  bridge: 'native',
+  documentation: 'https://docs.saga.xyz/',
+} as const satisfies Token;
+
 const USDC = {
   name: 'USDC',
   address: '0xfc960C233B8E98e0Cf282e29BDE8d3f105fc24d5',
-  symbol: 'WUSDC',
+  symbol: 'USDC',
   oracleId: 'USDC',
   decimals: 6,
   chainId: 5464,
@@ -16,9 +30,10 @@ const USDC = {
 } as const satisfies Token;
 
 export const tokens = {
-  GAS: USDC,
-  WGAS: USDC,
-  WNATIVE: USDC,
+  WNATIVE: GAS,
+  FEES: USDC,
+  GAS,
+  WGAS: GAS,
   USDC,
   SAGA: {
     name: 'Saga',

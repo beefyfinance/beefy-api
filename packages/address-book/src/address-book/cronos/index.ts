@@ -7,4 +7,8 @@ export const cronos = {
   platforms,
   tokens,
   tokenAddressMap: convertSymbolTokenMapToAddressTokenMap(tokens),
+  native: {
+    symbol: 'CRO',
+    oracleId: 'CRO',
+  },
 } as const satisfies Chain;

@@ -7,4 +7,8 @@ export const gnosis = {
   platforms,
   tokens,
   tokenAddressMap: convertSymbolTokenMapToAddressTokenMap(tokens),
+  native: {
+    symbol: 'XDAI',
+    oracleId: 'XDAI',
+  },
 } as const satisfies Chain;

@@ -7,4 +7,8 @@ export const berachain = {
   platforms,
   tokens,
   tokenAddressMap: convertSymbolTokenMapToAddressTokenMap(tokens),
+  native: {
+    symbol: 'BERA',
+    oracleId: 'BERA',
+  },
 } as const satisfies Chain;

@@ -7,4 +7,8 @@ export const fuse = {
   platforms,
   tokens,
   tokenAddressMap: convertSymbolTokenMapToAddressTokenMap(tokens),
+  native: {
+    symbol: 'FUSE',
+    oracleId: 'FUSE',
+  },
 } as const satisfies Chain;

@@ -45,6 +45,10 @@ const FTM = {
 } as const satisfies Token;
 
 export const tokens = {
+  WNATIVE: FTM,
+  FEES: FTM,
+  FTM,
+  WFTM: FTM,
   'bb-yv-FTM': {
     name: 'Beets Yearn Boosted FTM Linear Pool',
     symbol: 'bb-yv-FTM',
@@ -1082,9 +1086,6 @@ export const tokens = {
       'The first algorithmic stablecoin on Fantom Opera, pegged to the price of 1 FTM via seigniorage',
     logoURI: 'https://assets.spookyswap.finance/tokens/TOMB.png',
   },
-  FTM,
-  WFTM: FTM,
-  WNATIVE: FTM,
   sFTM: {
     name: 'Staked FTM',
     address: '0x69c744D3444202d35a2783929a0F930f2FBB05ad',

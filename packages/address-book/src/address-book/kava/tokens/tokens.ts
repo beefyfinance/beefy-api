@@ -16,9 +16,10 @@ const KAVA = {
 } as const satisfies Token;
 
 export const tokens = {
+  WNATIVE: KAVA,
+  FEES: KAVA,
   KAVA,
   WKAVA: KAVA,
-  WNATIVE: KAVA,
   kmultiUSDC: {
     name: 'USD Coin',
     symbol: 'kmultiUSDC',

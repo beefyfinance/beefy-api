@@ -143,7 +143,7 @@ const validatorsByChain: Partial<Record<ApiChain, ValidatorAsset[]>> = {
       numberId: 31,
       name: 'SONIC Validator',
       address: 'native',
-      oracleId: 'wS',
+      oracleId: 'WS',
       oracleType: 'tokens',
       decimals: 18,
       symbol: 'S',

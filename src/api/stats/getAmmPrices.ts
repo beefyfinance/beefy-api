@@ -72,6 +72,10 @@ import { getLpBasedPrices } from './getLpBasedPrices';
 import { fetchDexScreenerPriceOracles, OraclePriceRequest } from '../../utils/fetchDexScreenerPrices';
 import { promiseTiming } from '../../utils/timing';
 import { getBeTokenPrices } from './getBeTokenPrices';
+import {
+  debugNativeWrappedPrices,
+  normalizeNativeWrappedPrices,
+} from '../../utils/normalizeNativeWrappedPrices';
 
 const INIT_DELAY = 2 * 1000;
 const REFRESH_INTERVAL = 5 * 60 * 1000;
@@ -424,24 +428,17 @@ async function fetchSeedPrices() {
     }
   }
 
-  return seedPrices;
+  // Static
+  seedPrices['GAS'] = 0; // Saga, users don't pay for gas
+
+  return normalizeNativeWrappedPrices(seedPrices);
 }
 
 async function performUpdateAmmPrices() {
   // Seed with chain link + coin gecko prices
   const knownPrices = await fetchSeedPrices();
 
-  const ammPrices = fetchAmmPrices(pools, knownPrices).then(prices => {
-    //Set prices for the wrapped version of native tokens (if native was set)
-    const nativeTokens = new Set(
-      Object.values(addressBookByChainId).map(addressbook => addressbook.tokens.WNATIVE.oracleId.slice(1))
-    );
-    nativeTokens.forEach(nativeToken => {
-      if (prices.tokenPrices.hasOwnProperty(nativeToken))
-        prices.tokenPrices[`W${nativeToken}`] = prices.tokenPrices[nativeToken];
-    });
-    return prices;
-  });
+  const ammPrices = fetchAmmPrices(pools, knownPrices);
 
   const venusPrices = ammPrices.then(async ({ tokenPrices }) => {
     return await promiseTiming(fetchVenusPrices(tokenPrices), 'fetchVenusPrices');
@@ -585,10 +582,12 @@ async function updateAmmPrices() {
     } = await performUpdateAmmPrices();
 
     const [tokenPrices, lpPrices, lpBreakdowns] = await Promise.all([
-      tokenPricesPromise,
+      tokenPricesPromise.then(normalizeNativeWrappedPrices),
       lpPricesPromise,
       lpBreakdownPromise,
     ]);
+
+    debugNativeWrappedPrices(tokenPrices, 'updateAmmPrices');
 
     if (addToCache(tokenPrices, lpPrices, lpBreakdowns)) {
       clearCacheOracles(); // Delete specific oracleIds
@@ -682,17 +681,26 @@ export async function getAmmPrice(
   }
 }
 
-// We want to treat wrapped tokens the same way we'd treat normal ones => We then swap all wrapped token oracleIds to their underlying
-function normalizePoolOracleIds(pools) {
-  const wrappedNativeTokens = new Set(
-    Object.values(addressBookByChainId).map(addressbook => addressbook.tokens.WNATIVE.oracleId)
+/**
+ * Use wrapped oracleId for both wrapped and native tokens when resolving prices
+ * After resolving {@see fetchAmmPrices} we copy wrapped price to native price
+ */
+function normalizePoolOracleIds<T extends { lp0: { oracleId: string }; lp1: { oracleId: string } }>(
+  pools: T[]
+): T[] {
+  const nativeToWrappedOracleId = new Map<string, string>(
+    Object.values(addressBookByChainId).map(chainBook => [
+      chainBook.native.oracleId,
+      chainBook.tokens.WNATIVE.oracleId,
+    ])
   );
 
   pools.forEach(pool => {
-    const fields = ['lp0', 'lp1'];
+    const fields = ['lp0', 'lp1'] as const;
     fields.forEach(token => {
-      if (wrappedNativeTokens.has(pool[token].oracleId)) {
-        pool[token].oracleId = pool[token].oracleId.slice(1);
+      const wrappedOracleId = nativeToWrappedOracleId.get(pool[token].oracleId);
+      if (wrappedOracleId) {
+        pool[token].oracleId = wrappedOracleId;
       }
     });
   });

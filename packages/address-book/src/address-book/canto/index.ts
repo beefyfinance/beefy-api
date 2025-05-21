@@ -7,4 +7,8 @@ export const canto = {
   platforms,
   tokens,
   tokenAddressMap: convertSymbolTokenMapToAddressTokenMap(tokens),
+  native: {
+    symbol: 'CANTO',
+    oracleId: 'CANTO',
+  },
 } as const satisfies Chain;

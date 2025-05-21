@@ -7,4 +7,8 @@ export const avax = {
   platforms,
   tokens,
   tokenAddressMap: convertSymbolTokenMapToAddressTokenMap(tokens),
+  native: {
+    symbol: 'AVAX',
+    oracleId: 'AVAX',
+  },
 } as const satisfies Chain;

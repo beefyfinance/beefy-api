@@ -50,6 +50,10 @@ function checkChain(chainId: ChainId, vaults: Vault[], prices: Record<string, nu
   let errors = 0;
   const { tokens } = addressBook[chainId];
   for (const [id, token] of Object.entries(tokens)) {
+    if (id === 'WNATIVE' || id === 'FEES') {
+      continue;
+    }
+
     if (!token.oracleId) {
       ++errors;
       console.error(`Missing oracleId for ${id} on ${chainId}`);
@@ -82,7 +86,7 @@ function checkChain(chainId: ChainId, vaults: Vault[], prices: Record<string, nu
 async function start() {
   const [vaults, prices] = await Promise.all([fetchVaults(), fetchPrices()]);
   const errors = allChains
-    .map(chain => checkChain(chain, vaults[chain], prices))
+    .map(chain => checkChain(chain, vaults[chain] || [], prices))
     .reduce((acc, e) => acc + e, 0);
   if (errors > 0) {
     throw new Error(`Found ${errors} errors, see above`);

@@ -7,4 +7,8 @@ export const heco = {
   platforms,
   tokens,
   tokenAddressMap: convertSymbolTokenMapToAddressTokenMap(tokens),
+  native: {
+    symbol: 'HT',
+    oracleId: 'HT',
+  },
 } as const satisfies Chain;

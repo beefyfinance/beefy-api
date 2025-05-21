@@ -15,8 +15,9 @@ const ETH = {
 } as const satisfies Token;
 
 export const tokens = {
-  ETH,
   WNATIVE: ETH,
+  FEES: ETH,
+  ETH,
   WETH: ETH,
   USDC: {
     name: 'USD Coin',

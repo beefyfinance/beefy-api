@@ -16,9 +16,10 @@ const SEI = {
 } as const satisfies Token;
 
 export const tokens = {
+  WNATIVE: SEI,
+  FEES: SEI,
   SEI,
   WSEI: SEI,
-  WNATIVE: SEI,
   USDC: {
     name: 'USD Coin',
     address: '0x3894085Ef7Ff0f0aeDf52E2A2704928d1Ec074F1',

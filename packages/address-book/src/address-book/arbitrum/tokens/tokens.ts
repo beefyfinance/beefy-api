@@ -15,9 +15,10 @@ const ETH = {
 } as const satisfies Token;
 
 export const tokens = {
+  WNATIVE: ETH,
+  FEES: ETH,
   ETH,
   WETH: ETH,
-  WNATIVE: ETH,
   RPL: {
     name: 'Rocket Pool Protocol',
     symbol: 'RPL',
