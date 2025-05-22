@@ -1765,7 +1765,7 @@ export const tokens = {
   Bold: {
     name: 'Bold Stablecoin',
     symbol: 'Bold',
-    oracleId: 'BOLD',
+    oracleId: 'oldBOLD',
     address: '0x087C440F251Ff6Cfe62B86DdE1bE558B95b4bb9b',
     chainId: 10,
     decimals: 18,
@@ -1790,5 +1790,19 @@ export const tokens = {
     documentation: 'https://docs.overtime.io/',
     bridge: 'chainlink-ccip',
     risks: ['LARGE_HOLDERS', 'NO_TIMELOCK'],
+  },
+  BOLDV2: {
+    name: 'BOLD Stablecoin',
+    symbol: 'BOLD',
+    oracleId: 'BOLD',
+    address: '0x03569CC076654F82679C4BA2124D64774781B01D',
+    chainId: 10,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://www.liquity.org/',
+    documentation: 'https://docs.liquity.org/',
+    description:
+      'BOLD is the USD-pegged stablecoin issued in Liquity V2. It is over-collateralized and backed only by WETH, wstETH, and rETH.',
+    bridge: 'chainlink-ccip',
   },
 } as const satisfies Record<string, Token>;
