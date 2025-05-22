@@ -16,17 +16,17 @@
   },
   {
     "name": "silov2-sonic-usdce-ws",
-    "address": "0x4E216C15697C1392fE59e1014B009505E05810Df",
+    "address": "0x322e1d5384aa4ED66AeCa770B95686271de61dc3",
     "underlying": "0x29219dd400f2Bf60E5a23d13Be72B486D4038894",
-    "silo": "0x4E216C15697C1392fE59e1014B009505E05810Df",
+    "silo": "0x322e1d5384aa4ED66AeCa770B95686271de61dc3",
     "v2": true,
-    "incentivesProgramId": "0x77535f73555344435f3030380000000000000000000000000000000000000000",
+    "incentivesProgramId": "0x77535f73555344435f3030323000000000000000000000000000000000000000",
     "oracleId": "sUSDCe",
     "decimals": "1e6",
     "chainId": 146,
     "rewardOracleId": "S",
     "rewardDecimals": "1e18",
-    "incentivesController": "0x0dd368Cd6D8869F2b21BA3Cb4fd7bA107a2e3752",
+    "incentivesController": "0x2D3d269334485d2D876df7363e1A50b13220a7D8",
     "lens": "0xB6AdBb29f2D8ae731C7C72036A7FD5A7E970B198"
   }
 ]
