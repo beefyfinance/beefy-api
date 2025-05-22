@@ -914,6 +914,22 @@ const tokens: Partial<Record<keyof typeof ChainId, ConcentratedLiquidityToken[]>
       firstToken: 'TUT',
       secondToken: 'WBNB',
     },
+    {
+      type: 'UniV3',
+      oracleId: 'USD1',
+      decimalDelta: 1,
+      pool: '0x4a3218606AF9B4728a9F187E1c1a8c07fBC172a9',
+      firstToken: 'WBNB',
+      secondToken: 'USD1',
+    },
+    {
+      type: 'UniV3',
+      oracleId: 'B',
+      decimalDelta: 1,
+      pool: '0x88e5283d0aA8f8c58Eb7ffe5C73ACE72F2B0C3bf',
+      firstToken: 'WBNB',
+      secondToken: 'B',
+    },
   ],
   gnosis: [
     {

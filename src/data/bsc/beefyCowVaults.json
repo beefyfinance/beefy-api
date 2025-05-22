@@ -1,5 +1,41 @@
 [
   {
+    "address": "0x30A95B69FecB302a984b7370bf7e1Aead821cD9f",
+    "lpAddress": "0x4a3218606AF9B4728a9F187E1c1a8c07fBC172a9",
+    "tokens": ["0x8d0D000Ee44948FC98c9B98A4FA4921476f08B0d", "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c"],
+    "tokenOracleIds": ["USD1", "WBNB"],
+    "decimals": [18, 18],
+    "oracleId": "pancake-cow-bsc-usd1-wbnb",
+    "rewardPool": {
+      "address": "0xE5deD95d0A424B2E0C1F92b746189B9AdFFc7202",
+      "oracleId": "pancake-cow-bsc-usd1-wbnb-rp"
+    }
+  },
+  {
+    "address": "0x7a1aF0e6A4888B5E9cd4f55B4Caf9F268E1CAEaA",
+    "lpAddress": "0x88e5283d0aA8f8c58Eb7ffe5C73ACE72F2B0C3bf",
+    "tokens": ["0x6bdcCe4A559076e37755a78Ce0c06214E59e4444", "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c"],
+    "tokenOracleIds": ["B", "WBNB"],
+    "decimals": [18, 18],
+    "oracleId": "pancake-cow-bsc-b-wbnb",
+    "rewardPool": {
+      "address": "0x15220A20fa482dbEc0Af2EFa68cf42b8600A5A2B",
+      "oracleId": "pancake-cow-bsc-b-wbnb-rp"
+    }
+  },
+  {
+    "address": "0xAF0d28962D17957b530B92e43A38B3D38503D3a8",
+    "lpAddress": "0x0F0cf38f67ed6fb00881cdb815e25441F7F022e0",
+    "tokens": ["0x6bdcCe4A559076e37755a78Ce0c06214E59e4444", "0x8d0D000Ee44948FC98c9B98A4FA4921476f08B0d"],
+    "tokenOracleIds": ["B", "USD1"],
+    "decimals": [18, 18],
+    "oracleId": "pancake-cow-bsc-b-usd1",
+    "rewardPool": {
+      "address": "0xE8A5d504e9E89f8Ed0AD281c54c06466806DF1B6",
+      "oracleId": "pancake-cow-bsc-b-usd1-rp"
+    }
+  },
+  {
     "address": "0x7a1EF0c4f959B71efC01C633F88A1959bbc46A49",
     "lpAddress": "0x90A54475D512B8f3852351611c38faD30a513491",
     "tokens": ["0x5C85D6C6825aB4032337F11Ee92a72DF936b46F6", "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c"],
