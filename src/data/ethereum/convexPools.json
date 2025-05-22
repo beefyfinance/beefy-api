@@ -126,17 +126,34 @@
     ]
   },
   {
-    "name": "curve-bold-usdc",
-    "pool": "0xadb6851875b7496e3d565b754d8a79508480a203",
-    "gauge": "0xa8bb51606db8e81f0ac964f0855c20d9e474ab63",
+    "name": "curve-bold-lusd",
+    "pool": "0x7ED17e037B7d88A8270c89B3aFA9C38e5218F12b",
+    "gauge": "0xa37cdce0207127204682D3235EAd2c7a4C5D6C5C",
+    "rewards": [
+      {
+        "token": "0x6440f144b7e50D6a8439336510312d2F54beB01D",
+        "oracleId": "BOLD"
+      }
+    ],
+    "tokens": [
+      {
+        "oracleId": "BOLD",
+        "decimals": "1e18"
+      },
+      {
+        "oracleId": "LUSD",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
+    "name": "curve-bold-usdc-new",
+    "pool": "0xEFc6516323FbD28e80B85A497B65A86243a54B3E",
+    "gauge": "0x07a01471fA544D9C6531B631E6A96A79a9AD05E9",
     "getDy": ["v1", 0, 1],
     "rewards": [
       {
-        "token": "0x5f98805A4E8be255a32880FDeC7F6728C6568bA0",
-        "oracleId": "LUSD"
-      },
-      {
-        "token": "0xb01dd87b29d187f3e3a4bf6cdaebfb97f3d9ab98",
+        "token": "0x6440f144b7e50D6a8439336510312d2F54beB01D",
         "oracleId": "BOLD"
       }
     ],
