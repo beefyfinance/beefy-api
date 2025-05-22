@@ -1,5 +1,34 @@
 [
   {
+    "address": "0xEB9daac34fdD0c22b9EA27284165177732d92B52",
+    "lpAddress": "0x46D710c35BdfB800a18A820712310048Ef8B5256",
+    "tokens": ["0x4200000000000000000000000000000000000006", "0xc0634090F2Fe6c6d75e61Be2b949464aBB498973"],
+    "tokenOracleIds": ["WETH", "KTA"],
+    "decimals": [18, 18],
+    "oracleId": "aerodrome-cow-base-weth-kta",
+    "providerId": "aerodrome",
+    "rewardPool": {
+      "address": "0xc1BE65745D6391f3B7626a6B107d2A13Ab962489",
+      "oracleId": "aerodrome-cow-base-weth-kta-rp"
+    },
+    "vault": {
+      "address": "0x1E90Ea05C406F38A92e07333264D70A0B74E84c7",
+      "oracleId": "aerodrome-cow-base-weth-kta-vault"
+    }
+  },
+  {
+    "address": "0xbf05bb976BF4a6200D88C6fDdcf86a14D8a768c0",
+    "lpAddress": "0x8d421B0D641193D67Dd1aa024DAb17fcdE0BfC89",
+    "tokens": ["0x4200000000000000000000000000000000000006", "0xc0634090F2Fe6c6d75e61Be2b949464aBB498973"],
+    "tokenOracleIds": ["WETH", "KTA"],
+    "decimals": [18, 18],
+    "oracleId": "uniswap-cow-base-weth-kta",
+    "rewardPool": {
+      "address": "0x4250d483858fdA2AB297ED08378a0b34Bc42F0A1",
+      "oracleId": "uniswap-cow-base-weth-kta-rp"
+    }
+  },
+  {
     "address": "0xe9B2507C4362E4225142E7fcc17ad4C281aAc990",
     "lpAddress": "0xeFF7f8Fe083d7a446717B992bf84391253e54789",
     "tokens": ["0x4200000000000000000000000000000000000006", "0x9Cb41FD9dC6891BAe8187029461bfAADF6CC0C69"],
