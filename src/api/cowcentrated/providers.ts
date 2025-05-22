@@ -51,7 +51,7 @@ export const providers = {
   },
   shadow: {
     poolTradingRewardTokens: {
-      sonic: [sonic.tokens.SHADOW],
+      sonic: [sonic.tokens.SHADOW, sonic.tokens.GEMS],
     },
   },
 } as const satisfies Record<string, CowProvider>;
