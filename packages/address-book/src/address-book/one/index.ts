@@ -7,4 +7,8 @@ export const one = {
   platforms,
   tokens,
   tokenAddressMap: convertSymbolTokenMapToAddressTokenMap(tokens),
+  native: {
+    symbol: 'ONE',
+    oracleId: 'ONE',
+  },
 } as const satisfies Chain;

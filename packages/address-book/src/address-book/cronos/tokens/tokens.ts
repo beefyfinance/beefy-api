@@ -15,9 +15,10 @@ const CRO = {
 } as const satisfies Token;
 
 export const tokens = {
+  WNATIVE: CRO,
+  FEES: CRO,
   CRO: CRO,
   WCRO: CRO,
-  WNATIVE: CRO,
   FIRA: {
     name: 'Fira',
     symbol: 'FIRA',

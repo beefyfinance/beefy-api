@@ -12,7 +12,6 @@ export async function getBeTokenPrices(tokenPrices: Record<string, number>): Pro
     beQI: tokenPrices['QI'],
     beCAKE: tokenPrices['Cake'],
     beVelo: tokenPrices['BeVELO'],
-    wS: tokenPrices['WS'],
     beS: await getBeSonicRedeemablePrice(tokenPrices['WS']),
   };
 }

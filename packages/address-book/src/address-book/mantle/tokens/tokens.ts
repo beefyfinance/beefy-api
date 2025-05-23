@@ -16,9 +16,10 @@ const MNT = {
 } as const satisfies Token;
 
 export const tokens = {
+  WNATIVE: MNT,
+  FEES: MNT,
   MNT,
   WMNT: MNT,
-  WNATIVE: MNT,
   USDC: {
     name: 'USD Coin',
     symbol: 'USDC',

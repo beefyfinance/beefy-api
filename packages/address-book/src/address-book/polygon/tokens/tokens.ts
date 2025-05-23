@@ -31,9 +31,10 @@ const MAI = {
 } as const satisfies Token;
 
 export const tokens = {
+  WNATIVE: MATIC,
+  FEES: MATIC,
   MATIC,
   WMATIC: MATIC,
-  WNATIVE: MATIC,
   POL: MATIC,
   WPOL: MATIC,
   frxETH: {

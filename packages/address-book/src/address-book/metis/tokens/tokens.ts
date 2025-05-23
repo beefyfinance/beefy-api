@@ -16,9 +16,10 @@ const METIS = {
 } as const satisfies Token;
 
 export const tokens = {
+  WNATIVE: METIS,
+  FEES: METIS,
   METIS,
   WMETIS: METIS,
-  WNATIVE: METIS,
   oldBIFI: {
     name: 'Beefy.Finance',
     symbol: 'oldBIFI',

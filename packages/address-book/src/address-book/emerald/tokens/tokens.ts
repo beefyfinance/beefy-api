@@ -14,9 +14,10 @@ const ROSE = {
 } as const satisfies Token;
 
 export const tokens = {
+  WNATIVE: ROSE,
+  FEES: ROSE,
   ROSE,
   WROSE: ROSE,
-  WNATIVE: ROSE,
   WBTC: {
     name: 'Multichain Wrapped BTC',
     symbol: 'WBTC',

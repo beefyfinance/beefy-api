@@ -7,4 +7,8 @@ export const saga = {
   platforms,
   tokens,
   tokenAddressMap: convertSymbolTokenMapToAddressTokenMap(tokens),
+  native: {
+    symbol: 'GAS',
+    oracleId: 'GAS',
+  },
 } as const satisfies Chain;

@@ -149,6 +149,7 @@ export const tokens = {
   ETH,
   WETH: ETH,
   WNATIVE: ETH,
+  FEES: ETH
 } as const satisfies Record<string, Token>;
 `;
 

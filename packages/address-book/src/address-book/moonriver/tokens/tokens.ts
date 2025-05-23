@@ -44,9 +44,10 @@ const SUSHI = {
 } as const satisfies Token;
 
 export const tokens = {
+  WNATIVE: MOVR,
+  FEES: MOVR,
   MOVR,
   WMOVR: MOVR,
-  WNATIVE: MOVR,
   WMOVR_SUSHI: WMOVR_SUSHI,
   WNATIVE_SUSHI: WMOVR_SUSHI,
   oldBIFI: {

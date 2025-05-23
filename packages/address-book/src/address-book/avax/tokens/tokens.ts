@@ -17,6 +17,10 @@ const AVAX = {
 } as const satisfies Token;
 
 export const tokens = {
+  WNATIVE: AVAX,
+  FEES: AVAX,
+  AVAX,
+  WAVAX: AVAX,
   COQ: {
     name: 'Coq Inu',
     symbol: 'COQ',
@@ -877,9 +881,6 @@ export const tokens = {
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0x60781C2586D68229fde47564546784ab3fACA982/logo.png',
   },
-  AVAX,
-  WAVAX: AVAX,
-  WNATIVE: AVAX,
   ETH: {
     chainId: 43114,
     address: '0xf20d962a6c8f70c731bd838a3a388D7d48fA6e15',

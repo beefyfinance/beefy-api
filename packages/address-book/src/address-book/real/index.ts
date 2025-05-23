@@ -7,4 +7,8 @@ export const real = {
   platforms,
   tokens,
   tokenAddressMap: convertSymbolTokenMapToAddressTokenMap(tokens),
+  native: {
+    symbol: 'reETH',
+    oracleId: 'reETH',
+  },
 } as const satisfies Chain;

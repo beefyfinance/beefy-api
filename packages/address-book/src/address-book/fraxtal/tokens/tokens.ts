@@ -31,9 +31,10 @@ const frxETH = {
 } as const satisfies Token;
 
 export const tokens = {
+  WNATIVE: FXS, // now wFRAX, previously wfrxETH
+  FEES: frxETH,
   FXS, // now FRAX
   WFXS: FXS, // now wFRAX
-  WNATIVE: FXS, // now wFRAX, previously wfrxETH
   FRAX: {
     chainId: 252,
     address: '0xFc00000000000000000000000000000000000001',

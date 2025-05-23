@@ -16,9 +16,10 @@ const CANTO = {
 } as const satisfies Token;
 
 export const tokens = {
+  WNATIVE: CANTO,
+  FEES: CANTO,
   CANTO,
   WCANTO: CANTO,
-  WNATIVE: CANTO,
   oldBIFI: {
     name: 'Beefy.Finance',
     symbol: 'oldBIFI',

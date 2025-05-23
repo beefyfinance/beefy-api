@@ -7,4 +7,8 @@ export const moonbeam = {
   platforms,
   tokens,
   tokenAddressMap: convertSymbolTokenMapToAddressTokenMap(tokens),
+  native: {
+    symbol: 'GLMR',
+    oracleId: 'GLMR',
+  },
 } as const satisfies Chain;

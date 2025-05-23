@@ -14,9 +14,10 @@ const HT = {
 } as const satisfies Token;
 
 export const tokens = {
+  WNATIVE: HT,
+  FEES: HT,
   HT,
   WHT: HT,
-  WNATIVE: HT,
   ETH: {
     name: 'Etheruem',
     symbol: 'ETH',

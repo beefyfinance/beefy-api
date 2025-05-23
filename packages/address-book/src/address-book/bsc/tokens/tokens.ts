@@ -33,6 +33,10 @@ const lisUSD = {
 } as const satisfies Token;
 
 export const tokens = {
+  WNATIVE: BNB,
+  FEES: BNB,
+  BNB,
+  WBNB: BNB,
   CASH: {
     name: 'CASH',
     symbol: 'CASH',
@@ -2520,9 +2524,6 @@ export const tokens = {
     description: 'xBLZD is the native token of Blizzard.money where users can yield their tokens.',
     logoURI: 'https://app.beefy.finance/static/media/BLZD.fdf1fc8d.png',
   },
-  BNB,
-  WBNB: BNB,
-  WNATIVE: BNB,
   BAKE: {
     name: 'Bakery Token',
     symbol: 'BAKE',

@@ -7,4 +7,8 @@ export const kava = {
   platforms,
   tokens,
   tokenAddressMap: convertSymbolTokenMapToAddressTokenMap(tokens),
+  native: {
+    symbol: 'KAVA',
+    oracleId: 'KAVA',
+  },
 } as const satisfies Chain;

@@ -4,7 +4,7 @@ const S = {
   name: 'Wrapped S',
   address: '0x039e2fB66102314Ce7b64Ce5Ce3E5183bc94aD38',
   symbol: 'wS',
-  oracleId: 'wS',
+  oracleId: 'WS',
   decimals: 18,
   chainId: 146,
   website: 'https://www.soniclabs.com/',
@@ -16,9 +16,10 @@ const S = {
 } as const satisfies Token;
 
 export const tokens = {
+  WNATIVE: S,
+  FEES: S,
   S,
   WS: S,
-  WNATIVE: S,
   EQUAL: {
     name: 'Equalizer on Sonic',
     symbol: 'EQUAL',

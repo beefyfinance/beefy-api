@@ -16,9 +16,10 @@ const FUSE = {
 } as const satisfies Token;
 
 export const tokens = {
+  WNATIVE: FUSE,
+  FEES: FUSE,
   FUSE,
   WFUSE: FUSE,
-  WNATIVE: FUSE,
   oldBIFI: {
     name: 'Beefy.Finance',
     symbol: 'oldBIFI',

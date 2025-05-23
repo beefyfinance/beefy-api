@@ -33,9 +33,10 @@ const SUSHIV1 = {
 };
 
 export const tokens = {
+  WNATIVE: WCELO,
+  FEES: WCELO,
   CELO,
   WCELO: WCELO,
-  WNATIVE: WCELO,
   oldBIFI: {
     chainId: 42220,
     address: '0x639A647fbe20b6c8ac19E48E2de44ea792c62c5C',

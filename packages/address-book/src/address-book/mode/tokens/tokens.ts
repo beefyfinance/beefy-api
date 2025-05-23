@@ -15,9 +15,10 @@ const ETH = {
 } as const satisfies Token;
 
 export const tokens = {
+  WNATIVE: ETH,
+  FEES: ETH,
   ETH,
   WETH: ETH,
-  WNATIVE: ETH,
   MODE: {
     chainId: 34443,
     address: '0xDfc7C877a950e49D2610114102175A06C2e3167a',

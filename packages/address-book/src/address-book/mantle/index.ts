@@ -7,4 +7,8 @@ export const mantle = {
   platforms,
   tokens,
   tokenAddressMap: convertSymbolTokenMapToAddressTokenMap(tokens),
+  native: {
+    symbol: 'MNT',
+    oracleId: 'MNT',
+  },
 } as const satisfies Chain;

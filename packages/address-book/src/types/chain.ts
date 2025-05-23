@@ -5,8 +5,12 @@ export interface Chain {
   readonly platforms: Record<string, Record<string, string>> & {
     beefyfinance: BeefyFinance;
   };
-  readonly tokens: Record<string, Token>;
+  readonly tokens: { WNATIVE: Token; FEES: Token } & { [id: string]: Token };
   readonly tokenAddressMap: Record<string, TokenWithId>;
+  readonly native: {
+    readonly symbol: string;
+    readonly oracleId: string;
+  };
 }
 
 // back-compat

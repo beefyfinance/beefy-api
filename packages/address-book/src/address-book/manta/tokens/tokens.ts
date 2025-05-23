@@ -14,9 +14,10 @@ const ETH = {
 } as const satisfies Token;
 
 export const tokens = {
+  WNATIVE: ETH,
+  FEES: ETH,
   ETH,
   WETH: ETH,
-  WNATIVE: ETH,
   STONE: {
     name: 'StakeStone Ether',
     symbol: 'STONE',

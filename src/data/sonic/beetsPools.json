@@ -349,7 +349,7 @@
     "tokens": [
       {
         "oracle": "tokens",
-        "oracleId": "wS",
+        "oracleId": "WS",
         "decimals": "1e18"
       },
       {

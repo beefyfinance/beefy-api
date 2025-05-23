@@ -7,4 +7,8 @@ export const polygon = {
   platforms,
   tokens,
   tokenAddressMap: convertSymbolTokenMapToAddressTokenMap(tokens),
+  native: {
+    symbol: 'POL',
+    oracleId: 'MATIC',
+  },
 } as const satisfies Chain;

@@ -31,24 +31,24 @@ type Token = {
   location: string;
 };
 
-const nativeToWrapped = Object.fromEntries(
+const nativeToWrappedOracles = Object.fromEntries(
   Object.values(addressBookByChainId).map(addressbook => [
-    addressbook.tokens.WNATIVE.symbol.slice(1),
-    addressbook.tokens.WNATIVE.symbol,
+    addressbook.native.oracleId,
+    addressbook.tokens.WNATIVE.oracleId,
   ])
 );
 
-function areAllNative(symbols: string[]) {
-  if (symbols.length !== 2) {
+function areAllNativeWrappedOracles(oracleIds: string[]) {
+  if (oracleIds.length !== 2) {
     return false;
   }
 
-  const native = symbols.find(symbol => symbol in nativeToWrapped);
+  const native = oracleIds.find(oracleId => oracleId in nativeToWrappedOracles);
   if (!native) {
     return false;
   }
 
-  return symbols.includes(nativeToWrapped[native]);
+  return oracleIds.includes(nativeToWrappedOracles[native]);
 }
 
 function isObject(item: unknown): item is Record<string | number | symbol, unknown> {
@@ -56,9 +56,7 @@ function isObject(item: unknown): item is Record<string | number | symbol, unkno
 }
 
 function isPoolToken(token: unknown): token is PoolToken {
-  return (
-    token && isObject(token) && 'address' in token && 'oracleId' in token && 'decimals' in token
-  );
+  return token && isObject(token) && 'address' in token && 'oracleId' in token && 'decimals' in token;
 }
 
 function isBasePool(pool: unknown): pool is BasePool {
@@ -156,7 +154,7 @@ async function checkTokensByAddress(tokensForChain: Token[], ignoreNative: boole
 
     const tokensByOracles = groupBy(tokensForAddress, 'oracleId');
     const oracleIds = Object.keys(tokensByOracles);
-    if (oracleIds.length > 1 && (!ignoreNative || !areAllNative(oracleIds))) {
+    if (oracleIds.length > 1 && (!ignoreNative || !areAllNativeWrappedOracles(oracleIds))) {
       console.error(
         `Multiple oracles for ${tokensForAddress[0].address} on ${tokensForAddress[0].chainId}`,
         summariseLocations(tokensByOracles)
@@ -239,14 +237,10 @@ const options = commandLineArgs([
 ]);
 
 if (options.help) {
-  console.log(
-    'Checks for tokens with the same address, that have different oracleId or decimals defined.'
-  );
+  console.log('Checks for tokens with the same address, that have different oracleId or decimals defined.');
   console.log('Also for tokens with same oracleId but different address defined.');
   console.log('Options:');
-  console.log(
-    '--ignore-native, -n\tIgnores NATIVE and WNATIVE oracleIds being defined for the same address'
-  );
+  console.log('--ignore-native, -n\tIgnores NATIVE and WNATIVE oracleIds being defined for the same address');
   console.log('--ignore-pools, -p\tOnly check lp0 and lp1 not the pool itself');
   console.log('--only-amm, -a\t\tOnly check json files directly imported in to getAmmPrices.ts');
   console.log('--help, -h\t\tShow this message');

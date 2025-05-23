@@ -16,9 +16,10 @@ const xDAI = {
 } as const satisfies Token;
 
 export const tokens = {
+  WNATIVE: xDAI,
+  FEES: xDAI,
   xDAI,
   WXDAI: xDAI,
-  WNATIVE: xDAI,
   AURA: {
     name: 'Aura',
     symbol: 'AURA',

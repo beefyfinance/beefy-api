@@ -7,4 +7,8 @@ export const sei = {
   platforms,
   tokens,
   tokenAddressMap: convertSymbolTokenMapToAddressTokenMap(tokens),
+  native: {
+    symbol: 'SEI',
+    oracleId: 'SEI',
+  },
 } as const satisfies Chain;
