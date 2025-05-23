@@ -34,18 +34,18 @@ export const tokens = {
     bridge: 'native',
   },
   USDCe: {
-    name: 'Bridged USDC (Sonic Labs)',
-    symbol: 'USDCe',
+    name: 'USDC',
+    symbol: 'USDC',
     oracleId: 'sUSDCe',
     address: '0x29219dd400f2Bf60E5a23d13Be72B486D4038894',
     chainId: 146,
     decimals: 6,
     logoURI: '',
-    website: 'https://www.centre.io/',
+    website: 'https://www.usdc.com/',
     description:
       'USDC is a fully collateralized US dollar stablecoin. USDC is issued by regulated financial institutions, backed by fully reserved assets, redeemable on a 1:1 basis for US dollars.',
     documentation: '',
-    bridge: 'sonic-canonical',
+    bridge: 'native',
   },
   USDT: {
     name: 'Bridged USDT (Sonic Labs)',
