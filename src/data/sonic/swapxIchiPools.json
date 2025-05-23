@@ -1,5 +1,23 @@
 [
   {
+    "name": "swapx-ichi-usdc-wbtc",
+    "address": "0xeaEFa49b10Ea464b4746380401e8eb3e1AE37964",
+    "gauge": "0xA7d753D2dC35eFa01ADFB53081F6aF9B3f72eB2D",
+    "tokens": ["WBTC", "USDCe"]
+  },
+  {
+    "name": "swapx-ichi-wbtc-usdc",
+    "address": "0xb5ba2817CB2C352926C81642c753084Dfe4Be533",
+    "gauge": "0x42f1C132feC11625C340754DFDBb1BEF20A11C4A",
+    "tokens": ["WBTC", "USDCe"]
+  },
+  {
+    "name": "swapx-ichi-wbtc-weth",
+    "address": "0x5A9A58D8a3f0ba1B38F63fE9d56ebBEC129915bd",
+    "gauge": "0x552F45FeF6d09EDA012798f88b6DC05B0Dcb100E",
+    "tokens": ["WBTC", "WETH"]
+  },
+  {
     "name": "swapx-ichi-sts-swpx",
     "address": "0x8063B7e5Ee1d772B38B13a80a1AD3feA538ee8D5",
     "gauge": "0x110f0c53aDaa8015001d5Ae2ec36f2CC128954F3",

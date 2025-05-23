@@ -1,9 +1,6 @@
 import BigNumber from 'bignumber.js';
 import { getFarmApys } from '../common/getSolidlyGaugeApys';
 import { getApyBreakdown } from '../common/getApyBreakdownNew';
-import { fetchContract } from '../../rpc/client';
-import ERC20Abi from '../../../abis/ERC20Abi';
-import { fetchPrice } from '../../../utils/fetchPrice';
 
 const { SONIC_CHAIN_ID: chainId } = require('../../../constants');
 const stablePools = require('../../../data/sonic/swapxStableLpPools.json');
