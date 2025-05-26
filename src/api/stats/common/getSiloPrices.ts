@@ -8,7 +8,7 @@ export const getSiloPrices = async (chainId, pools, tokenPrices) => {
   const [amountCalls, totalSupplyCalls, decimalsCalls] = pools.reduce(
     (acc, pool) => {
       const siloTokenContract = fetchContract(pool.address, SiloTokenAbi, chainId);
-      if (pool.v2) {
+      if (pool.v2 || pool.vault) {
         const siloContract = fetchContract(pool.silo, SiloV2Abi, chainId);
         acc[0].push(siloContract.read.totalAssets());
       } else {
@@ -33,11 +33,12 @@ export const getSiloPrices = async (chainId, pools, tokenPrices) => {
     const pool = pools[i];
     const token = pool.underlying;
     const totalSupplyDecimals = new BigNumber(decimalsResults[i]).toNumber(); // [as X, not Xe18] Needed as V2 uses SiloMathLib._DECIMALS_OFFSET extra decimals for LP tokens
-    const balance = pool.v2
-      ? new BigNumber(amountResults[i]).div(pool.decimals)
-      : pool.collateral
-      ? new BigNumber(amountResults[i]['collateralOnlyDeposits']).div(pool.decimals)
-      : new BigNumber(amountResults[i]['totalDeposits']).div(pool.decimals);
+    const balance =
+      pool.v2 || pool.vault
+        ? new BigNumber(amountResults[i]).div(pool.decimals)
+        : pool.collateral
+        ? new BigNumber(amountResults[i]['collateralOnlyDeposits']).div(pool.decimals)
+        : new BigNumber(amountResults[i]['totalDeposits']).div(pool.decimals);
     const totalSupply = new BigNumber(totalSupplyResults[i]).shiftedBy(-totalSupplyDecimals);
 
     const priceUnderlying = getTokenPrice(tokenPrices, pool.oracleId);
