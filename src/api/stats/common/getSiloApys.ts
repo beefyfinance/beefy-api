@@ -191,16 +191,16 @@ const getVaultApy = async (pool: SiloPool, chainId: ChainId) => {
   const vaultContract = fetchContract(pool.silo, SiloVault, chainId);
   const siloLensContract = fetchContract(pool.lens, SiloV2Lens, chainId);
   const supplyQueue = await vaultContract.read.supplyQueueLength();
-  const totalAssets = new BigNumber(await vaultContract.read.totalAssets().toString());
+  const totalAssets = new BigNumber((await vaultContract.read.totalAssets()).toString());
 
   let vaultApy = new BigNumber(0);
 
   for (let i = 0; i < supplyQueue; i++) {
-    const silo = await vaultContract.read.supplyQueue([BigInt(i)]).toString();
-    const balance = await vaultContract.read.balanceTracker([silo as `0x${string}`]).toString();
+    const silo = (await vaultContract.read.supplyQueue([BigInt(i)])) as `0x${string}`;
+    const balance = (await vaultContract.read.balanceTracker([silo])).toString();
     let apy = new BigNumber(0);
     try {
-      apy = new BigNumber(await siloLensContract.read.getDepositAPR([silo as `0x${string}`]).toString());
+      apy = new BigNumber((await siloLensContract.read.getDepositAPR([silo])).toString());
     } catch (e) {}
 
     vaultApy = vaultApy.plus(apy.times(balance));
