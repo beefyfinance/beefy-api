@@ -1,5 +1,11 @@
 [
   {
+    "name": "kodiak-dolo-bera",
+    "address": "0x5e4Fe86C4f6fB2203fbFb77FD6eC3Cb300B639AA",
+    "gauge": "0xA23701E0554B4d519e7dA177901C46217cb35cf4",
+    "tokens": ["DOLO", "WBERA"]
+  },
+  {
     "name": "kodiak-bera-honey",
     "address": "0x4a254B11810B8EBb63C5468E438FC561Cb1bB1da",
     "gauge": "0x418D63947889e55C16280Cb7785cF84EF081F224",

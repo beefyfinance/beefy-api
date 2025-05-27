@@ -277,4 +277,17 @@ export const tokens = {
     bridge: 'native',
     risks: ['NO_TIMELOCK'],
   },
+  DOLO: {
+    name: 'Dolomite',
+    symbol: 'DOLO',
+    oracleId: 'DOLO',
+    address: '0x0F81001eF0A83ecCE5ccebf63EB302c70a39a654',
+    decimals: 18,
+    chainId: 80094,
+    website: 'https://dolomite.io/',
+    documentation: 'https://docs.dolomite.io/',
+    description:
+      'Dolomite is a next-generation decentralized money market protocol and DEX that offers broad token support and capital efficiency with its virtual liquidity system. The DOLO token can be used for various purposes, including over-collateralized loans, margin trading, spot trading, and other financial instruments.',
+    bridge: 'native',
+  },
 } as const satisfies Record<string, Token>;
