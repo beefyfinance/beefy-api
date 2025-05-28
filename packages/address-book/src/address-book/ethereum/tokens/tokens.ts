@@ -2189,6 +2189,19 @@ export const tokens = {
     bridge: 'native',
     documentation: 'https://docs.ebtc.finance/ebtc',
   },
+  USD0: {
+    name: 'Usual USD',
+    symbol: 'USD0',
+    oracleId: 'USD0',
+    address: '0x73A15FeD60Bf67631dC6cd7Bc5B6e8da8190aCF5',
+    chainId: 1,
+    decimals: 18,
+    website: 'https://usual.money/',
+    description:
+      'TUsual USD is a protocol that transforms real-world assets into a secure and versatile stablecoin, USD0, and shares its value with users through the $USUAL token. It is a decentralized Fiat Stablecoin issuer that redistributes ownership and governance through the $USUAL token. The protocol tokenizes real-world assets, such as real estate, commodities, and financial instruments, to enhance liquidity and accessibility in the blockchain ecosystem.',
+    bridge: 'native',
+    documentation: 'https://docs.usual.money/usual-products/usd0-stablecoin',
+  },
   'USD0++': {
     name: 'USD0 Liquid Bond',
     symbol: 'USD0++',
@@ -2200,8 +2213,7 @@ export const tokens = {
     description:
       'The USD0 Liquid Bond is issued when a user decides to lock their USD0 for a specified period. In return, they receive a composable and transferable USD0++ (as a LBT), which provides rewards in the form of USUAL tokens.',
     bridge: 'native',
-    documentation:
-      'https://gitbook.usual.money/usual-mechanisms/liquid-bond-token-lbt/usd0-liquid-bond',
+    documentation: 'https://docs.usual.money/usual-products/usd0-liquid-staking-token',
   },
   pxETH: {
     name: 'Pirex Ether',
