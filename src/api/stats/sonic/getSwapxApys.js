@@ -1,6 +1,9 @@
 import BigNumber from 'bignumber.js';
 import { getFarmApys } from '../common/getSolidlyGaugeApys';
 import { getApyBreakdown } from '../common/getApyBreakdownNew';
+import { fetchContract } from '../../rpc/client';
+import ERC20Abi from '../../../abis/ERC20Abi';
+import { fetchPrice } from '../../../utils/fetchPrice';
 
 const { SONIC_CHAIN_ID: chainId } = require('../../../constants');
 const stablePools = require('../../../data/sonic/swapxStableLpPools.json');
@@ -28,25 +31,33 @@ export const getSwapxApys = async () => {
 async function getGemsxApy(pools) {
   const apys = pools.map(_ => new BigNumber(0));
   try {
-    const url = `https://api.merkl.xyz/v3/opportunity?campaigns=true&testTokens=false&chainId=${chainId}`;
-    const ops = Object.values(await fetch(url).then(r => r.json())).filter(r => r.status === 'live');
+    const url = `https://api.merkl.xyz/v3/campaigns?chainIds=${chainId}&live=true`;
+    const json = await fetch(url).then(r => r.json());
+    const campaigns = Object.values(json[chainId])
+      .map(group => Object.values(group))
+      .flat()
+      .filter(c => c?.campaignParameters?.symbolRewardToken === 'GEMSx' && c.isLive === true);
+
+    const supplies = await Promise.all(
+      pools.map(p => fetchContract(p.gauge, ERC20Abi, chainId).read.totalSupply())
+    );
 
     for (let i = 0; i < pools.length; i++) {
       const p = pools[i];
-      const op = ops.find(o =>
-        (o.aprBreakdown2 || []).some(v => v.address.toLowerCase() === p.gauge.toLowerCase() && v.value > 0)
-      );
-      const campaign = (op?.campaigns?.active || []).find(
-        c =>
-          c.campaignParameters.symbolRewardToken === 'GEMSx' &&
-          c.campaignParameters.whitelist.some(a =>
-            [p.address.toLowerCase(), p.gauge.toLowerCase()].includes(a.toLowerCase())
-          )
+      const campaign = campaigns.find(c =>
+        c.campaignParameters.whitelist.some(a => a.toLowerCase() === p.gauge.toLowerCase())
       );
       if (campaign) {
-        const apr = op.aprBreakdown2.find(a => a.address === campaign.campaignId);
-        // console.log(p.name, 'gemsx', apr?.value || 0);
-        apys[i] = new BigNumber(apr?.value || 0).div(100);
+        const period = campaign.endTimestamp - campaign.startTimestamp;
+        const rewardRate = new BigNumber(campaign.amount).div(period);
+        const price = await fetchPrice({ oracle: 'tokens', id: 'GEMSx' });
+        const rewards = rewardRate.times(31536000).times(price).div('1e18');
+
+        const lpPrice = await fetchPrice({ oracle: 'lps', id: p.name });
+        const totalStakedInUsd = new BigNumber(supplies[i]).div('1e18').times(lpPrice);
+
+        apys[i] = rewards.div(totalStakedInUsd);
+        // console.log(p.name, 'gemsx', apys[i].toNumber());
       }
     }
   } catch (e) {
