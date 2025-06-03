@@ -34,7 +34,6 @@ import getCantoStablePrices from './canto/getCantoStablePrices';
 import getSolidLizardStablePrices from './arbitrum/getSolidLizardStablePrices';
 import getRamsesStablePrices from './arbitrum/getRamsesStablePrices';
 import getMmyOptimismPrices from './optimism/getMmyOptimismPrices';
-import getVelocoreStablePrices from './zksync/getVelocoreStablePrices';
 import getBscGammaPrices from './bsc/getBscGammaPrices';
 import { getCurveBasePrices } from './base/getCurvePrices';
 import getUniswapArbitrumPrices from './arbitrum/getUniswapPositionPrices';
@@ -48,7 +47,6 @@ import getBalancerGnosisPrices from './gnosis/getBalancerGnosisPrices';
 import getCurvePricesCommon from './common/curve/getCurvePricesCommon';
 import { getCurveLendPricesCommon } from './common/curve/getCurveLendPricesCommon';
 import getArbitrumSiloPrices from './arbitrum/getArbitrumSiloPrices';
-import getVelodromeModeStablePrices from './mode/getVelodromeModeStablePrices';
 import getVelodromeLiskStablePrices from './lisk/getVelodromeLiskStablePrices';
 import getNuriStablePrices from './scroll/getNuriStablePrices';
 import getTokanStablePrices from './scroll/getTokanStablePrices';
@@ -137,7 +135,6 @@ export async function getNonAmmPrices(
     getKinetixPrices(tokenPrices),
     getUniswapArbitrumPrices(tokenPrices),
     getUniswapEthereumPrices(tokenPrices),
-    getVelocoreStablePrices(tokenPrices),
     getMmyOptimismPrices(tokenPrices),
     getRamsesStablePrices(tokenPrices),
     getEquilibreStablePrices(tokenPrices),
@@ -163,7 +160,6 @@ export async function getNonAmmPrices(
     getGmxAvalanchePrices(tokenPrices),
     getGmxArbitrumPrices(tokenPrices),
     getVelodromeStablePrices(tokenPrices),
-    getVelodromeModeStablePrices(tokenPrices),
     getVelodromeLiskStablePrices(tokenPrices),
     getSolidlyStablePrices(FRX_CHAIN_ID, require('../../data/fraxtal/veloStablePools.json'), tokenPrices),
     getAerodromeStablePrices(tokenPrices),

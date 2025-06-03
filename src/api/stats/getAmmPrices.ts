@@ -43,11 +43,9 @@ import velocimeterV2Pools from '../../data/canto/velocimeterV2LpPools.json';
 import equilibrePools from '../../data/kava/equilibreLpPools.json';
 import versePools from '../../data/ethereum/verseLpPools.json';
 import ramsesPools from '../../data/arbitrum/ramsesLpPools.json';
-import velocorePools from '../../data/zksync/velocoreLpPools.json';
 import veSyncPools from '../../data/zksync/veSyncLpPools.json';
 import baseSwapPools from '../../data/base/baseSwapLpPools.json';
 import ooeV2Pools from '../../data/bsc/ooeV2LpPools.json';
-import draculaPools from '../../data/zksync/draculaLpPools.json';
 import aerodromePools from '../../data/base/aerodromeLpPools.json';
 import alienBasePools from '../../data/base/alienBaseLpPools.json';
 import moePools from '../../data/mantle/moeLpPools.json';
@@ -97,11 +95,9 @@ const pools = normalizePoolOracleIds([
   ...nilePools,
   ...alienBasePools,
   ...aerodromePools,
-  ...draculaPools,
   ...ooeV2Pools,
   ...baseSwapPools,
   ...veSyncPools,
-  ...velocorePools,
   ...ramsesPools,
   ...versePools,
   ...equilibrePools,
