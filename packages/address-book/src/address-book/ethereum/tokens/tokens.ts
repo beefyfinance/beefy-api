@@ -2602,6 +2602,32 @@ export const tokens = {
     description: 'slvlUSD is the yield accruing version of lvlUSD',
     bridge: 'native',
   },
+  mEDGE: {
+    name: 'Midas mEDGE',
+    symbol: 'mEDGE',
+    oracleId: 'mEDGE',
+    address: '0xbB51E2a15A9158EBE2b0Ceb8678511e063AB7a55',
+    chainId: 1,
+    decimals: 18,
+    website: 'https://midas.app/medge',
+    documentation: 'https://docs.midas.app/tokens/medge',
+    description:
+      'mEDGE is a crypto-denominated stablecoin yield strategy designed to track delta-neutral DeFi yields while maintaining a balanced market exposure. It dynamically shifts between DeFi lending, liquidity provisioning, and basis trading to optimize risk-adjusted returns. Risk-managed by Edge Capital, a leading market-neutral hedge fund and liquidity provider, mEDGE provides institutional-grade exposure to diversified DeFi yield opportunities. Its fully transparent structure and liquid collateral ensure flexibility, allowing users to earn sustainable, risk-managed yield without being locked into a single strategy.',
+    bridge: 'native',
+  },
+  mMEV: {
+    name: 'Midas mMEV',
+    symbol: 'mMEV',
+    oracleId: 'mMEV',
+    address: '0x030b69280892c888670EDCDCD8B69Fd8026A0BF3',
+    chainId: 1,
+    decimals: 18,
+    website: 'https://midas.app/mmev',
+    documentation: 'https://docs.midas.app/tokens/mmev',
+    description:
+      'mMEV is designed to track delta-neutral DeFi crypto yields, aiming to maintain a balanced exposure to the market while generating returns. MEV Capital serves as the risk advisor of mMEV.',
+    bridge: 'native',
+  },
   waEthUSDT: {
     name: 'Wrapped Aave Ethereum USDT',
     symbol: 'waEthUSDT',

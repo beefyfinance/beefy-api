@@ -1,5 +1,25 @@
 [
   {
+    "name": "pendle-medge-31jul25",
+    "address": "0xcbeed3364912bcee868cfa9cff6fe865c85ea094",
+    "eqbGauge": "0x7f44dC73a2a73087e6a4f574C5F07F70d58e30eB",
+    "oracle": "tokens",
+    "oracleId": "USDC",
+    "decimals": "1e6",
+    "chainId": 1,
+    "beefyFee": 0.095
+  },
+  {
+    "name": "pendle-mmev-31jul25",
+    "address": "0x266728b30c98b24de810e3325adc615486988cb2",
+    "eqbGauge": "0x6Cb577f8996fdD1F1132Bd002D9F30d3ec33E817",
+    "oracle": "tokens",
+    "oracleId": "USDC",
+    "decimals": "1e6",
+    "chainId": 1,
+    "beefyFee": 0.095
+  },
+  {
     "name": "pendle-slvlusd-25sep25",
     "address": "0xc88ff954d42d3e11d43b62523b3357847c29377c",
     "eqbGauge": "0x28C40B047856BEcA0B5e9F23625FC55006d174C5",
