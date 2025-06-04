@@ -108,6 +108,9 @@ const {
 
   SAGA_CHAIN_ID,
   SAGA_VAULTS_ENDPOINT,
+
+  HYPEREVM_CHAIN_ID,
+  HYPEREVM_VAULTS_ENDPOINT,
 } = require('../../constants');
 const { getKey, setKey } = require('../../utils/cache');
 
@@ -260,6 +263,10 @@ const chains = [
   {
     chainId: SAGA_CHAIN_ID,
     vaultsEndpoint: SAGA_VAULTS_ENDPOINT,
+  },
+  {
+    chainId: HYPEREVM_CHAIN_ID,
+    vaultsEndpoint: HYPEREVM_VAULTS_ENDPOINT,
   },
 ];
 

@@ -90,6 +90,7 @@ import { getBeefyCowLiskPrices } from './lisk/getBeefyLiskCowPrices';
 import { getBeefyCowBerachainPrices } from './berachain/getBeefyBerachainCowPrices';
 import { getBeefyCowGnosisPrices } from './gnosis/getBeefyGnosisCowPrices';
 import { getBeefyCowSagaPrices } from './saga/getBeefySagaCowPrices';
+import { getBeefyCowHyperevmPrices } from './hyperevm/getBeefyHyperevmCowPrices';
 import { getPendleCommonPrices } from './common/getPendleCommonPrices';
 import { getMellowVeloPrices } from './common/getMellowVeloPrices';
 import { getBunniPrices } from './common/getBunniPrices';
@@ -210,6 +211,7 @@ export async function getNonAmmPrices(
     getBeefyCowBerachainPrices(tokenPrices),
     getBeefyCowGnosisPrices(tokenPrices),
     getBeefyCowSagaPrices(tokenPrices),
+    getBeefyCowHyperevmPrices(tokenPrices),
     getPendleCommonPrices(ARB_CHAIN_ID, require('../../data/arbitrum/equilibriaPools.json'), tokenPrices),
     getPendleCommonPrices(ARB_CHAIN_ID, require('../../data/arbitrum/pendlePools.json'), tokenPrices, {}),
     getPendleCommonPrices(ETH_CHAIN_ID, require('../../data/ethereum/pendlePools.json'), tokenPrices, {}),
@@ -237,8 +239,8 @@ export async function getNonAmmPrices(
   ];
 
   // Setup error logs
-  promiseArrayTiming(promises, i => `getNonAmmPrices[${i}]`).forEach((p, i) =>
-    p.catch(e => console.warn('getNonAmmPrices error', i, e.shortMessage ?? e.message))
+  promiseArrayTiming(promises, i => `getNonAmmPrices[${i}]`).forEach(
+    (p, i) => p.catch(e => console.warn('getNonAmmPrices error', i, e)) //e.shortMessage ?? e.message))
   );
 
   const results = await Promise.allSettled(promises);

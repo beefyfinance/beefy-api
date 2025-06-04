@@ -1,0 +1,14 @@
+[
+  {
+    "address": "0x716D2dD531d826eb3fa1f1fFcFdd7102217a3199",
+    "lpAddress": "0xEC31710146EE79Faf276a7076B67a9b2ecAbEaE3",
+    "tokens": ["0x5555555555555555555555555555555555555555", "0xB8CE59FC3717ada4C02eaDF9682A9e934F625ebb"],
+    "tokenOracleIds": ["WHYPE", "USDT0"],
+    "decimals": [18, 6],
+    "oracleId": "kittenswap-cow-hyperevm-whype-usdt0",
+    "rewardPool": {
+      "address": "0xb400EA86eB0dEd6d313b89EE579fD76cB730922a",
+      "oracleId": "kittenswap-cow-hyperevm-whype-usdt0-rp"
+    }
+  }
+]

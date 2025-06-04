@@ -757,6 +757,30 @@ const rootstockChain = {
 } as const satisfies Chain;
 
 /// New Chains
+
+const hyperevmChain = {
+  id: 999,
+  name: 'Hyperevm',
+  network: 'hyperevm',
+  nativeCurrency: {
+    decimals: 18,
+    name: 'WHYPE',
+    symbol: 'WHYPE',
+  },
+  rpcUrls: {
+    public: { http: getRpcsForChain('hyperevm') },
+    default: { http: getRpcsForChain('hyperevm') },
+  },
+  blockExplorers: {
+    default: { name: 'hyperevm explorer', url: 'https://www.hyperscan.com/' },
+  },
+  contracts: {
+    multicall3: {
+      address: '0xca11bde05977b3631167028862be2a173976ca11',
+    },
+  },
+} as const satisfies Chain;
+
 const sagaChain = {
   id: 5464,
   name: 'Saga',
@@ -934,4 +958,5 @@ export const getChain: Partial<Record<ChainId, Chain>> = {
   [ChainId.berachain]: berachainChain,
   [ChainId.unichain]: unichainChain,
   [ChainId.saga]: sagaChain,
+  [ChainId.hyperevm]: hyperevmChain,
 } as const;

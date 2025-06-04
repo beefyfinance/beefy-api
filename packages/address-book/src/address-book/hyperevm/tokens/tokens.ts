@@ -20,4 +20,17 @@ export const tokens = {
   WHYPE: HYPE,
   WNATIVE: HYPE,
   FEES: HYPE,
+  USDT0: {
+    name: 'USDT0',
+    symbol: 'USDT0',
+    oracleId: 'USDT0',
+    address: '0xB8CE59FC3717ada4C02eaDF9682A9e934F625ebb',
+    chainId: 999,
+    decimals: 6,
+    logoURI: '',
+    description:
+      'Tether is a stablecoin pegged to the US Dollar. A stablecoin is a type of cryptocurrency whose value is pegged to another fiat currency like the US Dollar or to a commodity like Gold. Tether is the first stablecoin to be created and it is the most popular stablecoin used in the ecosystem.',
+    bridge: 'layer-zero',
+    documentation: 'https://tether.to/en/how-it-works',
+  },
 } as const satisfies Record<string, Token>;
