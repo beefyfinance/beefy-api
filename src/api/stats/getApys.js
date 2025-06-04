@@ -79,6 +79,7 @@ const updateApys = async () => {
       getSonicApys(),
       getBerachainApys(),
       getSagaApys(),
+      getHyperevmApys(),
     ]);
 
     for (const result of results) {
