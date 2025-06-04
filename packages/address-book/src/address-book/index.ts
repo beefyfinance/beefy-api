@@ -38,6 +38,7 @@ import { sonic } from './sonic/index.js';
 import { berachain } from './berachain/index.js';
 import { unichain } from './unichain/index.js';
 import { saga } from './saga/index.js';
+import { hyperevm } from './hyperevm/index.js';
 
 export { ChainId }; // enum which is compiled to a JS object
 export type { Chain };
@@ -81,6 +82,7 @@ export const addressBook: ReadonlyRecord<ChainIdKey, Chain> = {
   berachain,
   unichain,
   saga,
+  hyperevm,
 } as const;
 
 export const addressBookByChainId: ReadonlyRecord<`${ChainId}`, Chain> = {
@@ -121,4 +123,5 @@ export const addressBookByChainId: ReadonlyRecord<`${ChainId}`, Chain> = {
   [ChainId.berachain]: berachain,
   [ChainId.unichain]: unichain,
   [ChainId.saga]: saga,
+  [ChainId.hyperevm]: hyperevm,
 } as const;

@@ -362,6 +362,7 @@ const seedPeggedPrices = {
   agGNO: 'GNO', // Aave
   USDL: 'USDC',
   arbETHx: 'ETHx',
+  WHYPE: 'HYPE',
 };
 
 export type BaseLpBreakdown = {

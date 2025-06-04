@@ -36,6 +36,7 @@ export enum ChainId {
   berachain = 80094,
   unichain = 130,
   saga = 5464,
+  hyperevm = 999,
 }
 
 type ChainIdType = typeof ChainId;

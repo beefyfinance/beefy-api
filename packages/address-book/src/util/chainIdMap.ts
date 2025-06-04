@@ -38,6 +38,7 @@ export const chainIdMap = {
   berachain: 80094,
   unichain: 130,
   saga: 5464,
+  hyperevm: 999,
 } satisfies ChainIdMap;
 
 // back-compat
