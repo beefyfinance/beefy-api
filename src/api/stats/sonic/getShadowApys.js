@@ -4,7 +4,7 @@ const { getSolidlyGaugeApys } = require('../common/getSolidlyGaugeApys');
 //const stablePools = require('../../../data/sonic/shadowStableLpPools.json');
 const volatilePools = require('../../../data/sonic/shadowLpPools.json');
 
-const pools = [/*...stablePools, */ ...volatilePools];
+const pools = [/*...stablePools, */ ...volatilePools].filter(pool => pool.gauge !== undefined);
 const getShadowApys = async () => {
   const gaugeApys = getSolidlyGaugeApys({
     chainId: chainId,
