@@ -519,4 +519,18 @@ export const tokens = {
     documentation: 'https://docs.rings.money/',
     bridge: 'layer-zero',
   },
+  beGEMS1: {
+    name: 'Beefy Gems Season 1',
+    symbol: 'beGEMS1',
+    oracleId: 'beGEMS1',
+    address: '0xd70c020c48403295100884ee47db80d51BAA9d87',
+    chainId: 146,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://app.beefy.com/campaigns/begems',
+    description:
+      'beGEMS are a liquid ERC-20 token issued by Beefy that represent its share of Sonic Gems airdrop rewards, earned by users through boosting vaults, providing liquidity, or voting for beS pairs across Sonic exchanges.',
+    documentation: 'https://docs.beefy.com/',
+    bridge: 'native',
+  },
 } as const satisfies Record<string, Token>;
