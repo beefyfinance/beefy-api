@@ -18,5 +18,24 @@
       "oracleId": "SHADOW",
       "decimals": "1e18"
     }
+  },
+  {
+    "name": "shadow-beS-beGEMS1",
+    "address": "0xA41f1792fD3A811D7F9D623C91F3D499B665167e",
+    "decimals": "1e18",
+    "chainId": 146,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0x871A101Dcf22fE4fE37be7B654098c801CBA1c88",
+      "oracle": "tokens",
+      "oracleId": "beS",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xd70c020c48403295100884ee47db80d51BAA9d87",
+      "oracle": "tokens",
+      "oracleId": "beGEMS1",
+      "decimals": "1e18"
+    }
   }
 ]
