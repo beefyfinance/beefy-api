@@ -67,6 +67,7 @@ const DEFAULT_RPCS: ApiChainToRpcs = {
   berachain: ['https://rpc.berachain.com'],
   unichain: ['https://mainnet.unichain.org'],
   saga: ['https://sagaevm.jsonrpc.sagarpc.io'],
+  hyperevm: ['https://rpc.hyperliquid.xyz/evm'],
 } as const;
 
 const chainToRpcEnvKeyPrefix = {
@@ -156,6 +157,7 @@ const SONIC_CHAIN_ID = ChainId.sonic;
 const BERACHAIN_CHAIN_ID = ChainId.berachain;
 const UNICHAIN_CHAIN_ID = ChainId.unichain;
 const SAGA_CHAIN_ID = ChainId.saga;
+const HYPEREVM_CHAIN_ID = ChainId.hyperevm;
 
 /// LP Fee
 const SUSHI_LPF = 0.003;
@@ -250,6 +252,8 @@ const UNICHAIN_VAULTS_ENDPOINT =
   'https://raw.githubusercontent.com/beefyfinance/beefy-v2/prod/src/config/vault/unichain.json';
 const SAGA_VAULTS_ENDPOINT =
   'https://raw.githubusercontent.com/beefyfinance/beefy-v2/prod/src/config/vault/saga.json';
+const HYPEREVM_VAULTS_ENDPOINT =
+  'https://raw.githubusercontent.com/beefyfinance/beefy-v2/prod/src/config/vault/hyperevm.json';
 
 const MULTICHAIN_ENDPOINTS: Partial<Record<ApiChain, string>> = {
   bsc: BSC_VAULTS_ENDPOINT,
@@ -289,6 +293,7 @@ const MULTICHAIN_ENDPOINTS: Partial<Record<ApiChain, string>> = {
   berachain: BERACHAIN_VAULTS_ENDPOINT,
   unichain: UNICHAIN_VAULTS_ENDPOINT,
   saga: SAGA_VAULTS_ENDPOINT,
+  hyperevm: HYPEREVM_VAULTS_ENDPOINT,
 } as const;
 
 const EXCLUDED_IDS_FROM_TVL = ['venus-wbnb'];
@@ -346,6 +351,7 @@ export const {
   BERACHAIN_RPC,
   UNICHAIN_RPC,
   SAGA_RPC,
+  HYPEREVM_RPC,
 } = RPC_BY_ENV_KEY;
 
 export {
@@ -412,6 +418,8 @@ export {
   SEI_VAULTS_ENDPOINT,
   ROOTSTOCK_CHAIN_ID,
   ROOTSTOCK_VAULTS_ENDPOINT,
+  HYPEREVM_CHAIN_ID,
+  HYPEREVM_VAULTS_ENDPOINT,
   BASE_HPY,
   MINUTELY_HPY,
   HOURLY_HPY,

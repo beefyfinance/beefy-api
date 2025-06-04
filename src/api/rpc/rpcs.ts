@@ -251,6 +251,7 @@ const rpcs: Record<ChainId, string[]> = {
   [ChainId.berachain]: ['https://rpc.berachain.com'],
   [ChainId.unichain]: ['https://mainnet.unichain.org'],
   [ChainId.saga]: ['https://sagaevm.jsonrpc.sagarpc.io'],
+  [ChainId.hyperevm]: ['https://rpc.hyperliquid.xyz/evm'],
 };
 
 export const getChainRpcs = (chainId: ChainId): string[] => rpcs[chainId] ?? [];
