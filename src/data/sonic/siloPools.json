@@ -8,16 +8,7 @@
     "oracleId": "S",
     "decimals": "1e18",
     "chainId": 146,
-    "rewards": [
-      {
-        "rewardOracleId": "SILO",
-        "rewardDecimals": "1e18",
-        "incentivesProgramId": "0x53494c4f5f765331000000000000000000000000000000000000000000000000"
-      }
-    ],
-    "incentivesController": "0x542Ed7D6f2e4c25f84D9c205C139234D6A4d000d",
-    "lens": "0xB6AdBb29f2D8ae731C7C72036A7FD5A7E970B198",
-    "fee": 7.5
+    "lens": "0xB6AdBb29f2D8ae731C7C72036A7FD5A7E970B198"
   },
   {
     "name": "silov2-sonic-usdc-valamore",
@@ -28,16 +19,7 @@
     "oracleId": "USDC",
     "decimals": "1e6",
     "chainId": 146,
-    "rewards": [
-      {
-        "rewardOracleId": "SILO",
-        "rewardDecimals": "1e18",
-        "incentivesProgramId": "0x53494C4F5F766755534443310000000000000000000000000000000000000000"
-      }
-    ],
-    "incentivesController": "0x306Fad9009b104a323A232238afffD1f261bD05c",
-    "lens": "0xB6AdBb29f2D8ae731C7C72036A7FD5A7E970B198",
-    "fee": 7.5
+    "lens": "0xB6AdBb29f2D8ae731C7C72036A7FD5A7E970B198"
   },
   {
     "name": "silov2-sonic-usdc-apostro",
@@ -48,16 +30,7 @@
     "oracleId": "USDC",
     "decimals": "1e6",
     "chainId": 146,
-    "rewards": [
-      {
-        "rewardOracleId": "SILO",
-        "rewardDecimals": "1e18",
-        "incentivesProgramId": "0x53494c4f5f617072555344435f3372645f626174636800000000000000000000"
-      }
-    ],
-    "incentivesController": "0xfFd019f29b068BCec229Ad352bA8346814BCFf72",
-    "lens": "0xB6AdBb29f2D8ae731C7C72036A7FD5A7E970B198",
-    "fee": 10
+    "lens": "0xB6AdBb29f2D8ae731C7C72036A7FD5A7E970B198"
   },
   {
     "name": "silov2-sonic-scusd-re7",
@@ -68,16 +41,7 @@
     "oracleId": "scUSD",
     "decimals": "1e6",
     "chainId": 146,
-    "rewards": [
-      {
-        "rewardOracleId": "SILO",
-        "rewardDecimals": "1e18",
-        "incentivesProgramId": "0x53494c4f5f726537736355534400000000000000000000000000000000000000"
-      }
-    ],
-    "incentivesController": "0xdc5B289bB15C3FEE96d106a607B13cCA8092F4F9",
-    "lens": "0xB6AdBb29f2D8ae731C7C72036A7FD5A7E970B198",
-    "fee": 10
+    "lens": "0xB6AdBb29f2D8ae731C7C72036A7FD5A7E970B198"
   },
   {
     "name": "silov2-sonic-usdc-re7",
@@ -88,16 +52,7 @@
     "oracleId": "USDC",
     "decimals": "1e6",
     "chainId": 146,
-    "rewards": [
-      {
-        "rewardOracleId": "SILO",
-        "rewardDecimals": "1e18",
-        "incentivesProgramId": "0x53494C4F5F726537555344430000000000000000000000000000000000000000"
-      }
-    ],
-    "incentivesController": "0xDedaD1d42caeDa6F3Ed4c53820F4C2FBa90870F3",
-    "lens": "0xB6AdBb29f2D8ae731C7C72036A7FD5A7E970B198",
-    "fee": 10
+    "lens": "0xB6AdBb29f2D8ae731C7C72036A7FD5A7E970B198"
   },
   {
     "name": "silov2-sonic-ws-bes",
@@ -108,14 +63,6 @@
     "oracleId": "S",
     "decimals": "1e18",
     "chainId": 146,
-    "rewards": [
-      {
-        "rewardOracleId": "beS",
-        "rewardDecimals": "1e18",
-        "incentivesProgramId": "0x6265535f6277535f303035320000000000000000000000000000000000000000"
-      }
-    ],
-    "incentivesController": "0x0e4077F055C1c5802d6084954afd15DD1B53a575",
     "lens": "0xB6AdBb29f2D8ae731C7C72036A7FD5A7E970B198"
   },
   {
@@ -127,14 +74,6 @@
     "oracleId": "sUSDCe",
     "decimals": "1e6",
     "chainId": 146,
-    "rewards": [
-      {
-        "rewardOracleId": "S",
-        "rewardDecimals": "1e18",
-        "incentivesProgramId": "0x77535f73555344435f3030380000000000000000000000000000000000000000"
-      }
-    ],
-    "incentivesController": "0x2D3d269334485d2D876df7363e1A50b13220a7D8",
     "lens": "0xB6AdBb29f2D8ae731C7C72036A7FD5A7E970B198"
   }
 ]
