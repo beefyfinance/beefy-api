@@ -983,6 +983,16 @@ const tokens: Partial<Record<keyof typeof ChainId, ConcentratedLiquidityToken[]>
       secondToken: 'SAGA',
     },
   ],
+  hyperevm: [
+    {
+      type: 'Slipstream',
+      oracleId: 'PURR',
+      decimalDelta: 1,
+      pool: '0xE9a8f101a77C8e73292d8543Dc4A530eA81662AB',
+      firstToken: 'PURR',
+      secondToken: 'WHYPE',
+    },
+  ],
 };
 
 async function getConcentratedLiquidityPrices(
