@@ -1,5 +1,29 @@
 [
   {
+    "address": "0x0fE958d31C0Aa613A0b08901fB26a7761C5B14f4",
+    "lpAddress": "0x56aBfaf40F5B7464e9cC8cFF1af13863D6914508",
+    "tokens": ["0x5555555555555555555555555555555555555555", "0xB8CE59FC3717ada4C02eaDF9682A9e934F625ebb"],
+    "tokenOracleIds": ["WHYPE", "USDT0"],
+    "decimals": [18, 6],
+    "oracleId": "hyperswap-cow-hyperevm-whype-usdt0",
+    "rewardPool": {
+      "address": "0x5d9a05038089519407833Ea382D576fF5a67DA69",
+      "oracleId": "hyperswap-cow-hyperevm-whype-usdt0-rp"
+    }
+  },
+  {
+    "address": "0xC007B460999b33D237D89Eed29266191CE4b393E",
+    "lpAddress": "0x07c249fa3902fD243ad0fa58047bE8A3262B7104",
+    "tokens": ["0x5555555555555555555555555555555555555555", "0x9b498C3c8A0b8CD8BA1D9851d40D186F1872b44E"],
+    "tokenOracleIds": ["WHYPE", "PURR"],
+    "decimals": [18, 18],
+    "oracleId": "hyperswap-cow-hyperevm-whype-purr",
+    "rewardPool": {
+      "address": "0x77C69255407Dec68aB2eD60ec1dD15311F83f4De",
+      "oracleId": "hyperswap-cow-hyperevm-whype-purr-rp"
+    }
+  },
+  {
     "address": "0xE055CCfC930E4b702D92dB85EdcEC99c9E441d76",
     "lpAddress": "0xE9a8f101a77C8e73292d8543Dc4A530eA81662AB",
     "tokens": ["0x5555555555555555555555555555555555555555", "0x9b498C3c8A0b8CD8BA1D9851d40D186F1872b44E"],
