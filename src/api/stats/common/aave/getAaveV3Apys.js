@@ -17,8 +17,10 @@ const getAaveV3ApyData = async (config, pools, chainId) => {
   const lendingApys = [];
   const lsApys = [];
 
-  const values = await Promise.all(pools.map(pool => getPoolApy(config, pool, chainId)));
-  const meritApys = await getMeritApys(pools);
+  const [values, meritApys] = await Promise.all([
+    Promise.all(pools.map(pool => getPoolApy(config, pool, chainId))),
+    getMeritApys(pools),
+  ]);
 
   values.forEach((item, i) => {
     rewardApys.push(item[0].plus(meritApys[i]));
