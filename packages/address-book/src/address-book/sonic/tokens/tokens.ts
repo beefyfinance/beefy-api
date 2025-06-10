@@ -273,6 +273,20 @@ export const tokens = {
     documentation: 'https://docs.rings.money/',
     bridge: 'layer-zero',
   },
+  wstkscETH: {
+    name: 'Wrapped stkscETH',
+    symbol: 'wstkscETH',
+    oracleId: 'wstkscETH',
+    address: '0xE8a41c62BB4d5863C6eadC96792cFE90A1f37C47',
+    chainId: 146,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://rings.money/',
+    description:
+      'Rings is a meta-stablecoin for USD & ETH offering competitive yield for stakers, providing deep liquidity for Sonic DeFi, and funding Sonic DeFi projects via its lockers.',
+    documentation: 'https://docs.rings.money/',
+    bridge: 'native',
+  },
   frxETH: {
     name: 'Frax Ether',
     symbol: 'frxETH',
