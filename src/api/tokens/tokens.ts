@@ -339,8 +339,6 @@ async function updateTokens() {
     });
 
     serviceEventBus.emit('tokens/updated');
-    await setKey('tokensByChain', tokensByChain);
-    process.exit(0);
 
     console.log('> Token service updated');
   } catch (err) {
