@@ -185,24 +185,11 @@ async function fetchAddressBookTokensForChain(chainId: ApiChain): Promise<TokenE
   const nativeOracleId = chainBook.native.oracleId;
 
   return Object.entries(abTokens).reduce((tokens: TokenEntity[], [id, token]) => {
-    tokens.push({
-      type: 'erc20',
-      id,
-      symbol: token.symbol,
-      name: token.name,
-      chainId,
-      oracle: token.oracle || 'tokens',
-      oracleId: token.oracleId || id,
-      address: token.address,
-      decimals: token.decimals,
-      ...(token.bridge ? { bridge: token.bridge } : {}),
-      ...(token.staked ? { staked: token.staked } : {}),
-    });
-
-    if (id === 'WNATIVE') {
+    if (id.toLowerCase() === nativeSymbol.toLowerCase()) {
+      // add native under native id (e.g. ETH)
       tokens.push({
         type: 'native',
-        id: 'NATIVE',
+        id,
         symbol: nativeSymbol,
         name: token.name,
         chainId,
@@ -212,6 +199,36 @@ async function fetchAddressBookTokensForChain(chainId: ApiChain): Promise<TokenE
         decimals: token.decimals,
         bridge: 'native',
       });
+    } else {
+      tokens.push({
+        type: 'erc20',
+        id,
+        symbol: token.symbol,
+        name: token.name,
+        chainId,
+        oracle: token.oracle || 'tokens',
+        oracleId: token.oracleId || id,
+        address: token.address,
+        decimals: token.decimals,
+        ...(token.bridge ? { bridge: token.bridge } : {}),
+        ...(token.staked ? { staked: token.staked } : {}),
+      });
+
+      if (id === 'WNATIVE') {
+        // add NATIVE from WNATIVE
+        tokens.push({
+          type: 'native',
+          id: 'NATIVE',
+          symbol: nativeSymbol,
+          name: token.name,
+          chainId,
+          oracle: 'tokens',
+          oracleId: nativeOracleId,
+          address: 'native',
+          decimals: token.decimals,
+          bridge: 'native',
+        });
+      }
     }
 
     return tokens;

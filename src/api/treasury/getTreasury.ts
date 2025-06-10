@@ -86,6 +86,8 @@ function getTokenAddressesByChain(): TreasuryAssetRegistry {
     const tokens: Record<string, TreasuryAsset> = {};
 
     for (const [tokenAddress, token] of Object.entries(getTokensForChain(chain))) {
+      // WNATIVE/NATIVE/FEES: duplicated as WBNB/BNB/WBNB, WETH/ETH/WETH etc
+      if (['WNATIVE', 'NATIVE', 'FEES'].includes(token.id)) continue;
       // WCELO/WMETIS: duplicate as same as native
       if (
         [
