@@ -1032,6 +1032,30 @@ const tokens: Partial<Record<keyof typeof ChainId, ConcentratedLiquidityToken[]>
       firstToken: 'PURR',
       secondToken: 'WHYPE',
     },
+    {
+      type: 'UniV3',
+      oracleId: 'LIQD',
+      decimalDelta: 1,
+      pool: '0xA3ce2aBAEA4Aad623D0bAcd024530621759d8DcD',
+      firstToken: 'WHYPE',
+      secondToken: 'LIQD',
+    },
+    {
+      type: 'UniV3',
+      oracleId: 'PiP',
+      decimalDelta: 1,
+      pool: '0x11473DCC0db2a2b97358B6cB53837a268020d15A',
+      firstToken: 'WHYPE',
+      secondToken: 'PiP',
+    },
+    {
+      type: 'UniV3',
+      oracleId: 'feUSD',
+      decimalDelta: 1,
+      pool: '0xc53F8EA77FaD9a896440675d4E21ABe50F40321f',
+      firstToken: 'WHYPE',
+      secondToken: 'feUSD',
+    },
   ],
 };
 
