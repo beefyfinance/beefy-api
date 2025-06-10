@@ -1,6 +1,6 @@
 import { getSingleChainVaults, getVaultsByChain } from '../stats/getMultichainVaults';
 import { getChainNewBoosts } from '../boosts/getBoosts';
-import { addressBook } from '../../../packages/address-book/src/address-book';
+import { addressBook, Chain } from '../../../packages/address-book/src/address-book';
 import Token from '../../../packages/address-book/src/types/token';
 import { MULTICHAIN_ENDPOINTS } from '../../constants';
 import { serviceEventBus } from '../../utils/ServiceEventBus';
@@ -8,6 +8,8 @@ import { ApiChain, isApiChain, toApiChain } from '../../utils/chain';
 import { ChainTokens, TokenEntity, TokenErc20, TokenNative, TokensByChain } from './types';
 import { mapValues } from 'lodash';
 import { Address, getAddress } from 'viem';
+import { isDefined } from '../../utils/array';
+import { setKey } from '../../utils/cache';
 
 const tokensByChain: Partial<TokensByChain> = {};
 
@@ -169,22 +171,64 @@ async function fetchBoostTokensForChain(chainId: ApiChain): Promise<TokenEntity[
   }, []);
 }
 
-async function fetchAddressBookTokensForChain(chainId: ApiChain): Promise<TokenEntity[]> {
+function getAddressBookNativeTokens(chainBook: Chain, chainId: ApiChain): TokenNative[] {
+  const nativeSymbol = chainBook.native.symbol;
+  const nativeOracleId = chainBook.native.oracleId;
+  const WNATIVE = chainBook.tokens.WNATIVE;
+
+  const withWrappedAddress = Object.entries(chainBook.tokens).filter(
+    ([id, token]) => token.address === WNATIVE.address && id !== 'WNATIVE' && id !== 'FEES'
+  );
+  const nativeIds = withWrappedAddress
+    .map(([id]) => {
+      const wid = `W${id}`.toLowerCase();
+      const maybeWNative = withWrappedAddress.filter(([id]) => id.toLowerCase() === wid);
+      if (maybeWNative.length === 1) {
+        return id;
+      }
+      return undefined;
+    })
+    .filter(isDefined);
+
+  if (!nativeIds.length) {
+    throw new Error(`No native token ids found for chain ${WNATIVE.chainId}`);
+  }
+
+  return ['NATIVE', ...nativeIds].map(id => ({
+    type: 'native',
+    id,
+    symbol: nativeSymbol,
+    name: WNATIVE.name,
+    chainId,
+    oracle: 'tokens',
+    oracleId: nativeOracleId,
+    address: 'native',
+    decimals: WNATIVE.decimals,
+    bridge: 'native',
+  }));
+}
+
+async function fetchAddressBookTokensForChain(
+  chainId: ApiChain
+): Promise<{ nativeTokens: TokenNative[]; erc20Tokens: TokenErc20[] }> {
   const chainBook = addressBook[chainId];
   if (!chainBook) {
     console.error(`Missing address book for ${chainId}`);
-    return [];
+    return { nativeTokens: [], erc20Tokens: [] };
   }
   const abTokens: Record<string, Token> = chainBook.tokens;
   if (!abTokens || !Object.keys(abTokens).length || !abTokens.WNATIVE) {
     console.warn(`No address book tokens found for chain ${chainId}`);
-    return [];
+    return { nativeTokens: [], erc20Tokens: [] };
   }
 
-  const nativeSymbol = chainBook.native.symbol;
-  const nativeOracleId = chainBook.native.oracleId;
+  const nativeTokens = getAddressBookNativeTokens(chainBook, chainId);
+  const nativeIds = new Set(nativeTokens.map(token => token.id));
+  const erc20Tokens = Object.entries(abTokens).reduce((tokens: TokenErc20[], [id, token]) => {
+    if (nativeIds.has(id)) {
+      return tokens;
+    }
 
-  return Object.entries(abTokens).reduce((tokens: TokenEntity[], [id, token]) => {
     tokens.push({
       type: 'erc20',
       id,
@@ -199,23 +243,10 @@ async function fetchAddressBookTokensForChain(chainId: ApiChain): Promise<TokenE
       ...(token.staked ? { staked: token.staked } : {}),
     });
 
-    if (id === 'WNATIVE') {
-      tokens.push({
-        type: 'native',
-        id: 'NATIVE',
-        symbol: nativeSymbol,
-        name: token.name,
-        chainId,
-        oracle: 'tokens',
-        oracleId: nativeOracleId,
-        address: 'native',
-        decimals: token.decimals,
-        bridge: 'native',
-      });
-    }
-
     return tokens;
   }, []);
+
+  return { nativeTokens, erc20Tokens };
 }
 
 function addToken(
@@ -263,10 +294,12 @@ async function fetchTokensForChain(chainId: ApiChain): Promise<ChainTokens> {
   const byId: Record<TokenEntity['id'], TokenEntity['address']> = {};
   const byAddress: Record<TokenEntity['address'], TokenEntity> = {};
 
-  [...vaultTokens, ...boostTokens, ...abTokens].forEach(token => addToken(token, byId, byAddress));
+  [...abTokens.nativeTokens, ...vaultTokens, ...boostTokens, ...abTokens.erc20Tokens].forEach(token =>
+    addToken(token, byId, byAddress)
+  );
 
   // Address book oracle id and symbol takes precedence now
-  abTokens.forEach(token => {
+  abTokens.erc20Tokens.forEach(token => {
     const addressKey = token.address.toLowerCase();
     byAddress[addressKey].oracleId = token.oracleId;
     byAddress[addressKey].symbol = token.symbol;
