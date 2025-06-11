@@ -88,8 +88,13 @@ const getPoolsData = async (params: SiloApyParams): Promise<SiloDataMap> => {
   }
 
   const silos = json.pools.reduce((map, silo) => {
+    const supplyApr = silo.programs.reduce((acc, program) => {
+      const aprMultiplier = program.rewardTokenSymbol === 'xSILO' ? 0.5 : 1;
+      return acc.plus(program.apr * aprMultiplier);
+    }, new BigNumber(0));
+
     map[silo.vaultAddress ?? silo.siloId.slice(silo.siloId.indexOf('-') + 1)] = {
-      supplyApr: new BigNumber(silo.supplyApr.toString()).minus(silo.supplyBaseApr.toString()).div(1e18),
+      supplyApr: supplyApr.div(1e18),
       supplyBaseApr: new BigNumber(silo.supplyBaseApr.toString()).div(1e18),
     };
     return map;
