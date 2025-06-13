@@ -1,5 +1,16 @@
 [
   {
+    "name": "pendle-sgho-28aug25",
+    "address": "0xd4f6592de90024e541187527d7f1de83f6cb6a52",
+    "eqbGauge": "0x1b21aA165C35ae10c169BE2b0d082a453bc8e842",
+    "eqbExternalSy": true,
+    "oracle": "tokens",
+    "oracleId": "GHO",
+    "decimals": "1e18",
+    "chainId": 1,
+    "beefyFee": 0.095
+  },
+  {
     "name": "pendle-fgho-31jul25",
     "address": "0xc64d59eb11c869012c686349d24e1d7c91c86ee2",
     "eqbGauge": "0xba0928d9d0C2dA79522E45244CE859838999b21c",
