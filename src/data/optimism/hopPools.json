@@ -22,29 +22,6 @@
     ]
   },
   {
-    "name": "hop-op-usdc",
-    "address": "0x2e17b8193566345a2Dd467183526dEdc42d2d5A8",
-    "pool": "0x3c0FFAca566fCcfD9Cc95139FEF6CBA143795963",
-    "rewardPool": "0xf587B9309c603feEdf0445aF4D3B21300989e93a",
-    "virtualOracleId": "opUSDCe",
-    "virtualDecimals": "1e6",
-    "graphKey": "opUSDCe",
-    "decimals": "1e18",
-    "chainId": 10,
-    "tokens": [
-      {
-        "address": "0x7F5c764cBc14f9669B88837ca1490cCa17c31607",
-        "oracleId": "opUSDCe",
-        "decimals": "1e6"
-      },
-      {
-        "address": "0x25D8039bB044dC227f741a9e381CA4cEAE2E6aE8",
-        "oracleId": "hUSDC",
-        "decimals": "1e6"
-      }
-    ]
-  },
-  {
     "name": "hop-op-usdt",
     "address": "0xF753A50fc755c6622BBCAa0f59F0522f264F006e",
     "pool": "0xeC4B41Af04cF917b54AEb6Df58c0f8D78895b5Ef",

@@ -2,7 +2,6 @@ const { getCurveApys } = require('./getCurveApys');
 const getBalancerArbApys = require('./getBalancerArbApys');
 const { getGmxV2Apys } = require('./getGmxV2Apys');
 const { getGmxApys } = require('./getGmxApys');
-const { getHopApys } = require('./getHopApys');
 const { getConvexApys } = require('./getConvexApys');
 const { getGnsApys } = require('./getGnsApys');
 const getRamsesApys = require('./getRamsesApys');
@@ -18,7 +17,6 @@ const getVenusApys = require('./getVenusApys');
 const getApys = [
   getAuraArbitrumApys,
   getGnsApys,
-  getHopApys,
   () =>
     getEquilibriaApys([
       ...require('../../../data/arbitrum/pendlePools.json'),
