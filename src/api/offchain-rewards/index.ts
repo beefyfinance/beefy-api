@@ -10,7 +10,7 @@ import { sendBadRequest, sendServiceUnavailable, sendSuccess } from '../../utils
 import { getVaultsByType } from '../stats/getMultichainVaults';
 import { serviceEventBus } from '../../utils/ServiceEventBus';
 import { Address } from 'viem';
-import { uniqBy } from 'lodash';
+import { sortBy, uniqBy } from 'lodash';
 
 const TIME_BETWEEN_UPDATES = 10 * 60; // seconds
 const CACHE_KEY = 'OFFCHAIN_REWARDS';
@@ -139,6 +139,7 @@ function makeRequestHandler(options: { chain: boolean; active: boolean }) {
   const filterCampaigns = options.active
     ? (campaigns: ReadonlyArray<Campaign>) => campaigns.filter(campaign => campaign.active)
     : (campaigns: ReadonlyArray<Campaign>) => campaigns;
+  const sortCampaigns = (campaigns: ReadonlyArray<Campaign>) => sortBy(campaigns, c => c.id);
 
   return async (ctx: Context) => {
     const meta = await getMeta(ctx);
@@ -151,7 +152,7 @@ function makeRequestHandler(options: { chain: boolean; active: boolean }) {
       return;
     }
 
-    const campaigns = filterCampaigns(meta.campaigns);
+    const campaigns = sortCampaigns(filterCampaigns(meta.campaigns));
     sendSuccess(ctx, campaigns, {
       maxAge: 5 * 60,
     });

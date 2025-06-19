@@ -1,5 +1,6 @@
 import { AppChain } from '../../utils/chain';
 import { Address } from 'viem';
+import { MerklApiCampaignStatus } from './providers/merkl/types';
 
 export type ProviderId = 'merkl' | 'stellaswap';
 
@@ -45,6 +46,8 @@ export type MerklCampaign = MakeCampaign<
   'merkl',
   {
     campaignId: string;
+    opportunityId: string;
+    campaignStatus?: Pick<MerklApiCampaignStatus, 'computedUntil' | 'processingStarted' | 'status'>;
   }
 >;
 
