@@ -26,6 +26,7 @@ export const supportedSwapChains: Partial<Record<ApiChain, boolean>> = {
   avax: true,
   fantom: true,
   aurora: true,
+  sonic: true,
 } as const;
 
 const swapApiByChain: Partial<Record<ApiChain, IOneInchSwapApi>> = {};
