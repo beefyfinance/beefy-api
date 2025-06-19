@@ -207,15 +207,29 @@ async function buildMarketMakerReport() {
       for (const [token, balance] of Object.entries(balances)) {
         const tokenName = token === 'USD' ? 'USDT' : token;
         const tokenPrice = await getAmmPrice(tokenName, true);
-        system9Balances[exchange][tokenName] = {
-          symbol: tokenName,
-          name: tokenName,
-          oracleId: tokenName,
-          oracleType: 'tokens',
-          price: tokenPrice,
-          usdValue: (balance * tokenPrice).toString(),
-          balance: balance.toString(),
-        };
+        const newUsdValue = balance * tokenPrice;
+        const newBalance = balance;
+
+        if (system9Balances[exchange][tokenName]) {
+          // If USDT already exists, sum the balances and usdValues
+          const prev = system9Balances[exchange][tokenName];
+          system9Balances[exchange][tokenName] = {
+            ...prev,
+            usdValue: (parseFloat(prev.usdValue) + newUsdValue).toString(),
+            balance: (parseFloat(prev.balance) + newBalance).toString(),
+          };
+        } else {
+          // Otherwise, create a new entry
+          system9Balances[exchange][tokenName] = {
+            symbol: tokenName,
+            name: tokenName,
+            oracleId: tokenName,
+            oracleType: 'tokens',
+            price: tokenPrice,
+            usdValue: newUsdValue.toString(),
+            balance: newBalance.toString(),
+          };
+        }
       }
     }
     report['system9'] = system9Balances;
