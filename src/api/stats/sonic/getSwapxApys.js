@@ -31,21 +31,17 @@ export const getSwapxApys = async () => {
 async function getGemsxApy(pools) {
   const apys = pools.map(_ => new BigNumber(0));
   try {
-    const url = `https://api.merkl.xyz/v3/campaigns?chainIds=${chainId}&live=true`;
-    const json = await fetch(url).then(r => r.json());
-    const campaigns = Object.values(json[chainId])
-      .map(group => Object.values(group))
-      .flat()
-      .filter(c => c?.campaignParameters?.symbolRewardToken === 'GEMSx' && c.isLive === true);
+    const url = `https://api.merkl.xyz/v4/campaigns?chainId=${chainId}&tokenSymbol=GEMSx&status=LIVE&items=100`;
 
-    const supplies = await Promise.all(
-      pools.map(p => fetchContract(p.gauge, ERC20Abi, chainId).read.totalSupply())
-    );
+    const [campaigns, supplies] = await Promise.all([
+      fetch(url).then(r => r.json()),
+      Promise.all(pools.map(p => fetchContract(p.gauge, ERC20Abi, chainId).read.totalSupply())),
+    ]);
 
     for (let i = 0; i < pools.length; i++) {
       const p = pools[i];
       const campaign = campaigns.find(c =>
-        c.campaignParameters.whitelist.some(a => a.toLowerCase() === p.gauge.toLowerCase())
+        c.params.whitelist.some(a => a.toLowerCase() === p.gauge.toLowerCase())
       );
       if (campaign) {
         const period = campaign.endTimestamp - campaign.startTimestamp;
