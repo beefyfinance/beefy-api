@@ -28,20 +28,20 @@ const getBeraswapApys = async () => {
         extras: [
           {
             rewardPool: '0x75F3Be06b02E235f6d0E7EF2D462b29739168301',
-            rewardToken: '0x6969696969696969696969696969696969696969',
-            oracleId: 'WBERA',
+            rewardToken: '0xFCBD14DC51f0A4d49d5E53C2E0950e0bC26d0Dce',
+            oracleId: 'HONEY',
             infrared: true,
           },
         ],
       },
     ],
-    reward: '0xFCBD14DC51f0A4d49d5E53C2E0950e0bC26d0Dce',
+    reward: '0x6969696969696969696969696969696969696969',
     infrared: true,
-    oracleId: 'HONEY',
+    oracleId: 'WBERA',
     oracle: 'tokens',
     decimals: '1e18',
     chainId: chainId,
-    // log: true,
+    log: true,
   });
 
   // Combine the APY data
