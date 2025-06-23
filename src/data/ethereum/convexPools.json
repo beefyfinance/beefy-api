@@ -1,5 +1,22 @@
 [
   {
+    "name": "curve-weth-rsup",
+    "pool": "0xEe351f12EAE8C2B8B9d1B9BFd3c5dd565234578d",
+    "gauge": "0x09F62a6777032329C0d49F1FD4fBe9b3468CDa56",
+    "rewardPool": "0xbD60aAe56ede51f20D8E416637D7c80737441460",
+    "getDy": ["v2", 1, 0],
+    "tokens": [
+      {
+        "oracleId": "WETH",
+        "decimals": "1e18"
+      },
+      {
+        "oracleId": "RSUP",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
     "name": "curve-link-stlink-ng",
     "pool": "0x7E13876B92F1a62C599C231f783f682E96B91761",
     "gauge": "0x985ca600257BFc1adC2b630B8A7E2110b834A20e",
