@@ -2706,4 +2706,16 @@ export const tokens = {
     documentation: 'https://docs.aave.com/developers/v/2.0/the-core-protocol/atokens',
     description: 'Wrapped Aave interest bearing Ethereum Lido wstETH.',
   },
+  RSUP: {
+    name: 'Resupply',
+    symbol: 'RSUP',
+    oracleId: 'RSUP',
+    address: '0x419905009e4656fdC02418C7Df35B1E61Ed5F726',
+    chainId: 1,
+    decimals: 18,
+    website: 'https://resupply.fi/',
+    description:
+      'Resupply provides users with a decentralized stablecoin protocol designed to leverage liquidity and stability in lending markets. This platform enables users to supply assets, borrow reUSD, participate in governance, stake RSUP, and claim rewards.',
+    documentation: 'https://docs.resupply.fi/',
+  },
 } as const satisfies Record<string, Token>;
