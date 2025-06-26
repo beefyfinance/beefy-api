@@ -41,7 +41,7 @@ const getBeraswapApys = async () => {
     oracle: 'tokens',
     decimals: '1e18',
     chainId: chainId,
-    log: true,
+    // log: true,
   });
 
   // Combine the APY data

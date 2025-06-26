@@ -33,16 +33,18 @@ export const getPendleCommonPrices = async (chainId, pools, tokenPrices, lpPrice
     if (timestamp === 0) console.error(p.name, 'no expiry date');
     return Date.now() > timestamp;
   });
-  // const isExpired = await Promise.all(
-  //   pools.map(pool => fetchContract(pool.address, routerAbi, chainId).read.isExpired())
-  // );
   const supplyCalls = pools.map(pool => fetchContract(pool.address, ERC20Abi, chainId).read.totalSupply());
   const lpRatesCalls = pools.map(async (pool, i) => {
     const router = routerStatic[chainId];
     const market = pool.address;
     if (isExpired[i]) {
-      const [pt, sy, lp] = await fetchContract(market, routerAbi, chainId).read.readState([router]);
-      return new BigNumber(pt).plus(new BigNumber(sy)).times('1e18').div(new BigNumber(lp));
+      try {
+        return await fetchContract(router, routerAbi, chainId).read.getLpToAssetRate([market]);
+      } catch (e) {
+        console.error('Pendle lpToAssetRate failed', pool.name);
+        const [pt, sy, lp] = await fetchContract(market, routerAbi, chainId).read.readState([router]);
+        return new BigNumber(pt).plus(new BigNumber(sy)).times('1e18').div(new BigNumber(lp));
+      }
     }
     return fetchContract(router, routerAbi, chainId).read.getLpToAssetRate([market]);
   });
