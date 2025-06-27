@@ -30,7 +30,14 @@ async function main() {
     const id = p.name || p.oracleId;
     const v = vaults.find(v => v.id === id);
     if (!v) {
-      console.error(id, 'not found');
+      if (id.startsWith('pendle-')) {
+        const eqbId = id.replace('pendle-', 'pendle-eqb-');
+        const eqbV = vaults.find(v => v.id === eqbId);
+        if (eqbV) console.error(id, 'not found, but got', eqbId, eqbV.status, tvl[eqbId]);
+        else console.error(id, 'not found');
+      } else {
+        console.error(id, 'not found');
+      }
     } else if (v.status === 'eol') {
       console.warn(id, 'eol', v.retiredAt, new Date(v.retiredAt * 1000).toLocaleDateString(), tvl[id]);
     }

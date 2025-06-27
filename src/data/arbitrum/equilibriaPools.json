@@ -1,21 +1,5 @@
 [
   {
-    "name": "equilibria-arb-gdai-27mar25",
-    "address": "0xA9104b8B6698979568852C30231871e28A482b3C",
-    "eqbGauge": "0x518Ba876C34c688dD7a3d161602973A7705Bbff2",
-    "oracle": "tokens",
-    "oracleId": "DAI",
-    "decimals": "1e18",
-    "chainId": 42161,
-    "beefyFee": 0.095,
-    "rewards": [
-      {
-        "token": "0x912CE59144191C1204E64559FE8253a0e49E6548",
-        "oracleId": "ARB"
-      }
-    ]
-  },
-  {
     "name": "equilibria-arb-seth",
     "address": "0xACcd9A7cb5518326BeD715f90bD32CDf2fEc2D14",
     "eqbGauge": "0x74ddFb121Ae1Da2DfF17f7e53d5021c5E52d0C34",
