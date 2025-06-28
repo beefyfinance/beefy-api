@@ -1,5 +1,107 @@
 [
   {
+    "address": "0x5A3610d413f1edB14AA64B56De1b568536CBE710",
+    "lpAddress": "0x363d1607b8DA83d6B6EA76D017CeEcf1316BB08A",
+    "tokens": ["0xcbB7C0000aB88B473b1f5aFd9ef808440eed33Bf", "0xcbD06E5A2B0C65597161de254AA074E489dEb510"],
+    "tokenOracleIds": ["cbBTC", "cbDOGE"],
+    "decimals": [8, 8],
+    "oracleId": "aerodrome-cow-base-cbbtc-cbdoge",
+    "providerId": "aerodrome",
+    "rewardPool": {
+      "address": "0xbD5Ec829eE5dd157913eC6a9eba01b4Ec3495c13",
+      "oracleId": "aerodrome-cow-base-cbbtc-cbdoge-rp"
+    },
+    "vault": {
+      "address": "0xe6c2379F5B7C92aEd21E760D99799881502C590d",
+      "oracleId": "aerodrome-cow-base-cbbtc-cbdoge-vault"
+    }
+  },
+  {
+    "address": "0x93B36e74a27A2332361f8BD31B892b1FeC9231b2",
+    "lpAddress": "0xfb338cb462c9e44cAE9f442fEb09e8E904fFed47",
+    "tokens": ["0x4200000000000000000000000000000000000006", "0xcbD06E5A2B0C65597161de254AA074E489dEb510"],
+    "tokenOracleIds": ["WETH", "cbDOGE"],
+    "decimals": [18, 8],
+    "oracleId": "aerodrome-cow-base-weth-cbdoge",
+    "providerId": "aerodrome",
+    "rewardPool": {
+      "address": "0x0842E48b940802C3C8379bf39C108934daeE7e02",
+      "oracleId": "aerodrome-cow-base-weth-cbdoge-rp"
+    },
+    "vault": {
+      "address": "0x2F02569D4b8A98EC994CB64ec59bA223cC2E86cd",
+      "oracleId": "aerodrome-cow-base-weth-cbdoge-vault"
+    }
+  },
+  {
+    "address": "0x8DA9511a93C6499359D815390ef6920285C21273",
+    "lpAddress": "0x8782d97C8b25B4d17dBFbaa03f25dC18e51e909D",
+    "tokens": ["0xcbADA732173e39521CDBE8bf59a6Dc85A9fc7b8c", "0xcbB7C0000aB88B473b1f5aFd9ef808440eed33Bf"],
+    "tokenOracleIds": ["cbADA", "cbBTC"],
+    "decimals": [6, 8],
+    "oracleId": "aerodrome-cow-base-cbada-cbbtc",
+    "providerId": "aerodrome",
+    "rewardPool": {
+      "address": "0xA31b769468d7239999a838e5b3Ba62e7189f6D01",
+      "oracleId": "aerodrome-cow-base-cbada-cbbtc-rp"
+    },
+    "vault": {
+      "address": "0xcB8253F11315404f6782a268B34A1a412a78CB27",
+      "oracleId": "aerodrome-cow-base-cbada-cbbtc-vault"
+    }
+  },
+  {
+    "address": "0x1Ce03a9352e5c3C2893bF6559c90cb383ec4922c",
+    "lpAddress": "0xb862F23ba38c8C65e256782B31E8C08C9aefd612",
+    "tokens": ["0x4200000000000000000000000000000000000006", "0xcbADA732173e39521CDBE8bf59a6Dc85A9fc7b8c"],
+    "tokenOracleIds": ["WETH", "cbADA"],
+    "decimals": [18, 6],
+    "oracleId": "aerodrome-cow-base-weth-cbada",
+    "providerId": "aerodrome",
+    "rewardPool": {
+      "address": "0xB3159CA236Cc37f7C3eD074e290D014C0a4B494d",
+      "oracleId": "aerodrome-cow-base-weth-cbada-rp"
+    },
+    "vault": {
+      "address": "0x1BfDFf9542ecE9185026FA06E74A8d486E93da58",
+      "oracleId": "aerodrome-cow-base-weth-cbada-vault"
+    }
+  },
+  {
+    "address": "0x599bF5d55a232ad5F2cd96934663dee42141A472",
+    "lpAddress": "0x95Ff4985af7ED78421215be100c18a2b987f7E90",
+    "tokens": ["0xcb585250f852C6c6bf90434AB21A00f02833a4af", "0xcbB7C0000aB88B473b1f5aFd9ef808440eed33Bf"],
+    "tokenOracleIds": ["cbXRP", "cbBTC"],
+    "decimals": [6, 8],
+    "oracleId": "aerodrome-cow-base-cbxrp-cbbtc",
+    "providerId": "aerodrome",
+    "rewardPool": {
+      "address": "0x380942EB626d95719555044Bdb33A2951c7d59e2",
+      "oracleId": "aerodrome-cow-base-cbxrp-cbbtc-rp"
+    },
+    "vault": {
+      "address": "0xA534d0871922009Fc9e4eE0E4ab888d6b5843EB7",
+      "oracleId": "aerodrome-cow-base-cbxrp-cbbtc-vault"
+    }
+  },
+  {
+    "address": "0x752043a3657c7732A6d2F85213517828F28237E6",
+    "lpAddress": "0xA6da283cf7D06b2279626E787c329d6aCF7e2994",
+    "tokens": ["0x4200000000000000000000000000000000000006", "0xcb585250f852C6c6bf90434AB21A00f02833a4af"],
+    "tokenOracleIds": ["WETH", "cbXRP"],
+    "decimals": [18, 6],
+    "oracleId": "aerodrome-cow-base-weth-cbxrp",
+    "providerId": "aerodrome",
+    "rewardPool": {
+      "address": "0xeAaE644eDdE5107534D89d492107aF185658cB39",
+      "oracleId": "aerodrome-cow-base-weth-cbxrp-rp"
+    },
+    "vault": {
+      "address": "0xEcA41bc5890c22d4BA1aa871762b1B51f3e344d2",
+      "oracleId": "aerodrome-cow-base-weth-cbxrp-vault"
+    }
+  },
+  {
     "address": "0xCdd84A29a4b6b7E546757C9481F88db477Deb423",
     "lpAddress": "0xAEC085E5A5CE8d96A7bDd3eB3A62445d4f6CE703",
     "tokens": ["0x22aF33FE49fD1Fa80c7149773dDe5890D3c76F3b", "0x4200000000000000000000000000000000000006"],

@@ -670,6 +670,30 @@ const tokens: Partial<Record<keyof typeof ChainId, ConcentratedLiquidityToken[]>
       firstToken: 'WETH',
       secondToken: 'BNKR',
     },
+    {
+      type: 'Slipstream',
+      oracleId: 'cbXRP',
+      decimalDelta: 1e12,
+      pool: '0xA6da283cf7D06b2279626E787c329d6aCF7e2994',
+      firstToken: 'cbXRP',
+      secondToken: 'WETH',
+    },
+    {
+      type: 'Slipstream',
+      oracleId: 'cbADA',
+      decimalDelta: 1e12,
+      pool: '0xb862F23ba38c8C65e256782B31E8C08C9aefd612',
+      firstToken: 'cbADA',
+      secondToken: 'WETH',
+    },
+    {
+      type: 'Slipstream',
+      oracleId: 'cbDOGE',
+      decimalDelta: 1e12,
+      pool: '0xfb338cb462c9e44cAE9f442fEb09e8E904fFed47',
+      firstToken: 'cbDOGE',
+      secondToken: 'WETH',
+    },
   ],
   zksync: [
     {
