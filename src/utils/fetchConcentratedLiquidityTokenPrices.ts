@@ -689,7 +689,7 @@ const tokens: Partial<Record<keyof typeof ChainId, ConcentratedLiquidityToken[]>
     {
       type: 'Slipstream',
       oracleId: 'cbDOGE',
-      decimalDelta: 1e12,
+      decimalDelta: 1e10,
       pool: '0xfb338cb462c9e44cAE9f442fEb09e8E904fFed47',
       firstToken: 'cbDOGE',
       secondToken: 'WETH',
