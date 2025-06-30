@@ -8,6 +8,7 @@ import HecoPool from '../../../../abis/HecoPool';
 import { getFarmWithTradingFeesApy } from '../../../../utils/getFarmWithTradingFeesApy';
 import { fetchContract } from '../../../rpc/client';
 import { getTotalPerformanceFeeForVault } from '../../../vaults/getVaultFees';
+import getBlockTime from '../../../../utils/getBlockTime';
 const { compound } = require('../../../../utils/compound');
 const { BASE_HPY } = require('../../../../constants');
 
@@ -108,7 +109,7 @@ const getYearlyRewardsInUsd = async (mdxPool, pool) => {
 
   const poolBlockRewards = blockRewards.times(allocPoint).dividedBy(totalAllocPoint);
 
-  const secondsPerBlock = 3;
+  const secondsPerBlock = await getBlockTime(BSC_CHAIN_ID);
   const secondsPerYear = 31536000;
   const yearlyRewards = poolBlockRewards.dividedBy(secondsPerBlock).times(secondsPerYear);
 
