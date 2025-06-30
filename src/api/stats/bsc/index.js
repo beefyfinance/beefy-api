@@ -1,5 +1,4 @@
 const getVenusApys = require('./venus/getVenusApys');
-const getMdexBscLpApys = require('./mdex/getMdexBscLpApys');
 const { getOOELpApys } = require('./ooe/getOOELpApys');
 const getStargateApys = require('./stargate/getStargateBscApys');
 const { getDotDotApy } = require('./getDotDotApy');
@@ -9,7 +8,6 @@ const { getEquilibriaApys } = require('../common/getEquilibriaApys');
 const { getBeefyBscCowApys } = require('./getBeefyBscCowApys');
 
 const getApys = [
-  getMdexBscLpApys,
   getOOELpApys,
   getVenusApys,
   getStargateApys,
