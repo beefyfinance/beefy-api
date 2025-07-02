@@ -23,7 +23,7 @@ export const getMorphoApys = async (chainId, pools) => {
   };
   let apys = [];
   try {
-    const res = await fetch('https://blue-api.morpho.org/graphql', {
+    const res = await fetch('https://api.morpho.org/graphql', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(body),
@@ -36,12 +36,13 @@ export const getMorphoApys = async (chainId, pools) => {
   return getApyBreakdown(
     pools.map(p => {
       const apy = apys.find(item => item.address === p.address);
-      const base = new BigNumber(apy?.state?.netApyWithoutRewards || 0);
+      const lending = new BigNumber(apy?.state?.netApyWithoutRewards || 0);
       const assetYield = new BigNumber(apy?.asset?.yield?.apr || 0);
-      const trading = base.plus(assetYield);
+      const trading = lending.plus(assetYield);
+      const vault = new BigNumber(apy?.state?.netApy || 0).minus(trading);
       return {
         vaultId: p.name,
-        vault: new BigNumber(apy?.state?.netApy || 0).minus(base),
+        vault,
         trading,
       };
     })
