@@ -760,6 +760,14 @@ const tokens: Partial<Record<keyof typeof ChainId, ConcentratedLiquidityToken[]>
     },
     {
       type: 'AlgebraV2',
+      oracleId: 'STRIKE',
+      decimalDelta: 1e-12,
+      pool: '0xbCDBed4aC295dE3ea173469FDb9Cf5fD17ecf214',
+      firstToken: 'STRIKE',
+      secondToken: 'USDCe',
+    },
+    {
+      type: 'AlgebraV2',
       oracleId: 'scBTC',
       decimalDelta: 1,
       pool: '0xb96F401F789271bc14ADe2229E6189084805c50C',

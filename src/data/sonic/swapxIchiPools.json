@@ -1,5 +1,17 @@
 [
   {
+    "name": "swapx-ichi-strike-usdc",
+    "address": "0x72a8BB1A64EDd7A4443dc71B8adca1fb369B306E",
+    "gauge": "0x2287E762Ac5ad041573BD4f29E4E6071F025f1d9",
+    "tokens": ["USDCe", "STRIKE"]
+  },
+  {
+    "name": "swapx-ichi-usdc-strike",
+    "address": "0x5cC26f2dBd6D3ce87d414419d9f544BC4cfC2f38",
+    "gauge": "0x94c4151745F49e4864cBEbe55235dAE70D994D0A",
+    "tokens": ["USDCe", "STRIKE"]
+  },
+  {
     "name": "swapx-ichi-usdc-wbtc",
     "address": "0xeaEFa49b10Ea464b4746380401e8eb3e1AE37964",
     "gauge": "0xA7d753D2dC35eFa01ADFB53081F6aF9B3f72eB2D",

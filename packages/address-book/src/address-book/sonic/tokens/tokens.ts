@@ -547,4 +547,18 @@ export const tokens = {
     documentation: 'https://docs.beefy.com/',
     bridge: 'native',
   },
+  STRIKE: {
+    name: 'Search for Animera',
+    symbol: 'STRIKE',
+    oracleId: 'STRIKE',
+    address: '0x8Bb21B10f32a10bed94041746ffD32003bAd6534',
+    chainId: 146,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://animera.world/',
+    description:
+      'Display your prowess in Search For Animera: Star Siege, a Free-To-Play cosmic shooter where adversaries from every corner of the galaxy vie for glory, fame, and lucrative rewards.',
+    bridge: 'native',
+    risks: ['NO_TIMELOCK', 'LARGE_HOLDERS'],
+  },
 } as const satisfies Record<string, Token>;
