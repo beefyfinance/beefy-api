@@ -1,0 +1,22 @@
+[
+  {
+    "name": "kittenswap-whype-kitten",
+    "address": "0xf3994B10d0E3153D99647a6Fe296102d2d6EadAF",
+    "gauge": "0x0D081bE9832C0f1995603E36b6E525656e84d2C7",
+    "decimals": "1e18",
+    "chainId": 999,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0x5555555555555555555555555555555555555555",
+      "oracle": "tokens",
+      "oracleId": "WHYPE",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x618275F8EFE54c2afa87bfB9F210A52F0fF89364",
+      "oracle": "tokens",
+      "oracleId": "KITTEN",
+      "decimals": "1e18"
+    }
+  }
+]

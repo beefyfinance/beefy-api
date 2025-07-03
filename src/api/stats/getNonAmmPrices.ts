@@ -50,6 +50,7 @@ import getArbitrumSiloPrices from './arbitrum/getArbitrumSiloPrices';
 import getVelodromeLiskStablePrices from './lisk/getVelodromeLiskStablePrices';
 import getNuriStablePrices from './scroll/getNuriStablePrices';
 import getTokanStablePrices from './scroll/getTokanStablePrices';
+import { getKittenswapStablePrices } from './hyperevm/getKittenswapStablePrices';
 import { getBeraswapPrices } from './berachain/getBeraswapPrices';
 import { getKodiakPrices } from './berachain/getKodiakPrices';
 import {
@@ -128,6 +129,7 @@ export async function getNonAmmPrices(
   let breakdown = {};
 
   const promises = [
+    getKittenswapStablePrices(tokenPrices),
     getArbitrumSiloPrices(tokenPrices),
     getEthSiloPrices(tokenPrices),
     getOptimismSiloPrices(tokenPrices),

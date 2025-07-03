@@ -78,6 +78,7 @@
     "zksync:vesync:add": "ts-node scripts/add-solidly.ts --network zksync --project vesync --newFee true --lp",
     "zksync:dracula:add": "ts-node scripts/add-solidly.ts --network zksync --project dracula --newFee true --lp",
     "sonic:equalizer:add": "ts-node scripts/add-solidly.ts --network sonic --project sonicEqualizer --newFee true --lp",
+    "hyperevm:kittenswap:add": "ts-node scripts/add-solidly.ts --network hyperevm --project kittenswap --newFee true --lp",
     "eols": "ts-node scripts/findEolPools.js"
   },
   "dependencies": {

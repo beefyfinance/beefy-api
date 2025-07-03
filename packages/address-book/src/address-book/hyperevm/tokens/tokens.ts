@@ -103,4 +103,18 @@ export const tokens = {
     documentation: 'https://usefelix.gitbook.io/felix-docs',
     bridge: 'native',
   },
+  KITTEN: {
+    name: 'Kittenswap',
+    symbol: 'KITTEN',
+    oracleId: 'KITTEN',
+    address: '0x618275F8EFE54c2afa87bfB9F210A52F0fF89364',
+    chainId: 999,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://kittenswap.finance/',
+    description: 'The community owned DEX for seamless trading on HyperEVM.',
+    documentation: 'https://docs.kittenswap.finance/introduction',
+    bridge: 'native',
+    risks: ['NO_TIMELOCK'],
+  },
 } as const satisfies Record<string, Token>;

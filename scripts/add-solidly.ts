@@ -54,6 +54,9 @@ const {
   sonic: {
     platforms: { equalizer: sonicEqualizer },
   },
+  hyperevm: {
+    platforms: { kittenswap },
+  },
 } = addressBook;
 
 const projects = {
@@ -192,6 +195,12 @@ const projects = {
     stableFile: '../src/data/sonic/equalizerStableLpPools.json',
     volatileFile: '../src/data/sonic/equalizerLpPools.json',
     voter: sonicEqualizer.voter,
+  },
+  kittenswap: {
+    prefix: 'kittenswap',
+    stableFile: '../src/data/hyperevm/kittenswapStablePools.json',
+    volatileFile: '../src/data/hyperevm/kittenswapLpPools.json',
+    voter: kittenswap.voter,
   },
 };
 

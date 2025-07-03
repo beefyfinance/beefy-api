@@ -9,6 +9,48 @@ import IinSpirit from '../../../abis/fantom/IinSpirit';
 import IVe from '../../../abis/IVe';
 import { fetchContract } from '../../rpc/client';
 
+const KittenswapGauge = [
+  {
+    inputs: [],
+    name: 'finishAt',
+    outputs: [
+      {
+        internalType: 'uint256',
+        name: '',
+        type: 'uint256',
+      },
+    ],
+    stateMutability: 'view',
+    type: 'function',
+  },
+  {
+    inputs: [],
+    name: 'totalSupply',
+    outputs: [
+      {
+        internalType: 'uint256',
+        name: '',
+        type: 'uint256',
+      },
+    ],
+    stateMutability: 'view',
+    type: 'function',
+  },
+  {
+    inputs: [],
+    name: 'rewardRate',
+    outputs: [
+      {
+        internalType: 'uint256',
+        name: '',
+        type: 'uint256',
+      },
+    ],
+    stateMutability: 'view',
+    type: 'function',
+  },
+];
+
 export const getSolidlyGaugeApys = async params => {
   const apys = await getFarmApys(params);
   return getApyBreakdown(params.pools, 0, apys, 0);
@@ -138,6 +180,8 @@ const getPoolsData = async params => {
         ? RamsesGauge
         : params.infrared
         ? InfraredGauge
+        : params.kitten
+        ? KittenswapGauge
         : ISolidlyGauge,
       params.chainId
     );
@@ -147,7 +191,7 @@ const getPoolsData = async params => {
     );
 
     rateCalls.push(
-      params.spirit || params.singleReward
+      params.spirit || params.singleReward || params.kitten
         ? poolContract.read.rewardRate()
         : params.ramses || params.infrared
         ? poolContract.read.rewardData([params.reward])
@@ -158,6 +202,8 @@ const getPoolsData = async params => {
         ? poolContract.read.periodFinish()
         : params.ramses || params.infrared
         ? poolContract.read.rewardData([params.reward])
+        : params.kitten
+        ? poolContract.read.finishAt()
         : poolContract.read.periodFinish([params.reward])
     );
 
