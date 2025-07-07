@@ -117,4 +117,32 @@ export const tokens = {
     bridge: 'native',
     risks: ['NO_TIMELOCK'],
   },
+  LHYPE: {
+    name: 'Looped HYPE',
+    symbol: 'LHYPE',
+    oracleId: 'LHYPE',
+    address: '0x5748ae796AE46A4F1348a1693de4b50560485562',
+    chainId: 999,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://www.loopingcollective.org/',
+    description:
+      'The Looping Collective is a community of users, builders and ecosystem partners who co-create and manage Liquid Looping Tokens (LLTs).',
+    documentation: 'https://docs.loopingcollective.org/',
+    bridge: 'native',
+  },
+  WHLP: {
+    name: 'Wrapped HLP',
+    symbol: 'WHLP',
+    oracleId: 'WHLP',
+    address: '0x1359b05241cA5076c9F59605214f4F84114c0dE8',
+    chainId: 999,
+    decimals: 6,
+    logoURI: '',
+    website: 'https://www.loopingcollective.org/',
+    description:
+      'The Looping Collective is a community of users, builders and ecosystem partners who co-create and manage Liquid Looping Tokens (LLTs).',
+    documentation: 'https://docs.loopingcollective.org/',
+    bridge: 'native',
+  },
 } as const satisfies Record<string, Token>;

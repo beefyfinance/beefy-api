@@ -1088,6 +1088,22 @@ const tokens: Partial<Record<keyof typeof ChainId, ConcentratedLiquidityToken[]>
       firstToken: 'WHYPE',
       secondToken: 'feUSD',
     },
+    {
+      type: 'UniV3',
+      oracleId: 'LHYPE',
+      decimalDelta: 1,
+      pool: '0xB7e650F67425e6F0DC14AEE1D11e5A365ddD94B0',
+      firstToken: 'LHYPE',
+      secondToken: 'WHYPE',
+    },
+    {
+      type: 'UniV3',
+      oracleId: 'WHLP',
+      decimalDelta: 1e-12,
+      pool: '0x761819512f4b156944606849B1555822B45bdaE5',
+      firstToken: 'WHYPE',
+      secondToken: 'WHLP',
+    },
   ],
 };
 
