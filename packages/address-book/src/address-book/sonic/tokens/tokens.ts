@@ -102,6 +102,20 @@ export const tokens = {
     documentation: 'https://docs.originprotocol.com/protocol/os',
     bridge: 'native',
   },
+  wOS: {
+    name: 'Wrapped Origin Sonic',
+    symbol: 'wOS',
+    oracleId: 'wOS',
+    address: '0x9F0dF7799f6FDAd409300080cfF680f5A23df4b1',
+    chainId: 146,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://app.originprotocol.com/#/os/',
+    description:
+      'Origin Sonic (OS) is a liquid staking token on the Sonic network designed to offer enhanced security, higher yield, and a tighter peg to S when compared to other Sonic LSTs. ',
+    documentation: 'https://docs.originprotocol.com/protocol/os',
+    bridge: 'native',
+  },
   scUSD: {
     name: 'Sonic USD',
     symbol: 'scUSD',
