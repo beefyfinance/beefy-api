@@ -1,5 +1,12 @@
 [
   {
+    "name": "morpho-imf-usds",
+    "address": "0xdef1Fce2df6270Fdf7E1214343BeBbaB8583D43d",
+    "oracle": "tokens",
+    "oracleId": "USDS",
+    "decimals": "1e18"
+  },
+  {
     "name": "morpho-gauntlet-usdc",
     "address": "0xc582F04d8a82795aa2Ff9c8bb4c1c889fe7b754e",
     "oracle": "tokens",
