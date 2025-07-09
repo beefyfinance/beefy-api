@@ -25,6 +25,10 @@
         "token": "0x7E13876B92F1a62C599C231f783f682E96B91761",
         "oracle": "lps",
         "oracleId": "curve-link-stlink-ng"
+      },
+      {
+        "token": "0xA95C5ebB86E0dE73B4fB8c47A45B792CFeA28C23",
+        "oracleId": "SDL"
       }
     ],
     "tokens": [
