@@ -16,6 +16,7 @@ const { getTokemakApys } = require('./getTokemakApys');
 const { getMorphoApys } = require('../common/morpho/getMorphoApys');
 const { ETH_CHAIN_ID } = require('../../../constants');
 const { getUsualCurveApys } = require('./getUsualCurveApys');
+const getStargateEthApys = require('./getStargateEthApys');
 
 const getApys = [
   getAuraApys,
@@ -35,6 +36,7 @@ const getApys = [
   getSkyApy,
   getUsualCurveApys,
   getTokemakApys,
+  getStargateEthApys,
 ];
 
 const getEthereumApys = async () => {

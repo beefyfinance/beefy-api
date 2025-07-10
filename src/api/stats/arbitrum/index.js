@@ -13,6 +13,7 @@ const { getAaveV3Apys } = require('./getAaveV3Apys');
 const { getPenpieApys } = require('./getPenpieApys');
 const { getMimApys } = require('./getMimApys');
 const getVenusApys = require('./getVenusApys');
+const getStargateArbApys = require('./getStargateArbApys');
 
 const getApys = [
   getAuraArbitrumApys,
@@ -34,6 +35,7 @@ const getApys = [
   getBeefyArbCowApys,
   getAaveV3Apys,
   getVenusApys,
+  getStargateArbApys,
 ];
 
 const getArbitrumApys = async () => {
