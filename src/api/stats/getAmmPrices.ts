@@ -190,6 +190,7 @@ const coinGeckoCoins: Record<string, string[]> = {
   'usual-usd': ['USD0'],
   'usd0-liquid-bond': ['USD0++'],
   usual: ['USUAL'],
+  eth0: ['ETH0'],
   'badger-dao': ['BADGER'],
   'dinero-staked-eth': ['pxETH'],
   'based-pepe': ['basePEPE'],

@@ -6,10 +6,23 @@ import { getApyBreakdown } from '../common/getApyBreakdownNew';
 import BigNumber from 'bignumber.js';
 import { fetchPrice } from '../../../utils/fetchPrice';
 
-const pools = require('../../../data/ethereum/usualCurvePools.json');
+const pools = [
+  ...require('../../../data/ethereum/usualCurvePools.json'),
+  {
+    name: 'usual-eth0',
+    pool: '0x734eec7930bc84eC5732022B9EB949A81fB89AbE',
+    gauge: '0x734eec7930bc84eC5732022B9EB949A81fB89AbE',
+    user: '0x5A10dE7BC57f4f6fcDad5D26036C02B25e69e3a8',
+    oracle: 'tokens',
+    oracleId: 'ETH0',
+  },
+];
 const subgraphUrl = 'https://api.curve.finance/api/getSubgraphData/ethereum';
 
-export const getUsualCurveApys = async () => {
+// new usd0-usd0++ user 0xb0c7c46E2eEcb1Ac1c4203bDeA48B6F8CA2442a1
+// new usd0-usdc user  0xB4b98D7B8ef5D0f40d9Cd7E9dbf0228B0bCaB622
+
+export const getUsualApys = async () => {
   const [baseApys, farmApys] = await Promise.all([
     getCurveSubgraphApys(pools, subgraphUrl),
     getPoolApys(pools),
@@ -32,7 +45,7 @@ const getPoolApys = async pools => {
   for (let i = 0; i < pools.length; i++) {
     const pool = pools[i];
 
-    const lpPrice = await fetchPrice({ oracle: 'lps', id: pool.name });
+    const lpPrice = await fetchPrice({ oracle: pool.oracle || 'lps', id: pool.oracleId || pool.name });
     const totalStakedInUsd = new BigNumber(balances[i]).div('1e18').times(lpPrice);
 
     const r = rewards[i];
