@@ -2732,4 +2732,30 @@ export const tokens = {
       'Resupply provides users with a decentralized stablecoin protocol designed to leverage liquidity and stability in lending markets. This platform enables users to supply assets, borrow reUSD, participate in governance, stake RSUP, and claim rewards.',
     documentation: 'https://docs.resupply.fi/',
   },
+  fwstWETH: {
+    name: 'Fluid Wrapped Staked Ether',
+    symbol: 'fwstWETH',
+    oracleId: 'fwstWETH',
+    address: '0x2411802D8BEA09be0aF8fD8D08314a63e706b29C',
+    chainId: 1,
+    decimals: 18,
+    logoURI:
+      'https://tokens.pancakeswap.finance/images/0x4988a896b1227218e4A686fdE5EabdcAbd91571f.svg',
+    website: 'https://fluid.io/',
+    documentation: 'https://fluid.guides.instadapp.io/',
+    description: 'Fluid Staked Wrapped Staked Ether.',
+  },
+  fWETH: {
+    name: 'Fluid WETH',
+    symbol: 'fWETH',
+    oracleId: 'fWETH',
+    address: '0x90551c1795392094FE6D29B758EcCD233cFAa260',
+    chainId: 1,
+    decimals: 18,
+    logoURI:
+      'https://tokens.pancakeswap.finance/images/0x4988a896b1227218e4A686fdE5EabdcAbd91571f.svg',
+    website: 'https://fluid.io/',
+    documentation: 'https://fluid.guides.instadapp.io/',
+    description: 'Fluid Staked WETH.',
+  },
 } as const satisfies Record<string, Token>;
