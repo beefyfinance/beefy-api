@@ -31,8 +31,7 @@ const getPoolsApys = async (params: CompoundV3ApyParams, data: PoolsData) => {
   //const compDecimals = params.compDecimals ?? '1e18';
   const compOracle = params.compOracle ?? 'tokens';
   const compPrice = await fetchPrice({ oracle: compOracle, id: params.compOracleId });
-  const calculatedBlockTime = await getBlockTime(params.chainId);
-  const secondsPerBlock = params.secondsPerBlock ?? calculatedBlockTime;
+  const secondsPerBlock = params.secondsPerBlock ?? (await getBlockTime(params.chainId));
   const BLOCKS_PER_YEAR = SECONDS_PER_YEAR / secondsPerBlock;
   const trackingIndexScale = 1000000000000000;
 
@@ -61,9 +60,7 @@ const getPoolsData = async (params: CompoundV3ApyParams): Promise<PoolsData> => 
   const compSupplySpeedCalls = [];
   const totalSupplyCalls = [];
 
-  let pricePromises = params.pools.map(pool =>
-    fetchPrice({ oracle: pool.oracle, id: pool.oracleId })
-  );
+  let pricePromises = params.pools.map(pool => fetchPrice({ oracle: pool.oracle, id: pool.oracleId }));
 
   for (let i = 0; i < params.pools.length; i++) {
     const pool = params.pools[i];
