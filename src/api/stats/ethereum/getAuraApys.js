@@ -91,9 +91,10 @@ const getPoolApy = async (pool, auraData, balance, rewardRate, finish, multiplie
 const getYearlyRewardsInUsd = async (auraData, pool, rewardRate, finish, multiplier, extras) => {
   let yearlyRewardsInUsd = new BigNumber(0);
   if (finish > Date.now() / 1000) {
-    const balPrice = await fetchPrice({ oracle: 'tokens', id: BAL.oracleId });
+    const balPrice = await fetchPrice({ oracle: 'tokens', id: 'BAL' });
     const yearlyRewards = rewardRate.times(secondsInAYear);
     yearlyRewardsInUsd = yearlyRewards.times(balPrice).dividedBy(getEDecimals(BAL.decimals));
+    console.log(pool.name, 'BAL', yearlyRewardsInUsd.toString(), balPrice.toString());
     let amount = yearlyRewards
       .times(auraData[0])
       .dividedBy(auraData[1])
@@ -117,9 +118,12 @@ const getYearlyRewardsInUsd = async (auraData, pool, rewardRate, finish, multipl
         oracle: 'tokens',
         id: extra.oracleId,
       });
-      extraRewardsInUsd = extra.rewardRate.times(secondsInAYear).times(price).div(extra.decimals);
-      // console.log(pool.name, extra.oracleId, extraRewardsInUsd.valueOf());
+      const extraRewards = extra.rewardRate.times(secondsInAYear).times(price).div(extra.decimals);
+      extraRewardsInUsd = extraRewardsInUsd.plus(extraRewards);
+      // console.log(pool.name, extra.oracleId, extraRewards.valueOf());
     }
+
+    // console.log(pool.name, yearlyRewardsInUsd.toString(), auraYearlyRewardsInUsd.toString(), extraRewardsInUsd.toString());
 
     yearlyRewardsInUsd = yearlyRewardsInUsd.plus(auraYearlyRewardsInUsd).plus(extraRewardsInUsd);
   }
