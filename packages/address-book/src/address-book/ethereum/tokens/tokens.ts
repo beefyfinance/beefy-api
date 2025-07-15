@@ -2732,10 +2732,10 @@ export const tokens = {
       'Resupply provides users with a decentralized stablecoin protocol designed to leverage liquidity and stability in lending markets. This platform enables users to supply assets, borrow reUSD, participate in governance, stake RSUP, and claim rewards.',
     documentation: 'https://docs.resupply.fi/',
   },
-  fwstWETH: {
+  fwstETH: {
     name: 'Fluid Wrapped Staked Ether',
-    symbol: 'fwstWETH',
-    oracleId: 'fwstWETH',
+    symbol: 'fwstETH',
+    oracleId: 'fwstETH',
     address: '0x2411802D8BEA09be0aF8fD8D08314a63e706b29C',
     chainId: 1,
     decimals: 18,
