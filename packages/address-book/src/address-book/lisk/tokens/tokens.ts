@@ -87,4 +87,17 @@ export const tokens = {
       'Wrapped Bitcoin (WBTC) is the first ERC20 token backed 1:1 with Bitcoin. Completely transparent. 100% verifiable. Community led.',
     bridge: 'canonical',
   },
+  USDT0: {
+    name: 'USDT0',
+    symbol: 'USDT0',
+    oracleId: 'USDT0',
+    address: '0x43F2376D5D03553aE72F4A8093bbe9de4336EB08',
+    chainId: 1135,
+    decimals: 6,
+    logoURI: '',
+    description:
+      'Tether is a stablecoin pegged to the US Dollar. A stablecoin is a type of cryptocurrency whose value is pegged to another fiat currency like the US Dollar or to a commodity like Gold. Tether is the first stablecoin to be created and it is the most popular stablecoin used in the ecosystem.',
+    bridge: 'layer-zero',
+    documentation: 'https://tether.to/en/how-it-works',
+  },
 } as const satisfies Record<string, Token>;
