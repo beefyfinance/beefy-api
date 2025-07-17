@@ -4993,4 +4993,18 @@ export const tokens = {
     documentation: 'https://static.worldlibertyfinancial.com/docs/us/gold-paper.pdf',
     bridge: 'native',
   },
+  RION: {
+    name: 'Hyperion',
+    symbol: 'RION',
+    oracleId: 'RION',
+    address: '0xC0c240C870606a5Cb3150795E2D0dffF9f1F7456',
+    chainId: 56,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://hyperion.xyz/',
+    description:
+      'Hyperion is a high-performance platform powered by Aptos parallel execution engine. By combining swap aggregation, market-making (CLMM and the upcoming DLMM), and vault strategies into one seamless on-chain experience, Hyperion is building the unified liquidity and trading layer of Aptos.',
+    documentation: 'https://docs.hyperion.xyz/',
+    bridge: 'layer-zero',
+  },
 } as const satisfies Record<string, Token>;

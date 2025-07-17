@@ -1,5 +1,29 @@
 [
   {
+    "address": "0x8eF114e9aF40eFD9df381907fA7094fB31285f92",
+    "lpAddress": "0xab0e5d8bA68a6BC6f78668394FdE09B3d8371A1A",
+    "tokens": ["0x55d398326f99059fF775485246999027B3197955", "0xC0c240C870606a5Cb3150795E2D0dffF9f1F7456"],
+    "tokenOracleIds": ["USDT", "RION"],
+    "decimals": [18, 18],
+    "oracleId": "pancake-cow-bsc-usdt-rion",
+    "rewardPool": {
+      "address": "0xc5714c1fCd56922EA0E17Bd8392D6954b00045a9",
+      "oracleId": "pancake-cow-bsc-usdt-rion-rp"
+    }
+  },
+  {
+    "address": "0x120a0A74E9700d9DA74889D37D29bb9aCA8837fD",
+    "lpAddress": "0x6d09609b8A9a0FB0c9515B059A1AA3121c9100Dd",
+    "tokens": ["0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c", "0xC0c240C870606a5Cb3150795E2D0dffF9f1F7456"],
+    "tokenOracleIds": ["WBNB", "RION"],
+    "decimals": [18, 18],
+    "oracleId": "pancake-cow-bsc-wbnb-rion",
+    "rewardPool": {
+      "address": "0xE181acFaB82a6E10F56EbcF06Bf6f38567DB89e3",
+      "oracleId": "pancake-cow-bsc-wbnb-rion-rp"
+    }
+  },
+  {
     "address": "0x30A95B69FecB302a984b7370bf7e1Aead821cD9f",
     "lpAddress": "0x4a3218606AF9B4728a9F187E1c1a8c07fBC172a9",
     "tokens": ["0x8d0D000Ee44948FC98c9B98A4FA4921476f08B0d", "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c"],

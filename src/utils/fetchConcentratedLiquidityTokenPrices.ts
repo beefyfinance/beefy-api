@@ -1018,6 +1018,14 @@ const tokens: Partial<Record<keyof typeof ChainId, ConcentratedLiquidityToken[]>
       firstToken: 'WBNB',
       secondToken: 'B',
     },
+    {
+      type: 'UniV3',
+      oracleId: 'RION',
+      decimalDelta: 1,
+      pool: '0x6d09609b8A9a0FB0c9515B059A1AA3121c9100Dd',
+      firstToken: 'RION',
+      secondToken: 'WBNB',
+    },
   ],
   gnosis: [
     {
