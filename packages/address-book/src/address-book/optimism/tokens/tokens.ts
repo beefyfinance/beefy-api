@@ -1858,7 +1858,7 @@ export const tokens = {
     logoURI: '',
     documentation: 'https://ethereum.org/en/developers/docs/',
   },
-  sfrxUSDC: {
+  sfrxUSD: {
     chainId: 10,
     address: '0x5Bff88cA1442c2496f7E475E9e7786383Bc070c0', // new
     decimals: 18,
