@@ -94,7 +94,7 @@ const getYearlyRewardsInUsd = async (auraData, pool, rewardRate, finish, multipl
     const balPrice = await fetchPrice({ oracle: 'tokens', id: 'BAL' });
     const yearlyRewards = rewardRate.times(secondsInAYear);
     yearlyRewardsInUsd = yearlyRewards.times(balPrice).dividedBy(getEDecimals(BAL.decimals));
-    console.log(pool.name, 'BAL', yearlyRewardsInUsd.toString(), balPrice.toString());
+    // console.log(pool.name, 'BAL', yearlyRewardsInUsd.toString(), balPrice.toString());
     let amount = yearlyRewards
       .times(auraData[0])
       .dividedBy(auraData[1])

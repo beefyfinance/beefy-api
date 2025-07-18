@@ -317,5 +317,6 @@ async function fetchChainPools(chain: ChainId, pools: Pool[]): Promise<PoolData[
     throw new Error(`Failed to fetch data for ${failed.length} pools on chain ${chain}`);
   }
 
+  console.log(chain);
   return results.filter(isContextResultFulfilled).map(r => r.value);
 }

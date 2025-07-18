@@ -1806,4 +1806,17 @@ export const tokens = {
       'BOLD is the USD-pegged stablecoin issued in Liquity V2. It is over-collateralized and backed only by WETH, wstETH, and rETH.',
     bridge: 'chainlink-ccip',
   },
+  waOptWETH: {
+    name: 'Wrapped Optimism WETH Token',
+    symbol: 'waOptWETH',
+    oracleId: 'waOptWETH',
+    address: '0x464b808c2C7E04b07e860fDF7a91870620246148',
+    chainId: 10,
+    decimals: 18,
+    website: 'https://weth.io/',
+    description: 'Ether or ETH is the native currency built on the Ethereum blockchain.',
+    bridge: 'native',
+    logoURI: '',
+    documentation: 'https://ethereum.org/en/developers/docs/',
+  },
 } as const satisfies Record<string, Token>;

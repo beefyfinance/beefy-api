@@ -58,7 +58,14 @@ const {
     tokens: { amUSDT, wamUSDT, amUSDC, wamUSDC, amDAI, wamDAI, aWMATIC, waWMATIC, aWETH, waWETH },
   },
   optimism: {
-    tokens: { 'USD+': USDplus, 'wUSD+': wUSDplus, 'DAI+': DAIplus, 'wDAI+': wDAIplus },
+    tokens: {
+      'USD+': USDplus,
+      'wUSD+': wUSDplus,
+      'DAI+': DAIplus,
+      'wDAI+': wDAIplus,
+      WETH: optWETH,
+      waOptWETH,
+    },
   },
   arbitrum: {
     tokens: {
@@ -172,6 +179,7 @@ const tokens = {
       wUSDplus,
     ],
     [DAIplus, wDAIplus],
+    [optWETH, waOptWETH, true],
   ],
   arbitrum: [
     [aaWETH, waaWETH, true],
