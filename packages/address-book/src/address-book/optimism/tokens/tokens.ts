@@ -1042,7 +1042,7 @@ export const tokens = {
     logoURI: '',
     documentation: 'https://docs.frax.finance/frax-ether/frxeth-and-sfrxeth',
   },
-  sfrxETH: {
+  sfrxETHold: {
     name: 'Staked Frax Ether',
     symbol: 'sfrxETH',
     oracleId: 'sfrxETH',
@@ -1871,5 +1871,19 @@ export const tokens = {
     bridge: 'layer-zero',
     logoURI: '',
     documentation: 'https://docs.frax.finance/',
+  },
+  sfrxETH: {
+    name: 'Staked Frax Ether',
+    symbol: 'sfrxETH',
+    oracleId: 'sfrxETH',
+    address: '0x3Ec3849C33291a9eF4c5dB86De593EB4A37fDe45',
+    chainId: 10,
+    decimals: 18,
+    website: 'https://app.frax.finance/frxeth/mint',
+    description:
+      'sfrxETH is a ERC-4626 vault designed to accrue the staking yield of the Frax ETH validators. At any time, frxETH can be exchanged for sfrxETH by depositing it into the sfrxETH vault, which allows users to earn staking yield on their frxETH. Over time, as validators accrue staking yield, an equivalent amount of frxETH is minted and added to the vault, allowing users to redeem their sfrxETH for an greater amount of frxETH than they deposited. ',
+    bridge: 'frax',
+    logoURI: '',
+    documentation: 'https://docs.frax.finance/frax-ether/frxeth-and-sfrxeth',
   },
 } as const satisfies Record<string, Token>;
