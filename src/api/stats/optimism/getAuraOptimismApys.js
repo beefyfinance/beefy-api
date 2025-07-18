@@ -10,8 +10,8 @@ const {
 } = addressBook;
 
 const auraPools = require('../../../data/optimism/auraLpPools.json');
-const balancerV3Pools = require('../../../data/optimism/balancerV3.json');
-const pools = [...auraPools, ...balancerV3Pools];
+const auraV3Pools = require('../../../data/optimism/auraV3Pools.json');
+const pools = [...auraPools, ...auraV3Pools];
 
 const aaveDataProvider = '0x69FA688f1Dc47d4B5d8029D5a35FB7a548310654';
 const auraMinter = '0xeC1c780A275438916E7CEb174D80878f29580606';

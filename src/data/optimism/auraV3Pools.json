@@ -1,0 +1,32 @@
+[
+  {
+    "name": "balancerv3-optimism-reth-waoptweth",
+    "address": "0x870c0Af8A1af0B58b4b0bD31CE4fe72864ae45BE",
+    "gauge": "0x621a0a12BD54f26BcF5ceD34BB1Dd51b0E01D9E3",
+    "decimals": "1e18",
+    "rewards": [
+      {
+        "rewardGauge": "0x621a0a12BD54f26BcF5ceD34BB1Dd51b0E01D9E3",
+        "oracleId": "AURA",
+        "decimals": "1e18"
+      },
+      {
+        "rewardGauge": "0xE5d4f6047645C6Ee6cEe52DF4B3DB5622857C7A3",
+        "oracleId": "OP",
+        "decimals": "1e18"
+      }
+    ],
+    "tokens": [
+      {
+        "address": "0x464b808c2C7E04b07e860fDF7a91870620246148",
+        "oracleId": "waOptWETH",
+        "decimals": "1e18"
+      },
+      {
+        "address": "0x9Bcef72be871e61ED4fBbc7630889beE758eb81D",
+        "oracleId": "rETH",
+        "decimals": "1e18"
+      }
+    ]
+  }
+]

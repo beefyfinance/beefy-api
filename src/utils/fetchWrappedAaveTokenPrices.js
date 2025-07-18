@@ -65,6 +65,12 @@ const {
       'wDAI+': wDAIplus,
       WETH: optWETH,
       waOptWETH,
+      wstETH: optwstETH,
+      rETH: optrETH,
+      waOptrETH,
+      waOptwstETH,
+      waOptUSDCn,
+      USDC: optUSDC,
     },
   },
   arbitrum: {
@@ -180,6 +186,9 @@ const tokens = {
     ],
     [DAIplus, wDAIplus],
     [optWETH, waOptWETH, true],
+    [optwstETH, waOptwstETH, true],
+    [optrETH, waOptrETH, true],
+    [optUSDC, waOptUSDCn, true],
   ],
   arbitrum: [
     [aaWETH, waaWETH, true],

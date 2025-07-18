@@ -9,7 +9,8 @@ const {
   },
 } = addressBook;
 
-const pools = require('../../../data/optimism/balancerOpLpPools.json');
+const v3Pools = require('../../../data/optimism/balancerV3.json');
+const pools = [...v3Pools, ...require('../../../data/optimism/balancerOpLpPools.json')];
 
 const aaveDataProvider = '0x69FA688f1Dc47d4B5d8029D5a35FB7a548310654';
 
