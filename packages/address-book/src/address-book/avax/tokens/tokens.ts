@@ -5568,4 +5568,33 @@ export const tokens = {
       'BENQI Liquid Staking is a protocol enabling users to stake AVAX to receive sAVAX, an interest bearing version of AVAX',
     bridge: 'native',
   },
+  BLACK: {
+    name: 'BLACKHOLE',
+    symbol: 'BLACK',
+    oracleId: 'BLACK',
+    address: '0xcd94a87696FAC69Edae3a70fE5725307Ae1c43f6',
+    chainId: 43114,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://blackhole.xyz/',
+    documentation: 'https://docs.blackhole.xyz/',
+    description:
+      'Blackhole is a next-generation decentralized exchange (DEX) built on the Avalanche blockchain. It serves as a specialized liquidity hub designed to support emerging blockchain projects and empower community participation in the growth of Web3 ecosystems.',
+    bridge: 'native',
+    risks: ['LARGE_HOLDERS', 'NO_TIMELOCK'],
+  },
+  SUPER: {
+    name: 'SuperVerse',
+    symbol: 'SUPER',
+    oracleId: 'SUPER',
+    address: '0x09Fa58228bB791ea355c90DA1e4783452b9Bd8C3',
+    chainId: 43114,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://superverse.co/',
+    documentation: 'https://docs.superverse.co/',
+    description:
+      'The SuperVerse is building and delivering Web3 products that empower crypto natives with next-generation NFT functionality, and onboard Web2 users through immersive blockchain gaming experiences. The SuperVerse comprises two core verticals: NFT marketplace technology and video games. This wide array of Web3 tools and features is supported and governed by a single protocol and token: $SUPER ERC20 (formerly known as SuperFarm). The SuperVerse harbors two central products: GigaMart, a next-gen NFT marketplace with advanced analytics tools and unique social features, and Impostors, a social-gaming metaverse.',
+    bridge: 'layer-zero',
+  },
 } as const satisfies Record<string, Token>;

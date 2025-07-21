@@ -1,0 +1,21 @@
+[
+  {
+    "name": "black-usdc-eurc",
+    "address": "0x65f83CCacaBaAC4eD2f80289A02dF4D35d744aE8",
+    "gauge": "0xcB76D9bC96368f3Dc137C94E23beEE489ee9Eb87",
+    "decimals": "1e18",
+    "chainId": 43114,
+    "lp0": {
+      "address": "0xB97EF9Ef8734C71904D8002F8b6Bc66Dd9c48a6E",
+      "oracle": "tokens",
+      "oracleId": "USDC",
+      "decimals": "1e6"
+    },
+    "lp1": {
+      "address": "0xC891EB4cbdEFf6e073e859e987815Ed1505c2ACD",
+      "oracle": "tokens",
+      "oracleId": "EURC",
+      "decimals": "1e6"
+    }
+  }
+]

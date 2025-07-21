@@ -6,6 +6,7 @@ const getBalancerApys = require('./getBalancerAvaxApys');
 const getAuraAvaxApys = require('./getAuraAvaxApys');
 const { getBeefyAvaxCowApys } = require('./getBeefyAvaxCowApys');
 const { getEulerAvaxApys } = require('./getEulerAvaxApys');
+const { getBlackholeApys } = require('./getBlackholeApys');
 
 const getApys = [
   // getAaveV3Apys,
@@ -16,6 +17,7 @@ const getApys = [
   getStargateApys,
   getBeefyAvaxCowApys,
   getEulerAvaxApys,
+  getBlackholeApys,
 ];
 
 const getAvaxApys = async () => {
