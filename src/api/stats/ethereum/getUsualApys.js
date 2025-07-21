@@ -1,6 +1,6 @@
 import { ETH_CHAIN_ID } from '../../../constants';
 import { getCurveSubgraphApys } from '../common/curve/getCurveApyData';
-import ICurveGauge from '../../../abis/ICurveGauge';
+import ERC20Abi from '../../../abis/ERC20Abi';
 import { fetchContract } from '../../rpc/client';
 import { getApyBreakdown } from '../common/getApyBreakdownNew';
 import BigNumber from 'bignumber.js';
@@ -11,7 +11,6 @@ const pools = [
   {
     name: 'usual-eth0',
     pool: '0x734eec7930bc84eC5732022B9EB949A81fB89AbE',
-    gauge: '0x734eec7930bc84eC5732022B9EB949A81fB89AbE',
     user: '0x5A10dE7BC57f4f6fcDad5D26036C02B25e69e3a8',
     oracle: 'tokens',
     oracleId: 'ETH0',
@@ -36,7 +35,7 @@ const getPoolApys = async pools => {
   const apys = [];
 
   const [balances, rewards] = await Promise.all([
-    Promise.all(pools.map(p => fetchContract(p.gauge, ICurveGauge, ETH_CHAIN_ID).read.balanceOf([p.user]))),
+    Promise.all(pools.map(p => fetchContract(p.pool, ERC20Abi, ETH_CHAIN_ID).read.balanceOf([p.user]))),
     Promise.all(
       pools.map(p => fetch(`https://app.usual.money/api/rewards/${p.user}`).then(res => res.json()))
     ),

@@ -3,7 +3,7 @@
     "name": "curve-usd0-usd0++",
     "pool": "0x1d08E7adC263CfC70b1BaBe6dC5Bb339c16Eec52",
     "gauge": "0x5C00817B67b40f3b347bD4275B4BBA4840c8127a",
-    "user": "0x4fED5491693007f0CD49f4614FFC38Ab6A04B619",
+    "user": "0xb0c7c46E2eEcb1Ac1c4203bDeA48B6F8CA2442a1",
     "tokens": [
       {
         "oracleId": "USD0",
@@ -19,7 +19,7 @@
     "name": "curve-usd0-usdc",
     "pool": "0x14100f81e33C33Ecc7CDac70181Fb45B6E78569F",
     "gauge": "0xC2a56E8888786A30A5b56Cbe4450A81DDF26aC0C",
-    "user": "0x982F264ce97365864181df65dF4931C593A515ad",
+    "user": "0xB4b98D7B8ef5D0f40d9Cd7E9dbf0228B0bCaB622",
     "tokens": [
       {
         "oracleId": "USD0",
