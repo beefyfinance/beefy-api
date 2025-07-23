@@ -1,5 +1,24 @@
 [
   {
+    "name": "black-super-usdc",
+    "address": "0x9d848CF080c46b92B797218835aE7E89e04c1515",
+    "gauge": "0x3CA186D289242cc0EE292C74AB5F7Ed2747ebCcE",
+    "decimals": "1e18",
+    "chainId": 43114,
+    "lp0": {
+      "address": "0x09Fa58228bB791ea355c90DA1e4783452b9Bd8C3",
+      "oracle": "tokens",
+      "oracleId": "SUPER",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xB97EF9Ef8734C71904D8002F8b6Bc66Dd9c48a6E",
+      "oracle": "tokens",
+      "oracleId": "USDC",
+      "decimals": "1e6"
+    }
+  },
+  {
     "name": "black-weth-wavax",
     "address": "0x737F1cab9CD97c40BBe4D59c85b0d2C1fdBaA37D",
     "gauge": "0x1cFf2d0E05B2635480C9E87043434988D9594fcE",
