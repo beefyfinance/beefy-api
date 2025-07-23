@@ -1,5 +1,29 @@
 [
   {
+    "name": "pendle-usdf-29jan26",
+    "address": "0xc65b7a0f8fc97e1d548860d866f4304e039ef016",
+    "eqbGauge": "0xb3D29e68BE632A203bBbBba819e3FE4745c9c72e",
+    "oracle": "tokens",
+    "oracleId": "USDf",
+    "decimals": "1e18",
+    "chainId": 1
+  },
+  {
+    "name": "pendle-usds-25sep26",
+    "address": "0xff43e751f2f07BbF84Da1fc1fa12cE116bF447E5",
+    "eqbGauge": "0x9185e4924e16E820ECdcE93A55E99369f52d566e",
+    "oracle": "tokens",
+    "oracleId": "USDS",
+    "decimals": "1e18",
+    "chainId": 1,
+    "rewards": [
+      {
+        "token": "0xc20059e0317DE91738d13af027DfC4a50781b066",
+        "oracleId": "SPK"
+      }
+    ]
+  },
+  {
     "name": "pendle-sbold-27nov25",
     "address": "0xe467c5c54748f0125d729280f90ded77c4e720a4",
     "eqbGauge": "0xb55252F92e57A2ba61030f04D98dA4B7a6907C88",
