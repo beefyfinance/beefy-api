@@ -119,7 +119,7 @@
       },
       {
         "address": "0x5Bff88cA1442c2496f7E475E9e7786383Bc070c0",
-        "oracleId": "sfrxUSDC",
+        "oracleId": "sfrxUSD",
         "decimals": "1e18"
       }
     ]
@@ -149,7 +149,7 @@
       },
       {
         "address": "0x5Bff88cA1442c2496f7E475E9e7786383Bc070c0",
-        "oracleId": "sfrxUSDC",
+        "oracleId": "sfrxUSD",
         "decimals": "1e18"
       }
     ]
