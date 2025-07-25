@@ -1,5 +1,56 @@
 [
   {
+    "address": "0x7a210701Fa8129b1e04E671A8d25D45DCD97BDE3",
+    "lpAddress": "0x4a79B0168296c0eF7b8F314973B82aD406a29f1B",
+    "tokens": ["0x4200000000000000000000000000000000000006", "0x63706e401c06ac8513145b7687A14804d17f814b"],
+    "tokenOracleIds": ["WETH", "AAVE"],
+    "decimals": [18, 18],
+    "oracleId": "aerodrome-cow-base-weth-aave",
+    "providerId": "aerodrome",
+    "rewardPool": {
+      "address": "0x626370A11A6Ac338a599041277bdD6640192EF40",
+      "oracleId": "aerodrome-cow-base-weth-aave-rp"
+    },
+    "vault": {
+      "address": "0x3E5Db4dFC07636D4E84B9C9Dd495DaA01088e7C6",
+      "oracleId": "aerodrome-cow-base-weth-aave-vault"
+    }
+  },
+  {
+    "address": "0x9FF41ef1847650F9C7438Af1Ec8Bf6e47fcA4923",
+    "lpAddress": "0x6044c817e55A03DAdc5F6b8B7045aF1985aE90fA",
+    "tokens": ["0xcb17C9Db87B595717C857a08468793f5bAb6445F", "0xcbB7C0000aB88B473b1f5aFd9ef808440eed33Bf"],
+    "tokenOracleIds": ["cbLTC", "cbBTC"],
+    "decimals": [8, 8],
+    "oracleId": "aerodrome-cow-base-cbltc-cbbtc",
+    "providerId": "aerodrome",
+    "rewardPool": {
+      "address": "0x21350f94E41d7276029a7c169ac8bD39cc8acCc0",
+      "oracleId": "aerodrome-cow-base-cbltc-cbbtc-rp"
+    },
+    "vault": {
+      "address": "0x2A57146E13165199Ae291BFf71836082a90Ff601",
+      "oracleId": "aerodrome-cow-base-cbltc-cbbtc-vault"
+    }
+  },
+  {
+    "address": "0x028c2d438aee5e10B964Ca212984561e858B4F2f",
+    "lpAddress": "0x200681425b0C8D78C6a467512C5D49FA56BaC88A",
+    "tokens": ["0x4200000000000000000000000000000000000006", "0xcb17C9Db87B595717C857a08468793f5bAb6445F"],
+    "tokenOracleIds": ["WETH", "cbLTC"],
+    "decimals": [18, 8],
+    "oracleId": "aerodrome-cow-base-weth-cbltc",
+    "providerId": "aerodrome",
+    "rewardPool": {
+      "address": "0x24af8CBeb341cc1eBBd76333AB656EF5AA69e9f2",
+      "oracleId": "aerodrome-cow-base-weth-cbltc-rp"
+    },
+    "vault": {
+      "address": "0x24FDF0Cadb8694E67A6aF91b495ed73F35130376",
+      "oracleId": "aerodrome-cow-base-weth-cbltc-vault"
+    }
+  },
+  {
     "address": "0x5A3610d413f1edB14AA64B56De1b568536CBE710",
     "lpAddress": "0x363d1607b8DA83d6B6EA76D017CeEcf1316BB08A",
     "tokens": ["0xcbB7C0000aB88B473b1f5aFd9ef808440eed33Bf", "0xcbD06E5A2B0C65597161de254AA074E489dEb510"],
