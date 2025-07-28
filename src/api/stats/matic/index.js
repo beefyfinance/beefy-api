@@ -7,7 +7,8 @@ const { getGnsApys } = require('./getGnsApys');
 const getAuraPolygonApys = require('./getAuraPolygonApys');
 const { getPolygonCompoundV3Apys } = require('./getPolygonCompoundApys');
 const { getBeefyCowPolyApys } = require('./getBeefyCowPolyApys');
-const { getMorphoMerklApys } = require('./getMorphoMerklApys');
+const { getMorphoApys } = require('../common/morpho/getMorphoApys');
+const { POLYGON_CHAIN_ID } = require('../../../constants');
 
 const getApys = [
   getCurveApys,
@@ -19,7 +20,7 @@ const getApys = [
   getAuraPolygonApys,
   getPolygonCompoundV3Apys,
   getBeefyCowPolyApys,
-  getMorphoMerklApys,
+  () => getMorphoApys(POLYGON_CHAIN_ID, require('../../../data/matic/morphoPools.json')),
 ];
 
 const BATCH_SIZE = 15;

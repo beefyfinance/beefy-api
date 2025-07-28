@@ -4,23 +4,20 @@
     "address": "0x781FB7F6d845E3bE129289833b04d43Aa8558c42",
     "oracle": "tokens",
     "oracleId": "USDC",
-    "decimals": "1e6",
-    "merkl": true
+    "decimals": "1e6"
   },
   {
     "name": "morpho-compound-usdt",
     "address": "0xfD06859A671C21497a2EB8C5E3fEA48De924D6c8",
     "oracle": "tokens",
     "oracleId": "USDT",
-    "decimals": "1e6",
-    "merkl": true
+    "decimals": "1e6"
   },
   {
     "name": "morpho-compound-weth",
     "address": "0xF5C81d25ee174d83f1FD202cA94AE6070d073cCF",
     "oracle": "tokens",
     "oracleId": "ETH",
-    "decimals": "1e18",
-    "merkl": true
+    "decimals": "1e18"
   }
 ]
