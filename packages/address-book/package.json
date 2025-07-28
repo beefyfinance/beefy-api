@@ -1,6 +1,6 @@
 {
   "name": "blockchain-addressbook",
-  "version": "0.54.47",
+  "version": "0.54.48",
   "description": "A collection of useful addresses on various chains for defi development",
   "type": "commonjs",
   "types": "./build/address-book/index.d.ts",
