@@ -1195,6 +1195,7 @@ export const tokens = {
     description:
       'A complete synthetic protocol that enables users to generate a variety of synthetics using crypto assets as collateral',
     documentation: 'https://docs.metronome.io/metronome-2.0/master',
+    risks: ['NO_TIMELOCK'],
   },
   BLUR: {
     name: 'Blur',
