@@ -2758,4 +2758,30 @@ export const tokens = {
     documentation: 'https://fluid.guides.instadapp.io/',
     description: 'Fluid Staked WETH.',
   },
+  cbBTC: {
+    name: 'Coinbase Wrapped WBTC',
+    symbol: 'cbBTC',
+    oracleId: 'cbBTC',
+    address: '0xcbB7C0000aB88B473b1f5aFd9ef808440eed33Bf',
+    chainId: 1,
+    decimals: 8,
+    website: 'https://www.coinbase.com/',
+    description:
+      'Coinbase Wrapped Bitcoin (cbBTC) is backed 1:1 with Bitcoin, custodied with Coinbase.',
+    documentation: 'https://www.coinbase.com/blog/coinbase-wrapped-btc-cbbtc-is-now-live',
+    bridge: 'native',
+  },
+  sUSD: {
+    name: 'Synth sUSD',
+    address: '0x57Ab1ec28D129707052df4dF418D58a2D46d5f51',
+    symbol: 'sUSD',
+    oracleId: 'sUSD',
+    decimals: 18,
+    chainId: 1,
+    website: 'https://synthetix.io/',
+    description:
+      'sUSD is a synthetic USD token enabled by the Synthetix protocol. It tracks the price of the US Dollar through price feeds supplied by Chainlink’s decentralized network of oracles',
+    documentation: 'https://docs.synthetix.io/synthetix-protocol/readme',
+    bridge: 'native',
+  },
 } as const satisfies Record<string, Token>;

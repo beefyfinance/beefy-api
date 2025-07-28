@@ -1,5 +1,53 @@
 [
   {
+    "name": "curve-tbtc-cbbtc",
+    "pool": "0xAE6Ee608b297305AbF3EB609B81FEBbb8F6A0bb3",
+    "gauge": "0xc11B5bAD6Ef7b1BDC90c85d5498a91D7F19B5806",
+    "rewardPool": "0xB683a3D855D016A1c78c3e7887812A7CAB3989B0",
+    "tokens": [
+      {
+        "oracleId": "tBTC",
+        "decimals": "1e18"
+      },
+      {
+        "oracleId": "cbBTC",
+        "decimals": "1e8"
+      }
+    ]
+  },
+  {
+    "name": "curve-susd-susde",
+    "pool": "0x4b5E827F4C0a1042272a11857a355dA1F4Ceebae",
+    "gauge": "0x411387Be45F5c001159f3d76e26Fe7D200e5Dc71",
+    "rewardPool": "0x14d2DC2CeBC25f217bc9Aee5AC3A7967Ca7ceBae",
+    "tokens": [
+      {
+        "oracleId": "sUSD",
+        "decimals": "1e18"
+      },
+      {
+        "oracleId": "sUSDe",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
+    "name": "curve-mseth-weth",
+    "pool": "0xa4c567c662349BeC3D0fB94C4e7f85bA95E208e4",
+    "gauge": "0x4e227d29b33B77113F84bcC189a6F886755a1f24",
+    "rewardPool": "0x442E773FFB0043551417D5A37E10c17990fB075c",
+    "tokens": [
+      {
+        "oracleId": "msETH",
+        "decimals": "1e18"
+      },
+      {
+        "oracleId": "WETH",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
     "name": "curve-weth-rsup",
     "pool": "0xEe351f12EAE8C2B8B9d1B9BFd3c5dd565234578d",
     "gauge": "0x09F62a6777032329C0d49F1FD4fBe9b3468CDa56",
