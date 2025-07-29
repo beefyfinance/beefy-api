@@ -1193,7 +1193,7 @@ export const tokens = {
     logoURI: '',
     website: 'https://app.metronome.io/',
     description:
-      'A complete synthetic protocol that enables users to generate a variety of synthetics using crypto assets as collateral',
+      'msETH represents Metronome Synth ETH. Through the Metronome dApp, users are able to deposit crypto assets as collateral, and use that collateral to mint popular crypto synthetics.',
     documentation: 'https://docs.metronome.io/metronome-2.0/master',
     risks: ['NO_TIMELOCK'],
   },
