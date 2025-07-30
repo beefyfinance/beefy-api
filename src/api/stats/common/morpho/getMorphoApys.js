@@ -39,7 +39,7 @@ export const getMorphoApys = async (chainId, pools) => {
       const lending = new BigNumber(apy?.state?.netApyWithoutRewards || 0);
       const assetYield = new BigNumber(apy?.asset?.yield?.apr || 0);
       const trading = lending.plus(assetYield);
-      const vault = new BigNumber(apy?.state?.netApy || 0).minus(trading);
+      const vault = new BigNumber(apy?.state?.netApy || 0).minus(trading).div(100);
       return {
         vaultId: p.name,
         vault,
