@@ -167,8 +167,8 @@ export const tokens = {
     documentation: 'https://docs.chain.link/resources/link-token-contracts',
   },
   USDT: {
-    name: 'USDT',
-    symbol: 'USDT',
+    name: 'USDT0',
+    symbol: 'USDT0',
     oracleId: 'USDT',
     address: '0xFd086bC7CD5C481DCC9C85ebE478A1C0b69FCbb9',
     chainId: 42161,
