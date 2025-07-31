@@ -1,5 +1,73 @@
 [
   {
+    "address": "0x7AFED8e73eF4D3dE91A06c33B5159B7a373bC6C5",
+    "lpAddress": "0x678F431DA2aBb9B5726bbf5CCDbaEEBB60dA9813",
+    "tokens": ["0x7300B37DfdfAb110d83290A29DfB31B1740219fE", "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913"],
+    "tokenOracleIds": ["MAMO", "USDC"],
+    "decimals": [18, 6],
+    "oracleId": "aerodrome-cow-base-mamo-usdc",
+    "providerId": "aerodrome",
+    "rewardPool": {
+      "address": "0x98387f5cE804d0c50fD7A6397Aa1B7042bbd58cd",
+      "oracleId": "aerodrome-cow-base-mamo-usdc-rp"
+    },
+    "vault": {
+      "address": "0x7C673F447137D50F379A053D744BC9ae2b26bADB",
+      "oracleId": "aerodrome-cow-base-mamo-usdc-vault"
+    }
+  },
+  {
+    "address": "0xAcdD5f6678B2B31924B962EE26FC0B0619f18bE7",
+    "lpAddress": "0xE2B3aA806e56603a244bFc111c9474F7DeDD03db",
+    "tokens": ["0x7300B37DfdfAb110d83290A29DfB31B1740219fE", "0xcbB7C0000aB88B473b1f5aFd9ef808440eed33Bf"],
+    "tokenOracleIds": ["MAMO", "cbBTC"],
+    "decimals": [18, 8],
+    "oracleId": "aerodrome-cow-base-mamo-cbbtc",
+    "providerId": "aerodrome",
+    "rewardPool": {
+      "address": "0x17E0efb55d7F7AcBF184A93247671B7D85658f61",
+      "oracleId": "aerodrome-cow-base-mamo-cbbtc-rp"
+    },
+    "vault": {
+      "address": "0x3b892fBBa7FEf2E74d941Be207FB3AE1C3f45848",
+      "oracleId": "aerodrome-cow-base-mamo-cbbtc-vault"
+    }
+  },
+  {
+    "address": "0xFa70946E468C1F0981495F3c57Af5825b8c087Ae",
+    "lpAddress": "0x4A021bA3ab1F0121e7DF76f345C547db86Cb3468",
+    "tokens": ["0x0b3e328455c4059EEb9e3f84b5543F74E24e7E1b", "0x7300B37DfdfAb110d83290A29DfB31B1740219fE"],
+    "tokenOracleIds": ["VIRTUAL", "MAMO"],
+    "decimals": [18, 18],
+    "oracleId": "aerodrome-cow-base-virtual-mamo",
+    "providerId": "aerodrome",
+    "rewardPool": {
+      "address": "0x5e5fEA76758E984100c464DF4775Eb323CffF8ED",
+      "oracleId": "aerodrome-cow-base-virtual-mamo-rp"
+    },
+    "vault": {
+      "address": "0x8B40482552E84369e1854F531598F1361336a44A",
+      "oracleId": "aerodrome-cow-base-virtual-mamo-vault"
+    }
+  },
+  {
+    "address": "0xd27b3C4f44256f36e25cc394484F530712F367a5",
+    "lpAddress": "0xC200F21EfE67c7F41B81A854c26F9cdA80593065",
+    "tokens": ["0x0b3e328455c4059EEb9e3f84b5543F74E24e7E1b", "0x4200000000000000000000000000000000000006"],
+    "tokenOracleIds": ["VIRTUAL", "WETH"],
+    "decimals": [18, 18],
+    "oracleId": "aerodrome-cow-base-virtual-weth",
+    "providerId": "aerodrome",
+    "rewardPool": {
+      "address": "0x458D26c7D2E76F2398Da4424ff299c3969f5aB6a",
+      "oracleId": "aerodrome-cow-base-virtual-weth-rp"
+    },
+    "vault": {
+      "address": "0xB4b395D5ee3516f24Ac06153C72076758AeE7f00",
+      "oracleId": "aerodrome-cow-base-virtual-weth-vault"
+    }
+  },
+  {
     "address": "0x7a210701Fa8129b1e04E671A8d25D45DCD97BDE3",
     "lpAddress": "0x4a79B0168296c0eF7b8F314973B82aD406a29f1B",
     "tokens": ["0x4200000000000000000000000000000000000006", "0x63706e401c06ac8513145b7687A14804d17f814b"],
