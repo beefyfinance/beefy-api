@@ -2845,4 +2845,18 @@ export const tokens = {
     documentation: 'https://docs.aave.com/',
     bridge: 'base-canonical',
   },
+  MAMO: {
+    name: 'MAMO',
+    symbol: 'MAMO',
+    oracleId: 'MAMO',
+    address: '0x7300B37DfdfAb110d83290A29DfB31B1740219fE',
+    chainId: 8453,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://mamo.bot/',
+    description:
+      'Mamo is an onchain agent that automatically allocates your money across trusted platforms to capture the best available returns while keeping you in full control.',
+    documentation: 'https://mamo.gitbook.io/mamo',
+    bridge: 'native',
+  },
 } as const satisfies Record<string, Token>;
