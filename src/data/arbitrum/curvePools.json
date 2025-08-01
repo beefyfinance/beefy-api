@@ -117,6 +117,7 @@
     "pool": "0x186cf879186986a20aadfb7ead50e3c20cb26cec",
     "gauge": "0xb7e23a438c9cad2575d3c048248a943a7a03f3fa",
     "convex": true,
+    "sdSideCar": "0xa24bf33657ed905246E3cDdE9c3B0567DB63403f",
     "rewards": [
       {
         "token": "0x912CE59144191C1204E64559FE8253a0e49E6548",
@@ -317,6 +318,7 @@
     "pool": "0x5c959d2c1a49b637fb988c40d663265f8bf6d289",
     "gauge": "0xf1bb643f953836725c6e48bdd6f1816f871d3e07",
     "convex": true,
+    "sdSideCar": "0x670F119a2509Fb0D25B62d409334D0D254400984",
     "getDy": ["v2", 2, 0],
     "tokens": [
       {
