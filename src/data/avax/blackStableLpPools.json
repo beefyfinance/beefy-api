@@ -1,5 +1,43 @@
 [
   {
+    "name": "black-avax-rsavax",
+    "address": "0xd299699e69aDC03fC65e14ec605286758facF1D8",
+    "gauge": "0x004e0337745c446784CFc3f5b8e5a11A147F3ff3",
+    "decimals": "1e18",
+    "chainId": 43114,
+    "lp0": {
+      "address": "0xB31f66AA3C1e785363F0875A1B74E27b85FD66c7",
+      "oracle": "tokens",
+      "oracleId": "WAVAX",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xDf788AD40181894dA035B827cDF55C523bf52F67",
+      "oracle": "tokens",
+      "oracleId": "rsAVAX",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "black-savusd-usdc",
+    "address": "0x4f80724E5f2d2Af81cb2A1eeb2cC049ab2A33089",
+    "gauge": "0x5F91C81eB2b133b6E599200abB61F0504EE783D2",
+    "decimals": "1e18",
+    "chainId": 43114,
+    "lp0": {
+      "address": "0x06d47F3fb376649c3A9Dafe069B3D6E35572219E",
+      "oracle": "tokens",
+      "oracleId": "savUSD",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xB97EF9Ef8734C71904D8002F8b6Bc66Dd9c48a6E",
+      "oracle": "tokens",
+      "oracleId": "USDC",
+      "decimals": "1e6"
+    }
+  },
+  {
     "name": "black-usdc-eurc",
     "address": "0x65f83CCacaBaAC4eD2f80289A02dF4D35d744aE8",
     "gauge": "0xcB76D9bC96368f3Dc137C94E23beEE489ee9Eb87",

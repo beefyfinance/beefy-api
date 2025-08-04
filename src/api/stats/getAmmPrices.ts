@@ -231,6 +231,8 @@ const coinGeckoCoins: Record<string, string[]> = {
   'level-usd': ['lvlUSD'],
   'stake-link-staked-link': ['stLINK'],
   'spark-2': ['SPK'],
+  'avant-staked-usd': ['savUSD'],
+  'restaked-savax': ['rsAVAX'],
 };
 
 /**
