@@ -65,8 +65,6 @@ export const getFarmApys = async params => {
   const poolDataCalls = getPoolsData(params);
 
   const nftCalls = [];
-  const rewardTokenPrice = await fetchPrice({ oracle: params.oracle, id: params.oracleId });
-
   if (params.boosted && params.NFTid) {
     const veContract = params.spirit
       ? fetchContract(params.ve, IinSpirit, params.chainId)
@@ -90,6 +88,8 @@ export const getFarmApys = async params => {
     supply = new BigNumber(nftResults[0].toString());
     veBalance = new BigNumber(nftResults[1].toString());
   }
+
+  const rewardTokenPrice = await fetchPrice({ oracle: params.oracle, id: params.oracleId });
 
   for (let i = 0; i < params.pools.length; i++) {
     let yearlyRewardsInUsd = new BigNumber(0);
