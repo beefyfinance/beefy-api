@@ -1,5 +1,21 @@
 [
   {
+    "name": "curve-frxusd-usdf",
+    "pool": "0x98E9599dab3A936C35DE48E13E026Ef4eA20B5e6",
+    "gauge": "0xbb6c782738bc37484d0773f3D6bEce4DDc20cBdF",
+    "rewardPool": "0x4f092EfCbe292E9b2a22cE795F11031bDc892980",
+    "tokens": [
+      {
+        "oracleId": "frxUSD",
+        "decimals": "1e18"
+      },
+      {
+        "oracleId": "USDf",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
     "name": "curve-tbtc-cbbtc",
     "pool": "0xAE6Ee608b297305AbF3EB609B81FEBbb8F6A0bb3",
     "gauge": "0xc11B5bAD6Ef7b1BDC90c85d5498a91D7F19B5806",
