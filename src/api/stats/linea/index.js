@@ -3,6 +3,7 @@ const getMendiApys = require('./getMendiApys');
 const { getLynexApys } = require('./getLynexApys');
 const { getNileApys } = require('./getNileApys');
 const { getBeefyCowLineaApys } = require('./getBeefyCowLineaApys');
+const { getEtherexApys } = require('./getEtherexApys');
 
 const getApys = [
   getStargateLineaApys,
@@ -10,6 +11,7 @@ const getApys = [
   getLynexApys,
   getNileApys,
   getBeefyCowLineaApys,
+  getEtherexApys,
 ];
 
 const getLineaApys = async () => {

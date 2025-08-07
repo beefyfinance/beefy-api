@@ -70,6 +70,7 @@ import getEthSiloPrices from './ethereum/getEthereumSiloPrices';
 import getGammaLineaPrices from './linea/getGammaPrices';
 import getLynexStablePrices from './linea/getLynexStablePrices';
 import getNileStablePrices from './linea/getNileStablePrices';
+import getEtherexStablePrices from './linea/getEtherexStablePrices';
 import { getMimSwapPrices } from './arbitrum/getMimSwapPrices';
 import { getBeefyCowArbPrices } from './arbitrum/getBeefyCowArbPrices';
 import { getBeefyCowOPPrices } from './optimism/getBeefyCowOPPrices';
@@ -129,6 +130,7 @@ export async function getNonAmmPrices(
   let breakdown = {};
 
   const promises = [
+    getEtherexStablePrices(tokenPrices),
     getKittenswapStablePrices(tokenPrices),
     getArbitrumSiloPrices(tokenPrices),
     getEthSiloPrices(tokenPrices),

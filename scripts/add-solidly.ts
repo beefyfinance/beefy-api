@@ -8,6 +8,7 @@ import { ethers } from 'ethers';
 import { MULTICHAIN_RPC } from '../src/constants';
 
 import voterABI from '../src/abis/Voter.json';
+import etherexVoterABI from '../src/abis/EtherexVoter.json';
 import ERC20ABI from '../src/abis/ERC20.json';
 import { addressBook } from '../packages/address-book/src/address-book';
 import ISolidlyPair from '../src/abis/ISolidlyPair';
@@ -43,7 +44,7 @@ const {
     platforms: { bvm, aerodrome, equalizer: scale },
   },
   linea: {
-    platforms: { lynex, nile },
+    platforms: { lynex, nile, etherex },
   },
   fraxtal: {
     platforms: { ra },
@@ -202,6 +203,12 @@ const projects = {
     volatileFile: '../src/data/hyperevm/kittenswapLpPools.json',
     voter: kittenswap.voter,
   },
+  etherex: {
+    prefix: 'etherex',
+    stableFile: '../src/data/linea/etherexStablePools.json',
+    volatileFile: '../src/data/linea/etherexVolatilePools.json',
+    voter: etherex.voter,
+  },
 };
 
 const args = yargs.options({
@@ -237,11 +244,19 @@ const provider = new ethers.providers.JsonRpcProvider(MULTICHAIN_RPC[chainId]);
 
 async function fetchGauge(lp) {
   console.log(`fetchGauge(${lp})`);
-  const voterContract = new ethers.Contract(projects[args['project']].voter, voterABI, provider);
-  const rewardsContract = await voterContract.gauges(lp);
-  return {
-    newGauge: rewardsContract,
-  };
+  if (projects[args['project']] === projects['etherex']) {
+    const voterContract = new ethers.Contract(projects['etherex'].voter, etherexVoterABI, provider);
+    const rewardsContract = await voterContract.gaugeForPool(lp);
+    return {
+      newGauge: rewardsContract,
+    };
+  } else {
+    const voterContract = new ethers.Contract(projects[args['project']].voter, voterABI, provider);
+    const rewardsContract = await voterContract.gauges(lp);
+    return {
+      newGauge: rewardsContract,
+    };
+  }
 }
 
 async function fetchLiquidityPair(lp) {

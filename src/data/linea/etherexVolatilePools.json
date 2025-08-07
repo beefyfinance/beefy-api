@@ -1,0 +1,22 @@
+[
+  {
+    "name": "etherex-weth-rex",
+    "address": "0x5C1Bf4B7563C460282617a0304E3cDE133200f70",
+    "gauge": "0xdc917188a8a5fC3B099Dc39Cc172F9832dEdecc8",
+    "decimals": "1e18",
+    "chainId": 59144,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0xe5D7C2a44FfDDf6b295A15c148167daaAf5Cf34f",
+      "oracle": "tokens",
+      "oracleId": "WETH",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xEfD81eeC32B9A8222D1842ec3d99c7532C31e348",
+      "oracle": "tokens",
+      "oracleId": "REX",
+      "decimals": "1e18"
+    }
+  }
+]

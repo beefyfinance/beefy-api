@@ -66,6 +66,7 @@
     "linea:lynex:gamma:add": "ts-node scripts/add-gamma.ts --network linea --project lynex --wide true --lp",
     "linea:lynex:add": "ts-node scripts/add-solidly.ts --network linea --project lynex --newFee true --lp",
     "linea:nile:add": "ts-node scripts/add-solidly.ts --network linea --project nile --newFee true --lp",
+    "linea:etherex:add": "ts-node scripts/add-solidly.ts --network linea --project etherex --newFee true --lp",
     "fuse:fusefi:add": "ts-node scripts/add-quick.ts --network fuse --project fusefi",
     "fuse:sushi:add": "ts-node scripts/add-sushi.ts --network fuse --project sushiFuse",
     "metis:netswap:add": "ts-node scripts/add-farm.ts --network metis --project netswap",

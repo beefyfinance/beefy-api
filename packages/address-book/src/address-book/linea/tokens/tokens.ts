@@ -306,4 +306,18 @@ export const tokens = {
     bridge: 'native',
     risks: ['NO_TIMELOCK', 'LARGE_HOLDERS'],
   },
+  REX: {
+    name: 'Etherex',
+    symbol: 'REX',
+    oracleId: 'REX',
+    address: '0xEfD81eeC32B9A8222D1842ec3d99c7532C31e348',
+    chainId: 59144,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://www.etherex.finance/trade',
+    description:
+      'Etherex is a concentrated liquidity layer and exchange built on the Linea network, powered by the latest metaDEX x(3,3) methodology—a more fluid and accessible version of the popular ve(3,3) model.',
+    documentation: 'https://docs.etherex.finance/',
+    bridge: 'native',
+  },
 } as const satisfies Record<string, Token>;
