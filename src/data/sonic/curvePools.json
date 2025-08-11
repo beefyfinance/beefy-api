@@ -1,31 +1,31 @@
 [
   {
-    "name": "curve-sonic-sceth-weth",
-    "pool": "0xff11f56281247ead18db76fd23b252156738fa94",
-    "gauge": "0x4f7fc3f5112eaef10495b04b5dd376e50c42da51",
+    "name": "curve-sonic-sceth-frxeth",
+    "pool": "0x346704605c72d9f5f9F02D651e5A3DccE6964F3d",
+    "gauge": "0xc5bA4D9201F66973F50B628fcd83212577196AEA",
     "tokens": [
       {
         "oracleId": "scETH",
         "decimals": "1e18"
       },
       {
-        "oracleId": "WETH",
+        "oracleId": "frxETH",
         "decimals": "1e18"
       }
     ]
   },
   {
-    "name": "curve-sonic-scusd-usdc.e",
-    "pool": "0x2fd7ccda50ed88fe17e15f3d5d8d51da4ccb43f3",
-    "gauge": "0x12f89168c995e54ec2ce9ee461d663a6dc72793a",
+    "name": "curve-sonic-scusd-frxusd",
+    "pool": "0xF1232a1aB5661aBdD6E02c6D8Ac9940a23Bb0b84",
+    "gauge": "0x677B4aE98F312BfE87f23B0C19e72552D8171bCA",
     "tokens": [
       {
         "oracleId": "scUSD",
         "decimals": "1e6"
       },
       {
-        "oracleId": "sUSDCe",
-        "decimals": "1e6"
+        "oracleId": "frxUSD",
+        "decimals": "1e18"
       }
     ]
   }

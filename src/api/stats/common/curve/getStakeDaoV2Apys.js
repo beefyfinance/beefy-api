@@ -3,7 +3,7 @@ import ICurveGauge from '../../../../abis/ICurveGauge';
 import { fetchPrice } from '../../../../utils/fetchPrice';
 import { fetchContract } from '../../../rpc/client';
 import { parseAbi } from 'viem';
-import { ARBITRUM_CHAIN_ID, BASE_CHAIN_ID, FRAXTAL_CHAIN_ID } from '../../../../constants';
+import { ARBITRUM_CHAIN_ID, BASE_CHAIN_ID, FRAXTAL_CHAIN_ID, SONIC_CHAIN_ID } from '../../../../constants';
 
 const secondsPerYear = 31536000;
 const abi = parseAbi([
@@ -31,6 +31,11 @@ const addresses = {
     accountant: '0x93b4B9bd266fFA8AF68e39EDFa8cFe2A62011Ce0',
     locker: '0x52f541764E6e90eeBc5c21Ff570De0e2D63766B6',
     convexBooster: '0xd3327cb05a8E0095A543D582b5B3Ce3e19270389',
+  },
+  [SONIC_CHAIN_ID]: {
+    ...convex,
+    accountant: '0x8f872cE018898ae7f218E5a3cE6Fe267206697F8',
+    locker: '0x52f541764E6e90eeBc5c21Ff570De0e2D63766B6',
   },
 };
 
