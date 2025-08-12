@@ -1,5 +1,22 @@
 [
   {
+    "name": "curve-scrvusd-usdaf",
+    "pool": "0x3bE454C4391690ab4DDae3Fb987c8147b8Ecc08A",
+    "gauge": "0x3e56EC9bD2992D9220eD615CEaeC59613cCac730",
+    "rewardPool": "0xDc717a66D6fb22251d9E6E4e45eFDAD521aE12F0",
+    "getDy": ["v1", 1, 0],
+    "tokens": [
+      {
+        "oracleId": "scrvUSD",
+        "decimals": "1e18"
+      },
+      {
+        "oracleId": "USDaf",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
     "name": "curve-frxusd-usdf",
     "pool": "0x98E9599dab3A936C35DE48E13E026Ef4eA20B5e6",
     "gauge": "0xbb6c782738bc37484d0773f3D6bEce4DDc20cBdF",
