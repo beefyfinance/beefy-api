@@ -250,6 +250,14 @@ const tokens: Partial<Record<keyof typeof ChainId, ConcentratedLiquidityToken[]>
       firstToken: 'ETH',
       secondToken: 'FOXY',
     },
+    {
+      type: 'Algebra',
+      oracleId: 'lineainETH',
+      decimalDelta: 1,
+      pool: '0xBBe42B34ea1BcA170222be0791Bd09Dd624180FF',
+      firstToken: 'wstETH',
+      secondToken: 'lineainETH',
+    },
   ],
   optimism: [
     {

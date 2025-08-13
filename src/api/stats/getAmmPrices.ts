@@ -235,6 +235,7 @@ const coinGeckoCoins: Record<string, string[]> = {
   'spark-2': ['SPK'],
   'avant-staked-usd': ['savUSD'],
   'restaked-savax': ['rsAVAX'],
+  // 'genesislrt-restaked-eth': ['lineainETH'],
 };
 
 /**
@@ -255,11 +256,6 @@ const dexscreenerCoins: OraclePriceRequest[] = [
     oracleId: 'baseHAI',
     tokenAddress: '0x10398AbC267496E49106B07dd6BE13364D10dC71',
     chainId: 'optimism',
-  },
-  {
-    oracleId: 'lineainETH',
-    tokenAddress: '0x5A7a183B6B44Dc4EC2E3d2eF43F98C5152b1d76d',
-    chainId: 'linea',
   },
   {
     oracleId: 'baseDOLA',
