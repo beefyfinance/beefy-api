@@ -2785,4 +2785,17 @@ export const tokens = {
     documentation: 'https://docs.synthetix.io/synthetix-protocol/readme',
     bridge: 'native',
   },
+  USDaf: {
+    name: 'USDaf Stablecoin',
+    address: '0x9Cf12ccd6020b6888e4D4C4e4c7AcA33c1eB91f8',
+    symbol: 'USDaf',
+    oracleId: 'USDaf',
+    decimals: 18,
+    chainId: 1,
+    website: 'https://usdaf.asymmetry.finance/',
+    description:
+      'Asymmetry USDaf is a decentralized, immutable, and permissionless synthetic stablecoin built on the Liquity v2 protocol by Asymmetry Finance. It is a yield-bearing stablecoin that allows users to borrow with user-set fixed interest rates against Bitcoin and various yield-bearing stablecoins. The yield earned on USDaf is in addition to the native yields of the underlying assets, enabling passive income generation through DeFi staking and savings mechanisms.',
+    documentation: 'https://docs.asymmetry.finance/',
+    bridge: 'native',
+  },
 } as const satisfies Record<string, Token>;
