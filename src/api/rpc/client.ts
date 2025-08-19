@@ -113,13 +113,65 @@ const getSingleCallClientForChain = (chainId: ChainId): Client => {
   return singleCallClientsByChain[chain.id];
 };
 
+// Helper function to trim verbose viem contract errors
+export const trimContractError = (error: any): any => {
+  if (error && typeof error === 'object') {
+    // Use shortMessage if available (already trimmed by transport)
+    const coreMessage = error.shortMessage || error.message || 'Contract call failed';
+
+    // Trim the original error by removing verbose properties and updating message
+    error.message = coreMessage;
+    if (error.shortMessage) error.shortMessage = coreMessage;
+
+    // Remove verbose properties that create massive logs
+    delete error.stack;
+    delete error.cause;
+    delete error.metaMessages;
+    delete error.docsPath;
+    delete error.details;
+    delete error.version;
+    delete error.abi;
+    delete error.args;
+    delete error.formattedArgs;
+    delete error.functionName;
+    delete error.sender;
+
+    return error;
+  }
+  return error;
+};
+
 export const fetchContract = <ContractAbi extends Abi>(
   address: string,
   abi: ContractAbi,
   chainId: ChainId
 ) => {
   const publicClient = getMulticallClientForChain(chainId);
-  return getContract({ address: address as `0x${string}`, abi, publicClient });
+  const contract = getContract({ address: address as `0x${string}`, abi, publicClient });
+
+  // Wrap contract methods to trim errors
+  return new Proxy(contract as any, {
+    get(target, prop) {
+      if (prop === 'read') {
+        return new Proxy(target.read, {
+          get(readTarget: any, readProp) {
+            const originalMethod = readTarget[readProp];
+            if (typeof originalMethod === 'function') {
+              return async (...args: any[]) => {
+                try {
+                  return await originalMethod.apply(readTarget, args);
+                } catch (error) {
+                  throw trimContractError(error);
+                }
+              };
+            }
+            return originalMethod;
+          },
+        });
+      }
+      return target[prop];
+    },
+  });
 };
 
 export const fetchNoMulticallContract = <ContractAbi extends Abi>(
