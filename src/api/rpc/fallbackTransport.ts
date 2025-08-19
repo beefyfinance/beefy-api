@@ -101,8 +101,57 @@ export function customFallback(
               // So throw the error.
               // if (isDeterministicError(err as Error)) throw err
 
-              // If we've reached the end of the fallbacks, throw the error.
-              if (i === transports.length - 1) throw err;
+              // If we've reached the end of the fallbacks (or have only one transport), throw a trimmed error.
+              if (i >= transports.length - 1) {
+                // Extract the core error message from nested cause if available
+                let coreDetails = null;
+                let baseMessage = 'RPC call failed';
+
+                // Try to extract the specific error message
+                if (err.cause?.cause?.details) {
+                  try {
+                    const parsed = JSON.parse(err.cause.cause.details);
+                    coreDetails = parsed.message || parsed.error;
+                  } catch (e) {
+                    coreDetails = err.cause.cause.details;
+                  }
+                } else if (err.details) {
+                  try {
+                    const parsed = JSON.parse(err.details);
+                    coreDetails = parsed.message || parsed.error;
+                  } catch (e) {
+                    coreDetails = err.details;
+                  }
+                }
+
+                // Determine the base message type
+                if (err.status) {
+                  baseMessage = `HTTP ${err.status} request failed`;
+                } else if (err.shortMessage && err.shortMessage.includes('HTTP')) {
+                  baseMessage = 'HTTP request failed';
+                } else if (err.code) {
+                  baseMessage = `RPC error ${err.code}`;
+                }
+
+                // Combine base message with specific details
+                let finalMessage = baseMessage;
+                if (coreDetails && coreDetails !== baseMessage) {
+                  finalMessage = `${baseMessage}: ${coreDetails}`;
+                }
+
+                // Trim the original error by removing verbose properties and updating message
+                err.message = finalMessage;
+                err.shortMessage = finalMessage;
+                delete err.cause;
+                delete err.metaMessages;
+                delete err.docsPath;
+                delete err.details;
+                delete err.version;
+                delete err.headers;
+                delete err.body;
+
+                throw err;
+              }
 
               // Otherwise, try the next fallback.
               return fetch(i + 1);

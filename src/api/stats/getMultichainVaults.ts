@@ -20,12 +20,11 @@ import {
 import { getVaults } from '../../utils/getVaults';
 import { deleteKey, getKey, setKey } from '../../utils/cache';
 import { envNumber } from '../../utils/env';
-import { decodeAbiParameters, getFunctionSelector } from 'viem/utils';
 import { Address } from 'viem';
 import { ChainId } from '../../../packages/address-book/src/types/chainid';
-import { getMulticallClientForChain } from '../rpc/client';
-import { call } from 'viem/actions';
+import { fetchContract, getMulticallClientForChain } from '../rpc/client';
 import { HARVESTABLE_VAULT_TYPES, sortVaults, VAULT_TYPES } from '../vaults/helpers';
+import BeefyVaultV6Abi from '../../abis/BeefyVault';
 
 const CACHE_KEY = 'VAULTS_BY_TYPE_CHAIN';
 const CACHE_VERSION = 1;
@@ -372,7 +371,10 @@ function keepStaleOnError<T extends AnyVault>(
       return await handler(chain, vault, existing);
     } catch (err) {
       if (existing && keys.every(v => !!existing[v])) {
-        console.error(`> failed to get update ${vault.id} on ${chain}, using stale data`, err);
+        console.error(
+          `> failed to get update ${vault.id} on ${chain}, using stale data`,
+          err.shortMessage ?? err
+        );
         for (const key of keys) {
           vault[key] = existing[key];
         }
@@ -428,64 +430,50 @@ const vaultTypeHandlers: VaultTypeHandlers = {
   ),
 };
 
-const strategySelector = getFunctionSelector('strategy()');
-
 async function getStrategyAddress(chain: ApiChain, vaultAddress: Address): Promise<Address> {
   const chainId = ChainId[chain];
-  const publicClient = getMulticallClientForChain(chainId);
-  const result = await call(publicClient, {
-    to: vaultAddress,
-    data: strategySelector,
-  });
-  if (!result.data) {
-    console.debug(chain, vaultAddress, strategySelector, result);
-  }
-  const [strategyAddress] = decodeAbiParameters([{ type: 'address' }], result.data || '0x');
+  const vaultContract = fetchContract(vaultAddress, BeefyVaultV6Abi, chainId);
+  const strategyAddress = await vaultContract.read.strategy();
   return strategyAddress;
 }
 
-const getPricePerFullShareSelector = getFunctionSelector('getPricePerFullShare()');
-
 async function getPricePerFullShare(chain: ApiChain, vaultAddress: Address): Promise<BigNumber> {
   const chainId = ChainId[chain];
-  const publicClient = getMulticallClientForChain(chainId);
-  const result = await call(publicClient, {
-    to: vaultAddress,
-    data: getPricePerFullShareSelector,
-  });
-  const [ppfs] = decodeAbiParameters([{ type: 'uint256' }], result.data || '0x');
-  return new BigNumber(ppfs.toString());
+  const vaultContract = fetchContract(vaultAddress, BeefyVaultV6Abi, chainId);
+  const result = await vaultContract.read.getPricePerFullShare();
+  const ppfs = new BigNumber(result.toString(10));
+  return ppfs;
 }
-
-const lastHarvestSelector = getFunctionSelector('lastHarvest()');
 
 async function getLastHarvest(chain: ApiChain, strategyAddress: Address): Promise<number> {
   const chainId = ChainId[chain];
-  const publicClient = getMulticallClientForChain(chainId);
   try {
-    const result = await call(publicClient, {
-      to: strategyAddress,
-      data: lastHarvestSelector,
-    });
-    const [lastHarvest] = decodeAbiParameters([{ type: 'uint256' }], result.data || '0x');
-    return Number(lastHarvest.toString());
+    const vaultContract = fetchContract(
+      strategyAddress,
+      [
+        {
+          inputs: [],
+          name: 'lastHarvest',
+          outputs: [{ internalType: 'uint256', name: '', type: 'uint256' }],
+          stateMutability: 'view',
+          type: 'function',
+        },
+      ] as const,
+      chainId
+    );
+    const result = await vaultContract.read.lastHarvest();
+    return Number(result.toString(10));
   } catch (err) {
     // console.error(`> failed to get lastHarvest for ${strategyAddress} on ${chain}`, err);
     return 0;
   }
 }
 
-const totalSupplySelector = getFunctionSelector('totalSupply()');
-
 async function getTotalSupply(chain: ApiChain, vaultAddress: Address): Promise<number> {
   const chainId = ChainId[chain];
-  const publicClient = getMulticallClientForChain(chainId);
-  const result = await call(publicClient, {
-    to: vaultAddress,
-    data: totalSupplySelector,
-  });
-  const [totalSupply] = decodeAbiParameters([{ type: 'uint256' }], result.data || '0x');
-  return Number(totalSupply.toString());
+  const vaultContract = fetchContract(vaultAddress, BeefyVaultV6Abi, chainId);
+  const totalSupply = await vaultContract.read.totalSupply();
+  return Number(totalSupply.toString(10));
 }
 
 /** update all vaults of a specific chain */
