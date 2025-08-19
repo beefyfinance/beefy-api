@@ -285,6 +285,9 @@ type PoolData = Omit<Pool, 'lp0' | 'lp1'> & {
 };
 
 async function fetchChainPools(chain: ChainId, pools: Pool[]): Promise<PoolData[]> {
+  if (pools.length === 0) {
+    return [];
+  }
   const multicallContract = fetchContract(MULTICALLS.get(chain), BeefyPriceMulticall, chain);
   const results = await batchMapRetry<Pool, PoolData>({
     items: pools,
