@@ -396,101 +396,174 @@ const cachedLpBreakdowns: BreakdownsById = {};
 const ORACLES_TO_BE_CLEARED = [];
 
 async function fetchSeedPrices() {
-  const [seedPrices, coinGeckoPrices, defillamaPrices, dexscreenerPrices] = await Promise.all([
-    // ChainLink gives: ETH, BTC, MATIC, AVAX, BNB, LINK, USDT, DAI, USDC
-    fetchChainLinkPrices(),
-    fetchCoinGeckoPrices(Object.keys(coinGeckoCoins)),
-    fetchDefillamaPrices(Object.keys(coinGeckoCoins)),
-    fetchDexScreenerPriceOracles(dexscreenerCoins),
-  ]);
+  console.log('> [PRICE SERVICE] Fetching seed prices from external APIs...');
 
-  // CoinGecko
-  for (const [geckoId, oracleIds] of Object.entries(coinGeckoCoins)) {
-    for (const oracleId of oracleIds) {
-      const cg = coinGeckoPrices[geckoId];
-      const dl = defillamaPrices[geckoId];
-      if (!cg) seedPrices[oracleId] = dl;
-      else if (!dl) seedPrices[oracleId] = cg;
-      else {
-        seedPrices[oracleId] = cg;
-        const diff = (Math.abs(cg - dl) / cg) * 100;
-        if (diff > 10) {
-          console.log(oracleId, 'price on CoinGecko and Defillama is too different', cg, dl);
+  try {
+    const [seedPrices, coinGeckoPrices, defillamaPrices, dexscreenerPrices] = await Promise.all([
+      // ChainLink gives: ETH, BTC, MATIC, AVAX, BNB, LINK, USDT, DAI, USDC
+      fetchChainLinkPrices().catch(err => {
+        console.warn('> [PRICE SERVICE] ChainLink fetch failed:', err.message);
+        return {};
+      }),
+      fetchCoinGeckoPrices(Object.keys(coinGeckoCoins)).catch(err => {
+        console.warn('> [PRICE SERVICE] CoinGecko fetch failed:', err.message);
+        return {};
+      }),
+      fetchDefillamaPrices(Object.keys(coinGeckoCoins)).catch(err => {
+        console.warn('> [PRICE SERVICE] Defillama fetch failed:', err.message);
+        return {};
+      }),
+      fetchDexScreenerPriceOracles(dexscreenerCoins).catch(err => {
+        console.warn('> [PRICE SERVICE] DexScreener fetch failed:', err.message);
+        return {};
+      }),
+    ]);
+
+    console.log(
+      `> [PRICE SERVICE] Seed prices fetched: ChainLink=${Object.keys(seedPrices).length}, CoinGecko=${
+        Object.keys(coinGeckoPrices).length
+      }, Defillama=${Object.keys(defillamaPrices).length}, DexScreener=${
+        Object.keys(dexscreenerPrices).length
+      }`
+    );
+
+    // CoinGecko
+    for (const [geckoId, oracleIds] of Object.entries(coinGeckoCoins)) {
+      for (const oracleId of oracleIds) {
+        const cg = coinGeckoPrices[geckoId];
+        const dl = defillamaPrices[geckoId];
+        if (!cg) seedPrices[oracleId] = dl;
+        else if (!dl) seedPrices[oracleId] = cg;
+        else {
+          seedPrices[oracleId] = cg;
+          const diff = (Math.abs(cg - dl) / cg) * 100;
+          if (diff > 10) {
+            console.log(oracleId, 'price on CoinGecko and Defillama is too different', cg, dl);
+          }
         }
       }
     }
-  }
 
-  // DexScreener
-  for (const [oracleId, price] of Object.entries(dexscreenerPrices)) {
-    seedPrices[oracleId] = price;
-  }
-
-  // Set pegged prices
-  for (const [oracle, peggedOracle] of Object.entries(seedPeggedPrices)) {
-    if (peggedOracle in seedPrices) {
-      seedPrices[oracle] = seedPrices[peggedOracle];
-    } else {
-      console.error(`Pegged oracle ${peggedOracle} not found for ${oracle}`);
+    // DexScreener
+    for (const [oracleId, price] of Object.entries(dexscreenerPrices)) {
+      seedPrices[oracleId] = price;
     }
+
+    // Set pegged prices
+    for (const [oracle, peggedOracle] of Object.entries(seedPeggedPrices)) {
+      if (peggedOracle in seedPrices) {
+        seedPrices[oracle] = seedPrices[peggedOracle];
+      } else {
+        console.error(`Pegged oracle ${peggedOracle} not found for ${oracle}`);
+      }
+    }
+
+    // Static
+    seedPrices['GAS'] = 0; // Saga, users don't pay for gas
+
+    console.log(`> [PRICE SERVICE] Total seed prices: ${Object.keys(seedPrices).length}`);
+    return normalizeNativeWrappedPrices(seedPrices);
+  } catch (error) {
+    console.error('> [PRICE SERVICE] Failed to fetch seed prices:', error.message);
+    return {};
   }
-
-  // Static
-  seedPrices['GAS'] = 0; // Saga, users don't pay for gas
-
-  return normalizeNativeWrappedPrices(seedPrices);
 }
 
 async function performUpdateAmmPrices() {
+  const startTime = Date.now();
+  console.log('> [PRICE SERVICE] performUpdateAmmPrices started');
+
+  console.log('> [PRICE SERVICE] Fetching seed prices...');
   // Seed with chain link + coin gecko prices
   const knownPrices = await fetchSeedPrices();
+  console.log(
+    `> [PRICE SERVICE] Seed prices fetched (${Object.keys(knownPrices).length} tokens) in ${
+      Date.now() - startTime
+    }ms`
+  );
 
+  console.log('> [PRICE SERVICE] Fetching AMM prices...');
+  const ammPricesStart = Date.now();
   const ammPrices = fetchAmmPrices(pools, knownPrices);
+  console.log('> [PRICE SERVICE] AMM prices fetch initiated');
 
+  console.log('> [PRICE SERVICE] Starting venus prices...');
   const venusPrices = ammPrices.then(async ({ tokenPrices }) => {
-    return await promiseTiming(fetchVenusPrices(tokenPrices), 'fetchVenusPrices');
+    console.log('> [PRICE SERVICE] Venus prices fetch started');
+    const result = await promiseTiming(fetchVenusPrices(tokenPrices), 'fetchVenusPrices');
+    console.log('> [PRICE SERVICE] Venus prices completed');
+    return result;
   });
 
+  console.log('> [PRICE SERVICE] Starting curve token prices...');
   const curveTokenPrices = ammPrices.then(async ({ tokenPrices }) => {
-    return await promiseTiming(fetchCurveTokenPrices(tokenPrices), 'fetchCurveTokenPrices');
+    console.log('> [PRICE SERVICE] Curve token prices fetch started');
+    const result = await promiseTiming(fetchCurveTokenPrices(tokenPrices), 'fetchCurveTokenPrices');
+    console.log('> [PRICE SERVICE] Curve token prices completed');
+    return result;
   });
 
+  console.log('> [PRICE SERVICE] Starting solidly stable token prices...');
   const solidlyStableTokenPrices = ammPrices.then(async ({ tokenPrices }) => {
-    return await promiseTiming(fetchSolidlyStableTokenPrices(tokenPrices), 'fetchSolidlyStableTokenPrices');
+    console.log('> [PRICE SERVICE] Solidly stable token prices fetch started');
+    const result = await promiseTiming(
+      fetchSolidlyStableTokenPrices(tokenPrices),
+      'fetchSolidlyStableTokenPrices'
+    );
+    console.log('> [PRICE SERVICE] Solidly stable token prices completed');
+    return result;
   });
 
+  console.log('> [PRICE SERVICE] Starting X prices...');
   const xPrices = ammPrices.then(async ({ tokenPrices }) => {
-    return await promiseTiming(fetchXPrices(tokenPrices), 'fetchXPrices');
+    console.log('> [PRICE SERVICE] X prices fetch started');
+    const result = await promiseTiming(fetchXPrices(tokenPrices), 'fetchXPrices');
+    console.log('> [PRICE SERVICE] X prices completed');
+    return result;
   });
 
+  console.log('> [PRICE SERVICE] Starting moo prices...');
   const mooPrices = ammPrices.then(async ({ poolPrices, tokenPrices }) => {
-    return await promiseTiming(fetchMooPrices(mooTokens, tokenPrices, poolPrices), 'fetchMooPrices');
+    console.log('> [PRICE SERVICE] Moo prices fetch started');
+    const result = await promiseTiming(fetchMooPrices(mooTokens, tokenPrices, poolPrices), 'fetchMooPrices');
+    console.log('> [PRICE SERVICE] Moo prices completed');
+    return result;
   });
 
+  console.log('> [PRICE SERVICE] Starting option prices...');
   const optionPrices = ammPrices.then(async ({ tokenPrices }) => {
+    console.log('> [PRICE SERVICE] Option prices fetch started');
     const concLiqPrices = await promiseTiming(
       fetchConcentratedLiquidityTokenPrices(tokenPrices),
       'fetchConcentratedLiquidityTokenPrices'
     );
+    console.log('> [PRICE SERVICE] Concentrated liquidity prices completed');
     const prices = { ...tokenPrices, ...concLiqPrices };
     const optionPrices = await promiseTiming(fetchOptionTokenPrices(prices), 'fetchOptionTokenPrices');
+    console.log('> [PRICE SERVICE] Option token prices completed');
     return {
       ...optionPrices,
       ...concLiqPrices,
     };
   });
 
+  console.log('> [PRICE SERVICE] Starting linear pool prices...');
   const linearPoolPrice = ammPrices.then(async ({ tokenPrices }): Promise<Record<string, number>> => {
+    console.log('> [PRICE SERVICE] Linear pool prices fetch started');
     const jbrlTokenPrice = await promiseTiming(fetchJbrlPrice(), 'fetchJbrlPrice');
+    console.log('> [PRICE SERVICE] JBRL token price completed');
     const yVaultPrices = await promiseTiming(fetchyVaultPrices(tokenPrices), 'fetchyVaultPrices');
+    console.log('> [PRICE SERVICE] yVault prices completed');
     const wrappedAavePrices = await promiseTiming(
       fetchWrappedAavePrices(tokenPrices),
       'fetchWrappedAavePrices'
     );
+    console.log('> [PRICE SERVICE] Wrapped Aave prices completed');
     const unwrappedAavePrices = await promiseTiming(
       fetchUnwrappedAavePrices(tokenPrices),
       'fetchUnwrappedAavePrices'
     );
+    console.log('> [PRICE SERVICE] Unwrapped Aave prices completed');
     const prices = {
       ...tokenPrices,
       ...wrappedAavePrices,
@@ -503,10 +576,12 @@ async function performUpdateAmmPrices() {
       fetchBalancerLinearPoolPrice(prices),
       'fetchBalancerLinearPoolPrice'
     );
+    console.log('> [PRICE SERVICE] Balancer linear pool prices completed');
     const balancerStablePoolPrice = await promiseTiming(
       fetchBalancerStablePoolPrice(linearPrices),
       'fetchBalancerStablePoolPrice'
     );
+    console.log('> [PRICE SERVICE] Balancer stable pool prices completed');
 
     return {
       ...linearPrices,
@@ -518,19 +593,34 @@ async function performUpdateAmmPrices() {
     };
   });
 
+  console.log('> [PRICE SERVICE] Starting BE token prices...');
   const beTokenPrice = ammPrices.then(async ({ tokenPrices }) => {
-    return getBeTokenPrices(tokenPrices);
+    console.log('> [PRICE SERVICE] BE token prices fetch started');
+    const result = getBeTokenPrices(tokenPrices);
+    console.log('> [PRICE SERVICE] BE token prices completed');
+    return result;
   });
 
+  console.log('> [PRICE SERVICE] Consolidating all token prices...');
   const tokenPrices = ammPrices.then(async ({ tokenPrices }) => {
+    console.log('> [PRICE SERVICE] Awaiting all token price dependencies...');
     const curvePrices = await curveTokenPrices;
+    console.log('> [PRICE SERVICE] Curve prices resolved');
     const solidlyStablePrices = await solidlyStableTokenPrices;
+    console.log('> [PRICE SERVICE] Solidly stable prices resolved');
     const xTokenPrices = await xPrices;
+    console.log('> [PRICE SERVICE] X token prices resolved');
     const mooTokenPrices = await mooPrices;
+    console.log('> [PRICE SERVICE] Moo token prices resolved');
     const beTokenTokenPrice = await beTokenPrice;
+    console.log('> [PRICE SERVICE] BE token prices resolved');
     const linearPoolTokenPrice = await linearPoolPrice;
+    console.log('> [PRICE SERVICE] Linear pool prices resolved');
     const venusTokenPrice = await venusPrices;
+    console.log('> [PRICE SERVICE] Venus prices resolved');
     const optionTokenPrice = await optionPrices;
+    console.log('> [PRICE SERVICE] Option prices resolved');
+    console.log('> [PRICE SERVICE] All token price dependencies resolved, consolidating...');
     return {
       ...tokenPrices,
       ...mooTokenPrices,
@@ -544,16 +634,29 @@ async function performUpdateAmmPrices() {
     };
   });
 
+  console.log('> [PRICE SERVICE] Starting LP data processing...');
   const lpData = ammPrices.then(async ({ poolPrices, lpsBreakdown }) => {
-    const nonAmmPrices = await promiseTiming(
-      getNonAmmPrices(await tokenPrices, poolPrices),
-      'getNonAmmPrices'
-    );
-    const pendlePrices = await promiseTiming(
-      getLpBasedPrices(await tokenPrices, poolPrices, nonAmmPrices),
-      'getLpBasedPrices'
+    console.log('> [PRICE SERVICE] LP data processing started, awaiting token prices...');
+    const resolvedTokenPrices = await tokenPrices;
+    console.log(
+      `> [PRICE SERVICE] Token prices resolved (${Object.keys(resolvedTokenPrices).length} tokens)`
     );
 
+    console.log('> [PRICE SERVICE] Fetching non-AMM prices...');
+    const nonAmmPrices = await promiseTiming(
+      getNonAmmPrices(resolvedTokenPrices, poolPrices),
+      'getNonAmmPrices'
+    );
+    console.log('> [PRICE SERVICE] Non-AMM prices completed');
+
+    console.log('> [PRICE SERVICE] Fetching LP-based prices...');
+    const pendlePrices = await promiseTiming(
+      getLpBasedPrices(resolvedTokenPrices, poolPrices, nonAmmPrices),
+      'getLpBasedPrices'
+    );
+    console.log('> [PRICE SERVICE] LP-based prices completed');
+
+    console.log('> [PRICE SERVICE] Consolidating LP data...');
     return {
       prices: { ...poolPrices, ...nonAmmPrices.prices, ...pendlePrices.prices },
       breakdown: {
@@ -564,11 +667,24 @@ async function performUpdateAmmPrices() {
     };
   });
 
-  const lpBreakdown = lpData.then(({ breakdown }) => breakdown);
-  const lpPrices = lpData.then(({ prices }) => prices);
+  console.log('> [PRICE SERVICE] Extracting final results...');
+  const lpBreakdown = lpData.then(({ breakdown }) => {
+    console.log('> [PRICE SERVICE] LP breakdown extracted');
+    return breakdown;
+  });
+  const lpPrices = lpData.then(({ prices }) => {
+    console.log('> [PRICE SERVICE] LP prices extracted');
+    return prices;
+  });
 
+  console.log('> [PRICE SERVICE] Awaiting final resolution...');
   await tokenPrices;
+  console.log('> [PRICE SERVICE] Token prices final await completed');
   await lpData;
+  console.log('> [PRICE SERVICE] LP data final await completed');
+
+  const endTime = Date.now();
+  console.log(`> [PRICE SERVICE] performUpdateAmmPrices completed in ${endTime - startTime}ms`);
 
   return {
     tokenPrices,
@@ -578,55 +694,83 @@ async function performUpdateAmmPrices() {
 }
 
 async function updateAmmPrices() {
-  console.log('> updating amm prices');
+  console.log('> [PRICE SERVICE] updating amm prices');
   let start = Date.now();
 
   try {
+    console.log('> [PRICE SERVICE] Starting performUpdateAmmPrices...');
     const {
       tokenPrices: tokenPricesPromise,
       lpPrices: lpPricesPromise,
       lpBreakdown: lpBreakdownPromise,
     } = await performUpdateAmmPrices();
 
+    console.log('> [PRICE SERVICE] Awaiting price resolution...');
     const [tokenPrices, lpPrices, lpBreakdowns] = await Promise.all([
       tokenPricesPromise.then(normalizeNativeWrappedPrices),
       lpPricesPromise,
       lpBreakdownPromise,
     ]);
 
+    console.log('> [PRICE SERVICE] Price resolution complete');
     debugNativeWrappedPrices(tokenPrices, 'updateAmmPrices');
 
     if (addToCache(tokenPrices, lpPrices, lpBreakdowns)) {
+      console.log('> [PRICE SERVICE] Cache updated, saving to Redis...');
       clearCacheOracles(); // Delete specific oracleIds
       await saveToRedis();
+      console.log('> [PRICE SERVICE] Redis save complete');
     }
 
-    console.log(`> updated amm prices  (${(Date.now() - start) / 1000}s)`);
+    console.log(`> [PRICE SERVICE] updated amm prices  (${(Date.now() - start) / 1000}s)`);
   } catch (err) {
-    console.error(`> error updating amm prices (${(Date.now() - start) / 1000}s)`, err.message);
+    console.error(
+      `> [PRICE SERVICE] error updating amm prices (${(Date.now() - start) / 1000}s)`,
+      err.message
+    );
   } finally {
     setTimeout(updateAmmPrices, REFRESH_INTERVAL);
   }
 }
 
 export async function getAmmTokensPrices() {
-  await serviceEventBus.waitForFirstEvent('prices/tokens/updated');
-  return cachedTokenPrices;
+  try {
+    await serviceEventBus.waitForFirstEvent('prices/tokens/updated'); // 1 minute timeout
+    return cachedTokenPrices;
+  } catch (error) {
+    console.warn('> [PRICE SERVICE] Timeout waiting for prices/tokens/updated, returning cached data');
+    return cachedTokenPrices;
+  }
 }
 
 export async function getAmmLpPrices() {
-  await serviceEventBus.waitForFirstEvent('prices/lps/updated');
-  return cachedLpPrices;
+  try {
+    await serviceEventBus.waitForFirstEvent('prices/lps/updated'); // 1 minute timeout
+    return cachedLpPrices;
+  } catch (error) {
+    console.warn('> [PRICE SERVICE] Timeout waiting for prices/lps/updated, returning cached data');
+    return cachedLpPrices;
+  }
 }
 
 export async function getAmmAllPrices() {
-  await serviceEventBus.waitForFirstEvent('prices/updated');
-  return cachedAllPrices;
+  try {
+    await serviceEventBus.waitForFirstEvent('prices/updated'); // 1 minute timeout
+    return cachedAllPrices;
+  } catch (error) {
+    console.warn('> [PRICE SERVICE] Timeout waiting for prices/updated, returning cached data');
+    return cachedAllPrices;
+  }
 }
 
 export async function getLpBreakdown() {
-  await serviceEventBus.waitForFirstEvent('prices/lp-breakdowns/updated');
-  return cachedLpBreakdowns;
+  try {
+    await serviceEventBus.waitForFirstEvent('prices/lp-breakdowns/updated'); // 1 minute timeout
+    return cachedLpBreakdowns;
+  } catch (error) {
+    console.warn('> [PRICE SERVICE] Timeout waiting for prices/lp-breakdowns/updated, returning cached data');
+    return cachedLpBreakdowns;
+  }
 }
 
 export async function getLpBreakdownForOracle(oracleId: string) {
@@ -792,10 +936,27 @@ function addToCache(tokenPrices: PricesById, lpPrices: PricesById, lpBreakdowns:
 }
 
 export async function initPriceService() {
-  // Load cache and update
-  await loadFromRedis();
-  await sleep(INIT_DELAY);
-  await updateAmmPrices();
+  console.log('> [PRICE SERVICE] Starting initialization...');
+
+  try {
+    // Load cache and update with timeout
+    console.log('> [PRICE SERVICE] Loading from Redis...');
+    await Promise.race([
+      loadFromRedis(),
+      new Promise((_, reject) => setTimeout(() => reject(new Error('Redis load timeout')), 30000)),
+    ]);
+    console.log('> [PRICE SERVICE] Redis load complete');
+
+    console.log('> [PRICE SERVICE] Initial delay...');
+    await sleep(INIT_DELAY);
+
+    console.log('> [PRICE SERVICE] Starting first price update...');
+    await updateAmmPrices();
+    console.log('> [PRICE SERVICE] Initialization complete');
+  } catch (error) {
+    console.error('> [PRICE SERVICE] Initialization failed:', error.message);
+    throw error;
+  }
 }
 
 async function loadFromRedis() {
