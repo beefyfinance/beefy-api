@@ -1,5 +1,101 @@
 [
   {
+    "address": "0x52B1937a9A6d6FC3D1aA8160b0534C615fe6110C",
+    "lpAddress": "0x40699d85809D10d416674390E698F04CF94DE61c",
+    "tokens": ["0xBe6727B535545C67d5cAa73dEa54865B92CF7907", "0xfD739d4e423301CE9385c1fb8850539D657C296D"],
+    "tokenOracleIds": ["UETH", "kHYPE"],
+    "decimals": [18, 18],
+    "oracleId": "projectx-cow-hyperevm-ueth-khype",
+    "rewardPool": {
+      "address": "0xbE045d020A7D13f652856e1F18b707a86ffffc58",
+      "oracleId": "projectx-cow-hyperevm-ueth-khype-rp"
+    }
+  },
+  {
+    "address": "0x35826fD8D6472f19Ec51D420De8b020De61fb39A",
+    "lpAddress": "0x78cc152A531DBde2F3Fe7001ad659fa120Fa893b",
+    "tokens": ["0x27eC642013bcB3D80CA3706599D3cdA04F6f4452", "0x5555555555555555555555555555555555555555"],
+    "tokenOracleIds": ["UPUMP", "WHYPE"],
+    "decimals": [6, 18],
+    "oracleId": "projectx-cow-hyperevm-upump-whype",
+    "rewardPool": {
+      "address": "0x2812feC8c0160c5AE113FB69E23c32e63beF77fD",
+      "oracleId": "projectx-cow-hyperevm-upump-whype-rp"
+    }
+  },
+  {
+    "address": "0x3382bA88b6aA355be211b4D3878Df8c43fB13d6E",
+    "lpAddress": "0x2e2f48dd70D845E72B720b38FD252478F127355d",
+    "tokens": ["0x3B4575E689DEd21CAAD31d64C4df1f10F3B2CedF", "0x5555555555555555555555555555555555555555"],
+    "tokenOracleIds": ["UFART", "WHYPE"],
+    "decimals": [6, 18],
+    "oracleId": "projectx-cow-hyperevm-ufart-whype",
+    "rewardPool": {
+      "address": "0xA806867f098ea0A2a6cdd6cB4839E5204d812fe3",
+      "oracleId": "projectx-cow-hyperevm-ufart-whype-rp"
+    }
+  },
+  {
+    "address": "0x3CdCf903A8aeFE4200FD7f5bdB86b25d92234479",
+    "lpAddress": "0xaf80230eB13222DB743C21762f65A046bb5F5437",
+    "tokens": ["0x5555555555555555555555555555555555555555", "0xBe6727B535545C67d5cAa73dEa54865B92CF7907"],
+    "tokenOracleIds": ["WHYPE", "UETH"],
+    "decimals": [18, 18],
+    "oracleId": "projectx-cow-hyperevm-whype-ueth",
+    "rewardPool": {
+      "address": "0xd1Cb5d8D24Df956eC6C74647730ED4b1507000da",
+      "oracleId": "projectx-cow-hyperevm-whype-ueth-rp"
+    }
+  },
+  {
+    "address": "0x20cFE664588E45D41185371a7984Ad0c8a35A8Cf",
+    "lpAddress": "0x0D6ECB912b6ee160e95Bc198b618Acc1bCb92525",
+    "tokens": ["0x5555555555555555555555555555555555555555", "0x9FDBdA0A5e284c32744D2f17Ee5c74B284993463"],
+    "tokenOracleIds": ["WHYPE", "UBTC"],
+    "decimals": [18, 8],
+    "oracleId": "projectx-cow-hyperevm-whype-ubtc",
+    "rewardPool": {
+      "address": "0x9b93F09B108f618c8403Dcd2387a6E65DB863272",
+      "oracleId": "projectx-cow-hyperevm-whype-ubtc-rp"
+    }
+  },
+  {
+    "address": "0x1370641eCc01a3fA7334000C01abE474A5FB778C",
+    "lpAddress": "0x09dE938d3e788aF06fD6D0819Db9226150D4a0F3",
+    "tokens": ["0xB8CE59FC3717ada4C02eaDF9682A9e934F625ebb", "0xfD739d4e423301CE9385c1fb8850539D657C296D"],
+    "tokenOracleIds": ["USDT0", "kHYPE"],
+    "decimals": [6, 18],
+    "oracleId": "projectx-cow-hyperevm-usdt0-khype",
+    "rewardPool": {
+      "address": "0x5e5c0785dEe49305B220322b016F6085eCFe7540",
+      "oracleId": "projectx-cow-hyperevm-usdt0-khype-rp"
+    }
+  },
+  {
+    "address": "0xac83221204799673cb373354Bb830ae2Ce2134C6",
+    "lpAddress": "0x467364bd2a633208b4534f5b7eC11d24604546e4",
+    "tokens": ["0x9FDBdA0A5e284c32744D2f17Ee5c74B284993463", "0xfD739d4e423301CE9385c1fb8850539D657C296D"],
+    "tokenOracleIds": ["UBTC", "kHYPE"],
+    "decimals": [8, 18],
+    "oracleId": "projectx-cow-hyperevm-ubtc-khype",
+    "rewardPool": {
+      "address": "0xE1d5790c409153D082CD458531a151210761DBf9",
+      "oracleId": "projectx-cow-hyperevm-ubtc-khype-rp"
+    }
+  },
+  {
+    "address": "0x9C86c62c21A2D936DB8b2B57BFC4E5842C266A7C",
+    "lpAddress": "0xBd19E19E4b70eB7F248695a42208bc1EdBBFb57D",
+    "tokens": ["0x5555555555555555555555555555555555555555", "0xB8CE59FC3717ada4C02eaDF9682A9e934F625ebb"],
+    "tokenOracleIds": ["WHYPE", "USDT0"],
+    "decimals": [18, 6],
+    "oracleId": "projectx-cow-hyperevm-whype-usdt0",
+    "rewardPool": {
+      "address": "0x6c869d7ca7240889DB78D78F113d8DFBe1596b79",
+      "oracleId": "projectx-cow-hyperevm-whype-usdt0-rp"
+    }
+  },
+  {
     "address": "0xCbdBa88e24e2455b562683f8170387b264fc08Fa",
     "lpAddress": "0x269d9787FCEFb509Ec4a420c247EadF4374B638f",
     "tokens": ["0x5555555555555555555555555555555555555555", "0x5d3a1Ff2b6BAb83b63cd9AD0787074081a52ef34"],
