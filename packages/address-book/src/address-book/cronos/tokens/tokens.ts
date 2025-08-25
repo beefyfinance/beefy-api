@@ -132,7 +132,7 @@ export const tokens = {
     decimals: 18,
     name: 'SKY',
     symbol: 'SKY',
-    oracleId: 'SKY',
+    oracleId: 'darkSKY',
     website: 'https://www.darkcrypto.finance/',
     description: 'The first algorithmic token pegged to CRO running on the Cronos Chain',
     logoURI: 'https://assets.coingecko.com/coins/images/22517/small/logo-token-2.e9c15b63.png',

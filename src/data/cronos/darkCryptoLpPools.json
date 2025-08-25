@@ -14,7 +14,7 @@
     "lp1": {
       "address": "0x9D3BBb0e988D9Fb2d55d07Fe471Be2266AD9c81c",
       "oracle": "tokens",
-      "oracleId": "SKY",
+      "oracleId": "darkSKY",
       "decimals": "1e18"
     }
   },
