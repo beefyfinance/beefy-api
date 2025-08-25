@@ -1,5 +1,25 @@
 [
   {
+    "name": "etherex-usdc-rex33",
+    "address": "0xeacD56565aB642FB0Dc2820b51547fE416EE8697",
+    "gauge": "0xC8FC5D4BA6272fE2EcC12627b48e0723aB17e482",
+    "decimals": "1e18",
+    "chainId": 59144,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0x176211869cA2b568f2A7D4EE941E073a821EE1ff",
+      "oracle": "tokens",
+      "oracleId": "USDC",
+      "decimals": "1e6"
+    },
+    "lp1": {
+      "address": "0xe4eEB461Ad1e4ef8b8EF71a33694CCD84Af051C4",
+      "oracle": "tokens",
+      "oracleId": "REX33",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "etherex-weth-rex",
     "address": "0x5C1Bf4B7563C460282617a0304E3cDE133200f70",
     "gauge": "0xdc917188a8a5fC3B099Dc39Cc172F9832dEdecc8",
