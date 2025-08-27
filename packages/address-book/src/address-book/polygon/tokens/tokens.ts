@@ -1262,9 +1262,9 @@ export const tokens = {
     documentation: 'https://developers.circle.com/docs',
   },
   USDT: {
-    name: 'Tether USD',
+    name: 'USDT0',
     address: '0xc2132D05D31c914a87C6611C10748AEb04B58e8F',
-    symbol: 'USDT',
+    symbol: 'USDT0',
     oracleId: 'USDT',
     decimals: 6,
     chainId: 137,
