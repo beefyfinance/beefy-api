@@ -10,8 +10,6 @@ import getBalancerBasePrices from './base/getBalancerPrices';
 import getBalancerPolyPrices from './matic/getBalancerPolyPrices';
 import getBeetsSonicPrices from './sonic/getBeetsSonicPrices';
 import getVelodromeStablePrices from './optimism/getVelodromeStablePrices';
-import getEquilibreStablePrices from './kava/getEquilibreStablePrices';
-import getCurveKavaPrices from './kava/getCurvePrices';
 import { getGmxV2ArbitrumPrices } from './arbitrum/getGmxV2Prices';
 import { getGmxArbitrumPrices } from './arbitrum/getGmxPrices';
 import { getGmxAvalanchePrices } from './avax/getGmxPrices';
@@ -41,7 +39,6 @@ import getUniswapEthereumPrices from './ethereum/getUniswapPositionPrices';
 import getUniswapEthereumGammaPrices from './ethereum/getUniswapGammaPrices';
 import getGammaPolygonPrices from './matic/getGammaPolygonPrices';
 import { getAerodromeStablePrices } from './base/getAerodromeStablePrices';
-import { getKinetixPrices } from './kava/getKinetixPrices';
 import getEqualizerStableSonicPrices from './sonic/getEqualizerStablePrices';
 import getBalancerGnosisPrices from './gnosis/getBalancerGnosisPrices';
 import getCurvePricesCommon from './common/curve/getCurvePricesCommon';
@@ -137,12 +134,10 @@ export async function getNonAmmPrices(
     getOptimismSiloPrices(tokenPrices),
     getSonicSiloPrices(tokenPrices),
     getEqualizerStableSonicPrices(tokenPrices),
-    getKinetixPrices(tokenPrices),
     getUniswapArbitrumPrices(tokenPrices),
     getUniswapEthereumPrices(tokenPrices),
     getMmyOptimismPrices(tokenPrices),
     getRamsesStablePrices(tokenPrices),
-    getEquilibreStablePrices(tokenPrices),
     getSolidLizardStablePrices(tokenPrices),
     getCantoStablePrices(tokenPrices),
     getMimSwapPrices(tokenPrices),
@@ -184,7 +179,6 @@ export async function getNonAmmPrices(
     getCurveLendPricesCommon(ETH_CHAIN_ID, require('../../data/ethereum/curveLendPools.json'), tokenPrices),
     getCurveLendPricesCommon(FRX_CHAIN_ID, require('../../data/fraxtal/curveLendPools.json'), tokenPrices),
     getCurveOptimismPrices(tokenPrices),
-    getCurveKavaPrices(tokenPrices),
     getCurvePricesCommon(GNO_CHAIN_ID, require('../../data/gnosis/curvePools.json'), tokenPrices),
     getCurvePricesCommon(FRX_CHAIN_ID, require('../../data/fraxtal/curvePools.json'), tokenPrices),
     getCurvePricesCommon(SONIC_CHAIN_ID, require('../../data/sonic/curvePools.json'), tokenPrices),
