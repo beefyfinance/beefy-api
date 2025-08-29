@@ -70,7 +70,7 @@ const updateApys = async () => {
       getLineaApys(),
       getMantleApys(),
       getFraxtalApys(),
-      getModeApys(),
+      // getModeApys(),
       // getMantaApys(),
       getSeiApys(),
       getRootstockApys(),
