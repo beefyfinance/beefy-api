@@ -2812,4 +2812,18 @@ export const tokens = {
     documentation: 'https://docs.asymmetry.finance/',
     bridge: 'native',
   },
+  stcUSD: {
+    name: 'Staked cap USD',
+    address: '0x88887bE419578051FF9F4eb6C858A951921D8888',
+    symbol: 'stcUSD',
+    oracleId: 'stcUSD',
+    decimals: 18,
+    chainId: 1,
+    website: 'https://cap.app/',
+    description:
+      'stcUSD is the yield-bearing stablecoin of Cap that enables users to earn rewards via a decentralized lending framework.',
+    documentation: 'https://docs.cap.app/',
+    bridge: 'native',
+    risks: ['NO_TIMELOCK'],
+  },
 } as const satisfies Record<string, Token>;

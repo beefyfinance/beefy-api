@@ -1,5 +1,14 @@
 [
   {
+    "name": "pendle-stcusd-29jan26",
+    "address": "0xcc781b043933c10a04409b22aada3a3d1a7f29d4",
+    "eqbGauge": "0xEc71e3326C9ab00583565AB43538Ae724730d9E9",
+    "oracle": "tokens",
+    "oracleId": "USDC",
+    "decimals": "1e18",
+    "chainId": 1
+  },
+  {
     "name": "pendle-usdf-29jan26",
     "address": "0xc65b7a0f8fc97e1d548860d866f4304e039ef016",
     "eqbGauge": "0xb3D29e68BE632A203bBbBba819e3FE4745c9c72e",
