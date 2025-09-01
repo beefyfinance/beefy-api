@@ -1,25 +1,15 @@
 import getBalancerPrices from '../api/stats/common/balancer/getBalancerPrices';
-import bbaUSD from '../data/ethereum/bbaUSD.json';
-import bbamUSD from '../data/matic/bbamUSD.json';
 import beetsLinearPools from '../data/optimism/beethovenxLinearPools.json';
 import balancerLinearPools from '../data/ethereum/balancerLinearPools.json';
 import balancerPolyLinearPools from '../data/matic/balancerLinearPools.json';
 import balancerArbLinearPools from '../data/arbitrum/balancerLinearPools.json';
 
-const stablePoolPools = [...bbaUSD, ...bbamUSD];
 const linearPoolPools = [
   ...beetsLinearPools,
   ...balancerLinearPools,
   ...balancerPolyLinearPools,
   ...balancerArbLinearPools,
 ];
-
-const fetchBalancerStablePoolPrice = async tokenPrices => {
-  let prices = {};
-  const results = await fetchPoolPrice(tokenPrices, stablePoolPools);
-
-  return { ...prices, ...results };
-};
 
 const fetchBalancerLinearPoolPrice = async tokenPrices => {
   let prices = {};
@@ -53,4 +43,4 @@ const getPrice = async (chainId, pools, tokenPrices) => {
   return prices;
 };
 
-export { fetchBalancerStablePoolPrice, fetchBalancerLinearPoolPrice };
+export { fetchBalancerLinearPoolPrice };

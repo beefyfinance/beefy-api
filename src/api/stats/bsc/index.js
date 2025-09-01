@@ -1,4 +1,3 @@
-const getVenusApys = require('./venus/getVenusApys');
 const { getOOELpApys } = require('./ooe/getOOELpApys');
 const getStargateApys = require('./stargate/getStargateBscApys');
 const getThenaApys = require('./getThenaApys');
@@ -8,7 +7,6 @@ const { getBeefyBscCowApys } = require('./getBeefyBscCowApys');
 
 const getApys = [
   getOOELpApys,
-  getVenusApys,
   getStargateApys,
   getThenaApys,
   getPenpieApys,

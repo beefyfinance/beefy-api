@@ -752,31 +752,6 @@
     ]
   },
   {
-    "name": "aura-gho-bbausd",
-    "address": "0xc2B021133D1b0cF07dba696fd5DD89338428225B",
-    "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
-    "gauge": "0xF937b186687C0B11Dc0F7AFBA3B4458c30d9CF89",
-    "composable": true,
-    "bptIndex": 1,
-    "vaultPoolId": "0xc2b021133d1b0cf07dba696fd5dd89338428225b000000000000000000000598",
-    "decimals": "1e18",
-    "tokens": [
-      {
-        "oracle": "tokens",
-        "oracleId": "GHO",
-        "decimals": "1e18"
-      },
-      {
-        "oracleId": "bptToken"
-      },
-      {
-        "oracle": "tokens",
-        "oracleId": "bbaUSD",
-        "decimals": "1e18"
-      }
-    ]
-  },
-  {
     "name": "aura-wsteth-reth-sfrxeth-v3",
     "address": "0x42ED016F826165C2e5976fe5bC3df540C5aD0Af7",
     "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",

@@ -2,19 +2,13 @@
 
 import { fetchAmmPrices } from '../../utils/fetchAmmPrices';
 import { fetchMooPrices } from '../../utils/fetchMooPrices';
-import { fetchXPrices } from '../../utils/fetchXPrices';
 import { fetchOptionTokenPrices } from '../../utils/fetchOptionTokenPrices';
 import { fetchWrappedAavePrices } from '../../utils/fetchWrappedAaveTokenPrices';
 import { fetchUnwrappedAavePrices } from '../../utils/fetchUnwrappedAaveTokenPrices';
-import { fetchJbrlPrice } from '../../utils/fetchJbrlPrice';
-import { fetchyVaultPrices } from '../../utils/fetchyVaultPrices';
 import { fetchCurveTokenPrices } from '../../utils/fetchCurveTokenPrices';
 import { fetchConcentratedLiquidityTokenPrices } from '../../utils/fetchConcentratedLiquidityTokenPrices';
 import { fetchSolidlyStableTokenPrices } from '../../utils/fetchSolidlyStableTokenPrices';
-import {
-  fetchBalancerLinearPoolPrice,
-  fetchBalancerStablePoolPrice,
-} from '../../utils/fetchBalancerStablePoolPrices';
+import { fetchBalancerLinearPoolPrice } from '../../utils/fetchBalancerStablePoolPrices';
 import { fetchCoinGeckoPrices } from '../../utils/fetchCoinGeckoPrices';
 import { fetchDefillamaPrices } from '../../utils/fetchDefillamaPrices';
 import { getKey, setKey } from '../../utils/cache';
@@ -67,7 +61,6 @@ import { sleep } from '../../utils/time';
 import { isFiniteNumber } from '../../utils/number';
 import { serviceEventBus } from '../../utils/ServiceEventBus';
 import { fetchChainLinkPrices } from '../../utils/fetchChainLinkPrices';
-import { fetchVenusPrices } from './bsc/venus/getVenusPrices';
 import { getLpBasedPrices } from './getLpBasedPrices';
 import { fetchDexScreenerPriceOracles, OraclePriceRequest } from '../../utils/fetchDexScreenerPrices';
 import { promiseTiming } from '../../utils/timing';
@@ -481,17 +474,8 @@ async function performUpdateAmmPrices() {
   );
 
   console.log('> [PRICE SERVICE] Fetching AMM prices...');
-  const ammPricesStart = Date.now();
   const ammPrices = fetchAmmPrices(pools, knownPrices);
   console.log('> [PRICE SERVICE] AMM prices fetch initiated');
-
-  console.log('> [PRICE SERVICE] Starting venus prices...');
-  const venusPrices = ammPrices.then(async ({ tokenPrices }) => {
-    console.log('> [PRICE SERVICE] Venus prices fetch started');
-    const result = await promiseTiming(fetchVenusPrices(tokenPrices), 'fetchVenusPrices');
-    console.log('> [PRICE SERVICE] Venus prices completed');
-    return result;
-  });
 
   console.log('> [PRICE SERVICE] Starting curve token prices...');
   const curveTokenPrices = ammPrices.then(async ({ tokenPrices }) => {
@@ -509,14 +493,6 @@ async function performUpdateAmmPrices() {
       'fetchSolidlyStableTokenPrices'
     );
     console.log('> [PRICE SERVICE] Solidly stable token prices completed');
-    return result;
-  });
-
-  console.log('> [PRICE SERVICE] Starting X prices...');
-  const xPrices = ammPrices.then(async ({ tokenPrices }) => {
-    console.log('> [PRICE SERVICE] X prices fetch started');
-    const result = await promiseTiming(fetchXPrices(tokenPrices), 'fetchXPrices');
-    console.log('> [PRICE SERVICE] X prices completed');
     return result;
   });
 
@@ -548,10 +524,6 @@ async function performUpdateAmmPrices() {
   console.log('> [PRICE SERVICE] Starting linear pool prices...');
   const linearPoolPrice = ammPrices.then(async ({ tokenPrices }): Promise<Record<string, number>> => {
     console.log('> [PRICE SERVICE] Linear pool prices fetch started');
-    const jbrlTokenPrice = await promiseTiming(fetchJbrlPrice(), 'fetchJbrlPrice');
-    console.log('> [PRICE SERVICE] JBRL token price completed');
-    const yVaultPrices = await promiseTiming(fetchyVaultPrices(tokenPrices), 'fetchyVaultPrices');
-    console.log('> [PRICE SERVICE] yVault prices completed');
     const wrappedAavePrices = await promiseTiming(
       fetchWrappedAavePrices(tokenPrices),
       'fetchWrappedAavePrices'
@@ -566,8 +538,6 @@ async function performUpdateAmmPrices() {
       ...tokenPrices,
       ...wrappedAavePrices,
       ...unwrappedAavePrices,
-      ...jbrlTokenPrice,
-      ...yVaultPrices,
     };
 
     const linearPrices = await promiseTiming(
@@ -575,19 +545,11 @@ async function performUpdateAmmPrices() {
       'fetchBalancerLinearPoolPrice'
     );
     console.log('> [PRICE SERVICE] Balancer linear pool prices completed');
-    const balancerStablePoolPrice = await promiseTiming(
-      fetchBalancerStablePoolPrice(linearPrices),
-      'fetchBalancerStablePoolPrice'
-    );
-    console.log('> [PRICE SERVICE] Balancer stable pool prices completed');
 
     return {
       ...linearPrices,
-      ...balancerStablePoolPrice,
       ...wrappedAavePrices,
       ...unwrappedAavePrices,
-      ...jbrlTokenPrice,
-      ...yVaultPrices,
     };
   });
 
@@ -606,28 +568,22 @@ async function performUpdateAmmPrices() {
     console.log('> [PRICE SERVICE] Curve prices resolved');
     const solidlyStablePrices = await solidlyStableTokenPrices;
     console.log('> [PRICE SERVICE] Solidly stable prices resolved');
-    const xTokenPrices = await xPrices;
-    console.log('> [PRICE SERVICE] X token prices resolved');
     const mooTokenPrices = await mooPrices;
     console.log('> [PRICE SERVICE] Moo token prices resolved');
     const beTokenTokenPrice = await beTokenPrice;
     console.log('> [PRICE SERVICE] BE token prices resolved');
     const linearPoolTokenPrice = await linearPoolPrice;
     console.log('> [PRICE SERVICE] Linear pool prices resolved');
-    const venusTokenPrice = await venusPrices;
-    console.log('> [PRICE SERVICE] Venus prices resolved');
     const optionTokenPrice = await optionPrices;
     console.log('> [PRICE SERVICE] Option prices resolved');
     console.log('> [PRICE SERVICE] All token price dependencies resolved, consolidating...');
     return {
       ...tokenPrices,
       ...mooTokenPrices,
-      ...xTokenPrices,
       ...beTokenTokenPrice,
       ...curvePrices,
       ...solidlyStablePrices,
       ...linearPoolTokenPrice,
-      ...venusTokenPrice,
       ...optionTokenPrice,
     };
   });
