@@ -72,7 +72,7 @@ const updateApys = async () => {
       // getMantaApys(),
       getSeiApys(),
       getRootstockApys(),
-      getScrollApys(),
+      // getScrollApys(),
       getLiskApys(),
       getSonicApys(),
       getBerachainApys(),

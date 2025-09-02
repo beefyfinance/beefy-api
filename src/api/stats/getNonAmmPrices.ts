@@ -46,7 +46,6 @@ import { getCurveLendPricesCommon } from './common/curve/getCurveLendPricesCommo
 import getArbitrumSiloPrices from './arbitrum/getArbitrumSiloPrices';
 import getVelodromeLiskStablePrices from './lisk/getVelodromeLiskStablePrices';
 import getNuriStablePrices from './scroll/getNuriStablePrices';
-import getTokanStablePrices from './scroll/getTokanStablePrices';
 import { getKittenswapStablePrices } from './hyperevm/getKittenswapStablePrices';
 import { getBeraswapPrices } from './berachain/getBeraswapPrices';
 import { getKodiakPrices } from './berachain/getKodiakPrices';
@@ -230,7 +229,6 @@ export async function getNonAmmPrices(
     getSolidlyStablePrices(AVAX_CHAIN_ID, require('../../data/avax/blackStableLpPools.json'), tokenPrices),
     getBaseSiloPrices(tokenPrices),
     getNuriStablePrices(tokenPrices),
-    getTokanStablePrices(tokenPrices),
     getVenusArbPrices(tokenPrices),
     getVenusZkPrices(tokenPrices),
     getTokemakEthPrices(tokenPrices),

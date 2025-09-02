@@ -1,9 +1,8 @@
 const { getBeefyCowScrollApys } = require('./getBeefyCowScrollApys');
 const { getNuriApys } = require('./getNuriApys');
-const { getTokanApys } = require('./getTokanApys');
 const { getScrollCompoundV3Apys } = require('./getScrollCompoundV3Apys');
 
-const getApys = [getBeefyCowScrollApys, getNuriApys, getTokanApys, getScrollCompoundV3Apys];
+const getApys = [getBeefyCowScrollApys, getNuriApys, getScrollCompoundV3Apys];
 
 const getScrollApys = async () => {
   const start = Date.now();
