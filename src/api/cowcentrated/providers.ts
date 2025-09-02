@@ -54,6 +54,11 @@ export const providers = {
       sonic: [sonic.tokens.SHADOW, sonic.tokens.GEMS],
     },
   },
+  etherex: {
+    poolTradingRewardTokens: {
+      linea: [linea.tokens.REX],
+    },
+  },
 } as const satisfies Record<string, CowProvider>;
 
 export function getCowProvider(providerId: string | undefined): CowProvider | undefined {

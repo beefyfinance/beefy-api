@@ -61,7 +61,7 @@ const DEFAULT_RPCS: ApiChainToRpcs = {
   real: ['https://rpc.realforreal.gelato.digital'],
   sei: ['https://evm-rpc.sei-apis.com'],
   rootstock: ['https://rootstock-mainnet.public.blastapi.io'],
-  scroll: ['https://scroll-mainnet.public.blastapi.io'],
+  scroll: ['https://rpc.scroll.io'],
   lisk: ['https://rpc.api.lisk.com'],
   sonic: ['https://rpc.soniclabs.com'],
   berachain: ['https://rpc.berachain.com'],
