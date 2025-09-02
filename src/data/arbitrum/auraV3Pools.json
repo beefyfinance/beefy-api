@@ -123,5 +123,30 @@
         "decimals": "1e18"
       }
     ]
+  },
+  {
+    "name": "balancerv3-arbitrum-waarbweth-reth",
+    "address": "0x5418a64e0cdb20548acb394f5d00a089baf02161",
+    "gauge": "0xc7cf9be16cebe2bf737f72eb6595cf4f7cef91ff",
+    "decimals": "1e18",
+    "rewards": [
+      {
+        "rewardGauge": "0x7638b47fb064Cca84aD43326793Ed627Ce6eD372",
+        "oracleId": "AURA",
+        "decimals": "1e18"
+      }
+    ],
+    "tokens": [
+      {
+        "address": "0x4ce13a79f45c1be00bdabd38b764ac28c082704e",
+        "oracleId": "waArbWETH",
+        "decimals": "1e18"
+      },
+      {
+        "address": "0xec70dcb4a1efa46b8f2d97c310c9c4790ba5ffa8",
+        "oracleId": "rETH",
+        "decimals": "1e18"
+      }
+    ]
   }
 ]
