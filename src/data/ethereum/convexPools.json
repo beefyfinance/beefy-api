@@ -1,5 +1,25 @@
 [
   {
+    "name": "curve-msusd-fraxbp",
+    "pool": "0xc3b19502F8c02be75F3f77fd673503520DEB51dD",
+    "gauge": "0xd5f2e6612E41bE48461FDBA20061E3c778Fe6EC4",
+    "rewardPool": "0xF189A4a1E845Fd62944F93De497409798523B397",
+    "getDy": ["v1", 0, 2, "USDC"],
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "msUSD",
+        "decimals": "1e18"
+      },
+      {
+        "basePool": "convex-fraxusdc",
+        "oracle": "lps",
+        "oracleId": "convex-fraxusdc",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
     "name": "curve-scrvusd-usdaf",
     "pool": "0x3bE454C4391690ab4DDae3Fb987c8147b8Ecc08A",
     "gauge": "0x3e56EC9bD2992D9220eD615CEaeC59613cCac730",

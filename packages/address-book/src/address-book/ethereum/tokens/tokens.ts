@@ -1219,8 +1219,9 @@ export const tokens = {
     logoURI: '',
     website: 'https://app.metronome.io/',
     description:
-      'A complete synthetic protocol that enables users to generate a variety of synthetics using crypto assets as collateral',
+      'msUSD represents Metronome Synth USD. Through the Metronome dApp, users are able to deposit crypto assets as collateral, and use that collateral to mint popular crypto synthetics.',
     documentation: 'https://docs.metronome.io/metronome-2.0/master',
+    risks: ['NO_TIMELOCK'],
   },
   UZD: {
     name: 'UZD Zunami Stable',
@@ -2822,6 +2823,20 @@ export const tokens = {
     website: 'https://cap.app/',
     description:
       'stcUSD is the yield-bearing stablecoin of Cap that enables users to earn rewards via a decentralized lending framework.',
+    documentation: 'https://docs.cap.app/',
+    bridge: 'native',
+    risks: ['NO_TIMELOCK'],
+  },
+  cUSD: {
+    name: 'cap USD',
+    address: '0xcCcc62962d17b8914c62D74FfB843d73B2a3cccC',
+    symbol: 'cUSD',
+    oracleId: 'cUSD',
+    decimals: 18,
+    chainId: 1,
+    website: 'https://cap.app/',
+    description:
+      'Cap is a three-sided marketplace designed to run autonomously via economic incentives. Cap generates yield via operators ranging from banks, HFT firms, and market makers and yields are passed on to stcUSD holders.',
     documentation: 'https://docs.cap.app/',
     bridge: 'native',
     risks: ['NO_TIMELOCK'],
