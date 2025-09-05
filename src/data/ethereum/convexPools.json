@@ -1,5 +1,23 @@
 [
   {
+    "name": "curve-eth+-weth",
+    "pool": "0x2c683fAd51da2cd17793219CC86439C1875c353e",
+    "gauge": "0xAD6D1a4B1B2F33712A8b18BeDc95c0A1f9832269",
+    "rewardPool": "0x9e0A248528Aa933ff1F8f707ea75F61eD780836E",
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "ETH+",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "ETH",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
     "name": "curve-msusd-fraxbp",
     "pool": "0xc3b19502F8c02be75F3f77fd673503520DEB51dD",
     "gauge": "0xd5f2e6612E41bE48461FDBA20061E3c778Fe6EC4",
