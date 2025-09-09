@@ -9,6 +9,7 @@ let mooTokenPrices = {};
 
 const INIT_DELAY = Number(process.env.MOOTOKEN_INIT_DELAY || 60 * 1000);
 const REFRESH_INTERVAL = 60 * 1000;
+const LOG_ERRORS = process.env.MOOTOKEN_LOG_ERRORS === 'true';
 
 export const getMooTokenPrices = () => {
   return mooTokenPrices;
@@ -55,18 +56,24 @@ const updateMooTokenPrices = async () => {
       ++successes;
     } catch (error) {
       ++failures;
-      console.log(`> failed to update mooPrice of vault ${vault.id}`);
-      console.log(error);
+      if (LOG_ERRORS) {
+        console.log(`> failed to update mooPrice of vault ${vault.id}`);
+        console.log(error);
+      }
     }
   }
 
-  console.log(
+  const level = failures > 0 ? 'error' : missing > 0 ? 'warn' : 'info';
+  console[level](
     `> prices for mooTokens updated: ${successes} successes, ${missing} missing, ${failures} failures (${
       (Date.now() - now) / 1000
     }s)`
   );
 
-  saveToRedis();
+  saveToRedis().catch(err => {
+    console.error('> failed to save mooToken prices', err);
+  });
+
   setTimeout(updateMooTokenPrices, REFRESH_INTERVAL);
 };
 
