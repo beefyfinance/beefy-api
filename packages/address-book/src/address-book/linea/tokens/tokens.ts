@@ -348,4 +348,18 @@ export const tokens = {
     documentation: 'https://docs.etherex.finance/',
     bridge: 'native',
   },
+  aLinUSDC: {
+    name: 'Aave Linea USDC',
+    symbol: 'aLinUSDC',
+    oracleId: 'aLinUSDC',
+    address: '0x374D7860c4f2f604De0191298dD393703Cce84f3',
+    chainId: 59144,
+    decimals: 6,
+    logoURI: '',
+    website: 'https://aave.com',
+    description:
+      'Aave interest bearing native USDC. USDC is a fully collateralized US dollar stablecoin. USDC is issued by regulated financial institutions, backed by fully reserved assets, redeemable on a 1:1 basis for US dollars.',
+    bridge: 'native',
+    staked: true,
+  },
 } as const satisfies Record<string, Token>;
