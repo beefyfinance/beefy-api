@@ -362,4 +362,18 @@ export const tokens = {
     bridge: 'native',
     staked: true,
   },
+  LINEA: {
+    name: 'Linea',
+    symbol: 'LINEA',
+    oracleId: 'LINEA',
+    address: '0x1789e0043623282D5DCc7F213d703C6D8BAfBB04',
+    chainId: 59144,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://linea.build/',
+    description:
+      'Linea is the Layer 2 network built from first principles to strengthen Ethereum and the entire ETH economy.',
+    documentation: 'https://docs.linea.build/',
+    bridge: 'native',
+  },
 } as const satisfies Record<string, Token>;

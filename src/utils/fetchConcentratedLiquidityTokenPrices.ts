@@ -258,6 +258,14 @@ const tokens: Partial<Record<keyof typeof ChainId, ConcentratedLiquidityToken[]>
       firstToken: 'wstETH',
       secondToken: 'lineainETH',
     },
+    {
+      type: 'UniV3',
+      oracleId: 'LINEA',
+      decimalDelta: 1,
+      pool: '0x73045fe421F1F1719946cc664cf6020b0c183854',
+      firstToken: 'WETH',
+      secondToken: 'LINEA',
+    },
   ],
   optimism: [
     {

@@ -1,5 +1,39 @@
 [
   {
+    "address": "0x65803a0351CF4555122bf81405438758229701CD",
+    "lpAddress": "0x74Db4a53cc14eF8594C971c3DC61Ac21C9A2eA86",
+    "tokens": ["0x176211869cA2b568f2A7D4EE941E073a821EE1ff", "0x1789e0043623282D5DCc7F213d703C6D8BAfBB04"],
+    "tokenOracleIds": ["USDC", "LINEA"],
+    "decimals": [6, 18],
+    "oracleId": "etherex-cow-linea-usdc-linea",
+    "providerId": "etherex",
+    "rewardPool": {
+      "address": "0x7090ac65Aa5B4afb768C44E29C561847d4E922cE",
+      "oracleId": "etherex-cow-linea-usdc-linea-rp"
+    },
+    "vault": {
+      "address": "0x7E95891566d937C49CB64fb272A47419b21098b6",
+      "oracleId": "etherex-cow-linea-usdc-linea-vault"
+    }
+  },
+  {
+    "address": "0xbCA33EF858AC847282798AE1f392455a8a1Fe0dB",
+    "lpAddress": "0x73045fe421F1F1719946cc664cf6020b0c183854",
+    "tokens": ["0x1789e0043623282D5DCc7F213d703C6D8BAfBB04", "0xe5D7C2a44FfDDf6b295A15c148167daaAf5Cf34f"],
+    "tokenOracleIds": ["LINEA", "WETH"],
+    "decimals": [18, 18],
+    "oracleId": "etherex-cow-linea-linea-weth",
+    "providerId": "etherex",
+    "rewardPool": {
+      "address": "0xCa80925463d639C152733D4dC2E26C7045C1Db77",
+      "oracleId": "etherex-cow-linea-linea-weth-rp"
+    },
+    "vault": {
+      "address": "0xDdBba73410c726A811aC4c659a6CD752b199845E",
+      "oracleId": "etherex-cow-linea-linea-weth-vault"
+    }
+  },
+  {
     "address": "0x63Aad53CA20CE2b41d43FD7A0441f82895a38606",
     "lpAddress": "0xd5E04ba35908D7bF5BD2eAd7e3e14d21df07DC01",
     "tokens": ["0xA219439258ca9da29E9Cc4cE5596924745e12B93", "0xe5D7C2a44FfDDf6b295A15c148167daaAf5Cf34f"],
