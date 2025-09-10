@@ -19,7 +19,7 @@ import {
 } from './types';
 import { getChainValidators, hasChainValidator } from './validatorHelpers';
 import { serviceEventBus } from '../../utils/ServiceEventBus';
-import { ApiChain, ApiChains } from '../../utils/chain';
+import { ApiChain, SupportedChains } from '../../utils/chain';
 import { getTokensForChain, isTokenNative } from '../tokens/tokens';
 import { getAmmPrice } from '../stats/getAmmPrices';
 import { keysToObject } from '../../utils/array';
@@ -35,17 +35,17 @@ const REFRESH_INTERVAL = envNumber('TREASURY_REFRESH_INTERVAL', 1000 * 60);
 let treasuryAddressesByChain: TreasuryWalletRegistry;
 
 // addressbook + vault tokens where balances should be queried
-let assetsByChain: TreasuryAssetRegistry = keysToObject(ApiChains, () => ({}));
+let assetsByChain: TreasuryAssetRegistry = keysToObject(SupportedChains, () => ({}));
 
-let tokenBalancesByChain: TreasuryBalances = keysToObject(ApiChains, () => ({}));
+let tokenBalancesByChain: TreasuryBalances = keysToObject(SupportedChains, () => ({}));
 
-let treasurySummary: TreasuryReport = keysToObject(ApiChains, () => ({}));
+let treasurySummary: TreasuryReport = keysToObject(SupportedChains, () => ({}));
 
 // market maker
 let marketMakerReport: MMReport = {};
 
 function updateTreasuryAddressesByChain() {
-  treasuryAddressesByChain = keysToObject(ApiChains, chain => {
+  treasuryAddressesByChain = keysToObject(SupportedChains, chain => {
     const chainAddressbook = addressBook[chain];
     const addresses = {};
     const treasuryMultisig = chainAddressbook.platforms.beefyfinance.treasuryMultisig;
@@ -74,7 +74,7 @@ function updateAssetsByChain() {
   const tokenAssets = getTokenAddressesByChain();
   const vaultAssets = getVaultAddressesByChain();
 
-  assetsByChain = keysToObject(ApiChains, chain => {
+  assetsByChain = keysToObject(SupportedChains, chain => {
     return {
       ...(tokenAssets[chain] || {}),
       ...(vaultAssets[chain] || {}),
@@ -84,7 +84,7 @@ function updateAssetsByChain() {
 
 // Load token address
 function getTokenAddressesByChain(): TreasuryAssetRegistry {
-  return keysToObject(ApiChains, chain => {
+  return keysToObject(SupportedChains, chain => {
     const tokens: Record<string, TreasuryAsset> = {};
 
     for (const [tokenAddress, token] of Object.entries(getTokensForChain(chain))) {
@@ -138,7 +138,7 @@ function getTokenAddressesByChain(): TreasuryAssetRegistry {
 }
 
 function getVaultAddressesByChain(): TreasuryAssetRegistry {
-  return keysToObject(ApiChains, chain => {
+  return keysToObject(SupportedChains, chain => {
     const chainVaults = getSingleChainVaults(chain) || [];
     return keyBy(
       chainVaults.map(vault => ({
@@ -253,7 +253,7 @@ async function updateTreasuryBalances() {
     console.log('> updating treasury balances');
     const start = Date.now();
 
-    const chainResults = await contextAllSettled(ApiChains, updateSingleChainTreasuryBalance);
+    const chainResults = await contextAllSettled(SupportedChains, updateSingleChainTreasuryBalance);
     await buildTreasuryReport();
     await buildMarketMakerReport();
     await saveToRedis();
@@ -275,9 +275,9 @@ async function updateTreasuryBalances() {
 }
 
 async function buildTreasuryReport() {
-  const chainReports = await Promise.all(ApiChains.map(buildTreasuryReportForChain));
-  for (const i in ApiChains) {
-    treasurySummary[ApiChains[i]] = chainReports[i];
+  const chainReports = await Promise.all(SupportedChains.map(buildTreasuryReportForChain));
+  for (const i in SupportedChains) {
+    treasurySummary[SupportedChains[i]] = chainReports[i];
   }
 }
 

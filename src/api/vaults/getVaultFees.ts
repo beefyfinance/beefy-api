@@ -1,7 +1,7 @@
 import BigNumber from 'bignumber.js';
 import { addressBookByChainId, ChainId } from '../../../packages/address-book/src/address-book';
 import { getKey, setKey } from '../../utils/cache';
-import { ApiChains } from '../../utils/chain';
+import { SupportedChains } from '../../utils/chain';
 import { fetchContract } from '../rpc/client';
 import FeeABI from '../../abis/FeeABI';
 import { HarvestableVault } from './types';
@@ -98,7 +98,7 @@ const updateVaultFees = async () => {
   const start = Date.now();
 
   const expiredBefore = start - CACHE_EXPIRY;
-  const promises = ApiChains.map(chain => {
+  const promises = SupportedChains.map(chain => {
     const chainVaults = getHarvestableVaultsByChain(chain).filter(
       v => (vaultFees[v.id]?.lastUpdated || 0) < expiredBefore
     );

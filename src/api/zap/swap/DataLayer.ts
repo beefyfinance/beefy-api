@@ -1,6 +1,6 @@
 import { getKey, setKey } from '../../../utils/cache';
 import { ProviderId } from './providers';
-import { ApiChain, ApiChains } from '../../../utils/chain';
+import { ApiChain, SupportedChains } from '../../../utils/chain';
 import {
   ProviderSupportByChainByAddress,
   TokenSupportByAddress,
@@ -18,11 +18,8 @@ type Metadata = {
 const VERSION = 1;
 
 export class DataLayer {
-  protected tokenSupport: TokenSupportByChainByProviderByAddress = keysToObject(
-    ApiChains,
-    () => ({})
-  );
-  protected providerSupport: ProviderSupportByChainByAddress = keysToObject(ApiChains, () => ({}));
+  protected tokenSupport: TokenSupportByChainByProviderByAddress = keysToObject(SupportedChains, () => ({}));
+  protected providerSupport: ProviderSupportByChainByAddress = keysToObject(SupportedChains, () => ({}));
 
   constructor(protected rootKey: string, protected maxAge: number, protected gcInterval: number) {}
 
@@ -38,9 +35,7 @@ export class DataLayer {
       }
 
       // Load the data
-      const data = await getKey<TokenSupportByChainByProviderByAddress | undefined>(
-        `${this.rootKey}/data`
-      );
+      const data = await getKey<TokenSupportByChainByProviderByAddress | undefined>(`${this.rootKey}/data`);
       if (!data) {
         return;
       }

@@ -1,4 +1,4 @@
-import { ApiChain } from '../../../utils/chain';
+import { ApiChain, SupportedApiChain } from '../../../utils/chain';
 import { addressBook } from '../../../../packages/address-book/src/address-book';
 
 /**
@@ -8,7 +8,7 @@ import { addressBook } from '../../../../packages/address-book/src/address-book'
  * We use a block list over an allow list so new tokens can be supported without a code change.
  * Tokens are sourced from vaults and boosts.
  */
-export const blockedTokensByChain: Record<ApiChain, Set<string>> = {
+export const blockedTokensByChain: Record<SupportedApiChain, Set<string>> = {
   bsc: new Set([
     '0x13F6751ba11337BC67aBBdAd638a56194ee133B8', // SDUMP
     '0x1446f3CEdf4d86a9399E49f7937766E6De2A3AAB', // KRW
@@ -277,7 +277,6 @@ export const blockedTokensByChain: Record<ApiChain, Set<string>> = {
     addressBook.bsc.tokens['1INCH'].address,
     addressBook.bsc.tokens['AMPL-BSC-mp'].address,
   ]),
-  heco: new Set([addressBook.heco.tokens.oldBIFI.address]),
   polygon: new Set([
     '0x0B048D6e01a6b9002C291060bF2179938fd8264c', // ALPHA
     '0x238779aFfE6FFD475cB7e84582FcA7789F310Dc8', // DELIRIUM
@@ -523,7 +522,6 @@ export const blockedTokensByChain: Record<ApiChain, Set<string>> = {
     addressBook.avax.tokens.renBTC.address,
     addressBook.avax.tokens['USD+'].address,
   ]),
-  one: new Set([addressBook.one.tokens.oldBIFI.address]),
   arbitrum: new Set([
     addressBook.arbitrum.tokens.FISH.address,
     addressBook.arbitrum.tokens.bbaaDAI.address,
@@ -605,7 +603,6 @@ export const blockedTokensByChain: Record<ApiChain, Set<string>> = {
   fraxtal: new Set([]),
   mode: new Set([]),
   manta: new Set([]),
-  real: new Set([]),
   sei: new Set([]),
   rootstock: new Set([]),
   scroll: new Set([]),

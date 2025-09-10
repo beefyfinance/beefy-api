@@ -2,11 +2,9 @@ import { ChainId } from '../../packages/address-book/src/address-book';
 
 export const MULTICALL_V3: Partial<Readonly<Record<ChainId, string>>> = {
   [ChainId.bsc]: '0xcA11bde05977b3631167028862bE2a173976CA11',
-  // [ChainId.heco]: '0xcA11bde05977b3631167028862bE2a173976CA11',
   [ChainId.polygon]: '0xcA11bde05977b3631167028862bE2a173976CA11',
   [ChainId.fantom]: '0xcA11bde05977b3631167028862bE2a173976CA11',
   [ChainId.avax]: '0xcA11bde05977b3631167028862bE2a173976CA11',
-  [ChainId.one]: '0xcA11bde05977b3631167028862bE2a173976CA11',
   [ChainId.arbitrum]: '0xcA11bde05977b3631167028862bE2a173976CA11',
   [ChainId.celo]: '0xcA11bde05977b3631167028862bE2a173976CA11',
   [ChainId.moonriver]: '0xcA11bde05977b3631167028862bE2a173976CA11',
@@ -29,7 +27,6 @@ export const MULTICALL_V3: Partial<Readonly<Record<ChainId, string>>> = {
   [ChainId.fraxtal]: '0xcA11bde05977b3631167028862bE2a173976CA11',
   [ChainId.mode]: '0xcA11bde05977b3631167028862bE2a173976CA11',
   [ChainId.manta]: '0xcA11bde05977b3631167028862bE2a173976CA11',
-  // [ChainId.real]: '0xcA11bde05977b3631167028862bE2a173976CA11',
   [ChainId.sei]: '0xcA11bde05977b3631167028862bE2a173976CA11',
   [ChainId.rootstock]: '0xcA11bde05977b3631167028862bE2a173976CA11',
   [ChainId.scroll]: '0xcA11bde05977b3631167028862bE2a173976CA11',
