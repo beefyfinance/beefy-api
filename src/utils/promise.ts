@@ -22,9 +22,13 @@ export function deferred<T>(): DeferredPromise<T> {
   return promise;
 }
 
-export function withTimeout<T>(promise: Promise<T>, timeout: number): Promise<T> {
+export function withTimeout<T>(promise: Promise<T>, timeout: number, message?: string): Promise<T> {
   return new Promise<T>((resolve, reject) => {
-    const timeoutId = setTimeout(() => reject(new Error('Promise timed out')), timeout);
+    const timeoutId = setTimeout(() => {
+      reject(
+        new Error(`Promise timed out after ${(timeout / 1000).toFixed(1)}s${message ? `: ${message}` : ''}`)
+      );
+    }, timeout);
     promise.then(
       value => {
         clearTimeout(timeoutId);

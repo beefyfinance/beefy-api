@@ -26,8 +26,10 @@ import { keysToObject } from '../../utils/array';
 import { getChainConcentratedLiquidityAssets, hasChainConcentratedLiquidityAssets } from './nftAssets';
 import { ZERO_ADDRESS } from '../../utils/address';
 import { getChainLockedAssets, hasChainLockedAssets } from './lockedAssetHelpers';
+import { contextAllSettled, isContextResultRejected, withTimeout } from '../../utils/promise';
+import { envNumber } from '../../utils/env';
 
-const REFRESH_INTERVAL = 6000 * 10;
+const REFRESH_INTERVAL = envNumber('TREASURY_REFRESH_INTERVAL', 1000 * 60);
 
 // treasury addresses that should be queried for balances
 let treasuryAddressesByChain: TreasuryWalletRegistry;
@@ -156,43 +158,51 @@ function getVaultAddressesByChain(): TreasuryAssetRegistry {
 }
 
 async function updateSingleChainTreasuryBalance(chain: ApiChain) {
+  try {
+    // Don't let any one update take longer than the refresh interval
+    return await withTimeout(
+      updateSingleChainTreasuryBalanceImpl(chain),
+      Math.floor(REFRESH_INTERVAL * 0.99),
+      `updateSingleChainTreasuryBalance(${chain})`
+    );
+  } catch (err) {
+    console.error(`error updating treasury balances on chain ${chain}\n${err.message}`);
+    throw err;
+  }
+}
+
+async function updateSingleChainTreasuryBalanceImpl(chain: ApiChain) {
   const assetsToCheck = Object.values(assetsByChain[chain]);
   const treasuryAddressesForChain = Object.values(treasuryAddressesByChain[chain]);
 
   const assetCalls = assetsToCheck.map(asset =>
     Promise.all(mapAssetToCall(asset, treasuryAddressesForChain, chainIdMap[chain]))
   );
-
-  try {
-    const callResults = await Promise.allSettled(assetCalls);
-    const hasOneFailedCall = callResults.some(res => res.status === 'rejected');
-    const failedCalls = callResults.filter(res => res.status === 'rejected').length;
-    if (hasOneFailedCall) {
-      console.log(
-        `> treasury update had at least one failed call on ${chain} ${(
-          (failedCalls / callResults.length) *
-          100
-        ).toFixed(2)}% error rate`
-      );
-    }
-    const balancesForChain = {};
-    treasuryAddressesForChain.forEach((treasuryData: any) => {
-      balancesForChain[treasuryData.address.toLowerCase()] = {};
-    });
-
-    //If we have at least one failed call, we keep the previous cache, if not we purge outdated values
-    tokenBalancesByChain[chain] = {
-      ...(tokenBalancesByChain[chain] && hasOneFailedCall ? tokenBalancesByChain[chain] : {}),
-      ...extractBalancesFromTreasuryCallResults(
-        assetsToCheck,
-        treasuryAddressesForChain.map(t => t.address),
-        callResults
-      ),
-    };
-  } catch (err) {
-    console.log('error updating treasury balances on chain ' + chain);
-    console.log(err.message);
+  const callResults = await Promise.allSettled(assetCalls);
+  const failedCalls = callResults.filter(res => res.status === 'rejected').length;
+  const hasOneFailedCall = failedCalls > 0;
+  if (hasOneFailedCall) {
+    console.error(
+      `> treasury update had at least one failed call on ${chain} ${(
+        (failedCalls / callResults.length) *
+        100
+      ).toFixed(2)}% error rate`
+    );
   }
+  const balancesForChain = {};
+  treasuryAddressesForChain.forEach((treasuryData: any) => {
+    balancesForChain[treasuryData.address.toLowerCase()] = {};
+  });
+
+  //If we have at least one failed call, we keep the previous cache, if not we purge outdated values
+  tokenBalancesByChain[chain] = {
+    ...(tokenBalancesByChain[chain] && hasOneFailedCall ? tokenBalancesByChain[chain] : {}),
+    ...extractBalancesFromTreasuryCallResults(
+      assetsToCheck,
+      treasuryAddressesForChain.map(t => t.address),
+      callResults
+    ),
+  };
 }
 
 async function buildMarketMakerReport() {
@@ -243,11 +253,17 @@ async function updateTreasuryBalances() {
     console.log('> updating treasury balances');
     const start = Date.now();
 
-    await Promise.allSettled(SupportedChains.map(updateSingleChainTreasuryBalance));
+    const chainResults = await contextAllSettled(SupportedChains, updateSingleChainTreasuryBalance);
     await buildTreasuryReport();
     await buildMarketMakerReport();
     await saveToRedis();
+
     console.log(`> treasury balances updated (${((Date.now() - start) / 1000).toFixed(2)}s)`);
+
+    const rejectedChains = chainResults.filter(isContextResultRejected).map(r => r.context);
+    if (rejectedChains.length > 0) {
+      console.error(`>> ${rejectedChains.length} chains rejected update: ${rejectedChains.join(', ')}`);
+    }
   } catch (err) {
     console.log(`> error updating treasury`);
     console.log(err.message);
