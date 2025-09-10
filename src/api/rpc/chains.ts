@@ -102,30 +102,6 @@ const fantomChain = {
   },
 } as const satisfies Chain;
 
-const harmonyChain = {
-  id: 1666600000,
-  name: 'Harmony',
-  network: 'harmony',
-  nativeCurrency: {
-    decimals: 18,
-    name: 'Harmony',
-    symbol: 'ONE',
-  },
-  rpcUrls: {
-    public: { http: getRpcsForChain('one') },
-    default: { http: getRpcsForChain('one') },
-  },
-  blockExplorers: {
-    default: { name: 'Harmony Explorer', url: 'https://explorer.harmony.one' },
-  },
-  contracts: {
-    multicall3: {
-      address: '0xca11bde05977b3631167028862be2a173976ca11',
-      blockCreated: 24_185_753,
-    },
-  },
-} as const satisfies Chain;
-
 const arbitrumChain = {
   id: 42161,
   name: 'Arbitrum',
@@ -480,29 +456,6 @@ const zkSyncChain = {
   },
 } as const satisfies Chain;
 
-const hecoChain = {
-  id: 128,
-  name: 'Heco',
-  network: 'heco',
-  nativeCurrency: {
-    decimals: 18,
-    name: 'Heco',
-    symbol: 'HT',
-  },
-  rpcUrls: {
-    public: { http: getRpcsForChain('heco') },
-    default: { http: getRpcsForChain('heco') },
-  },
-  blockExplorers: {
-    default: { name: 'Heco Explorer', url: 'https://hecoinfo.com' },
-  },
-  contracts: {
-    multicall3: {
-      address: '0xca11bde05977b3631167028862be2a173976ca11',
-    },
-  },
-} as const satisfies Chain;
-
 const zkEvmChain = {
   id: 1101,
   name: 'zkEvm',
@@ -679,29 +632,6 @@ const mantaChain = {
   },
   blockExplorers: {
     default: { name: 'Manta Pacific Explorer', url: 'https://pacific-explorer.manta.network/' },
-  },
-  contracts: {
-    multicall3: {
-      address: '0xca11bde05977b3631167028862be2a173976ca11',
-    },
-  },
-} as const satisfies Chain;
-
-const realChain = {
-  id: 111188,
-  name: 'Re.Al',
-  network: 're.al',
-  nativeCurrency: {
-    decimals: 18,
-    name: 'WREETH',
-    symbol: 'WREETH',
-  },
-  rpcUrls: {
-    public: { http: getRpcsForChain('real') },
-    default: { http: getRpcsForChain('real') },
-  },
-  blockExplorers: {
-    default: { name: 're.al explorer', url: 'https://explorer.re.al/' },
   },
   contracts: {
     multicall3: {
@@ -925,7 +855,6 @@ export const getChain: Partial<Record<ChainId, Chain>> = {
   [ChainId.bsc]: bscChain,
   [ChainId.polygon]: polygonChain,
   [ChainId.fantom]: fantomChain,
-  [ChainId.one]: harmonyChain,
   [ChainId.arbitrum]: arbitrumChain,
   [ChainId.celo]: celoChain,
   [ChainId.moonriver]: moonriverChain,
@@ -940,7 +869,6 @@ export const getChain: Partial<Record<ChainId, Chain>> = {
   [ChainId.ethereum]: ethereumChain,
   [ChainId.canto]: cantoChain,
   [ChainId.zksync]: zkSyncChain,
-  [ChainId.heco]: hecoChain,
   [ChainId.zkevm]: zkEvmChain,
   [ChainId.base]: baseChain,
   [ChainId.gnosis]: gnosisChain,
@@ -949,7 +877,6 @@ export const getChain: Partial<Record<ChainId, Chain>> = {
   [ChainId.fraxtal]: fraxtalChain,
   [ChainId.mode]: modeChain,
   [ChainId.manta]: mantaChain,
-  [ChainId.real]: realChain,
   [ChainId.sei]: seiChain,
   [ChainId.rootstock]: rootstockChain,
   [ChainId.scroll]: scrollChain,

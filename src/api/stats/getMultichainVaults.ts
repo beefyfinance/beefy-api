@@ -7,7 +7,7 @@ import {
 } from '../../utils/promise';
 import { serviceEventBus } from '../../utils/ServiceEventBus';
 import { first, groupBy, mapValues, orderBy, sumBy } from 'lodash';
-import { ApiChain, ApiChains } from '../../utils/chain';
+import { ApiChain, SupportedChains } from '../../utils/chain';
 import {
   AnyVault,
   ClmWithVaultPool,
@@ -353,7 +353,7 @@ export function getSingleClms(chain: ApiChain): ClmWithVaultPool[] {
 
 /** @dev this is similar to `getVaultsByType('cowcentrated')` but has the associated gov/standard vaults attached */
 export function getMultichainClms() {
-  return sortVaults(ApiChains.flatMap(chain => getSingleClms(chain)));
+  return sortVaults(SupportedChains.flatMap(chain => getSingleClms(chain)));
 }
 
 type VaultHandler<T extends AnyVault> = (chain: ApiChain, vault: T, existing?: T | undefined) => Promise<T>;
@@ -529,7 +529,7 @@ async function updateMultichainVaults() {
   try {
     const start = Date.now();
     const timeout = Math.min(30_000, REFRESH_INTERVAL / 2);
-    const results = await contextAllSettled(ApiChains, chain =>
+    const results = await contextAllSettled(SupportedChains, chain =>
       withTimeout(updateChainVaults(chain), timeout)
     );
     const fulfilled = results.filter(isContextResultFulfilled);

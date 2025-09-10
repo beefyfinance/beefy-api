@@ -6,6 +6,10 @@ export type ApiChain = keyof typeof ChainId;
 export type AppChain = Exclude<ApiChain, 'one'> | 'harmony';
 export type AnyChain = AppChain | ApiChain;
 
+const DEPRECATED_CHAINS = ['heco', 'real', 'one'] as const;
+
+export type SupportedApiChain = Exclude<ApiChain, (typeof DEPRECATED_CHAINS)[number]>;
+
 const appChainToApiChain: Partial<Record<AppChain, ApiChain>> = {
   harmony: 'one',
 } as const;
@@ -13,6 +17,9 @@ const apiChainToAppChain: Partial<Record<ApiChain, AppChain>> = invert(appChainT
 
 export const ApiChains: ApiChain[] = Object.keys(addressBook) as ApiChain[];
 export const AppChains: AppChain[] = ApiChains.map(toAppChain);
+export const SupportedChains: ApiChain[] = Object.entries(addressBook)
+  .filter(([key]) => !DEPRECATED_CHAINS.includes(key as any))
+  .map(([key]) => key as ApiChain);
 
 export function toAppChain(chain: AnyChain): AppChain {
   if (isAppChain(chain)) {

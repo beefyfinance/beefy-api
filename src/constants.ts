@@ -1,5 +1,5 @@
 import { ChainId } from '../packages/address-book/src/address-book';
-import { ApiChain, fromChainId, toChainId } from './utils/chain';
+import { ApiChain, SupportedApiChain, fromChainId, toChainId } from './utils/chain';
 import { mapValues, shuffle, uniq } from 'lodash';
 import { getChainRpcs } from './api/rpc/rpcs';
 
@@ -12,7 +12,7 @@ const DAILY_HPY = 365;
 const ETH_HPY = DAILY_HPY / 3;
 const WEEKLY_HPY = 52;
 
-type ApiChainToRpcs = Readonly<Record<ApiChain, ReadonlyArray<string>>>;
+type ApiChainToRpcs = Readonly<Record<SupportedApiChain, ReadonlyArray<string>>>;
 
 // FIXME we should only have one list of rpcs
 const DEFAULT_RPCS: ApiChainToRpcs = {
@@ -31,11 +31,9 @@ const DEFAULT_RPCS: ApiChainToRpcs = {
     'https://bsc-dataseed3.bnbchain.org',
     'https://bsc-dataseed4.bnbchain.org',
   ],
-  heco: ['https://128.rpc.thirdweb.com/'],
   avax: ['https://rpc.ankr.com/avalanche'],
   polygon: ['https://polygon-rpc.com/'],
   fantom: ['https://fantom-mainnet.public.blastapi.io'],
-  one: ['https://api.harmony.one/'],
   arbitrum: ['https://arbitrum.public.blockpi.network/v1/rpc/public'],
   celo: ['https://forno.celo.org'],
   moonriver: ['https://rpc.api.moonriver.moonbeam.network'],
@@ -58,7 +56,6 @@ const DEFAULT_RPCS: ApiChainToRpcs = {
   fraxtal: ['https://rpc.frax.com'],
   mode: ['https://mode.drpc.org'],
   manta: ['https://1rpc.io/manta'],
-  real: ['https://rpc.realforreal.gelato.digital'],
   sei: ['https://evm-rpc.sei-apis.com'],
   rootstock: ['https://rootstock-mainnet.public.blastapi.io'],
   scroll: ['https://rpc.scroll.io'],
@@ -121,11 +118,9 @@ const RPC_BY_ENV_KEY = Object.entries(RPCS_BY_CHAIN).reduce(
 
 /// Chain IDs
 const BSC_CHAIN_ID = ChainId.bsc;
-const HECO_CHAIN_ID = ChainId.heco;
 const POLYGON_CHAIN_ID = ChainId.polygon;
 const AVAX_CHAIN_ID = ChainId.avax;
 const FANTOM_CHAIN_ID = ChainId.fantom;
-const ONE_CHAIN_ID = ChainId.one;
 const ARBITRUM_CHAIN_ID = ChainId.arbitrum;
 const CELO_CHAIN_ID = ChainId.celo;
 const MOONRIVER_CHAIN_ID = ChainId.moonriver;
@@ -148,7 +143,6 @@ const MANTLE_CHAIN_ID = ChainId.mantle;
 const FRAXTAL_CHAIN_ID = ChainId.fraxtal;
 const MODE_CHAIN_ID = ChainId.mode;
 const MANTA_CHAIN_ID = ChainId.manta;
-const REAL_CHAIN_ID = ChainId.real;
 const SEI_CHAIN_ID = ChainId.sei;
 const ROOTSTOCK_CHAIN_ID = ChainId.rootstock;
 const SCROLL_CHAIN_ID = ChainId.scroll;
@@ -315,11 +309,9 @@ export function getRpcsForChain(chain: ApiChain | ChainId): readonly string[] {
 // @dev legacy, use getRpcsForChain instead
 export const {
   BSC_RPC,
-  HECO_RPC,
   AVAX_RPC,
   POLYGON_RPC,
   FANTOM_RPC,
-  ONE_RPC,
   ARBITRUM_RPC,
   CELO_RPC,
   MOONRIVER_RPC,
@@ -342,7 +334,6 @@ export const {
   FRAXTAL_RPC,
   MODE_RPC,
   MANTA_RPC,
-  REAL_RPC,
   SEI_RPC,
   ROOTSTOCK_RPC,
   SCROLL_RPC,
@@ -358,7 +349,6 @@ export {
   API_BASE_URL,
   BSC_CHAIN_ID,
   BSC_VAULTS_ENDPOINT,
-  HECO_CHAIN_ID,
   HECO_VAULTS_ENDPOINT,
   AVAX_CHAIN_ID,
   AVAX_VAULTS_ENDPOINT,
@@ -366,7 +356,6 @@ export {
   POLYGON_VAULTS_ENDPOINT,
   FANTOM_CHAIN_ID,
   FANTOM_VAULTS_ENDPOINT,
-  ONE_CHAIN_ID,
   ONE_VAULTS_ENDPOINT,
   ARBITRUM_CHAIN_ID,
   ARBITRUM_VAULTS_ENDPOINT,
@@ -412,7 +401,6 @@ export {
   MODE_VAULTS_ENDPOINT,
   MANTA_CHAIN_ID,
   MANTA_VAULTS_ENDPOINT,
-  REAL_CHAIN_ID,
   REAL_VAULTS_ENDPOINT,
   SEI_CHAIN_ID,
   SEI_VAULTS_ENDPOINT,

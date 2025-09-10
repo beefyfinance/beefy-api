@@ -7,7 +7,7 @@ import { LpPool, SingleAssetPool } from '../../../types/LpPool';
 import { fetchContract } from '../../rpc/client';
 
 // trading apr
-import { ONE_CHAIN_ID, SUSHI_LPF } from '../../../constants';
+import { SUSHI_LPF } from '../../../constants';
 import {
   getTradingFeeAprSushi,
   getTradingFeeApr,
@@ -56,10 +56,7 @@ interface MiniChefApyParams {
 export const getMiniChefApys = async (params: MiniChefApyParams) => {
   const { pools } = params;
 
-  const [{ tradingAprs, fee }, farmApys] = await Promise.all([
-    getTradingAprs(params),
-    getFarmApys(params),
-  ]);
+  const [{ tradingAprs, fee }, farmApys] = await Promise.all([getTradingAprs(params), getFarmApys(params)]);
 
   return getApyBreakdown(pools, tradingAprs, farmApys, fee);
 };
@@ -101,11 +98,7 @@ const getFarmApys = async (params: MiniChefApyParams) => {
   const apys = [];
 
   // minichef
-  const minichefContract = fetchContract(
-    minichefConfig.minichef,
-    minichefConfig.minichefAbi,
-    chainId
-  );
+  const minichefContract = fetchContract(minichefConfig.minichef, minichefConfig.minichefAbi, chainId);
   const miniChefTokenPerSecondCall = minichefContract.read[
     minichefConfig.tokenPerSecondContractMethodName
   ]() as Promise<BigInt>;
@@ -157,20 +150,14 @@ const getFarmApys = async (params: MiniChefApyParams) => {
     const miniChefPoolBlockRewards = miniChefTokenPerSecond
       .times(allocPoints[i])
       .dividedBy(miniChefTotalAllocPoint);
-    const miniChefYearlyRewards = miniChefPoolBlockRewards
-      .dividedBy(secondsPerBlock)
-      .times(secondsPerYear);
-    const miniChefYearlyRewardsInUsd = miniChefYearlyRewards
-      .times(miniChefTokenPrice)
-      .dividedBy(DECIMALS);
+    const miniChefYearlyRewards = miniChefPoolBlockRewards.dividedBy(secondsPerBlock).times(secondsPerYear);
+    const miniChefYearlyRewardsInUsd = miniChefYearlyRewards.times(miniChefTokenPrice).dividedBy(DECIMALS);
     totalYearlyRewardsInUsd = totalYearlyRewardsInUsd.plus(miniChefYearlyRewardsInUsd);
 
     // Rewarder rewards, if rewarder is set
     if (rewarderConfig) {
       const allocPoint = rewardAllocPoints[i];
-      const nativeRewards = rewarderTokenPerSecond
-        .times(allocPoint)
-        .dividedBy(rewarderTotalAllocPoint);
+      const nativeRewards = rewarderTokenPerSecond.times(allocPoint).dividedBy(rewarderTotalAllocPoint);
       const yearlyNativeRewards = nativeRewards.dividedBy(secondsPerBlock).times(secondsPerYear);
       const nativeRewardsInUsd = yearlyNativeRewards.times(rewarderTokenPrice).dividedBy(DECIMALS);
       totalYearlyRewardsInUsd = totalYearlyRewardsInUsd.plus(nativeRewardsInUsd);
@@ -194,12 +181,7 @@ const getFarmApys = async (params: MiniChefApyParams) => {
 
     const apy = totalYearlyRewardsInUsd.dividedBy(totalStakedInUsd);
     if (params.log) {
-      console.log(
-        pool.name,
-        apy.toNumber(),
-        totalStakedInUsd.valueOf(),
-        totalYearlyRewardsInUsd.valueOf()
-      );
+      console.log(pool.name, apy.toNumber(), totalStakedInUsd.valueOf(), totalYearlyRewardsInUsd.valueOf());
     }
     apys.push(apy);
   }
@@ -211,11 +193,7 @@ const getRewarderData = async (params: MiniChefApyParams) => {
   const { rewarderConfig, chainId } = params;
 
   if (rewarderConfig) {
-    const rewarderContract = fetchContract(
-      rewarderConfig.rewarder,
-      SushiComplexRewarderTime,
-      chainId
-    );
+    const rewarderContract = fetchContract(rewarderConfig.rewarder, SushiComplexRewarderTime, chainId);
     const calls: Promise<bigint | number>[] = [rewarderContract.read.rewardPerSecond()];
     if (rewarderConfig.rewarderTotalAllocPoint == undefined) {
       calls.push(rewarderContract.read.totalAllocPoint());
@@ -240,11 +218,7 @@ const getRewarderData = async (params: MiniChefApyParams) => {
 const getPoolsData = async (params: MiniChefApyParams) => {
   const { pools, minichefConfig, rewarderConfig, chainId } = params;
 
-  const minichefContract = fetchContract(
-    minichefConfig.minichef,
-    minichefConfig.minichefAbi,
-    chainId
-  );
+  const minichefContract = fetchContract(minichefConfig.minichef, minichefConfig.minichefAbi, chainId);
 
   // rewarder, if rewarder is set
   let rewarderContract = rewarderConfig
@@ -296,12 +270,8 @@ const getPoolsData = async (params: MiniChefApyParams) => {
   const rewardAllocPoints = rewarderConfig
     ? rewardAllocPointResults.map(v => new BigNumber(v['2'].toString()))
     : {};
-  const extraRewardsTotalAllocPoints = extraRewardsAllocResults.map(
-    v => new BigNumber(v.toString())
-  );
-  const extraRewardsAllocPoints = extraRewardPoolInfoResults.map(
-    v => new BigNumber(v['2'].toString())
-  );
+  const extraRewardsTotalAllocPoints = extraRewardsAllocResults.map(v => new BigNumber(v.toString()));
+  const extraRewardsAllocPoints = extraRewardPoolInfoResults.map(v => new BigNumber(v['2'].toString()));
   const extraRewardsRewardsPerSecond = extraRewardRewardsPerSecondResults.map(
     v => new BigNumber(v.toString())
   );

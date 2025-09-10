@@ -1,6 +1,6 @@
 import { serviceEventBus } from '../../../utils/ServiceEventBus';
-import { ApiChain, ApiChains } from '../../../utils/chain';
-import { groupBy, mapKeys, mapValues, partition } from 'lodash';
+import { ApiChain, SupportedChains } from '../../../utils/chain';
+import { groupBy, mapValues, partition } from 'lodash';
 import { isResultFulfilled } from '../../../utils/promise';
 import { sleep } from '../../../utils/time';
 import { ProviderSupportByChainByAddress } from './types';
@@ -37,9 +37,7 @@ async function updateChainProvider(apiChain: ApiChain, providerId: ProviderId) {
 
   if (LOG_PER_CHAIN_PROVIDER) {
     console.log(
-      `> [Zap] Swap service update completed for ${apiChain} ${providerId} in ${
-        (Date.now() - start) / 1000
-      }s`
+      `> [Zap] Swap service update completed for ${apiChain} ${providerId} in ${(Date.now() - start) / 1000}s`
     );
   }
 }
@@ -49,7 +47,7 @@ async function performUpdate() {
   try {
     const start = Date.now();
 
-    const updates = ApiChains.reduce((acc, apiChain) => {
+    const updates = SupportedChains.reduce((acc, apiChain) => {
       const providers = getProvidersForChain(apiChain);
       providers.forEach(providerId => acc.push({ apiChain, providerId }));
       return acc;
