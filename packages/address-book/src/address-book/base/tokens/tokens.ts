@@ -2859,4 +2859,18 @@ export const tokens = {
     documentation: 'https://mamo.gitbook.io/mamo',
     bridge: 'native',
   },
+  AVNT: {
+    name: 'Avantis',
+    symbol: 'AVNT',
+    oracleId: 'AVNT',
+    address: '0x696F9436B67233384889472Cd7cD58A6fB5DF4f1',
+    chainId: 8453,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://www.avantisfi.com/',
+    description: 'Trade crypto, forex, metals, commodities, indices, straight from your wallet.',
+    documentation: 'https://docs.avantisfi.com/',
+    bridge: 'native',
+    risks: ['NO_TIMELOCK'],
+  },
 } as const satisfies Record<string, Token>;

@@ -726,6 +726,14 @@ const tokens: Partial<Record<keyof typeof ChainId, ConcentratedLiquidityToken[]>
       firstToken: 'USDC',
       secondToken: 'MAMO',
     },
+    {
+      type: 'Slipstream',
+      oracleId: 'AVNT',
+      decimalDelta: 1e12,
+      pool: '0xe30d5BF485F7476AC15884a28ffb3C9cEA635DCB',
+      firstToken: 'USDC',
+      secondToken: 'AVNT',
+    },
   ],
   zksync: [
     {

@@ -1,5 +1,29 @@
 [
   {
+    "address": "0xDb2b928AAAc60B83165E130B73a41c5014b01815",
+    "lpAddress": "0x04f0C5d0e2fc9329F08E0112a37d7D9B7CfF1043",
+    "tokens": ["0x4200000000000000000000000000000000000006", "0x696F9436B67233384889472Cd7cD58A6fB5DF4f1"],
+    "tokenOracleIds": ["WETH", "AVNT"],
+    "decimals": [18, 18],
+    "oracleId": "uniswap-cow-base-weth-avnt",
+    "rewardPool": {
+      "address": "0x63b7a7f1522A5C6682a289b4DE7924e82b37DB44",
+      "oracleId": "uniswap-cow-base-weth-avnt-rp"
+    }
+  },
+  {
+    "address": "0xBf7B9a9B9Bb8e3B421c9f637543eA972f7e934cB",
+    "lpAddress": "0x9144A6e8ad6f56db96daC444eB173831660Ba3e5",
+    "tokens": ["0x696F9436B67233384889472Cd7cD58A6fB5DF4f1", "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913"],
+    "tokenOracleIds": ["AVNT", "USDC"],
+    "decimals": [18, 6],
+    "oracleId": "uniswap-cow-base-avnt-usdc",
+    "rewardPool": {
+      "address": "0x906c791e57C6D72d8539617853cA7876D3af314C",
+      "oracleId": "uniswap-cow-base-avnt-usdc-rp"
+    }
+  },
+  {
     "address": "0x7AFED8e73eF4D3dE91A06c33B5159B7a373bC6C5",
     "lpAddress": "0x678F431DA2aBb9B5726bbf5CCDbaEEBB60dA9813",
     "tokens": ["0x7300B37DfdfAb110d83290A29DfB31B1740219fE", "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913"],
