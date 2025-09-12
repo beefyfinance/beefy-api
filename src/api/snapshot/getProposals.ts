@@ -156,11 +156,15 @@ export async function initProposalsService() {
   [cachedSpaces, cachedProposals] = await Promise.all([getCachedSpaces(), getCachedProposals()]);
 
   setTimeout(() => {
-    retryPromiseWithBackOff(updateIfNeeded, undefined, 'initProposalsService');
+    retryPromiseWithBackOff(updateIfNeeded, undefined, 'initProposalsService', 3).catch(err => {
+      console.error(`[Snapshot] failed to init`, err);
+    });
   }, INIT_DELAY);
 
   setInterval(() => {
-    updateIfNeeded().catch(err => console.error(err));
+    updateIfNeeded().catch(err => {
+      console.error(`[Snapshot] failed to update`, err);
+    });
   }, MAX_PROPOSAL_AGE_MINS * 60 * 1000 + 1000);
 }
 
