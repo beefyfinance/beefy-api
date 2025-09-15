@@ -1,5 +1,5 @@
 import { getKey, setKey } from '../../utils/cache';
-import { ArticleInterface, ArticlesResponse } from './types';
+import { ArticleInterface } from './types';
 
 const REDIS_KEY = 'ARTICLES';
 
@@ -13,19 +13,20 @@ export const getAllArticles = () => articles;
 export const getLastArticle = () => articles[0];
 
 export const updateArticles = async () => {
-  console.log('> updating articles');
-  const start = Date.now();
   try {
+    console.log('> [News] updating articles');
+    const start = Date.now();
     articles = await fetch('https://beefy.com/api/articles.json')
       .then(res => res.json())
       .then((res: ArticleInterface[]) => Object.values(res));
 
-    saveToRedis();
-    console.log(`> updated articles (${(Date.now() - start) / 1000}s)`);
+    await saveToRedis();
+    console.log(`> [News] updated articles (${(Date.now() - start) / 1000}s)`);
   } catch (err) {
-    console.error(err);
+    console.error('[News] update failed', err);
+  } finally {
+    setTimeout(updateArticles, REFRESH_INTERVAL);
   }
-  setTimeout(updateArticles, REFRESH_INTERVAL);
 };
 
 async function loadFromRedis() {
@@ -41,6 +42,6 @@ async function saveToRedis() {
 }
 
 export async function initArticlesService() {
-  await loadFromRedis();
+  loadFromRedis().catch(err => console.error('[News] Failed to load from cache', err));
   setTimeout(updateArticles, INIT_DELAY);
 }
