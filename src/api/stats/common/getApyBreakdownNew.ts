@@ -22,6 +22,7 @@ const nonCompoundableComponents = [
   'stellaSwap',
   'rewardPool',
   'rewardPoolTrading', // CLM fees sent to reward pool e.g. VELO, RAM etc
+  'lineaIgnition',
 ] as const;
 
 /** special component */
@@ -92,10 +93,7 @@ export interface ApyBreakdownResult {
 export function getApyBreakdownOnly(request: ApyBreakdownRequest): ApyBreakdown {
   const compoundingsPerYear = toNumber(request.compoundingsPerYear, BASE_HPY);
   const lpFee = toNumber(request.providerFee);
-  const beefyPerformanceFee = toNumber(
-    request.beefyFee,
-    getTotalPerformanceFeeForVault(request.vaultId)
-  );
+  const beefyPerformanceFee = toNumber(request.beefyFee, getTotalPerformanceFeeForVault(request.vaultId));
   const shareAfterBeefyPerformanceFee = 1 - beefyPerformanceFee;
   const breakdown: ApyBreakdown = {
     compoundingsPerYear,
@@ -143,9 +141,7 @@ export function getApyBreakdownOnly(request: ApyBreakdownRequest): ApyBreakdown 
 /**
  * Total APY = (((1 + Compounded APY) * (1 + Special APR)) - 1) + Non-Compoundable APR.
  */
-export function getApyBreakdown(
-  requests: ApyBreakdownRequest | ApyBreakdownRequest[]
-): ApyBreakdownResult {
+export function getApyBreakdown(requests: ApyBreakdownRequest | ApyBreakdownRequest[]): ApyBreakdownResult {
   const result: ApyBreakdownResult = {
     apys: {},
     apyBreakdowns: {},
