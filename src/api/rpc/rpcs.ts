@@ -166,12 +166,7 @@ const rpcs: Record<ChainId, string[]> = {
     'https://kava-evm.publicnode.com',
     'https://kava-pokt.nodies.app',
   ],
-  [ChainId.canto]: [
-    'https://canto.gravitychain.io',
-    'https://jsonrpc.canto.nodestake.top',
-    'https://canto.slingshot.finance',
-    'https://mainnode.plexnode.org:8545',
-  ],
+  [ChainId.canto]: ['https://canto-rpc.ansybl.io'],
   [ChainId.zksync]: [
     'https://mainnet.era.zksync.io',
     'https://zksync.drpc.org',

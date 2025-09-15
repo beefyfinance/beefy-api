@@ -8,6 +8,7 @@ import { HarvestableVault } from './types';
 import { getHarvestableVaultsByChain } from '../stats/getMultichainVaults';
 import { isDefined } from '../../utils/array';
 import { Address, BaseError } from 'viem';
+import { chunk } from 'lodash';
 
 const feeBatchTreasurySplitMethodABI = [
   {
@@ -48,16 +49,16 @@ interface FeeBatchDetail {
 }
 
 interface PerformanceFeeCallResponse {
-  total: BigNumber;
-  beefy: BigNumber;
-  strategist: BigNumber;
-  call: BigNumber;
+  total: number;
+  beefy: number;
+  strategist: number;
+  call: number;
 }
 
 interface AllFeesCallResponse {
   performance: PerformanceFeeCallResponse;
-  withdraw: BigNumber;
-  deposit: BigNumber;
+  withdraw: number;
+  deposit: number;
 }
 
 type StrategyCallResponse = {
@@ -98,17 +99,16 @@ const updateVaultFees = async () => {
   const start = Date.now();
 
   const expiredBefore = start - CACHE_EXPIRY;
-  const promises = SupportedChains.map(chain => {
+  for (const chain of SupportedChains) {
     const chainVaults = getHarvestableVaultsByChain(chain).filter(
       v => (vaultFees[v.id]?.lastUpdated || 0) < expiredBefore
     );
     if (chainVaults.length > 0) {
       // Use ethereum feeBatch for all chains (only place where revenue is split)
-      return getChainFees(chainVaults, ChainId[chain], feeBatches[ChainId.ethereum]);
+      await getChainFees(chainVaults, ChainId[chain], feeBatches[ChainId.ethereum]);
     }
-  }).filter(isDefined);
+  }
 
-  await Promise.allSettled(promises);
   await saveToRedis();
 
   console.log(`> updated vault fees (${(Date.now() - start) / 1000}s)`);
@@ -139,7 +139,7 @@ type FeeAbiContractMethodsOfType<T> = {
 function makeBigIntToNumberHandler(methodName: FeeAbiContractMethodsOfType<bigint>) {
   return async (contract: FeeAbiContract) => {
     const value = await contract.read[methodName]();
-    return new BigNumber(value.toString(10)).toNumber();
+    return Number(value);
   };
 }
 
@@ -168,23 +168,23 @@ const callHandlers = {
   breakdown: async (contract: FeeAbiContract) => {
     const value = await contract.read.getFees();
     return {
-      total: new BigNumber(value.total.toString()),
-      beefy: new BigNumber(value.beefy.toString()),
-      call: new BigNumber(value.call.toString()),
-      strategist: new BigNumber(value.strategist.toString()),
+      total: Number(value.total / BigInt(1e19)) / 1e9, // convert to number to avoid bignumber usage (memory)
+      beefy: Number(value.beefy / BigInt(1e19)) / 1e9,
+      call: Number(value.call / BigInt(1e19)) / 1e9,
+      strategist: Number(value.strategist / BigInt(1e19)) / 1e9,
     } satisfies PerformanceFeeCallResponse;
   },
   allFees: async (contract: FeeAbiContract) => {
     const value = await contract.read.getAllFees();
     return {
       performance: {
-        total: new BigNumber(value.beefy.total.toString()),
-        beefy: new BigNumber(value.beefy.beefy.toString()),
-        call: new BigNumber(value.beefy.call.toString()),
-        strategist: new BigNumber(value.beefy.strategist.toString()),
+        total: Number(value.beefy.total / BigInt(1e19)) / 1e9,
+        beefy: Number(value.beefy.beefy / BigInt(1e19)) / 1e9,
+        call: Number(value.beefy.call / BigInt(1e19)) / 1e9,
+        strategist: Number(value.beefy.strategist / BigInt(1e19)) / 1e9,
       },
-      deposit: new BigNumber(value.deposit.toString()),
-      withdraw: new BigNumber(value.withdraw.toString()),
+      deposit: Number(value),
+      withdraw: Number(value),
     } satisfies AllFeesCallResponse;
   },
   paused: async (contract: FeeAbiContract) => await contract.read.paused(),
@@ -197,41 +197,48 @@ type CallResponseMap = {
 // I'm so sorry for whoever comes across this file, it was a nightmare to get working, blame the strategists, ily
 const getChainFees = async (vaults: HarvestableVault[], chainId: number, feeBatch: FeeBatchDetail) => {
   try {
-    const calls = vaults.map(async vault => {
-      const contract = fetchContract(vault.strategy, FeeABI, chainId);
-      const results = Object.fromEntries(
-        (
-          await Promise.all(
-            Object.entries(callHandlers).map(async ([key, handler]) => [
-              key,
-              await undefinedIfReverts(handler(contract)),
-            ])
-          )
-        ).filter((_, value) => value !== undefined)
-      ) as CallResponseMap;
-      return {
-        id: vault.id,
-        strategy: vault.strategy as Address,
-        ...results,
-      } satisfies StrategyCallResponse;
-    });
-    const results = await Promise.allSettled(calls);
-    const failed = results.filter(res => res.status === 'rejected');
+    const batchSize = 128;
+    const vaultSlices = chunk(vaults, batchSize);
 
-    results.forEach((res, index) => {
-      if (res.status === 'fulfilled') {
-        const callResponse: StrategyCallResponse = res.value;
-        const fees = mapStrategyCallsToFeeBreakdown(callResponse, feeBatch);
-        if (fees) {
-          vaultFees[vaults[index].id] = fees;
-        } else {
-          console.warn(`> Failed to get fees for ` + vaults[index].id);
+    let failed = 0;
+    for (const batch of vaultSlices) {
+      const calls = batch.map(async vault => {
+        const contract = fetchContract(vault.strategy, FeeABI, chainId);
+        const results = Object.fromEntries(
+          (
+            await Promise.all(
+              Object.entries(callHandlers).map(async ([key, handler]) => [
+                key,
+                await undefinedIfReverts(handler(contract)),
+              ])
+            )
+          ).filter((_, value) => value !== undefined)
+        ) as CallResponseMap;
+        return {
+          id: vault.id,
+          strategy: vault.strategy as Address,
+          ...results,
+        } satisfies StrategyCallResponse;
+      });
+
+      const results = await Promise.allSettled(calls);
+      failed += results.filter(res => res.status === 'rejected').length;
+
+      results.forEach((res, index) => {
+        if (res.status === 'fulfilled') {
+          const callResponse: StrategyCallResponse = res.value;
+          const fees = mapStrategyCallsToFeeBreakdown(callResponse, feeBatch);
+          if (fees) {
+            vaultFees[vaults[index].id] = fees;
+          } else {
+            console.warn(`> Failed to get fees for ` + vaults[index].id);
+          }
         }
-      }
-    });
+      });
+    }
 
-    if (failed.length > 0) {
-      console.log(`> feeUpdate failed on chain ${chainId} for ${failed.length} vaults}`);
+    if (failed > 0) {
+      console.log(`> feeUpdate failed on chain ${chainId} for ${failed} vaults`);
     }
   } catch (err) {
     console.log('> feeUpdate error on chain ' + chainId);
@@ -267,14 +274,14 @@ const mapStrategyCallsToFeeBreakdown = (
 
 const depositFeeFromCalls = (contractCalls: StrategyCallResponse): number => {
   if (contractCalls.allFees) {
-    return contractCalls.allFees.deposit.toNumber() / 10000;
+    return Number(contractCalls.allFees.deposit) / 10000;
   }
   return null; // null and not 0 so that we can avoid adding this into the response for old strategies (fees hardcoded in vault files)
 };
 
 const withdrawalFeeFromCalls = (contractCalls: StrategyCallResponse): number => {
   if (contractCalls.allFees) {
-    return contractCalls.allFees.withdraw.toNumber() / 10000;
+    return contractCalls.allFees.withdraw / 10000;
   } else if (
     (contractCalls.withdraw === undefined && contractCalls.withdraw2 === undefined) ||
     (contractCalls.withdrawMax === undefined && contractCalls.withdrawMax2 === undefined) ||
@@ -399,10 +406,10 @@ const performanceFromGetFees = (
   fees: PerformanceFeeCallResponse,
   feeBatch: FeeBatchDetail
 ): PerformanceFee => {
-  let total = fees.total.div(1e9).toNumber() / 1e9;
-  let beefy = fees.beefy.div(1e9).toNumber() / 1e9;
-  let call = fees.call.div(1e9).toNumber() / 1e9;
-  let strategist = fees.strategist.div(1e9).toNumber() / 1e9;
+  let total = fees.total;
+  let beefy = fees.beefy;
+  let call = fees.call;
+  let strategist = fees.strategist;
 
   const feeSum = beefy + call + strategist;
   const beefySplit = (total * beefy) / feeSum;
@@ -514,7 +521,7 @@ export const initVaultFeeService = async () => {
 
   setTimeout(async () => {
     await updateFeeBatch();
-    updateVaultFees();
+    await updateVaultFees();
   }, INIT_DELAY);
 };
 

@@ -62,7 +62,7 @@ const DEFAULT_RPCS: ApiChainToRpcs = {
   lisk: ['https://rpc.api.lisk.com'],
   sonic: ['https://rpc.soniclabs.com'],
   berachain: ['https://rpc.berachain.com'],
-  unichain: ['https://mainnet.unichain.org'],
+  // unichain: ['https://mainnet.unichain.org'],
   saga: ['https://sagaevm.jsonrpc.sagarpc.io'],
   hyperevm: ['https://rpc.hyperliquid.xyz/evm'],
 } as const;
