@@ -1,6 +1,8 @@
 import { sleep } from './time';
 import { ABORT_REASON_TIMEOUT } from './http/helpers';
 import { chunk } from 'lodash';
+import NodeCache from 'node-cache';
+import AsyncLock from 'async-lock';
 
 export type DeferredPromise<T> = Promise<T> & {
   resolve: (value: T) => void;
@@ -118,44 +120,6 @@ export function getTimeoutAbortSignal(timeout: number): AbortSignal {
   return controller.signal;
 }
 
-export class AsyncLock {
-  private resolveFn: () => void;
-  private lockPromise: Promise<void>;
-
-  constructor() {
-    this.resolveFn = () => {};
-    this.lockPromise = Promise.resolve();
-  }
-
-  private async lock() {
-    await this.lockPromise;
-    this.lockPromise = new Promise(resolve => (this.resolveFn = resolve));
-  }
-
-  private unlock() {
-    this.resolveFn();
-  }
-
-  async acquire<T>(callback: () => Promise<T>): Promise<T> {
-    await this.lock();
-    try {
-      return await callback();
-    } finally {
-      this.unlock();
-    }
-  }
-
-  static acquireAll<T>(locks: AsyncLock[], callback: () => Promise<T>): Promise<T> {
-    if (locks.length === 0) {
-      return callback();
-    }
-    if (locks.length === 1) {
-      return locks[0].acquire(callback);
-    }
-    return locks[0].acquire(() => AsyncLock.acquireAll(locks.slice(1), callback));
-  }
-}
-
 type BatchMapParams<T, R> = {
   items: T[];
   batchSize: number;
@@ -194,4 +158,57 @@ export async function batchMapRetry<T, R>({
       reason: results.reason,
     }));
   });
+}
+
+type AsyncCacheOptions = {
+  ttl: number; // time to live in seconds
+  checkPeriod?: number; // time in seconds to check for expired keys, defaults to ttl * 3
+};
+
+/** in-memory ttl cache with async locking by key */
+export class AsyncCache {
+  private readonly cache: NodeCache;
+  private readonly lock: AsyncLock;
+
+  constructor({ ttl, checkPeriod = ttl * 3 }: AsyncCacheOptions) {
+    this.cache = new NodeCache({
+      stdTTL: ttl,
+      checkperiod: checkPeriod,
+      useClones: false,
+      deleteOnExpire: true,
+    });
+    this.lock = new AsyncLock();
+  }
+
+  async get<TKey extends string, TValue>(key: TKey, fetchFn: () => Promise<TValue>): Promise<TValue> {
+    return this.lock.acquire(key, async () => {
+      const cached = this.cache.get<TValue>(key);
+      if (cached !== undefined) {
+        return cached;
+      }
+      const value = await fetchFn();
+      this.cache.set(key, value);
+      return value;
+    });
+  }
+
+  static wrap<TKey extends string, TValue>(
+    fn: (key: TKey) => Promise<TValue>,
+    options: AsyncCacheOptions
+  ): (key: TKey) => Promise<TValue> {
+    const asyncCache = new AsyncCache(options);
+    return (key: TKey) => asyncCache.get(key, () => fn(key));
+  }
+
+  static wrapWithKeyBuilder<TValue, TArgs extends any[]>(
+    fetchFn: (...args: TArgs) => Promise<TValue>,
+    keyFn: (...args: TArgs) => string,
+    options: AsyncCacheOptions
+  ): (...args: TArgs) => Promise<TValue> {
+    const asyncCache = new AsyncCache(options);
+    return (...args: TArgs) => {
+      const key = keyFn(...args);
+      return asyncCache.get<string, TValue>(key, () => fetchFn(...args));
+    };
+  }
 }

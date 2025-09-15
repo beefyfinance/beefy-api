@@ -17,10 +17,11 @@ import { getCampaignsForChain } from '../../offchain-rewards';
 import { Campaign } from '../../offchain-rewards/types';
 import { OptionalRecord } from '../../../utils/object';
 import { envBoolean } from '../../../utils/env';
+import { getIgnitionAprs, IgnitionAprs } from '../linea/getIgnitionAprs';
 
 type OffchainVaultApr = {
   total: number;
-  byProvider: OptionalRecord<Campaign['providerId'], number>;
+  byProvider: OptionalRecord<Campaign['providerId'] | 'lineaIgnition', number>;
 };
 
 type RewardPoolApr = {
@@ -42,7 +43,7 @@ export const getCowApys = async (apiChain: ApiChain) => {
     } else return {};
   }
 
-  const offchainCampaignsByVault = await getOffchainCampaignsByVault(apiChain);
+  const offchainCampaignsByVault = await getOffchainCampaignsByVault(apiChain, clms);
   const chainId = toChainId(apiChain);
   const [clmBreakdownsResult, rewardPoolAprsResult] = await Promise.allSettled([
     getCowClmApyBreakdown(clms, offchainCampaignsByVault),
@@ -93,22 +94,51 @@ export const getCowApys = async (apiChain: ApiChain) => {
   };
 };
 
-async function getOffchainCampaignsByVault(apiChain: ApiChain): Promise<Record<string, OffchainVaultApr>> {
-  const campaigns = await getCampaignsForChain(apiChain);
-  if (!campaigns) {
-    return {};
+async function getOffchainCampaignsByVault(
+  apiChain: ApiChain,
+  clms: AnyCowClmMeta[]
+): Promise<Record<string, OffchainVaultApr>> {
+  const [campaigns, lineaIgnition] = await Promise.all([
+    getCampaignsForChain(apiChain),
+    apiChain === 'linea' ? getIgnitionAprs('Etherex') : Promise.resolve({} as IgnitionAprs),
+  ]);
+  const byVaultId: Record<string, OffchainVaultApr> = {};
+
+  if (campaigns) {
+    for (const campaign of campaigns) {
+      if (campaign.active) {
+        for (const vault of campaign.vaults) {
+          if (vault.apr > 0) {
+            byVaultId[vault.id] ??= { total: 0, byProvider: {} };
+            byVaultId[vault.id].byProvider[campaign.providerId] ??= 0;
+
+            byVaultId[vault.id].total += vault.apr;
+            byVaultId[vault.id].byProvider[campaign.providerId] += vault.apr;
+          }
+        }
+      }
+    }
   }
 
-  const byVaultId: Record<string, OffchainVaultApr> = {};
-  for (const campaign of campaigns) {
-    if (campaign.active) {
-      for (const vault of campaign.vaults) {
-        if (vault.apr > 0) {
-          byVaultId[vault.id] ??= { total: 0, byProvider: {} };
-          byVaultId[vault.id].byProvider[campaign.providerId] ??= 0;
+  if (apiChain === 'linea') {
+    // linea ignition manual claims
+    for (const clm of clms) {
+      const ignitionApr = lineaIgnition[clm.lpAddress];
+      if (ignitionApr && ignitionApr > 0) {
+        const vaultIds = [clm.oracleId];
+        if (isCowClmWithRewardPoolMeta(clm)) {
+          vaultIds.push(clm.rewardPool.oracleId);
+        }
+        if (isCowClmWithVaultMeta(clm)) {
+          vaultIds.push(clm.vault.oracleId);
+        }
 
-          byVaultId[vault.id].total += vault.apr;
-          byVaultId[vault.id].byProvider[campaign.providerId] += vault.apr;
+        for (const vaultId of vaultIds) {
+          byVaultId[vaultId] ??= { total: 0, byProvider: {} };
+          byVaultId[vaultId].byProvider['lineaIgnition'] ??= 0;
+
+          byVaultId[vaultId].total += ignitionApr;
+          byVaultId[vaultId].byProvider['lineaIgnition'] += ignitionApr;
         }
       }
     }
@@ -122,7 +152,7 @@ function getCowVaultApyBreakdown(
   clmBreakdowns: ApyBreakdownResult
 ): ApyBreakdownResult | undefined {
   const inputs = clms
-    .map((clm, index): ApyBreakdownRequest | undefined => {
+    .map((clm): ApyBreakdownRequest | undefined => {
       if (isCowClmWithVaultMeta(clm)) {
         const clmPoolBreakdown = clmBreakdowns.apyBreakdowns[clm.rewardPool.oracleId];
         let merklApr = clmPoolBreakdown?.merklApr || 0;
@@ -136,6 +166,7 @@ function getCowVaultApyBreakdown(
             (clmPoolBreakdown?.rewardPoolTradingApr || 0) +
             merklApr +
             (clmPoolBreakdown?.stellaSwapApr || 0),
+          lineaIgnition: clmPoolBreakdown?.lineaIgnitionApr, // user claims
           compoundingsPerYear: DAILY_HPY,
         };
       }
@@ -167,6 +198,7 @@ function getCowRewardPoolApyBreakdown(
           clm: clmBreakdown?.clmApr || undefined, // after fee from CLM; reward pool fee = 0; so this works
           merkl: offchainAprs?.byProvider.merkl || undefined, // we can't copy from CLM in case it is not forwarded correctly
           stellaSwap: offchainAprs?.byProvider.stellaswap || undefined,
+          lineaIgnition: offchainAprs?.byProvider.lineaIgnition || undefined,
           compoundingsPerYear: DAILY_HPY,
         };
       }
@@ -255,6 +287,7 @@ const getCowClmApyBreakdown = async (
       clm: clm.apr,
       merkl: offchainById[clm.oracleId]?.byProvider.merkl || undefined,
       stellaSwap: offchainById[clm.oracleId]?.byProvider.stellaswap || undefined,
+      lineaIgnition: offchainById[clm.oracleId]?.byProvider.lineaIgnition || undefined,
       compoundingsPerYear: DAILY_HPY,
     }))
   );
