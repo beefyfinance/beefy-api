@@ -9,7 +9,7 @@ import {
 import { StellaSwapProvider } from './providers/stellaswap/StellaSwapProvider';
 import { MerklProvider } from './providers/merkl/MerklProvider';
 import { AppChain } from '../../utils/chain';
-import { AsyncLock } from '../../utils/promise';
+import AsyncLock from 'async-lock';
 import { typedKeys } from '../../utils/object';
 import { getKey, setKey } from '../../utils/cache';
 import { createCachedFactory } from '../../utils/factory';
@@ -27,7 +27,6 @@ type ChainCampaigns<TProvider extends ProviderId = ProviderId> = {
 };
 
 type ByProviderValue<TProvider extends ProviderId = ProviderId> = {
-  readonly lock: AsyncLock;
   readonly providerId: TProvider;
   readonly provider: IOffchainRewardProvider<CampaignByProvider[TProvider]>;
   readonly byChain: {
@@ -55,13 +54,11 @@ const NO_DATA: ChainCampaigns = {
 export class OffchainRewards {
   protected readonly byProvider: ByProvider = {
     stellaswap: {
-      lock: new AsyncLock(),
       providerId: 'stellaswap',
       provider: new StellaSwapProvider(),
       byChain: {},
     },
     merkl: {
-      lock: new AsyncLock(),
       providerId: 'merkl',
       provider: new MerklProvider(),
       byChain: {},
@@ -69,6 +66,7 @@ export class OffchainRewards {
   };
   protected readonly startTime = getUnixNow();
   protected lastSaved: number;
+  protected lock = new AsyncLock();
 
   protected constructor(
     protected readonly vaults: Vault[],
@@ -100,9 +98,9 @@ export class OffchainRewards {
     secondsBetweenUpdates: number,
     cacheKey: string
   ): Promise<OffchainRewards> {
-    const maybeCache = await getKey<
-      { type: string; version: number; data: CachedByProvider } | undefined
-    >(cacheKey);
+    const maybeCache = await getKey<{ type: string; version: number; data: CachedByProvider } | undefined>(
+      cacheKey
+    );
     const cachedValues: CachedByProvider | undefined =
       typeof maybeCache === 'object' &&
       maybeCache !== null &&
@@ -140,9 +138,7 @@ export class OffchainRewards {
     );
 
     return {
-      lastUpdated: perProvider
-        .map(provider => provider.lastUpdated)
-        .reduce((a, b) => Math.max(a, b), 0),
+      lastUpdated: perProvider.map(provider => provider.lastUpdated).reduce((a, b) => Math.max(a, b), 0),
       campaigns: perProvider.flatMap(provider => provider.campaigns),
     };
   }
@@ -174,7 +170,7 @@ export class OffchainRewards {
       return withMeta ? NO_DATA : [];
     }
 
-    const { provider, lock, byChain } = providerEntry;
+    const { provider, byChain } = providerEntry;
     if (!provider.supportsChain(chainId)) {
       return withMeta ? NO_DATA : [];
     }
@@ -183,7 +179,7 @@ export class OffchainRewards {
       return withMeta ? NO_DATA : [];
     }
 
-    return lock.acquire(async () => {
+    return this.lock.acquire(providerId, async () => {
       const requestTime = getUnixNow();
 
       let chain = byChain[chainId];
@@ -208,10 +204,7 @@ export class OffchainRewards {
           chain.lastUpdated = getUnixNow();
           chain.lastChecked = chain.lastUpdated;
         } catch (e) {
-          console.error(
-            `> [Offchain Rewards] Failed to fetch campaigns for ${providerId} on ${chainId}`,
-            e
-          );
+          console.error(`> [Offchain Rewards] Failed to fetch campaigns for ${providerId} on ${chainId}`, e);
           return withMeta ? chain : chain.campaigns;
         }
       }
@@ -231,8 +224,8 @@ export class OffchainRewards {
     if (this.getLatestChange() <= this.lastSaved) {
       return;
     }
-    const locks = Object.values(this.byProvider).map(provider => provider.lock);
-    await AsyncLock.acquireAll(locks, async () => {
+    const providerIds = Object.values(this.byProvider).map(provider => provider.providerId);
+    await this.lock.acquire(providerIds, async () => {
       if (this.getLatestChange() > this.lastSaved) {
         await setKey(this.cacheKey, {
           type: CACHE_TYPE,
