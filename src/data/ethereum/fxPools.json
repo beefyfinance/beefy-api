@@ -1,5 +1,20 @@
 [
   {
+    "name": "fx-reusd-fxusd",
+    "pool": "0xb0ef04ACE97d350E24Efa5139d2590D26a61A8Dc",
+    "gauge": "0x8d9186Fa822624bad50a5cB2545048CB26b4E65E",
+    "tokens": [
+      {
+        "oracleId": "reUSD",
+        "decimals": "1e18"
+      },
+      {
+        "oracleId": "fxUSD",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
     "name": "fx-frax-fxusd",
     "pool": "0x1EE81c56e42EC34039D993d12410d437DdeA341E",
     "gauge": "0x31b630B21065664dDd2dBa0eD3a60D8ff59501F0",
