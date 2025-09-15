@@ -609,7 +609,6 @@ export const blockedTokensByChain: Record<SupportedApiChain, Set<string>> = {
   lisk: new Set([]),
   sonic: new Set([]),
   berachain: new Set([]),
-  unichain: new Set([]),
   saga: new Set([addressBook.saga.tokens.WGAS.address]),
   hyperevm: new Set([]),
 };
