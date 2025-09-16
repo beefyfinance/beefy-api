@@ -168,20 +168,20 @@ const callHandlers = {
   breakdown: async (contract: FeeAbiContract) => {
     const value = await contract.read.getFees();
     return {
-      total: Number(value.total / BigInt(1e19)) / 1e9, // convert to number to avoid bignumber usage (memory)
-      beefy: Number(value.beefy / BigInt(1e19)) / 1e9,
-      call: Number(value.call / BigInt(1e19)) / 1e9,
-      strategist: Number(value.strategist / BigInt(1e19)) / 1e9,
+      total: Number(value.total / BigInt(1e9)) / 1e9, // convert to number to avoid bignumber usage (memory)
+      beefy: Number(value.beefy / BigInt(1e9)) / 1e9,
+      call: Number(value.call / BigInt(1e9)) / 1e9,
+      strategist: Number(value.strategist / BigInt(1e9)) / 1e9,
     } satisfies PerformanceFeeCallResponse;
   },
   allFees: async (contract: FeeAbiContract) => {
     const value = await contract.read.getAllFees();
     return {
       performance: {
-        total: Number(value.beefy.total / BigInt(1e19)) / 1e9,
-        beefy: Number(value.beefy.beefy / BigInt(1e19)) / 1e9,
-        call: Number(value.beefy.call / BigInt(1e19)) / 1e9,
-        strategist: Number(value.beefy.strategist / BigInt(1e19)) / 1e9,
+        total: Number(value.beefy.total / BigInt(1e9)) / 1e9,
+        beefy: Number(value.beefy.beefy / BigInt(1e9)) / 1e9,
+        call: Number(value.beefy.call / BigInt(1e9)) / 1e9,
+        strategist: Number(value.beefy.strategist / BigInt(1e9)) / 1e9,
       },
       deposit: Number(value),
       withdraw: Number(value),
