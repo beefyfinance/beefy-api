@@ -22,7 +22,7 @@ const feeBatchTreasurySplitMethodABI = [
 
 const INIT_DELAY = Number(process.env.FEES_INIT_DELAY || 15000);
 const REFRESH_INTERVAL = 5 * 60 * 1000;
-const CACHE_EXPIRY = 1 * 60 * 60 * 1000;
+const CACHE_EXPIRY = 12 * 60 * 60 * 1000;
 const VAULT_FEES_KEY = 'VAULT_FEES';
 const FEE_BATCH_KEY = 'FEE_BATCHES';
 
