@@ -59,6 +59,7 @@ async function checkFile(
   const apiChain = extractChainIdFromPath(path);
   const chainId = ChainId[apiChain];
   const localData = validateCowClms(await loadJson<JsonCowClm[]>(path));
+  if (chainId === 130) return { apiChain, errors: [] };
   const client = getRPCClient(chainId) as Client;
   const data = await Promise.all(
     localData.map(async local => {

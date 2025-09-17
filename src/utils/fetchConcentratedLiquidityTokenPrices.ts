@@ -734,6 +734,38 @@ const tokens: Partial<Record<keyof typeof ChainId, ConcentratedLiquidityToken[]>
       firstToken: 'USDC',
       secondToken: 'AVNT',
     },
+    {
+      type: 'Slipstream',
+      oracleId: 'VELVET',
+      decimalDelta: 1e-12,
+      pool: '0x6b0F53cbD9272D8117e9535FE25371dedF39a1bE',
+      firstToken: 'VELVET',
+      secondToken: 'USDC',
+    },
+    {
+      type: 'Slipstream',
+      oracleId: 'SOON',
+      decimalDelta: 1,
+      pool: '0xC75a16d7E685eaE65Ba0aB6Cf596f73F6Edf170D',
+      firstToken: 'SOON',
+      secondToken: 'WETH',
+    },
+    {
+      type: 'Slipstream',
+      oracleId: 'SAPIEN',
+      decimalDelta: 1e-12,
+      pool: '0x80Cc08712Aa61cE9dc7604F9cE7560A25094B862',
+      firstToken: 'SAPIEN',
+      secondToken: 'USDC',
+    },
+    {
+      type: 'Slipstream',
+      oracleId: 'AVAIL',
+      decimalDelta: 1e-12,
+      pool: '0xFf0df9b15C29542fa5d7eFe169452507b4d648C2',
+      firstToken: 'AVAIL',
+      secondToken: 'USDC',
+    },
   ],
   zksync: [
     {
