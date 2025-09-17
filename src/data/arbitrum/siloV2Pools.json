@@ -1,0 +1,22 @@
+[
+  {
+    "name": "silov2-arbitrum-usdc-valamore",
+    "address": "0x2BA39e5388aC6C702Cb29AEA78d52aa66832f1ee",
+    "underlying": "0xaf88d065e77c8cC2239327C5EDb3A432268e5831",
+    "silo": "0x2BA39e5388aC6C702Cb29AEA78d52aa66832f1ee",
+    "vault": true,
+    "oracleId": "USDC",
+    "decimals": "1e6",
+    "chainId": 42161
+  },
+  {
+    "name": "silov2-arbitrum-usdc-optima",
+    "address": "0x2514A2Ce842705EAD703d02fABFd8250BfCfb8bd",
+    "underlying": "0xaf88d065e77c8cC2239327C5EDb3A432268e5831",
+    "silo": "0x2514A2Ce842705EAD703d02fABFd8250BfCfb8bd",
+    "vault": true,
+    "oracleId": "USDC",
+    "decimals": "1e6",
+    "chainId": 42161
+  }
+]

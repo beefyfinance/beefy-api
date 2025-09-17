@@ -49,6 +49,7 @@ import getNuriStablePrices from './scroll/getNuriStablePrices';
 import { getKittenswapStablePrices } from './hyperevm/getKittenswapStablePrices';
 import { getBeraswapPrices } from './berachain/getBeraswapPrices';
 import { getKodiakPrices } from './berachain/getKodiakPrices';
+import { getSiloPrices } from './common/getSiloPrices';
 import {
   ARBITRUM_CHAIN_ID as ARB_CHAIN_ID,
   AVAX_CHAIN_ID,
@@ -233,6 +234,8 @@ export async function getNonAmmPrices(
     getVenusZkPrices(tokenPrices),
     getTokemakEthPrices(tokenPrices),
     getTokemakBasePrices(tokenPrices),
+    getSiloPrices(AVAX_CHAIN_ID, require('../../data/avax/siloPools.json'), tokenPrices),
+    getSiloPrices(ARB_CHAIN_ID, require('../../data/arbitrum/siloV2Pools.json'), tokenPrices),
   ];
 
   // Setup error logs

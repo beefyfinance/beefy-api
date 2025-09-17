@@ -65,5 +65,3 @@ const getTokenPrice = (tokenPrices, oracleId) => {
   }
   return tokenPrice;
 };
-
-module.exports = getSiloPrices;

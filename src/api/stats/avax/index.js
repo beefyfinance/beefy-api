@@ -7,6 +7,7 @@ const getAuraAvaxApys = require('./getAuraAvaxApys');
 const { getBeefyAvaxCowApys } = require('./getBeefyAvaxCowApys');
 const { getEulerAvaxApys } = require('./getEulerAvaxApys');
 const { getBlackholeApys } = require('./getBlackholeApys');
+const { getSiloApys } = require('../common/silo/getSiloApys');
 
 const getApys = [
   // getAaveV3Apys,
@@ -18,6 +19,7 @@ const getApys = [
   getBeefyAvaxCowApys,
   getEulerAvaxApys,
   getBlackholeApys,
+  () => getSiloApys(43114, require('../../../data/avax/siloPools.json')),
 ];
 
 const getAvaxApys = async () => {
