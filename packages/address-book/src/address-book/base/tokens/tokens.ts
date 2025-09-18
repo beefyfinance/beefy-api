@@ -3031,6 +3031,7 @@ export const tokens = {
       'Covalent is the leading modular data infrastructure layer that is dedicated to solving the Long-Term Data Availability and the verifiability problem in AI. A multi-sided platform designed to eventually be self-sufficient, the Covalent Network works by capturing and indexing blockchain data and storing it across multiple points on the network. Anyone can then access this data instantly through querying the GoldRush API (formerly known as the Unified API).',
     documentation: 'https://www.covalenthq.com/docs/introduction',
     bridge: 'base-canonical',
+    risks: ['NO_TIMELOCK'],
   },
   FLOCK: {
     name: 'FLock.io',
