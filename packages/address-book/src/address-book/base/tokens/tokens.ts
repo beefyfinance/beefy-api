@@ -3047,4 +3047,19 @@ export const tokens = {
     documentation: 'https://docs.flock.io/',
     risks: ['NO_TIMELOCK', 'LARGE_HOLDERS'],
   },
+  SYND: {
+    name: 'Syndicate',
+    symbol: 'SYND',
+    oracleId: 'SYND',
+    address: '0x11dC28D01984079b7efE7763b533e6ed9E3722B9',
+    chainId: 8453,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://syndicate.io/',
+    description:
+      'Infrastructure for scalable, programmable, atomically composable appchains. Giving you complete control over your network, sequencer, and economy.',
+    documentation: 'https://docs.syndicate.io/en/docs/syndicate-stack/get-started/introduction',
+    bridge: 'base-canonical',
+    risks: ['NO_TIMELOCK'],
+  },
 } as const satisfies Record<string, Token>;

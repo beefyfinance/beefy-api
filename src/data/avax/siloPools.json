@@ -1,0 +1,53 @@
+[
+  {
+    "name": "silov2-avalanche-usdc-mev",
+    "address": "0x4dc1ce9b9f9EF00c144BfAD305f16c62293dC0E8",
+    "underlying": "0xB97EF9Ef8734C71904D8002F8b6Bc66Dd9c48a6E",
+    "silo": "0x4dc1ce9b9f9EF00c144BfAD305f16c62293dC0E8",
+    "vault": true,
+    "oracleId": "USDC",
+    "decimals": "1e6",
+    "chainId": 43114
+  },
+  {
+    "name": "silov2-avalanche-btcb-mev",
+    "address": "0x1f8E769B5B6010B2C2BBCd68629EA1a0a0Eda7E3",
+    "underlying": "0x152b9d0FdC40C096757F570A51E494bd4b943E50",
+    "silo": "0x1f8E769B5B6010B2C2BBCd68629EA1a0a0Eda7E3",
+    "vault": true,
+    "oracleId": "BTCb",
+    "decimals": "1e8",
+    "chainId": 43114
+  },
+  {
+    "name": "silov2-avalanche-usdt-valamore",
+    "address": "0x6c09bfdc1df45D6c4Ff78Dc9F1C13aF29eB335d4",
+    "underlying": "0x9702230A8Ea53601f5cD2dc00fDBc13d4dF4A8c7",
+    "silo": "0x6c09bfdc1df45D6c4Ff78Dc9F1C13aF29eB335d4",
+    "vault": true,
+    "oracleId": "USDT",
+    "decimals": "1e6",
+    "chainId": 43114
+  },
+  {
+    "name": "silov2-avalanche-susde",
+    "vaultId": 146,
+    "address": "0xa919d365f210DCc2287d1Cf6B0900fDB9134F87e",
+    "underlying": "0x211Cc4DD073734dA055fbF44a2b4667d5E5fE5d2",
+    "silo": "0xa919d365f210DCc2287d1Cf6B0900fDB9134F87e",
+    "v2": true,
+    "oracleId": "sUSDe",
+    "decimals": "1e18",
+    "chainId": 43114
+  },
+  {
+    "name": "silov2-avalanche-ausd-valamore",
+    "address": "0x3d7B0c3997E48fA3FC96cd057d1fb4E5F891835B",
+    "underlying": "0x00000000eFE302BEAA2b3e6e1b18d08D69a9012a",
+    "silo": "0x3d7B0c3997E48fA3FC96cd057d1fb4E5F891835B",
+    "vault": true,
+    "oracleId": "AUSD",
+    "decimals": "1e6",
+    "chainId": 43114
+  }
+]

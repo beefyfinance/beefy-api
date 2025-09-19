@@ -1,4 +1,4 @@
-const getSiloPrices = require('../common/getSiloPrices');
+const { getSiloPrices } = require('../common/getSiloPrices');
 const { OPTIMISM_CHAIN_ID: chainId } = require('../../../constants');
 const pools = require('../../../data/optimism/siloPools.json');
 

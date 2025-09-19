@@ -13,6 +13,8 @@ const { getPenpieApys } = require('./getPenpieApys');
 const { getMimApys } = require('./getMimApys');
 const getVenusApys = require('./getVenusApys');
 const getStargateArbApys = require('./getStargateArbApys');
+const { getSiloApys } = require('../common/silo/getSiloApys');
+const { ARBITRUM_CHAIN_ID: chainId } = require('../../../constants');
 
 const getApys = [
   getAuraArbitrumApys,
@@ -34,6 +36,7 @@ const getApys = [
   getAaveV3Apys,
   getVenusApys,
   getStargateArbApys,
+  () => getSiloApys(chainId, require('../../../data/arbitrum/siloV2Pools.json')),
 ];
 
 const getArbitrumApys = async () => {
