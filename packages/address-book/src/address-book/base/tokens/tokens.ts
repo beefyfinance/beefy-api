@@ -3062,4 +3062,18 @@ export const tokens = {
     bridge: 'base-canonical',
     risks: ['NO_TIMELOCK'],
   },
+  MOCA: {
+    name: 'Moca',
+    symbol: 'MOCA',
+    oracleId: 'MOCA',
+    address: '0x2B11834Ed1FeAEd4b4b3a86A6F571315E25A884D',
+    chainId: 8453,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://moca.foundation/',
+    description: 'Co-creating the largest web3 cultural economy with $MOCA holders',
+    documentation: 'https://moca.foundation/moca-coin',
+    bridge: 'layer-zero',
+    risks: ['NO_TIMELOCK', 'LARGE_HOLDERS'],
+  },
 } as const satisfies Record<string, Token>;
