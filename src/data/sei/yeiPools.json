@@ -16,7 +16,7 @@
     "aToken": "0xc1a6F27a4CcbABB1C2b1F8E98478e52d3D3cB935",
     "debtToken": "0x5Bfc2d187e8c7F51BE6d547B43A1b3160D72a142",
     "oracle": "tokens",
-    "oracleId": "USDC",
+    "oracleId": "USDCn",
     "decimals": "1e6",
     "borrowDepth": 1,
     "borrowPercent": 0
