@@ -35,7 +35,7 @@ export const tokens = {
   FEES: frxETH,
   FXS, // now FRAX
   WFXS: FXS, // now wFRAX
-  FRAX: {
+  frxUSD: {
     chainId: 252,
     address: '0xFc00000000000000000000000000000000000001',
     decimals: 18,
