@@ -1122,6 +1122,14 @@ const tokens: Partial<Record<keyof typeof ChainId, ConcentratedLiquidityToken[]>
       firstToken: 'WBNB',
       secondToken: 'GIGGLE',
     },
+    {
+      type: 'UniV3',
+      oracleId: 'XPL',
+      decimalDelta: 1,
+      pool: '0x50203DF8eFcddBa9755C886F086b9B2D537a15F9',
+      firstToken: 'USDT',
+      secondToken: 'XPL',
+    },
   ],
   gnosis: [
     {

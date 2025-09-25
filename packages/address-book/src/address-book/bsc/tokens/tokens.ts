@@ -5033,4 +5033,18 @@ export const tokens = {
     description: "Supporting children's education through community donations to GiggleAcademy",
     bridge: 'native',
   },
+  XPL: {
+    name: 'Plasma',
+    symbol: 'XPL',
+    oracleId: 'XPL',
+    address: '0x405FBc9004D857903bFD6b3357792D71a50726b0',
+    chainId: 56,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://www.plasma.to/',
+    description: 'Plasma is a high-performance layer 1 blockchain purpose-built for stablecoins.',
+    documentation: 'https://docs.plasma.to/',
+    bridge: 'layer-zero',
+    risks: ['NO_TIMELOCK'],
+  },
 } as const satisfies Record<string, Token>;
