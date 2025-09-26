@@ -247,6 +247,7 @@ const rpcs: Record<ChainId, string[]> = {
   [ChainId.unichain]: ['https://mainnet.unichain.org'],
   [ChainId.saga]: ['https://sagaevm.jsonrpc.sagarpc.io'],
   [ChainId.hyperevm]: ['https://rpc.hyperliquid.xyz/evm'],
+  [ChainId.plasma]: ['https://rpc.plasma.to'],
 };
 
 export const getChainRpcs = (chainId: ChainId): string[] => rpcs[chainId] ?? [];

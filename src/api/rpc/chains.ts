@@ -688,6 +688,29 @@ const rootstockChain = {
 
 /// New Chains
 
+const plasmaChain = {
+  id: 9745,
+  name: 'Plasma',
+  network: 'plasma',
+  nativeCurrency: {
+    decimals: 18,
+    name: 'WXLP',
+    symbol: 'WXLP',
+  },
+  rpcUrls: {
+    public: { http: getRpcsForChain('plasma') },
+    default: { http: getRpcsForChain('plasma') },
+  },
+  blockExplorers: {
+    default: { name: 'plasma explorer', url: 'https://plasmascan.to/' },
+  },
+  contracts: {
+    multicall3: {
+      address: '0xca11bde05977b3631167028862be2a173976ca11',
+    },
+  },
+} as const satisfies Chain;
+
 const hyperevmChain = {
   id: 999,
   name: 'Hyperevm',
@@ -885,4 +908,5 @@ export const getChain: Partial<Record<ChainId, Chain>> = {
   [ChainId.berachain]: berachainChain,
   [ChainId.saga]: sagaChain,
   [ChainId.hyperevm]: hyperevmChain,
+  [ChainId.plasma]: plasmaChain,
 } as const;

@@ -611,4 +611,5 @@ export const blockedTokensByChain: Record<SupportedApiChain, Set<string>> = {
   berachain: new Set([]),
   saga: new Set([addressBook.saga.tokens.WGAS.address]),
   hyperevm: new Set([]),
+  plasma: new Set([]),
 };

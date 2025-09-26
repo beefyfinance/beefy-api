@@ -111,6 +111,9 @@ const {
 
   HYPEREVM_CHAIN_ID,
   HYPEREVM_VAULTS_ENDPOINT,
+
+  PLASMA_CHAIN_ID,
+  PLASMA_VAULTS_ENDPOINT,
 } = require('../../constants');
 const { getKey, setKey } = require('../../utils/cache');
 
@@ -267,6 +270,10 @@ const chains = [
   {
     chainId: HYPEREVM_CHAIN_ID,
     vaultsEndpoint: HYPEREVM_VAULTS_ENDPOINT,
+  },
+  {
+    chainId: PLASMA_CHAIN_ID,
+    vaultsEndpoint: PLASMA_VAULTS_ENDPOINT,
   },
 ];
 
