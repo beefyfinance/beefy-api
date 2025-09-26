@@ -1,5 +1,14 @@
 [
   {
+    "name": "pendle-ysybold-27nov25",
+    "address": "0x1BD78377DFbCA2043e38b692D2E0b32396b4772d",
+    "eqbGauge": "0xC5B9105fe34Ef7746f6460D8B1C3E450088aE65c",
+    "oracle": "tokens",
+    "oracleId": "BOLD",
+    "decimals": "1e18",
+    "chainId": 1
+  },
+  {
     "name": "pendle-susdf-29jan26",
     "address": "0xEB5819B31A0378407F43aBa2F3E9d16b40aa5ec7",
     "eqbGauge": "0xe065069F51d524972d9Dc9E562Dd6b2908ab5419",
