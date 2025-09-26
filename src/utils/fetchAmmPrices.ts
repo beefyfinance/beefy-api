@@ -12,6 +12,7 @@ import { normalizeNativeWrappedPrices } from './normalizeNativeWrappedPrices';
 /** Output a warning if LP (balance0*price0) != (balance1*price1) within a threshold % */
 const AMM_PRICES_CHECK_POOLS = envBoolean('AMM_PRICES_CHECK_POOLS', false);
 const AMM_PRICES_CHECK_POOLS_THRESHOLD = envNumber('AMM_PRICES_CHECK_POOLS_THRESHOLD', 2); // %
+const LOG_FETCH_AMM = envBoolean('LOG_FETCH_AMM', true);
 
 const MULTICALLS = new Map<ChainId, Address>([
   [56, '0xbcf79F67c2d93AD5fd1b919ac4F5613c493ca34F'],
@@ -130,6 +131,7 @@ export async function fetchAmmPrices(
     weights[known] = Number.MAX_SAFE_INTEGER;
   });
 
+  let leftChains = Array.from(MULTICALLS.keys());
   const poolsWithData = (
     await Promise.all(
       Array.from(MULTICALLS.keys(), async chain => {
@@ -139,7 +141,16 @@ export async function fetchAmmPrices(
             ? pools.filter(p => p.chainId === chain || p.chainId === undefined)
             : pools.filter(p => p.chainId === chain);
 
-        return await promiseTiming(fetchChainPools(chain, chainPools), `fetchChainPools for chain ${chain}`);
+        return await promiseTiming(
+          fetchChainPools(chain, chainPools),
+          `fetchChainPools for chain ${chain}`
+        ).finally(() => {
+          if (LOG_FETCH_AMM) {
+            leftChains = leftChains.filter(c => c !== chain);
+            if (leftChains.length > 0) console.log(`> [PRICE SERVICE] fetch AMM prices: ${leftChains}`);
+            else console.log(`> [PRICE SERVICE] fetch AMM prices DONE`);
+          }
+        });
       })
     )
   ).flat();
