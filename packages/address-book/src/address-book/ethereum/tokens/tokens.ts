@@ -2841,4 +2841,17 @@ export const tokens = {
     bridge: 'native',
     risks: ['NO_TIMELOCK'],
   },
+  ysyBOLD: {
+    name: 'Staked yBOLD',
+    address: '0x23346B04a7f55b8760E5860AA5A77383D63491cD',
+    symbol: 'ysyBOLD',
+    oracleId: 'ysyBOLD',
+    decimals: 18,
+    chainId: 1,
+    website: 'https://yearn.fi/',
+    documentation: 'https://docs.yearn.fi/getting-started/products/yvaults/yBold',
+    description:
+      "yBOLD is Yearn's BOLD tokenized Stability pool product. The yield comes from the different Liquity V2 Stability Pools which is made up of liquidation fees and 75% of the system's interest rate earnings.",
+    bridge: 'native',
+  },
 } as const satisfies Record<string, Token>;
