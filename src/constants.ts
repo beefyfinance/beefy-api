@@ -34,7 +34,7 @@ const DEFAULT_RPCS: ApiChainToRpcs = {
   avax: ['https://rpc.ankr.com/avalanche'],
   polygon: ['https://polygon-rpc.com/'],
   fantom: ['https://fantom-mainnet.public.blastapi.io'],
-  arbitrum: ['https://arbitrum.public.blockpi.network/v1/rpc/public'],
+  arbitrum: ['https://arbitrum.gateway.tenderly.co'],
   celo: ['https://forno.celo.org'],
   moonriver: ['https://rpc.api.moonriver.moonbeam.network'],
   cronos: ['https://cronos-evm-rpc.publicnode.com'],
@@ -43,7 +43,7 @@ const DEFAULT_RPCS: ApiChainToRpcs = {
   metis: ['https://metis-mainnet.public.blastapi.io'],
   moonbeam: ['https://rpc.api.moonbeam.network'],
   emerald: ['https://emerald.oasis.dev'],
-  optimism: ['https://optimism.drpc.org'],
+  optimism: ['https://optimism.rpc.subquery.network/public'],
   kava: ['https://kava-evm.publicnode.com'],
   ethereum: ['https://eth.llamarpc.com'],
   canto: ['https://canto-rpc.ansybl.io'],
@@ -54,7 +54,7 @@ const DEFAULT_RPCS: ApiChainToRpcs = {
   linea: ['https://rpc.linea.build'],
   mantle: ['https://rpc.mantle.xyz'],
   fraxtal: ['https://rpc.frax.com'],
-  mode: ['https://mode.drpc.org'],
+  mode: ['https://1rpc.io/mode'],
   manta: ['https://1rpc.io/manta'],
   sei: ['https://evm-rpc.sei-apis.com'],
   rootstock: ['https://rootstock-mainnet.public.blastapi.io'],
@@ -65,6 +65,7 @@ const DEFAULT_RPCS: ApiChainToRpcs = {
   // unichain: ['https://mainnet.unichain.org'],
   saga: ['https://sagaevm.jsonrpc.sagarpc.io'],
   hyperevm: ['https://rpc.hyperliquid.xyz/evm'],
+  plasma: ['https://rpc.plasma.to'],
 } as const;
 
 const chainToRpcEnvKeyPrefix = {
@@ -152,6 +153,7 @@ const BERACHAIN_CHAIN_ID = ChainId.berachain;
 const UNICHAIN_CHAIN_ID = ChainId.unichain;
 const SAGA_CHAIN_ID = ChainId.saga;
 const HYPEREVM_CHAIN_ID = ChainId.hyperevm;
+const PLASMA_CHAIN_ID = ChainId.plasma;
 
 /// LP Fee
 const SUSHI_LPF = 0.003;
@@ -248,6 +250,8 @@ const SAGA_VAULTS_ENDPOINT =
   'https://raw.githubusercontent.com/beefyfinance/beefy-v2/prod/src/config/vault/saga.json';
 const HYPEREVM_VAULTS_ENDPOINT =
   'https://raw.githubusercontent.com/beefyfinance/beefy-v2/prod/src/config/vault/hyperevm.json';
+const PLASMA_VAULTS_ENDPOINT =
+  'https://raw.githubusercontent.com/beefyfinance/beefy-v2/prod/src/config/vault/plasma.json';
 
 const MULTICHAIN_ENDPOINTS: Partial<Record<ApiChain, string>> = {
   bsc: BSC_VAULTS_ENDPOINT,
@@ -288,6 +292,7 @@ const MULTICHAIN_ENDPOINTS: Partial<Record<ApiChain, string>> = {
   unichain: UNICHAIN_VAULTS_ENDPOINT,
   saga: SAGA_VAULTS_ENDPOINT,
   hyperevm: HYPEREVM_VAULTS_ENDPOINT,
+  plasma: PLASMA_VAULTS_ENDPOINT,
 } as const;
 
 const EXCLUDED_IDS_FROM_TVL = ['venus-wbnb'];
@@ -343,6 +348,7 @@ export const {
   UNICHAIN_RPC,
   SAGA_RPC,
   HYPEREVM_RPC,
+  PLASMA_RPC,
 } = RPC_BY_ENV_KEY;
 
 export {
@@ -408,6 +414,8 @@ export {
   ROOTSTOCK_VAULTS_ENDPOINT,
   HYPEREVM_CHAIN_ID,
   HYPEREVM_VAULTS_ENDPOINT,
+  PLASMA_CHAIN_ID,
+  PLASMA_VAULTS_ENDPOINT,
   BASE_HPY,
   MINUTELY_HPY,
   HOURLY_HPY,
