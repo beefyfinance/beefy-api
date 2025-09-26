@@ -2,7 +2,6 @@
   {
     "name": "pendle-base-virtual-cbbtc-26jun25",
     "address": "0x621d4d92e9bed484e6d2cb8a37d342c804a0908c",
-    "eqbGauge": "0xDBA1C701b3c2Fe06F136b922EA3ce8fb2eeDeE86",
     "oracle": "lps",
     "oracleId": "aerodrome-virtual-cbbtc",
     "decimals": "1e18",
@@ -17,7 +16,6 @@
   {
     "name": "pendle-base-musdc-26jun25",
     "address": "0x3124d41708edbdc7995a55183e802e3d9d0d5ef1",
-    "eqbGauge": "0x50D45b4dbc9815aDb8b0016c952B712732bb78dc",
     "oracle": "tokens",
     "oracleId": "USDC",
     "decimals": "1e6",
@@ -32,7 +30,6 @@
   {
     "name": "pendle-base-lbtc-29may25",
     "address": "0x727cebacfb10ffd353fc221d06a862b437ec1735",
-    "eqbGauge": "0xBA0f08909AF43ed21aC54D44fF863835F22ADDF0",
     "oracle": "tokens",
     "oracleId": "WBTC",
     "decimals": "1e8",
