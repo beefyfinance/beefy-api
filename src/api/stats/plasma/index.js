@@ -1,7 +1,8 @@
 const { getBeefyCowPlasmaApys } = require('./getBeefyCowPlasmaApys');
 const { getAaveV3Apys } = require('./getAaveV3Apys');
+const { getEulerPlasmaApys } = require('./getEulerPlasmaApys');
 
-const getApys = [getBeefyCowPlasmaApys, getAaveV3Apys];
+const getApys = [getBeefyCowPlasmaApys, getAaveV3Apys, getEulerPlasmaApys];
 
 const getPlasmaApys = async () => {
   const start = Date.now();

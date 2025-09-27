@@ -7,6 +7,12 @@ import { getApyBreakdown } from '../getApyBreakdownNew';
 
 const SECONDS_PER_YEAR = 31536000;
 
+interface EulerApiResponse {
+  vault?: {
+    apyCurrent?: number;
+  };
+}
+
 const getEulerApyData = async (params: EulerApyParams) => {
   const [supplyApys, merklApys] = await Promise.all([
     getPoolsApys(params.chainId, params.pools),
@@ -26,7 +32,87 @@ const getEulerApyData = async (params: EulerApyParams) => {
   );
 };
 
-const getPoolsApys = async (chainId, pools) => {
+const getPoolsApys = async (chainId: ChainId, pools: EulerPool[]): Promise<BigNumber[]> => {
+  // Split pools into earn and non-earn pools
+  const earnPools: { pool: EulerPool; index: number }[] = [];
+  const contractPools: { pool: EulerPool; index: number }[] = [];
+
+  pools.forEach((pool, index) => {
+    if (pool.earn) {
+      earnPools.push({ pool, index });
+    } else {
+      contractPools.push({ pool, index });
+    }
+  });
+
+  // Initialize results array with correct length
+  const results: BigNumber[] = new Array(pools.length);
+
+  // Process both types concurrently
+  const promises: Promise<void>[] = [];
+
+  // Handle earn pools with API calls
+  if (earnPools.length > 0) {
+    promises.push(
+      getPoolsApysFromApi(
+        chainId,
+        earnPools.map(p => p.pool)
+      ).then(apiApys => {
+        earnPools.forEach((poolInfo, i) => {
+          results[poolInfo.index] = apiApys[i];
+        });
+      })
+    );
+  }
+
+  // Handle non-earn pools with contract calls
+  if (contractPools.length > 0) {
+    promises.push(
+      getPoolsApysFromContracts(
+        chainId,
+        contractPools.map(p => p.pool)
+      ).then(contractApys => {
+        contractPools.forEach((poolInfo, i) => {
+          results[poolInfo.index] = contractApys[i];
+        });
+      })
+    );
+  }
+
+  await Promise.all(promises);
+  return results;
+};
+
+const getPoolsApysFromApi = async (chainId: ChainId, pools: EulerPool[]): Promise<BigNumber[]> => {
+  const apiCalls = pools.map(async pool => {
+    try {
+      const url = `https://indexer-main.euler.finance/v1/earn/vault?chainId=${chainId}&vaultAddress=${pool.address}`;
+      const response = await fetch(url);
+
+      if (!response.ok) {
+        console.error(`Euler API error for ${pool.name}: ${response.status}`);
+        return new BigNumber(0);
+      }
+
+      const data: EulerApiResponse = await response.json();
+      const apyValue = data.vault?.apyCurrent;
+      if (apyValue !== undefined && apyValue !== null) {
+        console.log(`${pool.name} APY:`, apyValue);
+        return new BigNumber(apyValue).div(100); // Convert percentage to decimal
+      } else {
+        console.error(`Euler API returned empty or missing APY data for ${pool.name}`);
+        return new BigNumber(0);
+      }
+    } catch (error) {
+      console.error(`Error fetching Euler APY for ${pool.name}:`, error);
+      return new BigNumber(0);
+    }
+  });
+
+  return Promise.all(apiCalls);
+};
+
+const getPoolsApysFromContracts = async (chainId: ChainId, pools: EulerPool[]): Promise<BigNumber[]> => {
   const interestRateCalls = [];
   const interestFeeCalls = [];
   const totalBorrowedCalls = [];
@@ -66,6 +152,7 @@ export interface EulerPool {
   name: string;
   address: string;
   beefyFee?: number;
+  earn?: boolean;
 }
 
 export interface EulerApyParams {
