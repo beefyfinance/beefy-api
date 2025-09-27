@@ -44,6 +44,7 @@ const supportedChains = new Set<AppChain>([
   'lisk',
   'saga',
   'hyperevm',
+  'plasma',
 ]);
 const supportedCampaignTypeToVaultType: Map<MerklApiCampaignType, Set<Vault['type']>> = new Map([
   ['ERC20', new Set<Vault['type']>(['standard'])],

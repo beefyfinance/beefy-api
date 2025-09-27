@@ -21,6 +21,7 @@ import berachainPools from '../../data/berachain/beefyCowVaults.json';
 import gnosisPools from '../../data/gnosis/beefyCowVaults.json';
 import sagaPools from '../../data/saga/beefyCowVaults.json';
 import hyperevmPools from '../../data/hyperevm/beefyCowVaults.json';
+import plasmaPools from '../../data/plasma/beefyCowVaults.json';
 const chainToClms: Readonly<Partial<Record<ApiChain, CowClm[]>>> = {
   optimism: validateCowClms(optimismPools),
   base: validateCowClms(basePools),
@@ -43,6 +44,7 @@ const chainToClms: Readonly<Partial<Record<ApiChain, CowClm[]>>> = {
   gnosis: validateCowClms(gnosisPools),
   saga: validateCowClms(sagaPools),
   hyperevm: validateCowClms(hyperevmPools),
+  plasma: validateCowClms(plasmaPools),
 };
 
 const chainsWithClms = (Object.keys(chainToClms) as ReadonlyArray<ApiChain>).filter(

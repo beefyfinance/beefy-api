@@ -1,1 +1,14 @@
-[]
+[
+  {
+    "address": "0x60242b3c90a3F477a0FC5B4095f5946583Fbd6ce",
+    "lpAddress": "0x8603C67B7Cc056ef6981a9C709854c53b699Fa66",
+    "tokens": ["0x6100E367285b01F48D07953803A2d8dCA5D19873", "0xB8CE59FC3717ada4C02eaDF9682A9e934F625ebb"],
+    "tokenOracleIds": ["WXPL", "USDT0"],
+    "decimals": [18, 6],
+    "oracleId": "uniswap-cow-plasma-wxpl-usdt0",
+    "rewardPool": {
+      "address": "0x79b9bCf5CFc70b8FAED5648212dB2E6e4bD9E4B7",
+      "oracleId": "uniswap-cow-plasma-wxpl-usdt0-rp"
+    }
+  }
+]

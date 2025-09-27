@@ -25,6 +25,7 @@ const { getSonicApys } = require('./sonic');
 const { getBerachainApys } = require('./berachain');
 const { getSagaApys } = require('./saga');
 const { getHyperevmApys } = require('./hyperevm');
+const { getPlasmaApys } = require('./plasma');
 const { getKey, setKey } = require('../../utils/cache');
 const { fetchBoostAprs, BOOST_APR_EXPIRED } = require('./getBoostAprs');
 const { serviceEventBus } = require('../../utils/ServiceEventBus');
@@ -78,6 +79,7 @@ const updateApys = async () => {
       getBerachainApys(),
       getSagaApys(),
       getHyperevmApys(),
+      getPlasmaApys(),
     ]);
 
     for (const result of results) {

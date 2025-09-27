@@ -1257,6 +1257,24 @@ const tokens: Partial<Record<keyof typeof ChainId, ConcentratedLiquidityToken[]>
       secondToken: 'UPUMP',
     },
   ],
+  plasma: [
+    {
+      type: 'UniV3',
+      oracleId: 'WXPL',
+      decimalDelta: 1e12,
+      pool: '0x8603C67B7Cc056ef6981a9C709854c53b699Fa66',
+      firstToken: 'USDT',
+      secondToken: 'WXPL',
+    },
+    {
+      type: 'UniV3',
+      oracleId: 'XAUt0',
+      decimalDelta: 1,
+      pool: '0x21d5a075073e631A85Ab9C02E4b703460C572B4B',
+      firstToken: 'USDT0',
+      secondToken: 'XAUt0',
+    },
+  ],
 };
 
 async function getConcentratedLiquidityPrices(

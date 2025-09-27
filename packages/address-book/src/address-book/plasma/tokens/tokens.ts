@@ -51,7 +51,7 @@ export const tokens = {
     oracleId: 'XAUt0',
     address: '0x1B64B9025EEbb9A6239575dF9Ea4b9Ac46D4d193',
     chainId: 9745,
-    decimals: 18,
+    decimals: 6,
     logoURI: '',
     website: 'https://gold.usdt0.to/transfer',
     description:
