@@ -4,7 +4,7 @@ const { SONIC_CHAIN_ID } = require('../../../constants');
 
 const config = {
   dataProvider: '0x306c124fFba5f2Bc0BcAf40D249cf19D492440b9',
-  incentives: '0x24bD6e9ca54F1737467DEf82dCA9702925B3Aa59',
+  incentives: '0x3A57eAa3Ca3794D66977326af7991eB3F6dD5a5A',
   rewards: [],
 };
 

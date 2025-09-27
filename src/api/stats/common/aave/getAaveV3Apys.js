@@ -17,13 +17,14 @@ const getAaveV3ApyData = async (config, pools, chainId) => {
   const lendingApys = [];
   const lsApys = [];
 
-  const [values, meritApys] = await Promise.all([
+  const [values, meritApys, merklApys] = await Promise.all([
     Promise.all(pools.map(pool => getPoolApy(config, pool, chainId))),
     getMeritApys(pools),
+    getMerklApys(pools),
   ]);
 
   values.forEach((item, i) => {
-    rewardApys.push(item[0].plus(meritApys[i]));
+    rewardApys.push(item[0].plus(meritApys[i]).plus(merklApys[i]));
     lendingApys.push(item[1]);
     lsApys.push(item[2]);
   });
@@ -48,6 +49,24 @@ async function getMeritApys(pools) {
     }
   }
   return pools.map(p => new BigNumber(meritData[p.merit] || 0).div(100));
+}
+
+async function getMerklApys(pools) {
+  let merklData = {};
+  if (pools.some(p => p.identifier)) {
+    try {
+      const res = await fetch('https://api.merkl.xyz/v4/opportunities?mainProtocolId=aave').then(res =>
+        res.json()
+      );
+      merklData = res.reduce((acc, opportunity) => {
+        acc[opportunity.identifier] = opportunity.apr;
+        return acc;
+      }, {});
+    } catch (e) {
+      console.error('AAVE getMerklApys', e);
+    }
+  }
+  return pools.map(p => new BigNumber(merklData[p.identifier] || 0).div(100));
 }
 
 const getPoolApy = async (config, pool, chainId) => {

@@ -1,0 +1,26 @@
+[
+  {
+    "name": "aavev3-plasma-usdt0",
+    "token": "0xb8ce59fc3717ada4c02eadf9682a9e934f625ebb",
+    "aToken": "0x5D72a9d9A9510Cd8cBdBA12aC62593A58930a948",
+    "debtToken": "0xCBBC427b5658672768E11BFDa00879839DB4785F",
+    "identifier": "0xa969ee9f11887c59bef1d23f6515dc9fe2a24a8c",
+    "oracle": "tokens",
+    "oracleId": "USDT0",
+    "decimals": "1e6",
+    "borrowDepth": 1,
+    "borrowPercent": 0
+  },
+  {
+    "name": "aavev3-plasma-weth",
+    "token": "0x9895d81bb462a195b4922ed7de0e3acd007c32cb",
+    "aToken": "0xf1aB7f60128924d69f6d7dE25A20eF70bBd43d07",
+    "debtToken": "0x638d7db63cd5c902bDd9A91cf195870551c3c7B3",
+    "identifier": "0xd0d8cfae6ec2d4df98cb91c5426f4113637cd101",
+    "oracle": "tokens",
+    "oracleId": "WETH",
+    "decimals": "1e18",
+    "borrowDepth": 1,
+    "borrowPercent": 0
+  }
+]
