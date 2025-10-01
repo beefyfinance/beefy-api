@@ -1,5 +1,22 @@
 [
   {
+    "name": "curve-fraxtal-sdusd-sfrxusd",
+    "pool": "0x4C86d266e969E186A2F197d859DF2D91e5eA1eD2",
+    "gauge": "0x4Ec899E59cB5595d515b281a549a730E79E1b671",
+    "convex": true,
+    "getDy": ["v1", 0, 1],
+    "tokens": [
+      {
+        "oracleId": "sdUSD",
+        "decimals": "1e6"
+      },
+      {
+        "oracleId": "sfrxUSD",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
     "name": "curve-fraxtal-scrvusd-sfrxusd",
     "pool": "0xac5dd1861bcf660a788e5f1f3d4d09bcf661946c",
     "gauge": "0x660622adba5339e62d800be440d6d0c8c1838559",

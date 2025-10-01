@@ -97,7 +97,7 @@ const getPoolsApysFromApi = async (chainId: ChainId, pools: EulerPool[]): Promis
       const data: EulerApiResponse = await response.json();
       const apyValue = data.vault?.apyCurrent;
       if (apyValue !== undefined && apyValue !== null) {
-        console.log(`${pool.name} APY:`, apyValue);
+        // console.log(`${pool.name} APY:`, apyValue);
         return new BigNumber(apyValue).div(100); // Convert percentage to decimal
       } else {
         console.error(`Euler API returned empty or missing APY data for ${pool.name}`);
