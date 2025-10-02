@@ -3088,7 +3088,6 @@ export const tokens = {
     description: 'Ripe simplifies everything. Your entire portfolio — crypto, RWAs, jpegs, everything — backs ONE loan. Finally, borrowing that understands what a portfolio actually is.',
     documentation: 'https://docs.ripe.finance/',
     bridge: 'native',
-    risks: ['NO_TIMELOCK', 'LARGE_HOLDERS'],
   },
   SIRE: {
     name: 'SIRE',
@@ -3130,6 +3129,6 @@ export const tokens = {
     description: 'DIEM token represents perpetual tokenized inference. Each Diem provides $1 per day of API credit, forever. Only VVV holders can mint these tokens, creating the first-ever tradeable direct AI compute asset.',
     documentation: 'https://venice.ai/blog/',
     bridge: 'native',
-    risks: ['NO_TIMELOCK'],
+    risks: ['NO_TIMELOCK', 'LARGE_HOLDERS'],
   },
 } as const satisfies Record<string, Token>;
