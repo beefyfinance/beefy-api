@@ -1,0 +1,26 @@
+[
+  {
+    "name": "pendle-plasma-syrupusdt-29jan26",
+    "address": "0x18d89b23d2875590c502cd3eac8f448f3ccf9999",
+    "oracle": "tokens",
+    "oracleId": "USDT0",
+    "decimals": "1e6",
+    "chainId": 9745
+  },
+  {
+    "name": "pendle-plasma-usde-15jan26",
+    "address": "0xfd3eb62302fa3cbc3c7e59e887b92dbbc814285d",
+    "oracle": "tokens",
+    "oracleId": "USDe",
+    "decimals": "1e18",
+    "chainId": 9745
+  },
+  {
+    "name": "pendle-plasma-susde-15jan26",
+    "address": "0xe06c3b972ba630ccf3392cecdbe070690b4e6b55",
+    "oracle": "tokens",
+    "oracleId": "sUSDe",
+    "decimals": "1e18",
+    "chainId": 9745
+  }
+]
