@@ -1,5 +1,26 @@
 [
   {
+    "name": "euler-avax-re7labs-ausd-earn",
+    "address": "0x70c329D6F06b33fa6b75E335B35168B1de84217b",
+    "oracleId": "AUSD",
+    "decimals": "1e6",
+    "earn": true
+  },
+  {
+    "name": "euler-avax-re7labs-usdc-earn",
+    "address": "0xEAF77Df5D03306bCA4EE8b58B6821E6acA76309d",
+    "oracleId": "USDC",
+    "decimals": "1e6",
+    "earn": true
+  },
+  {
+    "name": "euler-avax-k3capital-usdt-earn",
+    "address": "0xE1A62FDcC6666847d5EA752634E45e134B2F824B",
+    "oracleId": "USDT",
+    "decimals": "1e6",
+    "earn": true
+  },
+  {
     "name": "euler-avax-k3capital-usdt",
     "address": "0xa446938b0204Aa4055cdFEd68Ddf0E0d1BAB3E9E",
     "oracleId": "USDT",
