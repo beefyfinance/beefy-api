@@ -3,6 +3,7 @@ import { fetchContract } from '../../../rpc/client';
 
 const BigNumber = require('bignumber.js');
 import { fetchPrice } from '../../../../utils/fetchPrice';
+
 const secondsPerYear = 31536000;
 
 export async function getCurveApysCommon(chainId, pools) {
@@ -24,14 +25,12 @@ export async function getCurveApysCommon(chainId, pools) {
       extraData.push({ pool: pool.name, token: reward.token });
     });
   });
-  const [rewardResults, totalSupplyResults, workingSupplyResults, extraResults] = await Promise.all(
-    [
-      Promise.all(rewardCalls),
-      Promise.all(totalSupplyCalls),
-      Promise.all(workingSupplyCalls),
-      Promise.all(extraCalls),
-    ]
-  );
+  const [rewardResults, totalSupplyResults, workingSupplyResults, extraResults] = await Promise.all([
+    Promise.all(rewardCalls),
+    Promise.all(totalSupplyCalls),
+    Promise.all(workingSupplyCalls),
+    Promise.all(extraCalls),
+  ]);
 
   const poolInfo = rewardResults.map((_, i) => ({
     rewardRate: new BigNumber(rewardResults[i].toString()),
@@ -87,4 +86,26 @@ export async function getCurveApysCommon(chainId, pools) {
   }
 
   return apys;
+}
+
+export async function getMerklApys(chainId, pools) {
+  const ids = pools
+    .filter(p => p.merklId)
+    .map(p => p.merklId)
+    .join(',');
+  let merklData = {};
+  if (ids) {
+    try {
+      const res = await fetch(
+        `https://api.merkl.xyz/v4/opportunities?chainId=${chainId}&identifier=${ids}`
+      ).then(res => res.json());
+      merklData = res.reduce((acc, opportunity) => {
+        acc[opportunity.identifier] = opportunity.apr;
+        return acc;
+      }, {});
+    } catch (e) {
+      console.error('Curve getMerklApys', chainId, e);
+    }
+  }
+  return pools.map(p => new BigNumber(merklData[p.merklId] || 0).div(100));
 }

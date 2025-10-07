@@ -1,0 +1,34 @@
+[
+  {
+    "name": "curve-plasma-usdt0-usde",
+    "pool": "0x2D84D79C852f6842AbE0304b70bBaA1506AdD457",
+    "gauge": "0x5B019cff7F8b4636AF9478a5638C11D5EA4cF845",
+    "merklId": "0x5B019cff7F8b4636AF9478a5638C11D5EA4cF845",
+    "tokens": [
+      {
+        "oracleId": "USDT0",
+        "decimals": "1e6"
+      },
+      {
+        "oracleId": "USDe",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
+    "name": "curve-plasma-usdt0-susde",
+    "pool": "0x1E8D78e9b3f0152D54d32904B7933f1cFE439Df1",
+    "gauge": "0x794787AD996618Ced287070ebC30BCdaE30f60DF",
+    "merklId": "0x794787AD996618Ced287070ebC30BCdaE30f60DF",
+    "tokens": [
+      {
+        "oracleId": "USDT0",
+        "decimals": "1e6"
+      },
+      {
+        "oracleId": "sUSDe",
+        "decimals": "1e18"
+      }
+    ]
+  }
+]
