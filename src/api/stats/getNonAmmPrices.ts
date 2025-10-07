@@ -59,6 +59,7 @@ import {
   FRAXTAL_CHAIN_ID as FRX_CHAIN_ID,
   GNOSIS_CHAIN_ID as GNO_CHAIN_ID,
   OPTIMISM_CHAIN_ID,
+  PLASMA_CHAIN_ID,
   POLYGON_CHAIN_ID,
   SONIC_CHAIN_ID,
 } from '../../constants';
@@ -217,6 +218,7 @@ export async function getNonAmmPrices(
     getPendleCommonPrices(BSC_CHAIN_ID, require('../../data/bsc/pendlePools.json'), tokenPrices, ammPrices),
     getPendleCommonPrices(BASE_CHAIN_ID, require('../../data/base/pendlePools.json'), tokenPrices, ammPrices),
     getPendleCommonPrices(SONIC_CHAIN_ID, require('../../data/sonic/pendlePools.json'), tokenPrices),
+    getPendleCommonPrices(PLASMA_CHAIN_ID, require('../../data/plasma/pendlePools.json'), tokenPrices),
     getMellowVeloPrices(OPTIMISM_CHAIN_ID, require('../../data/optimism/mellowVeloPools.json'), tokenPrices),
     getMellowVeloPrices(BASE_CHAIN_ID, require('../../data/base/mellowAeroPools.json'), tokenPrices),
     getBunniPrices(BASE_CHAIN_ID, require('../../data/base/alienBaseBunniPools.json'), tokenPrices),

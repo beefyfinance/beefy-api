@@ -7,6 +7,7 @@ import {
   BASE_CHAIN_ID,
   BSC_CHAIN_ID,
   ETH_CHAIN_ID,
+  PLASMA_CHAIN_ID,
   SONIC_CHAIN_ID,
 } from '../../../constants';
 
@@ -16,6 +17,7 @@ const routerStatic = {
   [BSC_CHAIN_ID]: '0x2700ADB035F82a11899ce1D3f1BF8451c296eABb',
   [BASE_CHAIN_ID]: '0xB4205a645c7e920BD8504181B1D7f2c5C955C3e7',
   [SONIC_CHAIN_ID]: '0x0013ACc071f732fd6BF8210AB46A3794a7D8945e',
+  [PLASMA_CHAIN_ID]: '0x6813d43782395A1F2AAb42f39aeEDE03ac655e09',
 };
 const routerAbi = parseAbi([
   'function isExpired() external view returns (bool)',
