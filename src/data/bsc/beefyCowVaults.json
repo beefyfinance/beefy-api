@@ -1,5 +1,17 @@
 [
   {
+    "address": "0x10D4fed84fa4dd405a1483ba2ac1113B05522669",
+    "lpAddress": "0x7d98804119551f915a75cE278526ac7eE5077087",
+    "tokens": ["0x000Ae314E2A2172a039B26378814C252734f556A", "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c"],
+    "tokenOracleIds": ["ASTER", "WBNB"],
+    "decimals": [18, 18],
+    "oracleId": "uniswap-cow-bsc-aster-wbnb",
+    "rewardPool": {
+      "address": "0xaaB248B94aAC2751CD286876854B412d80F542ca",
+      "oracleId": "uniswap-cow-bsc-aster-wbnb-rp"
+    }
+  },
+  {
     "address": "0x68486c17CeD7e7449d23C9b98f642A728d51fc51",
     "lpAddress": "0x567af8053d49034062E8F7182b324C1f1AA2189B",
     "tokens": ["0x405FBc9004D857903bFD6b3357792D71a50726b0", "0x55d398326f99059fF775485246999027B3197955"],
