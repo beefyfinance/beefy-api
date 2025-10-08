@@ -9,8 +9,8 @@ import { ProviderId } from './providers';
 import { DataLayer } from './DataLayer';
 import PQueue from 'p-queue';
 
-const MIN_UPDATE_DELAY = 30 * 60 * 1000; // 30 minutes; actual update runs after next price update
-const DATA_DELETE_AFTER = 4 * 60 * 60 * 1000; // 4 hours; delete provider token support +/- DATA_GC_INTERVAL
+const MIN_UPDATE_DELAY = 2 * 60 * 60 * 1000; // 2 hours; actual update runs after next price update
+const DATA_DELETE_AFTER = 12 * 60 * 60 * 1000; // 12 hours; delete provider token support +/- DATA_GC_INTERVAL
 const DATA_GC_INTERVAL = 60 * 60 * 1000; // 1 hour; garbage collect provider token support every hour
 const CACHE_KEY_ROOT = 'zap/swaps';
 const SWAP_TEST_AMOUNT = 1000; // Test swaps with $1000 in native
