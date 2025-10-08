@@ -3085,7 +3085,8 @@ export const tokens = {
     decimals: 18,
     logoURI: '',
     website: 'https://www.ripe.finance/',
-    description: 'Ripe simplifies everything. Your entire portfolio — crypto, RWAs, jpegs, everything — backs ONE loan. Finally, borrowing that understands what a portfolio actually is.',
+    description:
+      'Ripe simplifies everything. Your entire portfolio — crypto, RWAs, jpegs, everything — backs ONE loan. Finally, borrowing that understands what a portfolio actually is.',
     documentation: 'https://docs.ripe.finance/',
     bridge: 'native',
   },
@@ -3112,10 +3113,11 @@ export const tokens = {
     decimals: 18,
     logoURI: '',
     website: 'https://reserve.org/lcap-kraken/',
-    description: 'The CF Large Cap Index (Diversified Weight) is a liquid, investible benchmark portfolio index built designed to track the performance of large-cap digital assets.',
+    description:
+      'The CF Large Cap Index (Diversified Weight) is a liquid, investible benchmark portfolio index built designed to track the performance of large-cap digital assets.',
     documentation: 'https://reserve.org/protocol/',
     bridge: 'native',
-    risks: ['NO_TIMELOCK', 'LARGE_HOLDERS'],
+    risks: ['NO_TIMELOCK'],
   },
   DIEM: {
     name: 'Diem',
@@ -3126,7 +3128,8 @@ export const tokens = {
     decimals: 18,
     logoURI: '',
     website: 'https://venice.ai/',
-    description: 'DIEM token represents perpetual tokenized inference. Each Diem provides $1 per day of API credit, forever. Only VVV holders can mint these tokens, creating the first-ever tradeable direct AI compute asset.',
+    description:
+      'DIEM token represents perpetual tokenized inference. Each Diem provides $1 per day of API credit, forever. Only VVV holders can mint these tokens, creating the first-ever tradeable direct AI compute asset.',
     documentation: 'https://venice.ai/blog/',
     bridge: 'native',
     risks: ['NO_TIMELOCK', 'LARGE_HOLDERS'],
