@@ -332,7 +332,6 @@ export const blockedTokensByChain: Record<SupportedApiChain, Set<string>> = {
     addressBook.polygon.tokens.PAE.address,
     addressBook.polygon.tokens.PEAR.address,
     addressBook.polygon.tokens.PSP.address,
-    addressBook.polygon.tokens.PUP.address,
     addressBook.polygon.tokens.PZAP.address,
     addressBook.polygon.tokens.QI.address,
     addressBook.polygon.tokens.ROUTE.address,

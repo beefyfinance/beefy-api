@@ -1510,18 +1510,6 @@ export const tokens = {
     logoURI:
       'https://tokens.pancakeswap.finance/images/0xbb4cdb9cbd36b01bd1cbaebf2de08d9173bc095c.png',
   },
-  PUP: {
-    name: 'Polypup.Finance',
-    symbol: 'PUP',
-    oracleId: 'PUP',
-    address: '0xcFe2cF35D2bDDE84967e67d00aD74237e234CE59',
-    chainId: 137,
-    decimals: 18,
-    website: 'https://www.polypup.finance/',
-    description:
-      'PolyPup Finance is a new DeFi project on Polygon featuring a deflationary token model with a maximum supply of 31,000 PUP tokens.',
-    logoURI: 'https://polypup.finance/images/egg/9.png',
-  },
   rUSD: {
     name: 'Ramp USD',
     symbol: 'rUSD',
