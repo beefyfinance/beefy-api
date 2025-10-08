@@ -1,12 +1,7 @@
 import { ApiChain } from '../../../utils/chain';
 import { ProviderId, providers, providersById } from './providers';
 import { getAmmAllPrices } from '../../stats/getAmmPrices';
-import {
-  getTokenById,
-  getTokenNative,
-  getTokenWrappedNative,
-  isTokenErc20,
-} from '../../tokens/tokens';
+import { getTokenById, getTokenNative, getTokenWrappedNative, isTokenErc20 } from '../../tokens/tokens';
 import { isFiniteNumber } from '../../../utils/number';
 import { partition, uniqBy } from 'lodash';
 import { TokenEntity, TokenErc20 } from '../../tokens/types';
@@ -54,11 +49,7 @@ async function getTokensForChain(apiChain: ApiChain): Promise<TokenErc20[]> {
   return uniqueTokens;
 }
 
-function markTokensUnsupported(
-  byAddress: TokenSupportByAddress,
-  tokens: TokenEntity[],
-  reason: string
-) {
+function markTokensUnsupported(byAddress: TokenSupportByAddress, tokens: TokenEntity[], reason: string) {
   const updatedAt = Date.now();
   for (const token of tokens) {
     byAddress[token.address] = {
@@ -81,11 +72,7 @@ function markTokensSupported(byAddress: TokenSupportByAddress, tokens: TokenEnti
   return byAddress;
 }
 
-function markTokenUnsupported(
-  byAddress: TokenSupportByAddress,
-  token: TokenEntity,
-  reason: string
-) {
+function markTokenUnsupported(byAddress: TokenSupportByAddress, token: TokenEntity, reason: string) {
   byAddress[token.address] = {
     supported: false,
     updatedAt: Date.now(),
@@ -102,10 +89,7 @@ function markTokenSupported(byAddress: TokenSupportByAddress, token: TokenEntity
   return byAddress;
 }
 
-function getProviderForChain(
-  providerKey: ProviderId,
-  apiChain: ApiChain
-): ISwapProvider | undefined {
+function getProviderForChain(providerKey: ProviderId, apiChain: ApiChain): ISwapProvider | undefined {
   const provider = providersById[providerKey];
   if (!provider) {
     return undefined;
@@ -160,9 +144,8 @@ export async function fetchProviderSupportForChainTokens(
     );
   }
 
-  // We assume native and wnative are always supported
+  // Don't check wnative itself, since we check other tokens via this
   const tokensToCheck = allTokens.filter(token => token.address !== wnative.address);
-  markTokensSupported(supportByAddress, [native, wnative]);
 
   // Check tokens have a price
   const wnativeWithPrice = { token: wnative, price: wnativePrice };
@@ -201,7 +184,7 @@ export async function fetchProviderSupportForChainTokens(
   );
   const [buySupported, buyUnsupported] = partition(buyResults, isBuyResultSupported);
 
-  buyUnsupported.forEach(({ reason, tokenWithPrice }, i) =>
+  buyUnsupported.forEach(({ reason, tokenWithPrice }) =>
     markTokenUnsupported(supportByAddress, tokenWithPrice.token, reason)
   );
 
@@ -218,12 +201,22 @@ export async function fetchProviderSupportForChainTokens(
   );
   const [sellSupported, sellUnsupported] = partition(sellResults, isSellResultSupported);
 
-  sellUnsupported.forEach(({ reason, tokenWithPrice }, i) =>
+  sellUnsupported.forEach(({ reason, tokenWithPrice }) =>
     markTokenUnsupported(supportByAddress, tokenWithPrice.token, reason)
   );
-  sellSupported.forEach(({ tokenWithPrice }) =>
-    markTokenSupported(supportByAddress, tokenWithPrice.token)
-  );
+  sellSupported.forEach(({ tokenWithPrice }) => markTokenSupported(supportByAddress, tokenWithPrice.token));
+
+  if (Object.values(supportByAddress).some(s => s.supported)) {
+    // mark native/wnative supported if anything else is supported
+    markTokensSupported(supportByAddress, [native, wnative]);
+  } else {
+    // mark native/wnative unsupported if nothing else is supported, so we don't attempt any swaps via this provider
+    markTokensUnsupported(
+      supportByAddress,
+      [native, wnative],
+      'No other supported tokens, likely API problem'
+    );
+  }
 
   return supportByAddress;
 }
