@@ -1,5 +1,77 @@
 [
   {
+    "address": "0x353c831C1eAf38A18DbE7C8D63Ed2519D1a6a47c",
+    "lpAddress": "0x74554EE9578654e1446E47ACC97B8eac08F1BFE4",
+    "tokens": ["0x02e75d28A8AA2a0033b8cf866fCf0bB0E1eE4444", "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c"],
+    "tokenOracleIds": ["PALU", "WBNB"],
+    "decimals": [18, 18],
+    "oracleId": "pancake-cow-bsc-palu-wbnb",
+    "rewardPool": {
+      "address": "0xc906BaF64503bF383c722D612eEdF2FAecaBc2Cb",
+      "oracleId": "pancake-cow-bsc-palu-wbnb-rp"
+    }
+  },
+  {
+    "address": "0xaA32fe54626D52D2fC73Cf13864668BCAcF38421",
+    "lpAddress": "0x8148751664e9a31Ead5a0C70BEf6ed70Ea74D5B8",
+    "tokens": ["0x02e75d28A8AA2a0033b8cf866fCf0bB0E1eE4444", "0x55d398326f99059fF775485246999027B3197955"],
+    "tokenOracleIds": ["PALU", "USDT"],
+    "decimals": [18, 18],
+    "oracleId": "pancake-cow-bsc-palu-usdt",
+    "rewardPool": {
+      "address": "0x9201C7F07c90DC8e973C14476375e9C9DeB79700",
+      "oracleId": "pancake-cow-bsc-palu-usdt-rp"
+    }
+  },
+  {
+    "address": "0x9ce3A5960C5655405fd09f6c9bFFFBC03eFB8a27",
+    "lpAddress": "0xFAd3B1b70868e16E93e323Ea1375e2136a6c829A",
+    "tokens": ["0x0A43fC31a73013089DF59194872Ecae4cAe14444", "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c"],
+    "tokenOracleIds": ["FOUR", "WBNB"],
+    "decimals": [18, 18],
+    "oracleId": "pancake-cow-bsc-4-wbnb",
+    "rewardPool": {
+      "address": "0x39fF773355687129BaF47112901dc93FC42a2a6d",
+      "oracleId": "pancake-cow-bsc-4-wbnb-rp"
+    }
+  },
+  {
+    "address": "0x896d7331A211Fc3817fD74362559439C835B8267",
+    "lpAddress": "0xEe04B2A82BAb9EfEFCD626F5D66F51Cc2B6FA12A",
+    "tokens": ["0x0A43fC31a73013089DF59194872Ecae4cAe14444", "0x55d398326f99059fF775485246999027B3197955"],
+    "tokenOracleIds": ["FOUR", "USDT"],
+    "decimals": [18, 18],
+    "oracleId": "pancake-cow-bsc-4-usdt",
+    "rewardPool": {
+      "address": "0x5bEa2BBd2f5f3DA7550Dd96ee4d5aC7FaA8A4bEc",
+      "oracleId": "pancake-cow-bsc-4-usdt-rp"
+    }
+  },
+  {
+    "address": "0xB405a778D209F3d715ef4F1b6849AeAc5E874216",
+    "lpAddress": "0xB7b43F1Fd4b1287b05B23731b7feb532b5BFD79f",
+    "tokens": ["0x924fa68a0FC644485b8df8AbfA0A41C2e7744444", "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c"],
+    "tokenOracleIds": ["BINANCE_LIFE", "WBNB"],
+    "decimals": [18, 18],
+    "oracleId": "pancake-cow-bsc-binance-life-wbnb",
+    "rewardPool": {
+      "address": "0xA8AD13B61c0e03b0c490944E09444FEb89b2c755",
+      "oracleId": "pancake-cow-bsc-binance-life-wbnb-rp"
+    }
+  },
+  {
+    "address": "0x06e84B1d74E417CfEc9416072F69658c5f83472B",
+    "lpAddress": "0x1218e55e8Bd24Ceb9afe6D084b62F6FB3e6746B7",
+    "tokens": ["0x73b84F7E3901F39FC29F3704a03126D317Ab4444", "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c"],
+    "tokenOracleIds": ["PUP", "WBNB"],
+    "decimals": [18, 18],
+    "oracleId": "pancake-cow-bsc-pup-wbnb",
+    "rewardPool": {
+      "address": "0x64A539Ab80ccc8E0dF5478175175309A2964FFbf",
+      "oracleId": "pancake-cow-bsc-pup-wbnb-rp"
+    }
+  },
+  {
     "address": "0x10D4fed84fa4dd405a1483ba2ac1113B05522669",
     "lpAddress": "0x7d98804119551f915a75cE278526ac7eE5077087",
     "tokens": ["0x000Ae314E2A2172a039B26378814C252734f556A", "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c"],
