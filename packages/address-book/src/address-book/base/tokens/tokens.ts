@@ -3117,7 +3117,6 @@ export const tokens = {
       'The CF Large Cap Index (Diversified Weight) is a liquid, investible benchmark portfolio index built designed to track the performance of large-cap digital assets.',
     documentation: 'https://reserve.org/protocol/',
     bridge: 'native',
-    risks: ['NO_TIMELOCK'],
   },
   DIEM: {
     name: 'Diem',
