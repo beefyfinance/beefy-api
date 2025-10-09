@@ -17,6 +17,29 @@
     ]
   },
   {
+    "name": "curve-fraxtal-frxusd-dusd",
+    "pool": "0x9CA648D2f51098941688Db9a0beb1DadC2D1B357",
+    "gauge": "0x05600c37D54a4F3cDc76E0867aF1530BeCC332ca",
+    "convex": true,
+    "getDy": ["v1", 1, 0],
+    "rewards": [
+      {
+        "token": "0xFc00000000000000000000000000000000000002",
+        "oracleId": "FXS"
+      }
+    ],
+    "tokens": [
+      {
+        "oracleId": "frxUSD",
+        "decimals": "1e18"
+      },
+      {
+        "oracleId": "dUSD",
+        "decimals": "1e6"
+      }
+    ]
+  },
+  {
     "name": "curve-fraxtal-scrvusd-sfrxusd",
     "pool": "0xac5dd1861bcf660a788e5f1f3d4d09bcf661946c",
     "gauge": "0x660622adba5339e62d800be440d6d0c8c1838559",

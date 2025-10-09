@@ -343,4 +343,32 @@ export const tokens = {
     bridge: 'layer-zero',
     documentation: 'https://docs.frax.finance/',
   },
+  dUSD: {
+    name: 'dTRINITY USD',
+    symbol: 'dUSD',
+    oracleId: 'dUSD',
+    chainId: 252,
+    address: '0x788D96f655735f52c676A133f4dFC53cEC614d4A',
+    decimals: 6,
+    website: 'https://www.dtrinity.org/',
+    documentation: 'https://docs.dtrinity.org/',
+    description:
+      'dTRINITY USD (dUSD) is a decentralized stablecoin, fully backed by a non-custodial reserve of USD-denominated stablecoins and yieldcoins. Built on the ERC-20 standard, each dUSD token is soft-pegged to $1—backed by at least $1 worth of collateral.',
+    bridge: 'native',
+    risks: ['NO_TIMELOCK'],
+  },
+  sdUSD: {
+    name: 'Staked dUSD',
+    symbol: 'sdUSD',
+    oracleId: 'sdUSD',
+    chainId: 252,
+    address: '0x58AcC2600835211Dcb5847c5Fa422791Fd492409',
+    decimals: 6,
+    website: 'https://www.dtrinity.org/',
+    documentation: 'https://docs.dtrinity.org/',
+    description:
+      "Staked dUSD is an ERC-4626 vault that allows users to stake their dUSD and receive sdUSD receipt tokens. These receipts function similarly to yield-bearing stablecoins (YBS). The dUSD deposited into dSTAKE is automatically supplied to lending protocols, earning yield and points from lending markets which accrue to sdUSD. Users can unstake sdUSD for dUSD based on available liquidity in lending markets. Through dTRINITY's subsidized lending mechanism, sdUSD is expected to deliver above-market yield from boosted utilization. ",
+    bridge: 'native',
+    risks: ['NO_TIMELOCK'],
+  },
 } as const satisfies Record<string, Token>;
