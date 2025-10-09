@@ -5111,4 +5111,17 @@ export const tokens = {
     bridge: 'native',
     risks: ['NO_TIMELOCK'],
   },
+  BNBHolder: {
+    name: 'BNBHolder',
+    symbol: 'BNBHolder',
+    oracleId: 'BNBHolder',
+    address: '0x44440f83419DE123d7d411187aDb9962db017d03',
+    chainId: 56,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://web3.binance.com/en/token/bsc/0x44440f83419de123d7d411187adb9962db017d03',
+    description:
+      'MEMECOIN: BNBHolder, known as 币安Holder, embodies the spirit of steadfast commitment within the Binance ecosystem on the BNB Smart Chain (BSC).',
+    bridge: 'native',
+  },
 } as const satisfies Record<string, Token>;
