@@ -5096,4 +5096,19 @@ export const tokens = {
     description: 'MEMECOIN: The perfect plushy born in the perfect era.',
     bridge: 'native',
   },
+  FORM: {
+    name: 'FORM Token',
+    symbol: 'FORM',
+    oracleId: 'FORM',
+    address: '0x5b73A93b4E5e4f1FD27D8b3F8C97D69908b5E284',
+    chainId: 56,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://four.meme/',
+    description:
+      'Four.meme is a streamlined, low-cost pathway to introduce even more meme tokens into the world. Create anything. Any meme you want to put out into the blockchain ecosystem. We’re here to be your canvas and your logistical minion. We’ll help you get the most traction possible with users on BSC. All we’re asking is you create the best viral memes that can potentially make you famous.',
+    documentation: 'https://four-meme.gitbook.io/four.meme/protocol-integration',
+    bridge: 'native',
+    risks: ['NO_TIMELOCK'],
+  },
 } as const satisfies Record<string, Token>;
