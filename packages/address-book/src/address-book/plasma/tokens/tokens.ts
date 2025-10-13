@@ -89,6 +89,19 @@ export const tokens = {
     bridge: 'layer-zero',
     risks: ['NO_TIMELOCK'],
   },
+  PlasmaUSD: {
+    name: 'Plasma USD Vault (PlasmaUSD)',
+    symbol: 'PlasmaUSD',
+    oracleId: 'PlasmaUSD',
+    address: '0xd1074E0AE85610dDBA0147e29eBe0D8E5873a000',
+    chainId: 9745,
+    decimals: 6,
+    logoURI: '',
+    website: 'https://app.plasma.to/',
+    description:
+      'The PlasmaUSD Vault is the flagship Plasma vault managed by Veda. Deposits are deployed into blue-chip lending protocols such as Aave to generate yield.',
+    bridge: 'native',
+  },
   syrupUSDT: {
     name: 'Syrup USDT',
     symbol: 'syrupUSDT',
