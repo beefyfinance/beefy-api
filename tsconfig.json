@@ -10,6 +10,7 @@
     "resolveJsonModule": true,
     "strict": false,
     "noErrorTruncation": true,
+    "incremental": true,
     "typeRoots": ["./node_modules/@types"],
     "types": ["node"]
   },

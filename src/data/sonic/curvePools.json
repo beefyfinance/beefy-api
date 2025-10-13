@@ -1,5 +1,35 @@
 [
   {
+    "name": "curve-sonic-sdusd-wstkscusd",
+    "pool": "0xA1A0eCcCD628A70434221e3e5f832517E97A697C",
+    "gauge": "0x175FfDDd16515A64d46415dd7E935E4B4fA7D710",
+    "tokens": [
+      {
+        "oracleId": "sdUSD",
+        "decimals": "1e18"
+      },
+      {
+        "oracleId": "wstkscUSD",
+        "decimals": "1e6"
+      }
+    ]
+  },
+  {
+    "name": "curve-sonic-dusd-frxusd",
+    "pool": "0xdb81ee19ea2E5E1acA04f55D9C6c4188C36a81Fe",
+    "gauge": "0x99001D209c6cb5fBb05cc6566eaC07b2BCA68E58",
+    "tokens": [
+      {
+        "oracleId": "dUSD",
+        "decimals": "1e18"
+      },
+      {
+        "oracleId": "frxUSD",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
     "name": "curve-sonic-sceth-frxeth",
     "pool": "0x346704605c72d9f5f9F02D651e5A3DccE6964F3d",
     "gauge": "0xc5bA4D9201F66973F50B628fcd83212577196AEA",
