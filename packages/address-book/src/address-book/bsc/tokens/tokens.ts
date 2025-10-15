@@ -5124,4 +5124,19 @@ export const tokens = {
       'MEMECOIN: BNBHolder, known as 币安Holder, embodies the spirit of steadfast commitment within the Binance ecosystem on the BNB Smart Chain (BSC).',
     bridge: 'native',
   },
+  COAI: {
+    name: 'ChainOpera AI',
+    symbol: 'COAI',
+    oracleId: 'COAI',
+    address: '0x0A8D6C86e1bcE73fE4D0bD531e1a567306836EA5',
+    chainId: 56,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://chainopera.ai/',
+    description:
+      'ChainOpera AI empowers collaborative intelligence through a network of AI agents co-created and co-operated by the community.',
+    bridge: 'native',
+    risks: ['LARGE_HOLDERS'],
+    documentation: 'https://paper.chainopera.ai/',
+  },
 } as const satisfies Record<string, Token>;

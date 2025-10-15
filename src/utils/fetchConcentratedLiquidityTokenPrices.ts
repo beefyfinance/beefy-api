@@ -1170,6 +1170,14 @@ const tokens: Partial<Record<keyof typeof ChainId, ConcentratedLiquidityToken[]>
       firstToken: 'WBNB',
       secondToken: 'BNBHolder',
     },
+    {
+      type: 'UniV3',
+      oracleId: 'COAI',
+      decimalDelta: 1,
+      pool: '0x4610464356ba6BbA15Eec558619d84b72FEA260F',
+      firstToken: 'USDT',
+      secondToken: 'COAI',
+    },
   ],
   gnosis: [
     {
