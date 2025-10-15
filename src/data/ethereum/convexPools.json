@@ -672,6 +672,13 @@
     "pool": "0x383e6b4437b59fff47b619cba855ca29342a8559",
     "gauge": "0x9da75997624c697444958aded6790bfca96af19a",
     "getDy": ["v1", 0, 1],
+    "rewards": [
+      {
+        "token": "0x6c3ea9036406852006290770BEdFcAbA0e23A0e8",
+        "oracleId": "PYUSD",
+        "decimals": "1e6"
+      }
+    ],
     "tokens": [
       {
         "oracleId": "PYUSD",
