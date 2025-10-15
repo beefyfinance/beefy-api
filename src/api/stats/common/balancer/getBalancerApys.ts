@@ -1,4 +1,4 @@
-import { getTotalStakedInUsd, getYearlyRewardsInUsd } from '../curve/getCurveApyData';
+import { getTotalStakedInUsd, getYearlyRewardsInUsd } from './balancerUtils';
 import { getApyBreakdown, ApyBreakdownResult } from '../getApyBreakdown';
 import { NormalizedCacheObject, ApolloClient } from '@apollo/client/core';
 import BigNumber from 'bignumber.js';

@@ -1,4 +1,4 @@
-import { getTotalStakedInUsd, getYearlyRewardsInUsd } from '../common/curve/getCurveApyData';
+import { getTotalStakedInUsd, getYearlyRewardsInUsd } from '../common/balancer/balancerUtils';
 import getApyBreakdown from '../common/getApyBreakdown';
 import BigNumber from 'bignumber.js';
 import { OPTIMISM_CHAIN_ID } from '../../../constants';
@@ -35,14 +35,7 @@ const getBeetsOpApys = async () => {
 
   // console.log(tradingAprs);
   const poolsMap = pools.map(p => ({ name: p.name, address: p.address }));
-  return getApyBreakdown(
-    poolsMap,
-    tradingAprs,
-    farmApys[0],
-    liquidityProviderFee,
-    farmApys[1],
-    farmApys[2]
-  );
+  return getApyBreakdown(poolsMap, tradingAprs, farmApys[0], liquidityProviderFee, farmApys[1], farmApys[2]);
 };
 
 const getPoolApys = async pools => {
