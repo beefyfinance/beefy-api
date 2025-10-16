@@ -232,6 +232,7 @@ export async function getNonAmmPrices(
     getEulerPrices(AVAX_CHAIN_ID, require('../../data/avax/eulerPools.json'), tokenPrices),
     getTruePrices(BASE_CHAIN_ID, require('../../data/base/truePools.json'), tokenPrices),
     getSolidlyStablePrices(AVAX_CHAIN_ID, require('../../data/avax/blackStableLpPools.json'), tokenPrices),
+    getSolidlyStablePrices(PLASMA_CHAIN_ID, require('../../data/plasma/lithosStablePools.json'), tokenPrices),
     getBaseSiloPrices(tokenPrices),
     getNuriStablePrices(tokenPrices),
     getVenusArbPrices(tokenPrices),

@@ -1,0 +1,40 @@
+[
+  {
+    "name": "lithos-wxpl-lith",
+    "address": "0x7dab98cc51835beae6dee43bbda84cdb96896fb5",
+    "gauge": "0xdaFD14335AEE92098b13ae3Ed9F5ce3B675E92cc",
+    "decimals": "1e18",
+    "chainId": 9745,
+    "lp0": {
+      "address": "0x6100E367285b01F48D07953803A2d8dCA5D19873",
+      "oracle": "tokens",
+      "oracleId": "WXPL",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xAbB48792A3161E81B47cA084c0b7A22a50324A44",
+      "oracle": "tokens",
+      "oracleId": "LITH",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "lithos-wxpl-usdt0",
+    "address": "0xa0926801a2abc718822a60d8fa1bc2a51fa09f1e",
+    "gauge": "0x74d336DB3d5BE2BDc9D07048a7E0cE6f4ad4E7Dc",
+    "decimals": "1e18",
+    "chainId": 9745,
+    "lp0": {
+      "address": "0x6100E367285b01F48D07953803A2d8dCA5D19873",
+      "oracle": "tokens",
+      "oracleId": "WXPL",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xB8CE59FC3717ada4C02eaDF9682A9e934F625ebb",
+      "oracle": "tokens",
+      "oracleId": "USDT0",
+      "decimals": "1e6"
+    }
+  }
+]

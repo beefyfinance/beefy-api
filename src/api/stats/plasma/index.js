@@ -3,8 +3,16 @@ const { getAaveV3Apys } = require('./getAaveV3Apys');
 const { getEulerPlasmaApys } = require('./getEulerPlasmaApys');
 const { getPenpieApys } = require('./getPenpieApys');
 const { getCurveApys } = require('./getCurveApys');
+const { getLithosApys } = require('./getLithosApys');
 
-const getApys = [getBeefyCowPlasmaApys, getAaveV3Apys, getEulerPlasmaApys, getPenpieApys, getCurveApys];
+const getApys = [
+  getBeefyCowPlasmaApys,
+  getAaveV3Apys,
+  getEulerPlasmaApys,
+  getPenpieApys,
+  getCurveApys,
+  getLithosApys,
+];
 
 const getPlasmaApys = async () => {
   const start = Date.now();

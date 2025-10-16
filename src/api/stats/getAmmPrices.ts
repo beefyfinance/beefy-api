@@ -56,6 +56,7 @@ import truePools from '../../data/base/trueLpPools.json';
 import kittenswapPools from '../../data/hyperevm/kittenswapLpPools.json';
 import blackholePools from '../../data/avax/blackLpPools.json';
 import etherexPools from '../../data/linea/etherexVolatilePools.json';
+import lithosPools from '../../data/plasma/lithosPools.json';
 import { addressBookByChainId } from '../../../packages/address-book/src/address-book';
 import { sleep } from '../../utils/time';
 import { isFiniteNumber } from '../../utils/number';
@@ -77,6 +78,7 @@ const LOG_PRICE_SERVICE = envBoolean('LOG_PRICE_SERVICE', true);
 // FIXME: if this list grows too big we might hit the ratelimit on initialization everytime
 // Implement in case of emergency -> https://github.com/beefyfinance/beefy-api/issues/103
 const pools = normalizePoolOracleIds([
+  ...lithosPools,
   ...etherexPools,
   ...blackholePools,
   ...kittenswapPools,
