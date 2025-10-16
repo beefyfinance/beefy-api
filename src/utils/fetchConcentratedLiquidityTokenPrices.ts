@@ -1178,6 +1178,14 @@ const tokens: Partial<Record<keyof typeof ChainId, ConcentratedLiquidityToken[]>
       firstToken: 'USDT',
       secondToken: 'COAI',
     },
+    {
+      type: 'UniV3',
+      oracleId: 'XRP',
+      decimalDelta: 1,
+      pool: '0xfa7D79f971a70771E5e92Bd80AB955edC8602f4d',
+      firstToken: 'WBNB',
+      secondToken: 'XRP',
+    },
   ],
   gnosis: [
     {
