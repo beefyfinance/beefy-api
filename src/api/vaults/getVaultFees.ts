@@ -6,7 +6,6 @@ import { fetchContract } from '../rpc/client';
 import FeeABI from '../../abis/FeeABI';
 import { HarvestableVault } from './types';
 import { getHarvestableVaultsByChain } from '../stats/getMultichainVaults';
-import { isDefined } from '../../utils/array';
 import { Address, BaseError } from 'viem';
 import { chunk } from 'lodash';
 
@@ -183,8 +182,8 @@ const callHandlers = {
         call: Number(value.beefy.call / BigInt(1e9)) / 1e9,
         strategist: Number(value.beefy.strategist / BigInt(1e9)) / 1e9,
       },
-      deposit: Number(value),
-      withdraw: Number(value),
+      deposit: Number(value.deposit),
+      withdraw: Number(value.withdraw),
     } satisfies AllFeesCallResponse;
   },
   paused: async (contract: FeeAbiContract) => await contract.read.paused(),
@@ -227,11 +226,12 @@ const getChainFees = async (vaults: HarvestableVault[], chainId: number, feeBatc
       results.forEach((res, index) => {
         if (res.status === 'fulfilled') {
           const callResponse: StrategyCallResponse = res.value;
+          const vault = batch[index]!;
           const fees = mapStrategyCallsToFeeBreakdown(callResponse, feeBatch);
           if (fees) {
-            vaultFees[vaults[index].id] = fees;
+            vaultFees[vault.id] = fees;
           } else {
-            console.warn(`> Failed to get fees for ` + vaults[index].id);
+            console.warn(`> Failed to get fees for ` + vault.id);
           }
         }
       });
