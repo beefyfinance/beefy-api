@@ -1186,6 +1186,30 @@ const tokens: Partial<Record<keyof typeof ChainId, ConcentratedLiquidityToken[]>
       firstToken: 'WBNB',
       secondToken: 'XRP',
     },
+    {
+      type: 'UniV3',
+      oracleId: 'FINGERHEART',
+      decimalDelta: 1,
+      pool: '0xAd5811a144941C75C3B5f99220fc9FE1b5b05b8b',
+      firstToken: 'FINGERHEART',
+      secondToken: 'USDT',
+    },
+    {
+      type: 'UniV3',
+      oracleId: 'XPIN',
+      decimalDelta: 1,
+      pool: '0x08dEBfC510A2EB0148107Da7AB8E96531323F4D4',
+      firstToken: 'XPIN',
+      secondToken: 'USDT',
+    },
+    {
+      type: 'UniV3',
+      oracleId: 'LAB',
+      decimalDelta: 1,
+      pool: '0x2f62969A74159bfC9365d8Cd29aE8F6D15582204',
+      firstToken: 'LAB',
+      secondToken: 'USDT',
+    },
   ],
   gnosis: [
     {
