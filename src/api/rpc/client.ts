@@ -171,7 +171,7 @@ export const fetchContract = <ContractAbi extends Abi>(
       }
       return target[prop];
     },
-  });
+  }) as typeof contract;
 };
 
 export const fetchNoMulticallContract = <ContractAbi extends Abi>(
