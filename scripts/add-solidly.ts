@@ -58,6 +58,9 @@ const {
   hyperevm: {
     platforms: { kittenswap },
   },
+  plasma: {
+    platforms: { lithos },
+  },
 } = addressBook;
 
 const projects = {
@@ -208,6 +211,12 @@ const projects = {
     stableFile: '../src/data/linea/etherexStablePools.json',
     volatileFile: '../src/data/linea/etherexVolatilePools.json',
     voter: etherex.voter,
+  },
+  lithos: {
+    prefix: 'lithos',
+    stableFile: '../src/data/plasma/lithosStablePools.json',
+    volatileFile: '../src/data/plasma/lithosPools.json',
+    voter: '0x2AF460a511849A7aA37Ac964074475b0E6249c69',
   },
 };
 

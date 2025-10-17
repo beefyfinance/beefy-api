@@ -1,10 +1,71 @@
 [
   {
+    "name": "lithos-weth-weeth-v",
+    "address": "0x7483eD877a1423f34Dc5e46CF463ea4A0783d165",
+    "gauge": "0x43FBfe26f8f2943C167A587648e9D22d68B54183",
+    "decimals": "1e18",
+    "chainId": 9745,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0x9895D81bB462A195b4922ED7De0e3ACD007c32CB",
+      "oracle": "tokens",
+      "oracleId": "WETH",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xA3D68b74bF0528fdD07263c60d6488749044914b",
+      "oracle": "tokens",
+      "oracleId": "weETH",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "lithos-wxpl-weth",
+    "address": "0x15DF11A0b0917956fEa2b0D6382E5BA100B312df",
+    "gauge": "0x933C501557F187A1B648ccd1ED060394396797d3",
+    "decimals": "1e18",
+    "chainId": 9745,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0x6100E367285b01F48D07953803A2d8dCA5D19873",
+      "oracle": "tokens",
+      "oracleId": "WXPL",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x9895D81bB462A195b4922ED7De0e3ACD007c32CB",
+      "oracle": "tokens",
+      "oracleId": "WETH",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "lithos-weth-usdt0",
+    "address": "0xF402c0c55285436E2D598c25FaF906C62f2ea998",
+    "gauge": "0xB27a2345E7B375FA30D310822b8AfeEdB6955e61",
+    "decimals": "1e18",
+    "chainId": 9745,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0x9895D81bB462A195b4922ED7De0e3ACD007c32CB",
+      "oracle": "tokens",
+      "oracleId": "WETH",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xB8CE59FC3717ada4C02eaDF9682A9e934F625ebb",
+      "oracle": "tokens",
+      "oracleId": "USDT0",
+      "decimals": "1e6"
+    }
+  },
+  {
     "name": "lithos-wxpl-lith",
-    "address": "0x7dab98cc51835beae6dee43bbda84cdb96896fb5",
+    "address": "0x7dAB98CC51835Beae6dEE43BbdA84cDb96896fb5",
     "gauge": "0xdaFD14335AEE92098b13ae3Ed9F5ce3B675E92cc",
     "decimals": "1e18",
     "chainId": 9745,
+    "beefyFee": 0.095,
     "lp0": {
       "address": "0x6100E367285b01F48D07953803A2d8dCA5D19873",
       "oracle": "tokens",

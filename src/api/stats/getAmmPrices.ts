@@ -228,6 +228,7 @@ const coinGeckoCoins: Record<string, string[]> = {
   'spark-2': ['SPK'],
   'avant-staked-usd': ['savUSD'],
   'restaked-savax': ['rsAVAX'],
+  'staked-stream-usd': ['xUSD'],
   // 'genesislrt-restaked-eth': ['lineainETH'],
 };
 
