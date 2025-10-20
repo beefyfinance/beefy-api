@@ -1,5 +1,42 @@
 [
   {
+    "name": "curve-pyusd-crvusd",
+    "pool": "0x625E92624Bc2D88619ACCc1788365A69767f6200",
+    "gauge": "0xf69Fb60B79E463384b40dbFDFB633AB5a863C9A2",
+    "rewards": [
+      {
+        "token": "0x01791F726B4103694969820be083196cC7c045fF",
+        "oracleId": "YB"
+      }
+    ],
+    "tokens": [
+      {
+        "oracleId": "PYUSD",
+        "decimals": "1e6"
+      },
+      {
+        "oracleId": "crvUSD",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
+    "name": "curve-crvusd-yb",
+    "pool": "0xec977F46467a3021785Cff88894886E617abd65b",
+    "gauge": "0xCC57f3a930551EfF0eFE20C996b7e723E3f5e572",
+    "getDy": ["v2", 1, 0],
+    "tokens": [
+      {
+        "oracleId": "crvUSD",
+        "decimals": "1e18"
+      },
+      {
+        "oracleId": "YB",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
     "name": "curve-eth+-weth",
     "pool": "0x2c683fAd51da2cd17793219CC86439C1875c353e",
     "gauge": "0xAD6D1a4B1B2F33712A8b18BeDc95c0A1f9832269",
