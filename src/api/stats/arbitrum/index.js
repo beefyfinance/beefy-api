@@ -18,7 +18,7 @@ const { ARBITRUM_CHAIN_ID: chainId } = require('../../../constants');
 
 const getApys = [
   getAuraArbitrumApys,
-  getGnsApys,
+  // getGnsApys,
   () =>
     getEquilibriaApys([
       ...require('../../../data/arbitrum/pendlePools.json'),
@@ -29,13 +29,13 @@ const getApys = [
   // getGmxV2Apys,
   getGmxApys,
   getCurveApys,
-  getBalancerArbApys,
+  // getBalancerArbApys,
   getRamsesApys,
   getArbCompoundV3Apys,
   getBeefyArbCowApys,
-  getAaveV3Apys,
-  getVenusApys,
-  getStargateArbApys,
+  // getAaveV3Apys,
+  // getVenusApys,
+  // getStargateArbApys,
   () => getSiloApys(chainId, require('../../../data/arbitrum/siloV2Pools.json')),
 ];
 
