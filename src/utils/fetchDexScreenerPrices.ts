@@ -28,6 +28,7 @@ const chainIdToDexScreenerChainId = {
   fuse: 'fuse',
   mantle: 'mantle',
   sonic: 'sonic',
+  plasma: 'plasma',
 } as const satisfies Partial<Record<ApiChain, string>>;
 const dexScreenerChainIdToChainId = Object.fromEntries(
   Object.entries(chainIdToDexScreenerChainId).map(([k, v]) => [v, k])

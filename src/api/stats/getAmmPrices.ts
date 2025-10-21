@@ -311,6 +311,11 @@ const dexscreenerCoins: OraclePriceRequest[] = [
     tokenAddress: '0x3419966bC74fa8f951108d15b053bEd233974d3D',
     chainId: 'sonic',
   },
+  {
+    oracleId: 'plUSD',
+    tokenAddress: '0xf91c31299E998C5127Bc5F11e4a657FC0cF358CD',
+    chainId: 'plasma',
+  },
 ];
 
 /**

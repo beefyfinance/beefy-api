@@ -131,6 +131,19 @@ export const tokens = {
     bridge: 'layer-zero',
     risks: ['NO_TIMELOCK'],
   },
+  splUSD: {
+    name: 'Staked Plasma USD',
+    symbol: 'splUSD',
+    oracleId: 'splUSD',
+    address: '0x616185600989Bf8339b58aC9e539d49536598343',
+    chainId: 9745,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://plasma.earn.trevee.xyz/',
+    description:
+      'splUSD represents the vault receipt token of Trevee. The vault is powered by Midas infrastructure. Deposits into splUSD is then deployed into DeFi (e.g. Aave and Fluid) strategies to generate yield.',
+    bridge: 'native',
+  },
   LITH: {
     name: 'Lithos',
     symbol: 'LITH',

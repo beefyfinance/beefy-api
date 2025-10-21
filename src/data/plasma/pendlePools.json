@@ -1,5 +1,13 @@
 [
   {
+    "name": "pendle-plasma-splusd-29jan26",
+    "address": "0x9d0676ec013cb50b7bf9b291c22b618e9fe86832",
+    "oracle": "tokens",
+    "oracleId": "plUSD",
+    "decimals": "1e18",
+    "chainId": 9745
+  },
+  {
     "name": "pendle-plasma-plasmausd-29jan26",
     "address": "0x7209d228cd585f4b77a031f7b902f989439ac319",
     "oracle": "tokens",
@@ -13,22 +21,6 @@
     "oracle": "tokens",
     "oracleId": "USDT0",
     "decimals": "1e6",
-    "chainId": 9745
-  },
-  {
-    "name": "pendle-plasma-usde-15jan26",
-    "address": "0xfd3eb62302fa3cbc3c7e59e887b92dbbc814285d",
-    "oracle": "tokens",
-    "oracleId": "USDe",
-    "decimals": "1e18",
-    "chainId": 9745
-  },
-  {
-    "name": "pendle-plasma-susde-15jan26",
-    "address": "0xe06c3b972ba630ccf3392cecdbe070690b4e6b55",
-    "oracle": "tokens",
-    "oracleId": "sUSDe",
-    "decimals": "1e18",
     "chainId": 9745
   }
 ]
