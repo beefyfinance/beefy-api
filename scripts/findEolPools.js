@@ -29,6 +29,7 @@ async function main() {
   const holders = await fetch('https://balance-api.beefy.finance/api/v1/holders/counts/all').then(r =>
     r.json()
   );
+  const livePools = [];
   pools.forEach(p => {
     const id = p.name || p.oracleId;
     const v = vaults.find(v => v.id === id);
@@ -36,8 +37,10 @@ async function main() {
       if (id.startsWith('pendle-')) {
         const eqbId = id.replace('pendle-', 'pendle-eqb-');
         const eqbV = vaults.find(v => v.id === eqbId);
-        if (eqbV) console.error(id, 'not found, but got', eqbId, eqbV.status, tvl[eqbId]);
-        else console.error(id, 'not found');
+        if (eqbV) {
+          livePools.push(eqbV);
+          console.error(id, 'not found, but got', eqbId, eqbV.status, tvl[eqbId]);
+        } else console.error(id, 'not found');
       } else {
         console.error(id, 'not found');
       }
@@ -46,8 +49,11 @@ async function main() {
         .find(h => h.chain === v.chain && h.token_address === v.earnContractAddress.toLowerCase())
         ?.holder_count?.toString();
       console.warn(id, 'eol', v.retiredAt, new Date(v.retiredAt * 1000).toLocaleDateString(), tvl[id], h);
+    } else {
+      livePools.push(id);
     }
   });
+  console.log(`live pools: ${livePools.length} - ${livePools}`);
   process.exit(0);
 }
 

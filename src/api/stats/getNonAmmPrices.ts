@@ -25,7 +25,6 @@ import getStargateBscPrices from './bsc/stargate/getStargateBscPrices';
 import getStargatePolygonPrices from './matic/getStargatePolygonPrices';
 import getStargateOpPrices from './optimism/getStargateOpPrices';
 import getStargateMantlePrices from './mantle/getStargateMantlePrices';
-import getStargateSeiPrices from './sei/getStargateSeiPrices';
 import getOlpPrices from './optimism/getOlpPrices';
 import getThenaStablePrices from './bsc/getThenaStablePrices';
 import getCantoStablePrices from './canto/getCantoStablePrices';
@@ -153,7 +152,6 @@ export async function getNonAmmPrices(
     getStargateEthPrices(tokenPrices),
     getStargateLineaPrices(tokenPrices),
     getStargateMantlePrices(tokenPrices),
-    getStargateSeiPrices(tokenPrices),
     getHopOpPrices(tokenPrices),
     getHopArbPrices(tokenPrices),
     getFerroPrices(tokenPrices),

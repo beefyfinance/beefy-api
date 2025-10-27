@@ -39,24 +39,6 @@
     }
   },
   {
-    "name": "velo-wmlt-usdc",
-    "address": "0xd65EaCAed50706254b5001f22963C8615968AF7d",
-    "decimals": "1e18",
-    "chainId": 34443,
-    "lp0": {
-      "address": "0x8b2EeA0999876AAB1E7955fe01A5D261b570452C",
-      "oracle": "tokens",
-      "oracleId": "wMLT",
-      "decimals": "1e18"
-    },
-    "lp1": {
-      "address": "0xd988097fb8612cc24eeC14542bC03424c656005f",
-      "oracle": "tokens",
-      "oracleId": "USDC",
-      "decimals": "1e6"
-    }
-  },
-  {
     "name": "aerodrome-weth-flay",
     "address": "0x49508923Bafdc214B6556A7F6206cbc0F93C9988",
     "gauge": "0x0000000000000000000000000000000000000000",
