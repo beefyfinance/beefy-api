@@ -1,5 +1,21 @@
 [
   {
+    "name": "curve-reusd-sfrxusd",
+    "pool": "0xed785Af60bEd688baa8990cD5c4166221599A441",
+    "gauge": "0x5C0B03914f68F2717d779a0211fd98C2CC45a4dD",
+    "rewardPool": "0x18574c2047A2D4786567A2C31B4f25Ae291ed6bF",
+    "tokens": [
+      {
+        "oracleId": "reUSD",
+        "decimals": "1e18"
+      },
+      {
+        "oracleId": "sfrxUSD",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
     "name": "curve-pyusd-crvusd",
     "pool": "0x625E92624Bc2D88619ACCc1788365A69767f6200",
     "gauge": "0xf69Fb60B79E463384b40dbFDFB633AB5a863C9A2",
