@@ -1,5 +1,22 @@
 [
   {
+    "name": "curve-crvusd-frxusd",
+    "pool": "0x13e12BB0E6A2f1A3d6901a59a9d585e89A6243e1",
+    "gauge": "0x22804B0F6bE741a9Fa1BbaEcDD6c8D4116E96944",
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "frxUSD",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "crvUSD",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
     "name": "curve-reusd-sfrxusd",
     "pool": "0xed785Af60bEd688baa8990cD5c4166221599A441",
     "gauge": "0x5C0B03914f68F2717d779a0211fd98C2CC45a4dD",
@@ -942,9 +959,9 @@
     ]
   },
   {
-    "name": "convex-crvusd-usdt",
+    "name": "curve-crvusd-usdt",
     "pool": "0x390f3595bCa2Df7d23783dFd126427CCeb997BF4",
-    "token": "0x390f3595bCa2Df7d23783dFd126427CCeb997BF4",
+    "gauge": "0x4e6bB6B7447B7B2Aa268C16AB87F4Bb48BF57939",
     "rewardPool": "0xD1DdB0a0815fD28932fBb194C84003683AF8a824",
     "tokens": [
       {
@@ -960,17 +977,11 @@
     ]
   },
   {
-    "name": "convex-crvusd-usdc",
+    "name": "curve-crvusd-usdc",
     "pool": "0x4DEcE678ceceb27446b35C672dC7d61F30bAD69E",
-    "token": "0x4DEcE678ceceb27446b35C672dC7d61F30bAD69E",
+    "gauge": "0x95f00391cB5EebCd190EB58728B4CE23DbFa6ac1",
     "rewardPool": "0x44D8FaB7CD8b7877D5F79974c2F501aF6E65AbBA",
     "getDy": ["v1", 1, 0],
-    "extras": [
-      {
-        "rewardPool": "0xac183F7cd62d5b04Fa40362EB67249A80339541A",
-        "oracleId": "CVX"
-      }
-    ],
     "tokens": [
       {
         "oracle": "tokens",
