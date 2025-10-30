@@ -2867,4 +2867,17 @@ export const tokens = {
       "yBOLD is Yearn's BOLD tokenized Stability pool product. The yield comes from the different Liquity V2 Stability Pools which is made up of liquidation fees and 75% of the system's interest rate earnings.",
     bridge: 'native',
   },
+  YB: {
+    name: 'Yield Basis',
+    address: '0x01791F726B4103694969820be083196cC7c045fF',
+    symbol: 'YB',
+    oracleId: 'YB',
+    decimals: 18,
+    chainId: 1,
+    website: 'https://yieldbasis.com/',
+    documentation: 'https://docs.yieldbasis.com/user/how-it-works/',
+    description:
+      'YieldBasis enables users to provide BTC as liquidity in an AMM pool without impermanent loss (IL), while still earning trading fees.',
+    bridge: 'native',
+  },
 } as const satisfies Record<string, Token>;
