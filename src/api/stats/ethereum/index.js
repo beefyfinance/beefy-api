@@ -8,14 +8,13 @@ const { getConvexCvxApy } = require('./getConvexCvxApy');
 const { getETHCompoundV3Apys } = require('./getEthCompoundApys');
 const { getbeQIApy } = require('./getbeQIApy');
 const { getFxApys } = require('./getFxApys');
-const { getPenpieApys } = require('./getPenpieApys');
 const { getSkyApy } = require('./getSkyApy');
-const { getEquilibriaApys } = require('../common/getEquilibriaApys');
 const { getTokemakApys } = require('./getTokemakApys');
 const { getMorphoApys } = require('../common/morpho/getMorphoApys');
 const { ETH_CHAIN_ID } = require('../../../constants');
 const { getUsualApys } = require('./getUsualApys');
 const getStargateEthApys = require('./getStargateEthApys');
+const { getPendleApys } = require('../common/pendle/getPendleApys');
 
 const getApys = [
   getAuraApys,
@@ -27,8 +26,7 @@ const getApys = [
   getConvexCvxTokensApy,
   getFxApys,
   getBifiMaxiApy,
-  getPenpieApys,
-  () => getEquilibriaApys(require('../../../data/ethereum/pendlePools.json')),
+  () => getPendleApys(require('../../../data/ethereum/pendlePools.json')),
   () => getMorphoApys(ETH_CHAIN_ID, require('../../../data/ethereum/morphoPools.json')),
   getETHCompoundV3Apys,
   getSkyApy,

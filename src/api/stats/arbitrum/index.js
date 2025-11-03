@@ -6,10 +6,9 @@ const { getGnsApys } = require('./getGnsApys');
 const getRamsesApys = require('./getRamsesApys');
 const getAuraArbitrumApys = require('./getAuraArbitrumApys');
 const { getArbCompoundV3Apys } = require('./getArbCompoundV3Apys');
-const { getEquilibriaApys } = require('../common/getEquilibriaApys');
 const { getBeefyArbCowApys } = require('./getBeefyArbCowApys');
 const { getAaveV3Apys } = require('./getAaveV3Apys');
-const { getPenpieApys } = require('./getPenpieApys');
+const { getPendleApys } = require('../common/pendle/getPendleApys');
 const { getMimApys } = require('./getMimApys');
 const getVenusApys = require('./getVenusApys');
 const getStargateArbApys = require('./getStargateArbApys');
@@ -19,12 +18,7 @@ const { ARBITRUM_CHAIN_ID: chainId } = require('../../../constants');
 const getApys = [
   getAuraArbitrumApys,
   // getGnsApys,
-  () =>
-    getEquilibriaApys([
-      ...require('../../../data/arbitrum/pendlePools.json'),
-      ...require('../../../data/arbitrum/equilibriaPools.json'),
-    ]),
-  getPenpieApys,
+  () => getPendleApys(require('../../../data/arbitrum/pendlePools.json')),
   getMimApys,
   // getGmxV2Apys,
   getGmxApys,

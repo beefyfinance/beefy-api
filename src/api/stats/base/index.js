@@ -7,8 +7,7 @@ const { getBaseCompoundV3Apys } = require('./getBaseCompoundV3Apys');
 const getAuraBaseApys = require('./getAuraBaseApys');
 const { getBeefyBaseCowApys } = require('./getBeefyBaseCowApys');
 const { getMellowVeloApys } = require('../common/getMellowVeloApys');
-const { getEquilibriaApys } = require('../common/getEquilibriaApys');
-const { getPenpieApys } = require('./getPenpieApys');
+const { getPendleApys } = require('../common/pendle/getPendleApys');
 const { getBesnARSApy } = require('./getBesnARSApy');
 const { getTokemakApys } = require('./getTokemakApys');
 const { getMorphoApys } = require('../common/morpho/getMorphoApys');
@@ -28,8 +27,7 @@ const getApys = [
   getAuraBaseApys,
   () => getMellowVeloApys(BASE_CHAIN_ID, require('../../../data/base/mellowAeroPools.json')),
   () => getMorphoApys(BASE_CHAIN_ID, require('../../../data/base/morphoPools.json')),
-  () => getEquilibriaApys(require('../../../data/base/pendlePools.json')),
-  getPenpieApys,
+  () => getPendleApys(require('../../../data/base/pendlePools.json')),
   getBeefyBaseCowApys,
 ];
 

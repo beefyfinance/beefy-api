@@ -1,15 +1,15 @@
 const { getBeefyCowPlasmaApys } = require('./getBeefyCowPlasmaApys');
 const { getAaveV3Apys } = require('./getAaveV3Apys');
 const { getEulerPlasmaApys } = require('./getEulerPlasmaApys');
-const { getPenpieApys } = require('./getPenpieApys');
 const { getCurveApys } = require('./getCurveApys');
 const { getLithosApys } = require('./getLithosApys');
+const { getPendleApys } = require('../common/pendle/getPendleApys');
 
 const getApys = [
   getBeefyCowPlasmaApys,
   getAaveV3Apys,
   getEulerPlasmaApys,
-  getPenpieApys,
+  () => getPendleApys(require('../../../data/plasma/pendlePools.json')),
   getCurveApys,
   getLithosApys,
 ];
