@@ -32,9 +32,7 @@ import velodromePools from '../../data/optimism/velodromeLpPools.json';
 import oldVelodromePools from '../../data/optimism/oldVelodromeLpPools.json';
 import ripaeCronosPools from '../../data/cronos/ripaeLpPools.json';
 import thenaPools from '../../data/bsc/thenaLpPools.json';
-import cantoLpPools from '../../data/canto/cantoLpPools.json';
 import solidLizardPools from '../../data/arbitrum/solidlizardLpPools.json';
-import velocimeterV2Pools from '../../data/canto/velocimeterV2LpPools.json';
 import versePools from '../../data/ethereum/verseLpPools.json';
 import ramsesPools from '../../data/arbitrum/ramsesLpPools.json';
 import veSyncPools from '../../data/zksync/veSyncLpPools.json';
@@ -100,9 +98,7 @@ const pools = normalizePoolOracleIds([
   ...veSyncPools,
   ...ramsesPools,
   ...versePools,
-  ...velocimeterV2Pools,
   ...solidLizardPools,
-  ...cantoLpPools,
   ...thenaPools,
   ...ripaeCronosPools,
   ...velodromePools,

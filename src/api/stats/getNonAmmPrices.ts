@@ -27,7 +27,6 @@ import getStargateOpPrices from './optimism/getStargateOpPrices';
 import getStargateMantlePrices from './mantle/getStargateMantlePrices';
 import getOlpPrices from './optimism/getOlpPrices';
 import getThenaStablePrices from './bsc/getThenaStablePrices';
-import getCantoStablePrices from './canto/getCantoStablePrices';
 import getSolidLizardStablePrices from './arbitrum/getSolidLizardStablePrices';
 import getRamsesStablePrices from './arbitrum/getRamsesStablePrices';
 import getMmyOptimismPrices from './optimism/getMmyOptimismPrices';
@@ -140,7 +139,6 @@ export async function getNonAmmPrices(
     getMmyOptimismPrices(tokenPrices),
     getRamsesStablePrices(tokenPrices),
     getSolidLizardStablePrices(tokenPrices),
-    getCantoStablePrices(tokenPrices),
     getMimSwapPrices(tokenPrices),
     getThenaStablePrices(tokenPrices),
     getOlpPrices(),

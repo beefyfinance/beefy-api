@@ -31,7 +31,7 @@ async function main() {
   );
   const livePools = [];
   pools.forEach(p => {
-    const id = p.name || p.oracleId;
+    const id = p.name || p.oracleId || p.address;
     const v = vaults.find(v => v.id === id);
     if (!v) {
       if (id.startsWith('pendle-')) {
