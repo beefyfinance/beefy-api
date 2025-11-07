@@ -9,7 +9,8 @@
     "oracleId": "USDT0",
     "decimals": "1e6",
     "borrowDepth": 1,
-    "borrowPercent": 0
+    "borrowPercent": 0,
+    "skimLending": true
   },
   {
     "name": "aavev3-plasma-weth",
@@ -21,6 +22,7 @@
     "oracleId": "WETH",
     "decimals": "1e18",
     "borrowDepth": 1,
-    "borrowPercent": 0
+    "borrowPercent": 0,
+    "skimLending": true
   }
 ]

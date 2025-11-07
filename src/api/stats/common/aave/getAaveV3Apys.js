@@ -86,7 +86,7 @@ const getPoolApy = async (config, pool, chainId) => {
     );
 
   const rewardsApy = leveragedSupplyNative.plus(leveragedBorrowNative);
-  const lendingApy = leveragedSupplyBase.minus(leveragedBorrowBase);
+  let lendingApy = leveragedSupplyBase.minus(leveragedBorrowBase);
   let lsApy = 0;
   if (pool.lsUrl) {
     const response = await fetch(pool.lsUrl).then(res => res.json());
@@ -94,6 +94,9 @@ const getPoolApy = async (config, pool, chainId) => {
     let lsAprFactor = 1;
     if (pool.lsAprFactor) lsAprFactor = pool.lsAprFactor;
     lsApy = (lsApy * lsAprFactor) / 100;
+  }
+  if (pool.skimLending) {
+    lendingApy = lendingApy.times(0.905);
   }
   // console.log(pool.name, apy, supplyBase.valueOf(), borrowBase.valueOf(), supplyNative.valueOf(), borrowNative.valueOf());
   return [rewardsApy, lendingApy, lsApy];
