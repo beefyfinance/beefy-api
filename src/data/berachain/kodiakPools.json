@@ -1,5 +1,17 @@
 [
   {
+    "name": "kodiak-susde-honey",
+    "address": "0xd5b6ea3544a51bfdda7e6926bdf778339801dfe8",
+    "gauge": "0xd042c637765fdACEbFBAFe553d8e78D8d1179fB1",
+    "tokens": ["sUSDe", "HONEY"]
+  },
+  {
+    "name": "kodiak-usde-honey",
+    "address": "0xE5A2ab5D2fb268E5fF43A5564e44c3309609aFF9",
+    "gauge": "0x197FbF0532B1843d4c077C0C53e58d5AC000ce35",
+    "tokens": ["USDe", "HONEY"]
+  },
+  {
     "name": "kodiak-dolo-bera",
     "address": "0x5e4Fe86C4f6fB2203fbFb77FD6eC3Cb300B639AA",
     "gauge": "0xA23701E0554B4d519e7dA177901C46217cb35cf4",
