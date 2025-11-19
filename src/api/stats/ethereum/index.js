@@ -4,6 +4,7 @@ const { getConvexCrvApy } = require('./getConvexCrvApy');
 const { getBifiMaxiApy } = require('./getBifiMaxiApy');
 const { getConvexCvxTokensApy } = require('./getConvexCvxTokensApy');
 const { getCurveApys } = require('./getCurveApys');
+const { getStakeDaoApys } = require('./getStakeDaoApys');
 const { getConvexCvxApy } = require('./getConvexCvxApy');
 const { getETHCompoundV3Apys } = require('./getEthCompoundApys');
 const { getbeQIApy } = require('./getbeQIApy');
@@ -21,6 +22,7 @@ const getApys = [
   getbeQIApy,
   getCurveApys,
   getConvexApys,
+  getStakeDaoApys,
   getConvexCrvApy,
   getConvexCvxApy,
   getConvexCvxTokensApy,

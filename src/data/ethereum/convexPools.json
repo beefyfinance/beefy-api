@@ -3,6 +3,7 @@
     "name": "curve-frxusd-msusd",
     "pool": "0x9A9e2e70919c75D80aAaA1D483c46CdBb8ac4d1b",
     "gauge": "0x6a253c9fe5AaFF662e072Aa694CE53b917aDb278",
+    "stakeDao": true,
     "tokens": [
       {
         "oracle": "tokens",
@@ -179,6 +180,7 @@
     "pool": "0x4b5E827F4C0a1042272a11857a355dA1F4Ceebae",
     "gauge": "0x411387Be45F5c001159f3d76e26Fe7D200e5Dc71",
     "rewardPool": "0x14d2DC2CeBC25f217bc9Aee5AC3A7967Ca7ceBae",
+    "stakeDao": true,
     "tokens": [
       {
         "oracleId": "sUSD",
@@ -195,6 +197,7 @@
     "pool": "0xa4c567c662349BeC3D0fB94C4e7f85bA95E208e4",
     "gauge": "0x4e227d29b33B77113F84bcC189a6F886755a1f24",
     "rewardPool": "0x442E773FFB0043551417D5A37E10c17990fB075c",
+    "stakeDao": true,
     "tokens": [
       {
         "oracleId": "msETH",
@@ -286,6 +289,7 @@
     "name": "curve-usdc-rlusd",
     "pool": "0xD001aE433f254283FeCE51d4ACcE8c53263aa186",
     "gauge": "0xFc3212Bd9Ad9A28Da6B2bd50a2918969C126894F",
+    "stakeDao": true,
     "rewards": [
       {
         "token": "0x8292Bb45bf1Ee4d140127049757C2E0fF06317eD",
@@ -645,6 +649,7 @@
     "pool": "0xf5f5b97624542d72a9e06f04804bf81baa15e2b4",
     "gauge": "0xf29fff074f5cf755b55fbb3eb10a29203ac91ea2",
     "rewardPool": "0xb05262D4aaAA38D0Af4AaB244D446ebDb5afd4A7",
+    "stakeDao": true,
     "tokens": [
       {
         "oracleId": "USDT",
