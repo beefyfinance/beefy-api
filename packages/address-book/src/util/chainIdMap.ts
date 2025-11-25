@@ -40,6 +40,7 @@ export const chainIdMap = {
   saga: 5464,
   hyperevm: 999,
   plasma: 9745,
+  monad: 143,
 } satisfies ChainIdMap;
 
 // back-compat

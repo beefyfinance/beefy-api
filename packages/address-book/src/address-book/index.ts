@@ -40,6 +40,7 @@ import { unichain } from './unichain/index.js';
 import { saga } from './saga/index.js';
 import { hyperevm } from './hyperevm/index.js';
 import { plasma } from './plasma/index.js';
+import { monad } from './monad/index.js';
 
 export { ChainId }; // enum which is compiled to a JS object
 export type { Chain };
@@ -85,6 +86,7 @@ export const addressBook: ReadonlyRecord<ChainIdKey, Chain> = {
   saga,
   hyperevm,
   plasma,
+  monad,
 } as const;
 
 export const addressBookByChainId: ReadonlyRecord<`${ChainId}`, Chain> = {
@@ -127,4 +129,5 @@ export const addressBookByChainId: ReadonlyRecord<`${ChainId}`, Chain> = {
   [ChainId.saga]: saga,
   [ChainId.hyperevm]: hyperevm,
   [ChainId.plasma]: plasma,
+  [ChainId.monad]: monad,
 } as const;
