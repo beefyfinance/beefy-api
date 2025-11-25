@@ -148,5 +148,30 @@
         "decimals": "1e18"
       }
     ]
+  },
+  {
+    "name": "balancerv3-arbitrum-waarbusdcn-eure",
+    "address": "0xa978cc348a0b5de8bd564a1d8fe437787fd12664",
+    "gauge": "0xe8d5ca86d969510c20d911010c657573cf66e358",
+    "decimals": "1e18",
+    "rewards": [
+      {
+        "rewardGauge": "0xE678adCd167eD2011EE53DFb88D92e7909CA48B7",
+        "oracleId": "AURA",
+        "decimals": "1e18"
+      }
+    ],
+    "tokens": [
+      {
+        "address": "0x4ce13a79f45c1be00bdabd38b764ac28c082704e",
+        "oracleId": "waArbUSDCn",
+        "decimals": "1e18"
+      },
+      {
+        "address": "0x0c06ccf38114ddfc35e07427b9424adcca9f44f8",
+        "oracleId": "EURe",
+        "decimals": "1e18"
+      }
+    ]
   }
 ]
