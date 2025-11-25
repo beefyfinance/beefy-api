@@ -1,0 +1,14 @@
+[
+  {
+    "address": "0x5B8F906E9E3355155F05A9c46c5bF3e6D1dEBE5E",
+    "lpAddress": "0x659bD0BC4167BA25c62E05656F78043E7eD4a9da",
+    "tokens": ["0x3bd359C1119dA7Da1D913D1C4D2B7c461115433A", "0x754704Bc059F8C67012fEd69BC8A327a5aafb603"],
+    "tokenOracleIds": ["WMON", "USDC"],
+    "decimals": [18, 6],
+    "oracleId": "uniswap-cow-monad-wmon-usdc",
+    "rewardPool": {
+      "address": "0xa6186c6F879eDC2a6Fc268E4Ddd71869195C3856",
+      "oracleId": "uniswap-cow-monad-wmon-usdc-rp"
+    }
+  }
+]

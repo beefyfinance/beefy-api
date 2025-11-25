@@ -36,4 +36,5 @@ export const MULTICALL_V3: Partial<Readonly<Record<ChainId, string>>> = {
   [ChainId.saga]: '0x864DDc9B50B9A0dF676d826c9B9EDe9F8913a160',
   [ChainId.hyperevm]: '0xcA11bde05977b3631167028862bE2a173976CA11',
   [ChainId.plasma]: '0xcA11bde05977b3631167028862bE2a173976CA11',
+  [ChainId.monad]: '0xcA11bde05977b3631167028862bE2a173976CA11',
 };

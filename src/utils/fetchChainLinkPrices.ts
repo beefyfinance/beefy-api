@@ -192,6 +192,12 @@ const oracles: Oracle[] = [
     chain: 'sonic',
     heartbeat: 864000,
   },
+  {
+    oracleId: 'MON',
+    address: '0xBcD78f76005B7515837af6b50c7C52BCf73822fb',
+    chain: 'monad',
+    heartbeat: 3600,
+  },
 ];
 
 export async function fetchChainLinkPrices(): Promise<Record<string, number>> {

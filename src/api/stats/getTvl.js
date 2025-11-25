@@ -114,6 +114,9 @@ const {
 
   PLASMA_CHAIN_ID,
   PLASMA_VAULTS_ENDPOINT,
+
+  MONAD_CHAIN_ID,
+  MONAD_VAULTS_ENDPOINT,
 } = require('../../constants');
 const { getKey, setKey } = require('../../utils/cache');
 

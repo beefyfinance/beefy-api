@@ -56,7 +56,7 @@ const DEFAULT_RPCS: ApiChainToRpcs = {
   fraxtal: ['https://rpc.frax.com'],
   mode: ['https://1rpc.io/mode'],
   manta: ['https://1rpc.io/manta'],
-  sei: ['https://evm-rpc.sei-apis.com'],
+  sei: ['https://sei-public.nodies.app'],
   rootstock: ['https://rootstock-mainnet.public.blastapi.io'],
   scroll: ['https://rpc.scroll.io'],
   lisk: ['https://rpc.api.lisk.com'],
@@ -66,6 +66,7 @@ const DEFAULT_RPCS: ApiChainToRpcs = {
   saga: ['https://sagaevm.jsonrpc.sagarpc.io'],
   hyperevm: ['https://rpc.hyperliquid.xyz/evm'],
   plasma: ['https://rpc.plasma.to'],
+  monad: ['https://rpc-mainnet.monadinfra.com'],
 } as const;
 
 const chainToRpcEnvKeyPrefix = {
@@ -154,6 +155,7 @@ const UNICHAIN_CHAIN_ID = ChainId.unichain;
 const SAGA_CHAIN_ID = ChainId.saga;
 const HYPEREVM_CHAIN_ID = ChainId.hyperevm;
 const PLASMA_CHAIN_ID = ChainId.plasma;
+const MONAD_CHAIN_ID = ChainId.monad;
 
 /// LP Fee
 const SUSHI_LPF = 0.003;
@@ -252,6 +254,8 @@ const HYPEREVM_VAULTS_ENDPOINT =
   'https://raw.githubusercontent.com/beefyfinance/beefy-v2/prod/src/config/vault/hyperevm.json';
 const PLASMA_VAULTS_ENDPOINT =
   'https://raw.githubusercontent.com/beefyfinance/beefy-v2/prod/src/config/vault/plasma.json';
+const MONAD_VAULTS_ENDPOINT =
+  'https://raw.githubusercontent.com/beefyfinance/beefy-v2/prod/src/config/vault/monad.json';
 
 const MULTICHAIN_ENDPOINTS: Partial<Record<ApiChain, string>> = {
   bsc: BSC_VAULTS_ENDPOINT,
@@ -293,6 +297,7 @@ const MULTICHAIN_ENDPOINTS: Partial<Record<ApiChain, string>> = {
   saga: SAGA_VAULTS_ENDPOINT,
   hyperevm: HYPEREVM_VAULTS_ENDPOINT,
   plasma: PLASMA_VAULTS_ENDPOINT,
+  monad: MONAD_VAULTS_ENDPOINT,
 } as const;
 
 const EXCLUDED_IDS_FROM_TVL = ['venus-wbnb'];
@@ -349,6 +354,7 @@ export const {
   SAGA_RPC,
   HYPEREVM_RPC,
   PLASMA_RPC,
+  MONAD_RPC,
 } = RPC_BY_ENV_KEY;
 
 export {
@@ -416,6 +422,8 @@ export {
   HYPEREVM_VAULTS_ENDPOINT,
   PLASMA_CHAIN_ID,
   PLASMA_VAULTS_ENDPOINT,
+  MONAD_CHAIN_ID,
+  MONAD_VAULTS_ENDPOINT,
   BASE_HPY,
   MINUTELY_HPY,
   HOURLY_HPY,

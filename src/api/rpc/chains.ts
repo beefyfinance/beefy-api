@@ -711,6 +711,29 @@ const plasmaChain = {
   },
 } as const satisfies Chain;
 
+const monadChain = {
+  id: 143,
+  name: 'Monad',
+  network: 'monad',
+  nativeCurrency: {
+    decimals: 18,
+    name: 'WMON',
+    symbol: 'WMON',
+  },
+  rpcUrls: {
+    public: { http: getRpcsForChain('monad') },
+    default: { http: getRpcsForChain('monad') },
+  },
+  blockExplorers: {
+    default: { name: 'monad explorer', url: 'https://monad.socialscan.io/' },
+  },
+  contracts: {
+    multicall3: {
+      address: '0xca11bde05977b3631167028862be2a173976ca11',
+    },
+  },
+} as const satisfies Chain;
+
 const hyperevmChain = {
   id: 999,
   name: 'Hyperevm',
@@ -909,4 +932,5 @@ export const getChain: Partial<Record<ChainId, Chain>> = {
   [ChainId.saga]: sagaChain,
   [ChainId.hyperevm]: hyperevmChain,
   [ChainId.plasma]: plasmaChain,
+  [ChainId.monad]: monadChain,
 } as const;

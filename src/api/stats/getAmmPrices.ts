@@ -367,6 +367,7 @@ const seedPeggedPrices = {
   WHYPE: 'HYPE',
   USDT0: 'USDT',
   USDCn: 'USDC',
+  WMON: 'MON',
 };
 
 export type BaseLpBreakdown = {
