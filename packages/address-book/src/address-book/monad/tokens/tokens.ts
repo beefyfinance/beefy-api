@@ -34,4 +34,17 @@ export const tokens = {
     logoURI: 'https://ftmscan.com/token/images/USDC_32.png',
     documentation: 'https://www.circle.com/en/usdc-multichain/arbitrum',
   },
+  WETH: {
+    name: 'Wrapped Ether',
+    address: '0xEE8c0E9f1BFFb4Eb878d8f15f368A02a35481242',
+    symbol: 'WETH',
+    oracleId: 'WETH',
+    decimals: 18,
+    chainId: 143,
+    website: 'https://weth.io/',
+    description: 'Ether or ETH is the native currency built on the Ethereum blockchain.',
+    bridge: 'wormhole',
+    logoURI: 'https://arbiscan.io/token/images/weth_28.png',
+    documentation: 'https://ethereum.org/en/developers/docs/',
+  },
 } as const satisfies Record<string, Token>;
