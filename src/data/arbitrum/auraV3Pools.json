@@ -163,14 +163,14 @@
     ],
     "tokens": [
       {
-        "address": "0x4ce13a79f45c1be00bdabd38b764ac28c082704e",
-        "oracleId": "waArbUSDCn",
-        "decimals": "1e18"
-      },
-      {
         "address": "0x0c06ccf38114ddfc35e07427b9424adcca9f44f8",
         "oracleId": "EURe",
         "decimals": "1e18"
+      },
+      {
+        "address": "0x7f6501d3b98ee91f9b9535e4b0ac710fb0f9e0bc",
+        "oracleId": "waArbUSDCn",
+        "decimals": "1e6"
       }
     ]
   }
