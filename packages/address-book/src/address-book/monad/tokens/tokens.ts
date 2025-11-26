@@ -47,4 +47,19 @@ export const tokens = {
     logoURI: 'https://arbiscan.io/token/images/weth_28.png',
     documentation: 'https://ethereum.org/en/developers/docs/',
   },
+  AUSD: {
+    name: 'Agora Dollar',
+    symbol: 'AUSD',
+    oracleId: 'AUSD',
+    address: '0x00000000eFE302BEAA2b3e6e1b18d08D69a9012a',
+    chainId: 143,
+    decimals: 6,
+    logoURI: '',
+    website: 'https://agora.finance/',
+    documentation: 'https://developer.agora.finance/',
+    description:
+      'AUSD is backed 100% by Agora’s Reserves. The Agora Reserve Fund is composed of cash, overnight repurchase and reverse repurchase agreements, and short-term U.S. Treasury securities.',
+    bridge: 'native',
+    risks: ['NO_TIMELOCK'],
+  },
 } as const satisfies Record<string, Token>;

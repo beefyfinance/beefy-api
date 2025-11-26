@@ -1,7 +1,13 @@
 const { getBeefyCowMonadApys } = require('./getBeefyCowMonadApys');
 const { getCurveApys } = require('./getCurveApys');
+const { getMorphoApys } = require('../common/morpho/getMorphoApys');
+const { MONAD_CHAIN_ID } = require('../../../constants');
 
-const getApys = [getCurveApys, getBeefyCowMonadApys];
+const getApys = [
+  getCurveApys,
+  getBeefyCowMonadApys,
+  () => getMorphoApys(MONAD_CHAIN_ID, require('../../../data/monad/morphoPools.json')),
+];
 
 const getMonadApys = async () => {
   const start = Date.now();

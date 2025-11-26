@@ -60,6 +60,7 @@ import {
   PLASMA_CHAIN_ID,
   POLYGON_CHAIN_ID,
   SONIC_CHAIN_ID,
+  MONAD_CHAIN_ID,
 } from '../../constants';
 import getSolidlyStablePrices from './common/getSolidlyStablePrices';
 import getEthSiloPrices from './ethereum/getEthereumSiloPrices';
@@ -224,6 +225,7 @@ export async function getNonAmmPrices(
     getMorphoPrices(BASE_CHAIN_ID, require('../../data/base/morphoPools.json'), tokenPrices),
     getMorphoPrices(ETH_CHAIN_ID, require('../../data/ethereum/morphoPools.json'), tokenPrices),
     getMorphoPrices(POLYGON_CHAIN_ID, require('../../data/matic/morphoPools.json'), tokenPrices),
+    getMorphoPrices(MONAD_CHAIN_ID, require('../../data/monad/morphoPools.json'), tokenPrices),
     getIchiPrices(SONIC_CHAIN_ID, require('../../data/sonic/swapxIchiPools.json'), tokenPrices),
     getSolidlyStablePrices(SONIC_CHAIN_ID, require('../../data/sonic/swapxStableLpPools.json'), tokenPrices),
     getEulerPrices(SONIC_CHAIN_ID, require('../../data/sonic/eulerPools.json'), tokenPrices),
