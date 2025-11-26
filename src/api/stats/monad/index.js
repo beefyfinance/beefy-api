@@ -1,6 +1,7 @@
 const { getBeefyCowMonadApys } = require('./getBeefyCowMonadApys');
+const { getCurveApys } = require('./getCurveApys');
 
-const getApys = [getBeefyCowMonadApys];
+const getApys = [getCurveApys, getBeefyCowMonadApys];
 
 const getMonadApys = async () => {
   const start = Date.now();

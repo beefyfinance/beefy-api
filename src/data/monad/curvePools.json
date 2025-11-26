@@ -1,0 +1,22 @@
+[
+  {
+    "name": "curve-monad-3pool",
+    "pool": "0x942644106B073E30D72c2C5D7529D5C296ea91ab",
+    "gauge": "0xfC31eD1F557E711184660087bCECd0EB8a95aC3c",
+    "merklId": "0xfC31eD1F557E711184660087bCECd0EB8a95aC3c",
+    "tokens": [
+      {
+        "oracleId": "AUSD",
+        "decimals": "1e6"
+      },
+      {
+        "oracleId": "USDC",
+        "decimals": "1e6"
+      },
+      {
+        "oracleId": "USDT0",
+        "decimals": "1e6"
+      }
+    ]
+  }
+]
