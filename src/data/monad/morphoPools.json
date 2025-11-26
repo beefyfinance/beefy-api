@@ -1,16 +1,18 @@
 [
   {
     "name": "morpho-monad-steakhouse-usdc",
-    "address": "0x802c91d807A8DaCA257c4708ab264B6520964e44",
+    "address": "0xbeEFf443C3CbA3E369DA795002243BeaC311aB83",
     "oracle": "tokens",
     "oracleId": "USDC",
-    "decimals": "1e6"
+    "decimals": "1e6",
+    "v2": true
   },
   {
     "name": "morpho-monad-steakhouse-ausd",
-    "address": "0xBC03E505EE65f9fAa68a2D7e5A74452858C16D29",
+    "address": "0xbeeffeA75cFC4128ebe10C8D7aE22016D215060D",
     "oracle": "tokens",
     "oracleId": "AUSD",
-    "decimals": "1e6"
+    "decimals": "1e6",
+    "v2": true
   }
 ]
