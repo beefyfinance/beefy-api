@@ -159,6 +159,11 @@
         "rewardGauge": "0xE678adCd167eD2011EE53DFb88D92e7909CA48B7",
         "oracleId": "AURA",
         "decimals": "1e18"
+      },
+      {
+        "rewardGauge": "0x24ADD89948582E346567f533e6aA0dd199321254",
+        "oracleId": "EURe",
+        "decimals": "1e18"
       }
     ],
     "tokens": [
