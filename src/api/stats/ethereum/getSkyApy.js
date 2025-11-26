@@ -1,47 +1,53 @@
 import { getRewardPoolApys } from '../common/getRewardPoolApys';
 
-export const getSkyApy = async () => {
-  const [usds, sky] = await Promise.all([
-    getRewardPoolApys({
-      pools: [
-        {
-          name: 'sky-usds',
-          address: '0xdC035D45d973E3EC169d2276DDab16f1e407384F',
-          rewardPool: '0x0650CAF159C5A49f711e8169D4336ECB9b950275',
-          decimals: '1e18',
-          oracleId: 'USDS',
-          oracle: 'tokens',
-          chainId: 1,
-        },
-      ],
-      oracleId: 'SKY',
-      oracle: 'tokens',
-      decimals: '1e18',
-      chainId: 1,
-      // log: true,
-    }),
-    getRewardPoolApys({
-      pools: [
-        {
-          name: 'sky-sky',
-          address: '0xf9a9cfd3229e985b91f99bc866d42938044ffa1c',
-          rewardPool: '0x38E4254bD82ED5Ee97CD1C4278FAae748d998865',
-          decimals: '1e18',
-          oracleId: 'SKY',
-          oracle: 'tokens',
-          chainId: 1,
-        },
-      ],
-      oracleId: 'USDS',
-      oracle: 'tokens',
-      decimals: '1e18',
-      chainId: 1,
-      // log: true,
-    }),
-  ]);
+const pools = [
+  {
+    name: 'sky-usds',
+    rewardPool: '0x0650CAF159C5A49f711e8169D4336ECB9b950275',
+    stakingToken: 'USDS',
+    reward: 'SKY',
+  },
+  {
+    name: 'sky-sky',
+    rewardPool: '0x38E4254bD82ED5Ee97CD1C4278FAae748d998865',
+    stakingToken: 'SKY',
+    reward: 'USDS',
+  },
+  {
+    name: 'sky-sky-spk',
+    rewardPool: '0x99cBC0e4E6427F6939536eD24d1275B95ff77404',
+    stakingToken: 'SKY',
+    reward: 'SPK',
+  },
+];
 
-  const apys = { ...usds.apys, ...sky.apys };
-  const apyBreakdowns = { ...usds.apyBreakdowns, ...sky.apyBreakdowns };
+export const getSkyApy = async () => {
+  const res = await Promise.all(
+    pools.map(p =>
+      getRewardPoolApys({
+        pools: [
+          {
+            name: p.name,
+            address: p.rewardPool,
+            rewardPool: p.rewardPool,
+            decimals: '1e18',
+            oracleId: p.stakingToken,
+            oracle: 'tokens',
+          },
+        ],
+        oracleId: p.reward,
+        oracle: 'tokens',
+        decimals: '1e18',
+        chainId: 1,
+        // log: true,
+      })
+    )
+  );
+
+  const apys = Object.fromEntries(res.map(r => [Object.keys(r.apys)[0], Object.values(r.apys)[0]]));
+  const apyBreakdowns = Object.fromEntries(
+    res.map(r => [Object.keys(r.apyBreakdowns)[0], Object.values(r.apyBreakdowns)[0]])
+  );
 
   return { apys, apyBreakdowns };
 };
