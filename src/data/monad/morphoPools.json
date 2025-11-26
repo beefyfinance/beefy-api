@@ -8,7 +8,7 @@
   },
   {
     "name": "morpho-monad-steakhouse-ausd",
-    "address": "0xbeeffeA75cFC4128ebe10C8D7aE22016D215060D",
+    "address": "0xBC03E505EE65f9fAa68a2D7e5A74452858C16D29",
     "oracle": "tokens",
     "oracleId": "AUSD",
     "decimals": "1e6"
