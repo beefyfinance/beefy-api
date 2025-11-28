@@ -182,6 +182,7 @@ export async function getNonAmmPrices(
     getCurvePricesCommon(FRX_CHAIN_ID, require('../../data/fraxtal/curvePools.json'), tokenPrices),
     getCurvePricesCommon(SONIC_CHAIN_ID, require('../../data/sonic/curvePools.json'), tokenPrices),
     getCurvePricesCommon(PLASMA_CHAIN_ID, require('../../data/plasma/curvePools.json'), tokenPrices),
+    getCurvePricesCommon(MONAD_CHAIN_ID, require('../../data/monad/curvePools.json'), tokenPrices),
     getCurveBasePrices(tokenPrices),
     getBscGammaPrices(tokenPrices),
     getGammaPolygonPrices(tokenPrices),
