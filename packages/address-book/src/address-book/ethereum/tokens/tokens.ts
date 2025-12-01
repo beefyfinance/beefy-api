@@ -2314,6 +2314,20 @@ export const tokens = {
       'Savings USDS (sUSDS) is the upgraded version of sDAI, which offers higher yield than sDAI. sUSDS is a tokenized representation of USDS deposited in the Sky Savings Rate (SSR) offered by Sky. The sUSDS token enables users to receive returns on their SSR deposits while still being able to transfer, stake, lend and use it in any way they want.',
     bridge: 'native',
   },
+  stUSDS: {
+    name: 'Staked USDS',
+    symbol: 'stUSDS',
+    oracleId: 'stUSDS',
+    address: '0x99CD4Ec3f88A45940936F469E4bB72A2A701EEB9',
+    chainId: 1,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://sky.money/',
+    documentation: 'https://docs.sky.money/',
+    description:
+      'stUSDS is a risk capital token that offers higher risk/higher reward to fund and support liquidity for SKY stakers.',
+    bridge: 'native',
+  },
   syrupUSDC: {
     name: 'Syrup USDC',
     symbol: 'syrupUSDC',

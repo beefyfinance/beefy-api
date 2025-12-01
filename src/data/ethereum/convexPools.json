@@ -1,5 +1,29 @@
 [
   {
+    "name": "curve-usds-stusds",
+    "pool": "0x2C7C98A3b1582D83c43987202aEFf638312478aE",
+    "gauge": "0x36c2AbAb95F9aAcD4b05d65b89890E29d6382611",
+    "getDy": ["v1", 1, 0],
+    "rewards": [
+      {
+        "token": "0xdC035D45d973E3EC169d2276DDab16f1e407384F",
+        "oracleId": "USDS"
+      }
+    ],
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "USDS",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "stUSDS",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
     "name": "curve-frxusd-msusd",
     "pool": "0x9A9e2e70919c75D80aAaA1D483c46CdBb8ac4d1b",
     "gauge": "0x6a253c9fe5AaFF662e072Aa694CE53b917aDb278",
