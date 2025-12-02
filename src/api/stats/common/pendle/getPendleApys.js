@@ -45,7 +45,7 @@ export async function getPendleApys(allPools) {
   const eqbStaking = eqbPendleProxy[chainId];
   if (!eqbStaking) throw new Error(`No eqbProxy for chainId: ${chainId}`);
 
-  const pools = filterExpired(allPools);
+  const [expiredPools, pools] = filterExpired(allPools);
   const { tradingApys, pendleApys, syRewardsApys } = await getPendleApys(chainId, pools);
 
   const balancesCalls = [],
@@ -80,6 +80,10 @@ export async function getPendleApys(allPools) {
   // });
 
   return getApyBreakdown([
+    ...expiredPools.flatMap(p => [
+      { vaultId: p.name, vault: 0 },
+      { vaultId: p.name.replace('pendle-', 'pendle-eqb-'), vault: 0 },
+    ]),
     ...pools.map((p, i) => ({
       vaultId: p.name,
       vault: penpieApys[i],
@@ -94,12 +98,15 @@ export async function getPendleApys(allPools) {
 }
 
 function filterExpired(pools) {
-  const isAlive = pool => {
+  const expired = [];
+  const alive = [];
+  pools.forEach(pool => {
     const old = { 'equilibria-arb-seth': '26dec24', 'equilibria-arb-reth': '26jun25' };
     const date = old[pool.name] || pool.name.split('-').pop();
     const timestamp = Date.parse(`${date} UTC`) || 0;
     if (timestamp === 0) console.error(pool.name, 'no expiry date');
-    return timestamp > Date.now();
-  };
-  return pools.filter(isAlive);
+    if (timestamp > Date.now()) alive.push(pool);
+    else expired.push(pool);
+  });
+  return [expired, alive];
 }
