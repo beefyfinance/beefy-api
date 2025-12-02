@@ -16,10 +16,10 @@ const MON = {
 } as const satisfies Token;
 
 export const tokens = {
-  MON,
-  WMON: MON,
   WNATIVE: MON,
   FEES: MON,
+  MON,
+  WMON: MON,
   USDC: {
     name: 'USD Coin',
     address: '0x754704Bc059F8C67012fEd69BC8A327a5aafb603',

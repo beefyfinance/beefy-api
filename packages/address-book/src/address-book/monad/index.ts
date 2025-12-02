@@ -8,7 +8,7 @@ export const monad = {
   tokens,
   tokenAddressMap: convertSymbolTokenMapToAddressTokenMap(tokens),
   native: {
-    symbol: 'WMON',
+    symbol: 'MON',
     oracleId: 'MON',
   },
 } as const satisfies Chain;
