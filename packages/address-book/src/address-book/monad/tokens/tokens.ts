@@ -75,4 +75,32 @@ export const tokens = {
     bridge: 'layer-zero',
     documentation: 'https://tether.to/en/how-it-works',
   },
+  WBTC: {
+    name: 'Wrapped BTC',
+    symbol: 'WBTC',
+    oracleId: 'WBTC',
+    address: '0x0555E30da8f98308EdB960aa94C0Db47230d2B9c',
+    chainId: 143,
+    decimals: 8,
+    logoURI: '',
+    website: 'https://wbtc.network/',
+    description:
+      'Wrapped Bitcoin (WBTC) is the first ERC20 token backed 1:1 with Bitcoin. Completely transparent. 100% verifiable. Community led.',
+    documentation: '',
+    bridge: 'layer-zero',
+  },
+  wstETH: {
+    name: 'Wrapped liquid staked Ether 2.0',
+    symbol: 'wstETH',
+    oracleId: 'wstETH',
+    address: '0x10Aeaf63194db8d453d4D85a06E5eFE1dd0b5417',
+    chainId: 143,
+    decimals: 18,
+    website: 'https://lido.fi/',
+    description:
+      'Lido is a liquid staking solution for ETH backed by industry-leading staking providers. Lido lets users stake their ETH - without locking assets or maintaining infrastructure - whilst participating in on-chain activities, e.g. lending. Lido attempts to solve the problems associated with initial ETH staking - illiquidity, immovability and accessibility - making staked ETH liquid and allowing for participation with any amount of ETH to improve security of the Ethereum network.',
+    bridge: 'monad-canonical',
+    logoURI: '',
+    documentation: 'https://docs.lido.fi/',
+  },
 } as const satisfies Record<string, Token>;
