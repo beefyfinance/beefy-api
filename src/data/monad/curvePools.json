@@ -1,5 +1,50 @@
 [
   {
+    "name": "curve-monad-mon-lsts",
+    "pool": "0x74d80eE400D3026FDd2520265cC98300710b25D4",
+    "gauge": "0xc08Df560d7178a1f08293608c99e004730CB8936",
+    "merklId": "0xc08Df560d7178a1f08293608c99e004730CB8936",
+    "getDy": ["v1", 3, 0],
+    "tokens": [
+      {
+        "oracleId": "WMON",
+        "decimals": "1e18"
+      },
+      {
+        "oracleId": "shMON",
+        "decimals": "1e18"
+      },
+      {
+        "oracleId": "sMON",
+        "decimals": "1e18"
+      },
+      {
+        "oracleId": "gMON",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
+    "name": "curve-monad-bitcoin",
+    "pool": "0x5D37F9B272ca7cdA2A05245b9a503746EefAC88f",
+    "gauge": "0x2ed852d8262f99fa2C3432B34fF19f0a25cdCf97",
+    "merklId": "0x2ed852d8262f99fa2C3432B34fF19f0a25cdCf97",
+    "tokens": [
+      {
+        "oracleId": "WBTC",
+        "decimals": "1e8"
+      },
+      {
+        "oracleId": "LBTC",
+        "decimals": "1e8"
+      },
+      {
+        "oracleId": "BTCb",
+        "decimals": "1e8"
+      }
+    ]
+  },
+  {
     "name": "curve-monad-3pool",
     "pool": "0x942644106B073E30D72c2C5D7529D5C296ea91ab",
     "gauge": "0xfC31eD1F557E711184660087bCECd0EB8a95aC3c",
@@ -15,6 +60,22 @@
       },
       {
         "oracleId": "USDT0",
+        "decimals": "1e6"
+      }
+    ]
+  },
+  {
+    "name": "curve-monad-aznd-ausd",
+    "pool": "0x2D84D79C852f6842AbE0304b70bBaA1506AdD457",
+    "gauge": "0x79557cfc4EcCb40AE4E29183A287bA9e0eDDC75c",
+    "merklId": "0x79557cfc4EcCb40AE4E29183A287bA9e0eDDC75c",
+    "tokens": [
+      {
+        "oracleId": "AZND",
+        "decimals": "1e6"
+      },
+      {
+        "oracleId": "AUSD",
         "decimals": "1e6"
       }
     ]

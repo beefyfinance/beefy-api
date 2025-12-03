@@ -225,6 +225,10 @@ const coinGeckoCoins: Record<string, string[]> = {
   'avant-staked-usd': ['savUSD'],
   'restaked-savax': ['rsAVAX'],
   'staked-stream-usd': ['xUSD'],
+  'mu-digital-aznd': ['AZND'],
+  'lombard-staked-btc': ['LBTC'],
+  shmonad: ['shMON'],
+  'kintsu-staked-monad': ['sMON'],
   // 'genesislrt-restaked-eth': ['lineainETH'],
 };
 

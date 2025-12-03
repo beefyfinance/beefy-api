@@ -45,6 +45,7 @@
     "name": "curve-crvusd-frxusd",
     "pool": "0x13e12BB0E6A2f1A3d6901a59a9d585e89A6243e1",
     "gauge": "0x22804B0F6bE741a9Fa1BbaEcDD6c8D4116E96944",
+    "stakeDao": true,
     "tokens": [
       {
         "oracle": "tokens",
@@ -117,6 +118,7 @@
     "pool": "0x2c683fAd51da2cd17793219CC86439C1875c353e",
     "gauge": "0xAD6D1a4B1B2F33712A8b18BeDc95c0A1f9832269",
     "rewardPool": "0x9e0A248528Aa933ff1F8f707ea75F61eD780836E",
+    "stakeDao": true,
     "tokens": [
       {
         "oracle": "tokens",
@@ -1010,6 +1012,7 @@
     "pool": "0x390f3595bCa2Df7d23783dFd126427CCeb997BF4",
     "gauge": "0x4e6bB6B7447B7B2Aa268C16AB87F4Bb48BF57939",
     "rewardPool": "0xD1DdB0a0815fD28932fBb194C84003683AF8a824",
+    "stakeDao": true,
     "tokens": [
       {
         "oracle": "tokens",
@@ -1028,6 +1031,7 @@
     "pool": "0x4DEcE678ceceb27446b35C672dC7d61F30bAD69E",
     "gauge": "0x95f00391cB5EebCd190EB58728B4CE23DbFa6ac1",
     "rewardPool": "0x44D8FaB7CD8b7877D5F79974c2F501aF6E65AbBA",
+    "stakeDao": true,
     "getDy": ["v1", 1, 0],
     "tokens": [
       {
