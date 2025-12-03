@@ -1,0 +1,34 @@
+[
+  {
+    "name": "curvance-monad-wmon-wmon-ausd",
+    "address": "0xE01d426B589c7834a5F6B20D7e992A705d3c22ED",
+    "merklId": "0xE01d426B589c7834a5F6B20D7e992A705d3c22ED",
+    "underlying": "0x3bd359C1119dA7Da1D913D1C4D2B7c461115433A",
+    "oracleId": "WMON",
+    "decimals": "1e18"
+  },
+  {
+    "name": "curvance-monad-ausd-wmon-ausd",
+    "address": "0x6E182EB501800C555bd5E662E6D350D627F504D8",
+    "merklId": "0x6E182EB501800C555bd5E662E6D350D627F504D8",
+    "underlying": "0x00000000eFE302BEAA2b3e6e1b18d08D69a9012a",
+    "oracleId": "AUSD",
+    "decimals": "1e6"
+  },
+  {
+    "name": "curvance-monad-wmon-wmon-usdc",
+    "address": "0x1e240E30E51491546deC3aF16B0b4EAC8Dd110D4",
+    "merklId": "0x1e240E30E51491546deC3aF16B0b4EAC8Dd110D4",
+    "underlying": "0x3bd359C1119dA7Da1D913D1C4D2B7c461115433A",
+    "oracleId": "WMON",
+    "decimals": "1e18"
+  },
+  {
+    "name": "curvance-monad-usdc-wmon-usdc",
+    "address": "0x8EE9FC28B8Da872c38A496e9dDB9700bb7261774",
+    "merklId": "0x8EE9FC28B8Da872c38A496e9dDB9700bb7261774",
+    "underlying": "0x754704Bc059F8C67012fEd69BC8A327a5aafb603",
+    "oracleId": "USDC",
+    "decimals": "1e6"
+  }
+]

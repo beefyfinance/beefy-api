@@ -7,6 +7,7 @@ import {
   OPTIMISM_CHAIN_ID,
   POLYGON_CHAIN_ID,
   BASE_CHAIN_ID,
+  MONAD_CHAIN_ID,
 } from '../constants';
 import { addressBook } from '../../packages/address-book/src/address-book';
 import { fetchContract } from '../api/rpc/client';
@@ -147,6 +148,9 @@ const {
       smUSDC,
     },
   },
+  monad: {
+    tokens: { WMON, cWMON },
+  },
 } = addressBook;
 
 const tokens = {
@@ -235,6 +239,7 @@ const tokens = {
     [baseWETH, waBasWETH, true],
     [baseUSDC, smUSDC, true],
   ],
+  monad: [[WMON, cWMON, true]],
 };
 
 const getWrappedAavePrices = async (tokenPrices, tokens, chainId) => {
@@ -299,6 +304,7 @@ const fetchWrappedAavePrices = async tokenPrices =>
     getWrappedAavePrices(tokenPrices, tokens.avax, AVAX_CHAIN_ID),
     getWrappedAavePrices(tokenPrices, tokens.gnosis, GNOSIS_CHAIN_ID),
     getWrappedAavePrices(tokenPrices, tokens.base, BASE_CHAIN_ID),
+    getWrappedAavePrices(tokenPrices, tokens.monad, MONAD_CHAIN_ID),
   ]).then(data =>
     data.flat().reduce((acc, cur, i) => ((acc[Object.values(tokens).flat()[i][1].oracleId] = cur), acc), {})
   );

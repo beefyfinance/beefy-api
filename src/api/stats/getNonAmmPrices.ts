@@ -106,6 +106,7 @@ import { getMorphoPrices } from './common/morpho/getMorphoPrices';
 import { getIchiPrices } from './common/getIchiPrices';
 import { getEulerPrices } from './common/euler/getEulerPrices';
 import { getTruePrices } from './base/getTruePrices';
+import { getCurvanceMonadPrices } from './monad/getCurvanceMonadPrices';
 import { promiseArrayTiming } from '../../utils/timing';
 
 export type NonAmmPrices = {
@@ -129,6 +130,7 @@ export async function getNonAmmPrices(
   let breakdown = {};
 
   const promises = [
+    getCurvanceMonadPrices(tokenPrices),
     getEtherexStablePrices(tokenPrices),
     getKittenswapStablePrices(tokenPrices),
     getArbitrumSiloPrices(tokenPrices),

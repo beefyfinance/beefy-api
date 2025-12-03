@@ -103,4 +103,18 @@ export const tokens = {
     logoURI: '',
     documentation: 'https://docs.lido.fi/',
   },
+  cWMON: {
+    name: 'Curvance WMON',
+    symbol: 'cWMON',
+    oracleId: 'cWMON',
+    address: '0xE01d426B589c7834a5F6B20D7e992A705d3c22ED',
+    chainId: 143,
+    decimals: 18,
+    website: 'https://curvance.com/',
+    description:
+      'Curvance WMON is a yield-bearing receipt for WMON deposited in the WMON-AUSD market on Curvance. cWMON earns interest and Merkl rewards from Curvance and can be redeemed for WMON.',
+    bridge: 'native',
+    logoURI: '',
+    documentation: 'https://docs.curvance.com/',
+  },
 } as const satisfies Record<string, Token>;
