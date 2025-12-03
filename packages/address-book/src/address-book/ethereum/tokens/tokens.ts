@@ -2852,7 +2852,6 @@ export const tokens = {
       'stcUSD is the yield-bearing stablecoin of Cap that enables users to earn rewards via a decentralized lending framework.',
     documentation: 'https://docs.cap.app/',
     bridge: 'native',
-    risks: ['NO_TIMELOCK'],
   },
   cUSD: {
     name: 'cap USD',
@@ -2866,7 +2865,6 @@ export const tokens = {
       'Cap is a three-sided marketplace designed to run autonomously via economic incentives. Cap generates yield via operators ranging from banks, HFT firms, and market makers and yields are passed on to stcUSD holders.',
     documentation: 'https://docs.cap.app/',
     bridge: 'native',
-    risks: ['NO_TIMELOCK'],
   },
   ysyBOLD: {
     name: 'Staked yBOLD',
