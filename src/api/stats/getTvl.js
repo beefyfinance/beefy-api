@@ -278,6 +278,11 @@ const chains = [
     chainId: PLASMA_CHAIN_ID,
     vaultsEndpoint: PLASMA_VAULTS_ENDPOINT,
   },
+
+  {
+    chainId: MONAD_CHAIN_ID,
+    vaultsEndpoint: MONAD_VAULTS_ENDPOINT,
+  },
 ];
 
 const CACHE_KEY = 'TVL';
