@@ -3222,4 +3222,18 @@ export const tokens = {
     bridge: 'native',
     risks: ['LARGE_HOLDERS', 'NO_TIMELOCK'],
   },
+  SOL: {
+    name: 'Solana',
+    symbol: 'SOL',
+    oracleId: 'SOL',
+    address: '0x311935Cd80B76769bF2ecC9D8Ab7635b2139cf82',
+    chainId: 8453,
+    decimals: 9,
+    logoURI: '',
+    website: 'https://solana.com/',
+    description:
+      'Solana is a high-performance network that enables fast, secure, and affordable digital transactions. It powers thousands of applications ranging from payments and games to digital art and financial services. ',
+    documentation: 'https://solana.com/learn/what-is-solana',
+    bridge: 'chainlink-ccip',
+  },
 } as const satisfies Record<string, Token>;
