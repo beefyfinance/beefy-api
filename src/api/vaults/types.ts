@@ -34,6 +34,8 @@ type ApiCowVault = ApiCommonVault & {
   strategy?: string;
   /** Fetched on-chain, may not be available immediately after API start */
   lastHarvest?: number;
+  /** Fetched on-chain, may not be available immediately after API start */
+  rewardPool?: string;
 };
 
 /** Added to erc4626 vault configs by API */

@@ -411,9 +411,14 @@ const vaultTypeHandlers: VaultTypeHandlers = {
     async (chain, vault) => {
       vault.strategy = await getStrategyAddress(chain, vault.earnContractAddress as Address);
       vault.lastHarvest = await getLastHarvest(chain, vault.strategy as Address);
+
+      const rewardPool = await getRewardPool(chain, vault.strategy as Address);
+      if (rewardPool != '0x0') {
+        vault.rewardPool = rewardPool;
+      }
       return vault;
     },
-    ['strategy', 'lastHarvest']
+    ['strategy', 'lastHarvest', 'rewardPool']
   ),
   erc4626: keepStaleOnError(
     async (chain, vault) => {
@@ -466,6 +471,29 @@ async function getLastHarvest(chain: ApiChain, strategyAddress: Address): Promis
   } catch (err) {
     // console.error(`> failed to get lastHarvest for ${strategyAddress} on ${chain}`, err);
     return 0;
+  }
+}
+
+async function getRewardPool(chain: ApiChain, strategyAddress: Address): Promise<Address> {
+  const chainId = ChainId[chain];
+  try {
+    const vaultContract = fetchContract(
+      strategyAddress,
+      [
+        {
+          inputs: [],
+          name: 'rewardPool',
+          outputs: [{ internalType: 'address', name: '', type: 'address' }],
+          stateMutability: 'view',
+          type: 'function',
+        },
+      ] as const,
+      chainId
+    );
+    const rewardPoolAddress = await vaultContract.read.rewardPool();
+    return rewardPoolAddress;
+  } catch (err) {
+    return '0x0';
   }
 }
 
