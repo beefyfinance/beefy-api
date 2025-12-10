@@ -16,7 +16,12 @@ import { withChainId } from './helpers';
 // Multichain
 
 export const multichainHarvestableVaults = withErrorHandling(async ctx => {
-  const multichainVaults = getAllHarvestableVaults();
+  const multichainVaults = getAllHarvestableVaults(false);
+  sendSuccess(ctx, multichainVaults);
+});
+
+export const multichainHarvestableVaultsWithRelated = withErrorHandling(async ctx => {
+  const multichainVaults = getAllHarvestableVaults(true);
   sendSuccess(ctx, multichainVaults);
 });
 
@@ -48,7 +53,12 @@ export const multiChainClms = withErrorHandling(async ctx => {
 // Single chain
 
 export const singleChainHarvestableVaults = withChainId(async (ctx, chainId) => {
-  const chainVaults = getHarvestableVaultsByChain(chainId);
+  const chainVaults = getHarvestableVaultsByChain(chainId, false);
+  sendSuccess(ctx, chainVaults);
+});
+
+export const singleChainHarvestableVaultsWithRelated = withChainId(async (ctx, chainId) => {
+  const chainVaults = getHarvestableVaultsByChain(chainId, true);
   sendSuccess(ctx, chainVaults);
 });
 

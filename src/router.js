@@ -81,6 +81,8 @@ router.get('/cow-vaults/:chainId', multichainVaults.singleChainCowVaults);
 router.get('/cow-vaults', multichainVaults.multichainCowVaults);
 
 router.get('/harvestable-vaults/id/:vaultId', multichainVaults.singleHarvestableVault);
+router.get('/harvestable-vaults/:chainId/related', multichainVaults.singleChainHarvestableVaultsWithRelated);
+router.get('/harvestable-vaults/related', multichainVaults.multichainHarvestableVaultsWithRelated);
 router.get('/harvestable-vaults/:chainId', multichainVaults.singleChainHarvestableVaults);
 router.get('/harvestable-vaults', multichainVaults.multichainHarvestableVaults);
 
