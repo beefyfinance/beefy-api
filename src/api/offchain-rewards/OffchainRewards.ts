@@ -4,6 +4,10 @@ import {
   CampaignsWithMeta,
   IOffchainRewardProvider,
   ProviderId,
+  UpdateRejected,
+  UpdateRequest,
+  UpdateResolved,
+  UpdateResult,
   Vault,
 } from './types';
 import { StellaSwapProvider } from './providers/stellaswap/StellaSwapProvider';
@@ -14,7 +18,10 @@ import { typedKeys } from '../../utils/object';
 import { getKey, setKey } from '../../utils/cache';
 import { createCachedFactory } from '../../utils/factory';
 import { getUnixNow } from '../../utils/date';
-import { mapValues } from 'lodash';
+import { mapValues, partition } from 'lodash';
+import { isDefined } from '../../utils/array';
+import PQueue from 'p-queue';
+import { isUpdateResolved } from './typeguards';
 
 type ChainCampaigns<TProvider extends ProviderId = ProviderId> = {
   campaigns: ReadonlyArray<CampaignByProvider[TProvider]>;
@@ -65,6 +72,7 @@ export class OffchainRewards {
     },
   };
   protected readonly startTime = getUnixNow();
+  protected readonly chainIdsToCheck: AppChain[];
   protected lastSaved: number;
   protected lock = new AsyncLock();
 
@@ -75,6 +83,7 @@ export class OffchainRewards {
     cachedValues?: CachedByProvider
   ) {
     this.lastSaved = this.startTime;
+    this.chainIdsToCheck = Array.from(new Set(vaults.map(vault => vault.chainId)));
 
     if (cachedValues) {
       for (const providerId of typedKeys(this.byProvider)) {
@@ -90,7 +99,7 @@ export class OffchainRewards {
       }
     }
 
-    setInterval(this.saveToCache, 60 * 1000);
+    setInterval(this.scheduledUpdate.bind(this), 60 * 1000);
   }
 
   static async create(
@@ -105,41 +114,233 @@ export class OffchainRewards {
       typeof maybeCache === 'object' &&
       maybeCache !== null &&
       maybeCache.type === CACHE_TYPE &&
-      maybeCache.version === CACHE_VERSION
+      maybeCache.version === CACHE_VERSION &&
+      typeof maybeCache.data === 'object'
         ? maybeCache.data
         : undefined;
 
-    return new OffchainRewards(vaults, secondsBetweenUpdates, cacheKey, cachedValues);
+    const instance = new OffchainRewards(vaults, secondsBetweenUpdates, cacheKey, cachedValues);
+    await instance.updateIfStale();
+    return instance;
   }
 
-  async getCampaignsForChain(chainId: AppChain, withMeta: true): Promise<CampaignsWithMeta>;
-  async getCampaignsForChain(
-    chainId: AppChain,
-    withMeta?: false | undefined
-  ): Promise<ReadonlyArray<Campaign>>;
-  async getCampaignsForChain(
-    chainId: AppChain,
-    withMeta?: boolean
-  ): Promise<CampaignsWithMeta | ReadonlyArray<Campaign>> {
-    if (!withMeta) {
-      return (
-        await Promise.all(
-          typedKeys(this.byProvider).map(providerId =>
-            this.getCampaignsForChainProvider(chainId, providerId, false)
-          )
-        )
-      ).flat();
+  protected scheduledUpdate() {
+    this.updateIfStale().catch(err => {
+      console.error('> [Offchain Rewards] Failed to perform scheduled update', err);
+    });
+  }
+
+  async updateIfStale() {
+    const now = getUnixNow();
+    const updatesRequired: UpdateRequest[] = this.chainIdsToCheck
+      .flatMap(chainId =>
+        typedKeys(this.byProvider).map(providerId => {
+          const providerEntry = this.byProvider[providerId];
+          if (!providerEntry.provider.supportsChain(chainId)) {
+            return undefined;
+          }
+          const vaults = this.getVaultsForChainProvider(chainId, providerEntry.provider, this.vaults);
+          if (vaults.length === 0) {
+            return undefined;
+          }
+
+          const providerChain = providerEntry.byChain[chainId];
+
+          if (
+            !providerChain ||
+            providerChain.lastRequested < this.startTime ||
+            now - providerChain.lastRequested >= this.secondsBetweenUpdates
+          ) {
+            return { chainId, providerId, type: 'full' as const };
+          }
+
+          if (providerChain.lastChecked < this.startTime || now - providerChain.lastChecked >= 60) {
+            return { chainId, providerId, type: 'check' as const };
+          }
+
+          return undefined;
+        })
+      )
+      .filter(isDefined);
+
+    if (updatesRequired.length === 0) {
+      return;
     }
 
-    const perProvider = await Promise.all(
-      typedKeys(this.byProvider).map(providerId =>
-        this.getCampaignsForChainProvider(chainId, providerId, true)
-      )
+    this.performUpdates(updatesRequired).catch(err => {
+      console.error('> [Offchain Rewards] Failed to perform updates', err);
+    });
+  }
+
+  protected buildUpdateResultSummary(results: UpdateResult[]) {
+    const summary = {
+      shouldSave: false,
+      errors: [] as Array<{ chainId: string; providerId: string; reason: Error }>,
+      updated: [] as Array<{ providerId: string; chainIds: string[] }>,
+    };
+
+    const [resolved, rejected] = partition(results, isUpdateResolved);
+
+    if (resolved.length > 0) {
+      summary.shouldSave = true;
+
+      const fullUpdates = resolved.filter(res => res.request.type === 'full');
+      if (fullUpdates.length) {
+        const grouped = fullUpdates.reduce<Record<string, string[]>>((acc, res) => {
+          const key = res.request.providerId;
+          acc[key] ??= [];
+          acc[key].push(res.request.chainId);
+          return acc;
+        }, {});
+        for (const [providerId, chainIds] of Object.entries(grouped)) {
+          summary.updated.push({ providerId, chainIds });
+        }
+      }
+    }
+
+    if (rejected.length > 0) {
+      for (const rej of rejected) {
+        summary.errors.push({
+          chainId: rej.request.chainId,
+          providerId: rej.request.providerId,
+          reason: rej.reason,
+        });
+      }
+    }
+
+    return summary;
+  }
+
+  protected async performUpdates(updates: UpdateRequest[]) {
+    // Ensure full updates aren't requested multiple times while one is in queue
+    await this.markFullRequestTimes(updates, getUnixNow());
+
+    console.info(`> [Offchain Rewards] Queuing ${updates.length} updates...`);
+    const queue = new PQueue({
+      concurrency: 1,
+      autoStart: true,
+    });
+    const results = await queue.addAll(updates.map(update => () => this.performUpdate(update)));
+    const { shouldSave, errors, updated } = this.buildUpdateResultSummary(results);
+
+    if (updated.length) {
+      console.info(
+        `> [Offchain Rewards] Updated campaigns for ${updated
+          .map(({ providerId, chainIds }) => `${providerId} on ${chainIds.join(', ')}`)
+          .join('; ')}`
+      );
+    }
+    if (errors.length) {
+      for (const { chainId, providerId, reason } of errors) {
+        console.error(
+          `> [Offchain Rewards] Failed to update campaigns for ${providerId} on ${chainId}:`,
+          reason
+        );
+      }
+    }
+
+    if (shouldSave) {
+      await this.saveToCache();
+    }
+  }
+
+  protected async markFullRequestTimes(updates: UpdateRequest[], requestTime: number) {
+    const chainsPerProvider = updates
+      .filter(u => u.type === 'full')
+      .reduce((acc, update) => {
+        acc[update.providerId] ??= [];
+        acc[update.providerId].push(update.chainId);
+        return acc;
+      }, {} as Record<ProviderId, AppChain[]>);
+
+    for (const [providerId, chainIds] of Object.entries(chainsPerProvider)) {
+      const providerEntry = this.byProvider[providerId];
+      if (!providerEntry) {
+        return;
+      }
+      await this.lock.acquire(providerId, async () => {
+        const byChain: ByProviderValue['byChain'] = providerEntry.byChain;
+        for (const chainId of chainIds) {
+          byChain[chainId] = {
+            ...(byChain[chainId] || NO_DATA),
+            lastRequested: requestTime,
+          };
+        }
+      });
+    }
+  }
+
+  protected async performUpdate(request: UpdateRequest): Promise<UpdateResult> {
+    const reject = (reason: Error): UpdateRejected => ({
+      request,
+      status: 'rejected' as const,
+      reason,
+    });
+    const resolve = (): UpdateResolved => ({
+      request,
+      status: 'resolved' as const,
+    });
+
+    const { chainId, providerId, type } = request;
+    const providerEntry = this.byProvider[providerId];
+    if (!providerEntry) {
+      return reject(new Error(`Unknown offchain rewards provider: ${providerId}`));
+    }
+    const provider: IOffchainRewardProvider = providerEntry.provider;
+    const byChain: ByProviderValue['byChain'] = providerEntry.byChain;
+    if (!provider.supportsChain(chainId)) {
+      return reject(new Error(`Offchain rewards provider ${providerId} does not support chain ${chainId}`));
+    }
+    const vaults = this.getVaultsForChainProvider(chainId, provider, this.vaults);
+
+    return await this.lock.acquire(providerId, async () => {
+      const requestTime = getUnixNow();
+      const chain = {
+        ...(byChain[chainId] || NO_DATA),
+      };
+
+      try {
+        switch (type) {
+          case 'full': {
+            chain.campaigns = vaults.length === 0 ? [] : await provider.getCampaigns(chainId, vaults);
+            chain.lastUpdated = getUnixNow();
+            chain.lastChecked = chain.lastUpdated;
+            break;
+          }
+          case 'check': {
+            chain.campaigns = chain.campaigns.map(campaign => ({
+              ...campaign,
+              active: provider.isActive(campaign, requestTime),
+            }));
+            chain.lastChecked = getUnixNow();
+            break;
+          }
+        }
+
+        byChain[chainId] = chain;
+
+        return resolve();
+      } catch (e) {
+        return reject(e instanceof Error ? e : new Error(String(e) || 'Unknown error'));
+      }
+    });
+  }
+
+  getCampaignsForChain(chainId: AppChain, withMeta: true): CampaignsWithMeta;
+  getCampaignsForChain(chainId: AppChain, withMeta?: false | undefined): ReadonlyArray<Campaign>;
+  getCampaignsForChain(chainId: AppChain, withMeta?: boolean): CampaignsWithMeta | ReadonlyArray<Campaign> {
+    const perProvider = typedKeys(this.byProvider).map(providerId =>
+      this.getCampaignsForChainProvider(chainId, providerId, true)
     );
+    const allCampaigns = perProvider.flatMap(provider => provider.campaigns);
+
+    if (!withMeta) {
+      return allCampaigns;
+    }
 
     return {
       lastUpdated: perProvider.map(provider => provider.lastUpdated).reduce((a, b) => Math.max(a, b), 0),
-      campaigns: perProvider.flatMap(provider => provider.campaigns),
+      campaigns: allCampaigns,
     };
   }
 
@@ -150,21 +351,21 @@ export class OffchainRewards {
     (chainId, provider) => `${chainId}:${provider.id}`
   );
 
-  async getCampaignsForChainProvider(
+  getCampaignsForChainProvider(
     chainId: AppChain,
     providerId: ProviderId,
     withMeta: true
-  ): Promise<Readonly<ChainCampaigns>>;
-  async getCampaignsForChainProvider(
+  ): Readonly<ChainCampaigns>;
+  getCampaignsForChainProvider(
     chainId: AppChain,
     providerId: ProviderId,
     withMeta?: false | undefined
-  ): Promise<ReadonlyArray<Campaign>>;
-  async getCampaignsForChainProvider(
+  ): ReadonlyArray<Campaign>;
+  getCampaignsForChainProvider(
     chainId: AppChain,
     providerId: ProviderId,
     withMeta?: boolean
-  ): Promise<Readonly<ChainCampaigns> | ReadonlyArray<Campaign>> {
+  ): Readonly<ChainCampaigns> | ReadonlyArray<Campaign> {
     const providerEntry = this.byProvider[providerId];
     if (!providerEntry) {
       return withMeta ? NO_DATA : [];
@@ -174,53 +375,21 @@ export class OffchainRewards {
     if (!provider.supportsChain(chainId)) {
       return withMeta ? NO_DATA : [];
     }
+
+    const chain = byChain[chainId];
+    if (!chain) {
+      return withMeta ? NO_DATA : [];
+    }
+
     const vaults = this.getVaultsForChainProvider(chainId, provider, this.vaults);
     if (vaults.length === 0) {
       return withMeta ? NO_DATA : [];
     }
 
-    return this.lock.acquire(providerId, async () => {
-      const requestTime = getUnixNow();
-
-      let chain = byChain[chainId];
-      if (
-        !chain ||
-        chain.lastRequested < this.startTime ||
-        requestTime - chain.lastRequested >= this.secondsBetweenUpdates
-      ) {
-        if (!chain) {
-          byChain[chainId] = chain = {
-            campaigns: [],
-            lastRequested: requestTime,
-            lastUpdated: 0,
-            lastChecked: 0,
-          };
-        } else {
-          chain.lastRequested = requestTime;
-        }
-
-        try {
-          chain.campaigns = await provider.getCampaigns(chainId, vaults);
-          chain.lastUpdated = getUnixNow();
-          chain.lastChecked = chain.lastUpdated;
-        } catch (e) {
-          console.error(`> [Offchain Rewards] Failed to fetch campaigns for ${providerId} on ${chainId}`, e);
-          return withMeta ? chain : chain.campaigns;
-        }
-      }
-
-      if (requestTime - chain.lastChecked >= 60) {
-        chain.campaigns = chain.campaigns.map(campaign => ({
-          ...campaign,
-          active: provider.isActive(campaign, requestTime),
-        }));
-      }
-
-      return withMeta ? chain : chain.campaigns;
-    });
+    return withMeta ? chain : chain.campaigns;
   }
 
-  protected saveToCache = async () => {
+  protected async saveToCache() {
     if (this.getLatestChange() <= this.lastSaved) {
       return;
     }
@@ -235,7 +404,7 @@ export class OffchainRewards {
         this.lastSaved = getUnixNow();
       }
     });
-  };
+  }
 
   protected getLatestChange() {
     return Math.max(

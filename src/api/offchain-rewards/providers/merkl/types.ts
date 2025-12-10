@@ -99,6 +99,7 @@ export interface MerklApiCampaignStatus {
 
 export type MerklApiCampaign = {
   id: string;
+  apr: number;
   computeChainId: number;
   distributionChainId: number;
   campaignId: string;
@@ -120,6 +121,9 @@ export type MerklApiCampaign = {
   rewardToken: MerklApiToken;
   distributionChain: MerklApiChain;
   campaignStatus: MerklApiCampaignStatus;
+  childCampaignIds?: string[] | undefined;
+  parentCampaignId?: string | undefined;
+  rootCampaignId?: string | undefined;
 };
 
 export type MerklApiProtocol = {
@@ -212,6 +216,7 @@ export type MerklApiOpportunitiesParams = {
   status: MerklApiOpportunityStatus;
   test: 'false';
   campaigns: 'true';
+  excludeSubCampaigns: 'false';
 };
 
 export type MerklApiCampaignsResponse = Array<MerklApiCampaign>;
