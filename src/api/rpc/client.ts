@@ -16,6 +16,8 @@ import PQueue from 'p-queue';
 import { envBoolean, envNumber } from '../../utils/env';
 import { customFallback, CustomFallbackTransport } from './fallbackTransport';
 
+const BATCH_WAIT = envNumber('BATCH_WAIT', 1500);
+
 const multicallClientsByChain: Record<number, Client> = {};
 const singleCallClientsByChain: Record<number, Client> = {};
 
@@ -73,7 +75,7 @@ export const getMulticallClientForChain = (chainId: ChainId): Client => {
       batch: {
         multicall: {
           batchSize: 1024,
-          wait: parseInt(process.env.BATCH_WAIT) ?? 1500,
+          wait: BATCH_WAIT,
         },
       },
       chain: chain,
@@ -91,7 +93,7 @@ const getPublicClientForChain = (chainId: ChainId): PublicClient => {
       batch: {
         multicall: {
           batchSize: 1024,
-          wait: parseInt(process.env.BATCH_WAIT) ?? 1500,
+          wait: BATCH_WAIT,
         },
       },
       chain: chain,

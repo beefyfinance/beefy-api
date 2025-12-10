@@ -8,7 +8,7 @@ export function envNumber(key: string, defaultValue: number): number {
   }
 
   const value = process.env[key];
-  if (value.length === 0) {
+  if (value === undefined || value.length === 0) {
     return defaultValue;
   }
 

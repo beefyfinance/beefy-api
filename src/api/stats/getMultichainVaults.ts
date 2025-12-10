@@ -22,7 +22,7 @@ import { deleteKey, getKey, setKey } from '../../utils/cache';
 import { envNumber } from '../../utils/env';
 import { Address } from 'viem';
 import { ChainId } from '../../../packages/address-book/src/types/chainid';
-import { fetchContract, getMulticallClientForChain } from '../rpc/client';
+import { fetchContract } from '../rpc/client';
 import { HARVESTABLE_VAULT_TYPES, sortVaults, VAULT_TYPES } from '../vaults/helpers';
 import BeefyVaultV6Abi from '../../abis/BeefyVault';
 
@@ -265,12 +265,36 @@ export const getVaultsByTypeChain = storage.getVaultsByTypeChain.bind(
   storage
 ) as typeof storage.getVaultsByTypeChain;
 
-export function getAllHarvestableVaults() {
-  return sortVaults(HARVESTABLE_VAULT_TYPES.flatMap(type => getVaultsByType(type)));
+export function getAllHarvestableVaults(withRelated = false) {
+  return sortVaults(
+    HARVESTABLE_VAULT_TYPES.flatMap(type => {
+      if (withRelated) {
+        switch (type) {
+          case 'cowcentrated':
+            return getMultichainClms();
+          default:
+            break;
+        }
+      }
+      return getVaultsByType(type);
+    })
+  );
 }
 
-export function getHarvestableVaultsByChain(chainId: ApiChain) {
-  return sortVaults(HARVESTABLE_VAULT_TYPES.flatMap(type => getVaultsByTypeChain(type, chainId)));
+export function getHarvestableVaultsByChain(chainId: ApiChain, withRelated = false) {
+  return sortVaults(
+    HARVESTABLE_VAULT_TYPES.flatMap(type => {
+      if (withRelated) {
+        switch (type) {
+          case 'cowcentrated':
+            return getSingleClms(chainId);
+          default:
+            break;
+        }
+      }
+      return getVaultsByTypeChain(type, chainId);
+    })
+  );
 }
 
 /** @deprecated Use {@link getVaultsByType}('standard') */
