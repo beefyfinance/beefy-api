@@ -11,7 +11,7 @@ import {
   MerklApiOpportunityStatus,
   MerklApiOpportunityWithCampaigns,
 } from './types';
-import { groupBy, omit, pick } from 'lodash';
+import { groupBy, pick } from 'lodash';
 import { Address, getAddress, isAddressEqual } from 'viem';
 import { isFiniteNumber } from '../../../../utils/number';
 import { isDefined } from '../../../../utils/array';
@@ -50,6 +50,7 @@ const supportedChains = new Set<AppChain>([
 const supportedCampaignTypeToVaultType: Map<MerklApiCampaignType, Set<Vault['type']>> = new Map([
   ['ERC20', new Set<Vault['type']>(['standard'])],
   ['CLAMM', new Set<Vault['type']>(['cowcentrated', 'cowcentrated-pool'])],
+  ['ERC20LOGPROCESSOR', new Set<Vault['type']>(['cowcentrated', 'cowcentrated-pool'])],
 ]);
 const supportedVaultTypes = new Set<Vault['type']>(
   Array.from(supportedCampaignTypeToVaultType.values(), v => Array.from(v.values())).flat()
@@ -96,15 +97,43 @@ export class MerklProvider implements IOffchainRewardProvider {
       throw new UnsupportedChainError(chainId, providerId);
     }
 
-    const vaultsByPoolAddress = groupBy(vaults, v => v.poolAddress.toLowerCase());
     const opportunities = await this.fetchOpportunitiesForChain(chainId);
 
-    return opportunities
-      .flatMap(opportunity => this.getCampaignsFromOpportunity(opportunity, chainId, vaultsByPoolAddress))
+    // opportunities matching our vault receipt tokens directly
+    const vaultsByAddress = groupBy(vaults, v => v.address.toLowerCase());
+    const receiptMatches = opportunities.filter(o => !!vaultsByAddress[o.identifier.toLowerCase()]);
+    const receiptMatchedRootCampaigns = new Set(
+      receiptMatches.flatMap(o => o.campaigns.map(c => c.rootCampaignId).filter(isDefined))
+    );
+
+    // opportunities matching the pool/deposit token address of our vaults, excluding those already matched by receipt token
+    const vaultsByPoolAddress = groupBy(vaults, v => v.poolAddress.toLowerCase());
+    const poolMatches = opportunities.filter(
+      o =>
+        !!vaultsByPoolAddress[o.identifier.toLowerCase()] &&
+        !o.campaigns.some(c => receiptMatchedRootCampaigns.has(c.id))
+    );
+
+    const vaultOpportunities = receiptMatches
+      .flatMap(opportunity => this.getCampaignsFromVaultOpportunity(opportunity, chainId, vaultsByAddress))
       .filter(isDefined);
+
+    const poolOpportunities = poolMatches
+      .flatMap(opportunity => this.getCampaignsFromPoolOpportunity(opportunity, chainId, vaultsByPoolAddress))
+      .filter(isDefined);
+
+    return [...vaultOpportunities, ...poolOpportunities];
   }
 
-  protected getCampaignsFromOpportunity(
+  protected getCampaignsFromVaultOpportunity(
+    opportunity: MerklApiOpportunityWithCampaigns,
+    chainId: AppChain,
+    vaultsByAddress: Record<string, Vault[]>
+  ): MerklCampaign[] {
+    return opportunity.campaigns.map(c => this.getCampaign(opportunity, c, 1, chainId, vaultsByAddress));
+  }
+
+  protected getCampaignsFromPoolOpportunity(
     opportunity: MerklApiOpportunityWithCampaigns,
     chainId: AppChain,
     vaultsByPoolAddress: Record<string, Vault[]>
@@ -187,6 +216,12 @@ export class MerklProvider implements IOffchainRewardProvider {
           };
         });
       }
+      case 'ERC20LOGPROCESSOR': {
+        return vaults.map(vault => ({
+          ...vault,
+          apr: isFiniteNumber(apiCampaign.apr) ? apiCampaign.apr / 100 : 0,
+        }));
+      }
       default: {
         console.warn(`getVaultsWithAprFromCampaign: unsupported campaign type ${apiCampaign.type}`);
         return [];
@@ -249,7 +284,6 @@ export class MerklProvider implements IOffchainRewardProvider {
       chainId: toAppChain(computeChain ?? claimChain ?? chainId),
       startTimestamp: apiCampaign.startTimestamp,
       endTimestamp: apiCampaign.endTimestamp,
-      poolAddress: getAddress(apiOpportunity.identifier),
       active: isUnixBetween(apiCampaign.startTimestamp, apiCampaign.endTimestamp),
       rewardToken: {
         address: getAddress(apiCampaign.rewardToken.address),
@@ -260,7 +294,17 @@ export class MerklProvider implements IOffchainRewardProvider {
       },
       vaults: vaultsWithApr,
       type: this.getCampaignType(getAddress(apiCampaign.creator.address), chainId),
+      url: `https://app.merkl.xyz/opportunities/${this.chainToSlug(apiOpportunity.chain.name)}/${
+        apiOpportunity.type
+      }/${apiOpportunity.identifier}`,
     };
+  }
+
+  protected chainToSlug(name: string) {
+    return name
+      .toLowerCase()
+      .replace(/[ ,()]/g, '-')
+      .replace(/-{2,}/g, '-');
   }
 
   protected async fetchOpportunitiesForChain(
@@ -318,6 +362,7 @@ export class MerklProvider implements IOffchainRewardProvider {
           type: request.type.join(','),
           test: 'false', // exclude test campaigns
           campaigns: 'true', // include campaigns in the response
+          excludeSubCampaigns: 'false', // include sub-campaigns
           status,
         } satisfies MerklApiOpportunitiesParams,
       });

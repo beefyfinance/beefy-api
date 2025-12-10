@@ -33,7 +33,6 @@ type MakeCampaign<TProvider extends ProviderId, TExtra extends object = {}> = {
   providerId: TProvider;
   id: string;
   chainId: AppChain;
-  poolAddress: Address;
   rewardToken: RewardToken;
   vaults: CampaignVault[];
   type: CampaignType;
@@ -48,6 +47,7 @@ export type MerklCampaign = MakeCampaign<
     campaignId: string;
     opportunityId: string;
     campaignStatus?: Pick<MerklApiCampaignStatus, 'computedUntil' | 'processingStarted' | 'status'>;
+    url: string;
   }
 >;
 
@@ -75,6 +75,25 @@ export interface IOffchainRewardProvider<T extends Campaign = Campaign> {
   getCampaigns(chainId: AppChain, vaults: Vault[]): Promise<T[]>;
   isActive(campaign: T, unixTime: number): boolean;
 }
+
+export type UpdateRequest = {
+  chainId: AppChain;
+  providerId: ProviderId;
+  type: 'full' | 'check';
+};
+
+export type UpdateRejected = {
+  request: UpdateRequest;
+  status: 'rejected';
+  reason: Error;
+};
+
+export type UpdateResolved = {
+  request: UpdateRequest;
+  status: 'resolved';
+};
+
+export type UpdateResult = UpdateResolved | UpdateRejected;
 
 export type CampaignsWithMeta = {
   lastUpdated: number;
