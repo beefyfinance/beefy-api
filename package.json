@@ -4,10 +4,10 @@
   "repository": "beefyfinance/beefy-api",
   "license": "MIT",
   "engines": {
-    "node": "20.x"
+    "node": "24.x"
   },
   "scripts": {
-    "install-all": "yarn && cd packages/address-book && yarn",
+    "install-all": "yarn install --frozen-lockfile && cd packages/address-book && npm ci",
     "start": "ts-node --transpile-only src/app.ts",
     "starttvl": "ts-node --heap-prof --transpile-only src/api/stats/getTvl.js",
     "heaptvl": "node -r ts-node/register --heap-prof src/api/stats/getTvl.js",

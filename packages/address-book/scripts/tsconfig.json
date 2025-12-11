@@ -1,9 +1,5 @@
 {
   "extends": "../tsconfig.cjs.json",
-  "ts-node": {
-    "experimentalResolver": true,
-    "transpileOnly": true
-  },
   "include": [
     "."
   ]
