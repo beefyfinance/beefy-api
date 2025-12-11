@@ -93,6 +93,7 @@ export const tokens = {
       'Dai is a stablecoin cryptocurrency which aims to keep its value as close to one United States dollar as possible through an automated system of smart contracts on the Ethereum blockchain',
     documentation: 'https://docs.makerdao.com/',
     bridge: 'zkevm-canonical',
+    risks: ['SYNTH_STABLE'],
   },
   stMATIC: {
     name: 'Staked MATIC',
@@ -136,6 +137,7 @@ export const tokens = {
     description: 'Frax is the first fractional-algorithmic stablecoin protocol.',
     documentation: 'https://docs.frax.finance/',
     bridge: 'frax',
+    risks: ['SYNTH_STABLE'],
   },
   frxETH: {
     name: 'Frax Ether',

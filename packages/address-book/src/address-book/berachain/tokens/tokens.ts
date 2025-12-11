@@ -45,6 +45,7 @@ export const tokens = {
       'Turn your favorite stables into Honey. Leverage liquidity incentives on various platforms.',
     documentation: 'https://docs.berachain.com/',
     bridge: 'native',
+    risks: ['SYNTH_STABLE'],
   },
   BGT: {
     name: 'Bera Governance Token',
@@ -275,7 +276,7 @@ export const tokens = {
     description:
       'Nome Protocol is a synthetic asset protocol designed to provide scalable, algorithmic liquidity for the Berachain ecosystem. It operates through $USDbr, an elastic, algorithmic stablecoin, and $NOME, its governance and staking asset.',
     bridge: 'native',
-    risks: ['NO_TIMELOCK'],
+    risks: ['NO_TIMELOCK', 'SYNTH_STABLE'],
   },
   DOLO: {
     name: 'Dolomite',
@@ -303,7 +304,7 @@ export const tokens = {
     description:
       'Ethenas USDe is not the same as a fiat stablecoin like USDC or USDT. USDe is a synthetic dollar, backed with crypto assets and corresponding short futures positions.',
     bridge: 'layer-zero',
-    risks: ['NO_TIMELOCK'],
+    risks: ['NO_TIMELOCK', 'SYNTH_STABLE'],
   },
   sUSDe: {
     name: 'Staked USDe',
@@ -318,6 +319,6 @@ export const tokens = {
     description:
       'Users are able to stake their USDe for sUSDe through the Ethena front-end. sUSDe is a reward-bearing token that accrues value from the yield that Ethena’s underlying delta-neutral position generates. sUSDe is subject to a 7-day un-staking period.',
     bridge: 'layer-zero',
-    risks: ['NO_TIMELOCK'],
+    risks: ['NO_TIMELOCK', 'SYNTH_STABLE'],
   },
 } as const satisfies Record<string, Token>;

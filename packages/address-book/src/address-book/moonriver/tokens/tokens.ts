@@ -76,6 +76,7 @@ export const tokens = {
       "MAI is a stablecoin collateralized by your crypto holdings. It's powered by Qi Dao, a protocol that enables any cryptocurrency community to create stablecoins backed by their native tokens.",
     logoURI: 'https://raw.githubusercontent.com/0xlaozi/qidao/main/images/mimatic-red.png',
     documentation: 'https://docs.mai.finance/',
+    risks: ['SYNTH_STABLE'],
   },
   DOGE: {
     name: 'Doge Token',
@@ -152,6 +153,7 @@ export const tokens = {
     documentation: 'https://developers.circle.com/docs',
     description:
       'USDC is a fully collateralized US dollar stablecoin. USDC is issued by regulated financial institutions, backed by fully reserved assets, redeemable on a 1:1 basis for US dollars.',
+    risks: ['SYNTH_STABLE'],
   },
   SOLAR: {
     name: 'SolarBeam Token',
@@ -194,6 +196,7 @@ export const tokens = {
     description:
       'USDC is a fully collateralized US dollar stablecoin. USDC is issued by regulated financial institutions, backed by fully reserved assets, redeemable on a 1:1 basis for US dollars.',
     bridge: 'multichain',
+    risks: ['SYNTH_STABLE'],
   },
   DAI: {
     name: 'Dai Stablecoin',
@@ -207,6 +210,7 @@ export const tokens = {
       'Dai is a stablecoin cryptocurrency which aims to keep its value as close to one United States dollar as possible through an automated system of smart contracts on the Ethereum blockchain',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0xbA7dEebBFC5fA1100Fb055a87773e1E99Cd3507a/logo.png',
+    risks: ['SYNTH_STABLE'],
   },
   BUSD: {
     name: 'Binance-Peg BUSD Token',
@@ -220,6 +224,7 @@ export const tokens = {
       'Binance USD (BUSD) is a 1:1 USD-backed stable coin issued by Binance (in partnership with Paxos). BUSD is approved and regulated by the New York State Department of Financial Services (NYDFS). The BUSD Monthly Audit Report can be viewed from the official website.',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/avalanche-bridge-resources/main/tokens/BUSD/logo.png',
+    risks: ['SYNTH_STABLE'],
   },
   ETH: {
     name: 'Ethereum',
@@ -271,6 +276,7 @@ export const tokens = {
     description:
       'Tether is a stablecoin pegged to the US Dollar. A stablecoin is a type of cryptocurrency whose value is pegged to another fiat currency like the US Dollar or to a commodity like Gold. Tether is the first stablecoin to be created and it is the most popular stablecoin used in the ecosystem.',
     logoURI: 'https://hecoinfo.com/token/images/USDTHECO_32.png',
+    risks: ['SYNTH_STABLE'],
   },
   MATIC: {
     name: 'Matic Token',
@@ -348,6 +354,7 @@ export const tokens = {
       'You, the Spellcaster, can provide collateral in the form of various interest bearing crypto assets such as yvYFI, yvUSDT, yvUSDC, xSUSHI and more. With this, you can borrow magic internet money (MIM) which is a stable coin that you can swap for any other traditional stable coin.',
     logoURI: '',
     documentation: 'https://docs.abracadabra.money/',
+    risks: ['SYNTH_STABLE'],
   },
   PETS: {
     name: 'PETS Token',
@@ -389,6 +396,7 @@ export const tokens = {
     website: 'https://frax.finance/',
     description:
       'The Frax Protocol introduced the world to the concept of a cryptocurrency being partially backed by collateral and partially stabilized algorithmically.',
+    risks: ['SYNTH_STABLE'],
   },
   aROME: {
     name: 'Alpha Rome',

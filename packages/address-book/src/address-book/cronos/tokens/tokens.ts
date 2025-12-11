@@ -329,6 +329,7 @@ export const tokens = {
       'https://app.cronaswap.org/images/tokens/0xF2001B145b43032AAF5Ee2884e456CCd805F677D.svg',
     documentation:
       'https://docs.makerdao.com/smart-contract-modules/dai-module/dai-detailed-documentation',
+    risks: ['SYNTH_STABLE'],
   },
   BUSD: {
     name: 'BUSD Token',
@@ -342,6 +343,7 @@ export const tokens = {
       'Binance USD (BUSD) is a 1:1 USD-backed stable coin issued by Binance (in partnership with Paxos), Approved and regulated by the New York State Department of Financial Services (NYDFS), The BUSD Monthly Audit Report can be viewed from the official website.',
     logoURI:
       'https://app.cronaswap.org/images/tokens/0x6aB6d61428fde76768D7b45D8BFeec19c6eF91A8.svg',
+    risks: ['SYNTH_STABLE'],
   },
   BUSDb: {
     name: 'BUSD Token (Multichain)',

@@ -101,6 +101,7 @@ export const tokens = {
     bridge: 'mode-canonical',
     logoURI: 'https://assets.spookyswap.finance/tokens/DOLA.png',
     documentation: 'https://docs.inverse.finance/',
+    risks: ['SYNTH_STABLE'],
   },
   xKIM: {
     name: 'Escrowed KIM',

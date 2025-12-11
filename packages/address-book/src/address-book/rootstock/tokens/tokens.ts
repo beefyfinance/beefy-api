@@ -46,6 +46,7 @@ export const tokens = {
     bridge: 'rootstock-canonical',
     logoURI: '',
     documentation: 'https://dapp.tokenbridge.rootstock.io/',
+    risks: ['SYNTH_STABLE'],
   },
   DOC: {
     name: 'Dollar on Chain',
@@ -60,6 +61,7 @@ export const tokens = {
     bridge: 'native',
     logoURI: '',
     documentation: 'https://api.moneyonchain.com/docs/guide',
+    risks: ['SYNTH_STABLE'],
   },
   RIF: {
     name: 'RIF',

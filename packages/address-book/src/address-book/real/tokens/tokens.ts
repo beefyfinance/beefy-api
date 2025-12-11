@@ -46,7 +46,7 @@ export const tokens = {
       'https://docs.makerdao.com/smart-contract-modules/dai-module/dai-detailed-documentation',
     description:
       'Dai is a stablecoin cryptocurrency which aims to keep its value as close to one United States dollar as possible through an automated system of smart contracts on the Ethereum blockchain',
-    risks: ['NO_TIMELOCK'],
+    risks: ['NO_TIMELOCK', 'SYNTH_STABLE'],
   },
   arcUSD: {
     name: 'arcUSD',
@@ -60,7 +60,7 @@ export const tokens = {
       'Arcana distributes the yield generated from delta-neutral strategies through arcUSD, a rebasing token soft-pegged to the dollar. The yield is distributed to arcUSD holders in the form of daily rebases, increasing their balance each period. On top of the rebases, arcUSD can be deployed in DeFi to unlock additional reward composability.',
     bridge: 'native',
     chainId: 111188,
-    risks: ['NO_TIMELOCK'],
+    risks: ['NO_TIMELOCK', 'SYNTH_STABLE'],
   },
   UKRE: {
     name: 'UK Real Estate',
@@ -88,7 +88,7 @@ export const tokens = {
       "USTB is a fully permissionless, cross-chain, rebasing dollar-pegged stablecoin. USTB is a wrapped version of USDM, with USDM supplying 100% of the backing for USTB. USDM is backed by Mountain Protocol's reserves of short-duration US Treasuries (T-Bills) having an average duration of less than 3 months or less.",
     bridge: 'layer-zero',
     chainId: 111188,
-    risks: ['NO_TIMELOCK'],
+    risks: ['NO_TIMELOCK', 'SYNTH_STABLE'],
   },
   PEARL: {
     name: 'Pearl',
@@ -144,6 +144,6 @@ export const tokens = {
       'Stack’s $MORE token is a non-algorithmic, collateral-backed stablecoin. This means that every $1 USD of $MORE should have more than $1 USD of collateral backing. Stack considers $MORE to be worth $1 however at times it may not trade at this value. In these instances, Stack has several options at its disposal to regain the $1 USD peg.',
     bridge: 'native',
     chainId: 111188,
-    risks: ['NO_TIMELOCK'],
+    risks: ['NO_TIMELOCK', 'SYNTH_STABLE'],
   },
 } as const satisfies Record<string, Token>;

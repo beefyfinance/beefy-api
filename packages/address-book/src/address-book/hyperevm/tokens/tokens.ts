@@ -46,7 +46,7 @@ export const tokens = {
     description:
       'Ethenas USDe is not the same as a fiat stablecoin like USDC or USDT. USDe is a synthetic dollar, backed with crypto assets and corresponding short futures positions.',
     bridge: 'layer-zero',
-    risks: ['NO_TIMELOCK'],
+    risks: ['NO_TIMELOCK', 'SYNTH_STABLE'],
   },
   PURR: {
     name: 'Purr',
@@ -102,6 +102,7 @@ export const tokens = {
       'Borrow against blue-chip collateral and earn native yield with the Felix stablecoin, feUSD.',
     documentation: 'https://usefelix.gitbook.io/felix-docs',
     bridge: 'native',
+    risks: ['SYNTH_STABLE'],
   },
   KITTEN: {
     name: 'Kittenswap',
@@ -144,6 +145,7 @@ export const tokens = {
       'The Looping Collective is a community of users, builders and ecosystem partners who co-create and manage Liquid Looping Tokens (LLTs).',
     documentation: 'https://docs.loopingcollective.org/',
     bridge: 'native',
+    risks: ['SYNTH_STABLE'],
   },
   UBTC: {
     name: 'Unit Bitcoin',
