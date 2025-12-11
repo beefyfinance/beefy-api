@@ -3236,4 +3236,18 @@ export const tokens = {
     documentation: 'https://solana.com/learn/what-is-solana',
     bridge: 'chainlink-ccip',
   },
+  EDEL: {
+    name: 'Edel',
+    symbol: 'EDEL',
+    oracleId: 'EDEL',
+    address: '0xFb31f85A8367210B2e4Ed2360D2dA9Dc2D2Ccc95',
+    chainId: 8453,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://www.edel.finance/',
+    description:
+      'Edel is the autonomous revenue engine for tokenised equities. Purpose-built smart contracts that originate, price, and settle securities lending without intermediaries.',
+    documentation: 'https://docs.edel.finance/',
+    bridge: 'native',
+  },
 } as const satisfies Record<string, Token>;
