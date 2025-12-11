@@ -1351,7 +1351,7 @@ export const tokens = {
     logoURI: '',
     website: 'https://www.lodestarfinance.io/',
     description:
-      'Unlocking the critical DeFi primitive of decentralized money markets for Arbitrum native assets like ARB, MAGIC, GMX, and plvGLP .',
+      'Unlocking the critical DeFi primitive of decentralized money markets for Arbitrum native assets like ARB, MAGIC, GMX, and plvGLP.',
     documentation: 'https://docs.lodestarfinance.io/',
   },
   AURA: {
