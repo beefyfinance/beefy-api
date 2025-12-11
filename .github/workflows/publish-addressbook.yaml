@@ -1,4 +1,4 @@
-name: Push actions
+name: Publish Address Book Package
 
 on:
   push:
@@ -21,19 +21,20 @@ jobs:
         working-directory: packages/address-book
     steps:
       # get repo code
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
       # install node
-      - name: Use Node.js 20.x
+      - name: Setup node
         uses: actions/setup-node@v3
         with:
-          node-version: '20.x'
+          node-version-file: '../../.nvmrc'
           registry-url: 'https://registry.npmjs.org'
+          scope: 'beefyfinance'
       # install packages
-      - run: yarn --frozen-lockfile
+      - run: npm ci
       # run checksum test
-      - run: yarn checksum
+      - run: npm run checksum
       # transpile from Typescript to Javascript
-      - run: yarn compile
+      - run: npm run compile
       # bump package version and commit. Note that this won't create an infinite github action push loop, as we have added package.json to paths-ignore.
       - name: 'Automated Version Bump'
         uses: 'phips28/gh-action-bump-version@v9.1.0'
@@ -41,6 +42,4 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           PACKAGEJSON_DIR: 'packages/address-book'
       # publish package
-      - run: yarn publish --access public
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+      - run: npm publish
