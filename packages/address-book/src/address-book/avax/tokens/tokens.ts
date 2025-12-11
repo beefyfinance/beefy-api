@@ -302,6 +302,7 @@ export const tokens = {
     website: 'https://www.terra.money/',
     description:
       'Terra stablecoins offer instant settlements, low fees and seamless cross-border exchange - loved by millions of users and merchants.',
+    risks: ['SYNTH_STABLE'],
   },
   saUSDC: {
     name: 'Stargate USD Coin LP',
@@ -641,6 +642,7 @@ export const tokens = {
     website: 'https://www.terra.money/',
     description:
       'Terra stablecoins offer instant settlements, low fees and seamless cross-border exchange - loved by millions of users and merchants.',
+    risks: ['SYNTH_STABLE'],
   },
   MORE: {
     name: 'More Token',
@@ -815,6 +817,7 @@ export const tokens = {
     logoURI: 'https://raw.githubusercontent.com/0xlaozi/qidao/main/images/mimatic-red.png',
     bridge: 'native',
     documentation: 'https://docs.mai.finance/',
+    risks: ['SYNTH_STABLE'],
   },
   miMatic: {
     chainId: 43114,
@@ -1357,6 +1360,7 @@ export const tokens = {
       'Binance USD (BUSD) is a 1:1 USD-backed stable coin issued by Binance (in partnership with Paxos), Approved and regulated by the New York State Department of Financial Services (NYDFS), The BUSD Monthly Audit Report can be viewed from the official website.',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0xaEb044650278731Ef3DC244692AB9F64C78FfaEA/logo.png',
+    risks: ['SYNTH_STABLE'],
   },
   BIRD: {
     chainId: 43114,
@@ -1536,7 +1540,6 @@ export const tokens = {
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0xB3fe5374F67D7a22886A0eE082b2E2f9d2651651/logo.png',
     documentation: 'https://docs.chain.link/resources/link-token-contracts',
   },
-
   COL: {
     chainId: 43114,
     address: '0xEFb603A7844f11D17aDA15B63e3A876AB443372C',
@@ -1692,6 +1695,7 @@ export const tokens = {
       'Dai is a stablecoin cryptocurrency which aims to keep its value as close to one United States dollar as possible through an automated system of smart contracts on the Ethereum blockchain',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0xbA7dEebBFC5fA1100Fb055a87773e1E99Cd3507a/logo.png',
+    risks: ['SYNTH_STABLE'],
   },
   GEN: {
     chainId: 43114,
@@ -2205,6 +2209,7 @@ export const tokens = {
     bridge: 'frax',
     logoURI:
       'https://raw.githubusercontent.com/pangolindex/tokens/main/assets/0xD24C2Ad096400B6FBcd2ad8B24E7acBc21A1da64/logo.png',
+    risks: ['SYNTH_STABLE'],
   },
   FXS: {
     chainId: 43114,
@@ -4952,6 +4957,7 @@ export const tokens = {
       'DAI is an Ethereum-based stablecoin (stable-price cryptocurrency) whose issuance and development is managed by the Maker Protocol and the MakerDAO decentralized autonomous organization.',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0xbA7dEebBFC5fA1100Fb055a87773e1E99Cd3507a/logo.png',
+    risks: ['SYNTH_STABLE'],
   },
   BUSDe: {
     chainId: 43114,
@@ -4965,6 +4971,7 @@ export const tokens = {
       'Binance USD (BUSD) is a 1:1 USD-backed stable coin issued by Binance (in partnership with Paxos). BUSD is approved and regulated by the New York State Department of Financial Services (NYDFS). The BUSD Monthly Audit Report can be viewed from the official website.',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/avalanche-bridge-resources/main/tokens/BUSD/logo.png',
+    risks: ['SYNTH_STABLE'],
   },
   'FRAX-Frax': {
     chainId: 43114,
@@ -5043,6 +5050,7 @@ export const tokens = {
       'You, the Spellcaster, can provide collateral in the form of various interest bearing crypto assets such as yvYFI, yvUSDT, yvUSDC, xSUSHI and more. With this, you can borrow magic internet money (MIM) which is a stable coin that you can swap for any other traditional stable coin.',
     logoURI: '',
     documentation: 'https://docs.abracadabra.money/',
+    risks: ['SYNTH_STABLE'],
   },
   SPELL: {
     name: 'Spell Token',
@@ -5207,7 +5215,6 @@ export const tokens = {
     website: 'https://step.app/',
     description:
       'Step App is creating a gamified metaverse for the fitness economy. Walk, jog, and run to socialize, play, and earn. - Stake to earn portion of ecosystem fees. - Stake includes a cooldown, breaking which causes a penalty. - Tiered stakers acquire discounts on NFT market.',
-
     logoURI:
       'https://assets.coingecko.com/coins/images/25015/small/801485424e1f49bc8d0facff9287eb9b_photo.png?1649827972',
   },
@@ -5290,6 +5297,7 @@ export const tokens = {
     bridge: 'multichain',
     logoURI: 'https://assets.spookyswap.finance/tokens/DOLA.png',
     documentation: 'https://docs.inverse.finance/',
+    risks: ['SYNTH_STABLE'],
   },
   aavAVAX: {
     name: 'Aave AVAX',
@@ -5626,7 +5634,7 @@ export const tokens = {
     description:
       'Avant’s flagship stable value token, minted when users deposit USDC. Users that stake their avUSD receive yield that is generated from market-neutral strategies put on by Avant’s trading partners. savUSD is a ERC-4626 tokenized vault that accrues avUSD over time. ',
     bridge: 'native',
-    risks: ['NO_TIMELOCK'],
+    risks: ['NO_TIMELOCK', 'SYNTH_STABLE'],
   },
   AUSD: {
     name: 'Agora Dollar',
@@ -5656,6 +5664,6 @@ export const tokens = {
     description:
       'Users are able to stake their USDe for sUSDe through the Ethena front-end. sUSDe is a reward-bearing token that accrues value from the yield that Ethena’s underlying delta-neutral position generates. sUSDe is subject to a 7-day un-staking period.',
     bridge: 'layer-zero',
-    risks: ['NO_TIMELOCK'],
+    risks: ['NO_TIMELOCK', 'SYNTH_STABLE'],
   },
 } as const satisfies Record<string, Token>;

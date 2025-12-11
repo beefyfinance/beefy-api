@@ -29,7 +29,7 @@ const lisUSD = {
   description:
     'lisUSD is a decentralized, unbiased, collateral backed destablecoin soft-pegged to the US Dollar. Users who have collateralized their assets via Lista are eligible to take out a loan in lisUSD against their collateral.',
   bridge: 'native',
-  risks: ['NO_TIMELOCK'],
+  risks: ['NO_TIMELOCK', 'SYNTH_STABLE'],
 } as const satisfies Token;
 
 export const tokens = {
@@ -157,6 +157,7 @@ export const tokens = {
     description:
       'Inverse.finance is a suite of permissionless decentralized finance tools governed by Inverse DAO, a decentralized autonomous organization running on the Ethereum blockchain.',
     bridge: 'multichain',
+    risks: ['SYNTH_STABLE'],
   },
   MULTI: {
     name: 'Multichain',
@@ -196,6 +197,7 @@ export const tokens = {
       'The exchange-traded strategies(ETS) of overnight.fi are ERC-20 structured products that lets users leverage a collateralized debt position (e.g. DAI lent on Aave) to borrow a volatile asset (e.g. WETH), pair it with a stablecoin, and provide stable-to-crypto liquidity, (e.g. WETH/DAI) in an AMM, like Uni V3. This allows earning high APY and hedging against crypto volatility. ',
     logoURI: 'https://app.deus.finance/tokens/dei.svg',
     documentation: 'https://docs.overnight.fi/',
+    risks: ['SYNTH_STABLE'],
   },
   THE: {
     name: 'THENA',
@@ -370,6 +372,7 @@ export const tokens = {
     description:
       'jCHF is a multi-collateralized synthetic stable-coin from Jarvis tracking the price of the Swiss Franc. It is built on the top of UMA and Chainlink.',
     logoURI: 'https://i.imgur.com/EknGhAl.png',
+    risks: ['SYNTH_STABLE'],
   },
   TRIVIA: {
     name: 'TRIVIA',
@@ -424,6 +427,7 @@ export const tokens = {
       "MAI is a stablecoin collateralized by your crypto holdings. It's powered by Qi Dao, a protocol that enables any cryptocurrency community to create stablecoins backed by their native tokens.",
     documentation: 'https://docs.mai.finance/',
     bridge: 'native',
+    risks: ['SYNTH_STABLE'],
   },
   QI: {
     name: 'QiDao',
@@ -546,6 +550,7 @@ export const tokens = {
       'jBRL is a multi-collateralized synthetic token tracking the price of Brazilian Real. It is built on the top of UMA and Chainlink.',
     bridge: 'multichain',
     logoURI: 'https://jarvis.network/images/jBRL.svg',
+    risks: ['SYNTH_STABLE'],
   },
   BRZ: {
     name: 'BRZ Token',
@@ -558,6 +563,7 @@ export const tokens = {
     description:
       'BRZ is the first Brazilian stablecoin in circulation. It will allow Brazilians to directly ramp up investments in foreign exchanges and to trade a Brazilian Real (BRL) pegged stablecoin in global scale.',
     logoURI: 'https://bscscan.com/token/images/brztoken_32.png',
+    risks: ['SYNTH_STABLE'],
   },
   BRZw: {
     name: 'BRZ (Wormhole) Token',
@@ -570,6 +576,7 @@ export const tokens = {
     description:
       'BRZw is the Wormhole bridged verison of BRZ. It will allow Brazilians to directly ramp up investments in foreign exchanges and to trade a Brazilian Real (BRL) pegged stablecoin in global scale.',
     logoURI: 'https://bscscan.com/token/images/brztoken_32.png',
+    risks: ['SYNTH_STABLE'],
   },
   SOL: {
     name: 'Solana',
@@ -749,6 +756,7 @@ export const tokens = {
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0xaEb044650278731Ef3DC244692AB9F64C78FfaEA/logo.png',
     documentation: 'https://stargateprotocol.gitbook.io/stargate/v/user-docs/',
+    risks: ['SYNTH_STABLE'],
   },
   sbUSDT: {
     name: 'Stargate Tether USD LP',
@@ -1026,6 +1034,7 @@ export const tokens = {
     description: 'Frax is the world’s first fractional-algorithmic stablecoin.',
     bridge: 'frax',
     documentation: 'https://docs.frax.finance/',
+    risks: ['SYNTH_STABLE'],
   },
   FXS: {
     name: 'Frax Share',
@@ -1273,6 +1282,7 @@ export const tokens = {
     website: 'https://omnifarms.ocp.finance/',
     description:
       'USDO is a decentralised stablecoin backed by a verifiable collateral pool of on-chain assets.',
+    risks: ['SYNTH_STABLE'],
   },
   FET: {
     name: 'Fetch',
@@ -1356,6 +1366,7 @@ export const tokens = {
     description:
       "WUSD is Wault Finance's commerce-backed stablecoin! The world's first commerce-backed stablecoin!",
     logoURI: 'https://app.wault.finance/bsc/assets/images/stablecoin/wusd.svg',
+    risks: ['SYNTH_STABLE'],
   },
   CYT: {
     name: 'Coinary Token',
@@ -2264,6 +2275,7 @@ export const tokens = {
     website: 'https://iron.finance/',
     description: 'IRON is the stablecoin token of the iron.finance protocol.',
     logoURI: 'https://bscscan.com/token/images/ironfinance_32.png?=v1',
+    risks: ['SYNTH_STABLE'],
   },
   KEYFI: {
     name: 'KeyFi Token',
@@ -2551,6 +2563,7 @@ export const tokens = {
     logoURI:
       'https://tokens.pancakeswap.finance/images/0xe9e7cea3dedca5984780bafc599bd69add087d56.png',
     documentation: 'https://help.paxos.com/hc/en-us/articles/4402670144148-BUSD',
+    risks: ['SYNTH_STABLE'],
   },
   ETH: {
     name: 'Ethereum Token',
@@ -2719,6 +2732,7 @@ export const tokens = {
       'https://tokens.pancakeswap.finance/images/0x1af3f329e8be154074d8769d1ffa4ee058b1dbc3.png',
     documentation:
       'https://docs.makerdao.com/smart-contract-modules/dai-module/dai-detailed-documentation',
+    risks: ['SYNTH_STABLE'],
   },
   YFII: {
     name: 'YFII.finance Token',
@@ -3149,6 +3163,7 @@ export const tokens = {
     description: 'QUSD is the stablecoin developed by the QIAN protocol.',
     logoURI:
       'https://tokens.pancakeswap.finance/images/0xb8C540d00dd0Bf76ea12E4B4B95eFC90804f924E.png',
+    risks: ['SYNTH_STABLE'],
   },
   VAI: {
     name: 'VAI Stablecoin',
@@ -3162,6 +3177,7 @@ export const tokens = {
       'Vai is a decentralized stablecoin built on the Venus Protocol that runs on the Binance Smart Chain.',
     logoURI:
       'https://tokens.pancakeswap.finance/images/0x4bd17003473389a42daf6a0a729f6fdb328bbbd7.png',
+    risks: ['SYNTH_STABLE'],
   },
   JUV: {
     name: 'Juventus',
@@ -3369,6 +3385,7 @@ export const tokens = {
       'TerraUSD (UST) is the decentralized and algorithmic stablecoin of the Terra blockchain. It is a scalable, yield-bearing coin that is value-pegged to the US Dollar.',
     logoURI:
       'https://tokens.pancakeswap.finance/images/0x23396cF899Ca06c4472205fC903bDB4de249D6fC.png',
+    risks: ['SYNTH_STABLE'],
   },
   EGLD: {
     name: 'Elrond',
@@ -4561,6 +4578,7 @@ export const tokens = {
     website: 'https://tor.hector.network/',
     description:
       'TOR is a fully collateralized stablecoin which acts as a foundational pillar within the Hector Network Ecosystem. Its unique smart contracts made it the first of its kind, creating positive price action for the HEC token each time a TOR coin is minted and empowering Hector Network to become deflationary.',
+    risks: ['SYNTH_STABLE'],
   },
   CSIX: {
     name: 'Carbon',
@@ -4614,6 +4632,7 @@ export const tokens = {
     description:
       'The USDD protocol aims to provide the blockchain industry with the most stable, decentralized, tamper-proof, and freeze-free stablecoin system, a perpetual system independent from any centralized entity.',
     documentation: 'https://usdd.io/docs/',
+    risks: ['SYNTH_STABLE'],
   },
   frxETH: {
     name: 'Frax Ether',
@@ -4755,7 +4774,7 @@ export const tokens = {
       'Verified USD (USDV) is the first stablecoin that rewards Verified Minters based on their contribution to the tokens active circulation.',
     documentation: 'https://docs.usdv.money/docs',
     bridge: 'layer-zero',
-    risks: ['NO_TIMELOCK'],
+    risks: ['NO_TIMELOCK', 'SYNTH_STABLE'],
   },
   weETH: {
     name: 'Wrapped eETH',

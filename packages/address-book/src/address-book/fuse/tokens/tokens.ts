@@ -134,6 +134,7 @@ export const tokens = {
     website: 'https://fuse.fi/',
     description:
       'Fuse Dollar (fUSD) is fully backed by USDC which is a fully backed us regulated stablecoin minted by circle.com and is widely used in the decentralized finance space. The Fuse network will add more stablecoins to aggregate yield, add stability and remove friction for on boarding and off boarding between crypto and fiat. ',
+    risks: ['SYNTH_STABLE'],
   },
   BNB: {
     name: 'BNB on Fuse',
@@ -159,6 +160,7 @@ export const tokens = {
     description:
       'Binance USD (BUSD) is a 1:1 USD-backed stable coin issued by Binance (in partnership with Paxos). BUSD is approved and regulated by the New York State Department of Financial Services (NYDFS). The BUSD Monthly Audit Report can be viewed from the official website.',
     bridge: 'fuse-canonical',
+    risks: ['SYNTH_STABLE'],
   },
   USDC: {
     name: 'USD Coin on Fuse',

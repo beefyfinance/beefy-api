@@ -129,6 +129,7 @@ export const tokens = {
       'Rings is a meta-stablecoin for USD & ETH offering competitive yield for stakers, providing deep liquidity for Sonic DeFi, and funding Sonic DeFi projects via its lockers.',
     documentation: 'https://docs.rings.money/',
     bridge: 'layer-zero',
+    risks: ['SYNTH_STABLE'],
   },
   stkscUSD: {
     name: 'Staked Sonic USD',
@@ -143,6 +144,7 @@ export const tokens = {
       'Rings is a meta-stablecoin for USD & ETH offering competitive yield for stakers, providing deep liquidity for Sonic DeFi, and funding Sonic DeFi projects via its lockers.',
     documentation: 'https://docs.rings.money/',
     bridge: 'layer-zero',
+    risks: ['SYNTH_STABLE'],
   },
   wstkscUSD: {
     name: 'Wrapped stkscUSD',
@@ -157,6 +159,7 @@ export const tokens = {
       'Rings is a meta-stablecoin for USD & ETH offering competitive yield for stakers, providing deep liquidity for Sonic DeFi, and funding Sonic DeFi projects via its lockers.',
     documentation: 'https://docs.rings.money/',
     bridge: 'native',
+    risks: ['SYNTH_STABLE'],
   },
   BRUSH: {
     name: 'PaintSwap',
@@ -339,6 +342,7 @@ export const tokens = {
       'frxUSD is a dollar-pegged stablecoin that uses “Algorithmic Market Operation” (AMO) smart contracts and permissionless, non-custodial subprotocols as stability mechanisms.',
     bridge: 'layer-zero',
     documentation: 'https://docs.frax.finance/',
+    risks: ['SYNTH_STABLE'],
   },
   sfrxUSD: {
     name: 'Staked Frax USD',

@@ -101,6 +101,7 @@ export const tokens = {
     description:
       'Alchemix Self-Repaying Loans allow you to leverage a range of tokens without risk of liquidation.',
     bridge: 'multichain',
+    risks: ['SYNTH_STABLE'],
   },
   POTS: {
     name: 'Moonpot',
@@ -230,6 +231,7 @@ export const tokens = {
     bridge: 'native',
     description:
       'TOR is a fully collateralized stablecoin which acts as a foundational pillar within the Hector Network Ecosystem. Its unique smart contracts made it the first of its kind, creating positive price action for the HEC token each time a TOR coin is minted and empowering Hector Network to become deflationary.',
+    risks: ['SYNTH_STABLE'],
   },
   sFTMx: {
     name: 'sFTMx',
@@ -322,6 +324,7 @@ export const tokens = {
     description:
       'Mint fully decentralized sythentic assets on Binance Smart Chain, Fantom & Avalanche.',
     logoURI: '',
+    risks: ['SYNTH_STABLE'],
   },
   STG: {
     name: 'Stargate',
@@ -797,6 +800,7 @@ export const tokens = {
     description:
       'Terra stablecoins offer instant settlements, low fees and seamless cross-border exchange - loved by millions of users and merchants.',
     logoURI: 'https://s2.coinmarketcap.com/static/img/coins/64x64/7129.png',
+    risks: ['SYNTH_STABLE'],
   },
   USTw: {
     name: 'TerraUSD (Wormhole)',
@@ -810,6 +814,7 @@ export const tokens = {
     bridge: 'wormhole',
     description:
       'Terra stablecoins offer instant settlements, low fees and seamless cross-border exchange - loved by millions of users and merchants.',
+    risks: ['SYNTH_STABLE'],
   },
   USTaxl: {
     name: 'TerraUSD (Axelar)',
@@ -823,6 +828,7 @@ export const tokens = {
     bridge: 'axelar',
     description:
       'Terra stablecoins offer instant settlements, low fees and seamless cross-border exchange - loved by millions of users and merchants.',
+    risks: ['SYNTH_STABLE'],
   },
   SOL: {
     name: 'Solana',
@@ -849,6 +855,7 @@ export const tokens = {
     description:
       'TrueUSD is one of a number of cryptocurrency stablecoins administered by TrustToken, a platform for tokenizing real-world assets.',
     logoURI: 'https://s2.coinmarketcap.com/static/img/coins/200x200/2563.png',
+    risks: ['SYNTH_STABLE'],
   },
   JOE: {
     name: 'Joe Token',
@@ -913,6 +920,7 @@ export const tokens = {
       "MAI is a stablecoin collateralized by your crypto holdings. It's powered by Qi Dao, a protocol that enables any cryptocurrency community to create stablecoins backed by their native tokens.",
     logoURI: 'https://raw.githubusercontent.com/0xlaozi/qidao/main/images/mimatic-red.png',
     documentation: 'https://docs.mai.finance/',
+    risks: ['SYNTH_STABLE'],
   },
   BEETS: {
     name: 'Beethoven X Token',
@@ -1018,6 +1026,7 @@ export const tokens = {
       'You, the Spellcaster, can provide collateral in the form of various interest bearing crypto assets such as yvYFI, yvUSDT, yvUSDC, xSUSHI and more. With this, you can borrow magic internet money (MIM) which is a stable coin that you can swap for any other traditional stable coin.',
     logoURI: '',
     documentation: 'https://docs.abracadabra.money/',
+    risks: ['SYNTH_STABLE'],
   },
   DIS: {
     name: 'TosDis',
@@ -1044,6 +1053,7 @@ export const tokens = {
     description:
       'These are digitised US Dollars and are always purchased and redeemed at 1 BUSD for 1 US dollar.',
     logoURI: '',
+    risks: ['SYNTH_STABLE'],
   },
   SPIRIT: {
     name: 'SpiritSwap',
@@ -1273,6 +1283,7 @@ export const tokens = {
     chainId: 250,
     logoURI: 'https://ftmscan.com/token/images/USDC_32.png',
     bridge: 'multichain',
+    risks: ['SYNTH_STABLE'],
   },
   WBTC: {
     ...BTC,
@@ -1308,6 +1319,7 @@ export const tokens = {
       'Dai is a stable, decentralized currency that does not discriminate. Any individual or business can realize the advantages of digital money.',
     logoURI: 'https://ftmscan.com/token/images/MCDDai_32.png',
     bridge: 'multichain',
+    risks: ['SYNTH_STABLE'],
   },
   SUSHI: {
     name: 'Sushi',
@@ -1413,6 +1425,7 @@ export const tokens = {
     logoURI: 'https://ftmscan.com/token/images/fraxfinance_32.png',
     documentation: 'https://docs.frax.finance/',
     bridge: 'frax',
+    risks: ['SYNTH_STABLE'],
   },
   FXS: {
     name: 'Frax Share',
@@ -1524,6 +1537,7 @@ export const tokens = {
     bridge: 'multichain',
     logoURI:
       'https://raw.githubusercontent.com/sushiswap/assets/master/blockchains/ethereum/assets/0xdAC17F958D2ee523a2206206994597C13D831ec7/logo.png',
+    risks: ['SYNTH_STABLE'],
   },
   BADGER: {
     name: 'Badger',
@@ -1734,6 +1748,7 @@ export const tokens = {
     description:
       'Inverse.finance is a suite of permissionless decentralized finance tools governed by Inverse DAO, a decentralized autonomous organization running on the Ethereum blockchain.',
     logoURI: 'https://assets.spookyswap.finance/tokens/DOLA.png',
+    risks: ['SYNTH_STABLE'],
   },
   INV: {
     name: 'Inverse Finance',
@@ -1844,6 +1859,7 @@ export const tokens = {
       'USDC is a fully collateralized US dollar stablecoin. USDC is issued by regulated financial institutions, backed by fully reserved assets, redeemable on a 1:1 basis for US dollars.',
     chainId: 250,
     logoURI: 'https://ftmscan.com/token/images/USDC_32.png',
+    risks: ['SYNTH_STABLE'],
   },
   MATIC: {
     name: 'MATIC',
@@ -1912,6 +1928,7 @@ export const tokens = {
     chainId: 250,
     logoURI: 'https://ftmscan.com/token/images/USDC_32.png',
     bridge: 'stargate',
+    risks: ['SYNTH_STABLE'],
   },
   renBTC: {
     name: 'renBTC',
@@ -2135,6 +2152,7 @@ export const tokens = {
     website: 'https://spartacus.finance/',
     bridge: 'native',
     description: '',
+    risks: ['SYNTH_STABLE'],
   },
   fUSDCe: {
     name: 'Bridged USDC',
@@ -2149,5 +2167,6 @@ export const tokens = {
     chainId: 250,
     logoURI: '',
     bridge: 'wormhole',
+    risks: ['SYNTH_STABLE'],
   },
 } as const satisfies Record<string, Token>;
