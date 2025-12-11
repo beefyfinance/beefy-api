@@ -12,7 +12,7 @@ module.exports = {
     if (!chains.length) {
       throw new Error('Matched files do not match expected path structure');
     }
-    return [withArgs('ts-node', '--transpileOnly', './scripts/checkDuplicates.ts', chains)];
+    return [withArgs('bun', 'run', './scripts/checkDuplicates.ts', chains)];
   }),
   './src/address-book/*/**/*.ts': ifStaged(stagedFiles => {
     const changed = stagedFiles.reduce(
@@ -37,7 +37,7 @@ module.exports = {
     );
 
     const all = changed.all.size
-      ? withArgs('ts-node', '--transpileOnly', './scripts/checksum.ts', Array.from(changed.all))
+      ? withArgs('bun', 'run', './scripts/checksum.ts', Array.from(changed.all))
       : undefined;
     for (const chain of changed.all) {
       changed.tokens.delete(chain);
@@ -45,8 +45,8 @@ module.exports = {
     }
     const tokens = changed.tokens.size
       ? withArgs(
-          'ts-node',
-          '--transpileOnly',
+          'bun',
+          'run',
           './scripts/checksum.ts',
           '--tokens',
           Array.from(changed.tokens)
@@ -54,8 +54,8 @@ module.exports = {
       : undefined;
     const platforms = changed.platforms.size
       ? withArgs(
-          'ts-node',
-          '--transpileOnly',
+          'bun',
+          'run',
           './scripts/checksum.ts',
           '--platforms',
           Array.from(changed.platforms)
