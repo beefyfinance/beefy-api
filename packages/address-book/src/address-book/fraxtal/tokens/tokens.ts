@@ -13,7 +13,7 @@ const FXS = {
     'FRAX (previously FXS) is the governance token of the Frax Finance protocol and the gas token of the Fraxtal chain.',
   logoURI: 'https://app.sushi.com/images/tokens/fxs-square.jpg',
   documentation: 'https://docs.frax.finance/',
-};
+} as const satisfies Token;
 
 const frxETH = {
   name: 'Frax Ether', // previously "Frax Wrapped Ether"

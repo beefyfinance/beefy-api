@@ -17,7 +17,7 @@ const CELO = {
 const WCELO = {
   ...CELO,
   symbol: 'WCELO',
-};
+} as const satisfies Token;
 
 const SUSHIV1 = {
   name: 'Sushi Swap',
@@ -30,7 +30,7 @@ const SUSHIV1 = {
   description:
     'Sushi is the home of DeFi. Their community is building a comprehensive, decentralized trading platform for the future of finance. Swap, earn, stack yields, lend, borrow, leverage all on one decentralized, community driven platform.',
   logoURI: 'https://ftmscan.com/token/images/sushiswap_32.png',
-};
+} as const satisfies Token;
 
 export const tokens = {
   WNATIVE: WCELO,
