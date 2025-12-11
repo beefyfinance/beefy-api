@@ -205,4 +205,19 @@ export const tokens = {
     bridge: 'native',
     risks: ['NO_TIMELOCK'],
   },
+  loAZND: {
+    name: 'Locked Asian Dollar',
+    symbol: 'loAZND',
+    oracleId: 'loAZND',
+    address: '0x9c82eB49B51F7Dc61e22Ff347931CA32aDc6cd90',
+    chainId: 143,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://mudigital.net/',
+    documentation: 'https://docs.mudigital.net/',
+    description:
+      'loAZND (the "Locked Asian Dollar") is a synthetic dollar backed by Asia\'s best RWAs, designed for stability and steady yield. loAZND is the yield-bearing version of AZND, earning up to 7% interest.',
+    bridge: 'native',
+    risks: ['NO_TIMELOCK'],
+  },
 } as const satisfies Record<string, Token>;

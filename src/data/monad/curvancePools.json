@@ -3,6 +3,7 @@
     "name": "curvance-monad-wmon-wmon-ausd",
     "address": "0xE01d426B589c7834a5F6B20D7e992A705d3c22ED",
     "merklId": "0xE01d426B589c7834a5F6B20D7e992A705d3c22ED",
+    "irm": "0xc17A271F79ac4449FaABeAf64E805BEE37B78DBd",
     "underlying": "0x3bd359C1119dA7Da1D913D1C4D2B7c461115433A",
     "oracleId": "WMON",
     "decimals": "1e18"
@@ -11,6 +12,7 @@
     "name": "curvance-monad-ausd-wmon-ausd",
     "address": "0x6E182EB501800C555bd5E662E6D350D627F504D8",
     "merklId": "0x6E182EB501800C555bd5E662E6D350D627F504D8",
+    "irm": "0x72cb6a15E050427e1a6047614A47659A2C94d1bA",
     "underlying": "0x00000000eFE302BEAA2b3e6e1b18d08D69a9012a",
     "oracleId": "AUSD",
     "decimals": "1e6"
@@ -19,6 +21,7 @@
     "name": "curvance-monad-wmon-wmon-usdc",
     "address": "0x1e240E30E51491546deC3aF16B0b4EAC8Dd110D4",
     "merklId": "0x1e240E30E51491546deC3aF16B0b4EAC8Dd110D4",
+    "irm": "0x50264B615175f8DBFFF417CF6D0003D2e77D87B4",
     "underlying": "0x3bd359C1119dA7Da1D913D1C4D2B7c461115433A",
     "oracleId": "WMON",
     "decimals": "1e18"
@@ -27,8 +30,36 @@
     "name": "curvance-monad-usdc-wmon-usdc",
     "address": "0x8EE9FC28B8Da872c38A496e9dDB9700bb7261774",
     "merklId": "0x8EE9FC28B8Da872c38A496e9dDB9700bb7261774",
+    "irm": "0x1622D77E311638C77779e6D9B212E3e7D73AaFB4",
     "underlying": "0x754704Bc059F8C67012fEd69BC8A327a5aafb603",
     "oracleId": "USDC",
     "decimals": "1e6"
+  },
+  {
+    "name": "curvance-monad-loaznd-loaznd-ausd",
+    "address": "0xf7a6AB4aF86966C141D3C5633DF658E5CDb0a735",
+    "merklId": "0xf7a6AB4aF86966C141D3C5633DF658E5CDb0a735",
+    "irm": "0x5d2b40E3e3FdCDEd15314290d4384D4D12044233",
+    "underlying": "0x9c82eB49B51F7Dc61e22Ff347931CA32aDc6cd90",
+    "oracleId": "loAZND",
+    "decimals": "1e18"
+  },
+  {
+    "name": "curvance-monad-ausd-loaznd-ausd",
+    "address": "0xDaDbB2D8f9802DC458F5D7F133D053087Ba8983d",
+    "merklId": "0xDaDbB2D8f9802DC458F5D7F133D053087Ba8983d",
+    "irm": "0xf4E19DEdB240FFd9ECEDbfad88A91C34aC3095AA",
+    "underlying": "0x00000000eFE302BEAA2b3e6e1b18d08D69a9012a",
+    "oracleId": "AUSD",
+    "decimals": "1e6"
+  },
+  {
+    "name": "curvance-monad-weth-ezeth-weth",
+    "address": "0xa206D51C02c0202a2Eed8E6A757b49Ab13930227",
+    "merklId": "0xa206D51C02c0202a2Eed8E6A757b49Ab13930227",
+    "irm": "0xf23d194e151069d09c927E8CD8ae3e14922F2a23",
+    "underlying": "0xEE8c0E9f1BFFb4Eb878d8f15f368A02a35481242",
+    "oracleId": "WETH",
+    "decimals": "1e18"
   }
 ]

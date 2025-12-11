@@ -149,7 +149,7 @@ const {
     },
   },
   monad: {
-    tokens: { WMON, cWMON },
+    tokens: { WMON, cWMON, AZND, loAZND },
   },
 } = addressBook;
 
@@ -239,7 +239,10 @@ const tokens = {
     [baseWETH, waBasWETH, true],
     [baseUSDC, smUSDC, true],
   ],
-  monad: [[WMON, cWMON, true]],
+  monad: [
+    [WMON, cWMON, true],
+    [AZND, loAZND, true],
+  ],
 };
 
 const getWrappedAavePrices = async (tokenPrices, tokens, chainId) => {
