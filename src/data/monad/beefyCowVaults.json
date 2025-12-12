@@ -9,6 +9,10 @@
     "rewardPool": {
       "address": "0x0a9fA099b0d0C4D7bAB4191eAAD095c68B765542",
       "oracleId": "pancake-cow-monad-wsteth-wmon-rp"
+    },
+    "vault": {
+      "address": "0xd171365adfA3427e0d069677EB67264c183CD03c",
+      "oracleId": "pancake-cow-monad-wsteth-wmon-vault"
     }
   },
   {
@@ -21,6 +25,10 @@
     "rewardPool": {
       "address": "0x85bdE8289197D95B3DCa4805c3935E3F51Ad64ea",
       "oracleId": "pancake-cow-monad-wmon-weth-rp"
+    },
+    "vault": {
+      "address": "0xe35395eFe6A5eF7b01b9104B36710d73e7D67cb3",
+      "oracleId": "pancake-cow-monad-wmon-weth-vault"
     }
   },
   {
@@ -33,6 +41,10 @@
     "rewardPool": {
       "address": "0x6571d6ECD462A22a367159b82c3B86c5Ea2B6f1b",
       "oracleId": "pancake-cow-monad-ausd-wmon-rp"
+    },
+    "vault": {
+      "address": "0x19c8D0aBf53c65D1d4f0ac9951041EcA6213bEd7",
+      "oracleId": "pancake-cow-monad-ausd-wmon-vault"
     }
   },
   {
@@ -45,6 +57,10 @@
     "rewardPool": {
       "address": "0x3A134B05E48F4b5A23eCdC6551Ef551EAEDca272",
       "oracleId": "pancake-cow-monad-wmon-usdc-rp"
+    },
+    "vault": {
+      "address": "0xBed4B984E7dC447742C272B63800111d68298008",
+      "oracleId": "pancake-cow-monad-wmon-usdc-vault"
     }
   },
   {
