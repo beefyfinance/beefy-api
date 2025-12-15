@@ -19,6 +19,7 @@ export const getCurvanceApys = async () => {
     pools.map(p => ({
       vaultId: p.name,
       vault: supplyApys[pools.indexOf(p)].plus(merklApys[pools.indexOf(p)]),
+      trading: p.lstApr ?? undefined,
     }))
   );
 };
@@ -64,6 +65,7 @@ export interface CurvancePool {
   underlying: string;
   oracleId: string;
   decimals: string;
+  lstApr?: number;
 }
 
 export default getCurvanceApys;

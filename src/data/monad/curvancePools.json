@@ -42,7 +42,8 @@
     "irm": "0x5d2b40E3e3FdCDEd15314290d4384D4D12044233",
     "underlying": "0x9c82eB49B51F7Dc61e22Ff347931CA32aDc6cd90",
     "oracleId": "loAZND",
-    "decimals": "1e18"
+    "decimals": "1e18",
+    "lstApr": 0.07
   },
   {
     "name": "curvance-monad-ausd-loaznd-ausd",
