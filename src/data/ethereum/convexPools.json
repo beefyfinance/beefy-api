@@ -1,5 +1,23 @@
 [
   {
+    "name": "curve-crv-sdcrv",
+    "pool": "0xCA0253A98D16e9C1e3614caFDA19318EE69772D0",
+    "gauge": "0x26F7786de3E6D9Bd37Fcf47BE6F2bC455a21b74A",
+    "stakeDao": true,
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "CRV",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "sdCRV",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
     "name": "curve-usds-stusds",
     "pool": "0x2C7C98A3b1582D83c43987202aEFf638312478aE",
     "gauge": "0x36c2AbAb95F9aAcD4b05d65b89890E29d6382611",

@@ -2949,4 +2949,16 @@ export const tokens = {
       'YieldBasis enables users to provide BTC as liquidity in an AMM pool without impermanent loss (IL), while still earning trading fees.',
     bridge: 'native',
   },
+  sdCRV: {
+    name: 'Stake DAO CRV',
+    address: '0xD1b5651E55D4CeeD36251c61c50C889B36F6abB5',
+    symbol: 'sdCRV',
+    oracleId: 'sdCRV',
+    decimals: 18,
+    chainId: 1,
+    website: 'https://www.stakedao.org/lockers/crv',
+    description:
+      'sdCRV (Stake DAO CRV) is a liquid locker token created by Stake DAO for the CRV governance token of the Curve Finance ecosystem. It represents a liquid form of veCRV, allowing users to deposit and stake CRV directly on Stake DAO or purchase sdCRV on secondary markets using the sdCRV/CRV pool.',
+    bridge: 'native',
+  },
 } as const satisfies Record<string, Token>;
