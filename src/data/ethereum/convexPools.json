@@ -27,6 +27,7 @@
     "name": "curve-frxusd-msusd",
     "pool": "0x9A9e2e70919c75D80aAaA1D483c46CdBb8ac4d1b",
     "gauge": "0x6a253c9fe5AaFF662e072Aa694CE53b917aDb278",
+    "rewardPool": "0x60Aa76b7797644c89EB004b84286B47517a8DDb3",
     "stakeDao": true,
     "tokens": [
       {
@@ -79,12 +80,7 @@
     "name": "curve-pyusd-crvusd",
     "pool": "0x625E92624Bc2D88619ACCc1788365A69767f6200",
     "gauge": "0xf69Fb60B79E463384b40dbFDFB633AB5a863C9A2",
-    "rewards": [
-      {
-        "token": "0x01791F726B4103694969820be083196cC7c045fF",
-        "oracleId": "YB"
-      }
-    ],
+    "rewardPool": "0x79579633029a61963eDfbA1C0BE22498b6e0D33D",
     "tokens": [
       {
         "oracleId": "PYUSD",
