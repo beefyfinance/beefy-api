@@ -1,5 +1,17 @@
 [
   {
+    "address": "0x9037D67a493024e9C1abD19e8776B6FC6965EC83",
+    "lpAddress": "0xBcBBdDD69470f6FEAD37e5644c01C1C1217c213e",
+    "tokens": ["0x44f49ff0da2498bCb1D3Dc7C0f999578F67FD8C6", "0xFd086bC7CD5C481DCC9C85ebE478A1C0b69FCbb9"],
+    "tokenOracleIds": ["CORN", "USDT"],
+    "decimals": [18, 6],
+    "oracleId": "uniswap-cow-arbitrum-corn-usdt0",
+    "rewardPool": {
+      "address": "0x876B2287A374ac7CA9cA50f85fD440Cf52369908",
+      "oracleId": "uniswap-cow-arbitrum-corn-usdt0-rp"
+    }
+  },
+  {
     "address": "0x42cF53622B413B40cb24f78a79E0e76e587b7f33",
     "lpAddress": "0x256899bD2E99C6736B34caF298719Cc709925819",
     "tokens": ["0x4E200fE2f3eFb977d5fd9c430A41531FB04d97B8", "0x82aF49447D8a07e3bd95BD0d56f35241523fBab1"],

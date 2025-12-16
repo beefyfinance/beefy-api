@@ -214,6 +214,14 @@ const tokens: Partial<Record<keyof typeof ChainId, ConcentratedLiquidityToken[]>
       firstToken: 'ETH',
       secondToken: 'ORDER',
     },
+    {
+      type: 'UniV3',
+      oracleId: 'CORN',
+      decimalDelta: 1e12,
+      pool: '0xBcBBdDD69470f6FEAD37e5644c01C1C1217c213e',
+      firstToken: 'USDT',
+      secondToken: 'CORN',
+    },
   ],
   moonbeam: [
     {

@@ -2464,4 +2464,19 @@ export const tokens = {
     bridge: 'native',
     risks: ['NO_TIMELOCK'],
   },
+  CORN: {
+    name: 'Corn',
+    symbol: 'CORN',
+    oracleId: 'CORN',
+    address: '0x44f49ff0da2498bCb1D3Dc7C0f999578F67FD8C6',
+    chainId: 42161,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://usecorn.com/',
+    description:
+      'Corn is a high-performance, low-cost network built for stablecoin payments, settlements, and financial applications at global scale.',
+    documentation: 'https://docs.usecorn.com/',
+    bridge: 'layer-zero',
+    risks: ['NO_TIMELOCK'],
+  },
 } as const satisfies Record<string, Token>;
