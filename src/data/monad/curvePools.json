@@ -89,7 +89,7 @@
     "tokens": [
       {
         "oracleId": "AZND",
-        "decimals": "1e6"
+        "decimals": "1e18"
       },
       {
         "oracleId": "AUSD",
