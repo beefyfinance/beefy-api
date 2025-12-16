@@ -1,5 +1,22 @@
 [
   {
+    "name": "curve-monad-mubond-ausd",
+    "pool": "0x1E8D78e9b3f0152D54d32904B7933f1cFE439Df1",
+    "gauge": "0xA2a48783ce5b8FD550cd98d793b93D781c00B9b8",
+    "merklId": "0xA2a48783ce5b8FD550cd98d793b93D781c00B9b8",
+    "getDy": ["v1", 0, 1],
+    "tokens": [
+      {
+        "oracleId": "muBOND",
+        "decimals": "1e18"
+      },
+      {
+        "oracleId": "AUSD",
+        "decimals": "1e6"
+      }
+    ]
+  },
+  {
     "name": "curve-monad-mon-lsts",
     "pool": "0x74d80eE400D3026FDd2520265cC98300710b25D4",
     "gauge": "0xc08Df560d7178a1f08293608c99e004730CB8936",

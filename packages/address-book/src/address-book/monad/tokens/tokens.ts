@@ -160,6 +160,21 @@ export const tokens = {
     bridge: 'native',
     risks: ['NO_TIMELOCK'],
   },
+  muBOND: {
+    name: 'mu Bond',
+    symbol: 'muBOND',
+    oracleId: 'muBOND',
+    address: '0x336D414754967C6682B5A665C7DAF6F1409E63e8',
+    chainId: 143,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://mudigital.net/',
+    documentation: 'https://docs.mudigital.net/',
+    description:
+      "muBOND is a high yield token backed by Asia's best RWAs, designed for higher potential returns in exchange for providing insurance to AZND holders.",
+    bridge: 'native',
+    risks: ['NO_TIMELOCK'],
+  },
   shMON: {
     name: 'ShMonad',
     symbol: 'shMON',
