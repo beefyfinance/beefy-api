@@ -48,7 +48,7 @@ export const tokens = {
     bridge: 'fraxtal-canonical',
     logoURI: '',
     documentation: 'https://docs.frax.finance/',
-    risks: ['SYNTH_STABLE'],
+    risks: ['SYNTH_ASSET'],
   },
   frxETH,
   wfrxETH: frxETH,
@@ -93,7 +93,7 @@ export const tokens = {
     description:
       'crvUSD is a collateralized-debt-position (CDP) stablecoin pegged to the US Dollar',
     documentation: 'https://docs.curve.finance/crvUSD/crvUSD/',
-    risks: ['SYNTH_STABLE'],
+    risks: ['SYNTH_ASSET'],
   },
   frxUSDC: {
     name: 'USD Coin',
@@ -107,7 +107,7 @@ export const tokens = {
     chainId: 252,
     logoURI: 'https://ftmscan.com/token/images/USDC_32.png',
     documentation: 'https://developers.circle.com/docs',
-    risks: ['SYNTH_STABLE'],
+    risks: ['SYNTH_ASSET'],
   },
   cvxFXS: {
     name: 'Convex FXS',
@@ -149,7 +149,7 @@ export const tokens = {
     description:
       "Ethena's synthetic dollar, USDe, provides the crypto-native, scalable solution for money achieved by delta-hedging Ethereum and Bitcoin collateral. USDe is fully-backed and free to compose throughout CeFi & DeFi.",
     bridge: 'stargate',
-    risks: ['NO_TIMELOCK', 'SYNTH_STABLE'],
+    risks: ['NO_TIMELOCK', 'SYNTH_ASSET'],
   },
   sUSDe: {
     name: 'Staked USDe',
@@ -164,7 +164,7 @@ export const tokens = {
     description:
       'Users are able to stake their USDe for sUSDe through the Ethena front-end. sUSDe is a reward-bearing token that accrues value from the yield that Ethena’s underlying delta-neutral position generates. sUSDe is subject to a 7-day un-staking period.',
     bridge: 'layer-zero',
-    risks: ['NO_TIMELOCK', 'SYNTH_STABLE'],
+    risks: ['NO_TIMELOCK', 'SYNTH_ASSET'],
   },
   FXB20251231: {
     name: 'FXB20251231',
@@ -179,7 +179,7 @@ export const tokens = {
     description:
       'FXB tokens are simple, trustless tokens that resemble a zero-coupon bond that converts to the FRAX stablecoin on maturity. FXBs are debt tokens denominated in FRAX stablecoins, not a claim on any other asset or collateral. FXB tokens are only convertible to FRAX stablecoins, they do not guarantee FRAX peg, FRAX value, or yield/interest denominated in any other asset except FRAX.',
     bridge: 'fraxtal-canonical',
-    risks: ['SYNTH_STABLE'],
+    risks: ['SYNTH_ASSET'],
   },
   FXB_20261231: {
     name: 'FXB_4_DEC312026',
@@ -194,7 +194,7 @@ export const tokens = {
     description:
       'FXB tokens are simple, trustless tokens that resemble a zero-coupon bond that converts to the FRAX stablecoin on maturity. FXBs are debt tokens denominated in FRAX stablecoins, not a claim on any other asset or collateral. FXB tokens are only convertible to FRAX stablecoins, they do not guarantee FRAX peg, FRAX value, or yield/interest denominated in any other asset except FRAX.',
     bridge: 'fraxtal-canonical',
-    risks: ['SYNTH_STABLE'],
+    risks: ['SYNTH_ASSET'],
   },
   FXB20291231: {
     name: 'FXB20291231',
@@ -209,7 +209,7 @@ export const tokens = {
     description:
       'FXB tokens are simple, trustless tokens that resemble a zero-coupon bond that converts to the FRAX stablecoin on maturity. FXBs are debt tokens denominated in FRAX stablecoins, not a claim on any other asset or collateral. FXB tokens are only convertible to FRAX stablecoins, they do not guarantee FRAX peg, FRAX value, or yield/interest denominated in any other asset except FRAX.',
     bridge: 'fraxtal-canonical',
-    risks: ['SYNTH_STABLE'],
+    risks: ['SYNTH_ASSET'],
   },
   FXB20551231: {
     name: 'FXB20551231',
@@ -224,7 +224,7 @@ export const tokens = {
     description:
       'FXB tokens are simple, trustless tokens that resemble a zero-coupon bond that converts to the FRAX stablecoin on maturity. FXBs are debt tokens denominated in FRAX stablecoins, not a claim on any other asset or collateral. FXB tokens are only convertible to FRAX stablecoins, they do not guarantee FRAX peg, FRAX value, or yield/interest denominated in any other asset except FRAX.',
     bridge: 'fraxtal-canonical',
-    risks: ['SYNTH_STABLE'],
+    risks: ['SYNTH_ASSET'],
   },
   DAI: {
     name: 'Dai Stablecoin',
@@ -241,7 +241,7 @@ export const tokens = {
       'https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/0x6B175474E89094C44Da98b954EedeAC495271d0F/logo.png',
     documentation:
       'https://docs.makerdao.com/smart-contract-modules/dai-module/dai-detailed-documentation',
-    risks: ['SYNTH_STABLE'],
+    risks: ['SYNTH_ASSET'],
   },
   sDAI: {
     name: 'Savings DAI',
@@ -256,7 +256,7 @@ export const tokens = {
     description:
       'sDAI is similar to DAI but with the added benefit of earning interest. You can use it just like DAI - own, transfer, and use it in the DeFi ecosystem. Swapping between sDAI and DAI incurs no additional costs and no slippage as is deposited or withdrawn from the DSR contract.',
     bridge: 'fraxtal-canonical',
-    risks: ['SYNTH_STABLE'],
+    risks: ['SYNTH_ASSET'],
   },
   PYUSD: {
     name: 'PayPal USD',
@@ -338,7 +338,7 @@ export const tokens = {
       'Savings crvUSD is an interest-bearing stablecoin that earns yield simply by holding the token. Users do not need to take any action whatsoever, as the yield is passively accrued.',
     documentation: 'https://resources.curve.finance/crvusd/scrvusd/',
     bridge: 'fraxtal-canonical',
-    risks: ['SYNTH_STABLE'],
+    risks: ['SYNTH_ASSET'],
   },
   sfrxUSD: {
     name: 'Staked Frax USD',
@@ -352,7 +352,7 @@ export const tokens = {
       'Staked Frax USD (sfrxUSD) is an ERC4626 staking vault that distributes part of the Frax Protocol yield weekly to stakers denominated in frxUSD stablecoins. The sfrxUSD token represents pro rata deposits within the vault and is always withdrawable for frxUSD stablecoins at the pro rata rate at all times. sfrxUSD APY attempts to roughly track the interest on reserve balances (IORB) rate of the United States Federal Reserve using the IORB oracle. This benchmark rate is generally accepted as the “risk free rate” of the US Dollar. The frxUSD staking vault attempts, but does not guarantee in any way, to target this rate.',
     bridge: 'layer-zero',
     documentation: 'https://docs.frax.finance/',
-    risks: ['SYNTH_STABLE'],
+    risks: ['SYNTH_ASSET'],
   },
   dUSD: {
     name: 'dTRINITY USD',
@@ -366,7 +366,7 @@ export const tokens = {
     description:
       'dTRINITY USD (dUSD) is a decentralized stablecoin, fully backed by a non-custodial reserve of USD-denominated stablecoins and yieldcoins. Built on the ERC-20 standard, each dUSD token is soft-pegged to $1—backed by at least $1 worth of collateral.',
     bridge: 'native',
-    risks: ['NO_TIMELOCK', 'SYNTH_STABLE'],
+    risks: ['NO_TIMELOCK', 'SYNTH_ASSET'],
   },
   sdUSD: {
     name: 'Staked dUSD',
@@ -380,6 +380,6 @@ export const tokens = {
     description:
       "Staked dUSD is an ERC-4626 vault that allows users to stake their dUSD and receive sdUSD receipt tokens. These receipts function similarly to yield-bearing stablecoins (YBS). The dUSD deposited into dSTAKE is automatically supplied to lending protocols, earning yield and points from lending markets which accrue to sdUSD. Users can unstake sdUSD for dUSD based on available liquidity in lending markets. Through dTRINITY's subsidized lending mechanism, sdUSD is expected to deliver above-market yield from boosted utilization. ",
     bridge: 'native',
-    risks: ['NO_TIMELOCK', 'SYNTH_STABLE'],
+    risks: ['NO_TIMELOCK', 'SYNTH_ASSET'],
   },
 } as const satisfies Record<string, Token>;

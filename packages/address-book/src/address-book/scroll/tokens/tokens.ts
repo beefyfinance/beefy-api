@@ -88,7 +88,7 @@ export const tokens = {
       'Lore is a decentralized non-custodial liquidity market protocol on Scroll where users can participate as depositors or borrowers. Depositors provide liquidity to the market to earn a passive income, while borrowers are able to borrow in an overcollateralized (perpetually) or undercollateralized (one-block liquidity) fashion.',
     documentation: 'https://docs.lore.finance/',
     bridge: 'native',
-    risks: ['NO_TIMELOCK', 'SYNTH_STABLE'],
+    risks: ['NO_TIMELOCK', 'SYNTH_ASSET'],
   },
   LORE: {
     name: 'Lore Token',

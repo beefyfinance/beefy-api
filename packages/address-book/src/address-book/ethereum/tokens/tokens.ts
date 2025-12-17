@@ -208,7 +208,7 @@ export const tokens = {
     bridge: 'native',
     logoURI: '',
     documentation: 'https://docs.frax.finance/',
-    risks: ['SYNTH_STABLE'],
+    risks: ['SYNTH_ASSET'],
   },
   frxUSD: {
     chainId: 1,
@@ -223,7 +223,7 @@ export const tokens = {
     bridge: 'native',
     logoURI: '',
     documentation: 'https://docs.frax.finance/',
-    risks: ['SYNTH_STABLE'],
+    risks: ['SYNTH_ASSET'],
   },
   sfrxUSD: {
     name: 'Staked Frax USD',
@@ -237,7 +237,7 @@ export const tokens = {
       'Staked Frax USD (sfrxUSD) is an ERC4626 staking vault that distributes part of the Frax Protocol yield weekly to stakers denominated in frxUSD stablecoins. The sfrxUSD token represents pro rata deposits within the vault and is always withdrawable for frxUSD stablecoins at the pro rata rate at all times. sfrxUSD APY attempts to roughly track the interest on reserve balances (IORB) rate of the United States Federal Reserve using the IORB oracle. This benchmark rate is generally accepted as the “risk free rate” of the US Dollar. The frxUSD staking vault attempts, but does not guarantee in any way, to target this rate.',
     bridge: 'native',
     documentation: 'https://docs.frax.finance/',
-    risks: ['SYNTH_STABLE'],
+    risks: ['SYNTH_ASSET'],
   },
   WBTC: {
     chainId: 1,
@@ -305,7 +305,7 @@ export const tokens = {
       'Alchemix Self-Repaying Loans allow you to leverage a range of tokens without risk of liquidation.',
     bridge: 'native',
     documentation: 'https://alchemix-finance.gitbook.io/user-docs/',
-    risks: ['SYNTH_STABLE'],
+    risks: ['SYNTH_ASSET'],
   },
   MIM: {
     name: 'Magic Internet Money',
@@ -320,7 +320,7 @@ export const tokens = {
     bridge: 'native',
     logoURI: '',
     documentation: 'https://docs.abracadabra.money/',
-    risks: ['SYNTH_STABLE'],
+    risks: ['SYNTH_ASSET'],
   },
   ApeUSD: {
     name: 'ApeUSD',
@@ -335,7 +335,7 @@ export const tokens = {
       'Ape Finance is building DeFi tools for metaverse dwellers, proud PFP owners, and digital collectible enthusiasts in all of us. We appreciate culture, art, and games. Ape Finance begins with the creation of the ApeUSD.',
     bridge: 'native',
     logoURI: '',
-    risks: ['SYNTH_STABLE'],
+    risks: ['SYNTH_ASSET'],
   },
   auraBAL: {
     name: 'Aura Staked BAL BPT',
@@ -389,7 +389,7 @@ export const tokens = {
     documentation: 'https://docs.mai.finance/',
     description:
       'MAI is a stable coin collateralized by your MATIC holdings. Its powered by Qi Dao, a protocol that enables any cryptocurrency community to create stablecoins backed by their native tokens.',
-    risks: ['SYNTH_STABLE'],
+    risks: ['SYNTH_ASSET'],
   },
   tBTC: {
     name: 'tBTC v2',
@@ -418,7 +418,7 @@ export const tokens = {
     description:
       'Threshold USD (thUSD) is a stablecoin soft-pegged against USD and backed by ETH and tBTC as collateral, with a minimum collateral ratio of 110%.',
     bridge: 'native',
-    risks: ['SYNTH_STABLE'],
+    risks: ['SYNTH_ASSET'],
   },
   T: {
     name: 'Threshold Network Token',
@@ -484,7 +484,7 @@ export const tokens = {
     description:
       'Savings crvUSD, abbreviated as scrvUSD, is an interest-bearing stablecoin that earns yield simply by holding the token.',
     documentation: 'https://resources.curve.finance/crvusd/scrvusd',
-    risks: ['SYNTH_STABLE'],
+    risks: ['SYNTH_ASSET'],
   },
   reUSD: {
     name: 'Resupply USD',
@@ -497,7 +497,7 @@ export const tokens = {
     description:
       'A decentralized stablecoin backed by Collateralized Debt Positions (CDP), leveraging the liquidity and stability of lending markets.',
     documentation: 'https://docs.resupply.fi/',
-    risks: ['SYNTH_STABLE'],
+    risks: ['SYNTH_ASSET'],
   },
   CVX: {
     name: 'CVX',
@@ -594,7 +594,7 @@ export const tokens = {
     description: 'f(x) Protocol stablecoin',
     bridge: 'native',
     logoURI: '',
-    risks: ['SYNTH_STABLE'],
+    risks: ['SYNTH_ASSET'],
   },
   sethUSDC: {
     name: 'Stargate USD Coin LP',
@@ -609,7 +609,7 @@ export const tokens = {
     description:
       'Stargate allows users and dApps to bridge native tokens with instant guaranteed finality. USDC is deposited in a LP pool to enable high liquidity for bridging.',
     documentation: 'https://stargateprotocol.gitbook.io/stargate/v/user-docs/',
-    risks: ['SYNTH_STABLE'],
+    risks: ['SYNTH_ASSET'],
   },
   sethUSDT: {
     name: 'Stargate Tether USD LP',
@@ -624,7 +624,7 @@ export const tokens = {
     description:
       'Stargate allows users and dApps to bridge native tokens with instant guaranteed finality. USDT is deposited in a LP pool to enable high liquidity for bridging.',
     documentation: 'https://stargateprotocol.gitbook.io/stargate/v/user-docs/',
-    risks: ['SYNTH_STABLE'],
+    risks: ['SYNTH_ASSET'],
   },
   rETH: {
     name: 'Rocket Pool ETH',
@@ -668,7 +668,7 @@ export const tokens = {
     description:
       'Inverse.finance is a suite of permissionless decentralized finance tools governed by Inverse DAO, a decentralized autonomous organization running on the Ethereum blockchain.',
     bridge: 'native',
-    risks: ['SYNTH_STABLE'],
+    risks: ['SYNTH_ASSET'],
   },
   sETH: {
     name: 'Synth sETH',
@@ -710,7 +710,7 @@ export const tokens = {
       'The USDD protocol aims to provide the blockchain industry with the most stable, decentralized, tamper-proof, and freeze-free stablecoin system, a perpetual system independent from any centralized entity.',
     bridge: 'bittorent',
     documentation: 'https://usdd.io/docs/',
-    risks: ['SYNTH_STABLE'],
+    risks: ['SYNTH_ASSET'],
   },
   aUSDT: {
     name: 'Aave Tether USD',
@@ -824,7 +824,7 @@ export const tokens = {
     description:
       'Dai is a stablecoin cryptocurrency which aims to keep its value as close to one United States dollar as possible through an automated system of smart contracts on the Ethereum blockchain',
     bridge: 'native',
-    risks: ['SYNTH_STABLE'],
+    risks: ['SYNTH_ASSET'],
   },
   aDAI: {
     name: 'Aave DAI',
@@ -867,7 +867,7 @@ export const tokens = {
     documentation: 'https://docs.balancer.fi/products/balancer-pools/boosted-pools',
     description:
       'Balancer linear pool that consist of 50/50 DAI and wrapped Aave Interest Bearing DAI.',
-    risks: ['SYNTH_STABLE'],
+    risks: ['SYNTH_ASSET'],
   },
   aETH: {
     name: 'Aave ETH',
@@ -926,7 +926,7 @@ export const tokens = {
     bridge: 'native',
     description:
       'Balancer composable pool that consist of bbaUSDT, bbaUSDC, and bbaDAI. bbTokens are Aave boosted linear pools.',
-    risks: ['SYNTH_STABLE'],
+    risks: ['SYNTH_ASSET'],
   },
   frxETH: {
     name: 'Frax Ether',
@@ -1213,7 +1213,7 @@ export const tokens = {
     bridge: 'native',
     logoURI: '',
     documentation: 'https://reserve.org/protocol/',
-    risks: ['SYNTH_STABLE'],
+    risks: ['SYNTH_ASSET'],
   },
   msETH: {
     name: 'Metronome Synth ETH',
@@ -1253,7 +1253,7 @@ export const tokens = {
     description:
       'msUSD represents Metronome Synth USD. Through the Metronome dApp, users are able to deposit crypto assets as collateral, and use that collateral to mint popular crypto synthetics.',
     documentation: 'https://docs.metronome.io/metronome-2.0/master',
-    risks: ['NO_TIMELOCK', 'SYNTH_STABLE'],
+    risks: ['NO_TIMELOCK', 'SYNTH_ASSET'],
   },
   UZD: {
     name: 'UZD Zunami Stable',
@@ -1282,7 +1282,7 @@ export const tokens = {
       'When liquidity providers (LPs) deposit 3CRV, Archimedes borrows lvUSD on behalf of leverage takers (LTs) and uses it to enter a strategy. Investing in the 3CRV/lvUSD pool gives LPs exposure to both 3CRV and the collateral provided by LTs. This allows the market to decide on the best investment strategy.',
     bridge: 'native',
     documentation: 'https://docs.archimedesfi.com/',
-    risks: ['SYNTH_STABLE'],
+    risks: ['SYNTH_ASSET'],
   },
   bbeUSDT: {
     name: 'Balancer Euler USDT Linear Pool',
@@ -1444,7 +1444,7 @@ export const tokens = {
       'crvUSD is a collateralized-debt-position (CDP) stablecoin pegged to the US Dollar',
     bridge: 'native',
     documentation: 'https://docs.curve.finance/crvUSD/overview/',
-    risks: ['SYNTH_STABLE'],
+    risks: ['SYNTH_ASSET'],
   },
   hyUSD: {
     name: 'High Yield USD',
@@ -1457,7 +1457,7 @@ export const tokens = {
     website: 'https://register.app/#/overview?token=0xaCdf0DBA4B9839b96221a8487e9ca660a48212be',
     description:
       'High yield USD (hyUSD), is a decentralized flatcoin initially pegged to $1 USD that provides convenient access to DeFi yields, enabling holders to grow and preserve their wealth. hyUSD is 1:1 asset backed by a basket of other yield bearing tokens including eUSD as well as tokenized lending with exposure to US Treasuries. Given the unique design and current market conditions it is estimated to yield 8% or better to anyone holding hyUSD in any wallet, outpacing the rate of inflation in over 100 countries around the world and providing safe refuge for purchasing power everywhere.',
-    risks: ['SYNTH_STABLE'],
+    risks: ['SYNTH_ASSET'],
   },
   ETHx: {
     name: 'ETHx',
@@ -1540,7 +1540,7 @@ export const tokens = {
     bridge: 'native',
     description:
       'Raft is a governance-minimized, decentralized protocol that allows people to generate R (a USD stablecoin) by depositing  capital-efficient collateral.',
-    risks: ['SYNTH_STABLE'],
+    risks: ['SYNTH_ASSET'],
   },
   GHO: {
     name: 'GHO Token',
@@ -1555,7 +1555,7 @@ export const tokens = {
     bridge: 'native',
     description:
       'GHO is a decentralized multi-collateral stablecoin that is fully backed, transparent and native to the Aave Protocol.',
-    risks: ['SYNTH_STABLE'],
+    risks: ['SYNTH_ASSET'],
   },
   mkUSD: {
     name: 'Prisma mkUSD',
@@ -1570,7 +1570,7 @@ export const tokens = {
     bridge: 'native',
     description:
       'Prisma is a decentralized borrowing protocol that allows users to mint a stablecoin, mkUSD, that is fully collateralized by liquid staking tokens.',
-    risks: ['SYNTH_STABLE'],
+    risks: ['SYNTH_ASSET'],
   },
   ULTRA: {
     name: 'ULTRA',
@@ -1585,7 +1585,7 @@ export const tokens = {
     bridge: 'native',
     description:
       'ULTRA is a new stablecoin issued by PrismaLRT, a new borrowing protocol developed by Prisma focused on unlocking liquidity for Liquid Restaking Tokens (LRTs).',
-    risks: ['SYNTH_STABLE'],
+    risks: ['SYNTH_ASSET'],
   },
   PYUSD: {
     name: 'PayPal USD',
@@ -1668,7 +1668,7 @@ export const tokens = {
     description:
       'Liquity is a decentralized borrowing protocol that allows you to draw interest-free loans against Ether used as collateral. Loans are paid out in LUSD (a USD pegged stablecoin) and need to maintain a minimum collateral ratio of 110%.',
     documentation: 'https://docs.liquity.org/',
-    risks: ['SYNTH_STABLE'],
+    risks: ['SYNTH_ASSET'],
   },
   USDM: {
     name: 'Mountain Protocol USD',
@@ -1698,7 +1698,7 @@ export const tokens = {
     description:
       'sDAI is similar to DAI but with the added benefit of earning interest. You can use it just like DAI - own, transfer, and use it in the DeFi ecosystem. Swapping between sDAI and DAI incurs no additional costs and no slippage as is deposited or withdrawn from the DSR contract.',
     bridge: 'native',
-    risks: ['SYNTH_STABLE'],
+    risks: ['SYNTH_ASSET'],
   },
   bbsDAI: {
     name: 'Balancer Aave sDAI Linear Pool',
@@ -1713,7 +1713,7 @@ export const tokens = {
     documentation: 'https://docs.balancer.fi/products/balancer-pools/boosted-pools',
     description: 'Balancer linear pool that consist of DAI and sDAI.',
     bridge: 'native',
-    risks: ['SYNTH_STABLE'],
+    risks: ['SYNTH_ASSET'],
   },
   acUSDC: {
     name: 'Across USD Coin LP',
@@ -1818,7 +1818,7 @@ export const tokens = {
     description:
       'Composable Stable Pools are designed for assets that are either expected to consistently swap at near parity, or at a known exchange rate. Composable Stable Pools use Stable Math (based on StableSwap, popularized by Curve) which allows for swaps of significant size before encountering substantial price impact, vastly increasing capital efficiency for like-kind and correlated-kind swaps.',
     bridge: 'native',
-    risks: ['SYNTH_STABLE'],
+    risks: ['SYNTH_ASSET'],
   },
   ALCX: {
     name: 'Alchemix',
@@ -1861,7 +1861,7 @@ export const tokens = {
     description:
       'A fully backed stablecoin: the Gyroscope stablecoin aims at a long-term reserve ratio of 100%, where every unit of stablecoin is backed by 1 USD worth of collateral.',
     bridge: 'native',
-    risks: ['SYNTH_STABLE'],
+    risks: ['SYNTH_ASSET'],
   },
   SILO: {
     name: 'Silo Governance Token',
@@ -2033,7 +2033,7 @@ export const tokens = {
     description:
       'Ethenas USDe is not the same as a fiat stablecoin like USDC or USDT. USDe is a synthetic dollar, backed with crypto assets and corresponding short futures positions.',
     bridge: 'native',
-    risks: ['NO_TIMELOCK', 'SYNTH_STABLE'],
+    risks: ['NO_TIMELOCK', 'SYNTH_ASSET'],
   },
   sUSDe: {
     name: 'Staked USDe',
@@ -2048,7 +2048,7 @@ export const tokens = {
     description:
       'Users are able to stake their USDe for sUSDe through the Ethena front-end. sUSDe is a reward-bearing token that accrues value from the yield that Ethena’s underlying delta-neutral position generates. sUSDe is subject to a 7-day un-staking period.',
     bridge: 'native',
-    risks: ['SYNTH_STABLE'],
+    risks: ['SYNTH_ASSET'],
   },
   USD3: {
     name: 'Web 3 Dollar',
@@ -2064,7 +2064,7 @@ export const tokens = {
       'USD3 is 1:1 asset backed by a basket of yield-bearing tokens. Given the unique design and current market conditions, it is estimated to yield up to 10% APY from the most reputable protocols using the most established assets. USD3 is overcollateralized with auditable proof of reserves available on-chain 24/7.',
     documentation: 'https://reserve.org/protocol/',
     bridge: 'native',
-    risks: ['SYNTH_STABLE'],
+    risks: ['SYNTH_ASSET'],
   },
   rgUSD: {
     name: 'Revenue Generating USD',
@@ -2080,7 +2080,7 @@ export const tokens = {
       'rgUSD is an overcollateralized stablecoin launched on Reserve Protocol that acts as a collective point for DeFi users to negotiate with stablecoin yield providers for the best returns.',
     documentation: 'https://reserve.org/protocol/',
     bridge: 'native',
-    risks: ['SYNTH_STABLE'],
+    risks: ['SYNTH_ASSET'],
   },
   rsETH: {
     chainId: 1,
@@ -2154,7 +2154,7 @@ export const tokens = {
     description:
       'ShezUSD is a decentralized stablecoin issued within the Shezmu Oasis platform. Users can mint ShezUSD by locking various approved collateral types into a Collateralized Debt Position (CDP). ShezUSD aims to provide a stable and secure medium of exchange and leverage opportunity within the DeFi ecosystem.',
     bridge: 'native',
-    risks: ['NO_TIMELOCK', 'SYNTH_STABLE'],
+    risks: ['NO_TIMELOCK', 'SYNTH_ASSET'],
   },
   ShezETH: {
     name: 'ShezmuETH',
@@ -2250,7 +2250,7 @@ export const tokens = {
       'Usual USD is a protocol that transforms real-world assets into a secure and versatile stablecoin, USD0, and shares its value with users through the $USUAL token. It is a decentralized Fiat Stablecoin issuer that redistributes ownership and governance through the $USUAL token. The protocol tokenizes real-world assets, such as real estate, commodities, and financial instruments, to enhance liquidity and accessibility in the blockchain ecosystem.',
     bridge: 'native',
     documentation: 'https://docs.usual.money/usual-products/usd0-stablecoin',
-    risks: ['SYNTH_STABLE'],
+    risks: ['SYNTH_ASSET'],
   },
   'USD0++': {
     name: 'USD0 Liquid Bond',
@@ -2334,7 +2334,7 @@ export const tokens = {
     description:
       "USDS is the decentralized stablecoin of Sky. USDS replaces DAI as Sky's new stablecoin, offering stability plus new rewards and savings options.",
     bridge: 'native',
-    risks: ['SYNTH_STABLE'],
+    risks: ['SYNTH_ASSET'],
   },
   sUSDS: {
     name: 'Savings USDS',
@@ -2349,7 +2349,7 @@ export const tokens = {
     description:
       'Savings USDS (sUSDS) is the upgraded version of sDAI, which offers higher yield than sDAI. sUSDS is a tokenized representation of USDS deposited in the Sky Savings Rate (SSR) offered by Sky. The sUSDS token enables users to receive returns on their SSR deposits while still being able to transfer, stake, lend and use it in any way they want.',
     bridge: 'native',
-    risks: ['SYNTH_STABLE'],
+    risks: ['SYNTH_ASSET'],
   },
   stUSDS: {
     name: 'Staked USDS',
@@ -2364,7 +2364,7 @@ export const tokens = {
     description:
       'stUSDS is a risk capital token that offers higher risk/higher reward to fund and support liquidity for SKY stakers.',
     bridge: 'native',
-    risks: ['SYNTH_STABLE'],
+    risks: ['SYNTH_ASSET'],
   },
   syrupUSDC: {
     name: 'Syrup USDC',
@@ -2379,7 +2379,7 @@ export const tokens = {
     description:
       'Syrup makes consistent high yield available to everyone in DeFi. The yield is generated by Maple’s digital asset lending platform that provides fixed-rate, overcollateralised loans to institutional borrowers. These short duration loans enable Syrup to provide consistent high yield as well as short term liquidity for Syrup users.',
     bridge: 'native',
-    risks: ['SYNTH_STABLE'],
+    risks: ['SYNTH_ASSET'],
   },
   uniBTC: {
     name: 'Universal BTC',
@@ -2468,7 +2468,7 @@ export const tokens = {
       'https://docs.inverse.finance/inverse-finance/inverse-finance/product-guide/dola-feds',
     description: 'Staked Dola from Inverse Finance.',
     bridge: 'native',
-    risks: ['SYNTH_STABLE'],
+    risks: ['SYNTH_ASSET'],
   },
   USR: {
     name: 'Resolv USD',
@@ -2482,7 +2482,7 @@ export const tokens = {
     description:
       'Resolv is a protocol maintaining USR, a stablecoin natively backed by Ether (ETH) and pegged to US Dollar',
     bridge: 'native',
-    risks: ['SYNTH_STABLE'],
+    risks: ['SYNTH_ASSET'],
   },
   wstUSR: {
     name: 'Wrapped stUSR',
@@ -2496,7 +2496,7 @@ export const tokens = {
     description:
       'wstUSR is a non-rebasing version of staked USR, value of which accrues over time from staking rewards.',
     bridge: 'native',
-    risks: ['SYNTH_STABLE'],
+    risks: ['SYNTH_ASSET'],
   },
   Bold: {
     name: 'Bold Stablecoin',
@@ -2510,7 +2510,7 @@ export const tokens = {
     description:
       'BOLD is the USD-pegged stablecoin issued in Liquity V2. It’s fully decentralized, overcollateralized and backed only by WETH, wstETH and rETH.',
     bridge: 'native',
-    risks: ['SYNTH_STABLE'],
+    risks: ['SYNTH_ASSET'],
   },
   BOLD: {
     name: 'BOLD Stablecoin',
@@ -2524,7 +2524,7 @@ export const tokens = {
     description:
       'BOLD is the USD-pegged stablecoin issued in Liquity V2. It’s fully decentralized, overcollateralized and backed only by WETH, wstETH and rETH.',
     bridge: 'native',
-    risks: ['SYNTH_STABLE'],
+    risks: ['SYNTH_ASSET'],
   },
   AIOZ: {
     name: 'AIOZ Network',
@@ -2609,7 +2609,7 @@ export const tokens = {
     description:
       'Coinshift csUSDC is an over-collateralized and capital-efficient stablecoin issued as a receipt token for supplying Circle’s USDC to the Coinshift USDC Vault.',
     bridge: 'native',
-    risks: ['SYNTH_STABLE'],
+    risks: ['SYNTH_ASSET'],
   },
   csUSDL: {
     name: 'Coinshift USDL',
@@ -2624,7 +2624,7 @@ export const tokens = {
     description:
       'Coinshift collaborates with institutional partners Paxos International, Steakhouse Financial, and Morpho Protocol to launch csUSDL - the yield-bearing stablecoin designed for institutional-grade treasury management. Backed by USDL, a fully regulated and high-yield stablecoin issued by Paxos, csUSDL delivers earnings from over-collateralized loans while integrating seamlessly into the Coinshift Business Platform. This empowers businesses and DAOs to diversify their treasury investments with ease.',
     bridge: 'native',
-    risks: ['SYNTH_STABLE'],
+    risks: ['SYNTH_ASSET'],
   },
   wUSDL: {
     name: 'Wrapped USDL ',
@@ -2666,7 +2666,7 @@ export const tokens = {
     description:
       'Falcon is the next-generation platform transforming synthetic dollars into sustainable yield opportunities. Falcon aims to empower users and institutions to unlock the true yield potential of their digital assets.',
     bridge: 'native',
-    risks: ['NO_TIMELOCK', 'SYNTH_STABLE'],
+    risks: ['NO_TIMELOCK', 'SYNTH_ASSET'],
   },
   RLUSD: {
     name: 'RLUSD',
@@ -2692,7 +2692,7 @@ export const tokens = {
     description:
       'Level is a stablecoin protocol that issues lvlUSD, a stablecoin that allows users to earn low-risk yield from blue-chip lending protocol.',
     bridge: 'native',
-    risks: ['SYNTH_STABLE'],
+    risks: ['SYNTH_ASSET'],
   },
   slvlUSD: {
     name: 'Staked lvlUSD',
@@ -2705,7 +2705,7 @@ export const tokens = {
     documentation: 'https://level-money.gitbook.io/docs',
     description: 'slvlUSD is the yield accruing version of lvlUSD',
     bridge: 'native',
-    risks: ['SYNTH_STABLE'],
+    risks: ['SYNTH_ASSET'],
   },
   mEDGE: {
     name: 'Midas mEDGE',
@@ -2719,7 +2719,7 @@ export const tokens = {
     description:
       'mEDGE is a crypto-denominated stablecoin yield strategy designed to track delta-neutral DeFi yields while maintaining a balanced market exposure. It dynamically shifts between DeFi lending, liquidity provisioning, and basis trading to optimize risk-adjusted returns. Risk-managed by Edge Capital, a leading market-neutral hedge fund and liquidity provider, mEDGE provides institutional-grade exposure to diversified DeFi yield opportunities. Its fully transparent structure and liquid collateral ensure flexibility, allowing users to earn sustainable, risk-managed yield without being locked into a single strategy.',
     bridge: 'native',
-    risks: ['SYNTH_STABLE'],
+    risks: ['SYNTH_ASSET'],
   },
   mMEV: {
     name: 'Midas mMEV',
@@ -2733,7 +2733,7 @@ export const tokens = {
     description:
       'mMEV is designed to track delta-neutral DeFi crypto yields, aiming to maintain a balanced exposure to the market while generating returns. MEV Capital serves as the risk advisor of mMEV.',
     bridge: 'native',
-    risks: ['SYNTH_STABLE'],
+    risks: ['SYNTH_ASSET'],
   },
   waEthUSDT: {
     name: 'Wrapped Aave Ethereum USDT',
@@ -2773,7 +2773,7 @@ export const tokens = {
     website: 'https://aave.com/',
     documentation: 'https://docs.aave.com/developers/v/2.0/the-core-protocol/atokens',
     description: 'Wrapped Aave interest bearing Ethereum Lido GHO.',
-    risks: ['SYNTH_STABLE'],
+    risks: ['SYNTH_ASSET'],
   },
   waEthUSDe: {
     name: 'Wrapped Aave Ethereum USDe',
@@ -2787,7 +2787,7 @@ export const tokens = {
     website: 'https://aave.com/',
     documentation: 'https://docs.aave.com/developers/v/2.0/the-core-protocol/atokens',
     description: 'Wrapped Aave interest bearing Ethereum USDe.',
-    risks: ['SYNTH_STABLE'],
+    risks: ['SYNTH_ASSET'],
   },
   waEthLidoWETH: {
     name: 'Wrapped Aave Ethereum Lido WETH',
@@ -2878,7 +2878,7 @@ export const tokens = {
       'sUSD is a synthetic USD token enabled by the Synthetix protocol. It tracks the price of the US Dollar through price feeds supplied by Chainlink’s decentralized network of oracles',
     documentation: 'https://docs.synthetix.io/synthetix-protocol/readme',
     bridge: 'native',
-    risks: ['SYNTH_STABLE'],
+    risks: ['SYNTH_ASSET'],
   },
   USDaf: {
     name: 'USDaf Stablecoin',
@@ -2892,7 +2892,7 @@ export const tokens = {
       'Asymmetry USDaf is a decentralized, immutable, and permissionless synthetic stablecoin built on the Liquity v2 protocol by Asymmetry Finance. It is a yield-bearing stablecoin that allows users to borrow with user-set fixed interest rates against Bitcoin and various yield-bearing stablecoins. The yield earned on USDaf is in addition to the native yields of the underlying assets, enabling passive income generation through DeFi staking and savings mechanisms.',
     documentation: 'https://docs.asymmetry.finance/',
     bridge: 'native',
-    risks: ['SYNTH_STABLE'],
+    risks: ['SYNTH_ASSET'],
   },
   stcUSD: {
     name: 'Staked cap USD',
@@ -2906,7 +2906,7 @@ export const tokens = {
       'stcUSD is the yield-bearing stablecoin of Cap that enables users to earn rewards via a decentralized lending framework.',
     documentation: 'https://docs.cap.app/',
     bridge: 'native',
-    risks: ['SYNTH_STABLE'],
+    risks: ['SYNTH_ASSET'],
   },
   cUSD: {
     name: 'cap USD',
@@ -2920,7 +2920,7 @@ export const tokens = {
       'Cap is a three-sided marketplace designed to run autonomously via economic incentives. Cap generates yield via operators ranging from banks, HFT firms, and market makers and yields are passed on to stcUSD holders.',
     documentation: 'https://docs.cap.app/',
     bridge: 'native',
-    risks: ['SYNTH_STABLE'],
+    risks: ['SYNTH_ASSET'],
   },
   ysyBOLD: {
     name: 'Staked yBOLD',
@@ -2934,7 +2934,7 @@ export const tokens = {
     description:
       "yBOLD is Yearn's BOLD tokenized Stability pool product. The yield comes from the different Liquity V2 Stability Pools which is made up of liquidation fees and 75% of the system's interest rate earnings.",
     bridge: 'native',
-    risks: ['SYNTH_STABLE'],
+    risks: ['SYNTH_ASSET'],
   },
   YB: {
     name: 'Yield Basis',

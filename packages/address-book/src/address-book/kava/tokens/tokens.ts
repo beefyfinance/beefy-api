@@ -62,7 +62,7 @@ export const tokens = {
       'Tether is a stablecoin pegged to the US Dollar. A stablecoin is a type of cryptocurrency whose value is pegged to another fiat currency like the US Dollar or to a commodity like Gold. Tether is the first stablecoin to be created and it is the most popular stablecoin used in the ecosystem.',
     logoURI: 'https://hecoinfo.com/token/images/USDTHECO_32.png',
     bridge: 'native',
-    risks: ['SYNTH_STABLE'],
+    risks: ['SYNTH_ASSET'],
   },
   DAI: {
     name: 'Dai Stablecoin',
@@ -78,7 +78,7 @@ export const tokens = {
     logoURI:
       'https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/0x6B175474E89094C44Da98b954EedeAC495271d0F/logo.png',
     bridge: 'multichain',
-    risks: ['SYNTH_STABLE'],
+    risks: ['SYNTH_ASSET'],
   },
   SUSHI: {
     name: 'Sushi',
@@ -164,7 +164,7 @@ export const tokens = {
     logoURI:
       'https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/0x6B175474E89094C44Da98b954EedeAC495271d0F/logo.png',
     bridge: 'axelar',
-    risks: ['SYNTH_STABLE'],
+    risks: ['SYNTH_ASSET'],
   },
   VARA: {
     name: 'VARA',
@@ -208,7 +208,7 @@ export const tokens = {
     description:
       "MAI is a stablecoin collateralized by your crypto holdings. It's powered by Qi Dao, a protocol that enables any cryptocurrency community to create stablecoins backed by their native tokens.",
     documentation: 'https://docs.mai.finance/',
-    risks: ['SYNTH_STABLE'],
+    risks: ['SYNTH_ASSET'],
   },
   BNB: {
     name: 'Binance Chain',
@@ -264,7 +264,7 @@ export const tokens = {
     logoURI: '',
     documentation: 'https://docs.abracadabra.money/',
     bridge: 'layer-zero',
-    risks: ['SYNTH_STABLE'],
+    risks: ['SYNTH_ASSET'],
   },
   axlETH: {
     name: 'Axelar Wrapped ETH',

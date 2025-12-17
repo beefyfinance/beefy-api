@@ -60,7 +60,7 @@ export const tokens = {
     bridge: 'zksync-canonical',
     documentation:
       'https://tprotocol.gitbook.io/tprotocol-documentation/white-paper/tprotocol-documentation',
-    risks: ['SYNTH_STABLE'],
+    risks: ['SYNTH_ASSET'],
   },
   VC: {
     name: 'Velocore',
@@ -103,7 +103,7 @@ export const tokens = {
       'Binance USD (BUSD) is a 1:1 USD-backed stable coin issued by Binance (in partnership with Paxos), Approved and regulated by the New York State Department of Financial Services (NYDFS), The BUSD Monthly Audit Report can be viewed from the official website.',
     bridge: 'zksync-canonical',
     documentation: '',
-    risks: ['SYNTH_STABLE'],
+    risks: ['SYNTH_ASSET'],
   },
   'USD+': {
     name: 'USD+',

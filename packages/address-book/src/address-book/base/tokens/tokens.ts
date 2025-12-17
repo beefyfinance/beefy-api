@@ -76,7 +76,7 @@ export const tokens = {
       'EURA (previously agEUR) is pegged to the value of the Euro (€) and is a product of Angle, a decentralized, capital-efficient and over-collateralized stablecoins protocol.',
     bridge: 'layer-zero',
     documentation: 'https://docs.angle.money/',
-    risks: ['SYNTH_STABLE'],
+    risks: ['SYNTH_ASSET'],
   },
   USDA: {
     name: 'USDA',
@@ -91,7 +91,7 @@ export const tokens = {
       'USDA is pegged to the value of the Dollar ($) and is a product of Angle, a decentralized, capital-efficient and over-collateralized stablecoins protocol.',
     bridge: 'layer-zero',
     documentation: 'https://docs.angle.money/',
-    risks: ['SYNTH_STABLE'],
+    risks: ['SYNTH_ASSET'],
   },
   THALES: {
     name: 'Thales DAO Token',
@@ -251,7 +251,7 @@ export const tokens = {
       'You, the Spellcaster, can provide collateral in the form of various interest bearing crypto assets such as yvYFI, yvUSDT, yvUSDC, xSUSHI and more. With this, you can borrow magic internet money (MIM) which is a stable coin that you can swap for any other traditional stable coin.',
     documentation: 'https://docs.abracadabra.money/',
     bridge: 'layer-zero',
-    risks: ['SYNTH_STABLE'],
+    risks: ['SYNTH_ASSET'],
   },
   cbETH: {
     name: 'Coinbase Wrapped Staked ETH',
@@ -353,7 +353,7 @@ export const tokens = {
       'https://docs.makerdao.com/smart-contract-modules/dai-module/dai-detailed-documentation',
     description:
       'Dai is a stablecoin cryptocurrency which aims to keep its value as close to one United States dollar as possible through an automated system of smart contracts on the Ethereum blockchain',
-    risks: ['SYNTH_STABLE'],
+    risks: ['SYNTH_ASSET'],
   },
   AERO: {
     name: 'Aerodrome',
@@ -382,7 +382,7 @@ export const tokens = {
       'Inverse.finance is a suite of permissionless decentralized finance tools governed by Inverse DAO, a decentralized autonomous organization running on the Ethereum blockchain.',
     bridge: 'base-canonical',
     documentation: 'https://docs.inverse.finance/',
-    risks: ['SYNTH_STABLE'],
+    risks: ['SYNTH_ASSET'],
   },
   MAI: {
     name: 'Mai Stablecoin',
@@ -397,7 +397,7 @@ export const tokens = {
     logoURI: 'https://raw.githubusercontent.com/0xlaozi/qidao/main/images/mimatic-red.png',
     documentation: 'https://docs.mai.finance/',
     bridge: 'native',
-    risks: ['SYNTH_STABLE'],
+    risks: ['SYNTH_ASSET'],
   },
   wUSDR: {
     name: 'Real USD',
@@ -453,7 +453,7 @@ export const tokens = {
       'crvUSD is a collateralized-debt-position (CDP) stablecoin pegged to the US Dollar',
     documentation: 'https://docs.curve.finance/crvUSD/overview/',
     bridge: 'base-canonical',
-    risks: ['SYNTH_STABLE'],
+    risks: ['SYNTH_ASSET'],
   },
   bsUSD: {
     name: 'Balancer Stable Pool',
@@ -469,7 +469,7 @@ export const tokens = {
     documentation: 'https://docs.balancer.fi/products/balancer-pools/boosted-pools',
     description:
       'Balancer composable pool that consist of USDbC and DAI. bbTokens are boosted linear pools.',
-    risks: ['SYNTH_STABLE'],
+    risks: ['SYNTH_ASSET'],
   },
   BVM: {
     name: 'Base Velocimeter',
@@ -553,7 +553,7 @@ export const tokens = {
       'A decentralized flatcoin that provides convenient access to DeFi yields, enabling holders to earn passive income on their capital. Governance should aim to take low to moderate risk to return high DeFi yields in order to mitigate against inflation.',
     documentation: '',
     bridge: 'native',
-    risks: ['SYNTH_STABLE'],
+    risks: ['SYNTH_ASSET'],
   },
   eUSD: {
     name: 'Electronic Dollar',
@@ -569,7 +569,7 @@ export const tokens = {
       'The Electronic Dollar (eUSD) is a decentralized 1:1 asset-backed stablecoin built with Reserve Protocol, available on the Ethereum and MobileCoin blockchains. It sets itself apart from other stablecoins due to its decentralized, community-governed, and censorship-resistant nature.',
     documentation: 'https://reserve.org/protocol/',
     bridge: 'base-canonical',
-    risks: ['SYNTH_STABLE'],
+    risks: ['SYNTH_ASSET'],
   },
   wstETH: {
     name: 'Wrapped liquid staked Ether 2.0',
@@ -756,7 +756,7 @@ export const tokens = {
       'rgUSD is an overcollateralized stablecoin launched on Reserve Protocol that acts as a collective point for DeFi users to negotiate with stablecoin yield providers for the best returns.',
     documentation: 'https://reserve.org/protocol/',
     bridge: 'base-canonical',
-    risks: ['SYNTH_STABLE'],
+    risks: ['SYNTH_ASSET'],
   },
   TN100x: {
     name: 'The Next 100x Memecoin on Base',
@@ -839,7 +839,7 @@ export const tokens = {
       'Staked FRAX (sFRAX) is an ERC4626 staking vault that distributes part of the Frax Protocol yield weekly to stakers denominated in FRAX stablecoins. The sFRAX token represents pro rata deposits within the vault and is always withdrawable for FRAX stablecoins at the pro rata rate at all times. sFRAX APY attempts to roughly track the interest on reserve balances (IORB) rate of the United States Federal Reserve using the IORB oracle. This benchmark rate is generally accepted as the “risk free rate” of the US Dollar. The FRAX staking vault attempts, but does not guarantee in any way, to target this rate.',
     documentation: 'https://docs.frax.finance/frax-v3/sfrax',
     bridge: 'layer-zero',
-    risks: ['NO_TIMELOCK', 'SYNTH_STABLE'],
+    risks: ['NO_TIMELOCK', 'SYNTH_ASSET'],
   },
   sfrxETH: {
     name: 'Staked Frax Ether',
@@ -1061,7 +1061,7 @@ export const tokens = {
       'Liquity is a decentralized borrowing protocol that allows you to draw interest-free loans against Ether used as collateral. Loans are paid out in LUSD (a USD pegged stablecoin) and need to maintain a minimum collateral ratio of 110%.',
     bridge: 'base-canonical',
     documentation: 'https://docs.liquity.org/',
-    risks: ['SYNTH_STABLE'],
+    risks: ['SYNTH_ASSET'],
   },
   GENOME: {
     name: 'GENOME',
@@ -1134,7 +1134,7 @@ export const tokens = {
     website: 'https://anzen.finance/',
     documentation: 'https://docs.anzen.finance/',
     bridge: 'layer-zero',
-    risks: ['NO_TIMELOCK', 'SYNTH_STABLE'],
+    risks: ['NO_TIMELOCK', 'SYNTH_ASSET'],
   },
   GHST: {
     name: 'Aavegotchi GHST Token',
@@ -1234,7 +1234,7 @@ export const tokens = {
     bridge: 'chainlink-ccip',
     logoURI: 'https://i.imgur.com/ZvP634G.png',
     documentation: 'https://learn.jarvis.network/',
-    risks: ['SYNTH_STABLE'],
+    risks: ['SYNTH_ASSET'],
   },
   sUSDz: {
     name: 'Staked USDz',
@@ -1249,7 +1249,7 @@ export const tokens = {
     website: 'https://anzen.finance/',
     documentation: 'https://docs.anzen.finance/',
     bridge: 'layer-zero',
-    risks: ['NO_TIMELOCK', 'SYNTH_STABLE'],
+    risks: ['NO_TIMELOCK', 'SYNTH_ASSET'],
   },
   msUSD: {
     name: 'Metronome Synth USD',
@@ -1264,7 +1264,7 @@ export const tokens = {
     website: 'https://metronome.io/',
     documentation: 'https://docs.metronome.io/',
     bridge: 'layer-zero',
-    risks: ['NO_TIMELOCK', 'SYNTH_STABLE'],
+    risks: ['NO_TIMELOCK', 'SYNTH_ASSET'],
   },
   msETH: {
     name: 'Metronome Synth ETH',
@@ -2240,7 +2240,7 @@ export const tokens = {
       'BOLD is the USD-pegged stablecoin issued in Liquity V2. It is over-collateralized and backed only by WETH, wstETH, and rETH.',
     documentation: 'https://docs.liquity.org/',
     bridge: 'chainlink-ccip',
-    risks: ['SYNTH_STABLE'],
+    risks: ['SYNTH_ASSET'],
   },
   USR: {
     name: 'Resolv USD',
@@ -2254,7 +2254,7 @@ export const tokens = {
     description:
       'Resolv is a protocol maintaining USR, a stablecoin natively backed by Ether (ETH) and pegged to US Dollar',
     bridge: 'layer-zero',
-    risks: ['SYNTH_STABLE'],
+    risks: ['SYNTH_ASSET'],
   },
   FLAY: {
     name: 'Flayer',
@@ -2445,7 +2445,7 @@ export const tokens = {
       'BRZ is the first Brazilian stablecoin in circulation. It will allow Brazilians to directly ramp up investments in foreign exchanges and to trade a Brazilian Real (BRL) pegged stablecoin in global scale.',
     documentation: '',
     bridge: 'native',
-    risks: ['NO_TIMELOCK', 'SYNTH_STABLE'],
+    risks: ['NO_TIMELOCK', 'SYNTH_ASSET'],
   },
   CADC: {
     name: 'CAD Coin',
@@ -2490,7 +2490,7 @@ export const tokens = {
       'IDRX is a stable token pegged to the value of the Indonesian Rupiah (IDR). As a cryptocurrency, IDRX offers users the benefits of blockchain technology, including security, transparency, and decentralized control.',
     documentation: 'https://docs.idrx.co/',
     bridge: 'idrx',
-    risks: ['NO_TIMELOCK', 'SYNTH_STABLE'],
+    risks: ['NO_TIMELOCK', 'SYNTH_ASSET'],
   },
   OVER: {
     name: 'Overtime DAO Token',
@@ -2564,7 +2564,7 @@ export const tokens = {
     bridge: 'native',
     description:
       'Wrapped Aave Staked GHO. GHO is a decentralized multi-collateral stablecoin that is fully backed, transparent and native to the Aave Protocol.',
-    risks: ['SYNTH_STABLE'],
+    risks: ['SYNTH_ASSET'],
   },
   waBasUSDC: {
     name: 'Wrapped Aave USD Coin',
@@ -2660,7 +2660,7 @@ export const tokens = {
     description:
       "SavingsUSDS is the decentralized stablecoin of Sky. USDS replaces DAI as Sky's new stablecoin, offering stability plus new rewards and savings options.",
     bridge: 'base-canonical',
-    risks: ['SYNTH_STABLE'],
+    risks: ['SYNTH_ASSET'],
   },
   scrvUSD: {
     name: 'Savings crvUSD',
@@ -2673,7 +2673,7 @@ export const tokens = {
     description:
       'Savings crvUSD, abbreviated as scrvUSD, is an interest-bearing stablecoin that earns yield simply by holding the token.',
     documentation: 'https://resources.curve.finance/crvusd/scrvusd',
-    risks: ['SYNTH_STABLE'],
+    risks: ['SYNTH_ASSET'],
   },
   ZORA: {
     name: 'ZORA',
@@ -2728,7 +2728,7 @@ export const tokens = {
     description:
       'BOLD is the USD-pegged stablecoin issued in Liquity V2. It is over-collateralized and backed only by WETH, wstETH, and rETH.',
     bridge: 'chainlink-ccip',
-    risks: ['SYNTH_STABLE'],
+    risks: ['SYNTH_ASSET'],
   },
   GIZA: {
     name: 'Giza',

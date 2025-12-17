@@ -72,7 +72,7 @@ export const tokens = {
     description:
       'Ethenas USDe is not the same as a fiat stablecoin like USDC or USDT. USDe is a synthetic dollar, backed with crypto assets and corresponding short futures positions.',
     bridge: 'layer-zero',
-    risks: ['NO_TIMELOCK', 'SYNTH_STABLE'],
+    risks: ['NO_TIMELOCK', 'SYNTH_ASSET'],
   },
   sUSDe: {
     name: 'Staked USDe',
@@ -87,7 +87,7 @@ export const tokens = {
     description:
       'Users are able to stake their USDe for sUSDe through the Ethena front-end. sUSDe is a reward-bearing token that accrues value from the yield that Ethena’s underlying delta-neutral position generates. sUSDe is subject to a 7-day un-staking period.',
     bridge: 'layer-zero',
-    risks: ['NO_TIMELOCK', 'SYNTH_STABLE'],
+    risks: ['NO_TIMELOCK', 'SYNTH_ASSET'],
   },
   PlasmaUSD: {
     name: 'Plasma USD Vault (PlasmaUSD)',
@@ -101,7 +101,7 @@ export const tokens = {
     description:
       'The PlasmaUSD Vault is the flagship Plasma vault managed by Veda. Deposits are deployed into blue-chip lending protocols such as Aave to generate yield.',
     bridge: 'native',
-    risks: ['SYNTH_STABLE'],
+    risks: ['SYNTH_ASSET'],
   },
   syrupUSDT: {
     name: 'Syrup USDT',
@@ -130,7 +130,7 @@ export const tokens = {
       'msUSD represents Metronome Synth USD. Through the Metronome dApp, users are able to deposit crypto assets as collateral, and use that collateral to mint popular crypto synthetics.',
     documentation: 'https://docs.metronome.io/metronome-2.0/master',
     bridge: 'layer-zero',
-    risks: ['NO_TIMELOCK', 'SYNTH_STABLE'],
+    risks: ['NO_TIMELOCK', 'SYNTH_ASSET'],
   },
   splUSD: {
     name: 'Staked Plasma USD',
@@ -144,7 +144,7 @@ export const tokens = {
     description:
       'splUSD represents the vault receipt token of Trevee. The vault is powered by Midas infrastructure. Deposits into splUSD is then deployed into DeFi (e.g. Aave and Fluid) strategies to generate yield.',
     bridge: 'native',
-    risks: ['SYNTH_STABLE'],
+    risks: ['SYNTH_ASSET'],
   },
   LITH: {
     name: 'Lithos',

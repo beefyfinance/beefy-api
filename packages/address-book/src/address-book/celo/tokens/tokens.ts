@@ -61,7 +61,7 @@ export const tokens = {
       'https://res.cloudinary.com/sushi-cdn/image/fetch/w_48/https://raw.githubusercontent.com/sushiswap/logos/main/network/celo/0x765DE816845861e75A25fCA122bb6898B8B1282a.jpg',
     website: 'https://celo.org/dapps',
     description: 'Celo Pegged Dollar',
-    risks: ['SYNTH_STABLE'],
+    risks: ['SYNTH_ASSET'],
   },
   cEUR: {
     name: 'Celo Euro',
@@ -74,7 +74,7 @@ export const tokens = {
       'https://res.cloudinary.com/sushi-cdn/image/fetch/w_48/https://raw.githubusercontent.com/sushiswap/logos/main/network/celo/0xD8763CBa276a3738E6DE85b4b3bF5FDed6D6cA73.jpg',
     website: 'https://celo.org/dapps',
     description: 'Celo Pegged Euro',
-    risks: ['SYNTH_STABLE'],
+    risks: ['SYNTH_ASSET'],
   },
   WETHV1: {
     name: 'Wrapped Ether',
@@ -128,7 +128,7 @@ export const tokens = {
     website: 'https://makerdao.com/en/',
     description:
       'DAI is an Ethereum-based stablecoin (stable-price cryptocurrency) whose issuance and development is managed by the Maker Protocol and the MakerDAO decentralized autonomous organization.',
-    risks: ['SYNTH_STABLE'],
+    risks: ['SYNTH_ASSET'],
   },
   SUSHIV2: {
     name: 'Sushi Swap',

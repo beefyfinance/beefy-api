@@ -124,7 +124,7 @@ export const tokens = {
     bridge: 'layer-zero',
     logoURI: '',
     documentation: 'https://docs.abracadabra.money/',
-    risks: ['SYNTH_STABLE'],
+    risks: ['SYNTH_ASSET'],
   },
   SPELL: {
     name: 'Spell Token',
@@ -278,7 +278,7 @@ export const tokens = {
       'https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/0x6B175474E89094C44Da98b954EedeAC495271d0F/logo.png',
     documentation:
       'https://docs.makerdao.com/smart-contract-modules/dai-module/dai-detailed-documentation',
-    risks: ['SYNTH_STABLE'],
+    risks: ['SYNTH_ASSET'],
   },
   VST: {
     name: 'Vesta Stable',
@@ -292,7 +292,7 @@ export const tokens = {
     description:
       'Vesta Finance allows you to borrow collateralized stablecoin VST against supported crypto assets with no interest rate.',
     documentation: 'https://docs.vestafinance.xyz/',
-    risks: ['SYNTH_STABLE'],
+    risks: ['SYNTH_ASSET'],
   },
   psETH: {
     name: 'Ripae sETH',
@@ -410,7 +410,7 @@ export const tokens = {
     logoURI:
       'https://raw.githubusercontent.com/pangolindex/tokens/main/assets/0xD24C2Ad096400B6FBcd2ad8B24E7acBc21A1da64/logo.png',
     documentation: 'https://docs.frax.finance/',
-    risks: ['SYNTH_STABLE'],
+    risks: ['SYNTH_ASSET'],
   },
   UNI: {
     name: 'Uniswap',
@@ -536,7 +536,7 @@ export const tokens = {
     description:
       'USX is the most important DeFi primitive within dForce’s protocol matrix, starting off with an over-collateralization design, where supported assets can be used as collaterals to mint USX within the respective approved LTV ratio (similar to DAI).',
     documentation: 'https://docs.dforce.network/protocols/usx',
-    risks: ['SYNTH_STABLE'],
+    risks: ['SYNTH_ASSET'],
   },
   MAI: {
     name: 'Mai Stablecoin',
@@ -551,7 +551,7 @@ export const tokens = {
       "MAI is a stablecoin collateralized by your crypto holdings. It's powered by Qi Dao, a protocol that enables any cryptocurrency community to create stablecoins backed by their native tokens.",
     documentation: 'https://docs.mai.finance/',
     bridge: 'native',
-    risks: ['SYNTH_STABLE'],
+    risks: ['SYNTH_ASSET'],
   },
   'oldBIFI-ETH LP': {
     name: 'oldBIFI-ETH LP',
@@ -576,7 +576,7 @@ export const tokens = {
     description:
       'The USDD protocol aims to provide the blockchain industry with the most stable, decentralized, tamper-proof, and freeze-free stablecoin system, a perpetual system independent from any centralized entity.',
     documentation: 'https://usdd.io/docs/',
-    risks: ['SYNTH_STABLE'],
+    risks: ['SYNTH_ASSET'],
   },
   ezETH: {
     name: 'Renzo Restaked ETH',
@@ -660,7 +660,7 @@ export const tokens = {
       'Liquity is a decentralized borrowing protocol that allows you to draw interest-free loans against Ether used as collateral. Loans are paid out in LUSD (a USD pegged stablecoin) and need to maintain a minimum collateral ratio of 110%.',
     bridge: 'arbitrum-canonical',
     documentation: 'https://docs.liquity.org/',
-    risks: ['SYNTH_STABLE'],
+    risks: ['SYNTH_ASSET'],
   },
   JRT: {
     name: 'Jarvis Reward Token',
@@ -688,7 +688,7 @@ export const tokens = {
     bridge: 'native',
     logoURI: '',
     documentation: 'https://learn.jarvis.network/',
-    risks: ['SYNTH_STABLE'],
+    risks: ['SYNTH_ASSET'],
   },
   'USD+': {
     name: 'USD+ Stablecoin',
@@ -744,7 +744,7 @@ export const tokens = {
     bridge: 'arbitrum-canonical',
     logoURI: 'https://assets.spookyswap.finance/tokens/DOLA.png',
     documentation: 'https://docs.inverse.finance/',
-    risks: ['SYNTH_STABLE'],
+    risks: ['SYNTH_ASSET'],
   },
   DEI: {
     name: 'DEI',
@@ -846,7 +846,7 @@ export const tokens = {
     logoURI:
       'https://raw.githubusercontent.com/beefyfinance/beefy-app/prod/src/images/single-assets/GNS.png',
     documentation: 'https://gains-network.gitbook.io/docs-home/',
-    risks: ['SYNTH_STABLE'],
+    risks: ['SYNTH_ASSET'],
   },
   frxETH: {
     name: 'Frax Ether',
@@ -1187,7 +1187,7 @@ export const tokens = {
     description:
       'Balancer linear pool that consist of 50/50 DAI and wrapped Aave Interest Bearing DAI.',
     bridge: 'native',
-    risks: ['SYNTH_STABLE'],
+    risks: ['SYNTH_ASSET'],
   },
   bbaaDAIV2: {
     name: 'Balancer Aave DAI Linear Pool',
@@ -1203,7 +1203,7 @@ export const tokens = {
     description:
       'Balancer linear pool that consist of 50/50 DAI and wrapped Aave Interest Bearing DAI.',
     bridge: 'native',
-    risks: ['SYNTH_STABLE'],
+    risks: ['SYNTH_ASSET'],
   },
   bbaaUSD: {
     name: 'Balancer Aave Stable Composable Pool',
@@ -1218,7 +1218,7 @@ export const tokens = {
     documentation: 'https://docs.balancer.fi/products/balancer-pools/boosted-pools',
     description:
       'Balancer composable pool that consist of bbaUSDT, bbaUSDC, and bbaDAI. bbTokens are Aave boosted linear pools.',
-    risks: ['SYNTH_STABLE'],
+    risks: ['SYNTH_ASSET'],
   },
   bbaaUSDV2: {
     name: 'Balancer Aave Stable Composable Pool',
@@ -1481,7 +1481,7 @@ export const tokens = {
     description:
       'crvUSD is a collateralized-debt-position (CDP) stablecoin pegged to the US Dollar',
     documentation: 'https://docs.curve.finance/crvUSD/crvUSD/',
-    risks: ['SYNTH_STABLE'],
+    risks: ['SYNTH_ASSET'],
   },
   sFRAX: {
     name: 'Staked FRAX',
@@ -1496,7 +1496,7 @@ export const tokens = {
     bridge: 'frax',
     logoURI: '',
     documentation: 'https://docs.frax.finance/frax-v3/sfrax',
-    risks: ['SYNTH_STABLE'],
+    risks: ['SYNTH_ASSET'],
   },
   bpt4POOL: {
     name: 'Balancer 4POOL BPT',
@@ -1511,7 +1511,7 @@ export const tokens = {
     description:
       'Composable Stable Pools are designed for assets that are either expected to consistently swap at near parity, or at a known exchange rate. Composable Stable Pools use Stable Math (based on StableSwap, popularized by Curve) which allows for swaps of significant size before encountering substantial price impact, vastly increasing capital efficiency for like-kind and correlated-kind swaps.',
     bridge: 'native',
-    risks: ['SYNTH_STABLE'],
+    risks: ['SYNTH_ASSET'],
   },
   JOE: {
     chainId: 42161,
@@ -1770,7 +1770,7 @@ export const tokens = {
       'rgUSD is an overcollateralized stablecoin launched on Reserve Protocol that acts as a collective point for DeFi users to negotiate with stablecoin yield providers for the best returns.',
     documentation: 'https://reserve.org/protocol/',
     bridge: 'arbitrum-canonical',
-    risks: ['SYNTH_STABLE'],
+    risks: ['SYNTH_ASSET'],
   },
   eUSD: {
     name: 'Electronic Dollar',
@@ -1786,7 +1786,7 @@ export const tokens = {
       'The Electronic Dollar (eUSD) is a decentralized 1:1 asset-backed stablecoin built with Reserve Protocol, available on the Ethereum and MobileCoin blockchains. It sets itself apart from other stablecoins due to its decentralized, community-governed, and censorship-resistant nature.',
     documentation: 'https://reserve.org/protocol/',
     bridge: 'arbitrum-canonical',
-    risks: ['SYNTH_STABLE'],
+    risks: ['SYNTH_ASSET'],
   },
   KNOX: {
     name: 'KNOX Dollar',
@@ -1802,7 +1802,7 @@ export const tokens = {
       'A permissionless, yield-bearing stablecoin designed to be a reliable store of value. Built with Reserve Protocol.',
     documentation: 'https://reserve.org/protocol/',
     bridge: 'native',
-    risks: ['SYNTH_STABLE'],
+    risks: ['SYNTH_ASSET'],
   },
   SILO: {
     name: 'Silo Governance Token',
@@ -1844,7 +1844,7 @@ export const tokens = {
     description:
       'Ethenas USDe is not the same as a fiat stablecoin like USDC or USDT. USDe is a synthetic dollar, backed with crypto assets and corresponding short futures positions.',
     bridge: 'layer-zero',
-    risks: ['NO_TIMELOCK', 'SYNTH_STABLE'],
+    risks: ['NO_TIMELOCK', 'SYNTH_ASSET'],
   },
   RSR: {
     name: 'Reserve Rights',
@@ -1929,7 +1929,7 @@ export const tokens = {
       'Verified USD (USDV) is the first stablecoin that rewards Verified Minters based on their contribution to the tokens active circulation.',
     documentation: 'https://docs.usdv.money/docs',
     bridge: 'layer-zero',
-    risks: ['NO_TIMELOCK', 'SYNTH_STABLE'],
+    risks: ['NO_TIMELOCK', 'SYNTH_ASSET'],
   },
   COMP: {
     name: 'Compound',
@@ -2117,7 +2117,7 @@ export const tokens = {
     documentation: 'https://docs.synthetix.io/',
     description: 'Synthetix Arbitrum-native stablecoin.',
     bridge: 'native',
-    risks: ['SYNTH_STABLE'],
+    risks: ['SYNTH_ASSET'],
   },
   gUSDC: {
     name: 'Gains Network USDC',
@@ -2133,7 +2133,7 @@ export const tokens = {
     documentation:
       'https://gains-network.gitbook.io/docs-home/liquidity-farming-pools/gtoken-vaults',
     bridge: 'native',
-    risks: ['SYNTH_STABLE'],
+    risks: ['SYNTH_ASSET'],
   },
   GYD: {
     name: 'Gyro Dollar',
@@ -2148,7 +2148,7 @@ export const tokens = {
     description:
       'A fully backed stablecoin: the Gyroscope stablecoin aims at a long-term reserve ratio of 100%, where every unit of stablecoin is backed by 1 USD worth of collateral.',
     bridge: 'chainlink',
-    risks: ['NO_TIMELOCK', 'SYNTH_STABLE'],
+    risks: ['NO_TIMELOCK', 'SYNTH_ASSET'],
   },
   GHO: {
     name: 'GHO Token',
@@ -2163,7 +2163,7 @@ export const tokens = {
     bridge: 'chainlink',
     description:
       'GHO is a decentralized multi-collateral stablecoin that is fully backed, transparent and native to the Aave Protocol.',
-    risks: ['SYNTH_STABLE'],
+    risks: ['SYNTH_ASSET'],
   },
   ETHFI: {
     name: 'ether.fi Governance Token',
@@ -2208,7 +2208,7 @@ export const tokens = {
     description:
       'Users are able to stake their USDe for sUSDe through the Ethena front-end. sUSDe is a reward-bearing token that accrues value from the yield that Ethena’s underlying delta-neutral position generates. sUSDe is subject to a 7-day un-staking period.',
     bridge: 'layer-zero',
-    risks: ['NO_TIMELOCK', 'SYNTH_STABLE'],
+    risks: ['NO_TIMELOCK', 'SYNTH_ASSET'],
   },
   CAKE: {
     name: 'PancakeSwap Token',
@@ -2253,7 +2253,7 @@ export const tokens = {
       'Aave interest bearing GHO. GHO is a decentralized multi-collateral stablecoin that is fully backed, transparent and native to the Aave Protocol.',
     staked: true,
     bridge: 'native',
-    risks: ['SYNTH_STABLE'],
+    risks: ['SYNTH_ASSET'],
   },
   EIGEN: {
     name: 'Eigen',
@@ -2408,7 +2408,7 @@ export const tokens = {
     bridge: 'native',
     description:
       'Wrapped Aave Staked GHO. GHO is a decentralized multi-collateral stablecoin that is fully backed, transparent and native to the Aave Protocol.',
-    risks: ['SYNTH_STABLE'],
+    risks: ['SYNTH_ASSET'],
   },
   waArbWETH: {
     name: 'Wrapped Aave Staked WETH',

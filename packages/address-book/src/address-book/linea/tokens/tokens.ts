@@ -62,7 +62,7 @@ export const tokens = {
     logoURI:
       'https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/0x6B175474E89094C44Da98b954EedeAC495271d0F/logo.png',
     bridge: 'linea-canonical',
-    risks: ['SYNTH_STABLE'],
+    risks: ['SYNTH_ASSET'],
   },
   WBTC: {
     name: 'Wrapped BTC',
@@ -148,7 +148,7 @@ export const tokens = {
       "MAI is a stablecoin collateralized by your crypto holdings. It's powered by Qi Dao, a protocol that enables any cryptocurrency community to create stablecoins backed by their native tokens.",
     documentation: 'https://docs.mai.finance/',
     bridge: 'native',
-    risks: ['SYNTH_STABLE'],
+    risks: ['SYNTH_ASSET'],
   },
   DUSD: {
     name: 'Davos.xyz USD',
@@ -163,7 +163,7 @@ export const tokens = {
       'The Davos Protocol is an innovative collateralised debt position (CDP) protocol designed to facilitate the seamless minting of DUSD, an inflation-proof omnichain stablecoin, by leveraging Liquid Staking Tokens (LSTs). The protocol aims to address the challenges faced by traditional CDPs in decentralised finance (DeFi) by incorporating an unbiased monetary policy and fair borrowing rates, thereby enhancing user protection and promoting broader DeFi adoption. ',
     documentation: 'https://davos.xyz/assets/davos_whitepaper.pdf',
     bridge: 'native',
-    risks: ['SYNTH_STABLE'],
+    risks: ['SYNTH_ASSET'],
   },
   'USD+': {
     name: 'USD+',
@@ -252,7 +252,7 @@ export const tokens = {
       'Liquity is a decentralized borrowing protocol that allows you to draw interest-free loans against Ether used as collateral. Loans are paid out in LUSD (a USD pegged stablecoin) and need to maintain a minimum collateral ratio of 110%.',
     bridge: 'linea-canonical',
     documentation: 'https://docs.liquity.org/',
-    risks: ['SYNTH_STABLE'],
+    risks: ['SYNTH_ASSET'],
   },
   weETH: {
     name: 'Wrapped eETH',
@@ -338,7 +338,7 @@ export const tokens = {
     documentation: 'https://github.com/Astera-Finance/whitepapers',
     description: 'Pioneering Ethereum-native credit rails on linea',
     bridge: 'layer-zero',
-    risks: ['NO_TIMELOCK', 'SYNTH_STABLE'],
+    risks: ['NO_TIMELOCK', 'SYNTH_ASSET'],
   },
   REX33: {
     name: 'Etherex Liquid Staking Token',
