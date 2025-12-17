@@ -129,7 +129,7 @@ export const tokens = {
       'Rings is a meta-stablecoin for USD & ETH offering competitive yield for stakers, providing deep liquidity for Sonic DeFi, and funding Sonic DeFi projects via its lockers.',
     documentation: 'https://docs.rings.money/',
     bridge: 'layer-zero',
-    risks: ['SYNTH_STABLE'],
+    risks: ['SYNTH_STABLE', 'CURATED'],
   },
   stkscUSD: {
     name: 'Staked Sonic USD',
@@ -144,7 +144,7 @@ export const tokens = {
       'Rings is a meta-stablecoin for USD & ETH offering competitive yield for stakers, providing deep liquidity for Sonic DeFi, and funding Sonic DeFi projects via its lockers.',
     documentation: 'https://docs.rings.money/',
     bridge: 'layer-zero',
-    risks: ['SYNTH_STABLE'],
+    risks: ['SYNTH_STABLE', 'CURATED'],
   },
   wstkscUSD: {
     name: 'Wrapped stkscUSD',
@@ -159,7 +159,7 @@ export const tokens = {
       'Rings is a meta-stablecoin for USD & ETH offering competitive yield for stakers, providing deep liquidity for Sonic DeFi, and funding Sonic DeFi projects via its lockers.',
     documentation: 'https://docs.rings.money/',
     bridge: 'native',
-    risks: ['SYNTH_STABLE'],
+    risks: ['SYNTH_STABLE', 'CURATED'],
   },
   BRUSH: {
     name: 'PaintSwap',
@@ -289,6 +289,7 @@ export const tokens = {
       'Rings is a meta-stablecoin for USD & ETH offering competitive yield for stakers, providing deep liquidity for Sonic DeFi, and funding Sonic DeFi projects via its lockers.',
     documentation: 'https://docs.rings.money/',
     bridge: 'layer-zero',
+    risks: ['CURATED'],
   },
   wstkscETH: {
     name: 'Wrapped stkscETH',
@@ -303,6 +304,7 @@ export const tokens = {
       'Rings is a meta-stablecoin for USD & ETH offering competitive yield for stakers, providing deep liquidity for Sonic DeFi, and funding Sonic DeFi projects via its lockers.',
     documentation: 'https://docs.rings.money/',
     bridge: 'native',
+    risks: ['CURATED'],
   },
   frxETH: {
     name: 'Frax Ether',
@@ -397,6 +399,7 @@ export const tokens = {
       'Rings is a meta-stablecoin for USD, ETH & BTC offering competitive yield for stakers, providing deep liquidity for Sonic DeFi, and funding Sonic DeFi projects via its lockers.',
     documentation: 'https://docs.rings.money/',
     bridge: 'layer-zero',
+    risks: ['CURATED'],
   },
   GEMS: {
     name: 'Shadow wrapped Gems',
@@ -523,6 +526,7 @@ export const tokens = {
       'Silo scUSD market. Rings is a meta-stablecoin for USD & ETH offering competitive yield for stakers, providing deep liquidity for Sonic DeFi, and funding Sonic DeFi projects via its lockers.',
     documentation: 'https://docs.rings.money/',
     bridge: 'layer-zero',
+    risks: ['CURATED'],
   },
   SiloWETH: {
     name: 'Silo wETH',
@@ -550,6 +554,7 @@ export const tokens = {
       'Silo scETH market. Rings is a meta-stablecoin for USD & ETH offering competitive yield for stakers, providing deep liquidity for Sonic DeFi, and funding Sonic DeFi projects via its lockers.',
     documentation: 'https://docs.rings.money/',
     bridge: 'layer-zero',
+    risks: ['CURATED'],
   },
   beGEMS1: {
     name: 'Beefy Gems Season 1',

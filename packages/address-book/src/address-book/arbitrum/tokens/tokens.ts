@@ -703,6 +703,7 @@ export const tokens = {
     bridge: 'native',
     logoURI: '',
     documentation: 'https://docs.overnight.fi/',
+    risks: ['CURATED'],
   },
   RAM: {
     name: 'Ramses',
@@ -888,6 +889,7 @@ export const tokens = {
     bridge: 'native',
     logoURI: '',
     documentation: 'https://docs.overnight.fi/',
+    risks: ['CURATED'],
   },
   FXS: {
     name: 'Frax Share',
@@ -1395,6 +1397,7 @@ export const tokens = {
     bridge: 'native',
     logoURI: '',
     documentation: 'https://docs.overnight.fi/',
+    risks: ['CURATED'],
   },
   'USDT+': {
     name: 'USDT+',
@@ -1409,6 +1412,7 @@ export const tokens = {
     bridge: 'native',
     logoURI: '',
     documentation: 'https://docs.overnight.fi/',
+    risks: ['CURATED'],
   },
   SOL: {
     name: 'Wrapped SOL',

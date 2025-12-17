@@ -613,6 +613,7 @@ export const tokens = {
       'USD+ is USDC that pays you yield daily via rebase.  It is 100% collateralized with assets immediately convertible into USDC.  Yield is generated via strategies such as lending and stable-to-stable pools. Initial strategies include Aave, Rubicon, and Pika.',
     logoURI: '',
     documentation: 'https://docs.overnight.fi/',
+    risks: ['CURATED'],
   },
   'USD+': {
     name: 'USD+ Stablecoin',
@@ -627,6 +628,7 @@ export const tokens = {
     bridge: 'native',
     logoURI: '',
     documentation: 'https://docs.overnight.fi/',
+    risks: ['CURATED'],
   },
   'wUSD+': {
     name: 'Wrapped USD+ Stablecoin',
@@ -641,6 +643,7 @@ export const tokens = {
     bridge: 'native',
     logoURI: '',
     documentation: 'https://docs.overnight.fi/',
+    risks: ['CURATED'],
   },
   'DAI+': {
     name: 'DAI+ Stablecoin',
@@ -655,6 +658,7 @@ export const tokens = {
     bridge: 'native',
     logoURI: '',
     documentation: 'https://docs.overnight.fi/',
+    risks: ['CURATED'],
   },
   'bbDAI+': {
     name: 'Beets Composable Pool DAI+ Stablecoin',
@@ -668,6 +672,7 @@ export const tokens = {
       'DAI+ is DAI that pays you yield daily via rebase.  It is 100% collateralized with assets immediately convertible into DAI.  Yield is generated via strategies such as lending and stable-to-stable pools. Initial strategies include Aave, Rubicon, and Pika.',
     logoURI: '',
     documentation: 'https://docs.overnight.fi/',
+    risks: ['CURATED'],
   },
   'wDAI+': {
     name: 'Wrapped DAI+ Stablecoin',
@@ -681,6 +686,7 @@ export const tokens = {
       'DAI+ is DAI that pays you yield daily via rebase.  It is 100% collateralized with assets immediately convertible into DAI.  Yield is generated via strategies such as lending and stable-to-stable pools. Initial strategies include Aave, Rubicon, and Pika.',
     logoURI: '',
     documentation: 'https://docs.overnight.fi/',
+    risks: ['CURATED'],
   },
   TUSD: {
     name: 'TrueUSD',

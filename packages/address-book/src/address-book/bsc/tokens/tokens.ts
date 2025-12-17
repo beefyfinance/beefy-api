@@ -4605,6 +4605,7 @@ export const tokens = {
     bridge: 'native',
     logoURI: '',
     documentation: 'https://docs.overnight.fi/',
+    risks: ['CURATED'],
   },
   'USDT+': {
     name: 'USDT+ Stablecoin',
@@ -4619,6 +4620,7 @@ export const tokens = {
     bridge: 'native',
     logoURI: '',
     documentation: 'https://docs.overnight.fi/',
+    risks: ['CURATED'],
   },
   USDD: {
     name: 'Decentralized USD',

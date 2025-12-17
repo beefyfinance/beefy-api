@@ -178,6 +178,7 @@ export const tokens = {
       'USD+ is USDC that pays you yield daily via rebase.  It is 100% collateralized with assets immediately convertible into USDC.  Yield is generated via strategies such as lending and stable-to-stable pools. Initial strategies include Aave, Rubicon, and Pika.',
     bridge: 'native',
     documentation: 'https://docs.overnight.fi/',
+    risks: ['CURATED'],
   },
   'USDT+': {
     name: 'USDT+',
@@ -192,6 +193,7 @@ export const tokens = {
       'USDT+ is USDT that pays you yield daily via rebase.  It is 100% collateralized with assets immediately convertible into USDT.  Yield is generated via strategies such as lending and stable-to-stable pools. Initial strategies include Aave, Rubicon, and Pika.',
     bridge: 'native',
     documentation: 'https://docs.overnight.fi/',
+    risks: ['CURATED'],
   },
   ezETH: {
     name: 'Renzo Restaked ETH Token',

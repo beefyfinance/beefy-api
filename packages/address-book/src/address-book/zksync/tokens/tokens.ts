@@ -117,6 +117,7 @@ export const tokens = {
     description:
       'USD+ is USDC that pays you yield daily via rebase. It is 100% collateralized with assets immediately convertible into USDC. Yield is generated via strategies such as lending and stable-to-stable pools. Initial strategies include Aave, Rubicon, and Pika.',
     documentation: 'https://docs.overnight.fi/',
+    risks: ['CURATED'],
   },
   WBTC: {
     name: 'Wrapped BTC',

@@ -134,6 +134,7 @@ export const tokens = {
     bridge: 'native',
     logoURI: '',
     documentation: 'https://docs.overnight.fi/',
+    risks: ['CURATED'],
   },
   spUSDT: {
     name: 'Stargate Tether USD LP',
