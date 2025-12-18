@@ -196,7 +196,8 @@ export const tokens = {
     logoURI: '',
     documentation: 'https://docs.rocketpool.net/guides/',
     bridge: 'zkevm-canonical',
-  },
+    risks: ['SYNTH_ASSET'],
+},
   AAVE: {
     name: 'Aave',
     address: '0x68791CFE079814c46e0E25C19Bcc5BFC71A744f7',

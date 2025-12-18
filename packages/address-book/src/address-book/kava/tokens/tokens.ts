@@ -34,7 +34,8 @@ export const tokens = {
       'USDC (Multichain) is a fully collateralized US dollar stablecoin. USDC is issued by regulated financial institutions, backed by fully reserved assets, redeemable on a 1:1 basis for US dollars.',
     documentation: 'https://developers.circle.com/docs',
     bridge: 'multichain',
-  },
+    risks: ['SYNTH_ASSET'],
+},
   multichainUSDT: {
     name: 'USDT',
     symbol: 'USDT',
@@ -48,7 +49,8 @@ export const tokens = {
       'Multichain Bridged Token. Tether is a stablecoin pegged to the US Dollar. A stablecoin is a type of cryptocurrency whose value is pegged to another fiat currency like the US Dollar or to a commodity like Gold. Tether is the first stablecoin to be created and it is the most popular stablecoin used in the ecosystem.',
     logoURI: 'https://hecoinfo.com/token/images/USDTHECO_32.png',
     bridge: 'multichain',
-  },
+    risks: ['SYNTH_ASSET'],
+},
   USDT: {
     name: 'USDT',
     symbol: 'USDT',

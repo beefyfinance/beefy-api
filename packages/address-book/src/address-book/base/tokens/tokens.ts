@@ -412,7 +412,8 @@ export const tokens = {
       'Real USD (USDR) is the world’s first stablecoin collateralized by tokenized, yield-producing real estate. USDR has a value accrual system built into its design. Using a consistent stream of dependable yield derived from rental revenue, Real USD delivers a native yield to holders.',
     logoURI: '',
     bridge: 'layer-zero',
-  },
+    risks: ['SYNTH_ASSET'],
+},
   tBTC: {
     name: 'tBTC v2',
     symbol: 'tBTC',
@@ -439,7 +440,8 @@ export const tokens = {
       'Based offers intent-based P2P derivatives with deep liquidity sourced from centralized exchanges.',
     logoURI: '',
     bridge: 'native',
-  },
+    risks: ['SYNTH_ASSET'],
+},
   crvUSD: {
     name: 'Curve USD Stablecoin',
     symbol: 'crvUSD',
@@ -512,7 +514,8 @@ export const tokens = {
     bridge: 'base-canonical',
     logoURI: '',
     documentation: 'https://docs.rocketpool.net/guides/',
-  },
+    risks: ['SYNTH_ASSET'],
+},
   FTW: {
     name: 'FriendTech33',
     symbol: 'FTW',
@@ -1279,7 +1282,7 @@ export const tokens = {
     website: 'https://metronome.io/',
     documentation: 'https://docs.metronome.io/',
     bridge: 'layer-zero',
-    risks: ['NO_TIMELOCK'],
+    risks: ['NO_TIMELOCK', 'SYNTH_ASSET'],
   },
   CHOMP: {
     name: 'ChompCoin',
@@ -1712,7 +1715,7 @@ export const tokens = {
       'Stack’s $MORE token is a non-algorithmic, collateral-backed stablecoin. This means that every $1 USD of $MORE should have more than $1 USD of collateral backing. Stack considers $MORE to be worth $1 however at times it may not trade at this value. In these instances, Stack has several options at its disposal to regain the $1 USD peg.',
     bridge: 'native',
     chainId: 8453,
-    risks: ['NO_TIMELOCK'],
+    risks: ['NO_TIMELOCK', 'SYNTH_ASSET'],
   },
   CLANKER: {
     name: 'tokenbot',
@@ -2475,7 +2478,7 @@ export const tokens = {
       'TRYB is a stablecoin developed by BiLira that is pegged 1:1 to the Turkish lira and 100% backed by reserves.',
     documentation: 'https://support.bilira.co/',
     bridge: 'native',
-    risks: ['NO_TIMELOCK'],
+    risks: ['NO_TIMELOCK', 'SYNTH_ASSET'],
   },
   IDRX: {
     name: 'IDRX',

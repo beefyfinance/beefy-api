@@ -282,7 +282,7 @@ export const tokens = {
       'Inception ETH is a pioneering DeFi platform that provides a full solution for liquid restaking. Inception ETH is designed to streamline and improve the restaking process by combining Isolated and Native Liquid Restaking and a diverse array of Liquid Restaking Tokens.',
     bridge: 'inception',
     documentation: 'https://docs.inceptionlrt.com/',
-    risks: ['NO_TIMELOCK'],
+    risks: ['NO_TIMELOCK', 'SYNTH_ASSET'],
   },
   wrsETH: {
     name: 'rsETHWrapper',

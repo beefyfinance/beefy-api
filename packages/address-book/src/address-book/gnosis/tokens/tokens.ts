@@ -206,7 +206,8 @@ export const tokens = {
       'EURA (previously agEUR) is pegged to the value of the Euro (€) and is a product of Angle, a decentralized, capital-efficient and over-collateralized stablecoins protocol.',
     bridge: 'layer-zero',
     documentation: 'https://docs.angle.money/',
-  },
+    risks: ['SYNTH_ASSET'],
+},
   stEUR: {
     name: 'Staked EURA',
     symbol: 'stEUR',
@@ -235,7 +236,8 @@ export const tokens = {
       'As a Rocket Pool staker, your role is to deposit ETH into the deposit pool which will enable a node operator to create a new Beacon Chain validator. You can stake as little as 0.01 ETH. In doing so, you will be given a token called rETH. rETH represents both how much ETH you deposited, and when you deposited it.',
     bridge: 'gnosis-canonical',
     documentation: 'https://docs.rocketpool.net/guides/',
-  },
+    risks: ['SYNTH_ASSET'],
+},
   agGNO: {
     name: 'Aave GNO',
     symbol: 'agGNO',
@@ -248,7 +250,8 @@ export const tokens = {
     website: 'https://aave.com/',
     documentation: 'https://docs.aave.com/developers/v/2.0/the-core-protocol/atokens',
     description: 'Aave interest bearing GNO.',
-  },
+    risks: ['SYNTH_ASSET'],
+},
   wagGNO: {
     name: 'Wrapped Aave GNO',
     symbol: 'wagGNO',
@@ -274,7 +277,8 @@ export const tokens = {
     website: 'https://aave.com/',
     documentation: 'https://docs.aave.com/developers/v/2.0/the-core-protocol/atokens',
     description: 'Aave interest bearing wstETH.',
-  },
+    risks: ['SYNTH_ASSET'],
+},
   wagwstETH: {
     name: 'Wrapped Aave wstETH',
     symbol: 'wagwstETH',
@@ -300,7 +304,8 @@ export const tokens = {
     website: 'https://aave.com/',
     documentation: 'https://docs.aave.com/developers/v/2.0/the-core-protocol/atokens',
     description: 'Aave interest bearing ETH .',
-  },
+    risks: ['SYNTH_ASSET'],
+},
   wagETH: {
     name: 'Wrapped Aave ETH',
     symbol: 'wagETH',

@@ -122,7 +122,8 @@ export const tokens = {
     website: 'https://www.terra.money/',
     description:
       'Terra stablecoins offer instant settlements, low fees and seamless cross-border exchange - loved by millions of users and merchants.',
-  },
+    risks: ['SYNTH_ASSET'],
+},
   atLUNA: {
     name: 'Luna Terra',
     symbol: 'LUNA',
@@ -252,7 +253,8 @@ export const tokens = {
     website: 'https://omnifarms.ocp.finance/',
     description:
       'USDO is a decentralised stablecoin backed by a verifiable collateral pool of on-chain assets.',
-  },
+    risks: ['SYNTH_ASSET'],
+},
   ROSE: {
     name: 'Rose',
     symbol: 'ROSE',

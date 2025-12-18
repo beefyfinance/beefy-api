@@ -33,7 +33,8 @@ export const tokens = {
     bridge: 'sovryn',
     logoURI: '',
     documentation: 'https://wiki.sovryn.com/en/sovryn-dapp/bridge',
-  },
+    risks: ['SYNTH_ASSET'],
+},
   rUSDT: {
     name: 'Rootstock USDT',
     address: '0xef213441A85dF4d7ACbDaE0Cf78004e1E486bB96',

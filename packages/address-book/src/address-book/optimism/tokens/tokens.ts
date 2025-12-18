@@ -213,7 +213,8 @@ export const tokens = {
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0x408D4cD0ADb7ceBd1F1A1C33A0Ba2098E1295bAB/logo.png',
     documentation: 'https://docs.synthetix.io/synthetix-protocol/readme',
-  },
+    risks: ['SYNTH_ASSET'],
+},
   LYRA: {
     chainId: 10,
     address: '0x50c5725949A6F0c72E6C4a641F24049A917DB0Cb',
@@ -338,7 +339,8 @@ export const tokens = {
       'Synths are derivative tokens providing exposure to a range of assets. They can be traded with infinite liquidity and zero slippage by leveraging the Synthetix protocol’s unique pooled collateral model. Trades between Synths generate a small fee that is distributed to SNX collateral providers.',
     bridge: 'optimism-canonical',
     documentation: 'https://docs.synthetix.io/synthetix-protocol/readme',
-  },
+    risks: ['SYNTH_ASSET'],
+},
   DAI: {
     name: 'DAI Stablecoin',
     symbol: 'DAI',
@@ -410,7 +412,8 @@ export const tokens = {
       'RenBTC is an ERC-20 token built on the Ethereum network, pegged to Bitcoin. This means that each RenBTC can be always redeemed for one Bitcoin, and hence tends to maintain its value at close to the Bitcoin market rate.',
     logoURI:
       'https://tokens.pancakeswap.finance/images/0xfCe146bF3146100cfe5dB4129cf6C82b0eF4Ad8c.png',
-  },
+    risks: ['SYNTH_ASSET'],
+},
   FXS: {
     name: 'Frax Share',
     symbol: 'FXS',
@@ -466,7 +469,8 @@ export const tokens = {
       'Alchemix Self-Repaying Loans allow you to leverage a range of tokens without risk of liquidation.',
     bridge: 'optimism-canonical',
     documentation: 'https://alchemix-finance.gitbook.io/user-docs/',
-  },
+    risks: ['SYNTH_ASSET'],
+},
   DOLA: {
     name: 'Dola USD Stablecoin',
     symbol: 'DOLA',
@@ -574,7 +578,8 @@ export const tokens = {
     description:
       'Ripae Finance’s full focus is to build a true cross-chain algorithmic stable coin protocol that is stabilized with true use-cases all around the DeFi Ecosystem.',
     logoURI: '',
-  },
+    risks: ['SYNTH_ASSET'],
+},
   sETHo: {
     name: 'sETHo',
     symbol: 'sETHo',
@@ -586,7 +591,8 @@ export const tokens = {
     description:
       'Ripae Finance’s full focus is to build a true cross-chain algorithmic stable coin protocol that is stabilized with true use-cases all around the DeFi Ecosystem.',
     logoURI: '',
-  },
+    risks: ['SYNTH_ASSET'],
+},
   rETH: {
     name: 'Rocket Pool ETH',
     symbol: 'rETH',
@@ -600,7 +606,8 @@ export const tokens = {
     bridge: 'optimism-canonical',
     logoURI: '',
     documentation: 'https://docs.rocketpool.net/guides/',
-  },
+    risks: ['SYNTH_ASSET'],
+},
   'bbUSD+': {
     name: 'Beets Composable Pool USD+ Stablecoin',
     symbol: 'bbUSD+',
@@ -856,7 +863,8 @@ export const tokens = {
     website: 'https://op.beets.fi/pools',
     description: 'Composable Pool with DAI deposited into Reaper.Farm and leveraged through Aave',
     documentation: 'https://docs.beets.fi/balancer-v2-1/pools',
-  },
+    risks: ['SYNTH_ASSET'],
+},
   rfaDAI: {
     name: 'Reaper.Farm Aave DAI',
     symbol: 'rfaDAI',
@@ -869,7 +877,8 @@ export const tokens = {
     description: 'DAI deposited into Reaper.Farm and leveraged through Aave',
     documentation:
       'https://docs.reaper.farm/reaper-farms/general-knowledge/types-of-strategies/ltv-looping',
-  },
+    risks: ['SYNTH_ASSET'],
+},
   bbrfaWBTC: {
     name: 'Beets Reaper.Farm Boosted Aave WBTC',
     symbol: 'bbrfaWBTC',
@@ -937,7 +946,8 @@ export const tokens = {
     bridge: 'hop',
     logoURI: '',
     documentation: 'https://docs.hop.exchange/',
-  },
+    risks: ['SYNTH_ASSET'],
+},
   hUSDC: {
     name: 'USDC Hop Token',
     symbol: 'hUSDC',
@@ -979,7 +989,8 @@ export const tokens = {
     bridge: 'hop',
     logoURI: '',
     documentation: 'https://docs.hop.exchange/',
-  },
+    risks: ['SYNTH_ASSET'],
+},
   hSNX: {
     name: 'SNX Hop Token',
     symbol: 'hSNX',
@@ -1034,7 +1045,8 @@ export const tokens = {
     description:
       'UniDex is building on top of the existing landscape by introducing a perpetual leverage trading platform that will allow any synthetic asset to be traded in a permissionless, transparent, and trader-focused platform for any person to tap into.',
     documentation: 'https://unidexexchange.gitbook.io/unidex/',
-  },
+    risks: ['SYNTH_ASSET'],
+},
   sEUR: {
     name: 'Synth sEUR',
     symbol: 'sEUR',
@@ -1299,7 +1311,8 @@ export const tokens = {
       'Real USD (USDR) is the world’s first stablecoin collateralized by tokenized, yield-producing real estate. USDR has a value accrual system built into its design. Using a consistent stream of dependable yield derived from rental revenue, Real USD delivers a native yield to holders.',
     bridge: 'layer-zero',
     logoURI: '',
-  },
+    risks: ['SYNTH_ASSET'],
+},
   OVN: {
     name: 'OVN',
     symbol: 'OVN',
@@ -1598,7 +1611,7 @@ export const tokens = {
     description:
       'Ethenas USDe is not the same as a fiat stablecoin like USDC or USDT. USDe is a synthetic dollar, backed with crypto assets and corresponding short futures positions.',
     bridge: 'layer-zero',
-    risks: ['NO_TIMELOCK'],
+    risks: ['NO_TIMELOCK', 'SYNTH_ASSET'],
   },
   weETH: {
     name: 'Wrapped eETH',
@@ -1687,7 +1700,7 @@ export const tokens = {
     website: 'https://metronome.io/',
     documentation: 'https://docs.metronome.io/',
     bridge: 'layer-zero',
-    risks: ['NO_TIMELOCK'],
+    risks: ['NO_TIMELOCK', 'SYNTH_ASSET'],
   },
   uniBTC: {
     name: 'Universal BTC',
@@ -1745,7 +1758,7 @@ export const tokens = {
     website: 'https://metronome.io/',
     documentation: 'https://docs.metronome.io/',
     bridge: 'layer-zero',
-    risks: ['NO_TIMELOCK'],
+    risks: ['NO_TIMELOCK', 'SYNTH_ASSET'],
   },
   wUSDM: {
     name: 'Mountain Protocol USD',

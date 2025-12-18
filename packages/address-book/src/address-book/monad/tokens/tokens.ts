@@ -173,7 +173,7 @@ export const tokens = {
     description:
       "muBOND is a high yield token backed by Asia's best RWAs, designed for higher potential returns in exchange for providing insurance to AZND holders.",
     bridge: 'native',
-    risks: ['NO_TIMELOCK'],
+    risks: ['NO_TIMELOCK', 'SYNTH_ASSET'],
   },
   shMON: {
     name: 'ShMonad',
@@ -233,6 +233,6 @@ export const tokens = {
     description:
       'loAZND (the "Locked Asian Dollar") is a synthetic dollar backed by Asia\'s best RWAs, designed for stability and steady yield. loAZND is the yield-bearing version of AZND, earning up to 7% interest.',
     bridge: 'native',
-    risks: ['NO_TIMELOCK'],
+    risks: ['NO_TIMELOCK', 'SYNTH_ASSET'],
   },
 } as const satisfies Record<string, Token>;

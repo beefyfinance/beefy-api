@@ -46,7 +46,8 @@ export const tokens = {
     description:
       'Angle is a decentralized, capital-efficient and over-collateralized stablecoins protocol.',
     documentation: 'https://docs.angle.money/',
-  },
+    risks: ['SYNTH_ASSET'],
+},
   xVOLT: {
     name: 'VoltBar xVOLT',
     symbol: 'xVOLT',
@@ -84,7 +85,8 @@ export const tokens = {
     website: 'https://www.terra.money/',
     description:
       'Terra is a public blockchain protocol deploying a suite of algorithmic decentralized stablecoins which underpin a thriving ecosystem that brings DeFi to the masses.',
-  },
+    risks: ['SYNTH_ASSET'],
+},
   atLUNA: {
     name: 'Luna Terra',
     symbol: 'atUST',
@@ -96,7 +98,8 @@ export const tokens = {
     website: 'https://www.terra.money/',
     description:
       'The Terra protocols native staking token that absorbs the price volatility of Terra. Luna is used for governance and in mining. Users stake Luna to validators who record and verify transactions on the blockchain in exchange for rewards from transaction fees. The more Terra is used, the more Luna is worth.',
-  },
+    risks: ['SYNTH_ASSET'],
+},
   WETH: {
     name: 'Wrapped Ether on Fuse',
     symbol: 'WETH',

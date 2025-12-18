@@ -194,7 +194,8 @@ export const tokens = {
     description:
       "pETH is an Ethereum derivative supported by the JPEG'd protocol. It is minted when a user borrows against their NFT and burned when they decide to repay their loan. Unlike the 2% interest rate for borrowing PUSd, minting $pETH against an NFT has a 5% interest rate.",
     documentation: 'https://docs.jpegd.io/tokenomics/usdpeth',
-  },
+    risks: ['SYNTH_ASSET'],
+},
   FRAX: {
     chainId: 1,
     address: '0x853d955aCEf822Db058eb8505911ED77F175b99e', // LFRAX, convertable to frxUSD
@@ -266,7 +267,8 @@ export const tokens = {
     bridge: 'native',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0x408D4cD0ADb7ceBd1F1A1C33A0Ba2098E1295bAB/logo.png',
-  },
+    risks: ['SYNTH_ASSET'],
+},
   multiBTC: {
     chainId: 1,
     address: '0x66eFF5221ca926636224650Fd3B9c497FF828F7D',
@@ -278,7 +280,8 @@ export const tokens = {
     description: 'Multichain supports to swap BTC to MultiBTC (Multichain BTC) 1:1.',
     bridge: 'multichain',
     documentation: 'https://docs.multichain.org/getting-started/introduction',
-  },
+    risks: ['SYNTH_ASSET'],
+},
   alETH: {
     name: 'Alchemix ETH',
     symbol: 'alETH',
@@ -291,7 +294,8 @@ export const tokens = {
     documentation: 'https://alchemix-finance.gitbook.io/v2/',
     description:
       'Alchemix Self-Repaying Loans allow you to leverage a range of tokens without risk of liquidation.',
-  },
+    risks: ['SYNTH_ASSET'],
+},
   alUSD: {
     name: 'Alchemix USD',
     symbol: 'alUSD',
@@ -639,7 +643,8 @@ export const tokens = {
     bridge: 'native',
     logoURI: '',
     documentation: 'https://docs.rocketpool.net/guides/',
-  },
+    risks: ['SYNTH_ASSET'],
+},
   USDT: {
     name: 'Tether USD',
     symbol: 'USDT',
@@ -682,7 +687,8 @@ export const tokens = {
     description:
       'Synths are derivative tokens providing exposure to a range of assets. They can be traded with infinite liquidity and zero slippage by leveraging the Synthetix protocol’s unique pooled collateral model. Trades between Synths generate a small fee that is distributed to SNX collateral providers.',
     bridge: 'native',
-  },
+    risks: ['SYNTH_ASSET'],
+},
   cbETH: {
     name: 'Coinbase Wrapped Staked ETH',
     symbol: 'cbETH',
@@ -839,7 +845,8 @@ export const tokens = {
     documentation: 'https://docs.aave.com/developers/v/2.0/the-core-protocol/atokens',
     description:
       'Aave interest bearing DAI. Dai is a stablecoin cryptocurrency which aims to keep its value as close to one United States dollar as possible through an automated system of smart contracts on the Ethereum blockchain.',
-  },
+    risks: ['SYNTH_ASSET'],
+},
   waDAI: {
     name: 'Wrapped Aave Tether DAI',
     symbol: 'waDAI',
@@ -853,7 +860,8 @@ export const tokens = {
     documentation: 'https://docs.aave.com/developers/v/2.0/the-core-protocol/atokens',
     description:
       'Wrapped Aave interest bearing DAI. Dai is a stablecoin cryptocurrency which aims to keep its value as close to one United States dollar as possible through an automated system of smart contracts on the Ethereum blockchain.',
-  },
+    risks: ['SYNTH_ASSET'],
+},
   bbaDAI: {
     name: 'Balancer Aave DAI Linear Pool',
     symbol: 'bbaDAI',
@@ -1227,7 +1235,7 @@ export const tokens = {
     description:
       'msETH represents Metronome Synth ETH. Through the Metronome dApp, users are able to deposit crypto assets as collateral, and use that collateral to mint popular crypto synthetics.',
     documentation: 'https://docs.metronome.io/metronome-2.0/master',
-    risks: ['NO_TIMELOCK'],
+    risks: ['NO_TIMELOCK', 'SYNTH_ASSET'],
   },
   BLUR: {
     name: 'Blur',
@@ -1321,7 +1329,8 @@ export const tokens = {
     documentation: 'https://docs.balancer.fi/products/balancer-pools/boosted-pools',
     description:
       'Balancer linear pool that consist of 50/50 DAI and wrapped Euler Interest Bearing DAI.',
-  },
+    risks: ['SYNTH_ASSET'],
+},
   bbeUSD: {
     name: 'Balancer Euler Stable Composable Pool',
     symbol: 'bbeUSD',
@@ -1334,7 +1343,8 @@ export const tokens = {
     documentation: 'https://docs.balancer.fi/products/balancer-pools/boosted-pools',
     description:
       'Balancer composable pool that consist of bbeUSDT, bbeUSDC, and bbeDAI. bbTokens are Euler boosted linear pools.',
-  },
+    risks: ['SYNTH_ASSET'],
+},
   VERSE: {
     name: 'Verse',
     symbol: 'VERSE',
@@ -1500,7 +1510,8 @@ export const tokens = {
     bridge: 'native',
     description:
       "Degen ETH is a high-yield diversified ETH strategy index designed to sustainably outperform LST market yields. Degen ETH uses a two-token model: dgnETH, which is pegged to ETH and backed 1:1 by DeFi yield strategies, and sdgnETH, obtained by depositing dgnETH in a staking vault, which accrues all yield from dgnETH's underlying assets.",
-  },
+    risks: ['SYNTH_ASSET'],
+},
   'USDC+': {
     name: 'USDC Plus',
     symbol: 'USDC+',
@@ -1759,7 +1770,8 @@ export const tokens = {
     chainId: 1,
     logoURI: '',
     documentation: 'https://docs.across.to/how-to-use-across/providing-liquidity',
-  },
+    risks: ['SYNTH_ASSET'],
+},
   acUSDT: {
     name: 'Across USDT LP',
     address: '0xC2faB88f215f62244d2E32c8a65E8F58DA8415a5',
@@ -1891,7 +1903,8 @@ export const tokens = {
     documentation:
       'https://vector-reserve.gitbook.io/vector-reserve/introduction/what-is-vector-reserve',
     bridge: 'native',
-  },
+    risks: ['SYNTH_ASSET'],
+},
   ankrETH: {
     name: 'Ankr Staked ETH',
     symbol: 'ankrETH',
@@ -2125,7 +2138,7 @@ export const tokens = {
     description:
       'The Kelp Airdrop Gain vault is designed to maximize airdrops through a dual strategy: Earning Layer 2 (L2) airdrops and accessing mainnet DeFi opportunities. The vault takes rsETH and other ETH assets as deposit and deploys these tokens to various yield and points farm (Linea, Scroll, Karak, Eigenlayer, etc). agETH is used as the receipt token for this vault.',
     bridge: 'native',
-    risks: ['NO_TIMELOCK'],
+    risks: ['NO_TIMELOCK', 'SYNTH_ASSET'],
   },
   ZRO: {
     name: 'LayerZero',
@@ -2169,7 +2182,7 @@ export const tokens = {
     description:
       'ShezETH is a decentralized, ETH-pegged derivative issued within the Shezmu Oasis platform. It allows users to leverage their Ethereum-based assets by minting ShezETH against them. ShezETH is designed to facilitate liquidity and leverage without the traditional risks of liquidation found in other lending platforms.',
     bridge: 'native',
-    risks: ['NO_TIMELOCK'],
+    risks: ['NO_TIMELOCK', 'SYNTH_ASSET'],
   },
   UNI: {
     name: 'Uniswap',
@@ -2224,7 +2237,8 @@ export const tokens = {
       'eBTC is an Ether.Fi x Symbiotic vault that allows users to stake their BTC to accrue staking rewards and automatically restake their BTC in Symbiotic. Ether.fi and Veda are both doing points campaign.',
     bridge: 'native',
     documentation: 'https://etherfi.gitbook.io/etherfi/lrts/ebtc-bitcoin-lrt',
-  },
+    risks: ['SYNTH_ASSET'],
+},
   EBTC: {
     name: 'EBTC',
     symbol: 'EBTC',
@@ -2237,7 +2251,8 @@ export const tokens = {
       "eBTC is a collateralized crypto asset soft pegged to the price of Bitcoin and built on the Ethereum network. It is backed exclusively by Lido's stETH and powered by immutable smart contracts with minimized counterparty reliance. It is designed to be the most decentralized synthetic Bitcoin in DeFi and offers the ability for anyone in the world to borrow BTC at no cost.",
     bridge: 'native',
     documentation: 'https://docs.ebtc.finance/ebtc',
-  },
+    risks: ['SYNTH_ASSET'],
+},
   USD0: {
     name: 'Usual USD',
     symbol: 'USD0',
@@ -2306,7 +2321,8 @@ export const tokens = {
     description:
       'Hinkal enables the staking of ETH into the Shielded Pool smart contract, receiving hETH in return. This LPT (Liquid Privacy Token) is a tokenized representation of the staked collateral and can be used across various DeFi applications. Holders of hETH are automatically rewarded with yield (generated by transaction fees) and protocol incentives.',
     bridge: 'native',
-  },
+    risks: ['SYNTH_ASSET'],
+},
   SKY: {
     name: 'SKY Governance Token',
     symbol: 'SKY',
@@ -2439,7 +2455,7 @@ export const tokens = {
       '$PumpBTC is a liquid staking token that represents BTC staked on the Babylon platform through PumpBTC. By utilizing PumpBTC, you can retain liquidity for your BTC holdings while also earning yields directly from Babylon. Users will receive PumpBTC at a conversion rate of 1:1 with WBTC/BTCB.',
     bridge: 'native',
     documentation: 'https://pumpbtc.gitbook.io/pumpbtc',
-    risks: ['NO_TIMELOCK'],
+    risks: ['NO_TIMELOCK', 'SYNTH_ASSET'],
   },
   EIGEN: {
     name: 'Eigen',
@@ -2639,7 +2655,8 @@ export const tokens = {
     description:
       'USDL is a US dollar-backed stablecoin that distributes yield to its holders every day. USDL reserves are held in short-term, highly liquid assets. USDL can always be redeemed at a rate of 1 USDL = 1 US dollar. The token is issued by Paxos Issuance MENA Ltd. (Paxos International), which is regulated by the Financial Services Regulatory Authority (FSRA) of the Abu Dhabi Global Market (ADGM)',
     bridge: 'native',
-  },
+    risks: ['SYNTH_ASSET'],
+},
   USDL: {
     name: 'USDL ',
     symbol: 'USDL',
@@ -2653,7 +2670,8 @@ export const tokens = {
     description:
       'USDL is a US dollar-backed stablecoin that distributes yield to its holders every day. USDL reserves are held in short-term, highly liquid assets. USDL can always be redeemed at a rate of 1 USDL = 1 US dollar. The token is issued by Paxos Issuance MENA Ltd. (Paxos International), which is regulated by the Financial Services Regulatory Authority (FSRA) of the Abu Dhabi Global Market (ADGM)',
     bridge: 'native',
-  },
+    risks: ['SYNTH_ASSET'],
+},
   USDf: {
     name: 'USDf',
     symbol: 'USDf',
@@ -2839,7 +2857,8 @@ export const tokens = {
     website: 'https://fluid.io/',
     documentation: 'https://fluid.guides.instadapp.io/',
     description: 'Fluid Staked Wrapped Staked Ether.',
-  },
+    risks: ['SYNTH_ASSET'],
+},
   fWETH: {
     name: 'Fluid WETH',
     symbol: 'fWETH',
@@ -2852,7 +2871,8 @@ export const tokens = {
     website: 'https://fluid.io/',
     documentation: 'https://fluid.guides.instadapp.io/',
     description: 'Fluid Staked WETH.',
-  },
+    risks: ['SYNTH_ASSET'],
+},
   cbBTC: {
     name: 'Coinbase Wrapped WBTC',
     symbol: 'cbBTC',

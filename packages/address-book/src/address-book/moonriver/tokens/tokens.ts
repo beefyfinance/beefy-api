@@ -328,7 +328,8 @@ export const tokens = {
       "MAI is a stablecoin collateralized by your crypto holdings. It's powered by Qi Dao, a protocol that enables any cryptocurrency community to create stablecoins backed by their native tokens.",
     logoURI: 'https://raw.githubusercontent.com/0xlaozi/qidao/main/images/mimatic-red.png',
     documentation: 'https://docs.mai.finance/',
-  },
+    risks: ['SYNTH_ASSET'],
+},
   FTM: {
     name: 'Fantom Token',
     symbol: 'FTM',
@@ -384,7 +385,8 @@ export const tokens = {
     website: 'https://frax.finance/',
     description:
       'The Frax Protocol introduced the world to the concept of a cryptocurrency being partially backed by collateral and partially stabilized algorithmically.',
-  },
+    risks: ['SYNTH_ASSET'],
+},
   FRAX: {
     name: 'FRAX',
     symbol: 'FRAX',

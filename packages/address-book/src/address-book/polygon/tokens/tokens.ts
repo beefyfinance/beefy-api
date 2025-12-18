@@ -107,7 +107,8 @@ export const tokens = {
     bridge: 'binance-peg',
     chainId: 137,
     logoURI: '',
-  },
+    risks: ['SYNTH_ASSET'],
+},
   spUSDC: {
     name: 'Stargate USD Coin LP',
     address: '0x1205f31718499dBf1fCa446663B532Ef87481fe1',
@@ -198,7 +199,8 @@ export const tokens = {
     description:
       'Ripae Finance’s full focus is to build a true cross-chain algorithmic stable coin protocol that is stabilized with true use-cases all around the DeFi Ecosystem.',
     logoURI: 'https://matic.ripae.finance/static/media/ripae_pftm.1a3fe2b4.svg',
-  },
+    risks: ['SYNTH_ASSET'],
+},
   LCD: {
     name: 'Lucidao',
     address: '0xc2A45FE7d40bCAc8369371B08419DDAFd3131b4a',
@@ -236,7 +238,8 @@ export const tokens = {
       'https://tokens.pancakeswap.finance/images/0xD30DC92b8ec0fa8de625768d208f51A93C10aFF2.svg',
     website: '',
     description: '',
-  },
+    risks: ['SYNTH_ASSET'],
+},
   crvUSD: {
     name: 'Curve USD Stablecoin',
     symbol: 'crvUSD',
@@ -275,7 +278,8 @@ export const tokens = {
     description:
       'jNZD is a multi-collateralized synthetic token tracking the price of the New Zealand Dollar. It is built on the top of UMA and Chainlink.',
     logoURI: 'https://app.jarvis.exchange/assets/bd5ec61c3163ddb222eaadb2ce8d8042.svg',
-  },
+    risks: ['SYNTH_ASSET'],
+},
   newQUICK: {
     name: 'Quickswap',
     address: '0xB5C064F955D8e7F38fE0460C556a72987494eE17',
@@ -468,7 +472,8 @@ export const tokens = {
       'RenBTC is an ERC-20 token built on the Ethereum network, pegged to Bitcoin. This means that each RenBTC can be always redeemed for one Bitcoin, and hence tends to maintain its value at close to the Bitcoin market rate.',
     logoURI:
       'https://tokens.pancakeswap.finance/images/0xfCe146bF3146100cfe5dB4129cf6C82b0eF4Ad8c.png',
-  },
+    risks: ['SYNTH_ASSET'],
+},
   IXT: {
     name: 'IX Token IXT',
     symbol: 'IXT',
@@ -604,7 +609,8 @@ export const tokens = {
     logoURI: 'https://i.ibb.co/VDPBwHS/cx-ETH-128x128.png',
     website: 'https://celsiusx.io/ ',
     description: 'CelsiusX Wrapped ETH Token',
-  },
+    risks: ['SYNTH_ASSET'],
+},
   cxADA: {
     name: 'CelsiusX Wrapped ADA',
     symbol: 'cxADA',
@@ -615,7 +621,8 @@ export const tokens = {
     logoURI: 'https://i.ibb.co/x3RcB6Q/cx-ADA-128x128.png',
     website: 'https://celsiusx.io/ ',
     description: 'CelsiusX Wrapped ADA Token',
-  },
+    risks: ['SYNTH_ASSET'],
+},
   cxDOGE: {
     name: 'CelsiusX Wrapped DOGE',
     symbol: 'cxDOGE',
@@ -626,7 +633,8 @@ export const tokens = {
     logoURI: 'https://i.ibb.co/FH1GMYX/cx-DOGE-128x128.png',
     website: 'https://celsiusx.io/ ',
     description: 'CelsiusX Wrapped DOGE Token',
-  },
+    risks: ['SYNTH_ASSET'],
+},
   FODL: {
     name: 'Fodl Finance FODL',
     symbol: 'FODL',
@@ -686,7 +694,8 @@ export const tokens = {
     website: 'https://coinmarketcap.com/currencies/terrausd-wormhole/',
     description:
       'Terra stablecoins offer instant settlements, low fees and seamless cross-border exchange - loved by millions of users and merchants.',
-  },
+    risks: ['SYNTH_ASSET'],
+},
   ETH2x: {
     name: 'ETH 2x Flexible Leverage Index',
     symbol: 'ETH2x',
@@ -698,7 +707,8 @@ export const tokens = {
     website: 'https://www.indexcoop.com/ethfli',
     description:
       'The Ethereum Flexible Leverage Index lets you leverage a collateralized debt position in a safe and efficient way, by abstracting its management into a simple index. It enabled market participants to take on leverage while minimizing the transaction costs and risks associated with maintaining collateralized debt.',
-  },
+    risks: ['SYNTH_ASSET'],
+},
   gOHM: {
     name: 'Governance OHM',
     symbol: 'gOHM',
@@ -1258,7 +1268,8 @@ export const tokens = {
     chainId: 137,
     logoURI:
       'https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48/logo.png',
-  },
+    risks: ['SYNTH_ASSET'],
+},
   USDC: {
     name: 'USD Coin',
     address: '0x3c499c542cEF5E3811e1192ce70d8cC03d5c3359',
@@ -1435,7 +1446,8 @@ export const tokens = {
     website: 'https://renproject.io/',
     description: 'renDOGE is a one-for-one representation of Dogecoin (DOGE) on Polygon via RenVM.',
     logoURI: 'https://polygonscan.com/token/images/rendogecoin_32.png',
-  },
+    risks: ['SYNTH_ASSET'],
+},
   SNX: {
     name: 'SNX',
     address: '0x50B728D8D964fd00C2d0AAD81718b71311feF68a',
@@ -1510,7 +1522,8 @@ export const tokens = {
       'ibBTC is an asset launched in collaboration with DeFiDollar, it stands for Interest Bearing Bitcoin. It was created to serve as the default Bitcoin asset on Ethereum while generating interest to the users who hold it.',
     logoURI:
       'https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/0x2260FAC5E5542a773Aa44fBCfeDf7C193bc2C599/logo.png',
-  },
+    risks: ['SYNTH_ASSET'],
+},
   BNB: {
     name: 'AnySwap Bridge Polygon Binance Coin',
     symbol: 'BNB',
@@ -1695,7 +1708,8 @@ export const tokens = {
     website: 'https://tomb.finance/',
     description:
       'The first algorithmic stablecoin on Fantom Opera, pegged to the price of 1 FTM via seigniorage',
-  },
+    risks: ['SYNTH_ASSET'],
+},
   CLAM: {
     name: 'Otter Clam',
     symbol: 'CLAM',
@@ -1833,7 +1847,8 @@ export const tokens = {
       'hETH is the bridge token for transferring ETH via the Hop Protocol. Hop Protocol is a blockchain bridge protocol that allows users to move tokens from one chain to another without having to wait for a challenge period.',
     logoURI: '',
     documentation: 'https://docs.hop.exchange/',
-  },
+    risks: ['SYNTH_ASSET'],
+},
   hUSDC: {
     name: 'USDC Hop Token',
     symbol: 'hUSDC',
@@ -1872,7 +1887,8 @@ export const tokens = {
       'hDAI is the bridge token for transferring DAI via the Hop Protocol. Hop Protocol is a blockchain bridge protocol that allows users to move tokens from one chain to another without having to wait for a challenge period.',
     logoURI: '',
     documentation: 'https://docs.hop.exchange/',
-  },
+    risks: ['SYNTH_ASSET'],
+},
   amUSDT: {
     name: 'Aave Tether USD',
     symbol: 'amUSDT',
@@ -1973,7 +1989,8 @@ export const tokens = {
     description:
       'Aave interest bearing DAI. Dai is a stablecoin cryptocurrency which aims to keep its value as close to one United States dollar as possible through an automated system of smart contracts on the Ethereum blockchain.',
     bridge: 'native',
-  },
+    risks: ['SYNTH_ASSET'],
+},
   wamDAI: {
     name: 'Wrapped Aave Tether DAI',
     symbol: 'wamDAI',
@@ -1987,7 +2004,8 @@ export const tokens = {
     documentation: 'https://docs.aave.com/developers/v/2.0/the-core-protocol/atokens',
     description:
       'Wrapped Aave interest bearing DAI. Dai is a stablecoin cryptocurrency which aims to keep its value as close to one United States dollar as possible through an automated system of smart contracts on the Ethereum blockchain.',
-  },
+    risks: ['SYNTH_ASSET'],
+},
   bbamDAI: {
     name: 'Balancer Aave DAI Linear Pool',
     symbol: 'bbamDAI',
@@ -2071,7 +2089,8 @@ export const tokens = {
     description:
       'Real USD (USDR) is the world’s first stablecoin collateralized by tokenized, yield-producing real estate. USDR has a value accrual system built into its design. Using a consistent stream of dependable yield derived from rental revenue, Real USD delivers a native yield to holders.',
     logoURI: '',
-  },
+    risks: ['SYNTH_ASSET'],
+},
   multiUSDR: {
     name: 'Real USD',
     symbol: 'USDR',
@@ -2084,7 +2103,8 @@ export const tokens = {
     description:
       'Real USD (USDR) is the world’s first stablecoin collateralized by tokenized, yield-producing real estate. USDR has a value accrual system built into its design. Using a consistent stream of dependable yield derived from rental revenue, Real USD delivers a native yield to holders.',
     logoURI: '',
-  },
+    risks: ['SYNTH_ASSET'],
+},
   wUSDR: {
     name: 'Real USD',
     symbol: 'wUSDR',
@@ -2097,7 +2117,8 @@ export const tokens = {
     description:
       'Real USD (USDR) is the world’s first stablecoin collateralized by tokenized, yield-producing real estate. USDR has a value accrual system built into its design. Using a consistent stream of dependable yield derived from rental revenue, Real USD delivers a native yield to holders.',
     logoURI: '',
-  },
+    risks: ['SYNTH_ASSET'],
+},
   USDR: {
     name: 'Real USD',
     symbol: 'USDR',
@@ -2110,7 +2131,8 @@ export const tokens = {
     description:
       'Real USD (USDR) is the world’s first stablecoin collateralized by tokenized, yield-producing real estate. USDR has a value accrual system built into its design. Using a consistent stream of dependable yield derived from rental revenue, Real USD delivers a native yield to holders.',
     logoURI: '',
-  },
+    risks: ['SYNTH_ASSET'],
+},
   CVR: {
     name: 'CAVIAR',
     symbol: 'CVR',

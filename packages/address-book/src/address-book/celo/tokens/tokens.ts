@@ -115,7 +115,8 @@ export const tokens = {
       'DAI is an Ethereum-based stablecoin (stable-price cryptocurrency) whose issuance and development is managed by the Maker Protocol and the MakerDAO decentralized autonomous organization.',
     logoURI:
       'https://tokens.pancakeswap.finance/images/0x1af3f329e8be154074d8769d1ffa4ee058b1dbc3.png',
-  },
+    risks: ['SYNTH_ASSET'],
+},
   DAI: {
     name: 'Dai Stablecoin',
     symbol: 'DAI',

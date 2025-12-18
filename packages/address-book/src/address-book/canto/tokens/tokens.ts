@@ -171,7 +171,8 @@ export const tokens = {
     website: 'https://app.multichain.org/',
     description: 'Multichain supports to swap BTC to MultiBTC (Multichain BTC) 1:1.',
     documentation: 'https://docs.multichain.org/getting-started/introduction',
-  },
+    risks: ['SYNTH_ASSET'],
+},
   BNB: {
     name: 'Binance Chain',
     symbol: 'BNB',

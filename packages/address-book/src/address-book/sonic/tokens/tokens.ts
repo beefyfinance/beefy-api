@@ -289,7 +289,7 @@ export const tokens = {
       'Rings is a meta-stablecoin for USD & ETH offering competitive yield for stakers, providing deep liquidity for Sonic DeFi, and funding Sonic DeFi projects via its lockers.',
     documentation: 'https://docs.rings.money/',
     bridge: 'layer-zero',
-    risks: ['CURATED'],
+    risks: ['CURATED', 'SYNTH_ASSET'],
   },
   wstkscETH: {
     name: 'Wrapped stkscETH',
@@ -358,7 +358,8 @@ export const tokens = {
       'Staked Frax USD (sfrxUSD) is an ERC4626 staking vault that distributes part of the Frax Protocol yield weekly to stakers denominated in frxUSD stablecoins. The sfrxUSD token represents pro rata deposits within the vault and is always withdrawable for frxUSD stablecoins at the pro rata rate at all times. sfrxUSD APY attempts to roughly track the interest on reserve balances (IORB) rate of the United States Federal Reserve using the IORB oracle. This benchmark rate is generally accepted as the “risk free rate” of the US Dollar. The frxUSD staking vault attempts, but does not guarantee in any way, to target this rate.',
     bridge: 'layer-zero',
     documentation: 'https://docs.frax.finance/',
-  },
+    risks: ['SYNTH_ASSET'],
+},
   mooSiloSonicUSDCe: {
     name: 'Moo Silo Sonic USDCe',
     symbol: 'USDC.e (Silo vault)',
@@ -399,7 +400,7 @@ export const tokens = {
       'Rings is a meta-stablecoin for USD, ETH & BTC offering competitive yield for stakers, providing deep liquidity for Sonic DeFi, and funding Sonic DeFi projects via its lockers.',
     documentation: 'https://docs.rings.money/',
     bridge: 'layer-zero',
-    risks: ['CURATED'],
+    risks: ['CURATED', 'SYNTH_ASSET'],
   },
   GEMS: {
     name: 'Shadow wrapped Gems',
@@ -526,7 +527,7 @@ export const tokens = {
       'Silo scUSD market. Rings is a meta-stablecoin for USD & ETH offering competitive yield for stakers, providing deep liquidity for Sonic DeFi, and funding Sonic DeFi projects via its lockers.',
     documentation: 'https://docs.rings.money/',
     bridge: 'layer-zero',
-    risks: ['CURATED'],
+    risks: ['CURATED', 'SYNTH_ASSET'],
   },
   SiloWETH: {
     name: 'Silo wETH',
@@ -554,7 +555,7 @@ export const tokens = {
       'Silo scETH market. Rings is a meta-stablecoin for USD & ETH offering competitive yield for stakers, providing deep liquidity for Sonic DeFi, and funding Sonic DeFi projects via its lockers.',
     documentation: 'https://docs.rings.money/',
     bridge: 'layer-zero',
-    risks: ['CURATED'],
+    risks: ['CURATED', 'SYNTH_ASSET'],
   },
   beGEMS1: {
     name: 'Beefy Gems Season 1',

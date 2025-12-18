@@ -50,7 +50,8 @@ export const tokens = {
     description:
       'Stabl.fi is a next-generation, yield bearing stable indexcoin protocol. Users mint $CASH by depositing stables into the Stabl protocol. The amount of $CASH in your wallet will continually grow, due to the yield strategies the protocol deposited stables are put in as well as external yielding sources.',
     documentation: 'https://docs.stabl.fi/protocol-overview/introducing-stabl.fi',
-  },
+    risks: ['SYNTH_ASSET'],
+},
   OOEV2: {
     name: 'Open Ocean Finance',
     symbol: 'OOE',
@@ -76,7 +77,8 @@ export const tokens = {
     website: 'https://app.multichain.org/',
     description: 'Multichain supports to swap BTC to MultiBTC (Multichain BTC) 1:1.',
     documentation: 'https://docs.multichain.org/getting-started/introduction',
-  },
+    risks: ['SYNTH_ASSET'],
+},
   multiWUSDR: {
     name: 'Real USD',
     symbol: 'wUSDR',
@@ -90,7 +92,8 @@ export const tokens = {
       'Real USD (USDR) is the world’s first stablecoin collateralized by tokenized, yield-producing real estate. USDR has a value accrual system built into its design. Using a consistent stream of dependable yield derived from rental revenue, Real USD delivers a native yield to holders. The token on BNB Chain is bridged via Multichain from Polygon.',
     bridge: 'multichain',
     logoURI: '',
-  },
+    risks: ['SYNTH_ASSET'],
+},
   wUSDR: {
     name: 'Real USD',
     symbol: 'wUSDR',
@@ -104,7 +107,8 @@ export const tokens = {
       'Real USD (USDR) is the world’s first stablecoin collateralized by tokenized, yield-producing real estate. USDR has a value accrual system built into its design. Using a consistent stream of dependable yield derived from rental revenue, Real USD delivers a native yield to holders. The token on BNB Chain is bridged via Multichain from Polygon.',
     bridge: 'layer-zero',
     logoURI: '',
-  },
+    risks: ['SYNTH_ASSET'],
+},
   PRIMAL: {
     name: 'Primal',
     symbol: 'PRIMAL',
@@ -184,7 +188,8 @@ export const tokens = {
       'DEI is an advanced algorithmic cross-chain fractional-reserve stablecoin, with one native bridge that will connect to all chains within the DEUS ecosystem. The collateral ratio of DEI is constantly monitored and adjusted via arbitrage bots.',
     logoURI: 'https://app.deus.finance/tokens/dei.svg',
     documentation: 'https://docs.deus.finance/',
-  },
+    risks: ['SYNTH_ASSET'],
+},
   ETSAlpha: {
     name: 'ETS Alpha',
     symbol: 'ETS Alpha',
@@ -306,7 +311,7 @@ export const tokens = {
       'Babypie is a liquid staking platform that allows BTC to be staked on Babylon and utilized across DeFi. Bitcoin holders can deposit their native BTC on Babypie to mint mBTC, which is a ERC-20 token pegged to BTC on a 1:1 basis and does not accrue any underlying yield.',
     documentation: 'https://docs.babypiexyz.io/',
     bridge: 'chainlink-ccip',
-    risks: ['NO_TIMELOCK'],
+    risks: ['NO_TIMELOCK', 'SYNTH_ASSET'],
   },
   PENDLE: {
     name: 'Pendle',
@@ -626,7 +631,8 @@ export const tokens = {
     description:
       'Ripae Finance’s full focus is to build a true cross-chain algorithmic stable coin protocol that is stabilized with true use-cases all around the DeFi Ecosystem.',
     logoURI: 'https://bnb.ripae.finance/static/media/ripae_pftm.72dccc11.svg',
-  },
+    risks: ['SYNTH_ASSET'],
+},
   beCAKE: {
     name: 'Beefy Staked CAKE',
     symbol: 'beCAKE',
@@ -650,7 +656,8 @@ export const tokens = {
     website: 'https://busm.money/',
     description:
       'BUSM.Money is explosive! Provide your yield-bearing xBOMB as collateral. Once completed, you will be ableto borrow BOMB US Money (BUSM). From here the sky is the limit! Purchase any token you wish, from more BOMB to another stablecoin!',
-  },
+    risks: ['SYNTH_ASSET'],
+},
   BOMB: {
     name: 'Bomb.Money',
     symbol: 'BOMB',
@@ -662,7 +669,8 @@ export const tokens = {
     website: 'https://app.bomb.money/',
     description:
       'BOMB is pegged via algorithm to a 10,000:1 ratio to BTC. $100k BTC = $10 BOMB PEG',
-  },
+    risks: ['SYNTH_ASSET'],
+},
   BSHARE: {
     name: 'BSHARE',
     symbol: 'BSHARE',
@@ -797,7 +805,8 @@ export const tokens = {
     website: 'https://emp.money/',
     description:
       'EMP Money offers the first decentralised algorithmic stable coin on Binance Smartchain, pegged to the price of Ethereum via seigniorage at a rate of 4000 EMP: 1 ETH.',
-  },
+    risks: ['SYNTH_ASSET'],
+},
   ESHARE: {
     name: 'EMP.Money Shares',
     symbol: 'ESHARE',
@@ -934,7 +943,8 @@ export const tokens = {
     logoURI: 'https://www.dibs.money/static/media/dibs.01460d5a.png',
     website: 'https://www.dibs.money/',
     description: 'DIBS is a stablecoin pegged to the price of BNB.',
-  },
+    risks: ['SYNTH_ASSET'],
+},
   AOT: {
     name: 'A.O.T.',
     symbol: 'AOT',
@@ -970,7 +980,8 @@ export const tokens = {
     logoURI: 'https://www.chargedefi.fi/static/media/static.180ec003.png',
     website: 'https://www.chargedefi.fi/',
     description: 'Algorithmic Stablecoin ecosystem with rebase mechanics.',
-  },
+    risks: ['SYNTH_ASSET'],
+},
   CHARGE: {
     name: 'CHARGE',
     symbol: 'CHARGE',
@@ -981,7 +992,8 @@ export const tokens = {
     logoURI: 'https://www.chargedefi.fi/static/media/charge.53089c19.png',
     website: 'https://www.chargedefi.fi/',
     description: 'Algorithmic Stablecoin ecosystem with rebase mechanics.',
-  },
+    risks: ['SYNTH_ASSET'],
+},
   BISON: {
     name: 'Bison',
     symbol: 'BISON',
@@ -1319,7 +1331,8 @@ export const tokens = {
     logoURI: 'https://www.rampdefi.com/icons/ramp_v4.svg',
     description: 'Ramp Defi USD pegged token',
     website: 'https://www.rampdefi.com/',
-  },
+    risks: ['SYNTH_ASSET'],
+},
   BP: {
     name: 'Bunny Park',
     symbol: 'BP',
@@ -1698,7 +1711,8 @@ export const tokens = {
       'Hacken Token (HAI) is a cybersecurity coin underlying the rapidly growing Hacken Foundation. Hacken Foundation is a fully fledged organization that unites cybersecurity products and companies developing secure Web 3.0 infrastructure.',
     logoURI:
       'https://tokens.pancakeswap.finance/images/0xaA9E582e5751d703F85912903bacADdFed26484C.png',
-  },
+    risks: ['SYNTH_ASSET'],
+},
   O3: {
     name: 'O3',
     symbol: 'O3',
@@ -1830,7 +1844,8 @@ export const tokens = {
     description:
       'SOUP tokens are designed to be used as a medium of exchange. The built-in stability mechanism in the protocol aims to maintain SOUP peg to 1 Binance (BNB) token in the long run.',
     logoURI: 'https://bscscan.com/token/images/soupfinance_32.png',
-  },
+    risks: ['SYNTH_ASSET'],
+},
   '1INCH': {
     name: '1INCH',
     symbol: '1INCH',
@@ -2512,7 +2527,8 @@ export const tokens = {
       'Mirrored COIN (mCOIN) is a synthetic asset tracking the price of a Coinbase stock.',
     logoURI:
       'https://tokens.pancakeswap.finance/images/0x49022089e78a8d46ec87a3af86a1db6c189afa6f.png',
-  },
+    risks: ['SYNTH_ASSET'],
+},
   MDX: {
     name: 'MDEX Token',
     symbol: 'MDX',
@@ -3048,7 +3064,8 @@ export const tokens = {
     description: 'USDX is the crypto-backed native stablecoin of the Kava DeFi hub.',
     logoURI:
       'https://tokens.pancakeswap.finance/images/0x1203355742e76875154c0d13eb81dcd7711dc7d9.png',
-  },
+    risks: ['SYNTH_ASSET'],
+},
   INJ: {
     name: 'Injective Protocol',
     symbol: 'INJ',
@@ -3450,7 +3467,8 @@ export const tokens = {
     description: 'LUSD is the USD-pegged stablecoin used to pay out loans on the Liquity protocol.',
     logoURI:
       'https://tokens.pancakeswap.finance/images/0x23e8a70534308a4AAF76fb8C32ec13d17a3BD89e.png',
-  },
+    risks: ['SYNTH_ASSET'],
+},
   SFP: {
     name: 'SafePal Token',
     symbol: 'SFP',
@@ -3489,7 +3507,8 @@ export const tokens = {
       'RenBTC is an ERC-20 token built on the Ethereum network, pegged to Bitcoin. This means that each RenBTC can be always redeemed for one Bitcoin, and hence tends to maintain its value at close to the Bitcoin market rate.',
     logoURI:
       'https://tokens.pancakeswap.finance/images/0xfCe146bF3146100cfe5dB4129cf6C82b0eF4Ad8c.png',
-  },
+    risks: ['SYNTH_ASSET'],
+},
   renDOGE: {
     name: 'renDOGE',
     symbol: 'renDOGE',
@@ -3502,7 +3521,8 @@ export const tokens = {
       'RenDOGE is an ERC-20 token built on the Ethereum network, pegged to Dogecoin. This means that each RenDoge can be always redeemed for one Dogecoin, and hence tends to maintain its value at close to the Dogecoin market rate.',
     logoURI:
       'https://tokens.pancakeswap.finance/images/0xc3fed6eb39178a541d274e6fc748d48f0ca01cc3.png',
-  },
+    risks: ['SYNTH_ASSET'],
+},
   anyMTLX: {
     name: 'anyMTLX',
     symbol: 'anyMTLX',
@@ -3591,7 +3611,8 @@ export const tokens = {
       'RenZEC is an ERC-20 token built on the Ethereum network, pegged to ZCash. This means that each RenZEC can be always redeemed for one ZCash, and hence tends to maintain its value at close to the ZCash market rate.',
     logoURI:
       'https://tokens.pancakeswap.finance/images/0x695FD30aF473F2960e81Dc9bA7cB67679d35EDb7.png',
-  },
+    risks: ['SYNTH_ASSET'],
+},
   IOTX: {
     name: 'IoTeX',
     symbol: 'IOTX',
@@ -3811,7 +3832,8 @@ export const tokens = {
     description: 'pBTC is a 1:1 pegged ERC777 Bitcoin representation on Ethereum.',
     logoURI:
       'https://tokens.pancakeswap.finance/images/0xed28a457a5a76596ac48d87c0f577020f6ea1c4c.png',
-  },
+    risks: ['SYNTH_ASSET'],
+},
   MIR: {
     name: 'Mirror Finance',
     symbol: 'MIR',
@@ -4091,7 +4113,8 @@ export const tokens = {
     website: 'https://diamondhand.fi/',
     description: 'dBTC is a synthetic token pegged to BTC developed by Diamonhand.fi.',
     logoURI: 'https://app.iron.finance/static/media/DBTC.2bb24d53.png',
-  },
+    risks: ['SYNTH_ASSET'],
+},
   dBNB: {
     name: 'Diamond-Peg BNB',
     symbol: 'dBNB',
@@ -4102,7 +4125,8 @@ export const tokens = {
     website: 'https://diamondhand.fi/',
     description: 'dBNB is a synthetic token pegged to BNB developed by Diamonhand.fi.',
     logoURI: 'https://app.iron.finance/static/media/DBNB.57de3f13.png',
-  },
+    risks: ['SYNTH_ASSET'],
+},
   dETH: {
     name: 'Diamond-Peg ETH',
     symbol: 'dETH',
@@ -4113,7 +4137,8 @@ export const tokens = {
     website: 'https://diamondhand.fi/',
     description: 'dETH is a synthetic token pegged to ETH developed by Diamonhand.fi.',
     logoURI: 'https://app.iron.finance/static/media/DETH.4802e6eb.png',
-  },
+    risks: ['SYNTH_ASSET'],
+},
   dADA: {
     name: 'Diamond-Peg ADA',
     symbol: 'dADA',
@@ -4124,7 +4149,8 @@ export const tokens = {
     website: 'https://diamondhand.fi/',
     description: 'dADA is a synthetic token pegged to ADA developed by Diamonhand.fi.',
     logoURI: 'https://app.iron.finance/static/media/DADA.d9b1a86c.png',
-  },
+    risks: ['SYNTH_ASSET'],
+},
   dDOT: {
     name: 'Diamond-Peg DOT',
     symbol: 'dDOT',
@@ -4135,7 +4161,8 @@ export const tokens = {
     website: 'https://diamondhand.fi/',
     description: 'dDOT is a synthetic token pegged to DOT developed by Diamonhand.fi.',
     logoURI: '',
-  },
+    risks: ['SYNTH_ASSET'],
+},
   KROWN: {
     name: 'Krown',
     symbol: 'KRW',
@@ -4738,7 +4765,8 @@ export const tokens = {
     logoURI: '',
     documentation: 'https://docs.stafi.io/',
     bridge: 'native',
-  },
+    risks: ['SYNTH_ASSET'],
+},
   voldBIFI: {
     name: 'Venus BIFI',
     symbol: 'oldBIFI',
