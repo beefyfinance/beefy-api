@@ -606,7 +606,6 @@ export const tokens = {
     bridge: 'optimism-canonical',
     logoURI: '',
     documentation: 'https://docs.rocketpool.net/guides/',
-    risks: ['SYNTH_ASSET'],
 },
   'bbUSD+': {
     name: 'Beets Composable Pool USD+ Stablecoin',

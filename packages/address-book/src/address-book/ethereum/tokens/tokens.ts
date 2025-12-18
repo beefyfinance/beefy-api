@@ -643,7 +643,6 @@ export const tokens = {
     bridge: 'native',
     logoURI: '',
     documentation: 'https://docs.rocketpool.net/guides/',
-    risks: ['SYNTH_ASSET'],
 },
   USDT: {
     name: 'Tether USD',

@@ -514,7 +514,6 @@ export const tokens = {
     bridge: 'base-canonical',
     logoURI: '',
     documentation: 'https://docs.rocketpool.net/guides/',
-    risks: ['SYNTH_ASSET'],
 },
   FTW: {
     name: 'FriendTech33',

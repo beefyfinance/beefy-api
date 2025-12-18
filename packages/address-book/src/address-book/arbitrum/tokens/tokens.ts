@@ -455,6 +455,7 @@ export const tokens = {
     bridge: 'hop',
     logoURI: '',
     documentation: 'https://docs.hop.exchange/',
+    risks: ['SYNTH_ASSET'],
   },
   hMAGIC: {
     name: 'MAGIC Hop Token',
