@@ -45,6 +45,7 @@ export const tokens = {
     chainId: 34443,
     logoURI: '',
     documentation: 'https://www.circle.com/en/usdc-multichain/arbitrum',
+    tags: ['STABLECOIN'],
   },
   USDT: {
     name: 'USDT',
@@ -59,6 +60,7 @@ export const tokens = {
     bridge: 'mode-canonical',
     logoURI: '',
     documentation: 'https://tether.to/en/how-it-works',
+    tags: ['STABLECOIN'],
   },
   ezETH: {
     name: 'Renzo Restaked ETH',

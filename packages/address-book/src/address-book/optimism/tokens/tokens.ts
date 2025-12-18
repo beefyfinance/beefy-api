@@ -155,6 +155,7 @@ export const tokens = {
     documentation: 'https://www.circle.com/blog/now-available-usdc-on-op-mainnet',
     description: 'USDC.e is an Ethereum-based USDC bridged via the official Optimism Bridge.',
     bridge: 'optimism-canonical',
+    tags: ['STABLECOIN'],
   },
   USDC: {
     name: 'USD Coin',
@@ -168,6 +169,7 @@ export const tokens = {
     description:
       'USDC is a fully collateralized US dollar stablecoin. USDC is issued by regulated financial institutions, backed by fully reserved assets, redeemable on a 1:1 basis for US dollars.',
     bridge: 'native',
+    tags: ['STABLECOIN'],
   },
   sUSD: {
     name: 'Synth sUSD',
@@ -385,6 +387,7 @@ export const tokens = {
     description:
       'USDC is a fully collateralized US dollar stablecoin. USDC is issued by regulated financial institutions, backed by fully reserved assets, redeemable on a 1:1 basis for US dollars.',
     documentation: 'https://stargateprotocol.gitbook.io/stargate/v/user-docs/',
+    tags: ['STABLECOIN'],
   },
   soETH: {
     name: 'Stargate Ethereum LP',
@@ -705,6 +708,7 @@ export const tokens = {
     website: 'https://www.trueusd.com/',
     description:
       'TrueUSD (TUSD) is the first independently-verified digital asset redeemable 1-for-1 for US Dollars.',
+    tags: ['STABLECOIN'],
   },
   BOND: {
     name: 'BarnBridge Governance Token (Optimism)',
@@ -917,6 +921,7 @@ export const tokens = {
     logoURI:
       'https://tokens.pancakeswap.finance/images/0x55d398326f99059ff775485246999027b3197955.png',
     documentation: 'https://tether.to/en/how-it-works',
+    tags: ['STABLECOIN'],
   },
   wstETH: {
     name: 'Lido Wrapped Staked ETH',
@@ -1509,6 +1514,7 @@ export const tokens = {
     description:
       'Aave interest bearing native USDC. USDC is a fully collateralized US dollar stablecoin. USDC is issued by regulated financial institutions, backed by fully reserved assets, redeemable on a 1:1 basis for US dollars.',
     staked: true,
+    tags: ['STABLECOIN'],
   },
   aOptUSDC: {
     name: 'Aave Optimism USDC',
@@ -1523,6 +1529,7 @@ export const tokens = {
     description:
       'Aave interest bearing USDC. USDC is a fully collateralized US dollar stablecoin. USDC is issued by regulated financial institutions, backed by fully reserved assets, redeemable on a 1:1 basis for US dollars.',
     staked: true,
+    tags: ['STABLECOIN'],
   },
   wrsETH: {
     name: 'rsETHWrapper',
@@ -1596,6 +1603,7 @@ export const tokens = {
     description:
       'The USDM token is a rebasing ERC20 token, redeemable at a pegged 1:1 USD value by primary users. USDM is a fully backed stablecoin, backed by "USDM Reserves", which are held under custody with regulated financial institutions in bankruptcy-remote accounts, segregated from the Company\'s operating accounts, on behalf of, and for the benefit of, Users.',
     bridge: 'native',
+    tags: ['STABLECOIN'],
   },
   USDe: {
     name: 'USDe',
@@ -1772,7 +1780,7 @@ export const tokens = {
     website: 'https://mountainprotocol.com/',
     documentation: 'https://docs.mountainprotocol.com/',
     bridge: 'native',
-    tags: ['NO_TIMELOCK'],
+    tags: ['NO_TIMELOCK', 'STABLECOIN'],
   },
   ALCX: {
     name: 'Alchemix',
@@ -1899,6 +1907,7 @@ export const tokens = {
     bridge: 'native',
     logoURI: '',
     documentation: 'https://ethereum.org/en/developers/docs/',
+    tags: ['STABLECOIN'],
   },
   sfrxUSD: {
     chainId: 10,

@@ -283,6 +283,7 @@ export const tokens = {
     description:
       'axlUSDC is a cross-chain representation of USDC, secured by a validator set using delegated Proof-of-Stake and multi-party cryptography. It allows USDC to move seamlessly across different blockchain ecosystems, minted by depositing USDC into an Axelar Gateway on Ethereum, and can be acquired through DEXs, cross-chain swaps via Squid, or bridging via Satellite.money.',
     documentation: 'https://docs.axelar.dev/learn/axlusdc',
+    tags: ['STABLECOIN'],
   },
   axlUSDT: {
     name: 'USDT',
@@ -297,6 +298,7 @@ export const tokens = {
       'axlUSDT is a cross-chain representation of USDT, secured by a validator set using delegated Proof-of-Stake and multi-party cryptography. It allows USDT to move seamlessly across different blockchain ecosystems, minted by depositing USDT into an Axelar Gateway on Ethereum, and can be acquired through DEXs, cross-chain swaps via Squid, or bridging via Satellite.money.',
     logoURI: 'https://hecoinfo.com/token/images/USDTHECO_32.png',
     bridge: 'axelar',
+    tags: ['STABLECOIN'],
   },
   OGRE: {
     name: 'SHREKT',
@@ -324,6 +326,7 @@ export const tokens = {
     logoURI: '',
     documentation: 'https://www.circle.com/blog/usdc-now-available-natively-on-base',
     bridge: 'base-canonical',
+    tags: ['STABLECOIN'],
   },
   USDC: {
     name: 'USD Circle',
@@ -338,6 +341,7 @@ export const tokens = {
     logoURI: '',
     documentation: 'https://developers.circle.com/docs',
     bridge: 'native',
+    tags: ['STABLECOIN'],
   },
   DAI: {
     name: 'DAI Stablecoin',
@@ -1180,6 +1184,7 @@ export const tokens = {
     description:
       'Tether is a stablecoin pegged to the US Dollar. A stablecoin is a type of cryptocurrency whose value is pegged to another fiat currency like the US Dollar or to a commodity like Gold. Tether is the first stablecoin to be created and it is the most popular stablecoin used in the ecosystem.',
     bridge: 'base-canonical',
+    tags: ['STABLECOIN'],
   },
   UNI: {
     name: 'Uniswap',
@@ -1331,6 +1336,7 @@ export const tokens = {
       'EURC is a euro-backed stablecoin that’s accessible globally on Avalanche, Ethereum, Base and Stellar. Similar to USDC, EURC is issued by Circle under a full-reserve model.',
     website: 'https://www.circle.com/en/eurc',
     bridge: 'native',
+    tags: ['STABLECOIN'],
   },
   PEPE: {
     name: 'BasedPepe',
@@ -2462,7 +2468,7 @@ export const tokens = {
       'CADC is a fully reserved CAD dollar stablecoin issued by Paytrie, redeemable 1:1 for Canadian dollars',
     documentation: 'https://faq.paytrie.com/help',
     bridge: 'native',
-    tags: ['NO_TIMELOCK'],
+    tags: ['NO_TIMELOCK', 'STABLECOIN'],
   },
   yTRYB: {
     name: 'Yield TRYB',
@@ -2537,7 +2543,7 @@ export const tokens = {
       'OpenUSDT is a future-proof interoperable USDT stablecoin for the OP Superchain enabling shared liquidity and interchain applications.',
     documentation: 'https://docs.openusdt.xyz/',
     bridge: 'chainlink-ccip',
-    tags: ['NO_TIMELOCK'],
+    tags: ['NO_TIMELOCK', 'STABLECOIN'],
   },
   GHO: {
     name: 'GHO Token',
@@ -2581,6 +2587,7 @@ export const tokens = {
     chainId: 8453,
     logoURI: 'https://ftmscan.com/token/images/USDC_32.png',
     documentation: 'https://www.circle.com/en/usdc-multichain/base',
+    tags: ['STABLECOIN'],
   },
   'Base is for everyone': {
     name: 'Base is for everyone',
@@ -2649,6 +2656,7 @@ export const tokens = {
     bridge: 'native',
     logoURI: 'https://ftmscan.com/token/images/USDC_32.png',
     documentation: 'https://www.circle.com/en/usdc-multichain/base',
+    tags: ['STABLECOIN'],
   },
   sUSDS: {
     name: 'Savings USDS',

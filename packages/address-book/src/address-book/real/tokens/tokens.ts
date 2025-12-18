@@ -31,6 +31,7 @@ export const tokens = {
     bridge: 'real-canonical',
     chainId: 111188,
     documentation: 'https://developers.circle.com/docs',
+    tags: ['STABLECOIN'],
   },
   DAI: {
     name: 'DAI Stablecoin',

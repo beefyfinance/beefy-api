@@ -261,6 +261,7 @@ export const tokens = {
     description:
       'USDC is a fully collateralized US dollar stablecoin. USDC is issued by regulated financial institutions, backed by fully reserved assets, redeemable on a 1:1 basis for US dollars.',
     bridge: 'cronos-canonical',
+    tags: ['STABLECOIN'],
   },
   ETH: {
     name: 'Ethereum',
@@ -316,6 +317,7 @@ export const tokens = {
     logoURI:
       'https://app.cronaswap.org/images/tokens/0x66e428c3f67a68878562e79A0234c1F83c208770.svg',
     documentation: 'https://tether.to/en/how-it-works',
+    tags: ['STABLECOIN'],
   },
   DAI: {
     name: 'DAI Token',

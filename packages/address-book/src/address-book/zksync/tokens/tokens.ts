@@ -89,6 +89,7 @@ export const tokens = {
     description:
       'USDC is a fully collateralized US dollar stablecoin. USDC is issued by regulated financial institutions, backed by fully reserved assets, redeemable on a 1:1 basis for US dollars.',
     bridge: 'zksync-canonical',
+    tags: ['STABLECOIN'],
   },
   BUSD: {
     name: 'Binance USD',
@@ -172,6 +173,7 @@ export const tokens = {
     description:
       'USDC is a fully collateralized US dollar stablecoin. USDC is issued by regulated financial institutions, backed by fully reserved assets, redeemable on a 1:1 basis for US dollars.',
     bridge: 'native',
+    tags: ['STABLECOIN'],
   },
   USDT: {
     name: 'Tether USD',
@@ -186,5 +188,6 @@ export const tokens = {
     description:
       'Tether converts cash into digital currency, to anchor or tether the value to the price of national currencies like the US dollar, the Euro, and the offshore Chinese yuan.',
     bridge: 'zksync-canonical',
+    tags: ['STABLECOIN'],
   },
 } as const satisfies Record<string, Token>;

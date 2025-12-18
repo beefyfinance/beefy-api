@@ -137,6 +137,7 @@ export const tokens = {
     description:
       'axlUSDC is a cross-chain representation of USDC, secured by a validator set using delegated Proof-of-Stake and multi-party cryptography. It allows USDC to move seamlessly across different blockchain ecosystems, minted by depositing USDC into an Axelar Gateway on Ethereum, and can be acquired through DEXs, cross-chain swaps via Squid, or bridging via Satellite.money.',
     documentation: 'https://docs.axelar.dev/learn/axlusdc',
+    tags: ['STABLECOIN'],
   },
   axlUSDT: {
     name: 'USDT',
@@ -151,6 +152,7 @@ export const tokens = {
       'axlUSDT is a cross-chain representation of USDT, secured by a validator set using delegated Proof-of-Stake and multi-party cryptography. It allows USDT to move seamlessly across different blockchain ecosystems, minted by depositing USDT into an Axelar Gateway on Ethereum, and can be acquired through DEXs, cross-chain swaps via Squid, or bridging via Satellite.money.',
     logoURI: 'https://hecoinfo.com/token/images/USDTHECO_32.png',
     bridge: 'axelar',
+    tags: ['STABLECOIN'],
   },
   axlDAI: {
     name: 'Axelar Dai Stablecoin',

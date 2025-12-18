@@ -2042,6 +2042,7 @@ export const tokens = {
     description:
       'axlUSDC is a cross-chain representation of USDC, secured by a validator set using delegated Proof-of-Stake and multi-party cryptography. It allows USDC to move seamlessly across different blockchain ecosystems, minted by depositing USDC into an Axelar Gateway on Ethereum, and can be acquired through DEXs, cross-chain swaps via Squid, or bridging via Satellite.money.',
     documentation: 'https://docs.axelar.dev/learn/axlusdc',
+    tags: ['STABLECOIN'],
   },
   ankrETH: {
     name: 'Ankr Staked ETH',
@@ -2070,6 +2071,7 @@ export const tokens = {
     description:
       "Layer Zero USDC leverages Stargate's smart contract endpoints on Ethereum and Fantom to transfer tokens seamlessly between the two chains, locking and minting tokens as needed for cross-chain liquidity. This mechanism ensures efficient and secure interoperability while preserving the value of USDC across different blockchains.",
     documentation: 'https://layerzero.gitbook.io/docs/',
+    tags: ['STABLECOIN'],
   },
   lzUSDT: {
     name: 'Tether USD',
@@ -2084,6 +2086,7 @@ export const tokens = {
     description:
       "Layer Zero USDT leverages Stargate's smart contract endpoints on Ethereum and Fantom to transfer tokens seamlessly between the two chains, locking and minting tokens as needed for cross-chain liquidity. This mechanism ensures efficient and secure interoperability while preserving the value of USDT across different blockchains.",
     documentation: 'https://layerzero.gitbook.io/docs/',
+    tags: ['STABLECOIN'],
   },
   lzWETH: {
     name: 'Wrapped Ether',

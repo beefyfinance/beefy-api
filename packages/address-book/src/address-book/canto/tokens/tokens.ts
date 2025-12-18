@@ -90,6 +90,7 @@ export const tokens = {
     chainId: 7700,
     logoURI: '',
     documentation: 'https://developers.circle.com/docs',
+    tags: ['STABLECOIN'],
   },
   USDT: {
     name: 'USDT',
@@ -104,6 +105,7 @@ export const tokens = {
     bridge: 'gravity',
     logoURI: '',
     documentation: 'https://tether.to/en/how-it-works',
+    tags: ['STABLECOIN'],
   },
   FLOWV1: {
     name: 'Velocimeter',

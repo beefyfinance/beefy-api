@@ -74,6 +74,7 @@ export const tokens = {
       'USDC is a fully collateralized US dollar stablecoin. USDC is issued by regulated financial institutions, backed by fully reserved assets, redeemable on a 1:1 basis for US dollars.',
     documentation: '',
     bridge: 'layerzero',
+    tags: ['STABLECOIN'],
   },
   BYUSD: {
     name: 'Bera pyUSD',
@@ -88,6 +89,7 @@ export const tokens = {
       'Bera LayerZero Bridged PYUSD. PayPal USD (PYUSD) is a stablecoin backed by secure and highly liquid assets.',
     documentation: '',
     bridge: 'layerzero',
+    tags: ['STABLECOIN'],
   },
   WBTC: {
     name: 'Wrapped BTC',

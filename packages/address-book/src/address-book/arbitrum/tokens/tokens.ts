@@ -57,6 +57,7 @@ export const tokens = {
     chainId: 42161,
     logoURI: 'https://ftmscan.com/token/images/USDC_32.png',
     documentation: 'https://www.circle.com/en/usdc-multichain/arbitrum',
+    tags: ['STABLECOIN'],
   },
   arbUSDCe: {
     name: 'USD Coin',
@@ -70,6 +71,7 @@ export const tokens = {
     chainId: 42161,
     logoURI: 'https://ftmscan.com/token/images/USDC_32.png',
     documentation: 'https://developers.circle.com/docs',
+    tags: ['STABLECOIN'],
   },
   ARX: {
     name: 'Arbitrum Exchange',
@@ -180,6 +182,7 @@ export const tokens = {
     bridge: 'native',
     logoURI: 'https://hecoinfo.com/token/images/USDTHECO_32.png',
     documentation: 'https://tether.to/en/how-it-works',
+    tags: ['STABLECOIN'],
   },
   gOHM: {
     name: 'Governance OHM',
@@ -234,6 +237,7 @@ export const tokens = {
     description:
       'USDC is a fully collateralized US dollar stablecoin. USDC is issued by regulated financial institutions, backed by fully reserved assets, redeemable on a 1:1 basis for US dollars.',
     documentation: 'https://stargateprotocol.gitbook.io/stargate/v/user-docs/',
+    tags: ['STABLECOIN'],
   },
   sarUSDT: {
     name: 'Stargate Tether USD LP',
@@ -248,6 +252,7 @@ export const tokens = {
     description:
       'Tether is a stablecoin pegged to the US Dollar. A stablecoin is a type of cryptocurrency whose value is pegged to another fiat currency like the US Dollar or to a commodity like Gold. Tether is the first stablecoin to be created and it is the most popular stablecoin used in the ecosystem.',
     documentation: 'https://stargateprotocol.gitbook.io/stargate/v/user-docs/',
+    tags: ['STABLECOIN'],
   },
   sarETH: {
     name: 'Stargate Ethereum LP',
@@ -624,6 +629,7 @@ export const tokens = {
     website: 'https://www.trueusd.com/',
     description:
       'TrueUSD (TUSD) is the first independently-verified digital asset redeemable 1-for-1 for US Dollars.',
+    tags: ['STABLECOIN'],
   },
   GNS: {
     name: 'Gains Network Token',
@@ -1064,6 +1070,7 @@ export const tokens = {
     description:
       'Balancer linear pool that consist of 50/50 USDT and wrapped Aave Interest Bearing USDT.',
     bridge: 'native',
+    tags: ['STABLECOIN'],
   },
   bbaaUSDTV2: {
     name: 'Balancer Aave USDT Linear Pool',
@@ -1079,6 +1086,7 @@ export const tokens = {
     description:
       'Balancer linear pool that consist of 50/50 USDT and wrapped Aave Interest Bearing USDT.',
     bridge: 'native',
+    tags: ['STABLECOIN'],
   },
   aaUSDC: {
     name: 'Aave USDC',
@@ -1094,6 +1102,7 @@ export const tokens = {
     description:
       'Aave interest bearing USDC. USDC is a fully collateralized US dollar stablecoin. USDC is issued by regulated financial institutions, backed by fully reserved assets, redeemable on a 1:1 basis for US dollars.',
     staked: true,
+    tags: ['STABLECOIN'],
   },
   waaUSDC: {
     name: 'Wrapped Aave Tether USD',
@@ -1123,6 +1132,7 @@ export const tokens = {
     description:
       'Aave interest bearing native USDC. USDC is a fully collateralized US dollar stablecoin. USDC is issued by regulated financial institutions, backed by fully reserved assets, redeemable on a 1:1 basis for US dollars.',
     staked: true,
+    tags: ['STABLECOIN'],
   },
   bbaaUSDC: {
     name: 'Balancer Aave USDC Linear Pool',
@@ -1138,6 +1148,7 @@ export const tokens = {
     description:
       'Balancer linear pool that consist of 50/50 USDC and wrapped Aave Interest Bearing USDC.',
     bridge: 'arbitrum-canonical',
+    tags: ['STABLECOIN'],
   },
   bbaaUSDCV2: {
     name: 'Balancer Aave USDC Linear Pool',
@@ -1153,6 +1164,7 @@ export const tokens = {
     description:
       'Balancer linear pool that consist of 50/50 USDC and wrapped Aave Interest Bearing USDC.',
     bridge: 'arbitrum-canonical',
+    tags: ['STABLECOIN'],
   },
   aaDAI: {
     name: 'Aave DAI',
@@ -1354,6 +1366,7 @@ export const tokens = {
     description: ' ',
     bridge: 'native',
     staked: true,
+    tags: ['STABLECOIN'],
   },
   LODE: {
     name: 'Lodestar',
@@ -1650,7 +1663,7 @@ export const tokens = {
     description:
       'The USDM token is a rebasing ERC20 token, redeemable at a pegged 1:1 USD value by primary users. USDM is a fully backed stablecoin, backed by "USDM Reserves", which are held under custody with regulated financial institutions in bankruptcy-remote accounts, segregated from the Company\'s operating accounts, on behalf of, and for the benefit of, Users.',
     bridge: 'native',
-    tags: ['NO_TIMELOCK'],
+    tags: ['NO_TIMELOCK', 'STABLECOIN'],
   },
   PENDLE: {
     name: 'Pendle',
@@ -1740,6 +1753,7 @@ export const tokens = {
       'Aave interest bearing native USDC. USDC is a fully collateralized US dollar stablecoin. USDC is issued by regulated financial institutions, backed by fully reserved assets, redeemable on a 1:1 basis for US dollars.',
     staked: true,
     bridge: 'native',
+    tags: ['STABLECOIN'],
   },
   stataArbUSDTn: {
     name: 'Static Aave Arbitrum USDTn',
@@ -1755,6 +1769,7 @@ export const tokens = {
       'Aave interest bearing USDT. Tether is a stablecoin pegged to the US Dollar. A stablecoin is a type of cryptocurrency whose value is pegged to another fiat currency like the US Dollar or to a commodity like Gold. Tether is the first stablecoin to be created and it is the most popular stablecoin used in the ecosystem.',
     staked: true,
     bridge: 'native',
+    tags: ['STABLECOIN'],
   },
   'ETH+': {
     name: 'ETHPlus',
@@ -2118,7 +2133,7 @@ export const tokens = {
     description:
       'The wUSDM token is the wrapped version of USDM, redeemable at a pegged 1:1 USD value by primary users. USDM is a fully backed stablecoin, backed by "USDM Reserves", which are held under custody with regulated financial institutions in bankruptcy-remote accounts, segregated from the Company\'s operating accounts, on behalf of, and for the benefit of, Users.',
     bridge: 'native',
-    tags: ['NO_TIMELOCK'],
+    tags: ['NO_TIMELOCK', 'STABLECOIN'],
   },
   USDx: {
     name: 'Synthetix USD',
@@ -2342,6 +2357,7 @@ export const tokens = {
     documentation: 'https://monerium.dev/',
     description:
       'EURe is a Euro stable-coin from Monerium. Monerium is the first company authorized to issue money on blockchains under European financial regulation. They have issued EUR, USD, GBP, and ISK as e-money tokens on Ethereum and EUR on Algorand. Monerium also operates a gateway for instant transfers of EUR between bank accounts and blockchain wallets/smart contracts.',
+    tags: ['STABLECOIN'],
   },
   Bold: {
     name: 'Bold Stablecoin',
@@ -2399,6 +2415,7 @@ export const tokens = {
       'Wrapped Aave Staked USDC. USDC is a fully collateralized US dollar stablecoin. USDC is issued by regulated financial institutions, backed by fully reserved assets, redeemable on a 1:1 basis for US dollars.',
     documentation: 'https://www.centre.io/',
     bridge: 'native',
+    tags: ['STABLECOIN'],
   },
   waArbUSDT: {
     name: 'Wrapped Aave Staked USDT',
@@ -2413,6 +2430,7 @@ export const tokens = {
     bridge: 'native',
     logoURI: '',
     documentation: 'https://tether.to/en/how-it-works',
+    tags: ['STABLECOIN'],
   },
   waArbGHO: {
     name: 'Wrapped Aave Staked GHO',

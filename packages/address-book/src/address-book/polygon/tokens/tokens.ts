@@ -459,6 +459,7 @@ export const tokens = {
     bridge: 'polygon-canonical',
     logoURI:
       'https://assets.coingecko.com/coins/images/17385/small/Tether_full_logo_dm.png?1627537298',
+    tags: ['STABLECOIN'],
   },
   renBTC: {
     name: 'renBTC',
@@ -512,6 +513,7 @@ export const tokens = {
     description:
       'XSGD is the digital Singapore Dollar running on the Ethereum and Zilliqa blockchains.',
     logoURI: '',
+    tags: ['STABLECOIN'],
   },
   jSGD: {
     name: 'Jarvis Synthetic Singapore Dollar',
@@ -669,6 +671,7 @@ export const tokens = {
     website: 'https://paytrie.com/cadc',
     description: 'CADC is a fully-backed stable coin for the Canadian Dollar, issued by PayTrie.',
     logoURI: 'https://assets.coingecko.com/coins/images/14149/small/cadc_2.png?1614666625',
+    tags: ['STABLECOIN'],
   },
   jCAD: {
     name: 'Jarvis Synthetic Canadian Dollar',
@@ -733,6 +736,7 @@ export const tokens = {
     description:
       'TrueUSD is one of a number of cryptocurrency stablecoins administered by TrustToken, a platform for tokenizing real-world assets.',
     logoURI: 'https://s2.coinmarketcap.com/static/img/coins/200x200/2563.png',
+    tags: ['STABLECOIN'],
   },
   WCRO: {
     name: 'WCRO',
@@ -1268,7 +1272,7 @@ export const tokens = {
     chainId: 137,
     logoURI:
       'https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48/logo.png',
-    tags: ['SYNTHETIC'],
+    tags: ['SYNTHETIC', 'STABLECOIN'],
   },
   USDC: {
     name: 'USD Coin',
@@ -1284,6 +1288,7 @@ export const tokens = {
     logoURI:
       'https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48/logo.png',
     documentation: 'https://developers.circle.com/docs',
+    tags: ['STABLECOIN'],
   },
   USDT: {
     name: 'USDT0',
@@ -1299,6 +1304,7 @@ export const tokens = {
     logoURI:
       'https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/0xdAC17F958D2ee523a2206206994597C13D831ec7/logo.png',
     documentation: 'https://tether.to/en/how-it-works',
+    tags: ['STABLECOIN'],
   },
   VISION: {
     name: 'Vision Token',
@@ -1821,6 +1827,7 @@ export const tokens = {
     website: 'https://monerium.com/',
     description:
       'EURe is a Euro stable-coin from Monerium. Monerium is the first company authorized to issue money on blockchains under European financial regulation. They have issued EUR, USD, GBP, and ISK as e-money tokens on Ethereum and EUR on Algorand. Monerium also operates a gateway for instant transfers of EUR between bank accounts and blockchain wallets/smart contracts.',
+    tags: ['STABLECOIN'],
   },
   HOP: {
     name: 'HOP Protocol',
@@ -1931,6 +1938,7 @@ export const tokens = {
     documentation: 'https://docs.balancer.fi/products/balancer-pools/boosted-pools',
     description:
       'Balancer linear pool that consist of 50/50 USDT and wrapped Aave Interest Bearing USDT.',
+    tags: ['STABLECOIN'],
   },
   amUSDC: {
     name: 'Aave USDC',
@@ -1974,6 +1982,7 @@ export const tokens = {
     documentation: 'https://docs.balancer.fi/products/balancer-pools/boosted-pools',
     description:
       'Balancer linear pool that consist of 50/50 USDC and wrapped Aave Interest Bearing USDC.',
+    tags: ['STABLECOIN'],
   },
   amDAI: {
     name: 'Aave DAI',
@@ -2265,6 +2274,7 @@ export const tokens = {
     description:
       'axlUSDC is a cross-chain representation of USDC, secured by a validator set using delegated Proof-of-Stake and multi-party cryptography. It allows USDC to move seamlessly across different blockchain ecosystems, minted by depositing USDC into an Axelar Gateway on Ethereum, and can be acquired through DEXs, cross-chain swaps via Squid, or bridging via Satellite.money.',
     documentation: 'https://docs.axelar.dev/learn/axlusdc',
+    tags: ['STABLECOIN'],
   },
   TNGBL: {
     name: 'Tangible',

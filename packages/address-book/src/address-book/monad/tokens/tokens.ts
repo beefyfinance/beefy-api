@@ -33,6 +33,7 @@ export const tokens = {
     chainId: 143,
     logoURI: 'https://ftmscan.com/token/images/USDC_32.png',
     documentation: 'https://www.circle.com/en/usdc-multichain/arbitrum',
+    tags: ['STABLECOIN'],
   },
   WETH: {
     name: 'Wrapped Ether',
@@ -60,7 +61,7 @@ export const tokens = {
     description:
       'AUSD is backed 100% by Agora’s Reserves. The Agora Reserve Fund is composed of cash, overnight repurchase and reverse repurchase agreements, and short-term U.S. Treasury securities.',
     bridge: 'native',
-    tags: ['NO_TIMELOCK'],
+    tags: ['NO_TIMELOCK', 'STABLECOIN'],
   },
   USDT0: {
     name: 'USDT0',
@@ -74,6 +75,7 @@ export const tokens = {
       'Tether is a stablecoin pegged to the US Dollar. A stablecoin is a type of cryptocurrency whose value is pegged to another fiat currency like the US Dollar or to a commodity like Gold. Tether is the first stablecoin to be created and it is the most popular stablecoin used in the ecosystem.',
     bridge: 'layer-zero',
     documentation: 'https://tether.to/en/how-it-works',
+    tags: ['STABLECOIN'],
   },
   WBTC: {
     name: 'Wrapped BTC',

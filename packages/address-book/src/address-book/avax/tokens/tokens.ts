@@ -100,6 +100,7 @@ export const tokens = {
     logoURI: '',
     documentation: 'https://www.circle.com/en/eurc',
     bridge: 'native',
+    tags: ['STABLECOIN'],
   },
   frxETH: {
     name: 'Frax Ether',
@@ -318,6 +319,7 @@ export const tokens = {
     chainId: 43114,
     logoURI: 'https://ftmscan.com/token/images/USDC_32.png',
     documentation: 'https://developers.circle.com/docs',
+    tags: ['STABLECOIN'],
   },
   saUSDT: {
     name: 'Stargate Tether USD LP',
@@ -331,6 +333,7 @@ export const tokens = {
     website: 'https://tether.to/',
     description:
       'Tether is a stablecoin pegged to the US Dollar. A stablecoin is a type of cryptocurrency whose value is pegged to another fiat currency like the US Dollar or to a commodity like Gold. Tether is the first stablecoin to be created and it is the most popular stablecoin used in the ecosystem.',
+    tags: ['STABLECOIN'],
   },
   STG: {
     name: 'Stargate',
@@ -4056,6 +4059,7 @@ export const tokens = {
     bridge: 'native',
     logoURI: 'https://snowtrace.io/token/images/tether_32.png',
     documentation: 'https://tether.to/en/how-it-works',
+    tags: ['STABLECOIN'],
   },
   USDTo: {
     chainId: 43114,
@@ -4948,6 +4952,7 @@ export const tokens = {
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0xde3A24028580884448a5397872046a019649b084/logo.png',
     documentation: 'https://tether.to/en/how-it-works',
     bridge: 'avax-canonical',
+    tags: ['STABLECOIN'],
   },
   TUSD: {
     chainId: 43114,
@@ -5051,6 +5056,7 @@ export const tokens = {
     logoURI:
       'https://tokens.pancakeswap.finance/images/0x8ac76a51cc950d9822d68b83fe1ad97b32cd580d.png',
     documentation: 'https://developers.circle.com/docs',
+    tags: ['STABLECOIN'],
   },
   MIM: {
     name: 'Magic Internet Money',
@@ -5194,6 +5200,7 @@ export const tokens = {
     bridge: 'native',
     logoURI:
       'https://tokens.pancakeswap.finance/images/0x8ac76a51cc950d9822d68b83fe1ad97b32cd580d.png',
+    tags: ['STABLECOIN'],
   },
   ROCO: {
     chainId: 43114,
@@ -5388,6 +5395,7 @@ export const tokens = {
       'Aave interest bearing USDC. USDC is a fully collateralized US dollar stablecoin. USDC is issued by regulated financial institutions, backed by fully reserved assets, redeemable on a 1:1 basis for US dollars.',
     bridge: 'native',
     staked: true,
+    tags: ['STABLECOIN'],
   },
   waavUSDC: {
     name: 'Wrapped Aave USDC',
@@ -5433,6 +5441,7 @@ export const tokens = {
       'Aave interest bearing USDT. Tether is a stablecoin pegged to the US Dollar. A stablecoin is a type of cryptocurrency whose value is pegged to another fiat currency like the US Dollar or to a commodity like Gold. Tether is the first stablecoin to be created and it is the most popular stablecoin used in the ecosystem.',
     bridge: 'native',
     staked: true,
+    tags: ['STABLECOIN'],
   },
   waavUSDT: {
     name: 'Wrapped Aave USDT',
@@ -5664,7 +5673,7 @@ export const tokens = {
     description:
       'AUSD is backed 100% by Agora’s Reserves. The Agora Reserve Fund is composed of cash, overnight repurchase and reverse repurchase agreements, and short-term U.S. Treasury securities.',
     bridge: 'native',
-    tags: ['NO_TIMELOCK'],
+    tags: ['NO_TIMELOCK', 'STABLECOIN'],
   },
   sUSDe: {
     name: 'sUSDe',

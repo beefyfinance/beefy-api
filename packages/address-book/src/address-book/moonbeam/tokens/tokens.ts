@@ -111,6 +111,7 @@ export const tokens = {
       'USDC bridged by Wormhole(Portal). USDC is a fully collateralized US dollar stablecoin. Native USDC is issued by regulated financial institutions, backed by fully reserved assets, redeemable on a 1:1 basis for US dollars.',
     documentation: 'https://docs.wormhole.com/wormhole/',
     bridge: 'wormhole',
+    tags: ['STABLECOIN'],
   },
   POOP: {
     name: 'Raresama',
@@ -226,6 +227,7 @@ export const tokens = {
     documentation: 'https://developers.circle.com/docs',
     description:
       'USDC is a fully collateralized US dollar stablecoin. USDC is issued by regulated financial institutions, backed by fully reserved assets, redeemable on a 1:1 basis for US dollars.',
+    tags: ['STABLECOIN'],
   },
   USDCs: {
     name: 'USD Coin',
@@ -239,6 +241,7 @@ export const tokens = {
     website: 'https://www.nomad.xyz/',
     description:
       'bridged USDC by Nomad. USDC is a fully collateralized US dollar stablecoin. USDC is issued by regulated financial institutions, backed by fully reserved assets, redeemable on a 1:1 basis for US dollars.',
+    tags: ['STABLECOIN'],
   },
   USDTs: {
     name: 'Tether USD',
@@ -252,6 +255,7 @@ export const tokens = {
     website: 'https://www.nomad.xyz/',
     description:
       'bridged USDT by Nomad. Tether converts cash into digital currency, to anchor or tether the value to the price of national currencies like the US dollar, the Euro, and the offshore Chinese yuan.',
+    tags: ['STABLECOIN'],
   },
   DAIs: {
     name: 'Dai Stablecoin',
@@ -389,6 +393,7 @@ export const tokens = {
     website: 'https://tether.to/',
     description:
       'Tether is a stablecoin pegged to the US Dollar. A stablecoin is a type of cryptocurrency whose value is pegged to another fiat currency like the US Dollar or to a commodity like Gold. Tether is the first stablecoin to be created and it is the most popular stablecoin used in the ecosystem.',
+    tags: ['STABLECOIN'],
   },
   USDTc: {
     name: 'Tether USD (Celer)',
@@ -417,6 +422,7 @@ export const tokens = {
       'Bridged by XCM from Kusama. Tether is a stablecoin pegged to the US Dollar. A stablecoin is a type of cryptocurrency whose value is pegged to another fiat currency like the US Dollar or to a commodity like Gold. Tether is the first stablecoin to be created and it is the most popular stablecoin used in the ecosystem.',
     documentation: 'https://moonbeam.network/news/polkadot-native-usdt-now-available-on-moonbeam',
     bridge: 'kusama',
+    tags: ['STABLECOIN'],
   },
   DAI: {
     name: 'Dai Stablecoin',
@@ -723,6 +729,7 @@ export const tokens = {
     bridge: 'kusama',
     description:
       'USDC is a fully collateralized US dollar stablecoin. USDC is issued by regulated financial institutions, backed by fully reserved assets, redeemable on a 1:1 basis for US dollars.',
+    tags: ['STABLECOIN'],
   },
   axlUSDC: {
     name: 'USD Coin',
@@ -738,5 +745,6 @@ export const tokens = {
     bridge: 'axelar',
     description:
       'USDC is a fully collateralized US dollar stablecoin. USDC is issued by regulated financial institutions, backed by fully reserved assets, redeemable on a 1:1 basis for US dollars.',
+    tags: ['STABLECOIN'],
   },
 } as const satisfies Record<string, Token>;

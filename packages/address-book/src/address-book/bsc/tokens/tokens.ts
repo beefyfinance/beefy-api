@@ -779,6 +779,7 @@ export const tokens = {
     description:
       'Tether is a stablecoin pegged to the US Dollar. A stablecoin is a type of cryptocurrency whose value is pegged to another fiat currency like the US Dollar or to a commodity like Gold. Tether is the first stablecoin to be created and it is the most popular stablecoin used in the ecosystem.',
     documentation: 'https://stargateprotocol.gitbook.io/stargate/v/user-docs/',
+    tags: ['STABLECOIN'],
   },
   STG: {
     name: 'Stargate',
@@ -1999,6 +2000,7 @@ export const tokens = {
       'TrueUSD (TUSD) is the first independently-verified digital asset redeemable 1-for-1 for US Dollars.',
     logoURI:
       'https://tokens.pancakeswap.finance/images/0x14016e85a25aeb13065688cafb43044c2ef86784.png',
+    tags: ['STABLECOIN'],
   },
   VRT: {
     name: 'VRT',
@@ -2638,6 +2640,7 @@ export const tokens = {
     logoURI:
       'https://tokens.pancakeswap.finance/images/0x55d398326f99059ff775485246999027b3197955.png',
     documentation: 'https://tether.to/en/how-it-works',
+    tags: ['STABLECOIN'],
   },
   XRP: {
     name: 'XRP Token',
@@ -3106,6 +3109,7 @@ export const tokens = {
     bridge: 'binance-peg',
     logoURI:
       'https://tokens.pancakeswap.finance/images/0x8ac76a51cc950d9822d68b83fe1ad97b32cd580d.png',
+    tags: ['STABLECOIN'],
   },
   CTK: {
     name: 'CertiK Token',
@@ -4739,6 +4743,7 @@ export const tokens = {
       'Venus wrapped USDT. Venus is an algorithmic money market and synthetic stablecoin protocol launched exclusively on BNB Chain.',
     logoURI: '',
     staked: true,
+    tags: ['STABLECOIN'],
   },
   RDNT: {
     name: 'RDNT',
@@ -4880,6 +4885,7 @@ export const tokens = {
     bridge: 'axelar',
     logoURI:
       'https://tokens.pancakeswap.finance/images/0x8ac76a51cc950d9822d68b83fe1ad97b32cd580d.png',
+    tags: ['STABLECOIN'],
   },
   PEPE: {
     name: 'Pepe',

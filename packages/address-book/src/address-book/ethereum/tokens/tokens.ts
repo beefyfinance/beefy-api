@@ -102,6 +102,7 @@ export const tokens = {
     chainId: 1,
     logoURI: 'https://ftmscan.com/token/images/USDC_32.png',
     documentation: 'https://developers.circle.com/docs',
+    tags: ['STABLECOIN'],
   },
   STG: {
     name: 'Stargate',
@@ -658,6 +659,7 @@ export const tokens = {
     description:
       'Tether is a stablecoin pegged to the US Dollar. A stablecoin is a type of cryptocurrency whose value is pegged to another fiat currency like the US Dollar or to a commodity like Gold. Tether is the first stablecoin to be created and it is the most popular stablecoin used in the ecosystem.',
     bridge: 'native',
+    tags: ['STABLECOIN'],
   },
   DOLA: {
     name: 'Dola USD Stablecoin',
@@ -772,6 +774,7 @@ export const tokens = {
     documentation: 'https://docs.balancer.fi/products/balancer-pools/boosted-pools',
     description:
       'Balancer linear pool that consist of 50/50 USDT and wrapped Aave Interest Bearing USDT.',
+    tags: ['STABLECOIN'],
   },
   aUSDC: {
     name: 'Aave USDC',
@@ -814,6 +817,7 @@ export const tokens = {
     documentation: 'https://docs.balancer.fi/products/balancer-pools/boosted-pools',
     description:
       'Balancer linear pool that consist of 50/50 USDC and wrapped Aave Interest Bearing USDC.',
+    tags: ['STABLECOIN'],
   },
   DAI: {
     name: 'DAI Stablecoin',
@@ -1164,6 +1168,7 @@ export const tokens = {
     description: 'The first regulated stablecoin fully backed by the US Dollar.',
     bridge: 'native',
     logoURI: '',
+    tags: ['STABLECOIN'],
   },
   CLEV: {
     name: 'CLever Token',
@@ -1608,6 +1613,7 @@ export const tokens = {
     website: 'https://www.paypal.com/us/digital-wallet/manage-money/crypto/pyusd',
     bridge: 'native',
     description: 'PayPal USD (PYUSD) is a stablecoin backed by secure and highly liquid assets.',
+    tags: ['STABLECOIN'],
   },
   PYUSDUSDC: {
     name: 'PayPool',
@@ -1693,7 +1699,7 @@ export const tokens = {
     description:
       'The USDM token is a rebasing ERC20 token, redeemable at a pegged 1:1 USD value by primary users. USDM is a fully backed stablecoin, backed by "USDM Reserves", which are held under custody with regulated financial institutions in bankruptcy-remote accounts, segregated from the Company\'s operating accounts, on behalf of, and for the benefit of, Users.',
     bridge: 'native',
-    tags: ['NO_TIMELOCK'],
+    tags: ['NO_TIMELOCK', 'STABLECOIN'],
   },
   sDAI: {
     name: 'Savings DAI',
@@ -2696,6 +2702,7 @@ export const tokens = {
     description:
       'Ripple USD (RLUSD) is designed to maintain a constant value of one US dollar. Natively issued on XRP Ledger and Ethereum blockchains, Ripple USD is fully backed by a segregated reserve of cash and cash equivalents and redeemable 1:1 for US dollars.',
     bridge: 'native',
+    tags: ['STABLECOIN'],
   },
   lvlUSD: {
     name: 'Level USD',
@@ -2764,6 +2771,7 @@ export const tokens = {
     website: 'https://aave.com/',
     documentation: 'https://docs.aave.com/developers/v/2.0/the-core-protocol/atokens',
     description: 'Wrapped Aave interest bearing Ethereum USDT.',
+    tags: ['STABLECOIN'],
   },
   waEthUSDC: {
     name: 'Wrapped Aave Ethereum USDC',
@@ -2777,6 +2785,7 @@ export const tokens = {
     website: 'https://aave.com/',
     documentation: 'https://docs.aave.com/developers/v/2.0/the-core-protocol/atokens',
     description: 'Wrapped Aave interest bearing Ethereum USDC.',
+    tags: ['STABLECOIN'],
   },
   waEthLidoGHO: {
     name: 'Wrapped Aave Ethereum Lido GHO',

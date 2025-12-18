@@ -269,6 +269,7 @@ export const tokens = {
     website: 'https://www.paypal.com/us/digital-wallet/manage-money/crypto/pyusd',
     bridge: 'fraxtal-canonical',
     description: 'PayPal USD (PYUSD) is a stablecoin backed by secure and highly liquid assets.',
+    tags: ['STABLECOIN'],
   },
   USDT: {
     name: 'USDT',
@@ -283,6 +284,7 @@ export const tokens = {
     bridge: 'fraxtal-canonical',
     logoURI: 'https://hecoinfo.com/token/images/USDTHECO_32.png',
     documentation: 'https://tether.to/en/how-it-works',
+    tags: ['STABLECOIN'],
   },
   WETH: {
     name: 'Wrapped Ether',

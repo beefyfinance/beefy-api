@@ -89,6 +89,7 @@ export const tokens = {
     bridge: 'gnosis-canonical',
     logoURI: 'https://hecoinfo.com/token/images/USDTHECO_32.png',
     documentation: 'https://tether.to/en/how-it-works',
+    tags: ['STABLECOIN'],
   },
   USDC: {
     name: 'USD Coin',
@@ -103,6 +104,7 @@ export const tokens = {
     logoURI: 'https://ftmscan.com/token/images/USDC_32.png',
     documentation: 'https://www.circle.com/en/usdc-multichain/arbitrum',
     bridge: 'gnosis-canonical',
+    tags: ['STABLECOIN'],
   },
   EURe: {
     name: 'Monerium EURe emoney',
@@ -117,6 +119,7 @@ export const tokens = {
     documentation: 'https://monerium.dev/',
     description:
       'EURe is a Euro stable-coin from Monerium. Monerium is the first company authorized to issue money on blockchains under European financial regulation. They have issued EUR, USD, GBP, and ISK as e-money tokens on Ethereum and EUR on Algorand. Monerium also operates a gateway for instant transfers of EUR between bank accounts and blockchain wallets/smart contracts.',
+    tags: ['STABLECOIN'],
   },
   sDAI: {
     name: 'Savings xDAI',
@@ -192,6 +195,7 @@ export const tokens = {
     documentation:
       'https://docs.gnosischain.com/bridges/About%20Token%20Bridges/omnibridge#usdce-a-usdc-token-on-gnosis-chain-that-complies-with-circle-standard',
     bridge: 'gnosis-canonical',
+    tags: ['STABLECOIN'],
   },
   EURA: {
     name: 'EURA (previously agEUR)',

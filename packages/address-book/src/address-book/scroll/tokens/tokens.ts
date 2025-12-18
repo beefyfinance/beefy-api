@@ -32,6 +32,7 @@ export const tokens = {
     chainId: 534352,
     logoURI: 'https://ftmscan.com/token/images/USDC_32.png',
     documentation: 'https://www.circle.com/en/usdc-multichain/arbitrum',
+    tags: ['STABLECOIN'],
   },
   WBTC: {
     chainId: 534352,
@@ -60,6 +61,7 @@ export const tokens = {
     bridge: 'scroll-canonical',
     logoURI: 'https://hecoinfo.com/token/images/USDTHECO_32.png',
     documentation: 'https://tether.to/en/how-it-works',
+    tags: ['STABLECOIN'],
   },
   NURI: {
     name: 'NURI Token',
