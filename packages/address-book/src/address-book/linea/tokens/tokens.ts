@@ -33,6 +33,7 @@ export const tokens = {
     logoURI:
       'https://tokens.pancakeswap.finance/images/0xB12BFcA5A55806AaF64E99521918A4bf0fC40802.svg',
     bridge: 'linea-canonical',
+    tags: ['STABLECOIN'],
   },
   USDT: {
     name: 'USDT',
@@ -47,6 +48,7 @@ export const tokens = {
       'Tether is a stablecoin pegged to the US Dollar. A stablecoin is a type of cryptocurrency whose value is pegged to another fiat currency like the US Dollar or to a commodity like Gold. Tether is the first stablecoin to be created and it is the most popular stablecoin used in the ecosystem.',
     logoURI: 'https://hecoinfo.com/token/images/USDTHECO_32.png',
     bridge: 'linea-canonical',
+    tags: ['STABLECOIN'],
   },
   DAI: {
     name: 'Dai Stablecoin',
@@ -62,7 +64,7 @@ export const tokens = {
     logoURI:
       'https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/0x6B175474E89094C44Da98b954EedeAC495271d0F/logo.png',
     bridge: 'linea-canonical',
-    risks: ['SYNTH_STABLE'],
+    tags: ['STABLECOIN', 'SYNTHETIC'],
   },
   WBTC: {
     name: 'Wrapped BTC',
@@ -119,7 +121,7 @@ export const tokens = {
       'Lynex democratizes sophisticated liquidity strategies, seamlessly connecting everyday traders with expert-level capabilities. Our platform features a competitive ecosystem of Automated Liquidity Managers (ALMs) and strategists, all striving to optimize returns, minimize risks like impermanent loss, and boost overall efficiency for every user.',
     documentation: 'https://lynex.gitbook.io/lynex-docs/protocol-overview/about-lynex',
     bridge: 'native',
-    risks: ['NO_TIMELOCK'],
+    tags: ['NO_TIMELOCK'],
   },
   oLYNX: {
     name: 'Option LYNX Token',
@@ -148,7 +150,7 @@ export const tokens = {
       "MAI is a stablecoin collateralized by your crypto holdings. It's powered by Qi Dao, a protocol that enables any cryptocurrency community to create stablecoins backed by their native tokens.",
     documentation: 'https://docs.mai.finance/',
     bridge: 'native',
-    risks: ['SYNTH_STABLE'],
+    tags: ['STABLECOIN', 'SYNTHETIC'],
   },
   DUSD: {
     name: 'Davos.xyz USD',
@@ -163,7 +165,7 @@ export const tokens = {
       'The Davos Protocol is an innovative collateralised debt position (CDP) protocol designed to facilitate the seamless minting of DUSD, an inflation-proof omnichain stablecoin, by leveraging Liquid Staking Tokens (LSTs). The protocol aims to address the challenges faced by traditional CDPs in decentralised finance (DeFi) by incorporating an unbiased monetary policy and fair borrowing rates, thereby enhancing user protection and promoting broader DeFi adoption. ',
     documentation: 'https://davos.xyz/assets/davos_whitepaper.pdf',
     bridge: 'native',
-    risks: ['SYNTH_STABLE'],
+    tags: ['STABLECOIN', 'SYNTHETIC'],
   },
   'USD+': {
     name: 'USD+',
@@ -178,6 +180,7 @@ export const tokens = {
       'USD+ is USDC that pays you yield daily via rebase.  It is 100% collateralized with assets immediately convertible into USDC.  Yield is generated via strategies such as lending and stable-to-stable pools. Initial strategies include Aave, Rubicon, and Pika.',
     bridge: 'native',
     documentation: 'https://docs.overnight.fi/',
+    tags: ['CURATED'],
   },
   'USDT+': {
     name: 'USDT+',
@@ -192,6 +195,7 @@ export const tokens = {
       'USDT+ is USDT that pays you yield daily via rebase.  It is 100% collateralized with assets immediately convertible into USDT.  Yield is generated via strategies such as lending and stable-to-stable pools. Initial strategies include Aave, Rubicon, and Pika.',
     bridge: 'native',
     documentation: 'https://docs.overnight.fi/',
+    tags: ['CURATED'],
   },
   ezETH: {
     name: 'Renzo Restaked ETH Token',
@@ -206,7 +210,7 @@ export const tokens = {
       'Renzo ezETH is a Liquid Restaking Token (LRT) and Strategy Manager for EigenLayer. It is the interface to the EigenLayer ecosystem securing Actively Validated Services (AVSs) and offering a higher yield than ETH staking.',
     documentation: 'https://docs.renzoprotocol.com/docs/',
     bridge: 'connext',
-    risks: ['NO_TIMELOCK'],
+    tags: ['NO_TIMELOCK'],
   },
   STONE: {
     name: 'StakeStone Ether',
@@ -221,7 +225,7 @@ export const tokens = {
       'StakeStone is an omni-chain LST (Liquid Staking Token) protocol aiming to bring native staking yields and liquidity to Layer 2s in a decentralized manner.',
     documentation: 'https://docs.stakestone.io/stakestone',
     bridge: 'layer-zero',
-    risks: ['NO_TIMELOCK'],
+    tags: ['NO_TIMELOCK'],
   },
   NILE: {
     name: 'NILE Token',
@@ -250,7 +254,7 @@ export const tokens = {
       'Liquity is a decentralized borrowing protocol that allows you to draw interest-free loans against Ether used as collateral. Loans are paid out in LUSD (a USD pegged stablecoin) and need to maintain a minimum collateral ratio of 110%.',
     bridge: 'linea-canonical',
     documentation: 'https://docs.liquity.org/',
-    risks: ['SYNTH_STABLE'],
+    tags: ['STABLECOIN', 'SYNTHETIC'],
   },
   weETH: {
     name: 'Wrapped eETH',
@@ -265,7 +269,7 @@ export const tokens = {
       'Stake ETH, get eETH - a natively restaked liquid staking token that fuels DeFi and decentralizes Ethereum.',
     bridge: 'stargate',
     documentation: 'https://etherfi.gitbook.io/etherfi',
-    risks: ['NO_TIMELOCK'],
+    tags: ['NO_TIMELOCK'],
   },
   inETH: {
     name: 'Inception ETH',
@@ -280,7 +284,7 @@ export const tokens = {
       'Inception ETH is a pioneering DeFi platform that provides a full solution for liquid restaking. Inception ETH is designed to streamline and improve the restaking process by combining Isolated and Native Liquid Restaking and a diverse array of Liquid Restaking Tokens.',
     bridge: 'inception',
     documentation: 'https://docs.inceptionlrt.com/',
-    risks: ['NO_TIMELOCK'],
+    tags: ['NO_TIMELOCK', 'SYNTHETIC'],
   },
   wrsETH: {
     name: 'rsETHWrapper',
@@ -294,7 +298,7 @@ export const tokens = {
     description:
       'The rsETHWrapper contract serves as a standardized interface for rsETH tokens, which are Liquid Restaked Tokens (LRT) issued by Kelp DAO. Designed to offer liquidity to illiquid assets deposited into restaking platforms like EigenLayer, users can interact with these tokens seamlessly.',
     bridge: 'stargate',
-    risks: ['NO_TIMELOCK'],
+    tags: ['NO_TIMELOCK'],
   },
   FOXY: {
     name: 'Foxy',
@@ -308,7 +312,7 @@ export const tokens = {
     description:
       'Foxy is the mascot of the Linea blockchain. Every chain needs a champion, and we like the fox.',
     bridge: 'native',
-    risks: ['NO_TIMELOCK', 'LARGE_HOLDERS'],
+    tags: ['NO_TIMELOCK', 'LARGE_HOLDERS'],
   },
   REX: {
     name: 'Etherex',
@@ -336,7 +340,7 @@ export const tokens = {
     documentation: 'https://github.com/Astera-Finance/whitepapers',
     description: 'Pioneering Ethereum-native credit rails on linea',
     bridge: 'layer-zero',
-    risks: ['NO_TIMELOCK', 'SYNTH_STABLE'],
+    tags: ['NO_TIMELOCK', 'STABLECOIN', 'SYNTHETIC'],
   },
   REX33: {
     name: 'Etherex Liquid Staking Token',
@@ -365,6 +369,7 @@ export const tokens = {
       'Aave interest bearing native USDC. USDC is a fully collateralized US dollar stablecoin. USDC is issued by regulated financial institutions, backed by fully reserved assets, redeemable on a 1:1 basis for US dollars.',
     bridge: 'native',
     staked: true,
+    tags: ['STABLECOIN'],
   },
   LINEA: {
     name: 'Linea',

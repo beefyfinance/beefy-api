@@ -32,6 +32,7 @@ export const tokens = {
       'Tether is a stablecoin pegged to the US Dollar. A stablecoin is a type of cryptocurrency whose value is pegged to another fiat currency like the US Dollar or to a commodity like Gold. Tether is the first stablecoin to be created and it is the most popular stablecoin used in the ecosystem.',
     bridge: 'layer-zero',
     documentation: 'https://tether.to/en/how-it-works',
+    tags: ['STABLECOIN'],
   },
   USDe: {
     name: 'USDeOFT',
@@ -46,7 +47,7 @@ export const tokens = {
     description:
       'Ethenas USDe is not the same as a fiat stablecoin like USDC or USDT. USDe is a synthetic dollar, backed with crypto assets and corresponding short futures positions.',
     bridge: 'layer-zero',
-    risks: ['NO_TIMELOCK', 'SYNTH_STABLE'],
+    tags: ['NO_TIMELOCK', 'STABLECOIN', 'SYNTHETIC'],
   },
   PURR: {
     name: 'Purr',
@@ -102,7 +103,7 @@ export const tokens = {
       'Borrow against blue-chip collateral and earn native yield with the Felix stablecoin, feUSD.',
     documentation: 'https://usefelix.gitbook.io/felix-docs',
     bridge: 'native',
-    risks: ['SYNTH_STABLE'],
+    tags: ['STABLECOIN', 'SYNTHETIC'],
   },
   KITTEN: {
     name: 'Kittenswap',
@@ -116,7 +117,7 @@ export const tokens = {
     description: 'The community owned DEX for seamless trading on HyperEVM.',
     documentation: 'https://docs.kittenswap.finance/introduction',
     bridge: 'native',
-    risks: ['NO_TIMELOCK'],
+    tags: ['NO_TIMELOCK'],
   },
   LHYPE: {
     name: 'Looped HYPE',
@@ -145,7 +146,7 @@ export const tokens = {
       'The Looping Collective is a community of users, builders and ecosystem partners who co-create and manage Liquid Looping Tokens (LLTs).',
     documentation: 'https://docs.loopingcollective.org/',
     bridge: 'native',
-    risks: ['SYNTH_STABLE'],
+    tags: ['STABLECOIN', 'SYNTHETIC'],
   },
   UBTC: {
     name: 'Unit Bitcoin',
@@ -160,7 +161,7 @@ export const tokens = {
       "Unit is the asset tokenization layer on Hyperliquid, enabling seamless deposits and withdrawals for a wide range of assets. Our first integration allows major crypto assets (e.g. BTC, ETH, & SOL) to flow between Hyperliquid and their native blockchains. Built from first principles, Unit's architecture is designed exclusively for Hyperliquid.",
     documentation: 'https://docs.hyperunit.xyz/',
     bridge: 'native',
-    risks: ['NO_TIMELOCK'],
+    tags: ['NO_TIMELOCK'],
   },
   kHYPE: {
     name: 'Kinetiq Staked HYPE',
@@ -189,7 +190,7 @@ export const tokens = {
       "Unit is the asset tokenization layer on Hyperliquid, enabling seamless deposits and withdrawals for a wide range of assets. Our first integration allows major crypto assets (e.g. BTC, ETH, & SOL) to flow between Hyperliquid and their native blockchains. Built from first principles, Unit's architecture is designed exclusively for Hyperliquid.",
     documentation: 'https://docs.hyperunit.xyz/',
     bridge: 'native',
-    risks: ['NO_TIMELOCK'],
+    tags: ['NO_TIMELOCK'],
   },
   UFART: {
     name: 'Unit Fartcoin',
@@ -204,7 +205,7 @@ export const tokens = {
       "Unit is the asset tokenization layer on Hyperliquid, enabling seamless deposits and withdrawals for a wide range of assets. Our first integration allows major crypto assets (e.g. BTC, ETH, & SOL) to flow between Hyperliquid and their native blockchains. Built from first principles, Unit's architecture is designed exclusively for Hyperliquid.",
     documentation: 'https://docs.hyperunit.xyz/',
     bridge: 'native',
-    risks: ['NO_TIMELOCK'],
+    tags: ['NO_TIMELOCK'],
   },
   UPUMP: {
     name: 'Unit Pumpcoin',
@@ -219,6 +220,6 @@ export const tokens = {
       "Unit is the asset tokenization layer on Hyperliquid, enabling seamless deposits and withdrawals for a wide range of assets. Our first integration allows major crypto assets (e.g. BTC, ETH, & SOL) to flow between Hyperliquid and their native blockchains. Built from first principles, Unit's architecture is designed exclusively for Hyperliquid.",
     documentation: 'https://docs.hyperunit.xyz/',
     bridge: 'native',
-    risks: ['NO_TIMELOCK'],
+    tags: ['NO_TIMELOCK'],
   },
 } as const satisfies Record<string, Token>;

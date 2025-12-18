@@ -75,6 +75,7 @@ export const tokens = {
       'Tether is a stablecoin pegged to the US dollar. Tether is issued by Tether Limited, a Gibraltar-based company.',
     bridge: 'saga-canonical',
     documentation: 'https://www.tether.to/',
+    tags: ['STABLECOIN'],
   },
   UNI: {
     name: 'Uniswap',

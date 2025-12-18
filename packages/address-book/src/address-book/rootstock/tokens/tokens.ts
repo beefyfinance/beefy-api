@@ -33,6 +33,7 @@ export const tokens = {
     bridge: 'sovryn',
     logoURI: '',
     documentation: 'https://wiki.sovryn.com/en/sovryn-dapp/bridge',
+    tags: ['SYNTHETIC'],
   },
   rUSDT: {
     name: 'Rootstock USDT',
@@ -46,7 +47,7 @@ export const tokens = {
     bridge: 'rootstock-canonical',
     logoURI: '',
     documentation: 'https://dapp.tokenbridge.rootstock.io/',
-    risks: ['SYNTH_STABLE'],
+    tags: ['STABLECOIN', 'SYNTHETIC'],
   },
   DOC: {
     name: 'Dollar on Chain',
@@ -61,7 +62,7 @@ export const tokens = {
     bridge: 'native',
     logoURI: '',
     documentation: 'https://api.moneyonchain.com/docs/guide',
-    risks: ['SYNTH_STABLE'],
+    tags: ['STABLECOIN', 'SYNTHETIC'],
   },
   RIF: {
     name: 'RIF',

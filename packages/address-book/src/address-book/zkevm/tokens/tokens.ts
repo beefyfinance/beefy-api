@@ -33,6 +33,7 @@ export const tokens = {
     description:
       'USDC is a fully collateralized US dollar stablecoin. USDC is issued by regulated financial institutions, backed by fully reserved assets, redeemable on a 1:1 basis for US dollars.',
     bridge: 'zkevm-canonical',
+    tags: ['STABLECOIN'],
   },
   MATIC: {
     name: 'Matic Token',
@@ -78,6 +79,7 @@ export const tokens = {
       'Tether is a stablecoin pegged to the US Dollar. A stablecoin is a type of cryptocurrency whose value is pegged to another fiat currency like the US Dollar or to a commodity like Gold.Tether is the first stablecoin to be created and it is the most popular stablecoin used in the ecosystem.',
     documentation: 'https://tether.to/en/how-it-works',
     bridge: 'zkevm-canonical',
+    tags: ['STABLECOIN'],
   },
   DAI: {
     name: 'Dai Stablecoin',
@@ -93,7 +95,7 @@ export const tokens = {
       'Dai is a stablecoin cryptocurrency which aims to keep its value as close to one United States dollar as possible through an automated system of smart contracts on the Ethereum blockchain',
     documentation: 'https://docs.makerdao.com/',
     bridge: 'zkevm-canonical',
-    risks: ['SYNTH_STABLE'],
+    tags: ['STABLECOIN', 'SYNTHETIC'],
   },
   stMATIC: {
     name: 'Staked MATIC',
@@ -137,7 +139,7 @@ export const tokens = {
     description: 'Frax is the first fractional-algorithmic stablecoin protocol.',
     documentation: 'https://docs.frax.finance/',
     bridge: 'frax',
-    risks: ['SYNTH_STABLE'],
+    tags: ['STABLECOIN', 'SYNTHETIC'],
   },
   frxETH: {
     name: 'Frax Ether',

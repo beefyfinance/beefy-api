@@ -51,6 +51,7 @@ export const tokens = {
     description:
       'Stellaswap Base4Pool is a Stable Pool consisting of USDC.wh, USDt.xc, BUSD.wh, and FRAX tokens.',
     logoURI: '',
+    tags: ['SYNTHETIC'],
   },
   wstDOT: {
     name: 'Wrapped liquid staked DOT',
@@ -110,6 +111,7 @@ export const tokens = {
       'USDC bridged by Wormhole(Portal). USDC is a fully collateralized US dollar stablecoin. Native USDC is issued by regulated financial institutions, backed by fully reserved assets, redeemable on a 1:1 basis for US dollars.',
     documentation: 'https://docs.wormhole.com/wormhole/',
     bridge: 'wormhole',
+    tags: ['STABLECOIN'],
   },
   POOP: {
     name: 'Raresama',
@@ -185,7 +187,7 @@ export const tokens = {
     website: 'https://app.mai.finance/',
     description:
       "MAI is a stablecoin collateralized by your crypto assets. It's powered by Qi Dao, a protocol that enables any cryptocurrency community to create stablecoins backed by their native tokens.",
-    risks: ['SYNTH_STABLE'],
+    tags: ['STABLECOIN', 'SYNTHETIC'],
   },
   APE: {
     name: 'ApeCoin APE',
@@ -225,6 +227,7 @@ export const tokens = {
     documentation: 'https://developers.circle.com/docs',
     description:
       'USDC is a fully collateralized US dollar stablecoin. USDC is issued by regulated financial institutions, backed by fully reserved assets, redeemable on a 1:1 basis for US dollars.',
+    tags: ['STABLECOIN'],
   },
   USDCs: {
     name: 'USD Coin',
@@ -238,6 +241,7 @@ export const tokens = {
     website: 'https://www.nomad.xyz/',
     description:
       'bridged USDC by Nomad. USDC is a fully collateralized US dollar stablecoin. USDC is issued by regulated financial institutions, backed by fully reserved assets, redeemable on a 1:1 basis for US dollars.',
+    tags: ['STABLECOIN'],
   },
   USDTs: {
     name: 'Tether USD',
@@ -251,6 +255,7 @@ export const tokens = {
     website: 'https://www.nomad.xyz/',
     description:
       'bridged USDT by Nomad. Tether converts cash into digital currency, to anchor or tether the value to the price of national currencies like the US dollar, the Euro, and the offshore Chinese yuan.',
+    tags: ['STABLECOIN'],
   },
   DAIs: {
     name: 'Dai Stablecoin',
@@ -264,7 +269,7 @@ export const tokens = {
     website: 'https://www.nomad.xyz/',
     description:
       'bridged DAI by Nomad. Multi-Collateral Dai, brings a lot of new and exciting features, such as support for new CDP collateral types and Dai Savings Rate.',
-    risks: ['SYNTH_STABLE'],
+    tags: ['STABLECOIN', 'SYNTHETIC'],
   },
   FRAX: {
     name: 'Frax',
@@ -279,7 +284,7 @@ export const tokens = {
     description:
       'The Frax Protocol introduced the world to the concept of a cryptocurrency being partially backed by collateral and partially stabilized algorithmically.',
     documentation: 'https://docs.frax.finance/',
-    risks: ['SYNTH_STABLE'],
+    tags: ['STABLECOIN', 'SYNTHETIC'],
   },
   BUSD: {
     name: 'Binance-Peg BUSD Token',
@@ -293,7 +298,7 @@ export const tokens = {
     website: 'https://www.binance.com/en/busd',
     description:
       'Binance USD (BUSD) is a 1:1 USD-backed stable coin issued by Binance (in partnership with Paxos). BUSD is approved and regulated by the New York State Department of Financial Services (NYDFS). The BUSD Monthly Audit Report can be viewed from the official website.',
-    risks: ['SYNTH_STABLE'],
+    tags: ['STABLECOIN', 'SYNTHETIC'],
   },
   BUSDc: {
     name: 'Binance-Peg BUSD Token (Celer)',
@@ -307,6 +312,7 @@ export const tokens = {
     website: 'https://www.binance.com/en/busd',
     description:
       'Binance USD (BUSD) is a 1:1 USD-backed stable coin issued by Binance (in partnership with Paxos). BUSD is approved and regulated by the New York State Department of Financial Services (NYDFS). The BUSD Monthly Audit Report can be viewed from the official website.',
+    tags: ['SYNTHETIC'],
   },
   BUSDwh: {
     name: 'Binance-Peg BUSD Token (Wormhole)',
@@ -321,7 +327,7 @@ export const tokens = {
     description:
       'BUSD bridged by Wormhole(Portal). Binance USD (BUSD) is a 1:1 USD-backed stable coin issued by Binance (in partnership with Paxos). BUSD is approved and regulated by the New York State Department of Financial Services (NYDFS). The BUSD Monthly Audit Report can be viewed from the official website.',
     documentation: 'https://docs.wormhole.com/wormhole/',
-    risks: ['SYNTH_STABLE'],
+    tags: ['STABLECOIN', 'SYNTHETIC'],
   },
   BNB: {
     name: 'Binance',
@@ -373,6 +379,7 @@ export const tokens = {
     website: 'https://www.nomad.xyz/',
     description:
       'Bridged ETH by Nomad. The native currency that flows within the Ethereum economy is called Ether (ETH). Ether is typically used to pay for transaction fees called Gas, and it is the base currency of the network.',
+    tags: ['SYNTHETIC'],
   },
   USDT: {
     name: 'Tether USD',
@@ -386,6 +393,7 @@ export const tokens = {
     website: 'https://tether.to/',
     description:
       'Tether is a stablecoin pegged to the US Dollar. A stablecoin is a type of cryptocurrency whose value is pegged to another fiat currency like the US Dollar or to a commodity like Gold. Tether is the first stablecoin to be created and it is the most popular stablecoin used in the ecosystem.',
+    tags: ['STABLECOIN'],
   },
   USDTc: {
     name: 'Tether USD (Celer)',
@@ -414,6 +422,7 @@ export const tokens = {
       'Bridged by XCM from Kusama. Tether is a stablecoin pegged to the US Dollar. A stablecoin is a type of cryptocurrency whose value is pegged to another fiat currency like the US Dollar or to a commodity like Gold. Tether is the first stablecoin to be created and it is the most popular stablecoin used in the ecosystem.',
     documentation: 'https://moonbeam.network/news/polkadot-native-usdt-now-available-on-moonbeam',
     bridge: 'kusama',
+    tags: ['STABLECOIN'],
   },
   DAI: {
     name: 'Dai Stablecoin',
@@ -427,7 +436,7 @@ export const tokens = {
     website: 'https://makerdao.com/en/',
     description:
       'DAI is an Ethereum-based stablecoin (stable-price cryptocurrency) whose issuance and development is managed by the Maker Protocol and the MakerDAO decentralized autonomous organization.',
-    risks: ['SYNTH_STABLE'],
+    tags: ['STABLECOIN', 'SYNTHETIC'],
   },
   FTM: {
     name: 'Fantom',
@@ -466,6 +475,7 @@ export const tokens = {
     website: 'https://www.terra.money/',
     description:
       'Terra stablecoins offer instant settlements, low fees and seamless cross-border exchange - loved by millions of users and merchants.',
+    tags: ['SYNTHETIC'],
   },
   MATIC: {
     name: 'Matic',
@@ -662,6 +672,7 @@ export const tokens = {
     website: 'https://www.terra.money/',
     description:
       'Terra stablecoins offer instant settlements, low fees and seamless cross-border exchange - loved by millions of users and merchants.',
+    tags: ['SYNTHETIC'],
   },
   xcaUSD: {
     name: 'xcaUSD',
@@ -674,6 +685,7 @@ export const tokens = {
       'https://raw.githubusercontent.com/BeamSwap/beamswap-tokenlist/main/assets/chains/moonbeam/0xfFfFFFFF52C56A9257bB97f4B2b6F7B2D624ecda/logo.png',
     website: 'https://acala.network/ausd',
     description: 'Acala USD (aUSD). The native decentralized stablecoin of Polkadot.',
+    tags: ['SYNTHETIC'],
   },
   LDO: {
     name: 'Lido DAO',
@@ -701,6 +713,7 @@ export const tokens = {
       'Stellaswap is a decentralized exchange, providing liquidity and enabling peer-to-peer transactions on the Moonbeam Network. The 4pool is a stable-swap LP consisting of USDC, USDT, DAI & FRAX.',
     documentation:
       'https://docs.stellaswap.com/how-to-guides/swap-pool-and-farm/how-to-add-liquidity-in-stable-amm',
+    tags: ['SYNTHETIC'],
   },
   xcUSDC: {
     name: 'USD Coin',
@@ -716,6 +729,7 @@ export const tokens = {
     bridge: 'kusama',
     description:
       'USDC is a fully collateralized US dollar stablecoin. USDC is issued by regulated financial institutions, backed by fully reserved assets, redeemable on a 1:1 basis for US dollars.',
+    tags: ['STABLECOIN'],
   },
   axlUSDC: {
     name: 'USD Coin',
@@ -731,5 +745,6 @@ export const tokens = {
     bridge: 'axelar',
     description:
       'USDC is a fully collateralized US dollar stablecoin. USDC is issued by regulated financial institutions, backed by fully reserved assets, redeemable on a 1:1 basis for US dollars.',
+    tags: ['STABLECOIN'],
   },
 } as const satisfies Record<string, Token>;

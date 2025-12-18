@@ -33,6 +33,7 @@ export const tokens = {
     description:
       'USDC is a fully collateralized US dollar stablecoin. USDC is issued by regulated financial institutions, backed by fully reserved assets, redeemable on a 1:1 basis for US dollars.',
     bridge: 'mantle-canonical',
+    tags: ['STABLECOIN'],
   },
   MOE: {
     name: 'Moe Token',
@@ -47,7 +48,7 @@ export const tokens = {
     description:
       'Merchant Moe is a traders oasis in the bustling world of Decentralized Finance (DeFi) on Mantle Network, offering a comprehensive and user-friendly Decentralized Exchange (DEX) experience.',
     bridge: 'native',
-    risks: ['NO_TIMELOCK'],
+    tags: ['NO_TIMELOCK'],
   },
   JOE: {
     name: 'Joe Token',
@@ -62,7 +63,7 @@ export const tokens = {
     description:
       'Trader Joe is your one-stop decentralized trading platform on the Avalanche & Arbitrum networks, of which JOE is the governance token that rewards its holders with a share of exchange revenues.',
     bridge: 'layer-zero',
-    risks: ['NO_TIMELOCK'],
+    tags: ['NO_TIMELOCK'],
   },
   USDT: {
     name: 'USDT',
@@ -77,6 +78,7 @@ export const tokens = {
     description:
       'Tether is a stablecoin pegged to the US Dollar. A stablecoin is a type of cryptocurrency whose value is pegged to another fiat currency like the US Dollar or to a commodity like Gold. Tether is the first stablecoin to be created and it is the most popular stablecoin used in the ecosystem.',
     bridge: 'mantle-canonical',
+    tags: ['STABLECOIN'],
   },
   KTC: {
     name: 'KTX Community Token',
@@ -91,7 +93,7 @@ export const tokens = {
     description:
       'Built on top of BNB Chain and Mantle Network, KTC is the community token of KTX.Finance which aims to create a capital-efficient, decentralized spot and perpetual exchange accessible to everyone.',
     bridge: 'native',
-    risks: ['LARGE_HOLDERS'],
+    tags: ['LARGE_HOLDERS'],
   },
   WBTC: {
     name: 'WBTC',
@@ -119,7 +121,7 @@ export const tokens = {
     description:
       "LEND token compliments Lendle by incentivizing the supply and borrow of the assets in the Lendle markets. The LEND rewards will vest over a period of 3 months, and users will share in the protocol's revenue during this period.",
     bridge: 'native',
-    risks: ['LARGE_HOLDERS'],
+    tags: ['LARGE_HOLDERS'],
   },
   MINU: {
     name: 'Mantle Inu Token',
@@ -133,7 +135,7 @@ export const tokens = {
     documentation: 'https://mantle-inu.gitbook.io/docs/',
     description: 'MINU is the #1 memecoin on Mantle.',
     bridge: 'native',
-    risks: ['LARGE_HOLDERS'],
+    tags: ['LARGE_HOLDERS'],
   },
   WETH: {
     name: 'Wrapped Ether',
@@ -203,7 +205,7 @@ export const tokens = {
     description:
       "Ethena's synthetic dollar, USDe, provides the crypto-native, scalable solution for money achieved by delta-hedging Ethereum and Bitcoin collateral. USDe is fully-backed and free to compose throughout CeFi & DeFi.",
     bridge: 'stargate',
-    risks: ['NO_TIMELOCK', 'SYNTH_STABLE'],
+    tags: ['NO_TIMELOCK', 'STABLECOIN', 'SYNTHETIC'],
   },
   ENA: {
     name: 'ENA',
@@ -218,6 +220,6 @@ export const tokens = {
     description:
       "ENA is Ethena's goverance token. Ethena is a synthetic dollar protocol built on Ethereum that provides a crypto-native solution for money not reliant on traditional banking system infrastructure, alongside a globally accessible dollar denominated instrument: USDe.",
     bridge: 'stargate',
-    risks: ['NO_TIMELOCK'],
+    tags: ['NO_TIMELOCK'],
   },
 } as const satisfies Record<string, Token>;

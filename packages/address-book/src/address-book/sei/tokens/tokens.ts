@@ -31,6 +31,7 @@ export const tokens = {
     bridge: 'sei-canonical',
     chainId: 1329,
     documentation: 'https://developers.circle.com/docs',
+    tags: ['STABLECOIN'],
   },
   WETH: {
     name: 'Wrapped Ether',
@@ -58,6 +59,7 @@ export const tokens = {
     bridge: 'sei-canonical',
     logoURI: '',
     documentation: 'https://tether.to/en/how-it-works',
+    tags: ['STABLECOIN'],
   },
   iSEI: {
     name: 'iSEI',
@@ -84,5 +86,6 @@ export const tokens = {
     bridge: 'native',
     logoURI: '',
     documentation: 'https://developers.circle.com/docs',
+    tags: ['STABLECOIN'],
   },
 } as const satisfies Record<string, Token>;

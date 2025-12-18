@@ -100,6 +100,7 @@ export const tokens = {
     logoURI: '',
     documentation: 'https://www.circle.com/en/eurc',
     bridge: 'native',
+    tags: ['STABLECOIN'],
   },
   frxETH: {
     name: 'Frax Ether',
@@ -139,6 +140,7 @@ export const tokens = {
       'USD+ is USDC that pays you yield daily via rebase.  It is 100% collateralized with assets immediately convertible into USDC.  Yield is generated via strategies such as lending and stable-to-stable pools. Initial strategies include Aave, Rubicon, and Pika.',
     logoURI: '',
     documentation: 'https://docs.overnight.fi/',
+    tags: ['CURATED'],
   },
   CAI: {
     name: 'Colony Avalanche Index CAI',
@@ -289,6 +291,7 @@ export const tokens = {
     website: 'https://moremoney.finance/',
     description:
       'Moremoney is a protocol for borrowing stablecoin while earning interest on liquidity pool tokens and other collateral assets.',
+    tags: ['SYNTHETIC'],
   },
   USTw: {
     name: 'TerraUSD (Wormhole)',
@@ -302,7 +305,7 @@ export const tokens = {
     website: 'https://www.terra.money/',
     description:
       'Terra stablecoins offer instant settlements, low fees and seamless cross-border exchange - loved by millions of users and merchants.',
-    risks: ['SYNTH_STABLE'],
+    tags: ['STABLECOIN', 'SYNTHETIC'],
   },
   saUSDC: {
     name: 'Stargate USD Coin LP',
@@ -316,6 +319,7 @@ export const tokens = {
     chainId: 43114,
     logoURI: 'https://ftmscan.com/token/images/USDC_32.png',
     documentation: 'https://developers.circle.com/docs',
+    tags: ['STABLECOIN'],
   },
   saUSDT: {
     name: 'Stargate Tether USD LP',
@@ -329,6 +333,7 @@ export const tokens = {
     website: 'https://tether.to/',
     description:
       'Tether is a stablecoin pegged to the US Dollar. A stablecoin is a type of cryptocurrency whose value is pegged to another fiat currency like the US Dollar or to a commodity like Gold. Tether is the first stablecoin to be created and it is the most popular stablecoin used in the ecosystem.',
+    tags: ['STABLECOIN'],
   },
   STG: {
     name: 'Stargate',
@@ -452,6 +457,7 @@ export const tokens = {
     description:
       'Ripae Finances full focus is to build a true cross-chain algorithmic stable coin protocol that is stabilized with true use-cases all around the DeFi Ecosystem.',
     logoURI: 'https://avax.ripae.finance/static/media/ripae_pae.e914457b.svg',
+    tags: ['SYNTHETIC'],
   },
   FIEF: {
     name: 'Fief FIEF',
@@ -642,7 +648,7 @@ export const tokens = {
     website: 'https://www.terra.money/',
     description:
       'Terra stablecoins offer instant settlements, low fees and seamless cross-border exchange - loved by millions of users and merchants.',
-    risks: ['SYNTH_STABLE'],
+    tags: ['STABLECOIN', 'SYNTHETIC'],
   },
   MORE: {
     name: 'More Token',
@@ -656,6 +662,7 @@ export const tokens = {
     website: 'https://app.moremoney.finance/',
     description:
       'Moremoney is a lending protocol for opening interest-free collateralised debt positions (CDP) using liquidity pool tokens, interest-bearing tokens (ibTKNs) and other major tokens as collateral. Borrowers mint MONEY, a USD softly pegged stablecoin backed by an over-collateralised debt position as well as the yield earned by the collateral.  After minting MONEY, borrowers can use it across the DeFi landscape, for interest free leverage, or simply use it to farm MORE. Moremoney is designed to support the further conversion of base tokens like ETH, AVAX, USDT into ibTKNs. Upon depositing, collateral assets are forwarded to trusted partner protocols where these tokens earn yield, which is either compounded into collateral token or into $MONEY to automatically repay debts owed by a vault.',
+    tags: ['SYNTHETIC'],
   },
   FRM: {
     name: 'Ferrum Network Token',
@@ -817,7 +824,7 @@ export const tokens = {
     logoURI: 'https://raw.githubusercontent.com/0xlaozi/qidao/main/images/mimatic-red.png',
     bridge: 'native',
     documentation: 'https://docs.mai.finance/',
-    risks: ['SYNTH_STABLE'],
+    tags: ['STABLECOIN', 'SYNTHETIC'],
   },
   miMatic: {
     chainId: 43114,
@@ -831,6 +838,7 @@ export const tokens = {
       "MAI is a stablecoin collateralized by your crypto holdings. It's powered by Qi Dao, a protocol that enables any cryptocurrency community to create stablecoins backed by their native tokens.",
     logoURI: 'https://raw.githubusercontent.com/0xlaozi/qidao/main/images/mimatic-red.png',
     documentation: 'https://docs.mai.finance/',
+    tags: ['SYNTHETIC'],
   },
   aQI: {
     chainId: 43114,
@@ -1268,6 +1276,7 @@ export const tokens = {
     oracleId: 'USDB',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0x764CC68cd46cB00644216682C3ee120b2f1EB5F6/logo.png',
+    tags: ['SYNTHETIC'],
   },
   BAND: {
     chainId: 43114,
@@ -1360,7 +1369,7 @@ export const tokens = {
       'Binance USD (BUSD) is a 1:1 USD-backed stable coin issued by Binance (in partnership with Paxos), Approved and regulated by the New York State Department of Financial Services (NYDFS), The BUSD Monthly Audit Report can be viewed from the official website.',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0xaEb044650278731Ef3DC244692AB9F64C78FfaEA/logo.png',
-    risks: ['SYNTH_STABLE'],
+    tags: ['STABLECOIN', 'SYNTHETIC'],
   },
   BIRD: {
     chainId: 43114,
@@ -1632,6 +1641,7 @@ export const tokens = {
     oracleId: 'cyUSD',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0x3a9ea8880643211413609A7B717e3884816D15e7/logo.png',
+    tags: ['SYNTHETIC'],
   },
   XCHF: {
     chainId: 43114,
@@ -1695,7 +1705,7 @@ export const tokens = {
       'Dai is a stablecoin cryptocurrency which aims to keep its value as close to one United States dollar as possible through an automated system of smart contracts on the Ethereum blockchain',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0xbA7dEebBFC5fA1100Fb055a87773e1E99Cd3507a/logo.png',
-    risks: ['SYNTH_STABLE'],
+    tags: ['STABLECOIN', 'SYNTHETIC'],
   },
   GEN: {
     chainId: 43114,
@@ -1756,6 +1766,7 @@ export const tokens = {
     oracleId: 'DUSD',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0x71645323F647488209eAAB8d08900576502160c8/logo.png',
+    tags: ['SYNTHETIC'],
   },
   DFD: {
     chainId: 43114,
@@ -1896,6 +1907,7 @@ export const tokens = {
     oracleId: 'mDAI',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0x6CB5008Ca0CC13862CB47906F541672e8f51A6EF/logo.png',
+    tags: ['SYNTHETIC'],
   },
   mETH: {
     chainId: 43114,
@@ -2209,7 +2221,7 @@ export const tokens = {
     bridge: 'frax',
     logoURI:
       'https://raw.githubusercontent.com/pangolindex/tokens/main/assets/0xD24C2Ad096400B6FBcd2ad8B24E7acBc21A1da64/logo.png',
-    risks: ['SYNTH_STABLE'],
+    tags: ['STABLECOIN', 'SYNTHETIC'],
   },
   FXS: {
     chainId: 43114,
@@ -2250,6 +2262,7 @@ export const tokens = {
     oracleId: 'iDAI',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0x8A8DD8dd5639174F032877b2D6c7467D8B51D561/logo.png',
+    tags: ['SYNTHETIC'],
   },
   iETH: {
     chainId: 43114,
@@ -2933,6 +2946,7 @@ export const tokens = {
     oracleId: 'mUSD',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0x4D06D5296c0BE7857a9C43B5EB1770909d40CB25/logo.png',
+    tags: ['SYNTHETIC'],
   },
   MYB: {
     chainId: 43114,
@@ -3373,6 +3387,7 @@ export const tokens = {
     oracleId: 'pBTC',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0xe6338226c321f3089c645ab526f844713C2F7Be3/logo.png',
+    tags: ['SYNTHETIC'],
   },
   NPXS: {
     chainId: 43114,
@@ -3803,6 +3818,7 @@ export const tokens = {
     oracleId: 'STBZ',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0x5a21a9e09667A67a898dE061D4bC61e92f20404e/logo.png',
+    tags: ['SYNTHETIC'],
   },
   STAKE: {
     chainId: 43114,
@@ -4043,6 +4059,7 @@ export const tokens = {
     bridge: 'native',
     logoURI: 'https://snowtrace.io/token/images/tether_32.png',
     documentation: 'https://tether.to/en/how-it-works',
+    tags: ['STABLECOIN'],
   },
   USDTo: {
     chainId: 43114,
@@ -4492,6 +4509,7 @@ export const tokens = {
       'renBTC is a synthetic asset that represents the value of bitcoin and it is created by the Ren protocol. renBTC allows for bitcoin transfers to be conducted quicker on the Ethereum blockchain and opens up the possibility for bitcoin to be used in the Ethereum ecosystem. Bitcoin is held in custody by a network of decentralized nodes; it can be converted to renBTC and vice versa easily.',
     logoURI:
       'https://raw.githubusercontent.com/renproject/bridge-v2/master/src/assets/icons/tokens/bitcoin-dashed-icon.svg',
+    tags: ['SYNTHETIC'],
   },
   wNXM: {
     chainId: 43114,
@@ -4934,6 +4952,7 @@ export const tokens = {
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0xde3A24028580884448a5397872046a019649b084/logo.png',
     documentation: 'https://tether.to/en/how-it-works',
     bridge: 'avax-canonical',
+    tags: ['STABLECOIN'],
   },
   TUSD: {
     chainId: 43114,
@@ -4957,7 +4976,7 @@ export const tokens = {
       'DAI is an Ethereum-based stablecoin (stable-price cryptocurrency) whose issuance and development is managed by the Maker Protocol and the MakerDAO decentralized autonomous organization.',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0xbA7dEebBFC5fA1100Fb055a87773e1E99Cd3507a/logo.png',
-    risks: ['SYNTH_STABLE'],
+    tags: ['STABLECOIN', 'SYNTHETIC'],
   },
   BUSDe: {
     chainId: 43114,
@@ -4971,7 +4990,7 @@ export const tokens = {
       'Binance USD (BUSD) is a 1:1 USD-backed stable coin issued by Binance (in partnership with Paxos). BUSD is approved and regulated by the New York State Department of Financial Services (NYDFS). The BUSD Monthly Audit Report can be viewed from the official website.',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/avalanche-bridge-resources/main/tokens/BUSD/logo.png',
-    risks: ['SYNTH_STABLE'],
+    tags: ['STABLECOIN', 'SYNTHETIC'],
   },
   'FRAX-Frax': {
     chainId: 43114,
@@ -5037,6 +5056,7 @@ export const tokens = {
     logoURI:
       'https://tokens.pancakeswap.finance/images/0x8ac76a51cc950d9822d68b83fe1ad97b32cd580d.png',
     documentation: 'https://developers.circle.com/docs',
+    tags: ['STABLECOIN'],
   },
   MIM: {
     name: 'Magic Internet Money',
@@ -5050,7 +5070,7 @@ export const tokens = {
       'You, the Spellcaster, can provide collateral in the form of various interest bearing crypto assets such as yvYFI, yvUSDT, yvUSDC, xSUSHI and more. With this, you can borrow magic internet money (MIM) which is a stable coin that you can swap for any other traditional stable coin.',
     logoURI: '',
     documentation: 'https://docs.abracadabra.money/',
-    risks: ['SYNTH_STABLE'],
+    tags: ['STABLECOIN', 'SYNTHETIC'],
   },
   SPELL: {
     name: 'Spell Token',
@@ -5180,6 +5200,7 @@ export const tokens = {
     bridge: 'native',
     logoURI:
       'https://tokens.pancakeswap.finance/images/0x8ac76a51cc950d9822d68b83fe1ad97b32cd580d.png',
+    tags: ['STABLECOIN'],
   },
   ROCO: {
     chainId: 43114,
@@ -5270,6 +5291,7 @@ export const tokens = {
       'DEI is an advanced algorithmic cross-chain fractional-reserve stablecoin, with one native bridge that will connect to all chains within the DEUS ecosystem. The collateral ratio of DEI is constantly monitored and adjusted via arbitrage bots.',
     logoURI: 'https://app.deus.finance/tokens/dei.svg',
     documentation: 'https://docs.deus.finance/',
+    tags: ['SYNTHETIC'],
   },
   DEUS: {
     name: 'DEUS',
@@ -5297,7 +5319,7 @@ export const tokens = {
     bridge: 'multichain',
     logoURI: 'https://assets.spookyswap.finance/tokens/DOLA.png',
     documentation: 'https://docs.inverse.finance/',
-    risks: ['SYNTH_STABLE'],
+    tags: ['STABLECOIN', 'SYNTHETIC'],
   },
   aavAVAX: {
     name: 'Aave AVAX',
@@ -5373,6 +5395,7 @@ export const tokens = {
       'Aave interest bearing USDC. USDC is a fully collateralized US dollar stablecoin. USDC is issued by regulated financial institutions, backed by fully reserved assets, redeemable on a 1:1 basis for US dollars.',
     bridge: 'native',
     staked: true,
+    tags: ['STABLECOIN'],
   },
   waavUSDC: {
     name: 'Wrapped Aave USDC',
@@ -5418,6 +5441,7 @@ export const tokens = {
       'Aave interest bearing USDT. Tether is a stablecoin pegged to the US Dollar. A stablecoin is a type of cryptocurrency whose value is pegged to another fiat currency like the US Dollar or to a commodity like Gold. Tether is the first stablecoin to be created and it is the most popular stablecoin used in the ecosystem.',
     bridge: 'native',
     staked: true,
+    tags: ['STABLECOIN'],
   },
   waavUSDT: {
     name: 'Wrapped Aave USDT',
@@ -5589,7 +5613,7 @@ export const tokens = {
     description:
       'Blackhole is a next-generation decentralized exchange (DEX) built on the Avalanche blockchain. It serves as a specialized liquidity hub designed to support emerging blockchain projects and empower community participation in the growth of Web3 ecosystems.',
     bridge: 'native',
-    risks: ['LARGE_HOLDERS', 'NO_TIMELOCK'],
+    tags: ['LARGE_HOLDERS', 'NO_TIMELOCK'],
   },
   SUPER: {
     name: 'SuperVerse',
@@ -5604,7 +5628,7 @@ export const tokens = {
     description:
       'The SuperVerse is building and delivering Web3 products that empower crypto natives with next-generation NFT functionality, and onboard Web2 users through immersive blockchain gaming experiences. The SuperVerse comprises two core verticals: NFT marketplace technology and video games. This wide array of Web3 tools and features is supported and governed by a single protocol and token: $SUPER ERC20 (formerly known as SuperFarm). The SuperVerse harbors two central products: GigaMart, a next-gen NFT marketplace with advanced analytics tools and unique social features, and Impostors, a social-gaming metaverse.',
     bridge: 'layer-zero',
-    risks: ['NO_TIMELOCK'],
+    tags: ['NO_TIMELOCK'],
   },
   rsAVAX: {
     name: 'Yak Milk Suzaku Restaked sAVAX',
@@ -5619,7 +5643,7 @@ export const tokens = {
     description:
       'Restaked sAVAX (rsAVAX) is a token designed to allow users to earn native sAVAX yield while also receiving rewards for contributing to the crypto-economic security of Avalanche Layer 1s. By depositing sAVAX, users receive rsAVAX at a 1:1 ratio. Yield Yak manages the deployment of sAVAX as collateral to Avalanche Operators and Layer 1s, securing rewards that are then compounded into the value of rsAVAX.',
     bridge: 'native',
-    risks: ['NO_TIMELOCK'],
+    tags: ['NO_TIMELOCK'],
   },
   savUSD: {
     name: 'Staked avUSD',
@@ -5634,7 +5658,7 @@ export const tokens = {
     description:
       'Avant’s flagship stable value token, minted when users deposit USDC. Users that stake their avUSD receive yield that is generated from market-neutral strategies put on by Avant’s trading partners. savUSD is a ERC-4626 tokenized vault that accrues avUSD over time. ',
     bridge: 'native',
-    risks: ['NO_TIMELOCK', 'SYNTH_STABLE'],
+    tags: ['NO_TIMELOCK', 'STABLECOIN', 'SYNTHETIC'],
   },
   AUSD: {
     name: 'Agora Dollar',
@@ -5649,7 +5673,7 @@ export const tokens = {
     description:
       'AUSD is backed 100% by Agora’s Reserves. The Agora Reserve Fund is composed of cash, overnight repurchase and reverse repurchase agreements, and short-term U.S. Treasury securities.',
     bridge: 'native',
-    risks: ['NO_TIMELOCK'],
+    tags: ['NO_TIMELOCK', 'STABLECOIN'],
   },
   sUSDe: {
     name: 'sUSDe',
@@ -5664,6 +5688,6 @@ export const tokens = {
     description:
       'Users are able to stake their USDe for sUSDe through the Ethena front-end. sUSDe is a reward-bearing token that accrues value from the yield that Ethena’s underlying delta-neutral position generates. sUSDe is subject to a 7-day un-staking period.',
     bridge: 'layer-zero',
-    risks: ['NO_TIMELOCK', 'SYNTH_STABLE'],
+    tags: ['NO_TIMELOCK', 'STABLECOIN', 'SYNTHETIC'],
   },
 } as const satisfies Record<string, Token>;

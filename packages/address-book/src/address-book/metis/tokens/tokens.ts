@@ -74,6 +74,7 @@ export const tokens = {
       'Tether is a stablecoin pegged to the US Dollar. A stablecoin is a type of cryptocurrency whose value is pegged to another fiat currency like the US Dollar or to a commodity like Gold. Tether is the first stablecoin to be created and it is the most popular stablecoin used in the ecosystem.',
     bridge: 'metis-canonical',
     documentation: 'https://tether.to/en/how-it-works',
+    tags: ['STABLECOIN'],
   },
   mUSDC: {
     name: 'USDC Token',
@@ -89,6 +90,7 @@ export const tokens = {
       'USDC is a fully collateralized US dollar stablecoin. USDC is issued by regulated financial institutions, backed by fully reserved assets, redeemable on a 1:1 basis for US dollars.',
     bridge: 'metis-canonical',
     oracleId: 'USDC',
+    tags: ['STABLECOIN'],
   },
   mDAI: {
     name: 'Dai Stablecoin',
@@ -102,7 +104,7 @@ export const tokens = {
     website: 'https://makerdao.com/en/',
     description:
       'Dai is a stablecoin cryptocurrency which aims to keep its value as close to one United States dollar as possible through an automated system of smart contracts on the Ethereum blockchain',
-    risks: ['SYNTH_STABLE'],
+    tags: ['STABLECOIN', 'SYNTHETIC'],
   },
   WETH: {
     name: 'Ether',
@@ -197,6 +199,7 @@ export const tokens = {
     website: 'https://makerdao.com/en/',
     description:
       'Dai is a stablecoin cryptocurrency which aims to keep its value as close to one United States dollar as possible through an automated system of smart contracts on the Ethereum blockchain',
+    tags: ['SYNTHETIC'],
   },
   HUM: {
     name: 'Hummus',

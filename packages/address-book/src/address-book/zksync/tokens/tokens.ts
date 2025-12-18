@@ -60,7 +60,7 @@ export const tokens = {
     bridge: 'zksync-canonical',
     documentation:
       'https://tprotocol.gitbook.io/tprotocol-documentation/white-paper/tprotocol-documentation',
-    risks: ['SYNTH_STABLE'],
+    tags: ['STABLECOIN', 'SYNTHETIC'],
   },
   VC: {
     name: 'Velocore',
@@ -89,6 +89,7 @@ export const tokens = {
     description:
       'USDC is a fully collateralized US dollar stablecoin. USDC is issued by regulated financial institutions, backed by fully reserved assets, redeemable on a 1:1 basis for US dollars.',
     bridge: 'zksync-canonical',
+    tags: ['STABLECOIN'],
   },
   BUSD: {
     name: 'Binance USD',
@@ -103,7 +104,7 @@ export const tokens = {
       'Binance USD (BUSD) is a 1:1 USD-backed stable coin issued by Binance (in partnership with Paxos), Approved and regulated by the New York State Department of Financial Services (NYDFS), The BUSD Monthly Audit Report can be viewed from the official website.',
     bridge: 'zksync-canonical',
     documentation: '',
-    risks: ['SYNTH_STABLE'],
+    tags: ['STABLECOIN', 'SYNTHETIC'],
   },
   'USD+': {
     name: 'USD+',
@@ -117,6 +118,7 @@ export const tokens = {
     description:
       'USD+ is USDC that pays you yield daily via rebase. It is 100% collateralized with assets immediately convertible into USDC. Yield is generated via strategies such as lending and stable-to-stable pools. Initial strategies include Aave, Rubicon, and Pika.',
     documentation: 'https://docs.overnight.fi/',
+    tags: ['CURATED'],
   },
   WBTC: {
     name: 'Wrapped BTC',
@@ -171,6 +173,7 @@ export const tokens = {
     description:
       'USDC is a fully collateralized US dollar stablecoin. USDC is issued by regulated financial institutions, backed by fully reserved assets, redeemable on a 1:1 basis for US dollars.',
     bridge: 'native',
+    tags: ['STABLECOIN'],
   },
   USDT: {
     name: 'Tether USD',
@@ -185,5 +188,6 @@ export const tokens = {
     description:
       'Tether converts cash into digital currency, to anchor or tether the value to the price of national currencies like the US dollar, the Euro, and the offshore Chinese yuan.',
     bridge: 'zksync-canonical',
+    tags: ['STABLECOIN'],
   },
 } as const satisfies Record<string, Token>;

@@ -57,6 +57,7 @@ export const tokens = {
     website: 'https://www.circle.com/usdc',
     description:
       'USDC is a fully collateralized US dollar stablecoin. USDC is issued by regulated financial institutions, backed by fully reserved assets, redeemable on a 1:1 basis for US dollars.',
+    tags: ['STABLECOIN'],
   },
   USDT: {
     name: 'Tether USD',
@@ -70,6 +71,7 @@ export const tokens = {
     website: 'https://tether.to/',
     description:
       'Tether is a stablecoin pegged to the US Dollar. A stablecoin is a type of cryptocurrency whose value is pegged to another fiat currency like the US Dollar or to a commodity like Gold. Tether is the first stablecoin to be created and it is the most popular stablecoin used in the ecosystem.',
+    tags: ['STABLECOIN'],
   },
   WBTC: {
     name: 'Wrapped BTC',
@@ -122,6 +124,7 @@ export const tokens = {
     website: 'https://www.terra.money/',
     description:
       'Terra stablecoins offer instant settlements, low fees and seamless cross-border exchange - loved by millions of users and merchants.',
+    tags: ['SYNTHETIC'],
   },
   atLUNA: {
     name: 'Luna Terra',
@@ -252,6 +255,7 @@ export const tokens = {
     website: 'https://omnifarms.ocp.finance/',
     description:
       'USDO is a decentralised stablecoin backed by a verifiable collateral pool of on-chain assets.',
+    tags: ['SYNTHETIC'],
   },
   ROSE: {
     name: 'Rose',
@@ -276,7 +280,7 @@ export const tokens = {
     website: 'https://mai.finance/',
     description:
       'MAI is a stable coin collateralized by your MATIC holdings. Its powered by Qi Dao, a protocol that enables any cryptocurrency community to create stablecoins backed by their native tokens.',
-    risks: ['SYNTH_STABLE'],
+    tags: ['STABLECOIN', 'SYNTHETIC'],
   },
   PAD: {
     name: 'NearPad Token',
@@ -301,7 +305,7 @@ export const tokens = {
     website: 'https://makerdao.com/en/',
     description:
       'Dai is a stablecoin cryptocurrency which aims to keep its value as close to one United States dollar as possible through an automated system of smart contracts on the Ethereum blockchain',
-    risks: ['SYNTH_STABLE'],
+    tags: ['STABLECOIN', 'SYNTHETIC'],
   },
   USN: {
     name: 'USN Token',
@@ -313,6 +317,6 @@ export const tokens = {
     logoURI: '',
     website: 'https://decentral-bank.finance/',
     description: 'USN is a NEAR-native stablecoin collateralized 1:1 by USDT.',
-    risks: ['SYNTH_STABLE'],
+    tags: ['STABLECOIN', 'SYNTHETIC'],
   },
 } as const satisfies Record<string, Token>;

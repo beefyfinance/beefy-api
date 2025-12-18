@@ -47,6 +47,7 @@ export const tokens = {
       'USDC is a fully collateralized US dollar stablecoin. USDC is issued by regulated financial institutions, backed by fully reserved assets, redeemable on a 1:1 basis for US dollars.',
     documentation: '',
     bridge: 'native',
+    tags: ['STABLECOIN'],
   },
   USDT: {
     name: 'Bridged USDT (Sonic Labs)',
@@ -60,6 +61,7 @@ export const tokens = {
       'Tether is a stablecoin pegged to the US Dollar. A stablecoin is a type of cryptocurrency whose value is pegged to another fiat currency like the US Dollar or to a commodity like Gold. Tether is the first stablecoin to be created and it is the most popular stablecoin used in the ecosystem.',
     documentation: 'https://tether.to/en/how-it-works',
     bridge: 'sonic-canonical',
+    tags: ['STABLECOIN'],
   },
   WETH: {
     name: 'Wrapped Ether on Sonic',
@@ -129,7 +131,7 @@ export const tokens = {
       'Rings is a meta-stablecoin for USD & ETH offering competitive yield for stakers, providing deep liquidity for Sonic DeFi, and funding Sonic DeFi projects via its lockers.',
     documentation: 'https://docs.rings.money/',
     bridge: 'layer-zero',
-    risks: ['SYNTH_STABLE'],
+    tags: ['STABLECOIN', 'SYNTHETIC', 'CURATED'],
   },
   stkscUSD: {
     name: 'Staked Sonic USD',
@@ -144,7 +146,7 @@ export const tokens = {
       'Rings is a meta-stablecoin for USD & ETH offering competitive yield for stakers, providing deep liquidity for Sonic DeFi, and funding Sonic DeFi projects via its lockers.',
     documentation: 'https://docs.rings.money/',
     bridge: 'layer-zero',
-    risks: ['SYNTH_STABLE'],
+    tags: ['STABLECOIN', 'SYNTHETIC', 'CURATED'],
   },
   wstkscUSD: {
     name: 'Wrapped stkscUSD',
@@ -159,7 +161,7 @@ export const tokens = {
       'Rings is a meta-stablecoin for USD & ETH offering competitive yield for stakers, providing deep liquidity for Sonic DeFi, and funding Sonic DeFi projects via its lockers.',
     documentation: 'https://docs.rings.money/',
     bridge: 'native',
-    risks: ['SYNTH_STABLE'],
+    tags: ['STABLECOIN', 'SYNTHETIC', 'CURATED'],
   },
   BRUSH: {
     name: 'PaintSwap',
@@ -215,7 +217,7 @@ export const tokens = {
     description:
       'SHADOW is the governance token for the Shadow Exchange. Shadow Exchange is a concentrated liquidity layer and exchange built on the Sonic network, powered by x(3,3) — a more fluid and accessible incentive model.',
     documentation: 'https://docs.shadow.so/',
-    risks: ['LARGE_HOLDERS'],
+    tags: ['LARGE_HOLDERS'],
   },
   xSHADOW: {
     name: 'xSHADOW',
@@ -230,7 +232,7 @@ export const tokens = {
     description:
       'SHADOW is the governance token for the Shadow Exchange. Shadow Exchange is a concentrated liquidity layer and exchange built on the Sonic network, powered by x(3,3) — a more fluid and accessible incentive model.',
     documentation: 'https://docs.shadow.so/',
-    risks: ['LARGE_HOLDERS'],
+    tags: ['LARGE_HOLDERS'],
   },
   x33: {
     name: 'x33',
@@ -245,7 +247,7 @@ export const tokens = {
     description:
       'x33 is the liquid-staking wrapper for SHADOW, the governance token for the Shadow Exchange. Shadow Exchange is a concentrated liquidity layer and exchange built on the Sonic network, powered by x(3,3) — a more fluid and accessible incentive model.',
     documentation: 'https://docs.shadow.so/',
-    risks: ['NO_TIMELOCK', 'LARGE_HOLDERS'],
+    tags: ['NO_TIMELOCK', 'LARGE_HOLDERS'],
   },
   SWPx: {
     name: 'SwapX',
@@ -260,7 +262,7 @@ export const tokens = {
     description:
       'SWPx is the governance token for the SwapX. SwapX is a decentralized exchange (DEX) which aims to become the leading platform for native concentrated liquidity on Sonic Blockchain.',
     documentation: 'https://swapxfi.gitbook.io/swapx-docs',
-    risks: ['NO_TIMELOCK'],
+    tags: ['NO_TIMELOCK'],
   },
   mooBIFI: {
     name: 'Bridged BIFI Vault Receipt',
@@ -289,6 +291,7 @@ export const tokens = {
       'Rings is a meta-stablecoin for USD & ETH offering competitive yield for stakers, providing deep liquidity for Sonic DeFi, and funding Sonic DeFi projects via its lockers.',
     documentation: 'https://docs.rings.money/',
     bridge: 'layer-zero',
+    tags: ['CURATED', 'SYNTHETIC'],
   },
   wstkscETH: {
     name: 'Wrapped stkscETH',
@@ -303,6 +306,7 @@ export const tokens = {
       'Rings is a meta-stablecoin for USD & ETH offering competitive yield for stakers, providing deep liquidity for Sonic DeFi, and funding Sonic DeFi projects via its lockers.',
     documentation: 'https://docs.rings.money/',
     bridge: 'native',
+    tags: ['CURATED'],
   },
   frxETH: {
     name: 'Frax Ether',
@@ -342,7 +346,7 @@ export const tokens = {
       'frxUSD is a dollar-pegged stablecoin that uses “Algorithmic Market Operation” (AMO) smart contracts and permissionless, non-custodial subprotocols as stability mechanisms.',
     bridge: 'layer-zero',
     documentation: 'https://docs.frax.finance/',
-    risks: ['SYNTH_STABLE'],
+    tags: ['STABLECOIN', 'SYNTHETIC'],
   },
   sfrxUSD: {
     name: 'Staked Frax USD',
@@ -356,6 +360,7 @@ export const tokens = {
       'Staked Frax USD (sfrxUSD) is an ERC4626 staking vault that distributes part of the Frax Protocol yield weekly to stakers denominated in frxUSD stablecoins. The sfrxUSD token represents pro rata deposits within the vault and is always withdrawable for frxUSD stablecoins at the pro rata rate at all times. sfrxUSD APY attempts to roughly track the interest on reserve balances (IORB) rate of the United States Federal Reserve using the IORB oracle. This benchmark rate is generally accepted as the “risk free rate” of the US Dollar. The frxUSD staking vault attempts, but does not guarantee in any way, to target this rate.',
     bridge: 'layer-zero',
     documentation: 'https://docs.frax.finance/',
+    tags: ['SYNTHETIC'],
   },
   mooSiloSonicUSDCe: {
     name: 'Moo Silo Sonic USDCe',
@@ -369,6 +374,7 @@ export const tokens = {
     description: 'USDC.e staked into the Silo (wS Market) vault.',
     documentation: 'https://docs.beefy.finance/',
     bridge: 'native',
+    tags: ['STABLECOIN'],
   },
   WBTC: {
     name: 'Wrapped BTC',
@@ -397,6 +403,7 @@ export const tokens = {
       'Rings is a meta-stablecoin for USD, ETH & BTC offering competitive yield for stakers, providing deep liquidity for Sonic DeFi, and funding Sonic DeFi projects via its lockers.',
     documentation: 'https://docs.rings.money/',
     bridge: 'layer-zero',
+    tags: ['CURATED', 'SYNTHETIC'],
   },
   GEMS: {
     name: 'Shadow wrapped Gems',
@@ -438,7 +445,7 @@ export const tokens = {
       'Silo is a non-custodial lending protocol to borrow any crypto asset with another.',
     documentation: 'https://devdocs.silo.finance/',
     bridge: 'sonic-canonical',
-    risks: ['NO_TIMELOCK'],
+    tags: ['NO_TIMELOCK'],
   },
   beS: {
     name: 'beSonic',
@@ -495,6 +502,7 @@ export const tokens = {
     description:
       'Aave interest bearing USDC. USDC is a fully collateralized US dollar stablecoin. USDC is issued by regulated financial institutions, backed by fully reserved assets, redeemable on a 1:1 basis for US dollars.',
     staked: true,
+    tags: ['STABLECOIN'],
   },
   waSonUSDC: {
     name: 'Aave Sonic USDC',
@@ -523,6 +531,7 @@ export const tokens = {
       'Silo scUSD market. Rings is a meta-stablecoin for USD & ETH offering competitive yield for stakers, providing deep liquidity for Sonic DeFi, and funding Sonic DeFi projects via its lockers.',
     documentation: 'https://docs.rings.money/',
     bridge: 'layer-zero',
+    tags: ['CURATED', 'SYNTHETIC'],
   },
   SiloWETH: {
     name: 'Silo wETH',
@@ -550,6 +559,7 @@ export const tokens = {
       'Silo scETH market. Rings is a meta-stablecoin for USD & ETH offering competitive yield for stakers, providing deep liquidity for Sonic DeFi, and funding Sonic DeFi projects via its lockers.',
     documentation: 'https://docs.rings.money/',
     bridge: 'layer-zero',
+    tags: ['CURATED', 'SYNTHETIC'],
   },
   beGEMS1: {
     name: 'Beefy Gems Season 1',
@@ -577,6 +587,6 @@ export const tokens = {
     description:
       'Display your prowess in Search For Animera: Star Siege, a Free-To-Play cosmic shooter where adversaries from every corner of the galaxy vie for glory, fame, and lucrative rewards.',
     bridge: 'native',
-    risks: ['NO_TIMELOCK', 'LARGE_HOLDERS'],
+    tags: ['NO_TIMELOCK', 'LARGE_HOLDERS'],
   },
 } as const satisfies Record<string, Token>;

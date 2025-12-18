@@ -41,6 +41,7 @@ export const tokens = {
     description:
       'Tether is a stablecoin pegged to the US Dollar. A stablecoin is a type of cryptocurrency whose value is pegged to another fiat currency like the US Dollar or to a commodity like Gold. Tether is the first stablecoin to be created and it is the most popular stablecoin used in the ecosystem.',
     logoURI: 'https://hecoinfo.com/token/images/USDTHECO_32.png',
+    tags: ['STABLECOIN'],
   },
   LHB: {
     name: 'Lendhub',
@@ -139,7 +140,7 @@ export const tokens = {
     description:
       'HUSD is a ERC20 token backed 1:1 with USD. H-tokens are a suite of assets issued on Ethereum and backed by cryptocurrencies from other blockchains.',
     logoURI: 'https://hecoinfo.com/token/images/HUSD_32.png',
-    risks: ['SYNTH_STABLE'],
+    tags: ['STABLECOIN', 'SYNTHETIC'],
   },
   YFI: {
     name: 'Yearn.finance',

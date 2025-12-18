@@ -46,6 +46,7 @@ export const tokens = {
     description:
       'Angle is a decentralized, capital-efficient and over-collateralized stablecoins protocol.',
     documentation: 'https://docs.angle.money/',
+    tags: ['SYNTHETIC'],
   },
   xVOLT: {
     name: 'VoltBar xVOLT',
@@ -84,6 +85,7 @@ export const tokens = {
     website: 'https://www.terra.money/',
     description:
       'Terra is a public blockchain protocol deploying a suite of algorithmic decentralized stablecoins which underpin a thriving ecosystem that brings DeFi to the masses.',
+    tags: ['SYNTHETIC'],
   },
   atLUNA: {
     name: 'Luna Terra',
@@ -96,6 +98,7 @@ export const tokens = {
     website: 'https://www.terra.money/',
     description:
       'The Terra protocols native staking token that absorbs the price volatility of Terra. Luna is used for governance and in mining. Users stake Luna to validators who record and verify transactions on the blockchain in exchange for rewards from transaction fees. The more Terra is used, the more Luna is worth.',
+    tags: ['SYNTHETIC'],
   },
   WETH: {
     name: 'Wrapped Ether on Fuse',
@@ -134,7 +137,7 @@ export const tokens = {
     website: 'https://fuse.fi/',
     description:
       'Fuse Dollar (fUSD) is fully backed by USDC which is a fully backed us regulated stablecoin minted by circle.com and is widely used in the decentralized finance space. The Fuse network will add more stablecoins to aggregate yield, add stability and remove friction for on boarding and off boarding between crypto and fiat. ',
-    risks: ['SYNTH_STABLE'],
+    tags: ['STABLECOIN', 'SYNTHETIC'],
   },
   BNB: {
     name: 'BNB on Fuse',
@@ -160,7 +163,7 @@ export const tokens = {
     description:
       'Binance USD (BUSD) is a 1:1 USD-backed stable coin issued by Binance (in partnership with Paxos). BUSD is approved and regulated by the New York State Department of Financial Services (NYDFS). The BUSD Monthly Audit Report can be viewed from the official website.',
     bridge: 'fuse-canonical',
-    risks: ['SYNTH_STABLE'],
+    tags: ['STABLECOIN', 'SYNTHETIC'],
   },
   USDC: {
     name: 'USD Coin on Fuse',
@@ -173,6 +176,7 @@ export const tokens = {
     website: 'https://www.circle.com/usdc',
     description:
       'USDC is a fully collateralized US dollar stablecoin. USDC is issued by regulated financial institutions, backed by fully reserved assets, redeemable on a 1:1 basis for US dollars.',
+    tags: ['STABLECOIN'],
   },
   ELON: {
     name: 'Dogelon on Fuse',
@@ -222,6 +226,7 @@ export const tokens = {
     website: 'https://tether.to/',
     description:
       'Tether is a stablecoin pegged to the US Dollar. A stablecoin is a type of cryptocurrency whose value is pegged to another fiat currency like the US Dollar or to a commodity like Gold. Tether is the first stablecoin to be created and it is the most popular stablecoin used in the ecosystem.',
+    tags: ['STABLECOIN'],
   },
   'oldBIFI-WFUSE LP': {
     name: 'oldBIFI-WFUSE LP',

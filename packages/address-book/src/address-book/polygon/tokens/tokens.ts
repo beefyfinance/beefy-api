@@ -28,7 +28,7 @@ const MAI = {
     "MAI is a stablecoin collateralized by your crypto holdings. It's powered by Qi Dao, a protocol that enables any cryptocurrency community to create stablecoins backed by their native tokens.",
   logoURI: 'https://raw.githubusercontent.com/0xlaozi/qidao/main/images/mimatic-red.png',
   documentation: 'https://docs.mai.finance/',
-  risks: ['SYNTH_STABLE'],
+  tags: ['STABLECOIN', 'SYNTHETIC'],
 } as const satisfies Token;
 
 export const tokens = {
@@ -78,7 +78,7 @@ export const tokens = {
     bridge: 'native',
     chainId: 137,
     logoURI: '',
-    risks: ['SYNTH_STABLE'],
+    tags: ['STABLECOIN', 'SYNTHETIC'],
   },
   MVX: {
     name: 'MVX',
@@ -107,6 +107,7 @@ export const tokens = {
     bridge: 'binance-peg',
     chainId: 137,
     logoURI: '',
+    tags: ['SYNTHETIC'],
   },
   spUSDC: {
     name: 'Stargate USD Coin LP',
@@ -134,6 +135,7 @@ export const tokens = {
     bridge: 'native',
     logoURI: '',
     documentation: 'https://docs.overnight.fi/',
+    tags: ['CURATED'],
   },
   spUSDT: {
     name: 'Stargate Tether USD LP',
@@ -197,6 +199,7 @@ export const tokens = {
     description:
       'Ripae Finance’s full focus is to build a true cross-chain algorithmic stable coin protocol that is stabilized with true use-cases all around the DeFi Ecosystem.',
     logoURI: 'https://matic.ripae.finance/static/media/ripae_pftm.1a3fe2b4.svg',
+    tags: ['SYNTHETIC'],
   },
   LCD: {
     name: 'Lucidao',
@@ -235,6 +238,7 @@ export const tokens = {
       'https://tokens.pancakeswap.finance/images/0xD30DC92b8ec0fa8de625768d208f51A93C10aFF2.svg',
     website: '',
     description: '',
+    tags: ['SYNTHETIC'],
   },
   crvUSD: {
     name: 'Curve USD Stablecoin',
@@ -249,7 +253,7 @@ export const tokens = {
       'crvUSD is a collateralized-debt-position (CDP) stablecoin pegged to the US Dollar',
     documentation: 'https://docs.curve.finance/crvUSD/crvUSD/',
     bridge: 'polygon-canonical',
-    risks: ['SYNTH_STABLE'],
+    tags: ['STABLECOIN', 'SYNTHETIC'],
   },
   NZDS: {
     name: 'New Zealand Dollar Stablecoin',
@@ -274,6 +278,7 @@ export const tokens = {
     description:
       'jNZD is a multi-collateralized synthetic token tracking the price of the New Zealand Dollar. It is built on the top of UMA and Chainlink.',
     logoURI: 'https://app.jarvis.exchange/assets/bd5ec61c3163ddb222eaadb2ce8d8042.svg',
+    tags: ['SYNTHETIC'],
   },
   newQUICK: {
     name: 'Quickswap',
@@ -427,7 +432,7 @@ export const tokens = {
     bridge: 'native',
     logoURI: 'https://assets.coingecko.com/coins/images/14153/small/par_round_200.png?1614670422',
     documentation: 'https://docs.mimo.capital/parallel-protocol/parallel-protocol/par',
-    risks: ['SYNTH_STABLE'],
+    tags: ['STABLECOIN', 'SYNTHETIC'],
   },
   EURS: {
     name: 'STATIS EURS Token',
@@ -440,7 +445,7 @@ export const tokens = {
     description:
       'EURS token is a virtual financial asset that is designed to digitally mirror the EURO on the condition that its value is tied to the value of its collateral.',
     logoURI: 'https://assets.coingecko.com/coins/images/5164/small/EURS_300x300.png?1550571779',
-    risks: ['SYNTH_STABLE'],
+    tags: ['STABLECOIN', 'SYNTHETIC'],
   },
   EURt: {
     name: 'Euro Tether',
@@ -454,6 +459,7 @@ export const tokens = {
     bridge: 'polygon-canonical',
     logoURI:
       'https://assets.coingecko.com/coins/images/17385/small/Tether_full_logo_dm.png?1627537298',
+    tags: ['STABLECOIN'],
   },
   renBTC: {
     name: 'renBTC',
@@ -467,6 +473,7 @@ export const tokens = {
       'RenBTC is an ERC-20 token built on the Ethereum network, pegged to Bitcoin. This means that each RenBTC can be always redeemed for one Bitcoin, and hence tends to maintain its value at close to the Bitcoin market rate.',
     logoURI:
       'https://tokens.pancakeswap.finance/images/0xfCe146bF3146100cfe5dB4129cf6C82b0eF4Ad8c.png',
+    tags: ['SYNTHETIC'],
   },
   IXT: {
     name: 'IX Token IXT',
@@ -506,6 +513,7 @@ export const tokens = {
     description:
       'XSGD is the digital Singapore Dollar running on the Ethereum and Zilliqa blockchains.',
     logoURI: '',
+    tags: ['STABLECOIN'],
   },
   jSGD: {
     name: 'Jarvis Synthetic Singapore Dollar',
@@ -518,7 +526,7 @@ export const tokens = {
     description:
       'jSGD is a multi-collateralized synthetic token tracking the price of the Singapore Dollar. It is built on the top of UMA and Chainlink.',
     logoURI: '',
-    risks: ['SYNTH_STABLE'],
+    tags: ['STABLECOIN', 'SYNTHETIC'],
   },
   FUSE: {
     name: 'Fuse',
@@ -603,6 +611,7 @@ export const tokens = {
     logoURI: 'https://i.ibb.co/VDPBwHS/cx-ETH-128x128.png',
     website: 'https://celsiusx.io/ ',
     description: 'CelsiusX Wrapped ETH Token',
+    tags: ['SYNTHETIC'],
   },
   cxADA: {
     name: 'CelsiusX Wrapped ADA',
@@ -614,6 +623,7 @@ export const tokens = {
     logoURI: 'https://i.ibb.co/x3RcB6Q/cx-ADA-128x128.png',
     website: 'https://celsiusx.io/ ',
     description: 'CelsiusX Wrapped ADA Token',
+    tags: ['SYNTHETIC'],
   },
   cxDOGE: {
     name: 'CelsiusX Wrapped DOGE',
@@ -625,6 +635,7 @@ export const tokens = {
     logoURI: 'https://i.ibb.co/FH1GMYX/cx-DOGE-128x128.png',
     website: 'https://celsiusx.io/ ',
     description: 'CelsiusX Wrapped DOGE Token',
+    tags: ['SYNTHETIC'],
   },
   FODL: {
     name: 'Fodl Finance FODL',
@@ -660,6 +671,7 @@ export const tokens = {
     website: 'https://paytrie.com/cadc',
     description: 'CADC is a fully-backed stable coin for the Canadian Dollar, issued by PayTrie.',
     logoURI: 'https://assets.coingecko.com/coins/images/14149/small/cadc_2.png?1614666625',
+    tags: ['STABLECOIN'],
   },
   jCAD: {
     name: 'Jarvis Synthetic Canadian Dollar',
@@ -672,7 +684,7 @@ export const tokens = {
     description:
       'jCAD is a multi-collateralized synthetic token tracking the price of the Canadian Dollar. It is built on the top of UMA and Chainlink.',
     logoURI: 'https://yield.jarvis.network/static/media/jCAD.832ff304.png',
-    risks: ['SYNTH_STABLE'],
+    tags: ['STABLECOIN', 'SYNTHETIC'],
   },
   USTw: {
     name: 'TerraUSD (Wormhole)',
@@ -685,6 +697,7 @@ export const tokens = {
     website: 'https://coinmarketcap.com/currencies/terrausd-wormhole/',
     description:
       'Terra stablecoins offer instant settlements, low fees and seamless cross-border exchange - loved by millions of users and merchants.',
+    tags: ['SYNTHETIC'],
   },
   ETH2x: {
     name: 'ETH 2x Flexible Leverage Index',
@@ -697,6 +710,7 @@ export const tokens = {
     website: 'https://www.indexcoop.com/ethfli',
     description:
       'The Ethereum Flexible Leverage Index lets you leverage a collateralized debt position in a safe and efficient way, by abstracting its management into a simple index. It enabled market participants to take on leverage while minimizing the transaction costs and risks associated with maintaining collateralized debt.',
+    tags: ['SYNTHETIC'],
   },
   gOHM: {
     name: 'Governance OHM',
@@ -722,6 +736,7 @@ export const tokens = {
     description:
       'TrueUSD is one of a number of cryptocurrency stablecoins administered by TrustToken, a platform for tokenizing real-world assets.',
     logoURI: 'https://s2.coinmarketcap.com/static/img/coins/200x200/2563.png',
+    tags: ['STABLECOIN'],
   },
   WCRO: {
     name: 'WCRO',
@@ -770,7 +785,7 @@ export const tokens = {
     bridge: 'native',
     logoURI: 'https://i.imgur.com/ZvP634G.png',
     documentation: 'https://learn.jarvis.network/',
-    risks: ['SYNTH_STABLE'],
+    tags: ['STABLECOIN', 'SYNTHETIC'],
   },
   jGBP: {
     name: 'Jarvis Synthetic British Pound',
@@ -783,7 +798,7 @@ export const tokens = {
     description:
       'jGBP is a multi-collateralized synthetic token tracking the price of the British Pound. It is built on the top of UMA and Chainlink.',
     logoURI: 'https://i.imgur.com/zOLD6Vf.png',
-    risks: ['SYNTH_STABLE'],
+    tags: ['STABLECOIN', 'SYNTHETIC'],
   },
   jCHF: {
     name: 'Jarvis Synthetic Swiss Franc',
@@ -796,7 +811,7 @@ export const tokens = {
     description:
       'jCHF is a multi-collateralized synthetic token tracking the price of the Swiss Franc. It is built on the top of UMA and Chainlink.',
     logoURI: 'https://i.imgur.com/EknGhAl.png',
-    risks: ['SYNTH_STABLE'],
+    tags: ['STABLECOIN', 'SYNTHETIC'],
   },
   JRT: {
     name: 'Jarvis Reward Token',
@@ -1008,7 +1023,7 @@ export const tokens = {
       'https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/0x6B175474E89094C44Da98b954EedeAC495271d0F/logo.png',
     documentation:
       'https://docs.makerdao.com/smart-contract-modules/dai-module/dai-detailed-documentation',
-    risks: ['SYNTH_STABLE'],
+    tags: ['STABLECOIN', 'SYNTHETIC'],
   },
   DEGEN: {
     name: 'DEGEN Index',
@@ -1061,7 +1076,7 @@ export const tokens = {
     description:
       'The Frax Protocol introduced the world to the concept of a cryptocurrency being partially backed by collateral and partially stabilized algorithmically.',
     logoURI: 'https://avatars.githubusercontent.com/u/56005256?s=200&v=4',
-    risks: ['SYNTH_STABLE'],
+    tags: ['STABLECOIN', 'SYNTHETIC'],
   },
   FXS: {
     name: 'Frax Share',
@@ -1257,6 +1272,7 @@ export const tokens = {
     chainId: 137,
     logoURI:
       'https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48/logo.png',
+    tags: ['SYNTHETIC', 'STABLECOIN'],
   },
   USDC: {
     name: 'USD Coin',
@@ -1272,6 +1288,7 @@ export const tokens = {
     logoURI:
       'https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48/logo.png',
     documentation: 'https://developers.circle.com/docs',
+    tags: ['STABLECOIN'],
   },
   USDT: {
     name: 'USDT0',
@@ -1287,6 +1304,7 @@ export const tokens = {
     logoURI:
       'https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/0xdAC17F958D2ee523a2206206994597C13D831ec7/logo.png',
     documentation: 'https://tether.to/en/how-it-works',
+    tags: ['STABLECOIN'],
   },
   VISION: {
     name: 'Vision Token',
@@ -1384,7 +1402,7 @@ export const tokens = {
     decimals: 18,
     chainId: 137,
     logoURI: 'https://polygon.iron.finance/static/media/IRON.484ee2b8.png',
-    risks: ['SYNTH_STABLE'],
+    tags: ['STABLECOIN', 'SYNTHETIC'],
   },
   SUSHI: {
     name: 'Sushi',
@@ -1434,6 +1452,7 @@ export const tokens = {
     website: 'https://renproject.io/',
     description: 'renDOGE is a one-for-one representation of Dogecoin (DOGE) on Polygon via RenVM.',
     logoURI: 'https://polygonscan.com/token/images/rendogecoin_32.png',
+    tags: ['SYNTHETIC'],
   },
   SNX: {
     name: 'SNX',
@@ -1509,6 +1528,7 @@ export const tokens = {
       'ibBTC is an asset launched in collaboration with DeFiDollar, it stands for Interest Bearing Bitcoin. It was created to serve as the default Bitcoin asset on Ethereum while generating interest to the users who hold it.',
     logoURI:
       'https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/0x2260FAC5E5542a773Aa44fBCfeDf7C193bc2C599/logo.png',
+    tags: ['SYNTHETIC'],
   },
   BNB: {
     name: 'AnySwap Bridge Polygon Binance Coin',
@@ -1534,7 +1554,7 @@ export const tokens = {
     description:
       'Ramp aims to empower users with access to a global, blockchain-agnostic liquidity network. rUSD can be minted on Binance Smart Chain and Polygon, with more chains in the near future.',
     logoURI: 'https://appv2.rampdefi.com/assets/icon/rusdc.svg',
-    risks: ['SYNTH_STABLE'],
+    tags: ['STABLECOIN', 'SYNTHETIC'],
   },
   UST: {
     name: 'USD Terra',
@@ -1547,7 +1567,7 @@ export const tokens = {
     description:
       'Terra stablecoins offer instant settlements, low fees and seamless cross-border exchange - loved by millions of users and merchants.',
     logoURI: 'https://s2.coinmarketcap.com/static/img/coins/64x64/7129.png',
-    risks: ['SYNTH_STABLE'],
+    tags: ['STABLECOIN', 'SYNTHETIC'],
   },
   WMATIC_DFYN: {
     name: 'Wrapped Matic, DFYN version',
@@ -1694,6 +1714,7 @@ export const tokens = {
     website: 'https://tomb.finance/',
     description:
       'The first algorithmic stablecoin on Fantom Opera, pegged to the price of 1 FTM via seigniorage',
+    tags: ['SYNTHETIC'],
   },
   CLAM: {
     name: 'Otter Clam',
@@ -1731,7 +1752,7 @@ export const tokens = {
       'EURA (previously agEUR) is pegged to the value of the Euro (€) and is a product of Angle, a decentralized, capital-efficient and over-collateralized stablecoins protocol.',
     bridge: 'layer-zero',
     documentation: 'https://docs.angle.money/',
-    risks: ['SYNTH_STABLE'],
+    tags: ['STABLECOIN', 'SYNTHETIC'],
   },
   jJPY: {
     name: 'Jarvis Synthetic Yen',
@@ -1744,7 +1765,7 @@ export const tokens = {
     description:
       'jJPY is a multi-collateralized synthetic token tracking the price of Yen. It is built on the top of UMA and Chainlink.',
     logoURI: '',
-    risks: ['SYNTH_STABLE'],
+    tags: ['STABLECOIN', 'SYNTHETIC'],
   },
   JPYC: {
     name: 'JPY Coin',
@@ -1757,7 +1778,7 @@ export const tokens = {
     description:
       "JPYC (JPYCoin) is Japan's first Japanese Yen stablecoin that utilizes blockchain technology.",
     logoURI: '',
-    risks: ['SYNTH_STABLE'],
+    tags: ['STABLECOIN', 'SYNTHETIC'],
   },
   PSP: {
     name: 'ParaSwap',
@@ -1806,6 +1827,7 @@ export const tokens = {
     website: 'https://monerium.com/',
     description:
       'EURe is a Euro stable-coin from Monerium. Monerium is the first company authorized to issue money on blockchains under European financial regulation. They have issued EUR, USD, GBP, and ISK as e-money tokens on Ethereum and EUR on Algorand. Monerium also operates a gateway for instant transfers of EUR between bank accounts and blockchain wallets/smart contracts.',
+    tags: ['STABLECOIN'],
   },
   HOP: {
     name: 'HOP Protocol',
@@ -1832,6 +1854,7 @@ export const tokens = {
       'hETH is the bridge token for transferring ETH via the Hop Protocol. Hop Protocol is a blockchain bridge protocol that allows users to move tokens from one chain to another without having to wait for a challenge period.',
     logoURI: '',
     documentation: 'https://docs.hop.exchange/',
+    tags: ['SYNTHETIC'],
   },
   hUSDC: {
     name: 'USDC Hop Token',
@@ -1871,6 +1894,7 @@ export const tokens = {
       'hDAI is the bridge token for transferring DAI via the Hop Protocol. Hop Protocol is a blockchain bridge protocol that allows users to move tokens from one chain to another without having to wait for a challenge period.',
     logoURI: '',
     documentation: 'https://docs.hop.exchange/',
+    tags: ['SYNTHETIC'],
   },
   amUSDT: {
     name: 'Aave Tether USD',
@@ -1914,6 +1938,7 @@ export const tokens = {
     documentation: 'https://docs.balancer.fi/products/balancer-pools/boosted-pools',
     description:
       'Balancer linear pool that consist of 50/50 USDT and wrapped Aave Interest Bearing USDT.',
+    tags: ['STABLECOIN'],
   },
   amUSDC: {
     name: 'Aave USDC',
@@ -1957,6 +1982,7 @@ export const tokens = {
     documentation: 'https://docs.balancer.fi/products/balancer-pools/boosted-pools',
     description:
       'Balancer linear pool that consist of 50/50 USDC and wrapped Aave Interest Bearing USDC.',
+    tags: ['STABLECOIN'],
   },
   amDAI: {
     name: 'Aave DAI',
@@ -1972,6 +1998,7 @@ export const tokens = {
     description:
       'Aave interest bearing DAI. Dai is a stablecoin cryptocurrency which aims to keep its value as close to one United States dollar as possible through an automated system of smart contracts on the Ethereum blockchain.',
     bridge: 'native',
+    tags: ['SYNTHETIC'],
   },
   wamDAI: {
     name: 'Wrapped Aave Tether DAI',
@@ -1986,6 +2013,7 @@ export const tokens = {
     documentation: 'https://docs.aave.com/developers/v/2.0/the-core-protocol/atokens',
     description:
       'Wrapped Aave interest bearing DAI. Dai is a stablecoin cryptocurrency which aims to keep its value as close to one United States dollar as possible through an automated system of smart contracts on the Ethereum blockchain.',
+    tags: ['SYNTHETIC'],
   },
   bbamDAI: {
     name: 'Balancer Aave DAI Linear Pool',
@@ -2000,7 +2028,7 @@ export const tokens = {
     documentation: 'https://docs.balancer.fi/products/balancer-pools/boosted-pools',
     description:
       'Balancer linear pool that consist of 50/50 DAI and wrapped Aave Interest Bearing DAI.',
-    risks: ['SYNTH_STABLE'],
+    tags: ['STABLECOIN', 'SYNTHETIC'],
   },
   bbamUSD: {
     name: 'Balancer Aave Stable Composable Pool',
@@ -2015,7 +2043,7 @@ export const tokens = {
     documentation: 'https://docs.balancer.fi/products/balancer-pools/boosted-pools',
     description:
       'Balancer composable pool that consist of bbaUSDT, bbaUSDC, and bbaDAI. bbTokens are Aave boosted linear pools.',
-    risks: ['SYNTH_STABLE'],
+    tags: ['STABLECOIN', 'SYNTHETIC'],
   },
   '2BRZ': {
     name: 'Balancer 2BRZ Pool',
@@ -2042,7 +2070,7 @@ export const tokens = {
       'jBRL is a multi-collateralized synthetic token tracking the price of Brazilian Real. It is built on the top of UMA and Chainlink.',
     logoURI: 'https://jarvis.network/images/jBRL.svg',
     documentation: 'https://learn.jarvis.network/',
-    risks: ['SYNTH_STABLE'],
+    tags: ['STABLECOIN', 'SYNTHETIC'],
   },
   BRZ: {
     name: 'BRZ Token',
@@ -2056,7 +2084,7 @@ export const tokens = {
       'BRZ is the first Brazilian stablecoin in circulation. It will allow Brazilians to directly ramp up investments in foreign exchanges and to trade a Brazilian Real (BRL) pegged stablecoin in global scale.',
     logoURI: 'https://bscscan.com/token/images/brztoken_32.png',
     documentation: 'https://brztoken.io/files/white_paper_BRZ_2023.pdf',
-    risks: ['SYNTH_STABLE'],
+    tags: ['STABLECOIN', 'SYNTHETIC'],
   },
   multiWUSDR: {
     name: 'Real USD',
@@ -2070,6 +2098,7 @@ export const tokens = {
     description:
       'Real USD (USDR) is the world’s first stablecoin collateralized by tokenized, yield-producing real estate. USDR has a value accrual system built into its design. Using a consistent stream of dependable yield derived from rental revenue, Real USD delivers a native yield to holders.',
     logoURI: '',
+    tags: ['SYNTHETIC'],
   },
   multiUSDR: {
     name: 'Real USD',
@@ -2083,6 +2112,7 @@ export const tokens = {
     description:
       'Real USD (USDR) is the world’s first stablecoin collateralized by tokenized, yield-producing real estate. USDR has a value accrual system built into its design. Using a consistent stream of dependable yield derived from rental revenue, Real USD delivers a native yield to holders.',
     logoURI: '',
+    tags: ['SYNTHETIC'],
   },
   wUSDR: {
     name: 'Real USD',
@@ -2096,6 +2126,7 @@ export const tokens = {
     description:
       'Real USD (USDR) is the world’s first stablecoin collateralized by tokenized, yield-producing real estate. USDR has a value accrual system built into its design. Using a consistent stream of dependable yield derived from rental revenue, Real USD delivers a native yield to holders.',
     logoURI: '',
+    tags: ['SYNTHETIC'],
   },
   USDR: {
     name: 'Real USD',
@@ -2109,6 +2140,7 @@ export const tokens = {
     description:
       'Real USD (USDR) is the world’s first stablecoin collateralized by tokenized, yield-producing real estate. USDR has a value accrual system built into its design. Using a consistent stream of dependable yield derived from rental revenue, Real USD delivers a native yield to holders.',
     logoURI: '',
+    tags: ['SYNTHETIC'],
   },
   CVR: {
     name: 'CAVIAR',
@@ -2242,6 +2274,7 @@ export const tokens = {
     description:
       'axlUSDC is a cross-chain representation of USDC, secured by a validator set using delegated Proof-of-Stake and multi-party cryptography. It allows USDC to move seamlessly across different blockchain ecosystems, minted by depositing USDC into an Axelar Gateway on Ethereum, and can be acquired through DEXs, cross-chain swaps via Squid, or bridging via Satellite.money.',
     documentation: 'https://docs.axelar.dev/learn/axlusdc',
+    tags: ['STABLECOIN'],
   },
   TNGBL: {
     name: 'Tangible',
@@ -2324,7 +2357,7 @@ export const tokens = {
       'Stabl.fi is a next-generation, yield bearing stable indexcoin protocol. Users mint $CASH by depositing stables into the Stabl protocol. The amount of $CASH in your wallet will continually grow, due to the yield strategies the protocol deposited stables are put in as well as external yielding sources.',
     bridge: 'native',
     documentation: 'https://docs.stabl.fi/protocol-overview/introducing-stabl.fi',
-    risks: ['SYNTH_STABLE'],
+    tags: ['STABLECOIN', 'SYNTHETIC'],
   },
   asdCRV: {
     name: 'Aladdin sdCRV',

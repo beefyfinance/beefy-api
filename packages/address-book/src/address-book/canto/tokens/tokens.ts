@@ -75,7 +75,7 @@ export const tokens = {
     description:
       '$NOTE is the unit of account on Canto. $NOTE is an over-collateralized currency with a value perpetually rebalanced toward $1 through an algorithmic interest rate policy. ',
     bridge: 'native',
-    risks: ['SYNTH_STABLE'],
+    tags: ['STABLECOIN', 'SYNTHETIC'],
   },
   USDC: {
     name: 'USD Coin',
@@ -90,6 +90,7 @@ export const tokens = {
     chainId: 7700,
     logoURI: '',
     documentation: 'https://developers.circle.com/docs',
+    tags: ['STABLECOIN'],
   },
   USDT: {
     name: 'USDT',
@@ -104,6 +105,7 @@ export const tokens = {
     bridge: 'gravity',
     logoURI: '',
     documentation: 'https://tether.to/en/how-it-works',
+    tags: ['STABLECOIN'],
   },
   FLOWV1: {
     name: 'Velocimeter',
@@ -171,6 +173,7 @@ export const tokens = {
     website: 'https://app.multichain.org/',
     description: 'Multichain supports to swap BTC to MultiBTC (Multichain BTC) 1:1.',
     documentation: 'https://docs.multichain.org/getting-started/introduction',
+    tags: ['SYNTHETIC'],
   },
   BNB: {
     name: 'Binance Chain',
@@ -195,7 +198,7 @@ export const tokens = {
     website: 'https://www.binance.com/en/busd',
     description:
       'Binance USD (BUSD) is a 1:1 USD-backed stable coin issued by Binance (in partnership with Paxos), Approved and regulated by the New York State Department of Financial Services (NYDFS), The BUSD Monthly Audit Report can be viewed from the official website.',
-    risks: ['SYNTH_STABLE'],
+    tags: ['STABLECOIN', 'SYNTHETIC'],
   },
   WBTC: {
     name: 'Wrapped BTC',
