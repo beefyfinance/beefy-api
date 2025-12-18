@@ -46,7 +46,7 @@ export const tokens = {
       'https://docs.makerdao.com/smart-contract-modules/dai-module/dai-detailed-documentation',
     description:
       'Dai is a stablecoin cryptocurrency which aims to keep its value as close to one United States dollar as possible through an automated system of smart contracts on the Ethereum blockchain',
-    risks: ['NO_TIMELOCK', 'SYNTH_ASSET'],
+    tags: ['NO_TIMELOCK', 'STABLECOIN', 'SYNTHETIC'],
   },
   arcUSD: {
     name: 'arcUSD',
@@ -60,7 +60,7 @@ export const tokens = {
       'Arcana distributes the yield generated from delta-neutral strategies through arcUSD, a rebasing token soft-pegged to the dollar. The yield is distributed to arcUSD holders in the form of daily rebases, increasing their balance each period. On top of the rebases, arcUSD can be deployed in DeFi to unlock additional reward composability.',
     bridge: 'native',
     chainId: 111188,
-    risks: ['NO_TIMELOCK', 'SYNTH_ASSET'],
+    tags: ['NO_TIMELOCK', 'STABLECOIN', 'SYNTHETIC'],
   },
   UKRE: {
     name: 'UK Real Estate',
@@ -74,7 +74,7 @@ export const tokens = {
       'UKRE is a Tangible Basket token backed by tokenized real estate in the UK. Tangible Baskets are permissionless, rebasing ERC-20 tokens—100% backed by tokenized, yield-generating real estate—that distributed yield back to token holders via daily rebase. Baskets price is soft-pegged to the TPV (true property value) of the assets in the pool and will fluctuate based on market demand and the activity of arbitrageurs. With Baskets, anyone, anywhere, at any budget can invest in income-producing real estate with just a few clicks.',
     bridge: 'native',
     chainId: 111188,
-    risks: ['NO_TIMELOCK'],
+    tags: ['NO_TIMELOCK'],
   },
   USTB: {
     name: 'US T-Bill',
@@ -88,7 +88,7 @@ export const tokens = {
       "USTB is a fully permissionless, cross-chain, rebasing dollar-pegged stablecoin. USTB is a wrapped version of USDM, with USDM supplying 100% of the backing for USTB. USDM is backed by Mountain Protocol's reserves of short-duration US Treasuries (T-Bills) having an average duration of less than 3 months or less.",
     bridge: 'layer-zero',
     chainId: 111188,
-    risks: ['NO_TIMELOCK', 'SYNTH_ASSET'],
+    tags: ['NO_TIMELOCK', 'STABLECOIN', 'SYNTHETIC'],
   },
   PEARL: {
     name: 'Pearl',
@@ -102,7 +102,7 @@ export const tokens = {
       'Pearl is the native liquidity layer for RWAs on re.al blockchain. Pearl provides a liquidity solution for both new and existing RWA protocols, solving initial liquidity challenges while also serving as an efficient solution to long-term liquidity incentivization.',
     bridge: 'native',
     chainId: 111188,
-    risks: ['NO_TIMELOCK'],
+    tags: ['NO_TIMELOCK'],
   },
   RWA: {
     name: 're.al',
@@ -116,7 +116,7 @@ export const tokens = {
       'The RWA token is the governance token to the re.al ecosystem. RWA will exist unlocked as RWA (ERC-20) and locked as veRWA (ERC-721). When locked into veRWA it will provide holders two primary benefits: Value Accrual and Governance Rights',
     bridge: 'native',
     chainId: 111188,
-    risks: ['NO_TIMELOCK'],
+    tags: ['NO_TIMELOCK'],
   },
   stRWA: {
     name: 'Liquid Staked RWA',
@@ -130,7 +130,7 @@ export const tokens = {
       'stRWA is a liquid version of veRWA that rebases to distribute accrued yield, making veRWA liquid and composable with DeFi protocols.',
     bridge: 'native',
     chainId: 111188,
-    risks: ['NO_TIMELOCK'],
+    tags: ['NO_TIMELOCK'],
   },
   MORE: {
     name: 'MORE',
@@ -144,6 +144,6 @@ export const tokens = {
       'Stack’s $MORE token is a non-algorithmic, collateral-backed stablecoin. This means that every $1 USD of $MORE should have more than $1 USD of collateral backing. Stack considers $MORE to be worth $1 however at times it may not trade at this value. In these instances, Stack has several options at its disposal to regain the $1 USD peg.',
     bridge: 'native',
     chainId: 111188,
-    risks: ['NO_TIMELOCK', 'SYNTH_ASSET'],
+    tags: ['NO_TIMELOCK', 'STABLECOIN', 'SYNTHETIC'],
   },
 } as const satisfies Record<string, Token>;

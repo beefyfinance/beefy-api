@@ -45,7 +45,7 @@ export const tokens = {
       'Turn your favorite stables into Honey. Leverage liquidity incentives on various platforms.',
     documentation: 'https://docs.berachain.com/',
     bridge: 'native',
-    risks: ['SYNTH_ASSET'],
+    tags: ['STABLECOIN', 'SYNTHETIC'],
   },
   BGT: {
     name: 'Bera Governance Token',
@@ -167,7 +167,7 @@ export const tokens = {
     description:
       'bm, short for Bera Morning, is a widely recognized term in the Berachain community and the first meme coin ever launched on Berachain.',
     bridge: 'native',
-    risks: ['LARGE_HOLDERS'],
+    tags: ['LARGE_HOLDERS'],
   },
   LBGT: {
     name: 'Liquid BGT',
@@ -181,7 +181,7 @@ export const tokens = {
     description:
       'The Liquid Bera Governance Token ($LBGT) is a core component of BeraPaw. It tokenizes Berachain’s native Governance, BGT, into a liquid, transferable asset. This innovation simplifies participation in Berachain’s Proof of Liquidity (PoL) by automating rewards and delegations while providing users with the flexibility to trade and utilize $LBGT across decentralized finance (DeFi) ecosystems.',
     bridge: 'native',
-    risks: ['NO_TIMELOCK'],
+    tags: ['NO_TIMELOCK'],
   },
   YEET: {
     name: 'YEET',
@@ -195,7 +195,7 @@ export const tokens = {
     description:
       'Yeet offers three core products: the Yeet Game, YeetBonds, and Vault. The Yeet Game combines DeFi and on-chain gaming, allowing players to win $BERA and $YEET prizes. YeetBonds is an open marketplace for OTC sales where users can buy Berachain ecosystem tokens at a discount, in collaboration with Bond Protocol. The Vault is a yield product that farms liquidity and compounds rewards using a complex DeFi yield farming strategy, simplified for users.',
     bridge: 'native',
-    risks: ['LARGE_HOLDERS'],
+    tags: ['LARGE_HOLDERS'],
   },
   RAMEN: {
     name: 'Ramen Token',
@@ -207,7 +207,7 @@ export const tokens = {
     website: 'https://ramen.finance/',
     description: 'Token launchpad powering liquidity for next-gen protocols on Berachain',
     bridge: 'native',
-    risks: ['LARGE_HOLDERS'],
+    tags: ['LARGE_HOLDERS'],
   },
   SolvBTC: {
     name: 'SolvBTC',
@@ -221,7 +221,7 @@ export const tokens = {
       'SolvBTC is a universal Bitcoin reserve token that connects Bitcoin’s value across multiple blockchains. Backed 1:1 by a transparent reserve, it allows you to use your Bitcoin in DeFi, CeFi, and TradFi markets for lending, trading, or yield generation while maintaining full control.',
     documentation: 'https://docs.solv.finance/key-products/solvbtc',
     bridge: 'layerzero',
-    risks: ['NO_TIMELOCK'],
+    tags: ['NO_TIMELOCK'],
   },
   xSolvBTC: {
     name: 'xSolvBTC',
@@ -235,7 +235,7 @@ export const tokens = {
       'xSolvBTC is a yield-bearing Bitcoin token representing staked Bitcoin in the Babylon ecosystem. Pegged 1:1 with Bitcoin, it enables users to earn staking rewards from Babylon while unlocking liquidity and additional yields in the DeFi ecosystem.',
     documentation: 'https://docs.solv.finance/key-products/solvbtc',
     bridge: 'layerzero',
-    risks: ['NO_TIMELOCK'],
+    tags: ['NO_TIMELOCK'],
   },
   BREAD: {
     name: 'BREAD',
@@ -262,7 +262,7 @@ export const tokens = {
     description:
       "Ooga Booga is a decentralized exchange aggregator built on Berachain, designed to help traders find the most cost-effective crypto swaps across various exchanges. It serves as Berachain's native liquidity aggregator, enhancing the efficiency and accessibility of decentralized trading on the platform.",
     bridge: 'native',
-    risks: ['LARGE_HOLDERS'],
+    tags: ['LARGE_HOLDERS'],
   },
   USDbr: {
     name: 'USDbr',
@@ -276,7 +276,7 @@ export const tokens = {
     description:
       'Nome Protocol is a synthetic asset protocol designed to provide scalable, algorithmic liquidity for the Berachain ecosystem. It operates through $USDbr, an elastic, algorithmic stablecoin, and $NOME, its governance and staking asset.',
     bridge: 'native',
-    risks: ['NO_TIMELOCK', 'SYNTH_ASSET'],
+    tags: ['NO_TIMELOCK', 'STABLECOIN', 'SYNTHETIC'],
   },
   DOLO: {
     name: 'Dolomite',
@@ -304,7 +304,7 @@ export const tokens = {
     description:
       'Ethenas USDe is not the same as a fiat stablecoin like USDC or USDT. USDe is a synthetic dollar, backed with crypto assets and corresponding short futures positions.',
     bridge: 'layer-zero',
-    risks: ['NO_TIMELOCK', 'SYNTH_ASSET'],
+    tags: ['NO_TIMELOCK', 'STABLECOIN', 'SYNTHETIC'],
   },
   sUSDe: {
     name: 'Staked USDe',
@@ -319,6 +319,6 @@ export const tokens = {
     description:
       'Users are able to stake their USDe for sUSDe through the Ethena front-end. sUSDe is a reward-bearing token that accrues value from the yield that Ethena’s underlying delta-neutral position generates. sUSDe is subject to a 7-day un-staking period.',
     bridge: 'layer-zero',
-    risks: ['NO_TIMELOCK', 'SYNTH_ASSET'],
+    tags: ['NO_TIMELOCK', 'STABLECOIN', 'SYNTHETIC'],
   },
 } as const satisfies Record<string, Token>;

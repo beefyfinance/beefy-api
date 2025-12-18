@@ -31,7 +31,7 @@ export const tokens = {
     description:
       'StakeStone is an omni-chain LST (Liquid Staking Token) protocol aiming to bring native staking yields and liquidity to Layer 2s in a decentralized manner.',
     bridge: 'layer-zero',
-    risks: ['NO_TIMELOCK'],
+    tags: ['NO_TIMELOCK'],
   },
   USDC: {
     name: 'USDC',

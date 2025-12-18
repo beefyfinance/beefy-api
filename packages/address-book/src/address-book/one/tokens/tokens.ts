@@ -113,8 +113,8 @@ export const tokens = {
       'Binance USD (BUSD) is a 1:1 USD-backed stable coin issued by Binance (in partnership with Paxos), Approved and regulated by the New York State Department of Financial Services (NYDFS), The BUSD Monthly Audit Report can be viewed from the official website.',
     logoURI:
       'https://tokens.pancakeswap.finance/images/0xe9e7cea3dedca5984780bafc599bd69add087d56.png',
-    risks: ['SYNTH_ASSET'],
-},
+    tags: ['SYNTHETIC'],
+  },
   bscBUSD: {
     name: 'BUSD Token',
     symbol: 'BUSD',
@@ -127,8 +127,8 @@ export const tokens = {
       'Binance USD (BUSD) is a 1:1 USD-backed stable coin issued by Binance (in partnership with Paxos), Approved and regulated by the New York State Department of Financial Services (NYDFS), The BUSD Monthly Audit Report can be viewed from the official website.',
     logoURI:
       'https://tokens.pancakeswap.finance/images/0xe9e7cea3dedca5984780bafc599bd69add087d56.png',
-    risks: ['SYNTH_ASSET'],
-},
+    tags: ['SYNTHETIC'],
+  },
   YGG: {
     name: 'Yield Guild Games',
     symbol: 'YGG',
@@ -178,8 +178,8 @@ export const tokens = {
       'DAI is an Ethereum-based stablecoin (stable-price cryptocurrency) whose issuance and development is managed by the Maker Protocol and the MakerDAO decentralized autonomous organization.',
     logoURI:
       'https://tokens.pancakeswap.finance/images/0x1af3f329e8be154074d8769d1ffa4ee058b1dbc3.png',
-    risks: ['SYNTH_ASSET'],
-},
+    tags: ['SYNTHETIC'],
+  },
   USDT: {
     name: 'USD Tether',
     symbol: 'USDT',
@@ -204,8 +204,8 @@ export const tokens = {
     description:
       'The Frax Protocol introduced the world to the concept of a cryptocurrency being partially backed by collateral and partially stabilized algorithmically.',
     logoURI: 'https://ftmscan.com/token/images/fraxfinance_32.png',
-    risks: ['SYNTH_ASSET'],
-},
+    tags: ['SYNTHETIC'],
+  },
   UST: {
     name: 'UST',
     symbol: 'UST',
@@ -218,8 +218,8 @@ export const tokens = {
       'TerraUSD (UST) is the decentralized and algorithmic stablecoin of the Terra blockchain. It is a scalable, yield-bearing coin that is value-pegged to the US Dollar.',
     logoURI:
       'https://tokens.pancakeswap.finance/images/0x23396cF899Ca06c4472205fC903bDB4de249D6fC.png',
-    risks: ['SYNTH_ASSET'],
-},
+    tags: ['SYNTHETIC'],
+  },
   BTC: {
     name: 'Harmony Bitcoin',
     symbol: '1BTC',

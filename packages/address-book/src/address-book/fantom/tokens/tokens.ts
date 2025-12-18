@@ -101,7 +101,7 @@ export const tokens = {
     description:
       'Alchemix Self-Repaying Loans allow you to leverage a range of tokens without risk of liquidation.',
     bridge: 'multichain',
-    risks: ['SYNTH_ASSET'],
+    tags: ['STABLECOIN', 'SYNTHETIC'],
   },
   POTS: {
     name: 'Moonpot',
@@ -206,8 +206,8 @@ export const tokens = {
     website: 'https://fantom.foundation/defi/',
     description: 'Mint fUSD, the stablecoin on Fantom pegged 1:1 to the USD price, using your FTM.',
     bridge: 'native',
-    risks: ['SYNTH_ASSET'],
-},
+    tags: ['SYNTHETIC'],
+  },
   MIDAS: {
     name: 'MIDAS',
     symbol: 'MIDAS',
@@ -232,7 +232,7 @@ export const tokens = {
     bridge: 'native',
     description:
       'TOR is a fully collateralized stablecoin which acts as a foundational pillar within the Hector Network Ecosystem. Its unique smart contracts made it the first of its kind, creating positive price action for the HEC token each time a TOR coin is minted and empowering Hector Network to become deflationary.',
-    risks: ['SYNTH_ASSET'],
+    tags: ['STABLECOIN', 'SYNTHETIC'],
   },
   sFTMx: {
     name: 'sFTMx',
@@ -286,8 +286,8 @@ export const tokens = {
     description:
       'USDB provides a wide range of financial tools and services to individuals and institutions',
     logoURI: '',
-    risks: ['SYNTH_ASSET'],
-},
+    tags: ['SYNTHETIC'],
+  },
   GEL: {
     name: 'Gelato',
     symbol: 'GEL',
@@ -313,8 +313,8 @@ export const tokens = {
     description:
       'Mint fully decentralized sythentic assets on Binance Smart Chain, Fantom & Avalanche.',
     logoURI: '',
-    risks: ['SYNTH_ASSET'],
-},
+    tags: ['SYNTHETIC'],
+  },
   USDL: {
     name: 'Top Shelf USD L-Token',
     symbol: 'USDL',
@@ -327,7 +327,7 @@ export const tokens = {
     description:
       'Mint fully decentralized sythentic assets on Binance Smart Chain, Fantom & Avalanche.',
     logoURI: '',
-    risks: ['SYNTH_ASSET'],
+    tags: ['STABLECOIN', 'SYNTHETIC'],
   },
   STG: {
     name: 'Stargate',
@@ -393,8 +393,8 @@ export const tokens = {
     description: 'Based Finance the first algorithmic token pegged to TOMB on the FTM Network.',
     bridge: 'native',
     logoURI: 'https://assets.coingecko.com/coins/images/23535/small/BASED_TOKEN.109291b9.png',
-    risks: ['SYNTH_ASSET'],
-},
+    tags: ['SYNTHETIC'],
+  },
   ATLAS: {
     name: 'Atlas Cloud',
     symbol: 'ATLAS',
@@ -459,8 +459,8 @@ export const tokens = {
       'DEI is an advanced algorithmic cross-chain fractional-reserve stablecoin, with one native bridge that will connect to all chains within the DEUS ecosystem. The collateral ratio of DEI is constantly monitored and adjusted via arbitrage bots.',
     logoURI: 'https://app.deus.finance/tokens/dei.svg',
     documentation: 'https://docs.deus.finance/',
-    risks: ['SYNTH_ASSET'],
-},
+    tags: ['SYNTHETIC'],
+  },
   DEI: {
     name: 'DEI',
     symbol: 'DEI',
@@ -474,8 +474,8 @@ export const tokens = {
       'DEI is an advanced algorithmic cross-chain fractional-reserve stablecoin, with one native bridge that will connect to all chains within the DEUS ecosystem. The collateral ratio of DEI is constantly monitored and adjusted via arbitrage bots.',
     logoURI: 'https://app.deus.finance/tokens/dei.svg',
     documentation: 'https://docs.deus.finance/',
-    risks: ['SYNTH_ASSET'],
-},
+    tags: ['SYNTHETIC'],
+  },
   DEUS: {
     name: 'DEUS',
     symbol: 'DEUS',
@@ -529,8 +529,8 @@ export const tokens = {
     description:
       'Ripae Finance’s full focus is to build a true cross-chain algorithmic stable coin protocol that is stabilized with true use-cases all around the DeFi Ecosystem.',
     logoURI: 'https://ripae.finance/logo_pftm.svg',
-    risks: ['SYNTH_ASSET'],
-},
+    tags: ['SYNTHETIC'],
+  },
   MST: {
     name: 'Monster',
     symbol: 'MST',
@@ -622,8 +622,8 @@ export const tokens = {
     description:
       'Users can deposit collateral into the Creditum platform and then borrow (mint) cUSD based on the USD value of the collateral deposited.',
     logoURI: 'https://revenant.finance/img/tokens/cUSD.png',
-    risks: ['SYNTH_ASSET'],
-},
+    tags: ['SYNTHETIC'],
+  },
   gOHM: {
     name: 'Governance OHM',
     symbol: 'fmcgOHM',
@@ -808,7 +808,7 @@ export const tokens = {
     description:
       'Terra stablecoins offer instant settlements, low fees and seamless cross-border exchange - loved by millions of users and merchants.',
     logoURI: 'https://s2.coinmarketcap.com/static/img/coins/64x64/7129.png',
-    risks: ['SYNTH_ASSET'],
+    tags: ['STABLECOIN', 'SYNTHETIC'],
   },
   USTw: {
     name: 'TerraUSD (Wormhole)',
@@ -822,7 +822,7 @@ export const tokens = {
     bridge: 'wormhole',
     description:
       'Terra stablecoins offer instant settlements, low fees and seamless cross-border exchange - loved by millions of users and merchants.',
-    risks: ['SYNTH_ASSET'],
+    tags: ['STABLECOIN', 'SYNTHETIC'],
   },
   USTaxl: {
     name: 'TerraUSD (Axelar)',
@@ -836,7 +836,7 @@ export const tokens = {
     bridge: 'axelar',
     description:
       'Terra stablecoins offer instant settlements, low fees and seamless cross-border exchange - loved by millions of users and merchants.',
-    risks: ['SYNTH_ASSET'],
+    tags: ['STABLECOIN', 'SYNTHETIC'],
   },
   SOL: {
     name: 'Solana',
@@ -863,7 +863,7 @@ export const tokens = {
     description:
       'TrueUSD is one of a number of cryptocurrency stablecoins administered by TrustToken, a platform for tokenizing real-world assets.',
     logoURI: 'https://s2.coinmarketcap.com/static/img/coins/200x200/2563.png',
-    risks: ['SYNTH_ASSET'],
+    tags: ['STABLECOIN', 'SYNTHETIC'],
   },
   JOE: {
     name: 'Joe Token',
@@ -928,7 +928,7 @@ export const tokens = {
       "MAI is a stablecoin collateralized by your crypto holdings. It's powered by Qi Dao, a protocol that enables any cryptocurrency community to create stablecoins backed by their native tokens.",
     logoURI: 'https://raw.githubusercontent.com/0xlaozi/qidao/main/images/mimatic-red.png',
     documentation: 'https://docs.mai.finance/',
-    risks: ['SYNTH_ASSET'],
+    tags: ['STABLECOIN', 'SYNTHETIC'],
   },
   BEETS: {
     name: 'Beethoven X Token',
@@ -957,8 +957,8 @@ export const tokens = {
     description:
       'Singular is a multichain, decentralized, strategic yield farm running on Polygon, BSC, Fantom and Okchain. Users are incentivized with a triple farming system.',
     logoURI: 'https://github.com/singularfarm/assets/blob/main/400.png?raw=true',
-    risks: ['SYNTH_ASSET'],
-},
+    tags: ['SYNTHETIC'],
+  },
   GEIST: {
     name: 'GEIST',
     symbol: 'GEIST',
@@ -983,8 +983,8 @@ export const tokens = {
     website: 'https://fantom.jetswap.finance/',
     description: 'JetSwap AMM',
     bridge: 'native',
-    risks: ['SYNTH_ASSET'],
-},
+    tags: ['SYNTHETIC'],
+  },
   STEAK: {
     name: 'SteakToken',
     symbol: 'STEAK',
@@ -1036,7 +1036,7 @@ export const tokens = {
       'You, the Spellcaster, can provide collateral in the form of various interest bearing crypto assets such as yvYFI, yvUSDT, yvUSDC, xSUSHI and more. With this, you can borrow magic internet money (MIM) which is a stable coin that you can swap for any other traditional stable coin.',
     logoURI: '',
     documentation: 'https://docs.abracadabra.money/',
-    risks: ['SYNTH_ASSET'],
+    tags: ['STABLECOIN', 'SYNTHETIC'],
   },
   DIS: {
     name: 'TosDis',
@@ -1063,7 +1063,7 @@ export const tokens = {
     description:
       'These are digitised US Dollars and are always purchased and redeemed at 1 BUSD for 1 US dollar.',
     logoURI: '',
-    risks: ['SYNTH_ASSET'],
+    tags: ['STABLECOIN', 'SYNTHETIC'],
   },
   SPIRIT: {
     name: 'SpiritSwap',
@@ -1105,8 +1105,8 @@ export const tokens = {
     description:
       'The first algorithmic stablecoin on Fantom Opera, pegged to the price of 1 FTM via seigniorage',
     logoURI: 'https://assets.spookyswap.finance/tokens/TOMB.png',
-    risks: ['SYNTH_ASSET'],
-},
+    tags: ['SYNTHETIC'],
+  },
   sFTM: {
     name: 'Staked FTM',
     address: '0x69c744D3444202d35a2783929a0F930f2FBB05ad',
@@ -1133,8 +1133,8 @@ export const tokens = {
     description:
       'Fantom offers the first DeFi stack built on an aBFT consensus. It’s much faster, cheaper, and more reliable and secure than its predecessors.',
     logoURI: 'https://repository.fantom.network/logos/wti.svg',
-    risks: ['SYNTH_ASSET'],
-},
+    tags: ['SYNTHETIC'],
+  },
   fSILVER: {
     name: 'fSilver',
     address: '0xf15e88EEf35BF4709A4C3E99c00358F9247D4531',
@@ -1146,8 +1146,8 @@ export const tokens = {
     description: 'Frapped an innovative wrapper for silver tokens.',
     logoURI: 'https://repository.fantom.network/logos/silver.svg',
     bridge: 'native',
-    risks: ['SYNTH_ASSET'],
-},
+    tags: ['SYNTHETIC'],
+  },
   fLINK: {
     name: 'fLINK',
     address: '0xA649A19423052dC6b320360B3C760884E095AC57',
@@ -1159,8 +1159,8 @@ export const tokens = {
     description: 'Frapped an innovative wrapper for LINK tokens.',
     logoURI: 'https://repository.fantom.network/logos/link.svg',
     bridge: 'native',
-    risks: ['SYNTH_ASSET'],
-},
+    tags: ['SYNTHETIC'],
+  },
   fKRW: {
     name: 'fKRW',
     address: '0x2b9C073Ec670b70F417bbaf3BbB052AA563A0a23',
@@ -1170,8 +1170,8 @@ export const tokens = {
     chainId: 250,
     logoURI: 'https://repository.fantom.network/logos/krw.svg',
     bridge: 'native',
-    risks: ['SYNTH_ASSET'],
-},
+    tags: ['SYNTHETIC'],
+  },
   fJPY: {
     name: 'fJPY',
     address: '0x3B74389bc23057325BaB96523DBec8c445F55799',
@@ -1181,8 +1181,8 @@ export const tokens = {
     chainId: 250,
     logoURI: 'https://repository.fantom.network/logos/jpy.svg',
     bridge: 'native',
-    risks: ['SYNTH_ASSET'],
-},
+    tags: ['SYNTHETIC'],
+  },
   fGOLD: {
     name: 'fGold',
     address: '0x2202C52C9076A49400aaccf159e1956269eaa673',
@@ -1192,8 +1192,8 @@ export const tokens = {
     chainId: 250,
     logoURI: 'https://repository.fantom.network/logos/gold.svg',
     bridge: 'native',
-    risks: ['SYNTH_ASSET'],
-},
+    tags: ['SYNTHETIC'],
+  },
   fGBP: {
     name: 'fGBP',
     address: '0xcDE58e4B6c7b78B04da664Edb0a9752CC5FEDBd5',
@@ -1203,8 +1203,8 @@ export const tokens = {
     chainId: 250,
     logoURI: 'https://repository.fantom.network/logos/gbp.svg',
     bridge: 'native',
-    risks: ['SYNTH_ASSET'],
-},
+    tags: ['SYNTHETIC'],
+  },
   fEUR: {
     name: 'fEUR',
     address: '0xe105621721D1293c27be7718e041a4Ce0EbB227E',
@@ -1214,8 +1214,8 @@ export const tokens = {
     chainId: 250,
     logoURI: 'https://repository.fantom.network/logos/euro.svg',
     bridge: 'native',
-    risks: ['SYNTH_ASSET'],
-},
+    tags: ['SYNTHETIC'],
+  },
   fETH: {
     name: 'fETH',
     address: '0x658b0c7613e890EE50B8C4BC6A3f41ef411208aD',
@@ -1225,8 +1225,8 @@ export const tokens = {
     chainId: 250,
     logoURI: 'https://repository.fantom.network/logos/eth.svg',
     bridge: 'native',
-    risks: ['SYNTH_ASSET'],
-},
+    tags: ['SYNTHETIC'],
+  },
   fCNY: {
     name: 'fCNY',
     address: '0x24d39324CF3697Fd9Fd78714E8cdeB5Df66E3DCd',
@@ -1236,8 +1236,8 @@ export const tokens = {
     chainId: 250,
     logoURI: 'https://repository.fantom.network/logos/cny.svg',
     bridge: 'native',
-    risks: ['SYNTH_ASSET'],
-},
+    tags: ['SYNTHETIC'],
+  },
   fCHF: {
     name: 'fCHF',
     address: '0x81740D647493a61329E1c574A11ee7577659fb14',
@@ -1247,8 +1247,8 @@ export const tokens = {
     chainId: 250,
     logoURI: 'https://repository.fantom.network/logos/chf.svg',
     bridge: 'native',
-    risks: ['SYNTH_ASSET'],
-},
+    tags: ['SYNTHETIC'],
+  },
   fBTC: {
     name: 'fBTC',
     address: '0xe1146b9AC456fCbB60644c36Fd3F868A9072fc6E',
@@ -1258,8 +1258,8 @@ export const tokens = {
     chainId: 250,
     logoURI: 'https://repository.fantom.network/logos/bitcoin.svg',
     bridge: 'native',
-    risks: ['SYNTH_ASSET'],
-},
+    tags: ['SYNTHETIC'],
+  },
   fBNB: {
     name: 'fBNB',
     address: '0x27f26F00e1605903645BbaBC0a73E35027Dccd45',
@@ -1269,8 +1269,8 @@ export const tokens = {
     chainId: 250,
     logoURI: 'https://repository.fantom.network/logos/bnb.svg',
     bridge: 'native',
-    risks: ['SYNTH_ASSET'],
-},
+    tags: ['SYNTHETIC'],
+  },
   fBAND: {
     name: 'fBAND',
     address: '0x078EEF5A2fb533e1a4d487ef64b27DF113d12C32',
@@ -1280,8 +1280,8 @@ export const tokens = {
     chainId: 250,
     logoURI: 'https://repository.fantom.network/logos/band.svg',
     bridge: 'native',
-    risks: ['SYNTH_ASSET'],
-},
+    tags: ['SYNTHETIC'],
+  },
   LINK: {
     name: 'ChainLink',
     address: '0xb3654dc3D10Ea7645f8319668E8F54d2574FBdC8',
@@ -1308,7 +1308,7 @@ export const tokens = {
     chainId: 250,
     logoURI: 'https://ftmscan.com/token/images/USDC_32.png',
     bridge: 'multichain',
-    risks: ['SYNTH_ASSET'],
+    tags: ['STABLECOIN', 'SYNTHETIC'],
   },
   WBTC: {
     ...BTC,
@@ -1344,7 +1344,7 @@ export const tokens = {
       'Dai is a stable, decentralized currency that does not discriminate. Any individual or business can realize the advantages of digital money.',
     logoURI: 'https://ftmscan.com/token/images/MCDDai_32.png',
     bridge: 'multichain',
-    risks: ['SYNTH_ASSET'],
+    tags: ['STABLECOIN', 'SYNTHETIC'],
   },
   SUSHI: {
     name: 'Sushi',
@@ -1436,8 +1436,8 @@ export const tokens = {
       'The Frax Protocol introduced the world to the concept of a cryptocurrency being partially backed by collateral and partially stabilized algorithmically.',
     logoURI: 'https://ftmscan.com/token/images/fraxfinance_32.png',
     bridge: 'multichain',
-    risks: ['SYNTH_ASSET'],
-},
+    tags: ['SYNTHETIC'],
+  },
   FRAX: {
     name: 'Frax',
     address: '0xdc301622e621166BD8E82f2cA0A26c13Ad0BE355',
@@ -1451,7 +1451,7 @@ export const tokens = {
     logoURI: 'https://ftmscan.com/token/images/fraxfinance_32.png',
     documentation: 'https://docs.frax.finance/',
     bridge: 'frax',
-    risks: ['SYNTH_ASSET'],
+    tags: ['STABLECOIN', 'SYNTHETIC'],
   },
   FXS: {
     name: 'Frax Share',
@@ -1523,8 +1523,8 @@ export const tokens = {
       'Tracks the price of a single US dollar (USD). The synth always remains at a constant of 1.',
     logoURI: 'https://ftmscan.com/token/images/sUSD_32.png',
     bridge: 'multichain',
-    risks: ['SYNTH_ASSET'],
-},
+    tags: ['SYNTHETIC'],
+  },
   SNX: {
     name: 'Synthetix Network',
     address: '0x56ee926bD8c72B2d5fa1aF4d9E4Cbb515a1E3Adc',
@@ -1564,7 +1564,7 @@ export const tokens = {
     bridge: 'multichain',
     logoURI:
       'https://raw.githubusercontent.com/sushiswap/assets/master/blockchains/ethereum/assets/0xdAC17F958D2ee523a2206206994597C13D831ec7/logo.png',
-    risks: ['SYNTH_ASSET'],
+    tags: ['STABLECOIN', 'SYNTHETIC'],
   },
   BADGER: {
     name: 'Badger',
@@ -1775,7 +1775,7 @@ export const tokens = {
     description:
       'Inverse.finance is a suite of permissionless decentralized finance tools governed by Inverse DAO, a decentralized autonomous organization running on the Ethereum blockchain.',
     logoURI: 'https://assets.spookyswap.finance/tokens/DOLA.png',
-    risks: ['SYNTH_ASSET'],
+    tags: ['STABLECOIN', 'SYNTHETIC'],
   },
   INV: {
     name: 'Inverse Finance',
@@ -1886,7 +1886,7 @@ export const tokens = {
       'USDC is a fully collateralized US dollar stablecoin. USDC is issued by regulated financial institutions, backed by fully reserved assets, redeemable on a 1:1 basis for US dollars.',
     chainId: 250,
     logoURI: 'https://ftmscan.com/token/images/USDC_32.png',
-    risks: ['SYNTH_ASSET'],
+    tags: ['STABLECOIN', 'SYNTHETIC'],
   },
   MATIC: {
     name: 'MATIC',
@@ -1955,7 +1955,7 @@ export const tokens = {
     chainId: 250,
     logoURI: 'https://ftmscan.com/token/images/USDC_32.png',
     bridge: 'stargate',
-    risks: ['SYNTH_ASSET'],
+    tags: ['STABLECOIN', 'SYNTHETIC'],
   },
   renBTC: {
     name: 'renBTC',
@@ -1970,8 +1970,8 @@ export const tokens = {
       'RenBTC is an ERC-20 token built on the Ethereum network, pegged to Bitcoin. This means that each RenBTC can be always redeemed for one Bitcoin, and hence tends to maintain its value at close to the Bitcoin market rate.',
     logoURI:
       'https://tokens.pancakeswap.finance/images/0xfCe146bF3146100cfe5dB4129cf6C82b0eF4Ad8c.png',
-    risks: ['SYNTH_ASSET'],
-},
+    tags: ['SYNTHETIC'],
+  },
   EQUAL: {
     name: 'Equalizer',
     symbol: 'EQUAL',
@@ -2180,7 +2180,7 @@ export const tokens = {
     website: 'https://spartacus.finance/',
     bridge: 'native',
     description: '',
-    risks: ['SYNTH_ASSET'],
+    tags: ['STABLECOIN', 'SYNTHETIC'],
   },
   fUSDCe: {
     name: 'Bridged USDC',
@@ -2195,6 +2195,6 @@ export const tokens = {
     chainId: 250,
     logoURI: '',
     bridge: 'wormhole',
-    risks: ['SYNTH_ASSET'],
+    tags: ['STABLECOIN', 'SYNTHETIC'],
   },
 } as const satisfies Record<string, Token>;

@@ -60,7 +60,7 @@ export const tokens = {
     description:
       'AUSD is backed 100% by Agora’s Reserves. The Agora Reserve Fund is composed of cash, overnight repurchase and reverse repurchase agreements, and short-term U.S. Treasury securities.',
     bridge: 'native',
-    risks: ['NO_TIMELOCK'],
+    tags: ['NO_TIMELOCK'],
   },
   USDT0: {
     name: 'USDT0',
@@ -130,7 +130,7 @@ export const tokens = {
       "LBTC is liquid Bitcoin; it's yield-bearing, cross-chain, and 1:1 backed by BTC. LBTC enables yield-bearing BTC to move cross-chain without fragmenting liquidity, and is designed to seamlessly integrate Bitcoin into the decentralized finance (DeFi) ecosystem while maintaining the security and integrity of the underlying asset.",
     bridge: 'native',
     documentation: 'https://docs.lombard.finance/lbtc-liquid-bitcoin/introduction-to-lbtc',
-    risks: ['NO_TIMELOCK', 'LARGE_HOLDERS'],
+    tags: ['NO_TIMELOCK', 'LARGE_HOLDERS'],
   },
   BTCb: {
     name: 'Bridged Bitcoin',
@@ -143,7 +143,7 @@ export const tokens = {
     documentation: 'https://docs.lombard.finance/lbtc-liquid-bitcoin/btc.b-bridged-bitcoin',
     description: 'official AVAX BRIDGE bridged BTC',
     bridge: 'native',
-    risks: ['NO_TIMELOCK'],
+    tags: ['NO_TIMELOCK'],
   },
   AZND: {
     name: 'Asian Dollar',
@@ -158,7 +158,7 @@ export const tokens = {
     description:
       'AZND (the "Asian Dollar") is a synthetic dollar backed by Asia\'s best RWAs, designed for stability and steady yield.  AZND is suitable for users seeking predictable returns while retaining full DeFi composability',
     bridge: 'native',
-    risks: ['NO_TIMELOCK'],
+    tags: ['NO_TIMELOCK'],
   },
   muBOND: {
     name: 'mu Bond',
@@ -173,7 +173,7 @@ export const tokens = {
     description:
       "muBOND is a high yield token backed by Asia's best RWAs, designed for higher potential returns in exchange for providing insurance to AZND holders.",
     bridge: 'native',
-    risks: ['NO_TIMELOCK', 'SYNTH_ASSET'],
+    tags: ['NO_TIMELOCK', 'SYNTHETIC'],
   },
   shMON: {
     name: 'ShMonad',
@@ -188,7 +188,7 @@ export const tokens = {
     description:
       "ShMonad is a liquid staking token for the Monad blockchain. When you stake MON (Monad's gas token), you receive shMON—a token representing your stake plus all future rewards it earns.",
     bridge: 'native',
-    risks: ['NO_TIMELOCK'],
+    tags: ['NO_TIMELOCK'],
   },
   sMON: {
     name: 'Kintsu Staked Monad',
@@ -203,7 +203,7 @@ export const tokens = {
     description:
       'The Kintsu Liquid Staking protocol automates the process by which users can pool their MON tokens together for network staking via non-custodial smart contracts. By leveraging a decentralized Registry of Validators controlled by the DAO, Kintsu creates sMON, a liquid version of the core MON gas token.',
     bridge: 'native',
-    risks: ['NO_TIMELOCK'],
+    tags: ['NO_TIMELOCK'],
   },
   gMON: {
     name: 'gMON',
@@ -218,7 +218,7 @@ export const tokens = {
     description:
       "Magma is a community-owned Liquid Staking Protocol on Monad, designed for equitable token distribution via our Points Programs and the with MEV-boosted yield powered by the fastest block engine in crypto. Magma's staking pool allows users to stake their Monad tokens in exchange for liquid staked Monad tokens (gMON). ",
     bridge: 'native',
-    risks: ['NO_TIMELOCK'],
+    tags: ['NO_TIMELOCK'],
   },
   loAZND: {
     name: 'Locked Asian Dollar',
@@ -233,6 +233,6 @@ export const tokens = {
     description:
       'loAZND (the "Locked Asian Dollar") is a synthetic dollar backed by Asia\'s best RWAs, designed for stability and steady yield. loAZND is the yield-bearing version of AZND, earning up to 7% interest.',
     bridge: 'native',
-    risks: ['NO_TIMELOCK', 'SYNTH_ASSET'],
+    tags: ['NO_TIMELOCK', 'SYNTHETIC'],
   },
 } as const satisfies Record<string, Token>;

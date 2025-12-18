@@ -34,8 +34,8 @@ export const tokens = {
       'USDC (Multichain) is a fully collateralized US dollar stablecoin. USDC is issued by regulated financial institutions, backed by fully reserved assets, redeemable on a 1:1 basis for US dollars.',
     documentation: 'https://developers.circle.com/docs',
     bridge: 'multichain',
-    risks: ['SYNTH_ASSET'],
-},
+    tags: ['SYNTHETIC'],
+  },
   multichainUSDT: {
     name: 'USDT',
     symbol: 'USDT',
@@ -49,8 +49,8 @@ export const tokens = {
       'Multichain Bridged Token. Tether is a stablecoin pegged to the US Dollar. A stablecoin is a type of cryptocurrency whose value is pegged to another fiat currency like the US Dollar or to a commodity like Gold. Tether is the first stablecoin to be created and it is the most popular stablecoin used in the ecosystem.',
     logoURI: 'https://hecoinfo.com/token/images/USDTHECO_32.png',
     bridge: 'multichain',
-    risks: ['SYNTH_ASSET'],
-},
+    tags: ['SYNTHETIC'],
+  },
   USDT: {
     name: 'USDT',
     symbol: 'USDT',
@@ -64,7 +64,7 @@ export const tokens = {
       'Tether is a stablecoin pegged to the US Dollar. A stablecoin is a type of cryptocurrency whose value is pegged to another fiat currency like the US Dollar or to a commodity like Gold. Tether is the first stablecoin to be created and it is the most popular stablecoin used in the ecosystem.',
     logoURI: 'https://hecoinfo.com/token/images/USDTHECO_32.png',
     bridge: 'native',
-    risks: ['SYNTH_ASSET'],
+    tags: ['STABLECOIN', 'SYNTHETIC'],
   },
   DAI: {
     name: 'Dai Stablecoin',
@@ -80,7 +80,7 @@ export const tokens = {
     logoURI:
       'https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/0x6B175474E89094C44Da98b954EedeAC495271d0F/logo.png',
     bridge: 'multichain',
-    risks: ['SYNTH_ASSET'],
+    tags: ['STABLECOIN', 'SYNTHETIC'],
   },
   SUSHI: {
     name: 'Sushi',
@@ -166,7 +166,7 @@ export const tokens = {
     logoURI:
       'https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/0x6B175474E89094C44Da98b954EedeAC495271d0F/logo.png',
     bridge: 'axelar',
-    risks: ['SYNTH_ASSET'],
+    tags: ['STABLECOIN', 'SYNTHETIC'],
   },
   VARA: {
     name: 'VARA',
@@ -210,7 +210,7 @@ export const tokens = {
     description:
       "MAI is a stablecoin collateralized by your crypto holdings. It's powered by Qi Dao, a protocol that enables any cryptocurrency community to create stablecoins backed by their native tokens.",
     documentation: 'https://docs.mai.finance/',
-    risks: ['SYNTH_ASSET'],
+    tags: ['STABLECOIN', 'SYNTHETIC'],
   },
   BNB: {
     name: 'Binance Chain',
@@ -266,7 +266,7 @@ export const tokens = {
     logoURI: '',
     documentation: 'https://docs.abracadabra.money/',
     bridge: 'layer-zero',
-    risks: ['SYNTH_ASSET'],
+    tags: ['STABLECOIN', 'SYNTHETIC'],
   },
   axlETH: {
     name: 'Axelar Wrapped ETH',

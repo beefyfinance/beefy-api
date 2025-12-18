@@ -77,8 +77,8 @@ export const tokens = {
     description:
       'Ripae Finance’s full focus is to build a true cross-chain algorithmic stable coin protocol that is stabilized with true use-cases all around the DeFi Ecosystem.',
     logoURI: 'https://cro.ripae.finance/static/media/sCRO.f6637a43.svg',
-    risks: ['SYNTH_ASSET'],
-},
+    tags: ['SYNTHETIC'],
+  },
   pCRO: {
     name: 'pCRO',
     symbol: 'pCRO',
@@ -90,8 +90,8 @@ export const tokens = {
     description:
       'Ripae Finance’s full focus is to build a true cross-chain algorithmic stable coin protocol that is stabilized with true use-cases all around the DeFi Ecosystem.',
     logoURI: 'https://cro.ripae.finance/static/media/pCRO.0d99b3b6.svg',
-    risks: ['SYNTH_ASSET'],
-},
+    tags: ['SYNTHETIC'],
+  },
   APE: {
     name: 'APECoin',
     symbol: 'APE',
@@ -149,8 +149,8 @@ export const tokens = {
     website: 'https://www.darkcrypto.finance/',
     description: 'The first algorithmic token pegged to CRO running on the Cronos Chain',
     logoURI: 'https://assets.coingecko.com/coins/images/22456/small/DARK_bgWhite.png',
-    risks: ['SYNTH_ASSET'],
-},
+    tags: ['SYNTHETIC'],
+  },
   oldBIFI: {
     chainId: 25,
     address: '0xe6801928061CDbE32AC5AD0634427E140EFd05F9',
@@ -332,7 +332,7 @@ export const tokens = {
       'https://app.cronaswap.org/images/tokens/0xF2001B145b43032AAF5Ee2884e456CCd805F677D.svg',
     documentation:
       'https://docs.makerdao.com/smart-contract-modules/dai-module/dai-detailed-documentation',
-    risks: ['SYNTH_ASSET'],
+    tags: ['STABLECOIN', 'SYNTHETIC'],
   },
   BUSD: {
     name: 'BUSD Token',
@@ -346,7 +346,7 @@ export const tokens = {
       'Binance USD (BUSD) is a 1:1 USD-backed stable coin issued by Binance (in partnership with Paxos), Approved and regulated by the New York State Department of Financial Services (NYDFS), The BUSD Monthly Audit Report can be viewed from the official website.',
     logoURI:
       'https://app.cronaswap.org/images/tokens/0x6aB6d61428fde76768D7b45D8BFeec19c6eF91A8.svg',
-    risks: ['SYNTH_ASSET'],
+    tags: ['STABLECOIN', 'SYNTHETIC'],
   },
   BUSDb: {
     name: 'BUSD Token (Multichain)',
@@ -360,8 +360,8 @@ export const tokens = {
       'Multichain bridged Binance USD (BUSD) is a 1:1 USD-backed stable coin issued by Binance (in partnership with Paxos), Approved and regulated by the New York State Department of Financial Services (NYDFS), The BUSD Monthly Audit Report can be viewed from the official website.',
     logoURI:
       'https://app.cronaswap.org/images/tokens/0x6aB6d61428fde76768D7b45D8BFeec19c6eF91A8.svg',
-    risks: ['SYNTH_ASSET'],
-},
+    tags: ['SYNTHETIC'],
+  },
   MATIC: {
     name: 'MATIC Token',
     symbol: 'MATIC',

@@ -70,8 +70,8 @@ export const tokens = {
     website: 'https://www.terra.money/',
     description:
       'Terra stablecoins offer instant settlements, low fees and seamless cross-border exchange - loved by millions of users and merchants.',
-    risks: ['SYNTH_ASSET'],
-},
+    tags: ['SYNTHETIC'],
+  },
   FTP: {
     name: 'Fountain Protocol',
     symbol: 'FTP',
@@ -148,8 +148,8 @@ export const tokens = {
     website: 'https://bridge.evodefi.com/',
     description:
       'USDT bridged via EvoDeFi: Tether is a stablecoin pegged to the US Dollar. A stablecoin is a type of cryptocurrency whose value is pegged to another fiat currency like the US Dollar or to a commodity like Gold. Tether is the first stablecoin to be created and it is the most popular stablecoin used in the ecosystem.',
-    risks: ['SYNTH_ASSET'],
-},
+    tags: ['SYNTHETIC'],
+  },
   evoUSDC: {
     name: 'USD Coin (EvoDeFi)',
     symbol: 'evoUSDC',
@@ -162,8 +162,8 @@ export const tokens = {
     website: 'https://bridge.evodefi.com/',
     description:
       'USDC bridged via EvoDeFi: USDC is a fully collateralized US dollar stablecoin. USDC is issued by regulated financial institutions, backed by fully reserved assets, redeemable on a 1:1 basis for US dollars.',
-    risks: ['SYNTH_ASSET'],
-},
+    tags: ['SYNTHETIC'],
+  },
   evoWETH: {
     name: 'Wrapped Ether (EvoDeFi)',
     symbol: 'evoWETH',
@@ -176,8 +176,8 @@ export const tokens = {
     website: 'https://bridge.evodefi.com/',
     description:
       'WETH bridged via EvoDeFi: The native currency that flows within the Ethereum economy is called Ether (ETH). Ether is typically used to pay for transaction fees called Gas, and it is the base currency of the network.',
-    risks: ['SYNTH_ASSET'],
-},
+    tags: ['SYNTHETIC'],
+  },
   evoWBTC: {
     name: 'Wrapped BTC (EvoDeFi)',
     symbol: 'evoWBTC',
@@ -190,6 +190,6 @@ export const tokens = {
     website: 'https://bridge.evodefi.com/',
     description:
       'WBTC bridged via EvoDeFi: Wrapped Bitcoin (WBTC) is the first ERC20 token backed 1:1 with Bitcoin. Completely transparent. 100% verifiable. Community led.',
-    risks: ['SYNTH_ASSET'],
-},
+    tags: ['SYNTHETIC'],
+  },
 } as const satisfies Record<string, Token>;

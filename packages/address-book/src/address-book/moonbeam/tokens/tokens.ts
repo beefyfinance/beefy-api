@@ -51,8 +51,8 @@ export const tokens = {
     description:
       'Stellaswap Base4Pool is a Stable Pool consisting of USDC.wh, USDt.xc, BUSD.wh, and FRAX tokens.',
     logoURI: '',
-    risks: ['SYNTH_ASSET'],
-},
+    tags: ['SYNTHETIC'],
+  },
   wstDOT: {
     name: 'Wrapped liquid staked DOT',
     symbol: 'wstDOT',
@@ -186,7 +186,7 @@ export const tokens = {
     website: 'https://app.mai.finance/',
     description:
       "MAI is a stablecoin collateralized by your crypto assets. It's powered by Qi Dao, a protocol that enables any cryptocurrency community to create stablecoins backed by their native tokens.",
-    risks: ['SYNTH_ASSET'],
+    tags: ['STABLECOIN', 'SYNTHETIC'],
   },
   APE: {
     name: 'ApeCoin APE',
@@ -265,7 +265,7 @@ export const tokens = {
     website: 'https://www.nomad.xyz/',
     description:
       'bridged DAI by Nomad. Multi-Collateral Dai, brings a lot of new and exciting features, such as support for new CDP collateral types and Dai Savings Rate.',
-    risks: ['SYNTH_ASSET'],
+    tags: ['STABLECOIN', 'SYNTHETIC'],
   },
   FRAX: {
     name: 'Frax',
@@ -280,7 +280,7 @@ export const tokens = {
     description:
       'The Frax Protocol introduced the world to the concept of a cryptocurrency being partially backed by collateral and partially stabilized algorithmically.',
     documentation: 'https://docs.frax.finance/',
-    risks: ['SYNTH_ASSET'],
+    tags: ['STABLECOIN', 'SYNTHETIC'],
   },
   BUSD: {
     name: 'Binance-Peg BUSD Token',
@@ -294,7 +294,7 @@ export const tokens = {
     website: 'https://www.binance.com/en/busd',
     description:
       'Binance USD (BUSD) is a 1:1 USD-backed stable coin issued by Binance (in partnership with Paxos). BUSD is approved and regulated by the New York State Department of Financial Services (NYDFS). The BUSD Monthly Audit Report can be viewed from the official website.',
-    risks: ['SYNTH_ASSET'],
+    tags: ['STABLECOIN', 'SYNTHETIC'],
   },
   BUSDc: {
     name: 'Binance-Peg BUSD Token (Celer)',
@@ -308,8 +308,8 @@ export const tokens = {
     website: 'https://www.binance.com/en/busd',
     description:
       'Binance USD (BUSD) is a 1:1 USD-backed stable coin issued by Binance (in partnership with Paxos). BUSD is approved and regulated by the New York State Department of Financial Services (NYDFS). The BUSD Monthly Audit Report can be viewed from the official website.',
-    risks: ['SYNTH_ASSET'],
-},
+    tags: ['SYNTHETIC'],
+  },
   BUSDwh: {
     name: 'Binance-Peg BUSD Token (Wormhole)',
     symbol: 'BUSD',
@@ -323,7 +323,7 @@ export const tokens = {
     description:
       'BUSD bridged by Wormhole(Portal). Binance USD (BUSD) is a 1:1 USD-backed stable coin issued by Binance (in partnership with Paxos). BUSD is approved and regulated by the New York State Department of Financial Services (NYDFS). The BUSD Monthly Audit Report can be viewed from the official website.',
     documentation: 'https://docs.wormhole.com/wormhole/',
-    risks: ['SYNTH_ASSET'],
+    tags: ['STABLECOIN', 'SYNTHETIC'],
   },
   BNB: {
     name: 'Binance',
@@ -375,8 +375,8 @@ export const tokens = {
     website: 'https://www.nomad.xyz/',
     description:
       'Bridged ETH by Nomad. The native currency that flows within the Ethereum economy is called Ether (ETH). Ether is typically used to pay for transaction fees called Gas, and it is the base currency of the network.',
-    risks: ['SYNTH_ASSET'],
-},
+    tags: ['SYNTHETIC'],
+  },
   USDT: {
     name: 'Tether USD',
     symbol: 'USDT',
@@ -430,7 +430,7 @@ export const tokens = {
     website: 'https://makerdao.com/en/',
     description:
       'DAI is an Ethereum-based stablecoin (stable-price cryptocurrency) whose issuance and development is managed by the Maker Protocol and the MakerDAO decentralized autonomous organization.',
-    risks: ['SYNTH_ASSET'],
+    tags: ['STABLECOIN', 'SYNTHETIC'],
   },
   FTM: {
     name: 'Fantom',
@@ -469,8 +469,8 @@ export const tokens = {
     website: 'https://www.terra.money/',
     description:
       'Terra stablecoins offer instant settlements, low fees and seamless cross-border exchange - loved by millions of users and merchants.',
-    risks: ['SYNTH_ASSET'],
-},
+    tags: ['SYNTHETIC'],
+  },
   MATIC: {
     name: 'Matic',
     symbol: 'MATIC',
@@ -666,8 +666,8 @@ export const tokens = {
     website: 'https://www.terra.money/',
     description:
       'Terra stablecoins offer instant settlements, low fees and seamless cross-border exchange - loved by millions of users and merchants.',
-    risks: ['SYNTH_ASSET'],
-},
+    tags: ['SYNTHETIC'],
+  },
   xcaUSD: {
     name: 'xcaUSD',
     symbol: 'xcaUSD',
@@ -679,8 +679,8 @@ export const tokens = {
       'https://raw.githubusercontent.com/BeamSwap/beamswap-tokenlist/main/assets/chains/moonbeam/0xfFfFFFFF52C56A9257bB97f4B2b6F7B2D624ecda/logo.png',
     website: 'https://acala.network/ausd',
     description: 'Acala USD (aUSD). The native decentralized stablecoin of Polkadot.',
-    risks: ['SYNTH_ASSET'],
-},
+    tags: ['SYNTHETIC'],
+  },
   LDO: {
     name: 'Lido DAO',
     symbol: 'LDO',
@@ -707,8 +707,8 @@ export const tokens = {
       'Stellaswap is a decentralized exchange, providing liquidity and enabling peer-to-peer transactions on the Moonbeam Network. The 4pool is a stable-swap LP consisting of USDC, USDT, DAI & FRAX.',
     documentation:
       'https://docs.stellaswap.com/how-to-guides/swap-pool-and-farm/how-to-add-liquidity-in-stable-amm',
-    risks: ['SYNTH_ASSET'],
-},
+    tags: ['SYNTHETIC'],
+  },
   xcUSDC: {
     name: 'USD Coin',
     symbol: 'xcUSDC',

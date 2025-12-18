@@ -73,7 +73,7 @@ export const tokens = {
       'Renzo ezETH is a Liquid Restaking Token (LRT) and Strategy Manager for EigenLayer. It is the interface to the EigenLayer ecosystem securing Actively Validated Services (AVSs) and offering a higher yield than ETH staking.',
     documentation: 'https://docs.renzoprotocol.com/docs/',
     bridge: 'mode-canonical',
-    risks: ['NO_TIMELOCK'],
+    tags: ['NO_TIMELOCK'],
   },
   weETH: {
     chainId: 34443,
@@ -86,7 +86,7 @@ export const tokens = {
     description:
       'Stake ETH, get eETH - a natively restaked liquid staking token that fuels DeFi and decentralizes Ethereum.',
     bridge: 'mode-canonical',
-    risks: ['NO_TIMELOCK'],
+    tags: ['NO_TIMELOCK'],
   },
   DOLA: {
     name: 'DOLA USD',
@@ -101,7 +101,7 @@ export const tokens = {
     bridge: 'mode-canonical',
     logoURI: 'https://assets.spookyswap.finance/tokens/DOLA.png',
     documentation: 'https://docs.inverse.finance/',
-    risks: ['SYNTH_ASSET'],
+    tags: ['STABLECOIN', 'SYNTHETIC'],
   },
   xKIM: {
     name: 'Escrowed KIM',
@@ -115,7 +115,7 @@ export const tokens = {
     bridge: 'native',
     logoURI: '',
     documentation: 'https://docs.kim.exchange/',
-    risks: ['LARGE_HOLDERS', 'NO_TIMELOCK'],
+    tags: ['LARGE_HOLDERS', 'NO_TIMELOCK'],
   },
   KIM: {
     name: 'KIM',
@@ -129,7 +129,7 @@ export const tokens = {
     bridge: 'native',
     logoURI: '',
     documentation: 'https://docs.kim.exchange/',
-    risks: ['LARGE_HOLDERS', 'NO_TIMELOCK'],
+    tags: ['LARGE_HOLDERS', 'NO_TIMELOCK'],
   },
   XVELO: {
     name: 'Superchain Velodrome',
@@ -157,7 +157,7 @@ export const tokens = {
     description:
       'Users are able to stake their USDe for sUSDe through the Ethena front-end. sUSDe is a reward-bearing token that accrues value from the yield that Ethena’s underlying delta-neutral position generates. sUSDe is subject to a 7-day un-staking period.',
     bridge: 'layer-zero',
-    risks: ['NO_TIMELOCK', 'SYNTH_ASSET'],
+    tags: ['NO_TIMELOCK', 'SYNTHETIC'],
   },
   wMLT: {
     name: 'Wrapped BMX Mode Liquidity Token',

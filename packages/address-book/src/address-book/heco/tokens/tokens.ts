@@ -139,7 +139,7 @@ export const tokens = {
     description:
       'HUSD is a ERC20 token backed 1:1 with USD. H-tokens are a suite of assets issued on Ethereum and backed by cryptocurrencies from other blockchains.',
     logoURI: 'https://hecoinfo.com/token/images/HUSD_32.png',
-    risks: ['SYNTH_ASSET'],
+    tags: ['STABLECOIN', 'SYNTHETIC'],
   },
   YFI: {
     name: 'Yearn.finance',

@@ -76,7 +76,7 @@ export const tokens = {
       'EURA (previously agEUR) is pegged to the value of the Euro (€) and is a product of Angle, a decentralized, capital-efficient and over-collateralized stablecoins protocol.',
     bridge: 'layer-zero',
     documentation: 'https://docs.angle.money/',
-    risks: ['SYNTH_ASSET'],
+    tags: ['STABLECOIN', 'SYNTHETIC'],
   },
   USDA: {
     name: 'USDA',
@@ -91,7 +91,7 @@ export const tokens = {
       'USDA is pegged to the value of the Dollar ($) and is a product of Angle, a decentralized, capital-efficient and over-collateralized stablecoins protocol.',
     bridge: 'layer-zero',
     documentation: 'https://docs.angle.money/',
-    risks: ['SYNTH_ASSET'],
+    tags: ['STABLECOIN', 'SYNTHETIC'],
   },
   THALES: {
     name: 'Thales DAO Token',
@@ -205,7 +205,7 @@ export const tokens = {
       'USD+ is USDC that pays you yield daily via rebase. It is 100% collateralized with assets immediately convertible into USDC. Yield is generated via strategies such as lending and stable-to-stable pools. Initial strategies include Aave, Rubicon, and Pika.',
     documentation: 'https://docs.overnight.fi/',
     bridge: 'native',
-    risks: ['CURATED'],
+    tags: ['CURATED'],
   },
   'DAI+': {
     name: 'DAI+',
@@ -221,7 +221,7 @@ export const tokens = {
       'DAI+ is DAI that pays you yield daily via rebase.  It is 100% collateralized with assets immediately convertible into DAI.  Yield is generated via strategies such as lending and stable-to-stable pools. Initial strategies include Aave, Rubicon, and Pika.',
     documentation: 'https://docs.overnight.fi/',
     bridge: 'native',
-    risks: ['CURATED'],
+    tags: ['CURATED'],
   },
   OVN: {
     name: 'OVN',
@@ -251,7 +251,7 @@ export const tokens = {
       'You, the Spellcaster, can provide collateral in the form of various interest bearing crypto assets such as yvYFI, yvUSDT, yvUSDC, xSUSHI and more. With this, you can borrow magic internet money (MIM) which is a stable coin that you can swap for any other traditional stable coin.',
     documentation: 'https://docs.abracadabra.money/',
     bridge: 'layer-zero',
-    risks: ['SYNTH_ASSET'],
+    tags: ['STABLECOIN', 'SYNTHETIC'],
   },
   cbETH: {
     name: 'Coinbase Wrapped Staked ETH',
@@ -353,7 +353,7 @@ export const tokens = {
       'https://docs.makerdao.com/smart-contract-modules/dai-module/dai-detailed-documentation',
     description:
       'Dai is a stablecoin cryptocurrency which aims to keep its value as close to one United States dollar as possible through an automated system of smart contracts on the Ethereum blockchain',
-    risks: ['SYNTH_ASSET'],
+    tags: ['STABLECOIN', 'SYNTHETIC'],
   },
   AERO: {
     name: 'Aerodrome',
@@ -382,7 +382,7 @@ export const tokens = {
       'Inverse.finance is a suite of permissionless decentralized finance tools governed by Inverse DAO, a decentralized autonomous organization running on the Ethereum blockchain.',
     bridge: 'base-canonical',
     documentation: 'https://docs.inverse.finance/',
-    risks: ['SYNTH_ASSET'],
+    tags: ['STABLECOIN', 'SYNTHETIC'],
   },
   MAI: {
     name: 'Mai Stablecoin',
@@ -397,7 +397,7 @@ export const tokens = {
     logoURI: 'https://raw.githubusercontent.com/0xlaozi/qidao/main/images/mimatic-red.png',
     documentation: 'https://docs.mai.finance/',
     bridge: 'native',
-    risks: ['SYNTH_ASSET'],
+    tags: ['STABLECOIN', 'SYNTHETIC'],
   },
   wUSDR: {
     name: 'Real USD',
@@ -412,8 +412,8 @@ export const tokens = {
       'Real USD (USDR) is the world’s first stablecoin collateralized by tokenized, yield-producing real estate. USDR has a value accrual system built into its design. Using a consistent stream of dependable yield derived from rental revenue, Real USD delivers a native yield to holders.',
     logoURI: '',
     bridge: 'layer-zero',
-    risks: ['SYNTH_ASSET'],
-},
+    tags: ['SYNTHETIC'],
+  },
   tBTC: {
     name: 'tBTC v2',
     symbol: 'tBTC',
@@ -440,8 +440,8 @@ export const tokens = {
       'Based offers intent-based P2P derivatives with deep liquidity sourced from centralized exchanges.',
     logoURI: '',
     bridge: 'native',
-    risks: ['SYNTH_ASSET'],
-},
+    tags: ['SYNTHETIC'],
+  },
   crvUSD: {
     name: 'Curve USD Stablecoin',
     symbol: 'crvUSD',
@@ -455,7 +455,7 @@ export const tokens = {
       'crvUSD is a collateralized-debt-position (CDP) stablecoin pegged to the US Dollar',
     documentation: 'https://docs.curve.finance/crvUSD/overview/',
     bridge: 'base-canonical',
-    risks: ['SYNTH_ASSET'],
+    tags: ['STABLECOIN', 'SYNTHETIC'],
   },
   bsUSD: {
     name: 'Balancer Stable Pool',
@@ -471,7 +471,7 @@ export const tokens = {
     documentation: 'https://docs.balancer.fi/products/balancer-pools/boosted-pools',
     description:
       'Balancer composable pool that consist of USDbC and DAI. bbTokens are boosted linear pools.',
-    risks: ['SYNTH_ASSET'],
+    tags: ['STABLECOIN', 'SYNTHETIC'],
   },
   BVM: {
     name: 'Base Velocimeter',
@@ -514,7 +514,7 @@ export const tokens = {
     bridge: 'base-canonical',
     logoURI: '',
     documentation: 'https://docs.rocketpool.net/guides/',
-},
+  },
   FTW: {
     name: 'FriendTech33',
     symbol: 'FTW',
@@ -555,7 +555,7 @@ export const tokens = {
       'A decentralized flatcoin that provides convenient access to DeFi yields, enabling holders to earn passive income on their capital. Governance should aim to take low to moderate risk to return high DeFi yields in order to mitigate against inflation.',
     documentation: '',
     bridge: 'native',
-    risks: ['SYNTH_ASSET'],
+    tags: ['STABLECOIN', 'SYNTHETIC'],
   },
   eUSD: {
     name: 'Electronic Dollar',
@@ -571,7 +571,7 @@ export const tokens = {
       'The Electronic Dollar (eUSD) is a decentralized 1:1 asset-backed stablecoin built with Reserve Protocol, available on the Ethereum and MobileCoin blockchains. It sets itself apart from other stablecoins due to its decentralized, community-governed, and censorship-resistant nature.',
     documentation: 'https://reserve.org/protocol/',
     bridge: 'base-canonical',
-    risks: ['SYNTH_ASSET'],
+    tags: ['STABLECOIN', 'SYNTHETIC'],
   },
   wstETH: {
     name: 'Wrapped liquid staked Ether 2.0',
@@ -715,7 +715,7 @@ export const tokens = {
       'Degen is an unofficial token that were distributed to the community on the decentralized social network, Farcaster.',
     documentation: 'https://www.degen.tips/faq',
     bridge: 'native',
-    risks: ['LARGE_HOLDERS', 'NO_TIMELOCK'],
+    tags: ['LARGE_HOLDERS', 'NO_TIMELOCK'],
   },
   doginme: {
     name: 'doginme',
@@ -758,7 +758,7 @@ export const tokens = {
       'rgUSD is an overcollateralized stablecoin launched on Reserve Protocol that acts as a collective point for DeFi users to negotiate with stablecoin yield providers for the best returns.',
     documentation: 'https://reserve.org/protocol/',
     bridge: 'base-canonical',
-    risks: ['SYNTH_ASSET'],
+    tags: ['STABLECOIN', 'SYNTHETIC'],
   },
   TN100x: {
     name: 'The Next 100x Memecoin on Base',
@@ -772,7 +772,7 @@ export const tokens = {
     description:
       'TN100x is the coin that powers the HAM ecosystem, an upcoming layer 3 blockchain. More than a memecoin, it’s a social token, and a driving force behind everything Ham.',
     bridge: 'native',
-    risks: ['NO_TIMELOCK'],
+    tags: ['NO_TIMELOCK'],
   },
   CHAD: {
     name: 'Based Chad',
@@ -826,7 +826,7 @@ export const tokens = {
       'EthXY is a MMORPG built on top of Telegram. SEXY is a game token used for a variety of game mechanics and weapon + armor purchases.',
     documentation: 'https://ethxy.com/',
     bridge: 'base-canonical',
-    risks: ['NO_TIMELOCK'],
+    tags: ['NO_TIMELOCK'],
   },
   sFRAX: {
     name: 'Staked FRAX',
@@ -841,7 +841,7 @@ export const tokens = {
       'Staked FRAX (sFRAX) is an ERC4626 staking vault that distributes part of the Frax Protocol yield weekly to stakers denominated in FRAX stablecoins. The sFRAX token represents pro rata deposits within the vault and is always withdrawable for FRAX stablecoins at the pro rata rate at all times. sFRAX APY attempts to roughly track the interest on reserve balances (IORB) rate of the United States Federal Reserve using the IORB oracle. This benchmark rate is generally accepted as the “risk free rate” of the US Dollar. The FRAX staking vault attempts, but does not guarantee in any way, to target this rate.',
     documentation: 'https://docs.frax.finance/frax-v3/sfrax',
     bridge: 'layer-zero',
-    risks: ['NO_TIMELOCK', 'SYNTH_ASSET'],
+    tags: ['NO_TIMELOCK', 'STABLECOIN', 'SYNTHETIC'],
   },
   sfrxETH: {
     name: 'Staked Frax Ether',
@@ -856,7 +856,7 @@ export const tokens = {
       'sfrxETH is a ERC-4626 vault designed to accrue the staking yield of the Frax ETH validators. At any time, frxETH can be exchanged for sfrxETH by depositing it into the sfrxETH vault, which allows users to earn staking yield on their frxETH. Over time, as validators accrue staking yield, an equivalent amount of frxETH is minted and added to the vault, allowing users to redeem their sfrxETH for an greater amount of frxETH than they deposited.',
     documentation: 'https://docs.frax.finance/frax-ether/frxeth-and-sfrxeth',
     bridge: 'layer-zero',
-    risks: ['NO_TIMELOCK'],
+    tags: ['NO_TIMELOCK'],
   },
   FXS: {
     name: 'Frax Share',
@@ -871,7 +871,7 @@ export const tokens = {
       'The Frax Share token (FXS) is the non-stable, utility token in the protocol. It is meant to be volatile and hold rights to governance and all utility of the system. It is important to note that we take a highly governance-minimized approach to designing trustless money in the same ethos as Bitcoin. We eschew DAO-like active management such as MakerDAO. The less parameters for a community to be able to actively manage, the less there is to disagree on. Parameters that are up for governance through FXS include adding/adjusting collateral pools, adjusting various fees (like minting or redeeming), and refreshing the rate of the collateral ratio. No other actions such as active management of collateral or addition of human-modifiable parameters are possible other than a hardfork that would require voluntarily moving to a new implementation entirely. ',
     documentation: 'https://docs.frax.finance/',
     bridge: 'layer-zero',
-    risks: ['NO_TIMELOCK'],
+    tags: ['NO_TIMELOCK'],
   },
   ezETH: {
     name: 'Renzo Restaked ETH',
@@ -886,7 +886,7 @@ export const tokens = {
       'Renzo ezETH is a Liquid Restaking Token (LRT) and Strategy Manager for EigenLayer. It is the interface to the EigenLayer ecosystem securing Actively Validated Services (AVSs) and offering a higher yield than ETH staking.',
     documentation: 'https://docs.renzoprotocol.com/docs/',
     bridge: 'connext',
-    risks: ['NO_TIMELOCK'],
+    tags: ['NO_TIMELOCK'],
   },
   bWELL: {
     name: 'WELL',
@@ -1063,7 +1063,7 @@ export const tokens = {
       'Liquity is a decentralized borrowing protocol that allows you to draw interest-free loans against Ether used as collateral. Loans are paid out in LUSD (a USD pegged stablecoin) and need to maintain a minimum collateral ratio of 110%.',
     bridge: 'base-canonical',
     documentation: 'https://docs.liquity.org/',
-    risks: ['SYNTH_ASSET'],
+    tags: ['STABLECOIN', 'SYNTHETIC'],
   },
   GENOME: {
     name: 'GENOME',
@@ -1091,7 +1091,7 @@ export const tokens = {
       'The rsETHWrapper contract serves as a standardized interface for rsETH tokens, which are Liquid Restaked Tokens (LRT) issued by Kelp DAO. Designed to offer liquidity to illiquid assets deposited into restaking platforms like EigenLayer, users can interact with these tokens seamlessly.',
     documentation: 'https://kelp.gitbook.io/kelp',
     bridge: 'stargate',
-    risks: ['NO_TIMELOCK'],
+    tags: ['NO_TIMELOCK'],
   },
   weETH: {
     name: 'Wrapped eETH',
@@ -1106,7 +1106,7 @@ export const tokens = {
       'Stake ETH, get eETH - a natively restaked liquid staking token that fuels DeFi and decentralizes Ethereum.',
     documentation: 'https://etherfi.gitbook.io/etherfi',
     bridge: 'stargate',
-    risks: ['NO_TIMELOCK'],
+    tags: ['NO_TIMELOCK'],
   },
   KLIMA: {
     name: 'Klima DAO',
@@ -1121,7 +1121,7 @@ export const tokens = {
     description:
       'KlimaDAO and its partners in the Klima ecosystem fosters the adoption of a new category of real world assets (RWA) on the blockchain: environmental assets like carbon credits.',
     bridge: 'axelar',
-    risks: ['LARGE_HOLDERS', 'NO_TIMELOCK'],
+    tags: ['LARGE_HOLDERS', 'NO_TIMELOCK'],
   },
   USDz: {
     name: 'Anzen USDz',
@@ -1136,7 +1136,7 @@ export const tokens = {
     website: 'https://anzen.finance/',
     documentation: 'https://docs.anzen.finance/',
     bridge: 'layer-zero',
-    risks: ['NO_TIMELOCK', 'SYNTH_ASSET'],
+    tags: ['NO_TIMELOCK', 'STABLECOIN', 'SYNTHETIC'],
   },
   GHST: {
     name: 'Aavegotchi GHST Token',
@@ -1236,7 +1236,7 @@ export const tokens = {
     bridge: 'chainlink-ccip',
     logoURI: 'https://i.imgur.com/ZvP634G.png',
     documentation: 'https://learn.jarvis.network/',
-    risks: ['SYNTH_ASSET'],
+    tags: ['STABLECOIN', 'SYNTHETIC'],
   },
   sUSDz: {
     name: 'Staked USDz',
@@ -1251,7 +1251,7 @@ export const tokens = {
     website: 'https://anzen.finance/',
     documentation: 'https://docs.anzen.finance/',
     bridge: 'layer-zero',
-    risks: ['NO_TIMELOCK', 'SYNTH_ASSET'],
+    tags: ['NO_TIMELOCK', 'STABLECOIN', 'SYNTHETIC'],
   },
   msUSD: {
     name: 'Metronome Synth USD',
@@ -1266,7 +1266,7 @@ export const tokens = {
     website: 'https://metronome.io/',
     documentation: 'https://docs.metronome.io/',
     bridge: 'layer-zero',
-    risks: ['NO_TIMELOCK', 'SYNTH_ASSET'],
+    tags: ['NO_TIMELOCK', 'STABLECOIN', 'SYNTHETIC'],
   },
   msETH: {
     name: 'Metronome Synth ETH',
@@ -1281,7 +1281,7 @@ export const tokens = {
     website: 'https://metronome.io/',
     documentation: 'https://docs.metronome.io/',
     bridge: 'layer-zero',
-    risks: ['NO_TIMELOCK', 'SYNTH_ASSET'],
+    tags: ['NO_TIMELOCK', 'SYNTHETIC'],
   },
   CHOMP: {
     name: 'ChompCoin',
@@ -1429,7 +1429,7 @@ export const tokens = {
     bridge: 'wormhole',
     description:
       'ETHFI is the governance token of ether.fi, a restaking protocol on Ethereum. Token holders will have a say in the future of the protocol.',
-    risks: ['NO_TIMELOCK'],
+    tags: ['NO_TIMELOCK'],
   },
   WIF: {
     name: 'dogwifhat',
@@ -1539,7 +1539,7 @@ export const tokens = {
       'Origin Protocol is a suite of complimentary DeFi products designed to increase economic opportunity for all. These permissionless and composable smart contracts provide superior user experiences across DeFi in a groundbreaking multichain yield ecosystem. OGN is value accrual and governance token for all Origin products. When Origin scales OGN scales as it is the lifeblood of the Origin ecosystem.',
     documentation: 'https://docs.originprotocol.com/',
     bridge: 'base-canonical',
-    risks: ['LARGE_HOLDERS', 'NO_TIMELOCK'],
+    tags: ['LARGE_HOLDERS', 'NO_TIMELOCK'],
   },
   BMX: {
     name: 'BMX',
@@ -1568,7 +1568,7 @@ export const tokens = {
     website: 'https://www.virtuals.io/',
     documentation: 'https://whitepaper.virtuals.io/',
     bridge: 'base-canonical',
-    risks: ['LARGE_HOLDERS', 'NO_TIMELOCK'],
+    tags: ['LARGE_HOLDERS', 'NO_TIMELOCK'],
   },
   snARS: {
     name: 'Yield Bearing Num ARS',
@@ -1583,7 +1583,7 @@ export const tokens = {
     website: 'https://num.finance/',
     documentation: 'https://new.num.finance/',
     bridge: 'native',
-    risks: ['LARGE_HOLDERS', 'NO_TIMELOCK'],
+    tags: ['LARGE_HOLDERS', 'NO_TIMELOCK'],
   },
   besnARS: {
     name: 'Beefy Escrow snARS',
@@ -1598,7 +1598,7 @@ export const tokens = {
     website: 'https://num.finance/',
     documentation: 'https://new.num.finance/',
     bridge: 'native',
-    risks: ['LARGE_HOLDERS', 'NO_TIMELOCK'],
+    tags: ['LARGE_HOLDERS', 'NO_TIMELOCK'],
   },
   LUNA: {
     name: 'Luna by Virtuals',
@@ -1627,7 +1627,7 @@ export const tokens = {
     website: 'https://www.spectrallabs.xyz/',
     documentation: 'https://docs.spectrallabs.xyz/',
     bridge: 'synapse',
-    risks: ['LARGE_HOLDERS', 'NO_TIMELOCK'],
+    tags: ['LARGE_HOLDERS', 'NO_TIMELOCK'],
   },
   TALENT: {
     name: 'Talent Protocol Token',
@@ -1642,7 +1642,7 @@ export const tokens = {
     website: 'https://talentprotocol.com/',
     documentation: 'https://docs.talentprotocol.com/',
     bridge: 'native',
-    risks: ['LARGE_HOLDERS', 'NO_TIMELOCK'],
+    tags: ['LARGE_HOLDERS', 'NO_TIMELOCK'],
   },
   HIGHER: {
     name: 'Higher',
@@ -1670,7 +1670,7 @@ export const tokens = {
     website: 'https://www.basedbrett.com/',
     documentation: 'https://www.basedbrett.com/#tokenomics',
     bridge: 'native',
-    risks: ['LARGE_HOLDERS', 'NO_TIMELOCK'],
+    tags: ['LARGE_HOLDERS', 'NO_TIMELOCK'],
   },
   ION: {
     name: 'Ionic',
@@ -1685,7 +1685,7 @@ export const tokens = {
     website: 'https://app.ionic.money/',
     documentation: 'https://doc.ionic.money/',
     bridge: 'native',
-    risks: ['LARGE_HOLDERS', 'NO_TIMELOCK'],
+    tags: ['LARGE_HOLDERS', 'NO_TIMELOCK'],
   },
   OX: {
     name: 'OX Coin',
@@ -1700,7 +1700,7 @@ export const tokens = {
     website: 'https://ox.fun/',
     documentation: 'https://support.ox.fun/',
     bridge: 'layer-zero',
-    risks: ['LARGE_HOLDERS', 'NO_TIMELOCK'],
+    tags: ['LARGE_HOLDERS', 'NO_TIMELOCK'],
   },
   MORE: {
     name: 'MORE',
@@ -1714,7 +1714,7 @@ export const tokens = {
       'Stack’s $MORE token is a non-algorithmic, collateral-backed stablecoin. This means that every $1 USD of $MORE should have more than $1 USD of collateral backing. Stack considers $MORE to be worth $1 however at times it may not trade at this value. In these instances, Stack has several options at its disposal to regain the $1 USD peg.',
     bridge: 'native',
     chainId: 8453,
-    risks: ['NO_TIMELOCK', 'SYNTH_ASSET'],
+    tags: ['NO_TIMELOCK', 'SYNTHETIC'],
   },
   CLANKER: {
     name: 'tokenbot',
@@ -1768,7 +1768,7 @@ export const tokens = {
     website: 'https://blocklords.com/',
     documentation: 'https://wiki.blocklords.com/economy/currencies/usdlrds',
     bridge: 'base-canonical',
-    risks: ['LARGE_HOLDERS', 'NO_TIMELOCK'],
+    tags: ['LARGE_HOLDERS', 'NO_TIMELOCK'],
   },
   SUSHI: {
     name: 'Sushi',
@@ -1824,7 +1824,7 @@ export const tokens = {
       "LBTC is liquid Bitcoin; it's yield-bearing, cross-chain, and 1:1 backed by BTC. LBTC enables yield-bearing BTC to move cross-chain without fragmenting liquidity, and is designed to seamlessly integrate Bitcoin into the decentralized finance (DeFi) ecosystem while maintaining the security and integrity of the underlying asset.",
     bridge: 'native',
     documentation: 'https://docs.lombard.finance/lbtc-liquid-bitcoin/introduction-to-lbtc',
-    risks: ['NO_TIMELOCK', 'LARGE_HOLDERS'],
+    tags: ['NO_TIMELOCK', 'LARGE_HOLDERS'],
   },
   EIGEN: {
     name: 'Eigen',
@@ -1880,7 +1880,7 @@ export const tokens = {
       'Morpho is a decentralized lending protocol with different entities and individuals contributing to its development and adoption. As a result, the documentation refers to different areas of “Morpho” which are worth distinguishing.',
     documentation: 'https://docs.morpho.org/',
     bridge: 'base-canonical',
-    risks: ['NO_TIMELOCK'],
+    tags: ['NO_TIMELOCK'],
   },
   PUBLIUS: {
     name: 'PUBLIUS',
@@ -1961,7 +1961,7 @@ export const tokens = {
       'Gravity is a Layer 1 omnichain smart contract platform designed to deliver a more efficient, scalable, and secure mechanism for managing complex cross-chain interactions with minimal friction.',
     documentation: 'https://docs.gravity.xyz/',
     bridge: 'native',
-    risks: ['LARGE_HOLDERS', 'NO_TIMELOCK'],
+    tags: ['LARGE_HOLDERS', 'NO_TIMELOCK'],
   },
   ANZ: {
     name: 'Anzen Token',
@@ -1976,7 +1976,7 @@ export const tokens = {
       'Anzen is a decentralized platform providing access to USDz, which is a digital token backed by a diversified portfolio of private credit assets.',
     documentation: 'https://docs.anzen.finance/',
     bridge: 'native',
-    risks: ['LARGE_HOLDERS', 'NO_TIMELOCK'],
+    tags: ['LARGE_HOLDERS', 'NO_TIMELOCK'],
   },
   TAROT: {
     name: 'Tarot',
@@ -1991,7 +1991,7 @@ export const tokens = {
       'Tarot is a decentralized lending protocol where users can participate as lenders or borrowers in isolated lending pools.',
     documentation: 'https://docs.tarot.to/',
     bridge: 'layer-zero',
-    risks: ['LARGE_HOLDERS', 'NO_TIMELOCK'],
+    tags: ['LARGE_HOLDERS', 'NO_TIMELOCK'],
   },
   ODOS: {
     name: 'Odos Token',
@@ -2020,7 +2020,7 @@ export const tokens = {
       'The Derive Protocol is a collection of smart contracts that collectively create a decentralised and self-custodial derivatives protocol.',
     documentation: 'https://docs.derive.xyz/',
     bridge: 'layer-zero',
-    risks: ['LARGE_HOLDERS', 'NO_TIMELOCK'],
+    tags: ['LARGE_HOLDERS', 'NO_TIMELOCK'],
   },
   FAI: {
     name: 'FAI',
@@ -2049,7 +2049,7 @@ export const tokens = {
       'Super Champs is an immersive, anime-inspired universe spanning games, video, social media, merch, and web3 ownership.',
     documentation: 'https://whitepaper.superchamps.com/champ-tokenomics',
     bridge: '',
-    risks: ['LARGE_HOLDERS', 'NO_TIMELOCK'],
+    tags: ['LARGE_HOLDERS', 'NO_TIMELOCK'],
   },
   uSUI: {
     name: 'Sui (Universal)',
@@ -2064,7 +2064,7 @@ export const tokens = {
       'uAssets (e.g. uBTC, uSOL, ...) are ERC-20 tokens that can solve liquidity problems builders face today.',
     documentation: 'https://docs.universalassets.xyz/universal-protocol',
     bridge: 'native',
-    risks: ['NO_TIMELOCK'],
+    tags: ['NO_TIMELOCK'],
   },
   uSOL: {
     name: 'Solana (Universal)',
@@ -2079,7 +2079,7 @@ export const tokens = {
       'uAssets (e.g. uBTC, uSOL, ...) are ERC-20 tokens that can solve liquidity problems builders face today.',
     documentation: 'https://docs.universalassets.xyz/universal-protocol',
     bridge: 'native',
-    risks: ['NO_TIMELOCK'],
+    tags: ['NO_TIMELOCK'],
   },
   uXRP: {
     name: 'XRP (Universal)',
@@ -2094,7 +2094,7 @@ export const tokens = {
       'uAssets (e.g. uBTC, uSOL, ...) are ERC-20 tokens that can solve liquidity problems builders face today.',
     documentation: 'https://docs.universalassets.xyz/universal-protocol',
     bridge: 'native',
-    risks: ['NO_TIMELOCK'],
+    tags: ['NO_TIMELOCK'],
   },
   uADA: {
     name: 'Cardano (Universal)',
@@ -2109,7 +2109,7 @@ export const tokens = {
       'uAssets (e.g. uBTC, uSOL, ...) are ERC-20 tokens that can solve liquidity problems builders face today.',
     documentation: 'https://docs.universalassets.xyz/universal-protocol',
     bridge: 'native',
-    risks: ['NO_TIMELOCK'],
+    tags: ['NO_TIMELOCK'],
   },
   uLINK: {
     name: 'Chainlink (Universal)',
@@ -2124,7 +2124,7 @@ export const tokens = {
       'uAssets (e.g. uBTC, uSOL, ...) are ERC-20 tokens that can solve liquidity problems builders face today.',
     documentation: 'https://docs.universalassets.xyz/universal-protocol',
     bridge: 'native',
-    risks: ['NO_TIMELOCK'],
+    tags: ['NO_TIMELOCK'],
   },
   uDOGE: {
     name: 'Dogecoin (Universal)',
@@ -2139,7 +2139,7 @@ export const tokens = {
       'uAssets (e.g. uBTC, uSOL, ...) are ERC-20 tokens that can solve liquidity problems builders face today.',
     documentation: 'https://docs.universalassets.xyz/universal-protocol',
     bridge: 'native',
-    risks: ['NO_TIMELOCK'],
+    tags: ['NO_TIMELOCK'],
   },
   uNEAR: {
     name: 'NEAR (Universal)',
@@ -2154,7 +2154,7 @@ export const tokens = {
       'uAssets (e.g. uBTC, uSOL, ...) are ERC-20 tokens that can solve liquidity problems builders face today.',
     documentation: 'https://docs.universalassets.xyz/universal-protocol',
     bridge: 'native',
-    risks: ['NO_TIMELOCK'],
+    tags: ['NO_TIMELOCK'],
   },
   uAPT: {
     name: 'Aptos (Universal)',
@@ -2169,7 +2169,7 @@ export const tokens = {
       'uAssets (e.g. uBTC, uSOL, ...) are ERC-20 tokens that can solve liquidity problems builders face today.',
     documentation: 'https://docs.universalassets.xyz/universal-protocol',
     bridge: 'native',
-    risks: ['NO_TIMELOCK'],
+    tags: ['NO_TIMELOCK'],
   },
   uSEI: {
     name: 'Sei (Universal)',
@@ -2184,7 +2184,7 @@ export const tokens = {
       'uAssets (e.g. uBTC, uSOL, ...) are ERC-20 tokens that can solve liquidity problems builders face today.',
     documentation: 'https://docs.universalassets.xyz/universal-protocol',
     bridge: 'native',
-    risks: ['NO_TIMELOCK'],
+    tags: ['NO_TIMELOCK'],
   },
   REI: {
     name: 'Unit 00 - Rei',
@@ -2227,7 +2227,7 @@ export const tokens = {
       'Unlike other leading AI platforms, Venice provides a private and uncensored AI experience, with your prompts and data only stored on your device, never on our servers.',
     documentation: 'https://venice.ai/blog',
     bridge: 'native',
-    risks: ['NO_TIMELOCK'],
+    tags: ['NO_TIMELOCK'],
   },
   Bold: {
     name: 'Bold Stablecoin',
@@ -2242,7 +2242,7 @@ export const tokens = {
       'BOLD is the USD-pegged stablecoin issued in Liquity V2. It is over-collateralized and backed only by WETH, wstETH, and rETH.',
     documentation: 'https://docs.liquity.org/',
     bridge: 'chainlink-ccip',
-    risks: ['SYNTH_ASSET'],
+    tags: ['STABLECOIN', 'SYNTHETIC'],
   },
   USR: {
     name: 'Resolv USD',
@@ -2256,7 +2256,7 @@ export const tokens = {
     description:
       'Resolv is a protocol maintaining USR, a stablecoin natively backed by Ether (ETH) and pegged to US Dollar',
     bridge: 'layer-zero',
-    risks: ['SYNTH_ASSET'],
+    tags: ['STABLECOIN', 'SYNTHETIC'],
   },
   FLAY: {
     name: 'Flayer',
@@ -2283,7 +2283,7 @@ export const tokens = {
       'The B3 token is the engine powering the Open Gaming ecosystem, designed to grow, scale and transform gaming by empowering players, game developers, and holders.',
     documentation: 'https://learn.b3.fun/claim-comprehensive-faq',
     bridge: 'native',
-    risks: ['LARGE_HOLDERS', 'NO_TIMELOCK'],
+    tags: ['LARGE_HOLDERS', 'NO_TIMELOCK'],
   },
   VEIL: {
     name: 'VEIL Token',
@@ -2338,7 +2338,7 @@ export const tokens = {
       'uAssets (e.g. uBTC, uSOL, ...) are ERC-20 tokens that can solve liquidity problems builders face today.',
     documentation: 'https://docs.universalassets.xyz/universal-protocol',
     bridge: 'native',
-    risks: ['NO_TIMELOCK'],
+    tags: ['NO_TIMELOCK'],
   },
   uSHIB: {
     name: 'Shiba Inu (Universal)',
@@ -2352,7 +2352,7 @@ export const tokens = {
       'uAssets (e.g. uBTC, uSOL, ...) are ERC-20 tokens that can solve liquidity problems builders face today.',
     documentation: 'https://docs.universalassets.xyz/universal-protocol',
     bridge: 'native',
-    risks: ['NO_TIMELOCK'],
+    tags: ['NO_TIMELOCK'],
   },
   KAITO: {
     name: 'KAITO',
@@ -2418,7 +2418,7 @@ export const tokens = {
       'Morpheus is a Decentralized AI network designed to incentivize a network of Smart Agents, general-purpose AI that can execute Smart Contracts on behalf of users.',
     documentation: 'https://morpheusai.gitbook.io/morpheus/',
     bridge: 'layer-zero',
-    risks: ['LARGE_HOLDERS', 'NO_TIMELOCK'],
+    tags: ['LARGE_HOLDERS', 'NO_TIMELOCK'],
   },
   KTA: {
     name: 'Keeta',
@@ -2447,7 +2447,7 @@ export const tokens = {
       'BRZ is the first Brazilian stablecoin in circulation. It will allow Brazilians to directly ramp up investments in foreign exchanges and to trade a Brazilian Real (BRL) pegged stablecoin in global scale.',
     documentation: '',
     bridge: 'native',
-    risks: ['NO_TIMELOCK', 'SYNTH_ASSET'],
+    tags: ['NO_TIMELOCK', 'STABLECOIN', 'SYNTHETIC'],
   },
   CADC: {
     name: 'CAD Coin',
@@ -2462,7 +2462,7 @@ export const tokens = {
       'CADC is a fully reserved CAD dollar stablecoin issued by Paytrie, redeemable 1:1 for Canadian dollars',
     documentation: 'https://faq.paytrie.com/help',
     bridge: 'native',
-    risks: ['NO_TIMELOCK'],
+    tags: ['NO_TIMELOCK'],
   },
   yTRYB: {
     name: 'Yield TRYB',
@@ -2477,7 +2477,7 @@ export const tokens = {
       'TRYB is a stablecoin developed by BiLira that is pegged 1:1 to the Turkish lira and 100% backed by reserves.',
     documentation: 'https://support.bilira.co/',
     bridge: 'native',
-    risks: ['NO_TIMELOCK', 'SYNTH_ASSET'],
+    tags: ['NO_TIMELOCK', 'SYNTHETIC'],
   },
   IDRX: {
     name: 'IDRX',
@@ -2492,7 +2492,7 @@ export const tokens = {
       'IDRX is a stable token pegged to the value of the Indonesian Rupiah (IDR). As a cryptocurrency, IDRX offers users the benefits of blockchain technology, including security, transparency, and decentralized control.',
     documentation: 'https://docs.idrx.co/',
     bridge: 'idrx',
-    risks: ['NO_TIMELOCK', 'SYNTH_ASSET'],
+    tags: ['NO_TIMELOCK', 'STABLECOIN', 'SYNTHETIC'],
   },
   OVER: {
     name: 'Overtime DAO Token',
@@ -2507,7 +2507,7 @@ export const tokens = {
       'Overtime is an onchain sportsbook ecosystem with platforms for placing bets on popular sporting events and digital options trading.',
     documentation: 'https://docs.overtime.io/',
     bridge: 'chainlink-ccip',
-    risks: ['LARGE_HOLDERS', 'NO_TIMELOCK'],
+    tags: ['LARGE_HOLDERS', 'NO_TIMELOCK'],
   },
   EDGE: {
     name: 'Edge',
@@ -2522,7 +2522,7 @@ export const tokens = {
       'Definitive is the future of onchain trade execution. It delivers a CeFi-like experience on DeFi rails via a fully non-custodial platform & API that is live across Solana, Base and other major EVM chains.',
     documentation: 'https://docs.definitive.fi/',
     bridge: 'native',
-    risks: ['LARGE_HOLDERS', 'NO_TIMELOCK'],
+    tags: ['LARGE_HOLDERS', 'NO_TIMELOCK'],
   },
   OUSDT: {
     name: 'OpenUSDT',
@@ -2537,7 +2537,7 @@ export const tokens = {
       'OpenUSDT is a future-proof interoperable USDT stablecoin for the OP Superchain enabling shared liquidity and interchain applications.',
     documentation: 'https://docs.openusdt.xyz/',
     bridge: 'chainlink-ccip',
-    risks: ['NO_TIMELOCK'],
+    tags: ['NO_TIMELOCK'],
   },
   GHO: {
     name: 'GHO Token',
@@ -2566,7 +2566,7 @@ export const tokens = {
     bridge: 'native',
     description:
       'Wrapped Aave Staked GHO. GHO is a decentralized multi-collateral stablecoin that is fully backed, transparent and native to the Aave Protocol.',
-    risks: ['SYNTH_ASSET'],
+    tags: ['STABLECOIN', 'SYNTHETIC'],
   },
   waBasUSDC: {
     name: 'Wrapped Aave USD Coin',
@@ -2662,7 +2662,7 @@ export const tokens = {
     description:
       "SavingsUSDS is the decentralized stablecoin of Sky. USDS replaces DAI as Sky's new stablecoin, offering stability plus new rewards and savings options.",
     bridge: 'base-canonical',
-    risks: ['SYNTH_ASSET'],
+    tags: ['STABLECOIN', 'SYNTHETIC'],
   },
   scrvUSD: {
     name: 'Savings crvUSD',
@@ -2675,7 +2675,7 @@ export const tokens = {
     description:
       'Savings crvUSD, abbreviated as scrvUSD, is an interest-bearing stablecoin that earns yield simply by holding the token.',
     documentation: 'https://resources.curve.finance/crvusd/scrvusd',
-    risks: ['SYNTH_ASSET'],
+    tags: ['STABLECOIN', 'SYNTHETIC'],
   },
   ZORA: {
     name: 'ZORA',
@@ -2688,7 +2688,7 @@ export const tokens = {
     documentation: 'https://docs.zora.co/',
     description: 'A social network where every post is a coin.',
     bridge: 'native',
-    risks: ['NO_TIMELOCK', 'LARGE_HOLDERS'],
+    tags: ['NO_TIMELOCK', 'LARGE_HOLDERS'],
   },
   TRUE: {
     name: 'TRUE',
@@ -2715,7 +2715,7 @@ export const tokens = {
     description: '$noice will become a global, social currency. Tip on Farcaster.',
     documentation: 'https://noice.so/#section-how',
     bridge: 'native',
-    risks: ['LARGE_HOLDERS'],
+    tags: ['LARGE_HOLDERS'],
   },
   BOLDV2: {
     name: 'BOLD Stablecoin',
@@ -2730,7 +2730,7 @@ export const tokens = {
     description:
       'BOLD is the USD-pegged stablecoin issued in Liquity V2. It is over-collateralized and backed only by WETH, wstETH, and rETH.',
     bridge: 'chainlink-ccip',
-    risks: ['SYNTH_ASSET'],
+    tags: ['STABLECOIN', 'SYNTHETIC'],
   },
   GIZA: {
     name: 'Giza',
@@ -2894,7 +2894,7 @@ export const tokens = {
     description: 'Trade crypto, forex, metals, commodities, indices, straight from your wallet.',
     documentation: 'https://docs.avantisfi.com/',
     bridge: 'native',
-    risks: ['NO_TIMELOCK'],
+    tags: ['NO_TIMELOCK'],
   },
   VELVET: {
     name: 'Velvet',
@@ -2922,7 +2922,7 @@ export const tokens = {
       'SOON is a high-performance SVM Rollup designed to realize the Super Adoption Stack. With a vision to achieve mass adoption of blockchain, SOON comprises three primary products: SOON Mainnet, SOON Stack, and InterSOON. The core technological innovations of SOON include decoupled SVM, Merklization, and Horizontal Scaling.',
     documentation: 'https://docs.soo.network/introduction/what-is-soon',
     bridge: 'layer-zero',
-    risks: ['NO_TIMELOCK'],
+    tags: ['NO_TIMELOCK'],
   },
   SAPIEN: {
     name: 'Sapien',
@@ -2937,7 +2937,7 @@ export const tokens = {
       'Sapien is a decentralized network, connecting you directly to leading AI companies',
     documentation: 'https://earn.sapien.io/',
     bridge: 'native',
-    risks: ['LARGE_HOLDERS'],
+    tags: ['LARGE_HOLDERS'],
   },
   AVAIL: {
     name: 'Avail (Wormhole)',
@@ -2966,7 +2966,7 @@ export const tokens = {
       'Botto is a decentralized autonomous artist governed by its community (BottoDAO), which votes weekly on hundreds of art fragments to guide its generative algorithm. Each week, Botto mints one final artwork from the voted fragments and auctions it on SuperRare, sharing 40% of proceeds with the community as rewards.',
     documentation: 'https://docs.botto.com/',
     bridge: 'base-canonical',
-    risks: ['NO_TIMELOCK', 'LARGE_HOLDERS'],
+    tags: ['NO_TIMELOCK', 'LARGE_HOLDERS'],
   },
   MCADE: {
     name: 'Metacade',
@@ -2995,7 +2995,7 @@ export const tokens = {
       'Spectra is an EVM-centric protocol for interest rate derivatives with an easy-to-use flagship app. The Spectra protocol is permissionless, meaning its services are entirely open for public use. Anyone can create new markets at will, swap yield derivatives, or become a liquidity provider.',
     documentation: 'https://docs.spectra.finance/',
     bridge: 'layer-zero',
-    risks: ['NO_TIMELOCK', 'LARGE_HOLDERS'],
+    tags: ['NO_TIMELOCK', 'LARGE_HOLDERS'],
   },
   SQD: {
     name: 'Subsquid',
@@ -3010,7 +3010,7 @@ export const tokens = {
       'SQD Network is a decentralized query engine optimized for batch extraction of large volumes of data. It currently serves historical on-chain data ingested from 200+ EVM and Substrate networks, as well as Solana (in beta), Tron, Starknet and Fuel.',
     documentation: 'https://docs.sqd.ai/',
     bridge: 'base-canonical',
-    risks: ['NO_TIMELOCK', 'LARGE_HOLDERS'],
+    tags: ['NO_TIMELOCK', 'LARGE_HOLDERS'],
   },
   TLOS: {
     name: 'TLOS',
@@ -3025,7 +3025,7 @@ export const tokens = {
       'Telos is a next-generation Delegated Proof of Stake (DPOS) Layer-1 blockchain network. It features unsurpassed compatibility for developers and provides an extensive suite of tools and onboarding support to develop and deploy smart contracts on the worlds fastest, most scalable, and affordable Telos EVM',
     documentation: 'https://docs.telos.net/',
     bridge: 'layer-zero',
-    risks: ['NO_TIMELOCK'],
+    tags: ['NO_TIMELOCK'],
   },
   AWE: {
     name: 'AWE Network',
@@ -3039,7 +3039,7 @@ export const tokens = {
     description:
       'AWE Network is opening the portal to Autonomous Worlds where AI Agents collaborate, adapt and evolve. The Autonomous Worlds Engine (AWE) is a modular framework enabling the creation of self-sustaining worlds for scalable agent-agent and human-agent collaboration.',
     documentation: 'https://docs.awenetwork.ai/',
-    risks: ['NO_TIMELOCK', 'LARGE_HOLDERS'],
+    tags: ['NO_TIMELOCK', 'LARGE_HOLDERS'],
   },
   CXT: {
     name: 'Covalent X token',
@@ -3054,7 +3054,7 @@ export const tokens = {
       'Covalent is the leading modular data infrastructure layer that is dedicated to solving the Long-Term Data Availability and the verifiability problem in AI. A multi-sided platform designed to eventually be self-sufficient, the Covalent Network works by capturing and indexing blockchain data and storing it across multiple points on the network. Anyone can then access this data instantly through querying the GoldRush API (formerly known as the Unified API).',
     documentation: 'https://www.covalenthq.com/docs/introduction',
     bridge: 'base-canonical',
-    risks: ['NO_TIMELOCK'],
+    tags: ['NO_TIMELOCK'],
   },
   FLOCK: {
     name: 'FLock.io',
@@ -3068,7 +3068,7 @@ export const tokens = {
     description:
       'FLock.io seeks to decentralise training and value alignment. We ensure that AI objectives match the public’s ethics and societal aims, that decision-making falls to communities, and that usefulness is a top priority.',
     documentation: 'https://docs.flock.io/',
-    risks: ['NO_TIMELOCK', 'LARGE_HOLDERS'],
+    tags: ['NO_TIMELOCK', 'LARGE_HOLDERS'],
   },
   SYND: {
     name: 'Syndicate',
@@ -3083,7 +3083,7 @@ export const tokens = {
       'Infrastructure for scalable, programmable, atomically composable appchains. Giving you complete control over your network, sequencer, and economy.',
     documentation: 'https://docs.syndicate.io/en/docs/syndicate-stack/get-started/introduction',
     bridge: 'base-canonical',
-    risks: ['NO_TIMELOCK'],
+    tags: ['NO_TIMELOCK'],
   },
   MOCA: {
     name: 'Moca',
@@ -3097,7 +3097,7 @@ export const tokens = {
     description: 'Co-creating the largest web3 cultural economy with $MOCA holders',
     documentation: 'https://moca.foundation/moca-coin',
     bridge: 'layer-zero',
-    risks: ['NO_TIMELOCK', 'LARGE_HOLDERS'],
+    tags: ['NO_TIMELOCK', 'LARGE_HOLDERS'],
   },
   RIPE: {
     name: 'RipeToken',
@@ -3125,7 +3125,7 @@ export const tokens = {
     description: 'SIRE is the first agentic on-chain sports-betting hedge fund, built for DeFAI.',
     documentation: 'https://docs.sire.bot/',
     bridge: 'native',
-    risks: ['NO_TIMELOCK', 'LARGE_HOLDERS'],
+    tags: ['NO_TIMELOCK', 'LARGE_HOLDERS'],
   },
   LCAP: {
     name: 'CF Large Cap Index',
@@ -3154,7 +3154,7 @@ export const tokens = {
       'DIEM token represents perpetual tokenized inference. Each Diem provides $1 per day of API credit, forever. Only VVV holders can mint these tokens, creating the first-ever tradeable direct AI compute asset.',
     documentation: 'https://venice.ai/blog/',
     bridge: 'native',
-    risks: ['NO_TIMELOCK', 'LARGE_HOLDERS'],
+    tags: ['NO_TIMELOCK', 'LARGE_HOLDERS'],
   },
   VFY: {
     name: 'zkVerify',
@@ -3169,7 +3169,7 @@ export const tokens = {
       'More than a token – VFY is your ownership stake in the infrastructure propelling the next age of the Internet. As the government, the private sector, and daily life increasingly shift online, your stake becomes more beneficial.',
     documentation: 'https://docs.zkverify.io/',
     bridge: 'layer-zero',
-    risks: ['NO_TIMELOCK'],
+    tags: ['NO_TIMELOCK'],
   },
   LITKEY: {
     name: 'Lit Protocol',
@@ -3198,7 +3198,7 @@ export const tokens = {
       'Predict crypto & stock prices with nonstop hourly and daily markets. Trade anytime, anywhere. ',
     documentation: 'https://limitlesslabs.notion.site/',
     bridge: 'native',
-    risks: ['LARGE_HOLDERS'],
+    tags: ['LARGE_HOLDERS'],
   },
   SEDA: {
     name: 'SEDA',
@@ -3213,7 +3213,7 @@ export const tokens = {
       'SEDA is a layer one for programmable oracle infrastructure. SEDA is backed by leading investors across the world with over $22 million in funding from Coinbase, Reciprocal Ventures, Coinfund, Distributed Global and more.',
     documentation: 'https://docs.seda.xyz/home',
     bridge: 'hyperlane',
-    risks: ['NO_TIMELOCK'],
+    tags: ['NO_TIMELOCK'],
   },
   kVCM: {
     name: 'Klima Protocol kVCM',
@@ -3228,7 +3228,7 @@ export const tokens = {
       'Klima Protocol is open infrastructure for climate finance—pricing and purchasing carbon credits, selling retirements, and incentivizing deep liquidity.',
     documentation: 'https://docs.klimaprotocol.com/',
     bridge: 'native',
-    risks: ['LARGE_HOLDERS', 'NO_TIMELOCK'],
+    tags: ['LARGE_HOLDERS', 'NO_TIMELOCK'],
   },
   SEND: {
     name: 'Send',
@@ -3243,7 +3243,7 @@ export const tokens = {
       'Send is building the future of money where payments are instant, access is seamless, and privacy is non-negotiable. The platform lets anyone, anywhere send, save, and earn with just a smartphone.',
     documentation: 'https://info.send.it/',
     bridge: 'native',
-    risks: ['LARGE_HOLDERS', 'NO_TIMELOCK'],
+    tags: ['LARGE_HOLDERS', 'NO_TIMELOCK'],
   },
   SOL: {
     name: 'Solana',

@@ -60,7 +60,7 @@ export const tokens = {
     bridge: 'zksync-canonical',
     documentation:
       'https://tprotocol.gitbook.io/tprotocol-documentation/white-paper/tprotocol-documentation',
-    risks: ['SYNTH_ASSET'],
+    tags: ['STABLECOIN', 'SYNTHETIC'],
   },
   VC: {
     name: 'Velocore',
@@ -103,7 +103,7 @@ export const tokens = {
       'Binance USD (BUSD) is a 1:1 USD-backed stable coin issued by Binance (in partnership with Paxos), Approved and regulated by the New York State Department of Financial Services (NYDFS), The BUSD Monthly Audit Report can be viewed from the official website.',
     bridge: 'zksync-canonical',
     documentation: '',
-    risks: ['SYNTH_ASSET'],
+    tags: ['STABLECOIN', 'SYNTHETIC'],
   },
   'USD+': {
     name: 'USD+',
@@ -117,7 +117,7 @@ export const tokens = {
     description:
       'USD+ is USDC that pays you yield daily via rebase. It is 100% collateralized with assets immediately convertible into USDC. Yield is generated via strategies such as lending and stable-to-stable pools. Initial strategies include Aave, Rubicon, and Pika.',
     documentation: 'https://docs.overnight.fi/',
-    risks: ['CURATED'],
+    tags: ['CURATED'],
   },
   WBTC: {
     name: 'Wrapped BTC',

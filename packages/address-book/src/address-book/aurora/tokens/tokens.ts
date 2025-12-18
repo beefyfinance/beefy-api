@@ -122,8 +122,8 @@ export const tokens = {
     website: 'https://www.terra.money/',
     description:
       'Terra stablecoins offer instant settlements, low fees and seamless cross-border exchange - loved by millions of users and merchants.',
-    risks: ['SYNTH_ASSET'],
-},
+    tags: ['SYNTHETIC'],
+  },
   atLUNA: {
     name: 'Luna Terra',
     symbol: 'LUNA',
@@ -253,8 +253,8 @@ export const tokens = {
     website: 'https://omnifarms.ocp.finance/',
     description:
       'USDO is a decentralised stablecoin backed by a verifiable collateral pool of on-chain assets.',
-    risks: ['SYNTH_ASSET'],
-},
+    tags: ['SYNTHETIC'],
+  },
   ROSE: {
     name: 'Rose',
     symbol: 'ROSE',
@@ -278,7 +278,7 @@ export const tokens = {
     website: 'https://mai.finance/',
     description:
       'MAI is a stable coin collateralized by your MATIC holdings. Its powered by Qi Dao, a protocol that enables any cryptocurrency community to create stablecoins backed by their native tokens.',
-    risks: ['SYNTH_ASSET'],
+    tags: ['STABLECOIN', 'SYNTHETIC'],
   },
   PAD: {
     name: 'NearPad Token',
@@ -303,7 +303,7 @@ export const tokens = {
     website: 'https://makerdao.com/en/',
     description:
       'Dai is a stablecoin cryptocurrency which aims to keep its value as close to one United States dollar as possible through an automated system of smart contracts on the Ethereum blockchain',
-    risks: ['SYNTH_ASSET'],
+    tags: ['STABLECOIN', 'SYNTHETIC'],
   },
   USN: {
     name: 'USN Token',
@@ -315,6 +315,6 @@ export const tokens = {
     logoURI: '',
     website: 'https://decentral-bank.finance/',
     description: 'USN is a NEAR-native stablecoin collateralized 1:1 by USDT.',
-    risks: ['SYNTH_ASSET'],
+    tags: ['STABLECOIN', 'SYNTHETIC'],
   },
 } as const satisfies Record<string, Token>;

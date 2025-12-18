@@ -72,7 +72,7 @@ export const tokens = {
     description:
       'Ethenas USDe is not the same as a fiat stablecoin like USDC or USDT. USDe is a synthetic dollar, backed with crypto assets and corresponding short futures positions.',
     bridge: 'layer-zero',
-    risks: ['NO_TIMELOCK', 'SYNTH_ASSET'],
+    tags: ['NO_TIMELOCK', 'STABLECOIN', 'SYNTHETIC'],
   },
   sUSDe: {
     name: 'Staked USDe',
@@ -87,7 +87,7 @@ export const tokens = {
     description:
       'Users are able to stake their USDe for sUSDe through the Ethena front-end. sUSDe is a reward-bearing token that accrues value from the yield that Ethena’s underlying delta-neutral position generates. sUSDe is subject to a 7-day un-staking period.',
     bridge: 'layer-zero',
-    risks: ['NO_TIMELOCK', 'SYNTH_ASSET'],
+    tags: ['NO_TIMELOCK', 'STABLECOIN', 'SYNTHETIC'],
   },
   PlasmaUSD: {
     name: 'Plasma USD Vault (PlasmaUSD)',
@@ -101,7 +101,7 @@ export const tokens = {
     description:
       'The PlasmaUSD Vault is the flagship Plasma vault managed by Veda. Deposits are deployed into blue-chip lending protocols such as Aave to generate yield.',
     bridge: 'native',
-    risks: ['SYNTH_ASSET'],
+    tags: ['STABLECOIN', 'SYNTHETIC'],
   },
   syrupUSDT: {
     name: 'Syrup USDT',
@@ -130,7 +130,7 @@ export const tokens = {
       'msUSD represents Metronome Synth USD. Through the Metronome dApp, users are able to deposit crypto assets as collateral, and use that collateral to mint popular crypto synthetics.',
     documentation: 'https://docs.metronome.io/metronome-2.0/master',
     bridge: 'layer-zero',
-    risks: ['NO_TIMELOCK', 'SYNTH_ASSET'],
+    tags: ['NO_TIMELOCK', 'STABLECOIN', 'SYNTHETIC'],
   },
   splUSD: {
     name: 'Staked Plasma USD',
@@ -144,7 +144,7 @@ export const tokens = {
     description:
       'splUSD represents the vault receipt token of Trevee. The vault is powered by Midas infrastructure. Deposits into splUSD is then deployed into DeFi (e.g. Aave and Fluid) strategies to generate yield.',
     bridge: 'native',
-    risks: ['SYNTH_ASSET'],
+    tags: ['STABLECOIN', 'SYNTHETIC'],
   },
   LITH: {
     name: 'Lithos',
@@ -171,6 +171,6 @@ export const tokens = {
       'ether.fi is a decentralized, non-custodial delegated staking protocol with a Liquid Staking token. One of the distinguishing characteristics of ether.fi is that stakers control their keys. The ether.fi mechanism also allows for the creation of a node services marketplace where stakers and node operators can enroll nodes to provide infrastructure services.',
     documentation: 'https://etherfi.gitbook.io/etherfi',
     bridge: 'layer-zero',
-    risks: ['NO_TIMELOCK'],
+    tags: ['NO_TIMELOCK'],
   },
 } as const satisfies Record<string, Token>;
