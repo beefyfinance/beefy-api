@@ -237,4 +237,18 @@ export const tokens = {
     bridge: 'native',
     tags: ['NO_TIMELOCK', 'SYNTHETIC'],
   },
+  USD1: {
+    name: 'World Liberty Financial USD',
+    symbol: 'USD1',
+    oracleId: 'USD1',
+    address: '0x111111d2bf19e43C34263401e0CAd979eD1cdb61',
+    chainId: 143,
+    decimals: 6,
+    logoURI: '',
+    website: 'https://worldlibertyfinancial.com/usd1',
+    description:
+      'Digital dollar stablecoins that are accepted both on-chain and in the real world.',
+    documentation: 'https://worldlibertyfinancial.com/about',
+    bridge: 'chainlink',
+  },
 } as const satisfies Record<string, Token>;
