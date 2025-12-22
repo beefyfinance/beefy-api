@@ -1,5 +1,21 @@
 [
   {
+    "name": "pendle-reusd-25jun26",
+    "address": "0xf5929a1c332ceab7918a4593a43db2b9ac20095f",
+    "oracle": "tokens",
+    "oracleId": "reUSDxyz",
+    "decimals": "1e18",
+    "chainId": 1
+  },
+  {
+    "name": "pendle-reusde-25jun26",
+    "address": "0x6cb9a013604a567a5834fadd411165b1ca616783",
+    "oracle": "tokens",
+    "oracleId": "reUSDe",
+    "decimals": "1e18",
+    "chainId": 1
+  },
+  {
     "name": "pendle-ysybold-27nov25",
     "address": "0x1BD78377DFbCA2043e38b692D2E0b32396b4772d",
     "eqbGauge": "0xC5B9105fe34Ef7746f6460D8B1C3E450088aE65c",

@@ -229,6 +229,8 @@ const coinGeckoCoins: Record<string, string[]> = {
   'lombard-staked-btc': ['LBTC'],
   shmonad: ['shMON'],
   'kintsu-staked-monad': ['sMON'],
+  're-protocol-reusd': ['reUSDxyz'],
+  're-protocol-reusde': ['reUSDe'],
   // 'genesislrt-restaked-eth': ['lineainETH'],
 };
 

@@ -2989,4 +2989,30 @@ export const tokens = {
       'sdCRV (Stake DAO CRV) is a liquid locker token created by Stake DAO for the CRV governance token of the Curve Finance ecosystem. It represents a liquid form of veCRV, allowing users to deposit and stake CRV directly on Stake DAO or purchase sdCRV on secondary markets using the sdCRV/CRV pool.',
     bridge: 'native',
   },
+  reUSDxyz: {
+    name: 'Re Protocol Deposit Token',
+    address: '0x5086bf358635B81D8C47C66d1C8b9E567Db70c72',
+    symbol: 'reUSD',
+    oracleId: 'reUSDxyz',
+    decimals: 18,
+    chainId: 1,
+    website: 'https://re.xyz/',
+    documentation: 'https://docs.re.xyz/',
+    description:
+      'reUSD is a principal‑protected, yield‑accruing token that tracks the greater of (i) the risk‑free rate plus 250 bps or (ii) the Ethena basis‑trade yield plus 250 bps. It earns on‑chain, deploys off‑chain via Surplus Notes to supply regulatory capital, and maintains transparent, oracle‑verified collateral reporting.',
+    bridge: 'native',
+  },
+  reUSDe: {
+    name: 'Re Protocol reUSDe',
+    address: '0xdDC0f880ff6e4e22E4B74632fBb43Ce4DF6cCC5a',
+    symbol: 'reUSDe',
+    oracleId: 'reUSDe',
+    decimals: 18,
+    chainId: 1,
+    website: 'https://re.xyz/',
+    documentation: 'https://docs.re.xyz/',
+    description:
+      'reUSDe is the Re Protocol’s performance token: it absorbs first‑loss risk across the reinsurance portfolio in exchange for a share of underwriting profits that historically translate to 16 – 25 % net annual returns. Price compounds daily off a quarterly‑refreshed Target Net Asset Value (tNAV), and redemptions are processed quarterly on a pro‑rata basis subject to actuarial release of surplus capital.',
+    bridge: 'native',
+  },
 } as const satisfies Record<string, Token>;
