@@ -251,4 +251,19 @@ export const tokens = {
     documentation: 'https://worldlibertyfinancial.com/about',
     bridge: 'chainlink',
   },
+  earnAUSD: {
+    name: 'Earn Agora Dollar',
+    symbol: 'earnAUSD',
+    oracleId: 'earnAUSD',
+    address: '0x103222f020e98Bba0AD9809A011FDF8e6F067496',
+    chainId: 143,
+    decimals: 6,
+    logoURI: '',
+    website: 'https://www.upshift.finance/',
+    documentation: 'https://docs.upshift.finance/',
+    description:
+      'The primary liquid yield token on Monad, systematically allocating AUSD across top DeFi opportunities.',
+    bridge: 'native',
+    tags: ['NO_TIMELOCK', 'STABLECOIN'],
+  },
 } as const satisfies Record<string, Token>;

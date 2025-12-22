@@ -232,6 +232,7 @@ const coinGeckoCoins: Record<string, string[]> = {
   're-protocol-reusd': ['reUSDxyz'],
   're-protocol-reusde': ['reUSDe'],
   // 'genesislrt-restaked-eth': ['lineainETH'],
+  earnausd: ['earnAUSD'],
 };
 
 /**
