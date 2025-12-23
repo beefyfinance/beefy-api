@@ -2999,8 +2999,9 @@ export const tokens = {
     website: 'https://re.xyz/',
     documentation: 'https://docs.re.xyz/',
     description:
-      'reUSD is a principal‑protected, yield‑accruing token that tracks the greater of (i) the risk‑free rate plus 250 bps or (ii) the Ethena basis‑trade yield plus 250 bps. It earns on‑chain, deploys off‑chain via Surplus Notes to supply regulatory capital, and maintains transparent, oracle‑verified collateral reporting.',
+      'reUSD is a principal‑protected, yield‑accruing token that tracks the greater of (i) the risk‑free rate plus 250 bps or (ii) the Ethena basis‑trade yield plus 250 bps. It earns on‑chain, deploys off‑chain via Surplus Notes to supply regulatory capital, and maintains transparent, oracle‑verified collateral reporting.',
     bridge: 'native',
+    tags: ['NO_TIMELOCK', 'STABLECOIN', 'SYNTHETIC'],
   },
   reUSDe: {
     name: 'Re Protocol reUSDe',
@@ -3012,7 +3013,8 @@ export const tokens = {
     website: 'https://re.xyz/',
     documentation: 'https://docs.re.xyz/',
     description:
-      'reUSDe is the Re Protocol’s performance token: it absorbs first‑loss risk across the reinsurance portfolio in exchange for a share of underwriting profits that historically translate to 16 – 25 % net annual returns. Price compounds daily off a quarterly‑refreshed Target Net Asset Value (tNAV), and redemptions are processed quarterly on a pro‑rata basis subject to actuarial release of surplus capital.',
+      'reUSDe is the Re Protocol’s performance token: it absorbs first‑loss risk across the reinsurance portfolio in exchange for a share of underwriting profits that historically translate to 16–25% net annual returns. Price compounds daily off a quarterly‑refreshed Target Net Asset Value (tNAV), and redemptions are processed quarterly on a pro‑rata basis subject to actuarial release of surplus capital.',
     bridge: 'native',
+    tags: ['NO_TIMELOCK', 'STABLECOIN', 'SYNTHETIC'],
   },
 } as const satisfies Record<string, Token>;
