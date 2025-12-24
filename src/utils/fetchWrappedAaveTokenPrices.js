@@ -53,6 +53,7 @@ const {
       waEthLidoWETH,
       fwstETH,
       fWETH,
+      waEthWETH,
     },
   },
   polygon: {
@@ -173,6 +174,7 @@ const tokens = {
     [WETH, waEthLidoWETH, true],
     [WETH, fWETH, true],
     [wstETH, fwstETH, true],
+    [WETH, waEthWETH, true],
   ],
   polygon: [
     [amUSDT, wamUSDT],

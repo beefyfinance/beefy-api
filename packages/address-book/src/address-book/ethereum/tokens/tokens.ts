@@ -3017,4 +3017,17 @@ export const tokens = {
     bridge: 'native',
     tags: ['NO_TIMELOCK', 'STABLECOIN', 'SYNTHETIC'],
   },
+  waEthWETH: {
+    name: 'Wrapped Aave Ethereum WETH',
+    symbol: 'waEthWETH',
+    oracleId: 'waEthWETH',
+    address: '0x0bfc9d54Fc184518A81162F8fB99c2eACa081202',
+    chainId: 1,
+    decimals: 18,
+    logoURI:
+      'https://tokens.pancakeswap.finance/images/0x4988a896b1227218e4A686fdE5EabdcAbd91571f.svg',
+    website: 'https://aave.com/',
+    documentation: 'https://docs.aave.com/developers/v/2.0/the-core-protocol/atokens',
+    description: 'Wrapped Aave interest bearing Ethereum WETH.',
+  },
 } as const satisfies Record<string, Token>;

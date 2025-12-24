@@ -1,5 +1,35 @@
 [
   {
+    "name": "balancerv3-ethereum-waethweth-reth",
+    "address": "0x1ea5870f7c037930ce1d5d8d9317c670e89e13e3",
+    "gauge": "0x20283cce209b29D19329E8aDa47215a52188aFDc",
+    "decimals": "1e18",
+    "rewards": [
+      {
+        "rewardGauge": "0x22A3911980D940E1C57bfB538122e1dE16c35656",
+        "oracleId": "AURA",
+        "decimals": "1e18"
+      },
+      {
+        "rewardGauge": "0x240CC9B25b00D8dcbb66b6090c83a2eE90ffe566",
+        "oracleId": "RPL",
+        "decimals": "1e18"
+      }
+    ],
+    "tokens": [
+      {
+        "address": "0x0bfc9d54Fc184518A81162F8fB99c2eACa081202",
+        "oracleId": "waEthWETH",
+        "decimals": "1e18"
+      },
+      {
+        "address": "0xae78736cd615f374d3085123a210448e74fc6393",
+        "oracleId": "rETH",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
     "name": "balancerv3-ethereum-fwsteth-fweth",
     "address": "0x6b31a94029fd7840d780191B6D63Fa0D269bd883",
     "gauge": "0x5CDa24fE2d80703DBaaB7217eF1Ef8101161e271",
