@@ -1,5 +1,25 @@
 [
   {
+    "name": "aerodrome-usdc-nock",
+    "address": "0x85f1Aa3a70fEdd1C52705c15BAEd143e675CD626",
+    "gauge": "0x4CbB6188C6101CAcd4eb1126Cc14882Bd93dc3DB",
+    "decimals": "1e18",
+    "chainId": 8453,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+      "oracle": "tokens",
+      "oracleId": "USDC",
+      "decimals": "1e6"
+    },
+    "lp1": {
+      "address": "0x9B5E262cF9bb04869ab40b19AF91D2dc85761722",
+      "oracle": "tokens",
+      "oracleId": "NOCK",
+      "decimals": "1e16"
+    }
+  },
+  {
     "name": "aerodrome-weth-edel",
     "address": "0x566beE7EF7b39f29d150AB3be6b6242C17CC5A31",
     "gauge": "0xde43127cb5381E4466A8046E1c2C2Dc2d30999D7",
