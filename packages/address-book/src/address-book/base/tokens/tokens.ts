@@ -3281,4 +3281,19 @@ export const tokens = {
     documentation: 'https://docs.edel.finance/',
     bridge: 'native',
   },
+  NOCK: {
+    name: 'Nock',
+    symbol: 'NOCK',
+    oracleId: 'NOCK',
+    address: '0x9B5E262cF9bb04869ab40b19AF91D2dc85761722',
+    chainId: 8453,
+    decimals: 16,
+    logoURI: '',
+    website: 'https://www.nockchain.org/',
+    description:
+      '$NOCK is the coin issued by the layer-1 Nockchain protocol.  Unlike traditional blockchains where computation costs scale with complexity, $NOCK fees are based only on transaction size.  $NOCK is a programmable sound store of value.  It pays for transaction settlement, data storage, and temporary data availability on Nockchain.',
+    documentation: 'https://docs.nockchain.org/',
+    bridge: 'native',
+    tags: ['LARGE_HOLDERS', 'NO_TIMELOCK'],
+  },
 } as const satisfies Record<string, Token>;
