@@ -25,6 +25,7 @@ export const beefyfinance = {
   clmFactory: '0x0e02963318CD71f3084b89520b4c7dc7588db228',
   clmStrategyFactory: '0x3Da3658959D9Fc5233716487D050F73A3F659c2E',
   clmRewardPoolFactory: '0x6Ff30Fde5b530d052d24AC104eC87ADbc33384Fd',
+  positionMulticall: '0xDfc7Ad4DD47ca9cf32E4e3126EB7adfE385c7dcE',
 
   /// Beefy Swapper Contracts
   beefySwapper: '0x46b9821E57a68274342E679B2a44c1acb5Af55C8',
