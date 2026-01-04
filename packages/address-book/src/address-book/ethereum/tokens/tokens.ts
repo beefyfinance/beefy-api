@@ -3030,4 +3030,17 @@ export const tokens = {
     documentation: 'https://docs.aave.com/developers/v/2.0/the-core-protocol/atokens',
     description: 'Wrapped Aave interest bearing Ethereum WETH.',
   },
+  osETH: {
+    name: 'Origin Ether',
+    symbol: 'osETH',
+    oracleId: 'osETH',
+    address: '0xf1C9acDc66974dFB6dEcB12aA385b9cD01190E38',
+    chainId: 1,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://www.stakewise.io/',
+    documentation: 'https://docs.stakewise.io/',
+    description:
+      'StakeWises osToken is issued against assets staked in a Vault to allow using staked capital in decentralized applications to trade, borrow, lend, and restake. Hence, osTokens represent the underlying staked assets and the rewards earned.',
+  },
 } as const satisfies Record<string, Token>;

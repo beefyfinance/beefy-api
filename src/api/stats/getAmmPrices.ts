@@ -233,6 +233,7 @@ const coinGeckoCoins: Record<string, string[]> = {
   're-protocol-reusde': ['reUSDe'],
   // 'genesislrt-restaked-eth': ['lineainETH'],
   earnausd: ['earnAUSD'],
+  'stakewise-v3-oseth': ['osETH'],
 };
 
 /**
