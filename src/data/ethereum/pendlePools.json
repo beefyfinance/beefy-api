@@ -3,15 +3,15 @@
     "name": "pendle-reusd-25jun26",
     "address": "0xf5929a1c332ceab7918a4593a43db2b9ac20095f",
     "oracle": "tokens",
-    "oracleId": "reUSDxyz",
-    "decimals": "1e18",
+    "oracleId": "USDC",
+    "decimals": "1e6",
     "chainId": 1
   },
   {
     "name": "pendle-reusde-25jun26",
     "address": "0x6cb9a013604a567a5834fadd411165b1ca616783",
     "oracle": "tokens",
-    "oracleId": "reUSDe",
+    "oracleId": "USDe",
     "decimals": "1e18",
     "chainId": 1
   },
