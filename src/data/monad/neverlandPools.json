@@ -1,0 +1,83 @@
+[
+  {
+    "name": "neverland-monad-wmon",
+    "address": "0x3bd359C1119dA7Da1D913D1C4D2B7c461115433A",
+    "aToken": "0xD0fd2Cf7F6CEff4F96B1161F5E995D5843326154",
+    "decimals": "1e18",
+    "oracleId": "WMON"
+  },
+  {
+    "name": "neverland-monad-wbtc",
+    "address": "0x0555E30da8f98308EdB960aa94C0Db47230d2B9c",
+    "aToken": "0x34c43684293963c546b0aB6841008A4d3393B9ab",
+    "decimals": "1e8",
+    "oracleId": "WBTC"
+  },
+  {
+    "name": "neverland-monad-weth",
+    "address": "0xEE8c0E9f1BFFb4Eb878d8f15f368A02a35481242",
+    "aToken": "0x31f63Ae5a96566b93477191778606BeBDC4CA66f",
+    "decimals": "1e18",
+    "oracleId": "WETH"
+  },
+  {
+    "name": "neverland-monad-ausd",
+    "address": "0x00000000eFE302BEAA2b3e6e1b18d08D69a9012a",
+    "aToken": "0x784999fc2Dd132a41D1Cc0F1aE9805854BaD1f2D",
+    "decimals": "1e6",
+    "oracleId": "AUSD"
+  },
+  {
+    "name": "neverland-monad-usdc",
+    "address": "0x754704Bc059F8C67012fEd69BC8A327a5aafb603",
+    "aToken": "0x38648958836eA88b368b4ac23b86Ad44B0fe7508",
+    "decimals": "1e6",
+    "oracleId": "USDC"
+  },
+  {
+    "name": "neverland-monad-usdt0",
+    "address": "0xe7cd86e13AC4309349F30B3435a9d337750fC82D",
+    "aToken": "0x39F901c32b2E0d25AE8DEaa1ee115C748f8f6bDf",
+    "decimals": "1e6",
+    "oracleId": "USDT0"
+  },
+  {
+    "name": "neverland-monad-smon",
+    "address": "0xA3227C5969757783154C60bF0bC1944180ed81B9",
+    "aToken": "0xdFC14d336aea9E49113b1356333FD374e646Bf85",
+    "decimals": "1e18",
+    "oracleId": "sMON",
+    "lsUrl": "https://kintsu.xyz/api/analytics/smon/apy",
+    "dataPath": "$.result"
+  },
+  {
+    "name": "neverland-monad-gmon",
+    "address": "0x8498312A6B3CbD158bf0c93AbdCF29E6e4F55081",
+    "aToken": "0x7f81779736968836582D31D36274Ed82053aD1AE",
+    "decimals": "1e18",
+    "oracleId": "gMON"
+  },
+  {
+    "name": "neverland-monad-shmon",
+    "address": "0x1B68626dCa36c7fE922fD2d55E4f631d962dE19c",
+    "aToken": "0xC64d73Bb8748C6fA7487ace2D0d945B6fBb2EcDe",
+    "decimals": "1e18",
+    "oracleId": "shMON"
+  },
+  {
+    "name": "neverland-monad-earnausd",
+    "address": "0x103222f020e98Bba0AD9809A011FDF8e6F067496",
+    "aToken": "0xaCaaA891b30E13D024AB67b6EcA9c2EcBD8cf52b",
+    "decimals": "1e6",
+    "oracleId": "earnAUSD",
+    "merklId": "0xaCaaA891b30E13D024AB67b6EcA9c2EcBD8cf52b"
+  },
+  {
+    "name": "neverland-monad-loaznd",
+    "address": "0x9c82eB49B51F7Dc61e22Ff347931CA32aDc6cd90",
+    "aToken": "0x293e2f01a38Fe690Eb8E570AB952b24b225113a7",
+    "decimals": "1e18",
+    "oracleId": "loAZND",
+    "lstApr": 0.07
+  }
+]
