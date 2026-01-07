@@ -10,7 +10,6 @@ const ETH = {
   website: 'https://weth.io/',
   description: 'Ether or ETH is the native currency built on the Ethereum blockchain.',
   bridge: 'linea-canonical',
-  logoURI: 'https://arbiscan.io/token/images/weth_28.png',
   documentation: 'https://ethereum.org/en/developers/docs/',
 } as const satisfies Token;
 
@@ -30,8 +29,6 @@ export const tokens = {
     documentation: 'https://developers.circle.com/docs',
     description:
       'USDC is a fully collateralized US dollar stablecoin. USDC is issued by regulated financial institutions, backed by fully reserved assets, redeemable on a 1:1 basis for US dollars.',
-    logoURI:
-      'https://tokens.pancakeswap.finance/images/0xB12BFcA5A55806AaF64E99521918A4bf0fC40802.svg',
     bridge: 'linea-canonical',
     tags: ['STABLECOIN'],
   },
@@ -46,7 +43,6 @@ export const tokens = {
     documentation: 'https://tether.to/en/how-it-works',
     description:
       'Tether is a stablecoin pegged to the US Dollar. A stablecoin is a type of cryptocurrency whose value is pegged to another fiat currency like the US Dollar or to a commodity like Gold. Tether is the first stablecoin to be created and it is the most popular stablecoin used in the ecosystem.',
-    logoURI: 'https://hecoinfo.com/token/images/USDTHECO_32.png',
     bridge: 'linea-canonical',
     tags: ['STABLECOIN'],
   },
@@ -61,8 +57,6 @@ export const tokens = {
     documentation: 'https://docs.makerdao.com/',
     description:
       'Multi-Collateral Dai, brings a lot of new and exciting features, such as support for new CDP collateral types and Dai Savings Rate.',
-    logoURI:
-      'https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/0x6B175474E89094C44Da98b954EedeAC495271d0F/logo.png',
     bridge: 'linea-canonical',
     tags: ['STABLECOIN', 'SYNTHETIC'],
   },
@@ -76,8 +70,6 @@ export const tokens = {
     website: 'https://wbtc.network/',
     description:
       'Wrapped Bitcoin (WBTC) is the first ERC20 token backed 1:1 with Bitcoin. Completely transparent. 100% verifiable. Community led.',
-    logoURI:
-      'https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/0x2260FAC5E5542a773Aa44fBCfeDf7C193bc2C599/logo.png',
     bridge: 'linea-canonical',
   },
   wstETH: {
@@ -91,7 +83,6 @@ export const tokens = {
     documentation: 'https://docs.lido.fi/',
     description:
       'Lido is a liquid staking solution for ETH backed by industry-leading staking providers. Lido lets users stake their ETH - without locking assets or maintaining infrastructure - whilst participating in on-chain activities, e.g. lending. Lido attempts to solve the problems associated with initial ETH staking - illiquidity, immovability and accessibility - making staked ETH liquid and allowing for participation with any amount of ETH to improve security of the Ethereum network.',
-    logoURI: '',
     bridge: 'linea-canonical',
   },
   MENDI: {
@@ -101,7 +92,6 @@ export const tokens = {
     address: '0x43E8809ea748EFf3204ee01F08872F063e44065f',
     chainId: 59144,
     decimals: 18,
-    logoURI: '',
     website: 'https://mendi.finance/',
     description:
       'MENDI is the reward token of Mendi Finance, a lending/borrowing protocol on Linea forked from Compound V2.',
@@ -115,7 +105,6 @@ export const tokens = {
     address: '0x1a51b19CE03dbE0Cb44C1528E34a7EDD7771E9Af',
     chainId: 59144,
     decimals: 18,
-    logoURI: '',
     website: 'https://www.lynex.fi/',
     description:
       'Lynex democratizes sophisticated liquidity strategies, seamlessly connecting everyday traders with expert-level capabilities. Our platform features a competitive ecosystem of Automated Liquidity Managers (ALMs) and strategists, all striving to optimize returns, minimize risks like impermanent loss, and boost overall efficiency for every user.',
@@ -130,7 +119,6 @@ export const tokens = {
     address: '0x63349BA5E1F71252eCD56E8F950D1A518B400b60',
     chainId: 59144,
     decimals: 18,
-    logoURI: '',
     website: 'https://www.lynex.fi/',
     description:
       'Lynex democratizes sophisticated liquidity strategies, seamlessly connecting everyday traders with expert-level capabilities. Our platform features a competitive ecosystem of Automated Liquidity Managers (ALMs) and strategists, all striving to optimize returns, minimize risks like impermanent loss, and boost overall efficiency for every user.',
@@ -144,7 +132,6 @@ export const tokens = {
     address: '0xf3B001D64C656e30a62fbaacA003B1336b4ce12A',
     chainId: 59144,
     decimals: 18,
-    logoURI: '',
     website: 'https://www.mai.finance/',
     description:
       "MAI is a stablecoin collateralized by your crypto holdings. It's powered by Qi Dao, a protocol that enables any cryptocurrency community to create stablecoins backed by their native tokens.",
@@ -159,7 +146,6 @@ export const tokens = {
     address: '0xA88B54E6b76Fb97CdB8eCAE868f1458e18a953F4',
     chainId: 59144,
     decimals: 18,
-    logoURI: '',
     website: 'https://davos.xyz/',
     description:
       'The Davos Protocol is an innovative collateralised debt position (CDP) protocol designed to facilitate the seamless minting of DUSD, an inflation-proof omnichain stablecoin, by leveraging Liquid Staking Tokens (LSTs). The protocol aims to address the challenges faced by traditional CDPs in decentralised finance (DeFi) by incorporating an unbiased monetary policy and fair borrowing rates, thereby enhancing user protection and promoting broader DeFi adoption. ',
@@ -174,7 +160,6 @@ export const tokens = {
     address: '0xB79DD08EA68A908A97220C76d19A6aA9cBDE4376',
     chainId: 59144,
     decimals: 6,
-    logoURI: '',
     website: 'https://overnight.fi/',
     description:
       'USD+ is USDC that pays you yield daily via rebase.  It is 100% collateralized with assets immediately convertible into USDC.  Yield is generated via strategies such as lending and stable-to-stable pools. Initial strategies include Aave, Rubicon, and Pika.',
@@ -189,7 +174,6 @@ export const tokens = {
     address: '0x1E1F509963A6D33e169D9497b11c7DbFe73B7F13',
     chainId: 59144,
     decimals: 6,
-    logoURI: '',
     website: 'https://overnight.fi/',
     description:
       'USDT+ is USDT that pays you yield daily via rebase.  It is 100% collateralized with assets immediately convertible into USDT.  Yield is generated via strategies such as lending and stable-to-stable pools. Initial strategies include Aave, Rubicon, and Pika.',
@@ -204,7 +188,6 @@ export const tokens = {
     address: '0x2416092f143378750bb29b79eD961ab195CcEea5',
     chainId: 59144,
     decimals: 18,
-    logoURI: '',
     website: 'https://www.renzoprotocol.com/',
     description:
       'Renzo ezETH is a Liquid Restaking Token (LRT) and Strategy Manager for EigenLayer. It is the interface to the EigenLayer ecosystem securing Actively Validated Services (AVSs) and offering a higher yield than ETH staking.',
@@ -219,7 +202,6 @@ export const tokens = {
     address: '0x93F4d0ab6a8B4271f4a28Db399b5E30612D21116',
     chainId: 59144,
     decimals: 18,
-    logoURI: '',
     website: 'https://stakestone.io/',
     description:
       'StakeStone is an omni-chain LST (Liquid Staking Token) protocol aiming to bring native staking yields and liquidity to Layer 2s in a decentralized manner.',
@@ -234,7 +216,6 @@ export const tokens = {
     address: '0xAAAac83751090C6ea42379626435f805DDF54DC8',
     chainId: 59144,
     decimals: 18,
-    logoURI: '',
     website: 'https://www.thenile.exchange/swap',
     description:
       'NILE is a next-gen liquidity protocol optimizing for high-frequency LPs and Layer 2 cost structures, inheriting efficiency from RAMSES on Arbitrum.',
@@ -248,7 +229,6 @@ export const tokens = {
     address: '0x63bA74893621d3d12F13CEc1e86517eC3d329837',
     chainId: 59144,
     decimals: 18,
-    logoURI: '',
     website: 'https://www.liquity.org/',
     description:
       'Liquity is a decentralized borrowing protocol that allows you to draw interest-free loans against Ether used as collateral. Loans are paid out in LUSD (a USD pegged stablecoin) and need to maintain a minimum collateral ratio of 110%.',
@@ -263,7 +243,6 @@ export const tokens = {
     address: '0x1Bf74C010E6320bab11e2e5A532b5AC15e0b8aA6',
     chainId: 59144,
     decimals: 18,
-    logoURI: '',
     website: 'https://ether.fi/',
     description:
       'Stake ETH, get eETH - a natively restaked liquid staking token that fuels DeFi and decentralizes Ethereum.',
@@ -278,7 +257,6 @@ export const tokens = {
     address: '0x5A7a183B6B44Dc4EC2E3d2eF43F98C5152b1d76d',
     chainId: 59144,
     decimals: 18,
-    logoURI: '',
     website: 'https://www.inceptionlrt.com/',
     description:
       'Inception ETH is a pioneering DeFi platform that provides a full solution for liquid restaking. Inception ETH is designed to streamline and improve the restaking process by combining Isolated and Native Liquid Restaking and a diverse array of Liquid Restaking Tokens.',
@@ -293,7 +271,6 @@ export const tokens = {
     address: '0xD2671165570f41BBB3B0097893300b6EB6101E6C',
     chainId: 59144,
     decimals: 18,
-    logoURI: '',
     website: 'https://kelpdao.xyz/',
     description:
       'The rsETHWrapper contract serves as a standardized interface for rsETH tokens, which are Liquid Restaked Tokens (LRT) issued by Kelp DAO. Designed to offer liquidity to illiquid assets deposited into restaking platforms like EigenLayer, users can interact with these tokens seamlessly.',
@@ -307,7 +284,6 @@ export const tokens = {
     address: '0x5FBDF89403270a1846F5ae7D113A989F850d1566',
     chainId: 59144,
     decimals: 18,
-    logoURI: '',
     website: 'https://www.welikethefox.io/',
     description:
       'Foxy is the mascot of the Linea blockchain. Every chain needs a champion, and we like the fox.',
@@ -321,7 +297,6 @@ export const tokens = {
     address: '0xEfD81eeC32B9A8222D1842ec3d99c7532C31e348',
     chainId: 59144,
     decimals: 18,
-    logoURI: '',
     website: 'https://www.etherex.finance/trade',
     description:
       'Etherex is a concentrated liquidity layer and exchange built on the Linea network, powered by the latest metaDEX x(3,3) methodology—a more fluid and accessible version of the popular ve(3,3) model.',
@@ -335,7 +310,6 @@ export const tokens = {
     address: '0xa500000000e482752f032eA387390b6025a2377b',
     chainId: 59144,
     decimals: 18,
-    logoURI: '',
     website: 'https://astera.fi/',
     documentation: 'https://github.com/Astera-Finance/whitepapers',
     description: 'Pioneering Ethereum-native credit rails on linea',
@@ -349,7 +323,6 @@ export const tokens = {
     address: '0xe4eEB461Ad1e4ef8b8EF71a33694CCD84Af051C4',
     chainId: 59144,
     decimals: 18,
-    logoURI: '',
     website: 'https://www.etherex.finance/trade',
     description:
       'Liquid Staked REX. Etherex is a concentrated liquidity layer and exchange built on the Linea network, powered by the latest metaDEX x(3,3) methodology—a more fluid and accessible version of the popular ve(3,3) model.',
@@ -363,7 +336,6 @@ export const tokens = {
     address: '0x374D7860c4f2f604De0191298dD393703Cce84f3',
     chainId: 59144,
     decimals: 6,
-    logoURI: '',
     website: 'https://aave.com',
     description:
       'Aave interest bearing native USDC. USDC is a fully collateralized US dollar stablecoin. USDC is issued by regulated financial institutions, backed by fully reserved assets, redeemable on a 1:1 basis for US dollars.',
@@ -378,7 +350,6 @@ export const tokens = {
     address: '0x1789e0043623282D5DCc7F213d703C6D8BAfBB04',
     chainId: 59144,
     decimals: 18,
-    logoURI: '',
     website: 'https://linea.build/',
     description:
       'Linea is the Layer 2 network built from first principles to strengthen Ethereum and the entire ETH economy.',

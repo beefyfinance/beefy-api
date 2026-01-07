@@ -97,7 +97,6 @@ async function fetchToken(tokenAddress) {
     address: checksummedTokenAddress,
     chainId: chainId,
     decimals: await tokenContract.decimals(),
-    logoURI: '',
     website: '',
     description: '',
     documentation: '',
@@ -113,9 +112,7 @@ async function main() {
   const tokenDataPromises = poolData.tokens.map(fetchToken);
   const tokenData = await Promise.all(tokenDataPromises);
 
-  const newPoolName = `${poolPrefix}-${tokenData
-    .map(token => token.symbol.toLowerCase())
-    .join('-')}`;
+  const newPoolName = `${poolPrefix}-${tokenData.map(token => token.symbol.toLowerCase()).join('-')}`;
 
   let rewards;
   if (poolPrefix.startsWith('balancer-')) {
@@ -164,10 +161,7 @@ async function main() {
 
   const newPools = [newPool, ...poolsJson];
 
-  fs.writeFileSync(
-    path.resolve(__dirname, poolsJsonFile),
-    JSON.stringify(newPools, null, 2) + '\n'
-  );
+  fs.writeFileSync(path.resolve(__dirname, poolsJsonFile), JSON.stringify(newPools, null, 2) + '\n');
 
   console.log(newPool);
 }

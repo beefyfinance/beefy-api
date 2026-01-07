@@ -10,7 +10,6 @@ const ETH = {
   website: 'https://weth.io/',
   description: 'Ether or ETH is the native currency built on the Ethereum blockchain.',
   bridge: 'native',
-  logoURI: 'https://arbiscan.io/token/images/weth_28.png',
   documentation: 'https://ethereum.org/en/developers/docs/',
 } as const satisfies Token;
 
@@ -30,7 +29,6 @@ export const tokens = {
     documentation: 'https://docs.beefy.finance/',
     description:
       "The Beefy Token (BIFI) is the governance token of the Beefy DAO. Holders of the token are entitled to submit and vote on proposals on all areas affecting the DAO through the Beefy Snapshot Space, as well as to participate in Beefy's governance incentives programme through the BIFI Pool or BIFI Vault.",
-    logoURI: 'https://beefy.com/icons/128/BIFI.png',
     bridge: 'native',
   },
   rBIFI: {
@@ -44,7 +42,6 @@ export const tokens = {
     documentation: 'https://docs.beefy.finance/',
     description:
       "The Beefy Token (BIFI) is the governance token of the Beefy DAO. Holders of the token are entitled to submit and vote on proposals on all areas affecting the DAO through the Beefy Snapshot Space, as well as to participate in Beefy's governance incentives programme through the BIFI Pool or BIFI Vault.",
-    logoURI: 'https://beefy.com/icons/128/BIFI.png',
     bridge: 'native',
   },
   mooBIFI: {
@@ -58,7 +55,6 @@ export const tokens = {
     documentation: 'https://docs.beefy.finance/',
     description:
       "The incentive-bearing Beefy Token (mooBIFI) applies the magic of Beefy's autocompounding technology to the BIFI token. It is the vault token for the BIFI Vault, which automatically claims and swaps governance incentives into more BIFI, and redeposits to unlock exponential growth. On chains other than Ethereum, mooBIFI is a bridged copy of the native Ethereum token, and cannot be returned to BIFI without first bridging back to Ethereum. mooBIFI holders on all chains retain their full voting power corresponding to the underlying amount of BIFI deposited and compounding on Ethereum.",
-    logoURI: 'https://beefy.com/icons/128/mooBIFI.png',
     bridge: 'native',
   },
   xmooBIFI: {
@@ -72,7 +68,6 @@ export const tokens = {
     documentation: 'https://docs.beefy.finance/',
     description:
       "The incentive-bearing Beefy Token (mooBIFI) applies the magic of Beefy's autocompounding technology to the BIFI token. It is the vault token for the BIFI Vault, which automatically claims and swaps governance incentives into more BIFI, and redeposits to unlock exponential growth. On chains other than Ethereum, mooBIFI is a bridged copy of the native Ethereum token, and cannot be returned to BIFI without first bridging back to Ethereum. mooBIFI holders on all chains retain their full voting power corresponding to the underlying amount of BIFI deposited and compounding on Ethereum.",
-    logoURI: 'https://beefy.com/icons/128/mooBIFI.png',
     bridge: 'native',
   },
   oldBIFI: {
@@ -86,8 +81,6 @@ export const tokens = {
     documentation: 'https://docs.beefy.finance/',
     description:
       'Beefy Finance is a Decentralized, Multi-Chain Yield Optimizer platform that allows its users to earn compound interest on their crypto holdings.',
-    logoURI:
-      'https://raw.githubusercontent.com/beefyfinance/beefy-app/prod/src/images/single-assets/BIFI.png',
   },
   USDC: {
     name: 'USD Coin',
@@ -100,7 +93,6 @@ export const tokens = {
       'USDC is a fully collateralized US dollar stablecoin. USDC is issued by regulated financial institutions, backed by fully reserved assets, redeemable on a 1:1 basis for US dollars.',
     bridge: 'native',
     chainId: 1,
-    logoURI: 'https://ftmscan.com/token/images/USDC_32.png',
     documentation: 'https://developers.circle.com/docs',
     tags: ['STABLECOIN'],
   },
@@ -111,8 +103,6 @@ export const tokens = {
     address: '0xAf5191B0De278C7286d6C7CC6ab6BB8A73bA2Cd6',
     chainId: 1,
     decimals: 18,
-    logoURI:
-      'https://raw.githubusercontent.com/traderjoe-xyz/joe-tokenlists/main/logos/0x2F6F07CDcf3588944Bf4C42aC74ff24bF56e7590/logo.png',
     website: 'https://stargate.finance/',
     description:
       'Stargate is a community-driven organization building the first fully composable native asset bridge, and the first dApp built on LayerZero.',
@@ -167,7 +157,6 @@ export const tokens = {
     description:
       'Lido is a liquid staking solution for ETH backed by industry-leading staking providers. Lido lets users stake their ETH - without locking assets or maintaining infrastructure - whilst participating in on-chain activities, e.g. lending. Lido attempts to solve the problems associated with initial ETH staking - illiquidity, immovability and accessibility - making staked ETH liquid and allowing for participation with any amount of ETH to improve security of the Ethereum network.',
     bridge: 'native',
-    logoURI: '',
     documentation: 'https://docs.lido.fi/',
   },
   stETH: {
@@ -181,7 +170,6 @@ export const tokens = {
     description:
       'Lido is a liquid staking solution for ETH backed by industry-leading staking providers. Lido lets users stake their ETH - without locking assets or maintaining infrastructure - whilst participating in on-chain activities, e.g. lending. Lido attempts to solve the problems associated with initial ETH staking - illiquidity, immovability and accessibility - making staked ETH liquid and allowing for participation with any amount of ETH to improve security of the Ethereum network.',
     bridge: 'native',
-    logoURI: '',
     documentation: 'https://docs.lido.fi/',
   },
   pETH: {
@@ -208,7 +196,6 @@ export const tokens = {
     description:
       'FRAX (LFRAX, Legacy Frax) is the original stablecoin of the Frax protocol. Users can migrate 1:1 to frxUSD.',
     bridge: 'native',
-    logoURI: '',
     documentation: 'https://docs.frax.finance/',
     tags: ['STABLECOIN', 'SYNTHETIC'],
   },
@@ -223,7 +210,6 @@ export const tokens = {
     description:
       'frxUSD is a replacement for FRAX on Ethereum. frxUSD is a crypto collateralized stablecoin pegged to the US dollar.',
     bridge: 'native',
-    logoURI: '',
     documentation: 'https://docs.frax.finance/',
     tags: ['STABLECOIN', 'SYNTHETIC'],
   },
@@ -252,8 +238,6 @@ export const tokens = {
     description:
       'Wrapped Bitcoin (WBTC) is the first ERC20 token backed 1:1 with Bitcoin. Completely transparent. 100% verifiable. Community led.',
     bridge: 'wbtc-dao',
-    logoURI:
-      'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0x408D4cD0ADb7ceBd1F1A1C33A0Ba2098E1295bAB/logo.png',
   },
   sBTC: {
     chainId: 1,
@@ -266,8 +250,6 @@ export const tokens = {
     description:
       'sBTC is a synthetic Bitcoin token enabled by the Synthetix protocol. It tracks the price of Bitcoin through price feeds supplied by Chainlink’s decentralized network of oracles.',
     bridge: 'native',
-    logoURI:
-      'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0x408D4cD0ADb7ceBd1F1A1C33A0Ba2098E1295bAB/logo.png',
     tags: ['SYNTHETIC'],
   },
   multiBTC: {
@@ -290,7 +272,6 @@ export const tokens = {
     address: '0x0100546F2cD4C9D97f798fFC9755E47865FF7Ee6',
     chainId: 1,
     decimals: 18,
-    logoURI: '',
     website: 'https://alchemix.fi/',
     documentation: 'https://alchemix-finance.gitbook.io/v2/',
     description:
@@ -304,7 +285,6 @@ export const tokens = {
     address: '0xBC6DA0FE9aD5f3b0d58160288917AA56653660E9',
     chainId: 1,
     decimals: 18,
-    logoURI: '',
     website: 'https://alchemix.fi/',
     description:
       'Alchemix Self-Repaying Loans allow you to leverage a range of tokens without risk of liquidation.',
@@ -323,7 +303,6 @@ export const tokens = {
     description:
       'You, the Spellcaster, can provide collateral in the form of various interest bearing crypto assets such as yvYFI, yvUSDT, yvUSDC, xSUSHI and more. With this, you can borrow magic internet money (MIM) which is a stable coin that you can swap for any other traditional stable coin.',
     bridge: 'native',
-    logoURI: '',
     documentation: 'https://docs.abracadabra.money/',
     tags: ['STABLECOIN', 'SYNTHETIC'],
   },
@@ -339,7 +318,6 @@ export const tokens = {
     description:
       'Ape Finance is building DeFi tools for metaverse dwellers, proud PFP owners, and digital collectible enthusiasts in all of us. We appreciate culture, art, and games. Ape Finance begins with the creation of the ApeUSD.',
     bridge: 'native',
-    logoURI: '',
     tags: ['STABLECOIN', 'SYNTHETIC'],
   },
   auraBAL: {
@@ -352,7 +330,6 @@ export const tokens = {
     website: 'https://aura.finance/',
     description: "auraBAL is Aura's liquid staking locked BAL (80 BAL / 20 ETH) BPT",
     bridge: 'native',
-    logoURI: '',
     documentation: 'https://docs.aura.finance/aura/what-is-aura/for-usdbal-stakers',
   },
   BAL: {
@@ -365,7 +342,6 @@ export const tokens = {
     website: 'https://balancer.fi/',
     description:
       'Balancer turns the concept of an index fund on its head: instead of a paying fees to portfolio managers to rebalance your portfolio, you collect fees from traders, who rebalance your portfolio by following arbitrage opportunities. ',
-    logoURI: '',
     documentation: 'https://docs.balancer.fi/',
   },
   AURA: {
@@ -379,7 +355,6 @@ export const tokens = {
     description:
       'Aura Finance is a protocol built on top of the Balancer system to provide maximum incentives to Balancer liquidity providers and BAL stakers (into veBAL) through social aggregation of BAL deposits and Aura’s native token. For BAL stakers, Aura provides a seamless onboarding process to veBAL, by creating a tokenised wrapper token called auraBAL that represents the 80/20 BPT locked up for the maximum time in VotingEscrow (read more about what this means). This can be staked to receive existing rewards (BAL and bbaUSD) from Balancer, in addition to a share of any BAL earned by Aura (read more about the fees), and additional AURA. This minting process is irreversible however users can trade their auraBAL back to BAL through an incentivised liquidity pool.',
     bridge: 'native',
-    logoURI: '',
     documentation: 'https://docs.aura.finance/',
   },
   MAI: {
@@ -389,7 +364,6 @@ export const tokens = {
     address: '0x8D6CeBD76f18E1558D4DB88138e2DeFB3909fAD6',
     chainId: 1,
     decimals: 18,
-    logoURI: '',
     website: 'https://mai.finance/',
     documentation: 'https://docs.mai.finance/',
     description:
@@ -403,7 +377,6 @@ export const tokens = {
     address: '0x18084fbA666a33d37592fA2633fD49a74DD93a88',
     chainId: 1,
     decimals: 18,
-    logoURI: '',
     website: 'https://threshold.network/',
     documentation: 'https://docs.threshold.network/',
     description:
@@ -417,7 +390,6 @@ export const tokens = {
     address: '0xCFC5bD99915aAa815401C5a41A927aB7a38d29cf',
     chainId: 1,
     decimals: 18,
-    logoURI: '',
     website: 'https://www.thresholdusd.org/',
     documentation: 'https://docs.threshold.network/applications/threshold-usd',
     description:
@@ -432,7 +404,6 @@ export const tokens = {
     address: '0xCdF7028ceAB81fA0C6971208e83fa7872994beE5',
     chainId: 1,
     decimals: 18,
-    logoURI: '',
     website: 'https://threshold.network/',
     description:
       'Threshold is the first ever on-chain merge between two existing networks and communities, Keep and NuCypher. Threshold provides a suite of threshold cryptography services that power user sovereignty on the blockchain.',
@@ -447,7 +418,6 @@ export const tokens = {
     address: '0xA1f82E14bc09A1b42710dF1A8a999B62f294e592',
     chainId: 1,
     decimals: 18,
-    logoURI: '',
     website: 'https://confluxnetwork.org/',
     description:
       'Conflux’s token economy is built around the $CFX token, a unit of value on the platform that enables token holders to pay transaction fees, earn rewards through staking, rent storage, and participate in network governance. CFX also incentivizes and rewards miners, who ensure the secure operation of the Network.',
@@ -459,7 +429,6 @@ export const tokens = {
     address: '0x8E870D67F660D95d5be530380D0eC0bd388289E1',
     chainId: 1,
     decimals: 18,
-    logoURI: '',
     website: 'https://paxos.com/usdp/',
     description:
       'Pax Dollar (USDP) is a stablecoin created by Paxos, a licenced trust firm and financial institution that ensures the backing of the tokens with US dollar deposits. With the USDP, Paxos created a token that combines the confidence and stability of fiat money with the usefulness and immediacy of digital assets.',
@@ -475,7 +444,6 @@ export const tokens = {
     description:
       'Curve is an exchange liquidity pool on Ethereum. Curve is designed for extremely efficient stablecoin trading and low risk, supplemental fee income for liquidity providers, without an opportunity cost.',
     bridge: 'native',
-    logoURI: '',
     documentation: 'https://curve.readthedocs.io/',
   },
   scrvUSD: {
@@ -516,7 +484,6 @@ export const tokens = {
     description:
       'Convex allows Curve liquidity providers to earn trading fees and claim boosted CRV without locking CRV themselves. Liquidity providers can receive boosted CRV and liquidity mining rewards with minimal effort.',
     bridge: 'native',
-    logoURI: '',
   },
   cvxCRV: {
     name: 'cvxCRV',
@@ -530,7 +497,6 @@ export const tokens = {
     description:
       'Convex allows Curve liquidity providers to earn trading fees and claim boosted CRV without locking CRV themselves. Liquidity providers can receive boosted CRV and liquidity mining rewards with minimal effort.',
     bridge: 'native',
-    logoURI: '',
   },
   cvxFXS: {
     name: 'Convex FXS',
@@ -544,7 +510,6 @@ export const tokens = {
     description:
       'Convex Finance has expanded to optimize opportunities for liquidity providers on Frax the same way it has done so for Curve LPs.',
     bridge: 'native',
-    logoURI: '',
   },
   cvxFPIS: {
     name: 'Convex FPIS',
@@ -558,7 +523,6 @@ export const tokens = {
     description:
       "Convex also now supports Frax Finance's FPIS token, the governance token for the FPI stablecoin launched by Frax. Frax documentation explains the mechanisms behind the FPI stablecoin and the FPIS governance token in detail.",
     bridge: 'native',
-    logoURI: '',
   },
   cvxFXN: {
     name: 'Convex FXN',
@@ -572,7 +536,6 @@ export const tokens = {
     description:
       'Convex Finance has extended its optimization efforts to benefit liquidity providers on FX Protocol, similar to its approach with Curve LPs.',
     bridge: 'native',
-    logoURI: '',
   },
   FXN: {
     name: 'FXN Token',
@@ -585,7 +548,6 @@ export const tokens = {
     documentation: 'https://docs.aladdin.club/f-x-protocol',
     description: 'FXN is the f(x) Protocol governance token',
     bridge: 'native',
-    logoURI: '',
   },
   fxUSD: {
     name: 'f(x) USD',
@@ -598,7 +560,6 @@ export const tokens = {
     documentation: 'https://docs.aladdin.club/f-x-protocol',
     description: 'f(x) Protocol stablecoin',
     bridge: 'native',
-    logoURI: '',
     tags: ['STABLECOIN', 'SYNTHETIC'],
   },
   sethUSDC: {
@@ -608,8 +569,6 @@ export const tokens = {
     address: '0xdf0770dF86a8034b3EFEf0A1Bb3c889B8332FF56',
     chainId: 1,
     decimals: 6,
-    logoURI:
-      'https://tokens.pancakeswap.finance/images/0xef4229c8c3250C675F21BCefa42f58EfbfF6002a.svg',
     website: 'https://stargate.finance/',
     description:
       'Stargate allows users and dApps to bridge native tokens with instant guaranteed finality. USDC is deposited in a LP pool to enable high liquidity for bridging.',
@@ -623,8 +582,6 @@ export const tokens = {
     address: '0x38EA452219524Bb87e18dE1C24D3bB59510BD783',
     chainId: 1,
     decimals: 6,
-    logoURI:
-      'https://tokens.pancakeswap.finance/images/0x4988a896b1227218e4A686fdE5EabdcAbd91571f.svg',
     website: 'https://tether.to/',
     description:
       'Stargate allows users and dApps to bridge native tokens with instant guaranteed finality. USDT is deposited in a LP pool to enable high liquidity for bridging.',
@@ -642,7 +599,6 @@ export const tokens = {
     description:
       'As a Rocket Pool staker, your role is to deposit ETH into the deposit pool which will enable a node operator to create a new Beacon Chain validator. You can stake as little as 0.01 ETH. In doing so, you will be given a token called rETH. rETH represents both how much ETH you deposited, and when you deposited it.',
     bridge: 'native',
-    logoURI: '',
     documentation: 'https://docs.rocketpool.net/guides/',
   },
   USDT: {
@@ -652,8 +608,6 @@ export const tokens = {
     address: '0xdAC17F958D2ee523a2206206994597C13D831ec7',
     chainId: 1,
     decimals: 6,
-    logoURI:
-      'https://tokens.pancakeswap.finance/images/0x4988a896b1227218e4A686fdE5EabdcAbd91571f.svg',
     website: 'https://tether.to/',
     documentation: 'https://tether.to/en/how-it-works',
     description:
@@ -668,7 +622,6 @@ export const tokens = {
     address: '0x865377367054516e17014CcdED1e7d814EDC9ce4',
     chainId: 1,
     decimals: 18,
-    logoURI: '',
     website: 'https://www.inverse.finance/',
     documentation: 'https://docs.inverse.finance/inverse-finance/using-dola/how-to-acquire-dola',
     description:
@@ -683,7 +636,6 @@ export const tokens = {
     address: '0x5e74C9036fb86BD7eCdcb084a0673EFc32eA31cb',
     chainId: 1,
     decimals: 18,
-    logoURI: '',
     website: 'https://synthetix.io/',
     description:
       'Synths are derivative tokens providing exposure to a range of assets. They can be traded with infinite liquidity and zero slippage by leveraging the Synthetix protocol’s unique pooled collateral model. Trades between Synths generate a small fee that is distributed to SNX collateral providers.',
@@ -697,7 +649,6 @@ export const tokens = {
     address: '0xBe9895146f7AF43049ca1c1AE358B0541Ea49704',
     chainId: 1,
     decimals: 18,
-    logoURI: '',
     website: 'https://help.coinbase.com/en/coinbase/trading-and-funding/staking-rewards/cbeth',
     description:
       "Coinbase Wrapped Staked ETH (“cbETH”) is a utility token that represents Ethereum 2 (ETH2), which is ETH staked through Coinbase. Over time, the price of cbETH will likely deviate from ETH because cbETH represents 1 staked ETH plus all of its accrued staking interest starting from when cbETH's conversion rate and balance were initialized (June 16, 2022 19:34 UTC). cbETH is minted exclusively by Coinbase.",
@@ -711,7 +662,6 @@ export const tokens = {
     address: '0x0C10bF8FcB7Bf5412187A595ab97a3609160b5c6',
     chainId: 1,
     decimals: 18,
-    logoURI: '',
     website: 'https://usdd.io/',
     description:
       'The USDD protocol aims to provide the blockchain industry with the most stable, decentralized, tamper-proof, and freeze-free stablecoin system, a perpetual system independent from any centralized entity.',
@@ -726,8 +676,6 @@ export const tokens = {
     address: '0x23878914EFE38d27C4D67Ab83ed1b93A74D4086a',
     chainId: 1,
     decimals: 6,
-    logoURI:
-      'https://tokens.pancakeswap.finance/images/0x4988a896b1227218e4A686fdE5EabdcAbd91571f.svg',
     website: 'https://tether.to/',
     description:
       'Aave interest bearing USDT. Tether is a stablecoin pegged to the US Dollar. A stablecoin is a type of cryptocurrency whose value is pegged to another fiat currency like the US Dollar or to a commodity like Gold. Tether is the first stablecoin to be created and it is the most popular stablecoin used in the ecosystem.',
@@ -740,8 +688,6 @@ export const tokens = {
     address: '0x101816545F6bd2b1076434B54383a1E633390A2E',
     chainId: 1,
     decimals: 18,
-    logoURI:
-      'https://tokens.pancakeswap.finance/images/0x2170ed0880ac9a755fd29b2688956bd959f933f8.png',
     website: 'https://stargate.finance/',
     description:
       'Stargate allows users and dApps to bridge native tokens with instant guaranteed finality. ETH is deposited in a LP pool to enable high liquidity for bridging.',
@@ -754,8 +700,6 @@ export const tokens = {
     address: '0x65799b9fD4206CdaA4A1DB79254FCbc2Fd2fFEe6',
     chainId: 1,
     decimals: 6,
-    logoURI:
-      'https://tokens.pancakeswap.finance/images/0x4988a896b1227218e4A686fdE5EabdcAbd91571f.svg',
     website: 'https://tether.to/',
     documentation: 'https://docs.aave.com/developers/v/2.0/the-core-protocol/atokens',
     description:
@@ -768,8 +712,6 @@ export const tokens = {
     address: '0xcfAE6E251369467F465f13836Ac8135bd42f8A56',
     chainId: 1,
     decimals: 18,
-    logoURI:
-      'https://tokens.pancakeswap.finance/images/0x4988a896b1227218e4A686fdE5EabdcAbd91571f.svg',
     website: 'https://app.balancer.fi/#/',
     documentation: 'https://docs.balancer.fi/products/balancer-pools/boosted-pools',
     description:
@@ -783,8 +725,6 @@ export const tokens = {
     address: '0x98C23E9d8f34FEFb1B7BD6a91B7FF122F4e16F5c',
     chainId: 1,
     decimals: 6,
-    logoURI:
-      'https://tokens.pancakeswap.finance/images/0x4988a896b1227218e4A686fdE5EabdcAbd91571f.svg',
     website: 'https://www.circle.com/usdc',
     documentation: 'https://docs.aave.com/developers/v/2.0/the-core-protocol/atokens',
     description:
@@ -797,8 +737,6 @@ export const tokens = {
     address: '0x02c2d189b45CE213a40097b62D311cf0dD16eC92',
     chainId: 1,
     decimals: 6,
-    logoURI:
-      'https://tokens.pancakeswap.finance/images/0x4988a896b1227218e4A686fdE5EabdcAbd91571f.svg',
     website: 'https://www.circle.com/usdc',
     documentation: 'https://docs.aave.com/developers/v/2.0/the-core-protocol/atokens',
     description:
@@ -811,8 +749,6 @@ export const tokens = {
     address: '0xc50d4347209F285247BDa8A09Fc1C12CE42031c3',
     chainId: 1,
     decimals: 18,
-    logoURI:
-      'https://tokens.pancakeswap.finance/images/0x4988a896b1227218e4A686fdE5EabdcAbd91571f.svg',
     website: 'https://app.balancer.fi/#/',
     documentation: 'https://docs.balancer.fi/products/balancer-pools/boosted-pools',
     description:
@@ -826,7 +762,6 @@ export const tokens = {
     address: '0x6B175474E89094C44Da98b954EedeAC495271d0F',
     chainId: 1,
     decimals: 18,
-    logoURI: '',
     website: 'https://makerdao.com/en/',
     documentation:
       'https://docs.makerdao.com/smart-contract-modules/dai-module/dai-detailed-documentation',
@@ -842,8 +777,6 @@ export const tokens = {
     address: '0x018008bfb33d285247A21d44E50697654f754e63',
     chainId: 1,
     decimals: 18,
-    logoURI:
-      'https://tokens.pancakeswap.finance/images/0x4988a896b1227218e4A686fdE5EabdcAbd91571f.svg',
     website: 'https://makerdao.com/en/',
     documentation: 'https://docs.aave.com/developers/v/2.0/the-core-protocol/atokens',
     description:
@@ -857,8 +790,6 @@ export const tokens = {
     address: '0xEb708639E8e518B86a916db3685f90216b1C1c67',
     chainId: 1,
     decimals: 18,
-    logoURI:
-      'https://tokens.pancakeswap.finance/images/0x4988a896b1227218e4A686fdE5EabdcAbd91571f.svg',
     website: 'https://makerdao.com/en/',
     documentation: 'https://docs.aave.com/developers/v/2.0/the-core-protocol/atokens',
     description:
@@ -872,8 +803,6 @@ export const tokens = {
     address: '0xfa24A90A3F2bBE5FEEA92B95cD0d14Ce709649f9',
     chainId: 1,
     decimals: 18,
-    logoURI:
-      'https://tokens.pancakeswap.finance/images/0x4988a896b1227218e4A686fdE5EabdcAbd91571f.svg',
     website: 'https://app.balancer.fi/#/',
     documentation: 'https://docs.balancer.fi/products/balancer-pools/boosted-pools',
     description:
@@ -887,8 +816,6 @@ export const tokens = {
     address: '0x4d5F47FA6A74757f35C14fD3a6Ef8E3C9BC514E8',
     chainId: 1,
     decimals: 18,
-    logoURI:
-      'https://tokens.pancakeswap.finance/images/0x4988a896b1227218e4A686fdE5EabdcAbd91571f.svg',
     website: 'https://weth.io/',
     documentation: 'https://docs.aave.com/developers/v/2.0/the-core-protocol/atokens',
     description:
@@ -902,7 +829,6 @@ export const tokens = {
     address: '0x03928473f25bb2da6Bc880b07eCBaDC636822264',
     chainId: 1,
     decimals: 18,
-    logoURI: '',
     website: 'https://weth.io/',
     documentation: 'https://docs.aave.com/developers/v/2.0/the-core-protocol/atokens',
     description:
@@ -916,8 +842,6 @@ export const tokens = {
     address: '0xbB6881874825E60e1160416D6C426eae65f2459E',
     chainId: 1,
     decimals: 18,
-    logoURI:
-      'https://tokens.pancakeswap.finance/images/0x4988a896b1227218e4A686fdE5EabdcAbd91571f.svg',
     website: 'https://app.balancer.fi/#/',
     documentation: 'https://docs.balancer.fi/products/balancer-pools/boosted-pools',
     description: 'Balancer linear pool that consist of ETH and wrapped Aave Interest Bearing ETH.',
@@ -930,8 +854,6 @@ export const tokens = {
     address: '0xc443C15033FCB6Cf72cC24f1BDA0Db070DdD9786',
     chainId: 1,
     decimals: 18,
-    logoURI:
-      'https://tokens.pancakeswap.finance/images/0x4988a896b1227218e4A686fdE5EabdcAbd91571f.svg',
     website: 'https://app.balancer.fi/#/',
     documentation: 'https://docs.balancer.fi/products/balancer-pools/boosted-pools',
     bridge: 'native',
@@ -950,7 +872,6 @@ export const tokens = {
     description:
       'frxETH acts as a stablecoin loosely pegged to ETH, so that 1 frxETH always represents 1 ETH and the amount of frxETH in circulation matches the amount of ETH in the Frax ETH system. When ETH is sent to the frxETHMinter, an equivalent amount of frxETH is minted. Holding frxETH on its own is not eligible for staking yield and should be thought of as analogous as holding ETH.',
     bridge: 'native',
-    logoURI: '',
     documentation: 'https://docs.frax.finance/frax-ether/frxeth-and-sfrxeth',
   },
   sfrxETH: {
@@ -964,7 +885,6 @@ export const tokens = {
     description:
       'sfrxETH is a ERC-4626 vault designed to accrue the staking yield of the Frax ETH validators. At any time, frxETH can be exchanged for sfrxETH by depositing it into the sfrxETH vault, which allows users to earn staking yield on their frxETH. Over time, as validators accrue staking yield, an equivalent amount of frxETH is minted and added to the vault, allowing users to redeem their sfrxETH for an greater amount of frxETH than they deposited. ',
     bridge: 'native',
-    logoURI: '',
     documentation: 'https://docs.frax.finance/frax-ether/frxeth-and-sfrxeth',
   },
   INV: {
@@ -978,7 +898,6 @@ export const tokens = {
     documentation: 'https://docs.inverse.finance/inverse-finance/about-inverse',
     description:
       'Inverse.finance is a suite of permissionless decentralized finance tools governed by Inverse DAO, a decentralized autonomous organization running on the Ethereum blockchain.',
-    logoURI: 'https://assets.spookyswap.finance/tokens/INV.png',
   },
   ACX: {
     name: 'Across Protocol Token',
@@ -991,7 +910,6 @@ export const tokens = {
     documentation: 'https://docs.across.to/',
     description:
       'Across is a cross-chain bridge for L2s and rollups secured by UMAs optimistic oracle. It is optimized for capital efficiency with a single liquidity pool, a competitive relayer landscape, and a no-slippage fee model.',
-    logoURI: '',
   },
   'BAL-WETH-80-20': {
     name: 'Balancer Pool Token BAL-WETH 80/20',
@@ -1004,7 +922,6 @@ export const tokens = {
     description:
       'Instead of locking pure BAL, users obtain veBAL by locking 80/20 BAL/WETH Balancer Pool Tokens (BPTs). This ensures that even if a large portion of BAL tokens are locked, there is deep trading liquidity.',
     bridge: 'native',
-    logoURI: '',
     documentation: 'https://docs.balancer.fi/ecosystem/vebal-and-gauges/vebal',
   },
   SUSHI: {
@@ -1014,8 +931,6 @@ export const tokens = {
     address: '0x6B3595068778DD592e39A122f4f5a5cF09C90fE2',
     chainId: 1,
     decimals: 18,
-    logoURI:
-      'https://tokens.pancakeswap.finance/images/0x6B3595068778DD592e39A122f4f5a5cF09C90fE2.svg',
     website: 'https://sushi.com/',
     description:
       'Sushi is the home of DeFi. Their community is building a comprehensive, decentralized trading platform for the future of finance. Swap, earn, stack yields, lend, borrow, leverage all on one decentralized, community driven platform.',
@@ -1029,8 +944,6 @@ export const tokens = {
     address: '0x767FE9EDC9E0dF98E07454847909b5E959D7ca0E',
     chainId: 1,
     decimals: 18,
-    logoURI:
-      'https://tokens.pancakeswap.finance/images/0x767FE9EDC9E0dF98E07454847909b5E959D7ca0E.svg',
     website: 'https://illuvium.io/',
     description:
       'A fully decentralized protocol, Illuvium represents a new age in gaming. It has been engineered from the ground-up to support the long-term sustainability of the Illuvium game and governance and provide players with a AAA-rated blockchain gaming experience. What makes Illuvium unique is that stakers receive regular distributions and can vote on everything from tokenomics related issues to the features in the game itself. With Illuvium, the power to define the project into the future is purposefully left to those who stake in the protocol.',
@@ -1043,8 +956,6 @@ export const tokens = {
     address: '0x5A98FcBEA516Cf06857215779Fd812CA3beF1B32',
     chainId: 1,
     decimals: 18,
-    logoURI:
-      'https://tokens.pancakeswap.finance/images/0x5A98FcBEA516Cf06857215779Fd812CA3beF1B32.svg',
     website: 'https://stake.lido.fi/',
     documentation: 'https://docs.lido.fi/',
     description:
@@ -1058,8 +969,6 @@ export const tokens = {
     address: '0x0f2D719407FdBeFF09D87557AbB7232601FD9F29',
     chainId: 1,
     decimals: 18,
-    logoURI:
-      'https://tokens.pancakeswap.finance/images/0x0f2D719407FdBeFF09D87557AbB7232601FD9F29.svg',
     website: 'https://synapseprotocol.com/landing',
     description:
       'Synapse is a universal interoperability protocol that enables secure cross-chain communication. Synapse connects blockchains by offering an extensible cross-chain messaging protocol that supports assets, smart contract calls, and more. By leveraging Synapse, blockchains can easily and securely interoperate with each other and developers can build truly cross-chain applications including cross-chain DEX, lending platforms, margining systems, derivatives markets, yield aggregators, and much more.',
@@ -1073,7 +982,6 @@ export const tokens = {
     address: '0x777172D858dC1599914a1C4c6c9fC48c99a60990',
     chainId: 1,
     decimals: 18,
-    logoURI: '',
     website: 'https://solidly.com/',
     description:
       'Solidly is an AMM allowing fully decentralized token swapping with support for low slippage trades between pegged assets like stablecoins.',
@@ -1087,7 +995,6 @@ export const tokens = {
     address: '0xC011a73ee8576Fb46F5E1c5751cA3B9Fe0af2a6F',
     chainId: 1,
     decimals: 18,
-    logoURI: '',
     website: 'https://www.synthetix.io/',
     description:
       'Synthetix is the backbone for derivatives trading in DeFi, allowing anyone, anywhere to gain on-chain exposure to a vast range of assets',
@@ -1100,7 +1007,6 @@ export const tokens = {
     address: '0x2b591e99afE9f32eAA6214f7B7629768c40Eeb39',
     chainId: 1,
     decimals: 8,
-    logoURI: '',
     website: 'https://hex.com/',
     description: 'HEX is the first high-yield blockchain certificate of deposit',
     documentation: 'https://hex.com/faq/',
@@ -1112,7 +1018,6 @@ export const tokens = {
     address: '0x848578e351D25B6Ec0d486E42677891521c3d743',
     chainId: 1,
     decimals: 18,
-    logoURI: '',
     website: 'https://alpha.mono.farm/home',
     description: 'A tokenized version of veSOLID, moSOLID, is returned to the user at a 1:1 rate.',
     documentation: 'https://docs.mono.farm/monolith-documentation/',
@@ -1124,7 +1029,6 @@ export const tokens = {
     address: '0x4E15361FD6b4BB609Fa63C81A2be19d873717870',
     chainId: 1,
     decimals: 18,
-    logoURI: '',
     website: 'https://fantom.foundation/',
     description:
       'Fantom is a fast, high-throughput open-source smart contract platform for digital assets and dApps.',
@@ -1140,7 +1044,6 @@ export const tokens = {
     website: 'https://deus.finance/',
     description:
       'DEUS Finance Evolution is a marketplace of decentralized financial services. We provide the infrastructure for others to build financial instruments, such as synthetic stock trading platforms, options and futures trading, and more.',
-    logoURI: 'https://app.deus.finance/tokens/deus.svg',
     documentation: 'https://docs.deus.finance/',
   },
   GEAR: {
@@ -1154,7 +1057,6 @@ export const tokens = {
     description:
       'Gearbox Protocol allows anyone to take DeFi-native leverage and then use it across various (DeFi & more) protocols. This enables you to compose your position as you want. You take leverage with Gearbox and then use it on other protocols you already love: Uniswap, Curve, Convex, Lido, etc. For example, you can leverage trade on Uniswap, leverage farm on Yearn, make delta-neutral strategies, hedge your exposure, get Leverage-as-a-Service for your structured product, and more... ',
     bridge: 'native',
-    logoURI: '',
     documentation: 'https://docs.gearbox.finance/',
   },
   TUSD: {
@@ -1167,7 +1069,6 @@ export const tokens = {
     website: 'https://trueusd.com/',
     description: 'The first regulated stablecoin fully backed by the US Dollar.',
     bridge: 'native',
-    logoURI: '',
     tags: ['STABLECOIN'],
   },
   CLEV: {
@@ -1181,7 +1082,6 @@ export const tokens = {
     description:
       'Deposit top quality tokens to CLever in high-yielding collateral strategies, then claim your future yields today. Your future yields can be farmed, re-deposited to create leverage, or used wherever you need them.',
     bridge: 'native',
-    logoURI: '',
     documentation: 'https://docs.aladdin.club/clever',
   },
   clevCVX: {
@@ -1195,7 +1095,6 @@ export const tokens = {
     description:
       'Deposit top quality tokens to CLever in high-yielding collateral strategies, then claim your future yields today. Your future yields can be farmed, re-deposited to create leverage, or used wherever you need them.',
     bridge: 'native',
-    logoURI: '',
     documentation: 'https://docs.aladdin.club/clever',
   },
   yCRV: {
@@ -1209,7 +1108,6 @@ export const tokens = {
     description:
       "yCRV is Yearn's new and improved veCRV wrapper system designed to tokenize the different benefits of Yearn's veCRV position.",
     bridge: 'native',
-    logoURI: '',
     documentation: 'https://docs.yearn.finance/getting-started/products/ycrv/overview',
   },
   eUSD: {
@@ -1223,7 +1121,6 @@ export const tokens = {
     description:
       'Electronic Dollar (eUSD) is a safety-first stablecoin that brings together diversified, highly liquid backing with extra anti-bank run overcollateralization. \neUSD is asset-backed by yield bearing Aave USDT, Compound USDT, Aave USDC and Compound USDC. eUSD is available natively on Ethereum mainnet and the MobileCoin L1, and can be bridged to any blockchain.',
     bridge: 'native',
-    logoURI: '',
     documentation: 'https://reserve.org/protocol/',
     tags: ['STABLECOIN', 'SYNTHETIC'],
   },
@@ -1234,7 +1131,6 @@ export const tokens = {
     address: '0x64351fC9810aDAd17A690E4e1717Df5e7e085160',
     chainId: 1,
     decimals: 18,
-    logoURI: '',
     website: 'https://app.metronome.io/',
     description:
       'msETH represents Metronome Synth ETH. Through the Metronome dApp, users are able to deposit crypto assets as collateral, and use that collateral to mint popular crypto synthetics.',
@@ -1248,7 +1144,6 @@ export const tokens = {
     address: '0x5283D291DBCF85356A21bA090E6db59121208b44',
     chainId: 1,
     decimals: 18,
-    logoURI: '',
     website: 'https://blur.io/',
     description:
       'Sweep NFTs across multiple marketplaces, snipe reveals faster than others, and manage your portfolio with advanced analytics. Zero fees.',
@@ -1260,7 +1155,6 @@ export const tokens = {
     address: '0xab5eB14c09D416F0aC63661E57EDB7AEcDb9BEfA',
     chainId: 1,
     decimals: 18,
-    logoURI: '',
     website: 'https://app.metronome.io/',
     description:
       'msUSD represents Metronome Synth USD. Through the Metronome dApp, users are able to deposit crypto assets as collateral, and use that collateral to mint popular crypto synthetics.',
@@ -1274,7 +1168,6 @@ export const tokens = {
     address: '0xb40b6608B2743E691C9B54DdBDEe7bf03cd79f1c',
     chainId: 1,
     decimals: 18,
-    logoURI: '',
     website: 'https://www.zunami.io/',
     description:
       'UZD is a rebase token that increases in value in proportion to the APY of the Zunami Protocol. It is over-collateralized by stablecoins allocated in Curve Finance pools and minted using ZLP. UZD is secure from depeg as it can be redeemed with USDT, USDC, or DAI at any time. Users can receive UZD by minting it through the Zunami interface or by swapping it in the Curve.',
@@ -1287,7 +1180,6 @@ export const tokens = {
     address: '0x94A18d9FE00bab617fAD8B49b11e9F1f64Db6b36',
     chainId: 1,
     decimals: 18,
-    logoURI: '',
     website: 'https://archimedesfi.com/',
     description:
       'The stablecoin lvUSD is pegged to the USD and is used for lending and repaying loans.\n' +
@@ -1303,7 +1195,6 @@ export const tokens = {
     address: '0x3C640f0d3036Ad85Afa2D5A9E32bE651657B874F',
     chainId: 1,
     decimals: 18,
-    logoURI: '',
     website: 'https://app.balancer.fi/#/',
     documentation: 'https://docs.balancer.fi/products/balancer-pools/boosted-pools',
     description: 'Balancer linear pool that consist of 50/50 USDT and Euler Interest Bearing USDT.',
@@ -1315,7 +1206,6 @@ export const tokens = {
     address: '0xD4e7C1F3DA1144c9E2CfD1b015eDA7652b4a4399',
     chainId: 1,
     decimals: 18,
-    logoURI: '',
     website: 'https://app.balancer.fi/#/',
     documentation: 'https://docs.balancer.fi/products/balancer-pools/boosted-pools',
     description:
@@ -1328,7 +1218,6 @@ export const tokens = {
     address: '0xeB486AF868AeB3b6e53066abc9623b1041b42bc0',
     chainId: 1,
     decimals: 18,
-    logoURI: '',
     website: 'https://app.balancer.fi/#/',
     documentation: 'https://docs.balancer.fi/products/balancer-pools/boosted-pools',
     description:
@@ -1342,7 +1231,6 @@ export const tokens = {
     address: '0x50Cf90B954958480b8DF7958A9E965752F627124',
     chainId: 1,
     decimals: 18,
-    logoURI: '',
     website: 'https://app.balancer.fi/#/',
     documentation: 'https://docs.balancer.fi/products/balancer-pools/boosted-pools',
     description:
@@ -1356,7 +1244,6 @@ export const tokens = {
     address: '0x249cA82617eC3DfB2589c4c17ab7EC9765350a18',
     chainId: 1,
     decimals: 18,
-    logoURI: '',
     website: 'https://verse.bitcoin.com/',
     description:
       'At Bitcoin.com our mission is to create more economic freedom in the world. We define economic freedom as the ability to make choices with respect to one’s personal resources, unencumbered by trusted third parties or borders or lack of access. We believe economic freedom is the foundation of peace and prosperity, and by creating more of it for people, we are reducing suffering in the world. We strive to help everyone, everywhere be more economically free.',
@@ -1374,7 +1261,6 @@ export const tokens = {
     description:
       'ApeCoin is the APE Ecosystems governance token, allowing token holders to participate in ApeCoin DAO and giving its participants a shared and open currency that can be used without centralized intermediaries.',
     bridge: 'native',
-    logoURI: '',
   },
   OHM: {
     name: 'Olympus',
@@ -1387,7 +1273,6 @@ export const tokens = {
     description:
       'Olympus is building OHM, a community-owned, decentralized and censorship-resistant reserve currency that is asset-backed, deeply liquid and used widely across Web3.',
     bridge: 'native',
-    logoURI: '',
     documentation: 'https://docs.olympusdao.finance/',
   },
   SD: {
@@ -1397,8 +1282,6 @@ export const tokens = {
     address: '0x30D20208d987713f46DFD34EF128Bb16C404D10f',
     chainId: 1,
     decimals: 18,
-    logoURI:
-      'https://tokens.pancakeswap.finance/images/0x3BC5AC0dFdC871B365d159f728dd1B9A0B5481E8.svg',
     website: 'https://staderlabs.com/',
     description: 'Stader (SD) token is the native governance and value accrual token for Stader.',
     bridge: 'native',
@@ -1411,7 +1294,6 @@ export const tokens = {
     address: '0x3432B6A60D23Ca0dFCa7761B7ab56459D9C964D0', // now FRAX on Fraxtal
     chainId: 1,
     decimals: 18,
-    logoURI: '',
     website: 'https://frax.finance/',
     description:
       'FRAX (previously FXS) is the governance token of the Frax Finance protocol and the gas token of the Fraxtal chain.',
@@ -1424,7 +1306,6 @@ export const tokens = {
     address: '0xa2E3356610840701BDf5611a53974510Ae27E2e1',
     chainId: 1,
     decimals: 18,
-    logoURI: '',
     website: 'https://www.binance.com/en',
     documentation: 'https://www.binance.com/en/wbeth',
     description:
@@ -1438,7 +1319,6 @@ export const tokens = {
     address: '0x856c4Efb76C1D1AE02e20CEB03A2A6a08b0b8dC3',
     chainId: 1,
     decimals: 18,
-    logoURI: '',
     website: 'https://www.oeth.com/',
     documentation: 'https://docs.oeth.com/',
     description:
@@ -1452,7 +1332,6 @@ export const tokens = {
     address: '0xf939E0A03FB07F59A73314E73794Be0E57ac1b4E',
     chainId: 1,
     decimals: 18,
-    logoURI: '',
     website: 'https://curve.finance/crvusd',
     description:
       'crvUSD is a collateralized-debt-position (CDP) stablecoin pegged to the US Dollar',
@@ -1467,7 +1346,6 @@ export const tokens = {
     address: '0xaCdf0DBA4B9839b96221a8487e9ca660a48212be',
     chainId: 1,
     decimals: 18,
-    logoURI: '',
     website: 'https://register.app/#/overview?token=0xaCdf0DBA4B9839b96221a8487e9ca660a48212be',
     description:
       'High yield USD (hyUSD), is a decentralized flatcoin initially pegged to $1 USD that provides convenient access to DeFi yields, enabling holders to grow and preserve their wealth. hyUSD is 1:1 asset backed by a basket of other yield bearing tokens including eUSD as well as tokenized lending with exposure to US Treasuries. Given the unique design and current market conditions it is estimated to yield 8% or better to anyone holding hyUSD in any wallet, outpacing the rate of inflation in over 100 countries around the world and providing safe refuge for purchasing power everywhere.',
@@ -1480,7 +1358,6 @@ export const tokens = {
     address: '0xA35b1B31Ce002FBF2058D22F30f95D405200A15b',
     chainId: 1,
     decimals: 18,
-    logoURI: '',
     website: 'https://www.staderlabs.com/eth/',
     bridge: 'native',
     description:
@@ -1494,7 +1371,6 @@ export const tokens = {
     address: '0xE72B141DF173b999AE7c1aDcbF60Cc9833Ce56a8',
     chainId: 1,
     decimals: 18,
-    logoURI: '',
     website:
       'https://app.reserve.org/ethereum/token/0xe72b141df173b999ae7c1adcbf60cc9833ce56a8/overview',
     bridge: 'native',
@@ -1508,7 +1384,6 @@ export const tokens = {
     address: '0x005F893EcD7bF9667195642f7649DA8163e23658',
     chainId: 1,
     decimals: 18,
-    logoURI: '',
     website:
       'https://app.reserve.org/ethereum/token/0x005f893ecd7bf9667195642f7649da8163e23658/overview',
     bridge: 'native',
@@ -1523,7 +1398,6 @@ export const tokens = {
     address: '0xFc0B1EEf20e4c68B3DCF36c4537Cfa7Ce46CA70b',
     chainId: 1,
     decimals: 18,
-    logoURI: '',
     website: 'https://register.app/#/overview?token=0xFc0B1EEf20e4c68B3DCF36c4537Cfa7Ce46CA70b',
     bridge: 'native',
     description:
@@ -1535,7 +1409,6 @@ export const tokens = {
     address: '0x6c3F90f043a72FA612cbac8115EE7e52BDe6E490',
     chainId: 1,
     decimals: 18,
-    logoURI: '',
     website: 'https://curve.finance/',
     oracle: 'lps',
     oracleId: 'convex-3pool',
@@ -1549,7 +1422,6 @@ export const tokens = {
     address: '0x183015a9bA6fF60230fdEaDc3F43b3D788b13e21',
     chainId: 1,
     decimals: 18,
-    logoURI: '',
     website: 'https://raft.fi',
     documentation: 'https://docs.raft.fi/',
     bridge: 'native',
@@ -1564,7 +1436,6 @@ export const tokens = {
     address: '0x40D16FC0246aD3160Ccc09B8D0D3A2cD28aE6C2f',
     chainId: 1,
     decimals: 18,
-    logoURI: '',
     website: 'https://aave.com/',
     documentation: 'https://docs.aave.com/faq/gho-stablecoin',
     bridge: 'native',
@@ -1579,7 +1450,6 @@ export const tokens = {
     address: '0x4591DBfF62656E7859Afe5e45f6f47D3669fBB28',
     chainId: 1,
     decimals: 18,
-    logoURI: '',
     website: 'https://app.prismafinance.com/',
     documentation: 'https://docs.prismafinance.com/',
     bridge: 'native',
@@ -1594,7 +1464,6 @@ export const tokens = {
     address: '0x35282d87011f87508D457F08252Bc5bFa52E10A0',
     chainId: 1,
     decimals: 18,
-    logoURI: '',
     website: 'https://app.prismafinance.com/',
     documentation: 'https://docs.prismafinance.com/',
     bridge: 'native',
@@ -1609,7 +1478,6 @@ export const tokens = {
     address: '0x6c3ea9036406852006290770BEdFcAbA0e23A0e8',
     chainId: 1,
     decimals: 6,
-    logoURI: '',
     website: 'https://www.paypal.com/us/digital-wallet/manage-money/crypto/pyusd',
     bridge: 'native',
     description: 'PayPal USD (PYUSD) is a stablecoin backed by secure and highly liquid assets.',
@@ -1623,7 +1491,6 @@ export const tokens = {
     address: '0x383E6b4437b59fff47B619CBA855CA29342A8559',
     chainId: 1,
     decimals: 18,
-    logoURI: '',
     website: 'https://curve.finance/#/ethereum/pools/factory-stable-ng-43/deposit',
     description: 'Curve base pool consisting of PYUSD and USDC',
     bridge: 'native',
@@ -1635,7 +1502,6 @@ export const tokens = {
     address: '0xdA47862a83dac0c112BA89c6abC2159b95afd71C',
     chainId: 1,
     decimals: 18,
-    logoURI: '',
     website: 'https://app.prismafinance.com/',
     documentation: 'https://docs.prismafinance.com/',
     bridge: 'native',
@@ -1649,7 +1515,6 @@ export const tokens = {
     address: '0x34635280737b5BFe6c7DC2FC3065D60d66e78185',
     chainId: 1,
     decimals: 18,
-    logoURI: '',
     website: 'https://prisma.convexfinance.com/',
     documentation:
       'https://docs.convexfinance.com/convexfinance/general-information/convex-for-prisma-finance',
@@ -1664,7 +1529,6 @@ export const tokens = {
     address: '0xe3668873D944E4A949DA05fc8bDE419eFF543882',
     chainId: 1,
     decimals: 18,
-    logoURI: '',
     website: 'https://yprisma.yearn.fi/',
     documentation: 'https://docs.yearn.fi/getting-started/products/ylockers/yprisma/overview',
     bridge: 'native',
@@ -1678,7 +1542,6 @@ export const tokens = {
     address: '0x5f98805A4E8be255a32880FDeC7F6728C6568bA0',
     chainId: 1,
     decimals: 18,
-    logoURI: '',
     website: 'https://www.liquity.org/',
     bridge: 'native',
     description:
@@ -1693,7 +1556,6 @@ export const tokens = {
     address: '0x59D9356E565Ab3A36dD77763Fc0d87fEaf85508C',
     chainId: 1,
     decimals: 18,
-    logoURI: '',
     website: 'https://mountainprotocol.com/',
     documentation: 'https://docs.mountainprotocol.com/',
     description:
@@ -1708,7 +1570,6 @@ export const tokens = {
     address: '0x83F20F44975D03b1b09e64809B757c47f942BEeA',
     chainId: 1,
     decimals: 18,
-    logoURI: '',
     website: 'https://app.sparkprotocol.io/sdai/',
     documentation: 'https://docs.sparkprotocol.io/hub/',
     description:
@@ -1723,8 +1584,6 @@ export const tokens = {
     address: '0x2B218683178d029BAB6c9789b1073aA6c96E5176',
     chainId: 1,
     decimals: 18,
-    logoURI:
-      'https://tokens.pancakeswap.finance/images/0x4988a896b1227218e4A686fdE5EabdcAbd91571f.svg',
     website: 'https://app.balancer.fi/#/',
     documentation: 'https://docs.balancer.fi/products/balancer-pools/boosted-pools',
     description: 'Balancer linear pool that consist of DAI and sDAI.',
@@ -1743,7 +1602,6 @@ export const tokens = {
       "acUSDC is the LP receipt for providing USDC liquidity to the Across bridge. Across is a cross-chain bridge for L2s and rollups secured by UMA's optimistic oracle.",
     bridge: 'native',
     chainId: 1,
-    logoURI: '',
     documentation: 'https://docs.across.to/how-to-use-across/providing-liquidity',
   },
   acWETH: {
@@ -1758,7 +1616,6 @@ export const tokens = {
       "acWETH is the LP receipt for providing WETH liquidity to the Across bridge. Across is a cross-chain bridge for L2s and rollups secured by UMA's optimistic oracle.",
     bridge: 'native',
     chainId: 1,
-    logoURI: '',
     documentation: 'https://docs.across.to/how-to-use-across/providing-liquidity',
   },
   acDAI: {
@@ -1773,7 +1630,6 @@ export const tokens = {
       "acDAI is the LP receipt for providing DAI liquidity to the Across bridge. Across is a cross-chain bridge for L2s and rollups secured by UMA's optimistic oracle.",
     bridge: 'native',
     chainId: 1,
-    logoURI: '',
     documentation: 'https://docs.across.to/how-to-use-across/providing-liquidity',
     tags: ['SYNTHETIC'],
   },
@@ -1789,7 +1645,6 @@ export const tokens = {
       "acUSDT is the LP receipt for providing USDT liquidity to the Across bridge. Across is a cross-chain bridge for L2s and rollups secured by UMA's optimistic oracle.",
     bridge: 'native',
     chainId: 1,
-    logoURI: '',
     documentation: 'https://docs.across.to/how-to-use-across/providing-liquidity',
   },
   acWBTC: {
@@ -1804,7 +1659,6 @@ export const tokens = {
       "acWBTC is the LP receipt for providing WBTC liquidity to the Across bridge. Across is a cross-chain bridge for L2s and rollups secured by UMA's optimistic oracle.",
     bridge: 'native',
     chainId: 1,
-    logoURI: '',
     documentation: 'https://docs.across.to/how-to-use-across/providing-liquidity',
   },
   acACX: {
@@ -1819,7 +1673,6 @@ export const tokens = {
       "acACX is the LP receipt for providing ACX liquidity to the Across bridge. Across is a cross-chain bridge for L2s and rollups secured by UMA's optimistic oracle.",
     bridge: 'native',
     chainId: 1,
-    logoURI: '',
     documentation: 'https://docs.across.to/how-to-use-across/providing-liquidity',
   },
   bpt3POOL: {
@@ -1829,7 +1682,6 @@ export const tokens = {
     address: '0x79c58f70905F734641735BC61e45c19dD9Ad60bC',
     chainId: 1,
     decimals: 18,
-    logoURI: '',
     website: 'https://app.balancer.fi/#/',
     documentation: 'https://docs.balancer.fi/concepts/pools/composable-stable.html',
     description:
@@ -1844,7 +1696,6 @@ export const tokens = {
     address: '0xdBdb4d16EdA451D0503b854CF79D55697F90c8DF',
     chainId: 1,
     decimals: 18,
-    logoURI: '',
     website: 'https://alchemix.fi/',
     documentation: 'https://alchemix-finance.gitbook.io/user-docs/',
     description:
@@ -1858,7 +1709,6 @@ export const tokens = {
     address: '0xD33526068D116cE69F19A9ee46F0bd304F21A51f',
     chainId: 1,
     decimals: 18,
-    logoURI: '',
     website: 'https://rocketpool.net/',
     documentation: 'https://rocketpool.net/protocol/about',
     description:
@@ -1872,7 +1722,6 @@ export const tokens = {
     address: '0xe07F9D810a48ab5c3c914BA3cA53AF14E4491e8A',
     chainId: 1,
     decimals: 18,
-    logoURI: '',
     website: 'https://gyro.finance/',
     documentation: 'https://docs.gyro.finance/gyroscope-protocol/stablecoin',
     description:
@@ -1887,7 +1736,6 @@ export const tokens = {
     address: '0x6f80310CA7F2C654691D1383149Fa1A57d8AB1f8',
     chainId: 1,
     decimals: 18,
-    logoURI: '',
     website: 'https://www.silo.finance/',
     documentation: 'https://devdocs.silo.finance/protocol-architecture/protocol-overview',
     description:
@@ -1901,7 +1749,6 @@ export const tokens = {
     address: '0x38D64ce1Bdf1A9f24E0Ec469C9cAde61236fB4a0',
     chainId: 1,
     decimals: 18,
-    logoURI: '',
     website: 'https://www.vectorreserve.com/',
     description:
       'vETH is a tokenized asset or index of ETH denominated Liquidity Positions (LP) against Liquid Staked Tokens (LST) and Liquid Restaked Tokens (LRT), that encapsulates both ETH and additional yield-generating opportunities.',
@@ -1917,7 +1764,6 @@ export const tokens = {
     address: '0xE95A203B1a91a908F9B9CE46459d101078c2c3cb',
     chainId: 1,
     decimals: 18,
-    logoURI: '',
     website: 'https://www.ankr.com/',
     description:
       'ankrETH is a liquid staking solution that lets users earn Ethereum staking rewards while remaining liquid. The value of ankrETH tokens appreciates over time in relation to ETH due to reward accumulation, enhancing capital efficiency and preserving liquidity.',
@@ -1931,7 +1777,6 @@ export const tokens = {
     address: '0xbf5495Efe5DB9ce00f80364C8B423567e58d2110',
     chainId: 1,
     decimals: 18,
-    logoURI: '',
     website: 'https://www.renzoprotocol.com/',
     description:
       'Renzo ezETH is a Liquid Restaking Token (LRT) and Strategy Manager for EigenLayer. It is the interface to the EigenLayer ecosystem securing Actively Validated Services (AVSs) and offering a higher yield than ETH staking.',
@@ -1946,7 +1791,6 @@ export const tokens = {
     address: '0xCd5fE23C85820F7B72D0926FC9b05b43E359b7ee',
     chainId: 1,
     decimals: 18,
-    logoURI: '',
     website: 'https://www.ether.fi/',
     description:
       'ether.fi is a decentralized, non-custodial delegated staking protocol with a Liquid Staking token. One of the distinguishing characteristics of ether.fi is that stakers control their keys. The ether.fi mechanism also allows for the creation of a node services marketplace where stakers and node operators can enroll nodes to provide infrastructure services.',
@@ -1961,7 +1805,6 @@ export const tokens = {
     address: '0x7223442cad8e9cA474fC40109ab981608F8c4273',
     chainId: 1,
     decimals: 18,
-    logoURI: '',
     website: 'https://app.ether.fi/liquid/karak',
     description:
       'The King Karak LRT is intended to provide ether.fi customers an easy onboarding into the Karak ecosystem. Unlike other LRTs, users have numerous deposit options including WETH, eETH, weETH, wstETH, cbETH, bETH, rETH, mETH, swETH, etc. These assets will be directly restaked on Karak.',
@@ -1975,7 +1818,6 @@ export const tokens = {
     address: '0x917ceE801a67f933F2e6b33fC0cD1ED2d5909D88',
     chainId: 1,
     decimals: 18,
-    logoURI: '',
     website: 'https://app.ether.fi/liquid/symbiotic',
     description:
       'Super Symbiotic LRT is an Ether.Fi x Symbiotic vault that allows users to stake their ETH to accrue staking rewards and automatically restake their ETH in Symbiotic.',
@@ -1989,7 +1831,6 @@ export const tokens = {
     address: '0xF1376bceF0f78459C0Ed0ba5ddce976F1ddF51F4',
     chainId: 1,
     decimals: 18,
-    logoURI: '',
     website: 'https://app.bedrock.technology/unieth',
     description:
       'uniETH represents the staked ETH plus all future staking rewards and accrual of EigenLayer points and Bedrock diamonds. uniETH does not grow in quantity over time but instead, grows in value, i.e. 1 uniETH becomes worth increasingly more than 1 ETH.',
@@ -2003,7 +1844,6 @@ export const tokens = {
     address: '0x559b7bfC48a5274754b08819F75C5F27aF53D53b',
     chainId: 1,
     decimals: 18,
-    logoURI: '',
     website: 'https://app.mai.finance/',
     description:
       'QiDao is an overcollateralized stablecoin protocol that allows users to mint stablecoins (MAI) against the value of their decentralized token collaterals. Minting occurs through loans, denomimated in MAI stablecoins. Most loans have 0% interest, meaning the value of the related debt does not change over time.',
@@ -2017,7 +1857,6 @@ export const tokens = {
     address: '0x39eB558131E5eBeb9f76a6cbf6898f6E6DCe5e4E',
     chainId: 1,
     decimals: 18,
-    logoURI: '',
     website: 'https://app.mai.finance/',
     description:
       'QiDao is an overcollateralized stablecoin protocol that allows users to mint stablecoins (MAI) against the value of their decentralized token collaterals. Minting occurs through loans, denomimated in MAI stablecoins. Most loans have 0% interest, meaning the value of the related debt does not change over time.',
@@ -2031,7 +1870,6 @@ export const tokens = {
     address: '0x6c9D885B37b131aa68794ee1549fFB80be381Fa9',
     chainId: 1,
     decimals: 18,
-    logoURI: '',
     website: 'https://app.mai.finance/',
     description:
       'Beefy QI is perpetually lock QI/ETH Balancer Pool Token. QiDao is an overcollateralized stablecoin protocol that allows users to mint stablecoins (MAI) against the value of their decentralized token collaterals. Minting occurs through loans, denomimated in MAI stablecoins. Most loans have 0% interest, meaning the value of the related debt does not change over time.',
@@ -2045,7 +1883,6 @@ export const tokens = {
     address: '0x4c9EDD5852cd905f086C759E8383e09bff1E68B3',
     chainId: 1,
     decimals: 18,
-    logoURI: '',
     website: 'https://ethena.fi/',
     documentation: 'https://ethena-labs.gitbook.io/ethena-labs',
     description:
@@ -2060,7 +1897,6 @@ export const tokens = {
     address: '0x9D39A5DE30e57443BfF2A8307A4256c8797A3497',
     chainId: 1,
     decimals: 18,
-    logoURI: '',
     website: 'https://ethena.fi/',
     documentation: 'https://ethena-labs.gitbook.io/ethena-labs',
     description:
@@ -2075,7 +1911,6 @@ export const tokens = {
     address: '0x0d86883FAf4FfD7aEb116390af37746F45b6f378',
     chainId: 1,
     decimals: 18,
-    logoURI: '',
     website:
       'https://app.reserve.org/ethereum/token/0x0d86883FAf4FfD7aEb116390af37746F45b6f378/overview',
     description:
@@ -2091,7 +1926,6 @@ export const tokens = {
     address: '0x78da5799CF427Fee11e9996982F4150eCe7a99A7',
     chainId: 1,
     decimals: 18,
-    logoURI: '',
     website:
       'https://app.reserve.org/ethereum/token/0x78da5799cf427fee11e9996982f4150ece7a99a7/overview',
     description:
@@ -2107,7 +1941,6 @@ export const tokens = {
     name: 'KelpDao Restaked ETH',
     symbol: 'rsETH',
     oracleId: 'rsETH',
-    logoURI: '',
     website: 'https://kelpdao.xyz/',
     documentation: 'https://kelp.gitbook.io/kelp',
     description:
@@ -2122,7 +1955,6 @@ export const tokens = {
     name: 'KelpDao Restaked ETH',
     symbol: 'rswETH',
     oracleId: 'rswETH',
-    logoURI: '',
     website: 'https://www.swellnetwork.io/liquid-restaking',
     documentation: 'https://docs.swellnetwork.io/swell/rsweth-liquid-restaking',
     description:
@@ -2137,7 +1969,6 @@ export const tokens = {
     name: 'Kelp Gain',
     symbol: 'agETH',
     oracleId: 'agETH',
-    logoURI: '',
     website: 'https://kelpdao.xyz/gain/airdrop-gain/',
     documentation: 'https://kelp.gitbook.io/kelp/kelp-gain',
     description:
@@ -2152,7 +1983,6 @@ export const tokens = {
     address: '0x6985884C4392D348587B19cb9eAAf157F13271cd',
     chainId: 1,
     decimals: 18,
-    logoURI: '',
     website: 'https://layerzero.network/',
     documentation: 'https://docs.layerzero.network/v2',
     description:
@@ -2166,7 +1996,6 @@ export const tokens = {
     address: '0xD60EeA80C83779a8A5BFCDAc1F3323548e6BB62d',
     chainId: 1,
     decimals: 18,
-    logoURI: '',
     website: 'https://www.shezmu.io/',
     documentation: 'https://shezmu.gitbook.io/shezmu/oasis/oasis-usd-cdp-documentation',
     description:
@@ -2181,7 +2010,6 @@ export const tokens = {
     address: '0x63a0964A36c34E81959da5894ad888800e17405b',
     chainId: 1,
     decimals: 18,
-    logoURI: '',
     website: 'https://www.shezmu.io/',
     documentation: 'https://shezmu.gitbook.io/shezmu/oasis/oasis-eth-pegged-cdp-documentation',
     description:
@@ -2200,8 +2028,6 @@ export const tokens = {
     description:
       'UNI is the governance token for Uniswap. UNI was introduced on 16th September 2020 through a retrospective airdrop to users who have interacted with the protocol either by swapping tokens or by providing liquidity.',
     bridge: 'native',
-    logoURI:
-      'https://tokens.pancakeswap.finance/images/0xbf5140a22578168fd562dccf235e5d43a02ce9b1.png',
     documentation: 'https://docs.uniswap.org/concepts/governance/overview',
   },
   LINK: {
@@ -2306,7 +2132,6 @@ export const tokens = {
     address: '0x04C154b66CB340F3Ae24111CC767e0184Ed00Cc6',
     chainId: 1,
     decimals: 18,
-    logoURI: '',
     website: 'https://dinero.xyz/',
     documentation: 'https://dinero.xyz/docs',
     description:
@@ -2320,7 +2145,6 @@ export const tokens = {
     address: '0x270B7748CdF8243bFe68FaCE7230ef0fCE695389',
     chainId: 1,
     decimals: 18,
-    logoURI: '',
     website: 'https://app.hinkal.pro/',
     documentation: 'https://hinkal-team.gitbook.io/hinkal',
     description:
@@ -2335,7 +2159,6 @@ export const tokens = {
     address: '0x56072C95FAA701256059aa122697B133aDEd9279',
     chainId: 1,
     decimals: 18,
-    logoURI: '',
     website: 'https://sky.money/',
     documentation: 'https://docs.sky.money/',
     description:
@@ -2349,7 +2172,6 @@ export const tokens = {
     address: '0xdC035D45d973E3EC169d2276DDab16f1e407384F',
     chainId: 1,
     decimals: 18,
-    logoURI: '',
     website: 'https://sky.money/',
     documentation: 'https://docs.sky.money/',
     description:
@@ -2364,7 +2186,6 @@ export const tokens = {
     address: '0xa3931d71877C0E7a3148CB7Eb4463524FEc27fbD',
     chainId: 1,
     decimals: 18,
-    logoURI: '',
     website: 'https://sky.money/',
     documentation: 'https://docs.sky.money/',
     description:
@@ -2379,7 +2200,6 @@ export const tokens = {
     address: '0x99CD4Ec3f88A45940936F469E4bB72A2A701EEB9',
     chainId: 1,
     decimals: 18,
-    logoURI: '',
     website: 'https://sky.money/',
     documentation: 'https://docs.sky.money/',
     description:
@@ -2394,7 +2214,6 @@ export const tokens = {
     address: '0x80ac24aA929eaF5013f6436cdA2a7ba190f5Cc0b',
     chainId: 1,
     decimals: 6,
-    logoURI: '',
     website: 'https://syrup.fi/lend',
     documentation: 'https://syrup.gitbook.io/syrup',
     description:
@@ -2409,7 +2228,6 @@ export const tokens = {
     address: '0x004E9C3EF86bc1ca1f0bB5C7662861Ee93350568',
     chainId: 1,
     decimals: 8,
-    logoURI: '',
     website: 'https://app.bedrock.technology/unibtc',
     description:
       'A brand new restaking protocol that accept wrapped BTC tokens partnership with the BTC staking protocol Babylon chain, the first supported wrapped BTC is wBTC token on Ethereum blockchain, so all the wBTC token holders will enjoy both yield on staking BTC tokens plus the security of Ethereum network.',
@@ -2424,7 +2242,6 @@ export const tokens = {
     address: '0xd9D920AA40f578ab794426F5C90F6C731D159DEf',
     chainId: 1,
     decimals: 18,
-    logoURI: '',
     website: 'https://app.solv.finance/babylon',
     description:
       'SolvBTC.BBN is a liquid staking token (LST) for Bitcoin, representing the staked Bitcoin in Babylon. SolvBTC.BBN allows Bitcoin holders to earn staking yields, in exchange for sharing $1.3 trillion economic security of Bitcoin with PoS chains, while enabling them the flexibility to participate in DeFi.',
@@ -2439,7 +2256,6 @@ export const tokens = {
     address: '0x8236a87084f8B84306f72007F36F2618A5634494',
     chainId: 1,
     decimals: 8,
-    logoURI: '',
     website: 'https://www.lombard.finance/app/',
     description:
       "LBTC is liquid Bitcoin; it's yield-bearing, cross-chain, and 1:1 backed by BTC. LBTC enables yield-bearing BTC to move cross-chain without fragmenting liquidity, and is designed to seamlessly integrate Bitcoin into the decentralized finance (DeFi) ecosystem while maintaining the security and integrity of the underlying asset.",
@@ -2454,7 +2270,6 @@ export const tokens = {
     address: '0xF469fBD2abcd6B9de8E169d128226C0Fc90a012e',
     chainId: 1,
     decimals: 8,
-    logoURI: '',
     website: 'https://mainnet.pumpbtc.xyz/',
     description:
       '$PumpBTC is a liquid staking token that represents BTC staked on the Babylon platform through PumpBTC. By utilizing PumpBTC, you can retain liquidity for your BTC holdings while also earning yields directly from Babylon. Users will receive PumpBTC at a conversion rate of 1:1 with WBTC/BTCB.',
@@ -2469,7 +2284,6 @@ export const tokens = {
     address: '0xec53bF9167f50cDEB3Ae105f56099aaaB9061F83',
     chainId: 1,
     decimals: 18,
-    logoURI: '',
     website: 'https://www.eigenlayer.xyz/',
     documentation: 'https://docs.eigenlayer.xyz/',
     bridge: 'native',
@@ -2483,7 +2297,6 @@ export const tokens = {
     address: '0xb45ad160634c528Cc3D2926d9807104FA3157305',
     chainId: 1,
     decimals: 18,
-    logoURI: '',
     website: 'https://www.inverse.finance/',
     documentation:
       'https://docs.inverse.finance/inverse-finance/inverse-finance/product-guide/dola-feds',
@@ -2568,7 +2381,6 @@ export const tokens = {
     address: '0x2e9d63788249371f1DFC918a52f8d799F4a38C94',
     chainId: 1,
     decimals: 18,
-    logoURI: '',
     website: 'https://app.tokemak.xyz/',
     documentation: 'https://docs.tokemak.xyz/',
     bridge: 'native',
@@ -2582,7 +2394,6 @@ export const tokens = {
     address: '0x0A2b94F6871c1D7A32Fe58E1ab5e6deA2f114E56',
     chainId: 1,
     decimals: 18,
-    logoURI: '',
     website: 'https://app.tokemak.xyz/',
     documentation: 'https://docs.tokemak.xyz/',
     bridge: 'native',
@@ -2596,7 +2407,6 @@ export const tokens = {
     address: '0x6dC3ce9C57b20131347FDc9089D740DAf6eB34c5',
     chainId: 1,
     decimals: 18,
-    logoURI: '',
     website: 'https://app.tokemak.xyz/',
     documentation: 'https://docs.tokemak.xyz/',
     bridge: 'native',
@@ -2610,7 +2420,6 @@ export const tokens = {
     address: '0xE800e3760FC20aA98c5df6A9816147f190455AF3',
     chainId: 1,
     decimals: 18,
-    logoURI: '',
     website: 'https://app.tokemak.xyz/',
     documentation: 'https://docs.tokemak.xyz/',
     bridge: 'native',
@@ -2624,7 +2433,6 @@ export const tokens = {
     address: '0x7204B7Dbf9412567835633B6F00C3Edc3a8D6330',
     chainId: 1,
     decimals: 18,
-    logoURI: '',
     website: 'https://www.coinshift.xyz/',
     documentation: 'https://docs.coinshift.xyz/',
     description:
@@ -2639,7 +2447,6 @@ export const tokens = {
     address: '0xbEeFc011e94f43b8B7b455eBaB290C7Ab4E216f1',
     chainId: 1,
     decimals: 18,
-    logoURI: '',
     website: 'https://www.coinshift.xyz/',
     documentation: 'https://docs.coinshift.xyz/',
     description:
@@ -2654,7 +2461,6 @@ export const tokens = {
     address: '0x7751E2F4b8ae93EF6B79d86419d42FE3295A4559',
     chainId: 1,
     decimals: 18,
-    logoURI: '',
     website: 'https://liftdollar.com/',
     documentation: 'https://docs.liftdollar.com/',
     description:
@@ -2669,7 +2475,6 @@ export const tokens = {
     address: '0xbdC7c08592Ee4aa51D06C27Ee23D5087D65aDbcD',
     chainId: 1,
     decimals: 18,
-    logoURI: '',
     website: 'https://liftdollar.com/',
     documentation: 'https://docs.liftdollar.com/',
     description:
@@ -2766,8 +2571,6 @@ export const tokens = {
     address: '0x7Bc3485026Ac48b6cf9BaF0A377477Fff5703Af8',
     chainId: 1,
     decimals: 6,
-    logoURI:
-      'https://tokens.pancakeswap.finance/images/0x4988a896b1227218e4A686fdE5EabdcAbd91571f.svg',
     website: 'https://aave.com/',
     documentation: 'https://docs.aave.com/developers/v/2.0/the-core-protocol/atokens',
     description: 'Wrapped Aave interest bearing Ethereum USDT.',
@@ -2780,8 +2583,6 @@ export const tokens = {
     address: '0xD4fa2D31b7968E448877f69A96DE69f5de8cD23E',
     chainId: 1,
     decimals: 6,
-    logoURI:
-      'https://tokens.pancakeswap.finance/images/0x4988a896b1227218e4A686fdE5EabdcAbd91571f.svg',
     website: 'https://aave.com/',
     documentation: 'https://docs.aave.com/developers/v/2.0/the-core-protocol/atokens',
     description: 'Wrapped Aave interest bearing Ethereum USDC.',
@@ -2794,8 +2595,6 @@ export const tokens = {
     address: '0xC71Ea051a5F82c67ADcF634c36FFE6334793D24C',
     chainId: 1,
     decimals: 18,
-    logoURI:
-      'https://tokens.pancakeswap.finance/images/0x4988a896b1227218e4A686fdE5EabdcAbd91571f.svg',
     website: 'https://aave.com/',
     documentation: 'https://docs.aave.com/developers/v/2.0/the-core-protocol/atokens',
     description: 'Wrapped Aave interest bearing Ethereum Lido GHO.',
@@ -2808,8 +2607,6 @@ export const tokens = {
     address: '0x5F9D59db355b4A60501544637b00e94082cA575b',
     chainId: 1,
     decimals: 18,
-    logoURI:
-      'https://tokens.pancakeswap.finance/images/0x4988a896b1227218e4A686fdE5EabdcAbd91571f.svg',
     website: 'https://aave.com/',
     documentation: 'https://docs.aave.com/developers/v/2.0/the-core-protocol/atokens',
     description: 'Wrapped Aave interest bearing Ethereum USDe.',
@@ -2822,8 +2619,6 @@ export const tokens = {
     address: '0x0FE906e030a44eF24CA8c7dC7B7c53A6C4F00ce9',
     chainId: 1,
     decimals: 18,
-    logoURI:
-      'https://tokens.pancakeswap.finance/images/0x4988a896b1227218e4A686fdE5EabdcAbd91571f.svg',
     website: 'https://aave.com/',
     documentation: 'https://docs.aave.com/developers/v/2.0/the-core-protocol/atokens',
     description: 'Wrapped Aave interest bearing Ethereum Lido WETH.',
@@ -2835,8 +2630,6 @@ export const tokens = {
     address: '0x775F661b0bD1739349b9A2A3EF60be277c5d2D29',
     chainId: 1,
     decimals: 18,
-    logoURI:
-      'https://tokens.pancakeswap.finance/images/0x4988a896b1227218e4A686fdE5EabdcAbd91571f.svg',
     website: 'https://aave.com/',
     documentation: 'https://docs.aave.com/developers/v/2.0/the-core-protocol/atokens',
     description: 'Wrapped Aave interest bearing Ethereum Lido wstETH.',
@@ -2860,8 +2653,6 @@ export const tokens = {
     address: '0x2411802D8BEA09be0aF8fD8D08314a63e706b29C',
     chainId: 1,
     decimals: 18,
-    logoURI:
-      'https://tokens.pancakeswap.finance/images/0x4988a896b1227218e4A686fdE5EabdcAbd91571f.svg',
     website: 'https://fluid.io/',
     documentation: 'https://fluid.guides.instadapp.io/',
     description: 'Fluid Staked Wrapped Staked Ether.',
@@ -2874,8 +2665,6 @@ export const tokens = {
     address: '0x90551c1795392094FE6D29B758EcCD233cFAa260',
     chainId: 1,
     decimals: 18,
-    logoURI:
-      'https://tokens.pancakeswap.finance/images/0x4988a896b1227218e4A686fdE5EabdcAbd91571f.svg',
     website: 'https://fluid.io/',
     documentation: 'https://fluid.guides.instadapp.io/',
     description: 'Fluid Staked WETH.',
@@ -3024,8 +2813,6 @@ export const tokens = {
     address: '0x0bfc9d54Fc184518A81162F8fB99c2eACa081202',
     chainId: 1,
     decimals: 18,
-    logoURI:
-      'https://tokens.pancakeswap.finance/images/0x4988a896b1227218e4A686fdE5EabdcAbd91571f.svg',
     website: 'https://aave.com/',
     documentation: 'https://docs.aave.com/developers/v/2.0/the-core-protocol/atokens',
     description: 'Wrapped Aave interest bearing Ethereum WETH.',
@@ -3037,7 +2824,6 @@ export const tokens = {
     address: '0xf1C9acDc66974dFB6dEcB12aA385b9cD01190E38',
     chainId: 1,
     decimals: 18,
-    logoURI: '',
     website: 'https://www.stakewise.io/',
     documentation: 'https://docs.stakewise.io/',
     description:

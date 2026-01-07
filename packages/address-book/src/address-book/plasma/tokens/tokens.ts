@@ -10,7 +10,6 @@ const XPL = {
   website: 'https://www.plasma.to/',
   description: 'Plasma is a high-performance layer 1 blockchain purpose-built for stablecoins.',
   bridge: 'canonical',
-  logoURI: '',
   documentation: 'https://docs.plasma.to/docs/get-started/introduction/start-here',
 } as const satisfies Token;
 
@@ -26,7 +25,6 @@ export const tokens = {
     address: '0xB8CE59FC3717ada4C02eaDF9682A9e934F625ebb',
     chainId: 9745,
     decimals: 6,
-    logoURI: '',
     description:
       'Tether is a stablecoin pegged to the US Dollar. A stablecoin is a type of cryptocurrency whose value is pegged to another fiat currency like the US Dollar or to a commodity like Gold. Tether is the first stablecoin to be created and it is the most popular stablecoin used in the ecosystem.',
     bridge: 'layer-zero',
@@ -42,7 +40,6 @@ export const tokens = {
     decimals: 18,
     website: 'https://weth.io/',
     description: 'Ether or ETH is the native currency built on the Ethereum blockchain.',
-    logoURI: '',
     documentation: 'https://ethereum.org/en/developers/docs/',
     bridge: 'layer-zero',
   },
@@ -53,7 +50,6 @@ export const tokens = {
     address: '0x1B64B9025EEbb9A6239575dF9Ea4b9Ac46D4d193',
     chainId: 9745,
     decimals: 6,
-    logoURI: '',
     website: 'https://gold.usdt0.to/transfer',
     description:
       'Tether Gold tokens (XAUt) represents ownership of one troy ounce of physical gold held in a Swiss vault, combining the stability of precious metals with the utility of digital assets. It has become a trusted store of value for individuals and institutions seeking the security of gold without the burdens of physical custody. However, as the blockchain ecosystem expands, the movement of XAUT across chains remains disjointed and dependent on inconsistent bridging solutions, fragmented liquidity, and opaque backend processes that limit usability and access.',
@@ -67,7 +63,6 @@ export const tokens = {
     address: '0x5d3a1Ff2b6BAb83b63cd9AD0787074081a52ef34',
     chainId: 9745,
     decimals: 18,
-    logoURI: '',
     website: 'https://ethena.fi/',
     documentation: 'https://ethena-labs.gitbook.io/ethena-labs',
     description:
@@ -82,7 +77,6 @@ export const tokens = {
     address: '0x211Cc4DD073734dA055fbF44a2b4667d5E5fE5d2',
     chainId: 9745,
     decimals: 18,
-    logoURI: '',
     website: 'https://ethena.fi/',
     documentation: 'https://ethena-labs.gitbook.io/ethena-labs',
     description:
@@ -97,7 +91,6 @@ export const tokens = {
     address: '0xd1074E0AE85610dDBA0147e29eBe0D8E5873a000',
     chainId: 9745,
     decimals: 6,
-    logoURI: '',
     website: 'https://app.plasma.to/',
     description:
       'The PlasmaUSD Vault is the flagship Plasma vault managed by Veda. Deposits are deployed into blue-chip lending protocols such as Aave to generate yield.',
@@ -111,7 +104,6 @@ export const tokens = {
     address: '0xC4374775489CB9C56003BF2C9b12495fC64F0771',
     chainId: 9745,
     decimals: 6,
-    logoURI: '',
     website: 'https://app.maple.finance/',
     documentation: 'https://docs.maple.finance/integrate/syrupusd-crosschain',
     description:
@@ -125,7 +117,6 @@ export const tokens = {
     address: '0x29AD7fE4516909b9e498B5a65339e54791293234',
     chainId: 9745,
     decimals: 18,
-    logoURI: '',
     website: 'https://app.metronome.io/',
     description:
       'msUSD represents Metronome Synth USD. Through the Metronome dApp, users are able to deposit crypto assets as collateral, and use that collateral to mint popular crypto synthetics.',
@@ -140,7 +131,6 @@ export const tokens = {
     address: '0x616185600989Bf8339b58aC9e539d49536598343',
     chainId: 9745,
     decimals: 18,
-    logoURI: '',
     website: 'https://plasma.earn.trevee.xyz/',
     description:
       'splUSD represents the vault receipt token of Trevee. The vault is powered by Midas infrastructure. Deposits into splUSD is then deployed into DeFi (e.g. Aave and Fluid) strategies to generate yield.',
@@ -166,7 +156,6 @@ export const tokens = {
     address: '0xA3D68b74bF0528fdD07263c60d6488749044914b',
     chainId: 9745,
     decimals: 18,
-    logoURI: '',
     website: 'https://www.ether.fi/',
     description:
       'ether.fi is a decentralized, non-custodial delegated staking protocol with a Liquid Staking token. One of the distinguishing characteristics of ether.fi is that stakers control their keys. The ether.fi mechanism also allows for the creation of a node services marketplace where stakers and node operators can enroll nodes to provide infrastructure services.',

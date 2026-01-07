@@ -10,7 +10,6 @@ const ETH = {
   website: 'https://weth.io/',
   description: 'Ether or ETH is the native currency built on the Ethereum blockchain.',
   bridge: 'zkevm-canonical',
-  logoURI: '',
   documentation: 'https://ethereum.org/en/developers/docs/',
 } as const satisfies Token;
 
@@ -26,8 +25,6 @@ export const tokens = {
     address: '0xA8CE8aee21bC2A48a5EF670afCc9274C7bbbC035',
     chainId: 1101,
     decimals: 6,
-    logoURI:
-      'https://tokens.pancakeswap.finance/images/0xA8CE8aee21bC2A48a5EF670afCc9274C7bbbC035.svg',
     website: 'https://www.circle.com/usdc',
     documentation: 'https://developers.circle.com/docs',
     description:
@@ -42,8 +39,6 @@ export const tokens = {
     address: '0xa2036f0538221a77A3937F1379699f44945018d0',
     chainId: 1101,
     decimals: 18,
-    logoURI:
-      'https://tokens.pancakeswap.finance/images/0xa2036f0538221a77A3937F1379699f44945018d0.svg',
     website: 'https://polygon.technology/',
     description:
       'Polygon is a protocol and a framework for building and connecting Ethereum-compatible blockchain networks. Aggregating scalable solutions on Ethereum supporting a multi-chain Ethereum ecosystem.',
@@ -57,8 +52,6 @@ export const tokens = {
     address: '0xEA034fb02eB1808C2cc3adbC15f447B93CbE08e1',
     chainId: 1101,
     decimals: 8,
-    logoURI:
-      'https://tokens.pancakeswap.finance/images/0xEA034fb02eB1808C2cc3adbC15f447B93CbE08e1.svg',
     website: 'https://wbtc.network/',
     documentation: 'https://wbtc.network/',
     description:
@@ -72,8 +65,6 @@ export const tokens = {
     address: '0x1E4a5963aBFD975d8c9021ce480b42188849D41d',
     chainId: 1101,
     decimals: 6,
-    logoURI:
-      'https://tokens.pancakeswap.finance/images/0x1E4a5963aBFD975d8c9021ce480b42188849D41d.svg',
     website: 'https://tether.to/',
     description:
       'Tether is a stablecoin pegged to the US Dollar. A stablecoin is a type of cryptocurrency whose value is pegged to another fiat currency like the US Dollar or to a commodity like Gold.Tether is the first stablecoin to be created and it is the most popular stablecoin used in the ecosystem.',
@@ -88,8 +79,6 @@ export const tokens = {
     address: '0xC5015b9d9161Dca7e18e32f6f25C4aD850731Fd4',
     chainId: 1101,
     decimals: 18,
-    logoURI:
-      'https://tokens.pancakeswap.finance/images/0xC5015b9d9161Dca7e18e32f6f25C4aD850731Fd4.svg',
     website: 'https://makerdao.com/en/',
     description:
       'Dai is a stablecoin cryptocurrency which aims to keep its value as close to one United States dollar as possible through an automated system of smart contracts on the Ethereum blockchain',
@@ -104,8 +93,6 @@ export const tokens = {
     address: '0x83b874c1e09D316059d929da402dcB1A98e92082',
     chainId: 1101,
     decimals: 18,
-    logoURI:
-      'https://tokens.pancakeswap.finance/images/0x83b874c1e09D316059d929da402dcB1A98e92082.svg',
     website: 'https://polygon.lido.fi/',
     description:
       'Lido for Polygon is a liquid staking solution for MATIC backed by industry-leading staking providers.',
@@ -119,8 +106,6 @@ export const tokens = {
     address: '0x68286607A1d43602d880D349187c3c48c0fD05E6',
     chainId: 1101,
     decimals: 18,
-    logoURI:
-      'https://tokens.pancakeswap.finance/images/0x68286607A1d43602d880D349187c3c48c0fD05E6.svg',
     website: 'https://quickswap.exchange/#/swap',
     description: 'Next-gen Layer 2 DEX. Trade at lightning-fast speeds with near-zero gas fees.',
     documentation: 'https://docs.quickswap.exchange/',
@@ -133,8 +118,6 @@ export const tokens = {
     address: '0xFf8544feD5379D9ffa8D47a74cE6b91e632AC44D',
     chainId: 1101,
     decimals: 18,
-    logoURI:
-      'https://tokens.pancakeswap.finance/images/0xFf8544feD5379D9ffa8D47a74cE6b91e632AC44D.svg',
     website: 'https://frax.finance/',
     description: 'Frax is the first fractional-algorithmic stablecoin protocol.',
     documentation: 'https://docs.frax.finance/',
@@ -148,8 +131,6 @@ export const tokens = {
     address: '0xCf7eceE185f19e2E970a301eE37F93536ed66179',
     chainId: 1101,
     decimals: 18,
-    logoURI:
-      'https://tokens.pancakeswap.finance/images/0xCf7eceE185f19e2E970a301eE37F93536ed66179.svg',
     website: 'https://app.frax.finance/frxeth/mint',
     description:
       'frxETH acts as a stablecoin loosely pegged to ETH, so that 1 frxETH always represents 1 ETH and the amount of frxETH in circulation matches the amount of ETH in the Frax ETH system. When ETH is sent to the frxETHMinter, an equivalent amount of frxETH is minted. Holding frxETH on its own is not eligible for staking yield and should be thought of as analogous as holding ETH.',
@@ -163,8 +144,6 @@ export const tokens = {
     address: '0x120eF59b80774F02211563834d8E3b72cb1649d6',
     chainId: 1101,
     decimals: 18,
-    logoURI:
-      'https://tokens.pancakeswap.finance/images/0xCf7eceE185f19e2E970a301eE37F93536ed66179.svg',
     website: 'https://balancer.fi/',
     description:
       'Balancer turns the concept of an index fund on its head: instead of a paying fees to portfolio managers to rebalance your portfolio, you collect fees from traders, who rebalance your portfolio by following arbitrage opportunities. ',
@@ -181,7 +160,6 @@ export const tokens = {
     website: 'https://lido.fi/',
     description:
       'Lido is a liquid staking solution for ETH backed by industry-leading staking providers. Lido lets users stake their ETH - without locking assets or maintaining infrastructure - whilst participating in on-chain activities, e.g. lending. Lido attempts to solve the problems associated with initial ETH staking - illiquidity, immovability and accessibility - making staked ETH liquid and allowing for participation with any amount of ETH to improve security of the Ethereum network.',
-    logoURI: '',
     documentation: 'https://docs.lido.fi/',
     bridge: 'zkevm-canonical',
   },
@@ -195,7 +173,6 @@ export const tokens = {
     website: 'https://rocketpool.net/',
     description:
       'As a Rocket Pool staker, your role is to deposit ETH into the deposit pool which will enable a node operator to create a new Beacon Chain validator. You can stake as little as 0.01 ETH. In doing so, you will be given a token called rETH. rETH represents both how much ETH you deposited, and when you deposited it.',
-    logoURI: '',
     documentation: 'https://docs.rocketpool.net/guides/',
     bridge: 'zkevm-canonical',
   },
@@ -209,7 +186,6 @@ export const tokens = {
     website: 'https://aave.com/',
     description:
       'Aave is a decentralized non-custodial liquidity protocol where users can participate as depositors or borrowers. Depositors provide liquidity to the market to earn a passive income, while borrowers are able to borrow in an overcollateralized (perpetually) or undercollateralized (one-block liquidity) fashion.',
-    logoURI: 'https://ftmscan.com/token/images/aave_32.png',
     documentation: 'https://docs.aave.com/',
     bridge: 'zkevm-canonical',
   },
@@ -224,7 +200,6 @@ export const tokens = {
     description:
       'Curve is an exchange liquidity pool on Ethereum. Curve is designed for extremely efficient stablecoin trading and low risk, supplemental fee income for liquidity providers, without an opportunity cost.',
     bridge: 'zkevm-canonical',
-    logoURI: '',
     documentation: 'https://curve.readthedocs.io/',
   },
   LINK: {
@@ -238,7 +213,6 @@ export const tokens = {
     description:
       'Link is the currency used to pay the Chainlink node operators for their work. Chainlink node operators have to stake LINK in the network in order to participate and provide data services.',
     bridge: 'zkevm-canonical',
-    logoURI: 'https://hecoinfo.com/token/images/chainlink_32.png',
     documentation: 'https://docs.chain.link/resources/link-token-contracts',
   },
   ankrETH: {
@@ -248,7 +222,6 @@ export const tokens = {
     address: '0x12D8CE035c5DE3Ce39B1fDD4C1d5a745EAbA3b8C',
     chainId: 1101,
     decimals: 18,
-    logoURI: '',
     website: 'https://www.ankr.com/',
     description:
       'ankrETH is a liquid staking solution that lets users earn Ethereum staking rewards while remaining liquid. The value of ankrETH tokens appreciates over time in relation to ETH due to reward accumulation, enhancing capital efficiency and preserving liquidity.',

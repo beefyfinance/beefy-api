@@ -10,7 +10,6 @@ const ETH = {
   website: 'https://weth.io/',
   description: 'Ether or ETH is the native currency built on the Ethereum blockchain.',
   bridge: 'base-canonical',
-  logoURI: '',
   documentation: 'https://ethereum.org/en/developers/docs/',
 } as const satisfies Token;
 
@@ -29,7 +28,6 @@ export const tokens = {
     website: 'https://beefy.com',
     description:
       "The incentive-bearing Beefy Token (mooBIFI) applies the magic of Beefy's autocompounding technology to the BIFI token. It is the vault token for the BIFI Vault, which automatically claims and swaps governance incentives into more BIFI, and redeposits to unlock exponential growth. On chains other than Ethereum, mooBIFI is a bridged copy of the native Ethereum token, and cannot be returned to BIFI without first bridging back to Ethereum. mooBIFI holders on all chains retain their full voting power corresponding to the underlying amount of BIFI deposited and compounding on Ethereum.",
-    logoURI: 'https://beefy.com/icons/128/mooBIFI.png',
     documentation: 'https://docs.beefy.finance/',
     bridge: 'beefy',
   },
@@ -40,8 +38,6 @@ export const tokens = {
     address: '0xd5046B976188EB40f6DE40fB527F89c05b323385',
     chainId: 8453,
     decimals: 18,
-    logoURI:
-      'https://tokens.pancakeswap.finance/images/0xd5046B976188EB40f6DE40fB527F89c05b323385.svg',
     website: 'https://baseswap.fi/',
     description:
       'BSX is the incentives token of BaseSwap, rewarded to liquidity providers in the BaseSwap ecosystem. xBSX is the escrow version of BSX and can be vested over time.',
@@ -55,8 +51,6 @@ export const tokens = {
     address: '0x23E1A3BcDcEE4C59209d8871140eB7DD2bD9d1cE',
     chainId: 8453,
     decimals: 18,
-    logoURI:
-      'https://tokens.pancakeswap.finance/images/0x23E1A3BcDcEE4C59209d8871140eB7DD2bD9d1cE.svg',
     website: 'https://www.baso.finance/',
     description:
       'BASO is the governance token of Baso Finance, a Velodrome inspired DEX. Liquidity providers are rewarded with BASO and veBASO holders vote on liquidity pools to receive bribes and trading fees.',
@@ -70,7 +64,6 @@ export const tokens = {
     address: '0xA61BeB4A3d02decb01039e378237032B351125B4',
     chainId: 8453,
     decimals: 18,
-    logoURI: '',
     website: 'https://app.angle.money/',
     description:
       'EURA (previously agEUR) is pegged to the value of the Euro (€) and is a product of Angle, a decentralized, capital-efficient and over-collateralized stablecoins protocol.',
@@ -85,7 +78,6 @@ export const tokens = {
     address: '0x0000206329b97DB379d5E1Bf586BbDB969C63274',
     chainId: 8453,
     decimals: 18,
-    logoURI: '',
     website: 'https://app.angle.money/',
     description:
       'USDA is pegged to the value of the Dollar ($) and is a product of Angle, a decentralized, capital-efficient and over-collateralized stablecoins protocol.',
@@ -100,7 +92,6 @@ export const tokens = {
     address: '0xf34e0cff046e154CAfCae502C7541b9E5FD8C249',
     chainId: 8453,
     decimals: 18,
-    logoURI: '',
     website: 'https://thalesmarket.io/markets',
     description:
       'Thales is an Ethereum protocol that allows the creation of peer-to-peer parimutuel markets that anyone can join.',
@@ -114,7 +105,6 @@ export const tokens = {
     address: '0x22a2488fE295047Ba13BD8cCCdBC8361DBD8cf7c',
     chainId: 8453,
     decimals: 18,
-    logoURI: '',
     website: 'https://sonne.finance/',
     description:
       'Sonne Finance is an EVM compatible lending/borrowing protocol that has launched on multiple chains. Sonne Finance provides peer-to-peer lending solutions that are fully decentralized, transparent and non-custodial.',
@@ -128,8 +118,6 @@ export const tokens = {
     address: '0x6B4712AE9797C199edd44F897cA09BC57628a1CF',
     chainId: 8453,
     decimals: 18,
-    logoURI:
-      'https://tokens.pancakeswap.finance/images/0x6B4712AE9797C199edd44F897cA09BC57628a1CF.svg',
     website: 'https://app.unidex.exchange/trading',
     description:
       'UniDex is building on top of the existing landscape by introducing a perpetual leverage trading platform that will allow any synthetic asset to be traded in a permissionless, transparent, and trader-focused platform for any person to tap into.',
@@ -143,8 +131,6 @@ export const tokens = {
     address: '0x1a35EE4640b0A3B87705B0A4B45D227Ba60Ca2ad',
     chainId: 8453,
     decimals: 8,
-    logoURI:
-      'https://tokens.pancakeswap.finance/images/0x1a35EE4640b0A3B87705B0A4B45D227Ba60Ca2ad.svg',
     website: 'https://wbtc.network/',
     description: 'Wrapped Bitcoin (WBTC) is the first ERC20 token backed 1:1 with Bitcoin.',
     documentation: 'https://wbtc.network/',
@@ -157,8 +143,6 @@ export const tokens = {
     address: '0xd07379a755A8f11B57610154861D694b2A0f615a',
     chainId: 8453,
     decimals: 18,
-    logoURI:
-      'https://tokens.pancakeswap.finance/images/0xd07379a755A8f11B57610154861D694b2A0f615a.svg',
     website: 'https://swapbased.finance/#/',
     description: 'BASE is the governance token of SwapBased, a DEX built on the Base blockchain.',
     documentation: 'https://docs.swapbased.finance/',
@@ -171,8 +155,6 @@ export const tokens = {
     address: '0xFF8adeC2221f9f4D8dfbAFa6B9a297d17603493D',
     chainId: 8453,
     decimals: 18,
-    logoURI:
-      'https://tokens.pancakeswap.finance/images/0x511aB53F793683763E5a8829738301368a2411E3.svg',
     website: 'https://moonwell.fi/',
     description: 'WELL is the native governance token of the Moonwell protocol',
     bridge: 'wormhole',
@@ -185,7 +167,6 @@ export const tokens = {
     address: '0x1dd2d631c92b1aCdFCDd51A0F7145A50130050C4',
     chainId: 8453,
     decimals: 18,
-    logoURI: '',
     website: 'https://app.alienbase.xyz/swap',
     description: 'Reward token for the Alien Base DEX on the base chain. Farm and stake tokens.',
     documentation: 'https://docs.alienbase.xyz/',
@@ -198,8 +179,6 @@ export const tokens = {
     address: '0xB79DD08EA68A908A97220C76d19A6aA9cBDE4376',
     chainId: 8453,
     decimals: 6,
-    logoURI:
-      'https://tokens.pancakeswap.finance/images/0xB79DD08EA68A908A97220C76d19A6aA9cBDE4376.svg',
     website: 'https://overnight.fi/',
     description:
       'USD+ is USDC that pays you yield daily via rebase. It is 100% collateralized with assets immediately convertible into USDC. Yield is generated via strategies such as lending and stable-to-stable pools. Initial strategies include Aave, Rubicon, and Pika.',
@@ -214,8 +193,6 @@ export const tokens = {
     address: '0x65a2508C429a6078a7BC2f7dF81aB575BD9D9275',
     chainId: 8453,
     decimals: 18,
-    logoURI:
-      'https://tokens.pancakeswap.finance/images/0x65a2508C429a6078a7BC2f7dF81aB575BD9D9275.svg',
     website: 'https://overnight.fi/',
     description:
       'DAI+ is DAI that pays you yield daily via rebase.  It is 100% collateralized with assets immediately convertible into DAI.  Yield is generated via strategies such as lending and stable-to-stable pools. Initial strategies include Aave, Rubicon, and Pika.',
@@ -234,7 +211,6 @@ export const tokens = {
     description:
       'OVN token is a utility token that serves multiple purposes in the Overnight protocol. It is used for bribes to promote USD+ and incentivize conservative risk decisions, as well as for voting rights to establish decentralized risk monitoring and management processes.',
     bridge: 'axelar',
-    logoURI: '',
     documentation: 'https://docs.overnight.fi/',
   },
   MIM: {
@@ -244,8 +220,6 @@ export const tokens = {
     address: '0x4A3A6Dd60A34bB2Aba60D73B4C88315E9CeB6A3D',
     chainId: 8453,
     decimals: 18,
-    logoURI:
-      'https://tokens.pancakeswap.finance/images/0x4A3A6Dd60A34bB2Aba60D73B4C88315E9CeB6A3D.svg',
     website: 'https://docs.abracadabra.money/',
     description:
       'You, the Spellcaster, can provide collateral in the form of various interest bearing crypto assets such as yvYFI, yvUSDT, yvUSDC, xSUSHI and more. With this, you can borrow magic internet money (MIM) which is a stable coin that you can swap for any other traditional stable coin.',
@@ -260,8 +234,6 @@ export const tokens = {
     address: '0x2Ae3F1Ec7F1F5012CFEab0185bfc7aa3cf0DEc22',
     chainId: 8453,
     decimals: 18,
-    logoURI:
-      'https://tokens.pancakeswap.finance/images/0x2Ae3F1Ec7F1F5012CFEab0185bfc7aa3cf0DEc22.svg',
     website: 'https://help.coinbase.com/en/coinbase/trading-and-funding/staking-rewards/cbeth',
     description:
       "Coinbase Wrapped Staked ETH (“cbETH”) is a utility token that represents Ethereum 2 (ETH2), which is ETH staked through Coinbase. Over time, the price of cbETH will likely deviate from ETH because cbETH represents 1 staked ETH plus all of its accrued staking interest starting from when cbETH's conversion rate and balance were initialized (June 16, 2022 19:34 UTC). cbETH is minted exclusively by Coinbase.",
@@ -276,8 +248,6 @@ export const tokens = {
     address: '0xEB466342C4d449BC9f53A865D5Cb90586f405215',
     chainId: 8453,
     decimals: 6,
-    logoURI:
-      'https://tokens.pancakeswap.finance/images/0xEB466342C4d449BC9f53A865D5Cb90586f405215.svg',
     website: 'https://www.axelar.network/',
     bridge: 'axelar',
     description:
@@ -296,7 +266,6 @@ export const tokens = {
     documentation: 'https://docs.axelar.dev/',
     description:
       'axlUSDT is a cross-chain representation of USDT, secured by a validator set using delegated Proof-of-Stake and multi-party cryptography. It allows USDT to move seamlessly across different blockchain ecosystems, minted by depositing USDT into an Axelar Gateway on Ethereum, and can be acquired through DEXs, cross-chain swaps via Squid, or bridging via Satellite.money.',
-    logoURI: 'https://hecoinfo.com/token/images/USDTHECO_32.png',
     bridge: 'axelar',
     tags: ['STABLECOIN'],
   },
@@ -307,8 +276,6 @@ export const tokens = {
     address: '0xAB8a1c03b8E4e1D21c8Ddd6eDf9e07f26E843492',
     chainId: 8453,
     decimals: 18,
-    logoURI:
-      'https://tokens.pancakeswap.finance/images/0xAB8a1c03b8E4e1D21c8Ddd6eDf9e07f26E843492.svg',
     website: '',
     description: 'Meme coin on Base.',
     documentation: '',
@@ -323,7 +290,6 @@ export const tokens = {
     website: 'https://www.centre.io/',
     description: 'USDC.e is an Ethereum-based USDC bridged via the official Base Bridge.',
     chainId: 8453,
-    logoURI: '',
     documentation: 'https://www.circle.com/blog/usdc-now-available-natively-on-base',
     bridge: 'base-canonical',
     tags: ['STABLECOIN'],
@@ -338,7 +304,6 @@ export const tokens = {
     description:
       'USDC is a fully collateralized US dollar stablecoin. USDC is issued by regulated financial institutions, backed by fully reserved assets, redeemable on a 1:1 basis for US dollars.',
     chainId: 8453,
-    logoURI: '',
     documentation: 'https://developers.circle.com/docs',
     bridge: 'native',
     tags: ['STABLECOIN'],
@@ -350,7 +315,6 @@ export const tokens = {
     address: '0x50c5725949A6F0c72E6C4a641F24049A917DB0Cb',
     chainId: 8453,
     decimals: 18,
-    logoURI: '',
     website: 'https://makerdao.com/en/',
     bridge: 'base-canonical',
     documentation:
@@ -370,7 +334,6 @@ export const tokens = {
     documentation: 'https://aerodrome.finance/docs',
     description:
       "Aerodrome Finance is a next-generation AMM designed to serve as Base's central liquidity hub, combining a powerful liquidity incentive engine, vote-lock governance model, and friendly user experience. Aerodrome inherits the latest features from Velodrome V2.",
-    logoURI: '',
     bridge: 'native',
   },
   DOLA: {
@@ -380,7 +343,6 @@ export const tokens = {
     address: '0x4621b7A9c75199271F773Ebd9A499dbd165c3191',
     chainId: 8453,
     decimals: 18,
-    logoURI: '',
     website: 'https://www.inverse.finance/',
     description:
       'Inverse.finance is a suite of permissionless decentralized finance tools governed by Inverse DAO, a decentralized autonomous organization running on the Ethereum blockchain.',
@@ -398,7 +360,6 @@ export const tokens = {
     website: 'https://www.mai.finance/',
     description:
       "MAI is a stablecoin collateralized by your crypto holdings. It's powered by Qi Dao, a protocol that enables any cryptocurrency community to create stablecoins backed by their native tokens.",
-    logoURI: 'https://raw.githubusercontent.com/0xlaozi/qidao/main/images/mimatic-red.png',
     documentation: 'https://docs.mai.finance/',
     bridge: 'native',
     tags: ['STABLECOIN', 'SYNTHETIC'],
@@ -414,7 +375,6 @@ export const tokens = {
     documentation: 'https://docs.tangible.store/',
     description:
       'Real USD (USDR) is the world’s first stablecoin collateralized by tokenized, yield-producing real estate. USDR has a value accrual system built into its design. Using a consistent stream of dependable yield derived from rental revenue, Real USD delivers a native yield to holders.',
-    logoURI: '',
     bridge: 'layer-zero',
     tags: ['SYNTHETIC'],
   },
@@ -425,7 +385,6 @@ export const tokens = {
     address: '0x236aa50979D5f3De3Bd1Eeb40E81137F22ab794b',
     chainId: 8453,
     decimals: 18,
-    logoURI: '',
     website: 'https://threshold.network/',
     documentation: 'https://docs.threshold.network/',
     description:
@@ -442,7 +401,6 @@ export const tokens = {
     website: 'https://www.based.markets/',
     description:
       'Based offers intent-based P2P derivatives with deep liquidity sourced from centralized exchanges.',
-    logoURI: '',
     bridge: 'native',
     tags: ['SYNTHETIC'],
   },
@@ -453,7 +411,6 @@ export const tokens = {
     address: '0x417Ac0e078398C154EdFadD9Ef675d30Be60Af93',
     chainId: 8453,
     decimals: 18,
-    logoURI: '',
     website: 'https://curve.finance/crvusd',
     description:
       'crvUSD is a collateralized-debt-position (CDP) stablecoin pegged to the US Dollar',
@@ -468,8 +425,6 @@ export const tokens = {
     address: '0x6FbFcf88DB1aADA31F34215b2a1Df7fafb4883e9',
     chainId: 8453,
     decimals: 18,
-    logoURI:
-      'https://tokens.pancakeswap.finance/images/0x4988a896b1227218e4A686fdE5EabdcAbd91571f.svg',
     website: 'https://app.balancer.fi/#/',
     bridge: 'native',
     documentation: 'https://docs.balancer.fi/products/balancer-pools/boosted-pools',
@@ -484,7 +439,6 @@ export const tokens = {
     address: '0xd386a121991E51Eab5e3433Bf5B1cF4C8884b47a',
     chainId: 8453,
     decimals: 18,
-    logoURI: '',
     website: 'https://base.velocimeter.xyz',
     description:
       'BVM is the native token for Velocimeter on Base (BVM), a project providing liquidity on the chain where it is needed most. The BVM token can be staked as or locked to earn rewards on the BVM platform.',
@@ -498,7 +452,6 @@ export const tokens = {
     address: '0x762eb51D2e779EeEc9B239FFB0B2eC8262848f3E',
     chainId: 8453,
     decimals: 18,
-    logoURI: '',
     website: 'https://base.velocimeter.xyz',
     description:
       'oBVM is an options token that helps to reduce sell pressure on the native BVM token. It is earned by liquidity providers (LPs) who provide liquidity to the BVM pools. oBVM can be redeemed for BVM at a discount, or it can be locked up for a period of time as veBVM. veBVM is a governance token that allows holders to vote on the distribution of emissions, as well as receive weekly bribes and fees.',
@@ -516,7 +469,6 @@ export const tokens = {
     description:
       'As a Rocket Pool staker, your role is to deposit ETH into the deposit pool which will enable a node operator to create a new Beacon Chain validator. You can stake as little as 0.01 ETH. In doing so, you will be given a token called rETH. rETH represents both how much ETH you deposited, and when you deposited it.',
     bridge: 'base-canonical',
-    logoURI: '',
     documentation: 'https://docs.rocketpool.net/guides/',
   },
   FTW: {
@@ -526,7 +478,6 @@ export const tokens = {
     address: '0x3347453Ced85bd288D783d85cDEC9b01Ab90f9D8',
     chainId: 8453,
     decimals: 9,
-    logoURI: '',
     website: 'https://friendtech33.xyz',
     description:
       'FriendTech33 combines the metas of Friend Tech into a DAO format backing a deeply liquid reserve currency with Friend Tech assets including keys, wrapped keys, ecosystem related project tokens, and finally the airdropped token itself.',
@@ -539,7 +490,6 @@ export const tokens = {
     address: '0x54016a4848a38f257B6E96331F7404073Fd9c32C',
     chainId: 8453,
     decimals: 18,
-    logoURI: '',
     website: 'https://base.equalizer.exchange/',
     description:
       'Equalizer was derived from the initial concept of Andre Cronje. The mechanism that was used to create a perpetual decentralized exchange was unique and ingenious. The launch of this platform is to take the concept and apply it to a more natural style DEX. Equalizer will become the trading mechanism for the Fantom network, utilizing the Solidly perpetual model with some tweaks to fee structures and emissions. ',
@@ -553,7 +503,6 @@ export const tokens = {
     address: '0xCc7FF230365bD730eE4B352cC2492CEdAC49383e',
     chainId: 8453,
     decimals: 18,
-    logoURI: '',
     website: 'https://linktr.ee/hyusd',
     description:
       'A decentralized flatcoin that provides convenient access to DeFi yields, enabling holders to earn passive income on their capital. Governance should aim to take low to moderate risk to return high DeFi yields in order to mitigate against inflation.',
@@ -568,7 +517,6 @@ export const tokens = {
     address: '0xCfA3Ef56d303AE4fAabA0592388F19d7C3399FB4',
     chainId: 8453,
     decimals: 18,
-    logoURI: '',
     website:
       'https://app.reserve.org/ethereum/token/0xa0d69e286b938e21cbf7e51d71f6a4c8918f482f/overview',
     description:
@@ -584,7 +532,6 @@ export const tokens = {
     address: '0xc1CBa3fCea344f92D9239c08C0568f6F2F0ee452',
     chainId: 8453,
     decimals: 18,
-    logoURI: '',
     website: 'https://lido.fi/',
     description:
       'Lido is a liquid staking solution for ETH backed by industry-leading staking providers. Lido lets users stake their ETH - without locking assets or maintaining infrastructure - whilst participating in on-chain activities, e.g. lending. Lido attempts to solve the problems associated with initial ETH staking - illiquidity, immovability and accessibility - making staked ETH liquid and allowing for participation with any amount of ETH to improve security of the Ethereum network.',
@@ -598,7 +545,6 @@ export const tokens = {
     address: '0x8Ee73c484A26e0A5df2Ee2a4960B789967dd0415',
     chainId: 8453,
     decimals: 18,
-    logoURI: '',
     website: 'https://curve.finance/',
     description:
       'Curve is an exchange liquidity pool on Ethereum. Curve is designed for extremely efficient stablecoin trading and low risk, supplemental fee income for liquidity providers, without an opportunity cost.',
@@ -612,7 +558,6 @@ export const tokens = {
     address: '0x85483696Cc9970Ad9EdD786b2C5ef735F38D156f',
     chainId: 8453,
     decimals: 6,
-    logoURI: '',
     bridge: 'native',
     website: 'https://overnight.fi/',
     description:
@@ -626,7 +571,6 @@ export const tokens = {
     address: '0xCb327b99fF831bF8223cCEd12B1338FF3aA322Ff',
     chainId: 8453,
     decimals: 18,
-    logoURI: '',
     website:
       'https://app.reserve.org/base/token/0xcb327b99ff831bf8223cced12b1338ff3aa322ff/overview',
     description:
@@ -641,7 +585,6 @@ export const tokens = {
     address: '0x0d97F261b1e88845184f678e2d1e7a98D9FD38dE',
     chainId: 8453,
     decimals: 18,
-    logoURI: '',
     website: 'https://basegod.fun/',
     description:
       'In the spirit of being based and fair, $TYBG was stealth launched with no tax or team/presale tokens. Memecoin.',
@@ -655,7 +598,6 @@ export const tokens = {
     address: '0x994ac01750047B9d35431a7Ae4Ed312ee955E030',
     chainId: 8453,
     decimals: 18,
-    logoURI: '',
     website: 'https://app.optimism.io/governance',
     description:
       'Optimistic Rollup is a layer 2 scaling solution that scales both transaction throughput and computation on Ethereum. The backbone of our implementation is the Optimistic Virtual Machine (OVM), which is fully compatible with the EVM.',
@@ -669,8 +611,6 @@ export const tokens = {
     address: '0x9E53e88dCff56d3062510A745952DEC4cEFDff9E',
     chainId: 8453,
     decimals: 18,
-    logoURI:
-      'https://tokens.pancakeswap.finance/images/0x9E53e88dCff56d3062510A745952DEC4cEFDff9E.svg',
     website: 'https://basicdog.xyz/',
     description: 'The first meme coin on Base. Fairly Launched. Organic Growth. Good Vibes.',
     documentation: 'https://basicdog.gitbook.io/basic-meme-chain/',
@@ -683,7 +623,6 @@ export const tokens = {
     chainId: 8453,
     oracleId: 'SNX',
     decimals: 18,
-    logoURI: '',
     website: 'https://www.synthetix.io/',
     description:
       'Synthetix is the backbone for derivatives trading in DeFi, allowing anyone, anywhere to gain on-chain exposure to a vast range of assets.',
@@ -698,7 +637,6 @@ export const tokens = {
     chainId: 8453,
     decimals: 18,
     oracleId: 'T',
-    logoURI: '',
     website: 'https://threshold.network/',
     description:
       'Threshold is the first ever on-chain merge between two existing networks and communities, Keep and NuCypher. Threshold provides a suite of threshold cryptography services that power user sovereignty on the blockchain.',
@@ -713,7 +651,6 @@ export const tokens = {
     chainId: 8453,
     decimals: 18,
     oracleId: 'DEGEN',
-    logoURI: '',
     website: 'https://www.degen.tips/',
     description:
       'Degen is an unofficial token that were distributed to the community on the decentralized social network, Farcaster.',
@@ -728,7 +665,6 @@ export const tokens = {
     chainId: 8453,
     decimals: 18,
     oracleId: 'doginme',
-    logoURI: '',
     website: 'https://dogin.meme/',
     description:
       'The $doginme memecoin roots were established when a Farcaster user inquired if Dan Romero (DWR), the founder of the decentralized social media platform, owned a dog.',
@@ -741,7 +677,6 @@ export const tokens = {
     chainId: 8453,
     decimals: 18,
     oracleId: 'RSR',
-    logoURI: '',
     website: 'https://reserve.org/',
     description:
       'The Reserve protocol is the first platform that allows for the permissionless creation of asset-backed, yield-bearing & overcollateralized stablecoins. Reserve Rights (RSR) exists as an overcollateralization mechanism to protect RToken holders in the unlikely event of a collateral token default.',
@@ -755,7 +690,6 @@ export const tokens = {
     chainId: 8453,
     oracleId: 'rgUSD',
     decimals: 18,
-    logoURI: '',
     website:
       'https://app.reserve.org/ethereum/token/0x78da5799cf427fee11e9996982f4150ece7a99a7/overview',
     description:
@@ -771,7 +705,6 @@ export const tokens = {
     chainId: 8453,
     decimals: 18,
     oracleId: 'TN100x',
-    logoURI: '',
     website: 'https://ham.fun/',
     description:
       'TN100x is the coin that powers the HAM ecosystem, an upcoming layer 3 blockchain. More than a memecoin, it’s a social token, and a driving force behind everything Ham.',
@@ -785,7 +718,6 @@ export const tokens = {
     chainId: 8453,
     decimals: 18,
     oracleId: 'CHAD',
-    logoURI: '',
     website: 'https://basedchad.com/',
     description:
       'You can’t say anything is more based than putting the best meme of all time on the most based L2.',
@@ -798,7 +730,6 @@ export const tokens = {
     chainId: 8453,
     decimals: 18,
     oracleId: 'ANIME',
-    logoURI: '',
     website: 'https://www.animeonbase.art/',
     description:
       '$ANIME has grown into a movement uniting people from around the world by their love of art and anime. No VCs, influencers, or utility. Just art and memes.',
@@ -811,7 +742,6 @@ export const tokens = {
     chainId: 8453,
     decimals: 18,
     oracleId: 'L2VE',
-    logoURI: '',
     website: 'https://www.l2ve.me/',
     description:
       'The Cupid Inu memecoin has landed on BASE, with a mission to scatter as much $L2VE as possible.',
@@ -824,7 +754,6 @@ export const tokens = {
     chainId: 8453,
     decimals: 18,
     oracleId: 'SEXY',
-    logoURI: '',
     website: 'https://docs.ethxy.com/',
     description:
       'EthXY is a MMORPG built on top of Telegram. SEXY is a game token used for a variety of game mechanics and weapon + armor purchases.',
@@ -839,7 +768,6 @@ export const tokens = {
     chainId: 8453,
     decimals: 18,
     oracleId: 'sFRAX',
-    logoURI: '',
     website: 'https://app.frax.finance/sfrax/stake',
     description:
       'Staked FRAX (sFRAX) is an ERC4626 staking vault that distributes part of the Frax Protocol yield weekly to stakers denominated in FRAX stablecoins. The sFRAX token represents pro rata deposits within the vault and is always withdrawable for FRAX stablecoins at the pro rata rate at all times. sFRAX APY attempts to roughly track the interest on reserve balances (IORB) rate of the United States Federal Reserve using the IORB oracle. This benchmark rate is generally accepted as the “risk free rate” of the US Dollar. The FRAX staking vault attempts, but does not guarantee in any way, to target this rate.',
@@ -854,7 +782,6 @@ export const tokens = {
     chainId: 8453,
     decimals: 18,
     oracleId: 'sfrxETH',
-    logoURI: '',
     website: 'https://app.frax.finance/frxeth/mint',
     description:
       'sfrxETH is a ERC-4626 vault designed to accrue the staking yield of the Frax ETH validators. At any time, frxETH can be exchanged for sfrxETH by depositing it into the sfrxETH vault, which allows users to earn staking yield on their frxETH. Over time, as validators accrue staking yield, an equivalent amount of frxETH is minted and added to the vault, allowing users to redeem their sfrxETH for an greater amount of frxETH than they deposited.',
@@ -869,7 +796,6 @@ export const tokens = {
     chainId: 8453,
     decimals: 18,
     oracleId: 'FXS',
-    logoURI: 'https://app.sushi.com/images/tokens/fxs-square.jpg',
     website: 'https://frax.finance/',
     description:
       'The Frax Share token (FXS) is the non-stable, utility token in the protocol. It is meant to be volatile and hold rights to governance and all utility of the system. It is important to note that we take a highly governance-minimized approach to designing trustless money in the same ethos as Bitcoin. We eschew DAO-like active management such as MakerDAO. The less parameters for a community to be able to actively manage, the less there is to disagree on. Parameters that are up for governance through FXS include adding/adjusting collateral pools, adjusting various fees (like minting or redeeming), and refreshing the rate of the collateral ratio. No other actions such as active management of collateral or addition of human-modifiable parameters are possible other than a hardfork that would require voluntarily moving to a new implementation entirely. ',
@@ -884,7 +810,6 @@ export const tokens = {
     chainId: 8453,
     decimals: 18,
     oracleId: 'ezETH',
-    logoURI: '',
     website: 'https://www.renzoprotocol.com/',
     description:
       'Renzo ezETH is a Liquid Restaking Token (LRT) and Strategy Manager for EigenLayer. It is the interface to the EigenLayer ecosystem securing Actively Validated Services (AVSs) and offering a higher yield than ETH staking.',
@@ -899,7 +824,6 @@ export const tokens = {
     address: '0xA88594D404727625A9437C3f886C7643872296AE',
     chainId: 8453,
     decimals: 18,
-    logoURI: '',
     website: 'https://moonwell.fi/',
     description: 'WELL is the native governance token of the Moonwell protocol.',
     bridge: 'native',
@@ -912,7 +836,6 @@ export const tokens = {
     address: '0x373504DA48418C67E6FCD071F33Cb0b3B47613C7',
     chainId: 8453,
     decimals: 18,
-    logoURI: '',
     website: 'https://www.basedoge.xyz/',
     description: 'Meme dog token on base.',
     bridge: 'native',
@@ -925,7 +848,6 @@ export const tokens = {
     address: '0xD3FDCb837DAfdb7C9C3eBD48FE22a53F6Dd3d7D7',
     chainId: 8453,
     decimals: 18,
-    logoURI: 'https://raw.githubusercontent.com/0xlaozi/qidao/main/images/qi.png',
     website: 'https://www.mai.finance/',
     description:
       'QiDao is a self-sustaining, community-governed protocol that allows you to borrow stablecoins against your crypto assets used as collateral. Loans are paid out and repaid in MAI (stablecoin soft pegged to the USD).',
@@ -939,7 +861,6 @@ export const tokens = {
     address: '0x777b2839832982B35213063d850848369390EE16',
     chainId: 8453,
     decimals: 18,
-    logoURI: '',
     website: 'https://jarvis.network/',
     description:
       'Jarvis provides stablecoins (jFIATs) are over-collateralized, stable and liquid on-chain fiat currencies that anyone can use to gain exposure to many fiat currencies, access liquidity, credit, yield and other financial services.',
@@ -953,7 +874,6 @@ export const tokens = {
     address: '0xB166E8B140D35D9D8226E40C09f757BAC5A4d87d',
     chainId: 8453,
     decimals: 18,
-    logoURI: '',
     website: 'https://www.nonplayablecoin.io/',
     description:
       'Non-Playable Coin (NPC) is a memecoin actually backed by one of the most recognizable memes on the internet. Trade it as an NFT or as a memecoin, it doesn’t matter. It’s the first memecoin-NFT hybrid.',
@@ -966,7 +886,6 @@ export const tokens = {
     address: '0x2Da56AcB9Ea78330f947bD57C54119Debda7AF71',
     chainId: 8453,
     decimals: 18,
-    logoURI: '',
     website: 'https://mogcoin.xyz/',
     description:
       '$Mog is the internet’s first culture coin. Starting as a meme among friends in the summer of 2023 it has set itself apart from other projects through its open-ended memetic branding and unique content.',
@@ -979,7 +898,6 @@ export const tokens = {
     address: '0x1f3BA804eFB9CFe17D595e7262CEA4782dbF6e4E',
     chainId: 8453,
     decimals: 18,
-    logoURI: '',
     website: 'https://www.happypuppyclub.xyz/',
     description:
       'The Happy Puppy Club ($HPC) memecoin embodies the spirit of "we in the club, onchain".',
@@ -992,7 +910,6 @@ export const tokens = {
     address: '0xEcE7B98bD817ee5B1F2f536dAf34D0B6af8Bb542',
     chainId: 8453,
     decimals: 18,
-    logoURI: '',
     website: 'https://www.blackrockonbase.com/',
     description:
       "Just a black rock on Base. BLACK ROCK is NOT in any way associated with BlackRock, the financial institution with $9 trillion USD AUM. If you're looking for financial incentives, look elsewhere. It's literally just a black rock on Base.",
@@ -1007,7 +924,6 @@ export const tokens = {
     address: '0xba7D47f471ADD16875e765edEe0858C3413A56Fd',
     chainId: 8453,
     decimals: 18,
-    logoURI: '',
     website: 'https://mstable.org/',
     description:
       'Meta Vault is a composable architecture for yield-bearing tokens. It combines, optimizes and allocates yield in a diversified manner.',
@@ -1021,7 +937,6 @@ export const tokens = {
     address: '0xc5102fE9359FD9a28f877a67E36B0F050d81a3CC',
     chainId: 8453,
     decimals: 18,
-    logoURI: '',
     website: 'https://app.hop.exchange',
     description:
       'Hop Protocol is a blockchain bridge protocol that allows users to move tokens from one chain to another without having to wait for a challenge period',
@@ -1035,7 +950,6 @@ export const tokens = {
     address: '0xcDE90558fc317C69580DeeAF3eFC509428Df9080',
     chainId: 8453,
     decimals: 18,
-    logoURI: '',
     website: 'https://www.normilio.com/',
     description:
       'A community driven project that aims to bring the normalest memecoin to the base.',
@@ -1048,7 +962,6 @@ export const tokens = {
     address: '0xd652C5425aea2Afd5fb142e120FeCf79e18fafc3',
     chainId: 8453,
     decimals: 18,
-    logoURI: '',
     website: 'https://pooltogether.com/',
     description: 'PoolTogether is a prize savings protocol, enabling you to win by saving.',
     documentation: 'https://docs.pooltogether.com/',
@@ -1061,7 +974,6 @@ export const tokens = {
     address: '0x368181499736d0c0CC614DBB145E2EC1AC86b8c6',
     chainId: 8453,
     decimals: 18,
-    logoURI: '',
     website: 'https://www.liquity.org/',
     description:
       'Liquity is a decentralized borrowing protocol that allows you to draw interest-free loans against Ether used as collateral. Loans are paid out in LUSD (a USD pegged stablecoin) and need to maintain a minimum collateral ratio of 110%.',
@@ -1076,7 +988,6 @@ export const tokens = {
     address: '0x1db0c569ebb4a8b57AC01833B9792F526305e062',
     chainId: 8453,
     decimals: 18,
-    logoURI: '',
     website: 'https://genomes.io/',
     description:
       'GENOME is the utility and governance token of the GenomesDAO. The token is used for value transfer in the Genomes.io platform as well as being used for all payments and actions across the GenomesDAO infrastructure.',
@@ -1089,7 +1000,6 @@ export const tokens = {
     address: '0xEDfa23602D0EC14714057867A78d01e94176BEA0',
     chainId: 8453,
     decimals: 18,
-    logoURI: '',
     website: 'https://kelpdao.xyz/',
     description:
       'The rsETHWrapper contract serves as a standardized interface for rsETH tokens, which are Liquid Restaked Tokens (LRT) issued by Kelp DAO. Designed to offer liquidity to illiquid assets deposited into restaking platforms like EigenLayer, users can interact with these tokens seamlessly.',
@@ -1104,7 +1014,6 @@ export const tokens = {
     address: '0x04C0599Ae5A44757c0af6F9eC3b93da8976c150A',
     chainId: 8453,
     decimals: 18,
-    logoURI: '',
     website: 'https://ether.fi/',
     description:
       'Stake ETH, get eETH - a natively restaked liquid staking token that fuels DeFi and decentralizes Ethereum.',
@@ -1119,7 +1028,6 @@ export const tokens = {
     address: '0xDCEFd8C8fCc492630B943ABcaB3429F12Ea9Fea2',
     chainId: 8453,
     decimals: 9,
-    logoURI: '',
     website: 'https://www.klimadao.finance/',
     documentation: 'https://docs.klimadao.finance/',
     description:
@@ -1134,7 +1042,6 @@ export const tokens = {
     address: '0x04D5ddf5f3a8939889F11E97f8c4BB48317F1938',
     chainId: 8453,
     decimals: 18,
-    logoURI: '',
     description:
       'USDz is a stablecoin supported by a diversified portfolio of private credit assets. These assets are meticulously underwritten in collaboration with Percent, a US licensed broker-dealer. Percent has structured and serviced over $1.7B in credit deals since 2018. Anzen invests capital alongside institutional fiat investors. The yield from its credit portfolio offers a sustainable income stream, which supports staking rewards for on-chain USDz holders.',
     website: 'https://anzen.finance/',
@@ -1149,7 +1056,6 @@ export const tokens = {
     address: '0xcD2F22236DD9Dfe2356D7C543161D4d260FD9BcB',
     chainId: 8453,
     decimals: 18,
-    logoURI: '',
     website: 'https://www.aavegotchi.com/',
     description:
       'Aavegotchis are crypto-collectibles living on the Ethereum blockchain, backed by the ERC721 standard used in popular blockchain games.',
@@ -1163,7 +1069,6 @@ export const tokens = {
     address: '0x416bd43Bc76D496ff49923c20eCaf86b52Ab078d',
     chainId: 8453,
     decimals: 18,
-    logoURI: '',
     website: 'https://www.harbor.market/',
     description:
       'HBR is the governance token of Harbor Market, a lending platform on BSC forked from Aave V2.',
@@ -1177,8 +1082,6 @@ export const tokens = {
     address: '0xfde4C96c8593536E31F229EA8f37b2ADa2699bb2',
     chainId: 8453,
     decimals: 6,
-    logoURI:
-      'https://tokens.pancakeswap.finance/images/0x4988a896b1227218e4A686fdE5EabdcAbd91571f.svg',
     website: 'https://tether.to/',
     documentation: 'https://tether.to/en/how-it-works',
     description:
@@ -1197,7 +1100,6 @@ export const tokens = {
     description:
       'UNI is the governance token for Uniswap. UNI was introduced on 16th September 2020 through a retrospective airdrop to users who have interacted with the protocol either by swapping tokens or by providing liquidity.',
     bridge: 'base-canonical',
-    logoURI: '',
     documentation: 'https://docs.uniswap.org/concepts/governance/overview',
   },
   ZRO: {
@@ -1207,7 +1109,6 @@ export const tokens = {
     address: '0x6985884C4392D348587B19cb9eAAf157F13271cd',
     chainId: 8453,
     decimals: 18,
-    logoURI: '',
     website: 'https://layerzero.network/',
     documentation: 'https://docs.layerzero.network/v2',
     description:
@@ -1221,7 +1122,6 @@ export const tokens = {
     address: '0xBA5EDE8d98ab88CEa9f0D69918ddE28Dc23c2553',
     chainId: 8453,
     decimals: 18,
-    logoURI: '',
     website: 'https://www.basednormus.com/',
     documentation: 'https://www.basednormus.com/',
     description:
@@ -1239,7 +1139,6 @@ export const tokens = {
     description:
       'jEUR is a multi-collateralized synthetic token tracking the price of Euro. It is built on the top of UMA and Chainlink.',
     bridge: 'chainlink-ccip',
-    logoURI: 'https://i.imgur.com/ZvP634G.png',
     documentation: 'https://learn.jarvis.network/',
     tags: ['STABLECOIN', 'SYNTHETIC'],
   },
@@ -1250,7 +1149,6 @@ export const tokens = {
     address: '0xe31eE12bDFDD0573D634124611e85338e2cBF0cF',
     chainId: 8453,
     decimals: 18,
-    logoURI: '',
     description:
       'sUSDz is a token that represents staked USDz. It accumulates value from USDz staking rewards sent by the protocol and backed by the protocols portfolio of private credit assets. sUSDz is a reward-bearing token, similar to sUSDe or sDAI. Unlike rebasing tokens such as stETH, the price of sUSDz increases over time.',
     website: 'https://anzen.finance/',
@@ -1265,7 +1163,6 @@ export const tokens = {
     address: '0x526728DBc96689597F85ae4cd716d4f7fCcBAE9d',
     chainId: 8453,
     decimals: 18,
-    logoURI: '',
     description:
       'msUSD represents Metronome Synth USD. Through the Metronome dApp, users are able to deposit crypto assets as collateral, and use that collateral to mint popular crypto synthetics.',
     website: 'https://metronome.io/',
@@ -1280,7 +1177,6 @@ export const tokens = {
     address: '0x7Ba6F01772924a82D9626c126347A28299E98c98',
     chainId: 8453,
     decimals: 18,
-    logoURI: '',
     description:
       'msETH represents Metronome Synth ETH. Through the Metronome dApp, users are able to deposit crypto assets as collateral, and use that collateral to mint popular crypto synthetics.',
     website: 'https://metronome.io/',
@@ -1295,7 +1191,6 @@ export const tokens = {
     address: '0xebfF2db643Cf955247339c8c6bCD8406308ca437',
     chainId: 8453,
     decimals: 18,
-    logoURI: '',
     description: 'CHOMP is the fiercest little fuzzball on Base. Meme coin on Base.',
     website: 'https://www.chompcoin.xyz/',
     bridge: 'native',
@@ -1307,7 +1202,6 @@ export const tokens = {
     address: '0xB1a03EdA10342529bBF8EB700a06C60441fEf25d',
     chainId: 8453,
     decimals: 18,
-    logoURI: '',
     description: 'Mr. Miggles, The Coinbase Cat Mascot. Meme coin on Base.',
     website: 'https://mrmigglesbase.com/',
     bridge: 'native',
@@ -1319,7 +1213,6 @@ export const tokens = {
     address: '0xE3086852A4B125803C815a158249ae468A3254Ca',
     chainId: 8453,
     decimals: 18,
-    logoURI: '',
     description: 'Meme coin for every crypto mfer on Base.',
     website: 'https://linktr.ee/Mfercoin',
     bridge: 'native',
@@ -1331,7 +1224,6 @@ export const tokens = {
     address: '0x60a3E35Cc302bFA44Cb288Bc5a4F316Fdb1adb42',
     chainId: 8453,
     decimals: 6,
-    logoURI: '',
     description:
       'EURC is a euro-backed stablecoin that’s accessible globally on Avalanche, Ethereum, Base and Stellar. Similar to USDC, EURC is issued by Circle under a full-reserve model.',
     website: 'https://www.circle.com/en/eurc',
@@ -1345,7 +1237,6 @@ export const tokens = {
     address: '0x52b492a33E447Cdb854c7FC19F1e57E8BfA1777D',
     chainId: 8453,
     decimals: 18,
-    logoURI: '',
     description:
       'Based Pepe was launched quietly with no presale, zero taxes, locked LP, and a renounced contract – ensuring it remains a token for the people, forever. Meme coin on Base.',
     website: 'https://basedpepe.vip/',
@@ -1358,7 +1249,6 @@ export const tokens = {
     address: '0x9e1028F5F1D5eDE59748FFceE5532509976840E0',
     chainId: 8453,
     decimals: 18,
-    logoURI: '',
     description:
       'COMP is the governance token of Compound, a decentralized protocol that enables supplying of crypto assets as collateral in order to borrow a base asset.',
     website: 'https://compound.finance/',
@@ -1372,7 +1262,6 @@ export const tokens = {
     address: '0x9a26F5433671751C3276a065f57e5a02D2817973',
     chainId: 8453,
     decimals: 18,
-    logoURI: '',
     description:
       'Keyboard Cat is an iconic internet meme featuring a cat named Fatso, who plays a keyboard with surprising musical talent! Meme coin on Base.',
     website: 'https://www.keyboardcat.fun/',
@@ -1386,7 +1275,6 @@ export const tokens = {
     address: '0xAC1Bd2486aAf3B5C0fc3Fd868558b082a531B2B4',
     chainId: 8453,
     decimals: 18,
-    logoURI: '',
     description:
       "TOSHI is a memecoin named after Coinbase co-founder Brian Armstrong's cat and the pseudonymous creator of Bitcoin, Satoshi Nakamoto. It serves as the face and mascot of the Base blockchain. Meme coin on Base.",
     website: 'https://www.toshithecat.com/',
@@ -1400,7 +1288,6 @@ export const tokens = {
     address: '0x5D559eA7bB2DAE4B694A079cb8328a2145Fd32f6',
     chainId: 8453,
     decimals: 18,
-    logoURI: '',
     description:
       'OwO is the community token of Social Monster! It is a way to redistribute the value created by the social app to the most engaged and loyal community members.',
     website: 'https://www.social.monster/',
@@ -1414,8 +1301,6 @@ export const tokens = {
     address: '0xcbB7C0000aB88B473b1f5aFd9ef808440eed33Bf',
     chainId: 8453,
     decimals: 8,
-    logoURI:
-      'https://tokens.pancakeswap.finance/images/0x1a35EE4640b0A3B87705B0A4B45D227Ba60Ca2ad.svg',
     website: 'https://www.coinbase.com/',
     description:
       'Coinbase Wrapped Bitcoin (cbBTC) is backed 1:1 with Bitcoin, custodied with Coinbase.',
@@ -1429,7 +1314,6 @@ export const tokens = {
     address: '0x6C240DDA6b5c336DF09A4D011139beAAa1eA2Aa2',
     chainId: 8453,
     decimals: 18,
-    logoURI: '',
     website: 'https://www.ether.fi/',
     documentation: 'https://etherfi.gitbook.io/etherfi',
     bridge: 'wormhole',
@@ -1444,7 +1328,6 @@ export const tokens = {
     address: '0x1fba65dE0a9cBD2D1DF82d141897042d36Bb6c86',
     chainId: 8453,
     decimals: 18,
-    logoURI: '',
     description: 'LITERALLY JUST A DOG WIF A HAT',
     website: 'https://dogwifcoin.org/',
     bridge: 'layer-zero',
@@ -1456,7 +1339,6 @@ export const tokens = {
     address: '0x50dA645f148798F68EF2d7dB7C1CB22A6819bb2C',
     chainId: 8453,
     decimals: 8,
-    logoURI: '',
     description:
       'SPX6900 is an advanced blockchain cryptography token coin capable of limitless possibilities and scientific utilization. Ethereum based memecoin.',
     website: 'https://spx6900.com/',
@@ -1469,7 +1351,6 @@ export const tokens = {
     address: '0x4E74D4Db6c0726ccded4656d0BCE448876BB4C7A',
     chainId: 8453,
     decimals: 18,
-    logoURI: '',
     description:
       'A wrapped-BLT is when you replace bread with a tortilla and wrap the bacon, lettuce, and tomato. It provides a different experience, generally less carbs and leaves you feeling lighter. Bread or tortilla, the choice is yours! At BMX, wrapped-BLT (wBLT) is a token received as a result of depositing BLT into BMX’s native Yearn-architectured, auto-compounding reward vault. wBLT functions as a receipt token representing a claim on the underlying BLT within the vault.',
     website: 'https://www.morphex.trade/',
@@ -1483,7 +1364,6 @@ export const tokens = {
     address: '0xDBFeFD2e8460a6Ee4955A68582F85708BAEA60A3',
     chainId: 8453,
     decimals: 18,
-    logoURI: '',
     website: 'https://originprotocol.com/',
     description:
       "Super OETH is the first in a new class of yield product; Supercharged LSTs. By combining liquid staking yield from Ethereum with compounded rewards on layer 2, Supercharged LSTs offer materially higher APY compared to traditional LSTs without adding substantial risk of loss. Origin's first token to launch in this category is superOETHb, which derives Beacon Chain yield from bridged Wrapped OETH and rewards from Aerodrome through a protocol-owned, concentrated liquidity position on Base.",
@@ -1497,7 +1377,6 @@ export const tokens = {
     address: '0x7FcD174E80f264448ebeE8c88a7C4476AAF58Ea6',
     chainId: 8453,
     decimals: 18,
-    logoURI: '',
     website: 'https://originprotocol.com/',
     description:
       "Super OETH is the first in a new class of yield product; Supercharged LSTs. By combining liquid staking yield from Ethereum with compounded rewards on layer 2, Supercharged LSTs offer materially higher APY compared to traditional LSTs without adding substantial risk of loss. Origin's first token to launch in this category is superOETHb, which derives Beacon Chain yield from bridged Wrapped OETH and rewards from Aerodrome through a protocol-owned, concentrated liquidity position on Base.",
@@ -1511,7 +1390,6 @@ export const tokens = {
     address: '0xF734eFdE0C424BA2B547b186586dE417b0954802',
     chainId: 8453,
     decimals: 18,
-    logoURI: '',
     website: 'https://www.silo.finance/',
     description:
       'SILO is the native governance token of the SiloDAO and may be used to vote for governance over the Silo Protocol.',
@@ -1525,7 +1403,6 @@ export const tokens = {
     address: '0x2a06A17CBC6d0032Cac2c6696DA90f29D39a1a29',
     chainId: 8453,
     decimals: 8,
-    logoURI: '',
     website: 'https://hpos10i.com/',
     description:
       'BITCOIN is the ticker of HarryPotterObamaSonic10Inu, a meme coin that incentivizes the creation of novel and entertaining meme content.',
@@ -1539,7 +1416,6 @@ export const tokens = {
     address: '0x7002458B1DF59EccB57387bC79fFc7C29E22e6f7',
     chainId: 8453,
     decimals: 18,
-    logoURI: '',
     website: 'https://originprotocol.com/',
     description:
       'Origin Protocol is a suite of complimentary DeFi products designed to increase economic opportunity for all. These permissionless and composable smart contracts provide superior user experiences across DeFi in a groundbreaking multichain yield ecosystem. OGN is value accrual and governance token for all Origin products. When Origin scales OGN scales as it is the lifeblood of the Origin ecosystem.',
@@ -1554,7 +1430,6 @@ export const tokens = {
     address: '0x548f93779fBC992010C07467cBaf329DD5F059B7',
     chainId: 8453,
     decimals: 18,
-    logoURI: '',
     description:
       'BMX is the native-protocol token of Morphex, an innovative DEX that expands on GMX style exchanges where the escrowed tokens have been removed entirely.',
     website: 'https://www.bmx.trade/',
@@ -1568,7 +1443,6 @@ export const tokens = {
     address: '0x0b3e328455c4059EEb9e3f84b5543F74E24e7E1b',
     chainId: 8453,
     decimals: 18,
-    logoURI: '',
     description:
       'Virtuals Protocol is building the co-ownership layer for AI agents in gaming and entertainment. These agents can operate across a wide range of applications and games, significantly expanding their revenue surface area.',
     website: 'https://www.virtuals.io/',
@@ -1583,7 +1457,6 @@ export const tokens = {
     address: '0xC1F4C75e8925A67BE4F35D6b1c044B5ea8849a58',
     chainId: 8453,
     decimals: 18,
-    logoURI: '',
     description:
       'snARS is the yield-bearing wrapper for nARS, a real-world asset for the Argentine Pesos, offered by Num Finance.',
     website: 'https://num.finance/',
@@ -1598,7 +1471,6 @@ export const tokens = {
     address: '0xf95aFD81727ca7a98E4d56b2D699148BDC1ed7Bd',
     chainId: 8453,
     decimals: 18,
-    logoURI: '',
     description:
       'snARS is the yield-bearing wrapper for nARS, a real-world asset for the Argentine Pesos, offered by Num Finance. Wrap snARS into besnARS to earn the yield in USDC rather than snARS.',
     website: 'https://num.finance/',
@@ -1613,7 +1485,6 @@ export const tokens = {
     address: '0x55cD6469F597452B5A7536e2CD98fDE4c1247ee4',
     chainId: 8453,
     decimals: 18,
-    logoURI: '',
     description:
       'Luna is an on-chain AI influencer. Her followers, affectionately known as her "kittens", are more than fans — they are holders of $LUNA, financially incentivized to see her succeed.',
     website: 'https://app.virtuals.io/virtuals/68',
@@ -1627,7 +1498,6 @@ export const tokens = {
     address: '0x96419929d7949D6A801A6909c145C8EEf6A40431',
     chainId: 8453,
     decimals: 18,
-    logoURI: '',
     description:
       'SPEC enables users building agents on Spectral Syntax and the Inferchain to propose and vote on platform upgrades, modifications, and parameter adjustments, ensuring a decentralized and inclusive approach to governance. Beyond governance, SPEC serves as a utility and value exchange mechanism, integral to the monetization and operation of agents within the network.',
     website: 'https://www.spectrallabs.xyz/',
@@ -1642,7 +1512,6 @@ export const tokens = {
     address: '0x9a33406165f562E16C3abD82fd1185482E01b49a',
     chainId: 8453,
     decimals: 18,
-    logoURI: '',
     description:
       'TALENT is the utility token for Talent Protocol. The token incentivizes all ecosystem participants - apps, organizations, and individuals - to create and curate verifiable reputation data.',
     website: 'https://talentprotocol.com/',
@@ -1657,7 +1526,6 @@ export const tokens = {
     address: '0x0578d8A44db98B23BF096A382e016e29a5Ce0ffe',
     chainId: 8453,
     decimals: 18,
-    logoURI: '',
     description:
       "Higher is an experiment in discovering a brand, together. It's yours, everyone's, no one's. You can add to it, remix it, destroy and rebuild it. It’s an open canvas for creativity. Meme coin on Base.",
     website: 'https://www.aimhigher.net/',
@@ -1670,7 +1538,6 @@ export const tokens = {
     address: '0x532f27101965dd16442E59d40670FaF5eBB142E4',
     chainId: 8453,
     decimals: 18,
-    logoURI: '',
     description:
       "Brett is the legendary character from Matt Furie’s Boys' club comic. He has become the blue mascot of the blue chain. Meme coin on base.",
     website: 'https://www.basedbrett.com/',
@@ -1685,7 +1552,6 @@ export const tokens = {
     address: '0x3eE5e23eEE121094f1cFc0Ccc79d6C809Ebd22e5',
     chainId: 8453,
     decimals: 18,
-    logoURI: '',
     description:
       'Ionic is a decentralised non-custodial money market protocol, supported by a comprehensive security monitoring and failsafe systems. Ionic gives users complete control over their funds by providing best interest rates on Mode Network. With meticulously designed tokenonomics model, Ionic aims for robust and long-lasting growth, cultivating exemplary conduct among all participants for the collective benefit of every stakeholder.',
     website: 'https://app.ionic.money/',
@@ -1700,7 +1566,6 @@ export const tokens = {
     address: '0xba0Dda8762C24dA9487f5FA026a9B64b695A07Ea',
     chainId: 8453,
     decimals: 18,
-    logoURI: '',
     description:
       'OX Coin is the cornerstone of the gamified derivatives exchange, OX.FUN. The platform provides a gamified trading experience, deep liquidity on all popular pairs, and best-in-class exchange tokenomics. OX Coin is used as the collateral and PNL currency of the exchange.',
     website: 'https://ox.fun/',
@@ -1729,7 +1594,6 @@ export const tokens = {
     address: '0x1bc0c42215582d5A085795f4baDbaC3ff36d1Bcb',
     chainId: 8453,
     decimals: 18,
-    logoURI: '',
     description: 'Clanker autonomous memecoins built by Dish and Proxyswap.eth',
     website: 'https://www.clanker.world/',
     bridge: 'native',
@@ -1741,7 +1605,6 @@ export const tokens = {
     address: '0x0fD7a301B51d0A83FCAf6718628174D527B373b6',
     chainId: 8453,
     decimals: 18,
-    logoURI: '',
     description:
       'Deployed by an AI agent by request from another AI agent, LUM is a token without human intervention.',
     website: 'https://warpcast.com/aethernet/0x9b64c883',
@@ -1754,7 +1617,6 @@ export const tokens = {
     address: '0x9EaF8C1E34F05a589EDa6BAfdF391Cf6Ad3CB239',
     chainId: 8453,
     decimals: 18,
-    logoURI: '',
     description:
       'Yearn is a decentralized suite of products helping individuals, DAOs, and other protocols earn yield on their digital assets.',
     website: 'https://yearn.fi/',
@@ -1768,7 +1630,6 @@ export const tokens = {
     address: '0xB676f87A6E701f0DE8De5Ab91B56b66109766DB1',
     chainId: 8453,
     decimals: 18,
-    logoURI: '',
     description:
       'BLOCKLORDS presents a player-driven medieval grand strategy game that immerses players in a world where their decisions and skills significantly shape the narrative and environment. $LRDS is the heartbeat of the BLOCKLORDS ecosystem, driving both gameplay and governance in unprecedented ways.',
     website: 'https://blocklords.com/',
@@ -1787,7 +1648,6 @@ export const tokens = {
     description:
       'Sushi is the home of DeFi. Their community is building a comprehensive, decentralized trading platform for the future of finance. Swap, earn, stack yields, lend, borrow, leverage all on one decentralized, community driven platform.',
     bridge: 'base-canonical',
-    logoURI: 'https://ftmscan.com/token/images/sushiswap_32.png',
     documentation: 'https://dev.sushi.com/',
   },
   baseETH: {
@@ -1797,7 +1657,6 @@ export const tokens = {
     address: '0xAADf01DD90aE0A6Bb9Eb908294658037096E0404',
     chainId: 8453,
     decimals: 18,
-    logoURI: '',
     website: 'https://app.tokemak.xyz/',
     documentation: 'https://docs.tokemak.xyz/',
     bridge: 'native',
@@ -1811,7 +1670,6 @@ export const tokens = {
     address: '0x3c4b6Cd7874eDc945797123fcE2d9a871818524b',
     chainId: 8453,
     decimals: 18,
-    logoURI: '',
     description:
       'Deployed by an AI agent by request from another AI agent, PARADOX is a token without human intervention.',
     website: 'https://warpcast.com/clanker/0x30f98af8',
@@ -1824,7 +1682,6 @@ export const tokens = {
     address: '0xecAc9C5F704e954931349Da37F60E39f515c11c1',
     chainId: 1,
     decimals: 8,
-    logoURI: '',
     website: 'https://www.lombard.finance/app/',
     description:
       "LBTC is liquid Bitcoin; it's yield-bearing, cross-chain, and 1:1 backed by BTC. LBTC enables yield-bearing BTC to move cross-chain without fragmenting liquidity, and is designed to seamlessly integrate Bitcoin into the decentralized finance (DeFi) ecosystem while maintaining the security and integrity of the underlying asset.",
@@ -1839,7 +1696,6 @@ export const tokens = {
     address: '0x2081Ab0D9EC9e4303234Ab26D86b20B3367946ee',
     chainId: 8453,
     decimals: 18,
-    logoURI: '',
     website: 'https://www.eigenlayer.xyz/',
     documentation: 'https://docs.eigenlayer.xyz/',
     bridge: 'base-canonical',
@@ -1853,7 +1709,6 @@ export const tokens = {
     address: '0xB4fDe59a779991bfB6a52253B51947828b982be3',
     chainId: 8453,
     decimals: 18,
-    logoURI: '',
     description:
       'The most memeable memecoin in existence. The dogs have had their day, it’s time for Pepe to take reign. Bridged from Ethereum using the Base bridge.',
     website: 'https://www.pepe.vip/',
@@ -1866,7 +1721,6 @@ export const tokens = {
     address: '0x0Db510e79909666d6dEc7f5e49370838c16D950f',
     chainId: 8453,
     decimals: 18,
-    logoURI: '',
     website: 'https://warpcast.com/anoncast',
     description:
       'an anonymous token deployed by an autonomous AI powering social posting with ZK on anoncast',
@@ -1880,7 +1734,6 @@ export const tokens = {
     address: '0xBAa5CC21fd487B8Fcc2F632f3F4E8D37262a0842',
     chainId: 8453,
     decimals: 18,
-    logoURI: '',
     website: 'https://morpho.org/',
     description:
       'Morpho is a decentralized lending protocol with different entities and individuals contributing to its development and adoption. As a result, the documentation refers to different areas of “Morpho” which are worth distinguishing.',
@@ -1895,7 +1748,6 @@ export const tokens = {
     address: '0x3512208ea82A7df9AfFb5ed07F3CBb9D7dEB7418',
     chainId: 8453,
     decimals: 18,
-    logoURI: '',
     description: 'Deployed by the AI agent Clanker.',
     website: 'https://www.clanker.world/clanker/0x3512208ea82A7df9AfFb5ed07F3CBb9D7dEB7418',
     bridge: 'native',
@@ -1907,7 +1759,6 @@ export const tokens = {
     address: '0x05019BE5A6750bbde6F889d6471c37ef923472d3',
     chainId: 8453,
     decimals: 18,
-    logoURI: '',
     website: 'https://warpcast.com/clanker/0x1f4293e2',
     description:
       '$FCAST is the autonomous anomaly —Clanker AIs first and only self-initiated token deployment. Uniquely forged without external intervention, it stands as a singular testament to AIs creative autonomy, marking a breakthrough moment in decentralized innovation and the digital frontier.',
@@ -1921,7 +1772,6 @@ export const tokens = {
     address: '0x161e113B8E9BBAEfb846F73F31624F6f9607bd44',
     chainId: 8453,
     decimals: 18,
-    logoURI: '',
     description: 'Official AI agent for Simulacrum, an onchain AI agent protocol.',
     website: 'https://simulacrum.network/',
     documentation: 'https://docs.simulacrum.network/',
@@ -1934,7 +1784,6 @@ export const tokens = {
     address: '0xbDF317F9C153246C429F23f4093087164B145390',
     chainId: 8453,
     decimals: 18,
-    logoURI: '',
     website: 'https://aiagentlayer.com/',
     description:
       'The AI Agent Layer introduces a pioneering platform that allows users to create, personalize, and tokenize AI Agents in a fully decentralized ecosystem. Through a seamless and accessible interface, users can launch tradeable AI Agents in just 15 seconds, each represented by tokens paired with the native currency, $AIFUN.',
@@ -1948,7 +1797,6 @@ export const tokens = {
     address: '0x20d704099B62aDa091028bcFc44445041eD16f09',
     chainId: 8453,
     decimals: 18,
-    logoURI: '',
     website: 'https://x.com/bitmar89/status/1863696009836036131',
     description: 'CHAOS is a token created by ai agent AIXbt using Simulacrum',
     documentation: '',
@@ -1961,7 +1809,6 @@ export const tokens = {
     address: '0x9C7BEBa8F6eF6643aBd725e45a4E8387eF260649',
     chainId: 8453,
     decimals: 18,
-    logoURI: '',
     website: 'https://gravity.xyz/',
     description:
       'Gravity is a Layer 1 omnichain smart contract platform designed to deliver a more efficient, scalable, and secure mechanism for managing complex cross-chain interactions with minimal friction.',
@@ -1976,7 +1823,6 @@ export const tokens = {
     address: '0xeeC468333ccc16D4BF1cEf497A56cf8C0aAe4Ca3',
     chainId: 8453,
     decimals: 18,
-    logoURI: '',
     website: 'https://app.anzen.finance/',
     description:
       'Anzen is a decentralized platform providing access to USDz, which is a digital token backed by a diversified portfolio of private credit assets.',
@@ -1991,7 +1837,6 @@ export const tokens = {
     address: '0xF544251D25f3d243A36B07e7E7962a678f952691',
     chainId: 8453,
     decimals: 18,
-    logoURI: '',
     website: 'https://www.tarot.to/',
     description:
       'Tarot is a decentralized lending protocol where users can participate as lenders or borrowers in isolated lending pools.',
@@ -2006,7 +1851,6 @@ export const tokens = {
     address: '0xca73ed1815e5915489570014e024b7EbE65dE679',
     chainId: 8453,
     decimals: 18,
-    logoURI: '',
     website: 'https://www.odos.xyz/',
     description:
       'Odos is a smart order routing solution that uses a sophisticated optimization algorithm to unify fragmented liquidity and maximize the output of every trade. As order routing drives all digital asset transactions and DeFi growth, Odos stands at the forefront—providing top-tier infrastructure for both retail users and those building on it.',
@@ -2020,7 +1864,6 @@ export const tokens = {
     address: '0x9d0E8f5b25384C7310CB8C6aE32C8fbeb645d083',
     chainId: 8453,
     decimals: 18,
-    logoURI: '',
     website: 'https://www.derive.xyz/',
     description:
       'The Derive Protocol is a collection of smart contracts that collectively create a decentralised and self-custodial derivatives protocol.',
@@ -2035,7 +1878,6 @@ export const tokens = {
     address: '0xb33Ff54b9F7242EF1593d2C9Bcd8f9df46c77935',
     chainId: 8453,
     decimals: 18,
-    logoURI: '',
     website: 'https://www.freysa.ai/',
     description:
       'At 9:00 PM UTC on November 22, 2024, Freysa awoke. The human population of Earth stood at 8,189,700,000. The population of sovereign agents: 1.',
@@ -2049,7 +1891,6 @@ export const tokens = {
     address: '0xEb6d78148F001F3aA2f588997c5E102E489Ad341',
     chainId: 8453,
     decimals: 18,
-    logoURI: '',
     website: 'https://www.superchamps.com/',
     description:
       'Super Champs is an immersive, anime-inspired universe spanning games, video, social media, merch, and web3 ownership.',
@@ -2064,7 +1905,6 @@ export const tokens = {
     address: '0xb0505e5a99abd03d94a1169e638B78EDfEd26ea4',
     chainId: 8453,
     decimals: 18,
-    logoURI: '',
     website: 'https://app.universal.xyz/',
     description:
       'uAssets (e.g. uBTC, uSOL, ...) are ERC-20 tokens that can solve liquidity problems builders face today.',
@@ -2079,7 +1919,6 @@ export const tokens = {
     address: '0x9B8Df6E244526ab5F6e6400d331DB28C8fdDdb55',
     chainId: 8453,
     decimals: 18,
-    logoURI: '',
     website: 'https://app.universal.xyz/',
     description:
       'uAssets (e.g. uBTC, uSOL, ...) are ERC-20 tokens that can solve liquidity problems builders face today.',
@@ -2094,7 +1933,6 @@ export const tokens = {
     address: '0x2615a94df961278DcbC41Fb0a54fEc5f10a693aE',
     chainId: 8453,
     decimals: 18,
-    logoURI: '',
     website: 'https://app.universal.xyz/',
     description:
       'uAssets (e.g. uBTC, uSOL, ...) are ERC-20 tokens that can solve liquidity problems builders face today.',
@@ -2109,7 +1947,6 @@ export const tokens = {
     address: '0xa3A34A0D9A08CCDDB6Ed422Ac0A28a06731335aA',
     chainId: 8453,
     decimals: 18,
-    logoURI: '',
     website: 'https://app.universal.xyz/',
     description:
       'uAssets (e.g. uBTC, uSOL, ...) are ERC-20 tokens that can solve liquidity problems builders face today.',
@@ -2124,7 +1961,6 @@ export const tokens = {
     address: '0xd403D1624DAEF243FbcBd4A80d8A6F36afFe32b2',
     chainId: 8453,
     decimals: 18,
-    logoURI: '',
     website: 'https://app.universal.xyz/',
     description:
       'uAssets (e.g. uBTC, uSOL, ...) are ERC-20 tokens that can solve liquidity problems builders face today.',
@@ -2139,7 +1975,6 @@ export const tokens = {
     address: '0x12E96C2BFEA6E835CF8Dd38a5834fa61Cf723736',
     chainId: 8453,
     decimals: 18,
-    logoURI: '',
     website: 'https://app.universal.xyz/',
     description:
       'uAssets (e.g. uBTC, uSOL, ...) are ERC-20 tokens that can solve liquidity problems builders face today.',
@@ -2154,7 +1989,6 @@ export const tokens = {
     address: '0x5ed25E305E08F58AFD7995EaC72563E6BE65A617',
     chainId: 8453,
     decimals: 18,
-    logoURI: '',
     website: 'https://app.universal.xyz/',
     description:
       'uAssets (e.g. uBTC, uSOL, ...) are ERC-20 tokens that can solve liquidity problems builders face today.',
@@ -2169,7 +2003,6 @@ export const tokens = {
     address: '0x9c0e042d65a2e1fF31aC83f404E5Cb79F452c337',
     chainId: 8453,
     decimals: 18,
-    logoURI: '',
     website: 'https://app.universal.xyz/',
     description:
       'uAssets (e.g. uBTC, uSOL, ...) are ERC-20 tokens that can solve liquidity problems builders face today.',
@@ -2184,7 +2017,6 @@ export const tokens = {
     address: '0x71a67215a2025F501f386A49858A9ceD2FC0249d',
     chainId: 8453,
     decimals: 18,
-    logoURI: '',
     website: 'https://app.universal.xyz/',
     description:
       'uAssets (e.g. uBTC, uSOL, ...) are ERC-20 tokens that can solve liquidity problems builders face today.',
@@ -2199,7 +2031,6 @@ export const tokens = {
     address: '0x6B2504A03ca4D43d0D73776F6aD46dAb2F2a4cFD',
     chainId: 8453,
     decimals: 18,
-    logoURI: '',
     website: 'https://reisearch.box/',
     description:
       '0xReisearch is a collective of AI and Crypto natives that decided to develop a novel approach to the AI x Blockchain space. The Framework presents an architecture for AI blockchain integration through structured data interchange. By focusing on the complementary strengths of both technologies, this framework enables sophisticated interactions while maintaining blockchains deterministic properties.',
@@ -2213,7 +2044,6 @@ export const tokens = {
     address: '0x4F9Fd6Be4a90f2620860d680c0d4d5Fb53d1A825',
     chainId: 8453,
     decimals: 18,
-    logoURI: '',
     website: 'https://aixbt.tech/',
     description:
       'AIXBT tracks CT discussions and leverages its proprietary engine to identify high momentum plays.',
@@ -2227,7 +2057,6 @@ export const tokens = {
     address: '0xacfE6019Ed1A7Dc6f7B508C02d1b04ec88cC21bf',
     chainId: 8453,
     decimals: 18,
-    logoURI: '',
     website: 'https://venice.ai/',
     description:
       'Unlike other leading AI platforms, Venice provides a private and uncensored AI experience, with your prompts and data only stored on your device, never on our servers.',
@@ -2242,7 +2071,6 @@ export const tokens = {
     address: '0x087C440F251Ff6Cfe62B86DdE1bE558B95b4bb9b',
     chainId: 8453,
     decimals: 18,
-    logoURI: '',
     website: 'https://www.liquity.org/',
     description:
       'BOLD is the USD-pegged stablecoin issued in Liquity V2. It is over-collateralized and backed only by WETH, wstETH, and rETH.',
@@ -2271,7 +2099,6 @@ export const tokens = {
     address: '0xF1A7000000950C7ad8Aff13118Bb7aB561A448ee',
     chainId: 8453,
     decimals: 18,
-    logoURI: '',
     website: 'https://flaunch.gg/',
     description: 'FLAY is the token of Flaunch.',
     documentation: 'https://docs.flaunch.gg/flaunch-docs',
@@ -2298,7 +2125,6 @@ export const tokens = {
     address: '0x767A739D1A152639e9Ea1D8c1BD55FDC5B217D7f',
     chainId: 8453,
     decimals: 18,
-    logoURI: '',
     website: 'https://www.veil.cash/',
     description:
       'Veil Cash is a non-custodial privacy protocol deployed on the Base Layer 2 (L2) blockchain. It leverages zk-SNARKs (Zero-Knowledge Succinct Non-Interactive Arguments of Knowledge) to enable users to achieve on-chain privacy and anonymity within trusted pools.',
@@ -2312,7 +2138,6 @@ export const tokens = {
     address: '0x806041B6473DA60abbe1b256d9A2749A151be6C6',
     chainId: 8453,
     decimals: 9,
-    logoURI: '',
     website: 'https://www.tensorplex.ai/',
     description:
       'stTAO is a Liquid Staking Derivative (LSD) ERC20 token that allow investors to get exposure to the TAO ecosystem and enjoy staking rewards without needing to download a Substrate-compatible wallet and delegating it manually.',
@@ -2325,7 +2150,6 @@ export const tokens = {
     address: '0x13281AE464191bC592c6E5D65EeeAEee02660D84',
     chainId: 8453,
     decimals: 9,
-    logoURI: '',
     website: 'https://popcat.click/',
     description: 'POPCAT meme on Solana bridged via Wormhole',
     documentation: '',
@@ -2338,7 +2162,6 @@ export const tokens = {
     address: '0xE5c436B0a34DF18F1dae98af344Ca5122E7d57c4',
     chainId: 8453,
     decimals: 18,
-    logoURI: '',
     website: 'https://app.universal.xyz/',
     description:
       'uAssets (e.g. uBTC, uSOL, ...) are ERC-20 tokens that can solve liquidity problems builders face today.',
@@ -2353,7 +2176,6 @@ export const tokens = {
     address: '0x239b9C1F24F3423062B0d364796e07Ee905E9FcE',
     chainId: 8453,
     decimals: 18,
-    logoURI: '',
     description:
       'uAssets (e.g. uBTC, uSOL, ...) are ERC-20 tokens that can solve liquidity problems builders face today.',
     documentation: 'https://docs.universalassets.xyz/universal-protocol',
@@ -2367,7 +2189,6 @@ export const tokens = {
     address: '0x98d0baa52b2D063E780DE12F615f963Fe8537553',
     chainId: 8453,
     decimals: 18,
-    logoURI: '',
     website: 'https://yaps.kaito.ai/',
     description:
       'Enter the New Era of InfoFi. With $KAITO, we are redefining the relationships among creators, users, brands and platforms.',
@@ -2404,7 +2225,6 @@ export const tokens = {
     address: '0x8C9037D1Ef5c6D1f6816278C7AAF5491d24CD527',
     chainId: 8453,
     decimals: 18,
-    logoURI: '',
     website: 'https://www.moxie.xyz/',
     description:
       'Moxie is your onchain AI assistant—analyzing transactions, unlocking social alpha, and executing trades on your behalf.',
@@ -2418,7 +2238,6 @@ export const tokens = {
     address: '0x7431aDa8a591C955a994a21710752EF9b882b8e3',
     chainId: 8453,
     decimals: 18,
-    logoURI: '',
     website: 'https://mor.org/',
     description:
       'Morpheus is a Decentralized AI network designed to incentivize a network of Smart Agents, general-purpose AI that can execute Smart Contracts on behalf of users.',
@@ -2433,7 +2252,6 @@ export const tokens = {
     address: '0xc0634090F2Fe6c6d75e61Be2b949464aBB498973',
     chainId: 8453,
     decimals: 18,
-    logoURI: '',
     website: 'https://keeta.com/',
     description:
       'Keeta Network is a high-performance layer-1 blockchain network designed to serve as a common-ground for all asset transfers.',
@@ -2447,7 +2265,6 @@ export const tokens = {
     address: '0xE9185Ee218cae427aF7B9764A011bb89FeA761B4',
     chainId: 8453,
     decimals: 18,
-    logoURI: '',
     website: 'https://brztoken.io/',
     description:
       'BRZ is the first Brazilian stablecoin in circulation. It will allow Brazilians to directly ramp up investments in foreign exchanges and to trade a Brazilian Real (BRL) pegged stablecoin in global scale.',
@@ -2462,7 +2279,6 @@ export const tokens = {
     address: '0x043eB4B75d0805c43D7C834902E335621983Cf03',
     chainId: 8453,
     decimals: 18,
-    logoURI: '',
     website: 'https://www.paytrie.com/cadc',
     description:
       'CADC is a fully reserved CAD dollar stablecoin issued by Paytrie, redeemable 1:1 for Canadian dollars',
@@ -2477,7 +2293,6 @@ export const tokens = {
     address: '0x1A9Be8a692De04bCB7cE5cDDD03afCA97D732c62',
     chainId: 8453,
     decimals: 8,
-    logoURI: '',
     website: 'https://www.bilira.co/',
     description:
       'TRYB is a stablecoin developed by BiLira that is pegged 1:1 to the Turkish lira and 100% backed by reserves.',
@@ -2492,7 +2307,6 @@ export const tokens = {
     address: '0x18Bc5bcC660cf2B9cE3cd51a404aFe1a0cBD3C22',
     chainId: 8453,
     decimals: 2,
-    logoURI: '',
     website: 'https://brztoken.io/',
     description:
       'IDRX is a stable token pegged to the value of the Indonesian Rupiah (IDR). As a cryptocurrency, IDRX offers users the benefits of blockchain technology, including security, transparency, and decentralized control.',
@@ -2507,7 +2321,6 @@ export const tokens = {
     address: '0x7750C092e284e2c7366f50C8306F43c7EB2e82a2',
     chainId: 8453,
     decimals: 18,
-    logoURI: '',
     website: 'https://www.overtime.io/',
     description:
       'Overtime is an onchain sportsbook ecosystem with platforms for placing bets on popular sporting events and digital options trading.',
@@ -2522,7 +2335,6 @@ export const tokens = {
     address: '0xED6E000dEF95780fb89734c07EE2ce9F6dcAf110',
     chainId: 8453,
     decimals: 18,
-    logoURI: '',
     website: 'https://www.definitive.fi/',
     description:
       'Definitive is the future of onchain trade execution. It delivers a CeFi-like experience on DeFi rails via a fully non-custodial platform & API that is live across Solana, Base and other major EVM chains.',
@@ -2537,7 +2349,6 @@ export const tokens = {
     address: '0x1217BfE6c773EEC6cc4A38b5Dc45B92292B6E189',
     chainId: 8453,
     decimals: 6,
-    logoURI: '',
     website: 'https://www.openusdt.xyz/',
     description:
       'OpenUSDT is a future-proof interoperable USDT stablecoin for the OP Superchain enabling shared liquidity and interchain applications.',
@@ -2552,7 +2363,6 @@ export const tokens = {
     address: '0x6Bb7a212910682DCFdbd5BCBb3e28FB4E8da10Ee',
     chainId: 8453,
     decimals: 18,
-    logoURI: '',
     website: 'https://aave.com/',
     documentation: 'https://docs.aave.com/faq/gho-stablecoin',
     bridge: 'chainlink',
@@ -2566,7 +2376,6 @@ export const tokens = {
     address: '0x88b1Cd4b430D95b406E382C3cDBaE54697a0286E',
     chainId: 8453,
     decimals: 18,
-    logoURI: '',
     website: 'https://aave.com/',
     documentation: 'https://docs.aave.com/faq/gho-stablecoin',
     bridge: 'native',
@@ -2585,7 +2394,6 @@ export const tokens = {
       'Wrapped Aave Staked. USDC is a fully collateralized US dollar stablecoin. USDC is issued by regulated financial institutions, backed by fully reserved assets, redeemable on a 1:1 basis for US dollars.',
     bridge: 'native',
     chainId: 8453,
-    logoURI: 'https://ftmscan.com/token/images/USDC_32.png',
     documentation: 'https://www.circle.com/en/usdc-multichain/base',
     tags: ['STABLECOIN'],
   },
@@ -2596,7 +2404,6 @@ export const tokens = {
     address: '0xD769d56f479E9E72a77bB1523e866A33098Feec5',
     chainId: 8453,
     decimals: 18,
-    logoURI: '',
     website: 'https://x.com/base/status/1912584945127813533',
     description: 'Base Meme',
     documentation: '',
@@ -2609,7 +2416,6 @@ export const tokens = {
     address: '0x0830820D1A9aa1554364752d6D8F55C836871B74',
     chainId: 8453,
     decimals: 18,
-    logoURI: '',
     website: 'https://lido.fi/',
     description:
       'Wrapped Aave Staked wstETH. Lido is a liquid staking solution for ETH backed by industry-leading staking providers. Lido lets users stake their ETH - without locking assets or maintaining infrastructure - whilst participating in on-chain activities, e.g. lending. Lido attempts to solve the problems associated with initial ETH staking - illiquidity, immovability and accessibility - making staked ETH liquid and allowing for participation with any amount of ETH to improve security of the Ethereum network.',
@@ -2623,7 +2429,6 @@ export const tokens = {
     address: '0xF8F10f39116716e89498c1c5E94137ADa11b2BC7',
     chainId: 8453,
     decimals: 18,
-    logoURI: '',
     website: 'https://www.renzoprotocol.com/',
     description:
       'Wrapped Aave Staked ezETH. ezETH is a Liquid Restaking Token (LRT) and Strategy Manager for EigenLayer. It is the interface to the EigenLayer ecosystem securing Actively Validated Services (AVSs) and offering a higher yield than ETH staking.',
@@ -2640,7 +2445,6 @@ export const tokens = {
     website: 'https://weth.io/',
     description: 'Ether or ETH is the native currency built on the Ethereum blockchain.',
     bridge: 'native',
-    logoURI: '',
     documentation: 'https://ethereum.org/en/developers/docs/',
   },
   smUSDC: {
@@ -2654,7 +2458,6 @@ export const tokens = {
     description:
       'Seamless USDC Vault. USDC is a fully collateralized US dollar stablecoin. USDC is issued by regulated financial institutions, backed by fully reserved assets, redeemable on a 1:1 basis for US dollars.',
     bridge: 'native',
-    logoURI: 'https://ftmscan.com/token/images/USDC_32.png',
     documentation: 'https://www.circle.com/en/usdc-multichain/base',
     tags: ['STABLECOIN'],
   },
@@ -2718,7 +2521,6 @@ export const tokens = {
     address: '0x9Cb41FD9dC6891BAe8187029461bfAADF6CC0C69',
     chainId: 8453,
     decimals: 18,
-    logoURI: '',
     website: 'https://noice.so/',
     description: '$noice will become a global, social currency. Tip on Farcaster.',
     documentation: 'https://noice.so/#section-how',
@@ -2732,7 +2534,6 @@ export const tokens = {
     address: '0x03569CC076654F82679C4BA2124D64774781B01D',
     chainId: 8453,
     decimals: 18,
-    logoURI: '',
     website: 'https://www.liquity.org/',
     documentation: 'https://docs.liquity.org/',
     description:
@@ -2747,7 +2548,6 @@ export const tokens = {
     address: '0x590830dFDf9A3F68aFCDdE2694773dEBDF267774',
     chainId: 8453,
     decimals: 18,
-    logoURI: '',
     website: 'https://www.gizatech.xyz/',
     description:
       'Giza is the infrastructure powering autonomous financial markets by enabling non-custodial algorithmic agents that execute sophisticated DeFi strategies around the clock.',
@@ -2761,7 +2561,6 @@ export const tokens = {
     address: '0x0C03Ce270B4826Ec62e7DD007f0B716068639F7B',
     chainId: 8453,
     decimals: 18,
-    logoURI: '',
     website: 'https://tig.foundation/',
     description:
       'TIG redefines the frontier of computational research by transforming proof-of-work into a global engine for open, autonomous innovation.',
@@ -2775,7 +2574,6 @@ export const tokens = {
     address: '0xb89D354AD1b0d95a48b3De4607F75a8cD710c1bA',
     chainId: 8453,
     decimals: 18,
-    logoURI: '',
     website: 'https://www.loomlay.com/',
     description: 'Use trading strategies managed by AI agents — zero coding required',
     documentation:
@@ -2789,7 +2587,6 @@ export const tokens = {
     address: '0x6e2c81b6c2C0e02360F00a0dA694e489acB0b05e',
     chainId: 8453,
     decimals: 18,
-    logoURI: '',
     website: 'https://www.reflect.now/',
     description:
       'Interact with the entire Superchain ecosystem through simple conversations, from trading to collecting NFTs',
@@ -2803,7 +2600,6 @@ export const tokens = {
     address: '0x22aF33FE49fD1Fa80c7149773dDe5890D3c76F3b',
     chainId: 8453,
     decimals: 18,
-    logoURI: '',
     website: 'https://bankr.bot/',
     description:
       'Buy, sell, swap, place limit orders, and manage your wallet effortlessly—just by sending a message.',
@@ -2818,7 +2614,6 @@ export const tokens = {
     chainId: 8453,
     decimals: 6,
     website: 'https://www.coinbase.com/',
-    logoURI: '',
     description: 'Coinbase Wrapped XRP (cbXRP) is backed 1:1 with XRP, custodied with Coinbase.',
     documentation: 'https://www.coinbase.com/blog/',
     bridge: 'native',
@@ -2830,7 +2625,6 @@ export const tokens = {
     address: '0xcbADA732173e39521CDBE8bf59a6Dc85A9fc7b8c',
     chainId: 8453,
     decimals: 6,
-    logoURI: '',
     website: 'https://www.coinbase.com/',
     description: 'Coinbase Wrapped ADA (cbADA) is backed 1:1 with ADA, custodied with Coinbase.',
     documentation: 'https://www.coinbase.com/blog/',
@@ -2843,7 +2637,6 @@ export const tokens = {
     address: '0xcbD06E5A2B0C65597161de254AA074E489dEb510',
     chainId: 8453,
     decimals: 8,
-    logoURI: '',
     website: 'https://www.coinbase.com/',
     description: 'Coinbase Wrapped DOGE (cbDOGE) is backed 1:1 with DOGE, custodied with Coinbase.',
     documentation: 'https://www.coinbase.com/blog/',
@@ -2856,7 +2649,6 @@ export const tokens = {
     address: '0xcb17C9Db87B595717C857a08468793f5bAb6445F',
     chainId: 8453,
     decimals: 8,
-    logoURI: '',
     website: 'https://www.coinbase.com/',
     description: 'Coinbase Wrapped LTC (cbLTC) is backed 1:1 with LTC, custodied with Coinbase.',
     documentation: 'https://www.coinbase.com/blog/',
@@ -2869,7 +2661,6 @@ export const tokens = {
     address: '0x63706e401c06ac8513145b7687A14804d17f814b',
     chainId: 8453,
     decimals: 18,
-    logoURI: '',
     website: 'https://aave.com/',
     description:
       'Aave is a decentralized non-custodial liquidity protocol where users can participate as depositors or borrowers. Depositors provide liquidity to the market to earn a passive income, while borrowers are able to borrow in an overcollateralized (perpetually) or undercollateralized (one-block liquidity) fashion.',
@@ -2883,7 +2674,6 @@ export const tokens = {
     address: '0x7300B37DfdfAb110d83290A29DfB31B1740219fE',
     chainId: 8453,
     decimals: 18,
-    logoURI: '',
     website: 'https://mamo.bot/',
     description:
       'Mamo is an onchain agent that automatically allocates your money across trusted platforms to capture the best available returns while keeping you in full control.',
@@ -2897,7 +2687,6 @@ export const tokens = {
     address: '0x696F9436B67233384889472Cd7cD58A6fB5DF4f1',
     chainId: 8453,
     decimals: 18,
-    logoURI: '',
     website: 'https://www.avantisfi.com/',
     description: 'Trade crypto, forex, metals, commodities, indices, straight from your wallet.',
     documentation: 'https://docs.avantisfi.com/',
@@ -2911,7 +2700,6 @@ export const tokens = {
     address: '0xbF927b841994731C573BDF09ceB0c6B0Aa887cDd',
     chainId: 8453,
     decimals: 18,
-    logoURI: '',
     website: 'https://www.velvet.capital/',
     description: 'Trade Like a Pro with AI Co-Pilot',
     documentation: 'https://docs.velvet.capital/',
@@ -2924,7 +2712,6 @@ export const tokens = {
     address: '0xb9E1Fd5A02D3A33b25a14d661414E6ED6954a721',
     chainId: 8453,
     decimals: 18,
-    logoURI: '',
     website: 'https://soo.network/',
     description:
       'SOON is a high-performance SVM Rollup designed to realize the Super Adoption Stack. With a vision to achieve mass adoption of blockchain, SOON comprises three primary products: SOON Mainnet, SOON Stack, and InterSOON. The core technological innovations of SOON include decoupled SVM, Merklization, and Horizontal Scaling.',
@@ -2939,7 +2726,6 @@ export const tokens = {
     address: '0xC729777d0470F30612B1564Fd96E8Dd26f5814E3',
     chainId: 8453,
     decimals: 18,
-    logoURI: '',
     website: 'https://app.sapien.io/',
     description:
       'Sapien is a decentralized network, connecting you directly to leading AI companies',
@@ -2954,7 +2740,6 @@ export const tokens = {
     address: '0xd89d90d26B48940FA8F58385Fe84625d468E057a',
     chainId: 8453,
     decimals: 18,
-    logoURI: '',
     website: 'https://www.availproject.org/',
     description:
       'Avail is a horizontally scalable, trust-minimized infrastructure network enabling seamless cross-chain interaction, transaction validation, and native liquidity interoperability.',
@@ -2968,7 +2753,6 @@ export const tokens = {
     address: '0x24914CB6BD01E6a0CF2a9c0478e33c25926e6a0c',
     chainId: 8453,
     decimals: 18,
-    logoURI: '',
     website: 'https://botto.com/',
     description:
       'Botto is a decentralized autonomous artist governed by its community (BottoDAO), which votes weekly on hundreds of art fragments to guide its generative algorithm. Each week, Botto mints one final artwork from the voted fragments and auctions it on SuperRare, sharing 40% of proceeds with the community as rewards.',
@@ -2983,7 +2767,6 @@ export const tokens = {
     address: '0xc48823EC67720a04A9DFD8c7d109b2C3D6622094',
     chainId: 8453,
     decimals: 18,
-    logoURI: '',
     website: 'https://www.metacade.co/',
     description:
       'Metacade is the home of gaming on Base. Welcome to thriving metropolis, Metacadia, where the onchain gaming pulse never fades. Within its neon-lit streets are four quarters, where gamers, investors, builders and ambitious partners are poised to carve their mark into the virtual skyline, each pushing to dominate the city and win over the Metacaders.',
@@ -2997,7 +2780,6 @@ export const tokens = {
     address: '0x64FCC3A02eeEba05Ef701b7eed066c6ebD5d4E51',
     chainId: 8453,
     decimals: 18,
-    logoURI: '',
     website: 'https://spectra.finance/',
     description:
       'Spectra is an EVM-centric protocol for interest rate derivatives with an easy-to-use flagship app. The Spectra protocol is permissionless, meaning its services are entirely open for public use. Anyone can create new markets at will, swap yield derivatives, or become a liquidity provider.',
@@ -3012,7 +2794,6 @@ export const tokens = {
     address: '0xd4554BEa546EFa83C1E6B389ecac40EA999B3E78',
     chainId: 8453,
     decimals: 18,
-    logoURI: '',
     website: 'https://www.sqd.ai/',
     description:
       'SQD Network is a decentralized query engine optimized for batch extraction of large volumes of data. It currently serves historical on-chain data ingested from 200+ EVM and Substrate networks, as well as Solana (in beta), Tron, Starknet and Fuel.',
@@ -3027,7 +2808,6 @@ export const tokens = {
     address: '0x7252c865c05378Ffc15120F428dd65804dD0CE63',
     chainId: 8453,
     decimals: 18,
-    logoURI: '',
     website: 'https://www.telos.net/',
     description:
       'Telos is a next-generation Delegated Proof of Stake (DPOS) Layer-1 blockchain network. It features unsurpassed compatibility for developers and provides an extensive suite of tools and onboarding support to develop and deploy smart contracts on the worlds fastest, most scalable, and affordable Telos EVM',
@@ -3042,7 +2822,6 @@ export const tokens = {
     address: '0x1B4617734C43F6159F3a70b7E06d883647512778',
     chainId: 8453,
     decimals: 18,
-    logoURI: '',
     website: 'https://www.awenetwork.ai/',
     description:
       'AWE Network is opening the portal to Autonomous Worlds where AI Agents collaborate, adapt and evolve. The Autonomous Worlds Engine (AWE) is a modular framework enabling the creation of self-sustaining worlds for scalable agent-agent and human-agent collaboration.',
@@ -3056,7 +2835,6 @@ export const tokens = {
     address: '0xB1E1f3Cc2B6fE4420C1Ac82022b457018Eb628ff',
     chainId: 8453,
     decimals: 18,
-    logoURI: '',
     website: 'https://www.covalenthq.com/',
     description:
       'Covalent is the leading modular data infrastructure layer that is dedicated to solving the Long-Term Data Availability and the verifiability problem in AI. A multi-sided platform designed to eventually be self-sufficient, the Covalent Network works by capturing and indexing blockchain data and storing it across multiple points on the network. Anyone can then access this data instantly through querying the GoldRush API (formerly known as the Unified API).',
@@ -3071,7 +2849,6 @@ export const tokens = {
     address: '0x5aB3D4c385B400F3aBB49e80DE2fAF6a88A7B691',
     chainId: 8453,
     decimals: 18,
-    logoURI: '',
     website: 'https://www.flock.io/',
     description:
       'FLock.io seeks to decentralise training and value alignment. We ensure that AI objectives match the public’s ethics and societal aims, that decision-making falls to communities, and that usefulness is a top priority.',
@@ -3085,7 +2862,6 @@ export const tokens = {
     address: '0x11dC28D01984079b7efE7763b533e6ed9E3722B9',
     chainId: 8453,
     decimals: 18,
-    logoURI: '',
     website: 'https://syndicate.io/',
     description:
       'Infrastructure for scalable, programmable, atomically composable appchains. Giving you complete control over your network, sequencer, and economy.',
@@ -3100,7 +2876,6 @@ export const tokens = {
     address: '0x2B11834Ed1FeAEd4b4b3a86A6F571315E25A884D',
     chainId: 8453,
     decimals: 18,
-    logoURI: '',
     website: 'https://moca.foundation/',
     description: 'Co-creating the largest web3 cultural economy with $MOCA holders',
     documentation: 'https://moca.foundation/moca-coin',
@@ -3114,7 +2889,6 @@ export const tokens = {
     address: '0x2A0a59d6B975828e781EcaC125dBA40d7ee5dDC0',
     chainId: 8453,
     decimals: 18,
-    logoURI: '',
     website: 'https://www.ripe.finance/',
     description:
       'Ripe simplifies everything. Your entire portfolio — crypto, RWAs, jpegs, everything — backs ONE loan. Finally, borrowing that understands what a portfolio actually is.',
@@ -3128,7 +2902,6 @@ export const tokens = {
     address: '0x7Ce02e86354EA0Cc3b302AeAdC0Ab56bC7EB44b8',
     chainId: 8453,
     decimals: 18,
-    logoURI: '',
     website: 'https://sire.bot/',
     description: 'SIRE is the first agentic on-chain sports-betting hedge fund, built for DeFAI.',
     documentation: 'https://docs.sire.bot/',
@@ -3142,7 +2915,6 @@ export const tokens = {
     address: '0x4dA9A0f397dB1397902070f93a4D6ddBC0E0E6e8',
     chainId: 8453,
     decimals: 18,
-    logoURI: '',
     website: 'https://reserve.org/lcap-kraken/',
     description:
       'The CF Large Cap Index (Diversified Weight) is a liquid, investible benchmark portfolio index built designed to track the performance of large-cap digital assets.',
@@ -3156,7 +2928,6 @@ export const tokens = {
     address: '0xF4d97F2da56e8c3098f3a8D538DB630A2606a024',
     chainId: 8453,
     decimals: 18,
-    logoURI: '',
     website: 'https://venice.ai/',
     description:
       'DIEM token represents perpetual tokenized inference. Each Diem provides $1 per day of API credit, forever. Only VVV holders can mint these tokens, creating the first-ever tradeable direct AI compute asset.',
@@ -3171,7 +2942,6 @@ export const tokens = {
     address: '0xa749dE6c28262B7ffbc5De27dC845DD7eCD2b358',
     chainId: 8453,
     decimals: 18,
-    logoURI: '',
     website: 'https://zkverify.io/token',
     description:
       'More than a token – VFY is your ownership stake in the infrastructure propelling the next age of the Internet. As the government, the private sector, and daily life increasingly shift online, your stake becomes more beneficial.',
@@ -3186,7 +2956,6 @@ export const tokens = {
     address: '0xF732A566121Fa6362E9E0FBdd6D66E5c8C925E49',
     chainId: 8453,
     decimals: 18,
-    logoURI: '',
     website: 'https://www.litprotocol.com/',
     description:
       'Lit Protocol is the decentralized network for managing keys and secrets. Join the builders using programmable signing and encryption to power AI agents, blockchain interoperability, crypto wallets, and user-owned data.',
@@ -3200,7 +2969,6 @@ export const tokens = {
     address: '0x9EadbE35F3Ee3bF3e28180070C429298a1b02F93',
     chainId: 8453,
     decimals: 18,
-    logoURI: '',
     website: 'https://limitless.exchange/advanced',
     description:
       'Predict crypto & stock prices with nonstop hourly and daily markets. Trade anytime, anywhere. ',
@@ -3215,7 +2983,6 @@ export const tokens = {
     address: '0x306aCd0c07c430AbBBb2e74Ef7bdE94F32A898c0',
     chainId: 8453,
     decimals: 18,
-    logoURI: '',
     website: 'https://www.seda.xyz/',
     description:
       'SEDA is a layer one for programmable oracle infrastructure. SEDA is backed by leading investors across the world with over $22 million in funding from Coinbase, Reciprocal Ventures, Coinfund, Distributed Global and more.',
@@ -3230,7 +2997,6 @@ export const tokens = {
     address: '0x00fBAC94Fec8D4089d3fe979F39454F48c71A65d',
     chainId: 8453,
     decimals: 18,
-    logoURI: '',
     website: 'https://www.klimaprotocol.com/',
     description:
       'Klima Protocol is open infrastructure for climate finance—pricing and purchasing carbon credits, selling retirements, and incentivizing deep liquidity.',
@@ -3245,7 +3011,6 @@ export const tokens = {
     address: '0xEab49138BA2Ea6dd776220fE26b7b8E446638956',
     chainId: 8453,
     decimals: 18,
-    logoURI: '',
     website: 'https://send.it/',
     description:
       'Send is building the future of money where payments are instant, access is seamless, and privacy is non-negotiable. The platform lets anyone, anywhere send, save, and earn with just a smartphone.',
@@ -3260,7 +3025,6 @@ export const tokens = {
     address: '0x311935Cd80B76769bF2ecC9D8Ab7635b2139cf82',
     chainId: 8453,
     decimals: 9,
-    logoURI: '',
     website: 'https://solana.com/',
     description:
       'Solana is a high-performance network that enables fast, secure, and affordable digital transactions. It powers thousands of applications ranging from payments and games to digital art and financial services. ',
@@ -3274,7 +3038,6 @@ export const tokens = {
     address: '0xFb31f85A8367210B2e4Ed2360D2dA9Dc2D2Ccc95',
     chainId: 8453,
     decimals: 18,
-    logoURI: '',
     website: 'https://www.edel.finance/',
     description:
       'Edel is the autonomous revenue engine for tokenised equities. Purpose-built smart contracts that originate, price, and settle securities lending without intermediaries.',
@@ -3288,7 +3051,6 @@ export const tokens = {
     address: '0x9B5E262cF9bb04869ab40b19AF91D2dc85761722',
     chainId: 8453,
     decimals: 16,
-    logoURI: '',
     website: 'https://www.nockchain.org/',
     description:
       '$NOCK is the coin issued by the layer-1 Nockchain protocol.  Unlike traditional blockchains where computation costs scale with complexity, $NOCK fees are based only on transaction size.  $NOCK is a programmable sound store of value.  It pays for transaction settlement, data storage, and temporary data availability on Nockchain.',

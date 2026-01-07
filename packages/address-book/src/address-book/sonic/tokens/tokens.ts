@@ -11,7 +11,6 @@ const S = {
   description:
     'Wrapped S, (S) Sonic is an EVM layer-1 platform that offers developers attractive incentives and powerful infrastructure.',
   bridge: 'sonic-canonical',
-  logoURI: '',
   documentation: 'https://www.soniclabs.com/developer-resources',
 } as const satisfies Token;
 
@@ -27,7 +26,6 @@ export const tokens = {
     address: '0xddF26B42C1d903De8962d3F79a74a501420d5F19',
     chainId: 146,
     decimals: 18,
-    logoURI: '',
     website: 'https://sonic.equalizer.exchange/',
     description:
       'Equalizer Exchange is the fastest liquidity hub providing optimized trading and earning opportunities.',
@@ -41,7 +39,6 @@ export const tokens = {
     address: '0x29219dd400f2Bf60E5a23d13Be72B486D4038894',
     chainId: 146,
     decimals: 6,
-    logoURI: '',
     website: 'https://www.usdc.com/',
     description:
       'USDC is a fully collateralized US dollar stablecoin. USDC is issued by regulated financial institutions, backed by fully reserved assets, redeemable on a 1:1 basis for US dollars.',
@@ -70,7 +67,6 @@ export const tokens = {
     address: '0x50c42dEAcD8Fc9773493ED674b675bE577f2634b',
     chainId: 146,
     decimals: 18,
-    logoURI: '',
     website: 'https://weth.io/',
     description: 'Ether or ETH is the native currency built on the Ethereum blockchain.',
     bridge: 'sonic-canonical',
@@ -83,7 +79,6 @@ export const tokens = {
     address: '0xE5DA20F15420aD15DE0fa650600aFc998bbE3955',
     chainId: 146,
     decimals: 18,
-    logoURI: '',
     website: 'https://beets.fi/stake',
     description:
       'stS is a liquid-staked token that users receive when they stake $S on the Beets platform. The value of stS naturally appreciates in relation to $S thanks to native network staking rewards from validator delegation being automatically compounded within the token.',
@@ -97,7 +92,6 @@ export const tokens = {
     address: '0xb1e25689D55734FD3ffFc939c4C3Eb52DFf8A794',
     chainId: 146,
     decimals: 18,
-    logoURI: '',
     website: 'https://app.originprotocol.com/#/os/',
     description:
       'Origin Sonic (OS) is a liquid staking token on the Sonic network designed to offer enhanced security, higher yield, and a tighter peg to S when compared to other Sonic LSTs. ',
@@ -111,7 +105,6 @@ export const tokens = {
     address: '0x9F0dF7799f6FDAd409300080cfF680f5A23df4b1',
     chainId: 146,
     decimals: 18,
-    logoURI: '',
     website: 'https://app.originprotocol.com/#/os/',
     description:
       'Origin Sonic (OS) is a liquid staking token on the Sonic network designed to offer enhanced security, higher yield, and a tighter peg to S when compared to other Sonic LSTs. ',
@@ -125,7 +118,6 @@ export const tokens = {
     address: '0xd3DCe716f3eF535C5Ff8d041c1A41C3bd89b97aE',
     chainId: 146,
     decimals: 6,
-    logoURI: '',
     website: 'https://rings.money/',
     description:
       'Rings is a meta-stablecoin for USD & ETH offering competitive yield for stakers, providing deep liquidity for Sonic DeFi, and funding Sonic DeFi projects via its lockers.',
@@ -140,7 +132,6 @@ export const tokens = {
     address: '0x4D85bA8c3918359c78Ed09581E5bc7578ba932ba',
     chainId: 146,
     decimals: 6,
-    logoURI: '',
     website: 'https://rings.money/',
     description:
       'Rings is a meta-stablecoin for USD & ETH offering competitive yield for stakers, providing deep liquidity for Sonic DeFi, and funding Sonic DeFi projects via its lockers.',
@@ -155,7 +146,6 @@ export const tokens = {
     address: '0x9fb76f7ce5FCeAA2C42887ff441D46095E494206',
     chainId: 146,
     decimals: 6,
-    logoURI: '',
     website: 'https://rings.money/',
     description:
       'Rings is a meta-stablecoin for USD & ETH offering competitive yield for stakers, providing deep liquidity for Sonic DeFi, and funding Sonic DeFi projects via its lockers.',
@@ -170,7 +160,6 @@ export const tokens = {
     address: '0xE51EE9868C1f0d6cd968A8B8C8376Dc2991BFE44',
     chainId: 146,
     decimals: 18,
-    logoURI: '',
     website: 'https://paintswap.io/',
     description:
       'PaintSwap is a decentralized finance powerhouse, combining an open NFT marketplace with a dedicated financial NFT marketplace.',
@@ -184,7 +173,6 @@ export const tokens = {
     address: '0xe6cc4D855B4fD4A9D02F46B9adae4C5EfB1764B5',
     chainId: 146,
     decimals: 18,
-    logoURI: '',
     website: 'https://ludwigonsonic.com/',
     description:
       'Ludwig On Sonic (LUDWIG) is your meme gateway to exploring Balancer technology on the Sonic network. The phrase "High Speed, Perfect Beets" highlights the Sonic network’s lightning-fast performance, while "Beets" refers to the DEX where our primary pools and liquidity are hosted.',
@@ -197,7 +185,6 @@ export const tokens = {
     address: '0x2D0E0814E62D80056181F5cd932274405966e4f0',
     chainId: 146,
     decimals: 18,
-    logoURI: '',
     website: 'https://beets.fi/',
     bridge: 'native',
     description:
@@ -211,7 +198,6 @@ export const tokens = {
     address: '0x3333b97138D4b086720b5aE8A7844b1345a33333',
     chainId: 146,
     decimals: 18,
-    logoURI: '',
     website: 'https://www.shadow.so/',
     bridge: 'native',
     description:
@@ -226,7 +212,6 @@ export const tokens = {
     address: '0x5050bc082FF4A74Fb6B0B04385dEfdDB114b2424',
     chainId: 146,
     decimals: 18,
-    logoURI: '',
     website: 'https://www.shadow.so/',
     bridge: 'native',
     description:
@@ -241,7 +226,6 @@ export const tokens = {
     address: '0x3333111A391cC08fa51353E9195526A70b333333',
     chainId: 146,
     decimals: 18,
-    logoURI: '',
     website: 'https://www.shadow.so/',
     bridge: 'native',
     description:
@@ -256,7 +240,6 @@ export const tokens = {
     address: '0xA04BC7140c26fc9BB1F36B1A604C7A5a88fb0E70',
     chainId: 146,
     decimals: 18,
-    logoURI: '',
     website: 'https://swapx.fi/',
     bridge: 'native',
     description:
@@ -274,7 +257,6 @@ export const tokens = {
     website: 'https://beefy.com',
     description:
       "The incentive-bearing Beefy Token (mooBIFI) applies the magic of Beefy's autocompounding technology to the BIFI token. It is the vault token for the BIFI Vault, which automatically claims and swaps governance incentives into more BIFI, and redeposits to unlock exponential growth. On chains other than Ethereum, mooBIFI is a bridged copy of the native Ethereum token, and cannot be returned to BIFI without first bridging back to Ethereum. mooBIFI holders on all chains retain their full voting power corresponding to the underlying amount of BIFI deposited and compounding on Ethereum.",
-    logoURI: 'https://beefy.com/icons/128/mooBIFI.png',
     documentation: 'https://docs.beefy.finance/',
     bridge: 'beefy',
   },
@@ -285,7 +267,6 @@ export const tokens = {
     address: '0x3bcE5CB273F0F148010BbEa2470e7b5df84C7812',
     chainId: 146,
     decimals: 18,
-    logoURI: '',
     website: 'https://rings.money/',
     description:
       'Rings is a meta-stablecoin for USD & ETH offering competitive yield for stakers, providing deep liquidity for Sonic DeFi, and funding Sonic DeFi projects via its lockers.',
@@ -300,7 +281,6 @@ export const tokens = {
     address: '0xE8a41c62BB4d5863C6eadC96792cFE90A1f37C47',
     chainId: 146,
     decimals: 18,
-    logoURI: '',
     website: 'https://rings.money/',
     description:
       'Rings is a meta-stablecoin for USD & ETH offering competitive yield for stakers, providing deep liquidity for Sonic DeFi, and funding Sonic DeFi projects via its lockers.',
@@ -369,7 +349,6 @@ export const tokens = {
     address: '0xdb6E5dC4C6748EcECb97b565F6C074f24384fD07',
     chainId: 146,
     decimals: 18,
-    logoURI: '',
     website: 'https://beefy.com',
     description: 'USDC.e staked into the Silo (wS Market) vault.',
     documentation: 'https://docs.beefy.finance/',
@@ -383,7 +362,6 @@ export const tokens = {
     address: '0x0555E30da8f98308EdB960aa94C0Db47230d2B9c',
     chainId: 146,
     decimals: 8,
-    logoURI: '',
     website: 'https://wbtc.network/',
     description:
       'Wrapped Bitcoin (WBTC) is the first ERC20 token backed 1:1 with Bitcoin. Completely transparent. 100% verifiable. Community led.',
@@ -397,7 +375,6 @@ export const tokens = {
     address: '0xBb30e76d9Bb2CC9631F7fC5Eb8e87B5Aff32bFbd',
     chainId: 146,
     decimals: 8,
-    logoURI: '',
     website: 'https://rings.money/',
     description:
       'Rings is a meta-stablecoin for USD, ETH & BTC offering competitive yield for stakers, providing deep liquidity for Sonic DeFi, and funding Sonic DeFi projects via its lockers.',
@@ -412,7 +389,6 @@ export const tokens = {
     address: '0x5555b2733602DEd58D47b8D3D989E631CBee5555',
     chainId: 146,
     decimals: 18,
-    logoURI: '',
     website: 'https://www.shadow.so/',
     description: 'Shadow wrapped GEMS',
     documentation: '',
@@ -425,7 +401,6 @@ export const tokens = {
     address: '0x322e1d5384aa4ED66AeCa770B95686271de61dc3',
     chainId: 146,
     decimals: 6,
-    logoURI: '',
     website: 'https://www.silo.finance/',
     description:
       'Silo Finance borrowable USDC.e deposit token, reflecting USDC.e deposited into Silo. Deposit tokens are issued at a ratio of 1,000 tokens per dollar deposited (or $0.001 per dollar deposited).',
@@ -439,7 +414,6 @@ export const tokens = {
     address: '0x53f753E4B17F4075D6fa2c6909033d224b81e698',
     chainId: 146,
     decimals: 18,
-    logoURI: '',
     website: 'https://www.silo.finance/',
     description:
       'Silo is a non-custodial lending protocol to borrow any crypto asset with another.',
@@ -454,7 +428,6 @@ export const tokens = {
     address: '0x871A101Dcf22fE4fE37be7B654098c801CBA1c88',
     chainId: 146,
     decimals: 18,
-    logoURI: '',
     website: 'https://www.beefy.com/',
     description:
       'Beefy-escrowed Sonic (beS) is a liquid staking derivative of Sonic (S). It automatically stakes a user’s wS tokens to earn staking rewards. Each beS token represents a proportional share of the staked wS, including any rewards accrued over time. Users can convert beS back to wS with a 14-day unbonding period, or freely trade beS on the open market.',
@@ -468,7 +441,6 @@ export const tokens = {
     address: '0xb0695ce12c56AAe40894235e2d1888D0b62Dd110',
     chainId: 146,
     decimals: 18,
-    logoURI: '',
     website: 'https://defive.com/',
     description:
       'DeFive, previously known as WigoSwap on Fantom (with over $1 billion in transaction volume), is a redefined and progressive DeFi platform built on Sonic.',
@@ -482,7 +454,6 @@ export const tokens = {
     address: '0xe715cbA7B5cCb33790ceBFF1436809d36cb17E57',
     chainId: 146,
     decimals: 6,
-    logoURI: '',
     website: 'https://www.circle.com/en/eurc',
     description:
       'EURC is a euro-backed stablecoin that’s accessible globally on Avalanche, Ethereum, Base and Stellar. Similar to USDC, EURC is issued by Circle under a full-reserve model.',
@@ -496,7 +467,6 @@ export const tokens = {
     address: '0x578Ee1ca3a8E1b54554Da1Bf7C583506C4CD11c6',
     chainId: 146,
     decimals: 6,
-    logoURI: '',
     website: 'https://www.circle.com/usdc',
     documentation: 'https://docs.aave.com/developers/v/2.0/the-core-protocol/atokens',
     description:
@@ -511,7 +481,6 @@ export const tokens = {
     address: '0x6646248971427B80ce531bdD793e2Eb859347E55',
     chainId: 146,
     decimals: 6,
-    logoURI: '',
     website: 'https://www.circle.com/usdc',
     documentation: 'https://docs.aave.com/developers/v/2.0/the-core-protocol/atokens',
     description:
@@ -525,7 +494,6 @@ export const tokens = {
     address: '0xe6605932e4a686534D19005BB9dB0FBA1F101272',
     chainId: 146,
     decimals: 6,
-    logoURI: '',
     website: 'https://rings.money/',
     description:
       'Silo scUSD market. Rings is a meta-stablecoin for USD & ETH offering competitive yield for stakers, providing deep liquidity for Sonic DeFi, and funding Sonic DeFi projects via its lockers.',
@@ -540,7 +508,6 @@ export const tokens = {
     address: '0x08C320A84a59c6f533e0DcA655cf497594BCa1F9',
     chainId: 146,
     decimals: 18,
-    logoURI: '',
     website: 'https://weth.io/',
     description: 'Ether or ETH is the native currency built on the Ethereum blockchain.',
     bridge: 'native',
@@ -553,7 +520,6 @@ export const tokens = {
     address: '0x24c74B30d1a4261608E84Bf5a618693032681DAc',
     chainId: 146,
     decimals: 18,
-    logoURI: '',
     website: 'https://rings.money/',
     description:
       'Silo scETH market. Rings is a meta-stablecoin for USD & ETH offering competitive yield for stakers, providing deep liquidity for Sonic DeFi, and funding Sonic DeFi projects via its lockers.',
@@ -568,7 +534,6 @@ export const tokens = {
     address: '0xd70c020c48403295100884ee47db80d51BAA9d87',
     chainId: 146,
     decimals: 18,
-    logoURI: '',
     website: 'https://app.beefy.com/campaigns/begems',
     description:
       'beGEMS are a liquid ERC-20 token issued by Beefy that represent its share of Sonic Gems airdrop rewards, earned by users through boosting vaults, providing liquidity, or voting for beS pairs across Sonic exchanges.',
@@ -582,7 +547,6 @@ export const tokens = {
     address: '0x8Bb21B10f32a10bed94041746ffD32003bAd6534',
     chainId: 146,
     decimals: 18,
-    logoURI: '',
     website: 'https://animera.world/',
     description:
       'Display your prowess in Search For Animera: Star Siege, a Free-To-Play cosmic shooter where adversaries from every corner of the galaxy vie for glory, fame, and lucrative rewards.',

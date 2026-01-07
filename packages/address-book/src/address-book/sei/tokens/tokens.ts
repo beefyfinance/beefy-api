@@ -11,7 +11,6 @@ const SEI = {
   description:
     'Pushing the boundaries of blockchain technology through open source development, Sei stands to unlock a brand new design space for consumer facing applications.',
   bridge: 'native',
-  logoURI: '',
   documentation: 'https://www.docs.sei.io/',
 } as const satisfies Token;
 
@@ -43,7 +42,6 @@ export const tokens = {
     website: 'https://weth.io/',
     description: 'Ether or ETH is the native currency built on the Ethereum blockchain.',
     bridge: 'layerzero',
-    logoURI: '',
     documentation: 'https://ethereum.org/en/developers/docs/',
   },
   USDT: {
@@ -57,7 +55,6 @@ export const tokens = {
     description:
       'Tether is a stablecoin pegged to the US Dollar. A stablecoin is a type of cryptocurrency whose value is pegged to another fiat currency like the US Dollar or to a commodity like Gold. Tether is the first stablecoin to be created and it is the most popular stablecoin used in the ecosystem.',
     bridge: 'sei-canonical',
-    logoURI: '',
     documentation: 'https://tether.to/en/how-it-works',
     tags: ['STABLECOIN'],
   },
@@ -71,7 +68,6 @@ export const tokens = {
     website: 'https://app.silostaking.io/stake',
     description: 'iSEI is a liquid staking wrapper for SEI, managed by Silo.',
     bridge: 'sei-canonical',
-    logoURI: '',
     documentation: 'https://silostaking.gitbook.io/silo-staking',
   },
   USDC: {
@@ -84,7 +80,6 @@ export const tokens = {
     website: 'https://www.centre.io/',
     description: 'Sei-based USDC bridged via the official SEI Bridge.',
     bridge: 'native',
-    logoURI: '',
     documentation: 'https://developers.circle.com/docs',
     tags: ['STABLECOIN'],
   },

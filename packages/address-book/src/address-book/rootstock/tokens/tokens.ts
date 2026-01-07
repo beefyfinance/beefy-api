@@ -11,7 +11,6 @@ const RBTC = {
   description:
     'RBTC, the smart version of Bitcoin. Allowing BTC owners to interact with DeFi protocols and dApps on Rootstock network for minting, swaps, gas fees and more.',
   bridge: 'rootstock-canonical',
-  logoURI: '',
   documentation:
     'https://dev.rootstock.io/concepts/rbtc/?_gl=1*jp93v6*_gcl_au*ODQ3NTgwNDM3LjE3MjcyNjIwNDI.',
 } as const satisfies Token;
@@ -31,7 +30,6 @@ export const tokens = {
     website: 'https://wiki.sovryn.com/en/sovryn-dapp/bridge',
     description: 'Sovryn ETH is a ETH aggregated token on Rootstock',
     bridge: 'sovryn',
-    logoURI: '',
     documentation: 'https://wiki.sovryn.com/en/sovryn-dapp/bridge',
     tags: ['SYNTHETIC'],
   },
@@ -45,7 +43,6 @@ export const tokens = {
     website: 'https://dapp.tokenbridge.rootstock.io/',
     description: 'Rootstock Bridged USDT from the Ethereum Network',
     bridge: 'rootstock-canonical',
-    logoURI: '',
     documentation: 'https://dapp.tokenbridge.rootstock.io/',
     tags: ['STABLECOIN', 'SYNTHETIC'],
   },
@@ -60,7 +57,6 @@ export const tokens = {
     description:
       'Dollar on Chain (DoC) - A token that is pegged 1:1 to the US Dollar, and is crypto-collateralized in Bitcoin',
     bridge: 'native',
-    logoURI: '',
     documentation: 'https://api.moneyonchain.com/docs/guide',
     tags: ['STABLECOIN', 'SYNTHETIC'],
   },
@@ -75,7 +71,6 @@ export const tokens = {
     description:
       'RIF was created to make it easier for developers to build on Bitcoin using Rootstock by proposing and developing a unified set of protocols, rules and interfaces for decentralized infrastructure services, including: Bridges, Name Resolution Services, Payments, Data Feeds (i.e. Oracles) and Bitcoin DeFi Wallets.',
     bridge: 'native',
-    logoURI: '',
     documentation: 'https://dev.rootstock.io/',
   },
 } as const satisfies Record<string, Token>;

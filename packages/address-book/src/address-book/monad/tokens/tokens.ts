@@ -11,7 +11,6 @@ const MON = {
   description:
     'Monad is a next-generation, Ethereum-compatible chain delivering 10,000 TPS, sub-second finality, low fees, and scalable decentralization. All in one.',
   bridge: 'canonical',
-  logoURI: '',
   documentation: 'https://www.monad.xyz/build',
 } as const satisfies Token;
 
@@ -31,7 +30,6 @@ export const tokens = {
       'USDC is a fully collateralized US dollar stablecoin. USDC is issued by regulated financial institutions, backed by fully reserved assets, redeemable on a 1:1 basis for US dollars.',
     bridge: 'native',
     chainId: 143,
-    logoURI: 'https://ftmscan.com/token/images/USDC_32.png',
     documentation: 'https://www.circle.com/en/usdc-multichain/arbitrum',
     tags: ['STABLECOIN'],
   },
@@ -45,7 +43,6 @@ export const tokens = {
     website: 'https://weth.io/',
     description: 'Ether or ETH is the native currency built on the Ethereum blockchain.',
     bridge: 'wormhole',
-    logoURI: 'https://arbiscan.io/token/images/weth_28.png',
     documentation: 'https://ethereum.org/en/developers/docs/',
   },
   AUSD: {
@@ -55,7 +52,6 @@ export const tokens = {
     address: '0x00000000eFE302BEAA2b3e6e1b18d08D69a9012a',
     chainId: 143,
     decimals: 6,
-    logoURI: '',
     website: 'https://agora.finance/',
     documentation: 'https://developer.agora.finance/',
     description:
@@ -70,7 +66,6 @@ export const tokens = {
     address: '0xe7cd86e13AC4309349F30B3435a9d337750fC82D',
     chainId: 143,
     decimals: 6,
-    logoURI: '',
     description:
       'Tether is a stablecoin pegged to the US Dollar. A stablecoin is a type of cryptocurrency whose value is pegged to another fiat currency like the US Dollar or to a commodity like Gold. Tether is the first stablecoin to be created and it is the most popular stablecoin used in the ecosystem.',
     bridge: 'layer-zero',
@@ -84,7 +79,6 @@ export const tokens = {
     address: '0x0555E30da8f98308EdB960aa94C0Db47230d2B9c',
     chainId: 143,
     decimals: 8,
-    logoURI: '',
     website: 'https://wbtc.network/',
     description:
       'Wrapped Bitcoin (WBTC) is the first ERC20 token backed 1:1 with Bitcoin. Completely transparent. 100% verifiable. Community led.',
@@ -102,7 +96,6 @@ export const tokens = {
     description:
       'Lido is a liquid staking solution for ETH backed by industry-leading staking providers. Lido lets users stake their ETH - without locking assets or maintaining infrastructure - whilst participating in on-chain activities, e.g. lending. Lido attempts to solve the problems associated with initial ETH staking - illiquidity, immovability and accessibility - making staked ETH liquid and allowing for participation with any amount of ETH to improve security of the Ethereum network.',
     bridge: 'monad-canonical',
-    logoURI: '',
     documentation: 'https://docs.lido.fi/',
   },
   cWMON: {
@@ -116,7 +109,6 @@ export const tokens = {
     description:
       'Curvance WMON is a yield-bearing receipt for WMON deposited in the WMON-AUSD market on Curvance. cWMON earns interest and Merkl rewards from Curvance and can be redeemed for WMON.',
     bridge: 'native',
-    logoURI: '',
     documentation: 'https://docs.curvance.com/',
   },
   LBTC: {
@@ -126,7 +118,6 @@ export const tokens = {
     address: '0xecAc9C5F704e954931349Da37F60E39f515c11c1',
     chainId: 143,
     decimals: 8,
-    logoURI: '',
     website: 'https://www.lombard.finance/app/',
     description:
       "LBTC is liquid Bitcoin; it's yield-bearing, cross-chain, and 1:1 backed by BTC. LBTC enables yield-bearing BTC to move cross-chain without fragmenting liquidity, and is designed to seamlessly integrate Bitcoin into the decentralized finance (DeFi) ecosystem while maintaining the security and integrity of the underlying asset.",
@@ -154,7 +145,6 @@ export const tokens = {
     address: '0x4917a5ec9fCb5e10f47CBB197aBe6aB63be81fE8',
     chainId: 143,
     decimals: 18,
-    logoURI: '',
     website: 'https://mudigital.net/',
     documentation: 'https://docs.mudigital.net/',
     description:
@@ -169,7 +159,6 @@ export const tokens = {
     address: '0x336D414754967C6682B5A665C7DAF6F1409E63e8',
     chainId: 143,
     decimals: 18,
-    logoURI: '',
     website: 'https://mudigital.net/',
     documentation: 'https://docs.mudigital.net/',
     description:
@@ -184,7 +173,6 @@ export const tokens = {
     address: '0x1B68626dCa36c7fE922fD2d55E4f631d962dE19c',
     chainId: 143,
     decimals: 18,
-    logoURI: '',
     website: 'https://shmonad.xyz/',
     documentation: 'https://docs.shmonad.xyz/',
     description:
@@ -199,7 +187,6 @@ export const tokens = {
     address: '0xA3227C5969757783154C60bF0bC1944180ed81B9',
     chainId: 143,
     decimals: 18,
-    logoURI: '',
     website: 'https://kintsu.xyz/',
     documentation: 'https://docs.kintsu.xyz/',
     description:
@@ -214,7 +201,6 @@ export const tokens = {
     address: '0x8498312A6B3CbD158bf0c93AbdCF29E6e4F55081',
     chainId: 143,
     decimals: 18,
-    logoURI: '',
     website: 'https://www.magmastaking.xyz/',
     documentation: 'https://docs.hydrogenlabs.xyz/magma/',
     description:
@@ -229,7 +215,6 @@ export const tokens = {
     address: '0x9c82eB49B51F7Dc61e22Ff347931CA32aDc6cd90',
     chainId: 143,
     decimals: 18,
-    logoURI: '',
     website: 'https://mudigital.net/',
     documentation: 'https://docs.mudigital.net/',
     description:
@@ -244,7 +229,6 @@ export const tokens = {
     address: '0x111111d2bf19e43C34263401e0CAd979eD1cdb61',
     chainId: 143,
     decimals: 6,
-    logoURI: '',
     website: 'https://worldlibertyfinancial.com/usd1',
     description:
       'Digital dollar stablecoins that are accepted both on-chain and in the real world.',
@@ -258,7 +242,6 @@ export const tokens = {
     address: '0x103222f020e98Bba0AD9809A011FDF8e6F067496',
     chainId: 143,
     decimals: 6,
-    logoURI: '',
     website: 'https://www.upshift.finance/',
     documentation: 'https://docs.upshift.finance/',
     description:

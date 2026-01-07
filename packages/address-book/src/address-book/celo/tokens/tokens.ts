@@ -10,8 +10,6 @@ const CELO = {
   website: 'https://celo.org/',
   description:
     'Celo is a mobile-first platform that makes financial dApps and crypto payments accessible to anyone with a mobile phone',
-  logoURI:
-    'https://res.cloudinary.com/dnz2bkszg/image/fetch/f_auto/https://raw.githubusercontent.com/sushiswap/icons/master/token/one.jpg',
 } as const satisfies Token;
 
 const WCELO = {
@@ -29,7 +27,6 @@ const SUSHIV1 = {
   website: 'https://sushi.com/',
   description:
     'Sushi is the home of DeFi. Their community is building a comprehensive, decentralized trading platform for the future of finance. Swap, earn, stack yields, lend, borrow, leverage all on one decentralized, community driven platform.',
-  logoURI: 'https://ftmscan.com/token/images/sushiswap_32.png',
 } as const satisfies Token;
 
 export const tokens = {
@@ -47,8 +44,6 @@ export const tokens = {
     website: 'https://www.beefy.finance/',
     description:
       'Beefy Finance is a Decentralized, Multi-Chain Yield Optimizer platform that allows its users to earn compound interest on their crypto holdings.',
-    logoURI:
-      'https://raw.githubusercontent.com/beefyfinance/beefy-app/prod/src/images/single-assets/BIFI.png',
   },
   cUSD: {
     name: 'Celo Dollar',
@@ -57,8 +52,6 @@ export const tokens = {
     address: '0x765DE816845861e75A25fCA122bb6898B8B1282a',
     chainId: 42220,
     decimals: 18,
-    logoURI:
-      'https://res.cloudinary.com/sushi-cdn/image/fetch/w_48/https://raw.githubusercontent.com/sushiswap/logos/main/network/celo/0x765DE816845861e75A25fCA122bb6898B8B1282a.jpg',
     website: 'https://celo.org/dapps',
     description: 'Celo Pegged Dollar',
     tags: ['STABLECOIN', 'SYNTHETIC'],
@@ -70,8 +63,6 @@ export const tokens = {
     address: '0xD8763CBa276a3738E6DE85b4b3bF5FDed6D6cA73',
     chainId: 42220,
     decimals: 18,
-    logoURI:
-      'https://res.cloudinary.com/sushi-cdn/image/fetch/w_48/https://raw.githubusercontent.com/sushiswap/logos/main/network/celo/0xD8763CBa276a3738E6DE85b4b3bF5FDed6D6cA73.jpg',
     website: 'https://celo.org/dapps',
     description: 'Celo Pegged Euro',
     tags: ['STABLECOIN', 'SYNTHETIC'],
@@ -86,8 +77,6 @@ export const tokens = {
     website: 'https://ethereum.org/',
     description:
       'The native currency that flows within the Ethereum economy is called Ether (ETH). Ether is typically used to pay for transaction fees called Gas, and it is the base currency of the network.',
-    logoURI:
-      'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0xf20d962a6c8f70c731bd838a3a388D7d48fA6e15/logo.png',
   },
   WETH: {
     name: 'Wrapped Ether',
@@ -96,8 +85,6 @@ export const tokens = {
     address: '0x122013fd7dF1C6F636a5bb8f03108E876548b455',
     chainId: 42220,
     decimals: 18,
-    logoURI:
-      'https://tokens.pancakeswap.finance/images/0x122013fd7dF1C6F636a5bb8f03108E876548b455.svg',
     website: 'https://ethereum.org/',
     description:
       'The native currency that flows within the Ethereum economy is called Ether (ETH). Ether is typically used to pay for transaction fees called Gas, and it is the base currency of the network.',
@@ -113,8 +100,6 @@ export const tokens = {
     website: 'https://makerdao.com/en/',
     description:
       'DAI is an Ethereum-based stablecoin (stable-price cryptocurrency) whose issuance and development is managed by the Maker Protocol and the MakerDAO decentralized autonomous organization.',
-    logoURI:
-      'https://tokens.pancakeswap.finance/images/0x1af3f329e8be154074d8769d1ffa4ee058b1dbc3.png',
     tags: ['SYNTHETIC'],
   },
   DAI: {
@@ -124,8 +109,6 @@ export const tokens = {
     address: '0xE4fE50cdD716522A56204352f00AA110F731932d',
     chainId: 42220,
     decimals: 18,
-    logoURI:
-      'https://tokens.pancakeswap.finance/images/0xE4fE50cdD716522A56204352f00AA110F731932d.svg',
     website: 'https://makerdao.com/en/',
     description:
       'DAI is an Ethereum-based stablecoin (stable-price cryptocurrency) whose issuance and development is managed by the Maker Protocol and the MakerDAO decentralized autonomous organization.',
@@ -141,7 +124,6 @@ export const tokens = {
     website: 'https://sushi.com/',
     description:
       'Sushi is the home of DeFi. Their community is building a comprehensive, decentralized trading platform for the future of finance. Swap, earn, stack yields, lend, borrow, leverage all on one decentralized, community driven platform.',
-    logoURI: 'https://ftmscan.com/token/images/sushiswap_32.png',
   },
   USDC: {
     name: 'USD Coin',
@@ -150,8 +132,6 @@ export const tokens = {
     address: '0xef4229c8c3250C675F21BCefa42f58EfbfF6002a',
     chainId: 42220,
     decimals: 6,
-    logoURI:
-      'https://tokens.pancakeswap.finance/images/0xef4229c8c3250C675F21BCefa42f58EfbfF6002a.svg',
     website: 'https://www.circle.com/usdc',
     documentation: 'https://developers.circle.com/docs',
     description:
@@ -165,8 +145,6 @@ export const tokens = {
     address: '0x88eeC49252c8cbc039DCdB394c0c2BA2f1637EA0',
     chainId: 42220,
     decimals: 6,
-    logoURI:
-      'https://tokens.pancakeswap.finance/images/0x88eeC49252c8cbc039DCdB394c0c2BA2f1637EA0.svg',
     website: 'https://tether.to/',
     description:
       'Tether is a stablecoin pegged to the US Dollar. A stablecoin is a type of cryptocurrency whose value is pegged to another fiat currency like the US Dollar or to a commodity like Gold. Tether is the first stablecoin to be created and it is the most popular stablecoin used in the ecosystem.',
@@ -179,8 +157,6 @@ export const tokens = {
     address: '0x73a210637f6F6B7005512677Ba6B3C96bb4AA44B',
     chainId: 42220,
     decimals: 18,
-    logoURI:
-      'https://tokens.pancakeswap.finance/images/0x73a210637f6F6B7005512677Ba6B3C96bb4AA44B.svg',
     website: 'https://www.mobius.money/#/swap',
     description: 'A cross-chain stableswap DEX on Celo',
   },
@@ -195,7 +171,6 @@ export const tokens = {
     address: '0xa9FcF373b6bc717223d9464e8c481c9AfAe3f861',
     chainId: 42220,
     decimals: 18,
-    logoURI: '',
     website: 'https://app.beefy.com/',
     oracleId: 'sushi-celo-bifi-weth',
     oracle: 'lps',
@@ -206,7 +181,6 @@ export const tokens = {
     address: '0x7072a1c2c9A0cb20ae0B3C0C9023a42a49542e8B',
     chainId: 42220,
     decimals: 18,
-    logoURI: '',
     website: 'https://app.beefy.com/',
     oracleId: 'sushi-celo-csushi-celo',
     oracle: 'lps',

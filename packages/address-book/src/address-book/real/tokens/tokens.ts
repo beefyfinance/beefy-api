@@ -10,7 +10,6 @@ const ETH = {
   website: 'https://weth.io/',
   description: 'Ether or ETH is the native currency built on the Ethereum blockchain.',
   bridge: 'real-canonical',
-  logoURI: '',
   documentation: 'https://ethereum.org/en/developers/docs/',
 } as const satisfies Token;
 
@@ -40,7 +39,6 @@ export const tokens = {
     address: '0x75d0cBF342060b14c2fC756fd6E717dFeb5B1B70',
     chainId: 111188,
     decimals: 18,
-    logoURI: '',
     website: 'https://makerdao.com/en/',
     bridge: 'real-canonical',
     documentation:
