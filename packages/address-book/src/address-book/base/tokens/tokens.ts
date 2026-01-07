@@ -3303,8 +3303,6 @@ export const tokens = {
     address: '0x4e65fE4DbA92790696d040ac24Aa414708F5c0AB',
     chainId: 8453,
     decimals: 6,
-    logoURI:
-      'https://tokens.pancakeswap.finance/images/0x4988a896b1227218e4A686fdE5EabdcAbd91571f.svg',
     website: 'https://www.circle.com/usdc',
     documentation: 'https://docs.aave.com/developers/v/2.0/the-core-protocol/atokens',
     description:
