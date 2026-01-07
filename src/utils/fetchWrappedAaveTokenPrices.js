@@ -147,6 +147,7 @@ const {
       WETH: baseWETH,
       waBasWETH,
       smUSDC,
+      aBasUSDC,
     },
   },
   monad: {
