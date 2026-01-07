@@ -11,7 +11,6 @@ const CANTO = {
   description:
     'Canto is a permissionless general-purpose blockchain running the Ethereum Virtual Machine (EVM). It was built to deliver on the promise of DeFi – that through a post-traditional financial movement, new systems will be made accessible, transparent, decentralized, and free.',
   bridge: 'native',
-  logoURI: '',
   documentation: 'https://docs.canto.io/',
 } as const satisfies Token;
 
@@ -31,8 +30,6 @@ export const tokens = {
     documentation: 'https://docs.beefy.finance/',
     description:
       'Beefy Finance is a Decentralized, Multi-Chain Yield Optimizer platform that allows its users to earn compound interest on their crypto holdings.',
-    logoURI:
-      'https://raw.githubusercontent.com/beefyfinance/beefy-app/prod/src/images/single-assets/BIFI.png',
   },
   ATOM: {
     name: 'Cosmos Token',
@@ -45,7 +42,6 @@ export const tokens = {
     description:
       'Cosmos is an ever-expanding ecosystem of interconnected apps and services, built for a decentralized future.',
     bridge: 'gravity',
-    logoURI: '',
     documentation: 'https://docs.cosmos.network/main',
   },
   ETH: {
@@ -55,7 +51,6 @@ export const tokens = {
     address: '0x5FD55A1B9FC24967C4dB09C513C3BA0DFa7FF687',
     chainId: 7700,
     decimals: 18,
-    logoURI: '',
     website: 'https://ethereum.org/',
     description:
       'The native currency that flows within the Ethereum economy is called Ether (ETH). Ether is typically used to pay for transaction fees called Gas, and it is the base currency of the network.',
@@ -69,7 +64,6 @@ export const tokens = {
     address: '0x4e71A2E537B7f9D9413D3991D37958c0b5e1e503',
     chainId: 7700,
     decimals: 18,
-    logoURI: '',
     website: 'https://canto.io/',
     documentation: 'https://docs.canto.io/overview/canto-unit-of-account-usdnote',
     description:
@@ -88,7 +82,6 @@ export const tokens = {
       'USDC is a fully collateralized US dollar stablecoin. USDC is issued by regulated financial institutions, backed by fully reserved assets, redeemable on a 1:1 basis for US dollars.',
     bridge: 'gravity',
     chainId: 7700,
-    logoURI: '',
     documentation: 'https://developers.circle.com/docs',
     tags: ['STABLECOIN'],
   },
@@ -103,7 +96,6 @@ export const tokens = {
     description:
       'Tether is a stablecoin pegged to the US Dollar. A stablecoin is a type of cryptocurrency whose value is pegged to another fiat currency like the US Dollar or to a commodity like Gold. Tether is the first stablecoin to be created and it is the most popular stablecoin used in the ecosystem.',
     bridge: 'gravity',
-    logoURI: '',
     documentation: 'https://tether.to/en/how-it-works',
     tags: ['STABLECOIN'],
   },
@@ -114,7 +106,6 @@ export const tokens = {
     address: '0x2Baec546a92cA3469f71b7A091f7dF61e5569889',
     chainId: 7700,
     decimals: 18,
-    logoURI: '',
     website: 'https://canto.velocimeter.xyz/home',
     description:
       'Velocimeter addresses these issues and presents an attractive alternative by addressing the core issues in Solidly and adding its own improvements. To recall, the key innovation of Solidly was to align protocol emissions with fees generated, not simply liquidity. To do this, it would allow protocols and other large stakeholders to become veNFT "voters", using their locked voting power to direct future emissions and collecting fees (termed bribes in Solidly) from the pools they voted for.',
@@ -127,7 +118,6 @@ export const tokens = {
     address: '0xc03345448969Dd8C00e9E4A85d2d9722d093aF8E',
     chainId: 7700,
     decimals: 6,
-    logoURI: '',
     website: 'https://www.gravitybridge.net/',
     description:
       'Cosmos Gravity Bridge™ is a purpose-built, fully decentralized, trustless blockchain which bridges assets between the Ethereum and Cosmos ecosystems. Ethereum and EVM compatible tokens can be transferred across the Gravity Bridge to a Cosmos wallet and then onto other Cosmos wallets or DEXs (such as Osmosis or Gravity DEX). Cosmos SDK based blockchains can similarly send tokens across Gravity Bridge to the Ethereum ecosystem, making them available for transfer or potentially trading on Uniswap or other ETH DEXs.',
@@ -140,7 +130,6 @@ export const tokens = {
     address: '0xB5b060055F0d1eF5174329913ef861bC3aDdF029',
     chainId: 7700,
     decimals: 18,
-    logoURI: '',
     website: 'https://canto.velocimeter.xyz/home',
     description:
       'Velocimeter addresses these issues and presents an attractive alternative by addressing the core issues in Solidly and adding its own improvements. To recall, the key innovation of Solidly was to align protocol emissions with fees generated, not simply liquidity. To do this, it would allow protocols and other large stakeholders to become veNFT "voters", using their locked voting power to direct future emissions and collecting fees (termed bribes in Solidly) from the pools they voted for.',
@@ -154,7 +143,6 @@ export const tokens = {
     address: '0xFA3C22C069B9556A4B2f7EcE1Ee3B467909f4864',
     chainId: 7700,
     decimals: 6,
-    logoURI: '',
     website: 'https://app.sommelier.finance/',
     description:
       'Sommelier is a DeFi blockchain protocol, built on the Cosmos SDK, and a bi-directional Ethereum bridge. Taken together, this collection serves as a co-processor to Ethereum - that is we are using a Cosmos chain to process as many of the calculations as possible off Ethereum. The protocol is powered by validators and LPs who can benefit from a wide array of transaction features, such as portfolio rebalancing and limit orders based on dynamically changing market conditions.',
@@ -169,7 +157,6 @@ export const tokens = {
     address: '0x80A16016cC4A2E6a2CACA8a4a498b1699fF0f844',
     chainId: 7700,
     decimals: 8,
-    logoURI: '',
     website: 'https://app.multichain.org/',
     description: 'Multichain supports to swap BTC to MultiBTC (Multichain BTC) 1:1.',
     documentation: 'https://docs.multichain.org/getting-started/introduction',
@@ -182,7 +169,6 @@ export const tokens = {
     address: '0xFb7F77faaA3b69ef4C15d6305C79AD92B387C89F',
     chainId: 7700,
     decimals: 18,
-    logoURI: '',
     website: 'https://www.binance.com/',
     description:
       'Binance Coin (BNB) is an exchange-based token created and issued by the cryptocurrency exchange Binance. Initially created on the Ethereum blockchain as an ERC-20 token in July 2017, BNB was migrated over to Binance Chain in February 2019 and became the native coin of the Binance Chain.',
@@ -194,7 +180,6 @@ export const tokens = {
     address: '0x381Ea7A7EE6a1e2982e01E7b6837f775a1a4B07F',
     chainId: 7700,
     decimals: 18,
-    logoURI: '',
     website: 'https://www.binance.com/en/busd',
     description:
       'Binance USD (BUSD) is a 1:1 USD-backed stable coin issued by Binance (in partnership with Paxos), Approved and regulated by the New York State Department of Financial Services (NYDFS), The BUSD Monthly Audit Report can be viewed from the official website.',
@@ -207,7 +192,6 @@ export const tokens = {
     address: '0x08638a74A8134c747Dce29B57472cc2B57F35653',
     chainId: 7700,
     decimals: 8,
-    logoURI: '',
     website: 'https://wbtc.network/',
     description:
       'Wrapped Bitcoin (WBTC) is the first ERC20 token backed 1:1 with Bitcoin. Completely transparent. 100% verifiable. Community led.',
@@ -219,7 +203,6 @@ export const tokens = {
     address: '0x7264610A66EcA758A8ce95CF11Ff5741E1fd0455',
     chainId: 7700,
     decimals: 18,
-    logoURI: '',
     website: 'https://www.cantoinu.com/',
     description:
       'Following in the pawprints of Dogecoin and Shiba Inu, Canto Inu is the native breed token to the Canto Blockchain. It is provided solely for entertainment purposes.',
@@ -231,7 +214,6 @@ export const tokens = {
     address: '0xc9BAA8cfdDe8E328787E29b4B078abf2DaDc2055',
     chainId: 7700,
     decimals: 18,
-    logoURI: '',
     website: 'https://cre8r.vip/',
     description:
       'The world’s first & only decentralized Web3 content marketing agency DAO. Massively scalable. Fueled by DeFi.',
@@ -243,7 +225,6 @@ export const tokens = {
     address: '0xc71aAf8e486e3F33841BB56Ca3FD2aC3fa8D29a8',
     chainId: 7700,
     decimals: 18,
-    logoURI: '',
     website: 'https://lido.fi/',
     description:
       'Lido is a liquid staking solution for ETH backed by industry-leading staking providers. Lido lets users stake their ETH - without locking assets or maintaining infrastructure - whilst participating in on-chain activities, e.g. lending. Lido attempts to solve the problems associated with initial ETH staking - illiquidity, immovability and accessibility - making staked ETH liquid and allowing for participation with any amount of ETH to improve security of the Ethereum network.',
@@ -256,7 +237,6 @@ export const tokens = {
     address: '0x4A2a90D444DbB7163B5861b772f882BbA394Ca67',
     chainId: 7700,
     decimals: 6,
-    logoURI: '',
     website: 'https://stride.zone/',
     description:
       'Using Stride’s liquid staked ATOM, you can earn both staking and DeFi yields across the Cosmos IBC ecosystem.',
@@ -269,7 +249,6 @@ export const tokens = {
     address: '0x1D54EcB8583Ca25895c512A8308389fFD581F9c9',
     chainId: 7700,
     decimals: 18,
-    logoURI: '',
     website: 'https://injective.com/',
     description:
       'Injective is an open, interoperable layer-one blockchain for building powerful DeFi applications.',
@@ -282,7 +261,6 @@ export const tokens = {
     address: '0xf390830DF829cf22c53c8840554B98eafC5dCBc2',
     chainId: 7700,
     decimals: 18,
-    logoURI: '',
     website: 'https://www.pepe.vip/',
     description:
       'Pepe is here to make memecoins great again. Launched stealth with no presale, zero taxes, LP burnt and contract renounced, $PEPE is a coin for the people, forever. Fueled by pure memetic power, let $PEPE show you the way.',
@@ -294,7 +272,6 @@ export const tokens = {
     address: '0x9F823D534954Fc119E31257b3dDBa0Db9E2Ff4ed',
     chainId: 7700,
     decimals: 18,
-    logoURI: '',
     website: 'https://www.scanto.io/',
     description:
       'By holding $sCANTO you are earning a prorata share of the validator rewards. When you stake $CANTO at scanto.io you get $sCANTO, a liquid staking derivative that can be used across a range of DeFi applications. Unlike staked $CANTO, the $sCANTO are freely transferable instead of locked as in the case of native staking.',
@@ -308,7 +285,6 @@ export const tokens = {
     address: '0xFf0BAF077e8035A3dA0dD2abeCECFbd98d8E63bE',
     chainId: 7700,
     decimals: 18,
-    logoURI: '',
     website: 'https://www.scanto.io/',
     description:
       '$BLOTR is the governance token for $sCANTO (Liquid Staked Canto) used to vote on protocol upgrades, incentivize $sCANTO liquidity pools, and for other future protocol mechanisms.',
@@ -322,7 +298,6 @@ export const tokens = {
     address: '0xbAD86785eB08fe9d0948B7D9d24523000A177cD0',
     chainId: 7700,
     decimals: 18,
-    logoURI: '',
     website: 'https://cantov3.velocimeter.xyz',
     description:
       'CVM is the native token for Velocimeter on Canto (CVM), a project providing liquidity on the chain where it is needed most. The CVM token can be staked as or locked to earn rewards on the CVM platform.',
@@ -335,7 +310,6 @@ export const tokens = {
     address: '0x5C2a258A169Fd683e784686E606E33f6D8c31b9a',
     chainId: 7700,
     decimals: 18,
-    logoURI: '',
     website: 'https://cantov3.velocimeter.xyz',
     description:
       'oCVM is an options token that helps to reduce sell pressure on the native CVM token. It is earned by liquidity providers (LPs) who provide liquidity to the CVM pools. oCVM can be redeemed for CVM at a discount, or it can be locked up for a period of time as veCVM. veCVM is a governance token that allows holders to vote on the distribution of emissions, as well as receive weekly bribes and fees.',

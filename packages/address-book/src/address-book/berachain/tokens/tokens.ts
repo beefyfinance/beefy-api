@@ -10,7 +10,6 @@ const BERA = {
   website: 'https://www.berachain.com/',
   description: 'Learn, integrate, and build on a new modular EVM with Berachain.',
   bridge: 'berachain-canonical',
-  logoURI: '',
   documentation: 'https://docs.berachain.com/',
 } as const satisfies Token;
 
@@ -28,7 +27,6 @@ export const tokens = {
     decimals: 18,
     website: 'https://weth.io/',
     description: 'Ether or ETH is the native currency built on the Ethereum blockchain.',
-    logoURI: 'https://arbiscan.io/token/images/weth_28.png',
     documentation: 'https://ethereum.org/en/developers/docs/',
     bridge: 'layerzero',
   },
@@ -39,7 +37,6 @@ export const tokens = {
     address: '0xFCBD14DC51f0A4d49d5E53C2E0950e0bC26d0Dce',
     chainId: 80094,
     decimals: 18,
-    logoURI: '',
     website: 'https://honey.berachain.com/',
     description:
       'Turn your favorite stables into Honey. Leverage liquidity incentives on various platforms.',
@@ -54,7 +51,6 @@ export const tokens = {
     address: '0x656b95E550C07a9ffe548bd4085c72418Ceb1dba',
     chainId: 80094,
     decimals: 18,
-    logoURI: '',
     website: 'https://www.berachain.com/',
     description:
       '$BGT is earned by performing certain actions in dApps with whitelisted Reward Vaults. Most of the time, this is related to providing liquidity, but it is not limited to this. Reward Vault deposits correspond to some form of productive activity on Berachain.',
@@ -68,7 +64,6 @@ export const tokens = {
     address: '0x549943e04f40284185054145c6E4e9568C1D3241',
     chainId: 80094,
     decimals: 6,
-    logoURI: '',
     website: 'https://www.centre.io/',
     description:
       'USDC is a fully collateralized US dollar stablecoin. USDC is issued by regulated financial institutions, backed by fully reserved assets, redeemable on a 1:1 basis for US dollars.',
@@ -83,7 +78,6 @@ export const tokens = {
     address: '0x688e72142674041f8f6Af4c808a4045cA1D6aC82',
     chainId: 80094,
     decimals: 6,
-    logoURI: '',
     website: 'https://www.paypal.com/us/digital-wallet/manage-money/crypto/pyusd',
     description:
       'Bera LayerZero Bridged PYUSD. PayPal USD (PYUSD) is a stablecoin backed by secure and highly liquid assets.',
@@ -98,7 +92,6 @@ export const tokens = {
     address: '0x0555E30da8f98308EdB960aa94C0Db47230d2B9c',
     chainId: 80094,
     decimals: 8,
-    logoURI: '',
     website: 'https://wbtc.network/',
     description:
       'Wrapped Bitcoin (WBTC) is the first ERC20 token backed 1:1 with Bitcoin. Completely transparent. 100% verifiable. Community led.',
@@ -112,7 +105,6 @@ export const tokens = {
     address: '0xac03CABA51e17c86c921E1f6CBFBdC91F8BB2E6b',
     chainId: 80094,
     decimals: 18,
-    logoURI: '',
     website: 'https://infrared.finance/ibgt',
     description:
       'Infrared’s iBGT, a liquid version of Berachain’s Governance Token (BGT), helps you maximize Proof of Liquidity (PoL) rewards.',
@@ -126,7 +118,6 @@ export const tokens = {
     address: '0x9b6761bf2397Bb5a6624a856cC84A3A14Dcd3fe5',
     chainId: 80094,
     decimals: 18,
-    logoURI: '',
     website: 'https://infrared.finance/ibera',
     description:
       'iBERA is Infrared’s liquid staking solution that makes staking BERA tokens accessible to everyone.',
@@ -300,7 +291,6 @@ export const tokens = {
     address: '0x5d3a1Ff2b6BAb83b63cd9AD0787074081a52ef34',
     chainId: 80094,
     decimals: 18,
-    logoURI: '',
     website: 'https://ethena.fi/',
     documentation: 'https://ethena-labs.gitbook.io/ethena-labs',
     description:
@@ -315,7 +305,6 @@ export const tokens = {
     address: '0x211Cc4DD073734dA055fbF44a2b4667d5E5fE5d2',
     chainId: 80094,
     decimals: 18,
-    logoURI: '',
     website: 'https://ethena.fi/',
     documentation: 'https://ethena-labs.gitbook.io/ethena-labs',
     description:

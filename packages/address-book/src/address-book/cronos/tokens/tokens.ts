@@ -10,7 +10,6 @@ const CRO = {
   website: 'https://cronos.crypto.org/',
   description: 'Crypto.com Coin',
   bridge: 'native',
-  logoURI: 'https://vvs.finance/images/tokens/0x5C7F8A570d578ED84E63fdFA7b1eE72dEae1AE23.svg',
   documentation: 'https://docs.cronos-pos.org/getting-started/introduction',
 } as const satisfies Token;
 
@@ -26,7 +25,6 @@ export const tokens = {
     address: '0x7ABa852082b6F763E13010CA33B5D9Ea4EeE2983',
     chainId: 25,
     decimals: 18,
-    logoURI: 'https://vvs.finance/images/tokens/0x7ABa852082b6F763E13010CA33B5D9Ea4EeE2983.svg',
     website: 'https://defira.com/',
     description:
       'The FIRA token is the main governance token and currency for the Defiraverse. In the game world, it is known as the Fira Orb.',
@@ -38,7 +36,6 @@ export const tokens = {
     address: '0x00D7699b71290094CcB1a5884cD835bD65a78c17',
     chainId: 25,
     decimals: 18,
-    logoURI: 'https://vvs.finance/images/tokens/0x00D7699b71290094CcB1a5884cD835bD65a78c17.svg',
     website: 'https://versagames.io/',
     description: 'VersaGames is the next-generation games marketplace.',
   },
@@ -52,7 +49,6 @@ export const tokens = {
     website: 'https://minted.network/',
     description:
       'Minted network is a decentralised NFT platform that aspires to be the digital bazaar of wonders for everyone to discover, trade, and find NFT gems, native to Ethereum and Cronos.',
-    logoURI: 'https://vvs.finance/images/tokens/0x0224010BA2d567ffa014222eD960D1fa43B8C8E1.svg',
   },
   FER: {
     name: 'Ferro',
@@ -64,7 +60,6 @@ export const tokens = {
     website: 'https://www.ferroprotocol.com/',
     description:
       'Ferro Protocol is a StableSwap AMM protocol that allows users to exchange with low slippage and minimum fee and farm tokens by creating more efficient pools consisting of highly correlated assets, as well as allowing better composability between protocols in the Cronos ecosystem.',
-    logoURI: 'https://vvs.finance/images/tokens/0x39bC1e38c842C60775Ce37566D03B41A7A66C782.svg',
   },
   sCRO: {
     name: 'sCRO',
@@ -76,7 +71,6 @@ export const tokens = {
     website: 'https://cro.ripae.finance/',
     description:
       'Ripae Finance’s full focus is to build a true cross-chain algorithmic stable coin protocol that is stabilized with true use-cases all around the DeFi Ecosystem.',
-    logoURI: 'https://cro.ripae.finance/static/media/sCRO.f6637a43.svg',
     tags: ['SYNTHETIC'],
   },
   pCRO: {
@@ -89,7 +83,6 @@ export const tokens = {
     website: 'https://cro.ripae.finance/',
     description:
       'Ripae Finance’s full focus is to build a true cross-chain algorithmic stable coin protocol that is stabilized with true use-cases all around the DeFi Ecosystem.',
-    logoURI: 'https://cro.ripae.finance/static/media/pCRO.0d99b3b6.svg',
     tags: ['SYNTHETIC'],
   },
   APE: {
@@ -102,7 +95,6 @@ export const tokens = {
     website: 'https://www.apecoin.com/',
     description:
       'ApeCoin is an ERC-20 governance and utility token used within the APE ecosystem to empower a decentralized community building at the forefront of web3.',
-    logoURI: 'https://vvs.finance/images/tokens/0x9C62F89a8C9907582f21205Ce90443730361EA05.svg',
   },
   ALI: {
     name: 'Alethea Artificial Liquid Intelligence Token ALI',
@@ -111,7 +103,6 @@ export const tokens = {
     address: '0x45C135C1CDCE8d25A3B729A28659561385C52671',
     chainId: 25,
     decimals: 18,
-    logoURI: 'https://vvs.finance/images/tokens/0x45C135C1CDCE8d25A3B729A28659561385C52671.svg',
     website: 'https://alethea.ai/',
     description:
       'Alethea AI is building a decentralized protocol to create an Intelligent Metaverse inhabited by interactive and intelligent NFTs (iNFTs).',
@@ -126,7 +117,6 @@ export const tokens = {
     website: 'https://www.trueusd.com/',
     description:
       'TrueUSD is one of a number of cryptocurrency stablecoins administered by TrustToken, a platform for tokenizing real-world assets.',
-    logoURI: 'https://s2.coinmarketcap.com/static/img/coins/200x200/2563.png',
   },
   SKY: {
     chainId: 25,
@@ -137,7 +127,6 @@ export const tokens = {
     oracleId: 'darkSKY',
     website: 'https://www.darkcrypto.finance/',
     description: 'The first algorithmic token pegged to CRO running on the Cronos Chain',
-    logoURI: 'https://assets.coingecko.com/coins/images/22517/small/logo-token-2.e9c15b63.png',
   },
   DARK: {
     chainId: 25,
@@ -148,7 +137,6 @@ export const tokens = {
     oracleId: 'DARK',
     website: 'https://www.darkcrypto.finance/',
     description: 'The first algorithmic token pegged to CRO running on the Cronos Chain',
-    logoURI: 'https://assets.coingecko.com/coins/images/22456/small/DARK_bgWhite.png',
     tags: ['SYNTHETIC'],
   },
   oldBIFI: {
@@ -161,8 +149,6 @@ export const tokens = {
     website: 'https://www.beefy.finance/',
     description:
       'Beefy Finance is a Decentralized, Multi-Chain Yield Optimizer platform that allows its users to earn compound interest on their crypto holdings.',
-    logoURI:
-      'https://raw.githubusercontent.com/beefyfinance/beefy-app/prod/src/images/single-assets/BIFI.png',
     documentation: 'https://docs.beefy.finance/',
   },
   TONIC: {
@@ -176,7 +162,6 @@ export const tokens = {
     description:
       'Tectonic is a cross-chain money market for earning passive yield and accessing instant backed loans',
     bridge: 'native',
-    logoURI: 'https://vvs.finance/images/tokens/0xDD73dEa10ABC2Bff99c60882EC5b2B81Bb1Dc5B2.svg',
   },
   LIQ: {
     name: 'Liquidus',
@@ -188,7 +173,6 @@ export const tokens = {
     website: 'https://farm.liquidus.finance/',
     description: 'Earn interest on your decentralised crypto assets',
     bridge: 'multichain',
-    logoURI: 'https://farm.liquidus.finance/static/media/liquidus_logo_round.f72f345a.png',
   },
   ATOM: {
     name: 'Cosmos Token',
@@ -201,8 +185,6 @@ export const tokens = {
     description:
       'Cosmos is an ever-expanding ecosystem of interconnected apps and services, built for a decentralized future.',
     bridge: 'cronos-canonical',
-    logoURI:
-      'https://tokens.pancakeswap.finance/images/0x0eb3a705fc54725037cc9e008bdede697f62f335.png',
     documentation: 'https://docs.cosmos.network/main',
   },
   DOGE: {
@@ -212,7 +194,6 @@ export const tokens = {
     address: '0x1a8E39ae59e5556B56b76fCBA98d22c9ae557396',
     chainId: 25,
     decimals: 8,
-    logoURI: 'https://cryptologos.cc/logos/dogecoin-doge-logo.svg?v=014',
     website: 'https://dogecoin.com/',
     description:
       'Dogecoin is an open source peer-to-peer digital currency, favored by Shiba Inus worldwide.',
@@ -230,7 +211,6 @@ export const tokens = {
     description:
       'According to the SHIBA INU website, SHIB is the “DOGECOIN KILLER” and will be listed on their own ShibaSwap, a decentralized exchange.',
     bridge: 'cronos-canonical',
-    logoURI: 'https://bscscan.com/token/images/shibatoken_32.png',
     documentation: 'https://docs.shibatoken.com/',
   },
   VVS: {
@@ -240,7 +220,6 @@ export const tokens = {
     address: '0x2D03bECE6747ADC00E1a131BBA1469C15fD11e03',
     chainId: 25,
     decimals: 18,
-    logoURI: 'https://vvs.finance/images/tokens/0x2D03bECE6747ADC00E1a131BBA1469C15fD11e03.svg',
     website: 'https://vvs.finance',
     description:
       'VVS is designed to be the simplest DeFi platform for users to swap tokens, earn high yields, and most importantly have fun!',
@@ -254,8 +233,6 @@ export const tokens = {
     address: '0xc21223249CA28397B4B6541dfFaEcC539BfF0c59',
     chainId: 25,
     decimals: 6,
-    logoURI:
-      'https://app.solarbeam.io/_next/image?url=https%3A%2F%2Fapp.solarbeam.io%2Fimages%2Ftokens%2Fusdc.png&w=48&q=50',
     website: 'https://www.circle.com/usdc',
     documentation: 'https://developers.circle.com/docs',
     description:
@@ -273,7 +250,6 @@ export const tokens = {
     website: 'https://weth.io/',
     description: 'Ether or ETH is the native currency built on the Ethereum blockchain.',
     bridge: 'cronos-canonical',
-    logoURI: 'https://arbiscan.io/token/images/weth_28.png',
     documentation: 'https://ethereum.org/en/developers/docs/',
   },
   WBTC: {
@@ -287,8 +263,6 @@ export const tokens = {
     description:
       'Wrapped Bitcoin (WBTC) is the first ERC20 token backed 1:1 with Bitcoin. Completely transparent. 100% verifiable. Community led.',
     bridge: 'cronos-canonical',
-    logoURI:
-      'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0x408D4cD0ADb7ceBd1F1A1C33A0Ba2098E1295bAB/logo.png',
   },
   CRONA: {
     name: 'CronaSwap Token',
@@ -300,8 +274,6 @@ export const tokens = {
     website: 'https://app.cronaswap.org/',
     description:
       'CronaSwap is the first decentralized exchange platform on the Cronos Chain and the lowest platform transaction fees (0.25%).',
-    logoURI:
-      'https://app.cronaswap.org/images/tokens/0xadbd1231fb360047525BEdF962581F3eee7b49fe.svg',
   },
   USDT: {
     name: 'Tether USD',
@@ -314,8 +286,6 @@ export const tokens = {
     description:
       'Tether is a stablecoin pegged to the US Dollar. A stablecoin is a type of cryptocurrency whose value is pegged to another fiat currency like the US Dollar or to a commodity like Gold. Tether is the first stablecoin to be created and it is the most popular stablecoin used in the ecosystem.',
     bridge: 'cronos-canonical',
-    logoURI:
-      'https://app.cronaswap.org/images/tokens/0x66e428c3f67a68878562e79A0234c1F83c208770.svg',
     documentation: 'https://tether.to/en/how-it-works',
     tags: ['STABLECOIN'],
   },
@@ -330,8 +300,6 @@ export const tokens = {
     description:
       'DAI is an Ethereum-based stablecoin (stable-price cryptocurrency) whose issuance and development is managed by the Maker Protocol and the MakerDAO decentralized autonomous organization.',
     bridge: 'cronos-canonical',
-    logoURI:
-      'https://app.cronaswap.org/images/tokens/0xF2001B145b43032AAF5Ee2884e456CCd805F677D.svg',
     documentation:
       'https://docs.makerdao.com/smart-contract-modules/dai-module/dai-detailed-documentation',
     tags: ['STABLECOIN', 'SYNTHETIC'],
@@ -346,8 +314,6 @@ export const tokens = {
     website: 'https://www.binance.com/en/busd',
     description:
       'Binance USD (BUSD) is a 1:1 USD-backed stable coin issued by Binance (in partnership with Paxos), Approved and regulated by the New York State Department of Financial Services (NYDFS), The BUSD Monthly Audit Report can be viewed from the official website.',
-    logoURI:
-      'https://app.cronaswap.org/images/tokens/0x6aB6d61428fde76768D7b45D8BFeec19c6eF91A8.svg',
     tags: ['STABLECOIN', 'SYNTHETIC'],
   },
   BUSDb: {
@@ -360,8 +326,6 @@ export const tokens = {
     website: 'https://www.binance.com/en/busd',
     description:
       'Multichain bridged Binance USD (BUSD) is a 1:1 USD-backed stable coin issued by Binance (in partnership with Paxos), Approved and regulated by the New York State Department of Financial Services (NYDFS), The BUSD Monthly Audit Report can be viewed from the official website.',
-    logoURI:
-      'https://app.cronaswap.org/images/tokens/0x6aB6d61428fde76768D7b45D8BFeec19c6eF91A8.svg',
     tags: ['SYNTHETIC'],
   },
   MATIC: {
@@ -374,8 +338,6 @@ export const tokens = {
     website: 'https://polygon.technology/',
     description:
       'The MATIC token serves dual purposes: securing the Polygon network via staking and being used for the payment of transaction fees.',
-    logoURI:
-      'https://app.cronaswap.org/images/tokens/0xc9BAA8cfdDe8E328787E29b4B078abf2DaDc2055.svg',
   },
   AVAX: {
     name: 'Avalanche Token',
@@ -387,8 +349,6 @@ export const tokens = {
     website: 'https://www.avalabs.org/',
     description:
       'Avalanche is the fastest smart contracts platform in the blockchain industry, as measured by time-to-finality, and has the most validators securing its activity of any proof-of-stake protocol.',
-    logoURI:
-      'https://app.cronaswap.org/images/tokens/0x765277EebeCA2e31912C9946eAe1021199B39C61.svg',
   },
   FTM: {
     name: 'Fantom Token',
@@ -400,8 +360,6 @@ export const tokens = {
     website: 'https://fantom.foundation/',
     description:
       'Fantom is a fast, high-throughput open-source smart contract platform for digital assets and dApps.',
-    logoURI:
-      'https://app.cronaswap.org/images/tokens/0xB44a9B6905aF7c801311e8F4E76932ee959c663C.svg',
   },
   BNB: {
     name: 'Binance Token',
@@ -413,7 +371,5 @@ export const tokens = {
     website: 'https://www.binance.com/',
     description:
       'Binance Coin (BNB) is an exchange-based token created and issued by the cryptocurrency exchange Binance. Initially created on the Ethereum blockchain as an ERC-20 token in July 2017, BNB was migrated over to Binance Chain in February 2019 and became the native coin of the Binance Chain.',
-    logoURI:
-      'https://app.cronaswap.org/images/tokens/0xfA9343C3897324496A05fC75abeD6bAC29f8A40f.svg',
   },
 } as const satisfies Record<string, Token>;

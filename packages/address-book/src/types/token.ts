@@ -7,7 +7,6 @@ export interface Token {
   decimals: number;
   description?: string;
   website?: string;
-  logoURI?: string;
   documentation?: string;
   oracle?: 'tokens' | 'lps';
   bridge?: string;

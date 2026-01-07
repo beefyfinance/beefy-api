@@ -11,7 +11,6 @@ const HYPE = {
   description:
     'Hyperliquid is a performant blockchain built with the vision of a fully onchain open financial system. Liquidity, user applications, and trading activity synergize on a unified platform that will ultimately house all of finance. ',
   bridge: 'canonical',
-  logoURI: '',
   documentation: 'https://hyperliquid.gitbook.io/hyperliquid-docs',
 } as const satisfies Token;
 
@@ -27,7 +26,6 @@ export const tokens = {
     address: '0xB8CE59FC3717ada4C02eaDF9682A9e934F625ebb',
     chainId: 999,
     decimals: 6,
-    logoURI: '',
     description:
       'Tether is a stablecoin pegged to the US Dollar. A stablecoin is a type of cryptocurrency whose value is pegged to another fiat currency like the US Dollar or to a commodity like Gold. Tether is the first stablecoin to be created and it is the most popular stablecoin used in the ecosystem.',
     bridge: 'layer-zero',
@@ -41,7 +39,6 @@ export const tokens = {
     address: '0x5d3a1Ff2b6BAb83b63cd9AD0787074081a52ef34',
     chainId: 999,
     decimals: 18,
-    logoURI: '',
     website: 'https://ethena.fi/',
     documentation: 'https://ethena-labs.gitbook.io/ethena-labs',
     description:
@@ -56,7 +53,6 @@ export const tokens = {
     address: '0x9b498C3c8A0b8CD8BA1D9851d40D186F1872b44E',
     chainId: 999,
     decimals: 18,
-    logoURI: '',
     website: 'https://app.hyperliquid.xyz/trade',
     description: 'Purr is the meme token of Hyperliquid.',
     documentation: 'https://hyperliquid.gitbook.io/hyperliquid-docs',
@@ -69,7 +65,6 @@ export const tokens = {
     address: '0x1Ecd15865D7F8019D546f76d095d9c93cc34eDFa',
     chainId: 999,
     decimals: 18,
-    logoURI: '',
     website: 'https://liqd.ag/',
     description:
       'LiquidSwap is a high-performance DEX aggregator built specifically for the Hyperliquid HyperEVM ecosystem. By intelligently routing your trades across multiple decentralized exchanges, LiquidSwap ensures you always get the best possible rates with minimal slippage.',
@@ -83,7 +78,6 @@ export const tokens = {
     address: '0x1bEe6762F0B522c606DC2Ffb106C0BB391b2E309',
     chainId: 999,
     decimals: 18,
-    logoURI: '',
     website: 'https://piponhl.xyz/',
     description:
       'PiP, more than a meme coin, is a community-driven movement and Hyperliquid’s mascot symbolizing hydration and flow. A passionate team is exploring merchandise and toys, with the community shaping its future. Stay hydrated and engaged.',
@@ -97,7 +91,6 @@ export const tokens = {
     address: '0x02c6a2fA58cC01A18B8D9E00eA48d65E4dF26c70',
     chainId: 999,
     decimals: 18,
-    logoURI: '',
     website: 'https://usefelix.xyz/',
     description:
       'Borrow against blue-chip collateral and earn native yield with the Felix stablecoin, feUSD.',
@@ -112,7 +105,6 @@ export const tokens = {
     address: '0x618275F8EFE54c2afa87bfB9F210A52F0fF89364',
     chainId: 999,
     decimals: 18,
-    logoURI: '',
     website: 'https://kittenswap.finance/',
     description: 'The community owned DEX for seamless trading on HyperEVM.',
     documentation: 'https://docs.kittenswap.finance/introduction',
@@ -126,7 +118,6 @@ export const tokens = {
     address: '0x5748ae796AE46A4F1348a1693de4b50560485562',
     chainId: 999,
     decimals: 18,
-    logoURI: '',
     website: 'https://www.loopingcollective.org/',
     description:
       'The Looping Collective is a community of users, builders and ecosystem partners who co-create and manage Liquid Looping Tokens (LLTs).',
@@ -140,7 +131,6 @@ export const tokens = {
     address: '0x1359b05241cA5076c9F59605214f4F84114c0dE8',
     chainId: 999,
     decimals: 6,
-    logoURI: '',
     website: 'https://www.loopingcollective.org/',
     description:
       'The Looping Collective is a community of users, builders and ecosystem partners who co-create and manage Liquid Looping Tokens (LLTs).',
@@ -155,7 +145,6 @@ export const tokens = {
     address: '0x9FDBdA0A5e284c32744D2f17Ee5c74B284993463',
     chainId: 999,
     decimals: 8,
-    logoURI: '',
     website: 'https://hyperunit.xyz/',
     description:
       "Unit is the asset tokenization layer on Hyperliquid, enabling seamless deposits and withdrawals for a wide range of assets. Our first integration allows major crypto assets (e.g. BTC, ETH, & SOL) to flow between Hyperliquid and their native blockchains. Built from first principles, Unit's architecture is designed exclusively for Hyperliquid.",
@@ -170,7 +159,6 @@ export const tokens = {
     address: '0xfD739d4e423301CE9385c1fb8850539D657C296D',
     chainId: 999,
     decimals: 18,
-    logoURI: '',
     website: 'https://kinetiq.xyz/',
     description:
       'Kinetiq is a liquid staking protocol built natively on Hyperliquid, enabling users to stake the native token of the Hyperliquid blockchain (HYPE) and receive Kinetiq Staked HYPE (kHYPE) in return.',
@@ -184,7 +172,6 @@ export const tokens = {
     address: '0xBe6727B535545C67d5cAa73dEa54865B92CF7907',
     chainId: 999,
     decimals: 18,
-    logoURI: '',
     website: 'https://hyperunit.xyz/',
     description:
       "Unit is the asset tokenization layer on Hyperliquid, enabling seamless deposits and withdrawals for a wide range of assets. Our first integration allows major crypto assets (e.g. BTC, ETH, & SOL) to flow between Hyperliquid and their native blockchains. Built from first principles, Unit's architecture is designed exclusively for Hyperliquid.",
@@ -199,7 +186,6 @@ export const tokens = {
     address: '0x3B4575E689DEd21CAAD31d64C4df1f10F3B2CedF',
     chainId: 999,
     decimals: 6,
-    logoURI: '',
     website: 'https://hyperunit.xyz/',
     description:
       "Unit is the asset tokenization layer on Hyperliquid, enabling seamless deposits and withdrawals for a wide range of assets. Our first integration allows major crypto assets (e.g. BTC, ETH, & SOL) to flow between Hyperliquid and their native blockchains. Built from first principles, Unit's architecture is designed exclusively for Hyperliquid.",
@@ -214,7 +200,6 @@ export const tokens = {
     address: '0x27eC642013bcB3D80CA3706599D3cdA04F6f4452',
     chainId: 999,
     decimals: 6,
-    logoURI: '',
     website: 'https://hyperunit.xyz/',
     description:
       "Unit is the asset tokenization layer on Hyperliquid, enabling seamless deposits and withdrawals for a wide range of assets. Our first integration allows major crypto assets (e.g. BTC, ETH, & SOL) to flow between Hyperliquid and their native blockchains. Built from first principles, Unit's architecture is designed exclusively for Hyperliquid.",

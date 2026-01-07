@@ -72,7 +72,6 @@ async function fetchToken(tokenAddress) {
     address: checksummedTokenAddress,
     chainId: chainId,
     decimals: await tokenContract.decimals(),
-    logoURI: '',
     website: '',
     description: '',
     documentation: '',

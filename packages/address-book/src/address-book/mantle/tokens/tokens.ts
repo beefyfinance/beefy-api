@@ -11,7 +11,6 @@ const MNT = {
   description:
     'With Mantle Network, an Ethereum rollup, Mantle Treasury and a token holder governed roadmap for products and initiatives.',
   bridge: 'native',
-  logoURI: '',
   documentation: 'https://docs.mantle.xyz/governance/introduction/overview',
 } as const satisfies Token;
 
@@ -27,7 +26,6 @@ export const tokens = {
     address: '0x09Bc4E0D864854c6aFB6eB9A9cdF58aC190D0dF9',
     chainId: 5000,
     decimals: 6,
-    logoURI: '',
     website: 'https://www.circle.com/usdc',
     documentation: 'https://developers.circle.com/docs',
     description:
@@ -42,7 +40,6 @@ export const tokens = {
     address: '0x4515A45337F461A11Ff0FE8aBF3c606AE5dC00c9',
     chainId: 5000,
     decimals: 18,
-    logoURI: '',
     website: 'https://merchantmoe.com/',
     documentation: 'https://docs.merchantmoe.com/merchant-moe/',
     description:
@@ -57,7 +54,6 @@ export const tokens = {
     address: '0x371c7ec6D8039ff7933a2AA28EB827Ffe1F52f07',
     chainId: 5000,
     decimals: 18,
-    logoURI: '',
     website: 'https://traderjoexyz.com/',
     documentation: 'https://docs.traderjoexyz.com/',
     description:
@@ -72,7 +68,6 @@ export const tokens = {
     address: '0x201EBa5CC46D216Ce6DC03F6a759e8E766e956aE',
     chainId: 5000,
     decimals: 6,
-    logoURI: '',
     website: 'https://tether.to/',
     documentation: 'https://tether.to/en/knowledge-base/',
     description:
@@ -87,7 +82,6 @@ export const tokens = {
     address: '0x779f4E5fB773E17Bc8E809F4ef1aBb140861159a',
     chainId: 5000,
     decimals: 18,
-    logoURI: '',
     website: 'https://www.ktx.finance/',
     documentation: 'https://docs.ktx.finance/',
     description:
@@ -102,7 +96,6 @@ export const tokens = {
     address: '0xCAbAE6f6Ea1ecaB08Ad02fE02ce9A44F09aebfA2',
     chainId: 5000,
     decimals: 8,
-    logoURI: '',
     website: 'https://wbtc.network/',
     description:
       'Wrapped Bitcoin (WBTC) is the first ERC20 token backed 1:1 with Bitcoin. Completely transparent. 100% verifiable. Community led.',
@@ -115,7 +108,6 @@ export const tokens = {
     address: '0x25356aeca4210eF7553140edb9b8026089E49396',
     chainId: 5000,
     decimals: 18,
-    logoURI: '',
     website: 'https://www.lendle.xyz/',
     documentation: 'https://docs.lendle.xyz/',
     description:
@@ -130,7 +122,6 @@ export const tokens = {
     address: '0x51cfe5b1E764dC253F4c8C1f19a081fF4C3517eD',
     chainId: 5000,
     decimals: 18,
-    logoURI: '',
     website: 'https://mantleinu.xyz/',
     documentation: 'https://mantle-inu.gitbook.io/docs/',
     description: 'MINU is the #1 memecoin on Mantle.',
@@ -144,7 +135,6 @@ export const tokens = {
     address: '0xdEAddEaDdeadDEadDEADDEAddEADDEAddead1111',
     chainId: 5000,
     decimals: 18,
-    logoURI: '',
     website: 'https://weth.io/',
     documentation: 'https://ethereum.org/en/developers/docs/',
     description: 'Ether or ETH is the native currency built on the Ethereum blockchain.',
@@ -157,7 +147,6 @@ export const tokens = {
     address: '0x5bE26527e817998A7206475496fDE1E68957c5A6',
     chainId: 5000,
     decimals: 18,
-    logoURI: '',
     website: 'https://ondo.finance/',
     documentation: 'https://ondo.finance/usdy/',
     description:
@@ -171,7 +160,6 @@ export const tokens = {
     address: '0xcDA86A272531e8640cD7F1a92c01839911B90bb0',
     chainId: 5000,
     decimals: 18,
-    logoURI: '',
     website: 'https://www.mantle.xyz/meth/',
     documentation: 'https://docs.mantle.xyz/meth/introduction/overview/',
     description:
@@ -185,7 +173,6 @@ export const tokens = {
     address: '0xD7782b99671DD23203eBd4584FC71cf2B3dbB111',
     chainId: 5000,
     decimals: 18,
-    logoURI: '',
     website: 'https://www.mantle.xyz/rewards-station',
     documentation: 'https://www.mantle.xyz/blog/announcements/mantle-sharding-with-ethena',
     description:
@@ -199,7 +186,6 @@ export const tokens = {
     address: '0x5d3a1Ff2b6BAb83b63cd9AD0787074081a52ef34',
     chainId: 5000,
     decimals: 18,
-    logoURI: '',
     website: 'https://ethena.fi/',
     documentation: 'https://ethena-labs.gitbook.io/ethena-labs',
     description:
@@ -214,7 +200,6 @@ export const tokens = {
     address: '0x58538e6A46E07434d7E7375Bc268D3cb839C0133',
     chainId: 5000,
     decimals: 18,
-    logoURI: '',
     website: 'https://ethena.fi/',
     documentation: 'https://ethena-labs.gitbook.io/ethena-labs',
     description:

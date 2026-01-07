@@ -10,7 +10,6 @@ const ETH = {
   website: 'https://weth.io/',
   description: 'Ether or ETH is the native currency built on the Ethereum blockchain.',
   bridge: 'mode-canonical',
-  logoURI: '',
   documentation: 'https://ethereum.org/en/developers/docs/',
 } as const satisfies Token;
 
@@ -26,7 +25,6 @@ export const tokens = {
     name: 'Mode',
     symbol: 'MODE',
     oracleId: 'MODE',
-    logoURI: '',
     website: 'https://www.mode.network/',
     documentation: 'https://docs.mode.network/',
     description: 'Mode is the Modular DeFi L2 building the Superchain alongside Optimism.',
@@ -43,7 +41,6 @@ export const tokens = {
       'USDC is a fully collateralized US dollar stablecoin. USDC is issued by regulated financial institutions, backed by fully reserved assets, redeemable on a 1:1 basis for US dollars.',
     bridge: 'mode-canonical',
     chainId: 34443,
-    logoURI: '',
     documentation: 'https://www.circle.com/en/usdc-multichain/arbitrum',
     tags: ['STABLECOIN'],
   },
@@ -58,7 +55,6 @@ export const tokens = {
     description:
       'Tether is a stablecoin pegged to the US Dollar. A stablecoin is a type of cryptocurrency whose value is pegged to another fiat currency like the US Dollar or to a commodity like Gold. Tether is the first stablecoin to be created and it is the most popular stablecoin used in the ecosystem.',
     bridge: 'mode-canonical',
-    logoURI: '',
     documentation: 'https://tether.to/en/how-it-works',
     tags: ['STABLECOIN'],
   },
@@ -69,7 +65,6 @@ export const tokens = {
     address: '0x2416092f143378750bb29b79eD961ab195CcEea5',
     chainId: 34443,
     decimals: 18,
-    logoURI: '',
     website: 'https://www.renzoprotocol.com/',
     description:
       'Renzo ezETH is a Liquid Restaking Token (LRT) and Strategy Manager for EigenLayer. It is the interface to the EigenLayer ecosystem securing Actively Validated Services (AVSs) and offering a higher yield than ETH staking.',
@@ -101,7 +96,6 @@ export const tokens = {
     description:
       'Inverse.finance is a suite of permissionless decentralized finance tools governed by Inverse DAO, a decentralized autonomous organization running on the Ethereum blockchain.',
     bridge: 'mode-canonical',
-    logoURI: 'https://assets.spookyswap.finance/tokens/DOLA.png',
     documentation: 'https://docs.inverse.finance/',
     tags: ['STABLECOIN', 'SYNTHETIC'],
   },
@@ -115,7 +109,6 @@ export const tokens = {
     website: 'https://www.kim.exchange/',
     description: 'xKIM is the non-transferable governance token of the Kim ecosystem.',
     bridge: 'native',
-    logoURI: '',
     documentation: 'https://docs.kim.exchange/',
     tags: ['LARGE_HOLDERS', 'NO_TIMELOCK'],
   },
@@ -129,7 +122,6 @@ export const tokens = {
     website: 'https://www.kim.exchange/',
     description: 'KIM is the governance token of the Kim ecosystem.',
     bridge: 'native',
-    logoURI: '',
     documentation: 'https://docs.kim.exchange/',
     tags: ['LARGE_HOLDERS', 'NO_TIMELOCK'],
   },
@@ -140,7 +132,6 @@ export const tokens = {
     address: '0x7f9AdFbd38b669F03d1d11000Bc76b9AaEA28A81',
     chainId: 34443,
     decimals: 18,
-    logoURI: '',
     website: 'https://velodrome.finance/',
     description: 'Superchain Bridge VELO',
     documentation: 'https://velodrome.finance/docs',
@@ -153,7 +144,6 @@ export const tokens = {
     address: '0x211Cc4DD073734dA055fbF44a2b4667d5E5fE5d2',
     chainId: 34443,
     decimals: 18,
-    logoURI: '',
     website: 'https://ethena.fi/',
     documentation: 'https://ethena-labs.gitbook.io/ethena-labs',
     description:
@@ -168,7 +158,6 @@ export const tokens = {
     address: '0x8b2EeA0999876AAB1E7955fe01A5D261b570452C',
     chainId: 34443,
     decimals: 18,
-    logoURI: '',
     website: 'https://www.bmx.trade/',
     documentation: 'https://docs.morphex.trade/',
     description:

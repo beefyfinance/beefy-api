@@ -11,7 +11,6 @@ const FXS = {
   bridge: 'native', // previously "fraxtal-canonical" (no longer OptimismMintableERC20, it is like WETH now)
   description:
     'FRAX (previously FXS) is the governance token of the Frax Finance protocol and the gas token of the Fraxtal chain.',
-  logoURI: 'https://app.sushi.com/images/tokens/fxs-square.jpg',
   documentation: 'https://docs.frax.finance/',
 } as const satisfies Token;
 
@@ -26,7 +25,6 @@ const frxETH = {
   description:
     'frxETH acts as a stablecoin loosely pegged to ETH, so that 1 frxETH always represents 1 ETH and the amount of frxETH in circulation matches the amount of ETH in the Frax ETH system. When ETH is sent to the frxETHMinter, an equivalent amount of frxETH is minted. Holding frxETH on its own is not eligible for staking yield and should be thought of as analogous as holding ETH.',
   bridge: 'fraxtal-canonical',
-  logoURI: '',
   documentation: 'https://docs.frax.finance/frax-ether/frxeth-and-sfrxeth',
 } as const satisfies Token;
 
@@ -46,7 +44,6 @@ export const tokens = {
     description:
       'frxUSD (previously FRAX) is a crypto collateralized stablecoin pegged to the US dollar',
     bridge: 'fraxtal-canonical',
-    logoURI: '',
     documentation: 'https://docs.frax.finance/',
     tags: ['STABLECOIN', 'SYNTHETIC'],
   },
@@ -63,7 +60,6 @@ export const tokens = {
     description:
       'sfrxETH is a ERC-4626 vault designed to accrue the staking yield of the Frax ETH validators. At any time, frxETH can be exchanged for sfrxETH by depositing it into the sfrxETH vault, which allows users to earn staking yield on their frxETH. Over time, as validators accrue staking yield, an equivalent amount of frxETH is minted and added to the vault, allowing users to redeem their sfrxETH for an greater amount of frxETH than they deposited.',
     bridge: 'fraxtal-canonical',
-    logoURI: '',
     documentation: 'https://docs.frax.finance/frax-ether/frxeth-and-sfrxeth',
   },
   CRV: {
@@ -77,7 +73,6 @@ export const tokens = {
     description:
       'Curve is an exchange liquidity pool on Ethereum. Curve is designed for extremely efficient stablecoin trading and low risk, supplemental fee income for liquidity providers, without an opportunity cost.',
     bridge: 'fraxtal-canonical',
-    logoURI: '',
     documentation: 'https://curve.readthedocs.io/',
   },
   crvUSD: {
@@ -87,7 +82,6 @@ export const tokens = {
     address: '0xB102f7Efa0d5dE071A8D37B3548e1C7CB148Caf3',
     chainId: 252,
     decimals: 18,
-    logoURI: '',
     bridge: 'fraxtal-canonical',
     website: 'https://curve.finance/crvusd',
     description:
@@ -105,7 +99,6 @@ export const tokens = {
     description: 'Ethereum-based USDC bridged via the official Fraxtal Bridge.',
     bridge: 'fraxtal-canonical',
     chainId: 252,
-    logoURI: 'https://ftmscan.com/token/images/USDC_32.png',
     documentation: 'https://developers.circle.com/docs',
     tags: ['STABLECOIN', 'SYNTHETIC'],
   },
@@ -121,7 +114,6 @@ export const tokens = {
     description:
       'Convex Finance has expanded to optimize opportunities for liquidity providers on Frax the same way it has done so for Curve LPs.',
     bridge: 'fraxtal-canonical',
-    logoURI: '',
   },
   sdFXS: {
     name: 'Stake DAO FXS',
@@ -134,7 +126,6 @@ export const tokens = {
     documentation: 'https://docs.stakedao.org/liquidlockers',
     description: "sdFXS is Stake DAO's liquid locker, built for Frax Finance's governance token.",
     bridge: 'fraxtal-canonical',
-    logoURI: '',
   },
   USDe: {
     name: 'USDe',
@@ -143,7 +134,6 @@ export const tokens = {
     address: '0x5d3a1Ff2b6BAb83b63cd9AD0787074081a52ef34',
     chainId: 252,
     decimals: 18,
-    logoURI: '',
     website: 'https://ethena.fi/',
     documentation: 'https://ethena-labs.gitbook.io/ethena-labs',
     description:
@@ -158,7 +148,6 @@ export const tokens = {
     address: '0x211Cc4DD073734dA055fbF44a2b4667d5E5fE5d2',
     chainId: 252,
     decimals: 18,
-    logoURI: '',
     website: 'https://ethena.fi/',
     documentation: 'https://ethena-labs.gitbook.io/ethena-labs',
     description:
@@ -173,7 +162,6 @@ export const tokens = {
     address: '0xacA9A33698cF96413A40A4eB9E87906ff40fC6CA',
     chainId: 252,
     decimals: 18,
-    logoURI: '',
     website: 'https://app.frax.finance/fxb/overview',
     documentation: 'https://docs.frax.finance/frax-v3/fxbs',
     description:
@@ -188,7 +176,6 @@ export const tokens = {
     address: '0x8e9C334afc76106F08E0383907F4Fca9bB10BA3e',
     chainId: 252,
     decimals: 18,
-    logoURI: '',
     website: 'https://app.frax.finance/fxb/overview',
     documentation: 'https://docs.frax.finance/frax-v3/fxbs',
     description:
@@ -203,7 +190,6 @@ export const tokens = {
     address: '0xF1e2b576aF4C6a7eE966b14C810b772391e92153',
     chainId: 252,
     decimals: 18,
-    logoURI: '',
     website: 'https://app.frax.finance/fxb/overview',
     documentation: 'https://docs.frax.finance/frax-v3/fxbs',
     description:
@@ -218,7 +204,6 @@ export const tokens = {
     address: '0xc38173D34afaEA88Bc482813B3CD267bc8A1EA83',
     chainId: 252,
     decimals: 18,
-    logoURI: '',
     website: 'https://app.frax.finance/fxb/overview',
     documentation: 'https://docs.frax.finance/frax-v3/fxbs',
     description:
@@ -237,8 +222,6 @@ export const tokens = {
     description:
       'Multi-Collateral Dai, brings a lot of new and exciting features, such as support for new CDP collateral types and Dai Savings Rate.',
     bridge: 'fraxtal-canonical',
-    logoURI:
-      'https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/0x6B175474E89094C44Da98b954EedeAC495271d0F/logo.png',
     documentation:
       'https://docs.makerdao.com/smart-contract-modules/dai-module/dai-detailed-documentation',
     tags: ['STABLECOIN', 'SYNTHETIC'],
@@ -250,7 +233,6 @@ export const tokens = {
     address: '0x09eAdcBAa812A4C076c3a6cDe765DC4a22E0d775',
     chainId: 252,
     decimals: 18,
-    logoURI: '',
     website: 'https://app.sparkprotocol.io/sdai/',
     documentation: 'https://docs.sparkprotocol.io/hub/',
     description:
@@ -265,7 +247,6 @@ export const tokens = {
     address: '0xfb1520DbDc9230ef5dD5e6fd3Bbb6647B570E190',
     chainId: 252,
     decimals: 6,
-    logoURI: '',
     website: 'https://www.paypal.com/us/digital-wallet/manage-money/crypto/pyusd',
     bridge: 'fraxtal-canonical',
     description: 'PayPal USD (PYUSD) is a stablecoin backed by secure and highly liquid assets.',
@@ -282,7 +263,6 @@ export const tokens = {
     description:
       'Tether is a stablecoin pegged to the US Dollar. A stablecoin is a type of cryptocurrency whose value is pegged to another fiat currency like the US Dollar or to a commodity like Gold. Tether is the first stablecoin to be created and it is the most popular stablecoin used in the ecosystem.',
     bridge: 'fraxtal-canonical',
-    logoURI: 'https://hecoinfo.com/token/images/USDTHECO_32.png',
     documentation: 'https://tether.to/en/how-it-works',
     tags: ['STABLECOIN'],
   },
@@ -293,7 +273,6 @@ export const tokens = {
     address: '0xA8a59D73388D0c4344a7b0Ba287ddb654227c38a',
     chainId: 252,
     decimals: 18,
-    logoURI: '',
     website: 'https://weth.io/',
     documentation: 'https://ethereum.org/en/developers/docs/',
     description: 'Ether or ETH is the native currency built on the Ethereum blockchain.',
@@ -306,7 +285,6 @@ export const tokens = {
     address: '0x269005f33E78d75dD222D3691B5Fe48E8aB20E99',
     chainId: 252,
     decimals: 18,
-    logoURI: '',
     website: 'https://threshold.network/',
     documentation: 'https://docs.threshold.network/',
     description:
@@ -320,7 +298,6 @@ export const tokens = {
     address: '0x7F3a9Afc827AeEdb0c5dC1A66C0Baa41cD7289F0',
     chainId: 252,
     decimals: 8,
-    logoURI: '',
     website: 'https://wbtc.network/',
     description:
       'Wrapped Bitcoin (WBTC) is the first ERC20 token backed 1:1 with Bitcoin. Completely transparent. 100% verifiable. Community led.',
@@ -334,7 +311,6 @@ export const tokens = {
     address: '0xaB94C721040b33aA8b0b4D159Da9878e2a836Ed0',
     chainId: 252,
     decimals: 18,
-    logoURI: '',
     website: 'https://curve.finance/crvusd/#/ethereum/scrvUSD',
     description:
       'Savings crvUSD is an interest-bearing stablecoin that earns yield simply by holding the token. Users do not need to take any action whatsoever, as the yield is passively accrued.',

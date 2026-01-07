@@ -80,7 +80,6 @@ async function fetchToken(tokenAddress) {
     address: checksummedTokenAddress,
     chainId: chainId,
     decimals: await tokenContract.decimals(),
-    logoURI: '',
     website: '',
     description: '',
     documentation: '',
@@ -125,10 +124,7 @@ async function main() {
 
   const newPools = [newPool, ...poolsJson];
 
-  fs.writeFileSync(
-    path.resolve(__dirname, poolsJsonFile),
-    JSON.stringify(newPools, null, 2) + '\n'
-  );
+  fs.writeFileSync(path.resolve(__dirname, poolsJsonFile), JSON.stringify(newPools, null, 2) + '\n');
 
   console.log(newPool);
 }

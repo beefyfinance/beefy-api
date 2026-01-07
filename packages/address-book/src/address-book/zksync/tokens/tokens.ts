@@ -10,7 +10,6 @@ const ETH = {
   website: 'https://weth.io/',
   description: 'Ether or ETH is the native currency built on the Ethereum blockchain.',
   bridge: 'zksync-canonical',
-  logoURI: '',
   documentation: 'https://ethereum.org/en/developers/docs/',
 } as const satisfies Token;
 
@@ -30,8 +29,6 @@ export const tokens = {
     documentation: 'https://docs.beefy.finance/',
     description:
       'Beefy Finance is a Decentralized, Multi-Chain Yield Optimizer platform that allows its users to earn compound interest on their crypto holdings.',
-    logoURI:
-      'https://raw.githubusercontent.com/beefyfinance/beefy-app/prod/src/images/single-assets/BIFI.png',
   },
   VS: {
     name: 'veSync',
@@ -40,7 +37,6 @@ export const tokens = {
     address: '0x5756A28E2aAe01F600FC2C01358395F5C1f8ad3A',
     chainId: 324,
     decimals: 18,
-    logoURI: '',
     website: 'https://app.vesync.finance/swap',
     description:
       'veSync is a community-driven, ve(3,3) Decentralized Exchange (DEX) built on the zkSync network, providing a powerful and efficient platform for DeFi liquidity.',
@@ -53,7 +49,6 @@ export const tokens = {
     address: '0xd90764041DA2720396863836E9f78dDaee140533',
     chainId: 324,
     decimals: 18,
-    logoURI: '',
     website: 'https://www.tprotocol.io/',
     description:
       'The launch of TProtocol will drastically alter the current DeFi picture and add an important missing piece, making DeFi users able to benefit from the mid-term interest rate gap between the stables and rising treasury. TProtocol will provide permissionless interest bearing tokens backed by the treasury with short duration. The redemption price of this treasury token will increase over time as interest from treasury accrues into the tokens.',
@@ -69,7 +64,6 @@ export const tokens = {
     address: '0x85D84c774CF8e9fF85342684b0E795Df72A24908',
     chainId: 324,
     decimals: 18,
-    logoURI: '',
     website: 'https://app.velocore.xyz/swap',
     description:
       'Velocore is a key DeFi component of the zkSync era ecosystem, designed to reward users for providing liquidity. Built upon the strong foundation established by Solidly and Velodrome Finance, Velocore aims to foster growth and innovation within zkSync era. As part of our grand vision, we plan to expand Velocores capabilities by launching a lending market and supporting other builders. This strategic development will enable us to build powerful money legos on zkSync era, further enhancing the DeFi landscape.',
@@ -83,7 +77,6 @@ export const tokens = {
     address: '0x3355df6D4c9C3035724Fd0e3914dE96A5a83aaf4',
     chainId: 324,
     decimals: 6,
-    logoURI: '',
     website: 'https://www.circle.com/usdc',
     documentation: 'https://developers.circle.com/docs',
     description:
@@ -98,7 +91,6 @@ export const tokens = {
     address: '0x2039bb4116B4EFc145Ec4f0e2eA75012D6C0f181',
     chainId: 324,
     decimals: 18,
-    logoURI: '',
     website: 'https://www.binance.com/en/busd',
     description:
       'Binance USD (BUSD) is a 1:1 USD-backed stable coin issued by Binance (in partnership with Paxos), Approved and regulated by the New York State Department of Financial Services (NYDFS), The BUSD Monthly Audit Report can be viewed from the official website.',
@@ -113,7 +105,6 @@ export const tokens = {
     address: '0x8E86e46278518EFc1C5CEd245cBA2C7e3ef11557',
     chainId: 324,
     decimals: 6,
-    logoURI: '',
     website: 'https://overnight.fi/',
     description:
       'USD+ is USDC that pays you yield daily via rebase. It is 100% collateralized with assets immediately convertible into USDC. Yield is generated via strategies such as lending and stable-to-stable pools. Initial strategies include Aave, Rubicon, and Pika.',
@@ -127,7 +118,6 @@ export const tokens = {
     address: '0xBBeB516fb02a01611cBBE0453Fe3c580D7281011',
     chainId: 324,
     decimals: 8,
-    logoURI: '',
     website: 'https://wbtc.network/',
     description:
       'Wrapped Bitcoin (WBTC) is the first ERC20 token backed 1:1 with Bitcoin. Completely transparent. 100% verifiable. Community led.',
@@ -140,7 +130,6 @@ export const tokens = {
     address: '0x160e07e42ADbC1FCE92D505B579Bcd8a3fBEa77d',
     chainId: 324,
     decimals: 18,
-    logoURI: '',
     website: 'https://draculafi.xyz/',
     description:
       'DraculaFi is a cutting-edge DeFi protocol built on zkSync Era with a proven ve(3,3) model and game-changing mechanisms that aim to provide increased rewards and stability for users.',
@@ -153,7 +142,6 @@ export const tokens = {
     address: '0x5A7d6b2F92C77FAD6CCaBd7EE0624E64907Eaf3E',
     chainId: 324,
     decimals: 18,
-    logoURI: '',
     website: 'https://zksync.io/',
     description:
       "zkSync Era is a Layer-2 protocol that scales Ethereum with cutting-edge ZK tech. zkSync's mission is not only to merely increase Ethereum's throughput, but to fully preserve its foundational values: freedom, self-sovereignty, decentralization at scale.",
@@ -167,7 +155,6 @@ export const tokens = {
     address: '0x1d17CBcF0D6D143135aE902365D2E5e2A16538D4',
     chainId: 324,
     decimals: 6,
-    logoURI: '',
     website: 'https://www.circle.com/usdc',
     documentation: 'https://developers.circle.com/docs',
     description:
@@ -182,7 +169,6 @@ export const tokens = {
     address: '0x493257fD37EDB34451f62EDf8D2a0C418852bA4C',
     chainId: 324,
     decimals: 6,
-    logoURI: '',
     website: 'https://tether.to/',
     documentation: 'https://tether.to/en/how-it-works',
     description:
