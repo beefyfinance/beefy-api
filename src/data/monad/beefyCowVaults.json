@@ -1,5 +1,21 @@
 [
   {
+    "address": "0xfb24ea52D2e0165d509Ddb2c9A362314a2d467b6",
+    "lpAddress": "0xD15965968fe8BF2BAbbe39b2FC5de1Ab6749141F",
+    "tokens": ["0x00000000eFE302BEAA2b3e6e1b18d08D69a9012a", "0xAD96C3dffCD6374294e2573A7fBBA96097CC8d7c"],
+    "tokenOracleIds": ["AUSD", "DUST"],
+    "decimals": [6, 18],
+    "oracleId": "uniswap-cow-monad-ausd-dust",
+    "rewardPool": {
+      "address": "0x6d93C1D5c7ACD252579af016DD30f8C6C04220Ea",
+      "oracleId": "uniswap-cow-monad-ausd-dust-rp"
+    },
+    "vault": {
+      "address": "0x876E3c0A3F7774398231DA0878011e7064d81437",
+      "oracleId": "uniswap-cow-monad-ausd-dust-vault"
+    }
+  },
+  {
     "address": "0x52e68134c11c89b34f8Deae227F72318df15D0A1",
     "lpAddress": "0xE4228db368740B2DE03174EB2f98D7976fF1E8FA",
     "tokens": ["0x111111d2bf19e43C34263401e0CAd979eD1cdb61", "0x3bd359C1119dA7Da1D913D1C4D2B7c461115433A"],
