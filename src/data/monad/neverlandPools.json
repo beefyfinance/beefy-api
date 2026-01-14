@@ -70,7 +70,10 @@
     "aToken": "0xaCaaA891b30E13D024AB67b6EcA9c2EcBD8cf52b",
     "decimals": "1e6",
     "oracleId": "earnAUSD",
-    "merklId": "0xaCaaA891b30E13D024AB67b6EcA9c2EcBD8cf52b"
+    "merklId": "0xaCaaA891b30E13D024AB67b6EcA9c2EcBD8cf52b",
+    "lsUrl": "https://app.neverland.money/api/upshift-apy",
+    "dataPath": "$.historicalAPY30d",
+    "lsAprFactor": 100
   },
   {
     "name": "neverland-monad-loaznd",

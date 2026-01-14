@@ -8,6 +8,12 @@ const pools = [
     reward: 'SKY',
   },
   {
+    name: 'sky-usds-spk',
+    rewardPool: '0x173e314C7635B45322cd8Cb14f44b312e079F3af',
+    stakingToken: 'USDS',
+    reward: 'SPK',
+  },
+  {
     name: 'sky-sky',
     rewardPool: '0x38E4254bD82ED5Ee97CD1C4278FAae748d998865',
     stakingToken: 'SKY',

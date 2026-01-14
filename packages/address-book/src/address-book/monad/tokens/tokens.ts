@@ -249,4 +249,18 @@ export const tokens = {
     bridge: 'native',
     tags: ['NO_TIMELOCK', 'STABLECOIN'],
   },
+  DUST: {
+    name: 'Pixie Dust',
+    symbol: 'DUST',
+    oracleId: 'DUST',
+    address: '0xAD96C3dffCD6374294e2573A7fBBA96097CC8d7c',
+    chainId: 143,
+    decimals: 18,
+    website: 'https://neverland.money/',
+    documentation: 'https://docs.neverland.money/',
+    description:
+      'Pixie Dust (DUST), powers every aspect of the Neverland protocol — from governance participation through veDUST, to liquidity incentives and deflationary mechanisms that strengthen value over time.',
+    bridge: 'native',
+    tags: ['NO_TIMELOCK', 'LARGE_HOLDERS'],
+  },
 } as const satisfies Record<string, Token>;
