@@ -2829,4 +2829,18 @@ export const tokens = {
     description:
       'StakeWises osToken is issued against assets staked in a Vault to allow using staked capital in decentralized applications to trade, borrow, lend, and restake. Hence, osTokens represent the underlying staked assets and the rewards earned.',
   },
+  hemiBTC: {
+    name: 'Hemi Bitcoin',
+    symbol: 'hemiBTC',
+    oracleId: 'hemiBTC',
+    address: '0x06ea695B91700071B161A434fED42D1DcbAD9f00',
+    chainId: 1,
+    decimals: 8,
+    website: 'https://hemi.xyz/',
+    description:
+      'Hemi unifies Bitcoin security with Ethereum-grade programmability, allowing institutions to deploy native BTC into yield strategies while preserving full control and compliance.',
+    documentation: 'https://docs.hemi.xyz/',
+    bridge: 'layer-zero',
+    tags: ['LARGE_HOLDERS', 'NO_TIMELOCK'],
+  },
 } as const satisfies Record<string, Token>;

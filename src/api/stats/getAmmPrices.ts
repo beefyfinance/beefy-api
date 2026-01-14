@@ -234,6 +234,7 @@ const coinGeckoCoins: Record<string, string[]> = {
   // 'genesislrt-restaked-eth': ['lineainETH'],
   earnausd: ['earnAUSD'],
   'stakewise-v3-oseth': ['osETH'],
+  'hemi-bitcoin': ['hemiBTC'],
 };
 
 /**

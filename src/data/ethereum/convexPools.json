@@ -1,5 +1,28 @@
 [
   {
+    "name": "curve-wbtc-cbbtc-hemibtc",
+    "pool": "0x66039342C66760874047c36943B1e2d8300363BB",
+    "gauge": "0xeCBcF829742987c0600e0ee1117a32d09451882E",
+    "stakeDao": true,
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "WBTC",
+        "decimals": "1e8"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "cbBTC",
+        "decimals": "1e8"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "hemiBTC",
+        "decimals": "1e8"
+      }
+    ]
+  },
+  {
     "name": "curve-crv-sdcrv",
     "pool": "0xCA0253A98D16e9C1e3614caFDA19318EE69772D0",
     "gauge": "0x26F7786de3E6D9Bd37Fcf47BE6F2bC455a21b74A",
