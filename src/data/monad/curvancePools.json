@@ -62,5 +62,23 @@
     "underlying": "0xEE8c0E9f1BFFb4Eb878d8f15f368A02a35481242",
     "oracleId": "WETH",
     "decimals": "1e18"
+  },
+  {
+    "name": "curvance-monad-earnausd-earnausd-ausd",
+    "address": "0x852FF1EC21D63b405eC431e04AE3AC760e29263D",
+    "merklId": "0x852FF1EC21D63b405eC431e04AE3AC760e29263D",
+    "irm": "0x346339e3Fbd21ed48ADDDE1523896c0d97cF1851",
+    "underlying": "0x103222f020e98Bba0AD9809A011FDF8e6F067496",
+    "oracleId": "earnAUSD",
+    "decimals": "1e6"
+  },
+  {
+    "name": "curvance-monad-ausd-earnausd-ausd",
+    "address": "0xAd4AA2a713fB86FBb6b60dE2aF9E32a11DB6Abf2",
+    "merklId": "0xAd4AA2a713fB86FBb6b60dE2aF9E32a11DB6Abf2",
+    "irm": "0x46e2bA1D6CFfB180Efa17d4D5A726b599ED8B904",
+    "underlying": "0x00000000eFE302BEAA2b3e6e1b18d08D69a9012a",
+    "oracleId": "AUSD",
+    "decimals": "1e6"
   }
 ]
