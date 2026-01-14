@@ -3072,4 +3072,17 @@ export const tokens = {
     staked: true,
     tags: ['STABLECOIN'],
   },
+  AAA: {
+    name: 'Arcadia',
+    symbol: 'AAA',
+    oracleId: 'AAA',
+    address: '0xaaa843fb2916c0B57454270418E121C626402AAa',
+    chainId: 8453,
+    decimals: 18,
+    website: 'https://arcadia.finance/',
+    documentation: 'https://docs.arcadia.finance/governance/tokenomics',
+    description:
+      'AAA is the foundational utility token of the Arcadia protocol, used for governance, fee sharing and rewards when staked as stAAA.',
+    tags: ['LARGE_HOLDERS'],
+  }
 } as const satisfies Record<string, Token>;
