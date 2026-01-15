@@ -150,6 +150,31 @@
     ]
   },
   {
+    "name": "balancerv3-arbitrum-waarbwbtc-ebtc",
+    "address": "0x10F9E54AeEA2FeFA124238087DCFD919BA32f14d",
+    "gauge": "0x4DEf63B113b5D0b92a1f7bA3eD7d8C0F753f41B5",
+    "decimals": "1e18",
+    "rewards": [
+      {
+        "rewardGauge": "0x7638b47fb064Cca84aD43326793Ed627Ce6eD372",
+        "oracleId": "AURA",
+        "decimals": "1e18"
+      }
+    ],
+    "tokens": [
+      {
+        "address": "0x52Dc1FEeFA4f9a99221F93D79da46Ae89b8c0967",
+        "oracleId": "waArbWBTC",
+        "decimals": "1e8"
+      },
+      {
+        "address": "0x657e8C867D8B37dCC18fA4Caead9C45EB088C642",
+        "oracleId": "eBTC",
+        "decimals": "1e8"
+      }
+    ]
+  },
+  {
     "name": "balancerv3-arbitrum-waarbusdcn-eure",
     "address": "0xa978cc348a0b5de8bd564a1d8fe437787fd12664",
     "gauge": "0xe8d5ca86d969510c20d911010c657573cf66e358",
