@@ -3092,7 +3092,7 @@ export const tokens = {
     address: '0x16EE7ecAc70d1028E7712751E2Ee6BA808a7dd92',
     chainId: 8453,
     decimals: 18,
-    website: 'https://www.football.fun/ ',
+    website: 'https://www.football.fun/',
     documentation: 'https://docs.sport.fun/',
     description:
       '$FUN token rewards you for contributing value across the Sport.Fun ecosystem. Holding $FUN in your in-game wallet unlocks a bundle of perks designed to reward consistent players and long-term holders.',
