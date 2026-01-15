@@ -70,7 +70,8 @@
     "irm": "0x346339e3Fbd21ed48ADDDE1523896c0d97cF1851",
     "underlying": "0x103222f020e98Bba0AD9809A011FDF8e6F067496",
     "oracleId": "earnAUSD",
-    "decimals": "1e6"
+    "decimals": "1e6",
+    "lstApr": 0.05
   },
   {
     "name": "curvance-monad-ausd-earnausd-ausd",
