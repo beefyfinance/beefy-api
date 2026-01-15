@@ -36,7 +36,7 @@ export async function getMimApys() {
 
     let yearlyRewardsInUsd = new BigNumber(0);
     for (const reward of rewards.filter(r => r.pool === pool.name)) {
-      if (reward.periodFinish < Date.now() / 1000) continue;
+      if (reward.periodFinish < Date.now() / 1000 - 604800) continue;
       const price = await fetchPrice({ oracle: reward.oracle ?? 'tokens', id: reward.oracleId });
       const extraRewardsInUsd = reward.rewardRate.times(31536000).times(price).div('1e18');
       yearlyRewardsInUsd = yearlyRewardsInUsd.plus(extraRewardsInUsd);
