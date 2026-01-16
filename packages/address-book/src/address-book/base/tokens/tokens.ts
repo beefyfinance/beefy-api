@@ -3084,5 +3084,18 @@ export const tokens = {
     description:
       'AAA is the foundational utility token of the Arcadia protocol, used for governance, fee sharing and rewards when staked as stAAA.',
     tags: ['LARGE_HOLDERS'],
-  }
+  },
+  FUN: {
+    name: 'Sports.Fun',
+    symbol: 'FUN',
+    oracleId: 'FUN',
+    address: '0x16EE7ecAc70d1028E7712751E2Ee6BA808a7dd92',
+    chainId: 8453,
+    decimals: 18,
+    website: 'https://www.football.fun/',
+    documentation: 'https://docs.sport.fun/',
+    description:
+      '$FUN token rewards you for contributing value across the Sport.Fun ecosystem. Holding $FUN in your in-game wallet unlocks a bundle of perks designed to reward consistent players and long-term holders.',
+    tags: ['LARGE_HOLDERS', 'NO_TIMELOCK'],
+  },
 } as const satisfies Record<string, Token>;
