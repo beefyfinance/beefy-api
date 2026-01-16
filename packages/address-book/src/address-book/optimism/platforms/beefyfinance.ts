@@ -27,7 +27,7 @@ export const beefyfinance = {
   optimismBridge: '0xbbb8971aEA2627fa2E1342bb5Bf952Ec521479f2',
   ccipBridge: '0xcccEa7Fe84272995664369334351Fe344E2732aE',
   layerZeroBridge: '0xdddaEc9c267dF24aD66Edc3B2cBe25dB86422051',
-  treasurySwapper: '0x852C903e5Bc93F526AB254BFEe0c1DFF23CF82aB',
+  treasurySwapper: '0x029028A29a5F06BFF37825f97900542465bcb1ac',
 
   /// CLM Contracts
   clmFactory: '0x55D0efec44ee905fC3e12CcB9f25bBd5ccE0ab9C',
