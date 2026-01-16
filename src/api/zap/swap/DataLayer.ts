@@ -8,6 +8,7 @@ import {
 } from './types';
 import { keysToObject } from '../../../utils/array';
 import { blockedTokensByChain } from './blocked-tokens';
+import { mapValues, pickBy } from 'lodash';
 
 export type ChainProvider = { apiChain: ApiChain; providerId: ProviderId };
 
@@ -26,7 +27,7 @@ export class DataLayer {
   /**
    * Loads token support data from cache (and runs garbage collection if it exists)
    */
-  async loadFromCache() {
+  async loadFromCache(chainProviders: ChainProvider[]) {
     try {
       // If we change data structure we can invalidate the cache by incrementing the version
       const metadata = await getKey<Metadata>(`${this.rootKey}/metadata`);
@@ -35,12 +36,31 @@ export class DataLayer {
       }
 
       // Load the data
-      const data = await getKey<TokenSupportByChainByProviderByAddress | undefined>(`${this.rootKey}/data`);
+      let data = await getKey<TokenSupportByChainByProviderByAddress | undefined>(`${this.rootKey}/data`);
       if (!data) {
         return;
       }
 
-      this.tokenSupport = data;
+      // Build a map of valid chain providers
+      const chainProviderSupport: Map<ApiChain, Set<ProviderId>> = new Map();
+      for (const { apiChain, providerId } of chainProviders) {
+        let chain = chainProviderSupport.get(apiChain);
+        if (!chain) {
+          chain = new Set();
+          chainProviderSupport.set(apiChain, chain);
+        }
+        chain.add(providerId);
+      }
+
+      // Filter out any unsupported chain providers from the loaded data
+      this.tokenSupport = mapValues(data, (byProvider, chainId) => {
+        const validChainProviders = chainProviderSupport.get(chainId as ApiChain);
+        if (!validChainProviders) {
+          return {};
+        }
+
+        return pickBy(byProvider, (_, providerId) => validChainProviders.has(providerId as ProviderId));
+      });
 
       // Garbage collect old data
       this.gc();

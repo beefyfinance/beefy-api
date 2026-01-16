@@ -1,11 +1,9 @@
-import { OneInchSwapProvider } from './OneInchSwapProvider';
 import { KyberSwapProvider } from './KyberSwapProvider';
 import { ISwapProvider } from './ISwapProvider';
 import { OdosSwapProvider } from './OdosSwapProvider';
 import { LiquidSwapSwapProvider } from './LiquidSwapSwapProvider.js';
 
 export const providersById = {
-  'one-inch': new OneInchSwapProvider(),
   kyber: new KyberSwapProvider(),
   odos: new OdosSwapProvider(),
   'liquid-swap': new LiquidSwapSwapProvider(),
