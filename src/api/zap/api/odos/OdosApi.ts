@@ -1,32 +1,39 @@
 import { URLSearchParams } from 'url';
 import {
-  IOdosApi,
+  IOdosApiV3,
   isOdosErrorResponse,
-  QuoteRequest,
-  QuoteResponse,
-  SwapRequest,
-  SwapResponse,
+  QuoteRequestV3,
+  QuoteResponseV3,
+  SwapRequestV3,
+  SwapResponseV3,
 } from './types';
 import { redactSecrets } from '../../../../utils/secrets';
-import { ApiResponse, isErrorApiResponse } from '../common';
+import { ApiResponse, ExtraQuoteResponse, isErrorApiResponse, SuccessApiResponse } from '../common';
 import { getZapProviderFee } from '../../fees';
 import { ApiChain, toChainId } from '../../../../utils/chain';
+import { Address } from 'viem';
 
-export class OdosApi implements IOdosApi {
-  readonly ZAP_FEE: number;
-  readonly referralCode: number;
-  readonly chainId: number;
+export class OdosApi implements IOdosApiV3 {
+  protected readonly chainId: number;
+  protected readonly feeBps: number;
+  protected readonly feeReceiver: Address;
+
   constructor(
     protected readonly baseUrl: string,
     protected readonly apiKey: string,
     protected readonly chain: ApiChain
   ) {
-    this.referralCode = Number(process.env.ODOS_CODE || 0);
-    this.ZAP_FEE = getZapProviderFee('odos', chain).value;
     this.chainId = toChainId(chain);
     if (this.chainId === undefined) {
       throw new Error(`Invalid chain ${chain}`);
     }
+
+    const feeData = getZapProviderFee('odos', chain);
+    this.feeBps = feeData.value;
+    if (!feeData.receiver) {
+      throw new Error('No fee receiver found for Odos on ' + chain);
+    }
+    this.feeReceiver = feeData.receiver;
   }
 
   protected buildUrl<T extends {}>(path: string, request?: T) {
@@ -41,10 +48,11 @@ export class OdosApi implements IOdosApi {
     };
   }
 
-  protected withReferralCode(request?: Record<string, unknown>): Record<string, unknown> {
+  protected withPartnerFee(request?: Record<string, unknown>): Record<string, unknown> {
     return {
       ...request,
-      referralCode: this.referralCode,
+      partnerFeePercent: this.feeBps,
+      feeRecipient: this.feeReceiver,
     };
   }
 
@@ -57,10 +65,14 @@ export class OdosApi implements IOdosApi {
     };
   }
 
-  protected async doPost<ResponseType extends object>(
+  protected async doPost<
+    ResponseType extends object,
+    Extra extends Record<string, unknown> | undefined = undefined
+  >(
     path: string,
-    request: Record<string, unknown>
-  ): Promise<ApiResponse<ResponseType>> {
+    request: Record<string, unknown>,
+    extra?: Extra
+  ): Promise<ApiResponse<ResponseType, Extra>> {
     const url = this.buildUrl(path);
 
     const response = await fetch(url, {
@@ -72,21 +84,37 @@ export class OdosApi implements IOdosApi {
       body: JSON.stringify(this.withChainId(request)),
     });
 
-    return this.handleResponse(response);
+    const apiResponse = await this.handleResponse(response);
+    if (isErrorApiResponse(apiResponse)) {
+      return apiResponse;
+    }
+
+    return {
+      ...apiResponse,
+      ...(extra === undefined ? {} : { extra }),
+    } as SuccessApiResponse<ResponseType, Extra>;
   }
 
-  protected async post<ResponseType extends object>(
+  protected async post<
+    ResponseType extends object,
+    Extra extends Record<string, unknown> | undefined = undefined
+  >(
     path: string,
-    request: Record<string, unknown>
-  ): Promise<ApiResponse<ResponseType>> {
-    return this.doPost(path, request);
+    request: Record<string, unknown>,
+    extra?: Extra
+  ): Promise<ApiResponse<ResponseType, Extra>> {
+    return this.doPost(path, request, extra);
   }
 
-  protected async priorityPost<ResponseType extends object>(
+  protected async priorityPost<
+    ResponseType extends object,
+    Extra extends Record<string, unknown> | undefined = undefined
+  >(
     path: string,
-    request: Record<string, unknown>
-  ): Promise<ApiResponse<ResponseType>> {
-    return this.doPost(path, request);
+    request: Record<string, unknown>,
+    extra?: Extra
+  ): Promise<ApiResponse<ResponseType, Extra>> {
+    return this.doPost(path, request, extra);
   }
 
   protected async handleResponse<ResponseType extends object>(
@@ -116,8 +144,8 @@ export class OdosApi implements IOdosApi {
     };
   }
 
-  async postQuote(request: QuoteRequest): Promise<QuoteResponse> {
-    const response = await this.post<QuoteResponse>('/sor/quote/v2', request);
+  async postQuote(request: QuoteRequestV3): Promise<QuoteResponseV3> {
+    const response = await this.post<QuoteResponseV3>('/sor/quote/v3', request);
 
     if (isErrorApiResponse(response)) {
       throw new Error(`Error fetching quote: ${response.code} ${response.message}`);
@@ -126,12 +154,20 @@ export class OdosApi implements IOdosApi {
     return response.data;
   }
 
-  async postProxiedQuote(request: QuoteRequest): Promise<ApiResponse<QuoteResponse>> {
-    return await this.priorityPost<QuoteResponse>('/sor/quote/v2', this.withReferralCode(request));
+  async postProxiedQuote(request: QuoteRequestV3): Promise<ApiResponse<QuoteResponseV3, ExtraQuoteResponse>> {
+    return await this.priorityPost<QuoteResponseV3, ExtraQuoteResponse>(
+      '/sor/quote/v3',
+      this.withPartnerFee(request),
+      {
+        fee: {
+          value: this.feeBps,
+        },
+      }
+    );
   }
 
-  async postSwap(request: SwapRequest): Promise<SwapResponse> {
-    const response = await this.post<SwapResponse>('/sor/assemble', request);
+  async postSwap(request: SwapRequestV3): Promise<SwapResponseV3> {
+    const response = await this.post<SwapResponseV3>('/sor/assemble', request);
 
     if (isErrorApiResponse(response)) {
       throw new Error(`Error fetching swap: ${response.message}`);
@@ -140,7 +176,7 @@ export class OdosApi implements IOdosApi {
     return response.data;
   }
 
-  async postProxiedSwap(request: SwapRequest): Promise<ApiResponse<SwapResponse>> {
-    return await this.priorityPost<SwapResponse>('/sor/assemble', request);
+  async postProxiedSwap(request: SwapRequestV3): Promise<ApiResponse<SwapResponseV3>> {
+    return await this.priorityPost<SwapResponseV3>('/sor/assemble', request);
   }
 }

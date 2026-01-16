@@ -4,12 +4,9 @@ import { getKyberApi } from '../api/kyber';
 import { AnyChain } from '../../../utils/chain';
 import { redactSecrets } from '../../../utils/secrets';
 import { isQuoteValueTooLow, setNoCacheHeaders } from './common';
-import { ApiResponse, isSuccessApiResponse } from '../api/common';
+import { ApiResponse, ExtraQuoteResponse, isSuccessApiResponse } from '../api/common';
 
-const postProxiedSwap = async (
-  request: SwapRequest,
-  chain: AnyChain
-): Promise<ApiResponse<SwapData>> => {
+const postProxiedSwap = async (request: SwapRequest, chain: AnyChain): Promise<ApiResponse<SwapData>> => {
   try {
     const api = getKyberApi(chain);
     return await api.postProxiedSwap(request);
@@ -24,7 +21,7 @@ const postProxiedSwap = async (
 const getProxiedQuote = async (
   request: QuoteRequest,
   chain: AnyChain
-): Promise<ApiResponse<QuoteData>> => {
+): Promise<ApiResponse<QuoteData, ExtraQuoteResponse>> => {
   try {
     const tooLowError = await isQuoteValueTooLow(request.amountIn, request.tokenIn, chain);
     if (tooLowError) {
@@ -64,5 +61,7 @@ export async function proxyKyberQuote(ctx: Koa.Context) {
   }
   setNoCacheHeaders(ctx);
   ctx.status = proxiedQuote.code;
-  ctx.body = isSuccessApiResponse(proxiedQuote) ? proxiedQuote.data : proxiedQuote.message;
+  ctx.body = isSuccessApiResponse(proxiedQuote)
+    ? { ...proxiedQuote.data, extra: proxiedQuote.extra }
+    : proxiedQuote.message;
 }

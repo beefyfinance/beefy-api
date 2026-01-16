@@ -1,4 +1,4 @@
-import { ApiResponse } from '../common';
+import { ApiResponse, ExtraQuoteResponse } from '../common';
 
 export type QuoteRequest = {
   tokenIn: string;
@@ -61,6 +61,8 @@ export type QuoteResponse = {
   amountOut: string;
   averagePriceImpact: string;
   execution: QuoteExecution;
+  /** additional information added by beefy api */
+  beefy: ExtraQuoteResponse;
 };
 
 export type SwapRequest = QuoteRequest;
@@ -91,6 +93,6 @@ export function isLiquidSwapSuccessResponse(obj: LiquidSwapResponse): obj is Liq
 export interface ILiquidSwapApi {
   getQuote(request: QuoteRequest): Promise<QuoteResponse>;
   postSwap(request: SwapRequest): Promise<SwapResponse>;
-  getProxiedQuote(request: QuoteRequest): Promise<ApiResponse<QuoteResponse>>;
+  getProxiedQuote(request: QuoteRequest): Promise<ApiResponse<QuoteResponse, ExtraQuoteResponse>>;
   postProxiedSwap(request: SwapRequest): Promise<ApiResponse<SwapResponse>>;
 }

@@ -11,7 +11,7 @@ import {
 } from './types';
 import { mapValues, omitBy } from 'lodash';
 import { redactSecrets } from '../../../../utils/secrets';
-import { ApiResponse, isErrorApiResponse } from '../common';
+import { ApiResponse, ExtraQuoteResponse, isErrorApiResponse, SuccessApiResponse } from '../common';
 import { ApiChain } from '../../../../utils/chain';
 import { getZapProviderFee } from '../../fees';
 
@@ -42,8 +42,16 @@ export class LiquidSwapApi implements ILiquidSwapApi {
     return this.getQuote(request);
   }
 
-  async getProxiedQuote(request: QuoteRequest): Promise<ApiResponse<QuoteResponse>> {
-    return await this.priorityGet<QuoteResponse>('/route', this.toStringDict(this.withFeeReceiver(request)));
+  async getProxiedQuote(request: QuoteRequest): Promise<ApiResponse<QuoteResponse, ExtraQuoteResponse>> {
+    return await this.priorityGet<QuoteResponse, ExtraQuoteResponse>(
+      '/route',
+      this.toStringDict(this.withFeeReceiver(request)),
+      {
+        fee: {
+          value: this.ZAP_FEE,
+        },
+      }
+    );
   }
 
   async postProxiedSwap(request: SwapRequest): Promise<ApiResponse<SwapResponse>> {
@@ -83,30 +91,50 @@ export class LiquidSwapApi implements ILiquidSwapApi {
       : request;
   }
 
-  protected async doGet<ResponseType extends object>(
+  protected async doGet<
+    ResponseType extends object,
+    Extra extends Record<string, unknown> | undefined = undefined
+  >(
     path: string,
-    request?: Record<string, string>
-  ): Promise<ApiResponse<ResponseType>> {
+    request?: Record<string, string>,
+    extra?: Extra
+  ): Promise<ApiResponse<ResponseType, Extra>> {
     const url = this.buildUrl(path, request);
     const response = await fetch(url, {
       headers: this.buildHeaders(),
     });
 
-    return this.handleResponse(response);
+    const apiResponse = await this.handleResponse(response);
+    if (isErrorApiResponse(apiResponse)) {
+      return apiResponse;
+    }
+
+    return {
+      ...apiResponse,
+      ...(extra === undefined ? {} : { extra }),
+    } as SuccessApiResponse<ResponseType, Extra>;
   }
 
-  protected async get<ResponseType extends object>(
+  protected async get<
+    ResponseType extends object,
+    Extra extends Record<string, unknown> | undefined = undefined
+  >(
     path: string,
-    request?: Record<string, string>
-  ): Promise<ApiResponse<ResponseType>> {
-    return this.doGet(path, request);
+    request?: Record<string, string>,
+    extra?: Extra
+  ): Promise<ApiResponse<ResponseType, Extra>> {
+    return this.doGet(path, request, extra);
   }
 
-  protected async priorityGet<ResponseType extends object>(
+  protected async priorityGet<
+    ResponseType extends object,
+    Extra extends Record<string, unknown> | undefined = undefined
+  >(
     path: string,
-    request?: Record<string, string>
-  ): Promise<ApiResponse<ResponseType>> {
-    return this.doGet(path, request);
+    request?: Record<string, string>,
+    extra?: Extra
+  ): Promise<ApiResponse<ResponseType, Extra>> {
+    return this.doGet(path, request, extra);
   }
 
   protected async handleResponse<ResponseType extends object>(
