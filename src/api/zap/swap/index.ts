@@ -6,7 +6,7 @@ import { sleep } from '../../../utils/time';
 import { ProviderSupportByChainByAddress } from './types';
 import { fetchProviderSupportForChainTokens, getProvidersForChain } from './fetch';
 import { ProviderId } from './providers';
-import { DataLayer } from './DataLayer';
+import { ChainProvider, DataLayer } from './DataLayer';
 import PQueue from 'p-queue';
 
 const MIN_UPDATE_DELAY = 2 * 60 * 60 * 1000; // 2 hours; actual update runs after next price update
@@ -42,16 +42,19 @@ async function updateChainProvider(apiChain: ApiChain, providerId: ProviderId) {
   }
 }
 
+function getChainProviders() {
+  return SupportedChains.reduce((acc, apiChain) => {
+    const providers = getProvidersForChain(apiChain);
+    providers.forEach(providerId => acc.push({ apiChain, providerId }));
+    return acc;
+  }, [] as ChainProvider[]);
+}
+
 async function performUpdate() {
   console.log(`> [Zap] Swap service update started`);
   try {
     const start = Date.now();
-
-    const updates = SupportedChains.reduce((acc, apiChain) => {
-      const providers = getProvidersForChain(apiChain);
-      providers.forEach(providerId => acc.push({ apiChain, providerId }));
-      return acc;
-    }, [] as { apiChain: ApiChain; providerId: ProviderId }[]);
+    const updates = getChainProviders();
 
     // Run updates in parallel per provider
     const queue = mapValues(
@@ -117,7 +120,7 @@ export async function initZapSwapService() {
 }
 
 async function loadFromCache() {
-  await dataLayer.loadFromCache();
+  await dataLayer.loadFromCache(getChainProviders());
 }
 
 export function getTokenSwapSupport(): ProviderSupportByChainByAddress {
