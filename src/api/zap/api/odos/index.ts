@@ -15,7 +15,7 @@ const API_QUEUE_CONFIG = {
   throwOnTimeout: true,
 };
 
-// @see https://docs.odos.xyz/api/endpoints/#/Info/get_chain_ids_info_chains_get
+// @see https://docs.odos.xyz/build/api-docs#operations-Information-get_chain_ids_info_chains_get
 export const supportedChains: Partial<Record<ApiChain, number>> = {
   ethereum: 1,
   zksync: 324,
@@ -23,14 +23,13 @@ export const supportedChains: Partial<Record<ApiChain, number>> = {
   mantle: 5000,
   polygon: 137,
   optimism: 10,
-  mode: 34443,
   avax: 43114,
   linea: 59144,
   arbitrum: 42161,
   bsc: 56,
-  fantom: 250,
-  scroll: 534352,
   sonic: 146,
+  fraxtal: 252,
+  unichain: 130,
 } as const;
 
 const swapApiByChain: Partial<Record<ApiChain, IOdosApiV3>> = {};
