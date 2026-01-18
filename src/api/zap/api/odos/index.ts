@@ -1,13 +1,14 @@
 import PQueue from 'p-queue';
 import { RateLimitedOdosApi } from './RateLimitedOdosApi';
 import { AnyChain, ApiChain, toApiChain } from '../../../../utils/chain';
-import { IOdosApi } from './types';
+import { IOdosApiV3 } from './types';
 
 // Configure rate limiting
 const API_QUEUE_CONFIG = {
   concurrency: 2,
-  intervalCap: 2, // 2 per 600ms is 3.3 RPS
-  interval: 200, // 600 for standard
+  // 2 per 200ms is 10 RPS
+  intervalCap: 2,
+  interval: 200,
   carryoverConcurrencyCount: false,
   autoStart: true,
   timeout: 30 * 1000,
@@ -32,10 +33,10 @@ export const supportedChains: Partial<Record<ApiChain, number>> = {
   sonic: 146,
 } as const;
 
-const swapApiByChain: Partial<Record<ApiChain, IOdosApi>> = {};
+const swapApiByChain: Partial<Record<ApiChain, IOdosApiV3>> = {};
 let swapApiQueue: PQueue | undefined;
 
-export function getOdosApi(chain: AnyChain): IOdosApi {
+export function getOdosApi(chain: AnyChain): IOdosApiV3 {
   const apiChain = toApiChain(chain);
   const odosChain = supportedChains[apiChain];
   if (!odosChain) {

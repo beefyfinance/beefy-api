@@ -9,7 +9,6 @@ import { ChainTokens, TokenEntity, TokenErc20, TokenNative, TokensByChain } from
 import { mapValues } from 'lodash';
 import { Address, getAddress } from 'viem';
 import { isDefined } from '../../utils/array';
-import { setKey } from '../../utils/cache';
 
 const tokensByChain: Partial<TokensByChain> = {};
 
@@ -131,7 +130,7 @@ async function fetchVaultTokensForChain(chainId: ApiChain): Promise<TokenEntity[
         chainId,
         oracle: 'tokens', // ???
         oracleId: vault.earnedToken, // this is oracle of deposit token not the receipt/share token...
-        address: vault.earnedTokenAddress,
+        address: getAddress(vault.earnedTokenAddress),
         decimals: vault.earnedTokenDecimals || 18,
       });
     }
@@ -162,7 +161,7 @@ async function fetchBoostTokensForChain(chainId: ApiChain): Promise<TokenEntity[
           chainId: reward.chainId ? toApiChain(reward.chainId) : chainId,
           oracleId: reward.oracleId || reward.symbol,
           oracle: reward.oracle || 'tokens',
-          address: reward.address,
+          address: getAddress(reward.address),
           decimals: reward.decimals || 18,
         });
       }
@@ -237,7 +236,7 @@ async function fetchAddressBookTokensForChain(
       chainId,
       oracle: token.oracle || 'tokens',
       oracleId: token.oracleId || id,
-      address: token.address,
+      address: getAddress(token.address),
       decimals: token.decimals,
       ...(token.bridge ? { bridge: token.bridge } : {}),
       ...(token.staked ? { staked: token.staked } : {}),
@@ -251,7 +250,7 @@ async function fetchAddressBookTokensForChain(
 
 function addToken(
   token: TokenEntity,
-  byId: Record<TokenEntity['id'], TokenEntity['address']>,
+  byId: Record<TokenEntity['id'], string>,
   byAddress: Record<TokenEntity['address'], TokenEntity>
 ) {
   const addressLower = token.address.toLowerCase();
@@ -291,8 +290,8 @@ async function fetchTokensForChain(chainId: ApiChain): Promise<ChainTokens> {
     fetchAddressBookTokensForChain(chainId),
   ]);
 
-  const byId: Record<TokenEntity['id'], TokenEntity['address']> = {};
-  const byAddress: Record<TokenEntity['address'], TokenEntity> = {};
+  const byId: Record<TokenEntity['id'], string> = {};
+  const byAddress: Record<string, TokenEntity> = {};
 
   [...abTokens.nativeTokens, ...vaultTokens, ...boostTokens, ...abTokens.erc20Tokens].forEach(token =>
     addToken(token, byId, byAddress)

@@ -1,4 +1,4 @@
-import { ApiResponse } from '../common';
+import { ApiResponse, ExtraQuoteResponse } from '../common';
 
 export type QuoteRequest = {
   tokenIn: string;
@@ -48,6 +48,8 @@ export type RouteSummary = {
 export type QuoteData = {
   routeSummary: RouteSummary;
   routeAddress: string;
+  /** additional information added by beefy api */
+  beefy: ExtraQuoteResponse;
 };
 
 export type QuoteResponse = {
@@ -106,6 +108,6 @@ export function isKyberSuccessResponse(obj: KyberResponse): obj is KyberSuccessR
 export interface IKyberApi {
   getQuote(request: QuoteRequest): Promise<QuoteData>;
   postSwap(request: SwapRequest): Promise<SwapData>;
-  getProxiedQuote(request: QuoteRequest): Promise<ApiResponse<QuoteData>>;
+  getProxiedQuote(request: QuoteRequest): Promise<ApiResponse<QuoteData, ExtraQuoteResponse>>;
   postProxiedSwap(request: SwapRequest): Promise<ApiResponse<SwapData>>;
 }
