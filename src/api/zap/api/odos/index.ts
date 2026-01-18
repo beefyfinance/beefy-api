@@ -29,7 +29,7 @@ export const supportedChains: Partial<Record<ApiChain, number>> = {
   bsc: 56,
   sonic: 146,
   fraxtal: 252,
-  unichain: 130,
+  // unichain: 130,
 } as const;
 
 const swapApiByChain: Partial<Record<ApiChain, IOdosApiV3>> = {};
