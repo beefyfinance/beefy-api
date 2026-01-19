@@ -11,13 +11,14 @@ import {
 } from './types';
 import { mapValues, omitBy } from 'lodash';
 import { redactSecrets } from '../../../../utils/secrets';
-import { ApiResponse, isErrorApiResponse } from '../common';
+import { ApiResponse, ExtraQuoteResponse, isErrorApiResponse, SuccessApiResponse } from '../common';
 import { ApiChain } from '../../../../utils/chain';
 import { getZapProviderFee } from '../../fees';
 
 export class KyberApi implements IKyberApi {
   readonly feeReceiver: string;
   readonly ZAP_FEE: number;
+
   constructor(protected readonly baseUrl: string, protected readonly clientId: string, chain: ApiChain) {
     const feeData = getZapProviderFee('kyber', chain);
     this.ZAP_FEE = feeData.value;
@@ -70,23 +71,39 @@ export class KyberApi implements IKyberApi {
       : request;
   }
 
-  protected async doGet<ResponseType extends object>(
+  protected async doGet<
+    ResponseType extends object,
+    Extra extends Record<string, unknown> | undefined = undefined
+  >(
     path: string,
-    request?: Record<string, string>
-  ): Promise<ApiResponse<ResponseType>> {
+    request?: Record<string, string>,
+    extra?: Extra
+  ): Promise<ApiResponse<ResponseType, Extra>> {
     // Send client id as `source` query param and `x-client-id` header
     const url = this.buildUrl(path, this.withClientId(request));
     const response = await fetch(url, {
       headers: this.buildHeaders(),
     });
 
-    return this.handleResponse(response);
+    const apiResponse = await this.handleResponse(response);
+    if (isErrorApiResponse(apiResponse)) {
+      return apiResponse;
+    }
+
+    return {
+      ...apiResponse,
+      ...(extra === undefined ? {} : { extra }),
+    } as SuccessApiResponse<ResponseType, Extra>;
   }
 
-  protected async doPost<ResponseType extends object>(
+  protected async doPost<
+    ResponseType extends object,
+    Extra extends Record<string, unknown> | undefined = undefined
+  >(
     path: string,
-    request: Record<string, unknown>
-  ): Promise<ApiResponse<ResponseType>> {
+    request: Record<string, unknown>,
+    extra?: Extra
+  ): Promise<ApiResponse<ResponseType, Extra>> {
     // Send client id as `source` body param and `x-client-id` header
     const url = this.buildUrl(path);
 
@@ -98,35 +115,59 @@ export class KyberApi implements IKyberApi {
       body: JSON.stringify(this.withClientId(request)),
     });
 
-    return this.handleResponse(response);
+    const apiResponse = await this.handleResponse(response);
+    if (isErrorApiResponse(apiResponse)) {
+      return apiResponse;
+    }
+
+    return {
+      ...apiResponse,
+      ...(extra === undefined ? {} : { extra }),
+    } as SuccessApiResponse<ResponseType, Extra>;
   }
 
-  protected async get<ResponseType extends object>(
+  protected async get<
+    ResponseType extends object,
+    Extra extends Record<string, unknown> | undefined = undefined
+  >(
     path: string,
-    request?: Record<string, string>
-  ): Promise<ApiResponse<ResponseType>> {
-    return this.doGet(path, request);
+    request?: Record<string, string>,
+    extra?: Extra
+  ): Promise<ApiResponse<ResponseType, Extra>> {
+    return this.doGet(path, request, extra);
   }
 
-  protected async post<ResponseType extends object>(
+  protected async priorityGet<
+    ResponseType extends object,
+    Extra extends Record<string, unknown> | undefined = undefined
+  >(
     path: string,
-    request: Record<string, unknown>
-  ): Promise<ApiResponse<ResponseType>> {
-    return this.doPost(path, request);
+    request?: Record<string, string>,
+    extra?: Extra
+  ): Promise<ApiResponse<ResponseType, Extra>> {
+    return this.doGet(path, request, extra);
   }
 
-  protected async priorityGet<ResponseType extends object>(
+  protected async post<
+    ResponseType extends object,
+    Extra extends Record<string, unknown> | undefined = undefined
+  >(
     path: string,
-    request?: Record<string, string>
-  ): Promise<ApiResponse<ResponseType>> {
-    return this.doGet(path, request);
+    request: Record<string, unknown>,
+    extra?: Extra
+  ): Promise<ApiResponse<ResponseType, Extra>> {
+    return this.doPost(path, request, extra);
   }
 
-  protected async priorityPost<ResponseType extends object>(
+  protected async priorityPost<
+    ResponseType extends object,
+    Extra extends Record<string, unknown> | undefined = undefined
+  >(
     path: string,
-    request: Record<string, unknown>
-  ): Promise<ApiResponse<ResponseType>> {
-    return this.doPost(path, request);
+    request: Record<string, unknown>,
+    extra?: Extra
+  ): Promise<ApiResponse<ResponseType, Extra>> {
+    return this.doPost(path, request, extra);
   }
 
   protected async handleResponse<ResponseType extends object>(
@@ -176,8 +217,16 @@ export class KyberApi implements IKyberApi {
     return response.data;
   }
 
-  async getProxiedQuote(request: QuoteRequest): Promise<ApiResponse<QuoteData>> {
-    return await this.priorityGet<QuoteData>('/routes', this.toStringDict(this.withFeeReceiver(request)));
+  async getProxiedQuote(request: QuoteRequest): Promise<ApiResponse<QuoteData, ExtraQuoteResponse>> {
+    return await this.priorityGet<QuoteData, ExtraQuoteResponse>(
+      '/routes',
+      this.toStringDict(this.withFeeReceiver(request)),
+      {
+        fee: {
+          value: this.ZAP_FEE,
+        },
+      }
+    );
   }
 
   async postProxiedSwap(request: SwapRequest): Promise<ApiResponse<SwapData>> {

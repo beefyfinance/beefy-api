@@ -1,4 +1,5 @@
 import { ApiChain } from '../../utils/chain';
+import { Address } from 'viem';
 
 type TokenBase = {
   id: string;
@@ -13,7 +14,8 @@ type TokenBase = {
 };
 
 export type TokenErc20 = TokenBase & {
-  address: string;
+  /** checksummed address */
+  address: Address;
   type: 'erc20';
 };
 
@@ -25,8 +27,10 @@ export type TokenNative = TokenBase & {
 export type TokenEntity = TokenErc20 | TokenNative;
 
 export type ChainTokens = {
-  byId: Record<TokenEntity['id'], TokenEntity['address']>;
-  byAddress: Record<TokenEntity['address'], TokenEntity>;
+  /** lowercase address */
+  byId: Record<TokenEntity['id'], string>;
+  /** lowercase address */
+  byAddress: Record<string, TokenEntity>;
 };
 
 export type TokensByChain = Record<ApiChain, ChainTokens>;

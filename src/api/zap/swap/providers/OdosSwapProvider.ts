@@ -1,7 +1,7 @@
 import { ISwapProvider, SwapRequest, SwapResponse } from './ISwapProvider';
 import { getOdosApi, supportedChains } from '../../api/odos';
 import { fromWeiString, toWeiString } from '../../../../utils/big-number';
-import { ApiChain } from '../../../../utils/chain';
+import { ApiChain, toChainId } from '../../../../utils/chain';
 import { isResultFulfilled } from '../../../../utils/promise';
 
 export class OdosSwapProvider implements ISwapProvider {
@@ -17,10 +17,16 @@ export class OdosSwapProvider implements ISwapProvider {
     }
 
     const chainId = swaps[0].from.chainId;
+    const numericChainId = toChainId(chainId);
+    if (!numericChainId) {
+      throw new Error(`Could not get numeric chain id for ${chainId}`);
+    }
     const api = getOdosApi(chainId);
     const results = await Promise.allSettled(
       swaps.map(swap =>
         api.postQuote({
+          chainId: numericChainId,
+          disableRFQs: true,
           inputTokens: [
             {
               tokenAddress: swap.from.address,

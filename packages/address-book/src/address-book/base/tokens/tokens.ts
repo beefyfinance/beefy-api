@@ -3098,4 +3098,16 @@ export const tokens = {
       '$FUN token rewards you for contributing value across the Sport.Fun ecosystem. Holding $FUN in your in-game wallet unlocks a bundle of perks designed to reward consistent players and long-term holders.',
     tags: ['LARGE_HOLDERS', 'NO_TIMELOCK'],
   },
+  BYTE: {
+    name: 'Byte',
+    symbol: 'BYTE',
+    oracleId: 'bBYTE',
+    address: '0x03cEac3c28E353F5E4626c1242A6C7A41d004354',
+    chainId: 8453,
+    decimals: 18,
+    website: 'https://bytegroksdog.xyz/',
+    documentation: 'https://bytegroksdog.xyz/whitepaper',
+    description: 'BYTE is a meme coin and an onchain experiment launched by AI command on Base.',
+    tags: ['LARGE_HOLDERS'],
+  },
 } as const satisfies Record<string, Token>;
