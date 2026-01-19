@@ -1,6 +1,6 @@
 [
   {
-    "address": "0x7e4D5b8d4AD139Ad18F0C2Af7Bd550B23056323a",
+    "address": "0xD5B820CDDc990eDcFfa8CD10Eed8FF242e731b36",
     "lpAddress": "0x659bE70647B0f63217D60e077F4417b1eCC65064",
     "tokens": ["0x16EE7ecAc70d1028E7712751E2Ee6BA808a7dd92", "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913"],
     "tokenOracleIds": ["FUN", "USDC"],
@@ -8,11 +8,11 @@
     "oracleId": "aerodrome-cow-base-fun-usdc",
     "providerId": "aerodrome",
     "rewardPool": {
-      "address": "0x9EC6fBe3158F51FEF5aE760478e2E7BBc7cF1917",
+      "address": "0xaDe28acC33Bd0E76dAef4794dcD359Cc225fdb00",
       "oracleId": "aerodrome-cow-base-fun-usdc-rp"
     },
     "vault": {
-      "address": "0x94ab921bE96F8f130C57fDEF11B633146E7474E6",
+      "address": "0x73fD88f0c1364F9f81D52dD6Bb9FfF6429597cCD",
       "oracleId": "aerodrome-cow-base-fun-usdc-vault"
     }
   },
