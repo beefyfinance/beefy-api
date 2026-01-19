@@ -1,0 +1,56 @@
+[
+  {
+    "name": "morpho-arb-steakhouse-usdc",
+    "address": "0x5c0C306Aaa9F877de636f4d5822cA9F2E81563BA",
+    "oracle": "tokens",
+    "oracleId": "USDC",
+    "decimals": "1e6",
+    "v2": false,
+    "skim": true
+  },
+  {
+    "name": "morpho-arb-steakhouse-v2-usdc",
+    "address": "0xbeeff1D5dE8F79ff37a151681100B039661da518",
+    "oracle": "tokens",
+    "oracleId": "USDC",
+    "decimals": "1e6",
+    "v2": true,
+    "skim": true
+  },
+  {
+    "name": "morpho-arb-steakhouse-usdt",
+    "address": "0xbeeff77CE5C059445714E6A3490E273fE7F2492F",
+    "oracle": "tokens",
+    "oracleId": "USDT",
+    "decimals": "1e6",
+    "v2": true,
+    "skim": true
+  },
+  {
+    "name": "morpho-arb-gauntlet-core-usdc",
+    "address": "0x7e97fa6893871A2751B5fE961978DCCb2c201E65",
+    "oracle": "tokens",
+    "oracleId": "USDC",
+    "decimals": "1e6",
+    "v2": false,
+    "skim": true
+  },
+  {
+    "name": "morpho-arb-hyperithm-usdc",
+    "address": "0x4B6F1C9E5d470b97181786b26da0d0945A7cf027",
+    "oracle": "tokens",
+    "oracleId": "USDC",
+    "decimals": "1e6",
+    "v2": false,
+    "skim": true
+  },
+  {
+    "name": "morpho-arb-gauntlet-prime-usdc",
+    "address": "0x7c574174DA4b2be3f705c6244B4BfA0815a8B3Ed",
+    "oracle": "tokens",
+    "oracleId": "USDC",
+    "decimals": "1e6",
+    "v2": false,
+    "skim": true
+  }
+]

@@ -21,6 +21,7 @@
     "oracle": "tokens",
     "oracleId": "AUSD",
     "decimals": "1e6",
-    "v2": true
+    "v2": true,
+    "skim": true
   }
 ]

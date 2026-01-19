@@ -2,18 +2,20 @@ import BigNumber from 'bignumber.js';
 import { getApyBreakdown } from '../getApyBreakdownNew';
 
 // Helper function to calculate APY breakdown
-const calculateApyBreakdown = (apy, isV2) => {
+const calculateApyBreakdown = (apy, isV2, isSkim) => {
   if (isV2) {
     const lending = new BigNumber(apy?.avgApy || 0);
     const assetYield = new BigNumber(apy?.asset?.yield?.apr || 0);
-    const trading = lending.plus(assetYield);
+    let trading = lending.plus(assetYield);
     const vault = new BigNumber(apy?.avgNetApy || 0).minus(trading);
+    if (isSkim) trading = lending.times(0.905).plus(assetYield);
     return { vault, trading };
   } else {
     const lending = new BigNumber(apy?.state?.netApyWithoutRewards || 0);
     const assetYield = new BigNumber(apy?.asset?.yield?.apr || 0);
-    const trading = lending.plus(assetYield);
+    let trading = lending.plus(assetYield);
     const vault = new BigNumber(apy?.state?.netApy || 0).minus(trading);
+    if (isSkim) trading = lending.times(0.905).plus(assetYield);
     return { vault, trading };
   }
 };
@@ -100,7 +102,7 @@ export const getMorphoApys = async (chainId, pools) => {
   return getApyBreakdown(
     pools.map(pool => {
       const apy = pool.v2 ? apyMapV2.get(pool.address) : apyMapV1.get(pool.address);
-      const { vault, trading } = calculateApyBreakdown(apy, pool.v2);
+      const { vault, trading } = calculateApyBreakdown(apy, pool.v2, pool.skim);
 
       return {
         vaultId: pool.name,
