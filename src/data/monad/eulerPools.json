@@ -1,0 +1,16 @@
+[
+  {
+    "name": "euler-monad-euler-usdc",
+    "address": "0xA981f053C118FE4dB0e1aEBA192AAD20Ec7F7801",
+    "oracleId": "USDC",
+    "decimals": "1e6",
+    "earn": true
+  },
+  {
+    "name": "euler-monad-euler-ausd",
+    "address": "0x598035A2E984993229f6FA4C8C3eCf6c52aD51b5",
+    "oracleId": "AUSD",
+    "decimals": "1e6",
+    "earn": true
+  }
+]

@@ -3,9 +3,11 @@ const { getCurveApys } = require('./getCurveApys');
 const { getMorphoApys } = require('../common/morpho/getMorphoApys');
 const { getCurvanceApys } = require('./getCurvanceApys');
 const { getNeverlandApys } = require('./getNeverlandApys');
+const { getEulerApys } = require('./getEulerApys');
 const { MONAD_CHAIN_ID } = require('../../../constants');
 
 const getApys = [
+  getEulerApys,
   getCurveApys,
   getBeefyCowMonadApys,
   () => getMorphoApys(MONAD_CHAIN_ID, require('../../../data/monad/morphoPools.json')),
