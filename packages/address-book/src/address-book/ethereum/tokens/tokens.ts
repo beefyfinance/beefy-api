@@ -2852,8 +2852,8 @@ export const tokens = {
     decimals: 18,
     website: 'https://raac.io/',
     description: 'RAAC’s first stablecoin backed by gold and other precious metals.',
-    documentation: 'https://docs.raac.io//',
+    documentation: 'https://docs.raac.io/',
     bridge: 'native',
-    tags: ['LARGE_HOLDERS', 'NO_TIMELOCK', 'SYNTHETIC'],
+    tags: ['LARGE_HOLDERS', 'NO_TIMELOCK', 'STABLECOIN', 'SYNTHETIC'],
   },
 } as const satisfies Record<string, Token>;
