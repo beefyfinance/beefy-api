@@ -107,6 +107,7 @@ import { getEulerPrices } from './common/euler/getEulerPrices';
 import { getTruePrices } from './base/getTruePrices';
 import { getCurvanceMonadPrices } from './monad/getCurvanceMonadPrices';
 import { getNeverlandPrices } from './monad/getNeverlandPrices';
+import { getGearboxPrices } from './common/gearbox/getGearboxPrices';
 import { promiseArrayTiming } from '../../utils/timing';
 
 export type NonAmmPrices = {
@@ -130,6 +131,7 @@ export async function getNonAmmPrices(
   let breakdown = {};
 
   const promises = [
+    getGearboxPrices(MONAD_CHAIN_ID, require('../../data/monad/gearboxPools.json'), tokenPrices),
     getNeverlandPrices(tokenPrices),
     getCurvanceMonadPrices(tokenPrices),
     getEtherexStablePrices(tokenPrices),

@@ -1,0 +1,9 @@
+[
+  {
+    "name": "gearbox-arb-edge-usdc",
+    "address": "0x6B343F7B797f1488AA48C49d540690F2b2c89751",
+    "oracle": "tokens",
+    "oracleId": "USDC",
+    "decimals": "1e6"
+  }
+]

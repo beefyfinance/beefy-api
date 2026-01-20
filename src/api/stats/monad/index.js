@@ -4,6 +4,7 @@ const { getMorphoApys } = require('../common/morpho/getMorphoApys');
 const { getCurvanceApys } = require('./getCurvanceApys');
 const { getNeverlandApys } = require('./getNeverlandApys');
 const { getEulerApys } = require('./getEulerApys');
+const { getGearboxApys } = require('../common/gearbox/getGearboxApys');
 const { MONAD_CHAIN_ID } = require('../../../constants');
 
 const getApys = [
@@ -13,6 +14,7 @@ const getApys = [
   () => getMorphoApys(MONAD_CHAIN_ID, require('../../../data/monad/morphoPools.json')),
   getCurvanceApys,
   getNeverlandApys,
+  () => getGearboxApys(MONAD_CHAIN_ID, require('../../../data/monad/gearboxPools.json')),
 ];
 
 const getMonadApys = async () => {
