@@ -236,6 +236,7 @@ export async function getNonAmmPrices(
     getEulerPrices(SONIC_CHAIN_ID, require('../../data/sonic/eulerPools.json'), tokenPrices),
     getEulerPrices(AVAX_CHAIN_ID, require('../../data/avax/eulerPools.json'), tokenPrices),
     getEulerPrices(MONAD_CHAIN_ID, require('../../data/monad/eulerPools.json'), tokenPrices),
+    getEulerPrices(ARB_CHAIN_ID, require('../../data/arbitrum/eulerPools.json'), tokenPrices),
     getTruePrices(BASE_CHAIN_ID, require('../../data/base/truePools.json'), tokenPrices),
     getSolidlyStablePrices(AVAX_CHAIN_ID, require('../../data/avax/blackStableLpPools.json'), tokenPrices),
     getSolidlyStablePrices(PLASMA_CHAIN_ID, require('../../data/plasma/lithosStablePools.json'), tokenPrices),
