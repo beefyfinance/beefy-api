@@ -1,0 +1,11 @@
+[
+  {
+    "name": "morpho-op-gauntlet-prime-usdc",
+    "address": "0xC30ce6A5758786e0F640cC5f881Dd96e9a1C5C59",
+    "oracle": "tokens",
+    "oracleId": "USDC",
+    "decimals": "1e6",
+    "v2": false,
+    "skim": true
+  }
+]
