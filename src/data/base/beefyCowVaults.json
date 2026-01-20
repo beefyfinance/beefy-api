@@ -1,5 +1,22 @@
 [
   {
+    "address": "0xa08cee3cCE1EFC8Bd7D6956BB55529020afBf07D",
+    "lpAddress": "0x3F5E98C7ebfF35056ab4346BCcd722A537c1aEfA",
+    "tokens": ["0x0C03Ce270B4826Ec62e7DD007f0B716068639F7B", "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913"],
+    "tokenOracleIds": ["TIG", "USDC"],
+    "decimals": [18, 6],
+    "oracleId": "aerodrome-cow-base-tig-usdc",
+    "providerId": "aerodrome",
+    "rewardPool": {
+      "address": "0xb6EEaE78F5A2FDE1515A44AB3C0Ca32ce9B450C0",
+      "oracleId": "aerodrome-cow-base-tig-usdc-rp"
+    },
+    "vault": {
+      "address": "0xeD575EF1551275F232D99d44509B69C14F3F45E0",
+      "oracleId": "aerodrome-cow-base-tig-usdc-vault"
+    }
+  },
+  {
     "address": "0x4b892B39d6A0A88A26Fdf8D15FA8d79706E33f8d",
     "lpAddress": "0x76569E1d4Fc83917ef40Cd3b2053B2B8620644b3",
     "tokens": ["0x03cEac3c28E353F5E4626c1242A6C7A41d004354", "0x4200000000000000000000000000000000000006"],
