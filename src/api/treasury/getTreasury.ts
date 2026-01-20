@@ -25,7 +25,6 @@ import { getAmmPrice } from '../stats/getAmmPrices';
 import { keysToObject } from '../../utils/array';
 import { getChainConcentratedLiquidityAssets, hasChainConcentratedLiquidityAssets } from './nftAssets';
 import { ZERO_ADDRESS } from '../../utils/address';
-import { getChainLockedAssets, hasChainLockedAssets } from './lockedAssetHelpers';
 import { contextAllSettled, isContextResultRejected, withTimeout } from '../../utils/promise';
 import { envNumber } from '../../utils/env';
 
@@ -114,13 +113,6 @@ function getTokenAddressesByChain(): TreasuryAssetRegistry {
       const validators = getChainValidators(chain);
       for (let i = 0; i < validators.length; i++) {
         tokens[validators[i].id] = validators[i];
-      }
-    }
-
-    if (hasChainLockedAssets(chain)) {
-      const lockedAssets = getChainLockedAssets(chain);
-      for (let i = 0; i < lockedAssets.length; i++) {
-        tokens[lockedAssets[i].address.toLowerCase()] = lockedAssets[i];
       }
     }
 

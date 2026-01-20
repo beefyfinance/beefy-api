@@ -55,19 +55,7 @@ export type ConcLiquidityAsset = Asset & {
   id: number;
 };
 
-export type LockedAsset = Asset & {
-  assetType: 'locked-token';
-  method: 'xshadow-contract';
-  methodPath: string;
-};
-
-export type TreasuryAsset =
-  | Asset
-  | VaultAsset
-  | NativeAsset
-  | ValidatorAsset
-  | ConcLiquidityAsset
-  | LockedAsset;
+export type TreasuryAsset = Asset | VaultAsset | NativeAsset | ValidatorAsset | ConcLiquidityAsset;
 
 export type TreasuryAssetRegistry = {
   [chain in ApiChain]?: {
@@ -93,10 +81,6 @@ export function isTokenAsset(asset: TreasuryAsset): asset is TokenAsset {
 
 export function isConcLiquidityAsset(asset: TreasuryAsset): asset is ConcLiquidityAsset {
   return isObject(asset) && asset.assetType === 'concLiquidity';
-}
-
-export function isLockedAsset(asset: TreasuryAsset): asset is LockedAsset {
-  return isObject(asset) && asset.assetType === 'locked-token';
 }
 
 export type AssetBalance = {

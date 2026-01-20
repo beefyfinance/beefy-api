@@ -3,7 +3,6 @@ import {
   AssetBalance,
   ChainTreasuryBalance,
   isConcLiquidityAsset,
-  isLockedAsset,
   isNativeAsset,
   isTokenAsset,
   isValidatorAsset,
@@ -18,7 +17,6 @@ import ERC20Abi from '../../abis/ERC20Abi';
 import { MULTICALL_V3 } from '../../utils/multicallHelpers';
 import MulticallAbi from '../../abis/common/Multicall/MulticallAbi';
 import { getValidatorBalanceCall } from './validatorHelpers';
-import { getLockedAssetBalanceCall } from './lockedAssetHelpers';
 
 export const mapAssetToCall = (
   asset: TreasuryAsset,
@@ -39,10 +37,6 @@ export const mapAssetToCall = (
     return [getLpBreakdownForOracle(asset.oracleId)];
   } else if (isValidatorAsset(asset)) {
     return getValidatorBalanceCall(asset, chainId);
-  } else if (isLockedAsset(asset)) {
-    return treasuryAddressesForChain.map(treasuryData => {
-      return getLockedAssetBalanceCall(asset, chainId, treasuryData.address);
-    });
   }
 };
 
@@ -57,7 +51,7 @@ export const extractBalancesFromTreasuryCallResults = (
       const callResult = callResults[i] as PromiseFulfilledResult<
         bigint[] | LpBreakdown[] | TreasuryApiResult[]
       >;
-      if (isTokenAsset(asset) || isVaultAsset(asset) || isNativeAsset(asset) || isLockedAsset(asset)) {
+      if (isTokenAsset(asset) || isVaultAsset(asset) || isNativeAsset(asset)) {
         const value = callResult.value as bigint[];
         const bal = {
           address: asset.address.toLowerCase(),
