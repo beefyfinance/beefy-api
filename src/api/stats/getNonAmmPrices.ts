@@ -29,7 +29,6 @@ import getOlpPrices from './optimism/getOlpPrices';
 import getThenaStablePrices from './bsc/getThenaStablePrices';
 import getSolidLizardStablePrices from './arbitrum/getSolidLizardStablePrices';
 import getRamsesStablePrices from './arbitrum/getRamsesStablePrices';
-import getMmyOptimismPrices from './optimism/getMmyOptimismPrices';
 import getBscGammaPrices from './bsc/getBscGammaPrices';
 import { getCurveBasePrices } from './base/getCurvePrices';
 import getUniswapArbitrumPrices from './arbitrum/getUniswapPositionPrices';
@@ -142,7 +141,6 @@ export async function getNonAmmPrices(
     getEqualizerStableSonicPrices(tokenPrices),
     getUniswapArbitrumPrices(tokenPrices),
     getUniswapEthereumPrices(tokenPrices),
-    getMmyOptimismPrices(tokenPrices),
     getRamsesStablePrices(tokenPrices),
     getSolidLizardStablePrices(tokenPrices),
     getMimSwapPrices(tokenPrices),
