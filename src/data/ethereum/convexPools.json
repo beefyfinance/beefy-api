@@ -1,5 +1,42 @@
 [
   {
+    "name": "curve-pmusd-frxusd",
+    "pool": "0xBf5047039F2980C21eB5692c790BAd8A9533b900",
+    "gauge": "0x81d837437fD18736ffD3B5C9A5a2aA835c7637e7",
+    "stakeDao": true,
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "pmUSD",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "frxUSD",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
+    "name": "curve-pmusd-crvusd",
+    "pool": "0xEcb0F0d68C19BdAaDAEbE24f6752A4Db34e2c2cb",
+    "gauge": "0xF3c43E7D722963b9569d1E39873dF9E2dFE8C087",
+    "stakeDao": true,
+    "getDy": ["v1", 0, 1],
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "pmUSD",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "crvUSD",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
     "name": "curve-wbtc-cbbtc-hemibtc",
     "pool": "0x66039342C66760874047c36943B1e2d8300363BB",
     "gauge": "0xeCBcF829742987c0600e0ee1117a32d09451882E",

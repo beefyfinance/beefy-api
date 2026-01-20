@@ -2843,4 +2843,17 @@ export const tokens = {
     bridge: 'layer-zero',
     tags: ['LARGE_HOLDERS', 'NO_TIMELOCK'],
   },
+  pmUSD: {
+    name: 'Precious Metals USD',
+    symbol: 'pmUSD',
+    oracleId: 'pmUSD',
+    address: '0xC0c17dD08263C16f6b64E772fB9B723Bf1344DdF',
+    chainId: 1,
+    decimals: 18,
+    website: 'https://raac.io/',
+    description: 'RAAC’s first stablecoin backed by gold and other precious metals.',
+    documentation: 'https://docs.raac.io//',
+    bridge: 'native',
+    tags: ['LARGE_HOLDERS', 'NO_TIMELOCK', 'SYNTHETIC'],
+  },
 } as const satisfies Record<string, Token>;
