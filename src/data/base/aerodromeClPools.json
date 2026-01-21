@@ -1,0 +1,21 @@
+[
+  {
+    "name": "aerodrome-cl-weth-moobifi",
+    "address": "0xb378137c90444BbceCD44a1f766851fbf53D2a9E",
+    "nftId": 44236068,
+    "poolFee": 0.1,
+    "chainId": 8453,
+    "lp0": {
+      "address": "0x4200000000000000000000000000000000000006",
+      "oracle": "tokens",
+      "oracleId": "WETH",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xc55E93C62874D8100dBd2DfE307EDc1036ad5434",
+      "oracle": "tokens",
+      "oracleId": "basemooBIFI",
+      "decimals": "1e18"
+    }
+  }
+]

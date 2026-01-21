@@ -49,7 +49,17 @@ export const treasuryConcLiquidityAssets: Partial<Record<ApiChain, ConcLiquidity
       id: 1005753,
     },
   ],
-  sonic: [],
+  base: [
+    {
+      name: 'mooBIFI-ETH V3',
+      address: '0xb378137c90444BbceCD44a1f766851fbf53D2a9E-44236068',
+      decimals: 18,
+      assetType: 'concLiquidity',
+      oracleType: 'lps',
+      oracleId: 'aerodrome-cl-weth-moobifi',
+      id: 44236068,
+    },
+  ],
 };
 
 export const hasChainConcentratedLiquidityAssets = (chain: ApiChain) => !!treasuryConcLiquidityAssets[chain];

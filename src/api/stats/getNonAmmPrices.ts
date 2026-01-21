@@ -34,6 +34,7 @@ import { getCurveBasePrices } from './base/getCurvePrices';
 import getUniswapArbitrumPrices from './arbitrum/getUniswapPositionPrices';
 import getUniswapEthereumPrices from './ethereum/getUniswapPositionPrices';
 import getUniswapEthereumGammaPrices from './ethereum/getUniswapGammaPrices';
+import getAerodromePositionPrices from './base/getAerodromePositionPrices';
 import getGammaPolygonPrices from './matic/getGammaPolygonPrices';
 import { getAerodromeStablePrices } from './base/getAerodromeStablePrices';
 import getEqualizerStableSonicPrices from './sonic/getEqualizerStablePrices';
@@ -250,6 +251,7 @@ export async function getNonAmmPrices(
     getTokemakBasePrices(tokenPrices),
     getSiloPrices(AVAX_CHAIN_ID, require('../../data/avax/siloPools.json'), tokenPrices),
     getSiloPrices(ARB_CHAIN_ID, require('../../data/arbitrum/siloV2Pools.json'), tokenPrices),
+    getAerodromePositionPrices(tokenPrices),
   ];
 
   // Setup error logs
