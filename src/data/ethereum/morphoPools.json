@@ -1,5 +1,95 @@
 [
   {
+    "name": "morpho-eth-sentora-pyusd",
+    "address": "0xb576765fB15505433aF24FEe2c0325895C559FB2",
+    "oracle": "tokens",
+    "oracleId": "PYUSD",
+    "decimals": "1e6",
+    "v2": true,
+    "skim": true
+  },
+  {
+    "name": "morpho-eth-gauntlet-frontier-usdc",
+    "address": "0x9a1D6bd5b8642C41F25e0958129B85f8E1176F3e",
+    "oracle": "tokens",
+    "oracleId": "USDC",
+    "decimals": "1e6",
+    "v2": true,
+    "skim": true
+  },
+  {
+    "name": "morpho-eth-steakhouse-prime-weth",
+    "address": "0xbeef0046fcab1dE47E41fB75BB3dC4Dfc94108E3",
+    "oracle": "tokens",
+    "oracleId": "WETH",
+    "decimals": "1e18",
+    "v2": true,
+    "skim": true
+  },
+  {
+    "name": "morpho-eth-api3-core-usdc",
+    "address": "0xe2221Aa07ec3266DA87763E2b1e28d07A8a4e53b",
+    "oracle": "tokens",
+    "oracleId": "USDC",
+    "decimals": "1e6",
+    "v2": true,
+    "skim": true
+  },
+  {
+    "name": "morpho-eth-gauntlet-prime-usdc",
+    "address": "0x8c106EEDAd96553e64287A5A6839c3Cc78afA3D0",
+    "oracle": "tokens",
+    "oracleId": "USDC",
+    "decimals": "1e6",
+    "v2": true,
+    "skim": true
+  },
+  {
+    "name": "morpho-eth-steakhouse-prime-usdt",
+    "address": "0xbeef003C68896c7D2c3c60d363e8d71a49Ab2bf9",
+    "oracle": "tokens",
+    "oracleId": "USDT",
+    "decimals": "1e6",
+    "v2": true,
+    "skim": true
+  },
+  {
+    "name": "morpho-eth-august-v2-usdc",
+    "address": "0x7ceB0f01Cb7187a2EBED5661eCC4d5701d8F2350",
+    "oracle": "tokens",
+    "oracleId": "USDC",
+    "decimals": "1e6",
+    "v2": true,
+    "skim": true
+  },
+  {
+    "name": "morpho-eth-kpk-usdc",
+    "address": "0x4Ef53d2cAa51C447fdFEEedee8F07FD1962C9ee6",
+    "oracle": "tokens",
+    "oracleId": "USDC",
+    "decimals": "1e6",
+    "v2": true,
+    "skim": true
+  },
+  {
+    "name": "morpho-eth-steakhouse-prime-usdc",
+    "address": "0xbeef088055857739C12CD3765F20b7679Def0f51",
+    "oracle": "tokens",
+    "oracleId": "USDC",
+    "decimals": "1e6",
+    "v2": true,
+    "skim": true
+  },
+  {
+    "name": "morpho-eth-steakhouse-high-yield-usdt",
+    "address": "0xbeeff07d991C04CD640DE9F15C08ba59c4FEDEb7",
+    "oracle": "tokens",
+    "oracleId": "USDT",
+    "decimals": "1e6",
+    "v2": true,
+    "skim": true
+  },
+  {
     "name": "morpho-eth-steakhouse-prime-eurcv",
     "address": "0xbeef0C075Da5D01112AE5cF34d257074fB5DDB2f",
     "oracle": "tokens",

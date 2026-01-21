@@ -1,5 +1,23 @@
 [
   {
+    "name": "morpho-base-steakhouse-prime-usdc",
+    "address": "0xbeef0e0834849aCC03f0089F01f4F1Eeb06873C9",
+    "oracle": "tokens",
+    "oracleId": "USDC",
+    "decimals": "1e6",
+    "v2": true,
+    "skim": true
+  },
+  {
+    "name": "morpho-base-re7-usdc",
+    "address": "0x618495ccC4e751178C4914b1E939C0fe0FB07b9b",
+    "oracle": "tokens",
+    "oracleId": "USDC",
+    "decimals": "1e6",
+    "v2": true,
+    "skim": true
+  },
+  {
     "name": "morpho-base-steakhouse-prime-eurc",
     "address": "0xbeef009F28cCf367444a9F79096862920e025DC1",
     "oracle": "tokens",
