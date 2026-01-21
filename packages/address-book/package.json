@@ -1,6 +1,6 @@
 {
   "name": "@beefyfinance/blockchain-addressbook",
-  "version": "0.54.147",
+  "version": "0.54.148",
   "description": "A collection of useful addresses on various chains for defi development",
   "type": "commonjs",
   "types": "./build/address-book/index.d.ts",
