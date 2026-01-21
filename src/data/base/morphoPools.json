@@ -1,5 +1,32 @@
 [
   {
+    "name": "morpho-base-gauntlet-prime-usdc",
+    "address": "0x050cE30b927Da55177A4914EC73480238BAD56f0",
+    "oracle": "tokens",
+    "oracleId": "USDC",
+    "decimals": "1e6",
+    "v2": true,
+    "skim": true
+  },
+  {
+    "name": "morpho-base-gauntlet-frontier-usdc",
+    "address": "0x1deEfABEe758AAbdC29a542B24ca3b75aFD56765",
+    "oracle": "tokens",
+    "oracleId": "USDC",
+    "decimals": "1e6",
+    "v2": true,
+    "skim": true
+  },
+  {
+    "name": "morpho-base-steakhouse-high-yield-usdc",
+    "address": "0xbeeff7aE5E00Aae3Db302e4B0d8C883810a58100",
+    "oracle": "tokens",
+    "oracleId": "USDC",
+    "decimals": "1e6",
+    "v2": true,
+    "skim": true
+  },
+  {
     "name": "morpho-seamless-weth",
     "address": "0x27D8c7273fd3fcC6956a0B370cE5Fd4A7fc65c18",
     "oracle": "tokens",
