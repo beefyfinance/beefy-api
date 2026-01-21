@@ -3110,4 +3110,17 @@ export const tokens = {
     description: 'BYTE is a meme coin and an onchain experiment launched by AI command on Base.',
     tags: ['LARGE_HOLDERS'],
   },
+  ZEN: {
+    name: 'Horizen',
+    symbol: 'ZEN',
+    oracleId: 'ZEN',
+    address: '0xf43eB8De897Fbc7F2502483B2Bef7Bb9EA179229',
+    chainId: 8453,
+    decimals: 18,
+    website: 'https://www.horizen.io/',
+    documentation: 'https://horizen-2-docs.horizen.io/',
+    description:
+      'ZEN is the governance and utility token of the Horizen ecosystem - empowering holders, builders, and partners to shape the future of verifiable privacy for the new era of web3.',
+    tags: ['LARGE_HOLDERS'],
+  },
 } as const satisfies Record<string, Token>;
