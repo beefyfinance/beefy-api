@@ -22,6 +22,7 @@ const SUSHI = {
   website: 'https://sushi.com/',
   description:
     'Sushi is the home of DeFi. Their community is building a comprehensive, decentralized trading platform for the future of finance. Swap, earn, stack yields, lend, borrow, leverage all on one decentralized, community driven platform.',
+  tags: ['BLUECHIP'],
 } as const satisfies Token;
 
 export const tokens = {
@@ -51,6 +52,7 @@ export const tokens = {
     website: 'https://curve.finance/',
     description:
       'Curve is an exchange liquidity pool on Ethereum. Curve is designed for extremely efficient stablecoin trading and low risk, supplemental fee income for liquidity providers, without an opportunity cost.',
+    tags: ['BLUECHIP'],
   },
   WBTC: {
     chainId: 1666600000,
@@ -62,6 +64,7 @@ export const tokens = {
     website: 'https://wbtc.network/',
     description:
       'Wrapped Bitcoin (WBTC) is the first ERC20 token backed 1:1 with Bitcoin. Completely transparent. 100% verifiable. Community led.',
+    tags: ['BLUECHIP'],
   },
   ETH: {
     chainId: 1666600000,
@@ -73,6 +76,7 @@ export const tokens = {
     website: 'https://ethereum.org/',
     description:
       'The native currency that flows within the Ethereum economy is called Ether (ETH). Ether is typically used to pay for transaction fees called Gas, and it is the base currency of the network.',
+    tags: ['BLUECHIP'],
   },
   USDC: {
     name: 'USD Coin',
@@ -136,6 +140,7 @@ export const tokens = {
     website: 'https://aave.com/',
     description:
       'Aave is an open source and non-custodial liquidity protocol for earning interest on deposits and borrowing assets.',
+    tags: ['BLUECHIP'],
   },
   AXS: {
     name: 'Axie Infinity',
@@ -205,6 +210,7 @@ export const tokens = {
     website: 'https://wbtc.network/',
     description:
       'Wrapped Bitcoin (WBTC) is the first ERC20 token backed 1:1 with Bitcoin. Completely transparent. 100% verifiable. Community led.',
+    tags: ['BLUECHIP'],
   },
   'oldBIFI-WONE LP': {
     name: 'oldBIFI-WONE LP',

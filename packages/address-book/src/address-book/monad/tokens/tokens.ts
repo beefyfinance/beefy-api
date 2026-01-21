@@ -44,6 +44,7 @@ export const tokens = {
     description: 'Ether or ETH is the native currency built on the Ethereum blockchain.',
     bridge: 'wormhole',
     documentation: 'https://ethereum.org/en/developers/docs/',
+    tags: ['BLUECHIP'],
   },
   AUSD: {
     name: 'Agora Dollar',
@@ -84,6 +85,7 @@ export const tokens = {
       'Wrapped Bitcoin (WBTC) is the first ERC20 token backed 1:1 with Bitcoin. Completely transparent. 100% verifiable. Community led.',
     documentation: '',
     bridge: 'layer-zero',
+    tags: ['BLUECHIP'],
   },
   wstETH: {
     name: 'Wrapped liquid staked Ether 2.0',
@@ -97,6 +99,7 @@ export const tokens = {
       'Lido is a liquid staking solution for ETH backed by industry-leading staking providers. Lido lets users stake their ETH - without locking assets or maintaining infrastructure - whilst participating in on-chain activities, e.g. lending. Lido attempts to solve the problems associated with initial ETH staking - illiquidity, immovability and accessibility - making staked ETH liquid and allowing for participation with any amount of ETH to improve security of the Ethereum network.',
     bridge: 'monad-canonical',
     documentation: 'https://docs.lido.fi/',
+    tags: ['BLUECHIP'],
   },
   cWMON: {
     name: 'Curvance WMON',
@@ -136,7 +139,7 @@ export const tokens = {
     documentation: 'https://docs.lombard.finance/lbtc-liquid-bitcoin/btc.b-bridged-bitcoin',
     description: 'official AVAX BRIDGE bridged BTC',
     bridge: 'native',
-    tags: ['NO_TIMELOCK'],
+    tags: ['BLUECHIP', 'NO_TIMELOCK'],
   },
   AZND: {
     name: 'Asian Dollar',
@@ -150,7 +153,7 @@ export const tokens = {
     description:
       'AZND (the "Asian Dollar") is a synthetic dollar backed by Asia\'s best RWAs, designed for stability and steady yield.  AZND is suitable for users seeking predictable returns while retaining full DeFi composability',
     bridge: 'native',
-    tags: ['NO_TIMELOCK'],
+    tags: ['NO_TIMELOCK', 'STABLECOIN'],
   },
   muBOND: {
     name: 'mu Bond',
@@ -164,7 +167,7 @@ export const tokens = {
     description:
       "muBOND is a high yield token backed by Asia's best RWAs, designed for higher potential returns in exchange for providing insurance to AZND holders.",
     bridge: 'native',
-    tags: ['NO_TIMELOCK', 'SYNTHETIC'],
+    tags: ['NO_TIMELOCK', 'SYNTHETIC', 'STABLECOIN'],
   },
   shMON: {
     name: 'ShMonad',
@@ -220,7 +223,7 @@ export const tokens = {
     description:
       'loAZND (the "Locked Asian Dollar") is a synthetic dollar backed by Asia\'s best RWAs, designed for stability and steady yield. loAZND is the yield-bearing version of AZND, earning up to 7% interest.',
     bridge: 'native',
-    tags: ['NO_TIMELOCK', 'SYNTHETIC'],
+    tags: ['NO_TIMELOCK', 'SYNTHETIC', 'STABLECOIN'],
   },
   USD1: {
     name: 'World Liberty Financial USD',
@@ -234,6 +237,7 @@ export const tokens = {
       'Digital dollar stablecoins that are accepted both on-chain and in the real world.',
     documentation: 'https://worldlibertyfinancial.com/about',
     bridge: 'chainlink',
+    tags: ['STABLECOIN'],
   },
   earnAUSD: {
     name: 'Earn Agora Dollar',

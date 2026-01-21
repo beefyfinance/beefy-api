@@ -186,6 +186,7 @@ export const tokens = {
       'Cosmos is an ever-expanding ecosystem of interconnected apps and services, built for a decentralized future.',
     bridge: 'cronos-canonical',
     documentation: 'https://docs.cosmos.network/main',
+    tags: ['BLUECHIP'],
   },
   DOGE: {
     name: 'Doge Token',
@@ -199,6 +200,7 @@ export const tokens = {
       'Dogecoin is an open source peer-to-peer digital currency, favored by Shiba Inus worldwide.',
     bridge: 'cronos-canonical',
     documentation: 'https://dogecoin.com/dogepedia/#documentation',
+    tags: ['MEMECOIN'],
   },
   SHIB: {
     name: 'Shiba Inu',
@@ -212,6 +214,7 @@ export const tokens = {
       'According to the SHIBA INU website, SHIB is the “DOGECOIN KILLER” and will be listed on their own ShibaSwap, a decentralized exchange.',
     bridge: 'cronos-canonical',
     documentation: 'https://docs.shibatoken.com/',
+    tags: ['MEMECOIN'],
   },
   VVS: {
     name: 'VVSToken',
@@ -251,6 +254,7 @@ export const tokens = {
     description: 'Ether or ETH is the native currency built on the Ethereum blockchain.',
     bridge: 'cronos-canonical',
     documentation: 'https://ethereum.org/en/developers/docs/',
+    tags: ['BLUECHIP'],
   },
   WBTC: {
     name: 'Wrapped BTC',
@@ -263,6 +267,7 @@ export const tokens = {
     description:
       'Wrapped Bitcoin (WBTC) is the first ERC20 token backed 1:1 with Bitcoin. Completely transparent. 100% verifiable. Community led.',
     bridge: 'cronos-canonical',
+    tags: ['BLUECHIP'],
   },
   CRONA: {
     name: 'CronaSwap Token',
@@ -338,6 +343,7 @@ export const tokens = {
     website: 'https://polygon.technology/',
     description:
       'The MATIC token serves dual purposes: securing the Polygon network via staking and being used for the payment of transaction fees.',
+    tags: ['BLUECHIP'],
   },
   AVAX: {
     name: 'Avalanche Token',
@@ -349,6 +355,7 @@ export const tokens = {
     website: 'https://www.avalabs.org/',
     description:
       'Avalanche is the fastest smart contracts platform in the blockchain industry, as measured by time-to-finality, and has the most validators securing its activity of any proof-of-stake protocol.',
+    tags: ['BLUECHIP'],
   },
   FTM: {
     name: 'Fantom Token',
@@ -360,6 +367,7 @@ export const tokens = {
     website: 'https://fantom.foundation/',
     description:
       'Fantom is a fast, high-throughput open-source smart contract platform for digital assets and dApps.',
+    tags: ['BLUECHIP'],
   },
   BNB: {
     name: 'Binance Token',
@@ -371,5 +379,6 @@ export const tokens = {
     website: 'https://www.binance.com/',
     description:
       'Binance Coin (BNB) is an exchange-based token created and issued by the cryptocurrency exchange Binance. Initially created on the Ethereum blockchain as an ERC-20 token in July 2017, BNB was migrated over to Binance Chain in February 2019 and became the native coin of the Binance Chain.',
+    tags: ['BLUECHIP'],
   },
 } as const satisfies Record<string, Token>;

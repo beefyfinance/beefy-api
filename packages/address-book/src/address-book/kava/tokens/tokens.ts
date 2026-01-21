@@ -86,6 +86,7 @@ export const tokens = {
     description:
       'Sushi is the home of DeFi. Their community is building a comprehensive, decentralized trading platform for the future of finance. Swap, earn, stack yields, lend, borrow, leverage all on one decentralized, community driven platform.',
     bridge: 'multichain',
+    tags: ['BLUECHIP'],
   },
   WBTC: {
     name: 'Wrapped BTC',
@@ -98,6 +99,7 @@ export const tokens = {
       'Wrapped Bitcoin (WBTC) is the first ERC20 token backed 1:1 with Bitcoin. Completely transparent. 100% verifiable. Community led.',
     chainId: 2222,
     bridge: 'multichain',
+    tags: ['BLUECHIP'],
   },
   ETH: {
     name: 'Ether',
@@ -110,6 +112,7 @@ export const tokens = {
     description:
       'The native currency that flows within the Ethereum economy is called Ether (ETH). Ether is typically used to pay for transaction fees called Gas, and it is the base currency of the network.',
     bridge: 'multichain',
+    tags: ['BLUECHIP'],
   },
   axlUSDC: {
     name: 'Axelar USD Coin ',
@@ -203,6 +206,7 @@ export const tokens = {
     description:
       'Binance Coin (BNB) is an exchange-based token created and issued by the cryptocurrency exchange Binance. Initially created on the Ethereum blockchain as an ERC-20 token in July 2017, BNB was migrated over to Binance Chain in February 2019 and became the native coin of the Binance Chain.',
     bridge: 'multichain',
+    tags: ['BLUECHIP'],
   },
   axlATOM: {
     name: 'Axelar Wrapped ATOM',
@@ -282,6 +286,7 @@ export const tokens = {
       'The Internet of Blockchains. Cosmos is an ever-expanding ecosystem of interconnected apps and services, built for a decentralized future.',
     bridge: 'ibc',
     documentation: 'https://docs.cosmos.network/main',
+    tags: ['BLUECHIP'],
   },
   lzETH: {
     name: 'LayerZero Wrapped ETH',

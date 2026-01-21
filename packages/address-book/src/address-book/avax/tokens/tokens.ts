@@ -12,6 +12,7 @@ const AVAX = {
     'Avalanche is the fastest smart contracts platform in the blockchain industry, as measured by time-to-finality, and has the most validators securing its activity of any proof-of-stake protocol.',
   bridge: 'native',
   documentation: 'https://docs.avax.network/learn/avalanche/avax',
+  tags: ['BLUECHIP'],
 } as const satisfies Token;
 
 export const tokens = {
@@ -129,7 +130,7 @@ export const tokens = {
     description:
       'USD+ is USDC that pays you yield daily via rebase.  It is 100% collateralized with assets immediately convertible into USDC.  Yield is generated via strategies such as lending and stable-to-stable pools. Initial strategies include Aave, Rubicon, and Pika.',
     documentation: 'https://docs.overnight.fi/',
-    tags: ['CURATED'],
+    tags: ['CURATED', 'STABLECOIN'],
   },
   CAI: {
     name: 'Colony Avalanche Index CAI',
@@ -162,6 +163,7 @@ export const tokens = {
     website: 'https://bridge.avax.network/',
     description: 'official AVAX BRIDGE bridged BTC',
     bridge: 'avax-canonical',
+    tags: ['BLUECHIP'],
   },
   BPT: {
     name: 'Bold Point BPT',
@@ -474,6 +476,7 @@ export const tokens = {
     website: 'https://benqi.fi/',
     description:
       'BENQI Liquid Staking is a protocol enabling users to stake AVAX to receive sAVAX, an interest bearing version of AVAX',
+    tags: ['BLUECHIP'],
   },
   LUNA: {
     name: 'Axelar Wrapped LUNA',
@@ -485,6 +488,7 @@ export const tokens = {
     website: 'https://www.terra.money/',
     description:
       'The Terra protocols native staking token that absorbs the price volatility of Terra. Luna is used for governance and in mining. Users stake Luna to validators who record and verify transactions on the blockchain in exchange for rewards from transaction fees. The more Terra is used, the more Luna is worth.',
+    tags: ['MEMECOIN'],
   },
   DOMI: {
     name: 'DOMI Online DOMI',
@@ -661,6 +665,7 @@ export const tokens = {
     website: 'https://curve.finance/',
     description:
       'Curve is an exchange liquidity pool on Ethereum. Curve is designed for extremely efficient stablecoin trading and low risk, supplemental fee income for liquidity providers, without an opportunity cost.',
+    tags: ['BLUECHIP'],
   },
   aSING: {
     chainId: 43114,
@@ -776,6 +781,7 @@ export const tokens = {
     website: 'https://www.binance.com/',
     description:
       'Binance Coin (BNB) is an exchange-based token created and issued by the cryptocurrency exchange Binance. Initially created on the Ethereum blockchain as an ERC-20 token in July 2017, BNB was migrated over to Binance Chain in February 2019 and became the native coin of the Binance Chain.',
+    tags: ['BLUECHIP'],
   },
   PNG: {
     chainId: 43114,
@@ -798,6 +804,7 @@ export const tokens = {
     website: 'https://ethereum.org/',
     description:
       'The native currency that flows within the Ethereum economy is called Ether (ETH). Ether is typically used to pay for transaction fees called Gas, and it is the base currency of the network.',
+    tags: ['BLUECHIP'],
   },
   WETHe: {
     chainId: 43114,
@@ -811,6 +818,7 @@ export const tokens = {
       'The native currency that flows within the Ethereum economy is called Ether (ETH). Ether is typically used to pay for transaction fees called Gas, and it is the base currency of the network.',
     bridge: 'avax-canonical',
     documentation: 'https://ethereum.org/en/developers/docs/',
+    tags: ['BLUECHIP'],
   },
   POOLZ: {
     chainId: 43114,
@@ -881,6 +889,7 @@ export const tokens = {
     website: 'https://app.aave.com/markets',
     description:
       'Aave is a decentralised non-custodial liquidity market protocol where users can participate as depositors or borrowers.',
+    tags: ['BLUECHIP'],
   },
   ABYSS: {
     chainId: 43114,
@@ -1084,6 +1093,7 @@ export const tokens = {
     name: 'Balancer',
     symbol: 'BAL',
     oracleId: 'BAL',
+    tags: ['BLUECHIP'],
   },
   BNT: {
     chainId: 43114,
@@ -1307,6 +1317,7 @@ export const tokens = {
     website: 'https://chain.link/',
     description:
       'Link is the currency used to pay the Chainlink node operators for their work. Chainlink node operators have to stake LINK in the network in order to participate and provide data services.',
+    tags: ['BLUECHIP'],
   },
   LINKe: {
     chainId: 43114,
@@ -1336,6 +1347,7 @@ export const tokens = {
     name: 'Compound',
     symbol: 'COMP',
     oracleId: 'COMP',
+    tags: ['BLUECHIP'],
   },
   CVP: {
     chainId: 43114,
@@ -1959,6 +1971,7 @@ export const tokens = {
     name: 'Gnosis Token',
     symbol: 'GNO',
     oracleId: 'GNO',
+    tags: ['BLUECHIP'],
   },
   MNTP: {
     chainId: 43114,
@@ -2330,6 +2343,7 @@ export const tokens = {
     website: 'https://polygon.technology/',
     description:
       'The MATIC token serves dual purposes: securing the Polygon network via staking and being used for the payment of transaction fees.',
+    tags: ['BLUECHIP'],
   },
   MCB: {
     chainId: 43114,
@@ -3243,6 +3257,7 @@ export const tokens = {
     website: 'https://sushi.com/',
     description:
       'Sushi is the home of DeFi. Their community is building a comprehensive, decentralized trading platform for the future of finance. Swap, earn, stack yields, lend, borrow, leverage all on one decentralized, community driven platform.',
+    tags: ['BLUECHIP'],
   },
   SWAG: {
     chainId: 43114,
@@ -3291,6 +3306,7 @@ export const tokens = {
     name: 'Synthetix Network Token',
     symbol: 'SNX',
     oracleId: 'SNX',
+    tags: ['BLUECHIP'],
   },
   TBTC: {
     chainId: 43114,
@@ -3562,6 +3578,7 @@ export const tokens = {
     website: 'https://uniswap.org/',
     description:
       'UNI is the governance token for Uniswap. UNI was introduced on 16th September 2020 through a retrospective airdrop to users who have interacted with the protocol either by swapping tokens or by providing liquidity.',
+    tags: ['BLUECHIP'],
   },
   TRADE: {
     chainId: 43114,
@@ -3677,6 +3694,7 @@ export const tokens = {
     website: 'https://wbtc.network/',
     description:
       'Wrapped Bitcoin (WBTC) is the first ERC20 token backed 1:1 with Bitcoin. Completely transparent. 100% verifiable. Community led.',
+    tags: ['BLUECHIP'],
   },
   WBTCe: {
     chainId: 43114,
@@ -3689,6 +3707,7 @@ export const tokens = {
     description:
       'Wrapped Bitcoin (WBTC) is the first ERC20 token backed 1:1 with Bitcoin. Completely transparent. 100% verifiable. Community led.',
     bridge: 'avax-canonical',
+    tags: ['BLUECHIP'],
   },
   renBTC: {
     chainId: 43114,
@@ -3768,6 +3787,7 @@ export const tokens = {
     name: 'yearn.finance',
     symbol: 'YFI',
     oracleId: 'YFI',
+    tags: ['BLUECHIP'],
   },
   YFM: {
     chainId: 43114,
@@ -3888,6 +3908,7 @@ export const tokens = {
     name: 'Maker',
     symbol: 'MKR',
     oracleId: 'MKR',
+    tags: ['BLUECHIP'],
   },
   'PNG-Pangolin': {
     address: '0x60781C2586D68229fde47564546784ab3fACA982',
@@ -4552,6 +4573,7 @@ export const tokens = {
     description:
       'ZRO is the native asset of the LayerZero protocol. LayerZero is an omnichain interoperability protocol that supports censorship-resistant messages and permissionless development through immutable smart contracts called Endpoints.',
     bridge: 'layer-zero',
+    tags: ['BLUECHIP'],
   },
   PHAR: {
     name: 'Pharaoh',
@@ -4591,6 +4613,7 @@ export const tokens = {
       'Wrapped Aave Staked AVAX. Avalanche is the fastest smart contracts platform in the blockchain industry, as measured by time-to-finality, and has the most validators securing its activity of any proof-of-stake protocol.',
     bridge: 'native',
     documentation: 'https://docs.avax.network/learn/avalanche/avax',
+    tags: ['BLUECHIP'],
   },
   waAvaWETH: {
     chainId: 43114,
@@ -4604,6 +4627,7 @@ export const tokens = {
       'Wrapped Aave Staked ETH. The native currency that flows within the Ethereum economy is called Ether (ETH). Ether is typically used to pay for transaction fees called Gas, and it is the base currency of the network.',
     bridge: 'native',
     documentation: 'https://ethereum.org/en/developers/docs/',
+    tags: ['BLUECHIP'],
   },
   waAvaBTCb: {
     address: '0x2d324fD1Ca86D90f61B0965d2db2f86d22eA4B74',
@@ -4640,6 +4664,7 @@ export const tokens = {
     description:
       'BENQI Liquid Staking is a protocol enabling users to stake AVAX to receive sAVAX, an interest bearing version of AVAX',
     bridge: 'native',
+    tags: ['BLUECHIP'],
   },
   BLACK: {
     name: 'BLACKHOLE',

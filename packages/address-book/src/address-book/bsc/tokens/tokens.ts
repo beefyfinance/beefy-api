@@ -12,6 +12,7 @@ const BNB = {
     'Binance Coin (BNB) is an exchange-based token created and issued by the cryptocurrency exchange Binance. Initially created on the Ethereum blockchain as an ERC-20 token in July 2017, BNB was migrated over to Binance Chain in February 2019 and became the native coin of the Binance Chain.',
   bridge: 'native',
   documentation: 'https://www.binance.com/en/bnb',
+  tags: ['BLUECHIP'],
 } as const satisfies Token;
 
 const lisUSD = {
@@ -305,6 +306,7 @@ export const tokens = {
       'Pendle is a permissionless yield-trading protocol where users can execute various yield-management strategies.',
     documentation: 'https://docs.pendle.finance/home?utm_source=landing&utm_medium=landing',
     bridge: 'wormhole',
+    tags: ['BLUECHIP'],
   },
   FISH: {
     name: 'SwapFish',
@@ -542,6 +544,7 @@ export const tokens = {
     website: 'https://solana.com',
     description:
       'Solana is the fastest blockchain in the world and the fastest growing ecosystem in crypto, with thousands of projects spanning DeFi, NFTs, Web3 and more.',
+    tags: ['BLUECHIP'],
   },
   GAL: {
     name: 'Project Galaxy',
@@ -1577,6 +1580,7 @@ export const tokens = {
     website: 'https://shibatoken.com/',
     description:
       'According to the SHIBA INU website, SHIB is the “DOGECOIN KILLER” and will be listed on their own ShibaSwap, a decentralized exchange.',
+    tags: ['MEMECOIN'],
   },
   CELR: {
     name: 'CelerToken',
@@ -1815,6 +1819,7 @@ export const tokens = {
     website: 'https://www.synthetix.io/',
     description:
       'Synthetix is the backbone for derivatives trading in DeFi, allowing anyone, anywhere to gain on-chain exposure to a vast range of assets',
+    tags: ['BLUECHIP'],
   },
   BLZ: {
     name: 'Bluezelle',
@@ -2086,6 +2091,7 @@ export const tokens = {
     website: 'https://www.avalabs.org/',
     description:
       'Avalanche is the fastest smart contracts platform in the blockchain industry, as measured by time-to-finality, and has the most validators securing its activity of any proof-of-stake protocol.',
+    tags: ['BLUECHIP'],
   },
   BANANA: {
     name: 'ApeSwapFinance Banana',
@@ -2107,6 +2113,7 @@ export const tokens = {
     website: 'https://fantom.foundation/',
     description:
       'Fantom is a fast, high-throughput open-source smart contract platform for digital assets and dApps.',
+    tags: ['BLUECHIP'],
   },
   AAVE: {
     name: 'Binance-Peg Aave Token',
@@ -2118,6 +2125,7 @@ export const tokens = {
     website: 'https://aave.com/',
     description:
       'Aave is an open source and non-custodial liquidity protocol for earning interest on deposits and borrowing assets.',
+    tags: ['BLUECHIP'],
   },
   MATIC: {
     name: 'Matic Token',
@@ -2129,6 +2137,7 @@ export const tokens = {
     website: 'https://polygon.technology/',
     description:
       'The MATIC token serves dual purposes: securing the Polygon network via staking and being used for the payment of transaction fees.',
+    tags: ['BLUECHIP'],
   },
   DOGE: {
     name: 'Binance-Peg Dogecoin',
@@ -2141,6 +2150,7 @@ export const tokens = {
     description:
       'Dogecoin is an open source peer-to-peer digital currency, favored by Shiba Inus worldwide.',
     bridge: 'binance-peg',
+    tags: ['MEMECOIN'],
   },
   XED: {
     name: 'Exeedme TOKEN',
@@ -2309,6 +2319,7 @@ export const tokens = {
       'The native currency that flows within the Ethereum economy is called Ether (ETH). Ether is typically used to pay for transaction fees called Gas, and it is the base currency of the network.',
     bridge: 'binance-peg',
     documentation: 'https://ethereum.org/en/developers/docs/',
+    tags: ['BLUECHIP'],
   },
   BTCB: {
     name: 'BTCB Token',
@@ -2322,6 +2333,7 @@ export const tokens = {
       'Bitcoin BEP2 (BTCB) is a token on the Binance Chain. Each BTCB is 100% backed by a BTC reserve, with the price pegged to Bitcoin at a rate of 1 BTCB = 1 BTC.',
     bridge: 'binance-peg',
     documentation: 'https://developer.bitcoin.org/devguide/index.html',
+    tags: ['BLUECHIP'],
   },
   BAND: {
     name: 'BAND Protocol Token',
@@ -2359,6 +2371,7 @@ export const tokens = {
     description:
       'XRP Ledger (XRPL) is the open-source distributed ledger that is created by Ripple. The native cryptocurrency of the XRP Ledger is XRP.',
     bridge: 'binance-peg',
+    tags: ['BLUECHIP'],
   },
   BCH: {
     name: 'Bitcoin Cash Token',
@@ -2381,6 +2394,7 @@ export const tokens = {
     website: 'https://litecoin.org/',
     description:
       'Litecoin is a peer-to-peer cryptocurrency and open-source software project released under the MIT/X11 license. Litecoin was an early bitcoin spinoff or altcoin, starting in October 2011.',
+    tags: ['BLUECHIP'],
   },
   ADA: {
     name: 'Cardano Token',
@@ -2394,6 +2408,7 @@ export const tokens = {
       'Within the Cardano platform, Ada exists on the settlement layer.Cardano is a public blockchain platform. It is open-source and decentralized, with consensus achieved using proof of stake.',
     bridge: 'binance-peg',
     documentation: 'https://docs.cardano.org/',
+    tags: ['BLUECHIP'],
   },
   ATOM: {
     name: 'Cosmos Token',
@@ -2405,6 +2420,7 @@ export const tokens = {
     website: 'https://cosmos.network/',
     description:
       'Cosmos is an ever-expanding ecosystem of interconnected apps and services, built for a decentralized future.',
+    tags: ['BLUECHIP'],
   },
   XTZ: {
     name: 'Tezos Token',
@@ -2497,6 +2513,7 @@ export const tokens = {
     website: 'https://polkadot.network/',
     description:
       'Polkadot is an open-source sharding multichain protocol that facilitates the cross-chain transfer of any data or asset types, not just tokens, thereby making a wide range of blockchains interoperable with each other.',
+    tags: ['BLUECHIP'],
   },
   CAKE: {
     name: 'PancakeSwap Token',
@@ -2544,6 +2561,7 @@ export const tokens = {
     website: 'https://chain.link/',
     description:
       'Link is the currency used to pay the Chainlink node operators for their work. Chainlink node operators have to stake LINK in the network in order to participate and provide data services.',
+    tags: ['BLUECHIP'],
   },
   DICE: {
     name: 'Dice.finance Token',
@@ -2641,6 +2659,7 @@ export const tokens = {
     website: 'https://yearn.finance/',
     description:
       'Yearn.finance is an aggregator service for decentralized finance (DeFi) investors, using automation to allow them to maximize profits from yield farming.',
+    tags: ['BLUECHIP'],
   },
   UNI: {
     name: 'Uniswap',
@@ -2654,6 +2673,7 @@ export const tokens = {
       'UNI is the governance token for Uniswap. UNI was introduced on 16th September 2020 through a retrospective airdrop to users who have interacted with the protocol either by swapping tokens or by providing liquidity.',
     bridge: 'binance-peg',
     documentation: 'https://docs.uniswap.org/concepts/governance/overview',
+    tags: ['BLUECHIP'],
   },
   FRIES: {
     name: 'fry.world',
@@ -3075,6 +3095,7 @@ export const tokens = {
     website: 'https://compound.finance/',
     description:
       'Compound is a DeFi lending protocol that allows users to earn interest on their cryptocurrencies by depositing them into one of several pools supported by the platform.',
+    tags: ['BLUECHIP'],
   },
   renBTC: {
     name: 'renBTC',
@@ -3142,6 +3163,7 @@ export const tokens = {
     website: 'https://www.sushi.com/',
     description:
       'Sushi is the home of DeFi. Their community is building a comprehensive, decentralized trading platform for the future of finance. Swap, earn, stack yields, lend, borrow, leverage all on one decentralized, community driven platform.',
+    tags: ['BLUECHIP'],
   },
   BOPEN: {
     name: 'OPEN Governance Token',
@@ -4227,7 +4249,7 @@ export const tokens = {
       'Stake ETH, get eETH - a natively restaked liquid staking token that fuels DeFi and decentralizes Ethereum.',
     documentation: 'https://etherfi.gitbook.io/etherfi',
     bridge: 'stargate',
-    tags: ['NO_TIMELOCK'],
+    tags: ['BLUECHIP', 'NO_TIMELOCK'],
   },
   ZRO: {
     name: 'LayerZero',
@@ -4241,6 +4263,7 @@ export const tokens = {
     description:
       'ZRO is the native asset of the LayerZero protocol. LayerZero is an omnichain interoperability protocol that supports censorship-resistant messages and permissionless development through immutable smart contracts called Endpoints.',
     bridge: 'layer-zero',
+    tags: ['BLUECHIP'],
   },
   slisBNB: {
     name: 'Staked Lista BNB',
@@ -4254,7 +4277,7 @@ export const tokens = {
     description:
       'slisBNB is the yield bearing & liquid staking token for Synclub, which appreciates against BNB in line with BNB’s staking APR.',
     bridge: 'native',
-    tags: ['NO_TIMELOCK'],
+    tags: ['BLUECHIP', 'NO_TIMELOCK'],
   },
   lisUSD,
   pxETH: {
@@ -4297,7 +4320,7 @@ export const tokens = {
     description:
       'Pepe is here to make memecoins great again. Launched stealth with no presale, zero taxes, LP burnt and contract renounced, $PEPE is a coin for the people, forever. Fueled by pure memetic power, let $PEPE show you the way.',
     bridge: 'layer-zero',
-    tags: ['NO_TIMELOCK'],
+    tags: ['MEMECOIN', 'NO_TIMELOCK'],
   },
   'SolvBTC.BBN': {
     name: 'SolvBTC Babylon',
@@ -4325,6 +4348,7 @@ export const tokens = {
     description:
       'Lido is a liquid staking solution for ETH backed by industry-leading staking providers. Lido lets users stake their ETH - without locking assets or maintaining infrastructure - whilst participating in on-chain activities, e.g. lending. Lido attempts to solve the problems associated with initial ETH staking - illiquidity, immovability and accessibility - making staked ETH liquid and allowing for participation with any amount of ETH to improve security of the Ethereum network.',
     bridge: 'wormhole',
+    tags: ['BLUECHIP'],
   },
   SHELL: {
     name: 'MyShell Token',
@@ -4338,7 +4362,7 @@ export const tokens = {
       'MyShell is a decentralized AI consumer layer, connecting consumers, AI agent creators, and open-source researchers. ',
     documentation: 'https://docs.myshell.ai/',
     bridge: 'layer-zero',
-    tags: ['LARGE_HOLDERS', 'NO_TIMELOCK'],
+    tags: ['MEMECOIN', 'LARGE_HOLDERS', 'NO_TIMELOCK'],
   },
   TST: {
     name: 'Test',
@@ -4350,6 +4374,7 @@ export const tokens = {
     website: 'https://testtoken.vip/',
     description: '$TST is a test token deployed by BNBCHAIN on FOUR.MEME',
     bridge: 'native',
+    tags: ['MEMECOIN'],
   },
   Broccoli: {
     name: 'Broccoli',
@@ -4362,6 +4387,7 @@ export const tokens = {
     description: 'First memecoin inspired by CZ Dog called Broccoli on BSC',
     documentation: '',
     bridge: 'native',
+    tags: ['MEMECOIN'],
   },
   BroccoliCZDog: {
     name: "CZ'S DOG",
@@ -4374,6 +4400,7 @@ export const tokens = {
     description:
       "Paying homage to CZ's dog Broccoli, this token was the first to be deployed on BNB Chain through the platform four.meme.",
     bridge: 'native',
+    tags: ['MEMECOIN'],
   },
   TUT: {
     name: 'Tutorial',
@@ -4386,6 +4413,7 @@ export const tokens = {
     description:
       'Tutorial is a token created by a developer who initially made a tutorial on launching a token on the BNB Chain. The original Tutorial token was on the testnet, and the developer decided to launch it on the mainnet as a meme.',
     bridge: 'native',
+    tags: ['MEMECOIN'],
   },
   mubarak: {
     name: 'mubarak',
@@ -4398,6 +4426,7 @@ export const tokens = {
     description:
       'Mubarak - a crypto meme launched on the Fourmeme platform, now taken over and developed by the community.',
     bridge: 'native',
+    tags: ['MEMECOIN'],
   },
   SIREN: {
     name: 'SIREN',
@@ -4411,6 +4440,7 @@ export const tokens = {
       'Step into the mystique of ancient lore reimagined for the digital age with SirenAI. Discover your fortune island.',
     documentation: '',
     bridge: 'native',
+    tags: ['MEMECOIN'],
   },
   B: {
     name: 'B',
@@ -4423,6 +4453,7 @@ export const tokens = {
     description: 'The BSC Mascot of Building, Leading real USD1 construction',
     documentation: '',
     bridge: 'native',
+    tags: ['MEMECOIN'],
   },
   USD1: {
     name: 'World Liberty Financial USD',
@@ -4436,6 +4467,7 @@ export const tokens = {
       'USD1 is a US stablecoin launched by the Trump-linked crypto project, World Liberty Financial.',
     documentation: 'https://static.worldlibertyfinancial.com/docs/us/gold-paper.pdf',
     bridge: 'native',
+    tags: ['STABLECOIN'],
   },
   RION: {
     name: 'Hyperion',

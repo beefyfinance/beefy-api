@@ -42,6 +42,7 @@ export const tokens = {
     description: 'Ether or ETH is the native currency built on the Ethereum blockchain.',
     documentation: 'https://ethereum.org/en/developers/docs/',
     bridge: 'layer-zero',
+    tags: ['BLUECHIP'],
   },
   XAUt0: {
     name: 'XAUt0',
@@ -161,6 +162,6 @@ export const tokens = {
       'ether.fi is a decentralized, non-custodial delegated staking protocol with a Liquid Staking token. One of the distinguishing characteristics of ether.fi is that stakers control their keys. The ether.fi mechanism also allows for the creation of a node services marketplace where stakers and node operators can enroll nodes to provide infrastructure services.',
     documentation: 'https://etherfi.gitbook.io/etherfi',
     bridge: 'layer-zero',
-    tags: ['NO_TIMELOCK'],
+    tags: ['BLUECHIP', 'NO_TIMELOCK'],
   },
 } as const satisfies Record<string, Token>;

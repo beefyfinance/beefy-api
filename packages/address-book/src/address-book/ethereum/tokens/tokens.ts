@@ -11,6 +11,7 @@ const ETH = {
   description: 'Ether or ETH is the native currency built on the Ethereum blockchain.',
   bridge: 'native',
   documentation: 'https://ethereum.org/en/developers/docs/',
+  tags: ['BLUECHIP'],
 } as const satisfies Token;
 
 export const tokens = {
@@ -30,6 +31,7 @@ export const tokens = {
     description:
       "The Beefy Token (BIFI) is the governance token of the Beefy DAO. Holders of the token are entitled to submit and vote on proposals on all areas affecting the DAO through the Beefy Snapshot Space, as well as to participate in Beefy's governance incentives programme through the BIFI Pool or BIFI Vault.",
     bridge: 'native',
+    tags: ['BLUECHIP'],
   },
   rBIFI: {
     name: 'BIFI Pool Receipt',
@@ -56,6 +58,7 @@ export const tokens = {
     description:
       "The incentive-bearing Beefy Token (mooBIFI) applies the magic of Beefy's autocompounding technology to the BIFI token. It is the vault token for the BIFI Vault, which automatically claims and swaps governance incentives into more BIFI, and redeposits to unlock exponential growth. On chains other than Ethereum, mooBIFI is a bridged copy of the native Ethereum token, and cannot be returned to BIFI without first bridging back to Ethereum. mooBIFI holders on all chains retain their full voting power corresponding to the underlying amount of BIFI deposited and compounding on Ethereum.",
     bridge: 'native',
+    tags: ['BLUECHIP'],
   },
   xmooBIFI: {
     name: 'BIFI Vault Receipt xERC20',
@@ -145,6 +148,7 @@ export const tokens = {
     description:
       'Polygon is a protocol and a framework for building and connecting Ethereum-compatible blockchain networks. Aggregating scalable solutions on Ethereum supporting a multi-chain Ethereum ecosystem.',
     bridge: 'native',
+    tags: ['BLUECHIP'],
   },
   wstETH: {
     name: 'Lido Wrapped Staked ETH',
@@ -158,6 +162,7 @@ export const tokens = {
       'Lido is a liquid staking solution for ETH backed by industry-leading staking providers. Lido lets users stake their ETH - without locking assets or maintaining infrastructure - whilst participating in on-chain activities, e.g. lending. Lido attempts to solve the problems associated with initial ETH staking - illiquidity, immovability and accessibility - making staked ETH liquid and allowing for participation with any amount of ETH to improve security of the Ethereum network.',
     bridge: 'native',
     documentation: 'https://docs.lido.fi/',
+    tags: ['BLUECHIP'],
   },
   stETH: {
     name: 'Lido Wrapped Staked ETH',
@@ -171,6 +176,7 @@ export const tokens = {
       'Lido is a liquid staking solution for ETH backed by industry-leading staking providers. Lido lets users stake their ETH - without locking assets or maintaining infrastructure - whilst participating in on-chain activities, e.g. lending. Lido attempts to solve the problems associated with initial ETH staking - illiquidity, immovability and accessibility - making staked ETH liquid and allowing for participation with any amount of ETH to improve security of the Ethereum network.',
     bridge: 'native',
     documentation: 'https://docs.lido.fi/',
+    tags: ['BLUECHIP'],
   },
   pETH: {
     name: "JPEG'd ETH",
@@ -238,6 +244,7 @@ export const tokens = {
     description:
       'Wrapped Bitcoin (WBTC) is the first ERC20 token backed 1:1 with Bitcoin. Completely transparent. 100% verifiable. Community led.',
     bridge: 'wbtc-dao',
+    tags: ['BLUECHIP'],
   },
   sBTC: {
     chainId: 1,
@@ -343,6 +350,7 @@ export const tokens = {
     description:
       'Balancer turns the concept of an index fund on its head: instead of a paying fees to portfolio managers to rebalance your portfolio, you collect fees from traders, who rebalance your portfolio by following arbitrage opportunities. ',
     documentation: 'https://docs.balancer.fi/',
+    tags: ['BLUECHIP'],
   },
   AURA: {
     name: 'Aura',
@@ -382,6 +390,7 @@ export const tokens = {
     description:
       'Threshold is the first ever on-chain merge between two existing networks and communities, Keep and NuCypher. Threshold provides a suite of threshold cryptography services that power user sovereignty on the blockchain.',
     bridge: 'threshold',
+    tags: ['BLUECHIP'],
   },
   thUSD: {
     name: 'Threshold USD',
@@ -445,6 +454,7 @@ export const tokens = {
       'Curve is an exchange liquidity pool on Ethereum. Curve is designed for extremely efficient stablecoin trading and low risk, supplemental fee income for liquidity providers, without an opportunity cost.',
     bridge: 'native',
     documentation: 'https://curve.readthedocs.io/',
+    tags: ['BLUECHIP'],
   },
   scrvUSD: {
     name: 'Savings crvUSD',
@@ -600,6 +610,7 @@ export const tokens = {
       'As a Rocket Pool staker, your role is to deposit ETH into the deposit pool which will enable a node operator to create a new Beacon Chain validator. You can stake as little as 0.01 ETH. In doing so, you will be given a token called rETH. rETH represents both how much ETH you deposited, and when you deposited it.',
     bridge: 'native',
     documentation: 'https://docs.rocketpool.net/guides/',
+    tags: ['BLUECHIP'],
   },
   USDT: {
     name: 'Tether USD',
@@ -651,9 +662,10 @@ export const tokens = {
     decimals: 18,
     website: 'https://help.coinbase.com/en/coinbase/trading-and-funding/staking-rewards/cbeth',
     description:
-      "Coinbase Wrapped Staked ETH (“cbETH”) is a utility token that represents Ethereum 2 (ETH2), which is ETH staked through Coinbase. Over time, the price of cbETH will likely deviate from ETH because cbETH represents 1 staked ETH plus all of its accrued staking interest starting from when cbETH's conversion rate and balance were initialized (June 16, 2022 19:34 UTC). cbETH is minted exclusively by Coinbase.",
+      "Coinbase Wrapped Staked ETH ('cbETH') is a utility token that represents Ethereum 2 (ETH2), which is ETH staked through Coinbase. Over time, the price of cbETH will likely deviate from ETH because cbETH represents 1 staked ETH plus all of its accrued staking interest starting from when cbETH's conversion rate and balance were initialized (June 16, 2022 19:34 UTC). cbETH is minted exclusively by Coinbase.",
     bridge: 'native',
     documentation: 'https://www.coinbase.com/price/coinbase-wrapped-staked-eth#AboutSection',
+    tags: ['BLUECHIP'],
   },
   USDD: {
     name: 'Decentralized USD',
@@ -692,6 +704,7 @@ export const tokens = {
     description:
       'Stargate allows users and dApps to bridge native tokens with instant guaranteed finality. ETH is deposited in a LP pool to enable high liquidity for bridging.',
     documentation: 'https://stargateprotocol.gitbook.io/stargate/v/user-docs/',
+    tags: ['BLUECHIP'],
   },
   waUSDT: {
     name: 'Wrapped Aave Tether USD',
@@ -936,6 +949,7 @@ export const tokens = {
       'Sushi is the home of DeFi. Their community is building a comprehensive, decentralized trading platform for the future of finance. Swap, earn, stack yields, lend, borrow, leverage all on one decentralized, community driven platform.',
     bridge: 'native',
     documentation: 'https://dev.sushi.com/',
+    tags: ['BLUECHIP'],
   },
   ILV: {
     name: 'Illuvium',
@@ -961,6 +975,7 @@ export const tokens = {
     description:
       'Lido is a liquid staking solution for ETH 2.0 backed by industry-leading staking providers.',
     bridge: 'native',
+    tags: ['BLUECHIP'],
   },
   SYN: {
     name: 'Synapse',
@@ -999,6 +1014,7 @@ export const tokens = {
     description:
       'Synthetix is the backbone for derivatives trading in DeFi, allowing anyone, anywhere to gain on-chain exposure to a vast range of assets',
     documentation: 'https://docs.synthetix.io/synthetix-protocol/welcome-to-synthetix',
+    tags: ['BLUECHIP'],
   },
   HEX: {
     name: 'HEX',
@@ -1033,6 +1049,7 @@ export const tokens = {
     description:
       'Fantom is a fast, high-throughput open-source smart contract platform for digital assets and dApps.',
     documentation: '',
+    tags: ['BLUECHIP'],
   },
   DEUS: {
     name: 'DEUS',
@@ -1274,6 +1291,7 @@ export const tokens = {
       'Olympus is building OHM, a community-owned, decentralized and censorship-resistant reserve currency that is asset-backed, deeply liquid and used widely across Web3.',
     bridge: 'native',
     documentation: 'https://docs.olympusdao.finance/',
+    tags: ['BLUECHIP'],
   },
   SD: {
     name: 'Stader',
@@ -1796,7 +1814,7 @@ export const tokens = {
       'ether.fi is a decentralized, non-custodial delegated staking protocol with a Liquid Staking token. One of the distinguishing characteristics of ether.fi is that stakers control their keys. The ether.fi mechanism also allows for the creation of a node services marketplace where stakers and node operators can enroll nodes to provide infrastructure services.',
     documentation: 'https://etherfi.gitbook.io/etherfi',
     bridge: 'native',
-    tags: ['NO_TIMELOCK'],
+    tags: ['BLUECHIP', 'NO_TIMELOCK'],
   },
   weETHk: {
     name: 'King Karak LRT',
@@ -1988,6 +2006,7 @@ export const tokens = {
     description:
       'ZRO is the native asset of the LayerZero protocol. LayerZero is an omnichain interoperability protocol that supports censorship-resistant messages and permissionless development through immutable smart contracts called Endpoints.',
     bridge: 'layer-zero',
+    tags: ['BLUECHIP'],
   },
   ShezUSD: {
     name: 'ShezmuUSD',
@@ -2029,6 +2048,7 @@ export const tokens = {
       'UNI is the governance token for Uniswap. UNI was introduced on 16th September 2020 through a retrospective airdrop to users who have interacted with the protocol either by swapping tokens or by providing liquidity.',
     bridge: 'native',
     documentation: 'https://docs.uniswap.org/concepts/governance/overview',
+    tags: ['BLUECHIP'],
   },
   LINK: {
     name: 'Chainlink',
@@ -2042,6 +2062,7 @@ export const tokens = {
       'Link is the currency used to pay the Chainlink node operators for their work. Chainlink node operators have to stake LINK in the network in order to participate and provide data services.',
     bridge: 'native',
     documentation: 'https://docs.chain.link/resources/link-token-contracts',
+    tags: ['BLUECHIP'],
   },
   stLINK: {
     name: 'Staked LINK',
@@ -2068,7 +2089,7 @@ export const tokens = {
       'eBTC is an Ether.Fi x Symbiotic vault that allows users to stake their BTC to accrue staking rewards and automatically restake their BTC in Symbiotic. Ether.fi and Veda are both doing points campaign.',
     bridge: 'native',
     documentation: 'https://etherfi.gitbook.io/etherfi/lrts/ebtc-bitcoin-lrt',
-    tags: ['SYNTHETIC'],
+    tags: ['BLUECHIP', 'SYNTHETIC'],
   },
   EBTC: {
     name: 'EBTC',
@@ -2622,6 +2643,7 @@ export const tokens = {
     website: 'https://aave.com/',
     documentation: 'https://docs.aave.com/developers/v/2.0/the-core-protocol/atokens',
     description: 'Wrapped Aave interest bearing Ethereum Lido WETH.',
+    tags: ['BLUECHIP'],
   },
   waEthLidowstETH: {
     name: 'Wrapped Aave Ethereum Lido wstETH',
@@ -2633,6 +2655,7 @@ export const tokens = {
     website: 'https://aave.com/',
     documentation: 'https://docs.aave.com/developers/v/2.0/the-core-protocol/atokens',
     description: 'Wrapped Aave interest bearing Ethereum Lido wstETH.',
+    tags: ['BLUECHIP'],
   },
   RSUP: {
     name: 'Resupply',

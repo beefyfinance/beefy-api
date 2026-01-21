@@ -26,6 +26,7 @@ export const tokens = {
     decimals: 8,
     description:
       'Wrapped Bitcoin (WBTC) is the first ERC20 token backed 1:1 with Bitcoin. Completely transparent. 100% verifiable. Community led.',
+    tags: ['BLUECHIP'],
   },
   oldBIFI: {
     name: 'Beefy.Finance',
@@ -107,6 +108,7 @@ export const tokens = {
     description:
       'The native currency that flows within the Ethereum economy is called Ether (ETH). Ether is typically used to pay for transaction fees called Gas, and it is the base currency of the network.',
     documentation: 'https://ethereum.org/en/developers/docs/',
+    tags: ['BLUECHIP'],
   },
   VS: {
     name: 'ValleySwap Token',

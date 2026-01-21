@@ -74,6 +74,7 @@ export const tokens = {
       'Curve is an exchange liquidity pool on Ethereum. Curve is designed for extremely efficient stablecoin trading and low risk, supplemental fee income for liquidity providers, without an opportunity cost.',
     bridge: 'fraxtal-canonical',
     documentation: 'https://curve.readthedocs.io/',
+    tags: ['BLUECHIP'],
   },
   crvUSD: {
     name: 'Curve USD Stablecoin',
@@ -277,6 +278,7 @@ export const tokens = {
     documentation: 'https://ethereum.org/en/developers/docs/',
     description: 'Ether or ETH is the native currency built on the Ethereum blockchain.',
     bridge: 'fraxtal-canonical',
+    tags: ['BLUECHIP'],
   },
   tBTC: {
     name: 'tBTC v2',
@@ -290,6 +292,7 @@ export const tokens = {
     description:
       'Threshold is the first ever on-chain merge between two existing networks and communities, Keep and NuCypher. Threshold provides a suite of threshold cryptography services that power user sovereignty on the blockchain.',
     bridge: 'fraxtal-canonical',
+    tags: ['BLUECHIP'],
   },
   WBTC: {
     name: 'Wrapped BTC',
@@ -303,6 +306,7 @@ export const tokens = {
       'Wrapped Bitcoin (WBTC) is the first ERC20 token backed 1:1 with Bitcoin. Completely transparent. 100% verifiable. Community led.',
     documentation: 'https://wbtc.network/',
     bridge: 'fraxtal-canonical',
+    tags: ['BLUECHIP'],
   },
   scrvUSD: {
     name: 'Savings crvUSD',

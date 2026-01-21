@@ -12,6 +12,7 @@ const MATIC = {
     'Polygon is a protocol and a framework for building and connecting Ethereum-compatible blockchain networks. Aggregating scalable solutions on Ethereum supporting a multi-chain Ethereum ecosystem.',
   bridge: 'native',
   documentation: 'https://docs.polygon.technology/',
+  tags: ['BLUECHIP'],
 } as const satisfies Token;
 
 const MAI = {
@@ -59,6 +60,7 @@ export const tokens = {
     description:
       'Lido is a liquid staking solution for ETH backed by industry-leading staking providers. Lido lets users stake their ETH - without locking assets or maintaining infrastructure - whilst participating in on-chain activities, e.g. lending. Lido attempts to solve the problems associated with initial ETH staking - illiquidity, immovability and accessibility - making staked ETH liquid and allowing for participation with any amount of ETH to improve security of the Ethereum network.',
     documentation: 'https://docs.lido.fi/',
+    tags: ['BLUECHIP'],
   },
   BOB: {
     name: 'BOB',
@@ -125,7 +127,7 @@ export const tokens = {
       'USD+ is USDC that pays you yield daily via rebase.  It is 100% collateralized with assets immediately convertible into USDC.  Yield is generated via strategies such as lending and stable-to-stable pools. Initial strategies include Aave, Rubicon, and Pika.',
     bridge: 'native',
     documentation: 'https://docs.overnight.fi/',
-    tags: ['CURATED'],
+    tags: ['CURATED', 'STABLECOIN'],
   },
   spUSDT: {
     name: 'Stargate Tether USD LP',
@@ -206,6 +208,7 @@ export const tokens = {
     documentation: 'https://docs.lido.fi/',
     description:
       'Lido is a liquid staking solution for ETH 2.0 backed by industry-leading staking providers.',
+    tags: ['BLUECHIP'],
   },
   cxBTC: {
     name: 'CelsiusX Wrapped BTC',
@@ -687,6 +690,7 @@ export const tokens = {
     decimals: 18,
     website: 'https://shibatoken.com/',
     description: 'A Decentralized Meme Token that Evolved into a Vibrant Ecosystem.',
+    tags: ['MEMECOIN'],
   },
   FTM: {
     name: 'Fantom Token',
@@ -698,6 +702,7 @@ export const tokens = {
     website: 'https://fantom.foundation/',
     description:
       'Fantom is a fast, high-throughput open-source smart contract platform for digital assets and dApps.',
+    tags: ['BLUECHIP'],
   },
   jEUR: {
     name: 'Jarvis Synthetic Euro',
@@ -822,6 +827,7 @@ export const tokens = {
     website: 'https://www.avax.network/',
     description:
       'Avalanche is the fastest smart contracts platform in the blockchain industry, as measured by time-to-finality, and has the most validators securing its activity of any proof-of-stake protocol.',
+    tags: ['BLUECHIP'],
   },
   PEAR: {
     name: 'PearZap',
@@ -867,6 +873,7 @@ export const tokens = {
       'Aave is a decentralized non-custodial liquidity protocol where users can participate as depositors or borrowers. Depositors provide liquidity to the market to earn a passive income, while borrowers are able to borrow in an overcollateralized (perpetually) or undercollateralized (one-block liquidity) fashion.',
     bridge: 'polygon-canonical',
     documentation: 'https://docs.aave.com/',
+    tags: ['BLUECHIP'],
   },
   AZUKI: {
     name: 'DokiDokiAzuki',
@@ -888,6 +895,7 @@ export const tokens = {
     website: 'https://balancer.fi/',
     description:
       'Balancer turns the concept of an index fund on its head: instead of a paying fees to portfolio managers to rebalance your portfolio, you collect fees from traders, who rebalance your portfolio by following arbitrage opportunities. ',
+    tags: ['BLUECHIP'],
   },
   BANANA: {
     name: 'ApeSwapFinance Banana',
@@ -950,6 +958,7 @@ export const tokens = {
       'The native currency that flows within the Ethereum economy is called Ether (ETH). Ether is typically used to pay for transaction fees called Gas, and it is the base currency of the network.',
     bridge: 'polygon-canonical',
     documentation: 'https://ethereum.org/en/developers/docs/',
+    tags: ['BLUECHIP'],
   },
   FISH: {
     name: 'Fish',
@@ -995,6 +1004,7 @@ export const tokens = {
     website: 'https://www.aavegotchi.com/',
     description:
       'Aavegotchis are crypto-collectibles living on the Ethereum blockchain, backed by the ERC721 standard used in popular blockchain games.',
+    tags: ['MEMECOIN'],
   },
   GNS: {
     name: 'Gains Network Token',
@@ -1033,6 +1043,7 @@ export const tokens = {
     bridge: 'native',
     documentation: 'https://docs.chain.link/docs',
     chainId: 137,
+    tags: ['BLUECHIP'],
   },
   MANA: {
     name: 'Decentraland MANA',
@@ -1110,6 +1121,7 @@ export const tokens = {
     website: 'https://solana.com/',
     description:
       'The Solana protocol is designed to facilitate decentralized app (DApp) creation. It aims to improve scalability by introducing a proof-of-history (PoH) consensus combined with the underlying proof-of-stake (PoS) consensus of the blockchain.',
+    tags: ['BLUECHIP'],
   },
   TEL: {
     name: 'Telcoin',
@@ -1135,6 +1147,7 @@ export const tokens = {
     bridge: 'polygon-canonical',
     chainId: 137,
     documentation: 'https://docs.uniswap.org/concepts/governance/overview',
+    tags: ['BLUECHIP'],
   },
   pUSDCe: {
     name: 'USD Coin',
@@ -1197,6 +1210,7 @@ export const tokens = {
       'Wrapped Bitcoin (WBTC) is the first ERC20 token backed 1:1 with Bitcoin. Completely transparent. 100% verifiable. Community led.',
     bridge: 'polygon-canonical',
     chainId: 137,
+    tags: ['BLUECHIP'],
   },
   WEXpoly: {
     name: 'WEXPoly',
@@ -1230,6 +1244,7 @@ export const tokens = {
     website: 'https://yearn.finance/',
     description:
       'Yearn Finance is a suite of products in Decentralized Finance (DeFi) that provides lending aggregation, yield generation, and insurance on the Ethereum blockchain. The protocol is maintained by various independent developers and is governed by YFI holders.',
+    tags: ['BLUECHIP'],
   },
   ROUTE: {
     name: 'Route',
@@ -1272,6 +1287,7 @@ export const tokens = {
     website: 'https://sushi.com/',
     description:
       'Sushi is the home of DeFi. Their community is building a comprehensive, decentralized trading platform for the future of finance. Swap, earn, stack yields, lend, borrow, leverage all on one decentralized, community driven platform.',
+    tags: ['BLUECHIP'],
   },
   GRT: {
     name: 'The Graph',
@@ -1316,6 +1332,7 @@ export const tokens = {
     website: 'https://synthetix.io/',
     description:
       'Synthetix is the backbone for derivatives trading in DeFi, allowing anyone, anywhere to gain on-chain exposure to a vast range of assets.',
+    tags: ['BLUECHIP'],
   },
   CRV: {
     name: 'Curve Protocol',
@@ -1329,6 +1346,7 @@ export const tokens = {
       'Curve is an exchange liquidity pool on Ethereum. Curve is designed for extremely efficient stablecoin trading and low risk, supplemental fee income for liquidity providers, without an opportunity cost.',
     bridge: 'polygon-canonical',
     documentation: 'https://curve.readthedocs.io/',
+    tags: ['BLUECHIP'],
   },
   DOKI: {
     name: 'DokiDoki Finance',
@@ -1384,6 +1402,7 @@ export const tokens = {
     website: 'https://www.binance.com/',
     description:
       'Binance Coin (BNB) is an exchange-based token created and issued by the cryptocurrency exchange Binance. Initially created on the Ethereum blockchain as an ERC-20 token in July 2017, BNB was migrated over to Binance Chain in February 2019 and became the native coin of the Binance Chain.',
+    tags: ['BLUECHIP'],
   },
   rUSD: {
     name: 'Ramp USD',
@@ -2147,6 +2166,7 @@ export const tokens = {
     documentation:
       'https://help.coinbase.com/en/coinbase/trading-and-funding/staking-rewards/cbeth',
     bridge: 'polygon-canonical',
+    tags: ['BLUECHIP'],
   },
   ZRO: {
     name: 'LayerZero',
@@ -2160,5 +2180,6 @@ export const tokens = {
     description:
       'ZRO is the native asset of the LayerZero protocol. LayerZero is an omnichain interoperability protocol that supports censorship-resistant messages and permissionless development through immutable smart contracts called Endpoints.',
     bridge: 'layer-zero',
+    tags: ['BLUECHIP'],
   },
 } as const satisfies Record<string, Token>;

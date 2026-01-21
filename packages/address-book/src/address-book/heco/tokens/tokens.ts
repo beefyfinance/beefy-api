@@ -27,6 +27,7 @@ export const tokens = {
     website: 'https://ethereum.org/',
     description:
       'The native currency that flows within the Ethereum economy is called Ether (ETH). Ether is typically used to pay for transaction fees called Gas, and it is the base currency of the network.',
+    tags: ['BLUECHIP'],
   },
   USDT: {
     name: 'Heco USDT',
@@ -73,6 +74,7 @@ export const tokens = {
     website: 'https://www.synthetix.io/',
     description:
       'Synthetix is the backbone for derivatives trading in DeFi, allowing anyone, anywhere to gain on-chain exposure to a vast range of assets.',
+    tags: ['BLUECHIP'],
   },
   MDX: {
     name: 'Mdex',
@@ -106,6 +108,7 @@ export const tokens = {
     website: 'https://aave.com/',
     description:
       'Aave is an open source and non-custodial liquidity protocol for earning interest on deposits and borrowing assets.',
+    tags: ['BLUECHIP'],
   },
   BAL: {
     name: 'Balancer',
@@ -117,6 +120,7 @@ export const tokens = {
     website: 'https://balancer.fi/',
     description:
       'Balancer turns the concept of an index fund on its head: instead of a paying fees to portfolio managers to rebalance your portfolio, you collect fees from traders, who rebalance your portfolio by following arbitrage opportunities.',
+    tags: ['BLUECHIP'],
   },
   HUSD: {
     name: 'Huobi USD',
@@ -140,6 +144,7 @@ export const tokens = {
     website: 'https://yearn.finance/',
     description:
       'Yearn.finance is an aggregator service for decentralized finance (DeFi) investors, using automation to allow them to maximize profits from yield farming.',
+    tags: ['BLUECHIP'],
   },
   HDOT: {
     name: 'Huobi Polkadot',
@@ -162,6 +167,7 @@ export const tokens = {
     website: 'https://shibatoken.com/',
     description:
       'According to the SHIBA INU website, SHIB is the “DOGECOIN KILLER” and will be listed on their own ShibaSwap, a decentralized exchange.',
+    tags: ['MEMECOIN'],
   },
   HFI: {
     name: 'Heco FI',
@@ -184,6 +190,7 @@ export const tokens = {
     website: 'https://chain.link/',
     description:
       'Link is the currency used to pay the Chainlink node operators for their work. Chainlink node operators have to stake LINK in the network in order to participate and provide data services.',
+    tags: ['BLUECHIP'],
   },
   HLTC: {
     name: 'Huobi Litecoin',
@@ -217,6 +224,7 @@ export const tokens = {
     website: 'https://uniswap.org/',
     description:
       'UNI is the governance token for Uniswap. UNI was introduced on 16th September 2020 through a retrospective airdrop to users who have interacted with the protocol either by swapping tokens or by providing liquidity.',
+    tags: ['BLUECHIP'],
   },
   HPT: {
     name: 'Huobi Pool Token',

@@ -36,6 +36,7 @@ const SUSHI = {
   website: 'https://sushi.com/',
   description:
     'Sushi is the home of DeFi. Their community is building a comprehensive, decentralized trading platform for the future of finance. Swap, earn, stack yields, lend, borrow, leverage all on one decentralized, community driven platform.',
+  tags: ['BLUECHIP'],
 } as const satisfies Token;
 
 export const tokens = {
@@ -80,6 +81,7 @@ export const tokens = {
     website: 'https://dogecoin.com/',
     description:
       'Dogecoin is an open source peer-to-peer digital currency, favored by Shiba Inus worldwide.',
+    tags: ['MEMECOIN'],
   },
   XRP: {
     name: 'XRP Token',
@@ -91,6 +93,7 @@ export const tokens = {
     website: 'https://ripple.com/xrp/',
     description:
       'XRP is a digital asset built for payments. It is the native digital asset on the XRP Ledger—an open-source, permissionless and decentralized blockchain technology that can settle transactions in 3-5 seconds.',
+    tags: ['BLUECHIP'],
   },
   WAN: {
     name: 'WAN Token',
@@ -212,6 +215,7 @@ export const tokens = {
     description: 'Ether or ETH is the native currency built on the Ethereum blockchain.',
     bridge: 'multichain',
     documentation: 'https://ethereum.org/en/developers/docs/',
+    tags: ['BLUECHIP'],
   },
   BNB: {
     name: 'Binance',
@@ -223,6 +227,7 @@ export const tokens = {
     website: 'https://www.binance.com/',
     description:
       'Binance Coin (BNB) is an exchange-based token created and issued by the cryptocurrency exchange Binance. Initially created on the Ethereum blockchain as an ERC-20 token in July 2017, BNB was migrated over to Binance Chain in February 2019 and became the native coin of the Binance Chain.',
+    tags: ['BLUECHIP'],
   },
   WBTC: {
     name: 'Wrapped BTC',
@@ -234,6 +239,7 @@ export const tokens = {
     website: 'https://wbtc.network/',
     description:
       'Wrapped Bitcoin (WBTC) is the first ERC20 token backed 1:1 with Bitcoin. Completely transparent. 100% verifiable. Community led.',
+    tags: ['BLUECHIP'],
   },
   USDT: {
     name: 'Tether USD',
@@ -257,6 +263,7 @@ export const tokens = {
     website: 'https://polygon.technology/',
     description:
       'The MATIC token serves dual purposes: securing the Polygon network via staking and being used for the payment of transaction fees.',
+    tags: ['BLUECHIP'],
   },
   AVAX: {
     name: 'Avalanche Token',
@@ -268,6 +275,7 @@ export const tokens = {
     website: 'https://www.avalabs.org/',
     description:
       'Avalanche is the fastest smart contracts platform in the blockchain industry, as measured by time-to-finality, and has the most validators securing its activity of any proof-of-stake protocol.',
+    tags: ['BLUECHIP'],
   },
   RELAY: {
     name: 'Relay Token',
@@ -304,6 +312,7 @@ export const tokens = {
       'https://fantom.foundation/defi/?__cf_chl_jschl_tk__=pmd_vfkYw1Z8PZor5oxGKrd9bxYd66paY0bLiQmy1dKOLpY-1633331752-0-gqNtZGzNAdCjcnBszQlR',
     description:
       'Fantom offers the first DeFi stack built on an aBFT consensus. It’s much faster, cheaper, and more reliable and secure than its predecessors.',
+    tags: ['BLUECHIP'],
   },
   MIM: {
     name: 'Magic Internet Money',
