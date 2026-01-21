@@ -1,7 +1,7 @@
-const getUniV3PositionPrices = require('../common/getUniV3PositionPrices');
-const pools = require('../../../data/base/aerodromeClPools.json');
+import { getUniV3PositionPrices } from '../common/getUniV3PositionPrices';
+import pools from '../../../data/base/aerodromeClPools.json';
 
-const getAerodromePositionPrices = async tokenPrices => {
+export default async function getAerodromePositionPrices(tokenPrices: Record<string, number>) {
   const params = {
     pools: pools,
     tokenPrices: tokenPrices,
@@ -11,6 +11,4 @@ const getAerodromePositionPrices = async tokenPrices => {
   };
 
   return await getUniV3PositionPrices(params);
-};
-
-module.exports = getAerodromePositionPrices;
+}

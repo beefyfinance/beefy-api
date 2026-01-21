@@ -1,7 +1,7 @@
-const getUniV3PositionPrices = require('../common/getUniV3PositionPrices');
-const pools = require('../../../data/arbitrum/uniswapLpPools.json');
+import { getUniV3PositionPrices } from '../common/getUniV3PositionPrices';
+import pools from '../../../data/arbitrum/uniswapLpPools.json';
 
-const getUniswapPositionPrices = async tokenPrices => {
+export default async function getUniswapPositionPrices(tokenPrices: Record<string, number>) {
   const params = {
     pools: pools,
     tokenPrices: tokenPrices,
@@ -11,6 +11,4 @@ const getUniswapPositionPrices = async tokenPrices => {
   };
 
   return await getUniV3PositionPrices(params);
-};
-
-module.exports = getUniswapPositionPrices;
+}
