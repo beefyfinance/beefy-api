@@ -1,9 +1,16 @@
 [
   {
-    "name": "gearbox-arb-edge-usdc",
+    "name": "gearbox-monad-edge-usdc",
     "address": "0x6B343F7B797f1488AA48C49d540690F2b2c89751",
     "oracle": "tokens",
     "oracleId": "USDC",
+    "decimals": "1e6"
+  },
+  {
+    "name": "gearbox-monad-edge-ausd",
+    "address": "0xc4173359087CE643235420b7bC610d9B0CF2B82D",
+    "oracle": "tokens",
+    "oracleId": "AUSD",
     "decimals": "1e6"
   }
 ]
