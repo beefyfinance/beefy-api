@@ -1,5 +1,29 @@
 [
   {
+    "address": "0xF6EB64C1C1cc6b143B2788DA2b62a8885D506021",
+    "lpAddress": "0x6c9A33E3b592C0d65B3Ba59355d5Be0d38259285",
+    "tokens": ["0x5555555555555555555555555555555555555555", "0xb88339CB7199b77E23DB6E890353E22632Ba630f"],
+    "tokenOracleIds": ["WHYPE", "USDC"],
+    "decimals": [18, 6],
+    "oracleId": "projectx-cow-hyperevm-whype-usdc",
+    "rewardPool": {
+      "address": "0x83A2ee24C43a19E506D9Df6170d8B5af6Fe0D97F",
+      "oracleId": "projectx-cow-hyperevm-whype-usdc-rp"
+    }
+  },
+  {
+    "address": "0x06d3763AAAB6c76E1AedE3aCa6262E6888b45370",
+    "lpAddress": "0xfd0cb41a4a28b5cA13affe65cd5924F461b3C850",
+    "tokens": ["0x9FDBdA0A5e284c32744D2f17Ee5c74B284993463", "0xB8CE59FC3717ada4C02eaDF9682A9e934F625ebb"],
+    "tokenOracleIds": ["UBTC", "USDT0"],
+    "decimals": [8, 6],
+    "oracleId": "projectx-cow-hyperevm-ubtc-usdt0",
+    "rewardPool": {
+      "address": "0xC83CdcfF135292f7515483284C17bC034ef824Bf",
+      "oracleId": "projectx-cow-hyperevm-ubtc-usdt0-rp"
+    }
+  },
+  {
     "address": "0x52B1937a9A6d6FC3D1aA8160b0534C615fe6110C",
     "lpAddress": "0x40699d85809D10d416674390E698F04CF94DE61c",
     "tokens": ["0xBe6727B535545C67d5cAa73dEa54865B92CF7907", "0xfD739d4e423301CE9385c1fb8850539D657C296D"],
