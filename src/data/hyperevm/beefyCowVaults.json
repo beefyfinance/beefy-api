@@ -12,14 +12,14 @@
     }
   },
   {
-    "address": "0x06d3763AAAB6c76E1AedE3aCa6262E6888b45370",
+    "address": "0xD0766889F0Ab8936da0b07Bf31a4fEAD725E04F2",
     "lpAddress": "0xfd0cb41a4a28b5cA13affe65cd5924F461b3C850",
     "tokens": ["0x9FDBdA0A5e284c32744D2f17Ee5c74B284993463", "0xB8CE59FC3717ada4C02eaDF9682A9e934F625ebb"],
     "tokenOracleIds": ["UBTC", "USDT0"],
     "decimals": [8, 6],
     "oracleId": "projectx-cow-hyperevm-ubtc-usdt0",
     "rewardPool": {
-      "address": "0xC83CdcfF135292f7515483284C17bC034ef824Bf",
+      "address": "0x646ab1E6D0939672f810781449650A8058BB3C18",
       "oracleId": "projectx-cow-hyperevm-ubtc-usdt0-rp"
     }
   },
