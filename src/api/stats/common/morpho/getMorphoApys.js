@@ -26,7 +26,7 @@ const createGraphQLQuery = (chainId, addresses, isV2) => {
 
   const entityName = isV2 ? 'vaultV2s' : 'vaults';
   const fields = isV2
-    ? 'name address avgNetApy ( lookback: ONE_DAY ) avgApy ( lookback: ONE_DAY ) asset { yield { apr } }'
+    ? 'name address avgNetApy ( lookback: ONE_HOUR ) avgApy ( lookback: ONE_HOUR ) asset { yield { apr } }'
     : 'name address state { netApy netApyWithoutRewards } asset { yield { apr } }';
 
   return {
