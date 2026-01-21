@@ -207,4 +207,17 @@ export const tokens = {
     bridge: 'native',
     tags: ['NO_TIMELOCK'],
   },
+  USDC: {
+    name: 'USDC',
+    symbol: 'USDC',
+    oracleId: 'USDC',
+    address: '0xb88339CB7199b77E23DB6E890353E22632Ba630f',
+    chainId: 999,
+    decimals: 6,
+    description:
+      'USDC is a fully collateralized US dollar stablecoin. USDC is issued by regulated financial institutions, backed by fully reserved assets, redeemable on a 1:1 basis for US dollars.',
+    bridge: 'native',
+    documentation: 'https://developers.circle.com/docs',
+    tags: ['STABLECOIN'],
+  },
 } as const satisfies Record<string, Token>;
