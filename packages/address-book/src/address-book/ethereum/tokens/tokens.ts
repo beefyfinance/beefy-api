@@ -2856,4 +2856,18 @@ export const tokens = {
     bridge: 'native',
     tags: ['LARGE_HOLDERS', 'NO_TIMELOCK', 'STABLECOIN', 'SYNTHETIC'],
   },
+  EURCV: {
+    name: 'EUR CoinVertible',
+    symbol: 'EURCV',
+    oracleId: 'EURCV',
+    address: '0x5F7827FDeb7c20b443265Fc2F40845B715385Ff2',
+    chainId: 1,
+    decimals: 18,
+    website: 'https://www.sgforge.com/product/coinvertible/',
+    description:
+      'EUR CoinVertible (EURCV) is a fully collateralized, regulatory-compliant stablecoin issued by Societe Generale-FORGE to bridge traditional finance and public blockchains.',
+    documentation: 'https://www.sgforge.com/product/coinvertible/',
+    bridge: 'native',
+    tags: ['STABLECOIN', 'NO_TIMELOCK'],
+  },
 } as const satisfies Record<string, Token>;

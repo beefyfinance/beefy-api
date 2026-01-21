@@ -1,5 +1,14 @@
 [
   {
+    "name": "morpho-base-steakhouse-prime-eurc",
+    "address": "0xbeef009F28cCf367444a9F79096862920e025DC1",
+    "oracle": "tokens",
+    "oracleId": "EURC",
+    "decimals": "1e6",
+    "v2": true,
+    "skim": true
+  },
+  {
     "name": "morpho-base-gauntlet-prime-usdc",
     "address": "0x050cE30b927Da55177A4914EC73480238BAD56f0",
     "oracle": "tokens",

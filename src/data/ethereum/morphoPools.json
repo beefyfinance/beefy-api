@@ -1,5 +1,14 @@
 [
   {
+    "name": "morpho-eth-steakhouse-prime-eurcv",
+    "address": "0xbeef0C075Da5D01112AE5cF34d257074fB5DDB2f",
+    "oracle": "tokens",
+    "oracleId": "EURCV",
+    "decimals": "1e18",
+    "v2": true,
+    "skim": true
+  },
+  {
     "name": "morpho-imf-usds",
     "address": "0xdef1Fce2df6270Fdf7E1214343BeBbaB8583D43d",
     "oracle": "tokens",
