@@ -3123,4 +3123,30 @@ export const tokens = {
       'ZEN is the governance and utility token of the Horizen ecosystem - empowering holders, builders, and partners to shape the future of verifiable privacy for the new era of web3.',
     tags: ['LARGE_HOLDERS'],
   },
+  LINK: {
+    name: 'Chainlink',
+    symbol: 'LINK',
+    oracleId: 'bLINK',
+    address: '0x88Fb150BDc53A65fe94Dea0c9BA0a6dAf8C6e196',
+    chainId: 8453,
+    decimals: 18,
+    website: 'https://chain.link/',
+    description:
+      'Link is the currency used to pay the Chainlink node operators for their work. Chainlink node operators have to stake LINK in the network in order to participate and provide data services.',
+    bridge: 'arbitrum-canonical',
+    documentation: 'https://docs.chain.link/resources/link-token-contracts',
+  },
+  LSK: {
+    name: 'Lisk',
+    symbol: 'LSK',
+    oracleId: 'bLSK',
+    address: '0xac485391EB2d7D88253a7F1eF18C37f4242D1A24',
+    chainId: 8453,
+    decimals: 18,
+    website: 'https://lisk.com/',
+    description:
+      'Lisk is supporting founders and builders from all around the world to thrive on Ethereum for the first time.',
+    documentation: 'https://docs.lisk.com/',
+    bridge: 'canonical',
+  },
 } as const satisfies Record<string, Token>;

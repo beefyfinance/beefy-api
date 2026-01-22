@@ -854,6 +854,22 @@ const tokens: Partial<Record<keyof typeof ChainId, ConcentratedLiquidityToken[]>
       firstToken: 'ZEN',
       secondToken: 'WETH',
     },
+    {
+      type: 'Slipstream',
+      oracleId: 'bLSK',
+      decimalDelta: 1,
+      pool: '0x275be3a43b66516e532bcaa36ee453edd47614ea',
+      firstToken: 'bLSK',
+      secondToken: 'WETH',
+    },
+    {
+      type: 'Slipstream',
+      oracleId: 'bLINK',
+      decimalDelta: 1,
+      pool: '0x72be417afb0abea66913141c605d313bb389b59c',
+      firstToken: 'bLINK',
+      secondToken: 'WETH',
+    },
   ],
   zksync: [
     {
