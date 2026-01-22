@@ -10,6 +10,7 @@ const ETH = {
   website: 'https://weth.io/',
   description: 'Ether or ETH is the native currency built on the Ethereum blockchain.',
   documentation: 'https://ethereum.org/en/developers/docs/',
+  tags: ['BLUECHIP'],
 } as const satisfies Token;
 
 export const tokens = {
@@ -74,6 +75,7 @@ export const tokens = {
     website: 'https://wbtc.network/',
     description:
       'Wrapped Bitcoin (WBTC) is the first ERC20 token backed 1:1 with Bitcoin. Completely transparent. 100% verifiable. Community led.',
+    tags: ['BLUECHIP'],
   },
   TRI: {
     name: 'Trisolaris',
@@ -130,6 +132,7 @@ export const tokens = {
     website: 'https://www.avalabs.org/',
     description:
       'Avalanche is the fastest smart contracts platform in the blockchain industry, as measured by time-to-finality, and has the most validators securing its activity of any proof-of-stake protocol.',
+    tags: ['BLUECHIP'],
   },
   BNB: {
     name: 'Binance',
@@ -141,6 +144,7 @@ export const tokens = {
     website: 'https://www.binance.com/',
     description:
       'Binance Coin (BNB) is an exchange-based token created and issued by the cryptocurrency exchange Binance. Initially created on the Ethereum blockchain as an ERC-20 token in July 2017, BNB was migrated over to Binance Chain in February 2019 and became the native coin of the Binance Chain.',
+    tags: ['BLUECHIP'],
   },
   MATIC: {
     name: 'Matic',
@@ -152,6 +156,7 @@ export const tokens = {
     website: 'https://polygon.technology/',
     description:
       'The MATIC token serves dual purposes: securing the Polygon network via staking and being used for the payment of transaction fees.',
+    tags: ['BLUECHIP'],
   },
   FLX: {
     name: 'Flux Token',

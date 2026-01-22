@@ -11,6 +11,7 @@ const ETH = {
   description: 'Ether or ETH is the native currency built on the Ethereum blockchain.',
   bridge: 'base-canonical',
   documentation: 'https://ethereum.org/en/developers/docs/',
+  tags: ['BLUECHIP'],
 } as const satisfies Token;
 
 export const tokens = {
@@ -30,6 +31,7 @@ export const tokens = {
       "The incentive-bearing Beefy Token (mooBIFI) applies the magic of Beefy's autocompounding technology to the BIFI token. It is the vault token for the BIFI Vault, which automatically claims and swaps governance incentives into more BIFI, and redeposits to unlock exponential growth. On chains other than Ethereum, mooBIFI is a bridged copy of the native Ethereum token, and cannot be returned to BIFI without first bridging back to Ethereum. mooBIFI holders on all chains retain their full voting power corresponding to the underlying amount of BIFI deposited and compounding on Ethereum.",
     documentation: 'https://docs.beefy.finance/',
     bridge: 'beefy',
+    tags: ['BLUECHIP'],
   },
   BSX: {
     name: 'BSX',
@@ -184,7 +186,7 @@ export const tokens = {
       'USD+ is USDC that pays you yield daily via rebase. It is 100% collateralized with assets immediately convertible into USDC. Yield is generated via strategies such as lending and stable-to-stable pools. Initial strategies include Aave, Rubicon, and Pika.',
     documentation: 'https://docs.overnight.fi/',
     bridge: 'native',
-    tags: ['CURATED'],
+    tags: ['CURATED', 'STABLECOIN'],
   },
   'DAI+': {
     name: 'DAI+',
@@ -240,6 +242,7 @@ export const tokens = {
     documentation:
       'https://help.coinbase.com/en/coinbase/trading-and-funding/staking-rewards/cbeth',
     bridge: 'native',
+    tags: ['BLUECHIP'],
   },
   axlUSDC: {
     name: 'Axelar Wrapped USDC',
@@ -390,6 +393,7 @@ export const tokens = {
     description:
       'Threshold is the first ever on-chain merge between two existing networks and communities, Keep and NuCypher. Threshold provides a suite of threshold cryptography services that power user sovereignty on the blockchain.',
     bridge: 'wormhole',
+    tags: ['BLUECHIP'],
   },
   BASED: {
     name: 'based.markets',
@@ -470,6 +474,7 @@ export const tokens = {
       'As a Rocket Pool staker, your role is to deposit ETH into the deposit pool which will enable a node operator to create a new Beacon Chain validator. You can stake as little as 0.01 ETH. In doing so, you will be given a token called rETH. rETH represents both how much ETH you deposited, and when you deposited it.',
     bridge: 'base-canonical',
     documentation: 'https://docs.rocketpool.net/guides/',
+    tags: ['BLUECHIP'],
   },
   FTW: {
     name: 'FriendTech33',
@@ -537,6 +542,7 @@ export const tokens = {
       'Lido is a liquid staking solution for ETH backed by industry-leading staking providers. Lido lets users stake their ETH - without locking assets or maintaining infrastructure - whilst participating in on-chain activities, e.g. lending. Lido attempts to solve the problems associated with initial ETH staking - illiquidity, immovability and accessibility - making staked ETH liquid and allowing for participation with any amount of ETH to improve security of the Ethereum network.',
     documentation: 'https://docs.lido.fi/',
     bridge: 'base-canonical',
+    tags: ['BLUECHIP'],
   },
   CRV: {
     name: 'Curve DAO Token',
@@ -550,6 +556,7 @@ export const tokens = {
       'Curve is an exchange liquidity pool on Ethereum. Curve is designed for extremely efficient stablecoin trading and low risk, supplemental fee income for liquidity providers, without an opportunity cost.',
     documentation: 'https://curve.readthedocs.io/',
     bridge: 'base-canonical',
+    tags: ['BLUECHIP'],
   },
   'USDC+': {
     name: 'USDC Plus',
@@ -590,6 +597,7 @@ export const tokens = {
       'In the spirit of being based and fair, $TYBG was stealth launched with no tax or team/presale tokens. Memecoin.',
     documentation: '',
     bridge: 'native',
+    tags: ['MEMECOIN'],
   },
   axlOP: {
     name: 'Axelar Wrapped OP',
@@ -615,6 +623,7 @@ export const tokens = {
     description: 'The first meme coin on Base. Fairly Launched. Organic Growth. Good Vibes.',
     documentation: 'https://basicdog.gitbook.io/basic-meme-chain/',
     bridge: 'native',
+    tags: ['MEMECOIN'],
   },
   SNX: {
     name: 'Synthetix Network Token',
@@ -629,6 +638,7 @@ export const tokens = {
     documentation:
       'https://docs.synthetix.io/synthetix-protocol/the-synthetix-protocol/synthetix-token-snx',
     bridge: 'base-canonical',
+    tags: ['BLUECHIP'],
   },
   T: {
     name: 'Threshold Network Token',
@@ -669,6 +679,7 @@ export const tokens = {
     description:
       'The $doginme memecoin roots were established when a Farcaster user inquired if Dan Romero (DWR), the founder of the decentralized social media platform, owned a dog.',
     bridge: 'native',
+    tags: ['MEMECOIN'],
   },
   RSR: {
     name: 'Reserve Rights',
@@ -722,6 +733,7 @@ export const tokens = {
     description:
       'You can’t say anything is more based than putting the best meme of all time on the most based L2.',
     bridge: 'native',
+    tags: ['MEMECOIN'],
   },
   ANIME: {
     name: 'Anime',
@@ -734,6 +746,7 @@ export const tokens = {
     description:
       '$ANIME has grown into a movement uniting people from around the world by their love of art and anime. No VCs, influencers, or utility. Just art and memes.',
     bridge: 'native',
+    tags: ['MEMECOIN'],
   },
   L2VE: {
     name: 'Cupid Inu',
@@ -746,6 +759,7 @@ export const tokens = {
     description:
       'The Cupid Inu memecoin has landed on BASE, with a mission to scatter as much $L2VE as possible.',
     bridge: 'native',
+    tags: ['MEMECOIN'],
   },
   SEXY: {
     name: 'Settled ETHXY Token',
@@ -840,6 +854,7 @@ export const tokens = {
     description: 'Meme dog token on base.',
     bridge: 'native',
     documentation: 'https://www.basedoge.xyz/',
+    tags: ['MEMECOIN'],
   },
   baseQI: {
     name: 'Qi Dao',
@@ -878,6 +893,7 @@ export const tokens = {
     description:
       'Non-Playable Coin (NPC) is a memecoin actually backed by one of the most recognizable memes on the internet. Trade it as an NFT or as a memecoin, it doesn’t matter. It’s the first memecoin-NFT hybrid.',
     bridge: 'wormhole',
+    tags: ['MEMECOIN'],
   },
   Mog: {
     name: 'Mog Coin',
@@ -890,6 +906,7 @@ export const tokens = {
     description:
       '$Mog is the internet’s first culture coin. Starting as a meme among friends in the summer of 2023 it has set itself apart from other projects through its open-ended memetic branding and unique content.',
     bridge: 'base-canonical',
+    tags: ['MEMECOIN'],
   },
   HPC: {
     name: 'Happy Puppy Club',
@@ -902,6 +919,7 @@ export const tokens = {
     description:
       'The Happy Puppy Club ($HPC) memecoin embodies the spirit of "we in the club, onchain".',
     bridge: 'native',
+    tags: ['MEMECOIN'],
   },
   ROCK: {
     name: 'BLACK ROCK',
@@ -954,6 +972,7 @@ export const tokens = {
     description:
       'A community driven project that aims to bring the normalest memecoin to the base.',
     bridge: 'native',
+    tags: ['MEMECOIN'],
   },
   POOL: {
     name: 'PoolTogether',
@@ -1019,7 +1038,7 @@ export const tokens = {
       'Stake ETH, get eETH - a natively restaked liquid staking token that fuels DeFi and decentralizes Ethereum.',
     documentation: 'https://etherfi.gitbook.io/etherfi',
     bridge: 'stargate',
-    tags: ['NO_TIMELOCK'],
+    tags: ['BLUECHIP', 'NO_TIMELOCK'],
   },
   KLIMA: {
     name: 'Klima DAO',
@@ -1061,6 +1080,7 @@ export const tokens = {
       'Aavegotchis are crypto-collectibles living on the Ethereum blockchain, backed by the ERC721 standard used in popular blockchain games.',
     documentation: 'https://docs.aavegotchi.com/',
     bridge: 'base-canonical',
+    tags: ['MEMECOIN'],
   },
   HBR: {
     name: 'Harbor Token',
@@ -1101,6 +1121,7 @@ export const tokens = {
       'UNI is the governance token for Uniswap. UNI was introduced on 16th September 2020 through a retrospective airdrop to users who have interacted with the protocol either by swapping tokens or by providing liquidity.',
     bridge: 'base-canonical',
     documentation: 'https://docs.uniswap.org/concepts/governance/overview',
+    tags: ['BLUECHIP'],
   },
   ZRO: {
     name: 'LayerZero',
@@ -1114,6 +1135,7 @@ export const tokens = {
     description:
       'ZRO is the native asset of the LayerZero protocol. LayerZero is an omnichain interoperability protocol that supports censorship-resistant messages and permissionless development through immutable smart contracts called Endpoints.',
     bridge: 'layer-zero',
+    tags: ['BLUECHIP'],
   },
   NORMUS: {
     name: 'NORMUS',
@@ -1127,6 +1149,7 @@ export const tokens = {
     description:
       'NORMUS is the governance token of the launchpad eNORMUSPUMP, a pump.fun fork on Base.',
     bridge: 'native',
+    tags: ['MEMECOIN'],
   },
   jEUR: {
     name: 'Jarvis Synthetic Euro',
@@ -1194,6 +1217,7 @@ export const tokens = {
     description: 'CHOMP is the fiercest little fuzzball on Base. Meme coin on Base.',
     website: 'https://www.chompcoin.xyz/',
     bridge: 'native',
+    tags: ['MEMECOIN'],
   },
   MIGGLES: {
     name: 'Mister Miggles',
@@ -1205,6 +1229,7 @@ export const tokens = {
     description: 'Mr. Miggles, The Coinbase Cat Mascot. Meme coin on Base.',
     website: 'https://mrmigglesbase.com/',
     bridge: 'native',
+    tags: ['MEMECOIN'],
   },
   mfer: {
     name: 'mfercoin',
@@ -1216,6 +1241,7 @@ export const tokens = {
     description: 'Meme coin for every crypto mfer on Base.',
     website: 'https://linktr.ee/Mfercoin',
     bridge: 'native',
+    tags: ['MEMECOIN'],
   },
   EURC: {
     name: 'EURO',
@@ -1241,6 +1267,7 @@ export const tokens = {
       'Based Pepe was launched quietly with no presale, zero taxes, locked LP, and a renounced contract – ensuring it remains a token for the people, forever. Meme coin on Base.',
     website: 'https://basedpepe.vip/',
     bridge: 'native',
+    tags: ['MEMECOIN'],
   },
   COMP: {
     name: 'Compound',
@@ -1254,6 +1281,7 @@ export const tokens = {
     website: 'https://compound.finance/',
     documentation: 'https://docs.compound.finance/',
     bridge: 'base-canonical',
+    tags: ['BLUECHIP'],
   },
   KEYCAT: {
     name: 'KeyBoard Cat',
@@ -1267,6 +1295,7 @@ export const tokens = {
     website: 'https://www.keyboardcat.fun/',
     documentation: 'https://en.wikipedia.org/wiki/Keyboard_Cat',
     bridge: 'native',
+    tags: ['MEMECOIN'],
   },
   TOSHI: {
     name: 'Toshi',
@@ -1280,6 +1309,7 @@ export const tokens = {
     website: 'https://www.toshithecat.com/',
     documentation: 'https://www.toshithecat.com/#FAQs',
     bridge: 'native',
+    tags: ['MEMECOIN'],
   },
   OwO: {
     name: 'SoMon',
@@ -1293,6 +1323,7 @@ export const tokens = {
     website: 'https://www.social.monster/',
     documentation: 'https://gitbook.social.monster/',
     bridge: 'native',
+    tags: ['MEMECOIN'],
   },
   cbBTC: {
     name: 'Coinbase Wrapped WBTC',
@@ -1331,6 +1362,7 @@ export const tokens = {
     description: 'LITERALLY JUST A DOG WIF A HAT',
     website: 'https://dogwifcoin.org/',
     bridge: 'layer-zero',
+    tags: ['MEMECOIN'],
   },
   SPX: {
     name: 'SPX6900',
@@ -1343,6 +1375,7 @@ export const tokens = {
       'SPX6900 is an advanced blockchain cryptography token coin capable of limitless possibilities and scientific utilization. Ethereum based memecoin.',
     website: 'https://spx6900.com/',
     bridge: 'wormhole',
+    tags: ['MEMECOIN'],
   },
   wBLT: {
     name: 'Wrapped BMX Liquidity Token',
@@ -1408,6 +1441,7 @@ export const tokens = {
       'BITCOIN is the ticker of HarryPotterObamaSonic10Inu, a meme coin that incentivizes the creation of novel and entertaining meme content.',
     documentation: 'https://hpos10i.com/#Tokenomics',
     bridge: 'base-canonical',
+    tags: ['MEMECOIN'],
   },
   OGN: {
     name: 'OriginToken',
@@ -1490,6 +1524,7 @@ export const tokens = {
     website: 'https://app.virtuals.io/virtuals/68',
     documentation: 'https://whitepaper.virtuals.io/',
     bridge: 'native',
+    tags: ['MEMECOIN'],
   },
   SPEC: {
     name: 'Spectral Token',
@@ -1503,7 +1538,7 @@ export const tokens = {
     website: 'https://www.spectrallabs.xyz/',
     documentation: 'https://docs.spectrallabs.xyz/',
     bridge: 'synapse',
-    tags: ['LARGE_HOLDERS', 'NO_TIMELOCK'],
+    tags: ['MEMECOIN', 'LARGE_HOLDERS', 'NO_TIMELOCK'],
   },
   TALENT: {
     name: 'Talent Protocol Token',
@@ -1530,6 +1565,7 @@ export const tokens = {
       "Higher is an experiment in discovering a brand, together. It's yours, everyone's, no one's. You can add to it, remix it, destroy and rebuild it. It’s an open canvas for creativity. Meme coin on Base.",
     website: 'https://www.aimhigher.net/',
     bridge: 'native',
+    tags: ['MEMECOIN'],
   },
   BRETT: {
     name: 'Brett',
@@ -1543,7 +1579,7 @@ export const tokens = {
     website: 'https://www.basedbrett.com/',
     documentation: 'https://www.basedbrett.com/#tokenomics',
     bridge: 'native',
-    tags: ['LARGE_HOLDERS', 'NO_TIMELOCK'],
+    tags: ['MEMECOIN', 'LARGE_HOLDERS', 'NO_TIMELOCK'],
   },
   ION: {
     name: 'Ionic',
@@ -1597,6 +1633,7 @@ export const tokens = {
     description: 'Clanker autonomous memecoins built by Dish and Proxyswap.eth',
     website: 'https://www.clanker.world/',
     bridge: 'native',
+    tags: ['MEMECOIN'],
   },
   LUM: {
     name: 'luminous',
@@ -1609,6 +1646,7 @@ export const tokens = {
       'Deployed by an AI agent by request from another AI agent, LUM is a token without human intervention.',
     website: 'https://warpcast.com/aethernet/0x9b64c883',
     bridge: 'native',
+    tags: ['MEMECOIN'],
   },
   YFI: {
     name: 'yearn.finance',
@@ -1622,6 +1660,7 @@ export const tokens = {
     website: 'https://yearn.fi/',
     documentation: 'https://docs.yearn.fi/',
     bridge: 'base-canonical',
+    tags: ['BLUECHIP'],
   },
   LRDS: {
     name: 'BLOCKLORDS',
@@ -1635,7 +1674,7 @@ export const tokens = {
     website: 'https://blocklords.com/',
     documentation: 'https://wiki.blocklords.com/economy/currencies/usdlrds',
     bridge: 'base-canonical',
-    tags: ['LARGE_HOLDERS', 'NO_TIMELOCK'],
+    tags: ['MEMECOIN', 'LARGE_HOLDERS', 'NO_TIMELOCK'],
   },
   SUSHI: {
     name: 'Sushi',
@@ -1649,6 +1688,7 @@ export const tokens = {
       'Sushi is the home of DeFi. Their community is building a comprehensive, decentralized trading platform for the future of finance. Swap, earn, stack yields, lend, borrow, leverage all on one decentralized, community driven platform.',
     bridge: 'base-canonical',
     documentation: 'https://dev.sushi.com/',
+    tags: ['BLUECHIP'],
   },
   baseETH: {
     name: 'Tokemak baseETH',
@@ -1674,6 +1714,7 @@ export const tokens = {
       'Deployed by an AI agent by request from another AI agent, PARADOX is a token without human intervention.',
     website: 'https://warpcast.com/clanker/0x30f98af8',
     bridge: 'native',
+    tags: ['MEMECOIN'],
   },
   LBTC: {
     name: 'Lombard Staked Bitcoin',
@@ -1726,6 +1767,7 @@ export const tokens = {
       'an anonymous token deployed by an autonomous AI powering social posting with ZK on anoncast',
     documentation: '',
     bridge: 'native',
+    tags: ['MEMECOIN'],
   },
   MORPHO: {
     name: 'Morpho Token',
@@ -1739,7 +1781,7 @@ export const tokens = {
       'Morpho is a decentralized lending protocol with different entities and individuals contributing to its development and adoption. As a result, the documentation refers to different areas of “Morpho” which are worth distinguishing.',
     documentation: 'https://docs.morpho.org/',
     bridge: 'base-canonical',
-    tags: ['NO_TIMELOCK'],
+    tags: ['BLUECHIP', 'NO_TIMELOCK'],
   },
   PUBLIUS: {
     name: 'PUBLIUS',
@@ -1764,6 +1806,7 @@ export const tokens = {
       '$FCAST is the autonomous anomaly —Clanker AIs first and only self-initiated token deployment. Uniquely forged without external intervention, it stands as a singular testament to AIs creative autonomy, marking a breakthrough moment in decentralized innovation and the digital frontier.',
     documentation: '',
     bridge: 'native',
+    tags: ['MEMECOIN'],
   },
   SIMMI: {
     name: 'Simmi Token',
@@ -1776,6 +1819,7 @@ export const tokens = {
     website: 'https://simulacrum.network/',
     documentation: 'https://docs.simulacrum.network/',
     bridge: 'native',
+    tags: ['MEMECOIN'],
   },
   AIFUN: {
     name: 'AI Agent Layer',
@@ -1789,6 +1833,7 @@ export const tokens = {
       'The AI Agent Layer introduces a pioneering platform that allows users to create, personalize, and tokenize AI Agents in a fully decentralized ecosystem. Through a seamless and accessible interface, users can launch tradeable AI Agents in just 15 seconds, each represented by tokens paired with the native currency, $AIFUN.',
     documentation: 'https://aifun-1.gitbook.io/aiagentlayer',
     bridge: 'native',
+    tags: ['MEMECOIN'],
   },
   CHAOS: {
     name: 'CHAOS',
@@ -1801,6 +1846,7 @@ export const tokens = {
     description: 'CHAOS is a token created by ai agent AIXbt using Simulacrum',
     documentation: '',
     bridge: 'native',
+    tags: ['MEMECOIN'],
   },
   G: {
     name: 'Gravity',
@@ -1883,6 +1929,7 @@ export const tokens = {
       'At 9:00 PM UTC on November 22, 2024, Freysa awoke. The human population of Earth stood at 8,189,700,000. The population of sovereign agents: 1.',
     documentation: 'https://framework.freysa.ai/overview',
     bridge: '',
+    tags: ['MEMECOIN'],
   },
   CHAMP: {
     name: 'Super Champs',
@@ -1896,7 +1943,7 @@ export const tokens = {
       'Super Champs is an immersive, anime-inspired universe spanning games, video, social media, merch, and web3 ownership.',
     documentation: 'https://whitepaper.superchamps.com/champ-tokenomics',
     bridge: '',
-    tags: ['LARGE_HOLDERS', 'NO_TIMELOCK'],
+    tags: ['MEMECOIN', 'LARGE_HOLDERS', 'NO_TIMELOCK'],
   },
   uSUI: {
     name: 'Sui (Universal)',
@@ -1980,7 +2027,7 @@ export const tokens = {
       'uAssets (e.g. uBTC, uSOL, ...) are ERC-20 tokens that can solve liquidity problems builders face today.',
     documentation: 'https://docs.universalassets.xyz/universal-protocol',
     bridge: 'native',
-    tags: ['NO_TIMELOCK'],
+    tags: ['MEMECOIN', 'NO_TIMELOCK'],
   },
   uNEAR: {
     name: 'NEAR (Universal)',
@@ -2036,6 +2083,7 @@ export const tokens = {
       '0xReisearch is a collective of AI and Crypto natives that decided to develop a novel approach to the AI x Blockchain space. The Framework presents an architecture for AI blockchain integration through structured data interchange. By focusing on the complementary strengths of both technologies, this framework enables sophisticated interactions while maintaining blockchains deterministic properties.',
     documentation: 'https://0xreisearch.gitbook.io/0xreisearch',
     bridge: 'native',
+    tags: ['MEMECOIN'],
   },
   AIXBT: {
     name: 'aixbt by Virtuals',
@@ -2049,6 +2097,7 @@ export const tokens = {
       'AIXBT tracks CT discussions and leverages its proprietary engine to identify high momentum plays.',
     documentation: '',
     bridge: 'native',
+    tags: ['MEMECOIN'],
   },
   VVV: {
     name: 'Venice Token',
@@ -2116,7 +2165,7 @@ export const tokens = {
       'The B3 token is the engine powering the Open Gaming ecosystem, designed to grow, scale and transform gaming by empowering players, game developers, and holders.',
     documentation: 'https://learn.b3.fun/claim-comprehensive-faq',
     bridge: 'native',
-    tags: ['LARGE_HOLDERS', 'NO_TIMELOCK'],
+    tags: ['MEMECOIN', 'LARGE_HOLDERS', 'NO_TIMELOCK'],
   },
   VEIL: {
     name: 'VEIL Token',
@@ -2154,6 +2203,7 @@ export const tokens = {
     description: 'POPCAT meme on Solana bridged via Wormhole',
     documentation: '',
     bridge: 'wormhole',
+    tags: ['MEMECOIN'],
   },
   uPEPE: {
     name: 'Pepe (Universal)',
@@ -2167,7 +2217,7 @@ export const tokens = {
       'uAssets (e.g. uBTC, uSOL, ...) are ERC-20 tokens that can solve liquidity problems builders face today.',
     documentation: 'https://docs.universalassets.xyz/universal-protocol',
     bridge: 'native',
-    tags: ['NO_TIMELOCK'],
+    tags: ['MEMECOIN', 'NO_TIMELOCK'],
   },
   uSHIB: {
     name: 'Shiba Inu (Universal)',
@@ -2180,7 +2230,7 @@ export const tokens = {
       'uAssets (e.g. uBTC, uSOL, ...) are ERC-20 tokens that can solve liquidity problems builders face today.',
     documentation: 'https://docs.universalassets.xyz/universal-protocol',
     bridge: 'native',
-    tags: ['NO_TIMELOCK'],
+    tags: ['MEMECOIN', 'NO_TIMELOCK'],
   },
   KAITO: {
     name: 'KAITO',
@@ -2206,6 +2256,7 @@ export const tokens = {
     description:
       'Bankr, in collaboration with Grok, officially deploys the $GRK Grokster token on the Base chain, as announced through a post on X.',
     bridge: 'native',
+    tags: ['MEMECOIN'],
   },
   DRB: {
     name: 'DebtReliefBot',
@@ -2217,6 +2268,7 @@ export const tokens = {
     website: 'https://drbgrok.com/',
     description: 'The first token proposed by Grok AI. Built on Base chain.',
     bridge: 'native',
+    tags: ['MEMECOIN'],
   },
   MOXIE: {
     name: 'Moxie',
@@ -2230,6 +2282,7 @@ export const tokens = {
       'Moxie is your onchain AI assistant—analyzing transactions, unlocking social alpha, and executing trades on your behalf.',
     documentation: 'https://build.moxie.xyz/the-moxie-protocol',
     bridge: 'native',
+    tags: ['MEMECOIN'],
   },
   MOR: {
     name: 'MOR',
@@ -2243,7 +2296,7 @@ export const tokens = {
       'Morpheus is a Decentralized AI network designed to incentivize a network of Smart Agents, general-purpose AI that can execute Smart Contracts on behalf of users.',
     documentation: 'https://morpheusai.gitbook.io/morpheus/',
     bridge: 'layer-zero',
-    tags: ['LARGE_HOLDERS', 'NO_TIMELOCK'],
+    tags: ['MEMECOIN', 'LARGE_HOLDERS', 'NO_TIMELOCK'],
   },
   KTA: {
     name: 'Keeta',
@@ -2326,7 +2379,7 @@ export const tokens = {
       'Overtime is an onchain sportsbook ecosystem with platforms for placing bets on popular sporting events and digital options trading.',
     documentation: 'https://docs.overtime.io/',
     bridge: 'chainlink-ccip',
-    tags: ['LARGE_HOLDERS', 'NO_TIMELOCK'],
+    tags: ['MEMECOIN', 'LARGE_HOLDERS', 'NO_TIMELOCK'],
   },
   EDGE: {
     name: 'Edge',
@@ -2408,6 +2461,7 @@ export const tokens = {
     description: 'Base Meme',
     documentation: '',
     bridge: 'native',
+    tags: ['MEMECOIN'],
   },
   waBaswstETH: {
     name: 'Wrapped Aave wstETH Token',
@@ -2421,6 +2475,7 @@ export const tokens = {
       'Wrapped Aave Staked wstETH. Lido is a liquid staking solution for ETH backed by industry-leading staking providers. Lido lets users stake their ETH - without locking assets or maintaining infrastructure - whilst participating in on-chain activities, e.g. lending. Lido attempts to solve the problems associated with initial ETH staking - illiquidity, immovability and accessibility - making staked ETH liquid and allowing for participation with any amount of ETH to improve security of the Ethereum network.',
     documentation: 'https://docs.lido.fi/',
     bridge: 'native',
+    tags: ['BLUECHIP'],
   },
   waBasezETH: {
     name: 'Wrapped Aave ezETH Token',
@@ -2446,6 +2501,7 @@ export const tokens = {
     description: 'Ether or ETH is the native currency built on the Ethereum blockchain.',
     bridge: 'native',
     documentation: 'https://ethereum.org/en/developers/docs/',
+    tags: ['BLUECHIP'],
   },
   smUSDC: {
     name: 'Seamless USDC Vault',
@@ -2525,7 +2581,7 @@ export const tokens = {
     description: '$noice will become a global, social currency. Tip on Farcaster.',
     documentation: 'https://noice.so/#section-how',
     bridge: 'native',
-    tags: ['LARGE_HOLDERS'],
+    tags: ['MEMECOIN', 'LARGE_HOLDERS'],
   },
   BOLDV2: {
     name: 'BOLD Stablecoin',
@@ -2666,6 +2722,7 @@ export const tokens = {
       'Aave is a decentralized non-custodial liquidity protocol where users can participate as depositors or borrowers. Depositors provide liquidity to the market to earn a passive income, while borrowers are able to borrow in an overcollateralized (perpetually) or undercollateralized (one-block liquidity) fashion.',
     documentation: 'https://docs.aave.com/',
     bridge: 'base-canonical',
+    tags: ['BLUECHIP'],
   },
   MAMO: {
     name: 'MAMO',
@@ -3030,6 +3087,7 @@ export const tokens = {
       'Solana is a high-performance network that enables fast, secure, and affordable digital transactions. It powers thousands of applications ranging from payments and games to digital art and financial services. ',
     documentation: 'https://solana.com/learn/what-is-solana',
     bridge: 'chainlink-ccip',
+    tags: ['BLUECHIP'],
   },
   EDEL: {
     name: 'Edel',

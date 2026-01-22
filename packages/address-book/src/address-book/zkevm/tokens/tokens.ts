@@ -11,6 +11,7 @@ const ETH = {
   description: 'Ether or ETH is the native currency built on the Ethereum blockchain.',
   bridge: 'zkevm-canonical',
   documentation: 'https://ethereum.org/en/developers/docs/',
+  tags: ['BLUECHIP'],
 } as const satisfies Token;
 
 export const tokens = {
@@ -44,6 +45,7 @@ export const tokens = {
       'Polygon is a protocol and a framework for building and connecting Ethereum-compatible blockchain networks. Aggregating scalable solutions on Ethereum supporting a multi-chain Ethereum ecosystem.',
     documentation: 'https://zkevm.polygon.technology/',
     bridge: 'zkevm-canonical',
+    tags: ['BLUECHIP'],
   },
   WBTC: {
     name: 'Wrapped BTC',
@@ -57,6 +59,7 @@ export const tokens = {
     description:
       'Wrapped Bitcoin (WBTC) is the first ERC20 token backed 1:1 with Bitcoin. Completely transparent. 100% verifiable. Community led.',
     bridge: 'zkevm-canonical',
+    tags: ['BLUECHIP'],
   },
   USDT: {
     name: 'Tether USD',
@@ -149,6 +152,7 @@ export const tokens = {
       'Balancer turns the concept of an index fund on its head: instead of a paying fees to portfolio managers to rebalance your portfolio, you collect fees from traders, who rebalance your portfolio by following arbitrage opportunities. ',
     documentation: 'https://docs.balancer.fi/',
     bridge: 'zkevm-canonical',
+    tags: ['BLUECHIP'],
   },
   wstETH: {
     name: 'Lido Wrapped Staked ETH',
@@ -162,6 +166,7 @@ export const tokens = {
       'Lido is a liquid staking solution for ETH backed by industry-leading staking providers. Lido lets users stake their ETH - without locking assets or maintaining infrastructure - whilst participating in on-chain activities, e.g. lending. Lido attempts to solve the problems associated with initial ETH staking - illiquidity, immovability and accessibility - making staked ETH liquid and allowing for participation with any amount of ETH to improve security of the Ethereum network.',
     documentation: 'https://docs.lido.fi/',
     bridge: 'zkevm-canonical',
+    tags: ['BLUECHIP'],
   },
   rETH: {
     name: 'Rocket Pool ETH',
@@ -175,6 +180,7 @@ export const tokens = {
       'As a Rocket Pool staker, your role is to deposit ETH into the deposit pool which will enable a node operator to create a new Beacon Chain validator. You can stake as little as 0.01 ETH. In doing so, you will be given a token called rETH. rETH represents both how much ETH you deposited, and when you deposited it.',
     documentation: 'https://docs.rocketpool.net/guides/',
     bridge: 'zkevm-canonical',
+    tags: ['BLUECHIP'],
   },
   AAVE: {
     name: 'Aave',
@@ -188,6 +194,7 @@ export const tokens = {
       'Aave is a decentralized non-custodial liquidity protocol where users can participate as depositors or borrowers. Depositors provide liquidity to the market to earn a passive income, while borrowers are able to borrow in an overcollateralized (perpetually) or undercollateralized (one-block liquidity) fashion.',
     documentation: 'https://docs.aave.com/',
     bridge: 'zkevm-canonical',
+    tags: ['BLUECHIP'],
   },
   CRV: {
     name: 'CRV',
@@ -201,6 +208,7 @@ export const tokens = {
       'Curve is an exchange liquidity pool on Ethereum. Curve is designed for extremely efficient stablecoin trading and low risk, supplemental fee income for liquidity providers, without an opportunity cost.',
     bridge: 'zkevm-canonical',
     documentation: 'https://curve.readthedocs.io/',
+    tags: ['BLUECHIP'],
   },
   LINK: {
     name: 'Chainlink',
@@ -214,6 +222,7 @@ export const tokens = {
       'Link is the currency used to pay the Chainlink node operators for their work. Chainlink node operators have to stake LINK in the network in order to participate and provide data services.',
     bridge: 'zkevm-canonical',
     documentation: 'https://docs.chain.link/resources/link-token-contracts',
+    tags: ['BLUECHIP'],
   },
   ankrETH: {
     name: 'Ankr Staked ETH',

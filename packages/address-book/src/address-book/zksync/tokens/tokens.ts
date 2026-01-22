@@ -11,6 +11,7 @@ const ETH = {
   description: 'Ether or ETH is the native currency built on the Ethereum blockchain.',
   bridge: 'zksync-canonical',
   documentation: 'https://ethereum.org/en/developers/docs/',
+  tags: ['BLUECHIP'],
 } as const satisfies Token;
 
 export const tokens = {
@@ -109,7 +110,7 @@ export const tokens = {
     description:
       'USD+ is USDC that pays you yield daily via rebase. It is 100% collateralized with assets immediately convertible into USDC. Yield is generated via strategies such as lending and stable-to-stable pools. Initial strategies include Aave, Rubicon, and Pika.',
     documentation: 'https://docs.overnight.fi/',
-    tags: ['CURATED'],
+    tags: ['CURATED', 'STABLECOIN'],
   },
   WBTC: {
     name: 'Wrapped BTC',
@@ -122,6 +123,7 @@ export const tokens = {
     description:
       'Wrapped Bitcoin (WBTC) is the first ERC20 token backed 1:1 with Bitcoin. Completely transparent. 100% verifiable. Community led.',
     bridge: 'zksync-canonical',
+    tags: ['BLUECHIP'],
   },
   FANG: {
     name: 'Dracula',

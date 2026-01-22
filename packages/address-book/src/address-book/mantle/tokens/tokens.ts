@@ -100,6 +100,7 @@ export const tokens = {
     description:
       'Wrapped Bitcoin (WBTC) is the first ERC20 token backed 1:1 with Bitcoin. Completely transparent. 100% verifiable. Community led.',
     bridge: 'mantle-canonical',
+    tags: ['BLUECHIP'],
   },
   LEND: {
     name: 'Lendle Protocol Token',
@@ -139,6 +140,7 @@ export const tokens = {
     documentation: 'https://ethereum.org/en/developers/docs/',
     description: 'Ether or ETH is the native currency built on the Ethereum blockchain.',
     bridge: 'mantle-canonical',
+    tags: ['BLUECHIP'],
   },
   USDY: {
     name: 'Ondo U.S. Dollar Yield',

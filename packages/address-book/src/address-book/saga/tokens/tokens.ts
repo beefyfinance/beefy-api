@@ -58,6 +58,7 @@ export const tokens = {
     description: 'Ether or ETH is the native currency built on the Ethereum blockchain.',
     bridge: 'saga-canonical',
     documentation: 'https://ethereum.org/en/developers/docs/',
+    tags: ['BLUECHIP'],
   },
   USDT: {
     name: 'Tether',
@@ -84,5 +85,6 @@ export const tokens = {
     description: 'Uniswap is a decentralized exchange (DEX) on the Ethereum blockchain.',
     bridge: 'saga-canonical',
     documentation: 'https://www.uniswap.org/',
+    tags: ['BLUECHIP'],
   },
 } as const satisfies Record<string, Token>;

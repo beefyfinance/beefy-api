@@ -299,6 +299,7 @@ export const tokens = {
     website: 'https://www.binance.com/',
     description:
       'Binance Coin (BNB) is an exchange-based token created and issued by the cryptocurrency exchange Binance. Initially created on the Ethereum blockchain as an ERC-20 token in July 2017, BNB was migrated over to Binance Chain in February 2019 and became the native coin of the Binance Chain.',
+    tags: ['BLUECHIP'],
   },
   BCMC: {
     name: 'Blockchain Monster Coin',
@@ -321,6 +322,7 @@ export const tokens = {
     website: 'https://ethereum.org/',
     description:
       'The native currency that flows within the Ethereum economy is called Ether (ETH). Ether is typically used to pay for transaction fees called Gas, and it is the base currency of the network.',
+    tags: ['BLUECHIP'],
   },
   ETHs: {
     name: 'Ethereum',
@@ -393,6 +395,7 @@ export const tokens = {
     website: 'https://fantom.foundation/',
     description:
       'Fantom is a fast, high-throughput open-source smart contract platform for digital assets and dApps.',
+    tags: ['BLUECHIP'],
   },
   axlATOM: {
     name: 'Axelar Wrapped ATOM',
@@ -427,6 +430,7 @@ export const tokens = {
     website: 'https://polygon.technology/',
     description:
       'Polygon believes in Web3 for all. Polygon is a decentralised Ethereum scaling platform that enables developers to build scalable user-friendly dApps with low transaction fees without ever sacrificing on security.',
+    tags: ['BLUECHIP'],
   },
   AVAX: {
     name: 'Avalanche',
@@ -438,6 +442,7 @@ export const tokens = {
     website: 'https://www.avalabs.org/',
     description:
       'Avalanche is the fastest smart contracts platform in the blockchain industry, as measured by time-to-finality, and has the most validators securing its activity of any proof-of-stake protocol.',
+    tags: ['BLUECHIP'],
   },
   FLARE: {
     name: 'Flare Token',
@@ -484,6 +489,7 @@ export const tokens = {
     website: 'https://polkadot.network/',
     description:
       'Polkadot is an open-source sharding multichain protocol that facilitates the cross-chain transfer of any data or asset types, not just tokens, thereby making a wide range of blockchains interoperable with each other.',
+    tags: ['BLUECHIP'],
   },
   stDOTold: {
     name: 'Liquid staked DOT',
@@ -551,6 +557,7 @@ export const tokens = {
     website: 'https://www.nomad.xyz/',
     description:
       'WBTC bridged by Nomad. Wrapped Bitcoin (WBTC) is the first ERC20 token backed 1:1 with Bitcoin. Completely transparent. 100% verifiable. Community led.',
+    tags: ['BLUECHIP'],
   },
   aWBTC: {
     name: 'Anyswap Wrapped BTC',
@@ -573,6 +580,7 @@ export const tokens = {
     website: 'https://www.terra.money/',
     description:
       "Terra's native token, LUNA, is used to stabilize the price of the protocol's stablecoins. LUNA holders are also able to submit and vote on governance proposals, giving it the functionality of a governance token.",
+    tags: ['MEMECOIN'],
   },
   UST: {
     name: 'Axelar Wrapped UST',
@@ -608,6 +616,7 @@ export const tokens = {
     documentation: 'https://docs.lido.fi/',
     description:
       'Lido is a liquid staking solution for ETH 2.0 backed by industry-leading staking providers.',
+    tags: ['BLUECHIP'],
   },
   stellaBase4pool: {
     name: 'stellaBase4pool',

@@ -11,6 +11,7 @@ const ETH = {
   description: 'Ether or ETH is the native currency built on the Ethereum blockchain.',
   bridge: 'optimism-canonical',
   documentation: 'https://ethereum.org/en/developers/docs/',
+  tags: ['BLUECHIP'],
 } as const satisfies Token;
 
 export const tokens = {
@@ -30,6 +31,7 @@ export const tokens = {
       "The incentive-bearing Beefy Token (mooBIFI) applies the magic of Beefy's autocompounding technology to the BIFI token. It is the vault token for the BIFI Vault, which automatically claims and swaps governance incentives into more BIFI, and redeposits to unlock exponential growth. On chains other than Ethereum, mooBIFI is a bridged copy of the native Ethereum token, and cannot be returned to BIFI without first bridging back to Ethereum. mooBIFI holders on all chains retain their full voting power corresponding to the underlying amount of BIFI deposited and compounding on Ethereum.",
     documentation: 'https://docs.beefy.finance/',
     bridge: 'beefy',
+    tags: ['BLUECHIP'],
   },
   oldBIFI: {
     name: 'Beefy.Finance',
@@ -131,6 +133,7 @@ export const tokens = {
     bridge: 'native',
     documentation:
       'https://help.optimism.io/hc/en-us/articles/5497354656283-What-is-the-Optimism-Token',
+    tags: ['BLUECHIP'],
   },
   opUSDCe: {
     name: 'USD Coin',
@@ -184,6 +187,7 @@ export const tokens = {
     description:
       'Wrapped Bitcoin (WBTC) is the first ERC20 token backed 1:1 with Bitcoin. Completely transparent. 100% verifiable. Community led.',
     bridge: 'optimism-canonical',
+    tags: ['BLUECHIP'],
   },
   sBTC: {
     chainId: 10,
@@ -237,6 +241,7 @@ export const tokens = {
     bridge: 'optimism-canonical',
     documentation:
       'https://docs.synthetix.io/synthetix-protocol/the-synthetix-protocol/synthetix-token-snx',
+    tags: ['BLUECHIP'],
   },
   PERP: {
     name: 'Perpetual Protocol',
@@ -260,6 +265,7 @@ export const tokens = {
     description:
       'Balancer turns the concept of an index fund on its head: instead of a paying fees to portfolio managers to rebalance your portfolio, you collect fees from traders, who rebalance your portfolio by following arbitrage opportunities.',
     bridge: 'optimism-canonical',
+    tags: ['BLUECHIP'],
   },
   MAI: {
     chainId: 10,
@@ -369,6 +375,7 @@ export const tokens = {
     description:
       'The native currency that flows within the Ethereum economy is called Ether (ETH). Ether is typically used to pay for transaction fees called Gas, and it is the base currency of the network.',
     documentation: 'https://stargateprotocol.gitbook.io/stargate/v/user-docs/',
+    tags: ['BLUECHIP'],
   },
   renBTC: {
     name: 'renBTC',
@@ -560,6 +567,7 @@ export const tokens = {
       'As a Rocket Pool staker, your role is to deposit ETH into the deposit pool which will enable a node operator to create a new Beacon Chain validator. You can stake as little as 0.01 ETH. In doing so, you will be given a token called rETH. rETH represents both how much ETH you deposited, and when you deposited it.',
     bridge: 'optimism-canonical',
     documentation: 'https://docs.rocketpool.net/guides/',
+    tags: ['BLUECHIP'],
   },
   'bbUSD+': {
     name: 'Beets Composable Pool USD+ Stablecoin',
@@ -586,7 +594,7 @@ export const tokens = {
       'USD+ is USDC that pays you yield daily via rebase.  It is 100% collateralized with assets immediately convertible into USDC.  Yield is generated via strategies such as lending and stable-to-stable pools. Initial strategies include Aave, Rubicon, and Pika.',
     bridge: 'native',
     documentation: 'https://docs.overnight.fi/',
-    tags: ['CURATED'],
+    tags: ['CURATED', 'STABLECOIN'],
   },
   'wUSD+': {
     name: 'Wrapped USD+ Stablecoin',
@@ -600,7 +608,7 @@ export const tokens = {
       'wUSD+ is wrapped USD+, a yield-generating stablecoin backed by a portfolio of low-risk DeFi assets. It allows users to mint and redeem instantly against USDC, providing liquidity management, AMM trading, and leveraged yield farming opportunities. This capital-efficient stablecoin enables users to earn extra yield on their stablecoin holdings while participating in DeFi activities.',
     bridge: 'native',
     documentation: 'https://docs.overnight.fi/',
-    tags: ['CURATED'],
+    tags: ['CURATED', 'STABLECOIN'],
   },
   'DAI+': {
     name: 'DAI+ Stablecoin',
@@ -614,7 +622,7 @@ export const tokens = {
       'DAI+ is DAI that pays you yield daily via rebase.  It is 100% collateralized with assets immediately convertible into DAI.  Yield is generated via strategies such as lending and stable-to-stable pools. Initial strategies include Aave, Rubicon, and Pika.',
     bridge: 'native',
     documentation: 'https://docs.overnight.fi/',
-    tags: ['CURATED'],
+    tags: ['CURATED', 'STABLECOIN'],
   },
   'bbDAI+': {
     name: 'Beets Composable Pool DAI+ Stablecoin',
@@ -862,6 +870,7 @@ export const tokens = {
       'Lido is a liquid staking solution for ETH backed by industry-leading staking providers. Lido lets users stake their ETH - without locking assets or maintaining infrastructure - whilst participating in on-chain activities, e.g. lending. Lido attempts to solve the problems associated with initial ETH staking - illiquidity, immovability and accessibility - making staked ETH liquid and allowing for participation with any amount of ETH to improve security of the Ethereum network.',
     bridge: 'optimism-canonical',
     documentation: 'https://docs.lido.fi/',
+    tags: ['BLUECHIP'],
   },
   hETH: {
     name: 'ETH Hop Token',
@@ -942,6 +951,7 @@ export const tokens = {
       'Lido is a liquid staking solution for ETH 2.0 backed by industry-leading staking providers.',
     bridge: 'optimism-canonical',
     documentation: 'https://docs.lido.fi/',
+    tags: ['BLUECHIP'],
   },
   KWENTA: {
     name: 'Kwenta',
@@ -1032,6 +1042,7 @@ export const tokens = {
       'Link is the currency used to pay the Chainlink node operators for their work. Chainlink node operators have to stake LINK in the network in order to participate and provide data services.',
     bridge: 'optimism-canonical',
     documentation: 'https://docs.chain.link/resources/link-token-contracts',
+    tags: ['BLUECHIP'],
   },
   BOB: {
     name: 'BOB',
@@ -1094,6 +1105,7 @@ export const tokens = {
       'Curve is an exchange liquidity pool on Ethereum. Curve is designed for extremely efficient stablecoin trading and low risk, supplemental fee income for liquidity providers, without an opportunity cost.',
     bridge: 'optimism-canonical',
     documentation: 'https://curve.readthedocs.io/',
+    tags: ['BLUECHIP'],
   },
   STG: {
     name: 'StargateToken',
@@ -1174,6 +1186,7 @@ export const tokens = {
     description:
       'Threshold is the first ever on-chain merge between two existing networks and communities, Keep and NuCypher. Threshold provides a suite of threshold cryptography services that power user sovereignty on the blockchain.',
     bridge: 'optimism-canonical',
+    tags: ['BLUECHIP'],
   },
   UNIDX: {
     name: 'Unidex',
@@ -1252,6 +1265,7 @@ export const tokens = {
       'Pendle is a permissionless yield-trading protocol where users can execute various yield-management strategies.',
     documentation: 'https://docs.pendle.finance/home?utm_source=landing&utm_medium=landing',
     bridge: 'optimism-canonical',
+    tags: ['BLUECHIP'],
   },
   ankrETH: {
     name: 'Ankr Staked ETH',
@@ -1510,7 +1524,7 @@ export const tokens = {
       'Stake ETH, get eETH - a natively restaked liquid staking token that fuels DeFi and decentralizes Ethereum.',
     documentation: 'https://etherfi.gitbook.io/etherfi',
     bridge: 'stargate',
-    tags: ['NO_TIMELOCK'],
+    tags: ['BLUECHIP', 'NO_TIMELOCK'],
   },
   ZRO: {
     name: 'LayerZero',
@@ -1524,6 +1538,7 @@ export const tokens = {
     description:
       'ZRO is the native asset of the LayerZero protocol. LayerZero is an omnichain interoperability protocol that supports censorship-resistant messages and permissionless development through immutable smart contracts called Endpoints.',
     bridge: 'layer-zero',
+    tags: ['BLUECHIP'],
   },
   ezETH: {
     name: 'Renzo Restaked ETH',
@@ -1702,7 +1717,7 @@ export const tokens = {
       'Overtime is an onchain sportsbook ecosystem with platforms for placing bets on popular sporting events and digital options trading.',
     documentation: 'https://docs.overtime.io/',
     bridge: 'chainlink-ccip',
-    tags: ['LARGE_HOLDERS', 'NO_TIMELOCK'],
+    tags: ['MEMECOIN', 'LARGE_HOLDERS', 'NO_TIMELOCK'],
   },
   BOLDV2: {
     name: 'BOLD Stablecoin',

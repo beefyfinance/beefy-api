@@ -11,7 +11,15 @@ export interface Token {
   oracle?: 'tokens' | 'lps';
   bridge?: string;
   staked?: boolean;
-  tags?: ReadonlyArray<'NO_TIMELOCK' | 'STABLECOIN' | 'SYNTHETIC' | 'CURATED' | 'LARGE_HOLDERS'>;
+  tags?: ReadonlyArray<
+    | 'NO_TIMELOCK'
+    | 'STABLECOIN'
+    | 'SYNTHETIC'
+    | 'CURATED'
+    | 'LARGE_HOLDERS'
+    | 'BLUECHIP'
+    | 'MEMECOIN'
+  >;
 }
 
 export interface TokenWithId extends Token {

@@ -43,6 +43,7 @@ export const tokens = {
       'Cosmos is an ever-expanding ecosystem of interconnected apps and services, built for a decentralized future.',
     bridge: 'gravity',
     documentation: 'https://docs.cosmos.network/main',
+    tags: ['BLUECHIP'],
   },
   ETH: {
     name: 'Ethereum',
@@ -56,6 +57,7 @@ export const tokens = {
       'The native currency that flows within the Ethereum economy is called Ether (ETH). Ether is typically used to pay for transaction fees called Gas, and it is the base currency of the network.',
     bridge: 'gravity',
     documentation: 'https://ethereum.org/en/developers/docs/',
+    tags: ['BLUECHIP'],
   },
   NOTE: {
     name: 'Note',
@@ -172,6 +174,7 @@ export const tokens = {
     website: 'https://www.binance.com/',
     description:
       'Binance Coin (BNB) is an exchange-based token created and issued by the cryptocurrency exchange Binance. Initially created on the Ethereum blockchain as an ERC-20 token in July 2017, BNB was migrated over to Binance Chain in February 2019 and became the native coin of the Binance Chain.',
+    tags: ['BLUECHIP'],
   },
   BUSD: {
     name: 'Binance USD',
@@ -195,6 +198,7 @@ export const tokens = {
     website: 'https://wbtc.network/',
     description:
       'Wrapped Bitcoin (WBTC) is the first ERC20 token backed 1:1 with Bitcoin. Completely transparent. 100% verifiable. Community led.',
+    tags: ['BLUECHIP'],
   },
   cINU: {
     name: 'Canto Inu',
@@ -229,6 +233,7 @@ export const tokens = {
     description:
       'Lido is a liquid staking solution for ETH backed by industry-leading staking providers. Lido lets users stake their ETH - without locking assets or maintaining infrastructure - whilst participating in on-chain activities, e.g. lending. Lido attempts to solve the problems associated with initial ETH staking - illiquidity, immovability and accessibility - making staked ETH liquid and allowing for participation with any amount of ETH to improve security of the Ethereum network.',
     documentation: 'https://docs.lido.fi/',
+    tags: ['BLUECHIP'],
   },
   stATOM: {
     name: 'Stride Staked ATOM',
@@ -264,6 +269,7 @@ export const tokens = {
     website: 'https://www.pepe.vip/',
     description:
       'Pepe is here to make memecoins great again. Launched stealth with no presale, zero taxes, LP burnt and contract renounced, $PEPE is a coin for the people, forever. Fueled by pure memetic power, let $PEPE show you the way.',
+    tags: ['MEMECOIN'],
   },
   sCANTO: {
     name: 'Liquid Staked Canto',

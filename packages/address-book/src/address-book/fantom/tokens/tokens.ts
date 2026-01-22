@@ -12,6 +12,7 @@ const ETH = {
     'The native currency that flows within the Ethereum economy is called Ether (ETH). Ether is typically used to pay for transaction fees called Gas, and it is the base currency of the network.',
   documentation: 'https://ethereum.org/en/developers/docs/',
   bridge: 'multichain',
+  tags: ['BLUECHIP'],
 } as const satisfies Token;
 
 const BTC = {
@@ -25,6 +26,7 @@ const BTC = {
   description:
     'Wrapped Bitcoin (WBTC) is the first ERC20 token backed 1:1 with Bitcoin. Completely transparent. 100% verifiable. Community led.',
   bridge: 'multichain',
+  tags: ['BLUECHIP'],
 } as const satisfies Token;
 
 const FTM = {
@@ -39,6 +41,7 @@ const FTM = {
     'Fantom is a fast, high-throughput open-source smart contract platform for digital assets and dApps.',
   bridge: 'native',
   documentation: 'https://docs.fantom.foundation/',
+  tags: ['BLUECHIP'],
 } as const satisfies Token;
 
 export const tokens = {
@@ -779,6 +782,7 @@ export const tokens = {
     bridge: 'wormhole',
     description:
       'Solana is the fastest blockchain in the world and the fastest growing ecosystem in crypto, with over 400 projects spanning DeFi, NFTs, Web3 and more.',
+    tags: ['BLUECHIP'],
   },
   TUSD: {
     name: 'True USD',
@@ -1185,6 +1189,7 @@ export const tokens = {
       'Link is the currency used to pay the Chainlink node operators for their work. Chainlink node operators have to stake LINK in the network in order to participate and provide data services.',
     chainId: 250,
     bridge: 'multichain',
+    tags: ['BLUECHIP'],
   },
   USDC: {
     name: 'USD Coin',
@@ -1207,6 +1212,7 @@ export const tokens = {
     bridge: 'multichain',
     description:
       'Wrapped Bitcoin (WBTC) is the first ERC20 token backed 1:1 with Bitcoin. Completely transparent. 100% verifiable. Community led.',
+    tags: ['BLUECHIP'],
   },
   BTC: BTC,
   AAVE: {
@@ -1220,6 +1226,7 @@ export const tokens = {
     description:
       'Aave is a decentralized non-custodial liquidity protocol where users can participate as depositors or borrowers. Depositors provide liquidity to the market to earn a passive income, while borrowers are able to borrow in an overcollateralized (perpetually) or undercollateralized (one-block liquidity) fashion.',
     bridge: 'multichain',
+    tags: ['BLUECHIP'],
   },
   DAI: {
     name: 'Dai Stablecoin',
@@ -1245,6 +1252,7 @@ export const tokens = {
     description:
       'Sushi is the home of DeFi. Their community is building a comprehensive, decentralized trading platform for the future of finance. Swap, earn, stack yields, lend, borrow, leverage all on one decentralized, community driven platform.',
     bridge: 'multichain',
+    tags: ['BLUECHIP'],
   },
   YFI: {
     name: 'yearn.finance',
@@ -1257,6 +1265,7 @@ export const tokens = {
     description:
       'Yearn Finance is a suite of products in Decentralized Finance (DeFi) that provides lending aggregation, yield generation, and insurance on the Ethereum blockchain. The protocol is maintained by various independent developers and is governed by YFI holders.',
     bridge: 'multichain',
+    tags: ['BLUECHIP'],
   },
   CRV: {
     name: 'Curve DAO',
@@ -1269,6 +1278,7 @@ export const tokens = {
     description:
       'Curve is an exchange liquidity pool on Ethereum. Curve is designed for extremely efficient stablecoin trading and low risk, supplemental fee income for liquidity providers, without an opportunity cost.',
     bridge: 'multichain',
+    tags: ['BLUECHIP'],
   },
   BAND: {
     name: 'Band',
@@ -1373,6 +1383,7 @@ export const tokens = {
   WETH: {
     ...ETH,
     symbol: 'WETH',
+    tags: ['BLUECHIP'],
   },
   ETH: ETH,
   CREAM: {
@@ -1411,6 +1422,7 @@ export const tokens = {
     description:
       'Synthetix is the backbone for derivatives trading in DeFi, allowing anyone, anywhere to gain on-chain exposure to a vast range of assets.',
     bridge: 'multichain',
+    tags: ['BLUECHIP'],
   },
   ICE: {
     name: 'IceToken',
@@ -1495,6 +1507,7 @@ export const tokens = {
     bridge: 'multichain',
     description:
       'Binance Coin (BNB) is an exchange-based token created and issued by the cryptocurrency exchange Binance. Initially created on the Ethereum blockchain as an ERC-20 token in July 2017, BNB was migrated over to Binance Chain in February 2019 and became the native coin of the Binance Chain.',
+    tags: ['BLUECHIP'],
   },
   BOO: {
     name: 'Spooky Swap',
@@ -1699,6 +1712,7 @@ export const tokens = {
     website: 'https://www.avalabs.org/',
     description:
       'Avalanche is the fastest smart contracts platform in the blockchain industry, as measured by time-to-finality, and has the most validators securing its activity of any proof-of-stake protocol.',
+    tags: ['BLUECHIP'],
   },
   LUNA: {
     name: 'Terra',
@@ -1711,6 +1725,7 @@ export const tokens = {
     bridge: 'multichain',
     description:
       "Terra's native token, LUNA, is used to stabilize the price of the protocol's stablecoins. LUNA holders are also able to submit and vote on governance proposals, giving it the functionality of a governance token.",
+    tags: ['MEMECOIN'],
   },
   asUSDC: {
     name: 'USDC Solana',
@@ -1737,6 +1752,7 @@ export const tokens = {
     description:
       'Polygon is a protocol and a framework for building and connecting Ethereum-compatible blockchain networks. Aggregating scalable solutions on Ethereum supporting a multi-chain Ethereum ecosystem.',
     chainId: 250,
+    tags: ['BLUECHIP'],
   },
   HND: {
     name: 'Hundred Finance',

@@ -103,6 +103,7 @@ export const tokens = {
     description: 'Ether or ETH is the native currency built on the Ethereum blockchain.',
     bridge: 'fuse-canonical',
     documentation: 'https://ethereum.org/en/developers/docs/',
+    tags: ['BLUECHIP'],
   },
   WBTC: {
     name: 'Wrapped BTC on Fuse',
@@ -115,6 +116,7 @@ export const tokens = {
     description:
       'Wrapped Bitcoin (WBTC) is the first ERC20 token backed 1:1 with Bitcoin. Completely transparent. 100% verifiable. Community led.',
     bridge: 'fuse-canonical',
+    tags: ['BLUECHIP'],
   },
   fUSD: {
     name: 'Fuse Dollar',
@@ -138,6 +140,7 @@ export const tokens = {
     website: 'https://www.binance.com/',
     description:
       'Binance Coin (BNB) is an exchange-based token created and issued by the cryptocurrency exchange Binance. Initially created on the Ethereum blockchain as an ERC-20 token in July 2017, BNB was migrated over to Binance Chain in February 2019 and became the native coin of the Binance Chain.',
+    tags: ['BLUECHIP'],
   },
   BUSD: {
     name: 'Binance USD on Fuse',
@@ -196,6 +199,7 @@ export const tokens = {
     website: 'https://sushi.com/',
     description:
       'Sushi is the home of DeFi. Their community is building a comprehensive, decentralized trading platform for the future of finance. Swap, earn, stack yields, lend, borrow, leverage all on one decentralized, community driven platform.',
+    tags: ['BLUECHIP'],
   },
   USDT: {
     name: 'Tether USD on Fuse',

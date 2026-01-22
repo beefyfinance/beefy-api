@@ -29,6 +29,7 @@ export const tokens = {
     description: 'Ether or ETH is the native currency built on the Ethereum blockchain.',
     documentation: 'https://ethereum.org/en/developers/docs/',
     bridge: 'layerzero',
+    tags: ['BLUECHIP'],
   },
   HONEY: {
     name: 'Honey',
@@ -97,6 +98,7 @@ export const tokens = {
       'Wrapped Bitcoin (WBTC) is the first ERC20 token backed 1:1 with Bitcoin. Completely transparent. 100% verifiable. Community led.',
     documentation: '',
     bridge: 'layerzero',
+    tags: ['BLUECHIP'],
   },
   iBGT: {
     name: 'Infrared Bera Governance Token',
@@ -135,6 +137,7 @@ export const tokens = {
       'Olympus is building OHM, a community-owned, decentralized and censorship-resistant reserve currency that is asset-backed, deeply liquid and used widely across Web3.',
     documentation: 'https://docs.olympusdao.finance/',
     bridge: 'layerzero',
+    tags: ['BLUECHIP'],
   },
   NAV: {
     name: 'NavFinance',

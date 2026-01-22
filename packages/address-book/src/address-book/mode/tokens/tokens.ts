@@ -11,6 +11,7 @@ const ETH = {
   description: 'Ether or ETH is the native currency built on the Ethereum blockchain.',
   bridge: 'mode-canonical',
   documentation: 'https://ethereum.org/en/developers/docs/',
+  tags: ['BLUECHIP'],
 } as const satisfies Token;
 
 export const tokens = {
@@ -83,7 +84,7 @@ export const tokens = {
     description:
       'Stake ETH, get eETH - a natively restaked liquid staking token that fuels DeFi and decentralizes Ethereum.',
     bridge: 'mode-canonical',
-    tags: ['NO_TIMELOCK'],
+    tags: ['BLUECHIP', 'NO_TIMELOCK'],
   },
   DOLA: {
     name: 'DOLA USD',

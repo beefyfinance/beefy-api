@@ -57,6 +57,7 @@ export const tokens = {
     description: 'Purr is the meme token of Hyperliquid.',
     documentation: 'https://hyperliquid.gitbook.io/hyperliquid-docs',
     bridge: 'canonical',
+    tags: ['MEMECOIN'],
   },
   LIQD: {
     name: 'LiquidLaunch',
@@ -83,6 +84,7 @@ export const tokens = {
       'PiP, more than a meme coin, is a community-driven movement and Hyperliquid’s mascot symbolizing hydration and flow. A passionate team is exploring merchandise and toys, with the community shaping its future. Stay hydrated and engaged.',
     documentation: 'https://piponhl.xyz/',
     bridge: 'canonical',
+    tags: ['MEMECOIN'],
   },
   feUSD: {
     name: 'feUSD',

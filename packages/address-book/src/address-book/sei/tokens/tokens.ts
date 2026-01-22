@@ -43,6 +43,7 @@ export const tokens = {
     description: 'Ether or ETH is the native currency built on the Ethereum blockchain.',
     bridge: 'layerzero',
     documentation: 'https://ethereum.org/en/developers/docs/',
+    tags: ['BLUECHIP'],
   },
   USDT: {
     name: 'USDT',

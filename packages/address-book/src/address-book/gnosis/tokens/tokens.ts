@@ -45,6 +45,7 @@ export const tokens = {
       'Lido is a liquid staking solution for ETH backed by industry-leading staking providers. Lido lets users stake their ETH - without locking assets or maintaining infrastructure - whilst participating in on-chain activities, e.g. lending. Lido attempts to solve the problems associated with initial ETH staking - illiquidity, immovability and accessibility - making staked ETH liquid and allowing for participation with any amount of ETH to improve security of the Ethereum network.',
     bridge: 'gnosis-canonical',
     documentation: 'https://docs.lido.fi/',
+    tags: ['BLUECHIP'],
   },
   BAL: {
     name: 'Balancer',
@@ -58,6 +59,7 @@ export const tokens = {
       'Balancer turns the concept of an index fund on its head: instead of a paying fees to portfolio managers to rebalance your portfolio, you collect fees from traders, who rebalance your portfolio by following arbitrage opportunities. ',
     documentation: 'https://docs.balancer.fi/',
     bridge: 'gnosis-canonical',
+    tags: ['BLUECHIP'],
   },
   WETH: {
     name: 'Wrapped Ether',
@@ -70,6 +72,7 @@ export const tokens = {
     description: 'Ether or ETH is the native currency built on the Ethereum blockchain.',
     bridge: 'gnosis-canonical',
     documentation: 'https://ethereum.org/en/developers/docs/',
+    tags: ['BLUECHIP'],
   },
   USDT: {
     name: 'USDT',
@@ -139,6 +142,7 @@ export const tokens = {
     bridge: 'gnosis-canonical',
     description:
       'Gnosis is a community-run chain that is created by nodes run by thousands of ordinary people around the globe. As a distributed network, a diverse set of nodes ensure that the network is resilient to technical failures. A diversity of nodes run across many countries ensures the network can remain credibly neutral infrastructure.',
+    tags: ['BLUECHIP'],
   },
   COW: {
     chainId: 100,
@@ -222,6 +226,7 @@ export const tokens = {
       'As a Rocket Pool staker, your role is to deposit ETH into the deposit pool which will enable a node operator to create a new Beacon Chain validator. You can stake as little as 0.01 ETH. In doing so, you will be given a token called rETH. rETH represents both how much ETH you deposited, and when you deposited it.',
     bridge: 'gnosis-canonical',
     documentation: 'https://docs.rocketpool.net/guides/',
+    tags: ['BLUECHIP'],
   },
   agGNO: {
     name: 'Aave GNO',
@@ -244,6 +249,7 @@ export const tokens = {
     website: 'https://aave.com/',
     documentation: 'https://docs.aave.com/developers/v/2.0/the-core-protocol/atokens',
     description: 'Wrapped Aave interest bearing GNO.',
+    tags: ['BLUECHIP'],
   },
   agwstETH: {
     name: 'Aave wstETH',
@@ -267,6 +273,7 @@ export const tokens = {
     website: 'https://aave.com/',
     documentation: 'https://docs.aave.com/developers/v/2.0/the-core-protocol/atokens',
     description: 'Wrapped Aave interest bearing wstETH.',
+    tags: ['BLUECHIP'],
   },
   agETH: {
     name: 'Aave ETH',
@@ -290,6 +297,7 @@ export const tokens = {
     website: 'https://aave.com/',
     documentation: 'https://docs.aave.com/developers/v/2.0/the-core-protocol/atokens',
     description: 'Wrapped Aave interest bearing ETH.',
+    tags: ['BLUECHIP'],
   },
   SAFE: {
     name: 'SAFE Token',

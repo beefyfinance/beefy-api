@@ -12,6 +12,7 @@ const S = {
     'Wrapped S, (S) Sonic is an EVM layer-1 platform that offers developers attractive incentives and powerful infrastructure.',
   bridge: 'sonic-canonical',
   documentation: 'https://www.soniclabs.com/developer-resources',
+  tags: ['BLUECHIP'],
 } as const satisfies Token;
 
 export const tokens = {
@@ -71,6 +72,7 @@ export const tokens = {
     description: 'Ether or ETH is the native currency built on the Ethereum blockchain.',
     bridge: 'sonic-canonical',
     documentation: 'https://ethereum.org/en/developers/docs/',
+    tags: ['BLUECHIP'],
   },
   stS: {
     name: 'Beets Staked Sonic',
@@ -177,6 +179,7 @@ export const tokens = {
     description:
       'Ludwig On Sonic (LUDWIG) is your meme gateway to exploring Balancer technology on the Sonic network. The phrase "High Speed, Perfect Beets" highlights the Sonic network’s lightning-fast performance, while "Beets" refers to the DEX where our primary pools and liquidity are hosted.',
     bridge: 'native',
+    tags: ['MEMECOIN'],
   },
   BEETS: {
     name: 'BEETS',
@@ -259,6 +262,7 @@ export const tokens = {
       "The incentive-bearing Beefy Token (mooBIFI) applies the magic of Beefy's autocompounding technology to the BIFI token. It is the vault token for the BIFI Vault, which automatically claims and swaps governance incentives into more BIFI, and redeposits to unlock exponential growth. On chains other than Ethereum, mooBIFI is a bridged copy of the native Ethereum token, and cannot be returned to BIFI without first bridging back to Ethereum. mooBIFI holders on all chains retain their full voting power corresponding to the underlying amount of BIFI deposited and compounding on Ethereum.",
     documentation: 'https://docs.beefy.finance/',
     bridge: 'beefy',
+    tags: ['BLUECHIP'],
   },
   scETH: {
     name: 'Sonic ETH',
@@ -367,6 +371,7 @@ export const tokens = {
       'Wrapped Bitcoin (WBTC) is the first ERC20 token backed 1:1 with Bitcoin. Completely transparent. 100% verifiable. Community led.',
     documentation: '',
     bridge: 'layer-zero',
+    tags: ['BLUECHIP'],
   },
   scBTC: {
     name: 'Sonic BTC',
@@ -499,7 +504,7 @@ export const tokens = {
       'Silo scUSD market. Rings is a meta-stablecoin for USD & ETH offering competitive yield for stakers, providing deep liquidity for Sonic DeFi, and funding Sonic DeFi projects via its lockers.',
     documentation: 'https://docs.rings.money/',
     bridge: 'layer-zero',
-    tags: ['CURATED', 'SYNTHETIC'],
+    tags: ['CURATED', 'SYNTHETIC', 'STABLECOIN'],
   },
   SiloWETH: {
     name: 'Silo wETH',
