@@ -7,6 +7,11 @@
     "rewards": [
       {
         "rewardGauge": "0x5a097fE8b00De9533Cb41Bfac8AA9067AF192cb9",
+        "oracleId": "USDC",
+        "decimals": "1e6"
+      },
+      {
+        "rewardGauge": "0xe1C79A45f70c921a83C5E4ae5C9d6C0b22A4af8a",
         "oracleId": "AURA",
         "decimals": "1e18"
       }
