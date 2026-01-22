@@ -1971,7 +1971,7 @@ export const tokens = {
       'uAssets (e.g. uBTC, uSOL, ...) are ERC-20 tokens that can solve liquidity problems builders face today.',
     documentation: 'https://docs.universalassets.xyz/universal-protocol',
     bridge: 'native',
-    tags: ['NO_TIMELOCK'],
+    tags: ['NO_TIMELOCK', 'BLUECHIP'],
   },
   uXRP: {
     name: 'XRP (Universal)',
@@ -2673,6 +2673,7 @@ export const tokens = {
     description: 'Coinbase Wrapped XRP (cbXRP) is backed 1:1 with XRP, custodied with Coinbase.',
     documentation: 'https://www.coinbase.com/blog/',
     bridge: 'native',
+    tags: ['BLUECHIP'],
   },
   cbADA: {
     name: 'Coinbase Wrapped ADA',
@@ -2685,6 +2686,7 @@ export const tokens = {
     description: 'Coinbase Wrapped ADA (cbADA) is backed 1:1 with ADA, custodied with Coinbase.',
     documentation: 'https://www.coinbase.com/blog/',
     bridge: 'native',
+    tags: ['BLUECHIP'],
   },
   cbDOGE: {
     name: 'Coinbase Wrapped DOGE',
@@ -2697,6 +2699,7 @@ export const tokens = {
     description: 'Coinbase Wrapped DOGE (cbDOGE) is backed 1:1 with DOGE, custodied with Coinbase.',
     documentation: 'https://www.coinbase.com/blog/',
     bridge: 'native',
+    tags: ['MEMECOIN'],
   },
   cbLTC: {
     name: 'Coinbase Wrapped LTC',
@@ -2709,6 +2712,7 @@ export const tokens = {
     description: 'Coinbase Wrapped LTC (cbLTC) is backed 1:1 with LTC, custodied with Coinbase.',
     documentation: 'https://www.coinbase.com/blog/',
     bridge: 'native',
+    tags: ['BLUECHIP'],
   },
   AAVE: {
     name: 'AAVE',
@@ -2829,6 +2833,7 @@ export const tokens = {
       'Metacade is the home of gaming on Base. Welcome to thriving metropolis, Metacadia, where the onchain gaming pulse never fades. Within its neon-lit streets are four quarters, where gamers, investors, builders and ambitious partners are poised to carve their mark into the virtual skyline, each pushing to dominate the city and win over the Metacaders.',
     documentation: 'https://docs.metacade.co/',
     bridge: 'base-canonical',
+    tags: ['MEMECOIN'],
   },
   SPECTRA: {
     name: 'Spectra Token',
@@ -2977,6 +2982,7 @@ export const tokens = {
       'The CF Large Cap Index (Diversified Weight) is a liquid, investible benchmark portfolio index built designed to track the performance of large-cap digital assets.',
     documentation: 'https://reserve.org/protocol/',
     bridge: 'native',
+    tags: ['BLUECHIP'],
   },
   DIEM: {
     name: 'Diem',
@@ -3166,7 +3172,7 @@ export const tokens = {
     website: 'https://bytegroksdog.xyz/',
     documentation: 'https://bytegroksdog.xyz/whitepaper',
     description: 'BYTE is a meme coin and an onchain experiment launched by AI command on Base.',
-    tags: ['LARGE_HOLDERS'],
+    tags: ['LARGE_HOLDERS', 'MEMECOIN'],
   },
   ZEN: {
     name: 'Horizen',
