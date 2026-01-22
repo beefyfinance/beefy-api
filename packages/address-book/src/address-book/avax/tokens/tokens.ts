@@ -4692,7 +4692,7 @@ export const tokens = {
     description:
       'The SuperVerse is building and delivering Web3 products that empower crypto natives with next-generation NFT functionality, and onboard Web2 users through immersive blockchain gaming experiences. The SuperVerse comprises two core verticals: NFT marketplace technology and video games. This wide array of Web3 tools and features is supported and governed by a single protocol and token: $SUPER ERC20 (formerly known as SuperFarm). The SuperVerse harbors two central products: GigaMart, a next-gen NFT marketplace with advanced analytics tools and unique social features, and Impostors, a social-gaming metaverse.',
     bridge: 'layer-zero',
-    tags: ['NO_TIMELOCK'],
+    tags: ['NO_TIMELOCK', 'MEMECOIN'],
   },
   rsAVAX: {
     name: 'Yak Milk Suzaku Restaked sAVAX',

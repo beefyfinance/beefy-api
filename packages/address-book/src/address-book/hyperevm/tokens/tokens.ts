@@ -12,6 +12,7 @@ const HYPE = {
     'Hyperliquid is a performant blockchain built with the vision of a fully onchain open financial system. Liquidity, user applications, and trading activity synergize on a unified platform that will ultimately house all of finance. ',
   bridge: 'canonical',
   documentation: 'https://hyperliquid.gitbook.io/hyperliquid-docs',
+  tags: ['BLUECHIP'],
 } as const satisfies Token;
 
 export const tokens = {
@@ -152,7 +153,7 @@ export const tokens = {
       "Unit is the asset tokenization layer on Hyperliquid, enabling seamless deposits and withdrawals for a wide range of assets. Our first integration allows major crypto assets (e.g. BTC, ETH, & SOL) to flow between Hyperliquid and their native blockchains. Built from first principles, Unit's architecture is designed exclusively for Hyperliquid.",
     documentation: 'https://docs.hyperunit.xyz/',
     bridge: 'native',
-    tags: ['NO_TIMELOCK'],
+    tags: ['NO_TIMELOCK', 'BLUECHIP'],
   },
   kHYPE: {
     name: 'Kinetiq Staked HYPE',
@@ -179,7 +180,7 @@ export const tokens = {
       "Unit is the asset tokenization layer on Hyperliquid, enabling seamless deposits and withdrawals for a wide range of assets. Our first integration allows major crypto assets (e.g. BTC, ETH, & SOL) to flow between Hyperliquid and their native blockchains. Built from first principles, Unit's architecture is designed exclusively for Hyperliquid.",
     documentation: 'https://docs.hyperunit.xyz/',
     bridge: 'native',
-    tags: ['NO_TIMELOCK'],
+    tags: ['NO_TIMELOCK', 'BLUECHIP'],
   },
   UFART: {
     name: 'Unit Fartcoin',
@@ -193,7 +194,7 @@ export const tokens = {
       "Unit is the asset tokenization layer on Hyperliquid, enabling seamless deposits and withdrawals for a wide range of assets. Our first integration allows major crypto assets (e.g. BTC, ETH, & SOL) to flow between Hyperliquid and their native blockchains. Built from first principles, Unit's architecture is designed exclusively for Hyperliquid.",
     documentation: 'https://docs.hyperunit.xyz/',
     bridge: 'native',
-    tags: ['NO_TIMELOCK'],
+    tags: ['NO_TIMELOCK', 'MEMECOIN'],
   },
   UPUMP: {
     name: 'Unit Pumpcoin',

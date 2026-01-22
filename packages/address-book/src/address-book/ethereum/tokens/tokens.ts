@@ -2103,7 +2103,7 @@ export const tokens = {
       "eBTC is a collateralized crypto asset soft pegged to the price of Bitcoin and built on the Ethereum network. It is backed exclusively by Lido's stETH and powered by immutable smart contracts with minimized counterparty reliance. It is designed to be the most decentralized synthetic Bitcoin in DeFi and offers the ability for anyone in the world to borrow BTC at no cost.",
     bridge: 'native',
     documentation: 'https://docs.ebtc.finance/ebtc',
-    tags: ['SYNTHETIC'],
+    tags: ['BLUECHIP', 'SYNTHETIC'],
   },
   USD0: {
     name: 'Usual USD',
@@ -2185,6 +2185,7 @@ export const tokens = {
     description:
       'Sky.money is the next evolution of MakerDAO, introducing a powerful suite of DeFi tools including a new stablecoin (USDS), cross-chain bridging via SkyLink, and yield opportunities like the Sky Savings Rate and Sky Token Rewards.',
     bridge: 'native',
+    tags: ['BLUECHIP'],
   },
   USDS: {
     name: 'USDS Stablecoin',
@@ -2679,7 +2680,7 @@ export const tokens = {
     website: 'https://fluid.io/',
     documentation: 'https://fluid.guides.instadapp.io/',
     description: 'Fluid Staked Wrapped Staked Ether.',
-    tags: ['SYNTHETIC'],
+    tags: ['SYNTHETIC', 'BLUECHIP'],
   },
   fWETH: {
     name: 'Fluid WETH',
@@ -2691,7 +2692,7 @@ export const tokens = {
     website: 'https://fluid.io/',
     documentation: 'https://fluid.guides.instadapp.io/',
     description: 'Fluid Staked WETH.',
-    tags: ['SYNTHETIC'],
+    tags: ['SYNTHETIC', 'BLUECHIP'],
   },
   cbBTC: {
     name: 'Coinbase Wrapped WBTC',
@@ -2705,6 +2706,7 @@ export const tokens = {
       'Coinbase Wrapped Bitcoin (cbBTC) is backed 1:1 with Bitcoin, custodied with Coinbase.',
     documentation: 'https://www.coinbase.com/blog/coinbase-wrapped-btc-cbbtc-is-now-live',
     bridge: 'native',
+    tags: ['BLUECHIP'],
   },
   sUSD: {
     name: 'Synth sUSD',

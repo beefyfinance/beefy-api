@@ -4529,6 +4529,7 @@ export const tokens = {
     website: 'https://pupxbnb.com/',
     description: 'MEMECOIN: The Loyal Mirror Pup Reflecting Gains on the Chain',
     bridge: 'native',
+    tags: ['MEMECOIN'],
   },
   BINANCE_LIFE: {
     name: '币安人生',
@@ -4541,6 +4542,7 @@ export const tokens = {
     description:
       'MEMECOIN: Oh my, thank you, Jason. You are so kind and insightful. You are just like Binance. I wish you can hold BNB, drive a Binance car, live in a Binance community, and enjoy a Binance life.',
     bridge: 'native',
+    tags: ['MEMECOIN'],
   },
   FOUR: {
     name: '4',
@@ -4552,6 +4554,7 @@ export const tokens = {
     website: 'https://x.com/4onbsc',
     description: 'MEMECOIN: The Spirit of BSC',
     bridge: 'native',
+    tags: ['MEMECOIN'],
   },
   PALU: {
     name: 'Palu',
@@ -4563,6 +4566,7 @@ export const tokens = {
     website: 'https://paluonbnb.com/',
     description: 'MEMECOIN: The perfect plushy born in the perfect era.',
     bridge: 'native',
+    tags: ['MEMECOIN'],
   },
   FORM: {
     name: 'FORM Token',
@@ -4589,6 +4593,7 @@ export const tokens = {
     description:
       'MEMECOIN: BNBHolder, known as 币安Holder, embodies the spirit of steadfast commitment within the Binance ecosystem on the BNB Smart Chain (BSC).',
     bridge: 'native',
+    tags: ['MEMECOIN'],
   },
   COAI: {
     name: 'ChainOpera AI',
