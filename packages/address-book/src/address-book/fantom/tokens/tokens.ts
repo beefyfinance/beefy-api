@@ -2012,7 +2012,8 @@ export const tokens = {
     decimals: 18,
     website: 'https://spartacus.finance/',
     bridge: 'native',
-    description: '',
+    description:
+      'LAMBDA is the governance and utility token of Spartacus Money, a decentralized reserve currency protocol on Fantom.',
     tags: ['STABLECOIN', 'SYNTHETIC'],
   },
   fUSDCe: {

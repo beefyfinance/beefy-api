@@ -217,8 +217,9 @@ export const tokens = {
     address: '0xD30DC92b8ec0fa8de625768d208f51A93C10aFF2',
     chainId: 137,
     decimals: 18,
-    website: '',
-    description: '',
+    website: 'https://celsiusx.io/',
+    description:
+      'CelsiusX Wrapped BTC (cxBTC) is a synthetic wrapped version of Bitcoin on Polygon, originally created by CelsiusX to enable BTC liquidity in DeFi.',
     tags: ['SYNTHETIC'],
   },
   crvUSD: {

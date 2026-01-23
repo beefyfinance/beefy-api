@@ -31,6 +31,7 @@ export const tokens = {
     description:
       'Coq Inu is a vibrant memecoin deeply rooted in community, humor, and memetics within the Avalanche ecosystem. It offers a range of community-driven projects and engagements, emphasizing fun and togetherness as a way of life.',
     bridge: 'native',
+    tags: ['MEMECOIN'],
   },
   GEC: {
     name: 'Gecko Inu: GEC Token',
@@ -43,6 +44,7 @@ export const tokens = {
     description:
       "Gecko Inu is a community-driven memecoin at the core of AVAX's ecosystem, emphasizing friendship and enjoyment. Explore the dynamic web3.0 landscape alongside Gecko Inu, engaging in a spirited, laughter-filled adventure that celebrates togetherness within the Avalanche community.",
     bridge: 'native',
+    tags: ['MEMECOIN'],
   },
   NOCHILL: {
     name: 'AVAX HAS NO CHILL',
@@ -56,6 +58,7 @@ export const tokens = {
       'A memecoin on AVAX focused on the topic of AVAX having NO CHILL. Born out of the StarsArena community.',
     documentation: 'https://docs.nochill.lol/no-chill-docs',
     bridge: 'native',
+    tags: ['MEMECOIN'],
   },
   TECH: {
     name: 'NumberGoUpTech',
@@ -68,6 +71,7 @@ export const tokens = {
     description:
       'TECH embodies the spirit of innovation, uniting a community passionate about advancing technology across various frontiers including blockchain, space exploration, AI, quantum computing, and bioscience. It offers a memecoin platform for tech enthusiasts to join forces and propel forward into the future, inviting everyone to join the journey towards technological advancement.',
     bridge: 'native',
+    tags: ['MEMECOIN'],
   },
   KIMBO: {
     name: 'KIMBO Token',
@@ -80,6 +84,7 @@ export const tokens = {
     description:
       'KIMBO is positioned as a standout token on AVAX, backed by a strong community of AVAX pioneers, aiming to dominate the crypto space. It aspires to lead in culture and meme creation on the AVAX network, supporting a broader strategy to enhance creator culture within the AVAX ecosystem.',
     bridge: 'native',
+    tags: ['MEMECOIN'],
   },
   EURC: {
     name: 'Euro Coin',

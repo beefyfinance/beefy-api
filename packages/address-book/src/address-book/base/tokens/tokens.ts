@@ -279,10 +279,10 @@ export const tokens = {
     address: '0xAB8a1c03b8E4e1D21c8Ddd6eDf9e07f26E843492',
     chainId: 8453,
     decimals: 18,
-    website: '',
-    description: 'Meme coin on Base.',
-    documentation: '',
+    website: 'https://www.shrekt.xyz/',
+    description: 'SHREKT (OGRE) is a meme coin on Base inspired by the iconic Shrek character.',
     bridge: 'native',
+    tags: ['MEMECOIN'],
   },
   USDbC: {
     name: 'USD Base Coin',
