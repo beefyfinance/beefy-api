@@ -3197,7 +3197,7 @@ export const tokens = {
     website: 'https://chain.link/',
     description:
       'Link is the currency used to pay the Chainlink node operators for their work. Chainlink node operators have to stake LINK in the network in order to participate and provide data services.',
-    bridge: 'arbitrum-canonical',
+    bridge: 'chainlink-ccip',
     documentation: 'https://docs.chain.link/resources/link-token-contracts',
   },
   LSK: {
@@ -3211,6 +3211,6 @@ export const tokens = {
     description:
       'Lisk is supporting founders and builders from all around the world to thrive on Ethereum for the first time.',
     documentation: 'https://docs.lisk.com/',
-    bridge: 'canonical',
+    bridge: 'base-canonical',
   },
 } as const satisfies Record<string, Token>;
