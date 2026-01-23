@@ -2895,4 +2895,18 @@ export const tokens = {
     bridge: 'native',
     tags: ['STABLECOIN', 'NO_TIMELOCK'],
   },
+  OUSD: {
+    name: 'Origin Dollar',
+    symbol: 'OUSD',
+    oracleId: 'OUSD',
+    address: '0x2A8e1E676Ec238d8A992307B495b45B3fEAa5e86',
+    chainId: 1,
+    decimals: 18,
+    website: 'https://www.originprotocol.com/ousd/',
+    documentation: 'https://docs.originprotocol.com/yield-bearing-tokens/origin-dollar-ousd',
+    description:
+      "Origin Dollar (OUSD) is a stablecoin designed to generate passive yield while remaining in a user's wallet. It is 100% backed by USDC.",
+    bridge: 'native',
+    tags: ['STABLECOIN'],
+  },
 } as const satisfies Record<string, Token>;

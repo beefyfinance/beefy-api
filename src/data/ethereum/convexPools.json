@@ -1,5 +1,22 @@
 [
   {
+    "name": "curve-frxusd-ousd",
+    "pool": "0x68d03Ed49800e92D7Aa8aB171424007e55Fd1F49",
+    "gauge": "0x928961d0C4F6E8C683bd5695527D060f18d7d60b",
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "frxUSD",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "OUSD",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
     "name": "curve-pmusd-frxusd",
     "pool": "0xBf5047039F2980C21eB5692c790BAd8A9533b900",
     "gauge": "0x81d837437fD18736ffD3B5C9A5a2aA835c7637e7",
