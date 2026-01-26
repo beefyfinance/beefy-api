@@ -870,6 +870,22 @@ const tokens: Partial<Record<keyof typeof ChainId, ConcentratedLiquidityToken[]>
       firstToken: 'bLINK',
       secondToken: 'WETH',
     },
+    {
+      type: 'Slipstream',
+      oracleId: 'bPENDLE',
+      decimalDelta: 1,
+      pool: '0x016df91005F30039c9f1A89b44db5e8c60613603',
+      firstToken: 'bPENDLE',
+      secondToken: 'WETH',
+    },
+    {
+      type: 'Slipstream',
+      oracleId: 'bTOWER',
+      decimalDelta: 1e-12,
+      pool: '0xd59858f403ab4246db7a29aedf0bfd7573d9b8e5',
+      firstToken: 'bTOWER',
+      secondToken: 'USDC',
+    },
   ],
   zksync: [
     {

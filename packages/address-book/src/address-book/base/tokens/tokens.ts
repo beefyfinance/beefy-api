@@ -3213,4 +3213,32 @@ export const tokens = {
     documentation: 'https://docs.lisk.com/',
     bridge: 'base-canonical',
   },
+  PENDLE: {
+    name: 'Pendle',
+    symbol: 'PENDLE',
+    oracleId: 'bPENDLE',
+    address: '0xA99F6e6785Da0F5d6fB42495Fe424BCE029Eeb3E',
+    chainId: 8453,
+    decimals: 18,
+    website: 'https://www.pendle.finance/',
+    description:
+      'Pendle is a permissionless yield-trading protocol where users can execute various yield-management strategies.',
+    documentation: 'https://docs.pendle.finance/home?utm_source=landing&utm_medium=landing',
+    bridge: 'base-canonical',
+    tags: ['BLUECHIP'],
+  },
+  TOWER: {
+    name: 'TOWER',
+    symbol: 'TOWER',
+    oracleId: 'bTOWER',
+    address: '0xf7C1CEfCf7E1dd8161e00099facD3E1Db9e528ee',
+    chainId: 8453,
+    decimals: 18,
+    website: 'https://crazydefenseheroes.com/ ',
+    description:
+      'The TOWER Token is an ERC-20 token native to the Ethereum blockchain designed to be a medium of exchange, utility, and governance for the Crazy Defense Heroes franchise.',
+    documentation: 'https://crazydefenseheroes.fandom.com/wiki/TOWER_Tokens',
+    bridge: 'base-canonical',
+    tags: ['LARGE_HOLDERS'],
+  }
 } as const satisfies Record<string, Token>;
