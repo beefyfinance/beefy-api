@@ -156,6 +156,32 @@
     }
   },
   {
+    "address": "0x72375156028bB32124aFa82C85e05132163dceDb",
+    "lpAddress": "0xbf4f004307F623C2Fa2c6cf8Ce8095200e389B13",
+    "tokens": [
+      "0x2B11834Ed1FeAEd4b4b3a86A6F571315E25A884D",
+      "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913"
+    ],
+    "tokenOracleIds": [
+      "MOCA",
+      "USDC"
+    ],
+    "decimals": [
+      18,
+      6
+    ],
+    "oracleId": "aerodrome-cow-base-moca-usdc",
+    "providerId": "aerodrome",
+    "rewardPool": {
+      "address": "0xEB4A95D00D824BD8f43b85c43C323B70eE0725A0",
+      "oracleId": "aerodrome-cow-base-moca-usdc-rp"
+    },
+    "vault": {
+      "address": "0xD1e353fc76bC235734cd611F3ecC9f0d2a9f4D35",
+      "oracleId": "aerodrome-cow-base-moca-usdc-vault"
+    }
+  },
+  {
     "address": "0xA1Ffe36cFa5a6b1d3AE9Dc8d03800a4deCFB354C",
     "lpAddress": "0x4858bA5A92a23de1B2dBB3509B01D0A9F0E0756A",
     "tokens": [

@@ -394,7 +394,7 @@ function keepStaleOnError<T extends AnyVault>(
     try {
       return await handler(chain, vault, existing);
     } catch (err) {
-      if (existing && keys.every(v => !!existing[v])) {
+      if (existing && keys.every(v => existing[v] !== undefined)) {
         console.error(
           `> failed to get update ${vault.id} on ${chain}, using stale data`,
           err.shortMessage ?? err
@@ -513,12 +513,12 @@ async function updateChainVaults(chain: ApiChain) {
   const processedVaults = await Promise.all(
     allVaults.map(async vault => {
       const handler = vaultTypeHandlers[vault.type] as VaultHandler<AnyVault>;
+      const existing = storage.getVaultByIdOfType(vault.id, vault.type);
       try {
-        const existing = storage.getVaultByIdOfType(vault.id, vault.type);
         return await handler(chain, vault, existing);
       } catch (err) {
         console.error(`> failed to process vault ${vault.id} on ${chain}`, err);
-        return vault;
+        return existing ?? vault;
       }
     })
   );

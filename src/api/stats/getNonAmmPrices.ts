@@ -220,7 +220,15 @@ export async function getNonAmmPrices(
     getBeefyCowMonadPrices(tokenPrices),
     getPendleCommonPrices(ARB_CHAIN_ID, require('../../data/arbitrum/equilibriaPools.json'), tokenPrices),
     getPendleCommonPrices(ARB_CHAIN_ID, require('../../data/arbitrum/pendlePools.json'), tokenPrices, {}),
-    getPendleCommonPrices(ETH_CHAIN_ID, require('../../data/ethereum/pendlePools.json'), tokenPrices, {}),
+    getPendleCommonPrices(
+      ETH_CHAIN_ID,
+      [
+        ...require('../../data/ethereum/pendlePools.json'),
+        ...require('../../data/ethereum/pendleUnboostedPools.json'),
+      ],
+      tokenPrices,
+      {}
+    ),
     getPendleCommonPrices(BSC_CHAIN_ID, require('../../data/bsc/pendlePools.json'), tokenPrices, ammPrices),
     getPendleCommonPrices(BASE_CHAIN_ID, require('../../data/base/pendlePools.json'), tokenPrices, ammPrices),
     getPendleCommonPrices(SONIC_CHAIN_ID, require('../../data/sonic/pendlePools.json'), tokenPrices),

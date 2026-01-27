@@ -3,6 +3,7 @@
     "name": "curve-frxusd-ousd",
     "pool": "0x68d03Ed49800e92D7Aa8aB171424007e55Fd1F49",
     "gauge": "0x928961d0C4F6E8C683bd5695527D060f18d7d60b",
+    "stakeDao": true,
     "tokens": [
       {
         "oracle": "tokens",
