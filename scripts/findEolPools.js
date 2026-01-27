@@ -38,7 +38,7 @@ async function main() {
         const eqbId = id.replace('pendle-', 'pendle-eqb-');
         const eqbV = vaults.find(v => v.id === eqbId);
         if (eqbV) {
-          livePools.push(eqbV);
+          livePools.push(eqbV.id);
           console.error(id, 'not found, but got', eqbId, eqbV.status, tvl[eqbId]);
         } else console.error(id, 'not found');
       } else {
