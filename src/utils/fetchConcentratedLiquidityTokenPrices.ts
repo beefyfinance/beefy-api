@@ -894,6 +894,22 @@ const tokens: Partial<Record<keyof typeof ChainId, ConcentratedLiquidityToken[]>
       firstToken: 'USDC',
       secondToken: 'MOCA',
     },
+    {
+      type: 'Slipstream',
+      oracleId: 'bTITN',
+      decimalDelta: 1e-12,
+      pool: '0x611865e603862a3d1cd29146458564a684e1cbbb',
+      firstToken: 'bTITN',
+      secondToken: 'USDC',
+    },
+    {
+      type: 'Slipstream',
+      oracleId: 'bSUMR',
+      decimalDelta: 1e12,
+      pool: '0x8fEbF59b6725c4729466b0279cb28080Ac5d1161',
+      firstToken: 'USDC',
+      secondToken: 'bSUMR',
+    },
   ],
   zksync: [
     {

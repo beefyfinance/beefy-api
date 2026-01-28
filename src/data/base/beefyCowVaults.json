@@ -1,5 +1,57 @@
 [
   {
+    "address": "0xaeC7bF5079dd41de3691C84a830B199A385f1FB5",
+    "lpAddress": "0x8fEbF59b6725c4729466b0279cb28080Ac5d1161",
+    "tokens": [
+      "0x194f360D130F2393a5E9F3117A6a1B78aBEa1624",
+      "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913"
+    ],
+    "tokenOracleIds": [
+      "SUMR",
+      "USDC"
+    ],
+    "decimals": [
+      18,
+      6
+    ],
+    "oracleId": "aerodrome-cow-base-sumr-usdc",
+    "providerId": "aerodrome",
+    "rewardPool": {
+      "address": "0xF3dFB4F7301A0cf28FCD399BEC9D53572836BC5f",
+      "oracleId": "aerodrome-cow-base-sumr-usdc-rp"
+    },
+    "vault": {
+      "address": "0xCd03CB06491FF9043445896E09d577DB5A49B459",
+      "oracleId": "aerodrome-cow-base-sumr-usdc-vault"
+    }
+  },
+  {
+    "address": "0x63f4f2228833fAa2a7E6bea7b3F3dd6f31D7492d",
+    "lpAddress": "0x611865e603862a3D1cd29146458564a684e1cBbb",
+    "tokens": [
+      "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+      "0xe62bfbE57763ec24c0F130426F34DbCe11Fc5B06"
+    ],
+    "tokenOracleIds": [
+      "USDC",
+      "TITN"
+    ],
+    "decimals": [
+      6,
+      18
+    ],
+    "oracleId": "aerodrome-cow-base-usdc-titn",
+    "providerId": "aerodrome",
+    "rewardPool": {
+      "address": "0x2CF791391DeD99BF23f9a5b495C2e0CDF4BCcE1E",
+      "oracleId": "aerodrome-cow-base-usdc-titn-rp"
+    },
+    "vault": {
+      "address": "0x334C50eE23853D306C7269090eFF29dE6760dF2e",
+      "oracleId": "aerodrome-cow-base-usdc-titn-vault"
+    }
+  },
+  {
     "address": "0x07A10283C37E7dB050e0Cf4de7eA0f8B608bd095",
     "lpAddress": "0x385B47e56b73eb6549378f78F7c7Cbc42C56C9e0",
     "tokens": [
