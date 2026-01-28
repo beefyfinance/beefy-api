@@ -558,4 +558,15 @@ export const tokens = {
     bridge: 'native',
     tags: ['NO_TIMELOCK', 'LARGE_HOLDERS'],
   },
+  wawS: {
+    name: 'Wrapped Aave wS',
+    symbol: 'wawS',
+    oracleId: 'wawS',
+    address: '0x18B7B8695165290f2767BC63c36D3dFEa4C0F9bB',
+    chainId: 146,
+    decimals: 18,
+    website: 'https://aave.com/',
+    documentation: 'https://docs.aave.com/developers/v/2.0/the-core-protocol/atokens',
+    description: 'Wrapped Aave interest bearing wS.',
+  },
 } as const satisfies Record<string, Token>;
