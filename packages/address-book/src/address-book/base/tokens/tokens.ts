@@ -3249,9 +3249,11 @@ export const tokens = {
     chainId: 8453,
     decimals: 18,
     website: 'https://thorwallet.org/',
-    description: 'TITN is the core utility token power of the THORWallet ecosystem. It enables fee return rewards, swap fee discounts and gamified questions and raffles with on-chain rewards. ',
+    description:
+      'TITN is the core utility token power of the THORWallet ecosystem. It enables fee return rewards, swap fee discounts and gamified questions and raffles with on-chain rewards. ',
     documentation: 'https://faqs.thorwallet.org/ ',
     bridge: 'layer-zero',
+    tags: ['LARGE_HOLDERS', 'NO_TIMELOCK'],
   },
   SUMR: {
     name: 'SummerToken',
@@ -3261,8 +3263,10 @@ export const tokens = {
     chainId: 8453,
     decimals: 18,
     website: 'https://summer.fi/',
-    description: 'The SUMR token is the governance token for the Summer Protocol. Holders of SUMR and delegators make up the Summer DAO, which oversees and governs the protocol.',
+    description:
+      'The SUMR token is the governance token for the Summer Protocol. Holders of SUMR and delegators make up the Summer DAO, which oversees and governs the protocol.',
     documentation: 'https://docs.summer.fi/',
     bridge: 'layer-zero',
+    tags: ['LARGE_HOLDERS'],
   },
 } as const satisfies Record<string, Token>;
