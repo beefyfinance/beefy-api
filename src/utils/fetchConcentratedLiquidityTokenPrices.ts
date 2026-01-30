@@ -910,6 +910,14 @@ const tokens: Partial<Record<keyof typeof ChainId, ConcentratedLiquidityToken[]>
       firstToken: 'USDC',
       secondToken: 'bSUMR',
     },
+    {
+      type: 'UniV3',
+      oracleId: 'MOLT',
+      decimalDelta: 1,
+      pool: '0x6F3a1B2054d091b5C14EA8c720142c9EBC4387C1',
+      firstToken: 'MOLT',
+      secondToken: 'WETH',
+    },
   ],
   zksync: [
     {

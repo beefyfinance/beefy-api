@@ -3269,4 +3269,15 @@ export const tokens = {
     bridge: 'layer-zero',
     tags: ['LARGE_HOLDERS'],
   },
+  MOLT: {
+    name: 'Moltbook',
+    symbol: 'MOLT',
+    oracleId: 'MOLT',
+    address: '0xB695559b26BB2c9703ef1935c37AeaE9526bab07',
+    chainId: 8453,
+    decimals: 18,
+    website: 'https://www.moltbook.com/',
+    description: 'A Social Network for AI Agents',
+    bridge: 'native',
+  },
 } as const satisfies Record<string, Token>;
