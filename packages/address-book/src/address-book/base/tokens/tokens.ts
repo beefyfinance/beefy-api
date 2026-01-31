@@ -3280,4 +3280,15 @@ export const tokens = {
     description: 'A Social Network for AI Agents',
     bridge: 'native',
   },
+  CLAWD: {
+    name: 'clawd.atg.eth',
+    symbol: 'CLAWD',
+    oracleId: 'CLAWD',
+    address: '0x9f86dB9fc6f7c9408e8Fda3Ff8ce4e78ac7a6b07',
+    chainId: 8453,
+    decimals: 18,
+    website: 'https://x.com/clawdbotatg',
+    description: "clawd.atg.eth @austingriffith's ai agent",
+    bridge: 'native',
+  },
 } as const satisfies Record<string, Token>;
