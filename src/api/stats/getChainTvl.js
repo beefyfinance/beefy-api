@@ -7,6 +7,7 @@ import { EXCLUDED_IDS_FROM_TVL } from '../../constants';
 import { fetchContract } from '../rpc/client';
 import BeefyVaultV6Abi from '../../abis/BeefyVault';
 import ERC20Abi from '../../abis/ERC20Abi';
+import { getVaultBalanceOverride } from '../../data/vaultOverrides';
 
 const getChainTvl = async chain => {
   const apiChain = ChainId[chain.chainId];
@@ -113,7 +114,7 @@ const getVaultBalances = async (chainId, vaults) => {
     return contract.read.balance();
   });
   const res = await Promise.all(calls);
-  return res.map(v => new BigNumber(v.toString()));
+  return res.map((v, i) => getVaultBalanceOverride(vaults[i].id) ?? new BigNumber(v.toString()));
 };
 const getGovVaultBalances = async (chainId, govPools) => {
   if (!govPools) {
