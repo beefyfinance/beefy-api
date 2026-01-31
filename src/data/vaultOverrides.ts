@@ -5,10 +5,6 @@ import BigNumber from 'bignumber.js';
  * These vaults had their underlying platforms exploited, causing balance()
  * and getPricePerFullShare() to return incorrect values.
  * We override them with the last known correct values from before the incident.
- *
- * Values are stored as BigNumber-compatible strings to preserve precision.
- * - Balance values are in the vault's native token decimals (1e6 for USDC/USDT/AUSD)
- * - PricePerFullShare values are in 1e18 (standard vault PPFS decimals)
  */
 
 export interface VaultOverride {
@@ -22,12 +18,6 @@ export interface VaultOverride {
 /**
  * Registry of vault overrides.
  * All values are the last known correct values BEFORE the incident.
- *
- * To add a new override:
- * 1. Get the vault ID from the vault config
- * 2. Get the correct balance and PPFS from before the incident (use block explorer)
- * 3. Convert: balance = humanReadable * 10^tokenDecimals, ppfs = humanReadable * 10^18
- * 4. Add an entry to this object
  */
 const vaultOverridesData: Record<string, VaultOverride> = {
   'silov2-avalanche-ausd-valamore': {
