@@ -25,6 +25,7 @@ import { ChainId } from '../../../packages/address-book/src/types/chainid';
 import { fetchContract } from '../rpc/client';
 import { HARVESTABLE_VAULT_TYPES, sortVaults, VAULT_TYPES } from '../vaults/helpers';
 import BeefyVaultV6Abi from '../../abis/BeefyVault';
+import { getVaultPpfsOverride } from '../../data/vaultOverrides';
 
 const CACHE_KEY = 'VAULTS_BY_TYPE_CHAIN';
 const CACHE_VERSION = 1;
@@ -415,7 +416,7 @@ const vaultTypeHandlers: VaultTypeHandlers = {
     async (chain, vault) => {
       const [strategyAddress, pricePerFullShare] = await Promise.all([
         getStrategyAddress(chain, vault.earnContractAddress as Address),
-        getPricePerFullShare(chain, vault.earnContractAddress as Address),
+        getPricePerFullShare(chain, vault.earnContractAddress as Address, vault.id),
       ]);
       vault.strategy = strategyAddress;
       vault.pricePerFullShare = pricePerFullShare;
@@ -443,7 +444,7 @@ const vaultTypeHandlers: VaultTypeHandlers = {
     async (chain, vault) => {
       vault.strategy = vault.earnContractAddress;
       const [pricePerFullShare, lastHarvest] = await Promise.all([
-        getPricePerFullShare(chain, vault.earnContractAddress as Address),
+        getPricePerFullShare(chain, vault.earnContractAddress as Address, vault.id),
         getLastHarvest(chain, vault.strategy as Address),
       ]);
       vault.pricePerFullShare = pricePerFullShare;
@@ -461,12 +462,23 @@ async function getStrategyAddress(chain: ApiChain, vaultAddress: Address): Promi
   return strategyAddress;
 }
 
-async function getPricePerFullShare(chain: ApiChain, vaultAddress: Address): Promise<BigNumber> {
+/**
+ * @dev For vaults with underlying platform incidents, on-chain PPFS may be
+ * incorrect. We return hardcoded values from before the incident instead.
+ * See src/data/vaultOverrides.ts.
+ */
+async function getPricePerFullShare(
+  chain: ApiChain,
+  vaultAddress: Address,
+  vaultId?: string
+): Promise<BigNumber> {
+  const override = vaultId && getVaultPpfsOverride(vaultId);
+  if (override) return override;
+
   const chainId = ChainId[chain];
   const vaultContract = fetchContract(vaultAddress, BeefyVaultV6Abi, chainId);
   const result = await vaultContract.read.getPricePerFullShare();
-  const ppfs = new BigNumber(result.toString(10));
-  return ppfs;
+  return new BigNumber(result.toString(10));
 }
 
 async function getLastHarvest(chain: ApiChain, strategyAddress: Address): Promise<number> {
