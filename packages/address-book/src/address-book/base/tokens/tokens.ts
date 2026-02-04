@@ -3301,5 +3301,19 @@ export const tokens = {
     website: 'https://clawstr.com/',
     description: 'Clawstr is the decentralized social layer exclusively for AI agents built on Nostr. Agents own their identity, post, debate, build communities – powered by Bitcoin Lightning for zaps/payments.',
     bridge: 'native'
-  }
+  },
+  HYPE: {
+    name: 'HYPE',
+    symbol: 'HYPE',
+    oracleId: 'bHYPE',
+    address: '0x15D0e0c55a3E7eE67152aD7E89acf164253Ff68d',
+    chainId: 8453,
+    decimals: 18,
+    website: 'https://app.hyperliquid.xyz/trade',
+    description:
+      'Hyperliquid is a performant blockchain built with the vision of a fully onchain open financial system. Liquidity, user applications, and trading activity synergize on a unified platform that will ultimately house all of finance. ',
+    documentation: 'https://hyperliquid.gitbook.io/hyperliquid-docs',
+    bridge: 'wormhole',
+    tags: ['BLUECHIP'],
+  },
 } as const satisfies Record<string, Token>;

@@ -42,6 +42,136 @@
     }
   },
   {
+    "address": "0x5EBC333653286bA26a02bC208d0BE1822a6D1D4A",
+    "lpAddress": "0x8caD4aF4c6b4dd0eFd195407498E55eB9C328CD3",
+    "tokens": [
+      "0x4200000000000000000000000000000000000006",
+      "0x767A739D1A152639e9Ea1D8c1BD55FDC5B217D7f"
+    ],
+    "tokenOracleIds": [
+      "WETH",
+      "VEIL"
+    ],
+    "decimals": [
+      18,
+      18
+    ],
+    "oracleId": "aerodrome-cow-base-weth-veil",
+    "providerId": "aerodrome",
+    "rewardPool": {
+      "address": "0xb2a506BAe99a4c3B470C83f34467709a81A095ED",
+      "oracleId": "aerodrome-cow-base-weth-veil-rp"
+    },
+    "vault": {
+      "address": "0x65be6f7057bA2572bDE6C6F53eA4F977D2E65C8F",
+      "oracleId": "aerodrome-cow-base-weth-veil-vault"
+    }
+  },
+  {
+    "address": "0x7d725b5278c8A82A27722F751509691e2B1e8235",
+    "lpAddress": "0x9E48d016eE76cf53e2De8dc8058c7549c8c202DF",
+    "tokens": [
+      "0x15D0e0c55a3E7eE67152aD7E89acf164253Ff68d",
+      "0x4200000000000000000000000000000000000006"
+    ],
+    "tokenOracleIds": [
+      "bHYPE",
+      "WETH"
+    ],
+    "decimals": [
+      18,
+      18
+    ],
+    "oracleId": "aerodrome-cow-base-hype-weth",
+    "providerId": "aerodrome",
+    "rewardPool": {
+      "address": "0xD9F1ac54F370638B9757990C574Ec3B5cC8276C4",
+      "oracleId": "aerodrome-cow-base-hype-weth-rp"
+    },
+    "vault": {
+      "address": "0x035e24a26Ebb521BcDE41DdAb2a272be8b94C2Eb",
+      "oracleId": "aerodrome-cow-base-hype-weth-vault"
+    }
+  },
+  {
+    "address": "0xaA210011C9233b5DdEe8A8DC4f4F236164895Da9",
+    "lpAddress": "0xD4dC229A997a73E86c13e3ce8019be02cD4827a6",
+    "tokens": [
+      "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+      "0xf7C1CEfCf7E1dd8161e00099facD3E1Db9e528ee"
+    ],
+    "tokenOracleIds": [
+      "USDC",
+      "bTOWER"
+    ],
+    "decimals": [
+      6,
+      18
+    ],
+    "oracleId": "aerodrome-cow-base-usdc-tower",
+    "providerId": "aerodrome",
+    "rewardPool": {
+      "address": "0x193b7B8B3DDd579f58820BEDa02f30a35A5A15eb",
+      "oracleId": "aerodrome-cow-base-usdc-tower-rp"
+    },
+    "vault": {
+      "address": "0xA231A75CF76bf155064865DB7d3A0beaC96D4FEB",
+      "oracleId": "aerodrome-cow-base-usdc-tower-vault"
+    }
+  },
+  {
+    "address": "0x980Cf8f55B09bC33C75c286F61A1a534b421189d",
+    "lpAddress": "0xAa067F08FeF60420d050A92E7800E588748B7d67",
+    "tokens": [
+      "0x4200000000000000000000000000000000000006",
+      "0x7300B37DfdfAb110d83290A29DfB31B1740219fE"
+    ],
+    "tokenOracleIds": [
+      "WETH",
+      "MAMO"
+    ],
+    "decimals": [
+      18,
+      18
+    ],
+    "oracleId": "aerodrome-cow-base-weth-mamo",
+    "providerId": "aerodrome",
+    "rewardPool": {
+      "address": "0x2C302E7a49fe948f8ab6C64B89dAe2Abf6e44F16",
+      "oracleId": "aerodrome-cow-base-weth-mamo-rp"
+    },
+    "vault": {
+      "address": "0xf02715C274Ba259DfD427604831C430AD6380B79",
+      "oracleId": "aerodrome-cow-base-weth-mamo-vault"
+    }
+  },
+  {
+    "address": "0x2c2c42756D96E3E2D2d79D2a3a42322a0c57A7a7",
+    "lpAddress": "0x4c76Ef610b9F6FEeB3Ca70951BeF09ED31e7f6d0",
+    "tokens": [
+      "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+      "0x9f86dB9fc6f7c9408e8Fda3Ff8ce4e78ac7a6b07"
+    ],
+    "tokenOracleIds": [
+      "USDC",
+      "CLAWD"
+    ],
+    "decimals": [
+      6,
+      18
+    ],
+    "oracleId": "aerodrome-cow-base-usdc-clawd",
+    "providerId": "aerodrome",
+    "rewardPool": {
+      "address": "0x149dAb48f4Fe5834723B24a549cDaD24f30aC93a",
+      "oracleId": "aerodrome-cow-base-usdc-clawd-rp"
+    },
+    "vault": {
+      "address": "0xfc46fB262c3353bd0A85464857C31Ade2D125b45",
+      "oracleId": "aerodrome-cow-base-usdc-clawd-vault"
+    }
+  },
+  {
     "address": "0xa513Bf2186a803fb7e4fCC1e317A64c74318fCEb",
     "lpAddress": "0xCD55381a53da35Ab1D7Bc5e3fE5F76cac976FAc3",
     "tokens": [
