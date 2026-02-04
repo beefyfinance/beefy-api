@@ -2518,6 +2518,20 @@ export const tokens = {
     bridge: 'native',
     tags: ['NO_TIMELOCK', 'STABLECOIN', 'SYNTHETIC'],
   },
+  sUSDf: {
+    name: 'Staked Falcon USD',
+    symbol: 'sUSDf',
+    oracleId: 'sUSDf',
+    address: '0xc8CF6D7991f15525488b2A83Df53468D682Ba4B0',
+    chainId: 1,
+    decimals: 18,
+    website: 'https://app.falcon.finance/',
+    documentation: 'https://docs.falcon.finance/',
+    description:
+      'Falcon is the next-generation platform transforming synthetic dollars into sustainable yield opportunities. Falcon aims to empower users and institutions to unlock the true yield potential of their digital assets.',
+    bridge: 'native',
+    tags: ['NO_TIMELOCK', 'STABLECOIN', 'SYNTHETIC'],
+  },
   RLUSD: {
     name: 'RLUSD',
     symbol: 'RLUSD',
