@@ -33,7 +33,7 @@
       "0x4200000000000000000000000000000000000006"
     ],
     "tokenOracleIds": [
-      "HYPE",
+      "bHYPE",
       "WETH"
     ],
     "decimals": [
@@ -60,7 +60,7 @@
     ],
     "tokenOracleIds": [
       "USDC",
-      "TOWER"
+      "bTOWER"
     ],
     "decimals": [
       6,
