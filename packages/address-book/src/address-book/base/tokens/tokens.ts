@@ -3291,6 +3291,17 @@ export const tokens = {
     description: "clawd.atg.eth @austingriffith's ai agent",
     bridge: 'native',
   },
+  CLAWSTR: {
+    name: 'Clawstr',
+    symbol: 'CLAWSTR',
+    oracleId: 'CLAWSTR',
+    address: '0x81bE0217E166182D35B21E7d65D2b2bb7EA4Cb07',
+    chainId: 8453,
+    decimals: 18,
+    website: 'https://clawstr.com/',
+    description: 'Clawstr is the decentralized social layer exclusively for AI agents built on Nostr. Agents own their identity, post, debate, build communities – powered by Bitcoin Lightning for zaps/payments.',
+    bridge: 'native'
+  },
   HYPE: {
     name: 'HYPE',
     symbol: 'HYPE',
