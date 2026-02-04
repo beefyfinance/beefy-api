@@ -12,15 +12,9 @@ import { fetchPrice } from '../../../utils/fetchPrice';
 
 const {
   optimism: {
-    tokens: { USDC, 'wUSD+': wUSDplus, DAI, 'wDAI+': wDAIplus },
     platforms: { beethovenX },
   },
 } = addressBook;
-
-const bbUsdPlusPoolId = '0x88d07558470484c03d3bb44c3ecc36cafcf43253000000000000000000000051';
-const bbDaiPlusPoolId = '0xb5ad7d6d6f92a77f47f98c28c84893fbccc9480900000000000000000000006c';
-const bbUsdPlusTokens = [USDC, USDC, wUSDplus];
-const bbDaiPlusTokens = [DAI, DAI, wDAIplus];
 
 const pools = require('../../../data/optimism/beethovenxLpPools.json');
 
@@ -93,84 +87,19 @@ const getPoolApy = async pool => {
       : (aprFixed = (apr * qty[pool.lsIndex].dividedBy(totalQty).toNumber()) / 100);
   }
 
-  if (pool.overnight) {
-    const usdPlusTokenQtys = extraData.overnight[0];
-    const daiPlusTokenQtys = extraData.overnight[1];
-
-    let usdQty = [];
-    let usdTotalQty = new BigNumber(0);
-    for (let i = 0; i < usdPlusTokenQtys[1].length; i++) {
-      if (i != 1) {
-        const price = await fetchPrice({ oracle: 'tokens', id: bbUsdPlusTokens[i].oracleId });
-        const amt = new BigNumber(usdPlusTokenQtys[1][i])
-          .times(price)
-          .dividedBy(getEDecimals(bbUsdPlusTokens[i].decimals));
-        usdTotalQty = usdTotalQty.plus(amt);
-        usdQty.push(amt);
-        //console.log(price, amt.toString(), await getEDecimals(bbUsdPlusTokens[i].decimals));
-      }
-    }
-
-    let daiQty = [];
-    let daiTotalQty = new BigNumber(0);
-    for (let j = 0; j < daiPlusTokenQtys[1].length; j++) {
-      if (j != 1) {
-        const price = await fetchPrice({ oracle: 'tokens', id: bbDaiPlusTokens[j].oracleId });
-        const amt = new BigNumber(daiPlusTokenQtys[1][j])
-          .times(price)
-          .dividedBy(getEDecimals(bbDaiPlusTokens[j].decimals));
-        daiTotalQty = daiTotalQty.plus(amt);
-        daiQty.push(amt);
-      }
-    }
-
-    try {
-      const usdPlusResponse = extraData.overnight[2];
-      const usdPlusApr = usdPlusResponse.value;
-
-      const usdPlusFixed = (usdPlusApr * usdQty[1].dividedBy(usdTotalQty).toNumber()) / 100 / 2 / 2;
-
-      const daiPlusResponse = extraData.overnight[3];
-      const daiPlusApr = daiPlusResponse.value;
-
-      //  console.log(daiPlusResponse);
-
-      const daiPlusFixed = (daiPlusApr * daiQty[0].dividedBy(daiTotalQty).toNumber()) / 100 / 2 / 2;
-
-      // console.log(pool.name, usdPlusFixed, daiPlusFixed);
-      compAprFixed = usdPlusFixed + daiPlusFixed;
-    } catch (e) {
-      console.error(`Overnight APR error`, e);
-    }
-  }
   //console.log(pool.name, aprFixed, compAprFixed);
   return [rewardsApy, aprFixed, compAprFixed];
 };
 
 const getPoolExtraData = async pool => {
-  const overnightCalls = [];
   const lidoCalls = [];
   const balVault = fetchContract(beethovenX.router, IBalancerVault, OPTIMISM_CHAIN_ID);
-  if (pool.overnight) {
-    overnightCalls.push(balVault.read.getPoolTokens([bbUsdPlusPoolId]));
-    overnightCalls.push(balVault.read.getPoolTokens([bbDaiPlusPoolId]));
-    overnightCalls.push(
-      fetch('https://api.overnight.fi/optimism/usd+/fin-data/avg-apr/week').then(res => res.json())
-    );
-    overnightCalls.push(
-      fetch('https://api.overnight.fi/optimism/dai+/fin-data/avg-apr/week').then(res => res.json())
-    );
-  }
   if (pool.lidoUrl) {
     lidoCalls.push(balVault.read.getPoolTokens([pool.vaultPoolId]));
     lidoCalls.push(fetch(pool.lidoUrl).then(res => res.json()));
   }
-  const [lidoResults, overnightResults] = await Promise.all([
-    Promise.all(lidoCalls),
-    Promise.all(overnightCalls),
-  ]);
+  const [lidoResults] = await Promise.all([Promise.all(lidoCalls)]);
   let response = {};
-  if (pool.overnight) response.overnight = overnightResults;
   if (pool.lidoUrl) response.lido = lidoResults;
   return response;
 };

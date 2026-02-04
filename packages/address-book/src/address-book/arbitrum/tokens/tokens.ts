@@ -1289,20 +1289,6 @@ export const tokens = {
     bridge: 'native',
     documentation: 'https://docs.overnight.fi/',
   },
-  'arbwUSD+': {
-    name: 'Wrapped USD+',
-    symbol: 'wUSD+',
-    oracleId: 'arbwUSD+',
-    address: '0xB86fb1047A955C0186c77ff6263819b37B32440D',
-    chainId: 42161,
-    decimals: 6,
-    website: 'https://overnight.fi/',
-    description:
-      'wUSD+ is wrapped USD+, a yield-generating stablecoin backed by a portfolio of low-risk DeFi assets. It allows users to mint and redeem instantly against USDC, providing liquidity management, AMM trading, and leveraged yield farming opportunities. This capital-efficient stablecoin enables users to earn extra yield on their stablecoin holdings while participating in DeFi activities.',
-    bridge: 'native',
-    documentation: 'https://docs.overnight.fi/',
-    tags: ['CURATED'],
-  },
   'USDT+': {
     name: 'USDT+',
     symbol: 'USDT+',

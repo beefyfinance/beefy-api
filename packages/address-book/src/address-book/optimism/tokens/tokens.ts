@@ -569,19 +569,6 @@ export const tokens = {
     documentation: 'https://docs.rocketpool.net/guides/',
     tags: ['BLUECHIP'],
   },
-  'bbUSD+': {
-    name: 'Beets Composable Pool USD+ Stablecoin',
-    symbol: 'bbUSD+',
-    oracleId: 'bbUSD+',
-    address: '0x88D07558470484c03d3bb44c3ECc36CAfCF43253',
-    chainId: 10,
-    decimals: 18,
-    website: 'https://overnight.fi/',
-    description:
-      'USD+ is USDC that pays you yield daily via rebase.  It is 100% collateralized with assets immediately convertible into USDC.  Yield is generated via strategies such as lending and stable-to-stable pools. Initial strategies include Aave, Rubicon, and Pika.',
-    documentation: 'https://docs.overnight.fi/',
-    tags: ['CURATED'],
-  },
   'USD+': {
     name: 'USD+ Stablecoin',
     symbol: 'USD+',
@@ -592,20 +579,6 @@ export const tokens = {
     website: 'https://overnight.fi/',
     description:
       'USD+ is USDC that pays you yield daily via rebase.  It is 100% collateralized with assets immediately convertible into USDC.  Yield is generated via strategies such as lending and stable-to-stable pools. Initial strategies include Aave, Rubicon, and Pika.',
-    bridge: 'native',
-    documentation: 'https://docs.overnight.fi/',
-    tags: ['CURATED', 'STABLECOIN'],
-  },
-  'wUSD+': {
-    name: 'Wrapped USD+ Stablecoin',
-    symbol: 'wUSD+',
-    oracleId: 'wUSD+',
-    address: '0xA348700745D249c3b49D2c2AcAC9A5AE8155F826',
-    chainId: 10,
-    decimals: 6,
-    website: 'https://overnight.fi/',
-    description:
-      'wUSD+ is wrapped USD+, a yield-generating stablecoin backed by a portfolio of low-risk DeFi assets. It allows users to mint and redeem instantly against USDC, providing liquidity management, AMM trading, and leveraged yield farming opportunities. This capital-efficient stablecoin enables users to earn extra yield on their stablecoin holdings while participating in DeFi activities.',
     bridge: 'native',
     documentation: 'https://docs.overnight.fi/',
     tags: ['CURATED', 'STABLECOIN'],
@@ -623,32 +596,6 @@ export const tokens = {
     bridge: 'native',
     documentation: 'https://docs.overnight.fi/',
     tags: ['CURATED', 'STABLECOIN'],
-  },
-  'bbDAI+': {
-    name: 'Beets Composable Pool DAI+ Stablecoin',
-    symbol: 'bbDAI+',
-    oracleId: 'bbDAI+',
-    address: '0xb5ad7d6d6F92a77F47f98C28C84893FBccc94809',
-    chainId: 10,
-    decimals: 18,
-    website: 'https://overnight.fi/',
-    description:
-      'DAI+ is DAI that pays you yield daily via rebase.  It is 100% collateralized with assets immediately convertible into DAI.  Yield is generated via strategies such as lending and stable-to-stable pools. Initial strategies include Aave, Rubicon, and Pika.',
-    documentation: 'https://docs.overnight.fi/',
-    tags: ['CURATED'],
-  },
-  'wDAI+': {
-    name: 'Wrapped DAI+ Stablecoin',
-    symbol: 'wDAI+',
-    oracleId: 'wDAI+',
-    address: '0x0b8f31480249cC717081928B8aF733F45f6915BB',
-    chainId: 10,
-    decimals: 18,
-    website: 'https://overnight.fi/',
-    description:
-      'DAI+ is DAI that pays you yield daily via rebase.  It is 100% collateralized with assets immediately convertible into DAI.  Yield is generated via strategies such as lending and stable-to-stable pools. Initial strategies include Aave, Rubicon, and Pika.',
-    documentation: 'https://docs.overnight.fi/',
-    tags: ['CURATED'],
   },
   TUSD: {
     name: 'TrueUSD',

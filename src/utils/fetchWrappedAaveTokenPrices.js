@@ -62,10 +62,6 @@ const {
   },
   optimism: {
     tokens: {
-      'USD+': USDplus,
-      'wUSD+': wUSDplus,
-      'DAI+': DAIplus,
-      'wDAI+': wDAIplus,
       WETH: optWETH,
       waOptWETH,
       wstETH: optwstETH,
@@ -86,8 +82,6 @@ const {
       waaUSDC,
       aaDAI,
       waaDAI,
-      'USD+': arbUSDplus,
-      'arbwUSD+': arbwUSDplus,
       gDAI,
       stataArbUSDCn,
       stataArbUSDTn,
@@ -189,13 +183,6 @@ const tokens = {
     [aWETH, waWETH, true],
   ],
   optimism: [
-    [
-      {
-        oracleId: 'oUSD+',
-      },
-      wUSDplus,
-    ],
-    [DAIplus, wDAIplus],
     [optWETH, waOptWETH, true],
     [optwstETH, waOptwstETH, true],
     [optrETH, waOptrETH, true],
@@ -206,7 +193,6 @@ const tokens = {
     [aaUSDT, waaUSDT, true],
     [aaUSDC, waaUSDC, true],
     [aaDAI, waaDAI, true],
-    [arbUSDplus, arbwUSDplus],
     [DAI, gDAI, true, false],
     [aaUSDC, stataArbUSDCn],
     [aaUSDT, stataArbUSDTn],

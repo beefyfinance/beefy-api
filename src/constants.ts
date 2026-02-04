@@ -45,7 +45,7 @@ const DEFAULT_RPCS: ApiChainToRpcs = {
   emerald: ['https://emerald.oasis.dev'],
   optimism: ['https://optimism-mainnet.public.blastapi.io'],
   kava: ['https://kava-evm.publicnode.com'],
-  ethereum: ['https://eth.llamarpc.com'],
+  ethereum: ['https://rpc.eth.gateway.fm'],
   canto: ['https://canto-rpc.ansybl.io'],
   zksync: ['https://mainnet.era.zksync.io'],
   zkevm: ['https://zkevm-rpc.com'],
