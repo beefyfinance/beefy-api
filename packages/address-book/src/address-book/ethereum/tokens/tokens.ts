@@ -2909,6 +2909,20 @@ export const tokens = {
     bridge: 'native',
     tags: ['STABLECOIN', 'NO_TIMELOCK'],
   },
+  savUSD: {
+    name: 'Staked avUSD',
+    symbol: 'savUSD',
+    oracleId: 'savUSD',
+    address: '0xb8D89678E75a973E74698c976716308abB8a46A4',
+    chainId: 1,
+    decimals: 18,
+    website: 'https://app.avantprotocol.com/products',
+    documentation: 'https://docs.avantprotocol.com/overview/core-tokens#savusd-staked-avusd',
+    description:
+      'Avant’s flagship stable value token, minted when users deposit USDC. Users that stake their avUSD receive yield that is generated from market-neutral strategies put on by Avant’s trading partners. savUSD is a ERC-4626 tokenized vault that accrues avUSD over time. ',
+    bridge: 'chainlink-ccip',
+    tags: ['NO_TIMELOCK', 'STABLECOIN', 'SYNTHETIC'],
+  },
   OUSD: {
     name: 'Origin Dollar',
     symbol: 'OUSD',
