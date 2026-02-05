@@ -8,6 +8,7 @@ import { getApyBreakdown } from '../getApyBreakdownNew';
 const SECONDS_PER_YEAR = 31536000;
 
 interface EulerApiResponse {
+  apyCurrent?: number;
   vault?: {
     apyCurrent?: number;
   };
@@ -95,7 +96,7 @@ const getPoolsApysFromApi = async (chainId: ChainId, pools: EulerPool[]): Promis
       }
 
       const data: EulerApiResponse = await response.json();
-      const apyValue = data.vault?.apyCurrent;
+      const apyValue = data.apyCurrent;
       if (apyValue !== undefined && apyValue !== null) {
         // console.log(`${pool.name} APY:`, apyValue);
         return new BigNumber(apyValue).div(100); // Convert percentage to decimal
