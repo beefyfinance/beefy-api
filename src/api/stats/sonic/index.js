@@ -4,7 +4,6 @@ const getBeetsSonicApys = require('./getBeetsSonicApys');
 const { getBeefyCowSonicApys } = require('./getBeefyCowSonicApys');
 const { getSwapxApys } = require('./getSwapxApys');
 const { getSonicSiloApys } = require('./getSonicSiloApys');
-const { getPendleApys } = require('../common/pendle/getPendleApys');
 const { getCurveApys } = require('./getCurveApys');
 const { getAaveV3Apys } = require('./getAaveV3Apys');
 const getShadowApys = require('./getShadowApys');
@@ -18,7 +17,6 @@ const getApys = [
   getEqualizerApys,
   getBeetsSonicApys,
   getSwapxApys,
-  () => getPendleApys(require('../../../data/sonic/pendlePools.json')),
   getCurveApys,
   getSonicSiloApys,
   getShadowApys,

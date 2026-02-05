@@ -26,13 +26,5 @@
         "oracleId": "bWELL"
       }
     ]
-  },
-  {
-    "name": "pendle-base-lbtc-29may25",
-    "address": "0x727cebacfb10ffd353fc221d06a862b437ec1735",
-    "oracle": "tokens",
-    "oracleId": "WBTC",
-    "decimals": "1e8",
-    "chainId": 8453
   }
 ]

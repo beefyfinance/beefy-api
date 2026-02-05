@@ -7,39 +7,5 @@
     "oracleId": "OS",
     "decimals": "1e18",
     "chainId": 146
-  },
-  {
-    "name": "pendle-sonic-sts-18dec25",
-    "address": "0x7fa648887b2a10cbbf7c54d00d86d0b2a0a37b53",
-    "eqbGauge": "0xF6DC66F0Fb51007fe82C6aDb67baDD4B5cD0ed9e",
-    "oracle": "tokens",
-    "oracleId": "stS",
-    "decimals": "1e18"
-  },
-  {
-    "name": "pendle-sonic-wstkscusd-18dec25",
-    "address": "0x004f76045b42ef3e89814b12b37e69da19c8a212",
-    "eqbGauge": "0x59826B44288F2547d76A85B0D820eda193bc3aBe",
-    "oracle": "tokens",
-    "oracleId": "scUSD",
-    "decimals": "1e6"
-  },
-  {
-    "name": "pendle-sonic-wstksceth-18dec25",
-    "address": "0x7e2bcdb749d90aa1e9e7262872ac8b1e062b2c4d",
-    "eqbGauge": "0xeA6E519B1b809dC919C0a3296D36b4DCCDd88825",
-    "oracle": "tokens",
-    "oracleId": "scETH",
-    "decimals": "1e18"
-  },
-  {
-    "name": "pendle-sonic-ausdc-14aug25",
-    "address": "0x3f5ea53d1160177445b1898afbb16da111182418",
-    "eqbGauge": "0x2FA11DBcbF955467E6B6f81816B21250F8f3Ac30",
-    "eqbExternalSy": true,
-    "oracle": "tokens",
-    "oracleId": "sUSDCe",
-    "decimals": "1e6",
-    "chainId": 146
   }
 ]

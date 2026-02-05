@@ -229,7 +229,6 @@ export async function getNonAmmPrices(
       tokenPrices,
       {}
     ),
-    getPendleCommonPrices(BSC_CHAIN_ID, require('../../data/bsc/pendlePools.json'), tokenPrices, ammPrices),
     getPendleCommonPrices(BASE_CHAIN_ID, require('../../data/base/pendlePools.json'), tokenPrices, ammPrices),
     getPendleCommonPrices(SONIC_CHAIN_ID, require('../../data/sonic/pendlePools.json'), tokenPrices),
     getPendleCommonPrices(PLASMA_CHAIN_ID, require('../../data/plasma/pendlePools.json'), tokenPrices),
