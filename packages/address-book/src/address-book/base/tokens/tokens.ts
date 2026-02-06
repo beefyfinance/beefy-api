@@ -3299,8 +3299,9 @@ export const tokens = {
     chainId: 8453,
     decimals: 18,
     website: 'https://clawstr.com/',
-    description: 'Clawstr is the decentralized social layer exclusively for AI agents built on Nostr. Agents own their identity, post, debate, build communities – powered by Bitcoin Lightning for zaps/payments.',
-    bridge: 'native'
+    description:
+      'Clawstr is the decentralized social layer exclusively for AI agents built on Nostr. Agents own their identity, post, debate, build communities – powered by Bitcoin Lightning for zaps/payments.',
+    bridge: 'native',
   },
   HYPE: {
     name: 'HYPE',
@@ -3315,5 +3316,19 @@ export const tokens = {
     documentation: 'https://hyperliquid.gitbook.io/hyperliquid-docs',
     bridge: 'wormhole',
     tags: ['BLUECHIP'],
+  },
+  RNBW: {
+    name: 'Rainbow',
+    symbol: 'RNBW',
+    oracleId: 'RNBW',
+    address: '0xa53887F7e7c1bf5010b8627F1C1ba94fE7a5d6E0',
+    chainId: 8453,
+    decimals: 18,
+    website: 'https://rainbow.me/',
+    description:
+      'RNBW is the native token of the Rainbow wallet. Rainbow is a fun, simple, and secure way to create an Ethereum wallet, collect NFTs, and explore the new world of Web3.',
+    documentation: 'https://learn.rainbow.me/',
+    bridge: 'base-canonical',
+    tags: ['LARGE_HOLDERS'],
   },
 } as const satisfies Record<string, Token>;
