@@ -24,7 +24,7 @@ import { groupBy } from 'lodash';
  */
 
 async function start() {
-  const clmFiles = await fg('./src/data/**/beefyCowVaults.json');
+  const clmFiles = await fg(['./src/data/**/beefyCowVaults.json', '!./src/data/saga/beefyCowVaults.json']);
 
   const errorsPerFile = await Promise.all(clmFiles.map(checkFile));
   const totalErrors = errorsPerFile.reduce((acc, { errors }) => acc + errors.length, 0);
