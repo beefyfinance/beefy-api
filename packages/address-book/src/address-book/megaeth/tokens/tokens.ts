@@ -61,4 +61,16 @@ export const tokens = {
     documentation: 'https://docs.cap.app/',
     tags: ['STABLECOIN'],
   },
+  BTCb: {
+    name: 'Bitcoin',
+    symbol: 'BTC.b',
+    oracleId: 'BTCb',
+    address: '0xB0F70C0bD6FD87dbEb7C10dC692a2a6106817072',
+    chainId: 4326,
+    decimals: 8,
+    website: 'https://www.lombard.finance/',
+    description: 'BTC.b, issued by Lombard, is the flagship BTC asset on MegaETH.',
+    bridge: 'native',
+    tags: ['BLUECHIP', 'NO_TIMELOCK'],
+  },
 } as const satisfies Record<string, Token>;

@@ -1549,6 +1549,16 @@ const tokens: Partial<Record<keyof typeof ChainId, ConcentratedLiquidityToken[]>
       secondToken: 'AUSD',
     },
   ],
+  megaeth: [
+    {
+      type: 'UniV3',
+      oracleId: 'USDm',
+      decimalDelta: 1e-12,
+      pool: '0x6c8E5D463a2473b1A8bcd87e1cEA2724203A1D8f',
+      firstToken: 'USDm',
+      secondToken: 'USDT',
+    },
+  ],
 };
 
 async function getConcentratedLiquidityPrices(

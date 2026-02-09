@@ -219,7 +219,7 @@ export async function getNonAmmPrices(
     getBeefyCowHyperevmPrices(tokenPrices),
     getBeefyCowPlasmaPrices(tokenPrices),
     getBeefyCowMonadPrices(tokenPrices),
-    //getBeefyCowMegaethPrices(tokenPrices),
+    getBeefyCowMegaethPrices(tokenPrices),
     getPendleCommonPrices(ARB_CHAIN_ID, require('../../data/arbitrum/equilibriaPools.json'), tokenPrices),
     getPendleCommonPrices(ARB_CHAIN_ID, require('../../data/arbitrum/pendlePools.json'), tokenPrices, {}),
     getPendleCommonPrices(
