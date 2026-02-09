@@ -1,0 +1,64 @@
+import type { Token } from '../../../types/token.js';
+
+const ETH = {
+  name: 'Wrapped Ether',
+  address: '0x4200000000000000000000000000000000000006',
+  symbol: 'WETH',
+  oracleId: 'WETH',
+  decimals: 18,
+  chainId: 4326,
+  website: 'https://weth.io/',
+  description: 'Ether or ETH is the native currency built on the Ethereum blockchain.',
+  bridge: 'megaeth-canonical',
+  documentation: 'https://ethereum.org/en/developers/docs/',
+  tags: ['BLUECHIP'],
+} as const satisfies Token;
+
+export const tokens = {
+  WNATIVE: ETH,
+  FEES: ETH,
+  ETH,
+  WETH: ETH,
+  USDm: {
+    name: 'MegaUSD',
+    address: '0xFAfDdbb3FC7688494971a79cc65DCa3EF82079E7',
+    symbol: 'USDm',
+    oracleId: 'USDm',
+    decimals: 18,
+    website: 'https://www.megaeth.com/',
+    description:
+      "USDm is a stablecoin purpose-built to power real-time applications on MegaETH. USDm is issued through Ethena's stablecoin stack and designed to be deeply integrated across wallets, apps, and onchain services on MegaETH.",
+    bridge: 'layer-zero',
+    chainId: 4326,
+    documentation: 'https://www.megaeth.com/blog-news/megaeth-introduces-usdm',
+    tags: ['STABLECOIN', 'NO_TIMELOCK'],
+  },
+  USDT0: {
+    name: 'USDT0',
+    symbol: 'USDT0',
+    oracleId: 'USDT0',
+    address: '0xB8CE59FC3717ada4C02eaDF9682A9e934F625ebb',
+    chainId: 4326,
+    decimals: 6,
+    website: 'https://tether.to/',
+    description:
+      'Tether is a stablecoin pegged to the US Dollar. A stablecoin is a type of cryptocurrency whose value is pegged to another fiat currency like the US Dollar or to a commodity like Gold. Tether is the first stablecoin to be created and it is the most popular stablecoin used in the ecosystem.',
+    bridge: 'layer-zero',
+    documentation: 'https://tether.to/en/how-it-works',
+    tags: ['STABLECOIN'],
+  },
+  cUSD: {
+    name: 'cUSD',
+    symbol: 'cUSD',
+    oracleId: 'cUSD',
+    address: '0xcCcc62962d17b8914c62D74FfB843d73B2a3cccC',
+    chainId: 4326,
+    decimals: 18,
+    website: 'https://www.cap.app/',
+    description:
+      "cUSD is Cap's yield-generating stablecoin built on verifiable guarantees from Symbiotic and Eigenlayer. Cap generates yield via operators ranging from banks, HFT firms, and market makers and yields are passed on to cUSD holders.",
+    bridge: 'layer-zero',
+    documentation: 'https://docs.cap.app/',
+    tags: ['STABLECOIN'],
+  },
+} as const satisfies Record<string, Token>;
