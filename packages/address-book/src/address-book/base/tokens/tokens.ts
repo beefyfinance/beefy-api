@@ -3331,4 +3331,18 @@ export const tokens = {
     bridge: 'base-canonical',
     tags: ['LARGE_HOLDERS'],
   },
+  XSGD: {
+    name: 'XSGD',
+    symbol: 'XSG',
+    oracleId: 'XSG',
+    address: '0x0A4C9cb2778aB3302996A34BeFCF9a8Bc288C33b',
+    chainId: 8453,
+    decimals: 6,
+    website: 'https://www.straitsx.com/',
+    description:
+      'XSGD is the StraitsX digital Singapore Dollar, designed to revolutionise money transfers across the region.',
+    documentation: 'https://www.straitsx.com/xsgd',
+    bridge: 'native',
+    tags: ['STABLECOIN', 'NO_TIMELOCK', 'LARGE_HOLDERS', 'SYNTHETIC'],
+  },
 } as const satisfies Record<string, Token>;
