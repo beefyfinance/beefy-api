@@ -117,6 +117,9 @@ const {
 
   MONAD_CHAIN_ID,
   MONAD_VAULTS_ENDPOINT,
+
+  MEGAETH_CHAIN_ID,
+  MEGAETH_VAULTS_ENDPOINT,
 } = require('../../constants');
 const { getKey, setKey } = require('../../utils/cache');
 
@@ -282,6 +285,10 @@ const chains = [
   {
     chainId: MONAD_CHAIN_ID,
     vaultsEndpoint: MONAD_VAULTS_ENDPOINT,
+  },
+  {
+    chainId: MEGAETH_CHAIN_ID,
+    vaultsEndpoint: MEGAETH_VAULTS_ENDPOINT,
   },
 ];
 

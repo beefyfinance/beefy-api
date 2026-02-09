@@ -249,6 +249,7 @@ const rpcs: Record<ChainId, string[]> = {
   [ChainId.hyperevm]: ['https://rpc.hyperliquid.xyz/evm'],
   [ChainId.plasma]: ['https://rpc.plasma.to'],
   [ChainId.monad]: ['https://rpc-mainnet.monadinfra.com'],
+  [ChainId.megaeth]: ['https://mainnet.megaeth.com/rpc'],
 };
 
 export const getChainRpcs = (chainId: ChainId): string[] => rpcs[chainId] ?? [];

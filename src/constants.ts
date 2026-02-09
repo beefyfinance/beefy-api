@@ -67,6 +67,7 @@ const DEFAULT_RPCS: ApiChainToRpcs = {
   hyperevm: ['https://rpc.hyperliquid.xyz/evm'],
   plasma: ['https://rpc.plasma.to'],
   monad: ['https://rpc-mainnet.monadinfra.com'],
+  megaeth: ['https://mainnet.megaeth.com/rpc'],
 } as const;
 
 const chainToRpcEnvKeyPrefix = {
@@ -156,6 +157,7 @@ const SAGA_CHAIN_ID = ChainId.saga;
 const HYPEREVM_CHAIN_ID = ChainId.hyperevm;
 const PLASMA_CHAIN_ID = ChainId.plasma;
 const MONAD_CHAIN_ID = ChainId.monad;
+const MEGAETH_CHAIN_ID = ChainId.megaeth;
 
 /// LP Fee
 const SUSHI_LPF = 0.003;
@@ -256,6 +258,8 @@ const PLASMA_VAULTS_ENDPOINT =
   'https://raw.githubusercontent.com/beefyfinance/beefy-v2/prod/src/config/vault/plasma.json';
 const MONAD_VAULTS_ENDPOINT =
   'https://raw.githubusercontent.com/beefyfinance/beefy-v2/prod/src/config/vault/monad.json';
+const MEGAETH_VAULTS_ENDPOINT =
+  'https://raw.githubusercontent.com/beefyfinance/beefy-v2/prod/src/config/vault/megaeth.json';
 
 const MULTICHAIN_ENDPOINTS: Partial<Record<ApiChain, string>> = {
   bsc: BSC_VAULTS_ENDPOINT,
@@ -298,6 +302,7 @@ const MULTICHAIN_ENDPOINTS: Partial<Record<ApiChain, string>> = {
   hyperevm: HYPEREVM_VAULTS_ENDPOINT,
   plasma: PLASMA_VAULTS_ENDPOINT,
   monad: MONAD_VAULTS_ENDPOINT,
+  megaeth: MEGAETH_VAULTS_ENDPOINT,
 } as const;
 
 const EXCLUDED_IDS_FROM_TVL = ['venus-wbnb'];
@@ -355,6 +360,7 @@ export const {
   HYPEREVM_RPC,
   PLASMA_RPC,
   MONAD_RPC,
+  MEGAETH_RPC,
 } = RPC_BY_ENV_KEY;
 
 export {
@@ -424,6 +430,8 @@ export {
   PLASMA_VAULTS_ENDPOINT,
   MONAD_CHAIN_ID,
   MONAD_VAULTS_ENDPOINT,
+  MEGAETH_CHAIN_ID,
+  MEGAETH_VAULTS_ENDPOINT,
   BASE_HPY,
   MINUTELY_HPY,
   HOURLY_HPY,
