@@ -3333,8 +3333,8 @@ export const tokens = {
   },
   XSGD: {
     name: 'XSGD',
-    symbol: 'XSG',
-    oracleId: 'XSG',
+    symbol: 'XSGD',
+    oracleId: 'XSGD',
     address: '0x0A4C9cb2778aB3302996A34BeFCF9a8Bc288C33b',
     chainId: 8453,
     decimals: 6,
