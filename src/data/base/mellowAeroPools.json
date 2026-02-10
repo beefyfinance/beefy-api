@@ -1,5 +1,25 @@
 [
   {
+    "name": "mellow-aero-tbtc-cbbtc",
+    "address": "0x331efe99464d3A1CAD008c720e699F7FD318FEF6",
+    "tokens": ["tBTC", "cbBTC"]
+  },
+  {
+    "name": "mellow-aero-weth-aero",
+    "address": "0x20fa0aFf0368E1B07c24EE0060320512c9Cd41bC",
+    "tokens": ["WETH", "AERO"]
+  },
+  {
+    "name": "mellow-aero-usdc-usdt",
+    "address": "0x33DB29651B30C09c0a9184893215905E5F536130",
+    "tokens": ["USDC", "USDT"]
+  },
+  {
+    "name": "mellow-aero-cbeth-weth",
+    "address": "0x23Ea5566530028d71651219ABb5a421ed383c7F1",
+    "tokens": ["cbETH", "WETH"]
+  },
+  {
     "name": "mellow-aero-weth-cbbtc",
     "address": "0xB9DB6804e84D960E139A2BdC33bfC30f8fb689Fe",
     "tokens": ["WETH", "cbBTC"]
