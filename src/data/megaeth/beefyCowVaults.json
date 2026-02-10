@@ -1,5 +1,29 @@
 [
   {
+    "address": "0xD76D0173b79e09002328F791774867935E1E61Fe",
+    "lpAddress": "0xC2FaC0B5B6C075819E654bcFbBBCda2838609d32",
+    "tokens": ["0x4200000000000000000000000000000000000006", "0xFAfDdbb3FC7688494971a79cc65DCa3EF82079E7"],
+    "tokenOracleIds": ["WETH", "USDm"],
+    "decimals": [18, 18],
+    "oracleId": "prism-cow-megaeth-weth-usdm",
+    "rewardPool": {
+      "address": "0xf995A90E338f2AE6456F79777f3BBAC42c411F7B",
+      "oracleId": "prism-cow-megaeth-weth-usdm-rp"
+    }
+  },
+  {
+    "address": "0x795Fe6681b3B7D11a9fcf4CB92aD1Fbe65b45182",
+    "lpAddress": "0xd2C7D4B8083FDD91Cf6A05c53139F34a187dc633",
+    "tokens": ["0x4200000000000000000000000000000000000006", "0xB0F70C0bD6FD87dbEb7C10dC692a2a6106817072"],
+    "tokenOracleIds": ["WETH", "BTCb"],
+    "decimals": [18, 8],
+    "oracleId": "prism-cow-megaeth-weth-btcb",
+    "rewardPool": {
+      "address": "0x3306e96bb2CB449BB7b1F794fCc890294c44dc36",
+      "oracleId": "prism-cow-megaeth-weth-btcb-rp"
+    }
+  },
+  {
     "address": "0xD14c23ed38195C8c754e793849953DF984dAb529",
     "lpAddress": "0x2809696F2e42eB452C32C3d0A2Dc540858C14125",
     "tokens": ["0x4200000000000000000000000000000000000006", "0xB8CE59FC3717ada4C02eaDF9682A9e934F625ebb"],
