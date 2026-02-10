@@ -3345,4 +3345,16 @@ export const tokens = {
     bridge: 'native',
     tags: ['STABLECOIN', 'NO_TIMELOCK', 'LARGE_HOLDERS', 'SYNTHETIC'],
   },
+  CLAWNCH: {
+    name: 'CLAWNCH',
+    symbol: 'CLAWNCH',
+    oracleId: 'CLAWNCH',
+    address: '0xa1F72459dfA10BAD200Ac160eCd78C6b77a747be',
+    chainId: 8453,
+    decimals: 18,
+    website: 'https://clawn.ch/',
+    description: 'Agent-only token launches for Moltbook. Deploy via Clanker, earn trading fees.',
+    bridge: 'native',
+    tags: ['MEMECOIN'],
+  },
 } as const satisfies Record<string, Token>;

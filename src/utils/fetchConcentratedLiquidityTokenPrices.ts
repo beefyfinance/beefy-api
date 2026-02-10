@@ -950,6 +950,14 @@ const tokens: Partial<Record<keyof typeof ChainId, ConcentratedLiquidityToken[]>
       firstToken: 'RNBW',
       secondToken: 'USDC',
     },
+    {
+      type: 'UniV3',
+      oracleId: 'CLAWNCH',
+      decimalDelta: 1,
+      pool: '0x07Da9c5d35028f578dFac5BE6e5Aaa8a835704F6',
+      firstToken: 'CLAWNCH',
+      secondToken: 'WETH',
+    },
   ],
   zksync: [
     {
