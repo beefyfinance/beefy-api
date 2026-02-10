@@ -1,5 +1,29 @@
 [
   {
+    "address": "0xdcDB09546179E38E41E39E8a14FDcC1dec885722",
+    "lpAddress": "0xab72F355eE690252A07D197B2A17E3a232419f39",
+    "tokens": ["0x021ee124cF23D302A7f725AE7a01B77A8ce9782B", "0x4200000000000000000000000000000000000006"],
+    "tokenOracleIds": ["DUCK", "WETH"],
+    "decimals": [18, 18],
+    "oracleId": "kumbaya-cow-megaeth-duck-weth",
+    "rewardPool": {
+      "address": "0xcF1E70521833fF53290d000dc24A671aE0246912",
+      "oracleId": "kumbaya-cow-megaeth-duck-weth-rp"
+    }
+  },
+  {
+    "address": "0xA745AEf3e54f2Fa45560a8FC8cEE190479D8E7D4",
+    "lpAddress": "0x39fb3F1649e752d1590E95151784fc941320bbd0",
+    "tokens": ["0x3F927036A6c29F50e1c2dfceba572FC40Cf39069", "0x4200000000000000000000000000000000000006"],
+    "tokenOracleIds": ["KPI", "WETH"],
+    "decimals": [18, 18],
+    "oracleId": "kumbaya-cow-megaeth-kpi-weth",
+    "rewardPool": {
+      "address": "0xE179CD753dE84504615129CB333242D71Ec3af0c",
+      "oracleId": "kumbaya-cow-megaeth-kpi-weth-rp"
+    }
+  },
+  {
     "address": "0xD76D0173b79e09002328F791774867935E1E61Fe",
     "lpAddress": "0xC2FaC0B5B6C075819E654bcFbBBCda2838609d32",
     "tokens": ["0x4200000000000000000000000000000000000006", "0xFAfDdbb3FC7688494971a79cc65DCa3EF82079E7"],
