@@ -73,4 +73,30 @@ export const tokens = {
     bridge: 'native',
     tags: ['BLUECHIP', 'NO_TIMELOCK'],
   },
+  DUCK: {
+    name: 'Duck',
+    symbol: 'DUCK',
+    oracleId: 'DUCK',
+    address: '0x021ee124cF23D302A7f725AE7a01B77A8ce9782B',
+    chainId: 4326,
+    decimals: 18,
+    website: 'https://x.com/i/communities/2018998830381793548',
+    description:
+      'This is THE first token launched on MegaETH mainnet, birthed into existence through Kumbaya like a beautiful decentralized big bang of degeneracy and innovation.',
+    bridge: 'native',
+    tags: ['MEMECOIN'],
+  },
+  KPI: {
+    name: 'Kumbaya Pump Initiative',
+    symbol: 'KPI',
+    oracleId: 'KPI',
+    address: '0x3F927036A6c29F50e1c2dfceba572FC40Cf39069',
+    chainId: 4326,
+    decimals: 18,
+    website: 'https://www.kumbaya.xyz/#/launch/0x3F927036A6c29F50e1c2dfceba572FC40Cf39069',
+    description:
+      "KPI this, KPI that. These motherfuckers at MegaETH love KPIs. They won't even launch $MEGA till we pump their chain. The challenge for Kumbaya Pump Initative is to hit the KPIs fast as fuck. Help Kumbaya generate fee, make holders disgustingly rich. Let's pump the $KPI.",
+    bridge: 'native',
+    tags: ['MEMECOIN'],
+  },
 } as const satisfies Record<string, Token>;

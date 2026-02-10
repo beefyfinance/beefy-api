@@ -1558,6 +1558,22 @@ const tokens: Partial<Record<keyof typeof ChainId, ConcentratedLiquidityToken[]>
       firstToken: 'USDm',
       secondToken: 'USDT',
     },
+    {
+      type: 'UniV3',
+      oracleId: 'DUCK',
+      decimalDelta: 1,
+      pool: '0xab72F355eE690252A07D197B2A17E3a232419f39',
+      firstToken: 'WETH',
+      secondToken: 'DUCK',
+    },
+    {
+      type: 'UniV3',
+      oracleId: 'KPI',
+      decimalDelta: 1,
+      pool: '0x39fb3F1649e752d1590E95151784fc941320bbd0',
+      firstToken: 'WETH',
+      secondToken: 'KPI',
+    },
   ],
 };
 
