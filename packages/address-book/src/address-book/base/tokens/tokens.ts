@@ -3357,4 +3357,18 @@ export const tokens = {
     bridge: 'native',
     tags: ['MEMECOIN'],
   },
+  UP: {
+    name: 'Superform',
+    symbol: 'UP',
+    oracleId: 'UP',
+    address: '0x5b2193fDc451C1f847bE09CA9d13A4Bf60f8c86B',
+    chainId: 8453,
+    decimals: 18,
+    website: 'https://www.superform.xyz/',
+    description:
+      'Superform is an onchain neobank that helps you earn, swap, send, and spend stablecoins & crypto from one convenient location across web and mobile.',
+    documentation: 'https://help.superform.xyz/en/',
+    bridge: 'layer-zero',
+    tags: ['LARGE_HOLDERS', 'NO_TIMELOCK'],
+  },
 } as const satisfies Record<string, Token>;
