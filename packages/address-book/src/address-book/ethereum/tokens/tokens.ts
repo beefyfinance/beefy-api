@@ -2937,4 +2937,32 @@ export const tokens = {
     bridge: 'native',
     tags: ['STABLECOIN'],
   },
+  MUSD: {
+    name: 'Mezo USD',
+    symbol: 'MUSD',
+    oracleId: 'MUSD',
+    address: '0xdD468A1DDc392dcdbEf6db6e34E89AA338F9F186',
+    chainId: 1,
+    decimals: 18,
+    website: 'https://mezo.org/',
+    documentation: 'https://mezo.org/docs/users/musd',
+    description:
+      'MUSD is a permissionless stablecoin 100% backed by Bitcoin reserves and designed to maintain a 1:1 peg with the U.S. dollar. It is the native stablecoin on Mezo, accessible via Mezo’s ‘Borrow’ feature or decentralized exchanges on Mezo Network.',
+    bridge: 'native',
+    tags: ['NO_TIMELOCK', 'STABLECOIN', 'SYNTHETIC'],
+  },
+  ynRWAx: {
+    name: 'YieldNest RWA MAX',
+    symbol: 'ynRWAx',
+    oracleId: 'ynRWAx',
+    address: '0x01Ba69727E2860b37bc1a2bd56999c1aFb4C15D8',
+    chainId: 1,
+    decimals: 18,
+    website: 'https://app.yieldnest.finance/',
+    documentation: 'https://docs.yieldnest.finance/protocol-design/max-vaults/ynrwa-max-ynrwax',
+    description:
+      'ynRWAx is a curated Real-World Asset (RWA) product that provides users with streamlined access to stable, real-world yields. Backed by real, off-chain collateral uncorrelated with crypto markets and diversified across varying durations, ynRWAx is designed for users looking to park their USDC and earn stable, RWA-backed returns on their crypto assets.',
+    bridge: 'native',
+    tags: ['STABLECOIN', 'SYNTHETIC'],
+  },
 } as const satisfies Record<string, Token>;

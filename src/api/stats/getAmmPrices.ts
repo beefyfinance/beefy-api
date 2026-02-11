@@ -236,6 +236,8 @@ const coinGeckoCoins: Record<string, string[]> = {
   'stakewise-v3-oseth': ['osETH'],
   'hemi-bitcoin': ['hemiBTC'],
   'origin-dollar': ['OUSD'],
+  'mezo-usd': ['MUSD'],
+  'yieldnest-rwa-max': ['ynRWAx'],
 };
 
 /**
