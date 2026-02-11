@@ -195,6 +195,12 @@
     "pool": "0x625E92624Bc2D88619ACCc1788365A69767f6200",
     "gauge": "0xf69Fb60B79E463384b40dbFDFB633AB5a863C9A2",
     "rewardPool": "0x79579633029a61963eDfbA1C0BE22498b6e0D33D",
+    "extras": [
+      {
+        "rewardPool": "0xee735CF60221e13eA768F453Cd00B4B4F9867b4F",
+        "oracleId": "YB"
+      }
+    ],
     "tokens": [
       {
         "oracleId": "PYUSD",
