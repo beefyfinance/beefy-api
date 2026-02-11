@@ -1,5 +1,22 @@
 [
   {
+    "address": "0x414f708d016b3B3dAC86DcCCB18F2B1698D4e3BA",
+    "lpAddress": "0x1E726F3177a933cc134Fd0ea7C326EAb270E0137",
+    "tokens": ["0x5b2193fDc451C1f847bE09CA9d13A4Bf60f8c86B", "0xcbB7C0000aB88B473b1f5aFd9ef808440eed33Bf"],
+    "tokenOracleIds": ["UP", "cbBTC"],
+    "decimals": [18, 8],
+    "oracleId": "aerodrome-cow-base-up-cbbtc",
+    "providerId": "aerodrome",
+    "rewardPool": {
+      "address": "0x12bd82027d69b455E51B128fd0C6154Cf48DaDE5",
+      "oracleId": "aerodrome-cow-base-up-cbbtc-rp"
+    },
+    "vault": {
+      "address": "0xcee49649b2A84A479Af75364bC61E6C359F67D7c",
+      "oracleId": "aerodrome-cow-base-up-cbbtc-vault"
+    }
+  },
+  {
     "address": "0x5998CBF86fF6E2Aab65686430f577c06dff916Af",
     "lpAddress": "0x07Da9c5d35028f578dFac5BE6e5Aaa8a835704F6",
     "tokens": ["0x4200000000000000000000000000000000000006", "0xa1F72459dfA10BAD200Ac160eCd78C6b77a747be"],
