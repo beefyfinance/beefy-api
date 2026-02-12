@@ -2965,4 +2965,17 @@ export const tokens = {
     bridge: 'native',
     tags: ['STABLECOIN', 'SYNTHETIC'],
   },
+  tETH: {
+    name: 'Treehouse ETH',
+    symbol: 'tETH',
+    oracleId: 'tETH',
+    address: '0xD11c452fc99cF405034ee446803b6F6c1F6d5ED8',
+    chainId: 1,
+    decimals: 18,
+    website: 'https://www.treehouse.finance/',
+    documentation: 'https://docs.treehouse.finance/protocol',
+    description:
+      'Treehouse is a decentralized application that introduces Treehouse Assets (tAssets) and Decentralized Offered Rates (DOR), new primitives that enable fixed income products in digital assets. ',
+    bridge: 'native',
+  },
 } as const satisfies Record<string, Token>;
