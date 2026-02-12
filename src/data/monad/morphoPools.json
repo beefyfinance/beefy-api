@@ -1,5 +1,23 @@
 [
   {
+    "name": "morpho-monad-steakhouse-prime-weth",
+    "address": "0xbeef04b01e0275D4ac2e2986256BB14E3Ff6ef42",
+    "oracle": "tokens",
+    "oracleId": "WETH",
+    "decimals": "1e18",
+    "v2": true,
+    "skim": true
+  },
+  {
+    "name": "morpho-monad-steakhouse-high-yield-usdt",
+    "address": "0xbeeff300E9A9caeC7beEA740ab8758D33b777509",
+    "oracle": "tokens",
+    "oracleId": "USDT",
+    "decimals": "1e6",
+    "v2": true,
+    "skim": true
+  },
+  {
     "name": "morpho-monad-hyperithm-usdc",
     "address": "0x78999cc96d2Ba0341588C60CcB0E91c6C33CF371",
     "oracle": "tokens",
