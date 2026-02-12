@@ -45,4 +45,5 @@ export interface BeefyFinance {
   beefyOracleSolidly?: string;
   beefyOracleAlgebra?: string;
   beefyMultiHopSwapper?: string;
+  beefyUniV4Swapper?: string;
 }
