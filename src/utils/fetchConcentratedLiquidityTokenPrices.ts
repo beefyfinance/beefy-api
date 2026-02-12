@@ -966,6 +966,22 @@ const tokens: Partial<Record<keyof typeof ChainId, ConcentratedLiquidityToken[]>
       firstToken: 'cbBTC',
       secondToken: 'UP',
     },
+    {
+      type: 'UniV3',
+      oracleId: 'FAIR',
+      decimalDelta: 1,
+      pool: '0xFC01837343cfC2A9dDCA9e8a0a19825f6b2f0460',
+      firstToken: 'FAIR',
+      secondToken: 'WETH',
+    },
+    {
+      type: 'UniV3',
+      oracleId: 'OWB',
+      decimalDelta: 1e-12,
+      pool: '0xf252f51919Dfca2C9C0eA279f11183580edEe4D6',
+      firstToken: 'OWB',
+      secondToken: 'USDC',
+    },
   ],
   zksync: [
     {
