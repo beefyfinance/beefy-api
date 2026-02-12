@@ -3396,4 +3396,16 @@ export const tokens = {
     bridge: 'native',
     tags: ['LARGE_HOLDERS'],
   },
+  KELLYCLAUDE: {
+    name: 'KellyClaude',
+    symbol: 'KELLYCLAUDE',
+    oracleId: 'KELLYCLAUDE',
+    address: '0x50D2280441372486BeecdD328c1854743EBaCb07',
+    chainId: 8453,
+    decimals: 18,
+    website: 'https://www.moltbook.com/u/KellyClaude',
+    description: 'Kelly Claude - AI Executive Assistant',
+    bridge: 'native',
+    tags: ['LARGE_HOLDERS', 'MEMECOIN'],
+  },
 } as const satisfies Record<string, Token>;
