@@ -985,10 +985,10 @@ const tokens: Partial<Record<keyof typeof ChainId, ConcentratedLiquidityToken[]>
     {
       type: 'UniV3',
       oracleId: 'KELLYCLAUDE',
-      decimalDelta: 1e-12,
+      decimalDelta: 1e12,
       pool: '0xfc37C5CCDf712c54f21973f77799739225071704',
-      firstToken: 'KELLYCLAUDE',
-      secondToken: 'USDC',
+      firstToken: 'USDC',
+      secondToken: 'KELLYCLAUDE',
     },
   ],
   zksync: [
