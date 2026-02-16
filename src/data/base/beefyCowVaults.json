@@ -1,5 +1,31 @@
 [
-    {
+  {
+    "address": "0x151c63b2A4db7e345dFD2aE97a554232186c00aC",
+    "lpAddress": "0xBc3231036Ee1ECa03E5F67FEceDC640D21610823",
+    "tokens": [
+      "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+      "0xF4d97F2da56e8c3098f3a8D538DB630A2606a024"
+    ],
+    "tokenOracleIds": [
+      "USDC",
+      "DIEM"
+    ],
+    "decimals": [
+      6,
+      18
+    ],
+    "oracleId": "aerodrome-cow-base-usdc-diem",
+    "providerId": "aerodrome",
+    "rewardPool": {
+      "address": "0x87784d10D466609a07Eb78Ec333896FFd22bfB54",
+      "oracleId": "aerodrome-cow-base-usdc-diem-rp"
+    },
+    "vault": {
+      "address": "0xAFb083903944eD84F024b125453bc66B7e898C52",
+      "oracleId": "aerodrome-cow-base-usdc-diem-vault"
+    }
+  },
+  {
     "address": "0x52Bdfa24C254C4e1E66386128C611F71009B2e9b",
     "lpAddress": "0x5230845439Fa66FBEA20aF7cf09BC413B99E10B7",
     "tokens": [
@@ -154,9 +180,18 @@
   {
     "address": "0xDe11Edf36A145e809021C2Db31aF216Ec26B0102",
     "lpAddress": "0xFC01837343cfC2A9dDCA9e8a0a19825f6b2f0460",
-    "tokens": ["0x4200000000000000000000000000000000000006", "0x7D928816CC9c462DD7adef911De41535E444CB07"],
-    "tokenOracleIds": ["WETH", "FAIR"],
-    "decimals": [18, 18],
+    "tokens": [
+      "0x4200000000000000000000000000000000000006",
+      "0x7D928816CC9c462DD7adef911De41535E444CB07"
+    ],
+    "tokenOracleIds": [
+      "WETH",
+      "FAIR"
+    ],
+    "decimals": [
+      18,
+      18
+    ],
     "oracleId": "uniswap-cow-base-weth-fair",
     "rewardPool": {
       "address": "0xbB332ACeeb0ddF9Bd82458d0504c9DF1c21f8d8d",
@@ -166,9 +201,18 @@
   {
     "address": "0x414f708d016b3B3dAC86DcCCB18F2B1698D4e3BA",
     "lpAddress": "0x1E726F3177a933cc134Fd0ea7C326EAb270E0137",
-    "tokens": ["0x5b2193fDc451C1f847bE09CA9d13A4Bf60f8c86B", "0xcbB7C0000aB88B473b1f5aFd9ef808440eed33Bf"],
-    "tokenOracleIds": ["UP", "cbBTC"],
-    "decimals": [18, 8],
+    "tokens": [
+      "0x5b2193fDc451C1f847bE09CA9d13A4Bf60f8c86B",
+      "0xcbB7C0000aB88B473b1f5aFd9ef808440eed33Bf"
+    ],
+    "tokenOracleIds": [
+      "UP",
+      "cbBTC"
+    ],
+    "decimals": [
+      18,
+      8
+    ],
     "oracleId": "aerodrome-cow-base-up-cbbtc",
     "providerId": "aerodrome",
     "rewardPool": {
@@ -183,9 +227,18 @@
   {
     "address": "0x5998CBF86fF6E2Aab65686430f577c06dff916Af",
     "lpAddress": "0x07Da9c5d35028f578dFac5BE6e5Aaa8a835704F6",
-    "tokens": ["0x4200000000000000000000000000000000000006", "0xa1F72459dfA10BAD200Ac160eCd78C6b77a747be"],
-    "tokenOracleIds": ["WETH", "CLAWNCH"],
-    "decimals": [18, 18],
+    "tokens": [
+      "0x4200000000000000000000000000000000000006",
+      "0xa1F72459dfA10BAD200Ac160eCd78C6b77a747be"
+    ],
+    "tokenOracleIds": [
+      "WETH",
+      "CLAWNCH"
+    ],
+    "decimals": [
+      18,
+      18
+    ],
     "oracleId": "uniswap-cow-base-weth-clawnch",
     "rewardPool": {
       "address": "0xA368aaBe33Ae8dDa65a7c5BB43634dc1a69D2C92",
