@@ -1,5 +1,31 @@
 [
   {
+    "address": "0x330A1b8C9a39dF4B1101AB300382E32306791A26",
+    "lpAddress": "0xe2B182796518E76845f46ccDC522495D81630d14",
+    "tokens": [
+      "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+      "0xFb31f85A8367210B2e4Ed2360D2dA9Dc2D2Ccc95"
+    ],
+    "tokenOracleIds": [
+      "USDC",
+      "EDEL"
+    ],
+    "decimals": [
+      6,
+      18
+    ],
+    "oracleId": "aerodrome-cow-base-usdc-edel",
+    "providerId": "aerodrome",
+    "rewardPool": {
+      "address": "0xfC4DC45d1bF2Ba96bd00BD90920cB70ddF8864DC",
+      "oracleId": "aerodrome-cow-base-usdc-edel-rp"
+    },
+    "vault": {
+      "address": "0xe9d97CCFF5c6cE333EEB47F19396DC63239B6800",
+      "oracleId": "aerodrome-cow-base-usdc-edel-vault"
+    }
+  },
+  {
     "address": "0x151c63b2A4db7e345dFD2aE97a554232186c00aC",
     "lpAddress": "0xBc3231036Ee1ECa03E5F67FEceDC640D21610823",
     "tokens": [
@@ -101,32 +127,6 @@
     "vault": {
       "address": "0xB08452A7ED8b52Ed3559362A85F0ba29FA91726f",
       "oracleId": "aerodrome-cow-base-usdc-champ-vault"
-    }
-  },
-  {
-    "address": "0x16a083b769a1713751b6575b72F9CFbefE6F195D",
-    "lpAddress": "0xe2B182796518E76845f46ccDC522495D81630d14",
-    "tokens": [
-      "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
-      "0xFb31f85A8367210B2e4Ed2360D2dA9Dc2D2Ccc95"
-    ],
-    "tokenOracleIds": [
-      "USDC",
-      "EDEL"
-    ],
-    "decimals": [
-      6,
-      18
-    ],
-    "oracleId": "aerodrome-cow-base-usdc-edel",
-    "providerId": "aerodrome",
-    "rewardPool": {
-      "address": "0x986aeA037d361191751Fb30db461e8525F9b4f6a",
-      "oracleId": "aerodrome-cow-base-usdc-edel-rp"
-    },
-    "vault": {
-      "address": "0x44740e064b7303108Ec2474f1755322d87233488",
-      "oracleId": "aerodrome-cow-base-usdc-edel-vault"
     }
   },
   {
