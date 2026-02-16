@@ -1,4 +1,156 @@
 [
+    {
+    "address": "0x52Bdfa24C254C4e1E66386128C611F71009B2e9b",
+    "lpAddress": "0x5230845439Fa66FBEA20aF7cf09BC413B99E10B7",
+    "tokens": [
+      "0xcbB7C0000aB88B473b1f5aFd9ef808440eed33Bf",
+      "0xED6E000dEF95780fb89734c07EE2ce9F6dcAf110"
+    ],
+    "tokenOracleIds": [
+      "cbBTC",
+      "EDGE"
+    ],
+    "decimals": [
+      8,
+      18
+    ],
+    "oracleId": "aerodrome-cow-base-cbbtc-edge",
+    "providerId": "aerodrome",
+    "rewardPool": {
+      "address": "0x555a3B65eAfe30c86B31C2480d941C77019CfE9b",
+      "oracleId": "aerodrome-cow-base-cbbtc-edge-rp"
+    },
+    "vault": {
+      "address": "0x412386E19D38A35690eed1421E9d24a9d42253A2",
+      "oracleId": "aerodrome-cow-base-cbbtc-edge-vault"
+    }
+  },
+  {
+    "address": "0xA08c65E20AF09323CCEcFD6D3CE931B7CC6850D5",
+    "lpAddress": "0x74E4c08Bb50619b70550733D32b7e60424E9628e",
+    "tokens": [
+      "0x4200000000000000000000000000000000000006",
+      "0xAC1Bd2486aAf3B5C0fc3Fd868558b082a531B2B4"
+    ],
+    "tokenOracleIds": [
+      "WETH",
+      "TOSHI"
+    ],
+    "decimals": [
+      18,
+      18
+    ],
+    "oracleId": "aerodrome-cow-base-weth-toshi",
+    "providerId": "aerodrome",
+    "rewardPool": {
+      "address": "0xe52A57Ab4090Fa8C17E73Abd4eD5f62542AFbCc3",
+      "oracleId": "aerodrome-cow-base-weth-toshi-rp"
+    },
+    "vault": {
+      "address": "0x18d978b5Dfd02c80a918c96E917f51273928cA36",
+      "oracleId": "aerodrome-cow-base-weth-toshi-vault"
+    }
+  },
+  {
+    "address": "0xF7Ea310b7d45F4C7d2A86752a5a54BCfbF4B6D1F",
+    "lpAddress": "0x58c5649e6BC93969f4530673E8892faf762Cc7E7",
+    "tokens": [
+      "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+      "0xEb6d78148F001F3aA2f588997c5E102E489Ad341"
+    ],
+    "tokenOracleIds": [
+      "USDC",
+      "CHAMP"
+    ],
+    "decimals": [
+      6,
+      18
+    ],
+    "oracleId": "aerodrome-cow-base-usdc-champ",
+    "providerId": "aerodrome",
+    "rewardPool": {
+      "address": "0xfd7836dDa36A53EBc186fEa3d4DfaA1A2ee34c5F",
+      "oracleId": "aerodrome-cow-base-usdc-champ-rp"
+    },
+    "vault": {
+      "address": "0xB08452A7ED8b52Ed3559362A85F0ba29FA91726f",
+      "oracleId": "aerodrome-cow-base-usdc-champ-vault"
+    }
+  },
+  {
+    "address": "0x16a083b769a1713751b6575b72F9CFbefE6F195D",
+    "lpAddress": "0xe2B182796518E76845f46ccDC522495D81630d14",
+    "tokens": [
+      "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+      "0xFb31f85A8367210B2e4Ed2360D2dA9Dc2D2Ccc95"
+    ],
+    "tokenOracleIds": [
+      "USDC",
+      "EDEL"
+    ],
+    "decimals": [
+      6,
+      18
+    ],
+    "oracleId": "aerodrome-cow-base-usdc-edel",
+    "providerId": "aerodrome",
+    "rewardPool": {
+      "address": "0x986aeA037d361191751Fb30db461e8525F9b4f6a",
+      "oracleId": "aerodrome-cow-base-usdc-edel-rp"
+    },
+    "vault": {
+      "address": "0x44740e064b7303108Ec2474f1755322d87233488",
+      "oracleId": "aerodrome-cow-base-usdc-edel-vault"
+    }
+  },
+  {
+    "address": "0x2aEAf550862a54958db64EAbac8359d0F114BF02",
+    "lpAddress": "0x782D7C494d5DDC20c246a82aC8fe277e2728d002",
+    "tokens": [
+      "0xacfE6019Ed1A7Dc6f7B508C02d1b04ec88cC21bf",
+      "0xF4d97F2da56e8c3098f3a8D538DB630A2606a024"
+    ],
+    "tokenOracleIds": [
+      "VVV",
+      "DIEM"
+    ],
+    "decimals": [
+      18,
+      18
+    ],
+    "oracleId": "aerodrome-cow-base-vvv-diem",
+    "providerId": "aerodrome",
+    "rewardPool": {
+      "address": "0x09dC87171a506Af7AcE797F81db822E82FD523bc",
+      "oracleId": "aerodrome-cow-base-vvv-diem-rp"
+    },
+    "vault": {
+      "address": "0x20615d6B9501e5b3d9A89A31D18fa4DF3723AC42",
+      "oracleId": "aerodrome-cow-base-vvv-diem-vault"
+    }
+  },
+  {
+    "address": "0x4A4E597049125e606EEaEc5e77fd9b2ac6770aF4",
+    "lpAddress": "0xE5B5f522E98B5a2baAe212d4dA66b865B781DB97",
+    "tokens": [
+      "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+      "0x940181a94A35A4569E4529A3CDfB74e38FD98631"
+    ],
+    "tokenOracleIds": [
+      "USDC",
+      "AERO"
+    ],
+    "decimals": [
+      6,
+      18
+    ],
+    "oracleId": "uniswap-cow-base-usdc-aero",
+    "providerId": "uniswap",
+    "rewardPool": {
+      "address": "0xd2eE998A3E3443FC1B804eaece9cC9B3EecE5B06",
+      "oracleId": "uniswap-cow-base-usdc-aero-rp"
+    }
+  },
   {
     "address": "0xDe11Edf36A145e809021C2Db31aF216Ec26B0102",
     "lpAddress": "0xFC01837343cfC2A9dDCA9e8a0a19825f6b2f0460",
@@ -43,9 +195,18 @@
   {
     "address": "0x32Bb1a01F28b2D8040f14f36aA6bcb6eC1Bb742a",
     "lpAddress": "0xcf88B8bf7CCCe2D836878E538197eB20fC673BCE",
-    "tokens": ["0x04D5ddf5f3a8939889F11E97f8c4BB48317F1938", "0x4200000000000000000000000000000000000006"],
-    "tokenOracleIds": ["USDz", "WETH"],
-    "decimals": [18, 18],
+    "tokens": [
+      "0x04D5ddf5f3a8939889F11E97f8c4BB48317F1938",
+      "0x4200000000000000000000000000000000000006"
+    ],
+    "tokenOracleIds": [
+      "USDz",
+      "WETH"
+    ],
+    "decimals": [
+      18,
+      18
+    ],
     "oracleId": "aerodrome-cow-base-usdz-weth-v2",
     "providerId": "aerodrome",
     "rewardPool": {
@@ -60,9 +221,18 @@
   {
     "address": "0x53c484cbe7Dc0460724fd1D68aDB0953e85f08BB",
     "lpAddress": "0xA44D3Bb767d953711EA4Bce8C0F01f4d7D299aF6",
-    "tokens": ["0xcbB7C0000aB88B473b1f5aFd9ef808440eed33Bf", "0xecAc9C5F704e954931349Da37F60E39f515c11c1"],
-    "tokenOracleIds": ["cbBTC", "LBTC"],
-    "decimals": [8, 8],
+    "tokens": [
+      "0xcbB7C0000aB88B473b1f5aFd9ef808440eed33Bf",
+      "0xecAc9C5F704e954931349Da37F60E39f515c11c1"
+    ],
+    "tokenOracleIds": [
+      "cbBTC",
+      "LBTC"
+    ],
+    "decimals": [
+      8,
+      8
+    ],
     "oracleId": "aerodrome-cow-base-cbbtc-lbtc",
     "providerId": "aerodrome",
     "rewardPool": {
@@ -77,9 +247,18 @@
   {
     "address": "0x43dd70fe89ff59A6658dfaf16eCd346d49626f93",
     "lpAddress": "0x74F72788F4814D7fF3C49B44684aa98Eee140C0E",
-    "tokens": ["0x4200000000000000000000000000000000000006", "0x7Ba6F01772924a82D9626c126347A28299E98c98"],
-    "tokenOracleIds": ["WETH", "msETH"],
-    "decimals": [18, 18],
+    "tokens": [
+      "0x4200000000000000000000000000000000000006",
+      "0x7Ba6F01772924a82D9626c126347A28299E98c98"
+    ],
+    "tokenOracleIds": [
+      "WETH",
+      "msETH"
+    ],
+    "decimals": [
+      18,
+      18
+    ],
     "oracleId": "aerodrome-cow-base-weth-mseth",
     "providerId": "aerodrome",
     "rewardPool": {
@@ -94,9 +273,18 @@
   {
     "address": "0xED1ef9d7186B4242F414Da7194A147aB3E55e220",
     "lpAddress": "0xbD3cd0D9d429b41F0a2e1C026552Bd598294d5E0",
-    "tokens": ["0x04C0599Ae5A44757c0af6F9eC3b93da8976c150A", "0x4200000000000000000000000000000000000006"],
-    "tokenOracleIds": ["weETH", "WETH"],
-    "decimals": [18, 18],
+    "tokens": [
+      "0x04C0599Ae5A44757c0af6F9eC3b93da8976c150A",
+      "0x4200000000000000000000000000000000000006"
+    ],
+    "tokenOracleIds": [
+      "weETH",
+      "WETH"
+    ],
+    "decimals": [
+      18,
+      18
+    ],
     "oracleId": "aerodrome-cow-base-weeth-weth",
     "providerId": "aerodrome",
     "rewardPool": {
@@ -111,9 +299,18 @@
   {
     "address": "0xbfaE75aE02c5868f9E0e3474fD5F12C52A644472",
     "lpAddress": "0x6446021F4E396dA3df4235C62537431372195D38",
-    "tokens": ["0x4200000000000000000000000000000000000006", "0xDBFeFD2e8460a6Ee4955A68582F85708BAEA60A3"],
-    "tokenOracleIds": ["WETH", "superOETHb"],
-    "decimals": [18, 18],
+    "tokens": [
+      "0x4200000000000000000000000000000000000006",
+      "0xDBFeFD2e8460a6Ee4955A68582F85708BAEA60A3"
+    ],
+    "tokenOracleIds": [
+      "WETH",
+      "superOETHb"
+    ],
+    "decimals": [
+      18,
+      18
+    ],
     "oracleId": "aerodrome-cow-base-weth-superoethb",
     "providerId": "aerodrome",
     "rewardPool": {
@@ -128,9 +325,18 @@
   {
     "address": "0xd58D7456D984F4d24b5FF5a1B517a8c30d304e58",
     "lpAddress": "0xfEbEeBAa6C9585Fd97aa9157E3B7aACe804b688C",
-    "tokens": ["0x0A4C9cb2778aB3302996A34BeFCF9a8Bc288C33b", "0x4200000000000000000000000000000000000006"],
-    "tokenOracleIds": ["XSGD", "WETH"],
-    "decimals": [6, 18],
+    "tokens": [
+      "0x0A4C9cb2778aB3302996A34BeFCF9a8Bc288C33b",
+      "0x4200000000000000000000000000000000000006"
+    ],
+    "tokenOracleIds": [
+      "XSGD",
+      "WETH"
+    ],
+    "decimals": [
+      6,
+      18
+    ],
     "oracleId": "aerodrome-cow-base-xsgd-weth",
     "providerId": "aerodrome",
     "rewardPool": {
@@ -145,9 +351,18 @@
   {
     "address": "0x446cc12e7ff73C05f5B265151f9d94d444A52165",
     "lpAddress": "0x4bf85cA48a620BAf9DDE3b6A7A6d88b219827caA",
-    "tokens": ["0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913", "0xa53887F7e7c1bf5010b8627F1C1ba94fE7a5d6E0"],
-    "tokenOracleIds": ["USDC", "RNBW"],
-    "decimals": [6, 18],
+    "tokens": [
+      "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+      "0xa53887F7e7c1bf5010b8627F1C1ba94fE7a5d6E0"
+    ],
+    "tokenOracleIds": [
+      "USDC",
+      "RNBW"
+    ],
+    "decimals": [
+      6,
+      18
+    ],
     "oracleId": "aerodrome-cow-base-usdc-rnbw",
     "providerId": "aerodrome",
     "rewardPool": {
@@ -162,9 +377,18 @@
   {
     "address": "0xfA0A1DcF44E468986a17d076150aDae873fA316F",
     "lpAddress": "0x8408c2A9F28B9A9471DC423f3cd4868629b555c8",
-    "tokens": ["0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913", "0xa53887F7e7c1bf5010b8627F1C1ba94fE7a5d6E0"],
-    "tokenOracleIds": ["USDC", "RNBW"],
-    "decimals": [6, 18],
+    "tokens": [
+      "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+      "0xa53887F7e7c1bf5010b8627F1C1ba94fE7a5d6E0"
+    ],
+    "tokenOracleIds": [
+      "USDC",
+      "RNBW"
+    ],
+    "decimals": [
+      6,
+      18
+    ],
     "oracleId": "uniswap-cow-base-usdc-rnbw",
     "rewardPool": {
       "address": "0x3515245adB7C3655B54b69c3d7e25a91374CcF4D",
@@ -174,9 +398,18 @@
   {
     "address": "0xA92CDECA0f5781870c74C2FC16CF7e799E8d5F29",
     "lpAddress": "0x33645A0fe56fC3232EE69a48DfDE494b5f8A305C",
-    "tokens": ["0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913", "0x9EadbE35F3Ee3bF3e28180070C429298a1b02F93"],
-    "tokenOracleIds": ["USDC", "LMTS"],
-    "decimals": [6, 18],
+    "tokens": [
+      "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+      "0x9EadbE35F3Ee3bF3e28180070C429298a1b02F93"
+    ],
+    "tokenOracleIds": [
+      "USDC",
+      "LMTS"
+    ],
+    "decimals": [
+      6,
+      18
+    ],
     "oracleId": "uniswap-cow-base-usdc-lmts",
     "rewardPool": {
       "address": "0x306c30E7fF8308feE3966f3E73c4ec6cd74678dc",
@@ -186,9 +419,18 @@
   {
     "address": "0x05Ae3a3a95992A7ee9098A2A5ae9cf4313d565eC",
     "lpAddress": "0x4B0f84c5a0Fe988dDDF4cFE8D87e7107BD0D10c9",
-    "tokens": ["0x81bE0217E166182D35B21E7d65D2b2bb7EA4Cb07", "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913"],
-    "tokenOracleIds": ["CLAWSTR", "USDC"],
-    "decimals": [18, 6],
+    "tokens": [
+      "0x81bE0217E166182D35B21E7d65D2b2bb7EA4Cb07",
+      "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913"
+    ],
+    "tokenOracleIds": [
+      "CLAWSTR",
+      "USDC"
+    ],
+    "decimals": [
+      18,
+      6
+    ],
     "oracleId": "uniswap-cow-base-clawstr-usdc",
     "rewardPool": {
       "address": "0x5F9Fb97306bF7868BB47899c1CaA0d839455440C",
@@ -198,9 +440,18 @@
   {
     "address": "0x23395dc8dE2E040B0a9854182D28a5595BB76CE6",
     "lpAddress": "0x78478C4a3296916BD537B0BCD6b265899D311090",
-    "tokens": ["0x4200000000000000000000000000000000000006", "0x81bE0217E166182D35B21E7d65D2b2bb7EA4Cb07"],
-    "tokenOracleIds": ["WETH", "CLAWSTR"],
-    "decimals": [18, 18],
+    "tokens": [
+      "0x4200000000000000000000000000000000000006",
+      "0x81bE0217E166182D35B21E7d65D2b2bb7EA4Cb07"
+    ],
+    "tokenOracleIds": [
+      "WETH",
+      "CLAWSTR"
+    ],
+    "decimals": [
+      18,
+      18
+    ],
     "oracleId": "uniswap-cow-base-weth-clawstr",
     "rewardPool": {
       "address": "0x6aFC552b7F806B55EC60ed4728fD4DD81B0BD3EF",
@@ -210,9 +461,18 @@
   {
     "address": "0x5EBC333653286bA26a02bC208d0BE1822a6D1D4A",
     "lpAddress": "0x8caD4aF4c6b4dd0eFd195407498E55eB9C328CD3",
-    "tokens": ["0x4200000000000000000000000000000000000006", "0x767A739D1A152639e9Ea1D8c1BD55FDC5B217D7f"],
-    "tokenOracleIds": ["WETH", "VEIL"],
-    "decimals": [18, 18],
+    "tokens": [
+      "0x4200000000000000000000000000000000000006",
+      "0x767A739D1A152639e9Ea1D8c1BD55FDC5B217D7f"
+    ],
+    "tokenOracleIds": [
+      "WETH",
+      "VEIL"
+    ],
+    "decimals": [
+      18,
+      18
+    ],
     "oracleId": "aerodrome-cow-base-weth-veil",
     "providerId": "aerodrome",
     "rewardPool": {
@@ -227,9 +487,18 @@
   {
     "address": "0x7d725b5278c8A82A27722F751509691e2B1e8235",
     "lpAddress": "0x9E48d016eE76cf53e2De8dc8058c7549c8c202DF",
-    "tokens": ["0x15D0e0c55a3E7eE67152aD7E89acf164253Ff68d", "0x4200000000000000000000000000000000000006"],
-    "tokenOracleIds": ["bHYPE", "WETH"],
-    "decimals": [18, 18],
+    "tokens": [
+      "0x15D0e0c55a3E7eE67152aD7E89acf164253Ff68d",
+      "0x4200000000000000000000000000000000000006"
+    ],
+    "tokenOracleIds": [
+      "bHYPE",
+      "WETH"
+    ],
+    "decimals": [
+      18,
+      18
+    ],
     "oracleId": "aerodrome-cow-base-hype-weth",
     "providerId": "aerodrome",
     "rewardPool": {
@@ -244,9 +513,18 @@
   {
     "address": "0xaA210011C9233b5DdEe8A8DC4f4F236164895Da9",
     "lpAddress": "0xD4dC229A997a73E86c13e3ce8019be02cD4827a6",
-    "tokens": ["0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913", "0xf7C1CEfCf7E1dd8161e00099facD3E1Db9e528ee"],
-    "tokenOracleIds": ["USDC", "bTOWER"],
-    "decimals": [6, 18],
+    "tokens": [
+      "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+      "0xf7C1CEfCf7E1dd8161e00099facD3E1Db9e528ee"
+    ],
+    "tokenOracleIds": [
+      "USDC",
+      "bTOWER"
+    ],
+    "decimals": [
+      6,
+      18
+    ],
     "oracleId": "aerodrome-cow-base-usdc-tower",
     "providerId": "aerodrome",
     "rewardPool": {
@@ -261,9 +539,18 @@
   {
     "address": "0x980Cf8f55B09bC33C75c286F61A1a534b421189d",
     "lpAddress": "0xAa067F08FeF60420d050A92E7800E588748B7d67",
-    "tokens": ["0x4200000000000000000000000000000000000006", "0x7300B37DfdfAb110d83290A29DfB31B1740219fE"],
-    "tokenOracleIds": ["WETH", "MAMO"],
-    "decimals": [18, 18],
+    "tokens": [
+      "0x4200000000000000000000000000000000000006",
+      "0x7300B37DfdfAb110d83290A29DfB31B1740219fE"
+    ],
+    "tokenOracleIds": [
+      "WETH",
+      "MAMO"
+    ],
+    "decimals": [
+      18,
+      18
+    ],
     "oracleId": "aerodrome-cow-base-weth-mamo",
     "providerId": "aerodrome",
     "rewardPool": {
@@ -278,9 +565,18 @@
   {
     "address": "0x2c2c42756D96E3E2D2d79D2a3a42322a0c57A7a7",
     "lpAddress": "0x4c76Ef610b9F6FEeB3Ca70951BeF09ED31e7f6d0",
-    "tokens": ["0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913", "0x9f86dB9fc6f7c9408e8Fda3Ff8ce4e78ac7a6b07"],
-    "tokenOracleIds": ["USDC", "CLAWD"],
-    "decimals": [6, 18],
+    "tokens": [
+      "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+      "0x9f86dB9fc6f7c9408e8Fda3Ff8ce4e78ac7a6b07"
+    ],
+    "tokenOracleIds": [
+      "USDC",
+      "CLAWD"
+    ],
+    "decimals": [
+      6,
+      18
+    ],
     "oracleId": "aerodrome-cow-base-usdc-clawd",
     "providerId": "aerodrome",
     "rewardPool": {
@@ -295,9 +591,18 @@
   {
     "address": "0xa513Bf2186a803fb7e4fCC1e317A64c74318fCEb",
     "lpAddress": "0xCD55381a53da35Ab1D7Bc5e3fE5F76cac976FAc3",
-    "tokens": ["0x4200000000000000000000000000000000000006", "0x9f86dB9fc6f7c9408e8Fda3Ff8ce4e78ac7a6b07"],
-    "tokenOracleIds": ["WETH", "CLAWD"],
-    "decimals": [18, 18],
+    "tokens": [
+      "0x4200000000000000000000000000000000000006",
+      "0x9f86dB9fc6f7c9408e8Fda3Ff8ce4e78ac7a6b07"
+    ],
+    "tokenOracleIds": [
+      "WETH",
+      "CLAWD"
+    ],
+    "decimals": [
+      18,
+      18
+    ],
     "oracleId": "uniswap-cow-base-weth-clawd",
     "rewardPool": {
       "address": "0x64eA5C33C1327a87A4ef768b995d01d031BcdaE7",
@@ -307,9 +612,18 @@
   {
     "address": "0xBC465eE45e95Bf084416e9040C52C09379aafe75",
     "lpAddress": "0x852aE1DA9ec34848C0b1531e0a6C4E0c141c30f5",
-    "tokens": ["0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913", "0xB695559b26BB2c9703ef1935c37AeaE9526bab07"],
-    "tokenOracleIds": ["USDC", "MOLT"],
-    "decimals": [6, 18],
+    "tokens": [
+      "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+      "0xB695559b26BB2c9703ef1935c37AeaE9526bab07"
+    ],
+    "tokenOracleIds": [
+      "USDC",
+      "MOLT"
+    ],
+    "decimals": [
+      6,
+      18
+    ],
     "oracleId": "uniswap-cow-base-usdc-molt",
     "rewardPool": {
       "address": "0x0498362Ac2EeC3Bb32bEe325a364c7850a1590C7",
@@ -319,9 +633,18 @@
   {
     "address": "0x6936f06f2fCb9f2a8cA0bcB779AB8a9B3a8F63DA",
     "lpAddress": "0x6F3a1B2054d091b5C14EA8c720142c9EBC4387C1",
-    "tokens": ["0x4200000000000000000000000000000000000006", "0xB695559b26BB2c9703ef1935c37AeaE9526bab07"],
-    "tokenOracleIds": ["WETH", "MOLT"],
-    "decimals": [18, 18],
+    "tokens": [
+      "0x4200000000000000000000000000000000000006",
+      "0xB695559b26BB2c9703ef1935c37AeaE9526bab07"
+    ],
+    "tokenOracleIds": [
+      "WETH",
+      "MOLT"
+    ],
+    "decimals": [
+      18,
+      18
+    ],
     "oracleId": "uniswap-cow-base-weth-molt",
     "rewardPool": {
       "address": "0x05bD154BFa77E376998e2950F25f1Ca4988c2A3B",
@@ -331,9 +654,18 @@
   {
     "address": "0xaeC7bF5079dd41de3691C84a830B199A385f1FB5",
     "lpAddress": "0x8fEbF59b6725c4729466b0279cb28080Ac5d1161",
-    "tokens": ["0x194f360D130F2393a5E9F3117A6a1B78aBEa1624", "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913"],
-    "tokenOracleIds": ["bSUMR", "USDC"],
-    "decimals": [18, 6],
+    "tokens": [
+      "0x194f360D130F2393a5E9F3117A6a1B78aBEa1624",
+      "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913"
+    ],
+    "tokenOracleIds": [
+      "bSUMR",
+      "USDC"
+    ],
+    "decimals": [
+      18,
+      6
+    ],
     "oracleId": "aerodrome-cow-base-sumr-usdc",
     "providerId": "aerodrome",
     "rewardPool": {
@@ -348,9 +680,18 @@
   {
     "address": "0x63f4f2228833fAa2a7E6bea7b3F3dd6f31D7492d",
     "lpAddress": "0x611865e603862a3D1cd29146458564a684e1cBbb",
-    "tokens": ["0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913", "0xe62bfbE57763ec24c0F130426F34DbCe11Fc5B06"],
-    "tokenOracleIds": ["USDC", "bTITN"],
-    "decimals": [6, 18],
+    "tokens": [
+      "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+      "0xe62bfbE57763ec24c0F130426F34DbCe11Fc5B06"
+    ],
+    "tokenOracleIds": [
+      "USDC",
+      "bTITN"
+    ],
+    "decimals": [
+      6,
+      18
+    ],
     "oracleId": "aerodrome-cow-base-usdc-titn",
     "providerId": "aerodrome",
     "rewardPool": {
@@ -365,9 +706,18 @@
   {
     "address": "0x07A10283C37E7dB050e0Cf4de7eA0f8B608bd095",
     "lpAddress": "0x385B47e56b73eb6549378f78F7c7Cbc42C56C9e0",
-    "tokens": ["0x3ec2156D4c0A9CBdAB4a016633b7BcF6a8d68Ea2", "0x4200000000000000000000000000000000000006"],
-    "tokenOracleIds": ["DRB", "WETH"],
-    "decimals": [18, 18],
+    "tokens": [
+      "0x3ec2156D4c0A9CBdAB4a016633b7BcF6a8d68Ea2",
+      "0x4200000000000000000000000000000000000006"
+    ],
+    "tokenOracleIds": [
+      "DRB",
+      "WETH"
+    ],
+    "decimals": [
+      18,
+      18
+    ],
     "oracleId": "aerodrome-cow-base-drb-weth",
     "providerId": "aerodrome",
     "rewardPool": {
@@ -382,9 +732,18 @@
   {
     "address": "0x37105cd9ef7cdF90eD56541311E3eD1d5d6aDfc9",
     "lpAddress": "0x56b92E5B391DbFb8b8028AC95A4b97f52ffEB416",
-    "tokens": ["0x4200000000000000000000000000000000000006", "0x98d0baa52b2D063E780DE12F615f963Fe8537553"],
-    "tokenOracleIds": ["WETH", "KAITO"],
-    "decimals": [18, 18],
+    "tokens": [
+      "0x4200000000000000000000000000000000000006",
+      "0x98d0baa52b2D063E780DE12F615f963Fe8537553"
+    ],
+    "tokenOracleIds": [
+      "WETH",
+      "KAITO"
+    ],
+    "decimals": [
+      18,
+      18
+    ],
     "oracleId": "aerodrome-cow-base-weth-kaito",
     "providerId": "aerodrome",
     "rewardPool": {
@@ -399,9 +758,18 @@
   {
     "address": "0xd36207A408e06F688A5191549D16D47eCeDfc66f",
     "lpAddress": "0xCDD442e2De893c07146B2F1072f8e077559f9aa4",
-    "tokens": ["0x22aF33FE49fD1Fa80c7149773dDe5890D3c76F3b", "0x4200000000000000000000000000000000000006"],
-    "tokenOracleIds": ["BNKR", "WETH"],
-    "decimals": [18, 18],
+    "tokens": [
+      "0x22aF33FE49fD1Fa80c7149773dDe5890D3c76F3b",
+      "0x4200000000000000000000000000000000000006"
+    ],
+    "tokenOracleIds": [
+      "BNKR",
+      "WETH"
+    ],
+    "decimals": [
+      18,
+      18
+    ],
     "oracleId": "aerodrome-cow-base-bnkr-weth",
     "providerId": "aerodrome",
     "rewardPool": {
@@ -416,9 +784,18 @@
   {
     "address": "0xd812ec2f7bBae0e47b4Dd6C470fC75B3F9FE6e66",
     "lpAddress": "0x016df91005F30039c9f1A89b44db5e8c60613603",
-    "tokens": ["0x4200000000000000000000000000000000000006", "0xA99F6e6785Da0F5d6fB42495Fe424BCE029Eeb3E"],
-    "tokenOracleIds": ["WETH", "bPENDLE"],
-    "decimals": [18, 18],
+    "tokens": [
+      "0x4200000000000000000000000000000000000006",
+      "0xA99F6e6785Da0F5d6fB42495Fe424BCE029Eeb3E"
+    ],
+    "tokenOracleIds": [
+      "WETH",
+      "bPENDLE"
+    ],
+    "decimals": [
+      18,
+      18
+    ],
     "oracleId": "aerodrome-cow-base-weth-pendle",
     "providerId": "aerodrome",
     "rewardPool": {
@@ -433,9 +810,18 @@
   {
     "address": "0xe5EEDa36D7C23c2E2E519c9d56216158e50FBf31",
     "lpAddress": "0x275BE3a43B66516e532BcaA36eE453EDd47614ea",
-    "tokens": ["0x4200000000000000000000000000000000000006", "0xac485391EB2d7D88253a7F1eF18C37f4242D1A24"],
-    "tokenOracleIds": ["WETH", "bLSK"],
-    "decimals": [18, 18],
+    "tokens": [
+      "0x4200000000000000000000000000000000000006",
+      "0xac485391EB2d7D88253a7F1eF18C37f4242D1A24"
+    ],
+    "tokenOracleIds": [
+      "WETH",
+      "bLSK"
+    ],
+    "decimals": [
+      18,
+      18
+    ],
     "oracleId": "aerodrome-cow-base-weth-lsk",
     "providerId": "aerodrome",
     "rewardPool": {
@@ -450,9 +836,18 @@
   {
     "address": "0x72375156028bB32124aFa82C85e05132163dceDb",
     "lpAddress": "0xbf4f004307F623C2Fa2c6cf8Ce8095200e389B13",
-    "tokens": ["0x2B11834Ed1FeAEd4b4b3a86A6F571315E25A884D", "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913"],
-    "tokenOracleIds": ["MOCA", "USDC"],
-    "decimals": [18, 6],
+    "tokens": [
+      "0x2B11834Ed1FeAEd4b4b3a86A6F571315E25A884D",
+      "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913"
+    ],
+    "tokenOracleIds": [
+      "MOCA",
+      "USDC"
+    ],
+    "decimals": [
+      18,
+      6
+    ],
     "oracleId": "aerodrome-cow-base-moca-usdc",
     "providerId": "aerodrome",
     "rewardPool": {
@@ -467,9 +862,18 @@
   {
     "address": "0xA1Ffe36cFa5a6b1d3AE9Dc8d03800a4deCFB354C",
     "lpAddress": "0x4858bA5A92a23de1B2dBB3509B01D0A9F0E0756A",
-    "tokens": ["0x1217BfE6c773EEC6cc4A38b5Dc45B92292B6E189", "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913"],
-    "tokenOracleIds": ["oUSDT", "USDC"],
-    "decimals": [6, 6],
+    "tokens": [
+      "0x1217BfE6c773EEC6cc4A38b5Dc45B92292B6E189",
+      "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913"
+    ],
+    "tokenOracleIds": [
+      "oUSDT",
+      "USDC"
+    ],
+    "decimals": [
+      6,
+      6
+    ],
     "oracleId": "aerodrome-cow-base-ousdt-usdc",
     "providerId": "aerodrome",
     "rewardPool": {
@@ -484,9 +888,18 @@
   {
     "address": "0xE250820251920890471530b3aDc534C7a7361Ba8",
     "lpAddress": "0x85c99e6B9adaB159A33A999a6303933212ac091E",
-    "tokens": ["0x1217BfE6c773EEC6cc4A38b5Dc45B92292B6E189", "0xcbB7C0000aB88B473b1f5aFd9ef808440eed33Bf"],
-    "tokenOracleIds": ["oUSDT", "cbBTC"],
-    "decimals": [6, 8],
+    "tokens": [
+      "0x1217BfE6c773EEC6cc4A38b5Dc45B92292B6E189",
+      "0xcbB7C0000aB88B473b1f5aFd9ef808440eed33Bf"
+    ],
+    "tokenOracleIds": [
+      "oUSDT",
+      "cbBTC"
+    ],
+    "decimals": [
+      6,
+      8
+    ],
     "oracleId": "aerodrome-cow-base-ousdt-cbbtc",
     "providerId": "aerodrome",
     "rewardPool": {
@@ -501,9 +914,18 @@
   {
     "address": "0xFA28367500e379a2A19B377c7D89fbef61Ef47f2",
     "lpAddress": "0x93617b2909a7c207E4180dE0E667ea80c9BdfE9e",
-    "tokens": ["0x1217BfE6c773EEC6cc4A38b5Dc45B92292B6E189", "0x4200000000000000000000000000000000000006"],
-    "tokenOracleIds": ["oUSDT", "WETH"],
-    "decimals": [6, 18],
+    "tokens": [
+      "0x1217BfE6c773EEC6cc4A38b5Dc45B92292B6E189",
+      "0x4200000000000000000000000000000000000006"
+    ],
+    "tokenOracleIds": [
+      "oUSDT",
+      "WETH"
+    ],
+    "decimals": [
+      6,
+      18
+    ],
     "oracleId": "aerodrome-cow-base-ousdt-weth",
     "providerId": "aerodrome",
     "rewardPool": {
@@ -518,9 +940,18 @@
   {
     "address": "0x4Fd934D97942fE936d4Ca6f5d4E7D523C318dc74",
     "lpAddress": "0xd23FE2DB317e1A96454a2D1c7e8fc0DbF19BB000",
-    "tokens": ["0x1bc0c42215582d5A085795f4baDbaC3ff36d1Bcb", "0x4200000000000000000000000000000000000006"],
-    "tokenOracleIds": ["CLANKER", "WETH"],
-    "decimals": [18, 18],
+    "tokens": [
+      "0x1bc0c42215582d5A085795f4baDbaC3ff36d1Bcb",
+      "0x4200000000000000000000000000000000000006"
+    ],
+    "tokenOracleIds": [
+      "CLANKER",
+      "WETH"
+    ],
+    "decimals": [
+      18,
+      18
+    ],
     "oracleId": "aerodrome-cow-base-clanker-weth",
     "providerId": "aerodrome",
     "rewardPool": {
@@ -535,9 +966,18 @@
   {
     "address": "0x6134DFb1d9366Ecf939CB64C97F5cA4Eda2c87fc",
     "lpAddress": "0x72bE417AFB0aBEa66913141C605D313BB389b59C",
-    "tokens": ["0x4200000000000000000000000000000000000006", "0x88Fb150BDc53A65fe94Dea0c9BA0a6dAf8C6e196"],
-    "tokenOracleIds": ["WETH", "bLINK"],
-    "decimals": [18, 18],
+    "tokens": [
+      "0x4200000000000000000000000000000000000006",
+      "0x88Fb150BDc53A65fe94Dea0c9BA0a6dAf8C6e196"
+    ],
+    "tokenOracleIds": [
+      "WETH",
+      "bLINK"
+    ],
+    "decimals": [
+      18,
+      18
+    ],
     "oracleId": "aerodrome-cow-base-weth-link",
     "providerId": "aerodrome",
     "rewardPool": {
@@ -552,9 +992,18 @@
   {
     "address": "0xe37FbAeB14a63FdcdE1FD803C31E6a3797890287",
     "lpAddress": "0x700d91F1C3C5e430eA776245e741B84402e8de2E",
-    "tokens": ["0xa749dE6c28262B7ffbc5De27dC845DD7eCD2b358", "0xf43eB8De897Fbc7F2502483B2Bef7Bb9EA179229"],
-    "tokenOracleIds": ["VFY", "ZEN"],
-    "decimals": [18, 18],
+    "tokens": [
+      "0xa749dE6c28262B7ffbc5De27dC845DD7eCD2b358",
+      "0xf43eB8De897Fbc7F2502483B2Bef7Bb9EA179229"
+    ],
+    "tokenOracleIds": [
+      "VFY",
+      "ZEN"
+    ],
+    "decimals": [
+      18,
+      18
+    ],
     "oracleId": "aerodrome-cow-base-vfy-zen",
     "providerId": "aerodrome",
     "rewardPool": {
@@ -569,9 +1018,18 @@
   {
     "address": "0x38fbA739aFBb434816F9E4F4190Ba22142dDd266",
     "lpAddress": "0x47f9e291bb766Fc307Ad7BBa4f29f3Eab6A97101",
-    "tokens": ["0xcbB7C0000aB88B473b1f5aFd9ef808440eed33Bf", "0xf43eB8De897Fbc7F2502483B2Bef7Bb9EA179229"],
-    "tokenOracleIds": ["cbBTC", "ZEN"],
-    "decimals": [8, 18],
+    "tokens": [
+      "0xcbB7C0000aB88B473b1f5aFd9ef808440eed33Bf",
+      "0xf43eB8De897Fbc7F2502483B2Bef7Bb9EA179229"
+    ],
+    "tokenOracleIds": [
+      "cbBTC",
+      "ZEN"
+    ],
+    "decimals": [
+      8,
+      18
+    ],
     "oracleId": "aerodrome-cow-base-cbbtc-zen",
     "providerId": "aerodrome",
     "rewardPool": {
@@ -586,9 +1044,18 @@
   {
     "address": "0x6690a92c7073a5122E65D3a3187B95b808Dc152b",
     "lpAddress": "0x0392B12a1cEb0cd13af5Ea448CF5586EA609852D",
-    "tokens": ["0x4200000000000000000000000000000000000006", "0xf43eB8De897Fbc7F2502483B2Bef7Bb9EA179229"],
-    "tokenOracleIds": ["WETH", "ZEN"],
-    "decimals": [18, 18],
+    "tokens": [
+      "0x4200000000000000000000000000000000000006",
+      "0xf43eB8De897Fbc7F2502483B2Bef7Bb9EA179229"
+    ],
+    "tokenOracleIds": [
+      "WETH",
+      "ZEN"
+    ],
+    "decimals": [
+      18,
+      18
+    ],
     "oracleId": "aerodrome-cow-base-weth-zen",
     "providerId": "aerodrome",
     "rewardPool": {
@@ -603,9 +1070,18 @@
   {
     "address": "0xa08cee3cCE1EFC8Bd7D6956BB55529020afBf07D",
     "lpAddress": "0x3F5E98C7ebfF35056ab4346BCcd722A537c1aEfA",
-    "tokens": ["0x0C03Ce270B4826Ec62e7DD007f0B716068639F7B", "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913"],
-    "tokenOracleIds": ["TIG", "USDC"],
-    "decimals": [18, 6],
+    "tokens": [
+      "0x0C03Ce270B4826Ec62e7DD007f0B716068639F7B",
+      "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913"
+    ],
+    "tokenOracleIds": [
+      "TIG",
+      "USDC"
+    ],
+    "decimals": [
+      18,
+      6
+    ],
     "oracleId": "aerodrome-cow-base-tig-usdc",
     "providerId": "aerodrome",
     "rewardPool": {
@@ -620,9 +1096,18 @@
   {
     "address": "0x4b892B39d6A0A88A26Fdf8D15FA8d79706E33f8d",
     "lpAddress": "0x76569E1d4Fc83917ef40Cd3b2053B2B8620644b3",
-    "tokens": ["0x03cEac3c28E353F5E4626c1242A6C7A41d004354", "0x4200000000000000000000000000000000000006"],
-    "tokenOracleIds": ["bBYTE", "WETH"],
-    "decimals": [18, 18],
+    "tokens": [
+      "0x03cEac3c28E353F5E4626c1242A6C7A41d004354",
+      "0x4200000000000000000000000000000000000006"
+    ],
+    "tokenOracleIds": [
+      "bBYTE",
+      "WETH"
+    ],
+    "decimals": [
+      18,
+      18
+    ],
     "oracleId": "uniswap-cow-base-byte-weth",
     "rewardPool": {
       "address": "0x29F240028c92795D0e4eAac66E1d8C80faD027Ce",
@@ -632,9 +1117,18 @@
   {
     "address": "0xbA397d5fe9C197A0cE7cE9f51Ca47689A894A07A",
     "lpAddress": "0xC2BB4fd5648856c73F8b81156C9B52fe173085eD",
-    "tokens": ["0x16EE7ecAc70d1028E7712751E2Ee6BA808a7dd92", "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913"],
-    "tokenOracleIds": ["FUN", "USDC"],
-    "decimals": [18, 6],
+    "tokens": [
+      "0x16EE7ecAc70d1028E7712751E2Ee6BA808a7dd92",
+      "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913"
+    ],
+    "tokenOracleIds": [
+      "FUN",
+      "USDC"
+    ],
+    "decimals": [
+      18,
+      6
+    ],
     "oracleId": "uniswap-cow-base-fun-usdc",
     "rewardPool": {
       "address": "0x2D95d2a39f2F0A8BEA9AB3CAfBff0D59061e622b",
@@ -644,9 +1138,18 @@
   {
     "address": "0xD5B820CDDc990eDcFfa8CD10Eed8FF242e731b36",
     "lpAddress": "0x659bE70647B0f63217D60e077F4417b1eCC65064",
-    "tokens": ["0x16EE7ecAc70d1028E7712751E2Ee6BA808a7dd92", "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913"],
-    "tokenOracleIds": ["FUN", "USDC"],
-    "decimals": [18, 6],
+    "tokens": [
+      "0x16EE7ecAc70d1028E7712751E2Ee6BA808a7dd92",
+      "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913"
+    ],
+    "tokenOracleIds": [
+      "FUN",
+      "USDC"
+    ],
+    "decimals": [
+      18,
+      6
+    ],
     "oracleId": "aerodrome-cow-base-fun-usdc",
     "providerId": "aerodrome",
     "rewardPool": {
@@ -661,9 +1164,18 @@
   {
     "address": "0xc38d5c15Bb01f8368244232AE2dddC193E7E1ad5",
     "lpAddress": "0xd7338B6F338DA54b922bbBC6fBE3EFEDD5Ce35fa",
-    "tokens": ["0x5aB3D4c385B400F3aBB49e80DE2fAF6a88A7B691", "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913"],
-    "tokenOracleIds": ["FLOCK", "USDC"],
-    "decimals": [18, 6],
+    "tokens": [
+      "0x5aB3D4c385B400F3aBB49e80DE2fAF6a88A7B691",
+      "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913"
+    ],
+    "tokenOracleIds": [
+      "FLOCK",
+      "USDC"
+    ],
+    "decimals": [
+      18,
+      6
+    ],
     "oracleId": "aerodrome-cow-base-flock-usdc",
     "providerId": "aerodrome",
     "rewardPool": {
@@ -678,9 +1190,18 @@
   {
     "address": "0x2637A719947FfBC554E61EDeccaCf929cF594F73",
     "lpAddress": "0x3a88eF38879EFb900c2D7b6199d21C139cEf5Fa7",
-    "tokens": ["0x4200000000000000000000000000000000000006", "0x4dA9A0f397dB1397902070f93a4D6ddBC0E0E6e8"],
-    "tokenOracleIds": ["WETH", "LCAP"],
-    "decimals": [18, 18],
+    "tokens": [
+      "0x4200000000000000000000000000000000000006",
+      "0x4dA9A0f397dB1397902070f93a4D6ddBC0E0E6e8"
+    ],
+    "tokenOracleIds": [
+      "WETH",
+      "LCAP"
+    ],
+    "decimals": [
+      18,
+      18
+    ],
     "oracleId": "aerodrome-cow-base-weth-lcap",
     "providerId": "aerodrome",
     "rewardPool": {
@@ -695,9 +1216,18 @@
   {
     "address": "0xa6dB177B913ED56dBCbe91D137a316f284288272",
     "lpAddress": "0x3f0296BF652e19bca772EC3dF08b32732F93014A",
-    "tokens": ["0x0b3e328455c4059EEb9e3f84b5543F74E24e7E1b", "0x4200000000000000000000000000000000000006"],
-    "tokenOracleIds": ["VIRTUAL", "WETH"],
-    "decimals": [18, 18],
+    "tokens": [
+      "0x0b3e328455c4059EEb9e3f84b5543F74E24e7E1b",
+      "0x4200000000000000000000000000000000000006"
+    ],
+    "tokenOracleIds": [
+      "VIRTUAL",
+      "WETH"
+    ],
+    "decimals": [
+      18,
+      18
+    ],
     "oracleId": "aerodrome-cow-base-virtual-weth-v2",
     "providerId": "aerodrome",
     "rewardPool": {
@@ -712,9 +1242,18 @@
   {
     "address": "0xCaa02EC94c55678d66C6835DB076f9006DC39700",
     "lpAddress": "0xfd198524340203Da7896909941E92E5EF0D2B753",
-    "tokens": ["0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913", "0xaaa843fb2916c0B57454270418E121C626402AAa"],
-    "tokenOracleIds": ["USDC", "AAA"],
-    "decimals": [6, 18],
+    "tokens": [
+      "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+      "0xaaa843fb2916c0B57454270418E121C626402AAa"
+    ],
+    "tokenOracleIds": [
+      "USDC",
+      "AAA"
+    ],
+    "decimals": [
+      6,
+      18
+    ],
     "oracleId": "aerodrome-cow-base-usdc-aaa",
     "providerId": "aerodrome",
     "rewardPool": {
@@ -729,9 +1268,18 @@
   {
     "address": "0xbD02f32EEc68619B0dD1BbE83DC4d2078E6b84c5",
     "lpAddress": "0x56C11053159a24c0731b4b12356BC1f0578FB474",
-    "tokens": ["0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913", "0xcD2F22236DD9Dfe2356D7C543161D4d260FD9BcB"],
-    "tokenOracleIds": ["USDC", "GHST"],
-    "decimals": [6, 18],
+    "tokens": [
+      "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+      "0xcD2F22236DD9Dfe2356D7C543161D4d260FD9BcB"
+    ],
+    "tokenOracleIds": [
+      "USDC",
+      "GHST"
+    ],
+    "decimals": [
+      6,
+      18
+    ],
     "oracleId": "aerodrome-cow-base-usdc-ghst",
     "providerId": "aerodrome",
     "rewardPool": {
@@ -746,9 +1294,18 @@
   {
     "address": "0x78E725734e89EB25709b2faDda37e994a413D91f",
     "lpAddress": "0x54cdD0222dF6B3BC17754c2C1B3d7D4203FE3d89",
-    "tokens": ["0x4200000000000000000000000000000000000006", "0x6B2504A03ca4D43d0D73776F6aD46dAb2F2a4cFD"],
-    "tokenOracleIds": ["WETH", "REI"],
-    "decimals": [18, 18],
+    "tokens": [
+      "0x4200000000000000000000000000000000000006",
+      "0x6B2504A03ca4D43d0D73776F6aD46dAb2F2a4cFD"
+    ],
+    "tokenOracleIds": [
+      "WETH",
+      "REI"
+    ],
+    "decimals": [
+      18,
+      18
+    ],
     "oracleId": "aerodrome-cow-base-weth-rei",
     "providerId": "aerodrome",
     "rewardPool": {
@@ -763,9 +1320,18 @@
   {
     "address": "0x38E7B155DE349A4b9E6Fb06AFE6b2d1c89E48214",
     "lpAddress": "0x7eC6C9D993D9832Aa654593f2Dbc21303650Bc6c",
-    "tokens": ["0x4200000000000000000000000000000000000006", "0xacfE6019Ed1A7Dc6f7B508C02d1b04ec88cC21bf"],
-    "tokenOracleIds": ["WETH", "VVV"],
-    "decimals": [18, 18],
+    "tokens": [
+      "0x4200000000000000000000000000000000000006",
+      "0xacfE6019Ed1A7Dc6f7B508C02d1b04ec88cC21bf"
+    ],
+    "tokenOracleIds": [
+      "WETH",
+      "VVV"
+    ],
+    "decimals": [
+      18,
+      18
+    ],
     "oracleId": "aerodrome-cow-base-weth-vvv",
     "providerId": "aerodrome",
     "rewardPool": {
@@ -780,9 +1346,18 @@
   {
     "address": "0xBEdf96A0B00672c87aEDCD4fcbfF6B3788f6D334",
     "lpAddress": "0x3e66e55e97ce60096f74b7C475e8249f2D31a9fb",
-    "tokens": ["0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913", "0xcbB7C0000aB88B473b1f5aFd9ef808440eed33Bf"],
-    "tokenOracleIds": ["USDC", "cbBTC"],
-    "decimals": [6, 8],
+    "tokens": [
+      "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+      "0xcbB7C0000aB88B473b1f5aFd9ef808440eed33Bf"
+    ],
+    "tokenOracleIds": [
+      "USDC",
+      "cbBTC"
+    ],
+    "decimals": [
+      6,
+      8
+    ],
     "oracleId": "aerodrome-cow-base-usdc-cbbtc",
     "providerId": "aerodrome",
     "rewardPool": {
@@ -797,9 +1372,18 @@
   {
     "address": "0xA3847B8C21e0F4354C39Bf3E41Ab40CeBAC44F2e",
     "lpAddress": "0xdFe5F275020def30993f042174Fc2D335678b626",
-    "tokens": ["0x940181a94A35A4569E4529A3CDfB74e38FD98631", "0xcbB7C0000aB88B473b1f5aFd9ef808440eed33Bf"],
-    "tokenOracleIds": ["AERO", "cbBTC"],
-    "decimals": [18, 8],
+    "tokens": [
+      "0x940181a94A35A4569E4529A3CDfB74e38FD98631",
+      "0xcbB7C0000aB88B473b1f5aFd9ef808440eed33Bf"
+    ],
+    "tokenOracleIds": [
+      "AERO",
+      "cbBTC"
+    ],
+    "decimals": [
+      18,
+      8
+    ],
     "oracleId": "aerodrome-cow-base-aero-cbbtc",
     "providerId": "aerodrome",
     "rewardPool": {
@@ -814,9 +1398,18 @@
   {
     "address": "0x63eD6f71b2FEe6c179c467723b48BBbaC5f5037c",
     "lpAddress": "0xBE00fF35AF70E8415D0eB605a286D8A45466A4c1",
-    "tokens": ["0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913", "0x940181a94A35A4569E4529A3CDfB74e38FD98631"],
-    "tokenOracleIds": ["USDC", "AERO"],
-    "decimals": [6, 18],
+    "tokens": [
+      "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+      "0x940181a94A35A4569E4529A3CDfB74e38FD98631"
+    ],
+    "tokenOracleIds": [
+      "USDC",
+      "AERO"
+    ],
+    "decimals": [
+      6,
+      18
+    ],
     "oracleId": "aerodrome-cow-base-usdc-aero",
     "providerId": "aerodrome",
     "rewardPool": {
@@ -831,9 +1424,18 @@
   {
     "address": "0x157cD721E2f6a52440f9C43EE2EE97FC1e14E2e3",
     "lpAddress": "0xb30540172F1B37d1eE1d109e49F883E935E69219",
-    "tokens": ["0x311935Cd80B76769bF2ecC9D8Ab7635b2139cf82", "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913"],
-    "tokenOracleIds": ["SOL", "USDC"],
-    "decimals": [9, 6],
+    "tokens": [
+      "0x311935Cd80B76769bF2ecC9D8Ab7635b2139cf82",
+      "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913"
+    ],
+    "tokenOracleIds": [
+      "SOL",
+      "USDC"
+    ],
+    "decimals": [
+      9,
+      6
+    ],
     "oracleId": "aerodrome-cow-base-sol-usdc",
     "providerId": "aerodrome",
     "rewardPool": {
@@ -848,9 +1450,18 @@
   {
     "address": "0x3Fd6D2c4c54A3bC20346b153192A9f7C1232dceD",
     "lpAddress": "0x681D6e4B0b020656cA04956dDAf76aDd7EF022F6",
-    "tokens": ["0x306aCd0c07c430AbBBb2e74Ef7bdE94F32A898c0", "0x4200000000000000000000000000000000000006"],
-    "tokenOracleIds": ["SEDA", "WETH"],
-    "decimals": [18, 18],
+    "tokens": [
+      "0x306aCd0c07c430AbBBb2e74Ef7bdE94F32A898c0",
+      "0x4200000000000000000000000000000000000006"
+    ],
+    "tokenOracleIds": [
+      "SEDA",
+      "WETH"
+    ],
+    "decimals": [
+      18,
+      18
+    ],
     "oracleId": "aerodrome-cow-base-seda-weth",
     "providerId": "aerodrome",
     "rewardPool": {
@@ -865,9 +1476,18 @@
   {
     "address": "0x2AA92E4C98a3540bb3260FfA964cF56d6ebbaBB8",
     "lpAddress": "0xa5E0Da329eE5AA03f09228e534953496334080f5",
-    "tokens": ["0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913", "0x9EadbE35F3Ee3bF3e28180070C429298a1b02F93"],
-    "tokenOracleIds": ["USDC", "LMTS"],
-    "decimals": [6, 18],
+    "tokens": [
+      "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+      "0x9EadbE35F3Ee3bF3e28180070C429298a1b02F93"
+    ],
+    "tokenOracleIds": [
+      "USDC",
+      "LMTS"
+    ],
+    "decimals": [
+      6,
+      18
+    ],
     "oracleId": "aerodrome-cow-base-usdc-lmts",
     "providerId": "aerodrome",
     "rewardPool": {
@@ -882,9 +1502,18 @@
   {
     "address": "0x80712151C842588A4C5fd0e3581BaaED48C7F3CA",
     "lpAddress": "0xCd1F9777571493AEAcb7eaE45cD30a226d3e612d",
-    "tokens": ["0x4200000000000000000000000000000000000006", "0xF732A566121Fa6362E9E0FBdd6D66E5c8C925E49"],
-    "tokenOracleIds": ["WETH", "LITKEY"],
-    "decimals": [18, 18],
+    "tokens": [
+      "0x4200000000000000000000000000000000000006",
+      "0xF732A566121Fa6362E9E0FBdd6D66E5c8C925E49"
+    ],
+    "tokenOracleIds": [
+      "WETH",
+      "LITKEY"
+    ],
+    "decimals": [
+      18,
+      18
+    ],
     "oracleId": "aerodrome-cow-base-weth-litkey",
     "providerId": "aerodrome",
     "rewardPool": {
@@ -899,9 +1528,18 @@
   {
     "address": "0x76f5A6b364E4865345de009ea0c124ad1D855F90",
     "lpAddress": "0xF81d3c731b3AC5a4DFC968f514860beDEEbeBAf2",
-    "tokens": ["0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913", "0xa749dE6c28262B7ffbc5De27dC845DD7eCD2b358"],
-    "tokenOracleIds": ["USDC", "VFY"],
-    "decimals": [6, 18],
+    "tokens": [
+      "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+      "0xa749dE6c28262B7ffbc5De27dC845DD7eCD2b358"
+    ],
+    "tokenOracleIds": [
+      "USDC",
+      "VFY"
+    ],
+    "decimals": [
+      6,
+      18
+    ],
     "oracleId": "aerodrome-cow-base-usdc-vfy",
     "providerId": "aerodrome",
     "rewardPool": {
@@ -916,9 +1554,18 @@
   {
     "address": "0x9Ca7cC997F072ddFbEDd0fa8E810Aa670c977d70",
     "lpAddress": "0xA0Ca5bEbC42cDbf3623B1C09206Ae4e3975B0FC7",
-    "tokens": ["0x1111111111166b7FE7bd91427724B487980aFc69", "0x4200000000000000000000000000000000000006"],
-    "tokenOracleIds": ["ZORA", "WETH"],
-    "decimals": [18, 18],
+    "tokens": [
+      "0x1111111111166b7FE7bd91427724B487980aFc69",
+      "0x4200000000000000000000000000000000000006"
+    ],
+    "tokenOracleIds": [
+      "ZORA",
+      "WETH"
+    ],
+    "decimals": [
+      18,
+      18
+    ],
     "oracleId": "uniswap-cow-base-zora-weth",
     "rewardPool": {
       "address": "0x2A99AfC17502FABe082f02ac24040100f1Cc1615",
@@ -928,9 +1575,18 @@
   {
     "address": "0xAc28E58b82F72E54A263C7523ccD149De34f157F",
     "lpAddress": "0x529d2863a1521d0b57db028168fdE2E97120017C",
-    "tokens": ["0x0b3e328455c4059EEb9e3f84b5543F74E24e7E1b", "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913"],
-    "tokenOracleIds": ["VIRTUAL", "USDC"],
-    "decimals": [18, 6],
+    "tokens": [
+      "0x0b3e328455c4059EEb9e3f84b5543F74E24e7E1b",
+      "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913"
+    ],
+    "tokenOracleIds": [
+      "VIRTUAL",
+      "USDC"
+    ],
+    "decimals": [
+      18,
+      6
+    ],
     "oracleId": "uniswap-cow-base-virtual-usdc",
     "rewardPool": {
       "address": "0xa33a2B947FA0c7FC10D17665AE473AF8c6a6CD59",
@@ -940,9 +1596,18 @@
   {
     "address": "0x0382FbaBd1d26a187EA1efCa3aEf05a09982Bf73",
     "lpAddress": "0x50F8F7fFBD70c6C87b1668EEe4E03F5AC057DE3F",
-    "tokens": ["0x11dC28D01984079b7efE7763b533e6ed9E3722B9", "0x4200000000000000000000000000000000000006"],
-    "tokenOracleIds": ["SYND", "WETH"],
-    "decimals": [18, 18],
+    "tokens": [
+      "0x11dC28D01984079b7efE7763b533e6ed9E3722B9",
+      "0x4200000000000000000000000000000000000006"
+    ],
+    "tokenOracleIds": [
+      "SYND",
+      "WETH"
+    ],
+    "decimals": [
+      18,
+      18
+    ],
     "oracleId": "aerodrome-cow-base-synd-weth",
     "providerId": "aerodrome",
     "rewardPool": {
@@ -957,9 +1622,18 @@
   {
     "address": "0xE4AB6913e7330118Eae72c0D34DD2b4f8a2688Ee",
     "lpAddress": "0x27c9dCd8EAB8015eFA86040026be8Ae034782F0c",
-    "tokens": ["0x11dC28D01984079b7efE7763b533e6ed9E3722B9", "0x4200000000000000000000000000000000000006"],
-    "tokenOracleIds": ["SYND", "WETH"],
-    "decimals": [18, 18],
+    "tokens": [
+      "0x11dC28D01984079b7efE7763b533e6ed9E3722B9",
+      "0x4200000000000000000000000000000000000006"
+    ],
+    "tokenOracleIds": [
+      "SYND",
+      "WETH"
+    ],
+    "decimals": [
+      18,
+      18
+    ],
     "oracleId": "uniswap-cow-base-synd-weth",
     "rewardPool": {
       "address": "0x2BF9B5537c4197253F8fb1ef37c57dc4B3DFf82e",
@@ -969,9 +1643,18 @@
   {
     "address": "0xE73F0e0754a43A0e6C20498605FF386017D10561",
     "lpAddress": "0xFf0df9b15C29542fa5d7eFe169452507b4d648C2",
-    "tokens": ["0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913", "0xd89d90d26B48940FA8F58385Fe84625d468E057a"],
-    "tokenOracleIds": ["USDC", "AVAIL"],
-    "decimals": [6, 18],
+    "tokens": [
+      "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+      "0xd89d90d26B48940FA8F58385Fe84625d468E057a"
+    ],
+    "tokenOracleIds": [
+      "USDC",
+      "AVAIL"
+    ],
+    "decimals": [
+      6,
+      18
+    ],
     "oracleId": "aerodrome-cow-base-usdc-avail",
     "providerId": "aerodrome",
     "rewardPool": {
@@ -986,9 +1669,18 @@
   {
     "address": "0xaD3Da8C8448FDFf327C98d981bA891EDE5818Ae0",
     "lpAddress": "0x80Cc08712Aa61cE9dc7604F9cE7560A25094B862",
-    "tokens": ["0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913", "0xC729777d0470F30612B1564Fd96E8Dd26f5814E3"],
-    "tokenOracleIds": ["USDC", "SAPIEN"],
-    "decimals": [6, 18],
+    "tokens": [
+      "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+      "0xC729777d0470F30612B1564Fd96E8Dd26f5814E3"
+    ],
+    "tokenOracleIds": [
+      "USDC",
+      "SAPIEN"
+    ],
+    "decimals": [
+      6,
+      18
+    ],
     "oracleId": "aerodrome-cow-base-usdc-sapien",
     "providerId": "aerodrome",
     "rewardPool": {
@@ -1003,9 +1695,18 @@
   {
     "address": "0x4f6286df8e68b0f2096DcD51e7b932cAc95b5e7C",
     "lpAddress": "0xC75a16d7E685eaE65Ba0aB6Cf596f73F6Edf170D",
-    "tokens": ["0x4200000000000000000000000000000000000006", "0xb9E1Fd5A02D3A33b25a14d661414E6ED6954a721"],
-    "tokenOracleIds": ["WETH", "SOON"],
-    "decimals": [18, 18],
+    "tokens": [
+      "0x4200000000000000000000000000000000000006",
+      "0xb9E1Fd5A02D3A33b25a14d661414E6ED6954a721"
+    ],
+    "tokenOracleIds": [
+      "WETH",
+      "SOON"
+    ],
+    "decimals": [
+      18,
+      18
+    ],
     "oracleId": "aerodrome-cow-base-weth-soon",
     "providerId": "aerodrome",
     "rewardPool": {
@@ -1020,9 +1721,18 @@
   {
     "address": "0xafA3df0b4adA5C5459dA1473A87a4b6029aFe7A4",
     "lpAddress": "0x22AEe3699b6A0fEd71490C103Bd4E5f3309891D5",
-    "tokens": ["0x4200000000000000000000000000000000000006", "0xcbB7C0000aB88B473b1f5aFd9ef808440eed33Bf"],
-    "tokenOracleIds": ["WETH", "cbBTC"],
-    "decimals": [18, 8],
+    "tokens": [
+      "0x4200000000000000000000000000000000000006",
+      "0xcbB7C0000aB88B473b1f5aFd9ef808440eed33Bf"
+    ],
+    "tokenOracleIds": [
+      "WETH",
+      "cbBTC"
+    ],
+    "decimals": [
+      18,
+      8
+    ],
     "oracleId": "aerodrome-cow-base-weth-cbbtc",
     "providerId": "aerodrome",
     "rewardPool": {
@@ -1037,9 +1747,18 @@
   {
     "address": "0x0646feCD15ac74A57c66323d15D756D6E9fAF41d",
     "lpAddress": "0x6b0F53cbD9272D8117e9535FE25371dedF39a1bE",
-    "tokens": ["0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913", "0xbF927b841994731C573BDF09ceB0c6B0Aa887cDd"],
-    "tokenOracleIds": ["USDC", "VELVET"],
-    "decimals": [6, 18],
+    "tokens": [
+      "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+      "0xbF927b841994731C573BDF09ceB0c6B0Aa887cDd"
+    ],
+    "tokenOracleIds": [
+      "USDC",
+      "VELVET"
+    ],
+    "decimals": [
+      6,
+      18
+    ],
     "oracleId": "aerodrome-cow-base-usdc-velvet",
     "providerId": "aerodrome",
     "rewardPool": {
@@ -1054,9 +1773,18 @@
   {
     "address": "0xEd4DA60e4b17bc678E98323e4ddFD0510014df09",
     "lpAddress": "0xe30d5BF485F7476AC15884a28ffb3C9cEA635DCB",
-    "tokens": ["0x696F9436B67233384889472Cd7cD58A6fB5DF4f1", "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913"],
-    "tokenOracleIds": ["AVNT", "USDC"],
-    "decimals": [18, 6],
+    "tokens": [
+      "0x696F9436B67233384889472Cd7cD58A6fB5DF4f1",
+      "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913"
+    ],
+    "tokenOracleIds": [
+      "AVNT",
+      "USDC"
+    ],
+    "decimals": [
+      18,
+      6
+    ],
     "oracleId": "aerodrome-cow-base-avnt-usdc",
     "providerId": "aerodrome",
     "rewardPool": {
@@ -1071,9 +1799,18 @@
   {
     "address": "0x0954e1C3d72B38a639bf56fE799215a5386f0BaB",
     "lpAddress": "0xdbc6998296caA1652A810dc8D3BaF4A8294330f1",
-    "tokens": ["0x4200000000000000000000000000000000000006", "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913"],
-    "tokenOracleIds": ["WETH", "USDC"],
-    "decimals": [18, 6],
+    "tokens": [
+      "0x4200000000000000000000000000000000000006",
+      "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913"
+    ],
+    "tokenOracleIds": [
+      "WETH",
+      "USDC"
+    ],
+    "decimals": [
+      18,
+      6
+    ],
     "oracleId": "aerodrome-cow-base-weth-usdc-0.01",
     "providerId": "aerodrome",
     "rewardPool": {
@@ -1088,9 +1825,18 @@
   {
     "address": "0xDb2b928AAAc60B83165E130B73a41c5014b01815",
     "lpAddress": "0x04f0C5d0e2fc9329F08E0112a37d7D9B7CfF1043",
-    "tokens": ["0x4200000000000000000000000000000000000006", "0x696F9436B67233384889472Cd7cD58A6fB5DF4f1"],
-    "tokenOracleIds": ["WETH", "AVNT"],
-    "decimals": [18, 18],
+    "tokens": [
+      "0x4200000000000000000000000000000000000006",
+      "0x696F9436B67233384889472Cd7cD58A6fB5DF4f1"
+    ],
+    "tokenOracleIds": [
+      "WETH",
+      "AVNT"
+    ],
+    "decimals": [
+      18,
+      18
+    ],
     "oracleId": "uniswap-cow-base-weth-avnt",
     "rewardPool": {
       "address": "0x63b7a7f1522A5C6682a289b4DE7924e82b37DB44",
@@ -1100,9 +1846,18 @@
   {
     "address": "0xBf7B9a9B9Bb8e3B421c9f637543eA972f7e934cB",
     "lpAddress": "0x9144A6e8ad6f56db96daC444eB173831660Ba3e5",
-    "tokens": ["0x696F9436B67233384889472Cd7cD58A6fB5DF4f1", "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913"],
-    "tokenOracleIds": ["AVNT", "USDC"],
-    "decimals": [18, 6],
+    "tokens": [
+      "0x696F9436B67233384889472Cd7cD58A6fB5DF4f1",
+      "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913"
+    ],
+    "tokenOracleIds": [
+      "AVNT",
+      "USDC"
+    ],
+    "decimals": [
+      18,
+      6
+    ],
     "oracleId": "uniswap-cow-base-avnt-usdc",
     "rewardPool": {
       "address": "0x906c791e57C6D72d8539617853cA7876D3af314C",
@@ -1112,9 +1867,18 @@
   {
     "address": "0x7AFED8e73eF4D3dE91A06c33B5159B7a373bC6C5",
     "lpAddress": "0x678F431DA2aBb9B5726bbf5CCDbaEEBB60dA9813",
-    "tokens": ["0x7300B37DfdfAb110d83290A29DfB31B1740219fE", "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913"],
-    "tokenOracleIds": ["MAMO", "USDC"],
-    "decimals": [18, 6],
+    "tokens": [
+      "0x7300B37DfdfAb110d83290A29DfB31B1740219fE",
+      "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913"
+    ],
+    "tokenOracleIds": [
+      "MAMO",
+      "USDC"
+    ],
+    "decimals": [
+      18,
+      6
+    ],
     "oracleId": "aerodrome-cow-base-mamo-usdc",
     "providerId": "aerodrome",
     "rewardPool": {
@@ -1129,9 +1893,18 @@
   {
     "address": "0xAcdD5f6678B2B31924B962EE26FC0B0619f18bE7",
     "lpAddress": "0xE2B3aA806e56603a244bFc111c9474F7DeDD03db",
-    "tokens": ["0x7300B37DfdfAb110d83290A29DfB31B1740219fE", "0xcbB7C0000aB88B473b1f5aFd9ef808440eed33Bf"],
-    "tokenOracleIds": ["MAMO", "cbBTC"],
-    "decimals": [18, 8],
+    "tokens": [
+      "0x7300B37DfdfAb110d83290A29DfB31B1740219fE",
+      "0xcbB7C0000aB88B473b1f5aFd9ef808440eed33Bf"
+    ],
+    "tokenOracleIds": [
+      "MAMO",
+      "cbBTC"
+    ],
+    "decimals": [
+      18,
+      8
+    ],
     "oracleId": "aerodrome-cow-base-mamo-cbbtc",
     "providerId": "aerodrome",
     "rewardPool": {
@@ -1146,9 +1919,18 @@
   {
     "address": "0xFa70946E468C1F0981495F3c57Af5825b8c087Ae",
     "lpAddress": "0x4A021bA3ab1F0121e7DF76f345C547db86Cb3468",
-    "tokens": ["0x0b3e328455c4059EEb9e3f84b5543F74E24e7E1b", "0x7300B37DfdfAb110d83290A29DfB31B1740219fE"],
-    "tokenOracleIds": ["VIRTUAL", "MAMO"],
-    "decimals": [18, 18],
+    "tokens": [
+      "0x0b3e328455c4059EEb9e3f84b5543F74E24e7E1b",
+      "0x7300B37DfdfAb110d83290A29DfB31B1740219fE"
+    ],
+    "tokenOracleIds": [
+      "VIRTUAL",
+      "MAMO"
+    ],
+    "decimals": [
+      18,
+      18
+    ],
     "oracleId": "aerodrome-cow-base-virtual-mamo",
     "providerId": "aerodrome",
     "rewardPool": {
@@ -1163,9 +1945,18 @@
   {
     "address": "0xd27b3C4f44256f36e25cc394484F530712F367a5",
     "lpAddress": "0xC200F21EfE67c7F41B81A854c26F9cdA80593065",
-    "tokens": ["0x0b3e328455c4059EEb9e3f84b5543F74E24e7E1b", "0x4200000000000000000000000000000000000006"],
-    "tokenOracleIds": ["VIRTUAL", "WETH"],
-    "decimals": [18, 18],
+    "tokens": [
+      "0x0b3e328455c4059EEb9e3f84b5543F74E24e7E1b",
+      "0x4200000000000000000000000000000000000006"
+    ],
+    "tokenOracleIds": [
+      "VIRTUAL",
+      "WETH"
+    ],
+    "decimals": [
+      18,
+      18
+    ],
     "oracleId": "aerodrome-cow-base-virtual-weth",
     "providerId": "aerodrome",
     "rewardPool": {
@@ -1180,9 +1971,18 @@
   {
     "address": "0x7a210701Fa8129b1e04E671A8d25D45DCD97BDE3",
     "lpAddress": "0x4a79B0168296c0eF7b8F314973B82aD406a29f1B",
-    "tokens": ["0x4200000000000000000000000000000000000006", "0x63706e401c06ac8513145b7687A14804d17f814b"],
-    "tokenOracleIds": ["WETH", "AAVE"],
-    "decimals": [18, 18],
+    "tokens": [
+      "0x4200000000000000000000000000000000000006",
+      "0x63706e401c06ac8513145b7687A14804d17f814b"
+    ],
+    "tokenOracleIds": [
+      "WETH",
+      "AAVE"
+    ],
+    "decimals": [
+      18,
+      18
+    ],
     "oracleId": "aerodrome-cow-base-weth-aave",
     "providerId": "aerodrome",
     "rewardPool": {
@@ -1197,9 +1997,18 @@
   {
     "address": "0x9FF41ef1847650F9C7438Af1Ec8Bf6e47fcA4923",
     "lpAddress": "0x6044c817e55A03DAdc5F6b8B7045aF1985aE90fA",
-    "tokens": ["0xcb17C9Db87B595717C857a08468793f5bAb6445F", "0xcbB7C0000aB88B473b1f5aFd9ef808440eed33Bf"],
-    "tokenOracleIds": ["cbLTC", "cbBTC"],
-    "decimals": [8, 8],
+    "tokens": [
+      "0xcb17C9Db87B595717C857a08468793f5bAb6445F",
+      "0xcbB7C0000aB88B473b1f5aFd9ef808440eed33Bf"
+    ],
+    "tokenOracleIds": [
+      "cbLTC",
+      "cbBTC"
+    ],
+    "decimals": [
+      8,
+      8
+    ],
     "oracleId": "aerodrome-cow-base-cbltc-cbbtc",
     "providerId": "aerodrome",
     "rewardPool": {
@@ -1214,9 +2023,18 @@
   {
     "address": "0x028c2d438aee5e10B964Ca212984561e858B4F2f",
     "lpAddress": "0x200681425b0C8D78C6a467512C5D49FA56BaC88A",
-    "tokens": ["0x4200000000000000000000000000000000000006", "0xcb17C9Db87B595717C857a08468793f5bAb6445F"],
-    "tokenOracleIds": ["WETH", "cbLTC"],
-    "decimals": [18, 8],
+    "tokens": [
+      "0x4200000000000000000000000000000000000006",
+      "0xcb17C9Db87B595717C857a08468793f5bAb6445F"
+    ],
+    "tokenOracleIds": [
+      "WETH",
+      "cbLTC"
+    ],
+    "decimals": [
+      18,
+      8
+    ],
     "oracleId": "aerodrome-cow-base-weth-cbltc",
     "providerId": "aerodrome",
     "rewardPool": {
@@ -1231,9 +2049,18 @@
   {
     "address": "0x5A3610d413f1edB14AA64B56De1b568536CBE710",
     "lpAddress": "0x363d1607b8DA83d6B6EA76D017CeEcf1316BB08A",
-    "tokens": ["0xcbB7C0000aB88B473b1f5aFd9ef808440eed33Bf", "0xcbD06E5A2B0C65597161de254AA074E489dEb510"],
-    "tokenOracleIds": ["cbBTC", "cbDOGE"],
-    "decimals": [8, 8],
+    "tokens": [
+      "0xcbB7C0000aB88B473b1f5aFd9ef808440eed33Bf",
+      "0xcbD06E5A2B0C65597161de254AA074E489dEb510"
+    ],
+    "tokenOracleIds": [
+      "cbBTC",
+      "cbDOGE"
+    ],
+    "decimals": [
+      8,
+      8
+    ],
     "oracleId": "aerodrome-cow-base-cbbtc-cbdoge",
     "providerId": "aerodrome",
     "rewardPool": {
@@ -1248,9 +2075,18 @@
   {
     "address": "0x93B36e74a27A2332361f8BD31B892b1FeC9231b2",
     "lpAddress": "0xfb338cb462c9e44cAE9f442fEb09e8E904fFed47",
-    "tokens": ["0x4200000000000000000000000000000000000006", "0xcbD06E5A2B0C65597161de254AA074E489dEb510"],
-    "tokenOracleIds": ["WETH", "cbDOGE"],
-    "decimals": [18, 8],
+    "tokens": [
+      "0x4200000000000000000000000000000000000006",
+      "0xcbD06E5A2B0C65597161de254AA074E489dEb510"
+    ],
+    "tokenOracleIds": [
+      "WETH",
+      "cbDOGE"
+    ],
+    "decimals": [
+      18,
+      8
+    ],
     "oracleId": "aerodrome-cow-base-weth-cbdoge",
     "providerId": "aerodrome",
     "rewardPool": {
@@ -1265,9 +2101,18 @@
   {
     "address": "0x8DA9511a93C6499359D815390ef6920285C21273",
     "lpAddress": "0x8782d97C8b25B4d17dBFbaa03f25dC18e51e909D",
-    "tokens": ["0xcbADA732173e39521CDBE8bf59a6Dc85A9fc7b8c", "0xcbB7C0000aB88B473b1f5aFd9ef808440eed33Bf"],
-    "tokenOracleIds": ["cbADA", "cbBTC"],
-    "decimals": [6, 8],
+    "tokens": [
+      "0xcbADA732173e39521CDBE8bf59a6Dc85A9fc7b8c",
+      "0xcbB7C0000aB88B473b1f5aFd9ef808440eed33Bf"
+    ],
+    "tokenOracleIds": [
+      "cbADA",
+      "cbBTC"
+    ],
+    "decimals": [
+      6,
+      8
+    ],
     "oracleId": "aerodrome-cow-base-cbada-cbbtc",
     "providerId": "aerodrome",
     "rewardPool": {
@@ -1282,9 +2127,18 @@
   {
     "address": "0x1Ce03a9352e5c3C2893bF6559c90cb383ec4922c",
     "lpAddress": "0xb862F23ba38c8C65e256782B31E8C08C9aefd612",
-    "tokens": ["0x4200000000000000000000000000000000000006", "0xcbADA732173e39521CDBE8bf59a6Dc85A9fc7b8c"],
-    "tokenOracleIds": ["WETH", "cbADA"],
-    "decimals": [18, 6],
+    "tokens": [
+      "0x4200000000000000000000000000000000000006",
+      "0xcbADA732173e39521CDBE8bf59a6Dc85A9fc7b8c"
+    ],
+    "tokenOracleIds": [
+      "WETH",
+      "cbADA"
+    ],
+    "decimals": [
+      18,
+      6
+    ],
     "oracleId": "aerodrome-cow-base-weth-cbada",
     "providerId": "aerodrome",
     "rewardPool": {
@@ -1299,9 +2153,18 @@
   {
     "address": "0x599bF5d55a232ad5F2cd96934663dee42141A472",
     "lpAddress": "0x95Ff4985af7ED78421215be100c18a2b987f7E90",
-    "tokens": ["0xcb585250f852C6c6bf90434AB21A00f02833a4af", "0xcbB7C0000aB88B473b1f5aFd9ef808440eed33Bf"],
-    "tokenOracleIds": ["cbXRP", "cbBTC"],
-    "decimals": [6, 8],
+    "tokens": [
+      "0xcb585250f852C6c6bf90434AB21A00f02833a4af",
+      "0xcbB7C0000aB88B473b1f5aFd9ef808440eed33Bf"
+    ],
+    "tokenOracleIds": [
+      "cbXRP",
+      "cbBTC"
+    ],
+    "decimals": [
+      6,
+      8
+    ],
     "oracleId": "aerodrome-cow-base-cbxrp-cbbtc",
     "providerId": "aerodrome",
     "rewardPool": {
@@ -1316,9 +2179,18 @@
   {
     "address": "0x752043a3657c7732A6d2F85213517828F28237E6",
     "lpAddress": "0xA6da283cf7D06b2279626E787c329d6aCF7e2994",
-    "tokens": ["0x4200000000000000000000000000000000000006", "0xcb585250f852C6c6bf90434AB21A00f02833a4af"],
-    "tokenOracleIds": ["WETH", "cbXRP"],
-    "decimals": [18, 6],
+    "tokens": [
+      "0x4200000000000000000000000000000000000006",
+      "0xcb585250f852C6c6bf90434AB21A00f02833a4af"
+    ],
+    "tokenOracleIds": [
+      "WETH",
+      "cbXRP"
+    ],
+    "decimals": [
+      18,
+      6
+    ],
     "oracleId": "aerodrome-cow-base-weth-cbxrp",
     "providerId": "aerodrome",
     "rewardPool": {
@@ -1333,9 +2205,18 @@
   {
     "address": "0xCdd84A29a4b6b7E546757C9481F88db477Deb423",
     "lpAddress": "0xAEC085E5A5CE8d96A7bDd3eB3A62445d4f6CE703",
-    "tokens": ["0x22aF33FE49fD1Fa80c7149773dDe5890D3c76F3b", "0x4200000000000000000000000000000000000006"],
-    "tokenOracleIds": ["BNKR", "WETH"],
-    "decimals": [18, 18],
+    "tokens": [
+      "0x22aF33FE49fD1Fa80c7149773dDe5890D3c76F3b",
+      "0x4200000000000000000000000000000000000006"
+    ],
+    "tokenOracleIds": [
+      "BNKR",
+      "WETH"
+    ],
+    "decimals": [
+      18,
+      18
+    ],
     "oracleId": "uniswap-cow-base-bnkr-weth",
     "rewardPool": {
       "address": "0x2D4D32FB19564B066ebe7c59206e6C64f529faB3",
@@ -1345,9 +2226,18 @@
   {
     "address": "0x5Ca9B0B7271bE6b3730e9Dd70961D1adD7e5705c",
     "lpAddress": "0x51c230951b82Dbf7b8696B6fCd2be199cC10779f",
-    "tokens": ["0x6e2c81b6c2C0e02360F00a0dA694e489acB0b05e", "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913"],
-    "tokenOracleIds": ["RFL", "USDC"],
-    "decimals": [18, 6],
+    "tokens": [
+      "0x6e2c81b6c2C0e02360F00a0dA694e489acB0b05e",
+      "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913"
+    ],
+    "tokenOracleIds": [
+      "RFL",
+      "USDC"
+    ],
+    "decimals": [
+      18,
+      6
+    ],
     "oracleId": "aerodrome-cow-base-rfl-usdc",
     "providerId": "aerodrome",
     "rewardPool": {
@@ -1362,9 +2252,18 @@
   {
     "address": "0x7D7785B537Be53Dd1eA1C9d2503216Ca138eC907",
     "lpAddress": "0x303b00d7A2Ad12a480dB7C04DE5835ec9Ccc37B0",
-    "tokens": ["0x4200000000000000000000000000000000000006", "0xb89D354AD1b0d95a48b3De4607F75a8cD710c1bA"],
-    "tokenOracleIds": ["WETH", "LAY"],
-    "decimals": [18, 18],
+    "tokens": [
+      "0x4200000000000000000000000000000000000006",
+      "0xb89D354AD1b0d95a48b3De4607F75a8cD710c1bA"
+    ],
+    "tokenOracleIds": [
+      "WETH",
+      "LAY"
+    ],
+    "decimals": [
+      18,
+      18
+    ],
     "oracleId": "uniswap-cow-base-weth-lay",
     "rewardPool": {
       "address": "0xf5D255cbd4E3C3357F8957c20B4c85aBd014640F",
@@ -1374,9 +2273,18 @@
   {
     "address": "0xED91eEA17c91E5a46A3A756C4FF030A2608318db",
     "lpAddress": "0x5280d5E63b416277d0F81FAe54Bb1e0444cAbDAA",
-    "tokens": ["0x0C03Ce270B4826Ec62e7DD007f0B716068639F7B", "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913"],
-    "tokenOracleIds": ["TIG", "USDC"],
-    "decimals": [18, 6],
+    "tokens": [
+      "0x0C03Ce270B4826Ec62e7DD007f0B716068639F7B",
+      "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913"
+    ],
+    "tokenOracleIds": [
+      "TIG",
+      "USDC"
+    ],
+    "decimals": [
+      18,
+      6
+    ],
     "oracleId": "uniswap-cow-base-tig-usdc",
     "rewardPool": {
       "address": "0x420E4B939EAb92C5e5FCDF71b15864CDFaB6caad",
@@ -1386,9 +2294,18 @@
   {
     "address": "0x49a2Ef509eFaf8932322aB77495c8ADd75cdD013",
     "lpAddress": "0xe077DdFb9E9d9403A8eC42D3023D17e8417ee399",
-    "tokens": ["0x590830dFDf9A3F68aFCDdE2694773dEBDF267774", "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913"],
-    "tokenOracleIds": ["GIZA", "USDC"],
-    "decimals": [18, 6],
+    "tokens": [
+      "0x590830dFDf9A3F68aFCDdE2694773dEBDF267774",
+      "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913"
+    ],
+    "tokenOracleIds": [
+      "GIZA",
+      "USDC"
+    ],
+    "decimals": [
+      18,
+      6
+    ],
     "oracleId": "aerodrome-cow-base-giza-usdc",
     "providerId": "aerodrome",
     "rewardPool": {
@@ -1403,9 +2320,18 @@
   {
     "address": "0xA07Ea67a617674067856f17A410f02a797559b57",
     "lpAddress": "0xcb1F3E1A6BB8A0e2D97bDC9d48DB093B2C0095f9",
-    "tokens": ["0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913", "0xB6fe221Fe9EeF5aBa221c348bA20A1Bf5e73624c"],
-    "tokenOracleIds": ["USDC", "rETH"],
-    "decimals": [6, 18],
+    "tokens": [
+      "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+      "0xB6fe221Fe9EeF5aBa221c348bA20A1Bf5e73624c"
+    ],
+    "tokenOracleIds": [
+      "USDC",
+      "rETH"
+    ],
+    "decimals": [
+      6,
+      18
+    ],
     "oracleId": "aerodrome-cow-base-usdc-reth",
     "providerId": "aerodrome",
     "rewardPool": {
@@ -1420,9 +2346,18 @@
   {
     "address": "0xEB9daac34fdD0c22b9EA27284165177732d92B52",
     "lpAddress": "0x46D710c35BdfB800a18A820712310048Ef8B5256",
-    "tokens": ["0x4200000000000000000000000000000000000006", "0xc0634090F2Fe6c6d75e61Be2b949464aBB498973"],
-    "tokenOracleIds": ["WETH", "KTA"],
-    "decimals": [18, 18],
+    "tokens": [
+      "0x4200000000000000000000000000000000000006",
+      "0xc0634090F2Fe6c6d75e61Be2b949464aBB498973"
+    ],
+    "tokenOracleIds": [
+      "WETH",
+      "KTA"
+    ],
+    "decimals": [
+      18,
+      18
+    ],
     "oracleId": "aerodrome-cow-base-weth-kta",
     "providerId": "aerodrome",
     "rewardPool": {
@@ -1437,9 +2372,18 @@
   {
     "address": "0xbf05bb976BF4a6200D88C6fDdcf86a14D8a768c0",
     "lpAddress": "0x8d421B0D641193D67Dd1aa024DAb17fcdE0BfC89",
-    "tokens": ["0x4200000000000000000000000000000000000006", "0xc0634090F2Fe6c6d75e61Be2b949464aBB498973"],
-    "tokenOracleIds": ["WETH", "KTA"],
-    "decimals": [18, 18],
+    "tokens": [
+      "0x4200000000000000000000000000000000000006",
+      "0xc0634090F2Fe6c6d75e61Be2b949464aBB498973"
+    ],
+    "tokenOracleIds": [
+      "WETH",
+      "KTA"
+    ],
+    "decimals": [
+      18,
+      18
+    ],
     "oracleId": "uniswap-cow-base-weth-kta",
     "rewardPool": {
       "address": "0x4250d483858fdA2AB297ED08378a0b34Bc42F0A1",
@@ -1449,9 +2393,18 @@
   {
     "address": "0xe9B2507C4362E4225142E7fcc17ad4C281aAc990",
     "lpAddress": "0xeFF7f8Fe083d7a446717B992bf84391253e54789",
-    "tokens": ["0x4200000000000000000000000000000000000006", "0x9Cb41FD9dC6891BAe8187029461bfAADF6CC0C69"],
-    "tokenOracleIds": ["WETH", "noice"],
-    "decimals": [18, 18],
+    "tokens": [
+      "0x4200000000000000000000000000000000000006",
+      "0x9Cb41FD9dC6891BAe8187029461bfAADF6CC0C69"
+    ],
+    "tokenOracleIds": [
+      "WETH",
+      "noice"
+    ],
+    "decimals": [
+      18,
+      18
+    ],
     "oracleId": "uniswap-cow-base-weth-noice",
     "rewardPool": {
       "address": "0xf928661983941C50253249D71549BAa7674811Fe",
@@ -1461,9 +2414,18 @@
   {
     "address": "0xC2728cFDCD23Ba720671cf13d97e2A1C510cc223",
     "lpAddress": "0xB5F0b4aE66C14F7EFaA9aA1468E8FC536A3E288c",
-    "tokens": ["0x4200000000000000000000000000000000000006", "0xBAa5CC21fd487B8Fcc2F632f3F4E8D37262a0842"],
-    "tokenOracleIds": ["WETH", "MORPHO"],
-    "decimals": [18, 18],
+    "tokens": [
+      "0x4200000000000000000000000000000000000006",
+      "0xBAa5CC21fd487B8Fcc2F632f3F4E8D37262a0842"
+    ],
+    "tokenOracleIds": [
+      "WETH",
+      "MORPHO"
+    ],
+    "decimals": [
+      18,
+      18
+    ],
     "oracleId": "aerodrome-cow-base-weth-morpho",
     "providerId": "aerodrome",
     "rewardPool": {
@@ -1478,9 +2440,18 @@
   {
     "address": "0x39079221508989999578cA3B0005130E5e451D14",
     "lpAddress": "0x3f53f1Fd5b7723DDf38D93a584D280B9b94C3111",
-    "tokens": ["0x1111111111166b7FE7bd91427724B487980aFc69", "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913"],
-    "tokenOracleIds": ["ZORA", "USDC"],
-    "decimals": [18, 6],
+    "tokens": [
+      "0x1111111111166b7FE7bd91427724B487980aFc69",
+      "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913"
+    ],
+    "tokenOracleIds": [
+      "ZORA",
+      "USDC"
+    ],
+    "decimals": [
+      18,
+      6
+    ],
     "oracleId": "aerodrome-cow-base-zora-usdc",
     "providerId": "aerodrome",
     "rewardPool": {
@@ -1495,9 +2466,18 @@
   {
     "address": "0xbF7e7f77224Bee020Cf92bD4b14bDCeBD9182641",
     "lpAddress": "0x36B4869995672DF7E3aFc36BE795Dbb998Bc639d",
-    "tokens": ["0x1111111111166b7FE7bd91427724B487980aFc69", "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913"],
-    "tokenOracleIds": ["ZORA", "USDC"],
-    "decimals": [18, 6],
+    "tokens": [
+      "0x1111111111166b7FE7bd91427724B487980aFc69",
+      "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913"
+    ],
+    "tokenOracleIds": [
+      "ZORA",
+      "USDC"
+    ],
+    "decimals": [
+      18,
+      6
+    ],
     "oracleId": "uniswap-cow-base-zora-usdc",
     "rewardPool": {
       "address": "0xc1CE1429703695E7B551D5CA132d026aad1eB30b",
@@ -1507,9 +2487,18 @@
   {
     "address": "0xF315b9Bde1E18E71F879dD47b32697a01b3671fb",
     "lpAddress": "0x06D7874037E622d6eF42294Cf32EB259806Cb1C6",
-    "tokens": ["0x4200000000000000000000000000000000000006", "0xD769d56f479E9E72a77bB1523e866A33098Feec5"],
-    "tokenOracleIds": ["WETH", "Base is for everyone"],
-    "decimals": [18, 18],
+    "tokens": [
+      "0x4200000000000000000000000000000000000006",
+      "0xD769d56f479E9E72a77bB1523e866A33098Feec5"
+    ],
+    "tokenOracleIds": [
+      "WETH",
+      "Base is for everyone"
+    ],
+    "decimals": [
+      18,
+      18
+    ],
     "oracleId": "uniswap-cow-base-weth-base-is-for-everyone",
     "rewardPool": {
       "address": "0x06e39569023AF9808C660E6e5833665C01E79cC2",
@@ -1519,9 +2508,18 @@
   {
     "address": "0xD5D734a5D7d9A74fE4d597922c00213e819f8b1E",
     "lpAddress": "0x09Da4832d34BeBBB55783340d5bede7A70F5c48e",
-    "tokens": ["0x043eB4B75d0805c43D7C834902E335621983Cf03", "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913"],
-    "tokenOracleIds": ["CADC", "USDC"],
-    "decimals": [18, 6],
+    "tokens": [
+      "0x043eB4B75d0805c43D7C834902E335621983Cf03",
+      "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913"
+    ],
+    "tokenOracleIds": [
+      "CADC",
+      "USDC"
+    ],
+    "decimals": [
+      18,
+      6
+    ],
     "oracleId": "aerodrome-cow-base-cadc-usdc",
     "providerId": "aerodrome",
     "rewardPool": {
@@ -1536,9 +2534,18 @@
   {
     "address": "0x294054575E2c19c91F8297867221fA3366dF8a91",
     "lpAddress": "0xD43Decd5Df4BDFFd5A4Cf35cA1f9557E33B7246C",
-    "tokens": ["0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913", "0xE9185Ee218cae427aF7B9764A011bb89FeA761B4"],
-    "tokenOracleIds": ["USDC", "BRZ"],
-    "decimals": [6, 18],
+    "tokens": [
+      "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+      "0xE9185Ee218cae427aF7B9764A011bb89FeA761B4"
+    ],
+    "tokenOracleIds": [
+      "USDC",
+      "BRZ"
+    ],
+    "decimals": [
+      6,
+      18
+    ],
     "oracleId": "aerodrome-cow-base-usdc-brz",
     "providerId": "aerodrome",
     "rewardPool": {
@@ -1553,9 +2560,18 @@
   {
     "address": "0x20492fFe05daC52E18f806536c1FDBb825CFD8BA",
     "lpAddress": "0x5116773e18A9C7bB03EBB961b38678E45E238923",
-    "tokens": ["0x3ec2156D4c0A9CBdAB4a016633b7BcF6a8d68Ea2", "0x4200000000000000000000000000000000000006"],
-    "tokenOracleIds": ["DRB", "WETH"],
-    "decimals": [18, 18],
+    "tokens": [
+      "0x3ec2156D4c0A9CBdAB4a016633b7BcF6a8d68Ea2",
+      "0x4200000000000000000000000000000000000006"
+    ],
+    "tokenOracleIds": [
+      "DRB",
+      "WETH"
+    ],
+    "decimals": [
+      18,
+      18
+    ],
     "oracleId": "uniswap-cow-base-drb-weth",
     "rewardPool": {
       "address": "0x9eD5F7137960A8b28Dd44B17f7bDF0C946B67FA9",
@@ -1565,9 +2581,18 @@
   {
     "address": "0xA615A00AA3228324a3bC9F130db628da2ECec285",
     "lpAddress": "0xb5a0dA376245E67b2e55e4F011B4daA464278cFA",
-    "tokens": ["0x2E2cc4DfCe60257F091980631e75f5c436b71C87", "0x4200000000000000000000000000000000000006"],
-    "tokenOracleIds": ["GRK", "WETH"],
-    "decimals": [18, 18],
+    "tokens": [
+      "0x2E2cc4DfCe60257F091980631e75f5c436b71C87",
+      "0x4200000000000000000000000000000000000006"
+    ],
+    "tokenOracleIds": [
+      "GRK",
+      "WETH"
+    ],
+    "decimals": [
+      18,
+      18
+    ],
     "oracleId": "uniswap-cow-base-grk-weth",
     "rewardPool": {
       "address": "0xA6600e15eb2B7a5BAaac381f52DC2EE6B3036F26",
@@ -1577,9 +2602,18 @@
   {
     "address": "0x246dDB057d237Cc5059a0588C4E66cfDFc774B7b",
     "lpAddress": "0xce9a14706402f56605D1595362a4D081a2ea0c4e",
-    "tokens": ["0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913", "0x98d0baa52b2D063E780DE12F615f963Fe8537553"],
-    "tokenOracleIds": ["USDC", "KAITO"],
-    "decimals": [6, 18],
+    "tokens": [
+      "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+      "0x98d0baa52b2D063E780DE12F615f963Fe8537553"
+    ],
+    "tokenOracleIds": [
+      "USDC",
+      "KAITO"
+    ],
+    "decimals": [
+      6,
+      18
+    ],
     "oracleId": "uniswap-cow-base-usdc-kaito",
     "rewardPool": {
       "address": "0xA986F852Bdb554e8f42ab55D5769C69708E4031E",
@@ -1589,9 +2623,18 @@
   {
     "address": "0xcbBC79eE06A8371Be91a511b4Bd4268f856f3135",
     "lpAddress": "0x2eA054c177Abd8b8C87704EaA08680DB5C6d805c",
-    "tokens": ["0x4200000000000000000000000000000000000006", "0x98d0baa52b2D063E780DE12F615f963Fe8537553"],
-    "tokenOracleIds": ["WETH", "KAITO"],
-    "decimals": [18, 18],
+    "tokens": [
+      "0x4200000000000000000000000000000000000006",
+      "0x98d0baa52b2D063E780DE12F615f963Fe8537553"
+    ],
+    "tokenOracleIds": [
+      "WETH",
+      "KAITO"
+    ],
+    "decimals": [
+      18,
+      18
+    ],
     "oracleId": "uniswap-cow-base-weth-kaito",
     "rewardPool": {
       "address": "0x6D692E6D6212278a4aC084A82423410CC89282E8",
@@ -1601,9 +2644,18 @@
   {
     "address": "0x24a68b76D821aDd3E44D68F268093BE45c9A94e7",
     "lpAddress": "0x83212D59403D96A95Fd750d5b6880F77d0CAb337",
-    "tokens": ["0x239b9C1F24F3423062B0d364796e07Ee905E9FcE", "0x4200000000000000000000000000000000000006"],
-    "tokenOracleIds": ["uSHIB", "WETH"],
-    "decimals": [18, 18],
+    "tokens": [
+      "0x239b9C1F24F3423062B0d364796e07Ee905E9FcE",
+      "0x4200000000000000000000000000000000000006"
+    ],
+    "tokenOracleIds": [
+      "uSHIB",
+      "WETH"
+    ],
+    "decimals": [
+      18,
+      18
+    ],
     "oracleId": "aerodrome-cow-base-ushib-weth",
     "providerId": "aerodrome",
     "rewardPool": {
@@ -1618,9 +2670,18 @@
   {
     "address": "0x0A417A748133a7B366333B3d5FdC6b13e6B12dB2",
     "lpAddress": "0x560c3281CE6cc0f4249c9ED116a8836557CCD1bf",
-    "tokens": ["0x4200000000000000000000000000000000000006", "0xE5c436B0a34DF18F1dae98af344Ca5122E7d57c4"],
-    "tokenOracleIds": ["WETH", "uPEPE"],
-    "decimals": [18, 18],
+    "tokens": [
+      "0x4200000000000000000000000000000000000006",
+      "0xE5c436B0a34DF18F1dae98af344Ca5122E7d57c4"
+    ],
+    "tokenOracleIds": [
+      "WETH",
+      "uPEPE"
+    ],
+    "decimals": [
+      18,
+      18
+    ],
     "oracleId": "aerodrome-cow-base-weth-upepe",
     "providerId": "aerodrome",
     "rewardPool": {
@@ -1635,9 +2696,18 @@
   {
     "address": "0xfA8Ec84864fbbC65C2Fe006E0563E3E3F3CBd2CF",
     "lpAddress": "0x5D332dC44faC918e66D335fB874FdcDab73560C2",
-    "tokens": ["0x13281AE464191bC592c6E5D65EeeAEee02660D84", "0x4200000000000000000000000000000000000006"],
-    "tokenOracleIds": ["POPCAT", "WETH"],
-    "decimals": [9, 18],
+    "tokens": [
+      "0x13281AE464191bC592c6E5D65EeeAEee02660D84",
+      "0x4200000000000000000000000000000000000006"
+    ],
+    "tokenOracleIds": [
+      "POPCAT",
+      "WETH"
+    ],
+    "decimals": [
+      9,
+      18
+    ],
     "oracleId": "aerodrome-cow-base-popcat-weth",
     "providerId": "aerodrome",
     "rewardPool": {
@@ -1652,9 +2722,18 @@
   {
     "address": "0x69feAe52bf4223c110BA8c23dBe77389fcE40C65",
     "lpAddress": "0x266f421f80016d670C9de757d561a5C4a6A9FFAc",
-    "tokens": ["0x4200000000000000000000000000000000000006", "0x806041B6473DA60abbe1b256d9A2749A151be6C6"],
-    "tokenOracleIds": ["WETH", "stTAO"],
-    "decimals": [18, 9],
+    "tokens": [
+      "0x4200000000000000000000000000000000000006",
+      "0x806041B6473DA60abbe1b256d9A2749A151be6C6"
+    ],
+    "tokenOracleIds": [
+      "WETH",
+      "stTAO"
+    ],
+    "decimals": [
+      18,
+      9
+    ],
     "oracleId": "aerodrome-cow-base-weth-sttao",
     "providerId": "aerodrome",
     "rewardPool": {
@@ -1669,9 +2748,18 @@
   {
     "address": "0x27Fb9094d9510004D141F04D10ECC864990476D7",
     "lpAddress": "0xa74eF758e0fEE9777Ca8723b249C24A84B3F3D82",
-    "tokens": ["0x4200000000000000000000000000000000000006", "0xB3B32F9f8827D4634fE7d973Fa1034Ec9fdDB3B3"],
-    "tokenOracleIds": ["WETH", "B3"],
-    "decimals": [18, 18],
+    "tokens": [
+      "0x4200000000000000000000000000000000000006",
+      "0xB3B32F9f8827D4634fE7d973Fa1034Ec9fdDB3B3"
+    ],
+    "tokenOracleIds": [
+      "WETH",
+      "B3"
+    ],
+    "decimals": [
+      18,
+      18
+    ],
     "oracleId": "uniswap-cow-base-weth-b3",
     "rewardPool": {
       "address": "0x495d1866962274Fd8c03Ca7B93503EC8087dB7b5",
@@ -1681,9 +2769,18 @@
   {
     "address": "0xa2897eb85C11bb621F09dfa1421Bf1C6dD87d9F4",
     "lpAddress": "0xB099C658e784b41EE435d48a8eb67e8f27285C93",
-    "tokens": ["0x4200000000000000000000000000000000000006", "0xB3B32F9f8827D4634fE7d973Fa1034Ec9fdDB3B3"],
-    "tokenOracleIds": ["WETH", "B3"],
-    "decimals": [18, 18],
+    "tokens": [
+      "0x4200000000000000000000000000000000000006",
+      "0xB3B32F9f8827D4634fE7d973Fa1034Ec9fdDB3B3"
+    ],
+    "tokenOracleIds": [
+      "WETH",
+      "B3"
+    ],
+    "decimals": [
+      18,
+      18
+    ],
     "oracleId": "aerodrome-cow-base-weth-b3",
     "providerId": "aerodrome",
     "rewardPool": {
@@ -1698,9 +2795,18 @@
   {
     "address": "0xF5C5a88E2324937459af9321e82f6b9EAE707Ea6",
     "lpAddress": "0x7B9FDA92Bfa6FDadFdc4f6C72c0Cc8336e7d7497",
-    "tokens": ["0x4200000000000000000000000000000000000006", "0xF1A7000000950C7ad8Aff13118Bb7aB561A448ee"],
-    "tokenOracleIds": ["WETH", "FLAY"],
-    "decimals": [18, 18],
+    "tokens": [
+      "0x4200000000000000000000000000000000000006",
+      "0xF1A7000000950C7ad8Aff13118Bb7aB561A448ee"
+    ],
+    "tokenOracleIds": [
+      "WETH",
+      "FLAY"
+    ],
+    "decimals": [
+      18,
+      18
+    ],
     "oracleId": "uniswap-cow-base-weth-flay",
     "rewardPool": {
       "address": "0x4568c077F1ad1dF4E5Bd5b528be5B478b3Dfc670",
@@ -1710,9 +2816,18 @@
   {
     "address": "0x1FDB1C1fC19Fc869Cdc938A86b3888A847c82F78",
     "lpAddress": "0x67A11022B7B6ed66f81233F6C8Ed6e48F7826530",
-    "tokens": ["0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913", "0xacfE6019Ed1A7Dc6f7B508C02d1b04ec88cC21bf"],
-    "tokenOracleIds": ["USDC", "VVV"],
-    "decimals": [6, 18],
+    "tokens": [
+      "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+      "0xacfE6019Ed1A7Dc6f7B508C02d1b04ec88cC21bf"
+    ],
+    "tokenOracleIds": [
+      "USDC",
+      "VVV"
+    ],
+    "decimals": [
+      6,
+      18
+    ],
     "oracleId": "uniswap-cow-base-usdc-vvv",
     "rewardPool": {
       "address": "0xA785171662f87CDdD786E486Ce3f9E734D844F4f",
@@ -1722,9 +2837,18 @@
   {
     "address": "0x3d0d2539b3D808529A5459DeC624cb1a4A239Ec5",
     "lpAddress": "0x1D2bdB7117a5A7D7fE4c1d95681a92e4Df13bB69",
-    "tokens": ["0x4200000000000000000000000000000000000006", "0xacfE6019Ed1A7Dc6f7B508C02d1b04ec88cC21bf"],
-    "tokenOracleIds": ["WETH", "VVV"],
-    "decimals": [18, 18],
+    "tokens": [
+      "0x4200000000000000000000000000000000000006",
+      "0xacfE6019Ed1A7Dc6f7B508C02d1b04ec88cC21bf"
+    ],
+    "tokenOracleIds": [
+      "WETH",
+      "VVV"
+    ],
+    "decimals": [
+      18,
+      18
+    ],
     "oracleId": "uniswap-cow-base-weth-vvv",
     "rewardPool": {
       "address": "0xcdE74fDeF82B775Ef774695c325e36aaf83dF772",
@@ -1734,9 +2858,18 @@
   {
     "address": "0xdFD53F9Fe6ec9BF5c3753Ebab95f61CF1973C802",
     "lpAddress": "0xBE700f5c75dFCbEf3Cae37873aEEB1724daED3f6",
-    "tokens": ["0x12E96C2BFEA6E835CF8Dd38a5834fa61Cf723736", "0x4200000000000000000000000000000000000006"],
-    "tokenOracleIds": ["uDOGE", "WETH"],
-    "decimals": [18, 18],
+    "tokens": [
+      "0x12E96C2BFEA6E835CF8Dd38a5834fa61Cf723736",
+      "0x4200000000000000000000000000000000000006"
+    ],
+    "tokenOracleIds": [
+      "uDOGE",
+      "WETH"
+    ],
+    "decimals": [
+      18,
+      18
+    ],
     "oracleId": "aerodrome-cow-base-udoge-weth",
     "providerId": "aerodrome",
     "rewardPool": {
@@ -1751,9 +2884,18 @@
   {
     "address": "0x17535f6e69c2Da413c188357B056dc4eAEBc6733",
     "lpAddress": "0xf1Fdc83c3A336bdbDC9fB06e318B08EadDC82FF4",
-    "tokens": ["0x4F9Fd6Be4a90f2620860d680c0d4d5Fb53d1A825", "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913"],
-    "tokenOracleIds": ["AIXBT", "USDC"],
-    "decimals": [18, 6],
+    "tokens": [
+      "0x4F9Fd6Be4a90f2620860d680c0d4d5Fb53d1A825",
+      "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913"
+    ],
+    "tokenOracleIds": [
+      "AIXBT",
+      "USDC"
+    ],
+    "decimals": [
+      18,
+      6
+    ],
     "oracleId": "uniswap-cow-base-aixbt-usdc",
     "rewardPool": {
       "address": "0x3997459d148fEb7D84Bb77152DD87732331D37b2",
@@ -1763,9 +2905,18 @@
   {
     "address": "0x7cC6821dA9A117Ba3386BfD6d1Bd55f506A40582",
     "lpAddress": "0x9c087Eb773291e50CF6c6a90ef0F4500e349B903",
-    "tokens": ["0x0b3e328455c4059EEb9e3f84b5543F74E24e7E1b", "0x4200000000000000000000000000000000000006"],
-    "tokenOracleIds": ["VIRTUAL", "WETH"],
-    "decimals": [18, 18],
+    "tokens": [
+      "0x0b3e328455c4059EEb9e3f84b5543F74E24e7E1b",
+      "0x4200000000000000000000000000000000000006"
+    ],
+    "tokenOracleIds": [
+      "VIRTUAL",
+      "WETH"
+    ],
+    "decimals": [
+      18,
+      18
+    ],
     "oracleId": "uniswap-cow-base-virtual-weth-0.05",
     "rewardPool": {
       "address": "0x594b8CBE6ce291547B0Af385486B59C435e8707f",
@@ -1775,9 +2926,18 @@
   {
     "address": "0x91d1aF9Fbdd936DcbcDe70B6CE1A0Cf3F9aCC99E",
     "lpAddress": "0xA213C82265cd3D94f972f735A4f5130e34dF81Bc",
-    "tokens": ["0x4200000000000000000000000000000000000006", "0x6B2504A03ca4D43d0D73776F6aD46dAb2F2a4cFD"],
-    "tokenOracleIds": ["WETH", "REI"],
-    "decimals": [18, 18],
+    "tokens": [
+      "0x4200000000000000000000000000000000000006",
+      "0x6B2504A03ca4D43d0D73776F6aD46dAb2F2a4cFD"
+    ],
+    "tokenOracleIds": [
+      "WETH",
+      "REI"
+    ],
+    "decimals": [
+      18,
+      18
+    ],
     "oracleId": "uniswap-cow-base-weth-rei",
     "rewardPool": {
       "address": "0x06d9577e1469bD860D0A88dcE1267D65575d0E0f",
@@ -1787,9 +2947,18 @@
   {
     "address": "0xc0315ecc1B9a5e9EfB9DA4d1Ea974A77831CaEbC",
     "lpAddress": "0x037818B04ac34eA8b54b6683b79eF24d23C0E7Cb",
-    "tokens": ["0x50dA645f148798F68EF2d7dB7C1CB22A6819bb2C", "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913"],
-    "tokenOracleIds": ["SPX", "USDC"],
-    "decimals": [8, 6],
+    "tokens": [
+      "0x50dA645f148798F68EF2d7dB7C1CB22A6819bb2C",
+      "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913"
+    ],
+    "tokenOracleIds": [
+      "SPX",
+      "USDC"
+    ],
+    "decimals": [
+      8,
+      6
+    ],
     "oracleId": "uniswap-cow-base-spx-usdc",
     "rewardPool": {
       "address": "0xE9D3bDf3B3FC81aE2634cE7835359f676becfE05",
@@ -1799,9 +2968,18 @@
   {
     "address": "0xd21dAc896c3654FDa32DA09F83E9a02f77EFC5eF",
     "lpAddress": "0x68B27E9066d3aAdC6078E17C8611b37868F96A1D",
-    "tokens": ["0x4200000000000000000000000000000000000006", "0xb33Ff54b9F7242EF1593d2C9Bcd8f9df46c77935"],
-    "tokenOracleIds": ["WETH", "FAI"],
-    "decimals": [18, 18],
+    "tokens": [
+      "0x4200000000000000000000000000000000000006",
+      "0xb33Ff54b9F7242EF1593d2C9Bcd8f9df46c77935"
+    ],
+    "tokenOracleIds": [
+      "WETH",
+      "FAI"
+    ],
+    "decimals": [
+      18,
+      18
+    ],
     "oracleId": "uniswap-cow-base-weth-fai",
     "rewardPool": {
       "address": "0xe62Bf7Bed8Ba08dB379db0296EC8d7d3619e8FCB",
@@ -1811,9 +2989,18 @@
   {
     "address": "0x0385C8018DaFE36fFEB5387026aCf508Fc57553A",
     "lpAddress": "0x859c91f9Fe1EC10e38a7CCaD0B87f0aAE0b88cFE",
-    "tokens": ["0x4200000000000000000000000000000000000006", "0x71a67215a2025F501f386A49858A9ceD2FC0249d"],
-    "tokenOracleIds": ["WETH", "uSEI"],
-    "decimals": [18, 18],
+    "tokens": [
+      "0x4200000000000000000000000000000000000006",
+      "0x71a67215a2025F501f386A49858A9ceD2FC0249d"
+    ],
+    "tokenOracleIds": [
+      "WETH",
+      "uSEI"
+    ],
+    "decimals": [
+      18,
+      18
+    ],
     "oracleId": "aerodrome-cow-base-weth-usei",
     "providerId": "aerodrome",
     "rewardPool": {
@@ -1828,9 +3015,18 @@
   {
     "address": "0x2d8A8dd8069502C307847dBd3F4A3E7567C962d3",
     "lpAddress": "0xa88C07bD10813CF9B4111DeAb984c4026F2C83bf",
-    "tokens": ["0x4200000000000000000000000000000000000006", "0x9c0e042d65a2e1fF31aC83f404E5Cb79F452c337"],
-    "tokenOracleIds": ["WETH", "uAPT"],
-    "decimals": [18, 18],
+    "tokens": [
+      "0x4200000000000000000000000000000000000006",
+      "0x9c0e042d65a2e1fF31aC83f404E5Cb79F452c337"
+    ],
+    "tokenOracleIds": [
+      "WETH",
+      "uAPT"
+    ],
+    "decimals": [
+      18,
+      18
+    ],
     "oracleId": "aerodrome-cow-base-weth-uapt",
     "providerId": "aerodrome",
     "rewardPool": {
@@ -1845,9 +3041,18 @@
   {
     "address": "0xbD2b9528d1AC3dE2d08240189229207573Af00D8",
     "lpAddress": "0x864cc817099761c7b7F8228822f2BDe0B74A6588",
-    "tokens": ["0x4200000000000000000000000000000000000006", "0x5ed25E305E08F58AFD7995EaC72563E6BE65A617"],
-    "tokenOracleIds": ["WETH", "uNEAR"],
-    "decimals": [18, 18],
+    "tokens": [
+      "0x4200000000000000000000000000000000000006",
+      "0x5ed25E305E08F58AFD7995EaC72563E6BE65A617"
+    ],
+    "tokenOracleIds": [
+      "WETH",
+      "uNEAR"
+    ],
+    "decimals": [
+      18,
+      18
+    ],
     "oracleId": "aerodrome-cow-base-weth-unear",
     "providerId": "aerodrome",
     "rewardPool": {
@@ -1862,9 +3067,18 @@
   {
     "address": "0xB63ee8e3F8A646A31147FFD810Aa52262ab57B16",
     "lpAddress": "0xFd4F716cb3c493aFDDd40C67d3f42426aEb2d902",
-    "tokens": ["0x4200000000000000000000000000000000000006", "0xd403D1624DAEF243FbcBd4A80d8A6F36afFe32b2"],
-    "tokenOracleIds": ["WETH", "uLINK"],
-    "decimals": [18, 18],
+    "tokens": [
+      "0x4200000000000000000000000000000000000006",
+      "0xd403D1624DAEF243FbcBd4A80d8A6F36afFe32b2"
+    ],
+    "tokenOracleIds": [
+      "WETH",
+      "uLINK"
+    ],
+    "decimals": [
+      18,
+      18
+    ],
     "oracleId": "aerodrome-cow-base-weth-ulink",
     "providerId": "aerodrome",
     "rewardPool": {
@@ -1879,9 +3093,18 @@
   {
     "address": "0xC9222c7167ba6467f6Df76eDc52203516c201849",
     "lpAddress": "0xB79C8a96D89f5CCa7B907D3d1229b61373C3D439",
-    "tokens": ["0x4200000000000000000000000000000000000006", "0xa3A34A0D9A08CCDDB6Ed422Ac0A28a06731335aA"],
-    "tokenOracleIds": ["WETH", "uADA"],
-    "decimals": [18, 18],
+    "tokens": [
+      "0x4200000000000000000000000000000000000006",
+      "0xa3A34A0D9A08CCDDB6Ed422Ac0A28a06731335aA"
+    ],
+    "tokenOracleIds": [
+      "WETH",
+      "uADA"
+    ],
+    "decimals": [
+      18,
+      18
+    ],
     "oracleId": "aerodrome-cow-base-weth-uada",
     "providerId": "aerodrome",
     "rewardPool": {
@@ -1896,9 +3119,18 @@
   {
     "address": "0xCBDe531A9284f0B60D6E388ffe80B9646816da3D",
     "lpAddress": "0x61C6e9E93592e535Efc1BEE07f491A517e98f6d0",
-    "tokens": ["0x2615a94df961278DcbC41Fb0a54fEc5f10a693aE", "0x4200000000000000000000000000000000000006"],
-    "tokenOracleIds": ["uXRP", "WETH"],
-    "decimals": [18, 18],
+    "tokens": [
+      "0x2615a94df961278DcbC41Fb0a54fEc5f10a693aE",
+      "0x4200000000000000000000000000000000000006"
+    ],
+    "tokenOracleIds": [
+      "uXRP",
+      "WETH"
+    ],
+    "decimals": [
+      18,
+      18
+    ],
     "oracleId": "aerodrome-cow-base-uxrp-weth",
     "providerId": "aerodrome",
     "rewardPool": {
@@ -1913,9 +3145,18 @@
   {
     "address": "0xdbB76Dd03Ed05213eE8ABe03486FAd4f3228288D",
     "lpAddress": "0x0225Ba893D5f8Ecd6d2022f9dEC59b34F61098A1",
-    "tokens": ["0x4200000000000000000000000000000000000006", "0x9B8Df6E244526ab5F6e6400d331DB28C8fdDdb55"],
-    "tokenOracleIds": ["WETH", "uSOL"],
-    "decimals": [18, 18],
+    "tokens": [
+      "0x4200000000000000000000000000000000000006",
+      "0x9B8Df6E244526ab5F6e6400d331DB28C8fdDdb55"
+    ],
+    "tokenOracleIds": [
+      "WETH",
+      "uSOL"
+    ],
+    "decimals": [
+      18,
+      18
+    ],
     "oracleId": "aerodrome-cow-base-weth-usol",
     "providerId": "aerodrome",
     "rewardPool": {
@@ -1930,9 +3171,18 @@
   {
     "address": "0x169D646C0899314a44bB8CF83Ed59C212773Ada0",
     "lpAddress": "0x5C45b0F48c326f79b56709d8F63CE2beE7697106",
-    "tokens": ["0x4200000000000000000000000000000000000006", "0xb0505e5a99abd03d94a1169e638B78EDfEd26ea4"],
-    "tokenOracleIds": ["WETH", "uSUI"],
-    "decimals": [18, 18],
+    "tokens": [
+      "0x4200000000000000000000000000000000000006",
+      "0xb0505e5a99abd03d94a1169e638B78EDfEd26ea4"
+    ],
+    "tokenOracleIds": [
+      "WETH",
+      "uSUI"
+    ],
+    "decimals": [
+      18,
+      18
+    ],
     "oracleId": "aerodrome-cow-base-weth-usui",
     "providerId": "aerodrome",
     "rewardPool": {
@@ -1947,9 +3197,18 @@
   {
     "address": "0x8145851448FB6a73cB4869EB94189a4B2925AadA",
     "lpAddress": "0xA0e2bac96aB51c92d3284781AeE1EEc817F6F9C2",
-    "tokens": ["0x4200000000000000000000000000000000000006", "0x9d0E8f5b25384C7310CB8C6aE32C8fbeb645d083"],
-    "tokenOracleIds": ["WETH", "DRV"],
-    "decimals": [18, 18],
+    "tokens": [
+      "0x4200000000000000000000000000000000000006",
+      "0x9d0E8f5b25384C7310CB8C6aE32C8fbeb645d083"
+    ],
+    "tokenOracleIds": [
+      "WETH",
+      "DRV"
+    ],
+    "decimals": [
+      18,
+      18
+    ],
     "oracleId": "aerodrome-cow-weth-drv",
     "providerId": "aerodrome",
     "rewardPool": {
@@ -1964,9 +3223,18 @@
   {
     "address": "0x13c5d61c629CcA308850998083715068015dAc6e",
     "lpAddress": "0xb7068556049dF8Fb3ae77CCbb9611FE0e85B2641",
-    "tokens": ["0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913", "0xca73ed1815e5915489570014e024b7EbE65dE679"],
-    "tokenOracleIds": ["USDC", "ODOS"],
-    "decimals": [6, 18],
+    "tokens": [
+      "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+      "0xca73ed1815e5915489570014e024b7EbE65dE679"
+    ],
+    "tokenOracleIds": [
+      "USDC",
+      "ODOS"
+    ],
+    "decimals": [
+      6,
+      18
+    ],
     "oracleId": "aerodrome-cow-base-usdc-odos",
     "providerId": "aerodrome",
     "rewardPool": {
@@ -1981,9 +3249,18 @@
   {
     "address": "0xD937c1b7761f053FDDA541C731fdf255FC3222Ea",
     "lpAddress": "0xA3eaa52B505Cf61aAdCfE21424d43a6847DD6331",
-    "tokens": ["0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913", "0xCc7FF230365bD730eE4B352cC2492CEdAC49383e"],
-    "tokenOracleIds": ["USDC", "hyUSD"],
-    "decimals": [6, 18],
+    "tokens": [
+      "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+      "0xCc7FF230365bD730eE4B352cC2492CEdAC49383e"
+    ],
+    "tokenOracleIds": [
+      "USDC",
+      "hyUSD"
+    ],
+    "decimals": [
+      6,
+      18
+    ],
     "oracleId": "uniswap-cow-base-hyusd-usdc",
     "rewardPool": {
       "address": "0x81E4675C6A312e502eF10aA038e6159B921132C6",
@@ -1993,9 +3270,18 @@
   {
     "address": "0x3c83ff3398166b0d1bc2B04292aC7de194e089a0",
     "lpAddress": "0xaFBb6fCc92dDb091dBc13E9073c3360C7D9600CC",
-    "tokens": ["0x4200000000000000000000000000000000000006", "0xCb327b99fF831bF8223cCEd12B1338FF3aA322Ff"],
-    "tokenOracleIds": ["WETH", "bsdETH"],
-    "decimals": [18, 18],
+    "tokens": [
+      "0x4200000000000000000000000000000000000006",
+      "0xCb327b99fF831bF8223cCEd12B1338FF3aA322Ff"
+    ],
+    "tokenOracleIds": [
+      "WETH",
+      "bsdETH"
+    ],
+    "decimals": [
+      18,
+      18
+    ],
     "oracleId": "uniswap-cow-base-bsdeth-weth",
     "rewardPool": {
       "address": "0xd3CC4ba1eEf11cb11BfD44c8F2F48EF5A7d9020e",
@@ -2005,9 +3291,18 @@
   {
     "address": "0x9cDE59Eb5B67c3B6a6E629066f4F806933905539",
     "lpAddress": "0xfBB6Eed8e7aa03B138556eeDaF5D271A5E1e43ef",
-    "tokens": ["0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913", "0xcbB7C0000aB88B473b1f5aFd9ef808440eed33Bf"],
-    "tokenOracleIds": ["USDC", "cbBTC"],
-    "decimals": [6, 8],
+    "tokens": [
+      "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+      "0xcbB7C0000aB88B473b1f5aFd9ef808440eed33Bf"
+    ],
+    "tokenOracleIds": [
+      "USDC",
+      "cbBTC"
+    ],
+    "decimals": [
+      6,
+      8
+    ],
     "oracleId": "uniswap-cow-base-usdc-cbbtc",
     "rewardPool": {
       "address": "0xE6B2919d7779089162aD59EE55987b1781964D33",
@@ -2017,9 +3312,18 @@
   {
     "address": "0xd0483354ef972B52f992DC1c4dF67C55a15a417d",
     "lpAddress": "0x01A1f5758c3a53057B6C819Ec7331e39c167794A",
-    "tokens": ["0x20d704099B62aDa091028bcFc44445041eD16f09", "0x4200000000000000000000000000000000000006"],
-    "tokenOracleIds": ["CHAOS", "WETH"],
-    "decimals": [18, 18],
+    "tokens": [
+      "0x20d704099B62aDa091028bcFc44445041eD16f09",
+      "0x4200000000000000000000000000000000000006"
+    ],
+    "tokenOracleIds": [
+      "CHAOS",
+      "WETH"
+    ],
+    "decimals": [
+      18,
+      18
+    ],
     "oracleId": "uniswap-cow-base-chaos-weth",
     "rewardPool": {
       "address": "0xcC2E49eBcA7b9264F63604C607d95f696fDBdBb1",
@@ -2029,9 +3333,18 @@
   {
     "address": "0xb37b4FaC09aF8d900E15Ac942a4Ee1E498Fa0989",
     "lpAddress": "0x58C10E00c2915F1b12bf08e8b0963b762D509d8E",
-    "tokens": ["0x4200000000000000000000000000000000000006", "0xbDF317F9C153246C429F23f4093087164B145390"],
-    "tokenOracleIds": ["WETH", "AIFUN"],
-    "decimals": [18, 18],
+    "tokens": [
+      "0x4200000000000000000000000000000000000006",
+      "0xbDF317F9C153246C429F23f4093087164B145390"
+    ],
+    "tokenOracleIds": [
+      "WETH",
+      "AIFUN"
+    ],
+    "decimals": [
+      18,
+      18
+    ],
     "oracleId": "uniswap-cow-base-weth-aifun",
     "rewardPool": {
       "address": "0xa400B8401c965A673c74F8822c450F6E55D1E67f",
@@ -2041,9 +3354,18 @@
   {
     "address": "0x10069f0CBc948F63a744CfcD15c77C8F1004d2A0",
     "lpAddress": "0xe9a65059E895DD5D49806f6A71B63FEd0fFffD4B",
-    "tokens": ["0x161e113B8E9BBAEfb846F73F31624F6f9607bd44", "0x4200000000000000000000000000000000000006"],
-    "tokenOracleIds": ["SIMMI", "ETH"],
-    "decimals": [18, 18],
+    "tokens": [
+      "0x161e113B8E9BBAEfb846F73F31624F6f9607bd44",
+      "0x4200000000000000000000000000000000000006"
+    ],
+    "tokenOracleIds": [
+      "SIMMI",
+      "ETH"
+    ],
+    "decimals": [
+      18,
+      18
+    ],
     "oracleId": "uniswap-cow-base-simmi-weth",
     "rewardPool": {
       "address": "0x6B215790df7aFB733B85644578C175C30AFa688D",
@@ -2053,9 +3375,18 @@
   {
     "address": "0xC603C4a517CB742Af8565F07a1A62284A396D11f",
     "lpAddress": "0x9e209Ff07f80E829f417261aEE659771Ce797a7d",
-    "tokens": ["0x3c4b6Cd7874eDc945797123fcE2d9a871818524b", "0x4200000000000000000000000000000000000006"],
-    "tokenOracleIds": ["PARADOX", "WETH"],
-    "decimals": [18, 18],
+    "tokens": [
+      "0x3c4b6Cd7874eDc945797123fcE2d9a871818524b",
+      "0x4200000000000000000000000000000000000006"
+    ],
+    "tokenOracleIds": [
+      "PARADOX",
+      "WETH"
+    ],
+    "decimals": [
+      18,
+      18
+    ],
     "oracleId": "uniswap-cow-base-paradox-weth",
     "rewardPool": {
       "address": "0x9aEB53bDd3C31bD63A39c3ecF9dE338084fB055E",
@@ -2065,9 +3396,18 @@
   {
     "address": "0xC0AcD5767cF8c8FA6E186B487E52742B5fa6fC18",
     "lpAddress": "0x4Ec1828654b4a28936701D08164721876e88f456",
-    "tokens": ["0x05019BE5A6750bbde6F889d6471c37ef923472d3", "0x4200000000000000000000000000000000000006"],
-    "tokenOracleIds": ["FCAST", "WETH"],
-    "decimals": [18, 18],
+    "tokens": [
+      "0x05019BE5A6750bbde6F889d6471c37ef923472d3",
+      "0x4200000000000000000000000000000000000006"
+    ],
+    "tokenOracleIds": [
+      "FCAST",
+      "WETH"
+    ],
+    "decimals": [
+      18,
+      18
+    ],
     "oracleId": "uniswap-cow-base-fcast-weth",
     "rewardPool": {
       "address": "0xE264c51863100600408eB8e589Baece839b043bF",
@@ -2077,9 +3417,18 @@
   {
     "address": "0xAC643bd7674ad6993067E54E73F6BED6f3868E74",
     "lpAddress": "0x3Ba9ce0f19cF3CcB631b973c83712C7E6E9585ae",
-    "tokens": ["0x4200000000000000000000000000000000000006", "0xA88594D404727625A9437C3f886C7643872296AE"],
-    "tokenOracleIds": ["WETH", "bWELL"],
-    "decimals": [18, 18],
+    "tokens": [
+      "0x4200000000000000000000000000000000000006",
+      "0xA88594D404727625A9437C3f886C7643872296AE"
+    ],
+    "tokenOracleIds": [
+      "WETH",
+      "bWELL"
+    ],
+    "decimals": [
+      18,
+      18
+    ],
     "oracleId": "aerodrome-cow-base-weth-well",
     "providerId": "aerodrome",
     "rewardPool": {
@@ -2094,9 +3443,18 @@
   {
     "address": "0xc2E03996c1e7Fced103B6E1895cC27E9e663f9BE",
     "lpAddress": "0x6cbCc650ac3D287BaD441F8fCce19aB9CD66c3d5",
-    "tokens": ["0x3512208ea82A7df9AfFb5ed07F3CBb9D7dEB7418", "0x4200000000000000000000000000000000000006"],
-    "tokenOracleIds": ["PUBLIUS", "WETH"],
-    "decimals": [18, 18],
+    "tokens": [
+      "0x3512208ea82A7df9AfFb5ed07F3CBb9D7dEB7418",
+      "0x4200000000000000000000000000000000000006"
+    ],
+    "tokenOracleIds": [
+      "PUBLIUS",
+      "WETH"
+    ],
+    "decimals": [
+      18,
+      18
+    ],
     "oracleId": "uniswap-cow-base-publius-weth",
     "rewardPool": {
       "address": "0x1cD2aE8794fB5146dc61d342062062E85fD024b5",
@@ -2106,9 +3464,18 @@
   {
     "address": "0x48145EBbabEcB70909F78b5FCF4320c80BBBF68E",
     "lpAddress": "0x346eDb1aAa704dF6dDbfc604724AAFcdC12b2fed",
-    "tokens": ["0x4200000000000000000000000000000000000006", "0x9a33406165f562E16C3abD82fd1185482E01b49a"],
-    "tokenOracleIds": ["WETH", "TALENT"],
-    "decimals": [18, 18],
+    "tokens": [
+      "0x4200000000000000000000000000000000000006",
+      "0x9a33406165f562E16C3abD82fd1185482E01b49a"
+    ],
+    "tokenOracleIds": [
+      "WETH",
+      "TALENT"
+    ],
+    "decimals": [
+      18,
+      18
+    ],
     "oracleId": "aerodrome-cow-base-weth-talent",
     "providerId": "aerodrome",
     "rewardPool": {
@@ -2123,9 +3490,18 @@
   {
     "address": "0xba522D7da7fAF2F5F9d1c25743C4D6B297dB241B",
     "lpAddress": "0x2F42Df4aF5312B492E9d7F7b2110D9c7bf2D9e4F",
-    "tokens": ["0x4200000000000000000000000000000000000006", "0xBAa5CC21fd487B8Fcc2F632f3F4E8D37262a0842"],
-    "tokenOracleIds": ["WETH", "MORPHO"],
-    "decimals": [18, 18],
+    "tokens": [
+      "0x4200000000000000000000000000000000000006",
+      "0xBAa5CC21fd487B8Fcc2F632f3F4E8D37262a0842"
+    ],
+    "tokenOracleIds": [
+      "WETH",
+      "MORPHO"
+    ],
+    "decimals": [
+      18,
+      18
+    ],
     "oracleId": "uniswap-cow-base-weth-morpho-0.3",
     "rewardPool": {
       "address": "0x7B4FB8681D07d14258fA57E21917FA0a228FC80A",
@@ -2135,9 +3511,18 @@
   {
     "address": "0xa34a580aAaD37bec8dC1cF95e600809b159cef52",
     "lpAddress": "0x2043B296fFC6b2d3bf4A3F3167d2Afb3B0FBdbEE",
-    "tokens": ["0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913", "0xBAa5CC21fd487B8Fcc2F632f3F4E8D37262a0842"],
-    "tokenOracleIds": ["USDC", "MORPHO"],
-    "decimals": [6, 18],
+    "tokens": [
+      "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+      "0xBAa5CC21fd487B8Fcc2F632f3F4E8D37262a0842"
+    ],
+    "tokenOracleIds": [
+      "USDC",
+      "MORPHO"
+    ],
+    "decimals": [
+      6,
+      18
+    ],
     "oracleId": "uniswap-cow-base-usdc-morpho",
     "rewardPool": {
       "address": "0xD3994f3C04c7da1DfbF6f29C7a548B51Efc3E42C",
@@ -2147,9 +3532,18 @@
   {
     "address": "0x132C19de547030c6be4C829493E6CfB65251aCBe",
     "lpAddress": "0x3444bF60B93BD30f701601356Ac136aD6a9b7A79",
-    "tokens": ["0x4200000000000000000000000000000000000006", "0xBAa5CC21fd487B8Fcc2F632f3F4E8D37262a0842"],
-    "tokenOracleIds": ["WETH", "MORPHO"],
-    "decimals": [18, 18],
+    "tokens": [
+      "0x4200000000000000000000000000000000000006",
+      "0xBAa5CC21fd487B8Fcc2F632f3F4E8D37262a0842"
+    ],
+    "tokenOracleIds": [
+      "WETH",
+      "MORPHO"
+    ],
+    "decimals": [
+      18,
+      18
+    ],
     "oracleId": "uniswap-cow-base-weth-morpho",
     "rewardPool": {
       "address": "0x41454FdAA9B3fA9457c86b203fEDacD60AF7E81a",
@@ -2159,9 +3553,18 @@
   {
     "address": "0x94071335BFc7De1E126D5A913B57B24040c93C2F",
     "lpAddress": "0xc4eCaf115CBcE3985748c58dccfC4722fEf8247c",
-    "tokens": ["0x0Db510e79909666d6dEc7f5e49370838c16D950f", "0x4200000000000000000000000000000000000006"],
-    "tokenOracleIds": ["ANON", "WETH"],
-    "decimals": [18, 18],
+    "tokens": [
+      "0x0Db510e79909666d6dEc7f5e49370838c16D950f",
+      "0x4200000000000000000000000000000000000006"
+    ],
+    "tokenOracleIds": [
+      "ANON",
+      "WETH"
+    ],
+    "decimals": [
+      18,
+      18
+    ],
     "oracleId": "uniswap-cow-base-anon-weth",
     "rewardPool": {
       "address": "0x413747C5d97508485579386415CEb3841Ae4c54B",
@@ -2171,9 +3574,18 @@
   {
     "address": "0xecCA1349A9915C8C08e5Be10B56858Bc4Cab7e2E",
     "lpAddress": "0x3c5428b3D6e07f6de38b0c7F84ea9d30b3b27231",
-    "tokens": ["0x2081Ab0D9EC9e4303234Ab26D86b20B3367946ee", "0x4200000000000000000000000000000000000006"],
-    "tokenOracleIds": ["EIGEN", "ETH"],
-    "decimals": [18, 18],
+    "tokens": [
+      "0x2081Ab0D9EC9e4303234Ab26D86b20B3367946ee",
+      "0x4200000000000000000000000000000000000006"
+    ],
+    "tokenOracleIds": [
+      "EIGEN",
+      "ETH"
+    ],
+    "decimals": [
+      18,
+      18
+    ],
     "oracleId": "aero-cow-eigen-weth",
     "providerId": "aerodrome",
     "rewardPool": {
@@ -2188,9 +3600,18 @@
   {
     "address": "0xb8BC262B89267865C1Eb06FA77A29Edb5a9217c1",
     "lpAddress": "0x717358A47AC99f3Cd233e723be331756b3951164",
-    "tokens": ["0x0fD7a301B51d0A83FCAf6718628174D527B373b6", "0x4200000000000000000000000000000000000006"],
-    "tokenOracleIds": ["LUM", "ETH"],
-    "decimals": [18, 18],
+    "tokens": [
+      "0x0fD7a301B51d0A83FCAf6718628174D527B373b6",
+      "0x4200000000000000000000000000000000000006"
+    ],
+    "tokenOracleIds": [
+      "LUM",
+      "ETH"
+    ],
+    "decimals": [
+      18,
+      18
+    ],
     "oracleId": "uniswap-cow-base-lum-weth",
     "rewardPool": {
       "address": "0x1d258689623761389e2882909aa23a57164Ea923",
@@ -2200,9 +3621,18 @@
   {
     "address": "0x092EB0aEF0E629839D6DB466a404014cFc803c15",
     "lpAddress": "0xC1a6FBeDAe68E1472DbB91FE29B51F7a0Bd44F97",
-    "tokens": ["0x1bc0c42215582d5A085795f4baDbaC3ff36d1Bcb", "0x4200000000000000000000000000000000000006"],
-    "tokenOracleIds": ["CLANKER", "ETH"],
-    "decimals": [18, 18],
+    "tokens": [
+      "0x1bc0c42215582d5A085795f4baDbaC3ff36d1Bcb",
+      "0x4200000000000000000000000000000000000006"
+    ],
+    "tokenOracleIds": [
+      "CLANKER",
+      "ETH"
+    ],
+    "decimals": [
+      18,
+      18
+    ],
     "oracleId": "uniswap-cow-base-clanker-weth",
     "rewardPool": {
       "address": "0x2a97072510fD4314Eeb56Ab4001E8e12EEc552D3",
@@ -2212,9 +3642,18 @@
   {
     "address": "0x94b004565617D63ED479a5609F143D27f9b07239",
     "lpAddress": "0x94F64594854DF80d2DaDDb62830aF8e9Ac8654c0",
-    "tokens": ["0x60a3E35Cc302bFA44Cb288Bc5a4F316Fdb1adb42", "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913"],
-    "tokenOracleIds": ["EURC", "USDC"],
-    "decimals": [6, 6],
+    "tokens": [
+      "0x60a3E35Cc302bFA44Cb288Bc5a4F316Fdb1adb42",
+      "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913"
+    ],
+    "tokenOracleIds": [
+      "EURC",
+      "USDC"
+    ],
+    "decimals": [
+      6,
+      6
+    ],
     "oracleId": "baseswap-cow-eurc-usdc",
     "rewardPool": {
       "address": "0xC4059403481C800b0a9F44030f2Cf7b438bE4519",
@@ -2228,9 +3667,18 @@
   {
     "address": "0x63CD476e4A935d56F144A400638C7780bc3BAED7",
     "lpAddress": "0xE846373C1a92B167b4E9cd5d8E4d6B1Db9E90EC7",
-    "tokens": ["0x60a3E35Cc302bFA44Cb288Bc5a4F316Fdb1adb42", "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913"],
-    "tokenOracleIds": ["EURC", "USDC"],
-    "decimals": [6, 6],
+    "tokens": [
+      "0x60a3E35Cc302bFA44Cb288Bc5a4F316Fdb1adb42",
+      "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913"
+    ],
+    "tokenOracleIds": [
+      "EURC",
+      "USDC"
+    ],
+    "decimals": [
+      6,
+      6
+    ],
     "oracleId": "aero-cow-eurc-usdc",
     "providerId": "aerodrome",
     "rewardPool": {
@@ -2245,9 +3693,18 @@
   {
     "address": "0x34b7eF665325E69c5f809668ed13f97732C0A053",
     "lpAddress": "0x4e829F8A5213c42535AB84AA40BD4aDCCE9cBa02",
-    "tokens": ["0x4200000000000000000000000000000000000006", "0x532f27101965dd16442E59d40670FaF5eBB142E4"],
-    "tokenOracleIds": ["ETH", "BRETT"],
-    "decimals": [18, 18],
+    "tokens": [
+      "0x4200000000000000000000000000000000000006",
+      "0x532f27101965dd16442E59d40670FaF5eBB142E4"
+    ],
+    "tokenOracleIds": [
+      "ETH",
+      "BRETT"
+    ],
+    "decimals": [
+      18,
+      18
+    ],
     "oracleId": "aero-cow-weth-brett",
     "providerId": "aerodrome",
     "rewardPool": {
@@ -2262,9 +3719,18 @@
   {
     "address": "0x2Ffb71dD9A1F11254802469392a8c390132c233d",
     "lpAddress": "0xBA3F945812a83471d709BCe9C3CA699A19FB46f7",
-    "tokens": ["0x4200000000000000000000000000000000000006", "0x532f27101965dd16442E59d40670FaF5eBB142E4"],
-    "tokenOracleIds": ["ETH", "BRETT"],
-    "decimals": [18, 18],
+    "tokens": [
+      "0x4200000000000000000000000000000000000006",
+      "0x532f27101965dd16442E59d40670FaF5eBB142E4"
+    ],
+    "tokenOracleIds": [
+      "ETH",
+      "BRETT"
+    ],
+    "decimals": [
+      18,
+      18
+    ],
     "oracleId": "uniswap-cow-base-weth-brett",
     "rewardPool": {
       "address": "0xfFC1e12c997f7c7B648C42738e8BCE24F2e226B6",
@@ -2274,9 +3740,18 @@
   {
     "address": "0x8Ef0132d84Cbee6Ae1a975FCF1433EC66dd9427e",
     "lpAddress": "0x722BcF6c16dAdcC29914E4E64290C46aa1406DE8",
-    "tokens": ["0x4200000000000000000000000000000000000006", "0xA88594D404727625A9437C3f886C7643872296AE"],
-    "tokenOracleIds": ["ETH", "bWELL"],
-    "decimals": [18, 18],
+    "tokens": [
+      "0x4200000000000000000000000000000000000006",
+      "0xA88594D404727625A9437C3f886C7643872296AE"
+    ],
+    "tokenOracleIds": [
+      "ETH",
+      "bWELL"
+    ],
+    "decimals": [
+      18,
+      18
+    ],
     "oracleId": "uniswap-cow-base-weth-bwell",
     "rewardPool": {
       "address": "0x9b2347FBEEB538eF7aBee9ea9DEf401517f2A786",
@@ -2286,9 +3761,18 @@
   {
     "address": "0x0B16068baf4f3Ef9dd9e41FD8D5554AF08979118",
     "lpAddress": "0xDC9bf303e72a5780C45d53fC12799164E5BA8271",
-    "tokens": ["0x1dd2d631c92b1aCdFCDd51A0F7145A50130050C4", "0x4200000000000000000000000000000000000006"],
-    "tokenOracleIds": ["ALB", "ETH"],
-    "decimals": [18, 18],
+    "tokens": [
+      "0x1dd2d631c92b1aCdFCDd51A0F7145A50130050C4",
+      "0x4200000000000000000000000000000000000006"
+    ],
+    "tokenOracleIds": [
+      "ALB",
+      "ETH"
+    ],
+    "decimals": [
+      18,
+      18
+    ],
     "oracleId": "uniswap-cow-base-alb-weth",
     "rewardPool": {
       "address": "0x0bf05FFCd6fdB5a370cF359d27322B372757E701",
@@ -2298,9 +3782,18 @@
   {
     "address": "0x91d24E0afF23930fA2Df594fEea1EAa5c0632c95",
     "lpAddress": "0xAfD8f9B89e2Af8246523573A369010DAF9489B12",
-    "tokens": ["0x4200000000000000000000000000000000000006", "0x9a33406165f562E16C3abD82fd1185482E01b49a"],
-    "tokenOracleIds": ["ETH", "TALENT"],
-    "decimals": [18, 18],
+    "tokens": [
+      "0x4200000000000000000000000000000000000006",
+      "0x9a33406165f562E16C3abD82fd1185482E01b49a"
+    ],
+    "tokenOracleIds": [
+      "ETH",
+      "TALENT"
+    ],
+    "decimals": [
+      18,
+      18
+    ],
     "oracleId": "uniswap-cow-base-weth-talent",
     "rewardPool": {
       "address": "0x554207181866888ac29c9220aC650ffBA85788D7",
@@ -2310,9 +3803,18 @@
   {
     "address": "0x0f0BaE4deBc7eaD7dEB94175A844A9ECb883a92d",
     "lpAddress": "0xCC28456d4Ff980CeE3457Ca809a257E52Cd9CDb0",
-    "tokens": ["0x0578d8A44db98B23BF096A382e016e29a5Ce0ffe", "0x4200000000000000000000000000000000000006"],
-    "tokenOracleIds": ["HIGHER", "ETH"],
-    "decimals": [18, 18],
+    "tokens": [
+      "0x0578d8A44db98B23BF096A382e016e29a5Ce0ffe",
+      "0x4200000000000000000000000000000000000006"
+    ],
+    "tokenOracleIds": [
+      "HIGHER",
+      "ETH"
+    ],
+    "decimals": [
+      18,
+      18
+    ],
     "oracleId": "uniswap-cow-base-higher-weth",
     "rewardPool": {
       "address": "0xD964FF8Bb5390d11727d4899Ce5EE3bA760F9c26",
@@ -2322,9 +3824,18 @@
   {
     "address": "0x97592bE85e7f4EeCfbF3DC55cb8E0A8C889B61BF",
     "lpAddress": "0xB6b777577A05D85FFca7D9EBC7476Fb344B92445",
-    "tokens": ["0x4200000000000000000000000000000000000006", "0x55cD6469F597452B5A7536e2CD98fDE4c1247ee4"],
-    "tokenOracleIds": ["ETH", "baseLUNA"],
-    "decimals": [18, 18],
+    "tokens": [
+      "0x4200000000000000000000000000000000000006",
+      "0x55cD6469F597452B5A7536e2CD98fDE4c1247ee4"
+    ],
+    "tokenOracleIds": [
+      "ETH",
+      "baseLUNA"
+    ],
+    "decimals": [
+      18,
+      18
+    ],
     "oracleId": "aero-cow-weth-luna",
     "providerId": "aerodrome",
     "rewardPool": {
@@ -2339,9 +3850,18 @@
   {
     "address": "0x2b4157eB92B2167AC1D9f65dCda1BA283442415E",
     "lpAddress": "0xfD7aBC461df4e496A25898CaB0c6EA88cDd94Cf9",
-    "tokens": ["0x4200000000000000000000000000000000000006", "0x96419929d7949D6A801A6909c145C8EEf6A40431"],
-    "tokenOracleIds": ["ETH", "SPEC"],
-    "decimals": [18, 18],
+    "tokens": [
+      "0x4200000000000000000000000000000000000006",
+      "0x96419929d7949D6A801A6909c145C8EEf6A40431"
+    ],
+    "tokenOracleIds": [
+      "ETH",
+      "SPEC"
+    ],
+    "decimals": [
+      18,
+      18
+    ],
     "oracleId": "aero-cow-weth-spec",
     "providerId": "aerodrome",
     "rewardPool": {
@@ -2356,9 +3876,18 @@
   {
     "address": "0x6FE9Ef95b73EF39c4543f6Ce4850A31fA68422C5",
     "lpAddress": "0x3A3dc4A26d1ACEAE12fD1026a5856F12d20658EA",
-    "tokens": ["0x4200000000000000000000000000000000000006", "0x55cD6469F597452B5A7536e2CD98fDE4c1247ee4"],
-    "tokenOracleIds": ["ETH", "baseLUNA"],
-    "decimals": [18, 18],
+    "tokens": [
+      "0x4200000000000000000000000000000000000006",
+      "0x55cD6469F597452B5A7536e2CD98fDE4c1247ee4"
+    ],
+    "tokenOracleIds": [
+      "ETH",
+      "baseLUNA"
+    ],
+    "decimals": [
+      18,
+      18
+    ],
     "oracleId": "uniswap-cow-weth-luna",
     "rewardPool": {
       "address": "0x4C9340730e67ef52EB774Ff2C18Aa1C39EE22939",
@@ -2368,9 +3897,18 @@
   {
     "address": "0xc6c0984D29a87dB5D15dE91236B024C5B9FeF192",
     "lpAddress": "0x8055e6de251e414e8393b20AdAb096AfB3cF8399",
-    "tokens": ["0x4200000000000000000000000000000000000006", "0x96419929d7949D6A801A6909c145C8EEf6A40431"],
-    "tokenOracleIds": ["ETH", "SPEC"],
-    "decimals": [18, 18],
+    "tokens": [
+      "0x4200000000000000000000000000000000000006",
+      "0x96419929d7949D6A801A6909c145C8EEf6A40431"
+    ],
+    "tokenOracleIds": [
+      "ETH",
+      "SPEC"
+    ],
+    "decimals": [
+      18,
+      18
+    ],
     "oracleId": "uniswap-cow-weth-spec",
     "rewardPool": {
       "address": "0x3E7D079aA9a37d5559461567a78a126BCd3eC546",
@@ -2380,9 +3918,18 @@
   {
     "address": "0x9a591261e00F937477E54202B78306716466E6Ac",
     "lpAddress": "0xdE5Ff829fEF54d1BdEc957D9538A306f0EAD1368",
-    "tokens": ["0x04D5ddf5f3a8939889F11E97f8c4BB48317F1938", "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913"],
-    "tokenOracleIds": ["USDz", "USDC"],
-    "decimals": [18, 6],
+    "tokens": [
+      "0x04D5ddf5f3a8939889F11E97f8c4BB48317F1938",
+      "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913"
+    ],
+    "tokenOracleIds": [
+      "USDz",
+      "USDC"
+    ],
+    "decimals": [
+      18,
+      6
+    ],
     "oracleId": "aero-cow-usdz-usdc",
     "providerId": "aerodrome",
     "rewardPool": {
@@ -2397,9 +3944,18 @@
   {
     "address": "0xeA46Bc8011A4414EB3F31E2f40CFD65BcAF8745f",
     "lpAddress": "0x7f770A81811B58094b75CeA1dE76304aa8EAE72c",
-    "tokens": ["0x04D5ddf5f3a8939889F11E97f8c4BB48317F1938", "0xcbB7C0000aB88B473b1f5aFd9ef808440eed33Bf"],
-    "tokenOracleIds": ["USDz", "cbBTC"],
-    "decimals": [18, 8],
+    "tokens": [
+      "0x04D5ddf5f3a8939889F11E97f8c4BB48317F1938",
+      "0xcbB7C0000aB88B473b1f5aFd9ef808440eed33Bf"
+    ],
+    "tokenOracleIds": [
+      "USDz",
+      "cbBTC"
+    ],
+    "decimals": [
+      18,
+      8
+    ],
     "oracleId": "aero-cow-usdz-cbbtc",
     "providerId": "aerodrome",
     "rewardPool": {
@@ -2414,9 +3970,18 @@
   {
     "address": "0xf180a45d6bF3FbEdA3E17Ed0a691B6FcBbE975E2",
     "lpAddress": "0x8e0A7d4018fb2674346d5742055174f899Fe1826",
-    "tokens": ["0x0b3e328455c4059EEb9e3f84b5543F74E24e7E1b", "0x4200000000000000000000000000000000000006"],
-    "tokenOracleIds": ["VIRTUAL", "WETH"],
-    "decimals": [18, 18],
+    "tokens": [
+      "0x0b3e328455c4059EEb9e3f84b5543F74E24e7E1b",
+      "0x4200000000000000000000000000000000000006"
+    ],
+    "tokenOracleIds": [
+      "VIRTUAL",
+      "WETH"
+    ],
+    "decimals": [
+      18,
+      18
+    ],
     "oracleId": "uniswap-cow-virtual-weth",
     "rewardPool": {
       "address": "0xD0DB4ca6D1AaA6DA81f9923788E09C597360426C",
@@ -2426,9 +3991,18 @@
   {
     "address": "0xFaB9AAfa1F0825feB4dC6379255Ac2ED7f296377",
     "lpAddress": "0x4BA1e3E9280facbAcaFA7baF4aE0b78Bea60beCa",
-    "tokens": ["0x4200000000000000000000000000000000000006", "0x50dA645f148798F68EF2d7dB7C1CB22A6819bb2C"],
-    "tokenOracleIds": ["WETH", "SPX"],
-    "decimals": [18, 8],
+    "tokens": [
+      "0x4200000000000000000000000000000000000006",
+      "0x50dA645f148798F68EF2d7dB7C1CB22A6819bb2C"
+    ],
+    "tokenOracleIds": [
+      "WETH",
+      "SPX"
+    ],
+    "decimals": [
+      18,
+      8
+    ],
     "oracleId": "aero-cow-weth-spx",
     "providerId": "aerodrome",
     "rewardPool": {
@@ -2443,9 +4017,18 @@
   {
     "address": "0x18e5b8615C50bd5596dc15681a66FB256c5010A0",
     "lpAddress": "0xFefe4e80F2D747A484154F7ae18B20d478E49D40",
-    "tokens": ["0x4200000000000000000000000000000000000006", "0x6C240DDA6b5c336DF09A4D011139beAAa1eA2Aa2"],
-    "tokenOracleIds": ["WETH", "baseETHFI"],
-    "decimals": [18, 18],
+    "tokens": [
+      "0x4200000000000000000000000000000000000006",
+      "0x6C240DDA6b5c336DF09A4D011139beAAa1eA2Aa2"
+    ],
+    "tokenOracleIds": [
+      "WETH",
+      "baseETHFI"
+    ],
+    "decimals": [
+      18,
+      18
+    ],
     "oracleId": "aero-cow-weth-ethfi",
     "providerId": "aerodrome",
     "rewardPool": {
@@ -2460,9 +4043,18 @@
   {
     "address": "0xdFbC2Df8e77f47aC10c021d0AeBA04143b4347EF",
     "lpAddress": "0x36104bB6Ce1EdF37076f1CF6FBaBbCDF67DDff1B",
-    "tokens": ["0x4200000000000000000000000000000000000006", "0xecaF81Eb42cd30014EB44130b89Bcd6d4Ad98B92"],
-    "tokenOracleIds": ["WETH", "CHAD"],
-    "decimals": [18, 18],
+    "tokens": [
+      "0x4200000000000000000000000000000000000006",
+      "0xecaF81Eb42cd30014EB44130b89Bcd6d4Ad98B92"
+    ],
+    "tokenOracleIds": [
+      "WETH",
+      "CHAD"
+    ],
+    "decimals": [
+      18,
+      18
+    ],
     "oracleId": "aero-cow-weth-chad",
     "providerId": "aerodrome",
     "rewardPool": {
@@ -2477,9 +4069,18 @@
   {
     "address": "0xa2E552590B794D2D70D78650bC6858D1f15d117a",
     "lpAddress": "0xAe8d5B91Fca627410A3bef77f55fcfE208409a40",
-    "tokens": ["0x4200000000000000000000000000000000000006", "0xecaF81Eb42cd30014EB44130b89Bcd6d4Ad98B92"],
-    "tokenOracleIds": ["WETH", "CHAD"],
-    "decimals": [18, 18],
+    "tokens": [
+      "0x4200000000000000000000000000000000000006",
+      "0xecaF81Eb42cd30014EB44130b89Bcd6d4Ad98B92"
+    ],
+    "tokenOracleIds": [
+      "WETH",
+      "CHAD"
+    ],
+    "decimals": [
+      18,
+      18
+    ],
     "oracleId": "uniswap-cow-weth-chad",
     "rewardPool": {
       "address": "0x1d50C6E9CCaAb3EC7545dd6C8970847019D4D04e",
@@ -2489,9 +4090,18 @@
   {
     "address": "0x608E547833AB57a071d26E7E3aB38E167b035152",
     "lpAddress": "0xc9034c3E7F58003E6ae0C8438e7c8f4598d5ACAA",
-    "tokens": ["0x4200000000000000000000000000000000000006", "0x4ed4E862860beD51a9570b96d89aF5E1B0Efefed"],
-    "tokenOracleIds": ["WETH", "DEGEN"],
-    "decimals": [18, 18],
+    "tokens": [
+      "0x4200000000000000000000000000000000000006",
+      "0x4ed4E862860beD51a9570b96d89aF5E1B0Efefed"
+    ],
+    "tokenOracleIds": [
+      "WETH",
+      "DEGEN"
+    ],
+    "decimals": [
+      18,
+      18
+    ],
     "oracleId": "uniswap-cow-weth-degen",
     "rewardPool": {
       "address": "0x7641705515E810b518555c3C0EEdc083BF5a7Bbb",
@@ -2501,9 +4111,18 @@
   {
     "address": "0xcE69Ab6EcA8CBB631aB3D440CBa17Ecd12ef5129",
     "lpAddress": "0xab57CacEa9CD5CC1FB21D026ECDE71e0d4f33861",
-    "tokens": ["0x4200000000000000000000000000000000000006", "0x50dA645f148798F68EF2d7dB7C1CB22A6819bb2C"],
-    "tokenOracleIds": ["WETH", "SPX"],
-    "decimals": [18, 8],
+    "tokens": [
+      "0x4200000000000000000000000000000000000006",
+      "0x50dA645f148798F68EF2d7dB7C1CB22A6819bb2C"
+    ],
+    "tokenOracleIds": [
+      "WETH",
+      "SPX"
+    ],
+    "decimals": [
+      18,
+      8
+    ],
     "oracleId": "uniswap-cow-weth-spx",
     "rewardPool": {
       "address": "0xac62f161BfED14339075174b2797fC0f7305Df1B",
@@ -2513,9 +4132,18 @@
   {
     "address": "0x578a315E367c2503B5B2aC2081E56C56dB426FBd",
     "lpAddress": "0xfD22D75b2FB405EE185155D57B0277b9DB2F8E29",
-    "tokens": ["0x2a06A17CBC6d0032Cac2c6696DA90f29D39a1a29", "0x4200000000000000000000000000000000000006"],
-    "tokenOracleIds": ["HarryPotterObamaSonic10Inu", "WETH"],
-    "decimals": [8, 18],
+    "tokens": [
+      "0x2a06A17CBC6d0032Cac2c6696DA90f29D39a1a29",
+      "0x4200000000000000000000000000000000000006"
+    ],
+    "tokenOracleIds": [
+      "HarryPotterObamaSonic10Inu",
+      "WETH"
+    ],
+    "decimals": [
+      8,
+      18
+    ],
     "oracleId": "aero-cow-bitcoin-weth",
     "providerId": "aerodrome",
     "rewardPool": {
@@ -2530,9 +4158,18 @@
   {
     "address": "0x4aC69240bf5F4BeCc939c1Ea56A64e95943865AF",
     "lpAddress": "0x138aceE5573fA09e7F215965ff60898cc33c6330",
-    "tokens": ["0x236aa50979D5f3De3Bd1Eeb40E81137F22ab794b", "0xcbB7C0000aB88B473b1f5aFd9ef808440eed33Bf"],
-    "tokenOracleIds": ["tBTC", "cbBTC"],
-    "decimals": [18, 8],
+    "tokens": [
+      "0x236aa50979D5f3De3Bd1Eeb40E81137F22ab794b",
+      "0xcbB7C0000aB88B473b1f5aFd9ef808440eed33Bf"
+    ],
+    "tokenOracleIds": [
+      "tBTC",
+      "cbBTC"
+    ],
+    "decimals": [
+      18,
+      8
+    ],
     "oracleId": "aero-cow-tbtc-cbbtc",
     "providerId": "aerodrome",
     "rewardPool": {
@@ -2547,9 +4184,18 @@
   {
     "address": "0x5b65953661ff39819C58bE3BC25Fe983B59F0729",
     "lpAddress": "0xB211a9DDff3a10806c8fdb92Dbc4c34596A23F84",
-    "tokens": ["0x4200000000000000000000000000000000000006", "0x9a26F5433671751C3276a065f57e5a02D2817973"],
-    "tokenOracleIds": ["WETH", "KEYCAT"],
-    "decimals": [18, 18],
+    "tokens": [
+      "0x4200000000000000000000000000000000000006",
+      "0x9a26F5433671751C3276a065f57e5a02D2817973"
+    ],
+    "tokenOracleIds": [
+      "WETH",
+      "KEYCAT"
+    ],
+    "decimals": [
+      18,
+      18
+    ],
     "oracleId": "aero-cow-weth-keycat",
     "providerId": "aerodrome",
     "rewardPool": {
@@ -2564,9 +4210,18 @@
   {
     "address": "0x121CFB31E59CEE8b8b83ED514629d3ee7F12F545",
     "lpAddress": "0x6446021F4E396dA3df4235C62537431372195D38",
-    "tokens": ["0x4200000000000000000000000000000000000006", "0xDBFeFD2e8460a6Ee4955A68582F85708BAEA60A3"],
-    "tokenOracleIds": ["WETH", "superOETHb"],
-    "decimals": [18, 18],
+    "tokens": [
+      "0x4200000000000000000000000000000000000006",
+      "0xDBFeFD2e8460a6Ee4955A68582F85708BAEA60A3"
+    ],
+    "tokenOracleIds": [
+      "WETH",
+      "superOETHb"
+    ],
+    "decimals": [
+      18,
+      18
+    ],
     "oracleId": "aero-cow-weth-superoethb",
     "providerId": "aerodrome",
     "rewardPool": {
@@ -2581,9 +4236,18 @@
   {
     "address": "0xc3292F89F0b3a1194EfAA7B3F8F08053db837627",
     "lpAddress": "0xaFB62448929664Bfccb0aAe22f232520e765bA88",
-    "tokens": ["0x4200000000000000000000000000000000000006", "0x4ed4E862860beD51a9570b96d89aF5E1B0Efefed"],
-    "tokenOracleIds": ["WETH", "DEGEN"],
-    "decimals": [18, 18],
+    "tokens": [
+      "0x4200000000000000000000000000000000000006",
+      "0x4ed4E862860beD51a9570b96d89aF5E1B0Efefed"
+    ],
+    "tokenOracleIds": [
+      "WETH",
+      "DEGEN"
+    ],
+    "decimals": [
+      18,
+      18
+    ],
     "oracleId": "aerodrome-cow-weth-degen",
     "providerId": "aerodrome",
     "rewardPool": {
@@ -2598,9 +4262,18 @@
   {
     "address": "0xa6601388db296dDf20D9DF72211f26Ff78Ac79f9",
     "lpAddress": "0x14dcCDd311Ab827c42CCA448ba87B1ac1039e2A4",
-    "tokens": ["0xc1CBa3fCea344f92D9239c08C0568f6F2F0ee452", "0xEDfa23602D0EC14714057867A78d01e94176BEA0"],
-    "tokenOracleIds": ["wstETH", "wrsETH"],
-    "decimals": [18, 18],
+    "tokens": [
+      "0xc1CBa3fCea344f92D9239c08C0568f6F2F0ee452",
+      "0xEDfa23602D0EC14714057867A78d01e94176BEA0"
+    ],
+    "tokenOracleIds": [
+      "wstETH",
+      "wrsETH"
+    ],
+    "decimals": [
+      18,
+      18
+    ],
     "oracleId": "aerodrome-cow-wsteth-wrseth",
     "providerId": "aerodrome",
     "rewardPool": {
@@ -2615,9 +4288,18 @@
   {
     "address": "0x6f6Ab34D2a390ED3379F4D29e473Ad58F8680Bec",
     "lpAddress": "0x7cE345561E1690445eEfA0dB04F59d64b65598A8",
-    "tokens": ["0x4E74D4Db6c0726ccded4656d0BCE448876BB4C7A", "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913"],
-    "tokenOracleIds": ["wBLT", "USDC"],
-    "decimals": [18, 6],
+    "tokens": [
+      "0x4E74D4Db6c0726ccded4656d0BCE448876BB4C7A",
+      "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913"
+    ],
+    "tokenOracleIds": [
+      "wBLT",
+      "USDC"
+    ],
+    "decimals": [
+      18,
+      6
+    ],
     "oracleId": "aerodrome-cow-wblt-usdc",
     "providerId": "aerodrome",
     "rewardPool": {
@@ -2632,9 +4314,18 @@
   {
     "address": "0x33F18BfE81313de08728d06F8B779f7B4cD514b8",
     "lpAddress": "0x5d4e504EB4c526995E0cC7A6E327FDa75D8B52b5",
-    "tokens": ["0x4200000000000000000000000000000000000006", "0x60a3E35Cc302bFA44Cb288Bc5a4F316Fdb1adb42"],
-    "tokenOracleIds": ["WETH", "EURC"],
-    "decimals": [18, 6],
+    "tokens": [
+      "0x4200000000000000000000000000000000000006",
+      "0x60a3E35Cc302bFA44Cb288Bc5a4F316Fdb1adb42"
+    ],
+    "tokenOracleIds": [
+      "WETH",
+      "EURC"
+    ],
+    "decimals": [
+      18,
+      6
+    ],
     "oracleId": "aerodrome-cow-weth-eurc",
     "providerId": "aerodrome",
     "rewardPool": {
@@ -2649,9 +4340,18 @@
   {
     "address": "0xB3764ACBED97c4eA1a4762233e65d4Dbf557AfFC",
     "lpAddress": "0xcf88B8bf7CCCe2D836878E538197eB20fC673BCE",
-    "tokens": ["0x04D5ddf5f3a8939889F11E97f8c4BB48317F1938", "0x4200000000000000000000000000000000000006"],
-    "tokenOracleIds": ["USDz", "WETH"],
-    "decimals": [18, 18],
+    "tokens": [
+      "0x04D5ddf5f3a8939889F11E97f8c4BB48317F1938",
+      "0x4200000000000000000000000000000000000006"
+    ],
+    "tokenOracleIds": [
+      "USDz",
+      "WETH"
+    ],
+    "decimals": [
+      18,
+      18
+    ],
     "oracleId": "aerodrome-cow-usdz-weth",
     "providerId": "aerodrome",
     "rewardPool": {
@@ -2666,9 +4366,18 @@
   {
     "address": "0x5F88Ad2720824920905864A906dc42C7b3cA4C19",
     "lpAddress": "0x5D7411A51442D287d742FfefC02658D2c9865F29",
-    "tokens": ["0x9a26F5433671751C3276a065f57e5a02D2817973", "0xB79DD08EA68A908A97220C76d19A6aA9cBDE4376"],
-    "tokenOracleIds": ["KEYCAT", "baseUSD+"],
-    "decimals": [18, 6],
+    "tokens": [
+      "0x9a26F5433671751C3276a065f57e5a02D2817973",
+      "0xB79DD08EA68A908A97220C76d19A6aA9cBDE4376"
+    ],
+    "tokenOracleIds": [
+      "KEYCAT",
+      "baseUSD+"
+    ],
+    "decimals": [
+      18,
+      6
+    ],
     "oracleId": "aerodrome-cow-keycat-usd+",
     "providerId": "aerodrome",
     "rewardPool": {
@@ -2683,9 +4392,18 @@
   {
     "address": "0x90f72678AE93433A5bcC03Dd9dBaE06213644446",
     "lpAddress": "0xa19acc3B4f11c46c2b1Fc36B5f592AF422Ee338c",
-    "tokens": ["0x4ed4E862860beD51a9570b96d89aF5E1B0Efefed", "0xB79DD08EA68A908A97220C76d19A6aA9cBDE4376"],
-    "tokenOracleIds": ["DEGEN", "baseUSD+"],
-    "decimals": [18, 6],
+    "tokens": [
+      "0x4ed4E862860beD51a9570b96d89aF5E1B0Efefed",
+      "0xB79DD08EA68A908A97220C76d19A6aA9cBDE4376"
+    ],
+    "tokenOracleIds": [
+      "DEGEN",
+      "baseUSD+"
+    ],
+    "decimals": [
+      18,
+      6
+    ],
     "oracleId": "aerodrome-cow-degen-usd+",
     "providerId": "aerodrome",
     "rewardPool": {
@@ -2700,9 +4418,18 @@
   {
     "address": "0x882dA291a94f9bF8f15baDc274732781A7B9e8Ee",
     "lpAddress": "0x08361c463C8EC4fC1c7AddfADB006f5Ca7951fc1",
-    "tokens": ["0x2Da56AcB9Ea78330f947bD57C54119Debda7AF71", "0xB79DD08EA68A908A97220C76d19A6aA9cBDE4376"],
-    "tokenOracleIds": ["Mog", "baseUSD+"],
-    "decimals": [18, 6],
+    "tokens": [
+      "0x2Da56AcB9Ea78330f947bD57C54119Debda7AF71",
+      "0xB79DD08EA68A908A97220C76d19A6aA9cBDE4376"
+    ],
+    "tokenOracleIds": [
+      "Mog",
+      "baseUSD+"
+    ],
+    "decimals": [
+      18,
+      6
+    ],
     "oracleId": "aerodrome-cow-mog-usd+",
     "providerId": "aerodrome",
     "rewardPool": {
@@ -2717,9 +4444,18 @@
   {
     "address": "0xE26f9e34020e61FBdc5eFe4B0BeC93df817426AC",
     "lpAddress": "0xaeA775CB2879F54E197eC085f9bB08E4B59f1d9E",
-    "tokens": ["0xB1a03EdA10342529bBF8EB700a06C60441fEf25d", "0xB79DD08EA68A908A97220C76d19A6aA9cBDE4376"],
-    "tokenOracleIds": ["MIGGLES", "baseUSD+"],
-    "decimals": [18, 6],
+    "tokens": [
+      "0xB1a03EdA10342529bBF8EB700a06C60441fEf25d",
+      "0xB79DD08EA68A908A97220C76d19A6aA9cBDE4376"
+    ],
+    "tokenOracleIds": [
+      "MIGGLES",
+      "baseUSD+"
+    ],
+    "decimals": [
+      18,
+      6
+    ],
     "oracleId": "aerodrome-cow-miggles-usd+",
     "providerId": "aerodrome",
     "rewardPool": {
@@ -2734,9 +4470,18 @@
   {
     "address": "0xB56D2b7b4497cb7e80B0f0c3F4536aA9bAc2193b",
     "lpAddress": "0x1DA71Ce5Ebf772f9fdD44E29Bec53C7185E188BA",
-    "tokens": ["0x4200000000000000000000000000000000000006", "0xA3d1a8DEB97B111454B294E2324EfAD13a9d8396"],
-    "tokenOracleIds": ["WETH", "baseOVN"],
-    "decimals": [18, 18],
+    "tokens": [
+      "0x4200000000000000000000000000000000000006",
+      "0xA3d1a8DEB97B111454B294E2324EfAD13a9d8396"
+    ],
+    "tokenOracleIds": [
+      "WETH",
+      "baseOVN"
+    ],
+    "decimals": [
+      18,
+      18
+    ],
     "oracleId": "aero-cow-weth-ovn",
     "providerId": "aerodrome",
     "rewardPool": {
@@ -2751,9 +4496,18 @@
   {
     "address": "0xfE7bde43F2b6D1cd257CdEEa1Fea6A84FC1C49d2",
     "lpAddress": "0xb378137c90444BbceCD44a1f766851fbf53D2a9E",
-    "tokens": ["0x4200000000000000000000000000000000000006", "0xc55E93C62874D8100dBd2DfE307EDc1036ad5434"],
-    "tokenOracleIds": ["WETH", "basemooBIFI"],
-    "decimals": [18, 18],
+    "tokens": [
+      "0x4200000000000000000000000000000000000006",
+      "0xc55E93C62874D8100dBd2DfE307EDc1036ad5434"
+    ],
+    "tokenOracleIds": [
+      "WETH",
+      "basemooBIFI"
+    ],
+    "decimals": [
+      18,
+      18
+    ],
     "oracleId": "aero-cow-weth-moobifi",
     "providerId": "aerodrome",
     "rewardPool": {
@@ -2768,9 +4522,18 @@
   {
     "address": "0x02FabF576505Ec464D45Fb2aaaB6d97607A2D308",
     "lpAddress": "0xA4463789e8F3c6A599B3dFB608DDe55513Bcf289",
-    "tokens": ["0x4200000000000000000000000000000000000006", "0x6985884C4392D348587B19cb9eAAf157F13271cd"],
-    "tokenOracleIds": ["WETH", "ZRO"],
-    "decimals": [18, 18],
+    "tokens": [
+      "0x4200000000000000000000000000000000000006",
+      "0x6985884C4392D348587B19cb9eAAf157F13271cd"
+    ],
+    "tokenOracleIds": [
+      "WETH",
+      "ZRO"
+    ],
+    "decimals": [
+      18,
+      18
+    ],
     "oracleId": "aero-cow-weth-zro",
     "providerId": "aerodrome",
     "rewardPool": {
@@ -2785,9 +4548,18 @@
   {
     "address": "0x1833fea66A13f4D4a6c8921B72467459e03CfE23",
     "lpAddress": "0x3caCB8007d50f3E4166D7c5FD303c1a6ed337531",
-    "tokens": ["0x1fba65dE0a9cBD2D1DF82d141897042d36Bb6c86", "0x4200000000000000000000000000000000000006"],
-    "tokenOracleIds": ["WIF", "WETH"],
-    "decimals": [18, 18],
+    "tokens": [
+      "0x1fba65dE0a9cBD2D1DF82d141897042d36Bb6c86",
+      "0x4200000000000000000000000000000000000006"
+    ],
+    "tokenOracleIds": [
+      "WIF",
+      "WETH"
+    ],
+    "decimals": [
+      18,
+      18
+    ],
     "oracleId": "aero-cow-wif-weth",
     "providerId": "aerodrome",
     "rewardPool": {
@@ -2802,9 +4574,18 @@
   {
     "address": "0x791E0655cf96a144A5eF96EAF5Fd5c517f7Be7D0",
     "lpAddress": "0xb07d7EeCe8866E549601AF5C7622D8cdbEdC914e",
-    "tokens": ["0x60a3E35Cc302bFA44Cb288Bc5a4F316Fdb1adb42", "0xcbB7C0000aB88B473b1f5aFd9ef808440eed33Bf"],
-    "tokenOracleIds": ["EURC", "cbBTC"],
-    "decimals": [6, 8],
+    "tokens": [
+      "0x60a3E35Cc302bFA44Cb288Bc5a4F316Fdb1adb42",
+      "0xcbB7C0000aB88B473b1f5aFd9ef808440eed33Bf"
+    ],
+    "tokenOracleIds": [
+      "EURC",
+      "cbBTC"
+    ],
+    "decimals": [
+      6,
+      8
+    ],
     "oracleId": "aero-cow-eurc-cbbtc",
     "providerId": "aerodrome",
     "rewardPool": {
@@ -2819,9 +4600,18 @@
   {
     "address": "0x94104c2402F49D78867a981EE3CF4610aFBD47C7",
     "lpAddress": "0xf81e1a62cBfA487E807044618661bFD4802B4982",
-    "tokens": ["0x236aa50979D5f3De3Bd1Eeb40E81137F22ab794b", "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913"],
-    "tokenOracleIds": ["tBTC", "USDC"],
-    "decimals": [18, 6],
+    "tokens": [
+      "0x236aa50979D5f3De3Bd1Eeb40E81137F22ab794b",
+      "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913"
+    ],
+    "tokenOracleIds": [
+      "tBTC",
+      "USDC"
+    ],
+    "decimals": [
+      18,
+      6
+    ],
     "oracleId": "aero-cow-tbtc-usdc",
     "providerId": "aerodrome",
     "rewardPool": {
@@ -2836,9 +4626,18 @@
   {
     "address": "0x01Cf08C5E62F9c0431f2307b62d73d1ED0698ae9",
     "lpAddress": "0x9785eF59E2b499fB741674ecf6fAF912Df7b3C1b",
-    "tokens": ["0x4200000000000000000000000000000000000006", "0xfde4C96c8593536E31F229EA8f37b2ADa2699bb2"],
-    "tokenOracleIds": ["WETH", "USDT"],
-    "decimals": [18, 6],
+    "tokens": [
+      "0x4200000000000000000000000000000000000006",
+      "0xfde4C96c8593536E31F229EA8f37b2ADa2699bb2"
+    ],
+    "tokenOracleIds": [
+      "WETH",
+      "USDT"
+    ],
+    "decimals": [
+      18,
+      6
+    ],
     "oracleId": "aero-cow-weth-usdt",
     "providerId": "aerodrome",
     "rewardPool": {
@@ -2853,9 +4652,18 @@
   {
     "address": "0xF768ca50Ce8654E7471934D87676A1E9EF59ae6E",
     "lpAddress": "0xb4bfb4a8D7d7513903FF4363FD6Af071e23505F1",
-    "tokens": ["0x4200000000000000000000000000000000000006", "0x6C240DDA6b5c336DF09A4D011139beAAa1eA2Aa2"],
-    "tokenOracleIds": ["WETH", "baseETHFI"],
-    "decimals": [18, 18],
+    "tokens": [
+      "0x4200000000000000000000000000000000000006",
+      "0x6C240DDA6b5c336DF09A4D011139beAAa1eA2Aa2"
+    ],
+    "tokenOracleIds": [
+      "WETH",
+      "baseETHFI"
+    ],
+    "decimals": [
+      18,
+      18
+    ],
     "oracleId": "uniswap-cow-base-weth-ethfi",
     "rewardPool": {
       "address": "0x42A35Fc80c394C2aB0D7054f1781B3F15407E54E",
@@ -2865,9 +4673,18 @@
   {
     "address": "0x4456949402A04848Ff33ba4BdaDEB6C4B0603435",
     "lpAddress": "0x70aCDF2Ad0bf2402C957154f944c19Ef4e1cbAE1",
-    "tokens": ["0x4200000000000000000000000000000000000006", "0xcbB7C0000aB88B473b1f5aFd9ef808440eed33Bf"],
-    "tokenOracleIds": ["WETH", "cbBTC"],
-    "decimals": [18, 8],
+    "tokens": [
+      "0x4200000000000000000000000000000000000006",
+      "0xcbB7C0000aB88B473b1f5aFd9ef808440eed33Bf"
+    ],
+    "tokenOracleIds": [
+      "WETH",
+      "cbBTC"
+    ],
+    "decimals": [
+      18,
+      8
+    ],
     "oracleId": "aero-cow-weth-cbbtc",
     "providerId": "aerodrome",
     "rewardPool": {
@@ -2882,9 +4699,18 @@
   {
     "address": "0xA07efB136a990E688B2DaB5F229B5459cA66F8B4",
     "lpAddress": "0x4e962BB3889Bf030368F56810A9c96B83CB3E778",
-    "tokens": ["0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913", "0xcbB7C0000aB88B473b1f5aFd9ef808440eed33Bf"],
-    "tokenOracleIds": ["USDC", "cbBTC"],
-    "decimals": [6, 8],
+    "tokens": [
+      "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+      "0xcbB7C0000aB88B473b1f5aFd9ef808440eed33Bf"
+    ],
+    "tokenOracleIds": [
+      "USDC",
+      "cbBTC"
+    ],
+    "decimals": [
+      6,
+      8
+    ],
     "oracleId": "aero-cow-usdc-cbbtc",
     "providerId": "aerodrome",
     "rewardPool": {
@@ -2899,9 +4725,18 @@
   {
     "address": "0x9EB3716f675633aA615a826a56f70e254a56b765",
     "lpAddress": "0x8c7080564B5A792A33Ef2FD473fbA6364d5495e5",
-    "tokens": ["0x4200000000000000000000000000000000000006", "0xcbB7C0000aB88B473b1f5aFd9ef808440eed33Bf"],
-    "tokenOracleIds": ["WETH", "cbBTC"],
-    "decimals": [18, 8],
+    "tokens": [
+      "0x4200000000000000000000000000000000000006",
+      "0xcbB7C0000aB88B473b1f5aFd9ef808440eed33Bf"
+    ],
+    "tokenOracleIds": [
+      "WETH",
+      "cbBTC"
+    ],
+    "decimals": [
+      18,
+      8
+    ],
     "oracleId": "uniswap-cow-base-weth-cbbtc",
     "rewardPool": {
       "address": "0x63b58051bDB4Db1C376035348d9F83f7AdFa9537",
@@ -2915,9 +4750,18 @@
   {
     "address": "0x39A568Ff824D6Cb2A3a861E69F85E381Fe45bC02",
     "lpAddress": "0x4dcEC147060EE0337F1Fc22D43A3912aD979fce9",
-    "tokens": ["0x2Ae3F1Ec7F1F5012CFEab0185bfc7aa3cf0DEc22", "0xcbB7C0000aB88B473b1f5aFd9ef808440eed33Bf"],
-    "tokenOracleIds": ["cbETH", "cbBTC"],
-    "decimals": [18, 8],
+    "tokens": [
+      "0x2Ae3F1Ec7F1F5012CFEab0185bfc7aa3cf0DEc22",
+      "0xcbB7C0000aB88B473b1f5aFd9ef808440eed33Bf"
+    ],
+    "tokenOracleIds": [
+      "cbETH",
+      "cbBTC"
+    ],
+    "decimals": [
+      18,
+      8
+    ],
     "oracleId": "baseswap-cow-cbeth-cbbtc",
     "rewardPool": {
       "address": "0x0eC9C41feB6e6Be01D6950cBc19ADc0aDE2c1aF1",
@@ -2931,9 +4775,18 @@
   {
     "address": "0xdAEcC7E7631aE8E9EdF7664DE9703a02F4cdE502",
     "lpAddress": "0x26F859DA14329022DbA1b87DD1998F18e3b222fe",
-    "tokens": ["0x4200000000000000000000000000000000000006", "0xcbB7C0000aB88B473b1f5aFd9ef808440eed33Bf"],
-    "tokenOracleIds": ["WETH", "cbBTC"],
-    "decimals": [18, 8],
+    "tokens": [
+      "0x4200000000000000000000000000000000000006",
+      "0xcbB7C0000aB88B473b1f5aFd9ef808440eed33Bf"
+    ],
+    "tokenOracleIds": [
+      "WETH",
+      "cbBTC"
+    ],
+    "decimals": [
+      18,
+      8
+    ],
     "oracleId": "baseswap-cow-weth-cbbtc",
     "rewardPool": {
       "address": "0xe1577A9648dAF1f772c6BC18F31254893226564e",
@@ -2947,9 +4800,18 @@
   {
     "address": "0x21Ac1c014628aFfB52bA19B0b4Af982fbd5130cc",
     "lpAddress": "0x3eFAEd538d2D68251EE3F466e7738C39Dc77483a",
-    "tokens": ["0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913", "0xcbB7C0000aB88B473b1f5aFd9ef808440eed33Bf"],
-    "tokenOracleIds": ["USDC", "cbBTC"],
-    "decimals": [6, 8],
+    "tokens": [
+      "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+      "0xcbB7C0000aB88B473b1f5aFd9ef808440eed33Bf"
+    ],
+    "tokenOracleIds": [
+      "USDC",
+      "cbBTC"
+    ],
+    "decimals": [
+      6,
+      8
+    ],
     "oracleId": "baseswap-cow-usdc-cbbtc",
     "rewardPool": {
       "address": "0xC2dd8E582b30d7bA245D3746B9e7E6b8FC7c8752",
@@ -2963,9 +4825,18 @@
   {
     "address": "0xac39D9d3C65a30561FEeDD8877D2Dbb103808D3d",
     "lpAddress": "0x09C149C856e6FB6E40AA39209142411B554b1a41",
-    "tokens": ["0x4200000000000000000000000000000000000006", "0x5D559eA7bB2DAE4B694A079cb8328a2145Fd32f6"],
-    "tokenOracleIds": ["WETH", "OwO"],
-    "decimals": [18, 18],
+    "tokens": [
+      "0x4200000000000000000000000000000000000006",
+      "0x5D559eA7bB2DAE4B694A079cb8328a2145Fd32f6"
+    ],
+    "tokenOracleIds": [
+      "WETH",
+      "OwO"
+    ],
+    "decimals": [
+      18,
+      18
+    ],
     "oracleId": "uniswap-cow-base-weth-owo",
     "rewardPool": {
       "address": "0xF4f656177164276567015f0e38F528667bfC7C69",
@@ -2975,9 +4846,18 @@
   {
     "address": "0xCcc6A4dA8CaD6509961a1154343059E1532D0b9d",
     "lpAddress": "0x4b0Aaf3EBb163dd45F663b38b6d93f6093EBC2d3",
-    "tokens": ["0x4200000000000000000000000000000000000006", "0xAC1Bd2486aAf3B5C0fc3Fd868558b082a531B2B4"],
-    "tokenOracleIds": ["WETH", "TOSHI"],
-    "decimals": [18, 18],
+    "tokens": [
+      "0x4200000000000000000000000000000000000006",
+      "0xAC1Bd2486aAf3B5C0fc3Fd868558b082a531B2B4"
+    ],
+    "tokenOracleIds": [
+      "WETH",
+      "TOSHI"
+    ],
+    "decimals": [
+      18,
+      18
+    ],
     "oracleId": "uniswap-cow-base-weth-toshi",
     "rewardPool": {
       "address": "0xD980fde484392491F5a7cEBC6bf4A75c7693D266",
@@ -2987,9 +4867,18 @@
   {
     "address": "0x78F31F18d7183B2C7acB96AC5a27eFae9b03A011",
     "lpAddress": "0xd82403772cB858219cfb58bFab46Ba7a31073474",
-    "tokens": ["0x4200000000000000000000000000000000000006", "0x9a26F5433671751C3276a065f57e5a02D2817973"],
-    "tokenOracleIds": ["WETH", "KEYCAT"],
-    "decimals": [18, 18],
+    "tokens": [
+      "0x4200000000000000000000000000000000000006",
+      "0x9a26F5433671751C3276a065f57e5a02D2817973"
+    ],
+    "tokenOracleIds": [
+      "WETH",
+      "KEYCAT"
+    ],
+    "decimals": [
+      18,
+      18
+    ],
     "oracleId": "uniswap-cow-base-weth-keycat",
     "rewardPool": {
       "address": "0xf5a7625D9e5257B2AAf3422d94cAe549b1707dAa",
@@ -2999,9 +4888,18 @@
   {
     "address": "0xf366f332DAC53F3C292F4A7898B20772dF2a16bf",
     "lpAddress": "0xa4F9dB7D9F39139e1eC45fbb708924CdFC09e8b9",
-    "tokens": ["0x4200000000000000000000000000000000000006", "0xc1CBa3fCea344f92D9239c08C0568f6F2F0ee452"],
-    "tokenOracleIds": ["WETH", "wstETH"],
-    "decimals": [18, 18],
+    "tokens": [
+      "0x4200000000000000000000000000000000000006",
+      "0xc1CBa3fCea344f92D9239c08C0568f6F2F0ee452"
+    ],
+    "tokenOracleIds": [
+      "WETH",
+      "wstETH"
+    ],
+    "decimals": [
+      18,
+      18
+    ],
     "oracleId": "sushi-cow-base-weth-wsteth",
     "rewardPool": {
       "address": "0xbb269885fdBC44DEd93D223f526adaf864Cd85EC",
@@ -3011,9 +4909,18 @@
   {
     "address": "0x6c4dcC38c7E655d2403e785796B202bc1FFf8b00",
     "lpAddress": "0x482Fe995c4a52bc79271aB29A53591363Ee30a89",
-    "tokens": ["0x4200000000000000000000000000000000000006", "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913"],
-    "tokenOracleIds": ["WETH", "USDC"],
-    "decimals": [18, 6],
+    "tokens": [
+      "0x4200000000000000000000000000000000000006",
+      "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913"
+    ],
+    "tokenOracleIds": [
+      "WETH",
+      "USDC"
+    ],
+    "decimals": [
+      18,
+      6
+    ],
     "oracleId": "sushi-cow-base-weth-usdc-100",
     "rewardPool": {
       "address": "0xE93FDf27E03D3CB9e0820DB0790a53a691231e26",
@@ -3023,9 +4930,18 @@
   {
     "address": "0x020D570516a85C3E47D8D48c17FBcF63053Cc9f5",
     "lpAddress": "0x22ca6d83aB887A535ae1C6011cc36eA9D1255C31",
-    "tokens": ["0x4200000000000000000000000000000000000006", "0xd9aAEc86B65D86f6A7B5B1b0c42FFA531710b6CA"],
-    "tokenOracleIds": ["WETH", "USDbC"],
-    "decimals": [18, 6],
+    "tokens": [
+      "0x4200000000000000000000000000000000000006",
+      "0xd9aAEc86B65D86f6A7B5B1b0c42FFA531710b6CA"
+    ],
+    "tokenOracleIds": [
+      "WETH",
+      "USDbC"
+    ],
+    "decimals": [
+      18,
+      6
+    ],
     "oracleId": "sushi-cow-base-weth-usdbc",
     "rewardPool": {
       "address": "0x8c9F46130D16D5224310c7585911C991a3337Ebe",
@@ -3035,9 +4951,18 @@
   {
     "address": "0x3a32dA549b99D4c2fE0f1C8B780F9c5afbc8c031",
     "lpAddress": "0x2D5520979c40cD9333f297f3F58F80c2C71493b8",
-    "tokens": ["0x4200000000000000000000000000000000000006", "0x6985884C4392D348587B19cb9eAAf157F13271cd"],
-    "tokenOracleIds": ["WETH", "ZRO"],
-    "decimals": [18, 18],
+    "tokens": [
+      "0x4200000000000000000000000000000000000006",
+      "0x6985884C4392D348587B19cb9eAAf157F13271cd"
+    ],
+    "tokenOracleIds": [
+      "WETH",
+      "ZRO"
+    ],
+    "decimals": [
+      18,
+      18
+    ],
     "oracleId": "sushi-cow-base-weth-zro",
     "rewardPool": {
       "address": "0xBc61270Bf3D7D3c910D000ae13a1512E721f63F8",
@@ -3047,9 +4972,18 @@
   {
     "address": "0x0Fa223a4469fe16D99cc0f48e537be7EB01dF0aa",
     "lpAddress": "0x0FB597D6cFE5bE0d5258A7f017599C2A4Ece34c7",
-    "tokens": ["0x4200000000000000000000000000000000000006", "0x52b492a33E447Cdb854c7FC19F1e57E8BfA1777D"],
-    "tokenOracleIds": ["WETH", "basePEPE"],
-    "decimals": [18, 18],
+    "tokens": [
+      "0x4200000000000000000000000000000000000006",
+      "0x52b492a33E447Cdb854c7FC19F1e57E8BfA1777D"
+    ],
+    "tokenOracleIds": [
+      "WETH",
+      "basePEPE"
+    ],
+    "decimals": [
+      18,
+      18
+    ],
     "oracleId": "uniswap-cow-base-weth-pepe",
     "rewardPool": {
       "address": "0xC34289F462D819BEe97E711DFD0224B722b7F672",
@@ -3059,9 +4993,18 @@
   {
     "address": "0x4d5BA51e708F511204314E70fC60DE404faCeE55",
     "lpAddress": "0xf9A72fd5C30112aF583b86b190B2D776B6C3c056",
-    "tokens": ["0x04D5ddf5f3a8939889F11E97f8c4BB48317F1938", "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913"],
-    "tokenOracleIds": ["USDz", "USDC"],
-    "decimals": [18, 6],
+    "tokens": [
+      "0x04D5ddf5f3a8939889F11E97f8c4BB48317F1938",
+      "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913"
+    ],
+    "tokenOracleIds": [
+      "USDz",
+      "USDC"
+    ],
+    "decimals": [
+      18,
+      6
+    ],
     "oracleId": "baseswap-cow-usdz-usdc",
     "rewardPool": {
       "address": "0x37797Cd3324A25aeea2619a5989Cdb9dc0973cf9",
@@ -3075,9 +5018,18 @@
   {
     "address": "0x4B0BC467F1aFA6aeA39f1520478C512C98A667E5",
     "lpAddress": "0x273FDFE6018230F188741D7F93d4Ab589bD26197",
-    "tokens": ["0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913", "0xB79DD08EA68A908A97220C76d19A6aA9cBDE4376"],
-    "tokenOracleIds": ["USDC", "baseUSD+"],
-    "decimals": [6, 6],
+    "tokens": [
+      "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+      "0xB79DD08EA68A908A97220C76d19A6aA9cBDE4376"
+    ],
+    "tokenOracleIds": [
+      "USDC",
+      "baseUSD+"
+    ],
+    "decimals": [
+      6,
+      6
+    ],
     "oracleId": "baseswap-cow-usdc-usd+",
     "rewardPool": {
       "address": "0xAf6945adFcc2b8604503f60521BBC33d68cE905F",
@@ -3091,9 +5043,18 @@
   {
     "address": "0x7ca389a2a4ea3074261Bb1f57421D0513CBA46cB",
     "lpAddress": "0x75A50f51d49045d7F00E660d0Ad7244CcfE4d372",
-    "tokens": ["0xB79DD08EA68A908A97220C76d19A6aA9cBDE4376", "0xd9aAEc86B65D86f6A7B5B1b0c42FFA531710b6CA"],
-    "tokenOracleIds": ["baseUSD+", "USDbC"],
-    "decimals": [6, 6],
+    "tokens": [
+      "0xB79DD08EA68A908A97220C76d19A6aA9cBDE4376",
+      "0xd9aAEc86B65D86f6A7B5B1b0c42FFA531710b6CA"
+    ],
+    "tokenOracleIds": [
+      "baseUSD+",
+      "USDbC"
+    ],
+    "decimals": [
+      6,
+      6
+    ],
     "oracleId": "baseswap-cow-usd+-usdbc",
     "rewardPool": {
       "address": "0xA3755d23C9A3AB9958E59899903CE1a9cf18A89b",
@@ -3107,9 +5068,18 @@
   {
     "address": "0x05f913352b84e5f83Ec33EB9D3a3Cb8fB1363F5C",
     "lpAddress": "0x74cb6260Be6F31965C239Df6d6Ef2Ac2B5D4f020",
-    "tokens": ["0x4200000000000000000000000000000000000006", "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913"],
-    "tokenOracleIds": ["WETH", "USDC"],
-    "decimals": [18, 6],
+    "tokens": [
+      "0x4200000000000000000000000000000000000006",
+      "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913"
+    ],
+    "tokenOracleIds": [
+      "WETH",
+      "USDC"
+    ],
+    "decimals": [
+      18,
+      6
+    ],
     "oracleId": "baseswap-cow-weth-usdc",
     "rewardPool": {
       "address": "0x46BcD65aaE38B9cc8acbFAd8A1C634a8c6087E62",
@@ -3123,9 +5093,18 @@
   {
     "address": "0xbE4e7a64abb52183e96A152D6AB492d1FFa9259d",
     "lpAddress": "0xa41Bc0AFfbA7Fd420d186b84899d7ab2aC57fcD1",
-    "tokens": ["0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913", "0xfde4C96c8593536E31F229EA8f37b2ADa2699bb2"],
-    "tokenOracleIds": ["USDC", "USDT"],
-    "decimals": [6, 6],
+    "tokens": [
+      "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+      "0xfde4C96c8593536E31F229EA8f37b2ADa2699bb2"
+    ],
+    "tokenOracleIds": [
+      "USDC",
+      "USDT"
+    ],
+    "decimals": [
+      6,
+      6
+    ],
     "oracleId": "aero-cow-usdc-usdt",
     "providerId": "aerodrome",
     "rewardPool": {
@@ -3140,9 +5119,18 @@
   {
     "address": "0x42940274124BFc949b3a1b74254bd1D676200837",
     "lpAddress": "0x861A2922bE165a5Bd41b1E482B49216b465e1B5F",
-    "tokens": ["0x4200000000000000000000000000000000000006", "0xc1CBa3fCea344f92D9239c08C0568f6F2F0ee452"],
-    "tokenOracleIds": ["WETH", "wstETH"],
-    "decimals": [18, 18],
+    "tokens": [
+      "0x4200000000000000000000000000000000000006",
+      "0xc1CBa3fCea344f92D9239c08C0568f6F2F0ee452"
+    ],
+    "tokenOracleIds": [
+      "WETH",
+      "wstETH"
+    ],
+    "decimals": [
+      18,
+      18
+    ],
     "oracleId": "aero-cow-wsteth-weth",
     "providerId": "aerodrome",
     "rewardPool": {
@@ -3157,9 +5145,18 @@
   {
     "address": "0xb2b5578CEdbCaAb3Ce36e6Bc461716Ec4F5CD22d",
     "lpAddress": "0x326841EFD63340767e02ec88E583f18a82AF4A48",
-    "tokens": ["0x4200000000000000000000000000000000000006", "0xB1a03EdA10342529bBF8EB700a06C60441fEf25d"],
-    "tokenOracleIds": ["WETH", "MIGGLES"],
-    "decimals": [18, 18],
+    "tokens": [
+      "0x4200000000000000000000000000000000000006",
+      "0xB1a03EdA10342529bBF8EB700a06C60441fEf25d"
+    ],
+    "tokenOracleIds": [
+      "WETH",
+      "MIGGLES"
+    ],
+    "decimals": [
+      18,
+      18
+    ],
     "oracleId": "aero-cow-miggles-weth",
     "providerId": "aerodrome",
     "rewardPool": {
@@ -3174,9 +5171,18 @@
   {
     "address": "0xcD1B00a83e067Ba717c2CAe510945786c3a65981",
     "lpAddress": "0x0a7021C9843c2fB3b98c02Ed7f93354774286109",
-    "tokens": ["0x4200000000000000000000000000000000000006", "0xebfF2db643Cf955247339c8c6bCD8406308ca437"],
-    "tokenOracleIds": ["WETH", "CHOMP"],
-    "decimals": [18, 18],
+    "tokens": [
+      "0x4200000000000000000000000000000000000006",
+      "0xebfF2db643Cf955247339c8c6bCD8406308ca437"
+    ],
+    "tokenOracleIds": [
+      "WETH",
+      "CHOMP"
+    ],
+    "decimals": [
+      18,
+      18
+    ],
     "oracleId": "aero-cow-chomp-weth",
     "providerId": "aerodrome",
     "rewardPool": {
@@ -3191,9 +5197,18 @@
   {
     "address": "0x603492fF8943f5aC69Aa69cF09Fc96FDA2606Ee7",
     "lpAddress": "0x57713F7716e0b0F65ec116912F834E49805480d2",
-    "tokens": ["0x4200000000000000000000000000000000000006", "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913"],
-    "tokenOracleIds": ["WETH", "USDC"],
-    "decimals": [18, 6],
+    "tokens": [
+      "0x4200000000000000000000000000000000000006",
+      "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913"
+    ],
+    "tokenOracleIds": [
+      "WETH",
+      "USDC"
+    ],
+    "decimals": [
+      18,
+      6
+    ],
     "oracleId": "sushi-cow-base-weth-usdc",
     "rewardPool": {
       "address": "0x603AC75C8eaa72d5700c2Be89EFc397d78526702",
@@ -3203,9 +5218,18 @@
   {
     "address": "0xB7cEb91149b9E2963703eb767eBf874811B2d86b",
     "lpAddress": "0x20E068D76f9E90b90604500B84c7e19dCB923e7e",
-    "tokens": ["0x4200000000000000000000000000000000000006", "0xc1CBa3fCea344f92D9239c08C0568f6F2F0ee452"],
-    "tokenOracleIds": ["WETH", "wstETH"],
-    "decimals": [18, 18],
+    "tokens": [
+      "0x4200000000000000000000000000000000000006",
+      "0xc1CBa3fCea344f92D9239c08C0568f6F2F0ee452"
+    ],
+    "tokenOracleIds": [
+      "WETH",
+      "wstETH"
+    ],
+    "decimals": [
+      18,
+      18
+    ],
     "oracleId": "uniswap-cow-base-weth-wsteth",
     "rewardPool": {
       "address": "0xe919a617Cc6662dC469e3d8942E46E3a19d49484",
@@ -3215,9 +5239,18 @@
   {
     "address": "0x74aE2A0D5f3CEA0D39e29973B5F68052A9bdEac0",
     "lpAddress": "0xD56da2B74bA826f19015E6B7Dd9Dae1903E85DA1",
-    "tokens": ["0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913", "0xfde4C96c8593536E31F229EA8f37b2ADa2699bb2"],
-    "tokenOracleIds": ["USDC", "USDT"],
-    "decimals": [6, 6],
+    "tokens": [
+      "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+      "0xfde4C96c8593536E31F229EA8f37b2ADa2699bb2"
+    ],
+    "tokenOracleIds": [
+      "USDC",
+      "USDT"
+    ],
+    "decimals": [
+      6,
+      6
+    ],
     "oracleId": "uniswap-cow-base-usdc-usdt",
     "rewardPool": {
       "address": "0xc2BC4DFcC6757C7815ddB84d6F19e7E21d61f968",
@@ -3227,9 +5260,18 @@
   {
     "address": "0x3d6838A880c731baaDFf4e60b3E042186FE3099A",
     "lpAddress": "0xB1419a7f9e8c6e434B1D05377e0Dbc4154E3DE78",
-    "tokens": ["0x04C0599Ae5A44757c0af6F9eC3b93da8976c150A", "0x4200000000000000000000000000000000000006"],
-    "tokenOracleIds": ["weETH", "WETH"],
-    "decimals": [18, 18],
+    "tokens": [
+      "0x04C0599Ae5A44757c0af6F9eC3b93da8976c150A",
+      "0x4200000000000000000000000000000000000006"
+    ],
+    "tokenOracleIds": [
+      "weETH",
+      "WETH"
+    ],
+    "decimals": [
+      18,
+      18
+    ],
     "oracleId": "uniswap-cow-base-weeth-weth",
     "rewardPool": {
       "address": "0xbb968686140C688a7e940aD37f61B0DEDFB0dE61",
@@ -3239,9 +5281,18 @@
   {
     "address": "0xed9E8269765D0a1b1494c8Ad3dd74BE8D496118A",
     "lpAddress": "0xADE9BcD4b968EE26Bed102dd43A55f6A8c2416df",
-    "tokens": ["0x4200000000000000000000000000000000000006", "0x6921B130D297cc43754afba22e5EAc0FBf8Db75b"],
-    "tokenOracleIds": ["WETH", "doginme"],
-    "decimals": [18, 18],
+    "tokens": [
+      "0x4200000000000000000000000000000000000006",
+      "0x6921B130D297cc43754afba22e5EAc0FBf8Db75b"
+    ],
+    "tokenOracleIds": [
+      "WETH",
+      "doginme"
+    ],
+    "decimals": [
+      18,
+      18
+    ],
     "oracleId": "uniswap-cow-base-weth-doginme",
     "rewardPool": {
       "address": "0xcf974912e46325Ae92cEa6c5C1177c34edFa23AC",
@@ -3251,9 +5302,18 @@
   {
     "address": "0x0babFb48E1B12aF0Cf77d7520B110b4AB711fC1f",
     "lpAddress": "0x7EC18ABf80E865c6799069df91073335935C4185",
-    "tokens": ["0x4200000000000000000000000000000000000006", "0xE3086852A4B125803C815a158249ae468A3254Ca"],
-    "tokenOracleIds": ["WETH", "mfer"],
-    "decimals": [18, 18],
+    "tokens": [
+      "0x4200000000000000000000000000000000000006",
+      "0xE3086852A4B125803C815a158249ae468A3254Ca"
+    ],
+    "tokenOracleIds": [
+      "WETH",
+      "mfer"
+    ],
+    "decimals": [
+      18,
+      18
+    ],
     "oracleId": "uniswap-cow-base-weth-mfer",
     "rewardPool": {
       "address": "0x5A5A47685E8638FB2f6EAf446D2187B61Aea8B25",
@@ -3263,9 +5323,18 @@
   {
     "address": "0x368E49dF9df85f3538eA5A32E4369586315a4565",
     "lpAddress": "0xd95bAe63641d822dC591bD4ACA7a64e53eaC76F9",
-    "tokens": ["0x4200000000000000000000000000000000000006", "0xebfF2db643Cf955247339c8c6bCD8406308ca437"],
-    "tokenOracleIds": ["WETH", "CHOMP"],
-    "decimals": [18, 18],
+    "tokens": [
+      "0x4200000000000000000000000000000000000006",
+      "0xebfF2db643Cf955247339c8c6bCD8406308ca437"
+    ],
+    "tokenOracleIds": [
+      "WETH",
+      "CHOMP"
+    ],
+    "decimals": [
+      18,
+      18
+    ],
     "oracleId": "uniswap-cow-base-weth-chomp",
     "rewardPool": {
       "address": "0x4C2c6C0886F24A66BF730CEB3894D15A27a818c5",
@@ -3275,9 +5344,18 @@
   {
     "address": "0xAC6d2806f356730C5C973891f1919Df966ec26c4",
     "lpAddress": "0xadAd4ce0C68F50A19CF5063E0B91d701Daab1df1",
-    "tokens": ["0x4200000000000000000000000000000000000006", "0xB1a03EdA10342529bBF8EB700a06C60441fEf25d"],
-    "tokenOracleIds": ["WETH", "MIGGLES"],
-    "decimals": [18, 18],
+    "tokens": [
+      "0x4200000000000000000000000000000000000006",
+      "0xB1a03EdA10342529bBF8EB700a06C60441fEf25d"
+    ],
+    "tokenOracleIds": [
+      "WETH",
+      "MIGGLES"
+    ],
+    "decimals": [
+      18,
+      18
+    ],
     "oracleId": "uniswap-cow-base-weth-miggles",
     "rewardPool": {
       "address": "0x6EDB41DAc71FEd6Eb6b4CF785f95dB27d82A6e5E",
@@ -3287,9 +5365,18 @@
   {
     "address": "0x6E52B6Cec2b47Be931b305d37A4d5aadC41b37A3",
     "lpAddress": "0xC5C5F65927a4011864fcB261D7499267e101118F",
-    "tokens": ["0x2Da56AcB9Ea78330f947bD57C54119Debda7AF71", "0x4200000000000000000000000000000000000006"],
-    "tokenOracleIds": ["Mog", "WETH"],
-    "decimals": [18, 18],
+    "tokens": [
+      "0x2Da56AcB9Ea78330f947bD57C54119Debda7AF71",
+      "0x4200000000000000000000000000000000000006"
+    ],
+    "tokenOracleIds": [
+      "Mog",
+      "WETH"
+    ],
+    "decimals": [
+      18,
+      18
+    ],
     "oracleId": "uniswap-cow-base-mog-weth",
     "rewardPool": {
       "address": "0x869FdeC3A02C8Ecdd14Dc71f0d9E9855053F79f6",
@@ -3299,9 +5386,18 @@
   {
     "address": "0x7f45AE7f7BBCebde75121bbD14D50511E064f137",
     "lpAddress": "0xC29dc26B28FFF463e32834Ce6325B5c74fAC7098",
-    "tokens": ["0x2Da56AcB9Ea78330f947bD57C54119Debda7AF71", "0x4200000000000000000000000000000000000006"],
-    "tokenOracleIds": ["Mog", "WETH"],
-    "decimals": [18, 18],
+    "tokens": [
+      "0x2Da56AcB9Ea78330f947bD57C54119Debda7AF71",
+      "0x4200000000000000000000000000000000000006"
+    ],
+    "tokenOracleIds": [
+      "Mog",
+      "WETH"
+    ],
+    "decimals": [
+      18,
+      18
+    ],
     "oracleId": "aero-cow-mog-weth",
     "providerId": "aerodrome",
     "rewardPool": {
@@ -3316,9 +5412,18 @@
   {
     "address": "0x70019FB5E8EA37908260c22B5b69589B3e84E8b9",
     "lpAddress": "0x088c39ee29fC30DF8Adc394e9f7dEa33E3A26507",
-    "tokens": ["0x4200000000000000000000000000000000000006", "0x6921B130D297cc43754afba22e5EAc0FBf8Db75b"],
-    "tokenOracleIds": ["WETH", "doginme"],
-    "decimals": [18, 18],
+    "tokens": [
+      "0x4200000000000000000000000000000000000006",
+      "0x6921B130D297cc43754afba22e5EAc0FBf8Db75b"
+    ],
+    "tokenOracleIds": [
+      "WETH",
+      "doginme"
+    ],
+    "decimals": [
+      18,
+      18
+    ],
     "oracleId": "aero-cow-doginme-weth",
     "providerId": "aerodrome",
     "rewardPool": {
@@ -3333,9 +5438,18 @@
   {
     "address": "0xC6843779b3b1840a91b766a03DFa58C711D6BdB8",
     "lpAddress": "0x82321f3BEB69f503380D6B233857d5C43562e2D0",
-    "tokens": ["0x4200000000000000000000000000000000000006", "0x940181a94A35A4569E4529A3CDfB74e38FD98631"],
-    "tokenOracleIds": ["WETH", "AERO"],
-    "decimals": [18, 18],
+    "tokens": [
+      "0x4200000000000000000000000000000000000006",
+      "0x940181a94A35A4569E4529A3CDfB74e38FD98631"
+    ],
+    "tokenOracleIds": [
+      "WETH",
+      "AERO"
+    ],
+    "decimals": [
+      18,
+      18
+    ],
     "oracleId": "aero-cow-aero-weth",
     "providerId": "aerodrome",
     "rewardPool": {
@@ -3350,9 +5464,18 @@
   {
     "address": "0x6Ea7Be0d964701b8Bf0b7703F9a63122F3bEBa7C",
     "lpAddress": "0x988702fe529a3461ec7Fd09Eea3f962856709FD9",
-    "tokens": ["0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913", "0xCfA3Ef56d303AE4fAabA0592388F19d7C3399FB4"],
-    "tokenOracleIds": ["USDC", "eUSD"],
-    "decimals": [6, 18],
+    "tokens": [
+      "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+      "0xCfA3Ef56d303AE4fAabA0592388F19d7C3399FB4"
+    ],
+    "tokenOracleIds": [
+      "USDC",
+      "eUSD"
+    ],
+    "decimals": [
+      6,
+      18
+    ],
     "oracleId": "aero-cow-usdc-eusd",
     "providerId": "aerodrome",
     "rewardPool": {
@@ -3367,9 +5490,18 @@
   {
     "address": "0x9b676F20baCC8E69AE806b56c5ED004Bd86FD529",
     "lpAddress": "0x4D69971CCd4A636c403a3C1B00c85e99bB9B5606",
-    "tokens": ["0x4200000000000000000000000000000000000006", "0xB79DD08EA68A908A97220C76d19A6aA9cBDE4376"],
-    "tokenOracleIds": ["WETH", "baseUSD+"],
-    "decimals": [18, 6],
+    "tokens": [
+      "0x4200000000000000000000000000000000000006",
+      "0xB79DD08EA68A908A97220C76d19A6aA9cBDE4376"
+    ],
+    "tokenOracleIds": [
+      "WETH",
+      "baseUSD+"
+    ],
+    "decimals": [
+      18,
+      6
+    ],
     "oracleId": "aero-cow-usd+-weth",
     "providerId": "aerodrome",
     "rewardPool": {
@@ -3384,9 +5516,18 @@
   {
     "address": "0x787427Ae4f24be661d107c4c61C629ccBaF3Cb6F",
     "lpAddress": "0xA33f162da19C7273BA1205BFD9D4340dA2446E3a",
-    "tokens": ["0x236aa50979D5f3De3Bd1Eeb40E81137F22ab794b", "0x4200000000000000000000000000000000000006"],
-    "tokenOracleIds": ["tBTC", "WETH"],
-    "decimals": [18, 18],
+    "tokens": [
+      "0x236aa50979D5f3De3Bd1Eeb40E81137F22ab794b",
+      "0x4200000000000000000000000000000000000006"
+    ],
+    "tokenOracleIds": [
+      "tBTC",
+      "WETH"
+    ],
+    "decimals": [
+      18,
+      18
+    ],
     "oracleId": "aero-cow-tbtc-weth",
     "providerId": "aerodrome",
     "rewardPool": {
@@ -3401,9 +5542,18 @@
   {
     "address": "0xbb9bdC4e71C9C3253A5b5AA0Df54600e61A09BB2",
     "lpAddress": "0x2ae9DF02539887d4EbcE0230168a302d34784c82",
-    "tokens": ["0x4200000000000000000000000000000000000006", "0xCb327b99fF831bF8223cCEd12B1338FF3aA322Ff"],
-    "tokenOracleIds": ["WETH", "bsdETH"],
-    "decimals": [18, 18],
+    "tokens": [
+      "0x4200000000000000000000000000000000000006",
+      "0xCb327b99fF831bF8223cCEd12B1338FF3aA322Ff"
+    ],
+    "tokenOracleIds": [
+      "WETH",
+      "bsdETH"
+    ],
+    "decimals": [
+      18,
+      18
+    ],
     "oracleId": "aero-cow-bsdeth-weth",
     "providerId": "aerodrome",
     "rewardPool": {
@@ -3418,9 +5568,18 @@
   {
     "address": "0xeEA5fAf6B98704748d29b74a273f900A55F53D9a",
     "lpAddress": "0x47cA96Ea59C13F72745928887f84C9F52C3D7348",
-    "tokens": ["0x2Ae3F1Ec7F1F5012CFEab0185bfc7aa3cf0DEc22", "0x4200000000000000000000000000000000000006"],
-    "tokenOracleIds": ["cbETH", "WETH"],
-    "decimals": [18, 18],
+    "tokens": [
+      "0x2Ae3F1Ec7F1F5012CFEab0185bfc7aa3cf0DEc22",
+      "0x4200000000000000000000000000000000000006"
+    ],
+    "tokenOracleIds": [
+      "cbETH",
+      "WETH"
+    ],
+    "decimals": [
+      18,
+      18
+    ],
     "oracleId": "aero-cow-cbeth-weth",
     "providerId": "aerodrome",
     "rewardPool": {
@@ -3435,9 +5594,18 @@
   {
     "address": "0x9a62Ab7cFD5b233330eF0091Bd291D95978E9be6",
     "lpAddress": "0xb2cc224c1c9feE385f8ad6a55b4d94E92359DC59",
-    "tokens": ["0x4200000000000000000000000000000000000006", "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913"],
-    "tokenOracleIds": ["WETH", "USDC"],
-    "decimals": [18, 6],
+    "tokens": [
+      "0x4200000000000000000000000000000000000006",
+      "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913"
+    ],
+    "tokenOracleIds": [
+      "WETH",
+      "USDC"
+    ],
+    "decimals": [
+      18,
+      6
+    ],
     "oracleId": "aero-cow-weth-usdc",
     "providerId": "aerodrome",
     "rewardPool": {
@@ -3452,9 +5620,18 @@
   {
     "address": "0xf181Ef98Bee1fBa44acc4726054A0c2a12B48d35",
     "lpAddress": "0x70C079c33a9F5DAE97bB5085be8155d6dE68BbED",
-    "tokens": ["0x4200000000000000000000000000000000000006", "0xBA5EDE8d98ab88CEa9f0D69918ddE28Dc23c2553"],
-    "tokenOracleIds": ["WETH", "NORMUS"],
-    "decimals": [18, 18],
+    "tokens": [
+      "0x4200000000000000000000000000000000000006",
+      "0xBA5EDE8d98ab88CEa9f0D69918ddE28Dc23c2553"
+    ],
+    "tokenOracleIds": [
+      "WETH",
+      "NORMUS"
+    ],
+    "decimals": [
+      18,
+      18
+    ],
     "oracleId": "uniswap-cow-base-weth-normus",
     "rewardPool": {
       "address": "0xd640667e3cD3efCF53A132c6f45577C5FFE2BF29",
@@ -3464,9 +5641,18 @@
   {
     "address": "0x11b6ae0bD06fA08908511F0f14a5F6B27E7dEdF3",
     "lpAddress": "0xE745a591970e0Fa981204cf525E170a2B9e4fb93",
-    "tokens": ["0x0d97F261b1e88845184f678e2d1e7a98D9FD38dE", "0x4200000000000000000000000000000000000006"],
-    "tokenOracleIds": ["TYBG", "WETH"],
-    "decimals": [18, 18],
+    "tokens": [
+      "0x0d97F261b1e88845184f678e2d1e7a98D9FD38dE",
+      "0x4200000000000000000000000000000000000006"
+    ],
+    "tokenOracleIds": [
+      "TYBG",
+      "WETH"
+    ],
+    "decimals": [
+      18,
+      18
+    ],
     "oracleId": "uniswap-cow-base-tybg-weth",
     "rewardPool": {
       "address": "0x5D91AED3ebb65baFaae90b13558B1386894D0c40",
@@ -3476,9 +5662,18 @@
   {
     "address": "0x4a06DE050548770C13B76fE013729432b84BDeC6",
     "lpAddress": "0xa2d4A8e00dAaD32aCACe1A0dD0905f6aaF57E84e",
-    "tokens": ["0x4200000000000000000000000000000000000006", "0x6985884C4392D348587B19cb9eAAf157F13271cd"],
-    "tokenOracleIds": ["WETH", "ZRO"],
-    "decimals": [18, 18],
+    "tokens": [
+      "0x4200000000000000000000000000000000000006",
+      "0x6985884C4392D348587B19cb9eAAf157F13271cd"
+    ],
+    "tokenOracleIds": [
+      "WETH",
+      "ZRO"
+    ],
+    "decimals": [
+      18,
+      18
+    ],
     "oracleId": "uniswap-cow-base-weth-zro-0.3",
     "rewardPool": {
       "address": "0x610a4016c2F095A1C507FB73BB7cD7581B58a594",
@@ -3488,9 +5683,18 @@
   {
     "address": "0xc88d16c4cb87b5EEC33cA0696bBd5154492E4282",
     "lpAddress": "0x41Fd11E5997fBC144418Fd2F1B5D9D9b45a94e32",
-    "tokens": ["0x4200000000000000000000000000000000000006", "0x6985884C4392D348587B19cb9eAAf157F13271cd"],
-    "tokenOracleIds": ["WETH", "ZRO"],
-    "decimals": [18, 18],
+    "tokens": [
+      "0x4200000000000000000000000000000000000006",
+      "0x6985884C4392D348587B19cb9eAAf157F13271cd"
+    ],
+    "tokenOracleIds": [
+      "WETH",
+      "ZRO"
+    ],
+    "decimals": [
+      18,
+      18
+    ],
     "oracleId": "uniswap-cow-base-weth-zro",
     "rewardPool": {
       "address": "0xbd1D6eece5727c6097CEE84fdedBdc43599da54f",
@@ -3500,9 +5704,18 @@
   {
     "address": "0xB6DDAb86739524ba19185105B545220A858F2d0e",
     "lpAddress": "0x4587df381022922f6622F9096C22e754BcF27b4F",
-    "tokens": ["0x6985884C4392D348587B19cb9eAAf157F13271cd", "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913"],
-    "tokenOracleIds": ["ZRO", "USDC"],
-    "decimals": [18, 6],
+    "tokens": [
+      "0x6985884C4392D348587B19cb9eAAf157F13271cd",
+      "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913"
+    ],
+    "tokenOracleIds": [
+      "ZRO",
+      "USDC"
+    ],
+    "decimals": [
+      18,
+      6
+    ],
     "oracleId": "uniswap-cow-base-zro-usdc",
     "rewardPool": {
       "address": "0xbF9BD114ebEaa45755Afb5cd5d6A1961d8c31930",
@@ -3512,9 +5725,18 @@
   {
     "address": "0xB34B8DeC4f7c5e0c20e5dda09e862Df39C3Fb285",
     "lpAddress": "0x4C36388bE6F416A29C8d8Eee81C771cE6bE14B18",
-    "tokens": ["0x4200000000000000000000000000000000000006", "0xd9aAEc86B65D86f6A7B5B1b0c42FFA531710b6CA"],
-    "tokenOracleIds": ["WETH", "USDbC"],
-    "decimals": [18, 6],
+    "tokens": [
+      "0x4200000000000000000000000000000000000006",
+      "0xd9aAEc86B65D86f6A7B5B1b0c42FFA531710b6CA"
+    ],
+    "tokenOracleIds": [
+      "WETH",
+      "USDbC"
+    ],
+    "decimals": [
+      18,
+      6
+    ],
     "oracleId": "uniswap-cow-base-weth-usdbc",
     "rewardPool": {
       "address": "0x5F58A6618D84934fd7e306a6Aa5e3E83517d50B4",
@@ -3524,9 +5746,18 @@
   {
     "address": "0xD07111A837F9D62bCa452132bDBEE2F1443666F6",
     "lpAddress": "0x45837e65E4c44cA260aB40E6dc30fF1B466a00cA",
-    "tokens": ["0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913", "0xc1CBa3fCea344f92D9239c08C0568f6F2F0ee452"],
-    "tokenOracleIds": ["USDC", "wstETH"],
-    "decimals": [6, 18],
+    "tokens": [
+      "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+      "0xc1CBa3fCea344f92D9239c08C0568f6F2F0ee452"
+    ],
+    "tokenOracleIds": [
+      "USDC",
+      "wstETH"
+    ],
+    "decimals": [
+      6,
+      18
+    ],
     "oracleId": "uniswap-cow-base-usdc-wsteth",
     "rewardPool": {
       "address": "0xB2843283ea12D615cde6FBFC11933264BC009287",
@@ -3536,9 +5767,18 @@
   {
     "address": "0xE4d02B7997635883bf68a810d1d781990006B58C",
     "lpAddress": "0xd92E0767473D1E3FF11Ac036f2b1DB90aD0aE55F",
-    "tokens": ["0x4200000000000000000000000000000000000006", "0xfde4C96c8593536E31F229EA8f37b2ADa2699bb2"],
-    "tokenOracleIds": ["WETH", "USDT"],
-    "decimals": [18, 6],
+    "tokens": [
+      "0x4200000000000000000000000000000000000006",
+      "0xfde4C96c8593536E31F229EA8f37b2ADa2699bb2"
+    ],
+    "tokenOracleIds": [
+      "WETH",
+      "USDT"
+    ],
+    "decimals": [
+      18,
+      6
+    ],
     "oracleId": "uniswap-cow-base-weth-usdt",
     "rewardPool": {
       "address": "0x2949fd1c3A3AeF6e920B5e0ab09A81d17b99F160",
@@ -3548,9 +5788,18 @@
   {
     "address": "0xe97383FFa8AbA69FB5f182CF35E31833250586E4",
     "lpAddress": "0x10648BA41B8565907Cfa1496765fA4D95390aa0d",
-    "tokens": ["0x2Ae3F1Ec7F1F5012CFEab0185bfc7aa3cf0DEc22", "0x4200000000000000000000000000000000000006"],
-    "tokenOracleIds": ["cbETH", "WETH"],
-    "decimals": [18, 18],
+    "tokens": [
+      "0x2Ae3F1Ec7F1F5012CFEab0185bfc7aa3cf0DEc22",
+      "0x4200000000000000000000000000000000000006"
+    ],
+    "tokenOracleIds": [
+      "cbETH",
+      "WETH"
+    ],
+    "decimals": [
+      18,
+      18
+    ],
     "oracleId": "uniswap-cow-base-cbeth-weth",
     "rewardPool": {
       "address": "0xB8b3f205941b896909229435B043E3E1Ec3bb9c4",
@@ -3560,9 +5809,18 @@
   {
     "address": "0xE39887EfF72d0AF25E4B90f52b6a6De82948D472",
     "lpAddress": "0x3d5D143381916280ff91407FeBEB52f2b60f33Cf",
-    "tokens": ["0x4200000000000000000000000000000000000006", "0x940181a94A35A4569E4529A3CDfB74e38FD98631"],
-    "tokenOracleIds": ["WETH", "AERO"],
-    "decimals": [18, 18],
+    "tokens": [
+      "0x4200000000000000000000000000000000000006",
+      "0x940181a94A35A4569E4529A3CDfB74e38FD98631"
+    ],
+    "tokenOracleIds": [
+      "WETH",
+      "AERO"
+    ],
+    "decimals": [
+      18,
+      18
+    ],
     "oracleId": "uniswap-cow-base-aero-weth",
     "rewardPool": {
       "address": "0x986c2fbD0DC342F2073022410e052142C5903d78",
@@ -3572,9 +5830,18 @@
   {
     "address": "0xA05C5A7121B351aa7003C73Ae794Ec17995440C7",
     "lpAddress": "0xd0b53D9277642d899DF5C87A3966A349A798F224",
-    "tokens": ["0x4200000000000000000000000000000000000006", "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913"],
-    "tokenOracleIds": ["WETH", "USDC"],
-    "decimals": [18, 6],
+    "tokens": [
+      "0x4200000000000000000000000000000000000006",
+      "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913"
+    ],
+    "tokenOracleIds": [
+      "WETH",
+      "USDC"
+    ],
+    "decimals": [
+      18,
+      6
+    ],
     "oracleId": "uniswap-cow-base-usdc-weth",
     "rewardPool": {
       "address": "0x3C30eF5DaaF34aAEA9DCa2e265f676096EB2Bcc8",
