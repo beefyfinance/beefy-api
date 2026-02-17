@@ -56,6 +56,7 @@ import {
   ETH_CHAIN_ID,
   FRAXTAL_CHAIN_ID as FRX_CHAIN_ID,
   GNOSIS_CHAIN_ID as GNO_CHAIN_ID,
+  MANTLE_CHAIN_ID,
   OPTIMISM_CHAIN_ID,
   PLASMA_CHAIN_ID,
   POLYGON_CHAIN_ID,
@@ -104,6 +105,7 @@ import getTokemakEthPrices from './ethereum/getTokemakEthPrices';
 import getTokemakBasePrices from './base/getTokemakBasePrices';
 import { getBeefyCowSonicPrices } from './sonic/getBeefySonicCowPrices';
 import { getMorphoPrices } from './common/morpho/getMorphoPrices';
+import { getAaveV3Prices } from './common/aave/getAaveV3Prices';
 import { getIchiPrices } from './common/getIchiPrices';
 import { getEulerPrices } from './common/euler/getEulerPrices';
 import { getTruePrices } from './base/getTruePrices';
@@ -133,6 +135,7 @@ export async function getNonAmmPrices(
   let breakdown = {};
 
   const promises = [
+    getAaveV3Prices(MANTLE_CHAIN_ID, require('../../data/mantle/aaveV3Pools.json'), tokenPrices),
     getGearboxPrices(MONAD_CHAIN_ID, require('../../data/monad/gearboxPools.json'), tokenPrices),
     getNeverlandPrices(tokenPrices),
     getCurvanceMonadPrices(tokenPrices),

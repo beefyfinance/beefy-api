@@ -209,4 +209,31 @@ export const tokens = {
     bridge: 'stargate',
     tags: ['NO_TIMELOCK'],
   },
+  GHO: {
+    name: 'GHO',
+    symbol: 'GHO',
+    oracleId: 'GHO',
+    address: '0xfc421aD3C883Bf9E7C4f42dE845C4e4405799e73',
+    chainId: 5000,
+    decimals: 18,
+    website: 'https://aave.com/',
+    documentation: 'https://aave.com/docs/ecosystem/gho',
+    description:
+      "GHO (pronounced go) is a decentralised, over-collateralised stablecoin that is fully backed, transparent, and native to the Aave Protocol. Designed to maintain a value pegged to the U.S. dollar, GHO is minted by users on demand, subject to mint cap limitations set by Aave's governance.",
+    bridge: 'chainlink-ccip',
+    tags: ['STABLECOIN', 'SYNTHETIC'],
+  },
+  USDT0: {
+    name: 'USDT0',
+    symbol: 'USDT0',
+    oracleId: 'USDT0',
+    address: '0x779Ded0c9e1022225f8E0630b35a9b54bE713736',
+    chainId: 5000,
+    decimals: 6,
+    website: 'https://tether.to/',
+    description:
+      'Tether is a stablecoin pegged to the US Dollar. A stablecoin is a type of cryptocurrency whose value is pegged to another fiat currency like the US Dollar or to a commodity like Gold. Tether is the first stablecoin to be created and it is the most popular stablecoin used in the ecosystem.',
+    bridge: 'layer-zero',
+    tags: ['STABLECOIN'],
+  },
 } as const satisfies Record<string, Token>;

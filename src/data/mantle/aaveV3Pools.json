@@ -1,0 +1,41 @@
+[
+  {
+    "name": "aavev3-mantle-usdt0",
+    "token": "0x779Ded0c9e1022225f8E0630b35a9b54bE713736",
+    "aToken": "0x7053bAD224F0C021839f6AC645BdaE5F8b585b69",
+    "debtToken": "0x5d9e4663d3d532179c404dBe9edF93045F89aDed",
+    "identifier": "ba71336ef6f94175",
+    "oracle": "tokens",
+    "oracleId": "USDT0",
+    "decimals": "1e6",
+    "borrowDepth": 1,
+    "borrowPercent": 0,
+    "skimLending": true
+  },
+  {
+    "name": "aavev3-mantle-gho",
+    "token": "0xfc421aD3C883Bf9E7C4f42dE845C4e4405799e73",
+    "aToken": "0x8917d4eE4609f991b559DAF8D0aD1b892c13B127",
+    "debtToken": "0xeE1eABe23fA42028809F587B8fE1936b154d2620",
+    "identifier": "57b4f19818c4d405",
+    "oracle": "tokens",
+    "oracleId": "GHO",
+    "decimals": "1e18",
+    "borrowDepth": 1,
+    "borrowPercent": 0,
+    "skimLending": true
+  },
+  {
+    "name": "aavev3-mantle-weth",
+    "token": "0xdEAddEaDdeadDEadDEADDEAddEADDEAddead1111",
+    "aToken": "0xeAC30Ed8609F564aE65C809C4bf42dB2fF426D2C",
+    "debtToken": "0x0baF5974838114e7001D02782e6B1D8aEE1fc626",
+    "identifier": "80c6c8c4329bca06",
+    "oracle": "tokens",
+    "oracleId": "WETH",
+    "decimals": "1e18",
+    "borrowDepth": 1,
+    "borrowPercent": 0,
+    "skimLending": true
+  }
+]

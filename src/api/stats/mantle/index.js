@@ -4,6 +4,7 @@ const getmShardsApys = require('./getmShardsApys');
 const getStargateMantleApys = require('./getStargateMantleApys');
 const { getBeefyCowMantleApys } = require('./getBeefyCowMantleApys');
 const { getMantleCompoundV3Apys } = require('./getMantleCompoundV3Apys');
+const { getAaveV3Apys } = require('./getAaveV3Apys');
 
 const getApys = [
   getBeefyCowMantleApys,
@@ -12,6 +13,7 @@ const getApys = [
   getLendleApys,
   getMoeApys,
   getMantleCompoundV3Apys,
+  getAaveV3Apys,
 ];
 
 const getMantleApys = async () => {
