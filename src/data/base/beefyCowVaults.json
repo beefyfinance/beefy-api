@@ -1,7 +1,7 @@
 [
   {
     "address": "0x65bF0950f67258f99E5DE34918aBceFAe5e271Ef",
-    "lpAddress": "0xfc37C5CCDf712c54f21973f77799739225071704",
+    "lpAddress": "0x3b4a73Fff0618D5b5888526B7a35f905bF0A14e1",
     "tokens": ["0x50D2280441372486BeecdD328c1854743EBaCb07", "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913"],
     "tokenOracleIds": ["KELLYCLAUDE", "USDC"],
     "decimals": [18, 6],
