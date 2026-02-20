@@ -12,14 +12,14 @@
     }
   },
   {
-    "address": "0x247D34fAC3Be593e6F182F45b8461F619D8B9234",
+    "address": "0x39A681D2BD95C3A5015433fA065BCA5B7A11fedB",
     "lpAddress": "0xF3A6c1E06491eC1c9FA0731f2857BD2Fff348496",
     "tokens": ["0x4200000000000000000000000000000000000006", "0x50D2280441372486BeecdD328c1854743EBaCb07"],
     "tokenOracleIds": ["WETH", "KELLYCLAUDE"],
     "decimals": [18, 18],
     "oracleId": "uniswap-cow-base-weth-kellyclaude",
     "rewardPool": {
-      "address": "0xe20009C690705671847C6Ce32a2D5eC4f78892CF",
+      "address": "0xa96E2FB0c12249930e7C26E6B2948Fcee09790Ba",
       "oracleId": "uniswap-cow-base-weth-kellyclaude-rp"
     }
   },
