@@ -1,5 +1,29 @@
 [
   {
+    "address": "0x65bF0950f67258f99E5DE34918aBceFAe5e271Ef",
+    "lpAddress": "0xfc37C5CCDf712c54f21973f77799739225071704",
+    "tokens": ["0x50D2280441372486BeecdD328c1854743EBaCb07", "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913"],
+    "tokenOracleIds": ["KELLYCLAUDE", "USDC"],
+    "decimals": [18, 6],
+    "oracleId": "uniswap-cow-base-kellyclaude-usdc",
+    "rewardPool": {
+      "address": "0x33cC185f8C4053805D2e36E614C69097FA665aE2",
+      "oracleId": "uniswap-cow-base-kellyclaude-usdc-rp"
+    }
+  },
+  {
+    "address": "0x247D34fAC3Be593e6F182F45b8461F619D8B9234",
+    "lpAddress": "0xF3A6c1E06491eC1c9FA0731f2857BD2Fff348496",
+    "tokens": ["0x4200000000000000000000000000000000000006", "0x50D2280441372486BeecdD328c1854743EBaCb07"],
+    "tokenOracleIds": ["WETH", "KELLYCLAUDE"],
+    "decimals": [18, 18],
+    "oracleId": "uniswap-cow-base-weth-kellyclaude",
+    "rewardPool": {
+      "address": "0xe20009C690705671847C6Ce32a2D5eC4f78892CF",
+      "oracleId": "uniswap-cow-base-weth-kellyclaude-rp"
+    }
+  },
+  {
     "address": "0x151c63b2A4db7e345dFD2aE97a554232186c00aC",
     "lpAddress": "0xBc3231036Ee1ECa03E5F67FEceDC640D21610823",
     "tokens": ["0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913", "0xF4d97F2da56e8c3098f3a8D538DB630A2606a024"],
