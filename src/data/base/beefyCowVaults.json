@@ -5,10 +5,10 @@
     "tokens": ["0x50D2280441372486BeecdD328c1854743EBaCb07", "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913"],
     "tokenOracleIds": ["KELLYCLAUDE", "USDC"],
     "decimals": [18, 6],
-    "oracleId": "aerodrome-cow-base-kellyclaude-usdc",
+    "oracleId": "uniswap-cow-base-kellyclaude-usdc",
     "rewardPool": {
       "address": "0x33cC185f8C4053805D2e36E614C69097FA665aE2",
-      "oracleId": "aerodrome-cow-base-kellyclaude-usdc-rp"
+      "oracleId": "uniswap-cow-base-kellyclaude-usdc-rp"
     }
   },
   {
@@ -17,11 +17,10 @@
     "tokens": ["0x4200000000000000000000000000000000000006", "0x50D2280441372486BeecdD328c1854743EBaCb07"],
     "tokenOracleIds": ["WETH", "KELLYCLAUDE"],
     "decimals": [18, 18],
-    "oracleId": "aerodrome-cow-base-weth-kellyclaude",
-    "providerId": "aerodrome",
+    "oracleId": "uniswap-cow-base-weth-kellyclaude",
     "rewardPool": {
       "address": "0xe20009C690705671847C6Ce32a2D5eC4f78892CF",
-      "oracleId": "aerodrome-cow-base-weth-kellyclaude-rp"
+      "oracleId": "uniswap-cow-base-weth-kellyclaude-rp"
     }
   },
   {
