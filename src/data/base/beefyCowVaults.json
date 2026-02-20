@@ -17,23 +17,6 @@
     }
   },
   {
-    "address": "0x80a6c1d34B168f2F988790B05041E46373216701",
-    "lpAddress": "0xb1857B20d91c216f51656B63081f35C7cD0A489d",
-    "tokens": ["0x5b2193fDc451C1f847bE09CA9d13A4Bf60f8c86B", "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913"],
-    "tokenOracleIds": ["UP", "USDC"],
-    "decimals": [18, 6],
-    "oracleId": "aerodrome-cow-base-up-usdc",
-    "providerId": "aerodrome",
-    "rewardPool": {
-      "address": "0x61e6dA36c1C5C40674478430A51662dbC15a35d6",
-      "oracleId": "aerodrome-cow-base-up-usdc-rp"
-    },
-    "vault": {
-      "address": "0xf7EFfB58b73F4A70F829d040B9f851C4021176C3",
-      "oracleId": "aerodrome-cow-base-up-usdc-vault"
-    }
-  },
-  {
     "address": "0x65bF0950f67258f99E5DE34918aBceFAe5e271Ef",
     "lpAddress": "0xfc37C5CCDf712c54f21973f77799739225071704",
     "tokens": ["0x50D2280441372486BeecdD328c1854743EBaCb07", "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913"],
