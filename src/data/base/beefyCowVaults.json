@@ -30,7 +30,7 @@
   },
   {
     "address": "0x39A681D2BD95C3A5015433fA065BCA5B7A11fedB",
-    "lpAddress": "0x3b4a73fff0618d5b5888526b7a35f905bf0a14e1",
+    "lpAddress": "0x3b4a73Fff0618D5b5888526B7a35f905bF0A14e1",
     "tokens": ["0x4200000000000000000000000000000000000006", "0x50D2280441372486BeecdD328c1854743EBaCb07"],
     "tokenOracleIds": ["WETH", "KELLYCLAUDE"],
     "decimals": [18, 18],
