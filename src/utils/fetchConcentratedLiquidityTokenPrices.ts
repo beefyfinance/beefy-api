@@ -978,7 +978,7 @@ const tokens: Partial<Record<keyof typeof ChainId, ConcentratedLiquidityToken[]>
       type: 'Slipstream',
       oracleId: 'WCT',
       decimalDelta: 1,
-      pool: '0xeF4461891DfB3AC8572cCf7C794664A8DD927945',
+      pool: '0xEBd2eeaB20CeFa41C94343F506ac506bfc3F681e',
       firstToken: 'WETH',
       secondToken: 'WCT',
     },
