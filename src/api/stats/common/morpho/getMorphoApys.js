@@ -11,10 +11,10 @@ const calculateApyBreakdown = (apy, isV2, isSkim) => {
     if (isSkim) trading = lending.times(0.905).plus(assetYield);
     return { vault, trading };
   } else {
-    const lending = new BigNumber(apy?.state?.netApyWithoutRewards || 0);
+    const lending = new BigNumber(apy?.state?.avgNetApyExcludingRewards || 0);
     const assetYield = new BigNumber(apy?.asset?.yield?.apr || 0);
     let trading = lending.plus(assetYield);
-    const vault = new BigNumber(apy?.state?.netApy || 0).minus(trading);
+    const vault = new BigNumber(apy?.state?.avgNetApy || 0).minus(lending);
     if (isSkim) trading = lending.times(0.905).plus(assetYield);
     return { vault, trading };
   }
@@ -27,7 +27,7 @@ const createGraphQLQuery = (chainId, addresses, isV2) => {
   const entityName = isV2 ? 'vaultV2s' : 'vaults';
   const fields = isV2
     ? 'name address avgNetApy ( lookback: ONE_HOUR ) avgApy ( lookback: ONE_HOUR ) asset { yield { apr } }'
-    : 'name address state { netApy netApyWithoutRewards } asset { yield { apr } }';
+    : 'name address state { avgNetApy avgNetApyExcludingRewards } asset { yield { apr } }';
 
   return {
     query: `{
