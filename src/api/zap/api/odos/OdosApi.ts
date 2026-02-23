@@ -51,8 +51,8 @@ export class OdosApi implements IOdosApiV3 {
   protected withPartnerFee(request?: Record<string, unknown>): Record<string, unknown> {
     return {
       ...request,
-      partnerFeePercent: this.feeBps,
-      feeRecipient: this.feeReceiver,
+      referralFee: this.feeBps,
+      referralFeeRecipient: this.feeReceiver,
     };
   }
 
