@@ -5,6 +5,7 @@ const { getCurvanceApys } = require('./getCurvanceApys');
 const { getNeverlandApys } = require('./getNeverlandApys');
 const { getEulerApys } = require('./getEulerApys');
 const { getGearboxApys } = require('../common/gearbox/getGearboxApys');
+const { getUniswapApys } = require('./getUniswapApys');
 const { MONAD_CHAIN_ID } = require('../../../constants');
 
 const getApys = [
@@ -15,6 +16,7 @@ const getApys = [
   getCurvanceApys,
   getNeverlandApys,
   () => getGearboxApys(MONAD_CHAIN_ID, require('../../../data/monad/gearboxPools.json')),
+  getUniswapApys,
 ];
 
 const getMonadApys = async () => {

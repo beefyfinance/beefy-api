@@ -1,0 +1,22 @@
+[
+  {
+    "name": "uniswap-monad-usdc-dust",
+    "address": "0x86dBF00485871C901C5129bD525348Db96c2eB2d",
+    "decimals": "1e18",
+    "beefyFee": 0.095,
+    "chainId": 143,
+    "merkl": true,
+    "lp0": {
+      "address": "0x754704Bc059F8C67012fEd69BC8A327a5aafb603",
+      "oracle": "tokens",
+      "oracleId": "USDC",
+      "decimals": "1e6"
+    },
+    "lp1": {
+      "address": "0xAD96C3dffCD6374294e2573A7fBBA96097CC8d7c",
+      "oracle": "tokens",
+      "oracleId": "DUST",
+      "decimals": "1e18"
+    }
+  }
+]

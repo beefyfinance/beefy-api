@@ -1587,16 +1587,7 @@ const tokens: Partial<Record<keyof typeof ChainId, ConcentratedLiquidityToken[]>
       secondToken: 'XAUt0',
     },
   ],
-  monad: [
-    {
-      type: 'UniV3',
-      oracleId: 'DUST',
-      decimalDelta: 1e-12,
-      pool: '0xD15965968fe8BF2BAbbe39b2FC5de1Ab6749141F',
-      firstToken: 'DUST',
-      secondToken: 'AUSD',
-    },
-  ],
+  monad: [],
   megaeth: [
     {
       type: 'UniV3',
