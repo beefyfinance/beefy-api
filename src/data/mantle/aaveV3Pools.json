@@ -37,5 +37,18 @@
     "borrowDepth": 1,
     "borrowPercent": 0,
     "skimLending": true
+  },
+  {
+    "name": "aavev3-mantle-usdc",
+    "token": "0x09Bc4E0D864854c6aFB6eB9A9cdF58aC190D0dF9",
+    "aToken": "0xcb8164415274515867ec43CbD284ab5d6d2b304F",
+    "debtToken": "0xCea474BDa7Ad0a8F62e938a5563edfAEf7368Fc0",
+    "identifier": "59d7c19c0651fe94",
+    "oracle": "tokens",
+    "oracleId": "USDC",
+    "decimals": "1e6",
+    "borrowDepth": 1,
+    "borrowPercent": 0,
+    "skimLending": true
   }
 ]
