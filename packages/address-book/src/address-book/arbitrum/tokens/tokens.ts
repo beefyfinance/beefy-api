@@ -2325,4 +2325,15 @@ export const tokens = {
     bridge: 'layer-zero',
     tags: ['NO_TIMELOCK'],
   },
+  RAIN: {
+    name: 'Rain Protocol',
+    symbol: 'RAIN',
+    oracleId: 'RAIN',
+    address: '0x25118290e6A5f4139381D072181157035864099d',
+    chainId: 42161,
+    decimals: 18,
+    website: 'https://www.rain.one/',
+    description:
+      'Rain is a decentralized prediction markets protocol designed to be the “Uniswap of prediction markets.” Built natively on Arbitrum with cross-chain support, Rain is an open protocol that empowers anyone to create and trade markets. Combining automated market makers, Rain ensures liquidity while aligning incentives for creators, resolvers, and liquidity providers.',
+  },
 } as const satisfies Record<string, Token>;
