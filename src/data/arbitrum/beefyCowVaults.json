@@ -1965,10 +1965,10 @@
     "tokens": ["0x82aF49447D8a07e3bd95BD0d56f35241523fBab1", "0xe80772Eaf6e2E18B651F160Bc9158b2A5caFCA65"],
     "tokenOracleIds": ["WETH", "USDx"],
     "decimals": [18, 6],
-    "oracleId": "uniswap-cow-arb-weth-xusd",
+    "oracleId": "uniswap-cow-arb-weth-usdx",
     "rewardPool": {
       "address": "0xcC178Dd8b00eeCB979fb040Fdd03840C91E7F0f0",
-      "oracleId": "uniswap-cow-arb-weth-xusd-rp"
+      "oracleId": "uniswap-cow-arb-weth-usdx-rp"
     }
   }
 ]
