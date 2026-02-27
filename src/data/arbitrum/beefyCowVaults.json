@@ -1958,5 +1958,17 @@
     "tokenOracleIds": ["WBTC", "WETH"],
     "decimals": [8, 18],
     "oracleId": "uniswap-cow-arb-wbtc-eth"
+  },
+  {
+    "address": "0x5B94dA4EE91aA2d736c5a2e93769672f5c06638C",
+    "lpAddress": "0x421803dA50d3932Caa36bD1731d36a0E2AF93542",
+    "tokens": ["0x82aF49447D8a07e3bd95BD0d56f35241523fBab1", "0xe80772Eaf6e2E18B651F160Bc9158b2A5caFCA65"],
+    "tokenOracleIds": ["WETH", "USDx"],
+    "decimals": [18, 6],
+    "oracleId": "uniswap-cow-arb-weth-usdx",
+    "rewardPool": {
+      "address": "0xcC178Dd8b00eeCB979fb040Fdd03840C91E7F0f0",
+      "oracleId": "uniswap-cow-arb-weth-usdx-rp"
+    }
   }
 ]
