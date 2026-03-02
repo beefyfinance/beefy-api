@@ -1,5 +1,59 @@
 [
   {
+    "name": "curve-ousd-msusd",
+    "pool": "0x9afad25833d0f47b3a3d9204ddf965cb172de0cb",
+    "gauge": "0x35e4b1bc8818fc098efcf9ad9784b28d8b4bf639",
+    "stakeDao": true,
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "OUSD",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "msUSD",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
+    "name": "curve-frax-pyusd",
+    "pool": "0xa5588f7cdf560811710a2d82d3c9c99769db1dcb",
+    "gauge": "0xdc6d319fac1498125e871ccedf7f1b9998eba3c5",
+    "stakeDao": true,
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "FRAX",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "PYUSD",
+        "decimals": "1e6"
+      }
+    ]
+  },
+  {
+    "name": "curve-frax-pyusd",
+    "pool": "0xa5588f7cdf560811710a2d82d3c9c99769db1dcb",
+    "gauge": "0xdc6d319fac1498125e871ccedf7f1b9998eba3c5",
+    "stakeDao": true,
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "FRAX",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "PYUSD",
+        "decimals": "1e6"
+      }
+    ]
+  },
+  {
     "name": "curve-ynrwax-ousd",
     "pool": "0xf75f2b5fc5F375e1aD3130dD0eEC7219Fe821204",
     "gauge": "0x0228fa0bb44acb35582d429bc93c6c1bbb1ae81e",
