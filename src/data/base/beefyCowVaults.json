@@ -1,6 +1,6 @@
 [
   {
-    "address": "0x0CE28C00CFE3B7df2Aa1ee86e30BcEb578C0F2e7",
+    "address": "0xaAec586e5648d74E2f67F5E5A0dadB98997fef5F",
     "lpAddress": "0x8845126640B36df1D24bf3dF9B2903fD4c730FE6",
     "tokens": ["0x526728DBc96689597F85ae4cd716d4f7fCcBAE9d", "0x7Ba6F01772924a82D9626c126347A28299E98c98"],
     "tokenOracleIds": ["basemsUSD", "msETH"],
@@ -8,11 +8,11 @@
     "oracleId": "aerodrome-cow-base-msusd-mseth",
     "providerId": "aerodrome",
     "rewardPool": {
-      "address": "0x937CA99eBCfF1eb8f55457f2f7B914f7e6864298",
+      "address": "0x3f7fc7ddEecA4562108D22372C41d06E971512cD",
       "oracleId": "aerodrome-cow-base-msusd-mseth-rp"
     },
     "vault": {
-      "address": "0x7d3eB4ad3F15B3Ca165Af910F59CF55f769644F7",
+      "address": "0xdF2BCd9629030487EA18B2f0a297C49A8c658975",
       "oracleId": "aerodrome-cow-base-msusd-mseth-vault"
     }
   },
