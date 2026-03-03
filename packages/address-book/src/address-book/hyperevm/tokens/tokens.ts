@@ -226,7 +226,7 @@ export const tokens = {
   XAUt0: {
     name: 'Tether Gold',
     symbol: 'XAUt0',
-    oracleId: 'USDT0 Gold',
+    oracleId: 'XAUt0',
     address: '0xf4D9235269a96aaDaFc9aDAe454a0618eBE37949',
     chainId: 999,
     decimals: 6,
