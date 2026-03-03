@@ -223,4 +223,16 @@ export const tokens = {
     documentation: 'https://developers.circle.com/docs',
     tags: ['STABLECOIN'],
   },
+  XAUt0: {
+    name: 'Tether Gold',
+    symbol: 'XAUt0',
+    oracleId: 'USDT0 Gold',
+    address: '0xf4D9235269a96aaDaFc9aDAe454a0618eBE37949',
+    chainId: 999,
+    decimals: 6,
+    description:
+      'Tether Gold tokens (XAUt) represents ownership of one troy ounce of physical gold held in a Swiss vault, combining the stability of precious metals with the utility of digital assets. It has become a trusted store of value for individuals and institutions seeking the security of gold without the burdens of physical custody. However, as the blockchain ecosystem expands, the movement of XAUT across chains remains disjointed and dependent on inconsistent bridging solutions, fragmented liquidity, and opaque backend processes that limit usability and access.',
+    bridge: 'layer-zero',
+    documentation: 'https://usdt0.gitbook.io/xaut0',
+  },
 } as const satisfies Record<string, Token>;
