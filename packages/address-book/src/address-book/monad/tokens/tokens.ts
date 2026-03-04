@@ -295,8 +295,8 @@ export const tokens = {
   },
   wnUSDC: {
     name: 'Wrapped Neverland USDC',
-    symbol: 'wnWBTC',
-    oracleId: 'wnWBTC',
+    symbol: 'wnUSDC',
+    oracleId: 'wnUSDC',
     address: '0x8d5c2Df3Eef09088Fcccf3376D8EcD0Dd505f642',
     chainId: 143,
     decimals: 6,
