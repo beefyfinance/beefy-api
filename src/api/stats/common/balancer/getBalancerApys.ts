@@ -53,7 +53,7 @@ interface BalancerParams {
   client: ApolloClient<NormalizedCacheObject>;
   pools: Pool[];
   balancerVault: string;
-  aaveDataProvider: string;
+  aaveDataProvider?: string;
   log?: boolean;
 }
 
@@ -62,7 +62,7 @@ const liquidityProviderFee = 0.0025;
 export const getBalancerApys = async (params: BalancerParams): Promise<ApyBreakdownResult> => {
   const pairAddresses = params.pools.map(pool => pool.address);
 
-  const [tradingAprs, farmApys] = await Promise.all([
+  const [tradingAprs, poolApys] = await Promise.all([
     getTradingFeeAprBalancer(params.chainId, pairAddresses),
     getPoolApys(params),
   ]);
@@ -70,9 +70,12 @@ export const getBalancerApys = async (params: BalancerParams): Promise<ApyBreakd
   return getApyBreakdown(
     params.pools,
     tradingAprs.tradingAprMap as Record<string, BigNumber>,
-    farmApys,
+    poolApys.farmAprs,
     liquidityProviderFee,
-    tradingAprs.lstAprs
+    tradingAprs.lstAprs,
+    undefined,
+    undefined,
+    poolApys.merklAprs
   );
 };
 
@@ -91,24 +94,28 @@ const getPoolApys = async (params: BalancerParams) => {
         )
       : {};
 
-  const apys = [];
+  const farmAprs: BigNumber[] = [];
+  const merklAprs: number[] = [];
 
-  const poolApyCalls = params.pools.map(pool => getPoolApy(pool, params, merklAprByAddress));
+  const poolApyCalls = params.pools.map(pool => getPoolApy(pool, params));
   const poolApyResults = await Promise.all(poolApyCalls);
 
-  poolApyResults.forEach(result => {
-    apys.push(result);
+  params.pools.forEach((pool, i) => {
+    const addressKey = pool.address?.toLowerCase?.();
+    const merklApr = pool.merkl && addressKey ? merklAprByAddress[addressKey] ?? 0 : 0;
+
+    // Merkl is a distinct non-compoundable component in breakdowns.
+    // Keep farm/vault APR at 0 for merkl pools.
+    merklAprs[i] = merklApr;
+    farmAprs[i] = pool.merkl ? new BigNumber(0) : poolApyResults[i] ?? new BigNumber(0);
   });
 
-  return apys;
+  return { farmAprs, merklAprs };
 };
 
-const getPoolApy = async (pool: Pool, params: BalancerParams, merklAprByAddress: Record<string, number>) => {
+const getPoolApy = async (pool: Pool, params: BalancerParams) => {
   if (pool.status === 'eol') return new BigNumber(0);
   let rewardsApy: BigNumber = new BigNumber(0);
-  if (pool.merkl) {
-    return new BigNumber(merklAprByAddress[pool.address.toLowerCase()] ?? 0);
-  }
 
   const [yearlyRewardsInUsd, totalStakedInUsd] = await Promise.all([
     getYearlyRewardsInUsd(params.chainId, pool),

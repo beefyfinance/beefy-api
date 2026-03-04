@@ -6,7 +6,7 @@ const { getNeverlandApys } = require('./getNeverlandApys');
 const { getEulerApys } = require('./getEulerApys');
 const { getGearboxApys } = require('../common/gearbox/getGearboxApys');
 const { getUniswapApys } = require('./getUniswapApys');
-const { getBalancerMonadApys } = require('./getBalancerApys');
+const getBalancerMonadApys = require('./getBalancerApys');
 const { MONAD_CHAIN_ID } = require('../../../constants');
 
 const getApys = [

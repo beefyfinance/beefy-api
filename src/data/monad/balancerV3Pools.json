@@ -1,29 +1,132 @@
 [
-  [
-    {
-      "name": "balancerv3-monad-usdt0-ausd-usdc",
-      "address": "0x2daa146dfb7eaef0038f9f15b2ec1e4de003f72b",
-      "gauge": "0x0000000000000000000000000000000000000000",
-      "merkl": true,
-      "decimals": "1e18",
-      "rewards": [],
-      "tokens": [
-        {
-          "address": "0x4e8aaecCE10ad9394e96fE5f2bd4e587A7B04298",
-          "oracleId": "wnUSDT0",
-          "decimals": "1e6"
-        },
-        {
-          "address": "0x82c370ba90E38ef6Acd8b1b078d34fD86FC6bAC9",
-          "oracleId": "wnAUSD",
-          "decimals": "1e6"
-        },
-        {
-          "address": "0x8d5c2Df3Eef09088Fcccf3376D8EcD0Dd505f642",
-          "oracleId": "wnUSDC",
-          "decimals": "1e6"
-        }
-      ]
-    }
-  ]
+  {
+    "name": "balancerv3-monad-usdt0-ausd-usdc",
+    "address": "0x2daa146dfb7eaef0038f9f15b2ec1e4de003f72b",
+    "gauge": "0x0000000000000000000000000000000000000000",
+    "merkl": true,
+    "decimals": "1e18",
+    "rewards": [],
+    "tokens": [
+      {
+        "address": "0x4e8aaecCE10ad9394e96fE5f2bd4e587A7B04298",
+        "oracleId": "wnUSDT0",
+        "decimals": "1e6"
+      },
+      {
+        "address": "0x82c370ba90E38ef6Acd8b1b078d34fD86FC6bAC9",
+        "oracleId": "wnAUSD",
+        "decimals": "1e6"
+      },
+      {
+        "address": "0x8d5c2Df3Eef09088Fcccf3376D8EcD0Dd505f642",
+        "oracleId": "wnUSDC",
+        "decimals": "1e6"
+      }
+    ]
+  },
+  {
+    "name": "balancerv3-monad-wmon-gmon",
+    "address": "0xc0ABfAa62331DB4BEE1d3904B86310C5D120E045",
+    "gauge": "0x0000000000000000000000000000000000000000",
+    "merkl": true,
+    "decimals": "1e18",
+    "rewards": [],
+    "tokens": [
+      {
+        "address": "0x29D2075E5151B1A6863bDC40EA86bD5e8aFd1705",
+        "oracleId": "wngMON",
+        "decimals": "1e18"
+      },
+      {
+        "address": "0xdB39A9D4a1f1b4e93A5684d602207628aD60613C",
+        "oracleId": "wnWMON",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
+    "name": "balancerv3-monad-wmon-shmon",
+    "address": "0x340fa62ae58e90473da64b0af622cdd6113106cb",
+    "gauge": "0x0000000000000000000000000000000000000000",
+    "merkl": true,
+    "decimals": "1e18",
+    "rewards": [],
+    "tokens": [
+      {
+        "address": "0x5e073494678fB7FA4a05bB17d45941Dd9Dc469c1",
+        "oracleId": "wnshMON",
+        "decimals": "1e18"
+      },
+      {
+        "address": "0xdB39A9D4a1f1b4e93A5684d602207628aD60613C",
+        "oracleId": "wnWMON",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
+    "name": "balancerv3-monad-wmon-smon",
+    "address": "0x02b34a02db24179ac2d77ae20aa6215c7153e7f8",
+    "gauge": "0x0000000000000000000000000000000000000000",
+    "merkl": true,
+    "decimals": "1e18",
+    "rewards": [],
+    "tokens": [
+      {
+        "address": "0x08139339dd9a480ceb84d9c7cce48be436db20b3",
+        "oracleId": "wnsMON",
+        "decimals": "1e18"
+      },
+      {
+        "address": "0xdB39A9D4a1f1b4e93A5684d602207628aD60613C",
+        "oracleId": "wnWMON",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
+    "name": "balancerv3-monad-aznd-ausd-loaznd",
+    "address": "0xbddb004a6c393c3f83bcccf7f07ee9d409b214de",
+    "gauge": "0x0000000000000000000000000000000000000000",
+    "merkl": true,
+    "decimals": "1e18",
+    "rewards": [],
+    "tokens": [
+      {
+        "address": "0x4917a5ec9fcb5e10f47cbb197abe6ab63be81fe8",
+        "oracleId": "AZND",
+        "decimals": "1e18"
+      },
+      {
+        "address": "0x82c370ba90E38ef6Acd8b1b078d34fD86FC6bAC9",
+        "oracleId": "wnAUSD",
+        "decimals": "1e6"
+      },
+      {
+        "address": "0xd786f7569c39a9f64e6a54eb77db21364e90f279",
+        "oracleId": "wnloAZND",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
+    "name": "balancerv3-monad-ausd-dust",
+    "address": "0x8f4fb1985eb6d28b9e3f4ad116a6fff087b55f43",
+    "gauge": "0x0000000000000000000000000000000000000000",
+    "merkl": true,
+    "decimals": "1e18",
+    "rewards": [],
+    "tokens": [
+      {
+        "address": "0x82c370ba90e38ef6acd8b1b078d34fd86fc6bac9",
+        "oracleId": "wnAUSD",
+        "decimals": "1e18"
+      },
+      {
+        "address": "0xad96c3dffcd6374294e2573a7fbba96097cc8d7c",
+        "oracleId": "DUST",
+        "decimals": "1e18"
+      }
+    ]
+  }
 ]

@@ -43,7 +43,7 @@ const DEFAULT_RPCS: ApiChainToRpcs = {
   metis: ['https://metis-mainnet.public.blastapi.io'],
   moonbeam: ['https://rpc.api.moonbeam.network'],
   emerald: ['https://emerald.oasis.dev'],
-  optimism: ['https://optimism-mainnet.public.blastapi.io'],
+  optimism: ['https://optimism-rpc.publicnode.com'],
   kava: ['https://kava-evm.publicnode.com'],
   ethereum: ['https://rpc.eth.gateway.fm'],
   canto: ['https://canto-rpc.ansybl.io'],

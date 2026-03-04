@@ -22,13 +22,15 @@ const getChainName = chain => {
       return 'POLYGON';
     case 100:
       return 'GNOSIS';
+    case 143:
+      return 'MONAD';
   }
 };
 
 export const getBalTradingAndLstApr = async (chain, poolAddresses) => {
   let tradingAprMap = {};
-  let lstAprs = [];
-  let lstMap = {};
+  // Keep order aligned with `poolAddresses` (index used downstream)
+  let lstAprs = poolAddresses.map(() => new BigNumber(0));
   const api = 'https://api-v3.balancer.fi/graphql';
 
   const queryString = `query apr {
@@ -60,22 +62,41 @@ export const getBalTradingAndLstApr = async (chain, poolAddresses) => {
 
     const responseData = await data.json();
 
-    poolAddresses.forEach(address => {
-      responseData.data.poolGetPools.forEach(pool => {
-        if (pool.address.toLowerCase() === address.toLowerCase()) {
-          let tradingApr = 0;
-          let lstApr = new BigNumber(0);
-          pool.dynamicData.aprItems.forEach(aprItem => {
-            if (aprItem.type === 'SWAP_FEE_24H') {
-              tradingApr = aprItem.apr;
-            } else if (aprItem.type === 'IB_YIELD' || aprItem.type === 'MERKL') {
-              lstApr = lstApr.plus(new BigNumber(aprItem.apr));
-            }
-          });
-          tradingAprMap[address.toLowerCase()] = tradingApr;
-          lstAprs.push(lstApr);
+    const pools = responseData?.data?.poolGetPools || [];
+    const byAddress = new Map(pools.map(p => [p.address?.toLowerCase?.(), p]));
+
+    poolAddresses.forEach((address, i) => {
+      const key = address?.toLowerCase?.();
+      const pool = key ? byAddress.get(key) : undefined;
+
+      // Default 0 if pool missing/malformed
+      let tradingApr = 0;
+      let lstApr = new BigNumber(0);
+
+      if (pool?.dynamicData?.aprItems && Array.isArray(pool.dynamicData.aprItems)) {
+        if (process.env.DEBUG_BALANCER_APR === 'true') {
+          const debugAddr = process.env.DEBUG_BALANCER_APR_POOL?.toLowerCase?.();
+          if (!debugAddr || debugAddr === key) {
+            console.log(
+              `[Balancer APR debug] chain=${chain} pool=${key} aprItems=`,
+              pool.dynamicData.aprItems
+            );
+          }
         }
-      });
+
+        pool.dynamicData.aprItems.forEach(aprItem => {
+          if (aprItem.type === 'SWAP_FEE_24H') {
+            tradingApr = aprItem.apr;
+          } else if (aprItem.type === 'IB_YIELD') {
+            // IB_YIELD = yield from interest-bearing / LST-like assets
+            // NOTE: Merkl incentives are handled separately in APY breakdown as `merklApr`
+            lstApr = lstApr.plus(new BigNumber(aprItem.apr));
+          }
+        });
+      }
+
+      tradingAprMap[key] = tradingApr;
+      lstAprs[i] = lstApr;
     });
   } catch (error) {
     console.error(`Error Fetching Balancer Trading Fee and LST APR on Chain: ${chain}`);
