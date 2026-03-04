@@ -1,7 +1,7 @@
 import { MONAD_CHAIN_ID as chainId } from '../../../constants';
 import { balancerBaseClient as client } from '../../../apollo/client';
 const { getBalancerApys } = require('../common/balancer/getBalancerApys');
-import balancerV3Pools from '../../../data/monad/balancerV3pools.json';
+import balancerV3Pools from '../../../data/monad/balancerV3Pools.json';
 
 const pools = [...balancerV3Pools];
 

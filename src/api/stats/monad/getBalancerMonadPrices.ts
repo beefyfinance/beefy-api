@@ -1,7 +1,7 @@
 import getBalancerPrices from '../common/balancer/getBalancerPrices';
 import { MONAD_CHAIN_ID as chainId } from '../../../constants';
 import balancerPools from '../../../data/monad/balancerMonadLpPools.json';
-import balancerV3Pools from '../../../data/monad/balancerV3pools.json';
+import balancerV3Pools from '../../../data/monad/balancerV3Pools.json';
 import getBalancerV3Prices from '../common/balancer/getBalancerV3Prices';
 
 const pools = [...balancerPools];
