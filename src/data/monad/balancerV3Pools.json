@@ -120,7 +120,7 @@
       {
         "address": "0x82c370ba90e38ef6acd8b1b078d34fd86fc6bac9",
         "oracleId": "wnAUSD",
-        "decimals": "1e18"
+        "decimals": "1e6"
       },
       {
         "address": "0xad96c3dffcd6374294e2573a7fbba96097cc8d7c",
