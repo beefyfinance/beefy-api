@@ -1,5 +1,25 @@
 [
   {
+    "name": "curve-monad-cbbtc",
+    "pool": "0xD2634E05EbEd90Bd0a6c0E93d48d7bd8036653B1",
+    "gauge": "0x5814758bcf02a264c4d322c8e016283bc220c32b",
+    "merklId": "0xD2634E05EbEd90Bd0a6c0E93d48d7bd8036653B1",
+    "tokens": [
+      {
+        "oracleId": "cbBTC",
+        "decimals": "1e8"
+      },
+      {
+        "oracleId": "WBTC",
+        "decimals": "1e8"
+      },
+      {
+        "oracleId": "LBTC",
+        "decimals": "1e8"
+      }
+    ]
+  },
+  {
     "name": "curve-monad-mubond-ausd",
     "pool": "0x1E8D78e9b3f0152D54d32904B7933f1cFE439Df1",
     "gauge": "0xA2a48783ce5b8FD550cd98d793b93D781c00B9b8",
