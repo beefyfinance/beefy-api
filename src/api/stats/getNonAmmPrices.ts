@@ -8,6 +8,7 @@ import getBalancerArbPrices from './arbitrum/getBalancerArbPrices';
 import getBalancerAvaxPrices from './avax/getBalancerPrices';
 import getBalancerBasePrices from './base/getBalancerPrices';
 import getBalancerPolyPrices from './matic/getBalancerPolyPrices';
+import getBalancerMonadPrices from './monad/getBalancerMonadPrices';
 import getBeetsSonicPrices from './sonic/getBeetsSonicPrices';
 import getVelodromeStablePrices from './optimism/getVelodromeStablePrices';
 import { getGmxV2ArbitrumPrices } from './arbitrum/getGmxV2Prices';
@@ -176,6 +177,7 @@ export async function getNonAmmPrices(
     getBalancerPolyPrices(tokenPrices),
     getBalancerArbPrices(tokenPrices),
     getBalancerGnosisPrices(tokenPrices),
+    getBalancerMonadPrices(tokenPrices),
     getBeetsSonicPrices(tokenPrices),
     getBeetsOPPrices(tokenPrices),
     getBeraswapPrices(tokenPrices),

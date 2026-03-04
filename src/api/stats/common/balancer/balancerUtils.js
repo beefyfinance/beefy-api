@@ -8,8 +8,12 @@ const { default: ICurveRewardStream } = require('../../../../abis/ICurveRewardSt
 
 const secondsPerYear = 31536000;
 
+const ZERO_ADDRESS = '0x0000000000000000000000000000000000000000';
+const hasGauge = pool =>
+  !!pool?.gauge && typeof pool.gauge === 'string' && pool.gauge.toLowerCase() !== ZERO_ADDRESS;
+
 export const getTotalStakedInUsd = async (chainId, pool) => {
-  if (!pool.gauge) return new BigNumber(1);
+  if (!hasGauge(pool)) return new BigNumber(1);
   const gauge = fetchContract(pool.gauge, ICurveGauge, chainId);
   const totalSupply = new BigNumber((await gauge.read.totalSupply()).toString());
   const lpPrice = await fetchPrice({ oracle: 'lps', id: pool.name });
@@ -17,6 +21,7 @@ export const getTotalStakedInUsd = async (chainId, pool) => {
 };
 
 export const getBoostedYearlyRewardsInUsd = async (chainId, pool, tokenID) => {
+  if (!hasGauge(pool)) return new BigNumber(0);
   const id = tokenID !== undefined ? tokenID : 'CRV';
   const crvPrice = await fetchPrice({ oracle: 'tokens', id: id });
 
@@ -81,6 +86,11 @@ const getPoolsRatesAndPeriodFinish = async (chainId, pool) => {
   const rewardRateCalls = [];
   (pool.rewards ?? []).forEach(rewards => {
     if (pool.boosted || rewards.rewardToken) {
+      if (!hasGauge(pool)) {
+        periodFinishCalls.push(new Promise(resolve => resolve(0)));
+        rewardRateCalls.push(new Promise(resolve => resolve(0)));
+        return;
+      }
       const token = rewards.rewardToken ? rewards.rewardToken : rewards.token;
       const rewardStream = fetchContract(pool.gauge, ICurveGauge, chainId);
       const call = rewardStream.read.reward_data([token]);

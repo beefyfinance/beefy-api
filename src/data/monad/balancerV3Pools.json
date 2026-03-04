@@ -1,0 +1,29 @@
+[
+  [
+    {
+      "name": "balancerv3-monad-usdt0-ausd-usdc",
+      "address": "0x2daa146dfb7eaef0038f9f15b2ec1e4de003f72b",
+      "gauge": "0x0000000000000000000000000000000000000000",
+      "merkl": true,
+      "decimals": "1e18",
+      "rewards": [],
+      "tokens": [
+        {
+          "address": "0x4e8aaecCE10ad9394e96fE5f2bd4e587A7B04298",
+          "oracleId": "wnUSDT0",
+          "decimals": "1e6"
+        },
+        {
+          "address": "0x82c370ba90E38ef6Acd8b1b078d34fD86FC6bAC9",
+          "oracleId": "wnAUSD",
+          "decimals": "1e6"
+        },
+        {
+          "address": "0x8d5c2Df3Eef09088Fcccf3376D8EcD0Dd505f642",
+          "oracleId": "wnUSDC",
+          "decimals": "1e6"
+        }
+      ]
+    }
+  ]
+]

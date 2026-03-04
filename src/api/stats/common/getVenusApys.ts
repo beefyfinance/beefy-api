@@ -10,6 +10,13 @@ import jp from 'jsonpath';
 
 const SECONDS_PER_YEAR = 31536000;
 
+type MerklOpportunityV4 = {
+  identifier?: string;
+  apr?: number; // percent, e.g. 50.41 = 50.41% APR
+  tvl?: number;
+  dailyRewards?: number;
+};
+
 const getVenusApyData = async (params: VenusApyParams) => {
   const poolsData = await getPoolsData(params);
 
@@ -82,26 +89,18 @@ const getPoolsData = async (params: VenusApyParams): Promise<VenusPoolsData> => 
   const tokenPrices = res[4];
   const lsAprs = res[5];
 
-  let merklPools = {};
-  if (params.pools.some(p => p.merkl)) {
-    const chainId = params.chainId;
-    const merklApi = `https://api.angle.money/v3/opportunity?chainId=${chainId}`;
-    try {
-      merklPools = await fetch(merklApi).then(res => res.json());
-    } catch (e) {
-      console.error(`Failed to fetch Merkl APRs: ${chainId}`);
-    }
-  }
+  const merklPools = params.pools.filter(p => p.merkl);
+  const merklAprByAddress =
+    merklPools.length > 0
+      ? await getMerklV4AprByExplorerAddress(
+          params.chainId,
+          merklPools.map(p => p.cToken)
+        )
+      : {};
 
   const merklAprs = params.pools.map(pool => {
-    if (Object.keys(merklPools).length !== 0 && pool.merkl) {
-      for (const [key, value] of Object.entries(merklPools)) {
-        const typedValue = value as MerklValue;
-        if (key.toLowerCase() === `1_${pool.cToken.toLowerCase()}`) {
-          return (typedValue.dailyrewards * 365) / typedValue.tvl;
-        }
-      }
-    }
+    if (!pool.merkl) return 0;
+    return merklAprByAddress[pool.cToken.toLowerCase()] ?? 0;
   });
 
   return {
@@ -139,6 +138,57 @@ const getLiquidStakingApy = async (pool: VenusPool) => {
   return liquidStakingApr;
 };
 
+const getMerklV4AprByExplorerAddress = async (chainId: ChainId, explorerAddresses: string[]) => {
+  const result: Record<string, number> = {};
+  const batchSize = 8; // stay under Merkl's default 10 req/s rate limit
+
+  for (let i = 0; i < explorerAddresses.length; i += batchSize) {
+    const batch = explorerAddresses.slice(i, i + batchSize);
+    const batchResults = await Promise.all(
+      batch.map(async address => {
+        const url = `https://api.merkl.xyz/v4/opportunities?chainId=${chainId}&explorerAddress=${address}`;
+        try {
+          const data = (await fetch(url).then(res => res.json())) as unknown;
+          if (!Array.isArray(data) || data.length === 0) {
+            return 0;
+          }
+
+          const opportunities = data as MerklOpportunityV4[];
+          const match =
+            opportunities.find(
+              o => typeof o?.identifier === 'string' && o.identifier.toLowerCase() === address.toLowerCase()
+            ) ?? opportunities[0];
+
+          if (typeof match?.apr === 'number' && Number.isFinite(match.apr)) {
+            return match.apr / 100;
+          }
+
+          if (
+            typeof match?.dailyRewards === 'number' &&
+            Number.isFinite(match.dailyRewards) &&
+            typeof match?.tvl === 'number' &&
+            Number.isFinite(match.tvl) &&
+            match.tvl > 0
+          ) {
+            return (match.dailyRewards * 365) / match.tvl;
+          }
+
+          return 0;
+        } catch (e) {
+          console.error(`Failed to fetch Merkl APRs (v4): ${chainId}`);
+          return 0;
+        }
+      })
+    );
+
+    batch.forEach((address, idx) => {
+      result[address.toLowerCase()] = batchResults[idx] ?? 0;
+    });
+  }
+
+  return result;
+};
+
 export interface VenusPoolsData {
   tokenPrices: number[];
   supplyRates: BigNumber[];
@@ -166,10 +216,5 @@ export interface VenusApyParams {
   compOracleId: string;
   pools: VenusPool[];
 }
-
-type MerklValue = {
-  dailyrewards: number;
-  tvl: number;
-};
 
 export default getVenusApyData;
