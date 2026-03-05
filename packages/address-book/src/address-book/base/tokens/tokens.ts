@@ -3421,4 +3421,18 @@ export const tokens = {
     bridge: 'native',
     tags: ['LARGE_HOLDERS', 'MEMECOIN'],
   },
+  CAKE: {
+    name: 'PancakeSwap Token',
+    symbol: 'CAKE',
+    oracleId: 'Cake',
+    address: '0x3055913c90Fcc1A6CE9a358911721eEb942013A1',
+    chainId: 8453,
+    decimals: 18,
+    website: 'https://pancakeswap.finance/',
+    description:
+      'PancakeSwap is an automated market maker (AMM) — a decentralized finance (DeFi) application that allows users to exchange tokens, providing liquidity via farming and earning fees in return.',
+    documentation: 'https://docs.pancakeswap.finance/',
+    bridge: 'layer-zero',
+    tags: ['NO_TIMELOCK'],
+  },
 } as const satisfies Record<string, Token>;
