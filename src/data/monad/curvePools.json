@@ -2,8 +2,8 @@
   {
     "name": "curve-monad-cbbtc",
     "pool": "0xD2634E05EbEd90Bd0a6c0E93d48d7bd8036653B1",
-    "gauge": "0x5814758bcf02a264c4d322c8e016283bc220c32b",
-    "merklId": "0xD2634E05EbEd90Bd0a6c0E93d48d7bd8036653B1",
+    "gauge": "0x5814758bcF02A264c4D322C8E016283BC220C32B",
+    "merklId": "0x5814758bcF02A264c4D322C8E016283BC220C32B",
     "tokens": [
       {
         "oracleId": "cbBTC",
