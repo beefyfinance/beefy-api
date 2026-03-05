@@ -3435,4 +3435,18 @@ export const tokens = {
     bridge: 'layer-zero',
     tags: ['NO_TIMELOCK'],
   },
+  AUKI: {
+    name: 'Auki Token',
+    symbol: 'AUKI',
+    oracleId: 'AUKI',
+    address: '0xF9569cFb8FD265e91aa478d86ae8c78b8AF55Df4',
+    chainId: 8453,
+    decimals: 18,
+    website: 'https://www.auki.com/',
+    description:
+      'The Auki Network makes the physical world browsable, navigable and searchable. Their goal is to make the physical world accessible to AI.',
+    documentation: 'https://www.auki.com/posemesh/fundamentals',
+    bridge: 'native',
+    tags: ['NO_TIMELOCK', 'LARGE_HOLDERS'],
+  },
 } as const satisfies Record<string, Token>;
