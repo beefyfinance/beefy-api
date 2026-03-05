@@ -253,6 +253,19 @@ export const tokens = {
     bridge: 'native',
     tags: ['NO_TIMELOCK', 'STABLECOIN'],
   },
+  cbBTC: {
+    name: 'Coinbase Wrapped WBTC',
+    symbol: 'cbBTC',
+    oracleId: 'cbBTC',
+    address: '0xd18B7EC58Cdf4876f6AFebd3Ed1730e4Ce10414b',
+    chainId: 143,
+    decimals: 8,
+    website: 'https://www.coinbase.com/',
+    description:
+      'Coinbase Wrapped Bitcoin (cbBTC) is backed 1:1 with Bitcoin, custodied with Coinbase.',
+    documentation: 'https://www.coinbase.com/blog/coinbase-wrapped-btc-cbbtc-is-now-live',
+    bridge: 'chainlink-ccip',
+  },
   DUST: {
     name: 'Pixie Dust',
     symbol: 'DUST',
