@@ -23,11 +23,13 @@ const fetchPoolPrice = async (tokenPrices, pools) => {
   const uniqueChainIds = [...new Set(chainIds)];
   let prices = {};
 
-  for (let i = 0; i < uniqueChainIds.length; i++) {
-    let filtered = pools.filter(p => p.chainId == uniqueChainIds[i]);
-    const results = await getPrice(uniqueChainIds[i], filtered, tokenPrices);
-    prices = { ...prices, ...results };
-  }
+  const results = await Promise.all(
+    uniqueChainIds.map(chainId => {
+      const filtered = pools.filter(p => p.chainId === chainId);
+      return getPrice(chainId, filtered, tokenPrices);
+    })
+  );
+  results.forEach(result => (prices = { ...prices, ...result }));
 
   return prices;
 };
