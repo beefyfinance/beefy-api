@@ -20,6 +20,7 @@ export const providers = {
     poolTradingRewardTokens: {
       arbitrum: [arbitrum.tokens.CAKE],
       bsc: [bsc.tokens.CAKE],
+      base: [base.tokens.CAKE],
     },
   },
   velodrome: {
