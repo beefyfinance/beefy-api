@@ -1,5 +1,39 @@
 [
   {
+    "address": "0x901211fb464B7E4D5103Eeaa0759503f074618a5",
+    "lpAddress": "0xC211e1f853A898Bd1302385CCdE55f33a8C4B3f3",
+    "tokens": ["0x4200000000000000000000000000000000000006", "0xcbB7C0000aB88B473b1f5aFd9ef808440eed33Bf"],
+    "tokenOracleIds": ["WETH", "cbBTC"],
+    "decimals": [18, 8],
+    "oracleId": "pancake-cow-base-weth-cbbtc",
+    "providerId": "pancakeswap",
+    "rewardPool": {
+      "address": "0x377Bf1625016F43407dAA3DeEceda5540eBaEf81",
+      "oracleId": "pancake-cow-base-weth-cbbtc-rp"
+    },
+    "vault": {
+      "address": "0x3f0B53596d2AF9ff3129a5fd2c223398d7684eD5",
+      "oracleId": "pancake-cow-base-weth-cbbtc-vault"
+    }
+  },
+  {
+    "address": "0xA76a19e8D092fc89769c2E8686b255Ff96DA42Bb",
+    "lpAddress": "0xb94b22332ABf5f89877A14Cc88f2aBC48c34B3Df",
+    "tokens": ["0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913", "0xcbB7C0000aB88B473b1f5aFd9ef808440eed33Bf"],
+    "tokenOracleIds": ["USDC", "cbBTC"],
+    "decimals": [6, 8],
+    "oracleId": "pancake-cow-base-usdc-cbbtc",
+    "providerId": "pancakeswap",
+    "rewardPool": {
+      "address": "0x41d42056DfEAec04CC55891f8e92ddf62E8fCF16",
+      "oracleId": "pancake-cow-base-usdc-cbbtc-rp"
+    },
+    "vault": {
+      "address": "0x37cA5088F5Ee09Ed7F6DFFA66b264781d7428CbC",
+      "oracleId": "pancake-cow-base-usdc-cbbtc-vault"
+    }
+  },
+  {
     "address": "0x792128947fFc04e526075D7d71a7eC09123ca15c",
     "lpAddress": "0x72AB388E2E2F6FaceF59E3C3FA2C4E29011c2D38",
     "tokens": ["0x4200000000000000000000000000000000000006", "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913"],
