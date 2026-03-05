@@ -1568,6 +1568,14 @@ const tokens: Partial<Record<keyof typeof ChainId, ConcentratedLiquidityToken[]>
       firstToken: 'WHYPE',
       secondToken: 'UPUMP',
     },
+    {
+      type: 'UniV3',
+      oracleId: 'XAUt0',
+      decimalDelta: 1,
+      pool: '0xc096DA06e8fa70386deDbc5D4D6B2a453B9106F5',
+      firstToken: 'XAUTt0',
+      secondToken: 'USDT0',
+    },
   ],
   plasma: [
     {

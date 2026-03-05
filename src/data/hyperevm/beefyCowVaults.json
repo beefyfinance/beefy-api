@@ -1,5 +1,29 @@
 [
   {
+    "address": "0x64D0CCc9E321E847fE91b63e11002747BB225855",
+    "lpAddress": "0x6D6E9d95c40cd9041c71B620177ddcE33A3137F6",
+    "tokens": ["0x5555555555555555555555555555555555555555", "0xf4D9235269a96aaDaFc9aDAe454a0618eBE37949"],
+    "tokenOracleIds": ["WHYPE", "XAUt0"],
+    "decimals": [18, 6],
+    "oracleId": "projectx-cow-hyperevm-whype-xaut0",
+    "rewardPool": {
+      "address": "0xfF8B5F0eA3bE5f745D5209bE87f45c7cBdd748e3",
+      "oracleId": "projectx-cow-hyperevm-whype-xaut0-rp"
+    }
+  },
+  {
+    "address": "0xc5c313f55EE1B9353b96564854830A45748F8C2a",
+    "lpAddress": "0xc096DA06e8fa70386deDbc5D4D6B2a453B9106F5",
+    "tokens": ["0xB8CE59FC3717ada4C02eaDF9682A9e934F625ebb", "0xf4D9235269a96aaDaFc9aDAe454a0618eBE37949"],
+    "tokenOracleIds": ["USDT0", "XAUt0"],
+    "decimals": [6, 6],
+    "oracleId": "projectx-cow-hyperevm-usdt0-xaut0",
+    "rewardPool": {
+      "address": "0x11c4111eD377769b571075774D82F1e868047FEA",
+      "oracleId": "projectx-cow-hyperevm-usdt0-xaut0-rp"
+    }
+  },
+  {
     "address": "0xF6EB64C1C1cc6b143B2788DA2b62a8885D506021",
     "lpAddress": "0x6c9A33E3b592C0d65B3Ba59355d5Be0d38259285",
     "tokens": ["0x5555555555555555555555555555555555555555", "0xb88339CB7199b77E23DB6E890353E22632Ba630f"],
