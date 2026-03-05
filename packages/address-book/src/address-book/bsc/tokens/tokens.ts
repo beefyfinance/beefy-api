@@ -35,6 +35,19 @@ export const tokens = {
   FEES: BNB,
   BNB,
   WBNB: BNB,
+  Q: {
+    name: 'Quack AI Token',
+    symbol: 'Q',
+    oracleId: 'Q',
+    address: '0xc07e1300dc138601FA6B0b59f8D0FA477e690589',
+    chainId: 56,
+    decimals: 18,
+    website: 'https://quackai.ai/',
+    description:
+      'Quack AI is a decentralized AI platform that allows users to train and deploy AI models on the blockchain.',
+    documentation: 'https://quackai.gitbook.io/quackai/',
+    bridge: 'wormhole',
+  },
   CASH: {
     name: 'CASH',
     symbol: 'CASH',
