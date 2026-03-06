@@ -1,13 +1,13 @@
 [
   {
-    "address": "0x64D0CCc9E321E847fE91b63e11002747BB225855",
+    "address": "0x4213D0C127A7b5677b4Eb22813ac2E54bA99483b",
     "lpAddress": "0x6D6E9d95c40cd9041c71B620177ddcE33A3137F6",
     "tokens": ["0x5555555555555555555555555555555555555555", "0xf4D9235269a96aaDaFc9aDAe454a0618eBE37949"],
     "tokenOracleIds": ["WHYPE", "XAUt0"],
     "decimals": [18, 6],
     "oracleId": "projectx-cow-hyperevm-whype-xaut0",
     "rewardPool": {
-      "address": "0xfF8B5F0eA3bE5f745D5209bE87f45c7cBdd748e3",
+      "address": "0xB1761680e2b35d53E059a71d954AD19bbf4a03c0",
       "oracleId": "projectx-cow-hyperevm-whype-xaut0-rp"
     }
   },
