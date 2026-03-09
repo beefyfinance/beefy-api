@@ -1,5 +1,34 @@
 [
   {
+    "address": "0x8f1990ac49bd54Fcde66dD0f025D2Ad8fff54950",
+    "lpAddress": "0x1F9bA3e5Ebcd2f4CA3cDEffa5eCdF1c03cf1865d",
+    "tokens": ["0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913", "0xf30Bf00edd0C22db54C9274B90D2A4C21FC09b07"],
+    "tokenOracleIds": ["USDC", "FELIX"],
+    "decimals": [6, 18],
+    "oracleId": "aerodrome-cow-base-usdc-felix",
+    "providerId": "aerodrome",
+    "rewardPool": {
+      "address": "0x8C45A04aB8a4588287B43852C95191D2888d8C95",
+      "oracleId": "aerodrome-cow-base-usdc-felix-rp"
+    },
+    "vault": {
+      "address": "0x9413426Be3ad5245387f5e06Bec2a209d4c14271",
+      "oracleId": "aerodrome-cow-base-usdc-felix-vault"
+    }
+  },
+  {
+    "address": "0x9e0cB29be1D6428552f43Cb8B039b36765d50944",
+    "lpAddress": "0xfd77B6E259025AD609dfA7221f081B898496574c",
+    "tokens": ["0x4200000000000000000000000000000000000006", "0xf30Bf00edd0C22db54C9274B90D2A4C21FC09b07"],
+    "tokenOracleIds": ["WETH", "FELIX"],
+    "decimals": [18, 18],
+    "oracleId": "uniswap-cow-base-weth-felix",
+    "rewardPool": {
+      "address": "0x524B7507DB72B5A04254B458d7BdAA3E5B837391",
+      "oracleId": "uniswap-cow-base-weth-felix-rp"
+    }
+  },
+  {
     "address": "0x901211fb464B7E4D5103Eeaa0759503f074618a5",
     "lpAddress": "0xC211e1f853A898Bd1302385CCdE55f33a8C4B3f3",
     "tokens": ["0x4200000000000000000000000000000000000006", "0xcbB7C0000aB88B473b1f5aFd9ef808440eed33Bf"],

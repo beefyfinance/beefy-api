@@ -3449,4 +3449,17 @@ export const tokens = {
     bridge: 'native',
     tags: ['NO_TIMELOCK', 'LARGE_HOLDERS'],
   },
+  FELIX: {
+    name: 'FELIX',
+    symbol: 'FELIX',
+    oracleId: 'FELIX',
+    address: '0xf30Bf00edd0C22db54C9274B90D2A4C21FC09b07',
+    chainId: 8453,
+    decimals: 18,
+    website: 'https://felixcraft.ai/',
+    description:
+      'Felix Craft is Nat Eliason’s autonomous agent, building the felixcraft.ai business dashboard and the shopclawmart.com app store for AI assistants.',
+    bridge: 'native',
+    tags: ['LARGE_HOLDERS', 'MEMECOIN'],
+  },
 } as const satisfies Record<string, Token>;

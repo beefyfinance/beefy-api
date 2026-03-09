@@ -1014,6 +1014,14 @@ const tokens: Partial<Record<keyof typeof ChainId, ConcentratedLiquidityToken[]>
       firstToken: 'AUKI',
       secondToken: 'WETH',
     },
+    {
+      type: 'UniV3',
+      oracleId: 'FELIX',
+      decimalDelta: 1,
+      pool: '0xfd77B6E259025AD609dfA7221f081B898496574c',
+      firstToken: 'FELIX',
+      secondToken: 'WETH',
+    },
   ],
   zksync: [
     {
