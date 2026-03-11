@@ -46,4 +46,9 @@ export interface BeefyFinance {
   beefyOracleAlgebra?: string;
   beefyMultiHopSwapper?: string;
   beefyUniV4Swapper?: string;
+
+  /// Cross-Chain Contracts
+  circleBeefyReceiver?: string;
+  swappingRelay?: string;
+  recovery?: string;
 }
