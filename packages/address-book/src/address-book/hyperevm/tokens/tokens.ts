@@ -235,4 +235,17 @@ export const tokens = {
     bridge: 'layer-zero',
     documentation: 'https://usdt0.gitbook.io/xaut0',
   },
+  KNTQ: {
+    name: 'Kinetiq Governance Token',
+    symbol: 'KNTQ',
+    oracleId: 'KNTQ',
+    address: '0x000000000000780555bD0BCA3791f89f9542c2d6',
+    chainId: 999,
+    decimals: 18,
+    website: 'https://kinetiq.xyz/',
+    description:
+      'Kinetiq is a liquid staking protocol built natively on Hyperliquid, enabling users to stake the native token of the Hyperliquid blockchain (HYPE) and receive Kinetiq Staked HYPE (kHYPE) in return.',
+    documentation: 'https://docs.kinetiq.xyz/',
+    bridge: 'native',
+  },
 } as const satisfies Record<string, Token>;

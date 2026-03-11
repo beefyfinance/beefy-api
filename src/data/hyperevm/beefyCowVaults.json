@@ -1,5 +1,17 @@
 [
   {
+    "address": "0x01B0020E6A9b80f82AF3f3F12Bf3Fb4543DBaD5a",
+    "lpAddress": "0xD19A88824A363E9291a6D0fC3baafA93aafC12c5",
+    "tokens": ["0x000000000000780555bD0BCA3791f89f9542c2d6", "0x5555555555555555555555555555555555555555"],
+    "tokenOracleIds": ["KNTQ", "WHYPE"],
+    "decimals": [18, 18],
+    "oracleId": "projectx-cow-hyperevm-kntq-whype",
+    "rewardPool": {
+      "address": "0x191949230b5253f6c9D4aDcC375b1326119169ce",
+      "oracleId": "projectx-cow-hyperevm-kntq-whype-rp"
+    }
+  },
+  {
     "address": "0x4213D0C127A7b5677b4Eb22813ac2E54bA99483b",
     "lpAddress": "0x6D6E9d95c40cd9041c71B620177ddcE33A3137F6",
     "tokens": ["0x5555555555555555555555555555555555555555", "0xf4D9235269a96aaDaFc9aDAe454a0618eBE37949"],
