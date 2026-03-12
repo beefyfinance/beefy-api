@@ -38,7 +38,6 @@ const {
 const { pointStructures } = require('./api/points');
 const { proxyOdosQuote, proxyOdosSwap } = require('./api/zap/proxy/odos');
 const { proxyLiquidSwapSwap, proxyLiquidSwapQuote } = require('./api/zap/proxy/liquid-swap');
-const { submitDivvi } = require('./api/referral/divvi/routes');
 
 router.get('/validator-performance', validatorPerformance);
 
@@ -132,8 +131,6 @@ router.get('/articles', getArticles);
 router.get('/articles/latest', getLatestArticle);
 
 router.get('/points-structures', pointStructures);
-
-router.post('/ref/divvi', submitDivvi);
 
 router.get('/', noop);
 
