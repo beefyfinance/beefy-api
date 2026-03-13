@@ -1,5 +1,41 @@
 [
   {
+    "name": "curve-ousd-usde",
+    "pool": "0xdbdc27b649239f9c5afdc92e57c2601a0ce71a89",
+    "gauge": "0x8605c1fde3bed25b4cde604daec1599644629159",
+    "stakeDao": true,
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "OUSD",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "USDe",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
+    "name": "curve-ousd-pmusd",
+    "pool": "0x57690e5287d36733664caa21fa2dc48c156e962d",
+    "gauge": "0x5e54eb89fb1ba7f735c96a45e6641b362009b228",
+    "stakeDao": true,
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "OUSD",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "pmUSD",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
     "name": "curve-ousd-msusd",
     "pool": "0x9afad25833d0f47b3a3d9204ddf965cb172de0cb",
     "gauge": "0x35e4b1bc8818fc098efcf9ad9784b28d8b4bf639",

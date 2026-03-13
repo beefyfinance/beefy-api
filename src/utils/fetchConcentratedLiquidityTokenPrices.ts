@@ -1600,6 +1600,14 @@ const tokens: Partial<Record<keyof typeof ChainId, ConcentratedLiquidityToken[]>
       firstToken: 'XAUTt0',
       secondToken: 'USDT0',
     },
+    {
+      type: 'UniV3',
+      oracleId: 'KNTQ',
+      decimalDelta: 1,
+      pool: '0xD19A88824A363E9291a6D0fC3baafA93aafC12c5',
+      firstToken: 'WHYPE',
+      secondToken: 'KNTQ',
+    },
   ],
   plasma: [
     {

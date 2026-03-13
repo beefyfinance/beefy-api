@@ -34,4 +34,9 @@ export const beefyfinance = {
   beefyOracleUniswapV2: '0xA5Cd8A60a05571141370D184e255777e5c2d5968',
   beefyOracleUniswapV3: '0x542Bf9f89c3Ba0edb7aE5EB4Cf582d349fCdC608',
   beefyMultiHopSwapper: '0x97f846776eC93f1b355e4fa70D77B96B868F09D7',
+
+  /// Cross-Chain Contracts
+  circleBeefyReceiver: '0xBeef940035C062bb8bEe892087aBa6Cde4F9BeEF',
+  swappingRelay: '0xfA572f5563411BbF20fC40b0A6A0D5A9fA1aF00D',
+  recovery: '0x911048F2eFcd5801F8cdc04EBf6cdc5EE0e76669',
 } as const;
