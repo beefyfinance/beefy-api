@@ -52,8 +52,8 @@
     "decimals": "1e18",
     "lsUrl": "https://eth-api.lido.fi/v1/protocol/steth/apr/sma",
     "dataPath": "$.data.smaApr",
-    "borrowRate": 50,
-    "borrowDepth": 4
+    "borrowRate": 0,
+    "borrowDepth": 1
   },
   {
     "name": "mendi-linea-weth",
