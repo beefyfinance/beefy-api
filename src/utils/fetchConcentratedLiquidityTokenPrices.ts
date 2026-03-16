@@ -1470,6 +1470,14 @@ const tokens: Partial<Record<keyof typeof ChainId, ConcentratedLiquidityToken[]>
   gnosis: [
     {
       type: 'UniV3',
+      oracleId: 'gsDAI',
+      decimalDelta: 1,
+      pool: '0xe8a249626d3f3B876B887C30A3355513CB3FA9e4',
+      firstToken: 'gsDAI',
+      secondToken: 'wstETH',
+    },
+    {
+      type: 'UniV3',
       oracleId: 'bCSPX',
       decimalDelta: 1,
       pool: '0x0439847e20dac107ddacc19a4530c694c465e9c0',
@@ -1491,14 +1499,6 @@ const tokens: Partial<Record<keyof typeof ChainId, ConcentratedLiquidityToken[]>
       pool: '0xf5e40cc12f69121b0329c256a99f4ab3ebdfaa2e',
       firstToken: 'WXDAI',
       secondToken: 'gUSDCe',
-    },
-    {
-      type: 'UniV3',
-      oracleId: 'gsDAI',
-      decimalDelta: 1,
-      pool: '0xe8a249626d3f3b876b887c30a3355513cb3fa9e4',
-      firstToken: 'gsDAI',
-      secondToken: 'wstETH',
     },
   ],
   saga: [
