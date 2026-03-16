@@ -127,7 +127,7 @@ const {
     },
   },
   gnosis: {
-    tokens: { stEUR, EURA, agETH, wagETH, agwstETH, wagwstETH, agGNO, wagGNO, WXDAI, sDAI: gsDAI },
+    tokens: { stEUR, EURA, agETH, wagETH, agwstETH, wagwstETH, agGNO, wagGNO },
   },
   base: {
     tokens: {
@@ -242,7 +242,6 @@ const tokens = {
     [agETH, wagETH, true],
     [agwstETH, wagwstETH, true],
     [agGNO, wagGNO, true],
-    [WXDAI, gsDAI, true],
   ],
   base: [
     [baseGHO, waBasGHO, true],

@@ -1492,6 +1492,14 @@ const tokens: Partial<Record<keyof typeof ChainId, ConcentratedLiquidityToken[]>
       firstToken: 'WXDAI',
       secondToken: 'gUSDCe',
     },
+    {
+      type: 'UniV3',
+      oracleId: 'gsDAI',
+      decimalDelta: 1,
+      pool: '0xe8a249626d3f3b876b887c30a3355513cb3fa9e4',
+      firstToken: 'gsDAI',
+      secondToken: 'wstETH',
+    },
   ],
   saga: [
     {
