@@ -1382,7 +1382,7 @@ const tokens: Partial<Record<keyof typeof ChainId, ConcentratedLiquidityToken[]>
       type: 'UniV3',
       oracleId: 'BINANCE_LIFE',
       decimalDelta: 1,
-      pool: '0xB7b43F1Fd4b1287b05B23731b7feb532b5BFD79f',
+      pool: '0xB7b43F1Fd4b1287b05B23731b7feb532bx5BFD79f',
       firstToken: 'WBNB',
       secondToken: 'BINANCE_LIFE',
     },
@@ -1473,7 +1473,7 @@ const tokens: Partial<Record<keyof typeof ChainId, ConcentratedLiquidityToken[]>
       oracleId: 'bCSPX',
       decimalDelta: 1,
       pool: '0x0439847e20dac107ddacc19a4530c694c465e9c0',
-      firstToken: 'sDAI',
+      firstToken: 'gsDAI',
       secondToken: 'bCSPX',
     },
     {
@@ -1481,7 +1481,7 @@ const tokens: Partial<Record<keyof typeof ChainId, ConcentratedLiquidityToken[]>
       oracleId: 'wbTSLA',
       decimalDelta: 1,
       pool: '0x0cf44132a7df09ba82d5c4010e73e151d31a42ae',
-      firstToken: 'sDAI',
+      firstToken: 'gsDAI',
       secondToken: 'wbTSLA',
     },
     {
@@ -1491,6 +1491,14 @@ const tokens: Partial<Record<keyof typeof ChainId, ConcentratedLiquidityToken[]>
       pool: '0xf5e40cc12f69121b0329c256a99f4ab3ebdfaa2e',
       firstToken: 'WXDAI',
       secondToken: 'gUSDCe',
+    },
+    {
+      type: 'UniV3',
+      oracleId: 'gsDAI',
+      decimalDelta: 1,
+      pool: '0xe8a249626d3f3b876b887c30a3355513cb3fa9e4',
+      firstToken: 'gsDAI',
+      secondToken: 'wstETH',
     },
   ],
   saga: [

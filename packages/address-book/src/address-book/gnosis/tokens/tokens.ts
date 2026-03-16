@@ -119,7 +119,7 @@ export const tokens = {
   sDAI: {
     name: 'Savings xDAI',
     symbol: 'sDAI',
-    oracleId: 'sDAI',
+    oracleId: 'gsDAI',
     address: '0xaf204776c7245bF4147c2612BF6e5972Ee483701',
     chainId: 100,
     decimals: 18,
