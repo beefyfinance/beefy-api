@@ -1382,7 +1382,7 @@ const tokens: Partial<Record<keyof typeof ChainId, ConcentratedLiquidityToken[]>
       type: 'UniV3',
       oracleId: 'BINANCE_LIFE',
       decimalDelta: 1,
-      pool: '0xB7b43F1Fd4b1287b05B23731b7feb532bx5BFD79f',
+      pool: '0xB7b43F1Fd4b1287b05B23731b7feb532b5BFD79f',
       firstToken: 'WBNB',
       secondToken: 'BINANCE_LIFE',
     },
