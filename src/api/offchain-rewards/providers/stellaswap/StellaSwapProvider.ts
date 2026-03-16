@@ -13,7 +13,7 @@ import { moonbeam } from '../../../../../packages/address-book/src/address-book/
 import { getJson } from '../../../../utils/http';
 
 const providerId = 'stellaswap' as const;
-const supportedChains = new Set<AppChain>(['moonbeam']);
+const supportedChains = new Set<AppChain>([]);
 const supportedVaultTypes = new Set<Vault['type']>(['cowcentrated', 'cowcentrated-pool']);
 const rewardRegistryAddress: Address = '0x0e4cAEf48De8FEc07b7dfeae8D73848Aaa8be0cB';
 
