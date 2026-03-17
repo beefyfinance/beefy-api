@@ -118,5 +118,30 @@
         "decimals": "1e18"
       }
     ]
+  },
+  {
+    "name": "balancerv3-base-reth-wabasweth",
+    "address": "0xB7B8B3AfC010169779C5C2385ec0eB0477FE3347",
+    "gauge": "0xd717e7ba0CF28ce05Ee981b3F4154f4f0032b0c9",
+    "decimals": "1e18",
+    "rewards": [
+      {
+        "rewardGauge": "0xAc4c83C4CaBdF9f22A83b9b05bf341863E21beB5",
+        "oracleId": "AURA",
+        "decimals": "1e18"
+      }
+    ],
+    "tokens": [
+      {
+        "address": "0xB6fe221Fe9EeF5aBa221c348bA20A1Bf5e73624c",
+        "oracleId": "rETH",
+        "decimals": "1e18"
+      },
+      {
+        "address": "0xe298b938631f750DD409fB18227C4a23dCdaab9b",
+        "oracleId": "waBasWETH",
+        "decimals": "1e18"
+      }
+    ]
   }
 ]
