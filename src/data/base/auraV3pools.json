@@ -13,12 +13,12 @@
     ],
     "tokens": [
       {
-        "address": "0xb6fe221fe9eef5aba221c348ba20a1bf5e73624c",
+        "address": "0xB6fe221Fe9EeF5aBa221c348bA20A1Bf5e73624c",
         "oracleId": "rETH",
         "decimals": "1e18"
       },
       {
-        "address": "0xe298b938631f750dd409fb18227c4a23dcdaab9b",
+        "address": "0xe298b938631f750DD409fB18227C4a23dCdaab9b",
         "oracleId": "waBasWETH",
         "decimals": "1e18"
       }
