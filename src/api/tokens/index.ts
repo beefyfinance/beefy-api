@@ -8,80 +8,72 @@ import {
 } from './tokens';
 import { isApiChain } from '../../utils/chain';
 import { mapValues } from 'lodash';
+import {
+  sendInternalServerError,
+  sendNotFound,
+  sendServiceUnavailable,
+  sendSuccess,
+  withErrorHandling,
+} from '../../utils/koa';
+import { withChainId } from '../vaults/helpers';
 
-export const getTokens = ctx => {
+export const getTokens = withErrorHandling(async ctx => {
   const allTokens = getAllTokensByChain();
   if (allTokens) {
-    ctx.status = 200;
-    ctx.body = mapValues(allTokens, chainTokens =>
-      mapValues(chainTokens.byId, address => chainTokens.byAddress[address])
+    sendSuccess(
+      ctx,
+      mapValues(allTokens, chainTokens =>
+        mapValues(chainTokens.byId, address => chainTokens.byAddress[address])
+      )
     );
   } else {
-    ctx.status = 500;
-    ctx.body = 'Not available yet';
+    sendServiceUnavailable(ctx, { error: 'Tokens not available yet' });
   }
-};
+});
 
-export const getChainTokens = ctx => {
-  const chainId = ctx.params.chainId;
-  if (isApiChain(chainId)) {
-    const chainTokens = getTokensForChainById(ctx.params.chainId);
-    if (chainTokens) {
-      ctx.status = 200;
-      ctx.body = chainTokens;
-    } else {
-      ctx.status = 500;
-      ctx.body = 'Not available yet';
-    }
+export const getChainTokens = withChainId(async (ctx, chainId) => {
+  const chainTokens = getTokensForChainById(chainId);
+  if (chainTokens) {
+    sendSuccess(ctx, chainTokens);
   } else {
-    ctx.status = 404;
+    sendServiceUnavailable(ctx, { error: 'Tokens not available yet for this chain' });
   }
-};
+});
 
-export const getChainToken = ctx => {
-  try {
-    const token = getTokenById(ctx.params.tokenId, ctx.params.chainId);
-    ctx.status = token ? 200 : 404;
-    ctx.body = token ?? {};
-  } catch (err) {
-    console.error(err);
-    ctx.status = 500;
+export const getChainToken = withChainId(async (ctx, chainId) => {
+  const token = getTokenById(ctx.params.tokenId, chainId);
+  if (token) {
+    sendSuccess(ctx, token);
+  } else {
+    sendNotFound(ctx, { error: 'Token not found' });
   }
-};
+});
 
-export const getChainNatives = ctx => {
-  try {
-    const chainId = ctx.params.chainId;
-    const native = getTokenNative(chainId);
-    const wrapped = getTokenWrappedNative(chainId);
-    const fees = getTokenFees(chainId);
-
-    ctx.status = native || wrapped ? 200 : 404;
-    ctx.body = { NATIVE: native, WNATIVE: wrapped, FEES: fees };
-  } catch (err) {
-    console.error(err);
-    ctx.status = 500;
+export const getChainNatives = withChainId(async (ctx, chainId) => {
+  const native = getTokenNative(chainId);
+  const wrapped = getTokenWrappedNative(chainId);
+  const fees = getTokenFees(chainId);
+  if (native || wrapped) {
+    sendSuccess(ctx, { NATIVE: native, WNATIVE: wrapped, FEES: fees });
+  } else {
+    sendInternalServerError(ctx, { error: 'Native token not found for this chain' });
   }
-};
+});
 
-export const getNativesFromAllChains = ctx => {
+export const getNativesFromAllChains = withErrorHandling(async ctx => {
   const natives = {};
+  Object.keys(getAllTokensByChain()).forEach(chainId => {
+    if (isApiChain(chainId)) {
+      const native = getTokenNative(chainId);
+      const wrapped = getTokenWrappedNative(chainId);
+      const fees = getTokenFees(chainId);
 
-  try {
-    Object.keys(getAllTokensByChain()).forEach(chainId => {
-      if (isApiChain(chainId)) {
-        const native = getTokenNative(chainId);
-        const wrapped = getTokenWrappedNative(chainId);
-        const fees = getTokenFees(chainId);
-
-        natives[chainId] = { NATIVE: native, WNATIVE: wrapped, FEES: fees };
-      }
-    });
-
-    ctx.status = 200;
-    ctx.body = natives;
-  } catch (err) {
-    console.error(err);
-    ctx.status = 500;
+      natives[chainId] = { NATIVE: native, WNATIVE: wrapped, FEES: fees };
+    }
+  });
+  if (Object.keys(natives).length) {
+    sendSuccess(ctx, natives);
+  } else {
+    sendServiceUnavailable(ctx, { error: 'Native tokens not available yet' });
   }
-};
+});
