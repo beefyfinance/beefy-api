@@ -36,7 +36,6 @@ const {
   handleOffChainRewardsActiveForChain,
 } = require('./api/offchain-rewards');
 const { pointStructures } = require('./api/points');
-const { proxyOdosQuote, proxyOdosSwap } = require('./api/zap/proxy/odos');
 const { proxyLiquidSwapSwap, proxyLiquidSwapQuote } = require('./api/zap/proxy/liquid-swap');
 
 router.get('/validator-performance', validatorPerformance);
@@ -122,8 +121,6 @@ router.get('/zap/swaps', zapSwapsSupport);
 router.get('/zap/swaps/debug', zapSwapsSupportDebug);
 router.get('/zap/providers/kyber/:chainId/quote', proxyKyberQuote);
 router.post('/zap/providers/kyber/:chainId/swap', proxyKyberSwap);
-router.post('/zap/providers/odos/:chainId/quote', proxyOdosQuote);
-router.post('/zap/providers/odos/:chainId/swap', proxyOdosSwap);
 router.get('/zap/providers/liquid-swap/:chainId/quote', proxyLiquidSwapQuote);
 router.post('/zap/providers/liquid-swap/:chainId/swap', proxyLiquidSwapSwap);
 
