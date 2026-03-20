@@ -47,7 +47,6 @@ import raPools from '../../data/fraxtal/raPools.json';
 import nuriPools from '../../data/scroll/nuriVolatilePools.json';
 import velodromeModePools from '../../data/mode/velodromeModePools.json';
 import velodromeLiskPools from '../../data/lisk/velodromeLiskPools.json';
-import equalizerSonicPools from '../../data/sonic/equalizerLpPools.json';
 import shadowPools from '../../data/sonic/shadowLpPools.json';
 import defivePools from '../../data/sonic/defiveLpPools.json';
 import truePools from '../../data/base/trueLpPools.json';
@@ -85,7 +84,6 @@ const pools = normalizePoolOracleIds([
   ...truePools,
   ...defivePools,
   ...shadowPools,
-  ...equalizerSonicPools,
   ...velodromeLiskPools,
   ...velodromeModePools,
   ...nuriPools,
@@ -241,6 +239,7 @@ const coinGeckoCoins: Record<string, string[]> = {
   'mezo-usd': ['MUSD'],
   'yieldnest-rwa-max': ['ynRWAx'],
   'magma-staked-monad': ['gMON'],
+  'paint-swap': ['BRUSH'],
 };
 
 /**

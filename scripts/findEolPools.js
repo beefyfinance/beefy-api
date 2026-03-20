@@ -53,7 +53,15 @@ async function main() {
       livePools.push(id);
     }
   });
-  console.log(`live pools: ${livePools.length} - ${livePools}`);
+  console.log(`live pools: ${livePools.length}`);
+  console.log(
+    livePools.reduce((acc, p) => {
+      const platform = p.split('-')[0];
+      if (!acc[platform]) acc[platform] = [];
+      acc[platform].push(p);
+      return acc;
+    }, {})
+  );
   process.exit(0);
 }
 

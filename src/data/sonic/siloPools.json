@@ -33,28 +33,6 @@
     "lens": "0xB6AdBb29f2D8ae731C7C72036A7FD5A7E970B198"
   },
   {
-    "name": "silov2-sonic-scusd-re7",
-    "address": "0x592D1e187729C76EfacC6dfFB9355bd7BF47B2a7",
-    "underlying": "0xd3DCe716f3eF535C5Ff8d041c1A41C3bd89b97aE",
-    "silo": "0x592D1e187729C76EfacC6dfFB9355bd7BF47B2a7",
-    "vault": true,
-    "oracleId": "scUSD",
-    "decimals": "1e6",
-    "chainId": 146,
-    "lens": "0xB6AdBb29f2D8ae731C7C72036A7FD5A7E970B198"
-  },
-  {
-    "name": "silov2-sonic-usdc-re7",
-    "address": "0xF75AE954D30217B4EE70DbFB33f04162aa3Cf260",
-    "underlying": "0x29219dd400f2Bf60E5a23d13Be72B486D4038894",
-    "silo": "0xF75AE954D30217B4EE70DbFB33f04162aa3Cf260",
-    "vault": true,
-    "oracleId": "USDC",
-    "decimals": "1e6",
-    "chainId": 146,
-    "lens": "0xB6AdBb29f2D8ae731C7C72036A7FD5A7E970B198"
-  },
-  {
     "name": "silov2-sonic-ws-bes",
     "address": "0xfbD3CCCb196Ce900BE5E2D008A6C2fDE90760408",
     "underlying": "0x039e2fB66102314Ce7b64Ce5Ce3E5183bc94aD38",

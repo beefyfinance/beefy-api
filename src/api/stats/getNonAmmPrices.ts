@@ -38,7 +38,6 @@ import getUniswapEthereumGammaPrices from './ethereum/getUniswapGammaPrices';
 import getAerodromePositionPrices from './base/getAerodromePositionPrices';
 import getGammaPolygonPrices from './matic/getGammaPolygonPrices';
 import { getAerodromeStablePrices } from './base/getAerodromeStablePrices';
-import getEqualizerStableSonicPrices from './sonic/getEqualizerStablePrices';
 import getBalancerGnosisPrices from './gnosis/getBalancerGnosisPrices';
 import getCurvePricesCommon from './common/curve/getCurvePricesCommon';
 import { getCurveLendPricesCommon } from './common/curve/getCurveLendPricesCommon';
@@ -146,7 +145,6 @@ export async function getNonAmmPrices(
     getEthSiloPrices(tokenPrices),
     getOptimismSiloPrices(tokenPrices),
     getSonicSiloPrices(tokenPrices),
-    getEqualizerStableSonicPrices(tokenPrices),
     getUniswapArbitrumPrices(tokenPrices),
     getUniswapEthereumPrices(tokenPrices),
     getRamsesStablePrices(tokenPrices),
@@ -191,7 +189,6 @@ export async function getNonAmmPrices(
     getCurveOptimismPrices(tokenPrices),
     getCurvePricesCommon(GNO_CHAIN_ID, require('../../data/gnosis/curvePools.json'), tokenPrices),
     getCurvePricesCommon(FRX_CHAIN_ID, require('../../data/fraxtal/curvePools.json'), tokenPrices),
-    getCurvePricesCommon(SONIC_CHAIN_ID, require('../../data/sonic/curvePools.json'), tokenPrices),
     getCurvePricesCommon(PLASMA_CHAIN_ID, require('../../data/plasma/curvePools.json'), tokenPrices),
     getCurvePricesCommon(MONAD_CHAIN_ID, require('../../data/monad/curvePools.json'), tokenPrices),
     getCurveBasePrices(tokenPrices),
@@ -237,7 +234,6 @@ export async function getNonAmmPrices(
       {}
     ),
     getPendleCommonPrices(BASE_CHAIN_ID, require('../../data/base/pendlePools.json'), tokenPrices, ammPrices),
-    getPendleCommonPrices(SONIC_CHAIN_ID, require('../../data/sonic/pendlePools.json'), tokenPrices),
     getPendleCommonPrices(PLASMA_CHAIN_ID, require('../../data/plasma/pendlePools.json'), tokenPrices),
     getMellowVeloPrices(OPTIMISM_CHAIN_ID, require('../../data/optimism/mellowVeloPools.json'), tokenPrices),
     getMellowVeloPrices(BASE_CHAIN_ID, require('../../data/base/mellowAeroPools.json'), tokenPrices),
@@ -249,7 +245,6 @@ export async function getNonAmmPrices(
     getMorphoPrices(ARB_CHAIN_ID, require('../../data/arbitrum/morphoPools.json'), tokenPrices),
     getMorphoPrices(OPTIMISM_CHAIN_ID, require('../../data/optimism/morphoPools.json'), tokenPrices),
     getIchiPrices(SONIC_CHAIN_ID, require('../../data/sonic/swapxIchiPools.json'), tokenPrices),
-    getSolidlyStablePrices(SONIC_CHAIN_ID, require('../../data/sonic/swapxStableLpPools.json'), tokenPrices),
     getEulerPrices(SONIC_CHAIN_ID, require('../../data/sonic/eulerPools.json'), tokenPrices),
     getEulerPrices(AVAX_CHAIN_ID, require('../../data/avax/eulerPools.json'), tokenPrices),
     getEulerPrices(MONAD_CHAIN_ID, require('../../data/monad/eulerPools.json'), tokenPrices),

@@ -1,23 +1,16 @@
-//const { getBeefyCowSonicApys } = require('./getBeefyCowSonicApys');
-const getEqualizerApys = require('./getEqualizerApys');
 const getBeetsSonicApys = require('./getBeetsSonicApys');
 const { getBeefyCowSonicApys } = require('./getBeefyCowSonicApys');
 const { getSwapxApys } = require('./getSwapxApys');
 const { getSonicSiloApys } = require('./getSonicSiloApys');
-const { getCurveApys } = require('./getCurveApys');
-const { getAaveV3Apys } = require('./getAaveV3Apys');
 const getShadowApys = require('./getShadowApys');
 const { getBeSonicApy } = require('./getBeSonicApy');
 const getDefiveApys = require('./getDefiveApys');
 const { getEulerSonicApys } = require('./getEulerSonicApys');
 
 const getApys = [
-  getAaveV3Apys,
   getBeefyCowSonicApys,
-  getEqualizerApys,
   getBeetsSonicApys,
   getSwapxApys,
-  getCurveApys,
   getSonicSiloApys,
   getShadowApys,
   getBeSonicApy,
