@@ -1,6 +1,6 @@
 [
   {
-    "name": "balancev3-base-wabaseurc-wabasgho",
+    "name": "balancerv3-base-wabaseurc-wabasgho",
     "address": "0x9Ab907FB3e098103ca048Ad26E501Bf7B3dfA3EB",
     "gauge": "0x954B2826d3c39f414c2dA27F577DC1ABa9de49F1",
     "decimals": "1e18",
