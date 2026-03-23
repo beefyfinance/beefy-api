@@ -143,6 +143,8 @@ const {
       waBasWETH,
       smUSDC,
       aBasUSDC,
+      EURC: baseEURC,
+      waBasEURC,
     },
   },
   monad: {
@@ -250,6 +252,7 @@ const tokens = {
     [baseezETH, waBasezETH, true],
     [baseWETH, waBasWETH, true],
     [baseUSDC, smUSDC, true],
+    [baseEURC, waBasEURC, true],
   ],
   monad: [
     [WMON, cWMON, true],

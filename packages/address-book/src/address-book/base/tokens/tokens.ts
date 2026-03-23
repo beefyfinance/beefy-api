@@ -3462,4 +3462,43 @@ export const tokens = {
     bridge: 'native',
     tags: ['LARGE_HOLDERS', 'MEMECOIN'],
   },
+  BAL: {
+    name: 'Balancer',
+    symbol: 'BAL',
+    oracleId: 'BAL',
+    address: '0x4158734D47Fc9692176B5085E0F52ee0Da5d47F1',
+    chainId: 8453,
+    decimals: 18,
+    website: 'https://balancer.fi/',
+    description:
+      'Balancer turns the concept of an index fund on its head: instead of a paying fees to portfolio managers to rebalance your portfolio, you collect fees from traders, who rebalance your portfolio by following arbitrage opportunities.',
+    tags: ['BLUECHIP'],
+  },
+  AURA: {
+    name: 'Aura',
+    symbol: 'AURA',
+    oracleId: 'AURA',
+    address: '0x1509706a6c66CA549ff0cB464de88231DDBe213B',
+    chainId: 8453,
+    decimals: 18,
+    website: 'https://aura.finance/',
+    description:
+      'Aura Finance is a protocol built on top of the Balancer system to provide maximum incentives to Balancer liquidity providers and BAL stakers (into veBAL) through social aggregation of BAL deposits and Aura’s native token. For BAL stakers, Aura provides a seamless onboarding process to veBAL, by creating a tokenised wrapper token called auraBAL that represents the 80/20 BPT locked up for the maximum time in VotingEscrow (read more about what this means). This can be staked to receive existing rewards (BAL and bbaUSD) from Balancer, in addition to a share of any BAL earned by Aura (read more about the fees), and additional AURA. This minting process is irreversible however users can trade their auraBAL back to BAL through an incentivised liquidity pool.',
+    bridge: 'layer-zero',
+    documentation: 'https://docs.aura.finance/',
+  },
+  waBasEURC: {
+    name: 'Wrapped Aave EURC Token',
+    symbol: 'waBasEURC',
+    oracleId: 'waBasEURC',
+    address: '0x729F75Aff28c726e32403e80cef2aFb518CFbfa7',
+    chainId: 8453,
+    decimals: 6,
+    website: 'https://aave.com/',
+    documentation: 'https://docs.aave.com/faq/gho-stablecoin',
+    bridge: 'native',
+    description:
+      'Wrapped Aave Staked EURC. EURC is a euro-backed stablecoin that’s accessible globally on Avalanche, Ethereum, Base and Stellar. Similar to USDC, EURC is issued by Circle under a full-reserve model.',
+    tags: ['STABLECOIN'],
+  },
 } as const satisfies Record<string, Token>;

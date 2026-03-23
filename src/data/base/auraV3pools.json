@@ -1,5 +1,30 @@
 [
   {
+    "name": "balancev3-base-wabaseurc-wabasgho",
+    "address": "0x9Ab907FB3e098103ca048Ad26E501Bf7B3dfA3EB",
+    "gauge": "0x954B2826d3c39f414c2dA27F577DC1ABa9de49F1",
+    "decimals": "1e18",
+    "rewards": [
+      {
+        "rewardGauge": "0xef62c4d4f521fF2c05217D1ab75e37404687c238",
+        "oracleId": "AURA",
+        "decimals": "1e18"
+      }
+    ],
+    "tokens": [
+      {
+        "address": "0x729F75Aff28c726e32403e80cef2aFb518CFbfa7",
+        "oracleId": "waBasEURC",
+        "decimals": "1e18"
+      },
+      {
+        "address": "0x88b1Cd4b430D95b406E382C3cDBaE54697a0286E",
+        "oracleId": "waBasGHO",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
     "name": "balancerv3-base-reth-wabasweth",
     "address": "0xB7B8B3AfC010169779C5C2385ec0eB0477FE3347",
     "gauge": "0xd717e7ba0CF28ce05Ee981b3F4154f4f0032b0c9",
@@ -108,7 +133,7 @@
         "decimals": "1e18"
       },
       {
-        "address": "0xe298b938631f750dd409fb18227c4a23dcdaab9b",
+        "address": "0xF8F10f39116716e89498c1c5E94137ADa11b2BC7",
         "oracleId": "waBasezETH",
         "decimals": "1e18"
       }
