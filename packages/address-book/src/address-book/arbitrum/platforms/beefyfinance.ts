@@ -22,6 +22,7 @@ export const beefyfinance = {
   zap: '0xf49F7bB6F4F50d272A0914a671895c4384696E5A',
   zapTokenManager: '0x3395BDAE49853Bc7Ab9377d2A93f42BC3A18680e',
   treasurySwapper: '0xDc8968C9F935Fa3a19e57544a6DAe88217E5e164',
+  assetSwapper: '0x5f98f630009E0E090965fb42DDe95F5A2d495445',
 
   /// CLM Contracts
   clmFactory: '0xD41Ce2c0a0596635FC09BDe2C35946a984b8cB7A',

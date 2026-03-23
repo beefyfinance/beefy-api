@@ -30,6 +30,7 @@ export const beefyfinance = {
   ccipBridge: '0xcccEa7Fe84272995664369334351Fe344E2732aE',
   layerZeroBridge: '0xdddaEc9c267dF24aD66Edc3B2cBe25dB86422051',
   treasurySwapper: '0x0921E4fA2F85B6461fa83961d28DC7e1f9A32B40',
+  assetSwapper: '0x340014C66D49f50c48E6eF0D02aB630F246F1921',
 
   /// Beefy Swapper Contracts
   beefySwapper: '0x0000830DF56616D58976A12D19d283B40e25BEEF',

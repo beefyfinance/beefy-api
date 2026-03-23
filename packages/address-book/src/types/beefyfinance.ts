@@ -20,6 +20,7 @@ export interface BeefyFinance {
   zap?: string;
   zapTokenManager?: string;
   treasurySwapper?: string;
+  assetSwapper?: string;
 
   /// BIFI Token Contracts
   mooBifiLockbox?: string;
