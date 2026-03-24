@@ -1,5 +1,22 @@
 [
   {
+    "address": "0x8349C926De3b51d5289a03c60c2E5d840262d131",
+    "lpAddress": "0x1Ca42C7219F0cB1B67927e26502320cB98F725bd",
+    "tokens": ["0x60a3E35Cc302bFA44Cb288Bc5a4F316Fdb1adb42", "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913"],
+    "tokenOracleIds": ["EURC", "USDC"],
+    "decimals": [6, 6],
+    "oracleId": "pancake-cow-base-eurc-usdc",
+    "providerId": "pancakeswap",
+    "rewardPool": {
+      "address": "0xdAB58bDd1DDf997Ef38fE4a98e8805785eB85b4D",
+      "oracleId": "pancake-cow-base-eurc-usdc-rp"
+    },
+    "vault": {
+      "address": "0xF4D2e3294b729445F0dd072E703Bf9BcC971F271",
+      "oracleId": "pancake-cow-base-eurc-usdc-vault"
+    }
+  },
+  {
     "address": "0x7e469d47b5B2934aeeacb0de6d404eFaBD1e0897",
     "lpAddress": "0xC3C35f6E04499BCd92bFd02a49d2B1E7a9936366",
     "tokens": ["0x4200000000000000000000000000000000000006", "0xFb31f85A8367210B2e4Ed2360D2dA9Dc2D2Ccc95"],
