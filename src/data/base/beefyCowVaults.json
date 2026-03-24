@@ -1,5 +1,22 @@
 [
   {
+    "address": "0xc8d693F26E49C62F86aDA918Fda1894680548790",
+    "lpAddress": "0x433fdEe2AE9cea22a78499F8F8592ffD5D4E60c9",
+    "tokens": ["0x3055913c90Fcc1A6CE9a358911721eEb942013A1", "0x4200000000000000000000000000000000000006"],
+    "tokenOracleIds": ["Cake", "WETH"],
+    "decimals": [18, 18],
+    "oracleId": "pancake-cow-base-cake-weth",
+    "providerId": "pancakeswap",
+    "rewardPool": {
+      "address": "0x5E851517ba906C5cD7708B46162DF50a3784Bf3f",
+      "oracleId": "pancake-cow-base-cake-weth-rp"
+    },
+    "vault": {
+      "address": "0xC2af1501BA4DBF0f6709E28135820114EeB90C64",
+      "oracleId": "pancake-cow-base-cake-weth-vault"
+    }
+  },
+  {
     "address": "0x337eE2ED474ba75Fb2D0a8B054C14e79B6f07624",
     "lpAddress": "0xb4a43D89B5d356065646389fD677cA762EFcD780",
     "tokens": ["0x4200000000000000000000000000000000000006", "0x60a3E35Cc302bFA44Cb288Bc5a4F316Fdb1adb42"],
@@ -14,8 +31,8 @@
     "vault": {
       "address": "0x0Bd88fE636b1fF7275bF5c1016b489E358369b4D",
       "oracleId": "pancake-cow-base-weth-eurc-vault"
-     }
-   },
+    }
+  },
   {
     "address": "0x8349C926De3b51d5289a03c60c2E5d840262d131",
     "lpAddress": "0x1Ca42C7219F0cB1B67927e26502320cB98F725bd",
