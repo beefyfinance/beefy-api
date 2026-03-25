@@ -86,9 +86,9 @@ const tokens: Partial<Record<keyof typeof ChainId, CurveToken[]>> = {
       decimals: '1e18',
       index0: 1,
       index1: 0,
-      pool: '0xa10d15538e09479186b4d3278ba5c979110dddb1',
+      pool: '0x394a1e1b934cb4f4a0dc17bdd592ec078741542f',
       useUnderlying: true,
-      secondToken: 'wstETH',
+      secondToken: 'weETH',
       secondTokenDecimals: '1e18',
       abi: ICurvePool,
     },
@@ -143,30 +143,23 @@ async function getCurveTokenPrices(
 ): Promise<number[]> {
   const curvePriceCalls = chainTokens.map(token => {
     const poolContract = fetchContract(token.pool, token.abi, chainId);
-    const amountIn = BigInt(new BigNumber(token.decimals).toString(10));
-    const method = token.stableSwap ? 'calculateSwap' : token.useUnderlying ? 'get_dy_underlying' : 'get_dy';
-
-    const call = token.stableSwap
-      ? poolContract.read.calculateSwap([token.index0, token.index1, amountIn])
+    return token.stableSwap
+      ? poolContract.read.calculateSwap([
+          token.index0,
+          token.index1,
+          BigInt(new BigNumber(token.decimals).toString(10)),
+        ])
       : token.useUnderlying
-      ? poolContract.read.get_dy_underlying([BigInt(token.index0), BigInt(token.index1), amountIn])
-      : poolContract.read.get_dy([BigInt(token.index0), BigInt(token.index1), amountIn]);
-
-    return call.catch(error => {
-      console.error('getCurveTokenPrices call failed', {
-        chainId,
-        oracleId: token.oracleId,
-        pool: token.pool,
-        method,
-        index0: token.index0,
-        index1: token.index1,
-        useUnderlying: !!token.useUnderlying,
-        secondToken: token.secondToken,
-        amountIn: amountIn.toString(),
-        error,
-      });
-      throw error;
-    });
+      ? poolContract.read.get_dy_underlying([
+          BigInt(token.index0),
+          BigInt(token.index1),
+          BigInt(new BigNumber(token.decimals).toString(10)),
+        ])
+      : poolContract.read.get_dy([
+          BigInt(token.index0),
+          BigInt(token.index1),
+          BigInt(new BigNumber(token.decimals).toString(10)),
+        ]);
   });
 
   try {
