@@ -1,4 +1,3 @@
-const getBeetsOpApys = require('./getBeetsOpApys');
 const { getCurveApys } = require('./getCurveApys');
 const getVelodromeApys = require('./getVelodromeApys');
 const getStargateOpApys = require('./getStargateOpApys');
@@ -21,7 +20,6 @@ const getApys = [
   getSonneApys,
   getAuraApys,
   getBalancerOpApys,
-  getBeetsOpApys,
   getCurveApys,
   getVelodromeApys,
   getStargateOpApys,
