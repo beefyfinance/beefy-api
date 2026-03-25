@@ -2965,6 +2965,33 @@ export const tokens = {
     bridge: 'native',
     tags: ['STABLECOIN', 'SYNTHETIC'],
   },
+  ynUSDx: {
+    name: 'ynUSD Max',
+    symbol: 'ynUSDx',
+    oracleId: 'ynUSDx',
+    address: '0x3DB228FE836D99Ccb25Ec4dfdC80ED6d2CDdCB4b',
+    chainId: 1,
+    decimals: 18,
+    website: 'https://app.yieldnest.finance/',
+    documentation: 'https://docs.yieldnest.finance/protocol-design/max-vaults/ynusd-max-ynusdx',
+    description:
+      'ynUSDx is a MAX LRT designed to deliver optimized, risk-adjusted yield from stablecoins. By aggregating top-tier DeFi and RWA strategies spanning lending, liquidity provision, and yield farming, ynUSDx transforms stablecoin exposure into a single liquid, composable asset.',
+    bridge: 'native',
+    tags: ['STABLECOIN', 'SYNTHETIC'],
+  },
+  ynETHx: {
+    name: 'ynETH MAX',
+    symbol: 'ynETHx',
+    oracleId: 'ynETHx',
+    address: '0x657d9ABA1DBb59e53f9F3eCAA878447dCfC96dCb',
+    chainId: 1,
+    decimals: 18,
+    website: 'https://app.yieldnest.finance/',
+    documentation: 'https://docs.yieldnest.finance/protocol-design/max-vaults/yneth-max-ynethx',
+    description:
+      'ynETHx is a MAX LRT designed to maximize returns on ETH and LSD-based assets by integrating restaking and DeFi strategies into a single, capital-efficient, composable token.',
+    bridge: 'native',
+  },
   tETH: {
     name: 'Treehouse ETH',
     symbol: 'tETH',

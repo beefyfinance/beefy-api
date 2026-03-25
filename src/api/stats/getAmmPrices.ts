@@ -238,6 +238,8 @@ const coinGeckoCoins: Record<string, string[]> = {
   'origin-dollar': ['OUSD'],
   'mezo-usd': ['MUSD'],
   'yieldnest-rwa-max': ['ynRWAx'],
+  'ynusd-max': ['ynUSDx'],
+  'yneth-max': ['ynETHx'],
   'magma-staked-monad': ['gMON'],
   'paint-swap': ['BRUSH'],
 };

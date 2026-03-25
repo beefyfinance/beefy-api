@@ -1,5 +1,41 @@
 [
   {
+    "name": "curve-ynrwax-ynusdx",
+    "pool": "0xffd3b4d343a8964a5c3c1caac20f319c41a97bff",
+    "gauge": "0xb341f2d7e56524b52e3f7989a2e59366e1e5f18f",
+    "stakeDao": true,
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "ynRWAx",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "ynUSDx",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
+    "name": "curve-ynethx-weth",
+    "pool": "0xd65ed4bce447195187f37ce7d82f56adf1826f8f",
+    "gauge": "0x01a968c8c1909b264ce59357c4098dc674f8af09",
+    "stakeDao": true,
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "ynETHx",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "WETH",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
     "name": "curve-ousd-usde",
     "pool": "0xdbdc27b649239f9c5afdc92e57c2601a0ce71a89",
     "gauge": "0x8605c1fde3bed25b4cde604daec1599644629159",
