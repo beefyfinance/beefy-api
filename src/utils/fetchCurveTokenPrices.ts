@@ -81,17 +81,6 @@ const tokens: Partial<Record<keyof typeof ChainId, CurveToken[]>> = {
       secondTokenDecimals: '1e6',
       abi: ICurvePool,
     },
-    // {
-    //   oracleId: 'tETH',
-    //   decimals: '1e18',
-    //   index0: 1,
-    //   index1: 0,
-    //   pool: '0x394a1e1b934cb4f4a0dc17bdd592ec078741542f',
-    //   useUnderlying: true,
-    //   secondToken: 'weETH',
-    //   secondTokenDecimals: '1e18',
-    //   abi: ICurvePool,
-    // },
   ],
 };
 
