@@ -233,6 +233,11 @@ const coinGeckoCoins: Record<string, string[]> = {
  */
 const dexscreenerCoins: OraclePriceRequest[] = [
   {
+    oracleId: 'MIM',
+    tokenAddress: '0x99D8a9C45b2ecA8864373A26D1459e3Dff1e17F3',
+    chainId: 'ethereum',
+  },
+  {
     oracleId: 'arbUSD+',
     tokenAddress: '0xe80772Eaf6e2E18B651F160Bc9158b2A5caFCA65',
     chainId: 'arbitrum',
