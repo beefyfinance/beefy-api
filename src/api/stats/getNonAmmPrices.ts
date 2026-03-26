@@ -52,16 +52,15 @@ import {
   ARBITRUM_CHAIN_ID as ARB_CHAIN_ID,
   AVAX_CHAIN_ID,
   BASE_CHAIN_ID,
-  BSC_CHAIN_ID,
   ETH_CHAIN_ID,
   FRAXTAL_CHAIN_ID as FRX_CHAIN_ID,
   GNOSIS_CHAIN_ID as GNO_CHAIN_ID,
   MANTLE_CHAIN_ID,
+  MONAD_CHAIN_ID,
   OPTIMISM_CHAIN_ID,
   PLASMA_CHAIN_ID,
   POLYGON_CHAIN_ID,
   SONIC_CHAIN_ID,
-  MONAD_CHAIN_ID,
 } from '../../constants';
 import getSolidlyStablePrices from './common/getSolidlyStablePrices';
 import getEthSiloPrices from './ethereum/getEthereumSiloPrices';
@@ -223,16 +222,9 @@ export async function getNonAmmPrices(
     getBeefyCowMonadPrices(tokenPrices),
     getBeefyCowMegaethPrices(tokenPrices),
     getPendleCommonPrices(ARB_CHAIN_ID, require('../../data/arbitrum/equilibriaPools.json'), tokenPrices),
-    getPendleCommonPrices(ARB_CHAIN_ID, require('../../data/arbitrum/pendlePools.json'), tokenPrices, {}),
-    getPendleCommonPrices(
-      ETH_CHAIN_ID,
-      [
-        ...require('../../data/ethereum/pendlePools.json'),
-        ...require('../../data/ethereum/pendleUnboostedPools.json'),
-      ],
-      tokenPrices,
-      {}
-    ),
+    getPendleCommonPrices(ARB_CHAIN_ID, require('../../data/arbitrum/pendlePools.json'), tokenPrices),
+    getPendleCommonPrices(ETH_CHAIN_ID, require('../../data/ethereum/pendlePools.json'), tokenPrices),
+    getPendleCommonPrices(ETH_CHAIN_ID, require('../../data/ethereum/pendleUnboostedPools.json'), tokenPrices),
     getPendleCommonPrices(BASE_CHAIN_ID, require('../../data/base/pendlePools.json'), tokenPrices, ammPrices),
     getPendleCommonPrices(PLASMA_CHAIN_ID, require('../../data/plasma/pendlePools.json'), tokenPrices),
     getMellowVeloPrices(OPTIMISM_CHAIN_ID, require('../../data/optimism/mellowVeloPools.json'), tokenPrices),
