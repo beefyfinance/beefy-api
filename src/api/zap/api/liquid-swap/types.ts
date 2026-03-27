@@ -61,8 +61,6 @@ export type QuoteResponse = {
   amountOut: string;
   averagePriceImpact: string;
   execution: QuoteExecution;
-  /** additional information added by beefy api */
-  beefy: ExtraQuoteResponse;
 };
 
 export type SwapRequest = QuoteRequest;

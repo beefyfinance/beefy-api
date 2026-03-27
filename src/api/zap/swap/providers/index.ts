@@ -1,8 +1,10 @@
+import { OneInchSwapProvider } from './OneInchSwapProvider';
 import { KyberSwapProvider } from './KyberSwapProvider';
 import { ISwapProvider } from './ISwapProvider';
 import { LiquidSwapSwapProvider } from './LiquidSwapSwapProvider.js';
 
 export const providersById = {
+  'one-inch': new OneInchSwapProvider(),
   kyber: new KyberSwapProvider(),
   'liquid-swap': new LiquidSwapSwapProvider(),
 } as const satisfies Record<string, ISwapProvider>;

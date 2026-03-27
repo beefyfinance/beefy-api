@@ -48,8 +48,6 @@ export type RouteSummary = {
 export type QuoteData = {
   routeSummary: RouteSummary;
   routeAddress: string;
-  /** additional information added by beefy api */
-  beefy: ExtraQuoteResponse;
 };
 
 export type QuoteResponse = {

@@ -55,7 +55,8 @@ export class LiquidSwapApi implements ILiquidSwapApi {
   }
 
   async postProxiedSwap(request: SwapRequest): Promise<ApiResponse<SwapResponse>> {
-    return this.getProxiedQuote(request);
+    // @dev liquid swap doesn't have separate quote/build endpoints
+    return await this.priorityGet<SwapResponse>('/route', this.toStringDict(this.withFeeReceiver(request)));
   }
 
   protected buildUrl<T extends {}>(path: string, request?: T) {
@@ -91,10 +92,7 @@ export class LiquidSwapApi implements ILiquidSwapApi {
       : request;
   }
 
-  protected async doGet<
-    ResponseType extends object,
-    Extra extends Record<string, unknown> | undefined = undefined
-  >(
+  protected async doGet<ResponseType extends object, Extra extends Record<string, unknown> | undefined = undefined>(
     path: string,
     request?: Record<string, string>,
     extra?: Extra
@@ -115,10 +113,7 @@ export class LiquidSwapApi implements ILiquidSwapApi {
     } as SuccessApiResponse<ResponseType, Extra>;
   }
 
-  protected async get<
-    ResponseType extends object,
-    Extra extends Record<string, unknown> | undefined = undefined
-  >(
+  protected async get<ResponseType extends object, Extra extends Record<string, unknown> | undefined = undefined>(
     path: string,
     request?: Record<string, string>,
     extra?: Extra
@@ -129,17 +124,11 @@ export class LiquidSwapApi implements ILiquidSwapApi {
   protected async priorityGet<
     ResponseType extends object,
     Extra extends Record<string, unknown> | undefined = undefined
-  >(
-    path: string,
-    request?: Record<string, string>,
-    extra?: Extra
-  ): Promise<ApiResponse<ResponseType, Extra>> {
+  >(path: string, request?: Record<string, string>, extra?: Extra): Promise<ApiResponse<ResponseType, Extra>> {
     return this.doGet(path, request, extra);
   }
 
-  protected async handleResponse<ResponseType extends object>(
-    response: Response
-  ): Promise<ApiResponse<ResponseType>> {
+  protected async handleResponse<ResponseType extends object>(response: Response): Promise<ApiResponse<ResponseType>> {
     if (response.headers.get('content-type')?.includes('application/json')) {
       const body = (await response.json()) as LiquidSwapResponse;
 
