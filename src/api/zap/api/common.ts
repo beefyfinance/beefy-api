@@ -1,7 +1,8 @@
 export type SuccessApiResponse<T, E extends Record<string, unknown> | undefined = undefined> = {
   code: 200;
   data: T;
-} & (E extends undefined ? {} : { extra: E });
+  extra?: E;
+};
 
 export type ErrorApiResponse = {
   code: number;
