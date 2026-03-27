@@ -229,27 +229,6 @@
     ]
   },
   {
-    "name": "curve-poly-eurt",
-    "pool": "0xB446BF7b8D6D4276d0c75eC0e3ee8dD7Fe15783A",
-    "token": "0x600743b1d8a96438bd46836fd34977a00293f6aa",
-    "gauge": "0x8b397084699Cc64E429F610F81Fac13bf061ef55",
-    "baseApyKey": "eurtusd",
-    "convex": true,
-    "tokens": [
-      {
-        "oracle": "tokens",
-        "oracleId": "EURt",
-        "decimals": "1e6"
-      },
-      {
-        "basePool": "curve-am3crv",
-        "oracle": "lps",
-        "oracleId": "curve-am3crv",
-        "decimals": "1e18"
-      }
-    ]
-  },
-  {
     "name": "curve-matic-stmatic",
     "pool": "0xFb6FE7802bA9290ef8b00CA16Af4Bc26eb663a28",
     "token": "0xe7CEA2F6d7b120174BF3A9Bc98efaF1fF72C997d",

@@ -180,26 +180,6 @@
     }
   },
   {
-    "name": "baseswap-mim-usdbc",
-    "address": "0xa2b120Cab75AEfDfAFdA6A14713349A3096EED79",
-    "rewardPool": "0x36A3483353B89CDBa4D7e4D1a81E3CEe15947eD1",
-    "decimals": "1e18",
-    "beefyFee": 0.095,
-    "chainId": 8453,
-    "lp0": {
-      "address": "0x4A3A6Dd60A34bB2Aba60D73B4C88315E9CeB6A3D",
-      "oracle": "tokens",
-      "oracleId": "MIM",
-      "decimals": "1e18"
-    },
-    "lp1": {
-      "address": "0xd9aAEc86B65D86f6A7B5B1b0c42FFA531710b6CA",
-      "oracle": "tokens",
-      "oracleId": "USDbC",
-      "decimals": "1e6"
-    }
-  },
-  {
     "name": "baseswap-cbeth-weth",
     "address": "0x07CFA5Df24fB17486AF0CBf6C910F24253a674D3",
     "rewardPool": "0x858a8B8143F8A510f663F8EeF31D9bF1Fb4d986F",

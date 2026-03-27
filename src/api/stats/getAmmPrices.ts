@@ -124,40 +124,24 @@ const pools = normalizePoolOracleIds([
  * @see fetchSeedPrices
  */
 const coinGeckoCoins: Record<string, string[]> = {
-  'stasis-eurs': ['EURS'],
-  'tether-eurt': ['EURt'],
-  'par-stablecoin': ['PAR'],
   'monerium-eur-money': ['EURe'],
-  jpyc: ['JPYC', 'jJPY'],
   'cad-coin': ['CADC', 'jCAD'],
   xsgd: ['XSGD', 'jSGD'],
-  'usd-balance': ['USDB'],
-  gelato: ['GEL'],
-  'perpetual-protocol': ['PERP'],
   nusd: ['sUSD'],
-  'lyra-finance': ['LYRA'],
   'liquity-usd': ['LUSD'],
   seth: ['sETH'],
   'alchemix-usd': ['alUSD'],
   kava: ['KAVA', 'WKAVA'],
   'aura-finance': ['AURA'],
-  havven: ['hSNX'],
   'aura-bal': ['auraBAL'],
   'coinbase-wrapped-staked-eth': ['cbETH'],
   'opx-finance': ['OPX', 'beOPX'],
   'dola-usd': ['DOLA'],
-  'across-protocol': ['ACX'],
-  'metavault-trade': ['MVX'],
-  seur: ['sEUR'],
-  euler: ['EUL'],
   axlusdc: ['axlUSDC'],
-  'mimo-parallel-governance-token': ['MIMO'],
   olympus: ['OHM'],
-  'ankr-reward-bearing-ftm': ['ankrFTM'],
-  lucha: ['LUCHA'],
   'cow-protocol': ['COW'],
   'electronic-usd': ['eUSD'],
-  // 'overnight-finance': ['OVN'],
+  //
   'gyroscope-gyd': ['GYD'],
   'renzo-restaked-eth': ['ezETH'],
   'qi-dao': ['QIv2'],
@@ -238,6 +222,8 @@ const coinGeckoCoins: Record<string, string[]> = {
   'origin-dollar': ['OUSD'],
   'mezo-usd': ['MUSD'],
   'yieldnest-rwa-max': ['ynRWAx'],
+  'ynusd-max': ['ynUSDx'],
+  'yneth-max': ['ynETHx'],
   'magma-staked-monad': ['gMON'],
   'paint-swap': ['BRUSH'],
 };
@@ -246,6 +232,11 @@ const coinGeckoCoins: Record<string, string[]> = {
  * Coins to fetch from dexscreener
  */
 const dexscreenerCoins: OraclePriceRequest[] = [
+  {
+    oracleId: 'MIM',
+    tokenAddress: '0x99D8a9C45b2ecA8864373A26D1459e3Dff1e17F3',
+    chainId: 'ethereum',
+  },
   {
     oracleId: 'arbUSD+',
     tokenAddress: '0xe80772Eaf6e2E18B651F160Bc9158b2A5caFCA65',
@@ -325,6 +316,11 @@ const dexscreenerCoins: OraclePriceRequest[] = [
     oracleId: 'plUSD',
     tokenAddress: '0xf91c31299E998C5127Bc5F11e4a657FC0cF358CD',
     chainId: 'plasma',
+  },
+  {
+    oracleId: 'tETH',
+    tokenAddress: '0xD11c452fc99cF405034ee446803b6F6c1F6d5ED8',
+    chainId: 'ethereum',
   },
 ];
 
