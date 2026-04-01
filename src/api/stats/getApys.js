@@ -5,7 +5,6 @@ const { getBSCApys } = require('./bsc');
 const { getArbitrumApys } = require('./arbitrum');
 const { getCronosApys } = require('./cronos');
 const { getMetisApys } = require('./metis');
-const { getMoonbeamApys } = require('./moonbeam');
 // const { getCantoApys } = require('./canto');
 const { getOptimismApys } = require('./optimism');
 const { getEthereumApys } = require('./ethereum');
@@ -61,7 +60,6 @@ const updateApys = async () => {
       getArbitrumApys(),
       // getCronosApys(),
       getMetisApys(),
-      // getMoonbeamApys(),
       getOptimismApys(),
       getEthereumApys(),
       // getCantoApys(),

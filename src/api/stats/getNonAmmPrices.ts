@@ -72,7 +72,6 @@ import { getMimSwapPrices } from './arbitrum/getMimSwapPrices';
 import { getBeefyCowArbPrices } from './arbitrum/getBeefyCowArbPrices';
 import { getBeefyCowOPPrices } from './optimism/getBeefyCowOPPrices';
 import { getBeefyCowBasePrices } from './base/getBeefyCowBasePrices';
-import { getBeefyCowMoonbeamPrices } from './moonbeam/getBeefyCowMoonbeamPricis';
 import { getBeefyCowLineaPrices } from './linea/getBeefyLineaCowPrices';
 import getOptimismSiloPrices from './optimism/getOptimismSiloPrices';
 import { getBeefyCowPolyPrices } from './matic/getBeefyPolyCowPrices';
@@ -200,7 +199,6 @@ export async function getNonAmmPrices(
     getBeefyCowArbPrices(tokenPrices),
     getBeefyCowOPPrices(tokenPrices),
     getBeefyCowBasePrices(tokenPrices),
-    getBeefyCowMoonbeamPrices(tokenPrices),
     getBeefyCowLineaPrices(tokenPrices),
     getBeefyCowPolyPrices(tokenPrices),
     getBeefyCowZkSyncPrices(tokenPrices),

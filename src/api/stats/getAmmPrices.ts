@@ -23,10 +23,7 @@ import vvsPools from '../../data/cronos/vvsLpPools.json';
 import cronaPools from '../../data/cronos/cronaLpPools.json';
 import liquidusPools from '../../data/cronos/liquidusLpPools.json';
 import netswapPools from '../../data/metis/netswapLpPools.json';
-import stellaswapPools from '../../data/moonbeam/stellaswapLpPools.json';
-import stellaswapPoolsV2 from '../../data/moonbeam/stellaswapLpV2Pools.json';
 import darkCryptoPools from '../../data/cronos/darkCryptoLpPools.json';
-import solarflare from '../../data/moonbeam/solarFlareLpPools.json';
 import vvsDualPools from '../../data/cronos/vvsDualLpPools.json';
 import velodromePools from '../../data/optimism/velodromeLpPools.json';
 import oldVelodromePools from '../../data/optimism/oldVelodromeLpPools.json';
@@ -64,10 +61,7 @@ import { getLpBasedPrices } from './getLpBasedPrices';
 import { fetchDexScreenerPriceOracles, OraclePriceRequest } from '../../utils/fetchDexScreenerPrices';
 import { promiseTiming } from '../../utils/timing';
 import { getBeTokenPrices } from './getBeTokenPrices';
-import {
-  debugNativeWrappedPrices,
-  normalizeNativeWrappedPrices,
-} from '../../utils/normalizeNativeWrappedPrices';
+import { debugNativeWrappedPrices, normalizeNativeWrappedPrices } from '../../utils/normalizeNativeWrappedPrices';
 
 const INIT_DELAY = 2 * 1000;
 const REFRESH_INTERVAL = 5 * 60 * 1000;
@@ -104,9 +98,6 @@ const pools = normalizePoolOracleIds([
   ...velodromePools,
   ...oldVelodromePools,
   ...vvsDualPools,
-  ...stellaswapPools,
-  ...stellaswapPoolsV2,
-  ...solarflare,
   ...darkCryptoPools,
   ...netswapPools,
   ...liquidusPools,
@@ -184,7 +175,6 @@ const coinGeckoCoins: Record<string, string[]> = {
   mpendle: ['mPENDLE'],
   penpie: ['PNP'],
   dogwifcoin: ['WIF'],
-  moonbeam: ['GLMR'],
   scroll: ['SCR'],
   'binance-bitcoin': ['BTCB'],
   ankreth: ['ankrETH'],
@@ -430,9 +420,7 @@ async function fetchSeedPrices() {
     log(
       `> [PRICE SERVICE] Seed prices fetched: ChainLink=${Object.keys(seedPrices).length}, CoinGecko=${
         Object.keys(coinGeckoPrices).length
-      }, Defillama=${Object.keys(defillamaPrices).length}, DexScreener=${
-        Object.keys(dexscreenerPrices).length
-      }`
+      }, Defillama=${Object.keys(defillamaPrices).length}, DexScreener=${Object.keys(dexscreenerPrices).length}`
     );
 
     // CoinGecko
@@ -485,9 +473,7 @@ async function performUpdateAmmPrices() {
   // Seed with chain link + coin gecko prices
   const knownPrices = await fetchSeedPrices();
   log(
-    `> [PRICE SERVICE] Seed prices fetched (${Object.keys(knownPrices).length} tokens) in ${
-      Date.now() - startTime
-    }ms`
+    `> [PRICE SERVICE] Seed prices fetched (${Object.keys(knownPrices).length} tokens) in ${Date.now() - startTime}ms`
   );
 
   log('> [PRICE SERVICE] Fetching AMM prices...');
@@ -505,10 +491,7 @@ async function performUpdateAmmPrices() {
   log('> [PRICE SERVICE] Starting solidly stable token prices...');
   const solidlyStableTokenPrices = ammPrices.then(async ({ tokenPrices }) => {
     log('> [PRICE SERVICE] Solidly stable token prices fetch started');
-    const result = await promiseTiming(
-      fetchSolidlyStableTokenPrices(tokenPrices),
-      'fetchSolidlyStableTokenPrices'
-    );
+    const result = await promiseTiming(fetchSolidlyStableTokenPrices(tokenPrices), 'fetchSolidlyStableTokenPrices');
     log('> [PRICE SERVICE] Solidly stable token prices completed');
     return result;
   });
@@ -541,15 +524,9 @@ async function performUpdateAmmPrices() {
   log('> [PRICE SERVICE] Starting linear pool prices...');
   const linearPoolPrice = ammPrices.then(async ({ tokenPrices }): Promise<Record<string, number>> => {
     log('> [PRICE SERVICE] Linear pool prices fetch started');
-    const wrappedAavePrices = await promiseTiming(
-      fetchWrappedAavePrices(tokenPrices),
-      'fetchWrappedAavePrices'
-    );
+    const wrappedAavePrices = await promiseTiming(fetchWrappedAavePrices(tokenPrices), 'fetchWrappedAavePrices');
     log('> [PRICE SERVICE] Wrapped Aave prices completed');
-    const unwrappedAavePrices = await promiseTiming(
-      fetchUnwrappedAavePrices(tokenPrices),
-      'fetchUnwrappedAavePrices'
-    );
+    const unwrappedAavePrices = await promiseTiming(fetchUnwrappedAavePrices(tokenPrices), 'fetchUnwrappedAavePrices');
     log('> [PRICE SERVICE] Unwrapped Aave prices completed');
     const prices = {
       ...tokenPrices,
@@ -557,10 +534,7 @@ async function performUpdateAmmPrices() {
       ...unwrappedAavePrices,
     };
 
-    const linearPrices = await promiseTiming(
-      fetchBalancerLinearPoolPrice(prices),
-      'fetchBalancerLinearPoolPrice'
-    );
+    const linearPrices = await promiseTiming(fetchBalancerLinearPoolPrice(prices), 'fetchBalancerLinearPoolPrice');
     log('> [PRICE SERVICE] Balancer linear pool prices completed');
 
     return {
@@ -612,10 +586,7 @@ async function performUpdateAmmPrices() {
     log(`> [PRICE SERVICE] Token prices resolved (${Object.keys(resolvedTokenPrices).length} tokens)`);
 
     log('> [PRICE SERVICE] Fetching non-AMM prices...');
-    const nonAmmPrices = await promiseTiming(
-      getNonAmmPrices(resolvedTokenPrices, poolPrices),
-      'getNonAmmPrices'
-    );
+    const nonAmmPrices = await promiseTiming(getNonAmmPrices(resolvedTokenPrices, poolPrices), 'getNonAmmPrices');
     log('> [PRICE SERVICE] Non-AMM prices completed');
 
     log('> [PRICE SERVICE] Fetching LP-based prices...');
@@ -802,14 +773,9 @@ export async function getAmmPrice(
  * Use wrapped oracleId for both wrapped and native tokens when resolving prices
  * After resolving {@see fetchAmmPrices} we copy wrapped price to native price
  */
-function normalizePoolOracleIds<T extends { lp0: { oracleId: string }; lp1: { oracleId: string } }>(
-  pools: T[]
-): T[] {
+function normalizePoolOracleIds<T extends { lp0: { oracleId: string }; lp1: { oracleId: string } }>(pools: T[]): T[] {
   const nativeToWrappedOracleId = new Map<string, string>(
-    Object.values(addressBookByChainId).map(chainBook => [
-      chainBook.native.oracleId,
-      chainBook.tokens.WNATIVE.oracleId,
-    ])
+    Object.values(addressBookByChainId).map(chainBook => [chainBook.native.oracleId, chainBook.tokens.WNATIVE.oracleId])
   );
 
   pools.forEach(pool => {
@@ -859,12 +825,7 @@ function addLpBreakdownsToCache(lpBreakdowns: BreakdownsById): boolean {
   let updated = false;
 
   for (const [token, breakdown] of Object.entries(lpBreakdowns)) {
-    if (
-      breakdown !== undefined &&
-      breakdown !== null &&
-      typeof breakdown === 'object' &&
-      'price' in breakdown
-    ) {
+    if (breakdown !== undefined && breakdown !== null && typeof breakdown === 'object' && 'price' in breakdown) {
       const price = breakdown.price;
       if (isFiniteNumber(price)) {
         // TODO: add TTL so entries are removed eventually if not updated

@@ -22,13 +22,12 @@ async function main() {
   const chainVaults = await Promise.all(chains.map(c => getVaults(c)));
   const vaults = chainVaults.flat();
 
-  const res = await fetch('https://api.beefy.finance/tvl').then(r => r.json());
+  let res = await fetch('https://api.beefy.finance/tvl').then(r => r.json());
   const tvl = Object.keys(res)
     .map(k => res[k])
     .reduce((p, c) => ({ ...p, ...c }), {});
-  const holders = await fetch('https://balance-api.beefy.finance/api/v1/holders/counts/all').then(r =>
-    r.json()
-  );
+  res = await fetch('https://balance-api.beefy.finance/api/v1/holders/counts/all').then(r => r.json());
+  const holders = Array.isArray(res) ? res : [];
   const livePools = [];
   pools.forEach(p => {
     const id = p.name || p.oracleId || p.address;
