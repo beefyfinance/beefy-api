@@ -41,5 +41,14 @@
     "decimals": "1e6",
     "v2": true,
     "skim": true
+  },
+  {
+    "name": "morpho-monad-steakhouse-high-yield-usd1",
+    "address": "0xBeEFfB65df79Baac701307c9605b7aB207355Fdb",
+    "oracle": "tokens",
+    "oracleId": "USD1",
+    "decimals": "1e6",
+    "v2": true,
+    "skim": true
   }
 ]
