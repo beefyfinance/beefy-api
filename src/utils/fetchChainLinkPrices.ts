@@ -127,12 +127,6 @@ const oracles: Oracle[] = [
     heartbeat: 864000,
   },
   {
-    oracleId: 'KAVA',
-    address: '0x7899dd75C329eFe63e35b02bC7d60D3739FB23c5',
-    chain: 'polygon',
-    heartbeat: 864000,
-  },
-  {
     oracleId: 'CAD',
     address: '0xa34317DB73e77d453b1B8d04550c44D10e981C8e',
     chain: 'ethereum',
@@ -233,10 +227,7 @@ async function fetchPricesForChain(chain: ApiChain, oracles: Oracle[]): Promise<
   const results = await Promise.allSettled(
     oracles.map(async (oracle): Promise<RoundData> => {
       const contract = fetchContract(oracle.address, chainLinkOracleAbi, toChainId(chain));
-      const [roundData, decimals] = await Promise.all([
-        contract.read.latestRoundData(),
-        contract.read.decimals(),
-      ]);
+      const [roundData, decimals] = await Promise.all([contract.read.latestRoundData(), contract.read.decimals()]);
 
       return {
         roundId: roundData[0].toString(),
@@ -255,10 +246,7 @@ async function fetchPricesForChain(chain: ApiChain, oracles: Oracle[]): Promise<
     const oracle = oracles[index];
 
     if (!isResultFulfilled(result)) {
-      console.error(
-        `ChainLink: Failed to fetch price for ${oracle.oracleId} on chain ${chain}`,
-        result.reason
-      );
+      console.error(`ChainLink: Failed to fetch price for ${oracle.oracleId} on chain ${chain}`, result.reason);
       return;
     }
 
