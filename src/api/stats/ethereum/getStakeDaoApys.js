@@ -8,18 +8,20 @@ const secondsPerYear = 31536000;
 export const getStakeDaoApys = async () => {
   const apys = [];
   try {
-    const [res, merkles] = await Promise.all([
-      fetch('https://api.stakedao.org/api/strategies/v2/curve/1.json').then(res => res.json()),
-      fetch(
-        'https://raw.githubusercontent.com/stake-dao/merkl-toolkit/refs/heads/main/data/incentives.json'
-      ).then(res => res.json()),
-    ]);
+    // const [res, merkles] = await Promise.all([
+    //   fetch('https://api.stakedao.org/api/strategies/v2/curve/1.json').then(res => res.json()),
+    //   fetch('https://raw.githubusercontent.com/stake-dao/merkl-toolkit/refs/heads/main/data/incentives.json').then(
+    //     res => res.json()
+    //   ),
+    // ]);
+    const res = await fetch('https://api.stakedao.org/api/strategies/v2/curve/1.json').then(res => res.json());
     for (const p of pools) {
       const apy = res.find(r => r.lpToken?.address?.toLowerCase() === (p.token || p.pool).toLowerCase());
       const trading = new BigNumber(apy?.tradingApy || 0).div(100);
       const curveTotal = new BigNumber(apy?.apr?.current?.total || 0).div(100);
-      const merkle = await findMerkleApy(merkles, apy);
-      const vault = curveTotal.minus(trading).plus(merkle);
+      // const merkle = await findMerkleApy(merkles, apy);
+      // const vault = curveTotal.minus(trading).plus(merkle);
+      const vault = curveTotal.minus(trading);
       apys.push({ vault, trading });
     }
   } catch (e) {
