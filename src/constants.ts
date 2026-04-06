@@ -41,7 +41,6 @@ const DEFAULT_RPCS: ApiChainToRpcs = {
   aurora: ['https://mainnet.aurora.dev/Fon6fPMs5rCdJc4mxX4kiSK1vsKdzc3D8k6UF8aruek'],
   fuse: ['https://rpc.fuse.io'],
   metis: ['https://metis-mainnet.public.blastapi.io'],
-  moonbeam: ['https://rpc.api.moonbeam.network'],
   emerald: ['https://emerald.oasis.dev'],
   optimism: ['https://optimism-rpc.publicnode.com'],
   kava: ['https://kava-evm.publicnode.com'],
@@ -63,7 +62,6 @@ const DEFAULT_RPCS: ApiChainToRpcs = {
   sonic: ['https://rpc.soniclabs.com'],
   berachain: ['https://rpc.berachain.com'],
   // unichain: ['https://mainnet.unichain.org'],
-  saga: ['https://sagaevm.jsonrpc.sagarpc.io'],
   hyperevm: ['https://rpc.hyperliquid.xyz/evm'],
   plasma: ['https://rpc.plasma.to'],
   monad: ['https://rpc-mainnet.monadinfra.com'],
@@ -178,12 +176,9 @@ const MULTICHAIN_RPC: Record<ChainId, string> = Object.fromEntries(
 ) as Record<ChainId, string>;
 
 /// Beefy Vaults Endpoints
-const BSC_VAULTS_ENDPOINT =
-  'https://raw.githubusercontent.com/beefyfinance/beefy-v2/prod/src/config/vault/bsc.json';
-const HECO_VAULTS_ENDPOINT =
-  'https://raw.githubusercontent.com/beefyfinance/beefy-v2/prod/src/config/vault/heco.json';
-const AVAX_VAULTS_ENDPOINT =
-  'https://raw.githubusercontent.com/beefyfinance/beefy-v2/prod/src/config/vault/avax.json';
+const BSC_VAULTS_ENDPOINT = 'https://raw.githubusercontent.com/beefyfinance/beefy-v2/prod/src/config/vault/bsc.json';
+const HECO_VAULTS_ENDPOINT = 'https://raw.githubusercontent.com/beefyfinance/beefy-v2/prod/src/config/vault/heco.json';
+const AVAX_VAULTS_ENDPOINT = 'https://raw.githubusercontent.com/beefyfinance/beefy-v2/prod/src/config/vault/avax.json';
 const POLYGON_VAULTS_ENDPOINT =
   'https://raw.githubusercontent.com/beefyfinance/beefy-v2/prod/src/config/vault/polygon.json';
 const FANTOM_VAULTS_ENDPOINT =
@@ -192,16 +187,14 @@ const ONE_VAULTS_ENDPOINT =
   'https://raw.githubusercontent.com/beefyfinance/beefy-v2/prod/src/config/vault/harmony.json';
 const ARBITRUM_VAULTS_ENDPOINT =
   'https://raw.githubusercontent.com/beefyfinance/beefy-v2/prod/src/config/vault/arbitrum.json';
-const CELO_VAULTS_ENDPOINT =
-  'https://raw.githubusercontent.com/beefyfinance/beefy-v2/prod/src/config/vault/celo.json';
+const CELO_VAULTS_ENDPOINT = 'https://raw.githubusercontent.com/beefyfinance/beefy-v2/prod/src/config/vault/celo.json';
 const MOONRIVER_VAULTS_ENDPOINT =
   'https://raw.githubusercontent.com/beefyfinance/beefy-v2/prod/src/config/vault/moonriver.json';
 const CRONOS_VAULTS_ENDPOINT =
   'https://raw.githubusercontent.com/beefyfinance/beefy-v2/prod/src/config/vault/cronos.json';
 const AURORA_VAULTS_ENDPOINT =
   'https://raw.githubusercontent.com/beefyfinance/beefy-v2/prod/src/config/vault/aurora.json';
-const FUSE_VAULTS_ENDPOINT =
-  'https://raw.githubusercontent.com/beefyfinance/beefy-v2/prod/src/config/vault/fuse.json';
+const FUSE_VAULTS_ENDPOINT = 'https://raw.githubusercontent.com/beefyfinance/beefy-v2/prod/src/config/vault/fuse.json';
 const METIS_VAULTS_ENDPOINT =
   'https://raw.githubusercontent.com/beefyfinance/beefy-v2/prod/src/config/vault/metis.json';
 const MOONBEAM_VAULTS_ENDPOINT =
@@ -210,8 +203,7 @@ const EMERALD_VAULTS_ENDPOINT =
   'https://raw.githubusercontent.com/beefyfinance/beefy-v2/prod/src/config/vault/emerald.json';
 const OPTIMISM_VAULTS_ENDPOINT =
   'https://raw.githubusercontent.com/beefyfinance/beefy-v2/prod/src/config/vault/optimism.json';
-const KAVA_VAULTS_ENDPOINT =
-  'https://raw.githubusercontent.com/beefyfinance/beefy-v2/prod/src/config/vault/kava.json';
+const KAVA_VAULTS_ENDPOINT = 'https://raw.githubusercontent.com/beefyfinance/beefy-v2/prod/src/config/vault/kava.json';
 const ETHEREUM_VAULTS_ENDPOINT =
   'https://raw.githubusercontent.com/beefyfinance/beefy-v2/prod/src/config/vault/ethereum.json';
 const CANTO_VAULTS_ENDPOINT =
@@ -220,8 +212,7 @@ const ZKSYNC_VAULTS_ENDPOINT =
   'https://raw.githubusercontent.com/beefyfinance/beefy-v2/prod/src/config/vault/zksync.json';
 const ZKEVM_VAULTS_ENDPOINT =
   'https://raw.githubusercontent.com/beefyfinance/beefy-v2/prod/src/config/vault/zkevm.json';
-const BASE_VAULTS_ENDPOINT =
-  'https://raw.githubusercontent.com/beefyfinance/beefy-v2/prod/src/config/vault/base.json';
+const BASE_VAULTS_ENDPOINT = 'https://raw.githubusercontent.com/beefyfinance/beefy-v2/prod/src/config/vault/base.json';
 const GNOSIS_VAULTS_ENDPOINT =
   'https://raw.githubusercontent.com/beefyfinance/beefy-v2/prod/src/config/vault/gnosis.json';
 const LINEA_VAULTS_ENDPOINT =
@@ -230,28 +221,23 @@ const MANTLE_VAULTS_ENDPOINT =
   'https://raw.githubusercontent.com/beefyfinance/beefy-v2/prod/src/config/vault/mantle.json';
 const FRAXTAL_VAULTS_ENDPOINT =
   'https://raw.githubusercontent.com/beefyfinance/beefy-v2/prod/src/config/vault/fraxtal.json';
-const MODE_VAULTS_ENDPOINT =
-  'https://raw.githubusercontent.com/beefyfinance/beefy-v2/prod/src/config/vault/mode.json';
+const MODE_VAULTS_ENDPOINT = 'https://raw.githubusercontent.com/beefyfinance/beefy-v2/prod/src/config/vault/mode.json';
 const MANTA_VAULTS_ENDPOINT =
   'https://raw.githubusercontent.com/beefyfinance/beefy-v2/prod/src/config/vault/manta.json';
-const REAL_VAULTS_ENDPOINT =
-  'https://raw.githubusercontent.com/beefyfinance/beefy-v2/prod/src/config/vault/real.json';
-const SEI_VAULTS_ENDPOINT =
-  'https://raw.githubusercontent.com/beefyfinance/beefy-v2/prod/src/config/vault/sei.json';
+const REAL_VAULTS_ENDPOINT = 'https://raw.githubusercontent.com/beefyfinance/beefy-v2/prod/src/config/vault/real.json';
+const SEI_VAULTS_ENDPOINT = 'https://raw.githubusercontent.com/beefyfinance/beefy-v2/prod/src/config/vault/sei.json';
 const ROOTSTOCK_VAULTS_ENDPOINT =
   'https://raw.githubusercontent.com/beefyfinance/beefy-v2/prod/src/config/vault/rootstock.json';
 const SCROLL_VAULTS_ENDPOINT =
   'https://raw.githubusercontent.com/beefyfinance/beefy-v2/prod/src/config/vault/scroll.json';
-const LISK_VAULTS_ENDPOINT =
-  'https://raw.githubusercontent.com/beefyfinance/beefy-v2/prod/src/config/vault/lisk.json';
+const LISK_VAULTS_ENDPOINT = 'https://raw.githubusercontent.com/beefyfinance/beefy-v2/prod/src/config/vault/lisk.json';
 const SONIC_VAULTS_ENDPOINT =
   'https://raw.githubusercontent.com/beefyfinance/beefy-v2/prod/src/config/vault/sonic.json';
 const BERACHAIN_VAULTS_ENDPOINT =
   'https://raw.githubusercontent.com/beefyfinance/beefy-v2/prod/src/config/vault/berachain.json';
 const UNICHAIN_VAULTS_ENDPOINT =
   'https://raw.githubusercontent.com/beefyfinance/beefy-v2/prod/src/config/vault/unichain.json';
-const SAGA_VAULTS_ENDPOINT =
-  'https://raw.githubusercontent.com/beefyfinance/beefy-v2/prod/src/config/vault/saga.json';
+const SAGA_VAULTS_ENDPOINT = 'https://raw.githubusercontent.com/beefyfinance/beefy-v2/prod/src/config/vault/saga.json';
 const HYPEREVM_VAULTS_ENDPOINT =
   'https://raw.githubusercontent.com/beefyfinance/beefy-v2/prod/src/config/vault/hyperevm.json';
 const PLASMA_VAULTS_ENDPOINT =

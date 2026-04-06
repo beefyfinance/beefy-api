@@ -231,24 +231,6 @@ const tokens: Partial<Record<keyof typeof ChainId, ConcentratedLiquidityToken[]>
       secondToken: 'CORN',
     },
   ],
-  moonbeam: [
-    {
-      type: 'UniV3',
-      oracleId: 'USDCwh',
-      decimalDelta: 1e-12,
-      pool: '0xF7e2F39624AAd83AD235A090bE89b5fa861c29B8',
-      firstToken: 'GLMR',
-      secondToken: 'USDCwh',
-    },
-    {
-      type: 'Algebra',
-      oracleId: 'stDOT',
-      decimalDelta: 1,
-      pool: '0xD9d1064E32704BDd540F90D3A9ecAF037748b966',
-      firstToken: 'xcDOT',
-      secondToken: 'stDOT',
-    },
-  ],
   linea: [
     {
       type: 'Algebra',
@@ -1491,16 +1473,6 @@ const tokens: Partial<Record<keyof typeof ChainId, ConcentratedLiquidityToken[]>
       pool: '0xf5e40cc12f69121b0329c256a99f4ab3ebdfaa2e',
       firstToken: 'WXDAI',
       secondToken: 'gUSDCe',
-    },
-  ],
-  saga: [
-    {
-      type: 'UniV3',
-      oracleId: 'SAGA',
-      decimalDelta: 1e-12,
-      pool: '0x387b99a979c79f827f0ca8a752893472dc34b7ec',
-      firstToken: 'WETH',
-      secondToken: 'SAGA',
     },
   ],
   hyperevm: [

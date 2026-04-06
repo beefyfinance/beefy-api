@@ -86,7 +86,6 @@ import { getBeefyCowModePrices } from './mode/getBeefyModeCowPrices';
 import { getBeefyCowLiskPrices } from './lisk/getBeefyLiskCowPrices';
 import { getBeefyCowBerachainPrices } from './berachain/getBeefyBerachainCowPrices';
 import { getBeefyCowGnosisPrices } from './gnosis/getBeefyGnosisCowPrices';
-import { getBeefyCowSagaPrices } from './saga/getBeefySagaCowPrices';
 import { getBeefyCowHyperevmPrices } from './hyperevm/getBeefyHyperevmCowPrices';
 import { getBeefyCowPlasmaPrices } from './plasma/getBeefyPlasmaCowPrices';
 import { getBeefyCowMonadPrices } from './monad/getBeefyMonadCowPrices';
@@ -212,7 +211,6 @@ export async function getNonAmmPrices(
     getBeefyCowSonicPrices(tokenPrices),
     getBeefyCowBerachainPrices(tokenPrices),
     getBeefyCowGnosisPrices(tokenPrices),
-    getBeefyCowSagaPrices(tokenPrices),
     getBeefyCowHyperevmPrices(tokenPrices),
     getBeefyCowPlasmaPrices(tokenPrices),
     getBeefyCowMonadPrices(tokenPrices),

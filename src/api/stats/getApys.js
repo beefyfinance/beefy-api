@@ -22,7 +22,6 @@ const { getScrollApys } = require('./scroll');
 const { getLiskApys } = require('./lisk');
 const { getSonicApys } = require('./sonic');
 const { getBerachainApys } = require('./berachain');
-const { getSagaApys } = require('./saga');
 const { getHyperevmApys } = require('./hyperevm');
 const { getPlasmaApys } = require('./plasma');
 const { getMonadApys } = require('./monad');

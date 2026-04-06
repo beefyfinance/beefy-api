@@ -568,7 +568,6 @@ export const blockedTokensByChain: Record<SupportedApiChain, Set<string>> = {
   ]),
   fuse: new Set([addressBook.fuse.tokens.oldBIFI.address]),
   metis: new Set([addressBook.metis.tokens.oldBIFI.address]),
-  moonbeam: new Set([addressBook.moonbeam.tokens.oldBIFI.address]),
   emerald: new Set([addressBook.emerald.tokens.oldBIFI.address]),
   optimism: new Set([
     addressBook.optimism.tokens.L2DAO.address,
@@ -608,7 +607,6 @@ export const blockedTokensByChain: Record<SupportedApiChain, Set<string>> = {
   lisk: new Set([]),
   sonic: new Set([]),
   berachain: new Set([]),
-  saga: new Set([addressBook.saga.tokens.WGAS.address]),
   hyperevm: new Set([]),
   plasma: new Set([]),
   monad: new Set([]),

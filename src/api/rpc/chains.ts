@@ -177,31 +177,6 @@ const moonriverChain = {
   },
 } as const satisfies Chain;
 
-const moonbeamChain = {
-  id: 1284,
-  name: 'Moonbeam',
-  network: 'moonbeam',
-  nativeCurrency: {
-    decimals: 18,
-    name: 'Moonbeam',
-    symbol: 'GLMR',
-  },
-  rpcUrls: {
-    public: { http: getRpcsForChain('moonbeam') },
-    default: { http: getRpcsForChain('moonbeam') },
-  },
-  blockExplorers: {
-    etherscan: { name: 'Moonbeam Explorer', url: 'https://moonbeam-explorer.netlify.app' },
-    default: { name: 'Moonbeam Explorer', url: 'https://moonbeam-explorer.netlify.app' },
-  },
-  contracts: {
-    multicall3: {
-      address: '0xca11bde05977b3631167028862be2a173976ca11',
-      blockCreated: 609_002,
-    },
-  },
-} as const satisfies Chain;
-
 const cronosChain = {
   id: 25,
   name: 'Cronos',
@@ -757,29 +732,6 @@ const hyperevmChain = {
   },
 } as const satisfies Chain;
 
-const sagaChain = {
-  id: 5464,
-  name: 'Saga',
-  network: 'saga',
-  nativeCurrency: {
-    decimals: 18,
-    name: 'GAS',
-    symbol: 'GAS',
-  },
-  rpcUrls: {
-    public: { http: getRpcsForChain('saga') },
-    default: { http: getRpcsForChain('saga') },
-  },
-  blockExplorers: {
-    default: { name: 'saga explorer', url: 'https://sagaevm-5464-1.sagaexplorer.io/' },
-  },
-  contracts: {
-    multicall3: {
-      address: '0x864DDc9B50B9A0dF676d826c9B9EDe9F8913a160',
-    },
-  },
-} as const satisfies Chain;
-
 const berachainChain = {
   id: 80094,
   name: 'Bera',
@@ -927,7 +879,6 @@ export const getChain: Partial<Record<ChainId, Chain>> = {
   [ChainId.arbitrum]: arbitrumChain,
   [ChainId.celo]: celoChain,
   [ChainId.moonriver]: moonriverChain,
-  [ChainId.moonbeam]: moonbeamChain,
   [ChainId.cronos]: cronosChain,
   [ChainId.aurora]: auroraChain,
   [ChainId.fuse]: fuseChain,
@@ -952,7 +903,6 @@ export const getChain: Partial<Record<ChainId, Chain>> = {
   [ChainId.lisk]: liskChain,
   [ChainId.sonic]: sonicChain,
   [ChainId.berachain]: berachainChain,
-  [ChainId.saga]: sagaChain,
   [ChainId.hyperevm]: hyperevmChain,
   [ChainId.plasma]: plasmaChain,
   [ChainId.monad]: monadChain,
