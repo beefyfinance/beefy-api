@@ -44,7 +44,7 @@ export const beefyfinance = {
   beefyMultiHopSwapper: '0xaFb60F2796eDA304f2D37586AD8442D22E692194',
 
   /// Cross-Chain Contracts
-  circleBeefyReceiver: '0xBeef940035C062bb8bEe892087aBa6Cde4F9BeEF',
+  circleBeefyReceiver: '0x00000076f6B75081EF1526C5d9c20D5430f0Beef',
   swappingRelay: '0xfA572f5563411BbF20fC40b0A6A0D5A9fA1aF00D',
   recovery: '0x911048F2eFcd5801F8cdc04EBf6cdc5EE0e76669',
 } as const;

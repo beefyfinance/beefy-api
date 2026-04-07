@@ -40,7 +40,7 @@ export const beefyfinance = {
   beefyUniV4Swapper: '0xa379320eD6636b2f30FaDe3c8b277bF12C089CdA',
 
   /// Cross-Chain Contracts
-  circleBeefyReceiver: '0xBeef940035C062bb8bEe892087aBa6Cde4F9BeEF',
+  circleBeefyReceiver: '0x00000076f6B75081EF1526C5d9c20D5430f0Beef',
   swappingRelay: '0xfA572f5563411BbF20fC40b0A6A0D5A9fA1aF00D',
   recovery: '0x911048F2eFcd5801F8cdc04EBf6cdc5EE0e76669',
 } as const;
