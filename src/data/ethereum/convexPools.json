@@ -1,5 +1,23 @@
 [
   {
+    "name": "curve-oeth-arm",
+    "pool": "0x95753095F15870ACC0cB0Ed224478ea61aeb0b8e",
+    "gauge": "0xfcadecfc207e3329a38821e5b04f88029cc4fa62",
+    "stakeDao": true,
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "OETH",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "ARM-WETH-stETH",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
     "name": "curve-ynrwax-ynusdx",
     "pool": "0xffd3b4d343a8964a5c3c1caac20f319c41a97bff",
     "gauge": "0xb341f2d7e56524b52e3f7989a2e59366e1e5f18f",

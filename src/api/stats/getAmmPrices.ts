@@ -216,6 +216,7 @@ const coinGeckoCoins: Record<string, string[]> = {
   'yneth-max': ['ynETHx'],
   'magma-staked-monad': ['gMON'],
   'paint-swap': ['BRUSH'],
+  'steth-arm-lp-token': ['ARM-WETH-stETH'],
 };
 
 /**
