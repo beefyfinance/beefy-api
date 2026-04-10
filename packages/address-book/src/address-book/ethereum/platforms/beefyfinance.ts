@@ -32,6 +32,12 @@ export const beefyfinance = {
   treasurySwapper: '0x0921E4fA2F85B6461fa83961d28DC7e1f9A32B40',
   assetSwapper: '0x340014C66D49f50c48E6eF0D02aB630F246F1921',
 
+  /// CLM Contracts
+  clmFactory: '0xB9D2c15cE96440A8281adcbaf36BBFc7787e2889',
+  clmStrategyFactory: '0xc77e63Dac916900eE844500Bdb1AF71cfa286968',
+  clmRewardPoolFactory: '0x425f9dF731B5325B1AC51189ee043d2576404405',
+  positionMulticall: '0xcC7dC8c2245C5e024f1caE20d25d71335F84b3AD',
+
   /// Beefy Swapper Contracts
   beefySwapper: '0x0000830DF56616D58976A12D19d283B40e25BEEF',
   beefyOracle: '0xbeEFc6B9d685993b02712D8de8afB29A31c3faf4',
