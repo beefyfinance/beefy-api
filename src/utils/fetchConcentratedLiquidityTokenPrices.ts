@@ -1004,6 +1004,14 @@ const tokens: Partial<Record<keyof typeof ChainId, ConcentratedLiquidityToken[]>
       firstToken: 'FELIX',
       secondToken: 'WETH',
     },
+    {
+      type: 'Slipstream',
+      oracleId: 'basRAVE',
+      decimalDelta: 1e12,
+      pool: '0x51663b8a28e7ea197c5ccf983afc084da0a8023d',
+      firstToken: 'USDC',
+      secondToken: 'basRAVE',
+    },
   ],
   zksync: [
     {
