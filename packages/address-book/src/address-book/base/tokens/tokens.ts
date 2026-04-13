@@ -3396,6 +3396,7 @@ export const tokens = {
       'Play is the native token of the PlaySout platform. PlaySout is a platform for creating and playing games on the Base blockchain.',
     documentation: 'https://playsout.com/explore',
     bridge: 'native',
+    tags: ['LARGE_HOLDERS'],
   },
   FAIR: {
     name: 'Faircaster',
