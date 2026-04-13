@@ -949,6 +949,14 @@ const tokens: Partial<Record<keyof typeof ChainId, ConcentratedLiquidityToken[]>
       secondToken: 'UP',
     },
     {
+      type: 'UniV3',
+      oracleId: 'PLAY',
+      decimalDelta: 1e-12,
+      pool: '0x077F7A989cD6865Aa4Eb7659d844bF4B47ECc5aa',
+      firstToken: 'PLAY',
+      secondToken: 'USDC',
+    },
+    {
       type: 'Slipstream',
       oracleId: 'WCT',
       decimalDelta: 1,
