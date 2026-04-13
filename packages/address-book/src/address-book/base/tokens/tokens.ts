@@ -3384,6 +3384,19 @@ export const tokens = {
     bridge: 'layer-zero',
     tags: ['LARGE_HOLDERS', 'NO_TIMELOCK'],
   },
+  PLAY: {
+    name: 'Play',
+    symbol: 'PLAY',
+    oracleId: 'PLAY',
+    address: '0x853a7c99227499DbA9dB8C3A02aA691aFDeBf841',
+    chainId: 8453,
+    decimals: 18,
+    website: 'https://www.playsout.com/',
+    description:
+      'Play is the native token of the PlaySout platform. PlaySout is a platform for creating and playing games on the Base blockchain.',
+    documentation: 'https://playsout.com/explore',
+    bridge: 'native',
+  },
   FAIR: {
     name: 'Faircaster',
     symbol: 'FAIR',
