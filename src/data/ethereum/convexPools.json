@@ -1,5 +1,41 @@
 [
   {
+    "name": "curve-musd-2pool",
+    "pool": "0xb5571e76693ba60110b5811dd650ffefce1c955f",
+    "gauge": "0x7d6b0d7e8f5e78c0890f9e512ed70f57fd225cac",
+    "stakeDao": true,
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "MUSD",
+        "decimals": "1e18"
+      },
+      {
+        "basePool": "curve-2pool",
+        "oracle": "lps",
+        "oracleId": "convex-2pool",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
+    "name": "curve-2pool",
+    "pool": "0x4f493b7de8aac7d55f71853688b1f7c8f0243c85",
+    "gauge": "0x479dfb03cddea20dc4e8788b81fd7c7a08fd3555",
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "USDC",
+        "decimals": "1e6"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "USDT",
+        "decimals": "1e6"
+      }
+    ]
+  },
+  {
     "name": "curve-oeth-arm",
     "pool": "0x95753095F15870ACC0cB0Ed224478ea61aeb0b8e",
     "gauge": "0xfcadecfc207e3329a38821e5b04f88029cc4fa62",
