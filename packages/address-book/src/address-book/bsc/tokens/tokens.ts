@@ -4661,4 +4661,18 @@ export const tokens = {
     tags: ['LARGE_HOLDERS'],
     documentation: 'https://docs.lab.pro/',
   },
+  GENIUS: {
+    name: 'Genius',
+    symbol: 'GENIUS',
+    oracleId: 'GENIUS',
+    address: '0x1F12B85aAC097E43Aa1555b2881E98a51090e9A6',
+    chainId: 56,
+    decimals: 18,
+    website: 'https://www.tradegenius.com/ ',
+    documentation: 'https://docs.tradegenius.com/ ',
+    description:
+      'GENIUS is the reward token of Genius Terminal, used to incentivize ecosystem participation building on the Genius points program and cover the cost of platform fees.',
+    bridge: 'native',
+    tags: ['LARGE_HOLDERS'],
+  },
 } as const satisfies Record<string, Token>;
