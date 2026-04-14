@@ -27,7 +27,6 @@ const supportedChains = new Set<AppChain>([
   'arbitrum',
   'base',
   'gnosis',
-  'mantle',
   'linea',
   'bsc',
   'zksync',
@@ -135,20 +134,11 @@ export class MerklProvider implements IOffchainRewardProvider {
     const campaignToAprShare = new Map(
       opportunity.aprRecord.breakdowns
         .filter(b => b.type === 'CAMPAIGN')
-        .map(b => [
-          b.identifier,
-          opportunity.aprRecord.cumulated > 0 ? b.value / opportunity.aprRecord.cumulated : 0,
-        ])
+        .map(b => [b.identifier, opportunity.aprRecord.cumulated > 0 ? b.value / opportunity.aprRecord.cumulated : 0])
     );
 
     return opportunity.campaigns.map(c =>
-      this.getCampaign(
-        opportunity,
-        c,
-        campaignToAprShare.get(c.campaignId) ?? 0,
-        chainId,
-        vaultsByPoolAddress
-      )
+      this.getCampaign(opportunity, c, campaignToAprShare.get(c.campaignId) ?? 0, chainId, vaultsByPoolAddress)
     );
   }
 
@@ -265,9 +255,7 @@ export class MerklProvider implements IOffchainRewardProvider {
     );
 
     const computeChain = apiCampaign.computeChainId ? fromChainNumber(apiCampaign.computeChainId) : undefined;
-    const claimChain = apiCampaign.distributionChainId
-      ? fromChainNumber(apiCampaign.distributionChainId)
-      : undefined;
+    const claimChain = apiCampaign.distributionChainId ? fromChainNumber(apiCampaign.distributionChainId) : undefined;
 
     return {
       id: `merkl:${apiCampaign.campaignId}`,
@@ -288,9 +276,9 @@ export class MerklProvider implements IOffchainRewardProvider {
       },
       vaults: vaultsWithApr,
       type: this.getCampaignType(getAddress(apiCampaign.creator.address), chainId),
-      url: `https://app.merkl.xyz/opportunities/${this.chainToSlug(apiOpportunity.chain.name)}/${
-        apiOpportunity.type
-      }/${apiOpportunity.identifier}`,
+      url: `https://app.merkl.xyz/opportunities/${this.chainToSlug(apiOpportunity.chain.name)}/${apiOpportunity.type}/${
+        apiOpportunity.identifier
+      }`,
     };
   }
 
@@ -301,9 +289,7 @@ export class MerklProvider implements IOffchainRewardProvider {
       .replace(/-{2,}/g, '-');
   }
 
-  protected async fetchOpportunitiesForChain(
-    chainId: AppChain
-  ): Promise<MerklApiOpportunitiesWithCampaignsResponse> {
+  protected async fetchOpportunitiesForChain(chainId: AppChain): Promise<MerklApiOpportunitiesWithCampaignsResponse> {
     /**
      * @dev paging (page/items) is broken on /v4/opportunities/campaigns
      * so we are using the /v4/opportunities endpoint with ?campaigns=true
