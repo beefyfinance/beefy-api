@@ -1,15 +1,9 @@
 import getBalancerPrices from '../api/stats/common/balancer/getBalancerPrices';
 import beetsLinearPools from '../data/optimism/beethovenxLinearPools.json';
 import balancerLinearPools from '../data/ethereum/balancerLinearPools.json';
-import balancerPolyLinearPools from '../data/matic/balancerLinearPools.json';
 import balancerArbLinearPools from '../data/arbitrum/balancerLinearPools.json';
 
-const linearPoolPools = [
-  ...beetsLinearPools,
-  ...balancerLinearPools,
-  ...balancerPolyLinearPools,
-  ...balancerArbLinearPools,
-];
+const linearPoolPools = [...beetsLinearPools, ...balancerLinearPools, ...balancerArbLinearPools];
 
 const fetchBalancerLinearPoolPrice = async tokenPrices => {
   let prices = {};

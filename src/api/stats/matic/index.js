@@ -1,24 +1,12 @@
 const { getCurveApys } = require('./getCurveApys');
 const { getConvexApys } = require('./getConvexApys');
-const getStargateApys = require('./getStargatePolygonApys');
-const getBalancerPolyApys = require('./getBalancerPolyApys');
-const { getAaveV3Apys } = require('./getAaveV3Apys');
-const { getGnsApys } = require('./getGnsApys');
-const getAuraPolygonApys = require('./getAuraPolygonApys');
-const { getPolygonCompoundV3Apys } = require('./getPolygonCompoundApys');
 const { getBeefyCowPolyApys } = require('./getBeefyCowPolyApys');
 const { getMorphoApys } = require('../common/morpho/getMorphoApys');
 const { POLYGON_CHAIN_ID } = require('../../../constants');
 
 const getApys = [
   getCurveApys,
-  getConvexApys,
-  getStargateApys,
-  getBalancerPolyApys,
-  getAaveV3Apys,
-  getGnsApys,
-  getAuraPolygonApys,
-  getPolygonCompoundV3Apys,
+  // getConvexApys,
   getBeefyCowPolyApys,
   () => getMorphoApys(POLYGON_CHAIN_ID, require('../../../data/matic/morphoPools.json')),
 ];

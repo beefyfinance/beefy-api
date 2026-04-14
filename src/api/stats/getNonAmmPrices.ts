@@ -7,7 +7,6 @@ import getBeetsOPPrices from './optimism/getBeetsOPPrices';
 import getBalancerArbPrices from './arbitrum/getBalancerArbPrices';
 import getBalancerAvaxPrices from './avax/getBalancerPrices';
 import getBalancerBasePrices from './base/getBalancerPrices';
-import getBalancerPolyPrices from './matic/getBalancerPolyPrices';
 import getBalancerMonadPrices from './monad/getBalancerMonadPrices';
 import getBeetsSonicPrices from './sonic/getBeetsSonicPrices';
 import getVelodromeStablePrices from './optimism/getVelodromeStablePrices';
@@ -23,7 +22,6 @@ import getStargateEthPrices from './ethereum/getStargateEthPrices';
 import getStargateArbPrices from './arbitrum/getStargateArbPrices';
 import getStargateAvaxPrices from './avax/getStargateAvaxPrices';
 import getStargateBscPrices from './bsc/stargate/getStargateBscPrices';
-import getStargatePolygonPrices from './matic/getStargatePolygonPrices';
 import getStargateOpPrices from './optimism/getStargateOpPrices';
 import getOlpPrices from './optimism/getOlpPrices';
 import getThenaStablePrices from './bsc/getThenaStablePrices';
@@ -35,7 +33,6 @@ import getUniswapArbitrumPrices from './arbitrum/getUniswapPositionPrices';
 import getUniswapEthereumPrices from './ethereum/getUniswapPositionPrices';
 import getUniswapEthereumGammaPrices from './ethereum/getUniswapGammaPrices';
 import getAerodromePositionPrices from './base/getAerodromePositionPrices';
-import getGammaPolygonPrices from './matic/getGammaPolygonPrices';
 import { getAerodromeStablePrices } from './base/getAerodromeStablePrices';
 import getBalancerGnosisPrices from './gnosis/getBalancerGnosisPrices';
 import getCurvePricesCommon from './common/curve/getCurvePricesCommon';
@@ -149,7 +146,6 @@ export async function getNonAmmPrices(
     getThenaStablePrices(tokenPrices),
     getOlpPrices(),
     getStargateOpPrices(tokenPrices),
-    getStargatePolygonPrices(tokenPrices),
     getStargateBscPrices(tokenPrices),
     getStargateAvaxPrices(tokenPrices),
     getStargateArbPrices(tokenPrices),
@@ -167,7 +163,6 @@ export async function getNonAmmPrices(
     getAerodromeStablePrices(tokenPrices),
     getBalancerAvaxPrices(tokenPrices),
     getBalancerBasePrices(tokenPrices),
-    getBalancerPolyPrices(tokenPrices),
     getBalancerArbPrices(tokenPrices),
     getBalancerGnosisPrices(tokenPrices),
     getBalancerMonadPrices(tokenPrices),
@@ -188,7 +183,6 @@ export async function getNonAmmPrices(
     getCurvePricesCommon(MONAD_CHAIN_ID, require('../../data/monad/curvePools.json'), tokenPrices),
     getCurveBasePrices(tokenPrices),
     getBscGammaPrices(tokenPrices),
-    getGammaPolygonPrices(tokenPrices),
     getUniswapEthereumGammaPrices(tokenPrices),
     getGammaLineaPrices(tokenPrices),
     getLynexStablePrices(tokenPrices),
