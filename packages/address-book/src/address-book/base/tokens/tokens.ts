@@ -3488,6 +3488,6 @@ export const tokens = {
       'RAVE is the native token of RaveDAO and is integral to the growth of its decentralized cultural network, serving as the coordination layer for governance, rewards, and real-world participation across events, creators, and communities.',
     documentation: 'https://ravedao.gitbook.io/',
     bridge: 'layer-zero',
-    tags: ['LARGE_HOLDERS'],
+    tags: ['LARGE_HOLDERS', 'NO_TIMELOCK'],
   },
 } as const satisfies Record<string, Token>;
