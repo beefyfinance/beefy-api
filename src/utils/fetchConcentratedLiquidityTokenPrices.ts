@@ -1464,6 +1464,14 @@ const tokens: Partial<Record<keyof typeof ChainId, ConcentratedLiquidityToken[]>
       firstToken: 'USDT',
       secondToken: 'GENIUS',
     },
+    {
+      type: 'UniV3',
+      oracleId: 'bnbZEC',
+      decimalDelta: 1,
+      pool: '0xbf3693031c272be6d539d79a9715561229a8fba9',
+      firstToken: 'BTCB',
+      secondToken: 'bnbZEC',
+    },
   ],
   gnosis: [
     {

@@ -257,7 +257,6 @@ export const blockedTokensByChain: Record<SupportedApiChain, Set<string>> = {
     addressBook.bsc.tokens.XWG.address,
     addressBook.bsc.tokens.YEL.address,
     addressBook.bsc.tokens.YFI.address,
-    addressBook.bsc.tokens.ZEC.address,
     addressBook.bsc.tokens.ZEFI.address,
     addressBook.bsc.tokens.ZIL.address,
     addressBook.bsc.tokens.aBNBc.address,
