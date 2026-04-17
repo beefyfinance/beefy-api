@@ -2006,7 +2006,7 @@ export const tokens = {
     description:
       'ZRO is the native asset of the LayerZero protocol. LayerZero is an omnichain interoperability protocol that supports censorship-resistant messages and permissionless development through immutable smart contracts called Endpoints.',
     bridge: 'layer-zero',
-    tags: ['BLUECHIP'],
+    tags: ['BLUECHIP', 'NO_TIMELOCK'],
   },
   ShezUSD: {
     name: 'ShezmuUSD',
