@@ -69,7 +69,7 @@ export const tokens = {
     website: 'https://canto.io/',
     documentation: 'https://docs.canto.io/overview/canto-unit-of-account-usdnote',
     description:
-      '$NOTE is the unit of account on Canto. $NOTE is an over-collateralized currency with a value perpetually rebalanced toward $1 through an algorithmic interest rate policy. ',
+      '$NOTE is the unit of account on Canto. $NOTE is an over-collateralized currency with a value perpetually rebalanced toward $1 through an algorithmic interest rate policy.',
     bridge: 'native',
     tags: ['STABLECOIN', 'SYNTHETIC'],
   },
