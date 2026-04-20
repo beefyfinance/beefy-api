@@ -6,7 +6,18 @@ export type ApiChain = keyof typeof ChainId;
 export type AppChain = Exclude<ApiChain, 'one'> | 'harmony';
 export type AnyChain = AppChain | ApiChain;
 
-const DEPRECATED_CHAINS = ['heco', 'real', 'one', 'unichain', 'saga', 'moonbeam'] as const;
+const DEPRECATED_CHAINS = [
+  'heco',
+  'real',
+  'one',
+  'unichain',
+  'saga',
+  'moonbeam',
+  'fantom',
+  'manta',
+  'kava',
+  'canto',
+] as const;
 
 export type SupportedApiChain = Exclude<ApiChain, (typeof DEPRECATED_CHAINS)[number]>;
 

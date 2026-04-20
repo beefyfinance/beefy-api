@@ -77,31 +77,6 @@ const polygonChain = {
   },
 } as const satisfies Chain;
 
-const fantomChain = {
-  id: 250,
-  name: 'Fantom',
-  network: 'fantom',
-  nativeCurrency: {
-    decimals: 18,
-    name: 'Fantom',
-    symbol: 'FTM',
-  },
-  rpcUrls: {
-    public: { http: getRpcsForChain('fantom') },
-    default: { http: getRpcsForChain('fantom') },
-  },
-  blockExplorers: {
-    etherscan: { name: 'BscScan', url: 'https://bscscan.com' },
-    default: { name: 'BscScan', url: 'https://bscscan.com' },
-  },
-  contracts: {
-    multicall3: {
-      address: '0xca11bde05977b3631167028862be2a173976ca11',
-      blockCreated: 33_001_987,
-    },
-  },
-} as const satisfies Chain;
-
 const arbitrumChain = {
   id: 42161,
   name: 'Arbitrum',
@@ -334,30 +309,6 @@ const optimismChain = {
   },
 } as const satisfies Chain;
 
-const kavaChain = {
-  id: 2222,
-  name: 'Kava',
-  network: 'kava',
-  nativeCurrency: {
-    decimals: 18,
-    name: 'Kava',
-    symbol: 'KAVA',
-  },
-  rpcUrls: {
-    public: { http: getRpcsForChain('kava') },
-    default: { http: getRpcsForChain('kava') },
-  },
-  blockExplorers: {
-    default: { name: 'Kava Explorer', url: 'https://explorer.kava.io' },
-  },
-  contracts: {
-    multicall3: {
-      address: '0xca11bde05977b3631167028862be2a173976ca11',
-      blockCreated: 3_661_165,
-    },
-  },
-} as const satisfies Chain;
-
 const ethereumChain = {
   id: 1,
   name: 'Ethereum',
@@ -379,30 +330,6 @@ const ethereumChain = {
     multicall3: {
       address: '0xca11bde05977b3631167028862be2a173976ca11',
       blockCreated: 14_353_601,
-    },
-  },
-} as const satisfies Chain;
-
-const cantoChain = {
-  id: 7700,
-  name: 'Canto',
-  network: 'canto',
-  nativeCurrency: {
-    decimals: 18,
-    name: 'Canto',
-    symbol: 'CANTO',
-  },
-  rpcUrls: {
-    public: { http: getRpcsForChain('canto') },
-    default: { http: getRpcsForChain('canto') },
-  },
-  blockExplorers: {
-    default: { name: 'Canto Explorer', url: 'https://cantoscan.com/' },
-  },
-  contracts: {
-    multicall3: {
-      address: '0xca11bde05977b3631167028862be2a173976ca11',
-      blockCreated: 0,
     },
   },
 } as const satisfies Chain;
@@ -584,29 +511,6 @@ const modeChain = {
   },
   blockExplorers: {
     default: { name: 'Mode Explorer', url: 'https://explorer.mode.network/' },
-  },
-  contracts: {
-    multicall3: {
-      address: '0xca11bde05977b3631167028862be2a173976ca11',
-    },
-  },
-} as const satisfies Chain;
-
-const mantaChain = {
-  id: 169,
-  name: 'Manta',
-  network: 'manta',
-  nativeCurrency: {
-    decimals: 18,
-    name: 'ETH',
-    symbol: 'ETH',
-  },
-  rpcUrls: {
-    public: { http: getRpcsForChain('manta') },
-    default: { http: getRpcsForChain('manta') },
-  },
-  blockExplorers: {
-    default: { name: 'Manta Pacific Explorer', url: 'https://pacific-explorer.manta.network/' },
   },
   contracts: {
     multicall3: {
@@ -875,7 +779,6 @@ export const getChain: Partial<Record<ChainId, Chain>> = {
   [ChainId.avax]: avalancheChain,
   [ChainId.bsc]: bscChain,
   [ChainId.polygon]: polygonChain,
-  [ChainId.fantom]: fantomChain,
   [ChainId.arbitrum]: arbitrumChain,
   [ChainId.celo]: celoChain,
   [ChainId.moonriver]: moonriverChain,
@@ -885,9 +788,7 @@ export const getChain: Partial<Record<ChainId, Chain>> = {
   [ChainId.metis]: metisChain,
   [ChainId.emerald]: emeraldChain,
   [ChainId.optimism]: optimismChain,
-  [ChainId.kava]: kavaChain,
   [ChainId.ethereum]: ethereumChain,
-  [ChainId.canto]: cantoChain,
   [ChainId.zksync]: zkSyncChain,
   [ChainId.zkevm]: zkEvmChain,
   [ChainId.base]: baseChain,
@@ -896,7 +797,6 @@ export const getChain: Partial<Record<ChainId, Chain>> = {
   [ChainId.mantle]: mantleChain,
   [ChainId.fraxtal]: fraxtalChain,
   [ChainId.mode]: modeChain,
-  [ChainId.manta]: mantaChain,
   [ChainId.sei]: seiChain,
   [ChainId.rootstock]: rootstockChain,
   [ChainId.scroll]: scrollChain,

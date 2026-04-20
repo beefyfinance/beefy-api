@@ -6,7 +6,6 @@ import arbitrumPools from '../../data/arbitrum/beefyCowVaults.json';
 import lineaPools from '../../data/linea/beefyCowVaults.json';
 import polygonPools from '../../data/matic/beefyCowVaults.json';
 import zksyncPools from '../../data/zksync/beefyCowVaults.json';
-import mantaPools from '../../data/manta/beefyCowVaults.json';
 import mantlePools from '../../data/mantle/beefyCowVaults.json';
 import seiPools from '../../data/sei/beefyCowVaults.json';
 import bscPools from '../../data/bsc/beefyCowVaults.json';
@@ -29,7 +28,6 @@ const chainToClms: Readonly<Partial<Record<ApiChain, CowClm[]>>> = {
   linea: validateCowClms(lineaPools),
   polygon: validateCowClms(polygonPools),
   zksync: validateCowClms(zksyncPools),
-  manta: validateCowClms(mantaPools),
   mantle: validateCowClms(mantlePools),
   sei: validateCowClms(seiPools),
   bsc: validateCowClms(bscPools),

@@ -72,7 +72,6 @@ import { getBeefyCowLineaPrices } from './linea/getBeefyLineaCowPrices';
 import getOptimismSiloPrices from './optimism/getOptimismSiloPrices';
 import { getBeefyCowPolyPrices } from './matic/getBeefyPolyCowPrices';
 import { getBeefyCowZkSyncPrices } from './zksync/getBeefyCowZkSyncPrices';
-import { getBeefyCowMantaPrices } from './manta/getBeefyMantaCowPrices';
 import { getBeefyCowMantlePrices } from './mantle/getBeefyMantleCowPrices';
 import { getBeefyCowSeiPrices } from './sei/getBeefySeiCowPrices';
 import { getBeefyCowBscPrices } from './bsc/getBeefyCowBscPrices';
@@ -193,7 +192,6 @@ export async function getNonAmmPrices(
     getBeefyCowLineaPrices(tokenPrices),
     getBeefyCowPolyPrices(tokenPrices),
     getBeefyCowZkSyncPrices(tokenPrices),
-    getBeefyCowMantaPrices(tokenPrices),
     getBeefyCowMantlePrices(tokenPrices),
     getBeefyCowSeiPrices(tokenPrices),
     getBeefyCowBscPrices(tokenPrices),
