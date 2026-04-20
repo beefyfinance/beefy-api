@@ -1889,14 +1889,18 @@ export const tokens = {
       'Cyclone is the world first cross-chain, yield enhancement, zkSNARKs-based privacy protocol for all DeFi apps, with the decentralized governance and fair launch.',
   },
   ZEC: {
-    name: 'Z-Cash',
+    name: 'ZCash',
     symbol: 'ZEC',
-    oracleId: 'ZEC',
+    oracleId: 'bnbZEC',
     address: '0x1Ba42e5193dfA8B03D15dd1B86a3113bbBEF8Eeb',
     chainId: 56,
     decimals: 18,
     website: 'https://z.cash/',
-    description: 'Zcash is a digital currency - fast and confidential with low fees.',
+    description:
+      'Zcash is a cryptocurrency that uses zero-knowledge proofs to enable private, shielded transactions where sender, receiver, and amount can be hidden.',
+    bridge: 'binance-peg',
+    documentation: 'https://zcash.readthedocs.io/ ',
+    tags: ['BLUECHIP'],
   },
   ETC: {
     name: 'Ethereum Classic',
