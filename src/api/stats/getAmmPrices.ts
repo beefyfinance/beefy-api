@@ -57,7 +57,6 @@ import { sleep } from '../../utils/time';
 import { isFiniteNumber } from '../../utils/number';
 import { serviceEventBus } from '../../utils/ServiceEventBus';
 import { fetchChainLinkPrices } from '../../utils/fetchChainLinkPrices';
-import { getLpBasedPrices } from './getLpBasedPrices';
 import { fetchDexScreenerPriceOracles, OraclePriceRequest } from '../../utils/fetchDexScreenerPrices';
 import { promiseTiming } from '../../utils/timing';
 import { getBeTokenPrices } from './getBeTokenPrices';
@@ -584,21 +583,12 @@ async function performUpdateAmmPrices() {
     log('> [PRICE SERVICE] Fetching non-AMM prices...');
     const nonAmmPrices = await promiseTiming(getNonAmmPrices(resolvedTokenPrices, poolPrices), 'getNonAmmPrices');
     log('> [PRICE SERVICE] Non-AMM prices completed');
-
-    log('> [PRICE SERVICE] Fetching LP-based prices...');
-    const pendlePrices = await promiseTiming(
-      getLpBasedPrices(resolvedTokenPrices, poolPrices, nonAmmPrices),
-      'getLpBasedPrices'
-    );
-    log('> [PRICE SERVICE] LP-based prices completed');
-
     log('> [PRICE SERVICE] Consolidating LP data...');
     return {
-      prices: { ...poolPrices, ...nonAmmPrices.prices, ...pendlePrices.prices },
+      prices: { ...poolPrices, ...nonAmmPrices.prices },
       breakdown: {
         ...lpsBreakdown,
         ...nonAmmPrices.breakdown,
-        ...pendlePrices.breakdown,
       },
     };
   });

@@ -20,7 +20,6 @@ const { ARBITRUM_CHAIN_ID: chainId } = require('../../../constants');
 const getApys = [
   getAuraArbitrumApys,
   // getGnsApys,
-  () => getPendleApys(require('../../../data/arbitrum/pendlePools.json')),
   getMimApys,
   // getGmxV2Apys,
   getGmxApys,
