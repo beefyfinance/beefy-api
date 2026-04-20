@@ -1,5 +1,56 @@
 [
   {
+    "address": "0xB8ECB8fcAEcB35152aE8884b4e381b011f606462",
+    "lpAddress": "0xf39B7c34BE147F5DC1bC374f27AF2E9f03AD3113",
+    "tokens": ["0x60a3E35Cc302bFA44Cb288Bc5a4F316Fdb1adb42", "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913"],
+    "tokenOracleIds": ["EURC", "USDC"],
+    "decimals": [6, 6],
+    "oracleId": "aerodrome-cow-base-eurc-usdc",
+    "providerId": "aerodrome",
+    "rewardPool": {
+      "address": "0x39c8DC45f809E9422Ed3D0B6fff74ADb71eB4DaF",
+      "oracleId": "aerodrome-cow-base-eurc-usdc-rp"
+    },
+    "vault": {
+      "address": "0x258187aBCD1f896b1500B8f293ed518f37f77acc",
+      "oracleId": "aerodrome-cow-base-eurc-usdc-vault"
+    }
+  },
+  {
+    "address": "0xEC27a452d0D7e349CB46379e59000f0B5f4f071b",
+    "lpAddress": "0x9D14ff91AE2c6e3D1A760542248B6c7F206894b0",
+    "tokens": ["0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913", "0xcbB7C0000aB88B473b1f5aFd9ef808440eed33Bf"],
+    "tokenOracleIds": ["USDC", "cbBTC"],
+    "decimals": [6, 8],
+    "oracleId": "aerodrome-cow-base-usdc-cbbtc-v2",
+    "providerId": "aerodrome",
+    "rewardPool": {
+      "address": "0x746D3B6176AF55fAD871E2f67B371e6cD70dDfca",
+      "oracleId": "aerodrome-cow-base-usdc-cbbtc-v2-rp"
+    },
+    "vault": {
+      "address": "0xBefb939705329e65E2265Cf0B9cb1DE2d67B0114",
+      "oracleId": "aerodrome-cow-base-usdc-cbbtc-v2-vault"
+    }
+  },
+  {
+    "address": "0x7e0F462A961f8389c1348684465D779bf7af75B3",
+    "lpAddress": "0x7C7420DD105E2779316423Ba3E973f434315EFA9",
+    "tokens": ["0x4200000000000000000000000000000000000006", "0xcbB7C0000aB88B473b1f5aFd9ef808440eed33Bf"],
+    "tokenOracleIds": ["WETH", "cbBTC"],
+    "decimals": [18, 8],
+    "oracleId": "aerodrome-cow-base-weth-cbbtc-v2",
+    "providerId": "aerodrome",
+    "rewardPool": {
+      "address": "0x98300Ce245b552ea3d55F6f46c0A6505613f5Af9",
+      "oracleId": "aerodrome-cow-base-weth-cbbtc-v2-rp"
+    },
+    "vault": {
+      "address": "0x57f7327844879638517CcF3fB9B604F20299cB42",
+      "oracleId": "aerodrome-cow-base-weth-cbbtc-v2-vault"
+    }
+  },
+  {
     "address": "0x76aB3892C202E1100E8df4c09D4Ac3A07bFA345A",
     "lpAddress": "0x62916B911F2B64d0e3A3b72472D6f8C08c75DcAA",
     "tokens": ["0xcb585250f852C6c6bf90434AB21A00f02833a4af", "0xcbB7C0000aB88B473b1f5aFd9ef808440eed33Bf"],
