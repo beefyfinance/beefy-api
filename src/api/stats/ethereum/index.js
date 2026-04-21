@@ -10,7 +10,6 @@ const { getETHCompoundV3Apys } = require('./getEthCompoundApys');
 const { getbeQIApy } = require('./getbeQIApy');
 const { getFxApys } = require('./getFxApys');
 const { getSkyApy } = require('./getSkyApy');
-const { getTokemakApys } = require('./getTokemakApys');
 const { getMorphoApys } = require('../common/morpho/getMorphoApys');
 const { ETH_CHAIN_ID } = require('../../../constants');
 const getStargateEthApys = require('./getStargateEthApys');
@@ -33,7 +32,6 @@ const getApys = [
   () => getMorphoApys(ETH_CHAIN_ID, require('../../../data/ethereum/morphoPools.json')),
   getETHCompoundV3Apys,
   getSkyApy,
-  getTokemakApys,
   getStargateEthApys,
 ];
 

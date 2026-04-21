@@ -24,18 +24,6 @@
     }
   },
   {
-    "address": "0x611B6a9c0461c26Aa3ab04355e7813291652b1ad",
-    "lpAddress": "0xD0553A0853C57267c1F2E212347002B052595558",
-    "tokens": ["0x5Cf6826140C1C56Ff49C808A1A75407Cd1DF9423", "0xE30feDd158A2e3b13e9badaeABaFc5516e95e8C7"],
-    "tokenOracleIds": ["iSEI", "WSEI"],
-    "decimals": [6, 18],
-    "oracleId": "dragon-cow-isei-wsei-500",
-    "rewardPool": {
-      "address": "0xB80114171cA830e4575aD06A50aFDF392f7D67f2",
-      "oracleId": "dragon-cow-isei-wsei-500-rp"
-    }
-  },
-  {
     "address": "0xB99813c691d8A1825b839BA3a26642e39B63Cc06",
     "lpAddress": "0x882f62fe8E9594470D1da0f70Bc85096F6c60423",
     "tokens": ["0x3894085Ef7Ff0f0aeDf52E2A2704928d1Ec074F1", "0xE30feDd158A2e3b13e9badaeABaFc5516e95e8C7"],
@@ -57,30 +45,6 @@
     "rewardPool": {
       "address": "0x8A69092cA0097e61EF1fE3C87121cF683b16E5Ad",
       "oracleId": "dragon-cow-usdt-wsei-rp"
-    }
-  },
-  {
-    "address": "0xE4b150c9235755771c5aBFb807a7483c44ab17a2",
-    "lpAddress": "0x9788C190C55a1C6e20597d52506bD49BB758E984",
-    "tokens": ["0x5Cf6826140C1C56Ff49C808A1A75407Cd1DF9423", "0xE30feDd158A2e3b13e9badaeABaFc5516e95e8C7"],
-    "tokenOracleIds": ["iSEI", "WSEI"],
-    "decimals": [6, 18],
-    "oracleId": "dragon-cow-isei-wsei",
-    "rewardPool": {
-      "address": "0x844fDc2AD949143Be35E65cA30BA25d36b9118a1",
-      "oracleId": "dragon-cow-isei-wsei-rp"
-    }
-  },
-  {
-    "address": "0x5963A36AB64e9Da637b1344e8ed514144a59dA3E",
-    "lpAddress": "0xdEfD8471d614C7194824c140eFE17C005CB36008",
-    "tokens": ["0x3894085Ef7Ff0f0aeDf52E2A2704928d1Ec074F1", "0x5Cf6826140C1C56Ff49C808A1A75407Cd1DF9423"],
-    "tokenOracleIds": ["USDCn", "iSEI"],
-    "decimals": [6, 6],
-    "oracleId": "dragon-cow-usdc-isei",
-    "rewardPool": {
-      "address": "0xf3791f31c6143837d9d4A3A78f3212771FdAA6c2",
-      "oracleId": "dragon-cow-usdc-isei-rp"
     }
   },
   {

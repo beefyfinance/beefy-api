@@ -1,4 +1,3 @@
-import { getEllipsisPrices } from './bsc/getEllipsisPrices';
 import getCurvePolygonPrices from './matic/getCurvePrices';
 import getCurveArbitrumPrices from './arbitrum/getCurvePrices';
 import getCurveOptimismPrices from './optimism/getCurvePrices';
@@ -21,13 +20,10 @@ import getStargateLineaPrices from './linea/getStargateLineaPrices';
 import getStargateEthPrices from './ethereum/getStargateEthPrices';
 import getStargateArbPrices from './arbitrum/getStargateArbPrices';
 import getStargateAvaxPrices from './avax/getStargateAvaxPrices';
-import getStargateBscPrices from './bsc/stargate/getStargateBscPrices';
 import getStargateOpPrices from './optimism/getStargateOpPrices';
 import getOlpPrices from './optimism/getOlpPrices';
-import getThenaStablePrices from './bsc/getThenaStablePrices';
 import getSolidLizardStablePrices from './arbitrum/getSolidLizardStablePrices';
 import getRamsesStablePrices from './arbitrum/getRamsesStablePrices';
-import getBscGammaPrices from './bsc/getBscGammaPrices';
 import { getCurveBasePrices } from './base/getCurvePrices';
 import getUniswapArbitrumPrices from './arbitrum/getUniswapPositionPrices';
 import getUniswapEthereumPrices from './ethereum/getUniswapPositionPrices';
@@ -94,7 +90,6 @@ import getSonicSiloPrices from './sonic/getSonicSiloPrices';
 import getVenusArbPrices from './arbitrum/getVenusArbPrices';
 import getVenusZkPrices from './zksync/getVenusZkPrices';
 import getTokemakEthPrices from './ethereum/getTokemakEthPrices';
-import getTokemakBasePrices from './base/getTokemakBasePrices';
 import { getBeefyCowSonicPrices } from './sonic/getBeefySonicCowPrices';
 import { getMorphoPrices } from './common/morpho/getMorphoPrices';
 import { getAaveV3Prices } from './common/aave/getAaveV3Prices';
@@ -142,10 +137,8 @@ export async function getNonAmmPrices(
     getRamsesStablePrices(tokenPrices),
     getSolidLizardStablePrices(tokenPrices),
     getMimSwapPrices(tokenPrices),
-    getThenaStablePrices(tokenPrices),
     getOlpPrices(),
     getStargateOpPrices(tokenPrices),
-    getStargateBscPrices(tokenPrices),
     getStargateAvaxPrices(tokenPrices),
     getStargateArbPrices(tokenPrices),
     getStargateEthPrices(tokenPrices),
@@ -169,7 +162,6 @@ export async function getNonAmmPrices(
     getBeetsOPPrices(tokenPrices),
     getBeraswapPrices(tokenPrices),
     getKodiakPrices(tokenPrices),
-    getEllipsisPrices(tokenPrices),
     getCurveEthereumPrices(tokenPrices),
     getCurvePolygonPrices(tokenPrices),
     getCurveArbitrumPrices(tokenPrices),
@@ -181,7 +173,6 @@ export async function getNonAmmPrices(
     getCurvePricesCommon(PLASMA_CHAIN_ID, require('../../data/plasma/curvePools.json'), tokenPrices),
     getCurvePricesCommon(MONAD_CHAIN_ID, require('../../data/monad/curvePools.json'), tokenPrices),
     getCurveBasePrices(tokenPrices),
-    getBscGammaPrices(tokenPrices),
     getUniswapEthereumGammaPrices(tokenPrices),
     getGammaLineaPrices(tokenPrices),
     getLynexStablePrices(tokenPrices),
@@ -231,7 +222,6 @@ export async function getNonAmmPrices(
     getVenusArbPrices(tokenPrices),
     getVenusZkPrices(tokenPrices),
     getTokemakEthPrices(tokenPrices),
-    getTokemakBasePrices(tokenPrices),
     getSiloPrices(AVAX_CHAIN_ID, require('../../data/avax/siloPools.json'), tokenPrices),
     getSiloPrices(ARB_CHAIN_ID, require('../../data/arbitrum/siloV2Pools.json'), tokenPrices),
     getAerodromePositionPrices(tokenPrices),

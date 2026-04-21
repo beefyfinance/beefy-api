@@ -15,9 +15,6 @@ import { getKey, setKey } from '../../utils/cache';
 import { envBoolean } from '../../utils/env';
 
 import getNonAmmPrices from './getNonAmmPrices';
-import ellipsisPools from '../../data/bsc/ellipsisLpPools.json';
-import mdexBscPools from '../../data/bsc/mdexBscLpPools.json';
-import oldPools from '../../data/archive/oldLpPools.json';
 import mooTokens from '../../data/mooTokens.json';
 import vvsPools from '../../data/cronos/vvsLpPools.json';
 import cronaPools from '../../data/cronos/cronaLpPools.json';
@@ -28,7 +25,6 @@ import vvsDualPools from '../../data/cronos/vvsDualLpPools.json';
 import velodromePools from '../../data/optimism/velodromeLpPools.json';
 import oldVelodromePools from '../../data/optimism/oldVelodromeLpPools.json';
 import ripaeCronosPools from '../../data/cronos/ripaeLpPools.json';
-import thenaPools from '../../data/bsc/thenaLpPools.json';
 import solidLizardPools from '../../data/arbitrum/solidlizardLpPools.json';
 import versePools from '../../data/ethereum/verseLpPools.json';
 import ramsesPools from '../../data/arbitrum/ramsesLpPools.json';
@@ -92,7 +88,6 @@ const pools = normalizePoolOracleIds([
   ...ramsesPools,
   ...versePools,
   ...solidLizardPools,
-  ...thenaPools,
   ...ripaeCronosPools,
   ...velodromePools,
   ...oldVelodromePools,
@@ -100,11 +95,8 @@ const pools = normalizePoolOracleIds([
   ...darkCryptoPools,
   ...netswapPools,
   ...liquidusPools,
-  ...oldPools,
   ...cronaPools,
   ...vvsPools,
-  ...mdexBscPools,
-  ...ellipsisPools,
 ]);
 
 /**
@@ -216,6 +208,15 @@ const coinGeckoCoins: Record<string, string[]> = {
   'magma-staked-monad': ['gMON'],
   'paint-swap': ['BRUSH'],
   'steth-arm-lp-token': ['ARM-WETH-stETH'],
+  gmx: ['GMX'],
+  'curve-dao-token': ['CRV'],
+  'convex-finance': ['CVX'],
+  'worldcoin-wld': ['WLD'],
+  'bridged-usdc-polygon-pos-bridge': ['pUSDCe'],
+  xdai: ['WXDAI'],
+  sky: ['SKY'],
+  joe: ['JOE'],
+  'spell-token': ['SPELL'],
 };
 
 /**
@@ -231,11 +232,6 @@ const dexscreenerCoins: OraclePriceRequest[] = [
     oracleId: 'arbUSD+',
     tokenAddress: '0xe80772Eaf6e2E18B651F160Bc9158b2A5caFCA65',
     chainId: 'arbitrum',
-  },
-  {
-    oracleId: 'mantleUSDe',
-    tokenAddress: '0x5d3a1Ff2b6BAb83b63cd9AD0787074081a52ef34',
-    chainId: 'mantle',
   },
   {
     oracleId: 'baseHAI',
@@ -364,6 +360,7 @@ const seedPeggedPrices = {
   USDT0: 'USDT',
   USDCn: 'USDC',
   WMON: 'MON',
+  USDCe: 'USDC',
 };
 
 export type BaseLpBreakdown = {

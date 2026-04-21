@@ -1022,7 +1022,7 @@ export const tokens = {
     name: 'ChainLink Token',
     address: '0x53E0bca35eC356BD5ddDFebbD1Fc0fD03FaBad39',
     symbol: 'LINK',
-    oracleId: 'oldLINK',
+    oracleId: 'LINK',
     decimals: 18,
     website: 'https://chain.link/',
     description:

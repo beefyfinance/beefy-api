@@ -1670,31 +1670,6 @@
     ]
   },
   {
-    "name": "convex-usdd",
-    "pool": "0xe6b5CC1B4b47305c58392CE3D359B10282FC36Ea",
-    "token": "0xe6b5CC1B4b47305c58392CE3D359B10282FC36Ea",
-    "rewardPool": "0x7D475cc8A5E0416f0e63042547aDB94ca7045A5b",
-    "extras": [
-      {
-        "rewardPool": "0xCB200C57A6ef34a2e6bBfb5E02c3e44097F259Ee",
-        "oracleId": "USDD"
-      }
-    ],
-    "tokens": [
-      {
-        "oracle": "tokens",
-        "oracleId": "USDD",
-        "decimals": "1e18"
-      },
-      {
-        "basePool": "convex-3pool",
-        "oracle": "lps",
-        "oracleId": "convex-3pool",
-        "decimals": "1e18"
-      }
-    ]
-  },
-  {
     "name": "convex-mim",
     "pool": "0x5a6A4D54456819380173272A5E8E9B9904BdF41B",
     "token": "0x5a6A4D54456819380173272A5E8E9B9904BdF41B",

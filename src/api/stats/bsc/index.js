@@ -1,9 +1,7 @@
 const { getOOELpApys } = require('./ooe/getOOELpApys');
-const getStargateApys = require('./stargate/getStargateBscApys');
-const getThenaApys = require('./getThenaApys');
 const { getBeefyBscCowApys } = require('./getBeefyBscCowApys');
 
-const getApys = [getOOELpApys, getStargateApys, getThenaApys, getBeefyBscCowApys];
+const getApys = [getOOELpApys, getBeefyBscCowApys];
 
 const getBSCApys = async () => {
   const start = Date.now();

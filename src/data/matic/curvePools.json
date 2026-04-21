@@ -9,6 +9,7 @@
         "oracleId": "pMAI"
       }
     ],
+    "getDy": ["v1", 0, 1],
     "tokens": [
       {
         "oracleId": "pMAI",
@@ -224,30 +225,6 @@
         "aaveId": "aave-eth",
         "oracle": "tokens",
         "oracleId": "ETH",
-        "decimals": "1e18"
-      }
-    ]
-  },
-  {
-    "name": "curve-matic-stmatic",
-    "pool": "0xFb6FE7802bA9290ef8b00CA16Af4Bc26eb663a28",
-    "token": "0xe7CEA2F6d7b120174BF3A9Bc98efaF1fF72C997d",
-    "gauge": "0x9633E0749faa6eC6d992265368B88698d6a93Ac0",
-    "rewards": [
-      {
-        "token": "0xC3C7d422809852031b44ab29EEC9F1EfF2A58756",
-        "oracleId": "LDO"
-      }
-    ],
-    "tokens": [
-      {
-        "oracle": "tokens",
-        "oracleId": "stMATIC",
-        "decimals": "1e18"
-      },
-      {
-        "oracle": "tokens",
-        "oracleId": "MATIC",
         "decimals": "1e18"
       }
     ]
