@@ -2325,4 +2325,18 @@ export const tokens = {
     bridge: 'layer-zero',
     tags: ['NO_TIMELOCK'],
   },
+  CHIP: {
+    name: 'Chip',
+    symbol: 'CHIP',
+    oracleId: 'CHIP',
+    address: '0x0C1c1C109FE34733fca54b82d7B46B75CFb71F6e',
+    chainId: 42161,
+    decimals: 18,
+    website: 'https://usd.ai/',
+    description:
+      'CHIP is the utility and governance token of USD.AI. It coordinates the standards, risk parameters, revenue fee streams, and market plumbing that enable the standardization of GPU-backed loans, which then become liquid and continuously priced.',
+    documentation: 'https://docs.usd.ai/',
+    bridge: 'native',
+    tags: ['LARGE_HOLDERS', 'NO_TIMELOCK'],
+  },
 } as const satisfies Record<string, Token>;

@@ -1,5 +1,22 @@
 [
   {
+    "address": "0x428EF83AC456b46eC0d3868C12e461d95A1869da",
+    "lpAddress": "0x592E01EDEb601016a20A3E6cD5bF533eBBadBC8b",
+    "tokens": ["0x0C1c1C109FE34733fca54b82d7B46B75CFb71F6e", "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913"],
+    "tokenOracleIds": ["bCHIP", "USDC"],
+    "decimals": [18, 6],
+    "oracleId": "aerodrome-cow-base-chip-usdc",
+    "providerId": "aerodrome",
+    "rewardPool": {
+      "address": "0x602e6cEaad353c3c48E72213F4eA1E6aA6674328",
+      "oracleId": "aerodrome-cow-base-chip-usdc-rp"
+    },
+    "vault": {
+      "address": "0x35601EB2ca69b2B0B4e4578f3b203985888d3607",
+      "oracleId": "aerodrome-cow-base-chip-usdc-vault"
+    }
+  },
+  {
     "address": "0x174623c25a1A30547335c2d9Bd626E4AbB13e58D",
     "lpAddress": "0x37e1490f7f6F98d263f826E1244C7E7f128632F2",
     "tokens": ["0x5b2193fDc451C1f847bE09CA9d13A4Bf60f8c86B", "0xcbB7C0000aB88B473b1f5aFd9ef808440eed33Bf"],
