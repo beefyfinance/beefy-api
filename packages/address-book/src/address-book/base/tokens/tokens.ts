@@ -3505,4 +3505,18 @@ export const tokens = {
     bridge: 'layer-zero',
     tags: ['LARGE_HOLDERS', 'NO_TIMELOCK'],
   },
+  frxUSD: {
+    name: 'Frax USD',
+    symbol: 'frxUSD',
+    oracleId: 'basefrxUSD',
+    address: '0xe5020A6d073a794B6E7f05678707dE47986Fb0b6',
+    chainId: 8453,
+    decimals: 18,
+    website: 'https://frax.finance/',
+    description:
+      'frxUSD (previously FRAX) is a crypto collateralized stablecoin pegged to the US dollar.',
+    bridge: 'layer-zero',
+    documentation: 'https://docs.frax.finance/',
+    tags: ['STABLECOIN', 'SYNTHETIC'],
+  },
 } as const satisfies Record<string, Token>;
