@@ -1,37 +1,17 @@
 const { getCurveApys } = require('./getCurveApys');
 const getVelodromeApys = require('./getVelodromeApys');
-const getStargateOpApys = require('./getStargateOpApys');
-const getbeVeloApy = require('./getbeVeloApy');
-const { getAaveV3Apys } = require('./getAaveV3Apys');
-const { getOlpApys } = require('./getOlpApys');
-const getBeOpxApy = require('./getBeOpxApy');
-const getBeOpxEarnApy = require('./getBeOpxEarnApy');
-const getBalancerOpApys = require('./getBalancerOpApys');
 const getAuraApys = require('./getAuraOptimismApys');
 const getBeVeloV2Apr = require('./getBeVeloV2Apr');
-const { getSonneApys } = require('./getSonneApys');
 const { getBeefyOPCowApys } = require('./getBeefyOPCowApys');
-const { getMellowVeloApys } = require('../common/getMellowVeloApys');
-const { getOpCompoundV3Apys } = require('./getOpCompoundV3Apys');
 const { getMorphoApys } = require('../common/morpho/getMorphoApys');
 const { OPTIMISM_CHAIN_ID } = require('../../../constants');
 
 const getApys = [
-  getSonneApys,
   getAuraApys,
-  getBalancerOpApys,
   getCurveApys,
   getVelodromeApys,
-  getStargateOpApys,
-  getbeVeloApy,
-  getAaveV3Apys,
-  getOlpApys,
-  getBeOpxApy,
-  getBeOpxEarnApy,
   getBeVeloV2Apr,
   getBeefyOPCowApys,
-  () => getMellowVeloApys(OPTIMISM_CHAIN_ID, require('../../../data/optimism/mellowVeloPools.json')),
-  getOpCompoundV3Apys,
   () => getMorphoApys(OPTIMISM_CHAIN_ID, require('../../../data/optimism/morphoPools.json')),
 ];
 

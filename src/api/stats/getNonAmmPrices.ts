@@ -15,13 +15,10 @@ import { getGmxAvalanchePrices } from './avax/getGmxPrices';
 import getAuraBalancerPrices from './ethereum/getAuraBalancerPrices';
 import getFerroPrices from './cronos/getFerroPrices';
 import getHopArbPrices from './arbitrum/getHopArbPrices';
-import getHopOpPrices from './optimism/getHopOpPrices';
 import getStargateLineaPrices from './linea/getStargateLineaPrices';
 import getStargateEthPrices from './ethereum/getStargateEthPrices';
 import getStargateArbPrices from './arbitrum/getStargateArbPrices';
 import getStargateAvaxPrices from './avax/getStargateAvaxPrices';
-import getStargateOpPrices from './optimism/getStargateOpPrices';
-import getOlpPrices from './optimism/getOlpPrices';
 import getSolidLizardStablePrices from './arbitrum/getSolidLizardStablePrices';
 import getRamsesStablePrices from './arbitrum/getRamsesStablePrices';
 import { getCurveBasePrices } from './base/getCurvePrices';
@@ -65,7 +62,6 @@ import { getBeefyCowArbPrices } from './arbitrum/getBeefyCowArbPrices';
 import { getBeefyCowOPPrices } from './optimism/getBeefyCowOPPrices';
 import { getBeefyCowBasePrices } from './base/getBeefyCowBasePrices';
 import { getBeefyCowLineaPrices } from './linea/getBeefyLineaCowPrices';
-import getOptimismSiloPrices from './optimism/getOptimismSiloPrices';
 import { getBeefyCowPolyPrices } from './matic/getBeefyPolyCowPrices';
 import { getBeefyCowZkSyncPrices } from './zksync/getBeefyCowZkSyncPrices';
 import { getBeefyCowMantlePrices } from './mantle/getBeefyMantleCowPrices';
@@ -130,20 +126,16 @@ export async function getNonAmmPrices(
     getKittenswapStablePrices(tokenPrices),
     getArbitrumSiloPrices(tokenPrices),
     getEthSiloPrices(tokenPrices),
-    getOptimismSiloPrices(tokenPrices),
     getSonicSiloPrices(tokenPrices),
     getUniswapArbitrumPrices(tokenPrices),
     getUniswapEthereumPrices(tokenPrices),
     getRamsesStablePrices(tokenPrices),
     getSolidLizardStablePrices(tokenPrices),
     getMimSwapPrices(tokenPrices),
-    getOlpPrices(),
-    getStargateOpPrices(tokenPrices),
     getStargateAvaxPrices(tokenPrices),
     getStargateArbPrices(tokenPrices),
     getStargateEthPrices(tokenPrices),
     getStargateLineaPrices(tokenPrices),
-    getHopOpPrices(tokenPrices),
     getHopArbPrices(tokenPrices),
     getFerroPrices(tokenPrices),
     getAuraBalancerPrices(tokenPrices),
@@ -200,7 +192,6 @@ export async function getNonAmmPrices(
     getBeefyCowMegaethPrices(tokenPrices),
     getPendleCommonPrices(ETH_CHAIN_ID, require('../../data/ethereum/pendlePools.json'), tokenPrices),
     getPendleCommonPrices(ETH_CHAIN_ID, require('../../data/ethereum/pendleUnboostedPools.json'), tokenPrices),
-    getMellowVeloPrices(OPTIMISM_CHAIN_ID, require('../../data/optimism/mellowVeloPools.json'), tokenPrices),
     getMellowVeloPrices(BASE_CHAIN_ID, require('../../data/base/mellowAeroPools.json'), tokenPrices),
     getBunniPrices(BASE_CHAIN_ID, require('../../data/base/alienBaseBunniPools.json'), tokenPrices),
     getMorphoPrices(BASE_CHAIN_ID, require('../../data/base/morphoPools.json'), tokenPrices),
