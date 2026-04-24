@@ -46,6 +46,14 @@ const tokens: Partial<Record<keyof typeof ChainId, StablePoolLiquidityToken[]>> 
       secondTokenDecimals: 1e6,
       secondTokenAddress: '0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913',
     },
+    {
+      oracleId: 'basefrxUSD',
+      pool: '0xA678C47022f2E5286C51cC433be1599BBA88DF05',
+      firstTokenDecimals: '1e18',
+      secondToken: 'basemsUSD',
+      secondTokenDecimals: 1e18,
+      secondTokenAddress: '0x526728DBc96689597F85ae4cd716d4f7fCcBAE9d',
+    },
   ],
   linea: [
     {

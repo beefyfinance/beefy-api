@@ -1,5 +1,25 @@
 [
   {
+    "name": "aerodrome-msusd-frxusd",
+    "address": "0xA678C47022f2E5286C51cC433be1599BBA88DF05",
+    "gauge": "0x90C2eafBb37fDFB54bDAc0C12F59b14417F280cb",
+    "decimals": "1e18",
+    "chainId": 8453,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0x526728DBc96689597F85ae4cd716d4f7fCcBAE9d",
+      "oracle": "tokens",
+      "oracleId": "basemsUSD",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xe5020A6d073a794B6E7f05678707dE47986Fb0b6",
+      "oracle": "tokens",
+      "oracleId": "basefrxUSD",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "aerodrome-bold-lusd-new",
     "address": "0xEf3EFc734a3FE0bF20762992ec839939bA3Af050",
     "gauge": "0x152cB3894E3f2160De21708439e35EFfCB408143",
