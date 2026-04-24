@@ -3,7 +3,6 @@ const getBaseSwapApys = require('./getBaseSwapApys');
 const getAlienBaseApys = require('./getAlienBaseApys');
 const { getAerodromeApys } = require('./getAerodromeApys');
 const { getCurveApys } = require('./getCurveApys');
-const { getBaseCompoundV3Apys } = require('./getBaseCompoundV3Apys');
 const getAuraBaseApys = require('./getAuraBaseApys');
 const { getBeefyBaseCowApys } = require('./getBeefyBaseCowApys');
 const { getMellowVeloApys } = require('../common/getMellowVeloApys');
@@ -18,7 +17,6 @@ const getApys = [
   getBalancerBaseApys,
   getBaseSwapApys,
   getAlienBaseApys,
-  getBaseCompoundV3Apys,
   getAuraBaseApys,
   () => getMellowVeloApys(BASE_CHAIN_ID, require('../../../data/base/mellowAeroPools.json')),
   () => getMorphoApys(BASE_CHAIN_ID, require('../../../data/base/morphoPools.json')),

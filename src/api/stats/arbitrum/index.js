@@ -5,7 +5,6 @@ const { getGmxApys } = require('./getGmxApys');
 const { getGnsApys } = require('./getGnsApys');
 const getRamsesApys = require('./getRamsesApys');
 const getAuraArbitrumApys = require('./getAuraArbitrumApys');
-const { getArbCompoundV3Apys } = require('./getArbCompoundV3Apys');
 const { getBeefyArbCowApys } = require('./getBeefyArbCowApys');
 const { getAaveV3Apys } = require('./getAaveV3Apys');
 const { getPendleApys } = require('../common/pendle/getPendleApys');
@@ -26,7 +25,6 @@ const getApys = [
   getCurveApys,
   // getBalancerArbApys,
   getRamsesApys,
-  getArbCompoundV3Apys,
   getBeefyArbCowApys,
   // getAaveV3Apys,
   // getVenusApys,
