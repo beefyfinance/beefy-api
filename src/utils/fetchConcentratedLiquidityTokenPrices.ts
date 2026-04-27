@@ -656,7 +656,7 @@ const tokens: Partial<Record<keyof typeof ChainId, ConcentratedLiquidityToken[]>
       type: 'Slipstream',
       oracleId: 'GIZA',
       decimalDelta: 1e12,
-      pool: '0xe077DdFb9E9d9403A8eC42D3023D17e8417ee399',
+      pool: '0xe9EEd359ef1e600cEC91F240768f463ED3c88730',
       firstToken: 'USDC',
       secondToken: 'GIZA',
     },
