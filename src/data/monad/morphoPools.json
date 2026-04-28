@@ -1,5 +1,14 @@
 [
   {
+    "name": "morphov2-monad-hyperithm-apex-cbbtc",
+    "address": "0xe09A93786275546690247d70f1767cF0b69e8Ea0",
+    "oracle": "tokens",
+    "oracleId": "cbBTC",
+    "decimals": "1e8",
+    "v2": true,
+    "skim": true
+  },
+  {
     "name": "morpho-monad-steakhouse-prime-weth",
     "address": "0xbeef04b01e0275D4ac2e2986256BB14E3Ff6ef42",
     "oracle": "tokens",
