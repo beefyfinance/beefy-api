@@ -3384,6 +3384,19 @@ export const tokens = {
     bridge: 'layer-zero',
     tags: ['LARGE_HOLDERS', 'NO_TIMELOCK'],
   },
+  OPG: {
+    name: 'OpenGradient',
+    symbol: 'OPG',
+    oracleId: 'OPG',
+    address: '0xFbC2051AE2265686a469421b2C5A2D5462FbF5eB',
+    chainId: 8453,
+    decimals: 18,
+    website: 'https://www.opengradient.ai/',
+    description:
+      'OpenGradient is a decentralized infrastructure network designed to host, inference, and verify AI models at scale. ',
+    documentation: 'https://docs.opengradient.ai/',
+    tags: ['LARGE_HOLDERS'],
+  },
   PLAY: {
     name: 'Play',
     symbol: 'PLAY',
