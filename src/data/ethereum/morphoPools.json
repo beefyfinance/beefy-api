@@ -1,5 +1,14 @@
 [
   {
+    "name": "morpho-v2-eth-kpk-usdc-prime-v2",
+    "address": "0x4Ef53d2cAa51C447fdFEEedee8F07FD1962C9ee6",
+    "oracle": "tokens",
+    "oracleId": "USDC",
+    "decimals": "1e6",
+    "v2": true,
+    "skim": true
+  },
+  {
     "name": "morpho-eth-sentora-pyusd",
     "address": "0xb576765fB15505433aF24FEe2c0325895C559FB2",
     "oracle": "tokens",
