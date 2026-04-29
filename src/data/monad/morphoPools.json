@@ -1,10 +1,19 @@
 [
   {
-    "name": "morphov2-monad-hyperithm-apex-cbbtc",
+    "name": "morpho-v2-monad-hyperithm-apex-cbbtc",
     "address": "0xe09A93786275546690247d70f1767cF0b69e8Ea0",
     "oracle": "tokens",
     "oracleId": "cbBTC",
     "decimals": "1e8",
+    "v2": true,
+    "skim": true
+  },
+  { 
+    "name": "morpho-v2-monad-august-usdc-v2",
+    "address": "0x80017bF0f793EBbE9679Cd61ff0e395B62CAbB59",
+    "oracle": "tokens",
+    "oracleId": "USDC",
+    "decimals": "1e6",
     "v2": true,
     "skim": true
   },
