@@ -4,7 +4,7 @@
     "address": "0x80017bF0f793EBbE9679Cd61ff0e395B62CAbB59",
     "oracle": "tokens",
     "oracleId": "USDC",
-    "decimals": "1e18",
+    "decimals": "1e6",
     "v2": true,
     "skim": true
   },
