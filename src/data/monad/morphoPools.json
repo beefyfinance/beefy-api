@@ -1,5 +1,14 @@
 [
   {
+    "name": "morpho-v2-monad-august-usdc-v2",
+    "address": "0x80017bF0f793EBbE9679Cd61ff0e395B62CAbB59",
+    "oracle": "tokens",
+    "oracleId": "USDC",
+    "decimals": "1e18",
+    "v2": true,
+    "skim": true
+  },
+  {
     "name": "morpho-monad-steakhouse-prime-weth",
     "address": "0xbeef04b01e0275D4ac2e2986256BB14E3Ff6ef42",
     "oracle": "tokens",
