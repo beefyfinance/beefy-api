@@ -1,7 +1,8 @@
 const { getBeefyCowMegaethApys } = require('./getBeefyCowMegaethApys');
+const { getAaveV3Apys } = require('./getAaveV3Apys');
 const { MEGAETH_CHAIN_ID } = require('../../../constants');
 
-const getApys = [getBeefyCowMegaethApys];
+const getApys = [getBeefyCowMegaethApys, getAaveV3Apys];
 
 const getMegaethApys = async () => {
   const start = Date.now();
