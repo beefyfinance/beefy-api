@@ -1,5 +1,17 @@
 [
   {
+    "address": "0x3808e89223F26dDBAcBF3Cf36F99E37E537fb3De",
+    "lpAddress": "0x36C06217A9855a2cE68CF183A9A4F0186db5E9f6",
+    "tokens": ["0x28B7E77f82B25B95953825F1E3eA0E36c1c29861", "0xFAfDdbb3FC7688494971a79cc65DCa3EF82079E7"],
+    "tokenOracleIds": ["MEGA", "USDm"],
+    "decimals": [18, 18],
+    "oracleId": "prism-cow-megaeth-mega-usdm",
+    "rewardPool": {
+      "address": "0x00f88397182D20CF90f1232e67D6895E48f334b9",
+      "oracleId": "prism-cow-megaeth-mega-usdm-rp"
+    }
+  },
+  {
     "address": "0x53223778137650B7E2162a796A4B6d07d9Be2c01",
     "lpAddress": "0xcBd0042ccf3Daee086b8EA2F260C04624F5A7B65",
     "tokens": ["0x28B7E77f82B25B95953825F1E3eA0E36c1c29861", "0xB8CE59FC3717ada4C02eaDF9682A9e934F625ebb"],
