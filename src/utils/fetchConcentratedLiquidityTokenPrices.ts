@@ -1721,6 +1721,14 @@ const tokens: Partial<Record<keyof typeof ChainId, ConcentratedLiquidityToken[]>
       firstToken: 'WETH',
       secondToken: 'KPI',
     },
+    {
+      type: 'UniV3',
+      oracleId: 'MEGA',
+      decimalDelta: 1,
+      pool: '0x5fB29184C49546c13A14A3958f21E5759f0821f2',
+      firstToken: 'USDm',
+      secondToken: 'MEGA',
+    },
   ],
 };
 

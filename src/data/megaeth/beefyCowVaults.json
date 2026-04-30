@@ -1,5 +1,17 @@
 [
   {
+    "address": "0xDeE9cacF23611d667B6F0143ca5eae6a88693d6c",
+    "lpAddress": "0x5fB29184C49546c13A14A3958f21E5759f0821f2",
+    "tokens": ["0x28B7E77f82B25B95953825F1E3eA0E36c1c29861", "0xFAfDdbb3FC7688494971a79cc65DCa3EF82079E7"],
+    "tokenOracleIds": ["MEGA", "USDm"],
+    "decimals": [18, 18],
+    "oracleId": "kumbaya-cow-megaeth-mega-usdm",
+    "rewardPool": {
+      "address": "0x8197Af78a8f1DEE9B649fF0d191fB0b51d2D775B",
+      "oracleId": "kumbaya-cow-megaeth-mega-usdm-rp"
+    }
+  },
+  {
     "address": "0xdcDB09546179E38E41E39E8a14FDcC1dec885722",
     "lpAddress": "0xab72F355eE690252A07D197B2A17E3a232419f39",
     "tokens": ["0x021ee124cF23D302A7f725AE7a01B77A8ce9782B", "0x4200000000000000000000000000000000000006"],

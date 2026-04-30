@@ -19,6 +19,18 @@ export const tokens = {
   FEES: ETH,
   ETH,
   WETH: ETH,
+  MEGA: {
+    name: 'MEGA',
+    symbol: 'MEGA',
+    oracleId: 'MEGA',
+    address: '0x28B7E77f82B25B95953825F1E3eA0E36c1c29861',
+    chainId: 4326,
+    decimals: 18,
+    website: 'https://www.megaeth.com/',
+    description: 'MEGA is a token on MegaETH.',
+    bridge: 'native',
+    tags: ['BLUECHIP', 'NO_TIMELOCK'],
+  },
   USDm: {
     name: 'MegaUSD',
     address: '0xFAfDdbb3FC7688494971a79cc65DCa3EF82079E7',
