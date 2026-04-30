@@ -45,6 +45,7 @@ import {
   FRAXTAL_CHAIN_ID as FRX_CHAIN_ID,
   GNOSIS_CHAIN_ID as GNO_CHAIN_ID,
   MANTLE_CHAIN_ID,
+  MEGAETH_CHAIN_ID,
   MONAD_CHAIN_ID,
   OPTIMISM_CHAIN_ID,
   PLASMA_CHAIN_ID,
@@ -119,6 +120,7 @@ export async function getNonAmmPrices(
 
   const promises = [
     getAaveV3Prices(MANTLE_CHAIN_ID, require('../../data/mantle/aaveV3Pools.json'), tokenPrices),
+    getAaveV3Prices(MEGAETH_CHAIN_ID, require('../../data/megaeth/aaveV3Pools.json'), tokenPrices),
     getGearboxPrices(MONAD_CHAIN_ID, require('../../data/monad/gearboxPools.json'), tokenPrices),
     getNeverlandPrices(tokenPrices),
     getCurvanceMonadPrices(tokenPrices),
