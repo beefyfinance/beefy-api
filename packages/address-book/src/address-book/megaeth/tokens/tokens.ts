@@ -113,4 +113,18 @@ export const tokens = {
     bridge: 'native',
     tags: ['MEMECOIN'],
   },
+  stcUSD: {
+    name: 'Staked Cap USD',
+    symbol: 'stcUSD',
+    oracleId: 'stcUSD',
+    address: '0x88887bE419578051FF9F4eb6C858A951921D8888',
+    chainId: 4326,
+    decimals: 18,
+    website: 'https://cap.app/',
+    description:
+      'stcUSD is the yield-bearing stablecoin of Cap that enables users to earn rewards via a decentralized lending framework.',
+    documentation: 'https://docs.cap.app/',
+    bridge: 'layer-zero',
+    tags: ['STABLECOIN', 'SYNTHETIC'],
+  },
 } as const satisfies Record<string, Token>;
