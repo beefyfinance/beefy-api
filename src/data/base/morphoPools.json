@@ -1,5 +1,41 @@
 [
   {
+    "name": "morpho-v2-base-clearstar-reactor-usdc",
+    "address": "0x116e1A65717A534B73EcB7d4F6543c65DBCd0E46",
+    "oracle": "tokens",
+    "oracleId": "USDC",
+    "decimals": "1e6",
+    "v2": true,
+    "skim": true
+  },
+  {
+    "name": "morpho-v2-base-yearn-og-weth",
+    "address": "0x2EfD54529329AD364B8Df988CE3BAb5Ff256ab3E",
+    "oracle": "tokens",
+    "oracleId": "WETH",
+    "decimals": "1e18",
+    "v2": true,
+    "skim": true
+  },
+  {
+    "name": "morpho-v2-base-steakhouse-prime-weth",
+    "address": "0xbeef00f0A818894a2Cf111644A5098421611100E",
+    "oracle": "tokens",
+    "oracleId": "WETH",
+    "decimals": "1e18",
+    "v2": true,
+    "skim": true
+  },
+  {
+    "name": "morpho-v2-base-gauntlet-balanced-weth",
+    "address": "0xFeFeC33668E22677c4762d0853d56245a800ff08",
+    "oracle": "tokens",
+    "oracleId": "WETH",
+    "decimals": "1e18",
+    "v2": true,
+    "skim": true
+  },
+  {
     "name": "morpho-base-steakhouse-prime-usdc",
     "address": "0xbeef0e0834849aCC03f0089F01f4F1Eeb06873C9",
     "oracle": "tokens",
