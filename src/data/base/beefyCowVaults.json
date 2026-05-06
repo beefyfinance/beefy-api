@@ -1,5 +1,22 @@
 [
-   {
+  {
+    "address": "0x914C252c38281c06F370b8553Fc4CdC2A36cad68",
+    "lpAddress": "0x415c88A05B75d1a65822d899f4A78b4C0D7CbefD",
+    "tokens": ["0x311935Cd80B76769bF2ecC9D8Ab7635b2139cf82", "0xcbB7C0000aB88B473b1f5aFd9ef808440eed33Bf"],
+    "tokenOracleIds": ["SOL", "cbBTC"],
+    "decimals": [9, 8],
+    "oracleId": "pancake-cow-base-sol-cbbtc",
+    "providerId": "pancakeswap",
+    "rewardPool": {
+      "address": "0xdD1174b8ffCB2f4A4F9556f4456C6b978dE2a7c6",
+      "oracleId": "pancake-cow-base-sol-cbbtc-rp"
+    },
+    "vault": {
+      "address": "0xd47f71d0802342d87Aaf3471D83DDe6b31de4499",
+      "oracleId": "pancake-cow-base-sol-cbbtc-vault"
+    }
+  },
+  {
     "address": "0x9c42591D19cF0e97305057E78f31762381C8c136",
     "lpAddress": "0x0150e3d89E161518C044ad191c4bdf6b40Df6E83",
     "tokens": ["0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913", "0xcb111E6A2a3bde90856D299d61341ac302167D23"],
