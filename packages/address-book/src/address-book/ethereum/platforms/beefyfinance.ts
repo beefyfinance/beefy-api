@@ -33,9 +33,9 @@ export const beefyfinance = {
   assetSwapper: '0x340014C66D49f50c48E6eF0D02aB630F246F1921',
 
   /// CLM Contracts
-  clmFactory: '0xB9D2c15cE96440A8281adcbaf36BBFc7787e2889',
-  clmStrategyFactory: '0x10F668cA075266Fd4Cfa73b3c8B4081b3937C71A',
-  clmRewardPoolFactory: '0x425f9dF731B5325B1AC51189ee043d2576404405',
+  clmFactory: '0x2BD7d9e64Fc136F13203dd7070fD2D5A90D693FE',
+  clmStrategyFactory: '0xE296007Fd2224651A463667c53CaD1e3E182C294',
+  clmRewardPoolFactory: '0xbdE5D2e961fCdfaA7BfEae62E1a510703cF64767',
   positionMulticall: '0xcC7dC8c2245C5e024f1caE20d25d71335F84b3AD',
 
   /// Beefy Swapper Contracts
