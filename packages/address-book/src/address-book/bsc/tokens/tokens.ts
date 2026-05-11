@@ -59,6 +59,7 @@ export const tokens = {
     description:
       'OpenGradient is a decentralized infrastructure network designed to host, inference, and verify AI models at scale. ',
     documentation: 'https://docs.opengradient.ai/',
+    bridge: 'layer-zero',
     tags: ['LARGE_HOLDERS'],
   },
   CASH: {
