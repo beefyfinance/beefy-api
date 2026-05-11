@@ -17,9 +17,7 @@ export const getKodiakApys = async () => {
     }),
     getTradingApys(pools),
   ]);
-  return getApyBreakdown(
-    pools.map((p, i) => ({ vaultId: p.name, vault: farmApys[i], trading: tradingApys[i] }))
-  );
+  return getApyBreakdown(pools.map((p, i) => ({ vaultId: p.name, vault: farmApys[i], trading: tradingApys[i] })));
 
   // kodiak gauges
   // getSolidlyGaugeApys({
@@ -34,6 +32,8 @@ export const getKodiakApys = async () => {
 };
 
 async function getTradingApys(pools) {
+  return [];
+  // subgraph removed
   const vaults = pools.map(p => p.address.toLowerCase());
   const body = {
     query: `{
@@ -52,9 +52,7 @@ async function getTradingApys(pools) {
         body: JSON.stringify(body),
       }
     ).then(r => r.json());
-    apys = vaults.map(id =>
-      new BigNumber(res.data.kodiakVaults.find(v => v.id === id)?.apr?.averageApr || 0).div(100)
-    );
+    apys = vaults.map(id => new BigNumber(res.data.kodiakVaults.find(v => v.id === id)?.apr?.averageApr || 0).div(100));
   } catch (err) {
     console.error('Kodiak subgraph apy error', chainId, err.message);
   }

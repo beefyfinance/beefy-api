@@ -34,7 +34,6 @@ import getArbitrumSiloPrices from './arbitrum/getArbitrumSiloPrices';
 import getVelodromeLiskStablePrices from './lisk/getVelodromeLiskStablePrices';
 import getNuriStablePrices from './scroll/getNuriStablePrices';
 import { getKittenswapStablePrices } from './hyperevm/getKittenswapStablePrices';
-import { getBeraswapPrices } from './berachain/getBeraswapPrices';
 import { getKodiakPrices } from './berachain/getKodiakPrices';
 import { getSiloPrices } from './common/getSiloPrices';
 import {
@@ -154,7 +153,6 @@ export async function getNonAmmPrices(
     getBalancerMonadPrices(tokenPrices),
     getBeetsSonicPrices(tokenPrices),
     getBeetsOPPrices(tokenPrices),
-    getBeraswapPrices(tokenPrices),
     getKodiakPrices(tokenPrices),
     getCurveEthereumPrices(tokenPrices),
     getCurvePolygonPrices(tokenPrices),
