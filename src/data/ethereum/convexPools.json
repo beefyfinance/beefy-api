@@ -1,5 +1,24 @@
 [
   {
+    "name": "curve-pmusd-ireet",
+    "pool": "0x57129759d0e23116c1e7402dbc084e53d2e209a2",
+    "gauge": "0xf814283bfd37dc24b2fb5515982f5c0708e508b6",
+    "stakeDao": true,
+    "getDy": ["v2", 1, 0],
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "pmUSD",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "iREET",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
     "name": "curve-frxusd-sdola",
     "pool": "0x9d8afd5ce19a3b948049468188f1de13951a4383",
     "gauge": "0xbd6d1a33a6fa37379ecc89b6cff7c7d7f8c305ec",

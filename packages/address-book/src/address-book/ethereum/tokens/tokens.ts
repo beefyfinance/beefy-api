@@ -2895,6 +2895,20 @@ export const tokens = {
     bridge: 'native',
     tags: ['LARGE_HOLDERS', 'NO_TIMELOCK', 'STABLECOIN', 'SYNTHETIC'],
   },
+  iREET: {
+    name: 'RWA Index Token',
+    symbol: 'iREET',
+    oracleId: 'iREET',
+    address: '0xe6a60d2886b11256C24C128210159133096e5CcF',
+    chainId: 1,
+    decimals: 18,
+    website: 'https://raac.io/',
+    description:
+      'The RWAIndexToken (iREET) is the ERC-20 index token minted/burned by the RWA Vault to represent proportional ownership in the protocol’s RWA index.',
+    documentation: 'https://docs.raac.io/',
+    bridge: 'native',
+    tags: ['LARGE_HOLDERS', 'NO_TIMELOCK', 'STABLECOIN', 'SYNTHETIC'],
+  },
   EURCV: {
     name: 'EUR CoinVertible',
     symbol: 'EURCV',
