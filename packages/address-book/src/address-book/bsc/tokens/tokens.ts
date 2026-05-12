@@ -48,6 +48,20 @@ export const tokens = {
     documentation: 'https://quackai.gitbook.io/quackai/',
     bridge: 'wormhole',
   },
+  OPG: {
+    name: 'OpenGradient',
+    symbol: 'OPG',
+    oracleId: 'OPG',
+    address: '0x5feCcD17C393CaF1001D18164236A37E731FCb9d',
+    chainId: 56,
+    decimals: 18,
+    website: 'https://www.opengradient.ai/',
+    description:
+      'OpenGradient is a decentralized infrastructure network designed to host, inference, and verify AI models at scale. ',
+    documentation: 'https://docs.opengradient.ai/',
+    bridge: 'layer-zero',
+    tags: ['LARGE_HOLDERS'],
+  },
   CASH: {
     name: 'CASH',
     symbol: 'CASH',
