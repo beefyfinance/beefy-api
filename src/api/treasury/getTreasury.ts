@@ -175,10 +175,9 @@ async function updateSingleChainTreasuryBalanceImpl(chain: ApiChain) {
   const hasOneFailedCall = failedCalls > 0;
   if (hasOneFailedCall) {
     console.error(
-      `> treasury update had at least one failed call on ${chain} ${(
-        (failedCalls / callResults.length) *
-        100
-      ).toFixed(2)}% error rate`
+      `> treasury update had at least one failed call on ${chain} ${((failedCalls / callResults.length) * 100).toFixed(
+        2
+      )}% error rate`
     );
   }
   const balancesForChain = {};
@@ -197,49 +196,6 @@ async function updateSingleChainTreasuryBalanceImpl(chain: ApiChain) {
   };
 }
 
-async function buildMarketMakerReport() {
-  const report: MMReport = {};
-  if (process.env.MM_BALANCE_API) {
-    const marketMakerBalances: MarketMakerAPIResult = await fetch(process.env.MM_BALANCE_API).then(
-      async res => (await res.json()) as MarketMakerAPIResult
-    );
-    const system9Balances: Record<string, MMExchangeBalance> = {};
-    for (const [exchange, balances] of Object.entries(marketMakerBalances)) {
-      system9Balances[exchange] = {};
-      for (const [token, balance] of Object.entries(balances)) {
-        const tokenName = token === 'USD' ? 'USDT' : token;
-        const tokenPrice = await getAmmPrice(tokenName, true);
-        const newUsdValue = balance * tokenPrice;
-        const newBalance = balance;
-
-        if (system9Balances[exchange][tokenName]) {
-          // If USDT already exists, sum the balances and usdValues
-          const prev = system9Balances[exchange][tokenName];
-          system9Balances[exchange][tokenName] = {
-            ...prev,
-            usdValue: (parseFloat(prev.usdValue) + newUsdValue).toString(),
-            balance: (parseFloat(prev.balance) + newBalance).toString(),
-          };
-        } else {
-          // Otherwise, create a new entry
-          system9Balances[exchange][tokenName] = {
-            symbol: tokenName,
-            name: tokenName,
-            oracleId: tokenName,
-            oracleType: 'tokens',
-            price: tokenPrice,
-            usdValue: newUsdValue.toString(),
-            balance: newBalance.toString(),
-          };
-        }
-      }
-    }
-    report['system9'] = system9Balances;
-    marketMakerReport = report;
-    console.log('> market maker balances updated');
-  }
-}
-
 async function updateTreasuryBalances() {
   try {
     console.log('> updating treasury balances');
@@ -247,7 +203,6 @@ async function updateTreasuryBalances() {
 
     const chainResults = await contextAllSettled(SupportedChains, updateSingleChainTreasuryBalance);
     await buildTreasuryReport();
-    await buildMarketMakerReport();
     await saveToRedis();
 
     console.log(`> treasury balances updated (${((Date.now() - start) / 1000).toFixed(2)}s)`);
