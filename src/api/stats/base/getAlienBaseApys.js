@@ -1,10 +1,8 @@
 import { BASE_CHAIN_ID as chainId } from '../../../constants';
 import { getMultiRewardMasterChefApys } from '../common/getMultiRewardMasterChefApys';
-import BigNumber from 'bignumber.js';
 
-const lpPools = require('../../../data/base/alienBaseLpPools.json');
 const v3Pools = require('../../../data/base/alienBaseBunniPools.json');
-const pools = [...lpPools, ...v3Pools];
+const pools = [...v3Pools];
 
 const getAlienBaseApys = async () =>
   await getMultiRewardMasterChefApys({

@@ -1,9 +1,6 @@
-const getBalancerBaseApys = require('./getBalancerApys');
-const getBaseSwapApys = require('./getBaseSwapApys');
 const getAlienBaseApys = require('./getAlienBaseApys');
 const { getAerodromeApys } = require('./getAerodromeApys');
 const { getCurveApys } = require('./getCurveApys');
-const getAuraBaseApys = require('./getAuraBaseApys');
 const { getBeefyBaseCowApys } = require('./getBeefyBaseCowApys');
 const { getMellowVeloApys } = require('../common/getMellowVeloApys');
 const { getMorphoApys } = require('../common/morpho/getMorphoApys');
@@ -12,10 +9,7 @@ const { BASE_CHAIN_ID } = require('../../../constants');
 const getApys = [
   getAerodromeApys,
   getCurveApys,
-  getBalancerBaseApys,
-  getBaseSwapApys,
   getAlienBaseApys,
-  getAuraBaseApys,
   () => getMellowVeloApys(BASE_CHAIN_ID, require('../../../data/base/mellowAeroPools.json')),
   () => getMorphoApys(BASE_CHAIN_ID, require('../../../data/base/morphoPools.json')),
   getBeefyBaseCowApys,

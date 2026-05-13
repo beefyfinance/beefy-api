@@ -29,7 +29,6 @@ import solidLizardPools from '../../data/arbitrum/solidlizardLpPools.json';
 import versePools from '../../data/ethereum/verseLpPools.json';
 import ramsesPools from '../../data/arbitrum/ramsesLpPools.json';
 import veSyncPools from '../../data/zksync/veSyncLpPools.json';
-import baseSwapPools from '../../data/base/baseSwapLpPools.json';
 import ooeV2Pools from '../../data/bsc/ooeV2LpPools.json';
 import aerodromePools from '../../data/base/aerodromeLpPools.json';
 import alienBasePools from '../../data/base/alienBaseLpPools.json';
@@ -81,7 +80,6 @@ const pools = normalizePoolOracleIds([
   ...alienBasePools,
   ...aerodromePools,
   ...ooeV2Pools,
-  ...baseSwapPools,
   ...veSyncPools,
   ...ramsesPools,
   ...versePools,
