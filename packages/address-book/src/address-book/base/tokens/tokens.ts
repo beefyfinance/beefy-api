@@ -3545,4 +3545,17 @@ export const tokens = {
     bridge: 'native',
     tags: ['NO_TIMELOCK'],
   },
+  LFI: {
+    name: 'LienFi',
+    symbol: 'LFI',
+    oracleId: 'LFI',
+    address: '0x3722264aB15a1dfCe5a5af89e6547F7949A8ABA3',
+    chainId: 8453,
+    decimals: 18,
+    website: 'https://lienfi.com/',
+    description:
+      'LienFi tokenizes U.S. tax liens and tax deeds onchain. $LFI is the native token of the protocol — a fixed-supply ERC-20 on Base with 73% liquid at launch.',
+    bridge: 'native',
+    tags: ['LARGE_HOLDERS', 'NO_TIMELOCK'],
+  },
 } as const satisfies Record<string, Token>;

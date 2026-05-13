@@ -1,5 +1,51 @@
 [
   {
+    "address": "0x3E7f8CCC696aCEf18dCBD07Fa6739caEE19dFc21",
+    "lpAddress": "0x8343C68279587498526114e6385F0a87f248E0D9",
+    "tokens": ["0x3722264aB15a1dfCe5a5af89e6547F7949A8ABA3", "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913"],
+    "tokenOracleIds": ["LFI", "USDC"],
+    "decimals": [18, 6],
+    "oracleId": "aerodrome-cow-base-lfi-usdc",
+    "providerId": "aerodrome",
+    "rewardPool": {
+      "address": "0x3dc45932476d46793ea29B8D2033657944775C94",
+      "oracleId": "aerodrome-cow-base-lfi-usdc-rp"
+    },
+    "vault": {
+      "address": "0x3e5BBfEDC570112440b4abB61Cba7909824B2d58",
+      "oracleId": "aerodrome-cow-base-lfi-usdc-vault"
+    }
+  },
+  {
+    "address": "0x4B9e1d7B8AF4309a640B927a9CC2E49Bcf14c811",
+    "lpAddress": "0x8343C68279587498526114e6385F0a87f248E0D9",
+    "tokens": ["0x3722264aB15a1dfCe5a5af89e6547F7949A8ABA3", "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913"],
+    "tokenOracleIds": ["LFI", "USDC"],
+    "decimals": [18, 6],
+    "oracleId": "aerodrome-cow-base-lfi-usdc",
+    "providerId": "aerodrome",
+    "rewardPool": {
+      "address": "0x26B713aB43A5cf9610617C003B5761959BBBc570",
+      "oracleId": "aerodrome-cow-base-lfi-usdc-rp"
+    },
+    "vault": {
+      "address": "0x721877Da743f0b2212D644037F9fECC7aDE8a10f",
+      "oracleId": "aerodrome-cow-base-lfi-usdc-vault"
+    }
+  },
+  {
+    "address": "0x351fD1C42e44209B4dc7709DDBdEE4b6fE19f9d1",
+    "lpAddress": "0x588f68b9fA04366F33f8Ce095C13F0cebaB9406a",
+    "tokens": ["0x3722264aB15a1dfCe5a5af89e6547F7949A8ABA3", "0x4200000000000000000000000000000000000006"],
+    "tokenOracleIds": ["LFI", "WETH"],
+    "decimals": [18, 18],
+    "oracleId": "uniswap-cow-base-lfi-weth",
+    "rewardPool": {
+      "address": "0x704d5Df3FfC88Cb2Bd66E77a7aac960E2D737754",
+      "oracleId": "uniswap-cow-base-lfi-weth-rp"
+    }
+  },
+  {
     "address": "0x914C252c38281c06F370b8553Fc4CdC2A36cad68",
     "lpAddress": "0x415c88A05B75d1a65822d899f4A78b4C0D7CbefD",
     "tokens": ["0x311935Cd80B76769bF2ecC9D8Ab7635b2139cf82", "0xcbB7C0000aB88B473b1f5aFd9ef808440eed33Bf"],
