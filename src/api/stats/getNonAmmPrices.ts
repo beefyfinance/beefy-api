@@ -91,7 +91,6 @@ import { getMorphoPrices } from './common/morpho/getMorphoPrices';
 import { getAaveV3Prices } from './common/aave/getAaveV3Prices';
 import { getIchiPrices } from './common/getIchiPrices';
 import { getEulerPrices } from './common/euler/getEulerPrices';
-import { getTruePrices } from './base/getTruePrices';
 import { getCurvanceMonadPrices } from './monad/getCurvanceMonadPrices';
 import { getNeverlandPrices } from './monad/getNeverlandPrices';
 import { getGearboxPrices } from './common/gearbox/getGearboxPrices';
@@ -205,7 +204,6 @@ export async function getNonAmmPrices(
     getEulerPrices(AVAX_CHAIN_ID, require('../../data/avax/eulerPools.json'), tokenPrices),
     getEulerPrices(MONAD_CHAIN_ID, require('../../data/monad/eulerPools.json'), tokenPrices),
     getEulerPrices(ARB_CHAIN_ID, require('../../data/arbitrum/eulerPools.json'), tokenPrices),
-    getTruePrices(BASE_CHAIN_ID, require('../../data/base/truePools.json'), tokenPrices),
     getSolidlyStablePrices(AVAX_CHAIN_ID, require('../../data/avax/blackStableLpPools.json'), tokenPrices),
     getSolidlyStablePrices(PLASMA_CHAIN_ID, require('../../data/plasma/lithosStablePools.json'), tokenPrices),
     getBaseSiloPrices(tokenPrices),

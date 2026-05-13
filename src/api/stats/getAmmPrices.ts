@@ -42,7 +42,6 @@ import velodromeModePools from '../../data/mode/velodromeModePools.json';
 import velodromeLiskPools from '../../data/lisk/velodromeLiskPools.json';
 import shadowPools from '../../data/sonic/shadowLpPools.json';
 import defivePools from '../../data/sonic/defiveLpPools.json';
-import truePools from '../../data/base/trueLpPools.json';
 import kittenswapPools from '../../data/hyperevm/kittenswapLpPools.json';
 import blackholePools from '../../data/avax/blackLpPools.json';
 import etherexPools from '../../data/linea/etherexVolatilePools.json';
@@ -70,7 +69,6 @@ const pools = normalizePoolOracleIds([
   ...etherexPools,
   ...blackholePools,
   ...kittenswapPools,
-  ...truePools,
   ...defivePools,
   ...shadowPools,
   ...velodromeLiskPools,

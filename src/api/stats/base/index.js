@@ -7,11 +7,9 @@ const getAuraBaseApys = require('./getAuraBaseApys');
 const { getBeefyBaseCowApys } = require('./getBeefyBaseCowApys');
 const { getMellowVeloApys } = require('../common/getMellowVeloApys');
 const { getMorphoApys } = require('../common/morpho/getMorphoApys');
-const { getTrueApys } = require('./getTrueApys');
 const { BASE_CHAIN_ID } = require('../../../constants');
 
 const getApys = [
-  getTrueApys,
   getAerodromeApys,
   getCurveApys,
   getBalancerBaseApys,
