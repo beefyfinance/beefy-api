@@ -2353,4 +2353,17 @@ export const tokens = {
     bridge: 'layer-zero',
     tags: ['NO_TIMELOCK'],
   },
+  cbBTC: {
+    name: 'Coinbase Wrapped BTC',
+    symbol: 'cbBTC',
+    oracleId: 'cbBTC',
+    address: '0xcbB7C0000aB88B473b1f5aFd9ef808440eed33Bf',
+    chainId: 42161,
+    decimals: 8,
+    website: 'https://www.coinbase.com/',
+    description:
+      'Coinbase Wrapped Bitcoin (cbBTC) is backed 1:1 with Bitcoin, custodied with Coinbase.',
+    documentation: 'https://www.coinbase.com/blog/coinbase-wrapped-btc-cbbtc-is-now-live',
+    bridge: 'native',
+  },
 } as const satisfies Record<string, Token>;
