@@ -1084,6 +1084,14 @@ const tokens: Partial<Record<keyof typeof ChainId, ConcentratedLiquidityToken[]>
       firstToken: 'cbMEGA',
       secondToken: 'USDC',
     },
+    {
+      type: 'UniV3',
+      oracleId: 'LFI',
+      decimalDelta: 1,
+      pool: '0x588f68b9fa04366f33f8ce095c13f0cebab9406a',
+      firstToken: 'WETH',
+      secondToken: 'LFI',
+    },
   ],
   zksync: [
     {
