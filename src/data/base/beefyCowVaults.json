@@ -5,15 +5,15 @@
     "tokens": ["0x0b3e328455c4059EEb9e3f84b5543F74E24e7E1b", "0x4200000000000000000000000000000000000006"],
     "tokenOracleIds": ["VIRTUAL", "WETH"],
     "decimals": [18, 18],
-    "oracleId": "aerodrome-cow-base-virtual-weth-v2",
+    "oracleId": "aerodrome-cow-base-virtual-weth-v3",
     "providerId": "aerodrome",
     "rewardPool": {
       "address": "0x57699CEE6fe49C9446F0afF1848ae5efDb26a5Ac",
-      "oracleId": "aerodrome-cow-base-virtual-weth-v2-rp"
+      "oracleId": "aerodrome-cow-base-virtual-weth-v3-rp"
     },
     "vault": {
       "address": "0x79DE7eda49e07d67c20774d308a466997F163714",
-      "oracleId": "aerodrome-cow-base-virtual-weth-v2-vault"
+      "oracleId": "aerodrome-cow-base-virtual-weth-v3-vault"
     }
   },
   {
