@@ -2356,7 +2356,7 @@ export const tokens = {
   cbBTC: {
     name: 'Coinbase Wrapped BTC',
     symbol: 'cbBTC',
-    oracleId: 'cbBTC',
+    oracleId: 'arbcbBTC',
     address: '0xcbB7C0000aB88B473b1f5aFd9ef808440eed33Bf',
     chainId: 42161,
     decimals: 8,

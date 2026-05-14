@@ -15,7 +15,7 @@
     "address": "0x618D9328EB1D06dFfD2CB4B67523b2cB5740e32f",
     "lpAddress": "0x9B42809aaaE8d088eE01FE637E948784730F0386",
     "tokens": ["0x2f2a2543B76A4166549F7aaB2e75Bef0aefC5B0f", "0xcbB7C0000aB88B473b1f5aFd9ef808440eed33Bf"],
-    "tokenOracleIds": ["WBTC", "cbBTC"],
+    "tokenOracleIds": ["WBTC", "arbcbBTC"],
     "decimals": [8, 8],
     "oracleId": "uniswap-cow-arbitrum-wbtc-cbbtc",
     "rewardPool": {
