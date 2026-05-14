@@ -4,10 +4,10 @@ import { getApyBreakdown } from '../getApyBreakdownNew';
 // Helper function to calculate APY breakdown
 const calculateApyBreakdown = (apy, isV2, isSkim) => {
   if (isV2) {
-    const lending = new BigNumber(apy?.avgApy || 0);
+    const lending = new BigNumber(apy?.avgNetApyExcludingRewards || 0);
     const assetYield = new BigNumber(apy?.asset?.yield?.apr || 0);
     let trading = lending.plus(assetYield);
-    const vault = new BigNumber(apy?.avgNetApy || 0).minus(trading);
+    const vault = new BigNumber(apy?.avgNetApy || 0).minus(lending);
     if (isSkim) trading = lending.times(0.905).plus(assetYield);
     return { vault, trading };
   } else {
@@ -26,7 +26,7 @@ const createGraphQLQuery = (chainId, addresses, isV2) => {
 
   const entityName = isV2 ? 'vaultV2s' : 'vaults';
   const fields = isV2
-    ? 'name address avgNetApy ( lookback: ONE_HOUR ) avgApy ( lookback: ONE_HOUR ) asset { yield { apr } }'
+    ? 'name address avgNetApy ( lookback: ONE_HOUR ) avgNetApyExcludingRewards ( lookback: ONE_HOUR ) asset { yield { apr } }'
     : 'name address state { avgNetApy avgNetApyExcludingRewards } asset { yield { apr } }';
 
   return {
