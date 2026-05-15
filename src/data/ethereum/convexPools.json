@@ -1,5 +1,22 @@
 [
   {
+    "name": "curve-mseth-oeth",
+    "pool": "0xb5b93dde9d87563184d31f3b7f85dd58404e2ee0",
+    "gauge": "0x8c84b88562ced07f84af488cc45d434186d07b6e",
+    "rewardPool": "0x6597d955e2510Ee86539C68fe2e4D6b01ba6374d",
+    "stakeDao": true,
+    "tokens": [
+      {
+        "oracleId": "msETH",
+        "decimals": "1e18"
+      },
+      {
+        "oracleId": "OETH",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
     "name": "curve-pmusd-ireet",
     "pool": "0x57129759d0e23116c1e7402dbc084e53d2e209a2",
     "gauge": "0xf814283bfd37dc24b2fb5515982f5c0708e508b6",
