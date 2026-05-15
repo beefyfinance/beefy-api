@@ -1085,6 +1085,14 @@ const tokens: Partial<Record<keyof typeof ChainId, ConcentratedLiquidityToken[]>
       secondToken: 'USDC',
     },
     {
+      type: 'Slipstream',
+      oracleId: 'AORA',
+      decimalDelta: 1e12,
+      pool: '0x0aed2bd5abdffcde57c0bcf30e75cd594b8876a9',
+      firstToken: 'USDC',
+      secondToken: 'AORA',
+    },
+    {
       type: 'UniV3',
       oracleId: 'LFI',
       decimalDelta: 1,
