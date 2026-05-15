@@ -3556,6 +3556,7 @@ export const tokens = {
     description:
       'AtlasOra is a Base-native protocol for stablecoin settlement in prepaid commerce.',
     bridge: 'native',
+    tags: ['LARGE_HOLDERS'],
   },
   LFI: {
     name: 'LienFi',
