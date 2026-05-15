@@ -3545,6 +3545,18 @@ export const tokens = {
     bridge: 'native',
     tags: ['NO_TIMELOCK'],
   },
+  AORA: {
+    name: 'AtlasOra',
+    symbol: 'AORA',
+    oracleId: 'AORA',
+    address: '0x6E84030FA86EBf585E3E18fe557e5612f7e93Bff',
+    chainId: 8453,
+    decimals: 18,
+    website: 'https://www.atlasora.foundation/',
+    description:
+      'AtlasOra is a Base-native protocol for stablecoin settlement in prepaid commerce.',
+    bridge: 'native',
+  },
   LFI: {
     name: 'LienFi',
     symbol: 'LFI',
