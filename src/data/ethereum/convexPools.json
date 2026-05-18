@@ -1,5 +1,35 @@
 [
   {
+    "name": "curve-frxusd-mubond",
+    "pool": "0x01646F6fe0d75CEd6E514faB0Ea2F4ed5e1A5C9F",
+    "stakeDao": true,
+    "tokens": [
+      {
+        "oracleId": "frxUSD",
+        "decimals": "1e18"
+      },
+      {
+        "oracleId": "muBOND",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
+    "name": "curve-frxusd-aznd",
+    "pool": "0x16a973F8e466F44e9eA67e7e2d3166bD460ea852",
+    "stakeDao": true,
+    "tokens": [
+      {
+        "oracleId": "frxUSD",
+        "decimals": "1e18"
+      },
+      {
+        "oracleId": "AZND",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
     "name": "curve-mseth-oeth",
     "pool": "0xb5b93dde9d87563184d31f3b7f85dd58404e2ee0",
     "gauge": "0x8c84b88562ced07f84af488cc45d434186d07b6e",
