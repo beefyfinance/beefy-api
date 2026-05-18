@@ -31,6 +31,9 @@
     "vault": {
       "address": "0x13d5c1A15620F503E0fdA80df14434677A7D3546",
       "oracleId": "aerodrome-cow-base-virtual-usdc-vault-v2"
+    }
+  },
+  {
     "address": "0xceFCedC6eD2f5f291a563A7e253CfDD402F9aD37",
     "lpAddress": "0xB828dC3D77360F053F1379Cd8676BaC6141684f3",
     "tokens": ["0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913", "0xFbC2051AE2265686a469421b2C5A2D5462FbF5eB"],
