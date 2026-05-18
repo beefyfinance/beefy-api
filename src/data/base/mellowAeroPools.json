@@ -1,37 +1,12 @@
 [
   {
-    "name": "mellow-aero-tbtc-cbbtc",
-    "address": "0x331efe99464d3A1CAD008c720e699F7FD318FEF6",
-    "tokens": ["tBTC", "cbBTC"]
-  },
-  {
-    "name": "mellow-aero-weth-aero",
-    "address": "0x20fa0aFf0368E1B07c24EE0060320512c9Cd41bC",
-    "tokens": ["WETH", "AERO"]
-  },
-  {
-    "name": "mellow-aero-usdc-usdt",
-    "address": "0x33DB29651B30C09c0a9184893215905E5F536130",
-    "tokens": ["USDC", "USDT"]
-  },
-  {
-    "name": "mellow-aero-cbeth-weth",
-    "address": "0x23Ea5566530028d71651219ABb5a421ed383c7F1",
-    "tokens": ["cbETH", "WETH"]
-  },
-  {
-    "name": "mellow-aero-weth-cbbtc",
-    "address": "0xB9DB6804e84D960E139A2BdC33bfC30f8fb689Fe",
-    "tokens": ["WETH", "cbBTC"]
+    "name": "mellow-aero-weth-usdc-v2",
+    "address": "0x64838D0266558D45BEfA3C6d492bfea935321C03",
+    "tokens": ["WETH", "USDC"]
   },
   {
     "name": "mellow-aero-weth-usdc",
     "address": "0xcd975e6a5F55137755487F0918b8ca74aCCe7925",
     "tokens": ["WETH", "USDC"]
-  },
-  {
-    "name": "mellow-aero-usdc-cbbtc",
-    "address": "0x0Df5f2662e4a8C801c04D83Df717476509816250",
-    "tokens": ["USDC", "cbBTC"]
   }
 ]
