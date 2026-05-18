@@ -246,6 +246,14 @@ const tokens: Partial<Record<keyof typeof ChainId, ConcentratedLiquidityToken[]>
       firstToken: 'USDC',
       secondToken: 'CHIP',
     },
+    {
+      type: 'UniV3',
+      oracleId: 'arbMOR',
+      decimalDelta: 1,
+      pool: '0xE5Cf22EE4988d54141B77050967E1052Bd9c7F7A',
+      firstToken: 'WETH',
+      secondToken: 'arbMOR',
+    },
   ],
   linea: [
     {
@@ -1099,6 +1107,14 @@ const tokens: Partial<Record<keyof typeof ChainId, ConcentratedLiquidityToken[]>
       pool: '0x588f68b9fa04366f33f8ce095c13f0cebab9406a',
       firstToken: 'WETH',
       secondToken: 'LFI',
+    },
+    {
+      type: 'UniV3',
+      oracleId: 'basMOR',
+      decimalDelta: 1,
+      pool: '0x37ecD41f5a01B23a3d9bb3b4DdfEF4eD455d6fd3',
+      firstToken: 'basMOR',
+      secondToken: 'WETH',
     },
   ],
   zksync: [

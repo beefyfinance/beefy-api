@@ -9,6 +9,7 @@ import { MULTICHAIN_RPC } from '../src/constants';
 import UniV3LPPairABI from '../src/abis/UniV3LPPair.json';
 import ERC20ABI from '../src/abis/ERC20.json';
 import CowVault from '../src/abis/CowVault';
+import StratUniV3 from '../src/abis/StratUniV3';
 
 const {} = addressBook;
 
@@ -43,8 +44,23 @@ const provider = new ethers.providers.JsonRpcProvider(MULTICHAIN_RPC[chainId]);
 async function fetchLiquidityPair(clmAddress) {
   console.log(`fetchLiquidityPair for (${clmAddress})`);
   const clmContract = new ethers.Contract(clmAddress, CowVault as any, provider);
-  const lpAddress = await clmContract.want();
-  const lpContract = new ethers.Contract(lpAddress, UniV3LPPairABI, provider);
+
+  let lpAddress: string;
+  let token0: string;
+  let token1: string;
+
+  try {
+    lpAddress = await clmContract.want();
+    const lpContract = new ethers.Contract(lpAddress, UniV3LPPairABI, provider);
+    token0 = await lpContract.token0();
+    token1 = await lpContract.token1();
+  } catch {
+    // Newer CLMs expose wants() instead of want(); get lpAddress from strategy
+    const strategyAddress = await clmContract.strategy();
+    const strategyContract = new ethers.Contract(strategyAddress, StratUniV3 as any, provider);
+    lpAddress = await strategyContract.pool();
+    [token0, token1] = await clmContract.wants();
+  }
 
   interface Results {
     address: String;
@@ -54,8 +70,8 @@ async function fetchLiquidityPair(clmAddress) {
 
   const results: Results = {
     address: ethers.utils.getAddress(lpAddress),
-    token0: await lpContract.token0(),
-    token1: await lpContract.token1(),
+    token0: ethers.utils.getAddress(token0),
+    token1: ethers.utils.getAddress(token1),
   };
 
   return results;
