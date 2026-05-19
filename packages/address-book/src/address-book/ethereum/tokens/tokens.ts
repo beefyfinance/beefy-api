@@ -3088,4 +3088,18 @@ export const tokens = {
     bridge: 'layer-zero',
     tags: ['NO_TIMELOCK', 'SYNTHETIC', 'STABLECOIN'],
   },
+  ASTEROID: {
+    name: 'Asteroid Shiba',
+    symbol: 'ASTEROID',
+    oracleId: 'ASTEROID',
+    address: '0xf280B16EF293D8e534e370794ef26bF312694126',
+    chainId: 1,
+    decimals: 9,
+    website: 'https://asteroideth.io/',
+    description:
+      'Asteroid Shiba ($Asteroid) is a meme-inspired cryptocurrency token that operates on the Ethereum blockchain. It was launched in 2024 but recently went viral in 2026 as it was agreed by Elon Musk that he would make Asteroid the Shiba the official mascot of SpaceX.',
+    documentation: '',
+    bridge: 'native ',
+    tags: ['MEMECOIN', 'LARGE_HOLDERS'],
+  },
 } as const satisfies Record<string, Token>;

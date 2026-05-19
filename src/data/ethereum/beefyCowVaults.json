@@ -1,0 +1,14 @@
+[
+  {
+    "address": "0x1f2E246a23D9E620F0c643e1239D77dDc5a82743",
+    "lpAddress": "0x53e3d506F468c4BC30cc8CaA21Eb7E56c2fA2D55",
+    "tokens": ["0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2", "0xf280B16EF293D8e534e370794ef26bF312694126"],
+    "tokenOracleIds": ["WETH", "ASTEROID"],
+    "decimals": [18, 9],
+    "oracleId": "uniswap-cow-ethereum-weth-asteroid",
+    "rewardPool": {
+      "address": "0x8CEa55446F8C2314B3995C448Be8F04AeaABd5C4",
+      "oracleId": "uniswap-cow-ethereum-weth-asteroid-rp"
+    }
+  }
+]
