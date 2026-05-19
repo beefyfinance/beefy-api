@@ -2339,4 +2339,18 @@ export const tokens = {
     bridge: 'native',
     tags: ['LARGE_HOLDERS', 'NO_TIMELOCK'],
   },
+  MOR: {
+    name: 'MOR',
+    symbol: 'MOR',
+    oracleId: 'arbMOR',
+    address: '0x092bAaDB7DEf4C3981454dD9c0A0D7FF07bCFc86',
+    chainId: 42161,
+    decimals: 18,
+    website: 'https://mor.org/',
+    description:
+      'At the core of the Morpheus token economy is MOR, a fair-launched utility token that powers the network, facilitating value movement and free-market dynamics among end users, builders, smart agents, DeAi applications, compute providers, consumers, developers, and capital providers.',
+    documentation: 'https://gitbook.mor.org/',
+    bridge: 'layer-zero',
+    tags: ['NO_TIMELOCK'],
+  },
 } as const satisfies Record<string, Token>;

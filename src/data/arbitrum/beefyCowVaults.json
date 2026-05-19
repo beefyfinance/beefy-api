@@ -1,5 +1,17 @@
 [
   {
+    "address": "0x2AC513Bc6432063B391E5b12F04eAba71Aaf30dC",
+    "lpAddress": "0xE5Cf22EE4988d54141B77050967E1052Bd9c7F7A",
+    "tokens": ["0x092bAaDB7DEf4C3981454dD9c0A0D7FF07bCFc86", "0x82aF49447D8a07e3bd95BD0d56f35241523fBab1"],
+    "tokenOracleIds": ["arbMOR", "WETH"],
+    "decimals": [18, 18],
+    "oracleId": "uniswap-cow-arbitrum-mor-weth",
+    "rewardPool": {
+      "address": "0x451391ec8f8B4dEf10E5d8dd0e148A2D2Dd38160",
+      "oracleId": "uniswap-cow-arbitrum-mor-weth-rp"
+    }
+  },
+  {
     "address": "0x1076C9156e555a122d9cad36f98BB3CB5186Af18",
     "lpAddress": "0xE42e41985A07579E1A09092fA042455d40Bf5A75",
     "tokens": ["0x0C1c1C109FE34733fca54b82d7B46B75CFb71F6e", "0x82aF49447D8a07e3bd95BD0d56f35241523fBab1"],
