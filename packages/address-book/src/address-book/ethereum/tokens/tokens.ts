@@ -3088,4 +3088,18 @@ export const tokens = {
     bridge: 'layer-zero',
     tags: ['NO_TIMELOCK', 'SYNTHETIC', 'STABLECOIN'],
   },
+  USG: {
+    name: 'Tangent USD',
+    symbol: 'USG',
+    oracleId: 'USG',
+    address: '0xB1c2Db5d6cA03FCe73dBd304d320bF76C55Ae1B1',
+    chainId: 1,
+    decimals: 18,
+    website: 'https://www.tangent.finance/',
+    documentation: 'https://docs.tangent.finance/docs/overview',
+    description:
+      'USG is an over-collateralized USD-denominated stablecoin, that can be minted against a variety of productive collaterals, such as Curve Finance LP tokens, or Pendle PTs.',
+    bridge: 'native',
+    tags: ['NO_TIMELOCK', 'SYNTHETIC', 'STABLECOIN'],
+  },
 } as const satisfies Record<string, Token>;
