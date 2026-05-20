@@ -1,5 +1,66 @@
 [
   {
+    "name": "curve-frxusd-usg",
+    "pool": "0xEfc056790bb19702b2164ec6Ea6bA3AE01d81195",
+    "stakeDao": true,
+    "tokens": [
+      {
+        "oracleId": "frxUSD",
+        "decimals": "1e18"
+      },
+      {
+        "oracleId": "USG",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
+    "name": "curve-usdc-usg",
+    "pool": "0x97BA10115da528c113462EDE9C20D7adc806D93f",
+    "stakeDao": true,
+    "getDy": ["v1", 1, 0],
+    "tokens": [
+      {
+        "oracleId": "USDC",
+        "decimals": "1e6"
+      },
+      {
+        "oracleId": "USG",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
+    "name": "curve-frxusd-mubond",
+    "pool": "0x01646F6fe0d75CEd6E514faB0Ea2F4ed5e1A5C9F",
+    "stakeDao": true,
+    "tokens": [
+      {
+        "oracleId": "frxUSD",
+        "decimals": "1e18"
+      },
+      {
+        "oracleId": "muBOND",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
+    "name": "curve-frxusd-aznd",
+    "pool": "0x16a973F8e466F44e9eA67e7e2d3166bD460ea852",
+    "stakeDao": true,
+    "tokens": [
+      {
+        "oracleId": "frxUSD",
+        "decimals": "1e18"
+      },
+      {
+        "oracleId": "AZND",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
     "name": "curve-mseth-oeth",
     "pool": "0xb5b93dde9d87563184d31f3b7f85dd58404e2ee0",
     "gauge": "0x8c84b88562ced07f84af488cc45d434186d07b6e",
@@ -997,28 +1058,6 @@
       {
         "oracleId": "USDC",
         "decimals": "1e6"
-      }
-    ]
-  },
-  {
-    "name": "convex-usd3-rgusd",
-    "pool": "0xde73e407efc75edbafc5bcd62ebb1e7a9b38ebcd",
-    "gauge": "0x36152aa234fcf97b5c14fc6d4893fc0da5328bd2",
-    "rewardPool": "0x1EB6689327b8E12cDD0F8806aFDc9caeD40862de",
-    "extras": [
-      {
-        "rewardPool": "0xb6875cA08a0db50334C7C5e31e52190cb037035D",
-        "oracleId": "rgUSD"
-      }
-    ],
-    "tokens": [
-      {
-        "oracleId": "USD3",
-        "decimals": "1e18"
-      },
-      {
-        "oracleId": "rgUSD",
-        "decimals": "1e18"
       }
     ]
   },

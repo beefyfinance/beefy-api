@@ -81,7 +81,6 @@ import { getBeefyCowMegaethPrices } from './megaeth/getBeefyMegaethCowPrices';
 import { getPendleCommonPrices } from './common/getPendleCommonPrices';
 import { getMellowVeloPrices } from './common/getMellowVeloPrices';
 import { getBunniPrices } from './common/getBunniPrices';
-import getBaseSiloPrices from './base/getBaseSiloPrices';
 import getSonicSiloPrices from './sonic/getSonicSiloPrices';
 import getVenusArbPrices from './arbitrum/getVenusArbPrices';
 import getVenusZkPrices from './zksync/getVenusZkPrices';
@@ -206,7 +205,6 @@ export async function getNonAmmPrices(
     getEulerPrices(ARB_CHAIN_ID, require('../../data/arbitrum/eulerPools.json'), tokenPrices),
     getSolidlyStablePrices(AVAX_CHAIN_ID, require('../../data/avax/blackStableLpPools.json'), tokenPrices),
     getSolidlyStablePrices(PLASMA_CHAIN_ID, require('../../data/plasma/lithosStablePools.json'), tokenPrices),
-    getBaseSiloPrices(tokenPrices),
     getNuriStablePrices(tokenPrices),
     getVenusArbPrices(tokenPrices),
     getVenusZkPrices(tokenPrices),

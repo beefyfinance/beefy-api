@@ -51,16 +51,6 @@ const tokens: Partial<Record<keyof typeof ChainId, CurveToken[]>> = {
       abi: ICurvePool,
     },
     {
-      oracleId: 'cvxFPIS',
-      decimals: '1e18',
-      index0: 1,
-      index1: 0,
-      pool: '0xfBB481A443382416357fA81F16dB5A725DC6ceC8',
-      secondToken: 'FPIS',
-      secondTokenDecimals: '1e18',
-      abi: ICurvePool,
-    },
-    {
       oracleId: 'sFRAX',
       decimals: '1e18',
       index0: 1,
@@ -156,11 +146,16 @@ async function getCurveTokenPrices(
     const prices = [];
     const pricesById = {};
     for (let i = 0; i < res.length; i++) {
-      pricesById[chainTokens[i].oracleId] = new BigNumber(res[i].toString())
-        .times(tokenPrices[chainTokens[i].secondToken] || pricesById[chainTokens[i].secondToken])
-        .dividedBy(chainTokens[i].secondTokenDecimals)
+      const t = chainTokens[i];
+      const secondPrice = tokenPrices[t.secondToken] || pricesById[t.secondToken];
+      if (!secondPrice) {
+        console.error(`fetchCurveTokenPrices error ${t.oracleId}, no price for ${t.secondToken}, pool ${t.pool}`);
+      }
+      pricesById[t.oracleId] = new BigNumber(res[i].toString())
+        .times(secondPrice)
+        .dividedBy(t.secondTokenDecimals)
         .toNumber();
-      prices.push(pricesById[chainTokens[i].oracleId]);
+      prices.push(pricesById[t.oracleId]);
     }
     return prices;
   } catch (e) {

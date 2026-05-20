@@ -4693,4 +4693,18 @@ export const tokens = {
     bridge: 'native',
     tags: ['LARGE_HOLDERS'],
   },
+  ZEST: {
+    name: 'Zest',
+    symbol: 'ZEST',
+    oracleId: 'ZEST',
+    address: '0x5506599c722389A60580B5213ea1Da60D64754a1',
+    chainId: 56,
+    decimals: 18,
+    website: 'https://www.zestprotocol.com/',
+    description:
+      'Zest Protocol is the leading Bitcoin lending protocol, enabling BTC holders to earn yield on their Bitcoin and borrow stablecoins against it.',
+    documentation: 'https://docs.zestprotocol.com/start',
+    bridge: 'native',
+    tags: ['LARGE_HOLDERS'],
+  },
 } as const satisfies Record<string, Token>;

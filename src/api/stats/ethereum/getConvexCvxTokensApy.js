@@ -9,24 +9,6 @@ const secondsPerYear = 31536000;
 
 const pools = [
   {
-    name: 'convex-staked-cvxFXS',
-    oracleId: 'cvxFXS',
-    address: '0x49b4d1dF40442f0C31b1BbAEA3EDE7c38e37E31a',
-    rewards: [
-      { address: '0x3432B6A60D23Ca0dFCa7761B7ab56459D9C964D0', oracleId: 'FXS' },
-      { address: '0x4e3FBD56CD56c3e72c1403e103b45Db9da5B9D2B', oracleId: 'CVX' },
-    ],
-  },
-  {
-    name: 'convex-staked-cvxFPIS',
-    oracleId: 'cvxFPIS',
-    address: '0xfA87DB3EAa93B7293021e38416650D2E666bC483',
-    rewards: [
-      { address: '0xc2544A32872A91F4A553b404C6950e89De901fdb', oracleId: 'FPIS' },
-      { address: '0x4e3FBD56CD56c3e72c1403e103b45Db9da5B9D2B', oracleId: 'CVX' },
-    ],
-  },
-  {
     name: 'convex-staked-cvxFXN',
     oracleId: 'cvxFXN',
     address: '0xEC60Cd4a5866fb3B0DD317A46d3B474a24e06beF',

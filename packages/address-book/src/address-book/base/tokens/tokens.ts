@@ -2287,16 +2287,16 @@ export const tokens = {
   MOR: {
     name: 'MOR',
     symbol: 'MOR',
-    oracleId: 'MOR',
+    oracleId: 'basMOR',
     address: '0x7431aDa8a591C955a994a21710752EF9b882b8e3',
     chainId: 8453,
     decimals: 18,
     website: 'https://mor.org/',
     description:
-      'Morpheus is a Decentralized AI network designed to incentivize a network of Smart Agents, general-purpose AI that can execute Smart Contracts on behalf of users.',
-    documentation: 'https://morpheusai.gitbook.io/morpheus/',
+      'At the core of the Morpheus token economy is MOR, a fair-launched utility token that powers the network, facilitating value movement and free-market dynamics among end users, builders, smart agents, DeAi applications, compute providers, consumers, developers, and capital providers.',
+    documentation: 'https://gitbook.mor.org/',
     bridge: 'layer-zero',
-    tags: ['MEMECOIN', 'LARGE_HOLDERS', 'NO_TIMELOCK'],
+    tags: ['NO_TIMELOCK'],
   },
   KTA: {
     name: 'Keeta',
@@ -3556,6 +3556,7 @@ export const tokens = {
     description:
       'AtlasOra is a Base-native protocol for stablecoin settlement in prepaid commerce.',
     bridge: 'native',
+    tags: ['LARGE_HOLDERS'],
   },
   LFI: {
     name: 'LienFi',
