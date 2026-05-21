@@ -1,5 +1,17 @@
 [
   {
+    "address": "0x4AF07fCe264429446B88ac78C393799842fe85A8",
+    "lpAddress": "0x6d299F4bAD5392af1e55e3E86A0339399543032b",
+    "tokens": ["0x5506599c722389A60580B5213ea1Da60D64754a1", "0x55d398326f99059fF775485246999027B3197955"],
+    "tokenOracleIds": ["ZEST", "USDT"],
+    "decimals": [18, 18],
+    "oracleId": "uniswap-cow-bsc-zest-usdt",
+    "rewardPool": {
+      "address": "0xD0ffeA1BACb84c2FAd3A145cBDC02de1bd397206",
+      "oracleId": "uniswap-cow-bsc-zest-usdt-rp"
+    }
+  },
+  {
     "address": "0x3F142c3Fab8DE3639b220f91C782F2015BE4D784",
     "lpAddress": "0x0a4b571C4932d84dE11A6BCA96bb9BA5bF27Ff1C",
     "tokens": ["0x55d398326f99059fF775485246999027B3197955", "0x5feCcD17C393CaF1001D18164236A37E731FCb9d"],

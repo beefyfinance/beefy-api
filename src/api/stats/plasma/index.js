@@ -1,10 +1,9 @@
 const { getBeefyCowPlasmaApys } = require('./getBeefyCowPlasmaApys');
 const { getAaveV3Apys } = require('./getAaveV3Apys');
-const { getEulerPlasmaApys } = require('./getEulerPlasmaApys');
 const { getCurveApys } = require('./getCurveApys');
 const { getLithosApys } = require('./getLithosApys');
 
-const getApys = [getBeefyCowPlasmaApys, getAaveV3Apys, getEulerPlasmaApys, getCurveApys, getLithosApys];
+const getApys = [getBeefyCowPlasmaApys, getAaveV3Apys, getCurveApys, getLithosApys];
 
 const getPlasmaApys = async () => {
   const start = Date.now();

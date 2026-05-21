@@ -254,6 +254,14 @@ const tokens: Partial<Record<keyof typeof ChainId, ConcentratedLiquidityToken[]>
       firstToken: 'USDC',
       secondToken: 'CHIP',
     },
+    {
+      type: 'UniV3',
+      oracleId: 'arbMOR',
+      decimalDelta: 1,
+      pool: '0xE5Cf22EE4988d54141B77050967E1052Bd9c7F7A',
+      firstToken: 'WETH',
+      secondToken: 'arbMOR',
+    },
   ],
   linea: [
     {
@@ -1108,6 +1116,14 @@ const tokens: Partial<Record<keyof typeof ChainId, ConcentratedLiquidityToken[]>
       firstToken: 'WETH',
       secondToken: 'LFI',
     },
+    {
+      type: 'UniV3',
+      oracleId: 'basMOR',
+      decimalDelta: 1,
+      pool: '0x37ecD41f5a01B23a3d9bb3b4DdfEF4eD455d6fd3',
+      firstToken: 'basMOR',
+      secondToken: 'WETH',
+    },
   ],
   zksync: [
     {
@@ -1567,6 +1583,14 @@ const tokens: Partial<Record<keyof typeof ChainId, ConcentratedLiquidityToken[]>
       pool: '0xbf3693031c272be6d539d79a9715561229a8fba9',
       firstToken: 'BTCB',
       secondToken: 'bnbZEC',
+    },
+    {
+      type: 'UniV3',
+      oracleId: 'ZEST',
+      decimalDelta: 1,
+      pool: '0x6d299F4bAD5392af1e55e3E86A0339399543032b',
+      firstToken: 'USDT',
+      secondToken: 'ZEST',
     },
   ],
   gnosis: [
