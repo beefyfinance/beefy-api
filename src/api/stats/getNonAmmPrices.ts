@@ -199,8 +199,6 @@ export async function getNonAmmPrices(
     getMorphoPrices(ARB_CHAIN_ID, require('../../data/arbitrum/morphoPools.json'), tokenPrices),
     getMorphoPrices(OPTIMISM_CHAIN_ID, require('../../data/optimism/morphoPools.json'), tokenPrices),
     getIchiPrices(SONIC_CHAIN_ID, require('../../data/sonic/swapxIchiPools.json'), tokenPrices),
-    getEulerPrices(SONIC_CHAIN_ID, require('../../data/sonic/eulerPools.json'), tokenPrices),
-    getEulerPrices(AVAX_CHAIN_ID, require('../../data/avax/eulerPools.json'), tokenPrices),
     getEulerPrices(MONAD_CHAIN_ID, require('../../data/monad/eulerPools.json'), tokenPrices),
     getEulerPrices(ARB_CHAIN_ID, require('../../data/arbitrum/eulerPools.json'), tokenPrices),
     getSolidlyStablePrices(AVAX_CHAIN_ID, require('../../data/avax/blackStableLpPools.json'), tokenPrices),
