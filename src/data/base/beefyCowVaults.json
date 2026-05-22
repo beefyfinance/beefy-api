@@ -38,11 +38,11 @@
     "providerId": "aerodrome",
     "rewardPool": {
       "address": "0x962162FC3a92Eaa17D29ABB136AC3eb29E3439AF",
-      "oracleId": "aerodrome-cow-base-virtual-usdc-rp-v2"
+      "oracleId": "aerodrome-cow-base-virtual-usdc-v2-rp"
     },
     "vault": {
       "address": "0x13d5c1A15620F503E0fdA80df14434677A7D3546",
-      "oracleId": "aerodrome-cow-base-virtual-usdc-vault-v2"
+      "oracleId": "aerodrome-cow-base-virtual-usdc-v2-vault"
     }
   },
   {
