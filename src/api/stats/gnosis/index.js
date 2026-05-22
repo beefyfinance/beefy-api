@@ -1,8 +1,6 @@
-const getAuraGnosisApys = require('./getAuraGnosisApys');
-const { getCurveApys } = require('./getCurveApys');
 const { getBeefyGnosisCowApys } = require('./getBeefyGnosisCowApys');
 
-const getApys = [getAuraGnosisApys, getCurveApys, getBeefyGnosisCowApys];
+const getApys = [getBeefyGnosisCowApys];
 
 const getGnosisApys = async () => {
   const start = Date.now();
