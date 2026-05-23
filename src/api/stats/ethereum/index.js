@@ -1,3 +1,4 @@
+const { getBeefyEthereumCowApys } = require('./getBeefyEthereumCowApys');
 const { getAuraApys } = require('./getAuraApys');
 const { getConvexApys } = require('./getConvexApys');
 const { getConvexCrvApy } = require('./getConvexCrvApy');
@@ -16,6 +17,7 @@ const { getPendleApys } = require('../common/pendle/getPendleApys');
 const { getPendleUnboostedApys } = require('../common/pendle/getPendleUnboostedApys');
 
 const getApys = [
+  getBeefyEthereumCowApys,
   getAuraApys,
   getbeQIApy,
   getCurveApys,
