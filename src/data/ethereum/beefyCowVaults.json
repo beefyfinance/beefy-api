@@ -1,5 +1,41 @@
 [
   {
+    "address": "0xC7AFdB8Ef47C058E8F4094Cca09080BcAb662e80",
+    "lpAddress": "0xCBCdF9626bC03E24f779434178A73a0B4bad62eD",
+    "tokens": ["0x2260FAC5E5542a773Aa44fBCfeDf7C193bc2C599", "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2"],
+    "tokenOracleIds": ["WBTC", "WETH"],
+    "decimals": [8, 18],
+    "oracleId": "uniswap-cow-ethereum-wbtc-weth",
+    "rewardPool": {
+      "address": "0xef958e249c089fb2c378fdf5fedfb8a6d6374000",
+      "oracleId": "uniswap-cow-ethereum-wbtc-weth-rp"
+    }
+  },
+  {
+    "address": "0x136363cA1219c943a560F22EEfbb2bEB4c92Ef3c",
+    "lpAddress": "0x99ac8cA7087fA4A2A1FB6357269965A2014ABc35",
+    "tokens": ["0x2260FAC5E5542a773Aa44fBCfeDf7C193bc2C599", "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48"],
+    "tokenOracleIds": ["WBTC", "USDC"],
+    "decimals": [8, 6],
+    "oracleId": "uniswap-cow-ethereum-wbtc-usdc",
+    "rewardPool": {
+      "address": "0x7431d63132167d3ddd7990a90e26601d3ea9e6eb",
+      "oracleId": "uniswap-cow-ethereum-wbtc-usdc-rp"
+    }
+  },
+  {
+    "address": "0xDcfBFc35173EcF5A4451f86600b741cc365Ceb60",
+    "lpAddress": "0x4e68Ccd3E89f51C3074ca5072bbAC773960dFa36",
+    "tokens": ["0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2", "0xdAC17F958D2ee523a2206206994597C13D831ec7"],
+    "tokenOracleIds": ["WETH", "USDT"],
+    "decimals": [18, 6],
+    "oracleId": "uniswap-cow-ethereum-weth-usdt",
+    "rewardPool": {
+      "address": "0x8e15fcaa3eb4f7b111c4d3dd237b36ca49331786",
+      "oracleId": "uniswap-cow-ethereum-weth-usdt-rp"
+    }
+  },
+  {
     "address": "0x1f2E246a23D9E620F0c643e1239D77dDc5a82743",
     "lpAddress": "0x53e3d506F468c4BC30cc8CaA21Eb7E56c2fA2D55",
     "tokens": ["0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2", "0xf280B16EF293D8e534e370794ef26bF312694126"],
