@@ -3092,7 +3092,7 @@ export const tokens = {
     description:
       'Solana is a high-performance network that enables fast, secure, and affordable digital transactions. It powers thousands of applications ranging from payments and games to digital art and financial services. ',
     documentation: 'https://solana.com/learn/what-is-solana',
-    bridge: 'chainlink-ccip',
+    bridge: 'base-canonical',
     tags: ['BLUECHIP'],
   },
   EDEL: {
@@ -3570,5 +3570,18 @@ export const tokens = {
       'LienFi tokenizes U.S. tax liens and tax deeds onchain. $LFI is the native token of the protocol — a fixed-supply ERC-20 on Base with 73% liquid at launch.',
     bridge: 'native',
     tags: ['LARGE_HOLDERS', 'NO_TIMELOCK'],
+  },
+  JitoSOL: {
+    name: 'Jito Staked SOL',
+    symbol: 'JitoSOL',
+    oracleId: 'JitoSOL',
+    address: '0x97bE14Dd8f994A5364573BC035D85309E7CB34de',
+    chainId: 8453,
+    decimals: 9,
+    website: 'https://www.jito.network/ ',
+    description:
+      'Jito is the liquid staking service for Solana that distributes MEV (maximum extractable value) rewards to holders. The JitoSOL token provides liquidity while earning a combination of staking rewards and MEV rewards.',
+    documentation: 'https://www.jito.network/docs',
+    bridge: 'base-canonical',
   },
 } as const satisfies Record<string, Token>;
