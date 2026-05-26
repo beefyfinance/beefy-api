@@ -3116,4 +3116,32 @@ export const tokens = {
     bridge: 'native',
     tags: ['NO_TIMELOCK', 'SYNTHETIC', 'STABLECOIN'],
   },
+  rUSD: {
+    name: 'Reservoir USD',
+    symbol: 'rUSD',
+    oracleId: 'ethrUSD',
+    address: '0x09D4214C03D01F49544C0448DBE3A27f768F2b34',
+    chainId: 1,
+    decimals: 18,
+    website: 'https://www.reservoir.xyz/ ',
+    documentation: 'https://docs.reservoir.xyz/ ',
+    description:
+      "Reservoir's rUSD stablecoin is a censorship-resistant and transferable stablecoin that was constructed to integrate with multi-collateral asset adapters and be used across DeFi native applications. Reservoir's design enables an overcollateralized, transparent onchain balance sheet verifiable by all users.",
+    bridge: 'native',
+    tags: ['NO_TIMELOCK', 'LARGE_HOLDERS', 'SYNTHETIC', 'STABLECOIN'],
+  },
+  DAM: {
+    name: 'Reservoir',
+    symbol: 'DAM',
+    oracleId: 'ethDAM',
+    address: '0x0FedbA9178b70e8b54e2Af08eBffcf28A1e5A43B',
+    chainId: 1,
+    decimals: 18,
+    website: 'https://www.reservoir.xyz/ ',
+    documentation: 'https://docs.reservoir.xyz/ ',
+    description:
+      "DAM is designed to create and expand more value across the Reservoir ecosystem. The value flows from the protocol collateral and Reservoir's key partnership integrations into protocol revenue - looping back to users via rewards, yield boosts, and buybacks.",
+    bridge: 'native',
+    tags: ['NO_TIMELOCK', 'LARGE_HOLDERS'],
+  },
 } as const satisfies Record<string, Token>;

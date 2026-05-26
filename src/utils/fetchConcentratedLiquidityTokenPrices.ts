@@ -124,6 +124,22 @@ const tokens: Partial<Record<keyof typeof ChainId, ConcentratedLiquidityToken[]>
     },
     {
       type: 'UniV3',
+      oracleId: 'ethrUSD',
+      decimalDelta: 1e12,
+      pool: '0x5e1ea25a1cd7e94adeb18221b94efe7fd7ff0d23',
+      firstToken: 'ethrUSD',
+      secondToken: 'USDC',
+    },
+    {
+      type: 'UniV3',
+      oracleId: 'ethDAM',
+      decimalDelta: 1,
+      pool: '0xda915b6b14ad0bb6a14c66d57136772f4582c7ba',
+      firstToken: 'WETH',
+      secondToken: 'ethDAM',
+    },
+    {
+      type: 'UniV3',
       oracleId: 'ASTEROID',
       decimalDelta: 1e9,
       pool: '0x53e3d506F468c4BC30cc8CaA21Eb7E56c2fA2D55',

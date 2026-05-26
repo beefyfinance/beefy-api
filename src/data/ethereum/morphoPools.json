@@ -1,5 +1,23 @@
 [
   {
+    "name": "morpho-v2-ethereum-steakhouse-reservoir-usdc",
+    "address": "0xBEeFF047C03714965a54b671A37C18beF6b96210",
+    "oracle": "tokens",
+    "oracleId": "USDC",
+    "decimals": "1e6",
+    "v2": true,
+    "skim": true
+  },
+  {
+    "name": "morpho-v2-ethereum-steakhouse-reservoir-rusd",
+    "address": "0xBEeFf08E1887A11D91B9Ca68c133c08Ae3c4B44f",
+    "oracle": "tokens",
+    "oracleId": "ethrUSD",
+    "decimals": "1e18",
+    "v2": true,
+    "skim": true
+  },
+  {
     "name": "morpho-v2-ethereum-steakhouse-prime-usdt",
     "address": "0xbeef003C68896c7D2c3c60d363e8d71a49Ab2bf9",
     "oracle": "tokens",
