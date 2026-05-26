@@ -15,7 +15,6 @@ const getStargateEthApys = require('./getStargateEthApys');
 const { getPendleApys } = require('../common/pendle/getPendleApys');
 const { getPendleUnboostedApys } = require('../common/pendle/getPendleUnboostedApys');
 const { getBeefyCowEthereumApys } = require('./getBeefyCowEthereumApys');
-const { get } = require('lodash');
 
 const getApys = [
   getAuraApys,
