@@ -15,10 +15,6 @@ import { getGmxAvalanchePrices } from './avax/getGmxPrices';
 import getAuraBalancerPrices from './ethereum/getAuraBalancerPrices';
 import getFerroPrices from './cronos/getFerroPrices';
 import getHopArbPrices from './arbitrum/getHopArbPrices';
-import getStargateLineaPrices from './linea/getStargateLineaPrices';
-import getStargateEthPrices from './ethereum/getStargateEthPrices';
-import getStargateArbPrices from './arbitrum/getStargateArbPrices';
-import getStargateAvaxPrices from './avax/getStargateAvaxPrices';
 import getSolidLizardStablePrices from './arbitrum/getSolidLizardStablePrices';
 import getRamsesStablePrices from './arbitrum/getRamsesStablePrices';
 import { getCurveBasePrices } from './base/getCurvePrices';
@@ -130,10 +126,6 @@ export async function getNonAmmPrices(
     getRamsesStablePrices(tokenPrices),
     getSolidLizardStablePrices(tokenPrices),
     getMimSwapPrices(tokenPrices),
-    getStargateAvaxPrices(tokenPrices),
-    getStargateArbPrices(tokenPrices),
-    getStargateEthPrices(tokenPrices),
-    getStargateLineaPrices(tokenPrices),
     getHopArbPrices(tokenPrices),
     getFerroPrices(tokenPrices),
     getAuraBalancerPrices(tokenPrices),

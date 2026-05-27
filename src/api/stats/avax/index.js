@@ -1,6 +1,5 @@
 const getJoeApy = require('./getJoeApy');
 const { getAaveV3Apys } = require('./getAaveV3Apys');
-const getStargateApys = require('./getStargateAvaxApys');
 const { getGmxApys } = require('./getGmxApys');
 const getBalancerApys = require('./getBalancerAvaxApys');
 const getAuraAvaxApys = require('./getAuraAvaxApys');
@@ -14,7 +13,6 @@ const getApys = [
   getBalancerApys,
   getGmxApys,
   getJoeApy,
-  getStargateApys,
   getBeefyAvaxCowApys,
   getBlackholeApys,
   () => getSiloApys(43114, require('../../../data/avax/siloPools.json')),

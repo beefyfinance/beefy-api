@@ -11,7 +11,6 @@ const { getFxApys } = require('./getFxApys');
 const { getSkyApy } = require('./getSkyApy');
 const { getMorphoApys } = require('../common/morpho/getMorphoApys');
 const { ETH_CHAIN_ID } = require('../../../constants');
-const getStargateEthApys = require('./getStargateEthApys');
 const { getPendleApys } = require('../common/pendle/getPendleApys');
 const { getPendleUnboostedApys } = require('../common/pendle/getPendleUnboostedApys');
 
@@ -30,7 +29,6 @@ const getApys = [
   () => getPendleUnboostedApys(require('../../../data/ethereum/pendleUnboostedPools.json')),
   () => getMorphoApys(ETH_CHAIN_ID, require('../../../data/ethereum/morphoPools.json')),
   getSkyApy,
-  getStargateEthApys,
 ];
 
 const getEthereumApys = async () => {
