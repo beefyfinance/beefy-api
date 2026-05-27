@@ -1347,7 +1347,7 @@ export const tokens = {
     name: 'Vote Boosted sdCRV',
     address: '0x62d5a59E0d67c0381aAd53B201B4A1B8Dcd2C833',
     symbol: 'vsdCRV',
-    oracleId: 'sdCRV',
+    oracleId: 'vsdCRV',
     decimals: 18,
     chainId: 42161,
     website: 'https://www.stakedao.org/lockers/crv',
