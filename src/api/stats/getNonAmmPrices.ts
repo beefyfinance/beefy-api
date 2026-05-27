@@ -65,7 +65,6 @@ import { getBeefyCowBscPrices } from './bsc/getBeefyCowBscPrices';
 import { getBeefyCowAvaxPrices } from './avax/getBeefyCowAvaxPrices';
 import { getBeefyCowRootstockPrices } from './rootstock/getBeefyRootstockCowPrices';
 import { getBeefyCowScrollPrices } from './scroll/getBeefyScrollCowPrices';
-import { getBeefyCowModePrices } from './mode/getBeefyModeCowPrices';
 import { getBeefyCowLiskPrices } from './lisk/getBeefyLiskCowPrices';
 import { getBeefyCowBerachainPrices } from './berachain/getBeefyBerachainCowPrices';
 import { getBeefyCowGnosisPrices } from './gnosis/getBeefyGnosisCowPrices';
@@ -169,7 +168,6 @@ export async function getNonAmmPrices(
     getBeefyCowAvaxPrices(tokenPrices),
     getBeefyCowRootstockPrices(tokenPrices),
     getBeefyCowScrollPrices(tokenPrices),
-    getBeefyCowModePrices(tokenPrices),
     getBeefyCowLiskPrices(tokenPrices),
     getBeefyCowSonicPrices(tokenPrices),
     getBeefyCowBerachainPrices(tokenPrices),

@@ -37,7 +37,6 @@ import lynexPools from '../../data/linea/lynexVolatilePools.json';
 import nilePools from '../../data/linea/nileVolatilePools.json';
 import raPools from '../../data/fraxtal/raPools.json';
 import nuriPools from '../../data/scroll/nuriVolatilePools.json';
-import velodromeModePools from '../../data/mode/velodromeModePools.json';
 import velodromeLiskPools from '../../data/lisk/velodromeLiskPools.json';
 import shadowPools from '../../data/sonic/shadowLpPools.json';
 import defivePools from '../../data/sonic/defiveLpPools.json';
@@ -71,7 +70,6 @@ const pools = normalizePoolOracleIds([
   ...defivePools,
   ...shadowPools,
   ...velodromeLiskPools,
-  ...velodromeModePools,
   ...nuriPools,
   ...raPools,
   ...moePools,
