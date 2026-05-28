@@ -11,6 +11,7 @@ export interface BeefyFinance {
   rewardPool: string;
   treasury: string;
   beefyFeeRecipient: string;
+  zapFeeRecipient: string;
   multicall: string;
   bifiMaxiStrategy?: string;
   voter: string;
