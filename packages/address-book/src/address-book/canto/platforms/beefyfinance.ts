@@ -12,6 +12,7 @@ export const beefyfinance = {
   rewardPool: '0x448423356726dd7dC168e714C80adDb077f83738',
   treasury: treasuryMultisig,
   beefyFeeRecipient: '0x02Ae4716B9D5d48Db1445814b0eDE39f5c28264B',
+  zapFeeRecipient: '0xF09d213EE8a8B159C884b276b86E08E26B3bfF75', // treasuryMultisig
   multicall: '0xc34b9c9DBB39Be0Ef850170127A7b4283484f804',
   bifiMaxiStrategy: '0x3B9bcE784d0582f08ED8a8aDA6593f53D1efaFD0',
   voter: '0x5e1caC103F943Cd84A1E92dAde4145664ebf692A',

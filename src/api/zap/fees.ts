@@ -21,16 +21,9 @@ const getChainFeeReceiver = createCachedFactory(
       throw new Error(`No Beefy Platform found for chain ${chain}`);
     }
 
-    const receiver = [
-      beefyPlatform.treasurySwapper,
-      beefyPlatform.treasuryMultisig,
-      beefyPlatform.treasury,
-    ].find(a => !!a && a !== ZERO_ADDRESS);
-
-    if (!receiver) {
-      throw new Error(
-        `No fee receiver (treasurySwapper, or treasuryMultisig, or treasury) found for ${chain}`
-      );
+    const receiver = beefyPlatform.zapFeeRecipient;
+    if (!receiver || receiver === ZERO_ADDRESS) {
+      throw new Error(`No zapFeeRecipient configured for ${chain}`);
     }
 
     return getAddress(receiver);
