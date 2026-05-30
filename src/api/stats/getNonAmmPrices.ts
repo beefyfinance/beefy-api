@@ -110,6 +110,7 @@ export async function getNonAmmPrices(
   let breakdown = {};
 
   const promises = [
+    getAaveV3Prices(BASE_CHAIN_ID, require('../../data/base/aaveV3Pools.json'), tokenPrices),
     getAaveV3Prices(MANTLE_CHAIN_ID, require('../../data/mantle/aaveV3Pools.json'), tokenPrices),
     getAaveV3Prices(MEGAETH_CHAIN_ID, require('../../data/megaeth/aaveV3Pools.json'), tokenPrices),
     getGearboxPrices(MONAD_CHAIN_ID, require('../../data/monad/gearboxPools.json'), tokenPrices),

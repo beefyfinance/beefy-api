@@ -2,11 +2,13 @@ const getAlienBaseApys = require('./getAlienBaseApys');
 const { getAerodromeApys } = require('./getAerodromeApys');
 const { getCurveApys } = require('./getCurveApys');
 const { getBeefyBaseCowApys } = require('./getBeefyBaseCowApys');
+const { getAaveV3Apys } = require('./getAaveV3Apys');
 const { getMellowVeloApys } = require('../common/getMellowVeloApys');
 const { getMorphoApys } = require('../common/morpho/getMorphoApys');
 const { BASE_CHAIN_ID } = require('../../../constants');
 
 const getApys = [
+  getAaveV3Apys,
   getAerodromeApys,
   getCurveApys,
   getAlienBaseApys,
