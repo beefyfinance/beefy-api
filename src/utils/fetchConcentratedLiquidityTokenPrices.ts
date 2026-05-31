@@ -1126,6 +1126,14 @@ const tokens: Partial<Record<keyof typeof ChainId, ConcentratedLiquidityToken[]>
     },
     {
       type: 'Slipstream',
+      oracleId: 'TEA',
+      decimalDelta: 1e-12,
+      pool: '0xabe1f289107c20081F591bB3972B8289ADD64F6C',
+      firstToken: 'TEA',
+      secondToken: 'USDC',
+    },
+    {
+      type: 'Slipstream',
       oracleId: 'PSG',
       decimalDelta: 1e-12,
       pool: '0x76F9AeFA6aBcbcEb10CC149e071209366f64Ce9D',
