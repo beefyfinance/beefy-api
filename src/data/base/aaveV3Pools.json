@@ -10,6 +10,9 @@
     "decimals": "1e18",
     "borrowDepth": 1,
     "borrowPercent": 0,
-    "skimLending": true
+    "skimLending": true,
+    "lsUrl": "https://api.exchange.coinbase.com/wrapped-assets/CBETH",
+    "dataPath": "$.apy",
+    "lsAprFactor": 100
   }
 ]
