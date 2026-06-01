@@ -3572,6 +3572,20 @@ export const tokens = {
     bridge: 'layer-zero',
     tags: ['LARGE_HOLDERS'],
   },
+  TEA: {
+    name: 'Tea Protocol',
+    symbol: 'TEA',
+    oracleId: 'TEA',
+    address: '0xa1A0B2E02B0E6830aD5A4A7211691200945d8919',
+    chainId: 8453,
+    decimals: 18,
+    website: 'https://tea.xyz/',
+    description:
+      'TEA is the token of the tea Protocol, a decentralized technology framework for open-source software developers and maintainers. This Base token is the Hyperlane-bridged representation of TEA.',
+    documentation: 'https://docs.tea.xyz/',
+    bridge: 'hyperlane',
+    tags: ['LARGE_HOLDERS', 'NO_TIMELOCK'],
+  },
   PSG: {
     name: 'Paris Saint-Germain',
     symbol: 'PSG',
