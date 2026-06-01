@@ -256,6 +256,14 @@ const tokens: Partial<Record<keyof typeof ChainId, ConcentratedLiquidityToken[]>
     },
     {
       type: 'UniV3',
+      oracleId: 'arbUSDCe',
+      decimalDelta: 1e12,
+      pool: '0xc31e54c7a869b9fcbecc14363cf510d1c41fa443',
+      firstToken: 'arbUSDCe',
+      secondToken: 'WETH',
+    },
+    {
+      type: 'UniV3',
       oracleId: 'CHIP',
       decimalDelta: 1e12,
       pool: '0x49340Dbb8Fb5ECE2F9B594e77Ab774E65725e9D8',
@@ -269,6 +277,14 @@ const tokens: Partial<Record<keyof typeof ChainId, ConcentratedLiquidityToken[]>
       pool: '0xE5Cf22EE4988d54141B77050967E1052Bd9c7F7A',
       firstToken: 'WETH',
       secondToken: 'arbMOR',
+    },
+    {
+      type: 'UniV3',
+      oracleId: 'MAGIC',
+      decimalDelta: 1,
+      pool: '0x59D72DDB29Da32847A4665d08ffc8464A7185FAE',
+      firstToken: 'WETH',
+      secondToken: 'MAGIC',
     },
   ],
   linea: [

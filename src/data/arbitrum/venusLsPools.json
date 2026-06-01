@@ -1,8 +1,0 @@
-[
-  {
-    "name": "venus-arb-ls-weth",
-    "cToken": "0x39D6d13Ea59548637104E40e729E4aABE27FE106",
-    "oracleId": "ETH",
-    "decimals": "1e18"
-  }
-]
