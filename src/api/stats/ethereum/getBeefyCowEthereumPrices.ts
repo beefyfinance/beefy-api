@@ -1,5 +1,5 @@
 import { getBeefyCowcentratedVaultPrices } from '../common/getBeefyCowcentratedVaultPrices';
 
-export const getBeefyEthereumCowPrices = async tokenPrices => {
+export const getBeefyCowEthereumPrices = async tokenPrices => {
   return await getBeefyCowcentratedVaultPrices('ethereum', tokenPrices);
 };
