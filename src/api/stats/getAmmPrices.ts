@@ -25,7 +25,6 @@ import vvsDualPools from '../../data/cronos/vvsDualLpPools.json';
 import velodromePools from '../../data/optimism/velodromeLpPools.json';
 import oldVelodromePools from '../../data/optimism/oldVelodromeLpPools.json';
 import ripaeCronosPools from '../../data/cronos/ripaeLpPools.json';
-import solidLizardPools from '../../data/arbitrum/solidlizardLpPools.json';
 import versePools from '../../data/ethereum/verseLpPools.json';
 import ramsesPools from '../../data/arbitrum/ramsesLpPools.json';
 import veSyncPools from '../../data/zksync/veSyncLpPools.json';
@@ -37,7 +36,6 @@ import lynexPools from '../../data/linea/lynexVolatilePools.json';
 import nilePools from '../../data/linea/nileVolatilePools.json';
 import raPools from '../../data/fraxtal/raPools.json';
 import nuriPools from '../../data/scroll/nuriVolatilePools.json';
-import velodromeModePools from '../../data/mode/velodromeModePools.json';
 import velodromeLiskPools from '../../data/lisk/velodromeLiskPools.json';
 import shadowPools from '../../data/sonic/shadowLpPools.json';
 import defivePools from '../../data/sonic/defiveLpPools.json';
@@ -71,7 +69,6 @@ const pools = normalizePoolOracleIds([
   ...defivePools,
   ...shadowPools,
   ...velodromeLiskPools,
-  ...velodromeModePools,
   ...nuriPools,
   ...raPools,
   ...moePools,
@@ -83,7 +80,6 @@ const pools = normalizePoolOracleIds([
   ...veSyncPools,
   ...ramsesPools,
   ...versePools,
-  ...solidLizardPools,
   ...ripaeCronosPools,
   ...velodromePools,
   ...oldVelodromePools,
@@ -213,6 +209,7 @@ const coinGeckoCoins: Record<string, string[]> = {
   sky: ['SKY'],
   joe: ['JOE'],
   'spell-token': ['SPELL'],
+  arbitrum: ['ARB'],
 };
 
 /**
@@ -268,11 +265,6 @@ const dexscreenerCoins: OraclePriceRequest[] = [
     oracleId: 'OGN',
     tokenAddress: '0x7002458B1DF59EccB57387bC79fFc7C29E22e6f7',
     chainId: 'base',
-  },
-  {
-    oracleId: 'arbXVS',
-    tokenAddress: '0xc1Eb7689147C81aC840d4FF0D298489fc7986d52',
-    chainId: 'arbitrum',
   },
   {
     oracleId: 'scUSD',

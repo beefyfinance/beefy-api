@@ -513,7 +513,6 @@ export const blockedTokensByChain: Record<SupportedApiChain, Set<string>> = {
   linea: new Set([]),
   mantle: new Set([]),
   fraxtal: new Set([]),
-  mode: new Set([]),
   sei: new Set([]),
   rootstock: new Set([]),
   scroll: new Set([]),

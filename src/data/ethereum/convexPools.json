@@ -1,5 +1,22 @@
 [
   {
+    "name": "curve-ynusdx-scrvusd",
+    "pool": "0xa256d38e73cce6e00447fa64a95069ea7d32f841",
+    "stakeDao": true,
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "ynUSDx",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "scrvUSD",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
     "name": "curve-frxusd-usg",
     "pool": "0xEfc056790bb19702b2164ec6Ea6bA3AE01d81195",
     "stakeDao": true,

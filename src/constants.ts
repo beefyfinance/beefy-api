@@ -50,7 +50,6 @@ const DEFAULT_RPCS: ApiChainToRpcs = {
   linea: ['https://rpc.linea.build'],
   mantle: ['https://rpc.mantle.xyz'],
   fraxtal: ['https://rpc.frax.com'],
-  mode: ['https://1rpc.io/mode'],
   sei: ['https://sei-public.nodies.app'],
   rootstock: ['https://rootstock-mainnet.public.blastapi.io'],
   scroll: ['https://rpc.scroll.io'],

@@ -14,6 +14,16 @@ const tokens: Partial<Record<keyof typeof ChainId, CurveToken[]>> = {
   arbitrum: [
     ...toCurveTokens(ChainId.arbitrum, require('../data/arbitrum/curvePools.json')),
     {
+      oracleId: 'vsdCRV',
+      decimals: '1e18',
+      index0: 1,
+      index1: 0,
+      pool: '0x5c959d2c1a49b637fb988c40d663265f8bf6d289',
+      secondToken: 'CRV',
+      secondTokenDecimals: '1e18',
+      abi: ICurvePoolV2Abi,
+    },
+    {
       oracleId: 'fETH',
       decimals: '1e18',
       index0: 0,

@@ -12,7 +12,6 @@ const { getGnosisApys } = require('./gnosis');
 const { getLineaApys } = require('./linea');
 const { getMantleApys } = require('./mantle');
 const { getFraxtalApys } = require('./fraxtal');
-const { getModeApys } = require('./mode');
 const { getSeiApys } = require('./sei');
 const { getRootstockApys } = require('./rootstock');
 const { getScrollApys } = require('./scroll');
@@ -64,7 +63,6 @@ const updateApys = async () => {
       getLineaApys(),
       // getMantleApys(),
       getFraxtalApys(),
-      // getModeApys(),
       getSeiApys(),
       getRootstockApys(),
       // getScrollApys(),

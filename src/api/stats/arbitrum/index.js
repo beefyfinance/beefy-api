@@ -1,34 +1,17 @@
 const { getCurveApys } = require('./getCurveApys');
 const getBalancerArbApys = require('./getBalancerArbApys');
-const { getGmxV2Apys } = require('./getGmxV2Apys');
-const { getGmxApys } = require('./getGmxApys');
-const { getGnsApys } = require('./getGnsApys');
-const getRamsesApys = require('./getRamsesApys');
 const getAuraArbitrumApys = require('./getAuraArbitrumApys');
 const { getBeefyArbCowApys } = require('./getBeefyArbCowApys');
-const { getAaveV3Apys } = require('./getAaveV3Apys');
-const { getPendleApys } = require('../common/pendle/getPendleApys');
 const { getMimApys } = require('./getMimApys');
-const getVenusApys = require('./getVenusApys');
-const getStargateArbApys = require('./getStargateArbApys');
-const { getSiloApys } = require('../common/silo/getSiloApys');
 const { getMorphoApys } = require('../common/morpho/getMorphoApys');
 const { ARBITRUM_CHAIN_ID: chainId } = require('../../../constants');
 
 const getApys = [
   getAuraArbitrumApys,
-  // getGnsApys,
   getMimApys,
-  // getGmxV2Apys,
-  getGmxApys,
   getCurveApys,
   // getBalancerArbApys,
-  getRamsesApys,
   getBeefyArbCowApys,
-  // getAaveV3Apys,
-  // getVenusApys,
-  // getStargateArbApys,
-  () => getSiloApys(chainId, require('../../../data/arbitrum/siloV2Pools.json')),
   () => getMorphoApys(chainId, require('../../../data/arbitrum/morphoPools.json')),
 ];
 
