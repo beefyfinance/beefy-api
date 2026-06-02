@@ -4,7 +4,7 @@
     "token": "0xb8ce59fc3717ada4c02eadf9682a9e934f625ebb",
     "aToken": "0x5D72a9d9A9510Cd8cBdBA12aC62593A58930a948",
     "debtToken": "0xCBBC427b5658672768E11BFDa00879839DB4785F",
-    "identifier": "0xc5b5dcb9552773c51838559cca8939ed9811a593",
+    "identifier": "e12ee247f6a60e33",
     "oracle": "tokens",
     "oracleId": "USDT0",
     "decimals": "1e6",
