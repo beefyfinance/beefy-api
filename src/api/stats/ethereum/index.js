@@ -30,7 +30,6 @@ const getApys = [
   () => getPendleUnboostedApys(require('../../../data/ethereum/pendleUnboostedPools.json')),
   () => getMorphoApys(ETH_CHAIN_ID, require('../../../data/ethereum/morphoPools.json')),
   getSkyApy,
-  getStargateEthApys,
   getBeefyCowEthereumApys,
 ];
 
