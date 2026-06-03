@@ -20,6 +20,8 @@ import hyperevmPools from '../../data/hyperevm/beefyCowVaults.json';
 import plasmaPools from '../../data/plasma/beefyCowVaults.json';
 import monadPools from '../../data/monad/beefyCowVaults.json';
 import megaethPools from '../../data/megaeth/beefyCowVaults.json';
+import ethereumPools from '../../data/ethereum/beefyCowVaults.json';
+
 const chainToClms: Readonly<Partial<Record<ApiChain, CowClm[]>>> = {
   optimism: validateCowClms(optimismPools),
   base: validateCowClms(basePools),
@@ -41,6 +43,7 @@ const chainToClms: Readonly<Partial<Record<ApiChain, CowClm[]>>> = {
   plasma: validateCowClms(plasmaPools),
   monad: validateCowClms(monadPools),
   megaeth: validateCowClms(megaethPools),
+  ethereum: validateCowClms(ethereumPools),
 };
 
 const chainsWithClms = (Object.keys(chainToClms) as ReadonlyArray<ApiChain>).filter(
