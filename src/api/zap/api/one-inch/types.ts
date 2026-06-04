@@ -12,8 +12,6 @@ export type QuoteRequest = {
   amount: string;
   /** All supported liquidity sources by default */
   protocols?: string;
-  /** Partner fee in percent. min: 0; max: 3 Should be the same for /quote and /swap */
-  fee?: string;
   /** Network price per gas in wei. By default fast network gas price */
   gasPrice?: string;
   /** min:0, max: 2 */
@@ -108,7 +106,6 @@ export type SwapRequest = Pick<
   | 'dst'
   | 'amount'
   | 'protocols'
-  | 'fee'
   | 'gasPrice'
   | 'complexityLevel'
   | 'parts'
@@ -128,8 +125,6 @@ export type SwapRequest = Pick<
   permit?: string;
   /** This address will receive funds after the swap. By default same address as "from" param */
   receiver?: string;
-  /** undocumented */
-  referrer?: string;
   /** By default set to false */
   allowPartialFill?: boolean;
   /** Allows to swap tokens with internal transfer fee */

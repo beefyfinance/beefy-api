@@ -50,7 +50,7 @@ export function getOneInchSwapApi(chain: AnyChain): IOneInchSwapApi {
     if (!apiKey) {
       throw new Error(`ONE_INCH_API_KEY env variable is not set`);
     }
-    swapApiByChain[apiChain] = new RateLimitedOneInchSwapApi(baseUrl, apiKey, swapApiQueue, apiChain);
+    swapApiByChain[apiChain] = new RateLimitedOneInchSwapApi(baseUrl, apiKey, swapApiQueue);
   }
 
   return swapApiByChain[apiChain];

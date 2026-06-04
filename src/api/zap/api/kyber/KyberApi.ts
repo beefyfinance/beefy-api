@@ -12,21 +12,9 @@ import {
 import { mapValues, omitBy } from 'lodash';
 import { redactSecrets } from '../../../../utils/secrets';
 import { ApiResponse, ExtraQuoteResponse, isErrorApiResponse, SuccessApiResponse } from '../common';
-import { ApiChain } from '../../../../utils/chain';
-import { getZapProviderFee } from '../../fees';
 
 export class KyberApi implements IKyberApi {
-  readonly feeReceiver: string;
-  readonly ZAP_FEE: number;
-
-  constructor(protected readonly baseUrl: string, protected readonly clientId: string, chain: ApiChain) {
-    const feeData = getZapProviderFee('kyber', chain);
-    this.ZAP_FEE = feeData.value;
-    if (!feeData.receiver) {
-      throw new Error('No fee receiver found for Kyber on ' + chain);
-    }
-    this.feeReceiver = feeData.receiver;
-  }
+  constructor(protected readonly baseUrl: string, protected readonly clientId: string) {}
 
   protected buildUrl<T extends {}>(path: string, request?: T) {
     const params = request ? new URLSearchParams(request).toString() : '';
@@ -57,24 +45,7 @@ export class KyberApi implements IKyberApi {
     };
   }
 
-  protected withFeeReceiver(
-    request?: Record<string, string | number | boolean | string[]>
-  ): Record<string, string | number | boolean | string[]> {
-    return this.feeReceiver && (this.ZAP_FEE || 0) > 0
-      ? {
-          ...request,
-          feeAmount: (this.ZAP_FEE * 10000).toString(10), // *10000 to bps
-          isInBps: true,
-          chargeFeeBy: 'currency_in',
-          feeReceiver: this.feeReceiver,
-        }
-      : request;
-  }
-
-  protected async doGet<
-    ResponseType extends object,
-    Extra extends Record<string, unknown> | undefined = undefined
-  >(
+  protected async doGet<ResponseType extends object, Extra extends Record<string, unknown> | undefined = undefined>(
     path: string,
     request?: Record<string, string>,
     extra?: Extra
@@ -96,10 +67,7 @@ export class KyberApi implements IKyberApi {
     } as SuccessApiResponse<ResponseType, Extra>;
   }
 
-  protected async doPost<
-    ResponseType extends object,
-    Extra extends Record<string, unknown> | undefined = undefined
-  >(
+  protected async doPost<ResponseType extends object, Extra extends Record<string, unknown> | undefined = undefined>(
     path: string,
     request: Record<string, unknown>,
     extra?: Extra
@@ -126,10 +94,7 @@ export class KyberApi implements IKyberApi {
     } as SuccessApiResponse<ResponseType, Extra>;
   }
 
-  protected async get<
-    ResponseType extends object,
-    Extra extends Record<string, unknown> | undefined = undefined
-  >(
+  protected async get<ResponseType extends object, Extra extends Record<string, unknown> | undefined = undefined>(
     path: string,
     request?: Record<string, string>,
     extra?: Extra
@@ -140,18 +105,11 @@ export class KyberApi implements IKyberApi {
   protected async priorityGet<
     ResponseType extends object,
     Extra extends Record<string, unknown> | undefined = undefined
-  >(
-    path: string,
-    request?: Record<string, string>,
-    extra?: Extra
-  ): Promise<ApiResponse<ResponseType, Extra>> {
+  >(path: string, request?: Record<string, string>, extra?: Extra): Promise<ApiResponse<ResponseType, Extra>> {
     return this.doGet(path, request, extra);
   }
 
-  protected async post<
-    ResponseType extends object,
-    Extra extends Record<string, unknown> | undefined = undefined
-  >(
+  protected async post<ResponseType extends object, Extra extends Record<string, unknown> | undefined = undefined>(
     path: string,
     request: Record<string, unknown>,
     extra?: Extra
@@ -162,17 +120,11 @@ export class KyberApi implements IKyberApi {
   protected async priorityPost<
     ResponseType extends object,
     Extra extends Record<string, unknown> | undefined = undefined
-  >(
-    path: string,
-    request: Record<string, unknown>,
-    extra?: Extra
-  ): Promise<ApiResponse<ResponseType, Extra>> {
+  >(path: string, request: Record<string, unknown>, extra?: Extra): Promise<ApiResponse<ResponseType, Extra>> {
     return this.doPost(path, request, extra);
   }
 
-  protected async handleResponse<ResponseType extends object>(
-    response: Response
-  ): Promise<ApiResponse<ResponseType>> {
+  protected async handleResponse<ResponseType extends object>(response: Response): Promise<ApiResponse<ResponseType>> {
     if (response.headers.get('content-type')?.includes('application/json')) {
       const body = (await response.json()) as KyberResponse;
 
@@ -218,15 +170,11 @@ export class KyberApi implements IKyberApi {
   }
 
   async getProxiedQuote(request: QuoteRequest): Promise<ApiResponse<QuoteData, ExtraQuoteResponse>> {
-    return await this.priorityGet<QuoteData, ExtraQuoteResponse>(
-      '/routes',
-      this.toStringDict(this.withFeeReceiver(request)),
-      {
-        fee: {
-          value: this.ZAP_FEE,
-        },
-      }
-    );
+    return await this.priorityGet<QuoteData, ExtraQuoteResponse>('/routes', this.toStringDict(request), {
+      fee: {
+        value: 0,
+      },
+    });
   }
 
   async postProxiedSwap(request: SwapRequest): Promise<ApiResponse<SwapData>> {
