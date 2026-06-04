@@ -70,7 +70,6 @@ import { getBeefyCowEthereumPrices } from './ethereum/getBeefyCowEthereumPrices'
 import { getPendleCommonPrices } from './common/getPendleCommonPrices';
 import { getMellowVeloPrices } from './common/getMellowVeloPrices';
 import { getBunniPrices } from './common/getBunniPrices';
-import getSonicSiloPrices from './sonic/getSonicSiloPrices';
 import getVenusZkPrices from './zksync/getVenusZkPrices';
 import getTokemakEthPrices from './ethereum/getTokemakEthPrices';
 import { getBeefyCowSonicPrices } from './sonic/getBeefySonicCowPrices';
@@ -113,7 +112,6 @@ export async function getNonAmmPrices(
     getEtherexStablePrices(tokenPrices),
     getKittenswapStablePrices(tokenPrices),
     getEthSiloPrices(tokenPrices),
-    getSonicSiloPrices(tokenPrices),
     getUniswapEthereumPrices(tokenPrices),
     getMimSwapPrices(tokenPrices),
     getFerroPrices(tokenPrices),
