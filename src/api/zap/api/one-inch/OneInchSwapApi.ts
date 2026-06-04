@@ -12,36 +12,20 @@ import {
 import { mapValues, omitBy } from 'lodash';
 import { redactSecrets } from '../../../../utils/secrets';
 import { ApiResponse, ExtraQuoteResponse, isErrorApiResponse } from '../common';
-import { ApiChain } from '../../../../utils/chain';
-import { getZapProviderFee } from '../../fees';
 
 export class OneInchSwapApi implements IOneInchSwapApi {
-  readonly feeReceiver: string;
-  readonly ZAP_FEE: number;
-
-  constructor(
-    protected readonly baseUrl: string,
-    protected readonly apiKey: string,
-    protected readonly chain: ApiChain
-  ) {
-    const feeData = getZapProviderFee('one-inch', chain);
-    this.ZAP_FEE = feeData.value;
-    if (!feeData.receiver) {
-      throw new Error('No fee receiver found for OneInch on ' + chain);
-    }
-    this.feeReceiver = feeData.receiver;
-  }
+  constructor(protected readonly baseUrl: string, protected readonly apiKey: string) {}
 
   async getProxiedQuote(request: QuoteRequest): Promise<ApiResponse<QuoteResponse, ExtraQuoteResponse>> {
-    return await this.priorityGet('/quote', this.toStringDict(this.withFee(this.addRequiredParams(request))), {
+    return await this.priorityGet('/quote', this.toStringDict(this.addRequiredParams(request)), {
       fee: {
-        value: this.ZAP_FEE,
+        value: 0,
       },
     });
   }
 
   async getProxiedSwap(request: SwapRequest): Promise<ApiResponse<SwapResponse>> {
-    return await this.priorityGet('/swap', this.toStringDict(this.withFeeReferrer(this.addRequiredParams(request))));
+    return await this.priorityGet('/swap', this.toStringDict(this.addRequiredParams(request)));
   }
 
   async getQuote(request: QuoteRequest): Promise<QuoteResponse> {
@@ -144,25 +128,6 @@ export class OneInchSwapApi implements IOneInchSwapApi {
     return {
       ...request,
       includeTokensInfo: true,
-    };
-  }
-
-  /** for proxy quote */
-  protected withFee(request?: Record<string, string | number | boolean>): Record<string, string | number | boolean> {
-    return {
-      ...request,
-      fee: (this.ZAP_FEE * 100).toString(10),
-    };
-  }
-
-  /** for proxy swap */
-  protected withFeeReferrer(
-    request?: Record<string, string | number | boolean>
-  ): Record<string, string | number | boolean> {
-    return {
-      ...request,
-      fee: (this.ZAP_FEE * 100).toString(10),
-      referrer: this.feeReceiver,
     };
   }
 }

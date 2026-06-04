@@ -31,7 +31,7 @@ export function getLiquidSwapApi(chain: AnyChain): ILiquidSwapApi {
     }
 
     const baseUrl = `https://api.liqd.ag/v2`;
-    swapApiByChain[apiChain] = new RateLimitedLiquidSwapApi(baseUrl, swapApiQueue, apiChain);
+    swapApiByChain[apiChain] = new RateLimitedLiquidSwapApi(baseUrl, swapApiQueue);
   }
 
   return swapApiByChain[apiChain];

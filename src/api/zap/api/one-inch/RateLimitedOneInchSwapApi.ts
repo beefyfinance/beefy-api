@@ -1,11 +1,10 @@
 import { OneInchSwapApi } from './OneInchSwapApi';
 import PQueue from 'p-queue';
 import { ApiResponse } from '../common';
-import { ApiChain } from '../../../../utils/chain';
 
 export class RateLimitedOneInchSwapApi extends OneInchSwapApi {
-  constructor(baseUrl: string, apiKey: string, protected readonly queue: PQueue, chain: ApiChain) {
-    super(baseUrl, apiKey, chain);
+  constructor(baseUrl: string, apiKey: string, protected readonly queue: PQueue) {
+    super(baseUrl, apiKey);
   }
 
   protected async get<ResponseType extends object>(
