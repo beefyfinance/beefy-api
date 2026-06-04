@@ -1,69 +1,7 @@
 [
   {
-    "name": "curve-lend-pufeth-crvusd",
-    "address": "0xff467c6E827ebbEa64DA1ab0425021E6c89Fbe0d",
-    "gauge": "0x294280254e1c8bcf56f8618623ec9235e8415633",
-    "rewardPool": "0x6AA3687d31853b86189733Fc3fC6DBebAaA392dE",
-    "oracleId": "crvUSD",
-    "rewards": [
-      {
-        "token": "0xD533a949740bb3306d119CC777fa900bA034cd52",
-        "oracleId": "CRV"
-      }
-    ]
-  },
-  {
-    "name": "curve-lend-wbtc-crvusd",
-    "address": "0xccd37EB6374Ae5b1f0b85ac97eFf14770e0D0063",
-    "gauge": "0x7dcb252f7ea2b8da6fa59c79edf63f793c8b63b6",
-    "rewardPool": "0xfe382f1Bf78e6D6012cB38C284Fe123ec9821966",
-    "oracleId": "crvUSD"
-  },
-  {
-    "name": "curve-lend-wsteth-crvusd",
-    "address": "0x8cf1DE26729cfB7137AF1A6B2a665e099EC319b5",
-    "gauge": "0x222D910ef37C06774E1eDB9DC9459664f73776f0",
-    "rewardPool": "0xaE1bDD4E38582c9c6Ea5aBf17bb085ae0176D063",
-    "oracleId": "crvUSD"
-  },
-  {
     "name": "curve-lend-tbtc-crvusd",
     "address": "0xb2b23C87a4B6d1b03Ba603F7C3EB9A81fDC0AAC9",
-    "gauge": "0x41eBf0bEC45642A675e8b7536A2cE9c078A814B4",
-    "rewardPool": "0xDdeeADfDA45FD674a95e578DF2b57c98a2B1BF0e",
     "oracleId": "crvUSD"
-  },
-  {
-    "name": "curve-lend-weth-crvusd",
-    "address": "0x5AE28c9197a4a6570216fC7e53E7e0221D7A0FEF",
-    "gauge": "0x1Cfabd1937e75E40Fa06B650CB0C8CD233D65C20",
-    "rewardPool": "0x1e0049051ffbA90765cfE08D3EA85f31F695Cce9",
-    "oracleId": "crvUSD"
-  },
-  {
-    "name": "curve-lend-uwu-crvusd",
-    "address": "0x7586C58bf6292B3C9DeFC8333fc757d6c5dA0f7E",
-    "gauge": "0xad7B288315b0d71D62827338251A8D89A98132A0",
-    "rewardPool_": "0xaeeB7EF4B7D8E18F84C8519b1D31E318D7410013",
-    "oracleId": "crvUSD",
-    "rewards": [
-      {
-        "token": "0x55C08ca52497e2f1534B59E2917BF524D4765257",
-        "oracleId": "UwU"
-      }
-    ]
-  },
-  {
-    "name": "curve-lend-crv-crvusd",
-    "address": "0xCeA18a8752bb7e7817F9AE7565328FE415C0f2cA",
-    "gauge": "0x49887dF6fE905663CDB46c616BfBfBB50e85a265",
-    "rewardPool_": "0x4bf2d8484474170bff8a8c34475be3d87dFF28cA",
-    "oracleId": "crvUSD",
-    "rewards": [
-      {
-        "token": "0xf939E0A03FB07F59A73314E73794Be0E57ac1b4E",
-        "oracleId": "crvUSD"
-      }
-    ]
   }
 ]

@@ -4,7 +4,6 @@ import { fetchAmmPrices } from '../../utils/fetchAmmPrices';
 import { fetchMooPrices } from '../../utils/fetchMooPrices';
 import { fetchOptionTokenPrices } from '../../utils/fetchOptionTokenPrices';
 import { fetchWrappedAavePrices } from '../../utils/fetchWrappedAaveTokenPrices';
-import { fetchUnwrappedAavePrices } from '../../utils/fetchUnwrappedAaveTokenPrices';
 import { fetchCurveTokenPrices } from '../../utils/fetchCurveTokenPrices';
 import { fetchConcentratedLiquidityTokenPrices } from '../../utils/fetchConcentratedLiquidityTokenPrices';
 import { fetchSolidlyStableTokenPrices } from '../../utils/fetchSolidlyStableTokenPrices';
@@ -25,7 +24,6 @@ import vvsDualPools from '../../data/cronos/vvsDualLpPools.json';
 import velodromePools from '../../data/optimism/velodromeLpPools.json';
 import oldVelodromePools from '../../data/optimism/oldVelodromeLpPools.json';
 import ripaeCronosPools from '../../data/cronos/ripaeLpPools.json';
-import versePools from '../../data/ethereum/verseLpPools.json';
 import ramsesPools from '../../data/arbitrum/ramsesLpPools.json';
 import veSyncPools from '../../data/zksync/veSyncLpPools.json';
 import ooeV2Pools from '../../data/bsc/ooeV2LpPools.json';
@@ -79,7 +77,6 @@ const pools = normalizePoolOracleIds([
   ...ooeV2Pools,
   ...veSyncPools,
   ...ramsesPools,
-  ...versePools,
   ...ripaeCronosPools,
   ...velodromePools,
   ...oldVelodromePools,
@@ -506,12 +503,9 @@ async function performUpdateAmmPrices() {
     log('> [PRICE SERVICE] Linear pool prices fetch started');
     const wrappedAavePrices = await promiseTiming(fetchWrappedAavePrices(tokenPrices), 'fetchWrappedAavePrices');
     log('> [PRICE SERVICE] Wrapped Aave prices completed');
-    const unwrappedAavePrices = await promiseTiming(fetchUnwrappedAavePrices(tokenPrices), 'fetchUnwrappedAavePrices');
-    log('> [PRICE SERVICE] Unwrapped Aave prices completed');
     const prices = {
       ...tokenPrices,
       ...wrappedAavePrices,
-      ...unwrappedAavePrices,
     };
 
     const linearPrices = await promiseTiming(fetchBalancerLinearPoolPrice(prices), 'fetchBalancerLinearPoolPrice');
@@ -520,7 +514,6 @@ async function performUpdateAmmPrices() {
     return {
       ...linearPrices,
       ...wrappedAavePrices,
-      ...unwrappedAavePrices,
     };
   });
 
