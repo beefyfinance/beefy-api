@@ -3462,6 +3462,19 @@ export const tokens = {
     bridge: 'layer-zero',
     tags: ['NO_TIMELOCK'],
   },
+  JitoSOL: {
+    name: 'Jito Staked SOL',
+    symbol: 'JitoSOL',
+    oracleId: 'JitoSOL',
+    address: '0x97bE14Dd8f994A5364573BC035D85309E7CB34de',
+    chainId: 8453,
+    decimals: 9,
+    website: 'https://www.jito.network/',
+    description:
+      'Jito is the liquid staking service for Solana that distributes MEV (maximum extractable value) rewards to holders. The JitoSOL token provides liquidity while earning a combination of staking rewards and MEV rewards.',
+    documentation: 'https://www.jito.network/docs',
+    bridge: 'base-canonical',
+  },
   AUKI: {
     name: 'Auki Token',
     symbol: 'AUKI',

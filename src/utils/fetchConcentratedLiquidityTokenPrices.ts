@@ -414,6 +414,14 @@ const tokens: Partial<Record<keyof typeof ChainId, ConcentratedLiquidityToken[]>
     },
     {
       type: 'UniV3',
+      oracleId: 'JitoSOL',
+      decimalDelta: 1,
+      pool: '0x155613e7A75a2aB73500f9B2c45910469500FF56',
+      firstToken: 'JitoSOL',
+      secondToken: 'SOL',
+    },
+    {
+      type: 'UniV3',
       oracleId: 'BRETT',
       decimalDelta: 1,
       pool: '0xBA3F945812a83471d709BCe9C3CA699A19FB46f7',
