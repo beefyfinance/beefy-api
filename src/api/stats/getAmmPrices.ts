@@ -30,8 +30,6 @@ import ooeV2Pools from '../../data/bsc/ooeV2LpPools.json';
 import aerodromePools from '../../data/base/aerodromeLpPools.json';
 import alienBasePools from '../../data/base/alienBaseLpPools.json';
 import moePools from '../../data/mantle/moeLpPools.json';
-import lynexPools from '../../data/linea/lynexVolatilePools.json';
-import nilePools from '../../data/linea/nileVolatilePools.json';
 import raPools from '../../data/fraxtal/raPools.json';
 import nuriPools from '../../data/scroll/nuriVolatilePools.json';
 import velodromeLiskPools from '../../data/lisk/velodromeLiskPools.json';
@@ -70,8 +68,6 @@ const pools = normalizePoolOracleIds([
   ...nuriPools,
   ...raPools,
   ...moePools,
-  ...lynexPools,
-  ...nilePools,
   ...alienBasePools,
   ...aerodromePools,
   ...ooeV2Pools,

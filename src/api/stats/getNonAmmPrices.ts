@@ -41,9 +41,6 @@ import {
 } from '../../constants';
 import getSolidlyStablePrices from './common/getSolidlyStablePrices';
 import getGammaLineaPrices from './linea/getGammaPrices';
-import getLynexStablePrices from './linea/getLynexStablePrices';
-import getNileStablePrices from './linea/getNileStablePrices';
-import getEtherexStablePrices from './linea/getEtherexStablePrices';
 import { getMimSwapPrices } from './arbitrum/getMimSwapPrices';
 import { getBeefyCowArbPrices } from './arbitrum/getBeefyCowArbPrices';
 import { getBeefyCowOPPrices } from './optimism/getBeefyCowOPPrices';
@@ -106,7 +103,6 @@ export async function getNonAmmPrices(
     getGearboxPrices(MONAD_CHAIN_ID, require('../../data/monad/gearboxPools.json'), tokenPrices),
     getNeverlandPrices(tokenPrices),
     getCurvanceMonadPrices(tokenPrices),
-    getEtherexStablePrices(tokenPrices),
     getKittenswapStablePrices(tokenPrices),
     getUniswapEthereumPrices(tokenPrices),
     getMimSwapPrices(tokenPrices),
@@ -136,8 +132,6 @@ export async function getNonAmmPrices(
     getCurvePricesCommon(MONAD_CHAIN_ID, require('../../data/monad/curvePools.json'), tokenPrices),
     getCurveBasePrices(tokenPrices),
     getGammaLineaPrices(tokenPrices),
-    getLynexStablePrices(tokenPrices),
-    getNileStablePrices(tokenPrices),
     getBeefyCowArbPrices(tokenPrices),
     getBeefyCowOPPrices(tokenPrices),
     getBeefyCowBasePrices(tokenPrices),
