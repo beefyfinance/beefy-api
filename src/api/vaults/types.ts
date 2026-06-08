@@ -2,12 +2,31 @@ import BigNumber from 'bignumber.js';
 import { ApiChain, AppChain } from '../../utils/chain';
 import { Address } from 'viem';
 
+type VaultRisksConfig = {
+  /** when risks were last updated, defaults to vault.createdAt */
+  updatedAt?: number;
+  complex: boolean;
+  curated: boolean;
+  notAudited: boolean;
+  notBattleTested: boolean;
+  notCorrelated: boolean;
+  notTimelocked: boolean;
+  notVerified: boolean;
+  synthAsset: boolean;
+};
+
+type ZapStrategyConfig = {
+  strategyId: string;
+};
+
 /** Added to all vault configs by API */
 type ApiCommonVault = {
   /** Same as {network} except for harmony->one */
   chain: ApiChain;
   /** @deprecated use type === 'gov' */
   isGovVault?: boolean;
+  /** Test vault only visible in API, not app */
+  isTest?: boolean;
 };
 
 /** Added to standard vault configs by API */
@@ -65,13 +84,14 @@ export type StandardVault = {
   platformId: string;
   assets?: string[];
   strategyTypeId: string;
-  risks: string[];
+  risks: VaultRisksConfig;
   addLiquidityUrl?: string;
   removeLiquidityUrl?: string;
   network: AppChain;
   type: 'standard';
   createdAt: number;
   retiredAt?: number | undefined;
+  zaps?: ZapStrategyConfig[];
 } & ApiStandardVault;
 
 export type GovVault = {
@@ -80,21 +100,26 @@ export type GovVault = {
   token: string;
   tokenAddress: Address;
   tokenDecimals: number;
-  earnedToken: string;
-  earnedTokenAddress: string;
-  earnedTokenDecimals: number;
-  earnContractAddress: Address;
+  tokenProviderId?: string;
+  version?: number;
+  earnContractAddress: string;
+  earnedToken: string; // multi gov vaults have it as the receiptToken
+  earnOracleId?: string; //multi gov vault receiptToken
+  earnedTokenAddress?: string; // only missing in multi gov vaults
+  earnedTokenDecimals?: number | null; // only missing in multi gov vaults
+  earnedTokenAddresses?: string[]; // only available in multi gov vaults
   oracle: 'lps' | 'tokens';
   oracleId: string;
   status: 'active' | 'paused' | 'eol';
   platformId: string;
   assets: string[];
-  risks: string[];
+  risks: VaultRisksConfig;
   strategyTypeId: string;
   type: 'gov';
   network: AppChain;
   createdAt: number;
   retiredAt?: number | undefined;
+  zaps?: ZapStrategyConfig[];
 } & ApiGovVault;
 
 export type CowVault = {
@@ -117,13 +142,16 @@ export type CowVault = {
   platformId: string;
   assets?: string[];
   strategyTypeId: string;
-  risks: string[];
+  risks: VaultRisksConfig;
   addLiquidityUrl?: string;
   removeLiquidityUrl?: string;
   network: AppChain;
   type: 'cowcentrated';
   createdAt: number;
   retiredAt?: number | undefined;
+  zaps?: ZapStrategyConfig[];
+  feeTier?: string;
+  tickSpacing: number;
 } & ApiCowVault;
 
 export type Erc4626Vault = {
@@ -145,13 +173,14 @@ export type Erc4626Vault = {
   platformId: string;
   assets?: string[];
   strategyTypeId: string;
-  risks: string[];
+  risks: VaultRisksConfig;
   addLiquidityUrl?: string;
   removeLiquidityUrl?: string;
   network: AppChain;
   type: 'erc4626';
   createdAt: number;
   retiredAt?: number | undefined;
+  zaps?: ZapStrategyConfig[];
 } & ApiErc4626Vault;
 
 export type HarvestableVault = StandardVault | CowVault | Erc4626Vault;
