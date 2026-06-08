@@ -1,6 +1,6 @@
 [
   {
-    "address": "0x1A96B8c81C75DB99BBD32500Db391B0F571ED7A2",
+    "address": "0xC77ADce7ae9A2c694d335ce75f8840Ef7263E274",
     "lpAddress": "0x155613e7A75a2aB73500f9B2c45910469500FF56",
     "tokens": ["0x311935Cd80B76769bF2ecC9D8Ab7635b2139cf82", "0x97bE14Dd8f994A5364573BC035D85309E7CB34de"],
     "tokenOracleIds": ["SOL", "JitoSOL"],
@@ -8,11 +8,11 @@
     "oracleId": "pancake-cow-base-sol-jitosol",
     "providerId": "pancakeswap",
     "rewardPool": {
-      "address": "0x13A7B585D635da1ec3Fcf5038ed5FF37d038359d",
+      "address": "0xec28Ca7B09fb911A7233f70738154d4c61F7d01f",
       "oracleId": "pancake-cow-base-sol-jitosol-rp"
     },
     "vault": {
-      "address": "0x5b350Ab55E8ACb156Ce802915BE35d8f8981546F",
+      "address": "0x1B193EF7dd5A337A752F887e8E6FF14FC2C432c4",
       "oracleId": "pancake-cow-base-sol-jitosol-vault"
     }
   },
