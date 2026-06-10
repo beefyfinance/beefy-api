@@ -1,5 +1,56 @@
 [
   {
+    "address": "0xd597C585a9b845eD500127d926E7db4DD4d9d63c",
+    "lpAddress": "0x155613e7A75a2aB73500f9B2c45910469500FF56",
+    "tokens": ["0x311935Cd80B76769bF2ecC9D8Ab7635b2139cf82", "0x97bE14Dd8f994A5364573BC035D85309E7CB34de"],
+    "tokenOracleIds": ["SOL", "JitoSOL"],
+    "decimals": [9, 9],
+    "oracleId": "pancakeswap-cow-base-sol-jitosol",
+    "providerId": "pancakeswap",
+    "rewardPool": {
+      "address": "0x83655C90b930AE49a4d255c50A30c49CfE1f43D9",
+      "oracleId": "pancakeswap-cow-base-sol-jitosol-rp"
+    },
+    "vault": {
+      "address": "0x7A027B2D77DB12fF54c274f21497094c21824D6f",
+      "oracleId": "pancakeswap-cow-base-sol-jitosol-vault"
+    }
+  },
+  {
+    "address": "0x1d14812b4482B17de7268A3049983c03c8C9FD2d",
+    "lpAddress": "0x8Df6dd38D718bD726374521c2DcFE90Eb9CB7d43",
+    "tokens": ["0x311935Cd80B76769bF2ecC9D8Ab7635b2139cf82", "0xcbB7C0000aB88B473b1f5aFd9ef808440eed33Bf"],
+    "tokenOracleIds": ["SOL", "cbBTC"],
+    "decimals": [9, 8],
+    "oracleId": "pancakeswap-cow-base-sol-cbbtc",
+    "providerId": "pancakeswap",
+    "rewardPool": {
+      "address": "0xB418B23da6d6d1F5B7198551550060C604c095a4",
+      "oracleId": "pancakeswap-cow-base-sol-cbbtc-rp"
+    },
+    "vault": {
+      "address": "0x82FC3Ba31f8dF868A1158Cf0f2FbF16E03B85c68",
+      "oracleId": "pancakeswap-cow-base-sol-cbbtc-vault"
+    }
+  },
+  {
+    "address": "0x7fe8DF76fBf5657cE2e9a186BB1f7EF7c0cD8E47",
+    "lpAddress": "0x04d25d8f94A2018F8DdDe1E7941c625FA1a2c7cE",
+    "tokens": ["0x311935Cd80B76769bF2ecC9D8Ab7635b2139cf82", "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913"],
+    "tokenOracleIds": ["SOL", "USDC"],
+    "decimals": [9, 6],
+    "oracleId": "pancakeswap-cow-base-sol-usdc",
+    "providerId": "pancakeswap",
+    "rewardPool": {
+      "address": "0xA05f1583438F62c8a64Be70aBff68aD6baFA0c8f",
+      "oracleId": "pancakeswap-cow-base-sol-usdc-rp"
+    },
+    "vault": {
+      "address": "0xA2B1C7DA608aD0c247A9F3f6c84d70228932F6d2",
+      "oracleId": "pancakeswap-cow-base-sol-usdc-vault"
+    }
+  },
+  {
     "address": "0xC77ADce7ae9A2c694d335ce75f8840Ef7263E274",
     "lpAddress": "0x155613e7A75a2aB73500f9B2c45910469500FF56",
     "tokens": ["0x311935Cd80B76769bF2ecC9D8Ab7635b2139cf82", "0x97bE14Dd8f994A5364573BC035D85309E7CB34de"],
