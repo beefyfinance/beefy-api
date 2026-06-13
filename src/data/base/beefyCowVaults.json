@@ -3100,6 +3100,23 @@
     }
   },
   {
+    "address": "0x795F9f5892190b7B4b8C0Cba9905399FeefDCE11",
+    "lpAddress": "0x0ab02e160f0df68dc049B012c514857306960Eae",
+    "tokens": ["0x11030f79109269d796fd0FB956D6244e502757f7", "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913"],
+    "tokenOracleIds": ["CTR", "USDC"],
+    "decimals": [18, 6],
+    "oracleId": "aerodrome-cow-base-ctr-usdc",
+    "providerId": "aerodrome",
+    "rewardPool": {
+      "address": "0xbEDC28C4dbae074bA41BA8Ab56786187ca0f015e",
+      "oracleId": "aerodrome-cow-base-ctr-usdc-rp"
+    },
+    "vault": {
+      "address": "0xb24189f9B68F654016e2C8F8166b12b516e29cb6",
+      "oracleId": "aerodrome-cow-base-ctr-usdc-vault"
+    }
+  },
+  {
     "address": "0xdbB76Dd03Ed05213eE8ABe03486FAd4f3228288D",
     "lpAddress": "0x0225Ba893D5f8Ecd6d2022f9dEC59b34F61098A1",
     "tokens": ["0x4200000000000000000000000000000000000006", "0x9B8Df6E244526ab5F6e6400d331DB28C8fdDdb55"],
