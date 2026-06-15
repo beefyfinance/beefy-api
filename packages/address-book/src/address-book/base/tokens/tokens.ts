@@ -3583,7 +3583,7 @@ export const tokens = {
       "CTR is the coordination token of Citrea Network, Bitcoin's application layer enabling institutions and users to access Bitcoin capital markets.",
     documentation: 'https://docs.citrea.xyz/',
     bridge: 'layer-zero',
-    tags: ['LARGE_HOLDERS'],
+    tags: ['LARGE_HOLDERS', 'NO_TIMELOCK'],
   },
   TEA: {
     name: 'Tea Protocol',
