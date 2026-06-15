@@ -18,6 +18,7 @@ const DEPRECATED_CHAINS = [
   'kava',
   'canto',
   'mode',
+  'cronos',
 ] as const;
 
 export type SupportedApiChain = Exclude<ApiChain, (typeof DEPRECATED_CHAINS)[number]>;

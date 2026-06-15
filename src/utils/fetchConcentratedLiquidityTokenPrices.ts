@@ -1600,6 +1600,14 @@ const tokens: Partial<Record<keyof typeof ChainId, ConcentratedLiquidityToken[]>
     },
     {
       type: 'UniV3',
+      oracleId: 'DOGE',
+      decimalDelta: 1e-10,
+      pool: '0xce6160bB594fC055c943F59De92ceE30b8c6B32c',
+      firstToken: 'WBNB',
+      secondToken: 'DOGE',
+    },
+    {
+      type: 'UniV3',
       oracleId: 'FINGERHEART',
       decimalDelta: 1,
       pool: '0xAd5811a144941C75C3B5f99220fc9FE1b5b05b8b',

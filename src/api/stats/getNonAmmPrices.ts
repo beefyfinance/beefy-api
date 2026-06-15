@@ -12,7 +12,6 @@ import getVelodromeStablePrices from './optimism/getVelodromeStablePrices';
 import { getGmxArbitrumPrices } from './arbitrum/getGmxPrices';
 import { getGmxAvalanchePrices } from './avax/getGmxPrices';
 import getAuraBalancerPrices from './ethereum/getAuraBalancerPrices';
-import getFerroPrices from './cronos/getFerroPrices';
 import { getCurveBasePrices } from './base/getCurvePrices';
 import getUniswapEthereumPrices from './ethereum/getUniswapPositionPrices';
 import getAerodromePositionPrices from './base/getAerodromePositionPrices';
@@ -106,7 +105,6 @@ export async function getNonAmmPrices(
     getKittenswapStablePrices(tokenPrices),
     getUniswapEthereumPrices(tokenPrices),
     getMimSwapPrices(tokenPrices),
-    getFerroPrices(tokenPrices),
     getAuraBalancerPrices(tokenPrices),
     getGmxAvalanchePrices(tokenPrices),
     getGmxArbitrumPrices(tokenPrices),

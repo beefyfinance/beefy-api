@@ -36,7 +36,6 @@ const DEFAULT_RPCS: ApiChainToRpcs = {
   arbitrum: ['https://arbitrum.gateway.tenderly.co'],
   celo: ['https://forno.celo.org'],
   moonriver: ['https://rpc.api.moonriver.moonbeam.network'],
-  cronos: ['https://cronos-evm-rpc.publicnode.com'],
   aurora: ['https://mainnet.aurora.dev/Fon6fPMs5rCdJc4mxX4kiSK1vsKdzc3D8k6UF8aruek'],
   fuse: ['https://rpc.fuse.io'],
   metis: ['https://metis-mainnet.public.blastapi.io'],

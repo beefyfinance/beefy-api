@@ -15,15 +15,9 @@ import { envBoolean } from '../../utils/env';
 
 import getNonAmmPrices from './getNonAmmPrices';
 import mooTokens from '../../data/mooTokens.json';
-import vvsPools from '../../data/cronos/vvsLpPools.json';
-import cronaPools from '../../data/cronos/cronaLpPools.json';
-import liquidusPools from '../../data/cronos/liquidusLpPools.json';
 import netswapPools from '../../data/metis/netswapLpPools.json';
-import darkCryptoPools from '../../data/cronos/darkCryptoLpPools.json';
-import vvsDualPools from '../../data/cronos/vvsDualLpPools.json';
 import velodromePools from '../../data/optimism/velodromeLpPools.json';
 import oldVelodromePools from '../../data/optimism/oldVelodromeLpPools.json';
-import ripaeCronosPools from '../../data/cronos/ripaeLpPools.json';
 import ramsesPools from '../../data/arbitrum/ramsesLpPools.json';
 import veSyncPools from '../../data/zksync/veSyncLpPools.json';
 import ooeV2Pools from '../../data/bsc/ooeV2LpPools.json';
@@ -73,15 +67,9 @@ const pools = normalizePoolOracleIds([
   ...ooeV2Pools,
   ...veSyncPools,
   ...ramsesPools,
-  ...ripaeCronosPools,
   ...velodromePools,
   ...oldVelodromePools,
-  ...vvsDualPools,
-  ...darkCryptoPools,
   ...netswapPools,
-  ...liquidusPools,
-  ...cronaPools,
-  ...vvsPools,
 ]);
 
 /**
