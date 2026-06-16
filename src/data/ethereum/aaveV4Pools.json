@@ -1,0 +1,14 @@
+[
+  {
+    "name": "aavev4-ethereum-frxusd",
+    "token": "0xCAcd6fd266aF91b8AeD52aCCc382b4e165586E29",
+    "wrapper": "0x2226749630775ee20230Ad65214fB339087eF30D",
+    "aaveTokenSymbol": "frxUSD",
+    "aaveSpokeName": "Main",
+    "merklType": "ERC20LOGPROCESSOR",
+    "merklIdentifier": "0x2226749630775ee20230Ad65214fB339087eF30D",
+    "oracle": "tokens",
+    "oracleId": "frxUSD",
+    "decimals": "1e18"
+  }
+]
