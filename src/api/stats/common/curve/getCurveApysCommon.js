@@ -3,6 +3,7 @@ import { fetchContract } from '../../../rpc/client';
 
 const BigNumber = require('bignumber.js');
 import { fetchPrice } from '../../../../utils/fetchPrice';
+import { getMerklAprByIdentifier } from '../../../offchain-rewards/providers/merkl/proxyClient';
 
 const secondsPerYear = 31536000;
 
@@ -89,23 +90,15 @@ export async function getCurveApysCommon(chainId, pools) {
 }
 
 export async function getMerklApys(chainId, pools) {
-  const ids = pools
-    .filter(p => p.merklId)
-    .map(p => p.merklId)
-    .join(',');
-  let merklData = {};
-  if (ids) {
+  const ids = pools.filter(p => p.merklId).map(p => p.merklId);
+  let aprById = {};
+  if (ids.length) {
     try {
-      const res = await fetch(
-        `https://api.merkl.xyz/v4/opportunities?chainId=${chainId}&identifier=${ids}`
-      ).then(res => res.json());
-      merklData = res.reduce((acc, opportunity) => {
-        acc[opportunity.identifier] = opportunity.apr;
-        return acc;
-      }, {});
+      aprById = await getMerklAprByIdentifier(chainId, ids);
     } catch (e) {
       console.error('Curve getMerklApys', chainId, e);
     }
   }
-  return pools.map(p => new BigNumber(merklData[p.merklId] || 0).div(100));
+  // aprById values are already decimal fractions (apr/100 done in the proxy client).
+  return pools.map(p => new BigNumber(p.merklId ? aprById[p.merklId.toLowerCase()] ?? 0 : 0));
 }

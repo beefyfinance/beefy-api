@@ -1,6 +1,7 @@
 const BigNumber = require('bignumber.js');
 
 import { fetchPrice } from '../../../../utils/fetchPrice';
+import { getMerklOpportunitiesByProtocol } from '../../../offchain-rewards/providers/merkl/proxyClient';
 
 const { getApyBreakdown } = require('../getApyBreakdown');
 const { default: IAaveV3Incentives } = require('../../../../abis/AaveV3Incentives');
@@ -20,7 +21,7 @@ const getAaveV3ApyData = async (config, pools, chainId) => {
   const [values, meritApys, merklApys] = await Promise.all([
     Promise.all(pools.map(pool => getPoolApy(config, pool, chainId))),
     getMeritApys(pools),
-    getMerklApys(pools),
+    getMerklApys(chainId, pools),
   ]);
 
   values.forEach((item, i) => {
@@ -51,14 +52,12 @@ async function getMeritApys(pools) {
   return pools.map(p => new BigNumber(meritData[p.merit] || 0).div(100));
 }
 
-async function getMerklApys(pools) {
+async function getMerklApys(chainId, pools) {
   let merklData = {};
   if (pools.some(p => p.identifier)) {
     try {
-      const res = await fetch('https://api.merkl.xyz/v4/opportunities?mainProtocolId=aave').then(res =>
-        res.json()
-      );
-      merklData = res.reduce((acc, opportunity) => {
+      const opportunities = await getMerklOpportunitiesByProtocol(chainId, 'aave');
+      merklData = opportunities.reduce((acc, opportunity) => {
         acc[opportunity.identifier] = opportunity.apr;
         return acc;
       }, {});
@@ -70,20 +69,15 @@ async function getMerklApys(pools) {
 }
 
 const getPoolApy = async (config, pool, chainId) => {
-  const { supplyBase, supplyNative, borrowBase, borrowNative } = await getAaveV3PoolData(
-    config,
-    pool,
-    chainId
+  const { supplyBase, supplyNative, borrowBase, borrowNative } = await getAaveV3PoolData(config, pool, chainId);
+  const { leveragedSupplyBase, leveragedBorrowBase, leveragedSupplyNative, leveragedBorrowNative } = getLeveragedApys(
+    supplyBase,
+    borrowBase,
+    supplyNative,
+    borrowNative,
+    pool.borrowDepth,
+    pool.borrowPercent
   );
-  const { leveragedSupplyBase, leveragedBorrowBase, leveragedSupplyNative, leveragedBorrowNative } =
-    getLeveragedApys(
-      supplyBase,
-      borrowBase,
-      supplyNative,
-      borrowNative,
-      pool.borrowDepth,
-      pool.borrowPercent
-    );
 
   const rewardsApy = leveragedSupplyNative.plus(leveragedBorrowNative);
   let lendingApy = leveragedSupplyBase.minus(leveragedBorrowBase);
@@ -179,9 +173,7 @@ const getLeveragedApys = (supplyBase, borrowBase, supplyNative, borrowNative, de
     leveragedSupplyNative = leveragedSupplyNative.plus(supplyNative.times(borrowPercent.exponentiatedBy(i)));
 
     leveragedBorrowBase = leveragedBorrowBase.plus(borrowBase.times(borrowPercent.exponentiatedBy(i + 1)));
-    leveragedBorrowNative = leveragedBorrowNative.plus(
-      borrowNative.times(borrowPercent.exponentiatedBy(i + 1))
-    );
+    leveragedBorrowNative = leveragedBorrowNative.plus(borrowNative.times(borrowPercent.exponentiatedBy(i + 1)));
   }
 
   return {
