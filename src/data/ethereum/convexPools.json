@@ -1,5 +1,20 @@
 [
   {
+    "name": "curve-scrvusd-susde",
+    "pool": "0xd29f8980852c2c76fC3f6E96a7Aa06E0BedCC1B1",
+    "stakeDao": true,
+    "tokens": [
+      {
+        "oracleId": "scrvUSD",
+        "decimals": "1e18"
+      },
+      {
+        "oracleId": "sUSDe",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
     "name": "curve-usg-sdola",
     "pool": "0x317837AED98bea887074d1f97Fd3C83eBCA6905b",
     "stakeDao": true,
