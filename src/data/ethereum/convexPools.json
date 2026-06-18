@@ -1,5 +1,20 @@
 [
   {
+    "name": "curve-mim-2pool",
+    "pool": "0x579a9a9d43f9c112dee359e09a87a44f2718a483",
+    "stakeDao": true,
+    "tokens": [
+      {
+        "oracleId": "MIM",
+        "decimals": "1e18"
+      },
+      {
+        "basePool": "curve-2pool",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
     "name": "curve-scrvusd-susde",
     "pool": "0xd29f8980852c2c76fC3f6E96a7Aa06E0BedCC1B1",
     "stakeDao": true,
