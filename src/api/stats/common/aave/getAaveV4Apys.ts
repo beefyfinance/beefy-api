@@ -1,17 +1,15 @@
 import BigNumber from 'bignumber.js';
-import { getApyBreakdown } from '../getApyBreakdown';
+import { getApyBreakdown } from '../getApyBreakdownNew';
 
 const AAVE_V4_GRAPHQL_URL = 'https://api.v4.aave.com/graphql';
 
 export type AaveV4Pool = {
   name: string;
-  token: string;
-  wrapper: string;
+  spoke: string;
+  reserveId: number;
   aaveTokenSymbol: string;
   aaveSpokeName?: string;
-  merklType: string;
-  merklIdentifier: string;
-  oracle: string;
+  identifier?: string;
   oracleId: string;
   decimals: string;
 };
@@ -47,9 +45,7 @@ type AaveV4GraphqlResponse = {
 };
 
 type MerklOpportunity = {
-  type?: string;
   identifier?: string;
-  status?: string;
   apr?: number;
 };
 
@@ -61,9 +57,11 @@ export const getAaveV4ApyData = async (chainId: number, pools: AaveV4Pool[]) => 
   const data = await getAaveV4PoolData(chainId, pools);
 
   return getApyBreakdown(
-    pools.map(pool => ({ ...pool, address: pool.name })),
-    Object.fromEntries(pools.map((pool, i) => [pool.name, data[i].lendingApr])),
-    data.map(item => item.merklApr)
+    pools.map((pool, i) => ({
+      vaultId: pool.name,
+      trading: data[i].lendingApr,
+      vault: data[i].merklApr,
+    }))
   );
 };
 
@@ -133,47 +131,38 @@ const fetchAaveV4Reserves = async (chainId: number): Promise<AaveV4Reserve[]> =>
 };
 
 const getAaveV4MerklAprData = async (chainId: number, pools: AaveV4Pool[]): Promise<MerklAprData[]> => {
-  return Promise.all(pools.map(pool => getMerklAprData(chainId, pool)));
+  let merklData: Record<string, number> = {};
+  if (pools.some(pool => pool.identifier)) {
+    merklData = await fetchAaveMerklAprs(chainId);
+  }
+
+  return pools.map(pool => ({
+    apr: new BigNumber(pool.identifier ? merklData[pool.identifier] || 0 : 0).div(100),
+  }));
 };
 
-const getMerklAprData = async (chainId: number, pool: AaveV4Pool): Promise<MerklAprData> => {
+const fetchAaveMerklAprs = async (chainId: number): Promise<Record<string, number>> => {
   try {
-    const match = await getMerklOpportunity(chainId, pool.merklType, pool.merklIdentifier);
-
-    if (!match || match.status !== 'LIVE') {
-      return emptyMerklAprData();
-    }
-
-    return {
-      apr: new BigNumber(match.apr || 0).div(100),
-    };
+    const opportunities = await fetchAaveMerklOpportunities(chainId);
+    return opportunities.reduce((acc, opportunity) => {
+      if (typeof opportunity.identifier === 'string') {
+        acc[opportunity.identifier] = opportunity.apr || 0;
+      }
+      return acc;
+    }, {} as Record<string, number>);
   } catch (e) {
-    console.error(`Aave V4 Merkl data error for ${pool.name}`, e);
-    return emptyMerklAprData();
+    console.error('Aave V4 Merkl data error', e);
+    return {};
   }
 };
 
-const getMerklOpportunity = async (
-  chainId: number,
-  type: string,
-  identifier: string
-): Promise<MerklOpportunity | undefined> => {
-  const encodedIdentifier = encodeURIComponent(identifier);
-  const url = `https://api.merkl.xyz/v4/opportunities?chainId=${chainId}&identifier=${encodedIdentifier}`;
+const fetchAaveMerklOpportunities = async (chainId: number): Promise<MerklOpportunity[]> => {
+  const url = `https://api.merkl.xyz/v4/opportunities?chainId=${chainId}&mainProtocolId=aave`;
   const data = await fetch(url).then(res => res.json());
 
   if (!Array.isArray(data)) {
-    return undefined;
+    return [];
   }
 
-  return data.find(
-    (opportunity: MerklOpportunity) =>
-      opportunity.type === type &&
-      typeof opportunity.identifier === 'string' &&
-      opportunity.identifier.toLowerCase() === identifier.toLowerCase()
-  );
+  return data;
 };
-
-const emptyMerklAprData = (): MerklAprData => ({
-  apr: new BigNumber(0),
-});

@@ -1,42 +1,29 @@
+import type { Abi } from 'abitype';
 import BigNumber from 'bignumber.js';
+import { fetchContract } from '../../../rpc/client';
 import type { AaveV4Pool } from './getAaveV4Apys';
 
-const AAVE_V4_GRAPHQL_URL = 'https://api.v4.aave.com/graphql';
-
-type AaveV4Reserve = {
-  spoke?: {
-    name?: string;
-  };
-  asset?: {
-    underlying?: {
-      info?: {
-        symbol?: string;
-      };
-    };
-  };
-  summary?: {
-    supplied?: {
-      amount?: {
-        value?: string;
-      };
-    };
-  };
-};
-
-type AaveV4GraphqlResponse = {
-  data?: {
-    reserves?: AaveV4Reserve[];
-  };
-  errors?: unknown;
-};
+const ISpokeAbi = [
+  {
+    inputs: [{ internalType: 'uint256', name: 'reserveId', type: 'uint256' }],
+    name: 'getReserveSuppliedAssets',
+    outputs: [{ internalType: 'uint256', name: '', type: 'uint256' }],
+    stateMutability: 'view',
+    type: 'function',
+  },
+] as const satisfies Abi;
 
 export const getAaveV4Prices = async (chainId: number, pools: AaveV4Pool[], tokenPrices: Record<string, number>) => {
-  const reserves = await fetchAaveV4Reserves(chainId);
+  const supplyCalls = pools.map(pool =>
+    fetchContract(pool.spoke, ISpokeAbi, chainId).read.getReserveSuppliedAssets([BigInt(pool.reserveId)])
+  );
+  const supplyRes = await Promise.all(supplyCalls);
   const prices = {};
 
-  for (const pool of pools) {
+  for (let i = 0; i < pools.length; i++) {
+    const pool = pools[i];
     const price = tokenPrices[pool.oracleId] || 0;
-    const totalSupply = getSuppliedAmount(pool, reserves).toString(10);
+    const totalSupply = new BigNumber(supplyRes[i].toString()).div(pool.decimals).toString(10);
 
     prices[pool.name] = {
       price,
@@ -47,55 +34,4 @@ export const getAaveV4Prices = async (chainId: number, pools: AaveV4Pool[], toke
   }
 
   return prices;
-};
-
-const getSuppliedAmount = (pool: AaveV4Pool, reserves: AaveV4Reserve[]): BigNumber => {
-  const tokenReserves = reserves.filter(
-    reserve => reserve.asset?.underlying?.info?.symbol?.toLowerCase() === pool.aaveTokenSymbol.toLowerCase()
-  );
-  const reserve = tokenReserves.find(reserve => reserve.spoke?.name === pool.aaveSpokeName) ?? tokenReserves[0];
-
-  return new BigNumber(reserve?.summary?.supplied?.amount?.value || 0);
-};
-
-const fetchAaveV4Reserves = async (chainId: number): Promise<AaveV4Reserve[]> => {
-  const query = `query Reserves {
-    reserves(request: { query: { chainIds: [${chainId}] } }) {
-      spoke {
-        name
-      }
-      asset {
-        underlying {
-          info {
-            symbol
-          }
-        }
-      }
-      summary {
-        supplied {
-          amount {
-            value
-          }
-        }
-      }
-    }
-  }`;
-
-  try {
-    const response: AaveV4GraphqlResponse = await fetch(AAVE_V4_GRAPHQL_URL, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ query }),
-    }).then(res => res.json());
-
-    if (response.errors) {
-      console.error('Aave V4 GraphQL reserve price error', response.errors);
-      return [];
-    }
-
-    return response.data?.reserves || [];
-  } catch (e) {
-    console.error('Aave V4 GraphQL reserve price fetch failed', e);
-    return [];
-  }
 };
