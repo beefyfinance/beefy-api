@@ -3640,4 +3640,17 @@ export const tokens = {
     bridge: 'native',
     tags: ['LARGE_HOLDERS', 'NO_TIMELOCK'],
   },
+  DEUS2: {
+    name: 'DEUS Token',
+    symbol: 'DEUS',
+    oracleId: 'DEUS2',
+    address: '0x940A319B75861014A220D9c6c144d108552B089B',
+    chainId: 8453,
+    decimals: 18,
+    website: 'https://xmaquina.io/',
+    description:
+      'XMAQUINA is a decentralized ecosystem designed to provide structured access to the robotics capital markets. DEUS functions as the coordination and governance mechanism across the XMAQUINA ecosystem.',
+    bridge: 'layer-zero',
+    tags: ['LARGE_HOLDERS', 'NO_TIMELOCK'],
+  },
 } as const satisfies Record<string, Token>;
