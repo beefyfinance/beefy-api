@@ -62,7 +62,7 @@ async function getMerklApys(chainId, pools) {
         return acc;
       }, {});
     } catch (e) {
-      console.error('AAVE getMerklApys', e);
+      console.error('AAVE getMerklApys', e.message);
     }
   }
   return pools.map(p => new BigNumber(merklData[p.identifier] || 0).div(100));

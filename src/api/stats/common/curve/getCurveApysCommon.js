@@ -96,7 +96,7 @@ export async function getMerklApys(chainId, pools) {
     try {
       aprById = await getMerklAprByIdentifier(chainId, ids);
     } catch (e) {
-      console.error('Curve getMerklApys', chainId, e);
+      console.error('Curve getMerklApys', chainId, e.message);
     }
   }
   // aprById values are already decimal fractions (apr/100 done in the proxy client).

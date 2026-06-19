@@ -102,14 +102,8 @@ export class OffchainRewards {
     setInterval(this.scheduledUpdate.bind(this), 60 * 1000);
   }
 
-  static async create(
-    vaults: Vault[],
-    secondsBetweenUpdates: number,
-    cacheKey: string
-  ): Promise<OffchainRewards> {
-    const maybeCache = await getKey<{ type: string; version: number; data: CachedByProvider } | undefined>(
-      cacheKey
-    );
+  static async create(vaults: Vault[], secondsBetweenUpdates: number, cacheKey: string): Promise<OffchainRewards> {
+    const maybeCache = await getKey<{ type: string; version: number; data: CachedByProvider } | undefined>(cacheKey);
     const cachedValues: CachedByProvider | undefined =
       typeof maybeCache === 'object' &&
       maybeCache !== null &&
@@ -234,7 +228,7 @@ export class OffchainRewards {
       for (const { chainId, providerId, reason } of errors) {
         console.error(
           `> [Offchain Rewards] Failed to update campaigns for ${providerId} on ${chainId}:`,
-          reason
+          reason.message
         );
       }
     }
@@ -351,11 +345,7 @@ export class OffchainRewards {
     (chainId, provider) => `${chainId}:${provider.id}`
   );
 
-  getCampaignsForChainProvider(
-    chainId: AppChain,
-    providerId: ProviderId,
-    withMeta: true
-  ): Readonly<ChainCampaigns>;
+  getCampaignsForChainProvider(chainId: AppChain, providerId: ProviderId, withMeta: true): Readonly<ChainCampaigns>;
   getCampaignsForChainProvider(
     chainId: AppChain,
     providerId: ProviderId,
