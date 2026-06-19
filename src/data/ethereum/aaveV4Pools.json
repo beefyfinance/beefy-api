@@ -1,0 +1,12 @@
+[
+  {
+    "name": "aavev4-ethereum-frxusd",
+    "spoke": "0x94e7A5dCbE816e498b89aB752661904E2F56c485",
+    "reserveId": 12,
+    "aaveTokenSymbol": "frxUSD",
+    "aaveSpokeName": "Main",
+    "identifier": "0x92695585cCac2945Ae3019c9b19a754E0402979b",
+    "oracleId": "frxUSD",
+    "decimals": "1e18"
+  }
+]

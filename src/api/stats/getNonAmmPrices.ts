@@ -68,6 +68,7 @@ import getVenusZkPrices from './zksync/getVenusZkPrices';
 import { getBeefyCowSonicPrices } from './sonic/getBeefySonicCowPrices';
 import { getMorphoPrices } from './common/morpho/getMorphoPrices';
 import { getAaveV3Prices } from './common/aave/getAaveV3Prices';
+import { getAaveV4Prices } from './common/aave/getAaveV4Prices';
 import { getIchiPrices } from './common/getIchiPrices';
 import { getEulerPrices } from './common/euler/getEulerPrices';
 import { getCurvanceMonadPrices } from './monad/getCurvanceMonadPrices';
@@ -96,6 +97,7 @@ export async function getNonAmmPrices(
   let breakdown = {};
 
   const promises = [
+    getAaveV4Prices(ETH_CHAIN_ID, require('../../data/ethereum/aaveV4Pools.json'), tokenPrices),
     getAaveV3Prices(BASE_CHAIN_ID, require('../../data/base/aaveV3Pools.json'), tokenPrices),
     getAaveV3Prices(MANTLE_CHAIN_ID, require('../../data/mantle/aaveV3Pools.json'), tokenPrices),
     getAaveV3Prices(MEGAETH_CHAIN_ID, require('../../data/megaeth/aaveV3Pools.json'), tokenPrices),
