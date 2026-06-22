@@ -202,6 +202,20 @@ export const tokens = {
     bridge: 'native',
     tags: ['CURATED'],
   },
+  O: {
+    name: 'o1.exchange',
+    symbol: 'O',
+    oracleId: 'O',
+    address: '0x182FA643E5f29d5EcA75e7b9CF9336A3fe4620b2',
+    chainId: 8453,
+    decimals: 18,
+    website: 'https://o1.exchange/',
+    description:
+      'O is the utility token of o1.exchange, a non-custodial onchain trading platform for spot, perpetuals, prediction markets, and future synthetic/tokenized assets.',
+    documentation: 'https://docs.o1.exchange/',
+    bridge: 'native',
+    tags: ['LARGE_HOLDERS'],
+  },
   OVN: {
     name: 'OVN',
     symbol: 'OVN',
