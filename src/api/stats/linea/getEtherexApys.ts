@@ -1,14 +1,13 @@
 import BigNumber from 'bignumber.js';
 import { LINEA_CHAIN_ID as chainId } from '../../../constants';
 import { getFarmApys } from '../common/getSolidlyGaugeApys';
-import stablePools from '../../../data/linea/etherexStablePools.json';
 import volatilePools from '../../../data/linea/etherexVolatilePools.json';
 import { getIgnitionAprs } from './getIgnitionAprs';
 import { getApyBreakdown } from '../common/getApyBreakdownNew';
 import { BIG_ZERO } from '../../../utils/big-number';
 import { getAddress } from 'viem';
 
-const pools = [...stablePools, ...volatilePools];
+const pools = [...volatilePools];
 
 export async function getEtherexApys() {
   const [vaultAprs, ignitionAprs] = await Promise.all([

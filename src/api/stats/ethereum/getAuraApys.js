@@ -4,31 +4,25 @@ const { ETH_CHAIN_ID: chainId, ETH_CHAIN_ID } = require('../../../constants');
 import { fetchPrice } from '../../../utils/fetchPrice';
 import { addressBook } from '../../../../packages/address-book/src/address-book';
 import { getEDecimals } from '../../../utils/getEDecimals';
-import IBalancerVault from '../../../abis/IBalancerVault';
-import IAaveProtocolDataProvider from '../../../abis/matic/AaveProtocolDataProvider';
 import AuraToken from '../../../abis/ethereum/AuraToken';
 import AuraBooster from '../../../abis/ethereum/AuraBooster';
 import { fetchContract } from '../../rpc/client';
-import jp from 'jsonpath';
 import AuraGauge from '../../../abis/ethereum/AuraGauge';
 import { getBalTradingAndLstApr } from '../../../utils/getBalancerTradingFeeAndLstApr';
 
 const {
   ethereum: {
     tokens: { AURA, BAL },
-    platforms: { balancer },
   },
 } = addressBook;
 
-const balancerPools = require('../../../data/ethereum/auraBalancerLpPools.json');
 const balV3Pools = require('../../../data/ethereum/balancerV3pools.json');
 
-const pools = [...balancerPools, ...balV3Pools];
+const pools = [...balV3Pools];
 
 const liquidityProviderFee = 0.0025;
 const secondsInAYear = 31536000;
 const REWARD_MULTIPLIER_DENOMINATOR = 10000;
-const balVault = fetchContract(balancer.router, IBalancerVault, ETH_CHAIN_ID);
 
 const getAuraApys = async () => {
   const pairAddresses = pools.map(pool => pool.address);
@@ -39,13 +33,7 @@ const getAuraApys = async () => {
   ]);
 
   const poolsMap = pools.map(p => ({ name: p.name, address: p.address }));
-  return getApyBreakdown(
-    poolsMap,
-    tradingAprs.tradingAprMap,
-    farmApys,
-    liquidityProviderFee,
-    tradingAprs.lstAprs
-  );
+  return getApyBreakdown(poolsMap, tradingAprs.tradingAprMap, farmApys, liquidityProviderFee, tradingAprs.lstAprs);
 };
 
 const getTradingFeeAprBalancer = async (chainId, pairAddresses) => {

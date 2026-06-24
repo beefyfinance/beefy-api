@@ -9,9 +9,6 @@ export type QuoteRequest = {
   slippage?: number;
   unwrapWHYPE?: boolean;
   excludeDexes?: string;
-  /** 100 = 1%, default 0 */
-  feeBps?: number;
-  feeRecepient?: string;
 };
 
 export type QuoteToken = {

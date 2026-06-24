@@ -2,7 +2,6 @@ const { getAvaxApys } = require('./avax');
 const { getMaticApys } = require('./matic');
 const { getBSCApys } = require('./bsc');
 const { getArbitrumApys } = require('./arbitrum');
-const { getCronosApys } = require('./cronos');
 const { getMetisApys } = require('./metis');
 const { getOptimismApys } = require('./optimism');
 const { getEthereumApys } = require('./ethereum');
@@ -12,7 +11,6 @@ const { getGnosisApys } = require('./gnosis');
 const { getLineaApys } = require('./linea');
 const { getMantleApys } = require('./mantle');
 const { getFraxtalApys } = require('./fraxtal');
-const { getModeApys } = require('./mode');
 const { getSeiApys } = require('./sei');
 const { getRootstockApys } = require('./rootstock');
 const { getScrollApys } = require('./scroll');
@@ -54,7 +52,6 @@ const updateApys = async () => {
       getAvaxApys(),
       getBSCApys(),
       getArbitrumApys(),
-      // getCronosApys(),
       // getMetisApys(),
       getOptimismApys(),
       getEthereumApys(),
@@ -64,7 +61,6 @@ const updateApys = async () => {
       getLineaApys(),
       // getMantleApys(),
       getFraxtalApys(),
-      // getModeApys(),
       getSeiApys(),
       getRootstockApys(),
       // getScrollApys(),

@@ -1,5 +1,5 @@
 [
-    {
+  {
     "address": "0xd1759d3652f77343FCAdBDAF2C29014a2B409515",
     "lpAddress": "0x257FCbAE4Ac6B26A02E4FC5e1a11e4174B5ce395",
     "tokens": ["0x2Ae3F1Ec7F1F5012CFEab0185bfc7aa3cf0DEc22", "0x4200000000000000000000000000000000000006"],
@@ -31,6 +31,108 @@
     "vault": {
       "address": "0x26B4E92Ae898A8Acb96284b236B29654E679caD0",
       "oracleId": "pancakeswap-cow-base-cbeth-cbbtc-vault"
+    }
+  },
+  {
+    "address": "0xd597C585a9b845eD500127d926E7db4DD4d9d63c",
+    "lpAddress": "0x155613e7A75a2aB73500f9B2c45910469500FF56",
+    "tokens": ["0x311935Cd80B76769bF2ecC9D8Ab7635b2139cf82", "0x97bE14Dd8f994A5364573BC035D85309E7CB34de"],
+    "tokenOracleIds": ["SOL", "JitoSOL"],
+    "decimals": [9, 9],
+    "oracleId": "pancakeswap-cow-base-sol-jitosol",
+    "providerId": "pancakeswap",
+    "rewardPool": {
+      "address": "0x83655C90b930AE49a4d255c50A30c49CfE1f43D9",
+      "oracleId": "pancakeswap-cow-base-sol-jitosol-rp"
+    },
+    "vault": {
+      "address": "0x7A027B2D77DB12fF54c274f21497094c21824D6f",
+      "oracleId": "pancakeswap-cow-base-sol-jitosol-vault"
+    }
+  },
+  {
+    "address": "0x1d14812b4482B17de7268A3049983c03c8C9FD2d",
+    "lpAddress": "0x8Df6dd38D718bD726374521c2DcFE90Eb9CB7d43",
+    "tokens": ["0x311935Cd80B76769bF2ecC9D8Ab7635b2139cf82", "0xcbB7C0000aB88B473b1f5aFd9ef808440eed33Bf"],
+    "tokenOracleIds": ["SOL", "cbBTC"],
+    "decimals": [9, 8],
+    "oracleId": "pancakeswap-cow-base-sol-cbbtc",
+    "providerId": "pancakeswap",
+    "rewardPool": {
+      "address": "0xB418B23da6d6d1F5B7198551550060C604c095a4",
+      "oracleId": "pancakeswap-cow-base-sol-cbbtc-rp"
+    },
+    "vault": {
+      "address": "0x82FC3Ba31f8dF868A1158Cf0f2FbF16E03B85c68",
+      "oracleId": "pancakeswap-cow-base-sol-cbbtc-vault"
+    }
+  },
+  {
+    "address": "0x7fe8DF76fBf5657cE2e9a186BB1f7EF7c0cD8E47",
+    "lpAddress": "0x04d25d8f94A2018F8DdDe1E7941c625FA1a2c7cE",
+    "tokens": ["0x311935Cd80B76769bF2ecC9D8Ab7635b2139cf82", "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913"],
+    "tokenOracleIds": ["SOL", "USDC"],
+    "decimals": [9, 6],
+    "oracleId": "pancakeswap-cow-base-sol-usdc",
+    "providerId": "pancakeswap",
+    "rewardPool": {
+      "address": "0xA05f1583438F62c8a64Be70aBff68aD6baFA0c8f",
+      "oracleId": "pancakeswap-cow-base-sol-usdc-rp"
+    },
+    "vault": {
+      "address": "0xA2B1C7DA608aD0c247A9F3f6c84d70228932F6d2",
+      "oracleId": "pancakeswap-cow-base-sol-usdc-vault"
+    }
+  },
+  {
+    "address": "0xC77ADce7ae9A2c694d335ce75f8840Ef7263E274",
+    "lpAddress": "0x155613e7A75a2aB73500f9B2c45910469500FF56",
+    "tokens": ["0x311935Cd80B76769bF2ecC9D8Ab7635b2139cf82", "0x97bE14Dd8f994A5364573BC035D85309E7CB34de"],
+    "tokenOracleIds": ["SOL", "JitoSOL"],
+    "decimals": [9, 9],
+    "oracleId": "pancake-cow-base-sol-jitosol",
+    "providerId": "pancakeswap",
+    "rewardPool": {
+      "address": "0xec28Ca7B09fb911A7233f70738154d4c61F7d01f",
+      "oracleId": "pancake-cow-base-sol-jitosol-rp"
+    },
+    "vault": {
+      "address": "0x1B193EF7dd5A337A752F887e8E6FF14FC2C432c4",
+      "oracleId": "pancake-cow-base-sol-jitosol-vault"
+    }
+  },
+  {
+    "address": "0x2e99aD2242a988318fc411c76CC55613C0e7Ce83",
+    "lpAddress": "0x8Df6dd38D718bD726374521c2DcFE90Eb9CB7d43",
+    "tokens": ["0x311935Cd80B76769bF2ecC9D8Ab7635b2139cf82", "0xcbB7C0000aB88B473b1f5aFd9ef808440eed33Bf"],
+    "tokenOracleIds": ["SOL", "cbBTC"],
+    "decimals": [9, 8],
+    "oracleId": "pancake-cow-base-sol-cbbtc-v2",
+    "providerId": "pancakeswap",
+    "rewardPool": {
+      "address": "0x04db98898487e4c9802A6950257e6a18a8ED68A1",
+      "oracleId": "pancake-cow-base-sol-cbbtc-v2-rp"
+    },
+    "vault": {
+      "address": "0x477Be62364C44C3683baD6bF978f12cD76D959AB",
+      "oracleId": "pancake-cow-base-sol-cbbtc-v2-vault"
+    }
+  },
+  {
+    "address": "0x58470e3b465d11Ad4bF6dBb6B8AC3Fcc04020D28",
+    "lpAddress": "0x04d25d8f94A2018F8DdDe1E7941c625FA1a2c7cE",
+    "tokens": ["0x311935Cd80B76769bF2ecC9D8Ab7635b2139cf82", "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913"],
+    "tokenOracleIds": ["SOL", "USDC"],
+    "decimals": [9, 6],
+    "oracleId": "pancake-cow-base-sol-usdc",
+    "providerId": "pancakeswap",
+    "rewardPool": {
+      "address": "0x5029d9F392B170775E35B87909c35e55E202b004",
+      "oracleId": "pancake-cow-base-sol-usdc-rp"
+    },
+    "vault": {
+      "address": "0xC859831A35eD80206AA2Feb1b53B327AaFefC6C2",
+      "oracleId": "pancake-cow-base-sol-usdc-vault"
     }
   },
   {
@@ -2978,6 +3080,91 @@
     "vault": {
       "address": "0x22d0D6a733d392DaCAa0CF97F5875314B5cF6841",
       "oracleId": "aerodrome-cow-base-uxrp-weth-vault"
+    }
+  },
+  {
+    "address": "0x7380c91dA251bFa144A12f225A5c0e9886790FAc",
+    "lpAddress": "0x76F9AeFA6aBcbcEb10CC149e071209366f64Ce9D",
+    "tokens": ["0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913", "0xDD15623d107c639aF0C5127AFFA26d3f20327EC8"],
+    "tokenOracleIds": ["USDC", "PSG"],
+    "decimals": [6, 18],
+    "oracleId": "aerodrome-cow-base-psg-usdc",
+    "providerId": "aerodrome",
+    "rewardPool": {
+      "address": "0x512C59EB3A16E9FB2EBF625671600cB44474EAC4",
+      "oracleId": "aerodrome-cow-base-psg-usdc-rp"
+    },
+    "vault": {
+      "address": "0x420C6bf66B38853b94C94514fe504E463867E7Ba",
+      "oracleId": "aerodrome-cow-base-psg-usdc-vault"
+    }
+  },
+  {
+    "address": "0x045A4af4a593e7B1D013cCc2Fa4457354D584369",
+    "lpAddress": "0xb4580451325C61344712E811392C881a634151d8",
+    "tokens": ["0x580edA966a8129C3c01D149871B47feFcC599D28", "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913"],
+    "tokenOracleIds": ["AFC", "USDC"],
+    "decimals": [18, 6],
+    "oracleId": "aerodrome-cow-base-afc-usdc",
+    "providerId": "aerodrome",
+    "rewardPool": {
+      "address": "0x6fFf5Bc0F64C180d0Da3469216510E3bfc5c6cC8",
+      "oracleId": "aerodrome-cow-base-afc-usdc-rp"
+    },
+    "vault": {
+      "address": "0x5fE3e9166EB8eE5409750bBcAF8B9B55Ec6e6792",
+      "oracleId": "aerodrome-cow-base-afc-usdc-vault"
+    }
+  },
+  {
+    "address": "0x3549ce8C62989407342A2bB1742Dc1eF4a1Cbe71",
+    "lpAddress": "0xAbe1f289107C20081F591BB3972b8289aDd64f6C",
+    "tokens": ["0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913", "0xa1A0B2E02B0E6830aD5A4A7211691200945d8919"],
+    "tokenOracleIds": ["USDC", "TEA"],
+    "decimals": [6, 18],
+    "oracleId": "aerodrome-cow-base-tea-usdc",
+    "providerId": "aerodrome",
+    "rewardPool": {
+      "address": "0x81181bA5b00152e0298ef3C6917870f7114665EE",
+      "oracleId": "aerodrome-cow-base-tea-usdc-rp"
+    },
+    "vault": {
+      "address": "0x7388aa8B467BeE0eB46A822876Ed3FC7cA12D3B7",
+      "oracleId": "aerodrome-cow-base-tea-usdc-vault"
+    }
+  },
+  {
+    "address": "0x795F9f5892190b7B4b8C0Cba9905399FeefDCE11",
+    "lpAddress": "0x0ab02e160f0df68dc049B012c514857306960Eae",
+    "tokens": ["0x11030f79109269d796fd0FB956D6244e502757f7", "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913"],
+    "tokenOracleIds": ["CTR", "USDC"],
+    "decimals": [18, 6],
+    "oracleId": "aerodrome-cow-base-ctr-usdc",
+    "providerId": "aerodrome",
+    "rewardPool": {
+      "address": "0xbEDC28C4dbae074bA41BA8Ab56786187ca0f015e",
+      "oracleId": "aerodrome-cow-base-ctr-usdc-rp"
+    },
+    "vault": {
+      "address": "0xb24189f9B68F654016e2C8F8166b12b516e29cb6",
+      "oracleId": "aerodrome-cow-base-ctr-usdc-vault"
+    }
+  },
+  {
+    "address": "0x11e94d01deeD7e781D1EE1941604743e0EFe33f7",
+    "lpAddress": "0x8D479A4C680A76D4Ae03f10203569558405DDFFF",
+    "tokens": ["0x182FA643E5f29d5EcA75e7b9CF9336A3fe4620b2", "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913"],
+    "tokenOracleIds": ["O", "USDC"],
+    "decimals": [18, 6],
+    "oracleId": "aerodrome-cow-base-o-usdc",
+    "providerId": "aerodrome",
+    "rewardPool": {
+      "address": "0x645AA1C516CcCD6c54c9b40826215ada74A3B537",
+      "oracleId": "aerodrome-cow-base-o-usdc-rp"
+    },
+    "vault": {
+      "address": "0xf43Af31B6CB38bfEf068403f11C83c5a3146C0CF",
+      "oracleId": "aerodrome-cow-base-o-usdc-vault"
     }
   },
   {

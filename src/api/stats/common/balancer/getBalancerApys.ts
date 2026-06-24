@@ -3,13 +3,7 @@ import { getApyBreakdown, ApyBreakdownResult } from '../getApyBreakdown';
 import { NormalizedCacheObject, ApolloClient } from '@apollo/client/core';
 import BigNumber from 'bignumber.js';
 import { getBalTradingAndLstApr } from '../../../../utils/getBalancerTradingFeeAndLstApr';
-
-type MerklOpportunityV4 = {
-  identifier?: string;
-  apr?: number; // percent, e.g. 50.41 = 50.41% APR
-  tvl?: number;
-  dailyRewards?: number;
-};
+import { getMerklAprByExplorerAddress } from '../../../offchain-rewards/providers/merkl/proxyClient';
 
 interface Token {
   newGauge?: boolean;
@@ -131,53 +125,15 @@ const getPoolApy = async (pool: Pool, params: BalancerParams) => {
   return rewardsApy;
 };
 
-const getMerklV4AprByExplorerAddress = async (chainId: number, explorerAddresses: string[]) => {
-  const result: Record<string, number> = {};
-  const batchSize = 8; // stay under Merkl's default 10 req/s rate limit
-
-  for (let i = 0; i < explorerAddresses.length; i += batchSize) {
-    const batch = explorerAddresses.slice(i, i + batchSize);
-    const batchResults = await Promise.all(
-      batch.map(async address => {
-        const url = `https://api.merkl.xyz/v4/opportunities?chainId=${chainId}&explorerAddress=${address}`;
-        try {
-          const data = (await fetch(url).then(res => res.json())) as unknown;
-          if (!Array.isArray(data) || data.length === 0) {
-            return 0;
-          }
-
-          const opportunities = data as MerklOpportunityV4[];
-          const match =
-            opportunities.find(
-              o => typeof o?.identifier === 'string' && o.identifier.toLowerCase() === address.toLowerCase()
-            ) ?? opportunities[0];
-
-          if (typeof match?.apr === 'number' && Number.isFinite(match.apr)) {
-            return match.apr / 100;
-          }
-
-          if (
-            typeof match?.dailyRewards === 'number' &&
-            Number.isFinite(match.dailyRewards) &&
-            typeof match?.tvl === 'number' &&
-            Number.isFinite(match.tvl) &&
-            match.tvl > 0
-          ) {
-            return (match.dailyRewards * 365) / match.tvl;
-          }
-
-          return 0;
-        } catch (e) {
-          console.error(`Failed to fetch Merkl APRs (v4): ${chainId}`);
-          return 0;
-        }
-      })
-    );
-
-    batch.forEach((address, idx) => {
-      result[address.toLowerCase()] = batchResults[idx] ?? 0;
-    });
+const getMerklV4AprByExplorerAddress = async (
+  chainId: number,
+  explorerAddresses: string[]
+): Promise<Record<string, number>> => {
+  if (explorerAddresses.length === 0) return {};
+  try {
+    return await getMerklAprByExplorerAddress(chainId, explorerAddresses);
+  } catch (e) {
+    console.error(`Failed to fetch Merkl APRs via proxy: ${chainId}`);
+    return {};
   }
-
-  return result;
 };

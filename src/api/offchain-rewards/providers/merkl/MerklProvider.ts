@@ -1,23 +1,14 @@
 import { AppChain, fromChainNumber, toAppChain, toChainId } from '../../../../utils/chain';
 import { CampaignType, IOffchainRewardProvider, MerklCampaign, Vault } from '../../types';
-import { isProviderApiError, ProviderApiError, UnsupportedChainError } from '../../errors';
-import {
-  CampaignTypeSetting,
-  MerklApiCampaign,
-  MerklApiCampaignType,
-  MerklApiOpportunitiesParams,
-  MerklApiOpportunitiesRequest,
-  MerklApiOpportunitiesWithCampaignsResponse,
-  MerklApiOpportunityStatus,
-  MerklApiOpportunityWithCampaigns,
-} from './types';
+import { UnsupportedChainError } from '../../errors';
+import { CampaignTypeSetting, MerklApiCampaignType } from './types';
+import { getMerklOpportunitiesForChain } from './proxyClient';
+import { MerklProxyCampaign, MerklProxyOpportunity } from './proxyTypes';
 import { groupBy, pick } from 'lodash';
 import { Address, getAddress, isAddressEqual } from 'viem';
 import { isFiniteNumber } from '../../../../utils/number';
 import { isDefined } from '../../../../utils/array';
 import { getUnixNow, isUnixBetween } from '../../../../utils/date';
-import { getJson } from '../../../../utils/http';
-import { errorToString, isError } from '../../../../utils/error';
 
 const providerId = 'merkl' as const;
 const supportedChains = new Set<AppChain>([
@@ -67,7 +58,6 @@ const campaignCreatorToType: Record<Address, CampaignTypeSetting> = {
     default: 'external',
   },
 };
-const MAX_PER_PAGE = 100; // @see https://api.merkl.xyz/docs#tag/opportunities/get/v4/opportunities
 const MAX_CAMPAIGN_AGE = 60 * 60 * 24 * 30; // 30 days in seconds, used to filter out campaigns that ended a long time ago
 
 export class MerklProvider implements IOffchainRewardProvider {
@@ -96,7 +86,7 @@ export class MerklProvider implements IOffchainRewardProvider {
     const vaultsByAddress = groupBy(vaults, v => v.address.toLowerCase());
     const receiptMatches = opportunities.filter(o => !!vaultsByAddress[o.identifier.toLowerCase()]);
     const receiptMatchedRootCampaigns = new Set(
-      receiptMatches.flatMap(o => o.campaigns.map(c => c.rootCampaignId).filter(isDefined))
+      receiptMatches.flatMap(o => (o.campaigns ?? []).map(c => c.rootCampaignId).filter(isDefined))
     );
 
     // opportunities matching the pool/deposit token address of our vaults, excluding those already matched by receipt token
@@ -104,7 +94,7 @@ export class MerklProvider implements IOffchainRewardProvider {
     const poolMatches = opportunities.filter(
       o =>
         !!vaultsByPoolAddress[o.identifier.toLowerCase()] &&
-        !o.campaigns.some(c => receiptMatchedRootCampaigns.has(c.id))
+        !(o.campaigns ?? []).some(c => receiptMatchedRootCampaigns.has(c.id))
     );
 
     const vaultOpportunities = receiptMatches
@@ -119,25 +109,26 @@ export class MerklProvider implements IOffchainRewardProvider {
   }
 
   protected getCampaignsFromVaultOpportunity(
-    opportunity: MerklApiOpportunityWithCampaigns,
+    opportunity: MerklProxyOpportunity,
     chainId: AppChain,
     vaultsByAddress: Record<string, Vault[]>
   ): MerklCampaign[] {
-    return opportunity.campaigns.map(c => this.getCampaign(opportunity, c, 1, chainId, vaultsByAddress));
+    return (opportunity.campaigns ?? []).map(c => this.getCampaign(opportunity, c, 1, chainId, vaultsByAddress));
   }
 
   protected getCampaignsFromPoolOpportunity(
-    opportunity: MerklApiOpportunityWithCampaigns,
+    opportunity: MerklProxyOpportunity,
     chainId: AppChain,
     vaultsByPoolAddress: Record<string, Vault[]>
   ): MerklCampaign[] {
+    const cumulated = opportunity.aprRecord?.cumulated ?? 0;
     const campaignToAprShare = new Map(
-      opportunity.aprRecord.breakdowns
+      (opportunity.aprRecord?.breakdowns ?? [])
         .filter(b => b.type === 'CAMPAIGN')
-        .map(b => [b.identifier, opportunity.aprRecord.cumulated > 0 ? b.value / opportunity.aprRecord.cumulated : 0])
+        .map(b => [b.identifier, cumulated > 0 ? b.value / cumulated : 0])
     );
 
-    return opportunity.campaigns.map(c =>
+    return (opportunity.campaigns ?? []).map(c =>
       this.getCampaign(opportunity, c, campaignToAprShare.get(c.campaignId) ?? 0, chainId, vaultsByPoolAddress)
     );
   }
@@ -161,8 +152,8 @@ export class MerklProvider implements IOffchainRewardProvider {
 
   protected getVaultsWithAprFromCampaign(
     vaults: Vault[],
-    apiOpportunity: MerklApiOpportunityWithCampaigns,
-    apiCampaign: MerklApiCampaign,
+    apiOpportunity: MerklProxyOpportunity,
+    apiCampaign: MerklProxyCampaign,
     /** campaign apr / opportunity apr */
     aprShare: number
   ) {
@@ -180,7 +171,7 @@ export class MerklProvider implements IOffchainRewardProvider {
         return vaults.map(vault => {
           let totalApr: number = 0;
 
-          const aprBreakdowns = apiOpportunity.aprRecord.breakdowns.filter(breakdown => {
+          const aprBreakdowns = (apiOpportunity.aprRecord?.breakdowns ?? []).filter(breakdown => {
             const clmAddress = this.breakdownIdentifierToClmAddress(breakdown.identifier);
             return clmAddress && isAddressEqual(clmAddress, vault.address);
           });
@@ -214,12 +205,13 @@ export class MerklProvider implements IOffchainRewardProvider {
   }
 
   protected getCampaign(
-    apiOpportunity: MerklApiOpportunityWithCampaigns,
-    apiCampaign: MerklApiCampaign,
+    apiOpportunity: MerklProxyOpportunity,
+    apiCampaign: MerklProxyCampaign,
     aprShare: number,
     chainId: AppChain,
     vaultsByPoolAddress: Record<string, Vault[]>
   ): MerklCampaign | undefined {
+    const campaignType = apiCampaign.type as MerklApiCampaignType;
     const campaignAge = getUnixNow() - apiCampaign.endTimestamp;
     if (campaignAge > MAX_CAMPAIGN_AGE) {
       return undefined;
@@ -231,7 +223,7 @@ export class MerklProvider implements IOffchainRewardProvider {
     }
 
     // skip unsupported campaign types
-    if (!supportedCampaignTypeToVaultType.has(apiCampaign.type)) {
+    if (!supportedCampaignTypeToVaultType.has(campaignType)) {
       return undefined;
     }
 
@@ -241,7 +233,7 @@ export class MerklProvider implements IOffchainRewardProvider {
       return undefined;
     }
     const vaultsSupportingCampaignType = vaults.filter(vault =>
-      supportedCampaignTypeToVaultType.get(apiCampaign.type)?.has(vault.type)
+      supportedCampaignTypeToVaultType.get(campaignType)?.has(vault.type)
     );
     if (vaultsSupportingCampaignType.length === 0) {
       return undefined;
@@ -254,8 +246,8 @@ export class MerklProvider implements IOffchainRewardProvider {
       aprShare
     );
 
-    const computeChain = apiCampaign.computeChainId ? fromChainNumber(apiCampaign.computeChainId) : undefined;
-    const claimChain = apiCampaign.distributionChainId ? fromChainNumber(apiCampaign.distributionChainId) : undefined;
+    const computeChain = fromChainNumber(apiCampaign.computeChainId);
+    const claimChain = fromChainNumber(apiCampaign.distributionChainId);
 
     return {
       id: `merkl:${apiCampaign.campaignId}`,
@@ -289,81 +281,9 @@ export class MerklProvider implements IOffchainRewardProvider {
       .replace(/-{2,}/g, '-');
   }
 
-  protected async fetchOpportunitiesForChain(chainId: AppChain): Promise<MerklApiOpportunitiesWithCampaignsResponse> {
-    /**
-     * @dev paging (page/items) is broken on /v4/opportunities/campaigns
-     * so we are using the /v4/opportunities endpoint with ?campaigns=true
-     * this endpoint is missing:
-     * - `endTimestamp`, so we have to fetch `status` = LIVE and `status` = SOON separately
-     */
-
-    const perPage = MAX_PER_PAGE;
-    const results: MerklApiOpportunitiesWithCampaignsResponse[] = [];
-    const baseRequest: MerklApiOpportunitiesRequest = {
-      chainId: toChainId(chainId),
-      type: Array.from(supportedCampaignTypeToVaultType.keys()),
-      page: 0,
-      items: perPage,
-    };
-
-    for (const status of ['LIVE', 'SOON'] as const) {
-      let page = 0;
-      let morePages = false;
-
-      do {
-        const pageData = await this.fetchOpportunitiesForChainPage(baseRequest, status, page++);
-        results.push(pageData);
-        morePages = pageData.length >= perPage;
-      } while (morePages);
-    }
-
-    return results.flat();
-  }
-
-  protected async fetchOpportunitiesForChainPage(
-    request: MerklApiOpportunitiesRequest,
-    status: MerklApiOpportunityStatus,
-    page: number = 0
-  ): Promise<MerklApiOpportunitiesWithCampaignsResponse> {
-    if (request.items > MAX_PER_PAGE) {
-      throw new ProviderApiError(
-        `fetchCampaignsForChainPage(${request.chainId}): perPage ${request.items} exceeds maximum of ${MAX_PER_PAGE}`,
-        providerId
-      );
-    }
-
-    try {
-      const data = await getJson<MerklApiOpportunitiesWithCampaignsResponse>({
-        url: 'https://api.merkl.xyz/v4/opportunities',
-        params: {
-          page: page.toString(),
-          items: request.items.toString(),
-          chainId: request.chainId.toString(),
-          type: request.type.join(','),
-          test: 'false', // exclude test campaigns
-          campaigns: 'true', // include campaigns in the response
-          excludeSubCampaigns: 'false', // include sub-campaigns
-          status,
-        } satisfies MerklApiOpportunitiesParams,
-      });
-      if (!data || typeof data !== 'object' || !Array.isArray(data)) {
-        throw new ProviderApiError(`fetchCampaignsForChain(${request.chainId}): response error`, providerId);
-      }
-
-      if (data.length === 0) {
-        return [];
-      }
-
-      return data;
-    } catch (err: unknown) {
-      if (isProviderApiError(err)) {
-        throw err;
-      }
-      throw new ProviderApiError(
-        `fetchCampaignsForChain(${request.chainId}): ${errorToString(err)}`,
-        providerId,
-        isError(err) ? err : undefined
-      );
-    }
+  protected async fetchOpportunitiesForChain(chainId: AppChain): Promise<MerklProxyOpportunity[]> {
+    // The beefy-merkl-api proxy serves the whole chain (opportunities + campaigns) from its
+    // index in one response, so no paging or per-status fetching is needed here.
+    return getMerklOpportunitiesForChain(toChainId(chainId), Array.from(supportedCampaignTypeToVaultType.keys()));
   }
 }

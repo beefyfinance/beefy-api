@@ -1,8 +1,7 @@
 import getBalancerPrices from '../api/stats/common/balancer/getBalancerPrices';
 import balancerLinearPools from '../data/ethereum/balancerLinearPools.json';
-import balancerArbLinearPools from '../data/arbitrum/balancerLinearPools.json';
 
-const linearPoolPools = [...balancerLinearPools, ...balancerArbLinearPools];
+const linearPoolPools = [...balancerLinearPools];
 
 const fetchBalancerLinearPoolPrice = async tokenPrices => {
   let prices = {};

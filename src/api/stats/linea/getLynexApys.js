@@ -1,11 +1,8 @@
 const { LINEA_CHAIN_ID: chainId } = require('../../../constants');
 const { getSolidlyGaugeApys } = require('../common/getSolidlyGaugeApys');
-const stablePools = require('../../../data/linea/lynexStablePools.json');
-const volatilePools = require('../../../data/linea/lynexVolatilePools.json');
-const gammaPools = require('../../../data/linea/lynexGammaPools.json');
 const ichiPools = require('../../../data/linea/lynexIchiPools.json');
 
-const pools = [...ichiPools, ...gammaPools, ...stablePools, ...volatilePools];
+const pools = [...ichiPools];
 export const getLynexApys = async () => {
   return getSolidlyGaugeApys({
     chainId: chainId,

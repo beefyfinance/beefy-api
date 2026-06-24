@@ -152,31 +152,6 @@ const moonriverChain = {
   },
 } as const satisfies Chain;
 
-const cronosChain = {
-  id: 25,
-  name: 'Cronos',
-  network: 'cronos',
-  nativeCurrency: {
-    decimals: 18,
-    name: 'Cronos',
-    symbol: 'CRO',
-  },
-  rpcUrls: {
-    public: { http: getRpcsForChain('cronos') },
-    default: { http: getRpcsForChain('cronos') },
-  },
-  blockExplorers: {
-    etherscan: { name: 'CronosScan', url: 'https://cronoscan.com' },
-    default: { name: 'CronosScan', url: 'https://cronoscan.com' },
-  },
-  contracts: {
-    multicall3: {
-      address: '0xca11bde05977b3631167028862be2a173976ca11',
-      blockCreated: 1_963_112,
-    },
-  },
-} as const satisfies Chain;
-
 const auroraChain = {
   id: 1313161554,
   name: 'Aurora',
@@ -496,29 +471,6 @@ const fraxtalChain = {
   },
 } as const satisfies Chain;
 
-const modeChain = {
-  id: 34443,
-  name: 'Mode',
-  network: 'mode',
-  nativeCurrency: {
-    decimals: 18,
-    name: 'ETH',
-    symbol: 'ETH',
-  },
-  rpcUrls: {
-    public: { http: getRpcsForChain('mode') },
-    default: { http: getRpcsForChain('mode') },
-  },
-  blockExplorers: {
-    default: { name: 'Mode Explorer', url: 'https://explorer.mode.network/' },
-  },
-  contracts: {
-    multicall3: {
-      address: '0xca11bde05977b3631167028862be2a173976ca11',
-    },
-  },
-} as const satisfies Chain;
-
 const seiChain = {
   id: 1329,
   name: 'Sei',
@@ -782,7 +734,6 @@ export const getChain: Partial<Record<ChainId, Chain>> = {
   [ChainId.arbitrum]: arbitrumChain,
   [ChainId.celo]: celoChain,
   [ChainId.moonriver]: moonriverChain,
-  [ChainId.cronos]: cronosChain,
   [ChainId.aurora]: auroraChain,
   [ChainId.fuse]: fuseChain,
   [ChainId.metis]: metisChain,
@@ -796,7 +747,6 @@ export const getChain: Partial<Record<ChainId, Chain>> = {
   [ChainId.linea]: lineaChain,
   [ChainId.mantle]: mantleChain,
   [ChainId.fraxtal]: fraxtalChain,
-  [ChainId.mode]: modeChain,
   [ChainId.sei]: seiChain,
   [ChainId.rootstock]: rootstockChain,
   [ChainId.scroll]: scrollChain,

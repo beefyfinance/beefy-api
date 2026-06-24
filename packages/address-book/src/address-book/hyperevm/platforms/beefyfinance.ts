@@ -12,6 +12,7 @@ export const beefyfinance = {
   rewardPool: '0x0000000000000000000000000000000000000000',
   treasury: '0x0000000000000000000000000000000000000000',
   beefyFeeRecipient: '0x02Ae4716B9D5d48Db1445814b0eDE39f5c28264B',
+  zapFeeRecipient: '0xA55e75C4815Ff39eFD76C257857441d9FD99b45b', // treasuryMultisig
   multicall: '0x0D17eE2ed4e67b626B43C3695586E5aE6a039949',
   bifiMaxiStrategy: '0x0000000000000000000000000000000000000000',
   voter: '0x5e1caC103F943Cd84A1E92dAde4145664ebf692A',
@@ -33,6 +34,7 @@ export const beefyfinance = {
   beefyOracleChainlink: '0x70127945067E4224d7B6ABfDc6f57e3ea45d5CA4',
   beefyOracleUniswapV2: '0xA5Cd8A60a05571141370D184e255777e5c2d5968',
   beefyOracleUniswapV3: '0x542Bf9f89c3Ba0edb7aE5EB4Cf582d349fCdC608',
+  beefyOracleAlgebra: '0xC5201409767EC42506953cE6c980bebaf593333E',
   beefyMultiHopSwapper: '0x97f846776eC93f1b355e4fa70D77B96B868F09D7',
 
   /// Cross-Chain Contracts

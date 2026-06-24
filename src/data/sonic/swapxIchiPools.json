@@ -1,17 +1,5 @@
 [
   {
-    "name": "swapx-ichi-strike-usdc",
-    "address": "0x72a8BB1A64EDd7A4443dc71B8adca1fb369B306E",
-    "gauge": "0x2287E762Ac5ad041573BD4f29E4E6071F025f1d9",
-    "tokens": ["USDCe", "STRIKE"]
-  },
-  {
-    "name": "swapx-ichi-usdc-strike",
-    "address": "0x5cC26f2dBd6D3ce87d414419d9f544BC4cfC2f38",
-    "gauge": "0x94c4151745F49e4864cBEbe55235dAE70D994D0A",
-    "tokens": ["USDCe", "STRIKE"]
-  },
-  {
     "name": "swapx-ichi-usdc-wbtc",
     "address": "0xeaEFa49b10Ea464b4746380401e8eb3e1AE37964",
     "gauge": "0xA7d753D2dC35eFa01ADFB53081F6aF9B3f72eB2D",
@@ -30,166 +18,10 @@
     "tokens": ["WBTC", "WETH"]
   },
   {
-    "name": "swapx-ichi-sts-swpx",
-    "address": "0x8063B7e5Ee1d772B38B13a80a1AD3feA538ee8D5",
-    "gauge": "0x110f0c53aDaa8015001d5Ae2ec36f2CC128954F3",
-    "tokens": ["SWPx", "stS"]
-  },
-  {
-    "name": "swapx-ichi-bes-os",
-    "address": "0x052D43B9207FCef4D03DbE75e77756937C94B48f",
-    "gauge": "0xfBA3606310f3d492031176eC85DFbeD67F5799F2",
-    "tokens": ["beS", "OS"]
-  },
-  {
-    "name": "swapx-ichi-os-bes",
-    "address": "0x39C3999D062126c8e59B2143Dd2f83f950A96e12",
-    "gauge": "0x77546B40445d3eca6111944DFe902de0514A4F80",
-    "tokens": ["beS", "OS"]
-  },
-  {
-    "name": "swapx-ichi-usdce-bes",
-    "address": "0x454dF27D1797e68C2b79E798614228205f81Bc59",
-    "gauge": "0x411Fe96600e6eF261E558aA39268D94C042E4EEE",
-    "tokens": ["USDCe", "beS"]
-  },
-  {
-    "name": "swapx-ichi-bes-usdce",
-    "address": "0x68fa46A01538773B213b6d8571Cb676A4d0AbDc6",
-    "gauge": "0x49c99Bb126E1C4a9114Ad5506C78D5Ee9f5bCaED",
-    "tokens": ["USDCe", "beS"]
-  },
-  {
-    "name": "swapx-ichi-asonusdc-wstkscusd",
-    "address": "0xf248b0EF6d45Aa492C73699B71748b5D1a6770C6",
-    "gauge": "0x55aA8F27dAFe5Ce79F052FBdC817698C2bf889D5",
-    "tokens": ["aSonUSDC", "wstkscUSD"]
-  },
-  {
-    "name": "swapx-ichi-wstkscusd-asonusdc",
-    "address": "0xF2a497F783C6bfEe0670757462a31f9429fdE53d",
-    "gauge": "0x36b356fAA33567e7Dd7E1641bDc474755Fe17E8f",
-    "tokens": ["aSonUSDC", "wstkscUSD"]
-  },
-  {
-    "name": "swapx-ichi-busdc.e-20-wstkscusd",
-    "address": "0x3151f7289Cecf8E92fBc68CdA307491d9DAb2E03",
-    "gauge": "0xFc463D9bE936DEe0cEcBB600433aDE1b921813C7",
-    "tokens": ["bUSDCe-20", "wstkscUSD"]
-  },
-  {
-    "name": "swapx-ichi-wstkscusd-busdc.e-20",
-    "address": "0x619f5B53969f8A9Cc1f244E422970f0E1C9152aE",
-    "gauge": "0x1009f1dE14Cdb1161658F346437156dF4DBf1A38",
-    "tokens": ["bUSDCe-20", "wstkscUSD"]
-  },
-  {
-    "name": "swapx-ichi-scusd-wstkscusd",
-    "address": "0xb9A95F011b74dD3ECE3e13bC5c1ebb24518Bc244",
-    "gauge": "0xECDd1Df06b5b0C598348678F83B74ADDcbD45835",
-    "tokens": ["wstkscUSD", "scUSD"]
-  },
-  {
-    "name": "swapx-ichi-wstkscusd-scusd",
-    "address": "0x3B4645fb65fd4BaFf4ac1425e876Ab6Fc6D8eD0f",
-    "gauge": "0xA57898F2076277670394807F0456413BF595b25D",
-    "tokens": ["wstkscUSD", "scUSD"]
-  },
-  {
-    "name": "swapx-ichi-scusd-stkscusd",
-    "address": "0xF8232fA74dCEd38770B07e903EAB7D5F9113df95",
-    "gauge": "0xB7B213378A846B2203b06219E63f314fD65894bC",
-    "tokens": ["stkscUSD", "scUSD"]
-  },
-  {
-    "name": "swapx-ichi-stkscusd-scusd",
-    "address": "0x42C700B9a1456e46aEd4E899f7ff57f748Bb00c3",
-    "gauge": "0x28FAc1A14f3C61A205299fde7e69399b3809ef6c",
-    "tokens": ["stkscUSD", "scUSD"]
-  },
-  {
-    "name": "swapx-ichi-wbtc-scbtc",
-    "address": "0x59BFaa386CcBf648eaCd28c91834Ce7C6C8E773A",
-    "gauge": "0xCF16469420ed4351CB290C9906ed79D505565ceA",
-    "tokens": ["WBTC", "scBTC"]
-  },
-  {
-    "name": "swapx-ichi-scbtc-wbtc",
-    "address": "0xe1D0c34d6A7eEa99C87005147D950BE89294C632",
-    "gauge": "0x810687Eb359c563c1af11aF89C001f905a5989F0",
-    "tokens": ["WBTC", "scBTC"]
-  },
-  {
-    "name": "swapx-ichi-sfrxusd-frxusd",
-    "address": "0xe33108e60906c3122c76e8f3e68a9c272f8dcd1b",
-    "gauge": "0xe59e52f99a0f8443dc420bb532856fafd7dd32d8",
-    "tokens": ["sfrxUSD", "frxUSD"]
-  },
-  {
-    "name": "swapx-ichi-frxusd-sfrxusd",
-    "address": "0x65b970bcb133650d02b4d96901f2f5c855d1f2f7",
-    "gauge": "0xcea30c3ba4a6d987855daa86534dcb49a7dd2894",
-    "tokens": ["sfrxUSD", "frxUSD"]
-  },
-  {
-    "name": "swapx-ichi-sfrxeth-frxeth",
-    "address": "0x5746f9777954e8dd2835020ba8b7c950f52c6251",
-    "gauge": "0x3243039728f62c1236fcc5800d04b42f12cccd5b",
-    "tokens": ["sfrxETH", "frxETH"]
-  },
-  {
-    "name": "swapx-ichi-frxeth-sfrxeth",
-    "address": "0x8c30686dc5aa85c5861163174bdeb22a011bb749",
-    "gauge": "0xa583912c73c7b5af562f7dfcbe36740b91c97784",
-    "tokens": ["sfrxETH", "frxETH"]
-  },
-  {
-    "name": "swapx-ichi-scusd-frxusd",
-    "address": "0x8bcf8ad9c16f455b54a077f48717c08afa326296",
-    "gauge": "0xd3a997d00ff56a631924b85bfcd44dd80ae00a6b",
-    "tokens": ["frxUSD", "scUSD"]
-  },
-  {
-    "name": "swapx-ichi-frxusd-scusd",
-    "address": "0x1B282d69a54a983714bB6Bea8cAAcB29D4cb45B5",
-    "gauge": "0xB02506CAe9FC5BB61E21c11d7E0614cd56f4b131",
-    "tokens": ["frxUSD", "scUSD"]
-  },
-  {
-    "name": "swapx-ichi-sceth-frxeth",
-    "address": "0x587be5ab130d972e737e4873770b8e63965b8aaa",
-    "gauge": "0x38e948d178397636340b3da7234eba7317a260af",
-    "tokens": ["scETH", "frxETH"]
-  },
-  {
-    "name": "swapx-ichi-frxeth-sceth",
-    "address": "0xa1B27A7060B38a4d54921bcacD5D3E312e3F2aFA",
-    "gauge": "0x248F54693d2926162B16fd434796EfEb693D91B5",
-    "tokens": ["scETH", "frxETH"]
-  },
-  {
-    "name": "swapx-ichi-usdt-usdc.e",
-    "address": "0x7c0e966462208dDBC7bC7621a458aa09C0e4A525",
-    "gauge": "0x29985EE262a4C9D878AA6A9B9dC43f2FC87a81c6",
-    "tokens": ["USDCe", "USDT"]
-  },
-  {
     "name": "swapx-ichi-usdc.e-usdt",
     "address": "0xC751b73E97e2Bd7D141989Ba418772223dB93664",
     "gauge": "0x30Df881606c719916b99a0b5bc89e5eB338a226C",
     "tokens": ["USDCe", "USDT"]
-  },
-  {
-    "name": "swapx-ichi-sceth-weth-sceth",
-    "address": "0x6E8A8037533aA74FfFEb92390E443294d034d769",
-    "gauge": "0x0ceEb9B74f2b94CAC261E92e484f368efF8ab681",
-    "tokens": ["scETH", "WETH"]
-  },
-  {
-    "name": "swapx-ichi-sceth-weth-weth",
-    "address": "0x0f385EEa80cB6909A1dbA5CDc763e97F8589f47D",
-    "gauge": "0x882A10B15F2cdC893a5109C4b4B562674aBb18b0",
-    "tokens": ["scETH", "WETH"]
   },
   {
     "name": "swapx-ichi-weth-swpx-weth",
@@ -198,21 +30,9 @@
     "tokens": ["WETH", "SWPx"]
   },
   {
-    "name": "swapx-ichi-swpx-os-os",
-    "address": "0x3E11010699adc07C950d854A8d442F956208F895",
-    "gauge": "0x8B205d9183E9049afD8e315d31b35b9EfbC37828",
-    "tokens": ["SWPx", "OS"]
-  },
-  {
     "name": "swapx-ichi-ws-os-os",
     "address": "0xc4A71981DC8ee8ee704b6217DaebAd6ECe185aeb",
     "gauge": "0x3a4A0040475575638beB4051d8950ea21686ce27",
-    "tokens": ["WS", "OS"]
-  },
-  {
-    "name": "swapx-ichi-ws-os-ws",
-    "address": "0x36dA3b8156C421118d1cc27956454C49eeC5fC1B",
-    "gauge": "0x7FCd694E0c24bF12DCbD471DF38601059F2b8093",
     "tokens": ["WS", "OS"]
   },
   {
@@ -232,18 +52,6 @@
     "address": "0xc263e421Df94bdf57B27120A9B7B8534A6901D95",
     "gauge": "0x29d10053BE597E0eBe6BD0434c4f4b750F0f3b69",
     "tokens": ["WS", "USDCe"]
-  },
-  {
-    "name": "swapx-ichi-usdc.e-scusd-scusd",
-    "address": "0x776c31466f19d4e2c71bce16c0549a8bc0e37e17",
-    "gauge": "0x4604782BcD6F749B271Fc9d14BFd583be6e5a6cf",
-    "tokens": ["USDCe", "scUSD"]
-  },
-  {
-    "name": "swapx-ichi-usdc.e-scusd",
-    "address": "0xf77ceed15596bfc127d17ba45dea9767bc349be0",
-    "gauge": "0x640429B0633851F487639BcDd8Ed523DDf1Bbff8",
-    "tokens": ["USDCe", "scUSD"]
   },
   {
     "name": "swapx-ichi-ws-sts-sts",

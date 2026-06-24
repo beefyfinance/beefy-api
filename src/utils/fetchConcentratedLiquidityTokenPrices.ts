@@ -138,6 +138,14 @@ const tokens: Partial<Record<keyof typeof ChainId, ConcentratedLiquidityToken[]>
       firstToken: 'WETH',
       secondToken: 'ethDAM',
     },
+    {
+      type: 'UniV3',
+      oracleId: 'ASTEROID',
+      decimalDelta: 1e9,
+      pool: '0x53e3d506F468c4BC30cc8CaA21Eb7E56c2fA2D55',
+      firstToken: 'ASTEROID',
+      secondToken: 'WETH',
+    },
   ],
   polygon: [
     {
@@ -256,6 +264,14 @@ const tokens: Partial<Record<keyof typeof ChainId, ConcentratedLiquidityToken[]>
     },
     {
       type: 'UniV3',
+      oracleId: 'arbUSDCe',
+      decimalDelta: 1e12,
+      pool: '0xc31e54c7a869b9fcbecc14363cf510d1c41fa443',
+      firstToken: 'arbUSDCe',
+      secondToken: 'WETH',
+    },
+    {
+      type: 'UniV3',
       oracleId: 'CHIP',
       decimalDelta: 1e12,
       pool: '0x49340Dbb8Fb5ECE2F9B594e77Ab774E65725e9D8',
@@ -269,6 +285,14 @@ const tokens: Partial<Record<keyof typeof ChainId, ConcentratedLiquidityToken[]>
       pool: '0xE5Cf22EE4988d54141B77050967E1052Bd9c7F7A',
       firstToken: 'WETH',
       secondToken: 'arbMOR',
+    },
+    {
+      type: 'UniV3',
+      oracleId: 'MAGIC',
+      decimalDelta: 1,
+      pool: '0x59D72DDB29Da32847A4665d08ffc8464A7185FAE',
+      firstToken: 'WETH',
+      secondToken: 'MAGIC',
     },
   ],
   linea: [
@@ -387,6 +411,14 @@ const tokens: Partial<Record<keyof typeof ChainId, ConcentratedLiquidityToken[]>
       pool: '0xAfD8f9B89e2Af8246523573A369010DAF9489B12',
       firstToken: 'TALENT',
       secondToken: 'ETH',
+    },
+    {
+      type: 'UniV3',
+      oracleId: 'JitoSOL',
+      decimalDelta: 1,
+      pool: '0x155613e7A75a2aB73500f9B2c45910469500FF56',
+      firstToken: 'JitoSOL',
+      secondToken: 'SOL',
     },
     {
       type: 'UniV3',
@@ -1117,6 +1149,46 @@ const tokens: Partial<Record<keyof typeof ChainId, ConcentratedLiquidityToken[]>
       secondToken: 'AORA',
     },
     {
+      type: 'Slipstream',
+      oracleId: 'CTR',
+      decimalDelta: 1e12,
+      pool: '0x0ab02e160f0df68dc049B012c514857306960Eae',
+      firstToken: 'USDC',
+      secondToken: 'CTR',
+    },
+    {
+      type: 'Slipstream',
+      oracleId: 'TEA',
+      decimalDelta: 1e-12,
+      pool: '0xabe1f289107c20081F591bB3972B8289ADD64F6C',
+      firstToken: 'TEA',
+      secondToken: 'USDC',
+    },
+    {
+      type: 'Slipstream',
+      oracleId: 'O',
+      decimalDelta: 1e12,
+      pool: '0x8D479A4C680A76D4Ae03f10203569558405DDFFF',
+      firstToken: 'USDC',
+      secondToken: 'O',
+    },
+    {
+      type: 'Slipstream',
+      oracleId: 'PSG',
+      decimalDelta: 1e-12,
+      pool: '0x76F9AeFA6aBcbcEb10CC149e071209366f64Ce9D',
+      firstToken: 'PSG',
+      secondToken: 'USDC',
+    },
+    {
+      type: 'Slipstream',
+      oracleId: 'AFC',
+      decimalDelta: 1e12,
+      pool: '0xb4580451325C61344712E811392C881a634151d8',
+      firstToken: 'USDC',
+      secondToken: 'AFC',
+    },
+    {
       type: 'UniV3',
       oracleId: 'LFI',
       decimalDelta: 1,
@@ -1143,25 +1215,15 @@ const tokens: Partial<Record<keyof typeof ChainId, ConcentratedLiquidityToken[]>
       secondToken: 'WETH',
     },
   ],
-  mode: [
+  lisk: [
     {
       type: 'Slipstream',
       oracleId: 'XVELO',
       decimalDelta: 1,
-      pool: '0xc2026f3fb6fc51F4EcAE40a88b4509cB6C143ed4',
+      pool: '0xc2026f3fb6fc51f4ecae40a88b4509cb6c143ed4',
       firstToken: 'XVELO',
       secondToken: 'WETH',
     },
-    {
-      type: 'Slipstream',
-      oracleId: 'modesUSDe',
-      decimalDelta: 1e12,
-      pool: '0xa2E74518fe27B0FC04Ea36024ea837d26cd09CDa',
-      firstToken: 'USDC',
-      secondToken: 'modesUSDe',
-    },
-  ],
-  lisk: [
     {
       type: 'UniV3',
       oracleId: 'LSK',
@@ -1543,6 +1605,14 @@ const tokens: Partial<Record<keyof typeof ChainId, ConcentratedLiquidityToken[]>
       pool: '0xfa7D79f971a70771E5e92Bd80AB955edC8602f4d',
       firstToken: 'WBNB',
       secondToken: 'XRP',
+    },
+    {
+      type: 'UniV3',
+      oracleId: 'DOGE',
+      decimalDelta: 1e-10,
+      pool: '0xce6160bB594fC055c943F59De92ceE30b8c6B32c',
+      firstToken: 'WBNB',
+      secondToken: 'DOGE',
     },
     {
       type: 'UniV3',

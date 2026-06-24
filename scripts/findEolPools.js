@@ -40,6 +40,14 @@ async function main() {
           livePools.push(eqbV.id);
           console.error(id, 'not found, but got', eqbId, eqbV.status, tvl[eqbId]);
         } else console.error(id, 'not found');
+      } else if (id.startsWith('curve-')) {
+        const sdId = id.replace('curve-', 'stakedao-');
+        const sdV = vaults.find(v => v.id === sdId);
+        if (sdV) {
+          if (sdV.status === 'eol') {
+            console.warn(id, `not found, ${sdId} eol`, sdV.retiredAt, tvl[sdV]);
+          } else livePools.push(sdV.id);
+        } else console.error(id, 'not found');
       } else {
         console.error(id, 'not found');
       }

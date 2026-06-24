@@ -4,7 +4,6 @@ import { fetchAmmPrices } from '../../utils/fetchAmmPrices';
 import { fetchMooPrices } from '../../utils/fetchMooPrices';
 import { fetchOptionTokenPrices } from '../../utils/fetchOptionTokenPrices';
 import { fetchWrappedAavePrices } from '../../utils/fetchWrappedAaveTokenPrices';
-import { fetchUnwrappedAavePrices } from '../../utils/fetchUnwrappedAaveTokenPrices';
 import { fetchCurveTokenPrices } from '../../utils/fetchCurveTokenPrices';
 import { fetchConcentratedLiquidityTokenPrices } from '../../utils/fetchConcentratedLiquidityTokenPrices';
 import { fetchSolidlyStableTokenPrices } from '../../utils/fetchSolidlyStableTokenPrices';
@@ -16,28 +15,17 @@ import { envBoolean } from '../../utils/env';
 
 import getNonAmmPrices from './getNonAmmPrices';
 import mooTokens from '../../data/mooTokens.json';
-import vvsPools from '../../data/cronos/vvsLpPools.json';
-import cronaPools from '../../data/cronos/cronaLpPools.json';
-import liquidusPools from '../../data/cronos/liquidusLpPools.json';
 import netswapPools from '../../data/metis/netswapLpPools.json';
-import darkCryptoPools from '../../data/cronos/darkCryptoLpPools.json';
-import vvsDualPools from '../../data/cronos/vvsDualLpPools.json';
 import velodromePools from '../../data/optimism/velodromeLpPools.json';
 import oldVelodromePools from '../../data/optimism/oldVelodromeLpPools.json';
-import ripaeCronosPools from '../../data/cronos/ripaeLpPools.json';
-import solidLizardPools from '../../data/arbitrum/solidlizardLpPools.json';
-import versePools from '../../data/ethereum/verseLpPools.json';
 import ramsesPools from '../../data/arbitrum/ramsesLpPools.json';
 import veSyncPools from '../../data/zksync/veSyncLpPools.json';
 import ooeV2Pools from '../../data/bsc/ooeV2LpPools.json';
 import aerodromePools from '../../data/base/aerodromeLpPools.json';
 import alienBasePools from '../../data/base/alienBaseLpPools.json';
 import moePools from '../../data/mantle/moeLpPools.json';
-import lynexPools from '../../data/linea/lynexVolatilePools.json';
-import nilePools from '../../data/linea/nileVolatilePools.json';
 import raPools from '../../data/fraxtal/raPools.json';
 import nuriPools from '../../data/scroll/nuriVolatilePools.json';
-import velodromeModePools from '../../data/mode/velodromeModePools.json';
 import velodromeLiskPools from '../../data/lisk/velodromeLiskPools.json';
 import shadowPools from '../../data/sonic/shadowLpPools.json';
 import defivePools from '../../data/sonic/defiveLpPools.json';
@@ -71,28 +59,17 @@ const pools = normalizePoolOracleIds([
   ...defivePools,
   ...shadowPools,
   ...velodromeLiskPools,
-  ...velodromeModePools,
   ...nuriPools,
   ...raPools,
   ...moePools,
-  ...lynexPools,
-  ...nilePools,
   ...alienBasePools,
   ...aerodromePools,
   ...ooeV2Pools,
   ...veSyncPools,
   ...ramsesPools,
-  ...versePools,
-  ...solidLizardPools,
-  ...ripaeCronosPools,
   ...velodromePools,
   ...oldVelodromePools,
-  ...vvsDualPools,
-  ...darkCryptoPools,
   ...netswapPools,
-  ...liquidusPools,
-  ...cronaPools,
-  ...vvsPools,
 ]);
 
 /**
@@ -213,6 +190,8 @@ const coinGeckoCoins: Record<string, string[]> = {
   sky: ['SKY'],
   joe: ['JOE'],
   'spell-token': ['SPELL'],
+  arbitrum: ['ARB'],
+  'savings-crvusd': ['scrvUSD'],
 };
 
 /**
@@ -268,11 +247,6 @@ const dexscreenerCoins: OraclePriceRequest[] = [
     oracleId: 'OGN',
     tokenAddress: '0x7002458B1DF59EccB57387bC79fFc7C29E22e6f7',
     chainId: 'base',
-  },
-  {
-    oracleId: 'arbXVS',
-    tokenAddress: '0xc1Eb7689147C81aC840d4FF0D298489fc7986d52',
-    chainId: 'arbitrum',
   },
   {
     oracleId: 'scUSD',
@@ -514,12 +488,9 @@ async function performUpdateAmmPrices() {
     log('> [PRICE SERVICE] Linear pool prices fetch started');
     const wrappedAavePrices = await promiseTiming(fetchWrappedAavePrices(tokenPrices), 'fetchWrappedAavePrices');
     log('> [PRICE SERVICE] Wrapped Aave prices completed');
-    const unwrappedAavePrices = await promiseTiming(fetchUnwrappedAavePrices(tokenPrices), 'fetchUnwrappedAavePrices');
-    log('> [PRICE SERVICE] Unwrapped Aave prices completed');
     const prices = {
       ...tokenPrices,
       ...wrappedAavePrices,
-      ...unwrappedAavePrices,
     };
 
     const linearPrices = await promiseTiming(fetchBalancerLinearPoolPrice(prices), 'fetchBalancerLinearPoolPrice');
@@ -528,7 +499,6 @@ async function performUpdateAmmPrices() {
     return {
       ...linearPrices,
       ...wrappedAavePrices,
-      ...unwrappedAavePrices,
     };
   });
 

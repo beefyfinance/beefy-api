@@ -1,0 +1,18 @@
+[
+  {
+    "name": "aavev3-base-cbeth",
+    "token": "0x2Ae3F1Ec7F1F5012CFEab0185bfc7aa3cf0DEc22",
+    "aToken": "0xcf3D55c10DB69f28fD1A75Bd73f3D8A2d9c595ad",
+    "debtToken": "0x1DabC36f19909425f654777249815c073E8Fd79F",
+    "identifier": "0xcf3D55c10DB69f28fD1A75Bd73f3D8A2d9c595ad",
+    "oracle": "tokens",
+    "oracleId": "cbETH",
+    "decimals": "1e18",
+    "borrowDepth": 1,
+    "borrowPercent": 0,
+    "skimLending": true,
+    "lsUrl": "https://api.exchange.coinbase.com/wrapped-assets/CBETH",
+    "dataPath": "$.apy",
+    "lsAprFactor": 100
+  }
+]

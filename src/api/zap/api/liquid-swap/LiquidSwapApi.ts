@@ -12,21 +12,9 @@ import {
 import { mapValues, omitBy } from 'lodash';
 import { redactSecrets } from '../../../../utils/secrets';
 import { ApiResponse, ExtraQuoteResponse, isErrorApiResponse, SuccessApiResponse } from '../common';
-import { ApiChain } from '../../../../utils/chain';
-import { getZapProviderFee } from '../../fees';
 
 export class LiquidSwapApi implements ILiquidSwapApi {
-  readonly feeReceiver: string;
-  readonly ZAP_FEE: number;
-
-  constructor(protected readonly baseUrl: string, chain: ApiChain) {
-    const feeData = getZapProviderFee('liquid-swap', chain);
-    this.ZAP_FEE = feeData.value;
-    if (!feeData.receiver) {
-      throw new Error('No fee receiver found for LiquidSwap on ' + chain);
-    }
-    this.feeReceiver = feeData.receiver;
-  }
+  constructor(protected readonly baseUrl: string) {}
 
   async getQuote(request: QuoteRequest): Promise<QuoteResponse> {
     const response = await this.get<QuoteResponse>('/route', this.toStringDict(request));
@@ -43,20 +31,16 @@ export class LiquidSwapApi implements ILiquidSwapApi {
   }
 
   async getProxiedQuote(request: QuoteRequest): Promise<ApiResponse<QuoteResponse, ExtraQuoteResponse>> {
-    return await this.priorityGet<QuoteResponse, ExtraQuoteResponse>(
-      '/route',
-      this.toStringDict(this.withFeeReceiver(request)),
-      {
-        fee: {
-          value: this.ZAP_FEE,
-        },
-      }
-    );
+    return await this.priorityGet<QuoteResponse, ExtraQuoteResponse>('/route', this.toStringDict(request), {
+      fee: {
+        value: 0,
+      },
+    });
   }
 
   async postProxiedSwap(request: SwapRequest): Promise<ApiResponse<SwapResponse>> {
     // @dev liquid swap doesn't have separate quote/build endpoints
-    return await this.priorityGet<SwapResponse>('/route', this.toStringDict(this.withFeeReceiver(request)));
+    return await this.priorityGet<SwapResponse>('/route', this.toStringDict(request));
   }
 
   protected buildUrl<T extends {}>(path: string, request?: T) {
@@ -78,18 +62,6 @@ export class LiquidSwapApi implements ILiquidSwapApi {
       'User-Agent': 'BeefyApi',
       ...additionalHeaders,
     };
-  }
-
-  protected withFeeReceiver(
-    request?: Record<string, string | number | boolean | string[]>
-  ): Record<string, string | number | boolean | string[]> {
-    return this.feeReceiver && (this.ZAP_FEE || 0) > 0
-      ? {
-          ...request,
-          feeBps: (this.ZAP_FEE * 10000).toString(10), // *10000 to bps
-          feeRecipient: this.feeReceiver,
-        }
-      : request;
   }
 
   protected async doGet<ResponseType extends object, Extra extends Record<string, unknown> | undefined = undefined>(

@@ -1,5 +1,23 @@
 [
   {
+    "name": "morpho-v2-ethereum-clearstar-3jane-ecosystem-vault-usdc",
+    "address": "0xe05faDf242331808f504661BEA65972594869826",
+    "oracle": "tokens",
+    "oracleId": "USDC",
+    "decimals": "1e6",
+    "v2": true,
+    "skim": true
+  },
+  {
+    "name": "morpho-v2-ethereum-hyperithm-apex-cbbtc",
+    "address": "0xCdbe4A5B5bAd2BC04492052Df2F881B5727d034d",
+    "oracle": "tokens",
+    "oracleId": "cbBTC",
+    "decimals": "1e8",
+    "v2": true,
+    "skim": true
+  },
+  {
     "name": "morpho-v2-ethereum-steakhouse-reservoir-usdc",
     "address": "0xBEeFF047C03714965a54b671A37C18beF6b96210",
     "oracle": "tokens",

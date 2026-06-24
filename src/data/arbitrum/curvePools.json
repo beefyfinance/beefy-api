@@ -308,7 +308,7 @@
       },
       {
         "oracle": "tokens",
-        "oracleId": "sdCRV",
+        "oracleId": "vsdCRV",
         "decimals": "1e18"
       }
     ]
@@ -328,7 +328,7 @@
       },
       {
         "oracle": "tokens",
-        "oracleId": "sdCRV",
+        "oracleId": "vsdCRV",
         "decimals": "1e18"
       },
       {
