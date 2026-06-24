@@ -42,6 +42,7 @@ export const beefyfinance = {
   /// Beefy Swapper Contracts
   beefySwapper: '0x0000830DF56616D58976A12D19d283B40e25BEEF',
   beefyOracle: '0xbeEFc6B9d685993b02712D8de8afB29A31c3faf4',
+  beefyOracleERC4626: '0xE6a93800ea1303D47BC6D904AE589373932cD30f',
   beefyOracleChainlink: '0xB1F10da39442089F6E216Fd144EF6C2F19689170',
   beefyOracleUniswapV3: '0xc1C6760f4317C711Ded47678bA96fe487DB91f91',
   beefyOracleUniswapV2: '0xC84130Fc9D55b86E39e153504A9368bE56EC6728',
