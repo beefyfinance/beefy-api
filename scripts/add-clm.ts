@@ -41,6 +41,25 @@ const chainName = args['network'];
 const chainId = ChainId[args['network']];
 const provider = new ethers.providers.JsonRpcProvider(MULTICHAIN_RPC[chainId]);
 
+function formatCowVaultsJson(pools: unknown) {
+  return JSON.stringify(pools, null, 2).replace(
+    /^(\s*)"(tokenOracleIds|decimals)": \[\n([\s\S]*?)\n\1\](,?)$/gm,
+    (match, indent, key, body, trailingComma) => {
+      const values = body
+        .split('\n')
+        .map(line => line.trim())
+        .filter(Boolean)
+        .map(line => line.replace(/,$/, ''));
+
+      if (values.some(value => value.includes('[') || value.includes('{'))) {
+        return match;
+      }
+
+      return `${indent}"${key}": [${values.join(', ')}]${trailingComma}`;
+    }
+  );
+}
+
 async function fetchLiquidityPair(clmAddress) {
   console.log(`fetchLiquidityPair for (${clmAddress})`);
   const clmContract = new ethers.Contract(clmAddress, CowVault as any, provider);
@@ -143,7 +162,7 @@ async function main() {
 
   const newPools = [newPool, ...poolsJson];
 
-  fs.writeFileSync(path.resolve(__dirname, poolsJsonFile), JSON.stringify(newPools, null, 2) + '\n');
+  fs.writeFileSync(path.resolve(__dirname, poolsJsonFile), formatCowVaultsJson(newPools) + '\n');
 
   console.log(newPool);
 }
