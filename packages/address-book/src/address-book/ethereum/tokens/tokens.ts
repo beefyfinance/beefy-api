@@ -3144,4 +3144,18 @@ export const tokens = {
     bridge: 'native',
     tags: ['NO_TIMELOCK', 'LARGE_HOLDERS'],
   },
+  VUSD: {
+    name: 'Vetro USD',
+    symbol: 'VUSD',
+    oracleId: 'VUSD',
+    address: '0xCa83DDE9c22254f58e771bE5E157773212AcBAc3',
+    chainId: 1,
+    decimals: 18,
+    website: 'https://vetro.org/',
+    documentation: 'https://docs.vetro.org/',
+    description:
+      'VUSD is a protocol-generated dollar-referenced settlement asset, targeting a 1:1 value relationship with the US dollar. It is over-collateralized by a diversified basket of USDC, USDT, and additional stablecoins approved by the protocol team and governance.',
+    bridge: 'native',
+    tags: ['NO_TIMELOCK', 'LARGE_HOLDERS', 'SYNTHETIC', 'STABLECOIN'],
+  },
 } as const satisfies Record<string, Token>;

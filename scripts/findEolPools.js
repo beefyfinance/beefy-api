@@ -55,7 +55,10 @@ async function main() {
       const h = holders
         .find(h => h.chain === v.chain && h.token_address === v.earnContractAddress.toLowerCase())
         ?.holder_count?.toString();
-      console.warn(id, 'eol', v.retiredAt, new Date(v.retiredAt * 1000).toLocaleDateString(), tvl[id], h);
+      let totalTvl = tvl[id];
+      if (p.rewardPool) totalTvl += tvl[p.rewardPool.oracleId];
+      if (p.vault) totalTvl += tvl[p.vault.oracleId];
+      console.warn(id, 'eol', new Date(v.retiredAt * 1000).toLocaleDateString(), totalTvl, h);
     } else {
       livePools.push(id);
     }

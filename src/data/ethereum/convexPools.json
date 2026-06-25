@@ -1,5 +1,21 @@
 [
   {
+    "name": "curve-vusd-crvusd",
+    "pool": "0xAFbA5800252530CE71b03Ba2BCa2Dd5aE44a7F3d",
+    "stakeDao": true,
+    "getDy": ["v1", 0, 1],
+    "tokens": [
+      {
+        "oracleId": "VUSD",
+        "decimals": "1e18"
+      },
+      {
+        "oracleId": "crvUSD",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
     "name": "curve-mim-2pool",
     "pool": "0x579a9a9d43f9c112dee359e09a87a44f2718a483",
     "stakeDao": true,
