@@ -35,6 +35,19 @@ export const tokens = {
   FEES: BNB,
   BNB,
   WBNB: BNB,
+  CAP: {
+    name: 'Cap',
+    symbol: 'CAP',
+    oracleId: 'CAP',
+    address: '0x99991c6AAbba5a096f24f250b73580F5179b9999',
+    chainId: 56,
+    decimals: 18,
+    website: 'https://www.cap.app/',
+    description:
+      'Cap is a credit platform backed by financial guarantees built on the Ethereum blockchain.',
+    documentation: 'https://docs.cap.app/resources/whitepaper',
+    bridge: 'layer-zero',
+  },
   Q: {
     name: 'Quack AI Token',
     symbol: 'Q',
