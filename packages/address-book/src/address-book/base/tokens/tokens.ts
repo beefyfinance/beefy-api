@@ -3106,7 +3106,7 @@ export const tokens = {
     description:
       'Solana is a high-performance network that enables fast, secure, and affordable digital transactions. It powers thousands of applications ranging from payments and games to digital art and financial services. ',
     documentation: 'https://solana.com/learn/what-is-solana',
-    bridge: 'chainlink-ccip',
+    bridge: 'base-canonical',
     tags: ['BLUECHIP'],
   },
   EDEL: {

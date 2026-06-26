@@ -1,5 +1,39 @@
 [
   {
+    "address": "0x24d6CD03b3278e5d5f82037383a6BA294921b49b",
+    "lpAddress": "0xc11821470AA1ef276dE8c5c3D0dB84EFC806fA11",
+    "tokens": ["0x2Ae3F1Ec7F1F5012CFEab0185bfc7aa3cf0DEc22", "0xcbB7C0000aB88B473b1f5aFd9ef808440eed33Bf"],
+    "tokenOracleIds": ["cbETH", "cbBTC"],
+    "decimals": [18, 8],
+    "oracleId": "pancakeswap-cow-base-cbeth-cbbtc",
+    "providerId": "pancakeswap",
+    "rewardPool": {
+      "address": "0x2d7ac76d23Bb0aE430fCB2A089107f33938B2F27",
+      "oracleId": "pancakeswap-cow-base-cbeth-cbbtc-rp"
+    },
+    "vault": {
+      "address": "0x36b6726d6F2c980605c6C753Da24259A2B1d2Cd5",
+      "oracleId": "pancakeswap-cow-base-cbeth-cbbtc-vault"
+    }
+  },
+  {
+    "address": "0xfA0643ed98Ceb553aB77ceAd8Df998Da7ec186ab",
+    "lpAddress": "0x257FCbAE4Ac6B26A02E4FC5e1a11e4174B5ce395",
+    "tokens": ["0x2Ae3F1Ec7F1F5012CFEab0185bfc7aa3cf0DEc22", "0x4200000000000000000000000000000000000006"],
+    "tokenOracleIds": ["cbETH", "WETH"],
+    "decimals": [18, 18],
+    "oracleId": "pancakeswap-cow-base-cbeth-weth",
+    "providerId": "pancakeswap",
+    "rewardPool": {
+      "address": "0x7c3E2276D9C9F42D8645f05AEf8E03A68493cf88",
+      "oracleId": "pancakeswap-cow-base-cbeth-weth-rp"
+    },
+    "vault": {
+      "address": "0xAfc09a027f62B1a9378d9bDD46f6AfA177e3Ffdd",
+      "oracleId": "pancakeswap-cow-base-cbeth-weth-vault"
+    }
+  },
+  {
     "address": "0xd597C585a9b845eD500127d926E7db4DD4d9d63c",
     "lpAddress": "0x155613e7A75a2aB73500f9B2c45910469500FF56",
     "tokens": ["0x311935Cd80B76769bF2ecC9D8Ab7635b2139cf82", "0x97bE14Dd8f994A5364573BC035D85309E7CB34de"],
