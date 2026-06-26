@@ -12,5 +12,11 @@
     "oracleId": "AUSD",
     "decimals": "1e6",
     "earn": true
+  },
+  {
+    "name": "euler-monad-alphagrowth-ausd",
+    "address": "0x438cedcE647491B1d93a73d491eC19A50194c222",
+    "oracleId": "AUSD",
+    "decimals": "1e6"
   }
 ]
