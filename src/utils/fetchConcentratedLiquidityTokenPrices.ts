@@ -1456,6 +1456,14 @@ const tokens: Partial<Record<keyof typeof ChainId, ConcentratedLiquidityToken[]>
     },
     {
       type: 'UniV3',
+      oracleId: 'CAP',
+      decimalDelta: 1,
+      pool: '0x1F87F6A5AE82c4fA00B41f1E6E1afaa4e69ea228',
+      firstToken: 'CAP',
+      secondToken: 'USDT',
+    },
+    {
+      type: 'UniV3',
       oracleId: 'TST',
       decimalDelta: 1,
       pool: '0x16969FA79651Bae11736F2f6576a86fE2726b42B',
