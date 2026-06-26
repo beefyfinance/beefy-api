@@ -1,5 +1,21 @@
 [
   {
+    "name": "curve-frxusd-usd3",
+    "pool": "0x7BA89Bc658c07569cfa6d7947adAA80181a24568",
+    "stakeDao": true,
+    "getDy": ["v1", 1, 0],
+    "tokens": [
+      {
+        "oracleId": "frxUSD",
+        "decimals": "1e18"
+      },
+      {
+        "oracleId": "USD3",
+        "decimals": "1e6"
+      }
+    ]
+  },
+  {
     "name": "curve-vusd-crvusd",
     "pool": "0xAFbA5800252530CE71b03Ba2BCa2Dd5aE44a7F3d",
     "stakeDao": true,

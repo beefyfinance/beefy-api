@@ -1922,21 +1922,6 @@ export const tokens = {
     bridge: 'native',
     tags: ['STABLECOIN', 'SYNTHETIC'],
   },
-  USD3: {
-    name: 'Web 3 Dollar',
-    symbol: 'USD3',
-    oracleId: 'USD3',
-    address: '0x0d86883FAf4FfD7aEb116390af37746F45b6f378',
-    chainId: 1,
-    decimals: 18,
-    website:
-      'https://app.reserve.org/ethereum/token/0x0d86883FAf4FfD7aEb116390af37746F45b6f378/overview',
-    description:
-      'USD3 is 1:1 asset backed by a basket of yield-bearing tokens. Given the unique design and current market conditions, it is estimated to yield up to 10% APY from the most reputable protocols using the most established assets. USD3 is overcollateralized with auditable proof of reserves available on-chain 24/7.',
-    documentation: 'https://reserve.org/protocol/',
-    bridge: 'native',
-    tags: ['STABLECOIN', 'SYNTHETIC'],
-  },
   rgUSD: {
     name: 'Revenue Generating USD',
     symbol: 'rgUSD',
@@ -3157,5 +3142,19 @@ export const tokens = {
       'VUSD is a protocol-generated dollar-referenced settlement asset, targeting a 1:1 value relationship with the US dollar. It is over-collateralized by a diversified basket of USDC, USDT, and additional stablecoins approved by the protocol team and governance.',
     bridge: 'native',
     tags: ['NO_TIMELOCK', 'LARGE_HOLDERS', 'SYNTHETIC', 'STABLECOIN'],
+  },
+  USD3: {
+    name: '3Jane USD3',
+    symbol: 'USD3',
+    oracleId: 'USD3',
+    address: '0x056B269Eb1f75477a8666ae8C7fE01b64dD55eCc',
+    chainId: 1,
+    decimals: 6,
+    website: 'https://app.3jane.xyz/',
+    documentation: 'https://docs.3jane.xyz/',
+    description:
+      'USD3 is a credit-backed yieldcoin issued by the 3Jane Protocol, an Ethereum-based decentralized money market that facilitates unsecured lending.',
+    bridge: 'native',
+    tags: ['STABLECOIN'],
   },
 } as const satisfies Record<string, Token>;

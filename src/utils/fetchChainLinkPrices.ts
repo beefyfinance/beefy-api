@@ -181,6 +181,12 @@ const oracles: Oracle[] = [
     heartbeat: 864000,
   },
   {
+    oracleId: 'frxUSD',
+    address: '0x9B4a96210bc8D9D55b1908B465D8B0de68B7fF83',
+    chain: 'ethereum',
+    heartbeat: 864000,
+  },
+  {
     oracleId: 'sfrxUSD',
     address: '0xCC8DA199b159f25E7782494Df9140d2ce0Fe048B',
     chain: 'sonic',
