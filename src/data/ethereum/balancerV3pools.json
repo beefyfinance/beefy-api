@@ -29,6 +29,7 @@
     "address": "0x57c23c58b1d8c3292c15becf07c62c5c52457a42",
     "gauge": "0x994be003de5fd6e41d37c6948f405eb0759149e6",
     "decimals": "1e18",
+    "eol": true,
     "rewards": [
       {
         "rewardGauge": "0x5a097fE8b00De9533Cb41Bfac8AA9067AF192cb9",
@@ -94,6 +95,7 @@
     "address": "0x6b31a94029fd7840d780191B6D63Fa0D269bd883",
     "gauge": "0x5CDa24fE2d80703DBaaB7217eF1Ef8101161e271",
     "decimals": "1e18",
+    "eol": true,
     "rewards": [
       {
         "rewardGauge": "0x17C016eCCA8c9b865f7f77ec412f0c660C9FB896",
@@ -124,6 +126,7 @@
     "address": "0x85B2b559bC2D21104C4DEFdd6EFcA8A20343361D",
     "gauge": "0x8e89d41c563e6C3d9901ad75B75e2d8e140DEF04",
     "decimals": "1e18",
+    "eol": true,
     "rewards": [
       {
         "rewardGauge": "0xCDe0E651C141D5186F97E392EB50B04473Ea75c3",

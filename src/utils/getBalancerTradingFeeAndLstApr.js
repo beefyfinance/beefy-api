@@ -34,7 +34,7 @@ export const getBalTradingAndLstApr = async (chain, poolAddresses) => {
   const api = 'https://api-v3.balancer.fi/graphql';
 
   const queryString = `query apr {
-            poolGetPools (where: {chainIn: ${getChainName(chain)}}) {
+            poolGetPools (where: {chainIn: ${getChainName(chain)}, idIn: ${JSON.stringify(poolAddresses)}}) {
                 address
                 dynamicData { 
                 aprItems {
@@ -77,10 +77,7 @@ export const getBalTradingAndLstApr = async (chain, poolAddresses) => {
         if (process.env.DEBUG_BALANCER_APR === 'true') {
           const debugAddr = process.env.DEBUG_BALANCER_APR_POOL?.toLowerCase?.();
           if (!debugAddr || debugAddr === key) {
-            console.log(
-              `[Balancer APR debug] chain=${chain} pool=${key} aprItems=`,
-              pool.dynamicData.aprItems
-            );
+            console.log(`[Balancer APR debug] chain=${chain} pool=${key} aprItems=`, pool.dynamicData.aprItems);
           }
         }
 

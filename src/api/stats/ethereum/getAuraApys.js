@@ -18,7 +18,7 @@ const {
 
 const balV3Pools = require('../../../data/ethereum/balancerV3pools.json');
 
-const pools = [...balV3Pools];
+const pools = [...balV3Pools].filter(p => !p.eol);
 
 const liquidityProviderFee = 0.0025;
 const secondsInAYear = 31536000;
