@@ -1938,15 +1938,15 @@
     "tokens": ["0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913", "0xaaa843fb2916c0B57454270418E121C626402AAa"],
     "tokenOracleIds": ["USDC", "AAA"],
     "decimals": [6, 18],
-    "oracleId": "aerodrome-cow-base-usdc-aaa-v2",
+    "oracleId": "aerodrome-cow-base-usdc-aaa",
     "providerId": "aerodrome",
     "rewardPool": {
       "address": "0xc298E9e6A62eFa94A658385c7bf5C59367b7E19E",
-      "oracleId": "aerodrome-cow-base-usdc-aaa-v2-rp"
+      "oracleId": "aerodrome-cow-base-usdc-aaa-rp"
     },
     "vault": {
       "address": "0x6A92f0220DeAb514f6bcFa4a0CDB9d3e4FDE1C3E",
-      "oracleId": "aerodrome-cow-base-usdc-aaa-v2-vault"
+      "oracleId": "aerodrome-cow-base-usdc-aaa-vault"
     }
   },
   {
