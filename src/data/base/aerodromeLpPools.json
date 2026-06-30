@@ -10,13 +10,13 @@
       "address": "0x0b3e328455c4059EEb9e3f84b5543F74E24e7E1b",
       "oracle": "tokens",
       "oracleId": "VIRTUAL",
-      "decimals": 18
+      "decimals": "1e18"
     },
     "lp1": {
       "address": "0x940181a94A35A4569E4529A3CDfB74e38FD98631",
       "oracle": "tokens",
       "oracleId": "AERO",
-      "decimals": 18
+      "decimals": "1e18"
     }
   },
   {

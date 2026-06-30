@@ -105,7 +105,7 @@ const getPoolsApysFromApi = async (chainId: ChainId, pools: EulerPool[]): Promis
         return new BigNumber(0);
       }
     } catch (error) {
-      console.error(`Error fetching Euler APY for ${pool.name}:`, error);
+      console.error(`Error fetching Euler APY for ${pool.name}:`, error.message);
       return new BigNumber(0);
     }
   });
