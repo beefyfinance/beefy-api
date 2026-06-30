@@ -1,5 +1,25 @@
 [
   {
+    "name": "aerodrome-virtual-aero",
+    "address": "0x8b49c7ec53cb4ca3666bb16727fc5c5f6d12226f",
+    "gauge": "0x57538a02972c01440113cC7A7Ff8F1d954d01239",
+    "decimals": "1e18",
+    "chainId": 8453,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0x0b3e328455c4059EEb9e3f84b5543F74E24e7E1b",
+      "oracle": "tokens",
+      "oracleId": "VIRTUAL",
+      "decimals": 18
+    },
+    "lp1": {
+      "address": "0x940181a94A35A4569E4529A3CDfB74e38FD98631",
+      "oracle": "tokens",
+      "oracleId": "AERO",
+      "decimals": 18
+    }
+  },
+  {
     "name": "aerodrome-usdc-nock",
     "address": "0x85f1Aa3a70fEdd1C52705c15BAEd143e675CD626",
     "gauge": "0x4CbB6188C6101CAcd4eb1126Cc14882Bd93dc3DB",

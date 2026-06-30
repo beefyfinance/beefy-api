@@ -43,7 +43,7 @@ const provider = new ethers.providers.JsonRpcProvider(MULTICHAIN_RPC[chainId]);
 
 function formatCowVaultsJson(pools: unknown) {
   return JSON.stringify(pools, null, 2).replace(
-    /^(\s*)"(tokenOracleIds|decimals)": \[\n([\s\S]*?)\n\1\](,?)$/gm,
+    /^(\s*)"(tokens|tokenOracleIds|decimals)": \[\n([\s\S]*?)\n\1\](,?)$/gm,
     (match, indent, key, body, trailingComma) => {
       const values = body
         .split('\n')
