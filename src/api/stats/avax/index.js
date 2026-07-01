@@ -1,16 +1,10 @@
 const getJoeApy = require('./getJoeApy');
-const { getAaveV3Apys } = require('./getAaveV3Apys');
 const { getGmxApys } = require('./getGmxApys');
-const getBalancerApys = require('./getBalancerAvaxApys');
-const getAuraAvaxApys = require('./getAuraAvaxApys');
 const { getBeefyAvaxCowApys } = require('./getBeefyAvaxCowApys');
 const { getBlackholeApys } = require('./getBlackholeApys');
 const { getSiloApys } = require('../common/silo/getSiloApys');
 
 const getApys = [
-  // getAaveV3Apys,
-  // getAuraAvaxApys,
-  getBalancerApys,
   getGmxApys,
   getJoeApy,
   getBeefyAvaxCowApys,

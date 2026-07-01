@@ -1,13 +1,11 @@
 const { getCurveApys } = require('./getCurveApys');
 const getVelodromeApys = require('./getVelodromeApys');
-const getAuraApys = require('./getAuraOptimismApys');
 const getBeVeloV2Apr = require('./getBeVeloV2Apr');
 const { getBeefyOPCowApys } = require('./getBeefyOPCowApys');
 const { getMorphoApys } = require('../common/morpho/getMorphoApys');
 const { OPTIMISM_CHAIN_ID } = require('../../../constants');
 
 const getApys = [
-  getAuraApys,
   getCurveApys,
   getVelodromeApys,
   getBeVeloV2Apr,

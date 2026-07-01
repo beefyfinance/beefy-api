@@ -80,6 +80,7 @@ const getTradingFeeAprBalancer = async (chainId, pairAddresses) => {
 };
 
 const getPoolApys = async (params: BalancerParams) => {
+  return [];
   const apys = [];
 
   const { balances, rewardRates, periodFinishes, extras, auraRate } = await getPoolsData(params);
@@ -150,9 +151,7 @@ const getYearlyRewardsInUsd = async (pool, rewardRate, finish, extras, auraRate)
       oracle: 'tokens',
       id: extra.oracleId,
     });
-    extraRewardsInUsd = extraRewardsInUsd.plus(
-      extra.rewardRate.times(secondsInAYear).times(price).div(extra.decimals)
-    );
+    extraRewardsInUsd = extraRewardsInUsd.plus(extra.rewardRate.times(secondsInAYear).times(price).div(extra.decimals));
     // console.log(pool.name, extra.oracleId, extraRewardsInUsd.valueOf());
   }
 
