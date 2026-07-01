@@ -64,7 +64,6 @@ import { getBeefyCowEthereumPrices } from './ethereum/getBeefyCowEthereumPrices'
 import { getPendleCommonPrices } from './common/getPendleCommonPrices';
 import { getMellowVeloPrices } from './common/getMellowVeloPrices';
 import { getBunniPrices } from './common/getBunniPrices';
-import getVenusZkPrices from './zksync/getVenusZkPrices';
 import { getBeefyCowSonicPrices } from './sonic/getBeefySonicCowPrices';
 import { getMorphoPrices } from './common/morpho/getMorphoPrices';
 import { getAaveV3Prices } from './common/aave/getAaveV3Prices';
@@ -168,7 +167,6 @@ export async function getNonAmmPrices(
     getSolidlyStablePrices(AVAX_CHAIN_ID, require('../../data/avax/blackStableLpPools.json'), tokenPrices),
     getSolidlyStablePrices(PLASMA_CHAIN_ID, require('../../data/plasma/lithosStablePools.json'), tokenPrices),
     getNuriStablePrices(tokenPrices),
-    getVenusZkPrices(tokenPrices),
     getSiloPrices(AVAX_CHAIN_ID, require('../../data/avax/siloPools.json'), tokenPrices),
     getAerodromePositionPrices(tokenPrices),
   ];
