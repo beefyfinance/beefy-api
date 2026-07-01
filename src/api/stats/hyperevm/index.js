@@ -1,7 +1,13 @@
 const { getBeefyCowHyperevmApys } = require('./getBeefyCowHyperevmApys');
 const { getKittenswapApys } = require('./getKittenswapApys');
+const { getMorphoApys } = require('../common/morpho/getMorphoApys');
+const { HYPEREVM_CHAIN_ID } = require('../../../constants');
 
-const getApys = [getBeefyCowHyperevmApys, getKittenswapApys];
+const getApys = [
+  getBeefyCowHyperevmApys,
+  getKittenswapApys,
+  () => getMorphoApys(HYPEREVM_CHAIN_ID, require('../../../data/hyperevm/morphoPools.json')),
+];
 
 const getHyperevmApys = async () => {
   const start = Date.now();
