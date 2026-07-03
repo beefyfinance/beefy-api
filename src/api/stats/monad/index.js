@@ -7,10 +7,12 @@ const { getEulerApys } = require('./getEulerApys');
 const { getGearboxApys } = require('../common/gearbox/getGearboxApys');
 const { getUniswapApys } = require('./getUniswapApys');
 const getBalancerMonadApys = require('./getBalancerApys');
+const { getAaveV3Apys } = require('./getAaveV3Apys');
 const { MONAD_CHAIN_ID } = require('../../../constants');
 
 const getApys = [
   getEulerApys,
+  getAaveV3Apys,
   getCurveApys,
   getBeefyCowMonadApys,
   () => getMorphoApys(MONAD_CHAIN_ID, require('../../../data/monad/morphoPools.json')),
