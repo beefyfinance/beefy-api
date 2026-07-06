@@ -217,7 +217,7 @@ export const tokens = {
       'frxUSD is a replacement for FRAX on Ethereum. frxUSD is a crypto collateralized stablecoin pegged to the US dollar.',
     bridge: 'native',
     documentation: 'https://docs.frax.finance/',
-    tags: ['STABLECOIN', 'SYNTHETIC'],
+    tags: ['STABLECOIN'],
   },
   sfrxUSD: {
     name: 'Staked Frax USD',
