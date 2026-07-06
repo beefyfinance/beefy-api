@@ -190,6 +190,7 @@ const coinGeckoCoins: Record<string, string[]> = {
   'spell-token': ['SPELL'],
   arbitrum: ['ARB'],
   'savings-crvusd': ['scrvUSD'],
+  ludwig: ['LUDWIG'],
 };
 
 /**
@@ -252,19 +253,9 @@ const dexscreenerCoins: OraclePriceRequest[] = [
     chainId: 'sonic',
   },
   {
-    oracleId: 'LUDWIG',
-    tokenAddress: '0xe6cc4D855B4fD4A9D02F46B9adae4C5EfB1764B5',
-    chainId: 'sonic',
-  },
-  {
     oracleId: 'x33',
     tokenAddress: '0x3333111A391cC08fa51353E9195526A70b333333',
     chainId: 'sonic',
-  },
-  {
-    oracleId: 'plUSD',
-    tokenAddress: '0xf91c31299E998C5127Bc5F11e4a657FC0cF358CD',
-    chainId: 'plasma',
   },
   {
     oracleId: 'tETH',
