@@ -2,7 +2,7 @@ import type { Token } from '../../../types/token.js';
 
 const ETH = {
   name: 'Wrapped Ether',
-  address: '0x4200000000000000000000000000000000000006',
+  address: '0x0Bd7D308f8E1639FAb988df18A8011f41EAcAD73',
   symbol: 'WETH',
   oracleId: 'WETH',
   decimals: 18,
