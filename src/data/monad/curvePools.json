@@ -1,5 +1,21 @@
 [
   {
+    "name": "curve-monad-ausd-avusd",
+    "pool": "0xa98edc41c867184367691234d46ae04b7dae4545",
+    "gauge": "0x7f15aa90b82f8e9d38b71ddac4533564f9d6b0c5",
+    "merklId": "0x7f15aa90b82f8e9d38b71ddac4533564f9d6b0c5",
+    "tokens": [
+      {
+        "oracleId": "AUSD",
+        "decimals": "1e6"
+      },
+      {
+        "oracleId": "avUSD",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
     "name": "curve-monad-cbbtc",
     "pool": "0xD2634E05EbEd90Bd0a6c0E93d48d7bd8036653B1",
     "gauge": "0x5814758bcF02A264c4D322C8E016283BC220C32B",
