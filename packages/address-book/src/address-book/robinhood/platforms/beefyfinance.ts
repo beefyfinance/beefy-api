@@ -1,0 +1,43 @@
+const devMultisig = '0x000000a151650b85742d8c286E09ABa7bE9BDB82';
+const treasuryMultisig = '0xA55e75C4815Ff39eFD76C257857441d9FD99b45b';
+const zeroAddress = '0x0000000000000000000000000000000000000000';
+
+export const beefyfinance = {
+  devMultisig,
+  treasuryMultisig,
+  strategyOwner: '0x14E05B7161f57F4F0e3428CC49B4d477EcBf6D51',
+  vaultOwner: '0x03193Ef8c3f75C22fAf2995540602399cdcD4cbc',
+  keeper: '0x4fED5491693007f0CD49f4614FFC38Ab6A04B619',
+  treasurer: treasuryMultisig,
+  launchpoolOwner: devMultisig,
+  rewardPool: zeroAddress,
+  treasury: zeroAddress,
+  beefyFeeRecipient: '0x02Ae4716B9D5d48Db1445814b0eDE39f5c28264B',
+  zapFeeRecipient: treasuryMultisig,
+  multicall: '0x8Ed9A8c5Cac2Ed45E04feE0BC8D3B2293f092FB3',
+  bifiMaxiStrategy: zeroAddress,
+  voter: '0x5e1caC103F943Cd84A1E92dAde4145664ebf692A',
+  beefyFeeConfig: '0x3CBa40c350ed4346F693C266831035dd60AF628e',
+  vaultFactory: '0x2f99004ed581bc0fe35749047cAc44F0ee410cdf',
+  strategyFactory: zeroAddress,
+  wrapperFactory: zeroAddress,
+  zap: zeroAddress,
+  zapTokenManager: zeroAddress,
+  treasurySwapper: zeroAddress,
+
+  /// CLM Contracts
+  clmFactory: zeroAddress,
+  clmStrategyFactory: zeroAddress,
+  clmRewardPoolFactory: zeroAddress,
+  positionMulticall: zeroAddress,
+
+  /// Beefy Swapper Contracts
+  beefySwapper: '0x19123E344Dc22ef22525994FcB801E99fb37fA9E',
+  beefyOracle: '0x3e810a6bf0418c53eAAC24221375A166F77841EE',
+  beefyOracleChainlink: zeroAddress,
+  beefyOracleUniswapV2: zeroAddress,
+  beefyOracleUniswapV3: zeroAddress,
+  beefyOracleERC4626: zeroAddress,
+  beefyMultiHopSwapper: zeroAddress,
+  beefyUniV4Swapper: zeroAddress,
+} as const;
