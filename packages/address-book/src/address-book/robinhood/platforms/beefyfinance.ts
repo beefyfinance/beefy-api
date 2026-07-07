@@ -1,6 +1,5 @@
 const devMultisig = '0x000000a151650b85742d8c286E09ABa7bE9BDB82';
 const treasuryMultisig = '0xA55e75C4815Ff39eFD76C257857441d9FD99b45b';
-const zeroAddress = '0x0000000000000000000000000000000000000000';
 
 export const beefyfinance = {
   devMultisig,
@@ -10,34 +9,34 @@ export const beefyfinance = {
   keeper: '0x4fED5491693007f0CD49f4614FFC38Ab6A04B619',
   treasurer: treasuryMultisig,
   launchpoolOwner: devMultisig,
-  rewardPool: zeroAddress,
-  treasury: zeroAddress,
+  rewardPool: '0x0000000000000000000000000000000000000000',
+  treasury: '0x0000000000000000000000000000000000000000',
   beefyFeeRecipient: '0x02Ae4716B9D5d48Db1445814b0eDE39f5c28264B',
   zapFeeRecipient: treasuryMultisig,
   multicall: '0x8Ed9A8c5Cac2Ed45E04feE0BC8D3B2293f092FB3',
-  bifiMaxiStrategy: zeroAddress,
+  bifiMaxiStrategy: '0x0000000000000000000000000000000000000000',
   voter: '0x5e1caC103F943Cd84A1E92dAde4145664ebf692A',
   beefyFeeConfig: '0x3CBa40c350ed4346F693C266831035dd60AF628e',
   vaultFactory: '0x2f99004ed581bc0fe35749047cAc44F0ee410cdf',
-  strategyFactory: zeroAddress,
-  wrapperFactory: zeroAddress,
-  zap: zeroAddress,
-  zapTokenManager: zeroAddress,
-  treasurySwapper: zeroAddress,
+  strategyFactory: '0x0000000000000000000000000000000000000000',
+  wrapperFactory: '0x0000000000000000000000000000000000000000',
+  zap: '0x0000000000000000000000000000000000000000',
+  zapTokenManager: '0x0000000000000000000000000000000000000000',
+  treasurySwapper: '0x0000000000000000000000000000000000000000',
 
   /// CLM Contracts
-  clmFactory: zeroAddress,
-  clmStrategyFactory: zeroAddress,
-  clmRewardPoolFactory: zeroAddress,
-  positionMulticall: zeroAddress,
+  clmFactory: '0x0000000000000000000000000000000000000000',
+  clmStrategyFactory: '0x0000000000000000000000000000000000000000',
+  clmRewardPoolFactory: '0x0000000000000000000000000000000000000000',
+  positionMulticall: '0x0000000000000000000000000000000000000000',
 
   /// Beefy Swapper Contracts
   beefySwapper: '0x19123E344Dc22ef22525994FcB801E99fb37fA9E',
   beefyOracle: '0x3e810a6bf0418c53eAAC24221375A166F77841EE',
-  beefyOracleChainlink: zeroAddress,
-  beefyOracleUniswapV2: zeroAddress,
-  beefyOracleUniswapV3: zeroAddress,
-  beefyOracleERC4626: zeroAddress,
-  beefyMultiHopSwapper: zeroAddress,
-  beefyUniV4Swapper: zeroAddress,
+  beefyOracleChainlink: '0xf9925a9B0d22e82345277C08780a31106F6aB4B7',
+  beefyOracleUniswapV2: '0x03279D9b8458875A89ca018f587CcfFAdC8e75E0',
+  beefyOracleUniswapV3: '0x3f7727F63af17A5F51d30a1E30F5Aef0E14266dF',
+  beefyOracleERC4626: '0xDEc5C3b6ceAa7d2F6b7354b9411cbF5713e1a50D',
+  beefyMultiHopSwapper: '0xb78CFc9e16fcE56d0bD28f5D1f8E4c8519CAb627',
+  beefyUniV4Swapper: '0xb035c4f8FB32CE442e6b58DD3EdAFBE01F780310',
 } as const;
