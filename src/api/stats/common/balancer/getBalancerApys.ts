@@ -66,10 +66,7 @@ export const getBalancerApys = async (params: BalancerParams): Promise<ApyBreakd
     tradingAprs.tradingAprMap as Record<string, BigNumber>,
     poolApys.farmAprs,
     liquidityProviderFee,
-    tradingAprs.lstAprs,
-    undefined,
-    undefined,
-    poolApys.merklAprs
+    tradingAprs.lstAprs
   );
 };
 
@@ -89,7 +86,6 @@ const getPoolApys = async (params: BalancerParams) => {
       : {};
 
   const farmAprs: BigNumber[] = [];
-  const merklAprs: number[] = [];
 
   const poolApyCalls = params.pools.map(pool => getPoolApy(pool, params));
   const poolApyResults = await Promise.all(poolApyCalls);
@@ -98,13 +94,12 @@ const getPoolApys = async (params: BalancerParams) => {
     const addressKey = pool.address?.toLowerCase?.();
     const merklApr = pool.merkl && addressKey ? merklAprByAddress[addressKey] ?? 0 : 0;
 
-    // Merkl is a distinct non-compoundable component in breakdowns.
-    // Keep farm/vault APR at 0 for merkl pools.
-    merklAprs[i] = merklApr;
-    farmAprs[i] = pool.merkl ? new BigNumber(0) : poolApyResults[i] ?? new BigNumber(0);
+    // fold merkl into vault APR (fee charged + autocompounded), not a standalone merklApr
+    const base = pool.merkl ? new BigNumber(0) : poolApyResults[i] ?? new BigNumber(0);
+    farmAprs[i] = base.plus(merklApr);
   });
 
-  return { farmAprs, merklAprs };
+  return { farmAprs };
 };
 
 const getPoolApy = async (pool: Pool, params: BalancerParams) => {
