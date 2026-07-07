@@ -8,29 +8,17 @@ const pools = [
     reward: 'SKY',
   },
   {
-    name: 'sky-usds',
-    rewardPool: '0x0650CAF159C5A49f711e8169D4336ECB9b950275',
-    stakingToken: 'USDS',
-    reward: 'SKY',
-  },
-  {
     name: 'sky-usds-spk',
     rewardPool: '0x173e314C7635B45322cd8Cb14f44b312e079F3af',
     stakingToken: 'USDS',
     reward: 'SPK',
   },
-  // {
-  //   name: 'sky-sky',
-  //   rewardPool: '0x38E4254bD82ED5Ee97CD1C4278FAae748d998865',
-  //   stakingToken: 'SKY',
-  //   reward: 'USDS',
-  // },
-  // {
-  //   name: 'sky-sky-spk',
-  //   rewardPool: '0x99cBC0e4E6427F6939536eD24d1275B95ff77404',
-  //   stakingToken: 'SKY',
-  //   reward: 'SPK',
-  // },
+  {
+    name: 'sky-usds-grove',
+    rewardPool: '0x4e41488c19cd35eb4de3083fc3e204854c75c86a',
+    stakingToken: 'USDS',
+    reward: 'GROVE',
+  },
 ];
 
 export const getSkyApy = async () => {
