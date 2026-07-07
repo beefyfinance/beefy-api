@@ -1,5 +1,13 @@
 [
   {
+    "name": "pendle-wousd-17dec26",
+    "address": "0x30ee7618e0ef0682f0f354d6f84be87de6b8878c",
+    "oracle": "tokens",
+    "oracleId": "OUSD",
+    "decimals": "1e18",
+    "chainId": 1
+  },
+  {
     "name": "pendle-reusd-10dec26",
     "address": "0x13285bcbc27f92b47b4edb99d744c07b48c977c0",
     "oracle": "tokens",
