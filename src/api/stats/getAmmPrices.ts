@@ -191,7 +191,6 @@ const coinGeckoCoins: Record<string, string[]> = {
   arbitrum: ['ARB'],
   'savings-crvusd': ['scrvUSD'],
   'grove-2': ['GROVE'],
-  ludwig: ['LUDWIG'],
 };
 
 /**
