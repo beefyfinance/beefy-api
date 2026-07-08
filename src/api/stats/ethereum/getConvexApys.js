@@ -1,12 +1,12 @@
 import { ETH_CHAIN_ID } from '../../../constants';
 import { getCurveSubgraphApys } from '../common/curve/getCurveApyData';
-import getApyBreakdown from '../common/getApyBreakdown';
+import { getApyBreakdown } from '../common/getApyBreakdownNew';
 import BigNumber from 'bignumber.js';
 import { fetchPrice } from '../../../utils/fetchPrice';
 import IRewardPool from '../../../abis/IRewardPool';
 import { fetchContract } from '../../rpc/client';
 import ERC20Abi from '../../../abis/ERC20Abi';
-import { getCurveLendSupplyApys } from '../common/curve/getCurveLendSupplyApys';
+import { getCurveLendApyRequests } from '../common/curve/getCurveLendApys';
 
 const lpPools = require('../../../data/ethereum/convexPools.json').filter(p => p.rewardPool);
 const lendPools = require('../../../data/ethereum/curveLendPools.json').filter(p => p.rewardPool);
@@ -16,15 +16,27 @@ const secondsPerYear = 31536000;
 const cvxAddress = '0x4e3FBD56CD56c3e72c1403e103b45Db9da5B9D2B';
 
 const pools = [...lpPools, ...lendPools];
+const lendPoolNames = new Set(lendPools.map(p => p.name));
 
 export const getConvexApys = async () => {
-  const [baseApys, lendApys, farmApys] = await Promise.all([
-    getCurveSubgraphApys(lpPools, subgraphUrl),
-    getCurveLendSupplyApys(ETH_CHAIN_ID, lendPools),
-    getPoolApys(pools),
-  ]);
-  const poolsMap = pools.map(p => ({ name: p.name, address: p.name }));
-  return getApyBreakdown(poolsMap, { ...baseApys, ...lendApys }, farmApys, tradingFees);
+  const [baseApys, farmApys] = await Promise.all([getCurveSubgraphApys(lpPools, subgraphUrl), getPoolApys(pools)]);
+  const farmAprByName = Object.fromEntries(pools.map((p, i) => [p.name, farmApys[i]]));
+
+  const lpRequests = pools
+    .filter(p => !lendPoolNames.has(p.name))
+    .map(p => ({
+      vaultId: p.name,
+      trading: baseApys[p.name],
+      vault: farmAprByName[p.name],
+      providerFee: tradingFees,
+    }));
+  const lendRequests = await getCurveLendApyRequests(
+    ETH_CHAIN_ID,
+    pools.filter(p => lendPoolNames.has(p.name)),
+    farmAprByName,
+    tradingFees
+  );
+  return getApyBreakdown([...lpRequests, ...lendRequests]);
 };
 
 const getPoolApys = async pools => {

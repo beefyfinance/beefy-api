@@ -27,7 +27,7 @@ const getEulerApyData = async (params: EulerApyParams) => {
   return getApyBreakdown(
     params.pools.map(p => ({
       vaultId: p.name,
-      trading: supplyApys[params.pools.indexOf(p)],
+      lending: supplyApys[params.pools.indexOf(p)],
       vault: merklApys[params.pools.indexOf(p)],
     }))
   );

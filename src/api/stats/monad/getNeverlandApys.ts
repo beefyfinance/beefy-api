@@ -1,5 +1,5 @@
 import BigNumber from 'bignumber.js';
-import getApyBreakdown, { ApyBreakdownResult } from '../common/getApyBreakdown';
+import { getApyBreakdown, ApyBreakdownResult } from '../common/getApyBreakdownNew';
 import { fetchPrice } from '../../../utils/fetchPrice';
 import { MONAD_CHAIN_ID } from '../../../constants';
 import { fetchContract } from '../../rpc/client';
@@ -21,20 +21,26 @@ const burn = 0.5;
 export const getNeverlandApys = async (): Promise<ApyBreakdownResult> => {
   const farmAprs: BigNumber[] = [];
 
-  const [{ supplyAprs, suppliesInUsd }, rewardInUsdPerSecond, liquidStakingAprs, merklApys] =
-    await Promise.all([
-      getPoolData(),
-      getIncentiveControllerData(),
-      getLiquidStakingData(),
-      getMerklApys(MONAD_CHAIN_ID, pools),
-    ]);
+  const [{ supplyAprs, suppliesInUsd }, rewardInUsdPerSecond, liquidStakingAprs, merklApys] = await Promise.all([
+    getPoolData(),
+    getIncentiveControllerData(),
+    getLiquidStakingData(),
+    getMerklApys(MONAD_CHAIN_ID, pools),
+  ]);
 
   for (let i = 0; i < pools.length; ++i) {
     const farmApr = rewardInUsdPerSecond[i].dividedBy(suppliesInUsd[i]).times(secondsPerYear);
     farmAprs.push(farmApr.plus(merklApys[i]));
   }
 
-  return getApyBreakdown(pools, supplyAprs, farmAprs, 0, liquidStakingAprs);
+  return getApyBreakdown(
+    pools.map((pool, i) => ({
+      vaultId: pool.name,
+      lending: supplyAprs[pool.address.toLowerCase()],
+      vault: farmAprs[i],
+      liquidStaking: liquidStakingAprs[i],
+    }))
+  );
 };
 
 const getPoolData = async () => {
@@ -46,9 +52,7 @@ const getPoolData = async () => {
     const poolData = await dataProvider.read.getReserveData([pool.address]);
     const tokenPrice = await fetchPrice({ oracle: 'tokens', id: pool.oracleId });
 
-    supplyAprs[pool.address.toLowerCase()] = new BigNumber(poolData[5].toString())
-      .dividedBy(RAY_DECIMALS)
-      .times(0.905); // skim lending
+    supplyAprs[pool.address.toLowerCase()] = new BigNumber(poolData[5].toString()).dividedBy(RAY_DECIMALS).times(0.905); // skim lending
     suppliesInUsd.push(
       new BigNumber(poolData[0].toString())
         .plus(new BigNumber(poolData[1].toString()))

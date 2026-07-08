@@ -10,16 +10,14 @@ const pools: CurvancePool[] = require('../../../data/monad/curvancePools.json');
 const SECONDS_PER_YEAR = 31536000;
 
 export const getCurvanceApys = async () => {
-  const [supplyApys, merklApys] = await Promise.all([
-    getPoolsApys(pools),
-    getMerklApys(MONAD_CHAIN_ID, pools),
-  ]);
+  const [supplyApys, merklApys] = await Promise.all([getPoolsApys(pools), getMerklApys(MONAD_CHAIN_ID, pools)]);
 
   return getApyBreakdown(
     pools.map(p => ({
       vaultId: p.name,
-      vault: supplyApys[pools.indexOf(p)].plus(merklApys[pools.indexOf(p)]),
-      trading: p.lstApr ?? undefined,
+      lending: supplyApys[pools.indexOf(p)],
+      vault: merklApys[pools.indexOf(p)],
+      liquidStaking: p.lstApr ?? undefined,
     }))
   );
 };
@@ -47,9 +45,7 @@ const getPoolsApys = async (pools: CurvancePool[]): Promise<BigNumber[]> => {
   for (let i = 0; i < pools.length; i++) {
     const pool = pools[i];
     const IRMContract = fetchContract(pool.irm, ICurvanceIRM, MONAD_CHAIN_ID) as any;
-    supplyRates.push(
-      IRMContract.read.supplyRate([res[0][i].toString(), res[1][i].toString(), res[2][i].toString()])
-    );
+    supplyRates.push(IRMContract.read.supplyRate([res[0][i].toString(), res[1][i].toString(), res[2][i].toString()]));
   }
 
   const apys = await Promise.all(supplyRates);

@@ -1,7 +1,7 @@
 import { ETH_CHAIN_ID } from '../../../constants';
-import getApyBreakdown from '../common/getApyBreakdown';
+import { getApyBreakdown } from '../common/getApyBreakdownNew';
 import { getCurveVolumeApys } from '../common/curve/getCurveApyData';
-import { getCurveLendSupplyApys } from '../common/curve/getCurveLendSupplyApys';
+import { getCurveLendApyRequests } from '../common/curve/getCurveLendApys';
 import BigNumber from 'bignumber.js';
 import { fetchPrice } from '../../../utils/fetchPrice';
 import ICurveGauge from '../../../abis/ICurveGauge';
@@ -18,15 +18,27 @@ const volumeUrl = 'https://api.curve.finance/api/getVolumes/ethereum';
 const lpPools = require('../../../data/ethereum/convexPools.json');
 const lendPools = require('../../../data/ethereum/curveLendPools.json');
 const pools = [...lpPools, ...lendPools].filter(p => p.gauge && !p.rewardPool);
+const lendPoolNames = new Set(lendPools.map(p => p.name));
 
 export const getCurveApys = async () => {
-  const [baseApys, lendApys, farmApys] = await Promise.all([
-    getCurveVolumeApys(lpPools, volumeUrl),
-    getCurveLendSupplyApys(ETH_CHAIN_ID, lendPools),
-    getPoolApys(pools),
-  ]);
-  const poolsMap = pools.map(p => ({ name: p.name, address: p.name }));
-  return getApyBreakdown(poolsMap, { ...baseApys, ...lendApys }, farmApys, tradingFees);
+  const [baseApys, farmApys] = await Promise.all([getCurveVolumeApys(lpPools, volumeUrl), getPoolApys(pools)]);
+  const farmAprByName = Object.fromEntries(pools.map((p, i) => [p.name, farmApys[i]]));
+
+  const lpRequests = pools
+    .filter(p => !lendPoolNames.has(p.name))
+    .map(p => ({
+      vaultId: p.name,
+      trading: baseApys[p.name],
+      vault: farmAprByName[p.name],
+      providerFee: tradingFees,
+    }));
+  const lendRequests = await getCurveLendApyRequests(
+    ETH_CHAIN_ID,
+    pools.filter(p => lendPoolNames.has(p.name)),
+    farmAprByName,
+    tradingFees
+  );
+  return getApyBreakdown([...lpRequests, ...lendRequests]);
 };
 
 const getPoolApys = async pools => {

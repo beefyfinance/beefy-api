@@ -107,7 +107,7 @@ export const getMorphoApys = async (chainId, pools) => {
       return {
         vaultId: pool.name,
         vault,
-        trading,
+        lending: trading,
       };
     })
   );

@@ -4,7 +4,6 @@ import { BASE_HPY } from '../../../constants';
 import { getTotalPerformanceFeeForVault } from '../../vaults/getVaultFees';
 import { getFarmWithTradingFeesApy } from '../../../utils/getFarmWithTradingFeesApy';
 import { toArray } from '../../../utils/array';
-import { getVaultById } from '../getMultichainVaults';
 
 // These component lists need to stay in sync with the app
 // Total APY = (((1 + Compounded APY) * (1 + Special APR)) - 1) + Non-Compoundable APR.
@@ -31,25 +30,6 @@ const specialComponents = ['trading'] as const;
 
 /** lending component - fee charged but not autocompounded */
 const lendingComponents = ['lending'] as const;
-
-// Platforms whose base supply yield is reported as lendingApr instead of tradingApr
-const LENDING_PLATFORM_IDS = new Set([
-  'curve-lend',
-  'aave',
-  'aave-v4',
-  'compound',
-  'moonwell',
-  'silo',
-  'mendi',
-  'lendle',
-  'yei',
-  'morpho',
-  'euler',
-  'imf',
-  'curvance',
-  'neverland',
-  'gearbox',
-]);
 
 type CompoundableComponent = (typeof compoundableComponents)[number];
 type NonCompoundableComponent = (typeof nonCompoundableComponents)[number];
@@ -128,9 +108,6 @@ export function getApyBreakdownOnly(request: ApyBreakdownRequest): ApyBreakdown 
     totalApy: 0,
   };
 
-  const platformId = getVaultById(request.vaultId)?.platformId;
-  const isLendingVault = !!platformId && LENDING_PLATFORM_IDS.has(platformId);
-
   let totalCompoundable = 0;
   for (const component of compoundableComponents) {
     const apr = toNumber(request[component]);
@@ -150,24 +127,17 @@ export function getApyBreakdownOnly(request: ApyBreakdownRequest): ApyBreakdown 
     }
   }
 
-  let totalLending = 0;
-
   let totalSpecial = 0;
   for (const component of specialComponents) {
     const apr = toNumber(request[component]);
     if (apr !== undefined) {
-      // lending platforms pass their supply yield via `trading`
-      if (component === 'trading' && isLendingVault) {
-        const aprAfterFee = apr * shareAfterBeefyPerformanceFee;
-        breakdown.lendingApr = aprAfterFee;
-        totalLending += aprAfterFee;
-      } else {
-        breakdown[`${component}Apr`] = apr;
-        totalSpecial += apr;
-      }
+      breakdown[`${component}Apr`] = apr;
+      totalSpecial += apr;
     }
   }
 
+  // lending yield: fee charged but not autocompounded, so added linearly net of fee
+  let totalLending = 0;
   for (const component of lendingComponents) {
     const apr = toNumber(request[component]);
     if (apr !== undefined) {
