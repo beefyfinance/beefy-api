@@ -48,6 +48,18 @@ export const tokens = {
     documentation: 'https://docs.cap.app/resources/whitepaper',
     bridge: 'layer-zero',
   },
+  CZ: {
+    name: 'The Final Form Bull',
+    symbol: 'CZ',
+    oracleId: 'CZ',
+    address: '0x7A848a5A8169aa6a2f603D056A749f924F504444',
+    chainId: 56,
+    decimals: 18,
+    website: 'https://four.meme/en/token/0x7A848a5A8169aa6a2f603D056A749f924F504444',
+    description:
+      'The Final Form Bull (aka $CZ) is a BSC-based, fan-made meme token born from a viral “final form” CZ tweet and bull-themed imagery, basically a cheeky tribute to Changpeng Zhao rather than anything official.',
+    tags: ['LARGE_HOLDERS', 'MEMECOIN'],
+  },
   Q: {
     name: 'Quack AI Token',
     symbol: 'Q',

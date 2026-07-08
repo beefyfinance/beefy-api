@@ -190,7 +190,8 @@ const coinGeckoCoins: Record<string, string[]> = {
   'spell-token': ['SPELL'],
   arbitrum: ['ARB'],
   'savings-crvusd': ['scrvUSD'],
-  ludwig: ['LUDWIG'],
+  'grove-2': ['GROVE'],
+  'avant-usd': ['avUSD'],
 };
 
 /**
