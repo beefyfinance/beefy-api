@@ -9,7 +9,7 @@ const ETH = {
   chainId: 4663,
   website: 'https://weth.io/',
   description: 'Ether or ETH is the native currency built on the Ethereum blockchain.',
-  bridge: 'arbitrum-canonical',
+  bridge: 'robinhood-canonical',
   documentation: 'https://ethereum.org/en/developers/docs/',
   tags: ['BLUECHIP'],
 } as const satisfies Token;
