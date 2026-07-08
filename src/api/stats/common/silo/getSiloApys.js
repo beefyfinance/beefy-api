@@ -50,7 +50,7 @@ export const getSiloApys = async (chainId, pools) => {
         return {
           vaultId: pool.name,
           vault: new BigNumber(0),
-          trading: new BigNumber(0),
+          lending: new BigNumber(0),
         };
       }
 
@@ -68,20 +68,20 @@ export const getSiloApys = async (chainId, pools) => {
         return {
           vaultId: pool.name,
           vault: protectedRewardsApr.isNegative() ? new BigNumber(0) : protectedRewardsApr,
-          trading: underlyingApy.isNegative() ? new BigNumber(0) : underlyingApy,
+          lending: underlyingApy.isNegative() ? new BigNumber(0) : underlyingApy,
         };
       } else {
         // Handle vault API response structure (existing logic)
         const totalApr = new BigNumber(data.supplyApr || 0).div(1e18);
         const baseApr = new BigNumber(data.supplyBaseApr || 0).div(1e18);
 
-        const trading = baseApr;
+        const lending = baseApr;
         const vault = totalApr.minus(baseApr);
 
         return {
           vaultId: pool.name,
           vault: vault.isNegative() ? new BigNumber(0) : vault,
-          trading: trading.isNegative() ? new BigNumber(0) : trading,
+          lending: lending.isNegative() ? new BigNumber(0) : lending,
         };
       }
     })

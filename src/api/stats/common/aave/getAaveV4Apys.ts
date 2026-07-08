@@ -59,7 +59,7 @@ export const getAaveV4ApyData = async (chainId: number, pools: AaveV4Pool[]) => 
   return getApyBreakdown(
     pools.map((pool, i) => ({
       vaultId: pool.name,
-      trading: data[i].lendingApr,
+      lending: data[i].lendingApr,
       vault: data[i].merklApr,
     }))
   );
