@@ -23,5 +23,5 @@ const getPoolsApys = async (chainId, pools) => {
   }
   const [supplyRates] = await Promise.all([Promise.all(supplyRateCalls)]);
 
-  return supplyRates.map(v => new BigNumber(v.toString()).div(1e27).times(0.905));
+  return supplyRates.map(v => new BigNumber(v.toString()).div(1e27));
 };
