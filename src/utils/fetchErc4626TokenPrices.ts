@@ -34,7 +34,7 @@ const getErc4626Prices = async (
     res = await Promise.all(assetCalls);
   } catch (e) {
     console.error('getErc4626Prices', e.message);
-    // NaN (not 0) so the finite-number cache gate keeps the last good price on a transient failure
+    // NaN is filtered out below, so a transient failure omits the price instead of propagating a bad value
     return vaults.map(() => NaN);
   }
 
@@ -52,9 +52,11 @@ const getErc4626Prices = async (
 const fetchErc4626TokenPrices = async (tokenPrices: Record<string, number>): Promise<Record<string, number>> => {
   const results = await Promise.all([getErc4626Prices(tokenPrices, tokens.ethereum, ETH_CHAIN_ID)]);
   const vaults = Object.values(tokens).flat();
-  return results
-    .flat()
-    .reduce<Record<string, number>>((acc, price, i) => ((acc[vaults[i][1].oracleId] = price), acc), {});
+  return results.flat().reduce<Record<string, number>>((acc, price, i) => {
+    // Skip unpriced vaults (NaN) so the oracleId stays absent rather than resolving to a bad value
+    if (Number.isFinite(price)) acc[vaults[i][1].oracleId] = price;
+    return acc;
+  }, {});
 };
 
 export { fetchErc4626TokenPrices };
