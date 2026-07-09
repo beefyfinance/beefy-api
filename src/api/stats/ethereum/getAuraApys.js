@@ -9,6 +9,7 @@ import AuraBooster from '../../../abis/ethereum/AuraBooster';
 import { fetchContract } from '../../rpc/client';
 import AuraGauge from '../../../abis/ethereum/AuraGauge';
 import { getBalTradingAndLstApr } from '../../../utils/getBalancerTradingFeeAndLstApr';
+import { getMerklApys } from '../common/getMerklApys';
 
 const {
   ethereum: {
@@ -27,13 +28,21 @@ const REWARD_MULTIPLIER_DENOMINATOR = 10000;
 const getAuraApys = async () => {
   const pairAddresses = pools.map(pool => pool.address);
 
-  const [tradingAprs, farmApys] = await Promise.all([
+  const [tradingAprs, farmApys, merklAprs] = await Promise.all([
     getTradingFeeAprBalancer(chainId, pairAddresses),
     getPoolApys(pools),
+    getMerklApys(chainId, pools),
   ]);
 
   const poolsMap = pools.map(p => ({ name: p.name, address: p.address }));
-  return getApyBreakdown(poolsMap, tradingAprs.tradingAprMap, farmApys, liquidityProviderFee, tradingAprs.lstAprs);
+  const farmApysWithMerkl = farmApys.map((farmApy, i) => farmApy.plus(merklAprs[i] || 0));
+  return getApyBreakdown(
+    poolsMap,
+    tradingAprs.tradingAprMap,
+    farmApysWithMerkl,
+    liquidityProviderFee,
+    tradingAprs.lstAprs
+  );
 };
 
 const getTradingFeeAprBalancer = async (chainId, pairAddresses) => {
