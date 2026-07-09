@@ -5,7 +5,7 @@ import { fetchPrice } from '../../../utils/fetchPrice';
 import cv3Token from '../../../abis/cv3Token';
 import { Abi } from 'viem';
 import { fetchContract, fetchNoMulticallContract } from '../../rpc/client';
-import getApyBreakdown from './getApyBreakdown';
+import { getApyBreakdown } from './getApyBreakdownNew';
 
 const SECONDS_PER_YEAR = 31536000;
 
@@ -15,15 +15,15 @@ const getCompoundV3ApyData = async (params: CompoundV3ApyParams) => {
   const { supplyApys, supplyCompApys } = await getPoolsApys(params, poolsData);
 
   if (params.log) {
-    params.pools.forEach((pool, i) =>
-      console.log(pool.name, supplyApys[i].valueOf(), supplyCompApys[i].valueOf())
-    );
+    params.pools.forEach((pool, i) => console.log(pool.name, supplyApys[i].valueOf(), supplyCompApys[i].valueOf()));
   }
 
   return getApyBreakdown(
-    params.pools.map(p => ({ ...p, address: p.name })),
-    Object.fromEntries(params.pools.map((p, i) => [p.name, supplyApys[i]])),
-    supplyCompApys
+    params.pools.map((p, i) => ({
+      vaultId: p.name,
+      lending: supplyApys[i],
+      vault: supplyCompApys[i],
+    }))
   );
 };
 

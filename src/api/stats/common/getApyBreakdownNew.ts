@@ -28,9 +28,13 @@ const nonCompoundableComponents = [
 /** special component */
 const specialComponents = ['trading'] as const;
 
+/** lending component - fee charged but not autocompounded */
+const lendingComponents = ['lending'] as const;
+
 type CompoundableComponent = (typeof compoundableComponents)[number];
 type NonCompoundableComponent = (typeof nonCompoundableComponents)[number];
 type SpecialComponent = (typeof specialComponents)[number];
+type LendingComponent = (typeof lendingComponents)[number];
 
 type ToAprComponents<T extends string> = {
   [key in T as `${key}Apr`]?: number | undefined;
@@ -38,7 +42,8 @@ type ToAprComponents<T extends string> = {
 
 type AprBreakdown = ToAprComponents<CompoundableComponent> &
   ToAprComponents<NonCompoundableComponent> &
-  ToAprComponents<SpecialComponent>;
+  ToAprComponents<SpecialComponent> &
+  ToAprComponents<LendingComponent>;
 
 export type ApyBreakdown = AprBreakdown & {
   /**
@@ -73,7 +78,8 @@ type ToInputComponents<T extends string> = {
 
 type BreakdownRequestComponents = ToInputComponents<CompoundableComponent> &
   ToInputComponents<NonCompoundableComponent> &
-  ToInputComponents<SpecialComponent>;
+  ToInputComponents<SpecialComponent> &
+  ToInputComponents<LendingComponent>;
 
 /**
  * Total APY = (((1 + Compounded APY) * (1 + Special APR)) - 1) + Non-Compoundable APR.
@@ -130,10 +136,22 @@ export function getApyBreakdownOnly(request: ApyBreakdownRequest): ApyBreakdown 
     }
   }
 
+  // lending yield: fee charged but not autocompounded, so added linearly net of fee
+  let totalLending = 0;
+  for (const component of lendingComponents) {
+    const apr = toNumber(request[component]);
+    if (apr !== undefined) {
+      const aprAfterFee = apr * shareAfterBeefyPerformanceFee;
+      breakdown[`${component}Apr`] = aprAfterFee;
+      totalLending += aprAfterFee;
+    }
+  }
+
   // @dev shareAfterBeefyPerformanceFee = 1 as fee is already removed from all components
   breakdown.totalApy =
     getFarmWithTradingFeesApy(totalCompoundable, totalSpecial, compoundingsPerYear, 1, 1) +
-    totalNonCompoundable;
+    totalNonCompoundable +
+    totalLending;
 
   return breakdown;
 }

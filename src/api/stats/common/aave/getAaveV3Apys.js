@@ -3,7 +3,7 @@ const BigNumber = require('bignumber.js');
 import { fetchPrice } from '../../../../utils/fetchPrice';
 import { getMerklOpportunitiesByProtocol } from '../../../offchain-rewards/providers/merkl/proxyClient';
 
-const { getApyBreakdown } = require('../getApyBreakdown');
+const { getApyBreakdown } = require('../getApyBreakdownNew');
 const { default: IAaveV3Incentives } = require('../../../../abis/AaveV3Incentives');
 const { default: IAaveV3PoolDataProvider } = require('../../../../abis/AaveV3PoolDataProvider');
 const { fetchContract } = require('../../../rpc/client');
@@ -31,11 +31,12 @@ const getAaveV3ApyData = async (config, pools, chainId) => {
   });
 
   return getApyBreakdown(
-    pools.map(p => ({ ...p, address: p.name })),
-    Object.fromEntries(pools.map((p, i) => [p.name, lendingApys[i]])),
-    rewardApys,
-    0,
-    lsApys
+    pools.map((p, i) => ({
+      vaultId: p.name,
+      lending: lendingApys[i],
+      vault: rewardApys[i],
+      liquidStaking: lsApys[i],
+    }))
   );
 };
 
@@ -88,9 +89,6 @@ const getPoolApy = async (config, pool, chainId) => {
     let lsAprFactor = 1;
     if (pool.lsAprFactor) lsAprFactor = pool.lsAprFactor;
     lsApy = (lsApy * lsAprFactor) / 100;
-  }
-  if (pool.skimLending) {
-    lendingApy = lendingApy.times(0.905);
   }
   // console.log(pool.name, apy, supplyBase.valueOf(), borrowBase.valueOf(), supplyNative.valueOf(), borrowNative.valueOf());
   return [rewardsApy, lendingApy, lsApy];

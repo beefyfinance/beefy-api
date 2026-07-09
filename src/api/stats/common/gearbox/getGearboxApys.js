@@ -5,15 +5,12 @@ import GearboxVault from '../../../../abis/GearboxVault';
 import { getMerklApys } from '../getMerklApys';
 
 export const getGearboxApys = async (chainId, pools) => {
-  const [supplyApys, merklApys] = await Promise.all([
-    getPoolsApys(chainId, pools),
-    getMerklApys(chainId, pools),
-  ]);
+  const [supplyApys, merklApys] = await Promise.all([getPoolsApys(chainId, pools), getMerklApys(chainId, pools)]);
 
   return getApyBreakdown(
     pools.map(p => ({
       vaultId: p.name,
-      trading: supplyApys[pools.indexOf(p)],
+      lending: supplyApys[pools.indexOf(p)],
       vault: merklApys[pools.indexOf(p)],
     }))
   );
@@ -26,5 +23,5 @@ const getPoolsApys = async (chainId, pools) => {
   }
   const [supplyRates] = await Promise.all([Promise.all(supplyRateCalls)]);
 
-  return supplyRates.map(v => new BigNumber(v.toString()).div(1e27).times(0.905));
+  return supplyRates.map(v => new BigNumber(v.toString()).div(1e27));
 };
