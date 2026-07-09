@@ -90,9 +90,6 @@ const getPoolApy = async (config, pool, chainId) => {
     if (pool.lsAprFactor) lsAprFactor = pool.lsAprFactor;
     lsApy = (lsApy * lsAprFactor) / 100;
   }
-  if (pool.skimLending) {
-    lendingApy = lendingApy.times(0.905);
-  }
   // console.log(pool.name, apy, supplyBase.valueOf(), borrowBase.valueOf(), supplyNative.valueOf(), borrowNative.valueOf());
   return [rewardsApy, lendingApy, lsApy];
 };
