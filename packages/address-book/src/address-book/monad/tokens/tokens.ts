@@ -382,4 +382,18 @@ export const tokens = {
     documentation: 'https://docs.neverland.money/',
     tags: ['NO_TIMELOCK', 'SYNTHETIC', 'STABLECOIN'],
   },
+  avUSD: {
+    name: 'avUSD',
+    symbol: 'avUSD',
+    oracleId: 'avUSD',
+    address: '0x0D9D741FE423Cd5419e4BCb6cB2FfA87AFa93bA4',
+    chainId: 1,
+    decimals: 18,
+    website: 'https://app.avantprotocol.com/products',
+    documentation: 'https://docs.avantprotocol.com/overview/core-tokens#avusd',
+    description:
+      'avUSD is the primary stable token of the Avant Protocol, acting as the entry point for USD-denominated yield.',
+    bridge: 'chainlink-ccip',
+    tags: ['NO_TIMELOCK', 'STABLECOIN', 'SYNTHETIC'],
+  },
 } as const satisfies Record<string, Token>;
