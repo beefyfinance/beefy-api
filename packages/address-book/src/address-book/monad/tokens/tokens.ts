@@ -239,6 +239,33 @@ export const tokens = {
     bridge: 'chainlink',
     tags: ['STABLECOIN'],
   },
+  GHO: {
+    name: 'GHO Token',
+    symbol: 'GHO',
+    oracleId: 'GHO',
+    address: '0xfc421aD3C883Bf9E7C4f42dE845C4e4405799e73',
+    chainId: 143,
+    decimals: 18,
+    website: 'https://aave.com/',
+    documentation: 'https://docs.aave.com/faq/gho-stablecoin',
+    description:
+      'GHO is a decentralized multi-collateral stablecoin that is fully backed, transparent and native to the Aave Protocol.',
+    bridge: 'chainlink-ccip',
+    tags: ['STABLECOIN', 'SYNTHETIC'],
+  },
+  mUSD: {
+    name: 'MetaMask USD',
+    symbol: 'mUSD',
+    oracleId: 'MetaMaskUSD',
+    address: '0xacA92E438df0B2401fF60dA7E4337B687a2435DA',
+    chainId: 143,
+    decimals: 6,
+    website: 'https://metamask.io/',
+    documentation: 'https://metamask.io/',
+    description:
+      'MetaMask USD (mUSD) is a stablecoin issued by MetaMask, designed to maintain a 1:1 peg with the US dollar and integrate across MetaMask products.',
+    tags: ['STABLECOIN'],
+  },
   earnAUSD: {
     name: 'Earn Agora Dollar',
     symbol: 'earnAUSD',

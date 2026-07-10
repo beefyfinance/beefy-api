@@ -163,6 +163,12 @@ const oracles: Oracle[] = [
     heartbeat: 864000,
   },
   {
+    oracleId: 'MetaMaskUSD',
+    address: '0xc90E3460424fb8ea79775089E9053113FEE34Ed0',
+    chain: 'ethereum',
+    heartbeat: 864000,
+  },
+  {
     oracleId: 'wstETH',
     address: '0x698B585CbC4407e2D54aa898B2600B53C68958f7',
     chain: 'optimism',

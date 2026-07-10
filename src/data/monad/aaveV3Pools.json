@@ -50,5 +50,31 @@
     "borrowDepth": 1,
     "borrowPercent": 0,
     "skimLending": true
+  },
+  {
+    "name": "aavev3-monad-gho",
+    "token": "0xfc421aD3C883Bf9E7C4f42dE845C4e4405799e73",
+    "aToken": "0x4586face17B0e3D4d51EcABb4B4EBC2354b61b0D",
+    "debtToken": "0x1dd98eDe37480c2E0827a107c68f442aA516E7fc",
+    "identifier": "3053d8e9f28ed93e",
+    "oracle": "tokens",
+    "oracleId": "GHO",
+    "decimals": "1e18",
+    "borrowDepth": 1,
+    "borrowPercent": 0,
+    "skimLending": true
+  },
+  {
+    "name": "aavev3-monad-musd",
+    "token": "0xacA92E438df0B2401fF60dA7E4337B687a2435DA",
+    "aToken": "0xDBb2e1b6BC94328Df2662A1796AB6A23fCde3199",
+    "debtToken": "0x9837392b2b5b2Ce7C39A357E0eB6E07d9fFb76Cd",
+    "identifier": "9b7272ce2572809e",
+    "oracle": "tokens",
+    "oracleId": "MetaMaskUSD",
+    "decimals": "1e6",
+    "borrowDepth": 1,
+    "borrowPercent": 0,
+    "skimLending": true
   }
 ]
