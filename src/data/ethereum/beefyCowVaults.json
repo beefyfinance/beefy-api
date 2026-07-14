@@ -36,6 +36,18 @@
     }
   },
   {
+    "address": "0xAE49310171dF9A46bF57B56e2672b99714b45980",
+    "lpAddress": "0x88e6A0c2dDD26FEEb64F039a2c41296FcB3f5640",
+    "tokens": ["0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48", "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2"],
+    "tokenOracleIds": ["USDC", "WETH"],
+    "decimals": [6, 18],
+    "oracleId": "uniswap-cow-ethereum-usdc-weth",
+    "rewardPool": {
+      "address": "0xa92a0DEfcB618143eA89245b00d28EDCb881819b",
+      "oracleId": "uniswap-cow-ethereum-usdc-weth-rp"
+    }
+  },
+  {
     "address": "0x1f2E246a23D9E620F0c643e1239D77dDc5a82743",
     "lpAddress": "0x53e3d506F468c4BC30cc8CaA21Eb7E56c2fA2D55",
     "tokens": ["0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2", "0xf280B16EF293D8e534e370794ef26bF312694126"],
