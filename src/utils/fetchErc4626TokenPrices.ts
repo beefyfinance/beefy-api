@@ -1,6 +1,5 @@
 import BigNumber from 'bignumber.js';
 import { parseAbi } from 'viem';
-import { ETH_CHAIN_ID } from '../constants';
 import { addressBook, ChainId, Token } from '../../packages/address-book/src/address-book';
 import { fetchContract } from '../api/rpc/client';
 
@@ -16,7 +15,7 @@ const {
 // price(share) = assetsPerShare * price(underlying)
 type Erc4626Vault = [underlying: Token, share: Token];
 
-const tokens: Record<string, Erc4626Vault[]> = {
+const tokens: Partial<Record<keyof typeof ChainId, Erc4626Vault[]>> = {
   ethereum: [[cUSD, stcUSD]],
 };
 
@@ -50,8 +49,12 @@ const getErc4626Prices = async (
 };
 
 const fetchErc4626TokenPrices = async (tokenPrices: Record<string, number>): Promise<Record<string, number>> => {
-  const results = await Promise.all([getErc4626Prices(tokenPrices, tokens.ethereum, ETH_CHAIN_ID)]);
-  const vaults = Object.values(tokens).flat();
+  // Prices and oracleIds both derive from the same entries so they can't fall out of alignment
+  const entries = Object.entries(tokens) as [keyof typeof ChainId, Erc4626Vault[]][];
+  const results = await Promise.all(
+    entries.map(([chain, vaults]) => getErc4626Prices(tokenPrices, vaults, ChainId[chain]))
+  );
+  const vaults = entries.flatMap(([, chainVaults]) => chainVaults);
   return results.flat().reduce<Record<string, number>>((acc, price, i) => {
     // Skip unpriced vaults (NaN) so the oracleId stays absent rather than resolving to a bad value
     if (Number.isFinite(price)) acc[vaults[i][1].oracleId] = price;
