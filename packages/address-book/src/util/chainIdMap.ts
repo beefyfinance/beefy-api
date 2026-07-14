@@ -42,6 +42,7 @@ export const chainIdMap = {
   plasma: 9745,
   monad: 143,
   megaeth: 4326,
+  robinhood: 4663,
 } satisfies ChainIdMap;
 
 // back-compat

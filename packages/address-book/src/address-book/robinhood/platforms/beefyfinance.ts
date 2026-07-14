@@ -1,0 +1,42 @@
+const devMultisig = '0x000000a151650b85742d8c286E09ABa7bE9BDB82';
+const treasuryMultisig = '0xA55e75C4815Ff39eFD76C257857441d9FD99b45b';
+
+export const beefyfinance = {
+  devMultisig,
+  treasuryMultisig,
+  strategyOwner: '0x14E05B7161f57F4F0e3428CC49B4d477EcBf6D51',
+  vaultOwner: '0x03193Ef8c3f75C22fAf2995540602399cdcD4cbc',
+  keeper: '0x4fED5491693007f0CD49f4614FFC38Ab6A04B619',
+  treasurer: treasuryMultisig,
+  launchpoolOwner: devMultisig,
+  rewardPool: '0x0000000000000000000000000000000000000000',
+  treasury: '0x0000000000000000000000000000000000000000',
+  beefyFeeRecipient: '0x02Ae4716B9D5d48Db1445814b0eDE39f5c28264B',
+  zapFeeRecipient: treasuryMultisig,
+  multicall: '0x8Ed9A8c5Cac2Ed45E04feE0BC8D3B2293f092FB3',
+  bifiMaxiStrategy: '0x0000000000000000000000000000000000000000',
+  voter: '0x5e1caC103F943Cd84A1E92dAde4145664ebf692A',
+  beefyFeeConfig: '0x3CBa40c350ed4346F693C266831035dd60AF628e',
+  vaultFactory: '0x2f99004ed581bc0fe35749047cAc44F0ee410cdf',
+  strategyFactory: '0x0E141deee4CcDa44212C30FD9242CB977b5Dff0B',
+  wrapperFactory: '0x704526D6622C99Fb9A809000c6B64BEaA02dF32c',
+  zap: '0xA4Fa243F43D9B3f60664e9F11E377a49D322BD1a',
+  zapTokenManager: '0x057dD7686F9EFD62b261655D178d088190cF08Ef',
+  treasurySwapper: '0x0000000000000000000000000000000000000000',
+
+  /// CLM Contracts
+  clmFactory: '0x7881036d5DE71CE2ed5f2916025460A2AcA69ac4',
+  clmStrategyFactory: '0xD4E968d673bc2C4Ba5abcB773de6f07e65E94E44',
+  clmRewardPoolFactory: '0x45efE862a9c6Dba32221c040885b794A9589103F',
+  positionMulticall: '0x119cad4333D74536a4d7E288d9E7108fB507A1B5',
+
+  /// Beefy Swapper Contracts
+  beefySwapper: '0x19123E344Dc22ef22525994FcB801E99fb37fA9E',
+  beefyOracle: '0x3e810a6bf0418c53eAAC24221375A166F77841EE',
+  beefyOracleChainlink: '0xf9925a9B0d22e82345277C08780a31106F6aB4B7',
+  beefyOracleUniswapV2: '0x03279D9b8458875A89ca018f587CcfFAdC8e75E0',
+  beefyOracleUniswapV3: '0x3f7727F63af17A5F51d30a1E30F5Aef0E14266dF',
+  beefyOracleERC4626: '0xDEc5C3b6ceAa7d2F6b7354b9411cbF5713e1a50D',
+  beefyMultiHopSwapper: '0xb78CFc9e16fcE56d0bD28f5D1f8E4c8519CAb627',
+  beefyUniV4Swapper: '0xb035c4f8FB32CE442e6b58DD3EdAFBE01F780310',
+} as const;
