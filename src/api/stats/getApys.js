@@ -66,7 +66,7 @@ const updateApys = async () => {
       // getScrollApys(),
       // getLiskApys(),
       getSonicApys(),
-      getBerachainApys(),
+      // getBerachainApys(),
       getHyperevmApys(),
       getPlasmaApys(),
       getMonadApys(),
