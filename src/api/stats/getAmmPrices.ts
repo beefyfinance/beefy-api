@@ -4,6 +4,7 @@ import { fetchAmmPrices } from '../../utils/fetchAmmPrices';
 import { fetchMooPrices } from '../../utils/fetchMooPrices';
 import { fetchOptionTokenPrices } from '../../utils/fetchOptionTokenPrices';
 import { fetchWrappedAavePrices } from '../../utils/fetchWrappedAaveTokenPrices';
+import { fetchErc4626TokenPrices } from '../../utils/fetchErc4626TokenPrices';
 import { fetchCurveTokenPrices } from '../../utils/fetchCurveTokenPrices';
 import { fetchConcentratedLiquidityTokenPrices } from '../../utils/fetchConcentratedLiquidityTokenPrices';
 import { fetchSolidlyStableTokenPrices } from '../../utils/fetchSolidlyStableTokenPrices';
@@ -192,6 +193,7 @@ const coinGeckoCoins: Record<string, string[]> = {
   'savings-crvusd': ['scrvUSD'],
   'grove-2': ['GROVE'],
   'avant-usd': ['avUSD'],
+  'cap-usd': ['cUSD'],
 };
 
 /**
@@ -492,6 +494,14 @@ async function performUpdateAmmPrices() {
     };
   });
 
+  log('> [PRICE SERVICE] Starting ERC-4626 token prices...');
+  const erc4626Prices = ammPrices.then(async ({ tokenPrices }) => {
+    log('> [PRICE SERVICE] ERC-4626 token prices fetch started');
+    const result = await promiseTiming(fetchErc4626TokenPrices(tokenPrices), 'fetchErc4626TokenPrices');
+    log('> [PRICE SERVICE] ERC-4626 token prices completed');
+    return result;
+  });
+
   log('> [PRICE SERVICE] Starting BE token prices...');
   const beTokenPrice = ammPrices.then(async ({ tokenPrices }) => {
     log('> [PRICE SERVICE] BE token prices fetch started');
@@ -515,6 +525,8 @@ async function performUpdateAmmPrices() {
     log('> [PRICE SERVICE] Linear pool prices resolved');
     const optionTokenPrice = await optionPrices;
     log('> [PRICE SERVICE] Option prices resolved');
+    const erc4626TokenPrices = await erc4626Prices;
+    log('> [PRICE SERVICE] ERC-4626 token prices resolved');
     log('> [PRICE SERVICE] All token price dependencies resolved, consolidating...');
     return {
       ...tokenPrices,
@@ -524,6 +536,7 @@ async function performUpdateAmmPrices() {
       ...solidlyStablePrices,
       ...linearPoolTokenPrice,
       ...optionTokenPrice,
+      ...erc4626TokenPrices,
     };
   });
 
