@@ -1,6 +1,8 @@
 import { ApiChain } from './chain';
-import { chunk, orderBy, uniqBy } from 'lodash';
+import { orderBy, uniqBy } from 'lodash';
 import { isFiniteNumber } from './number';
+
+const MAX_VALID_PRICE_USD = 1_000_000;
 
 const chainIdToDexScreenerChainId = {
   ethereum: 'ethereum',
@@ -30,6 +32,7 @@ const chainIdToDexScreenerChainId = {
   sonic: 'sonic',
   plasma: 'plasma',
 } as const satisfies Partial<Record<ApiChain, string>>;
+
 const dexScreenerChainIdToChainId = Object.fromEntries(
   Object.entries(chainIdToDexScreenerChainId).map(([k, v]) => [v, k])
 ) as Record<string, ApiChain>;
@@ -77,7 +80,18 @@ function enhancePairs(pairs: DexScreenerPair[]): EnhancedPair[] {
   return (
     pairs
       // Have price, and on supported chain
-      .filter(pair => !!pair.priceUsd && pair.chainId in dexScreenerChainIdToChainId)
+      .filter(({ priceUsd, chainId }) => {
+        if (!priceUsd || !(chainId in dexScreenerChainIdToChainId)) {
+          return false;
+        }
+
+        const parsedPriceUsd = parseFloat(priceUsd);
+        if (!isFiniteNumber(parsedPriceUsd) || parsedPriceUsd <= 0 || parsedPriceUsd > MAX_VALID_PRICE_USD) {
+          return false;
+        }
+
+        return true;
+      })
       // Calculate price of quote token in USD
       .map(pair => ({
         chainId: dexScreenerChainIdToChainId[pair.chainId],
@@ -165,9 +179,7 @@ export async function fetchDexScreenerPrices(requests: PriceRequest[]): Promise<
     const prices = allPairs
       .filter(pair => pairIsForRequest(pair, request))
       .sort((a, b) => b.liquidityUsd - a.liquidityUsd)
-      .map(p =>
-        p.baseToken.address === request.tokenAddress ? p.baseToken.priceUsd : p.quoteToken.priceUsd
-      );
+      .map(p => (p.baseToken.address === request.tokenAddress ? p.baseToken.priceUsd : p.quoteToken.priceUsd));
 
     return { ...request, price: prices[0] || undefined };
   });
@@ -181,9 +193,7 @@ export type OraclePriceRequest = PriceRequest & {
  * Fetches the prices from DexScreener and returns them as an oracleId:price map
  * Missing prices are not included in the result, duplicate oracles are logged and ignored
  */
-export async function fetchDexScreenerPriceOracles(
-  requests: OraclePriceRequest[]
-): Promise<Record<string, number>> {
+export async function fetchDexScreenerPriceOracles(requests: OraclePriceRequest[]): Promise<Record<string, number>> {
   const prices = await fetchDexScreenerPrices(requests);
   return prices.reduce((acc, { price }, i) => {
     const { oracleId, tokenAddress, chainId } = requests[i]!;
