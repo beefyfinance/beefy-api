@@ -1888,6 +1888,16 @@ const tokens: Partial<Record<keyof typeof ChainId, ConcentratedLiquidityToken[]>
       secondToken: 'MEGA',
     },
   ],
+  robinhood: [
+    {
+      type: 'UniV3',
+      oracleId: 'USDG',
+      decimalDelta: 1e12,
+      pool: '0x69BfaF19C9f377BB306a89aEd9F6B07e2c1a8d9a',
+      firstToken: 'USDG',
+      secondToken: 'WETH',
+    },
+  ],
 };
 
 async function getConcentratedLiquidityPrices(
