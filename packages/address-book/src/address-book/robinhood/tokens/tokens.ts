@@ -25,8 +25,23 @@ const USDG = {
   description:
     'Global Dollar (USDG) is a single-currency stablecoin pegged to the US dollar, issued by Paxos. Built for payments, settlements and treasury, USDG can be used as an interoperable building block for open-source smart contracts.',
   bridge: 'layer-zero',
-  documentation: 'https://globaldollar.com/',
+  documentation: 'https://docs.paxos.com/guides/stablecoin/usdg',
   tags: ['STABLECOIN'],
+} as const satisfies Token;
+
+const CASHCAT = {
+  name: 'Cash Cat',
+  address: '0x020bfC650A365f8BB26819deAAbF3E21291018b4',
+  symbol: 'CASHCAT',
+  oracleId: 'CASHCAT',
+  decimals: 18,
+  chainId: 4663,
+  website: 'https://cashcattoken.xyz/',
+  description:
+    'The cat that became a hood. The mascot of the movement before the movement had a logo. $CASHCAT honors the origin story of Robinhood Chain.',
+  bridge: 'native',
+  documentation: 'https://cashcattoken.xyz/#tokenomics',
+  tags: ['MEMECOIN'],
 } as const satisfies Token;
 
 export const tokens = {
@@ -35,4 +50,5 @@ export const tokens = {
   ETH,
   WETH: ETH,
   USDG,
+  CASHCAT,
 } as const satisfies Record<string, Token>;
