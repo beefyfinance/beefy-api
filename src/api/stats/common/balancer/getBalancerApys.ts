@@ -104,6 +104,7 @@ const getPoolApys = async (params: BalancerParams) => {
 
 const getPoolApy = async (pool: Pool, params: BalancerParams) => {
   if (pool.status === 'eol') return new BigNumber(0);
+  return new BigNumber(0);
   let rewardsApy: BigNumber = new BigNumber(0);
 
   const [yearlyRewardsInUsd, totalStakedInUsd] = await Promise.all([

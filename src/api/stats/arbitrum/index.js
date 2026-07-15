@@ -1,16 +1,10 @@
 const { getCurveApys } = require('./getCurveApys');
-const getBalancerArbApys = require('./getBalancerArbApys');
-const getAuraArbitrumApys = require('./getAuraArbitrumApys');
 const { getBeefyArbCowApys } = require('./getBeefyArbCowApys');
-const { getMimApys } = require('./getMimApys');
 const { getMorphoApys } = require('../common/morpho/getMorphoApys');
 const { ARBITRUM_CHAIN_ID: chainId } = require('../../../constants');
 
 const getApys = [
-  getAuraArbitrumApys,
-  getMimApys,
   getCurveApys,
-  // getBalancerArbApys,
   getBeefyArbCowApys,
   () => getMorphoApys(chainId, require('../../../data/arbitrum/morphoPools.json')),
 ];

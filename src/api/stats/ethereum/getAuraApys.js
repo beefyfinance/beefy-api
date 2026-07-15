@@ -51,6 +51,8 @@ const getTradingFeeAprBalancer = async (chainId, pairAddresses) => {
 };
 
 const getPoolApys = async pools => {
+  return pools.map(() => new BigNumber(0));
+
   const apys = [];
 
   const [auraData, { balances, rewardRates, finishes, multipliers, extras }] = await Promise.all([
