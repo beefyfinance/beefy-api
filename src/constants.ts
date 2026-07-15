@@ -60,6 +60,7 @@ const DEFAULT_RPCS: ApiChainToRpcs = {
   plasma: ['https://rpc.plasma.to'],
   monad: ['https://rpc-mainnet.monadinfra.com'],
   megaeth: ['https://mainnet.megaeth.com/rpc'],
+  robinhood: ['https://rpc.mainnet.chain.robinhood.com'],
 } as const;
 
 const chainToRpcEnvKeyPrefix = {

@@ -507,4 +507,5 @@ export const blockedTokensByChain: Record<SupportedApiChain, Set<string>> = {
   plasma: new Set([]),
   monad: new Set([]),
   megaeth: new Set([]),
+  robinhood: new Set([]),
 };
