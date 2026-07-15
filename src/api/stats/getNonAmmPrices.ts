@@ -60,6 +60,7 @@ import { getBeefyCowHyperevmPrices } from './hyperevm/getBeefyHyperevmCowPrices'
 import { getBeefyCowPlasmaPrices } from './plasma/getBeefyPlasmaCowPrices';
 import { getBeefyCowMonadPrices } from './monad/getBeefyMonadCowPrices';
 import { getBeefyCowMegaethPrices } from './megaeth/getBeefyMegaethCowPrices';
+import { getBeefyCowRobinhoodPrices } from './robinhood/getBeefyRobinhoodCowPrices';
 import { getBeefyCowEthereumPrices } from './ethereum/getBeefyCowEthereumPrices';
 import { getPendleCommonPrices } from './common/getPendleCommonPrices';
 import { getMellowVeloPrices } from './common/getMellowVeloPrices';
@@ -152,6 +153,7 @@ export async function getNonAmmPrices(
     getBeefyCowPlasmaPrices(tokenPrices),
     getBeefyCowMonadPrices(tokenPrices),
     getBeefyCowMegaethPrices(tokenPrices),
+    getBeefyCowRobinhoodPrices(tokenPrices),
     getBeefyCowEthereumPrices(tokenPrices),
     getPendleCommonPrices(ETH_CHAIN_ID, require('../../data/ethereum/pendlePools.json'), tokenPrices),
     getPendleCommonPrices(ETH_CHAIN_ID, require('../../data/ethereum/pendleUnboostedPools.json'), tokenPrices),
