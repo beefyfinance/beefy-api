@@ -250,6 +250,7 @@ const rpcs: Record<ChainId, string[]> = {
   [ChainId.plasma]: ['https://rpc.plasma.to'],
   [ChainId.monad]: ['https://rpc-mainnet.monadinfra.com'],
   [ChainId.megaeth]: ['https://mainnet.megaeth.com/rpc'],
+  [ChainId.robinhood]: ['https://rpc.mainnet.chain.robinhood.com'],
 };
 
 export const getChainRpcs = (chainId: ChainId): string[] => rpcs[chainId] ?? [];
