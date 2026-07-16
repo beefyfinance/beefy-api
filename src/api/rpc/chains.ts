@@ -703,6 +703,29 @@ const megaethChain = {
   },
 } as const satisfies Chain;
 
+const robinhoodChain = {
+  id: 4663,
+  name: 'Robinhood',
+  network: 'robinhood',
+  nativeCurrency: {
+    decimals: 18,
+    name: 'Ether',
+    symbol: 'ETH',
+  },
+  rpcUrls: {
+    public: { http: getRpcsForChain('robinhood') },
+    default: { http: getRpcsForChain('robinhood') },
+  },
+  blockExplorers: {
+    default: { name: 'robinhood explorer', url: 'https://robinhoodchain.blockscout.com/' },
+  },
+  contracts: {
+    multicall3: {
+      address: '0xca11bde05977b3631167028862be2a173976ca11',
+    },
+  },
+} as const satisfies Chain;
+
 // const unichainChain = {
 //   id: 130,
 //   name: 'Unichain',
@@ -757,4 +780,5 @@ export const getChain: Partial<Record<ChainId, Chain>> = {
   [ChainId.plasma]: plasmaChain,
   [ChainId.monad]: monadChain,
   [ChainId.megaeth]: megaethChain,
+  [ChainId.robinhood]: robinhoodChain,
 } as const;

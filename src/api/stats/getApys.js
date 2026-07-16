@@ -21,6 +21,7 @@ const { getHyperevmApys } = require('./hyperevm');
 const { getPlasmaApys } = require('./plasma');
 const { getMonadApys } = require('./monad');
 const { getMegaethApys } = require('./megaeth');
+const { getRobinhoodApys } = require('./robinhood');
 const { getKey, setKey } = require('../../utils/cache');
 const { fetchBoostAprs, BOOST_APR_EXPIRED } = require('./getBoostAprs');
 const { serviceEventBus } = require('../../utils/ServiceEventBus');
@@ -71,6 +72,7 @@ const updateApys = async () => {
       getPlasmaApys(),
       getMonadApys(),
       getMegaethApys(),
+      getRobinhoodApys(),
     ]);
 
     for (const result of results) {
