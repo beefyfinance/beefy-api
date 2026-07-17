@@ -3157,4 +3157,18 @@ export const tokens = {
     bridge: 'native',
     tags: ['STABLECOIN'],
   },
+  AAVE: {
+    name: 'Aave Token',
+    symbol: 'AAVE',
+    oracleId: 'AAVE',
+    address: '0x7Fc66500c84A76Ad7e9c93437bFc5Ac33E2DDaE9',
+    chainId: 1,
+    decimals: 18,
+    website: 'https://aave.com/',
+    documentation: 'https://docs.aave.com/',
+    description:
+      'Aave is a decentralized non-custodial liquidity protocol where users can participate as depositors or borrowers. Depositors provide liquidity to the market to earn a passive income, while borrowers are able to borrow in an overcollateralized (perpetually) or undercollateralized (one-block liquidity) fashion.',
+    bridge: 'native',
+    tags: ['BLUECHIP'],
+  },
 } as const satisfies Record<string, Token>;
