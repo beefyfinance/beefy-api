@@ -24,6 +24,18 @@
     }
   },
   {
+    "address": "0xAAa8C1e4F75Ec7DF802607D827Ea0efE8dCDDbDD",
+    "lpAddress": "0x237609918F330ADD285b8bC5f8f2922283D1C4C5",
+    "tokens": ["0x0Bd7D308f8E1639FAb988df18A8011f41EAcAD73", "0x45242320DBB855EeA8Fd36804C6487E10E97FCF9"],
+    "tokenOracleIds": ["WETH", "TENDIES"],
+    "decimals": [18, 18],
+    "oracleId": "uniswap-cow-robinhood-tendies-weth",
+    "rewardPool": {
+      "address": "0xcD68b5A8850E5A10531bDE1BC657329575E40E2C",
+      "oracleId": "uniswap-cow-robinhood-tendies-weth-rp"
+    }
+  },
+  {
     "address": "0x1e8d576F71D5F416e7573b960fF59C4Fb77976ad",
     "lpAddress": "0x69BfaF19C9f377BB306a89aEd9F6B07e2c1a8d9a",
     "tokens": ["0x0Bd7D308f8E1639FAb988df18A8011f41EAcAD73", "0x5fc5360D0400a0Fd4f2af552ADD042D716F1d168"],
