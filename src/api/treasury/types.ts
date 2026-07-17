@@ -21,7 +21,7 @@ export type Asset = {
   address: string;
   name: string;
   decimals: number;
-  assetType: 'token' | 'native' | 'vault' | 'validator' | 'concLiquidity' | 'locked-token';
+  assetType: 'token' | 'native' | 'vault' | 'gov' | 'validator' | 'concLiquidity' | 'locked-token';
   oracleType: 'lps' | 'tokens';
   oracleId: string;
   symbol?: string;
@@ -34,6 +34,13 @@ export type VaultAsset = Asset & {
   pricePerFullShare: BigNumber;
   vaultId: string;
   assetType: 'vault';
+};
+
+// gov pools (CLM reward pools, earnings pools); same shape as vaults, ppfs is always 1:1
+export type GovAsset = Asset & {
+  pricePerFullShare: BigNumber;
+  vaultId: string;
+  assetType: 'gov';
 };
 
 export type NativeAsset = Asset & {
@@ -55,7 +62,7 @@ export type ConcLiquidityAsset = Asset & {
   id: number;
 };
 
-export type TreasuryAsset = Asset | VaultAsset | NativeAsset | ValidatorAsset | ConcLiquidityAsset;
+export type TreasuryAsset = Asset | VaultAsset | GovAsset | NativeAsset | ValidatorAsset | ConcLiquidityAsset;
 
 export type TreasuryAssetRegistry = {
   [chain in ApiChain]?: {
@@ -73,6 +80,10 @@ export function isValidatorAsset(asset: TreasuryAsset): asset is ValidatorAsset 
 
 export function isVaultAsset(asset: TreasuryAsset): asset is VaultAsset {
   return isObject(asset) && asset.assetType === 'vault';
+}
+
+export function isGovAsset(asset: TreasuryAsset): asset is GovAsset {
+  return isObject(asset) && asset.assetType === 'gov';
 }
 
 export function isTokenAsset(asset: TreasuryAsset): asset is TokenAsset {
@@ -118,34 +129,7 @@ export type TreasuryReport = {
   };
 };
 
-export type MarketMakerAsset = {
-  symbol: string;
-  name: string;
-  oracleId: string;
-  oracleType: 'tokens' | 'lps';
-};
-
-export type MMExchangeBalance = {
-  [assetSymbol: string]: MarketMakerAsset & {
-    usdValue: string;
-    balance: string;
-    price: number;
-  };
-};
-export type MMReport = {
-  [marketMaker: string]: {
-    [exchange: string]: MMExchangeBalance;
-  };
-};
-
 export type TreasuryApiResult = {
   apiAsset: TreasuryAsset;
   balance: BigNumber;
-};
-
-// MarketMaker API
-export type MarketMakerAPIResult = {
-  [exchange: string]: {
-    [token: string]: number;
-  };
 };
