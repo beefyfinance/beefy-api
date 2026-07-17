@@ -1905,6 +1905,14 @@ const tokens: Partial<Record<keyof typeof ChainId, ConcentratedLiquidityToken[]>
       firstToken: 'WETH',
       secondToken: 'CASHCAT',
     },
+    {
+      type: 'UniV3',
+      oracleId: 'TENDIES',
+      decimalDelta: 1,
+      pool: '0x237609918F330ADD285b8bC5f8f2922283D1C4C5',
+      firstToken: 'TENDIES',
+      secondToken: 'WETH',
+    },
   ],
 };
 
