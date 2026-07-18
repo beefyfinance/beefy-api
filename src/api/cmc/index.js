@@ -6,6 +6,9 @@ const { API_BASE_URL, BSC_RPC } = require('../../constants');
 const vaults_json = require('../../data/cmc.json');
 const BeefyVault = require('../../abis/BeefyVault.ts');
 
+const { getLoggerFor } = require('../../utils/logger/index.js');
+const logger = getLoggerFor({ module: 'cmc' });
+
 const fetchVaultTvl = async ({ vault }) => {
   const provider = new ethers.providers.JsonRpcProvider(BSC_RPC);
   const vaultContract = new ethers.Contract(vault.contract, BeefyVault, provider);
@@ -39,7 +42,7 @@ const vaults = async ctx => {
     });
     await Promise.all(promises);
   } catch (err) {
-    console.error('CMC error');
+    logger.warn({ err }, 'cmc request failed');
   }
 
   ctx.body = vaults_json;

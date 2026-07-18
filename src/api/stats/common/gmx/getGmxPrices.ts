@@ -2,6 +2,9 @@ import BigNumber from 'bignumber.js';
 import GlpManagerAbi from '../../../../abis/arbitrum/GlpManager';
 import ERC20Abi from '../../../../abis/ERC20Abi';
 import { fetchContract } from '../../../rpc/client';
+import { getLoggerFor } from '../../../../utils/logger/index.js';
+
+const logger = getLoggerFor({ module: 'prices', platform: 'gmx' });
 
 export const getGmxPrices = async (chainId, pools, tokenPrices) => {
   let prices = {};
@@ -43,7 +46,7 @@ const getTokenPrice = (tokenPrices, oracleId) => {
   if (tokenPrices.hasOwnProperty(tokenSymbol)) {
     tokenPrice = tokenPrices[tokenSymbol];
   } else {
-    console.error(`Unknown token '${tokenSymbol}'. Consider adding it to .json file`);
+    logger.warn({ token: tokenSymbol }, 'unknown token, consider adding it to json file');
   }
   return tokenPrice;
 };
@@ -70,10 +73,7 @@ const getLpPrice = async (chainId, pool) => {
   const glpManagerContract = fetchContract(pool.glpManager, GlpManagerAbi, chainId);
   const glpContract = fetchContract(pool.address, ERC20Abi, chainId);
 
-  const result = await Promise.all([
-    glpManagerContract.read.getAum([false]),
-    glpContract.read.totalSupply(),
-  ]);
+  const result = await Promise.all([glpManagerContract.read.getAum([false]), glpContract.read.totalSupply()]);
   const aum = new BigNumber((result[0] as BigInt).toString());
   const totalSupply = new BigNumber(result[1].toString());
   const price = aum.dividedBy(totalSupply).dividedBy('1e12').toNumber();

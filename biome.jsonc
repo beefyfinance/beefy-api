@@ -40,7 +40,7 @@
         "noInnerDeclarations": "warn"
       },
       "suspicious": {
-        "noConsole": "warn",
+        "noConsole": "error",
         "useIterableCallbackReturn": "warn",
         "noDoubleEquals": "warn",
         "noAssignInExpressions": "warn",

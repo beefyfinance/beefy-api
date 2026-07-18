@@ -1,5 +1,8 @@
 const { default: BigNumber } = require('bignumber.js');
 const { getRPCClient } = require('../api/rpc/client');
+const { getLoggerFor } = require('./logger/index.js');
+
+const logger = getLoggerFor({ module: 'rpc' });
 
 const updateDelay = 3000000;
 const blockPeriod = 1000n;
@@ -17,16 +20,14 @@ const getBlockTime = async chainId => {
     const latestBlock = await client.getBlock({ blockTag: 'latest' });
     const fromBlock = await client.getBlock({ blockNumber: latestBlock.number - blockPeriod });
 
-    const blockTime = new BigNumber(
-      Number(latestBlock.timestamp - fromBlock.timestamp) / Number(blockPeriod)
-    );
+    const blockTime = new BigNumber(Number(latestBlock.timestamp - fromBlock.timestamp) / Number(blockPeriod));
     cache[chainId] = {
       lastUpdate: now,
       blockDuration: blockTime,
     };
     return blockTime;
   } catch (err) {
-    console.error(`getBlockTime error on ${chainId}:`);
+    logger.warn({ chain: chainId }, 'get block time failed');
     // console.error(err);
     return new BigNumber(0);
   }

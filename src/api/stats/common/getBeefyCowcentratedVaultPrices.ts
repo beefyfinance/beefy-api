@@ -6,6 +6,9 @@ import { getCowClms } from '../../cowcentrated/getCowClms';
 import { ClmLpBreakdown } from '../getAmmPrices';
 import { Abi } from 'abitype';
 import { isCowClmWithRewardPool } from '../../cowcentrated/types';
+import { getLoggerFor } from '../../../utils/logger/index.js';
+
+const logger = getLoggerFor({ module: 'prices' });
 
 const abi = [
   {
@@ -43,7 +46,7 @@ export const getBeefyCowcentratedVaultPrices = async (
 ): Promise<Record<string, ClmLpBreakdown>> => {
   const sources = getCowClms(apiChain);
   if (sources.length === 0) {
-    console.warn(`getBeefyCowcentratedVaultPrices: No Cowcentrated vaults found for ${apiChain}`);
+    logger.debug({ chain: apiChain }, 'no cowcentrated vaults for chain');
     return {};
   }
 
@@ -53,30 +56,23 @@ export const getBeefyCowcentratedVaultPrices = async (
   const token0Contracts = sources.map(source => fetchContract(source.tokens[0], ERC20Abi, chainId));
   const token1Contracts = sources.map(source => fetchContract(source.tokens[1], ERC20Abi, chainId));
 
-  const [balances, totalSupplies, liquidities, token0UnderlyingBalances, token1UnderlyingBalances] =
-    await Promise.all([
-      Promise.all(
-        contracts.map(contract =>
-          contract.read.balances().then(res => res.map(v => new BigNumber(v.toString())))
-        )
-      ),
-      Promise.all(
-        contracts.map(contract => contract.read.totalSupply().then(v => new BigNumber(v.toString())))
-      ),
-      Promise.all(
-        poolContracts.map(contract => contract.read.liquidity().then(v => new BigNumber(v.toString())))
-      ),
-      Promise.all(
-        token0Contracts.map((contract, index) =>
-          contract.read.balanceOf([sources[index].lpAddress]).then(v => new BigNumber(v.toString()))
-        )
-      ),
-      Promise.all(
-        token1Contracts.map((contract, index) =>
-          contract.read.balanceOf([sources[index].lpAddress]).then(v => new BigNumber(v.toString()))
-        )
-      ),
-    ]);
+  const [balances, totalSupplies, liquidities, token0UnderlyingBalances, token1UnderlyingBalances] = await Promise.all([
+    Promise.all(
+      contracts.map(contract => contract.read.balances().then(res => res.map(v => new BigNumber(v.toString()))))
+    ),
+    Promise.all(contracts.map(contract => contract.read.totalSupply().then(v => new BigNumber(v.toString())))),
+    Promise.all(poolContracts.map(contract => contract.read.liquidity().then(v => new BigNumber(v.toString())))),
+    Promise.all(
+      token0Contracts.map((contract, index) =>
+        contract.read.balanceOf([sources[index].lpAddress]).then(v => new BigNumber(v.toString()))
+      )
+    ),
+    Promise.all(
+      token1Contracts.map((contract, index) =>
+        contract.read.balanceOf([sources[index].lpAddress]).then(v => new BigNumber(v.toString()))
+      )
+    ),
+  ]);
   const prices: Record<string, ClmLpBreakdown> = {};
 
   sources.forEach((source, i) => {
@@ -128,7 +124,7 @@ export const getBeefyCowcentratedVaultPrices = async (
 
 const getTokenPrice = (tokenPrices, token) => {
   if (!tokenPrices.hasOwnProperty(token)) {
-    console.error(`BeefyCowcentratedVault Unknown token '${token}'. Consider adding it to .json file`);
+    logger.warn({ token }, 'unknown token, defaulting price to 1');
     return 1;
   }
   return tokenPrices[token];

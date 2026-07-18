@@ -1,4 +1,7 @@
 import BigNumber from 'bignumber.js';
+import { getLoggerFor } from './logger/index.js';
+
+const logger = getLoggerFor({ module: 'apy', platform: 'balancer' });
 
 const getChainName = chain => {
   switch (chain) {
@@ -77,7 +80,7 @@ export const getBalTradingAndLstApr = async (chain, poolAddresses) => {
         if (process.env.DEBUG_BALANCER_APR === 'true') {
           const debugAddr = process.env.DEBUG_BALANCER_APR_POOL?.toLowerCase?.();
           if (!debugAddr || debugAddr === key) {
-            console.log(`[Balancer APR debug] chain=${chain} pool=${key} aprItems=`, pool.dynamicData.aprItems);
+            logger.debug({ chain, pool: key, aprItems: pool.dynamicData.aprItems }, 'balancer apr items');
           }
         }
 
@@ -96,7 +99,7 @@ export const getBalTradingAndLstApr = async (chain, poolAddresses) => {
       lstAprs[i] = lstApr;
     });
   } catch (error) {
-    console.error(`Error Fetching Balancer Trading Fee and LST APR on Chain: ${chain}`);
+    logger.warn({ chain }, 'balancer trading fee and lst apr fetch failed');
   }
 
   return { tradingAprMap, lstAprs };

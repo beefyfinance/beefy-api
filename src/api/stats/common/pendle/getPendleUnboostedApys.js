@@ -1,6 +1,9 @@
 import { getApyBreakdown } from '../getApyBreakdownNew';
 import { getPendleApys } from './getPendleBaseApys';
 
+const { getLoggerFor } = require('../../../../utils/logger/index.js');
+const logger = getLoggerFor({ module: 'apy', platform: 'pendle' });
+
 export async function getPendleUnboostedApys(allPools) {
   const chainId = allPools[0].chainId;
   if (!chainId) throw new Error(`Add chainId to first pendle pool: ${allPools[0].name}`);
@@ -24,7 +27,7 @@ function filterExpired(pools) {
   pools.forEach(pool => {
     const date = pool.name.split('-').pop();
     const timestamp = Date.parse(`${date} UTC`) || 0;
-    if (timestamp === 0) console.error(pool.name, 'no expiry date');
+    if (timestamp === 0) logger.warn({ vault: pool.name }, 'no expiry date');
     if (timestamp > Date.now()) alive.push(pool);
     else expired.push(pool);
   });

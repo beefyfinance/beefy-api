@@ -1,4 +1,6 @@
 import { getMerklAprByExplorerAddress } from '../../offchain-rewards/providers/merkl/proxyClient';
+const { getLoggerFor } = require('../../../utils/logger/index.js');
+const logger = getLoggerFor({ module: 'apy', platform: 'merkl' });
 
 export const getMerklApys = async (chainId, pools) => {
   const merklAprByAddress = await getMerklV4AprByExplorerAddress(
@@ -14,7 +16,7 @@ const getMerklV4AprByExplorerAddress = async (chainId, explorerAddresses) => {
   try {
     return await getMerklAprByExplorerAddress(chainId, explorerAddresses);
   } catch (e) {
-    console.error(`Failed to fetch Merkl APRs via proxy: ${chainId}`);
+    logger.warn({ chain: chainId, err: e }, 'failed to fetch merkl aprs via proxy');
     return {};
   }
 };

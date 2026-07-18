@@ -1,6 +1,10 @@
 const { getBeefyCowSonicApys } = require('./getBeefyCowSonicApys');
 const { getSwapxApys } = require('./getSwapxApys');
 const { getBeSonicApy } = require('./getBeSonicApy');
+const { SONIC_CHAIN_ID } = require('../../../constants');
+const { getLoggerFor } = require('../../../utils/logger/index.js');
+
+const logger = getLoggerFor({ module: 'apy', chain: SONIC_CHAIN_ID });
 
 const getApys = [getBeefyCowSonicApys, getSwapxApys, getBeSonicApy];
 
@@ -15,7 +19,7 @@ const getSonicApys = async () => {
 
   for (const result of results) {
     if (result.status !== 'fulfilled') {
-      console.warn('getSonicApys error', result.reason);
+      logger.warn({ err: result.reason }, 'apy sub-calculation failed');
       continue;
     }
 
@@ -44,7 +48,7 @@ const getSonicApys = async () => {
   }
 
   const end = Date.now();
-  console.log(`> [APY] Sonic finished updating in ${(end - start) / 1000}s`);
+  logger.info({ durationMs: end - start }, 'apy updated');
 
   return {
     apys,

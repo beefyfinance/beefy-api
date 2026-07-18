@@ -4,6 +4,9 @@ import { fetchContract } from '../../../rpc/client';
 const BigNumber = require('bignumber.js');
 import { fetchPrice } from '../../../../utils/fetchPrice';
 import { getMerklAprByIdentifier } from '../../../offchain-rewards/providers/merkl/proxyClient';
+const { getLoggerFor } = require('../../../../utils/logger/index.js');
+
+const logger = getLoggerFor({ module: 'apy', platform: 'curve' });
 
 const secondsPerYear = 31536000;
 
@@ -96,7 +99,7 @@ export async function getMerklApys(chainId, pools) {
     try {
       aprById = await getMerklAprByIdentifier(chainId, ids);
     } catch (e) {
-      console.error('Curve getMerklApys', chainId, e.message);
+      logger.warn({ chain: chainId, err: e }, 'getMerklApys fetch failed');
     }
   }
   // aprById values are already decimal fractions (apr/100 done in the proxy client).

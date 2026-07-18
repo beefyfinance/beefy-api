@@ -5,6 +5,7 @@ import { MANTLE_CHAIN_ID } from '../../../constants';
 import { fetchContract } from '../../rpc/client';
 import MoeChefAbi from '../../../abis/mantle/MoeChef';
 import jp from 'jsonpath';
+import { getLoggerFor } from '../../../utils/logger/index.js';
 
 const pools = require('../../../data/mantle/moeLpPools.json');
 const secondsPerYear = 31536000;
@@ -15,6 +16,8 @@ const decimals = '1e18';
 const liquidityProviderFee = 0.0025;
 const treasuryShare = 0.368421052631578947;
 const url = 'https://barn.merchantmoe.com/v1/pools/mantle';
+
+const logger = getLoggerFor({ module: 'apy', platform: 'moe', chain: MANTLE_CHAIN_ID });
 
 const getMoeApys = async (): Promise<ApyBreakdownResult> => {
   const [tradingAprs, farmApys] = await Promise.all([getTradingAprs(), getFarmApys()]);
@@ -27,7 +30,7 @@ const getTradingAprs = async (): Promise<Record<string, BigNumber>> => {
     const response: any = await fetch(url).then(res => res.json());
     const pairAddresses = pools.map(pool => pool.address.toLowerCase());
     pairAddresses.forEach(pair => {
-      const pairData = jp.query(response, "$..[?(@.pairAddress==" + pair + ")]")[0];
+      const pairData = jp.query(response, '$..[?(@.pairAddress==' + pair + ')]')[0];
       if (pairData) {
         const tvl = new BigNumber(pairData.liquidityUsd);
         const volume = new BigNumber(pairData.volumeUsd);
@@ -37,7 +40,7 @@ const getTradingAprs = async (): Promise<Record<string, BigNumber>> => {
       }
     });
   } catch (e) {
-    console.error(`Failed to fetch Moe trading APRs from ${url} with error `, e);
+    logger.warn({ url, err: e }, 'failed to fetch trading aprs');
   }
   return pairAddressToAprMap;
 };

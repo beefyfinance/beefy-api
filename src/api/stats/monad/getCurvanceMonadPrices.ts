@@ -3,8 +3,10 @@ import { fetchContract } from '../../rpc/client';
 import { CurvancePool } from './getCurvanceApys';
 import CurvanceVault from '../../../abis/CurvanceVault';
 import { MONAD_CHAIN_ID } from '../../../constants';
+import { getLoggerFor } from '../../../utils/logger/index.js';
 
 const pools: CurvancePool[] = require('../../../data/monad/curvancePools.json');
+const logger = getLoggerFor({ module: 'prices', platform: 'curvance', chain: MONAD_CHAIN_ID });
 
 export const getCurvanceMonadPrices = async tokenPrices => {
   const totalAssetsCalls = [];
@@ -47,7 +49,7 @@ const getTokenPrice = (tokenPrices, oracleId) => {
   if (tokenPrices.hasOwnProperty(tokenSymbol)) {
     tokenPrice = tokenPrices[tokenSymbol];
   } else {
-    console.error(`Silo Unknown token '${tokenSymbol}'. Consider adding it to .json file`);
+    logger.debug({ token: tokenSymbol }, 'unknown token price');
   }
   return tokenPrice;
 };

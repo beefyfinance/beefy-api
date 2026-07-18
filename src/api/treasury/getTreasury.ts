@@ -21,6 +21,9 @@ import { keysToObject } from '../../utils/array';
 import { ZERO_ADDRESS } from '../../utils/address';
 import { contextAllSettled, isContextResultRejected, withTimeout } from '../../utils/promise';
 import { envNumber } from '../../utils/env';
+import { getLoggerFor } from '../../utils/logger/index.js';
+
+const logger = getLoggerFor({ module: 'treasury' });
 
 const REFRESH_INTERVAL = envNumber('TREASURY_REFRESH_INTERVAL', 1000 * 60);
 
@@ -81,7 +84,7 @@ async function updateSingleChainTreasuryBalance(chain: ApiChain) {
       `updateSingleChainTreasuryBalance(${chain})`
     );
   } catch (err) {
-    console.error(`error updating treasury balances on chain ${chain}\n${err.message}`);
+    logger.warn({ chain, err }, 'error updating treasury balances');
     throw err;
   }
 }
@@ -97,10 +100,9 @@ async function updateSingleChainTreasuryBalanceImpl(chain: ApiChain) {
   const failedCalls = callResults.filter(res => res.status === 'rejected').length;
   const hasOneFailedCall = failedCalls > 0;
   if (hasOneFailedCall) {
-    console.error(
-      `> treasury update had at least one failed call on ${chain} ${((failedCalls / callResults.length) * 100).toFixed(
-        2
-      )}% error rate`
+    logger.warn(
+      { chain, failed: failedCalls, total: callResults.length },
+      'treasury update had at least one failed call'
     );
   }
   const balancesForChain = {};
@@ -121,22 +123,21 @@ async function updateSingleChainTreasuryBalanceImpl(chain: ApiChain) {
 
 async function updateTreasuryBalances() {
   try {
-    console.log('> updating treasury balances');
+    logger.debug('updating treasury balances');
     const start = Date.now();
 
     const chainResults = await contextAllSettled(SupportedChains, updateSingleChainTreasuryBalance);
     await buildTreasuryReport();
     await saveToRedis();
 
-    console.log(`> treasury balances updated (${((Date.now() - start) / 1000).toFixed(2)}s)`);
+    logger.info({ durationMs: Date.now() - start }, 'treasury balances updated');
 
     const rejectedChains = chainResults.filter(isContextResultRejected).map(r => r.context);
     if (rejectedChains.length > 0) {
-      console.error(`>> ${rejectedChains.length} chains rejected update: ${rejectedChains.join(', ')}`);
+      logger.warn({ count: rejectedChains.length, chains: rejectedChains }, 'chains rejected update');
     }
   } catch (err) {
-    console.log(`> error updating treasury`);
-    console.log(err.message);
+    logger.warn({ err }, 'error updating treasury');
   } finally {
     setTimeout(() => {
       updateTreasuryBalances();
@@ -192,7 +193,7 @@ async function buildTreasuryReportForChain(chain: ApiChain): Promise<TreasuryRep
           };
         }
       } catch (err) {
-        console.log(`> error setting treasury balance on ${chain} for asset ${treasuryAsset.name}`);
+        logger.warn({ chain, asset: treasuryAsset.name, err }, 'error setting treasury balance');
       }
     }
   }

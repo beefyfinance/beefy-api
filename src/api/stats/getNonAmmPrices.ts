@@ -75,6 +75,9 @@ import { getCurvanceMonadPrices } from './monad/getCurvanceMonadPrices';
 import { getNeverlandPrices } from './monad/getNeverlandPrices';
 import { getGearboxPrices } from './common/gearbox/getGearboxPrices';
 import { promiseArrayTiming } from '../../utils/timing';
+import { getLoggerFor } from '../../utils/logger/index.js';
+
+const logger = getLoggerFor({ module: 'prices' });
 
 export type NonAmmPrices = {
   prices: Record<string, number>;
@@ -176,7 +179,7 @@ export async function getNonAmmPrices(
 
   // Setup error logs
   promiseArrayTiming(promises, i => `getNonAmmPrices[${i}]`).forEach(
-    (p, i) => p.catch(e => console.warn('getNonAmmPrices error', i, e)) //e.shortMessage ?? e.message))
+    (p, i) => p.catch(e => logger.warn({ index: i, err: e }, 'non-amm price source failed')) //e.shortMessage ?? e.message))
   );
 
   const results = await Promise.allSettled(promises);

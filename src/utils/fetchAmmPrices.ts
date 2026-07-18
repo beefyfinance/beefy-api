@@ -8,11 +8,13 @@ import { promiseTiming } from './timing';
 import { orderBy } from 'lodash';
 import { envBoolean, envNumber } from './env';
 import { normalizeNativeWrappedPrices } from './normalizeNativeWrappedPrices';
+import { getLoggerFor } from './logger/index.js';
+
+const logger = getLoggerFor({ module: 'prices' });
 
 /** Output a warning if LP (balance0*price0) != (balance1*price1) within a threshold % */
 const AMM_PRICES_CHECK_POOLS = envBoolean('AMM_PRICES_CHECK_POOLS', false);
 const AMM_PRICES_CHECK_POOLS_THRESHOLD = envNumber('AMM_PRICES_CHECK_POOLS_THRESHOLD', 2); // %
-const LOG_FETCH_AMM = envBoolean('LOG_FETCH_AMM', true);
 
 const MULTICALLS = new Map<ChainId, Address>([
   [56, '0xbcf79F67c2d93AD5fd1b919ac4F5613c493ca34F'],
@@ -146,11 +148,10 @@ export async function fetchAmmPrices(
 
         return await promiseTiming(fetchChainPools(chain, chainPools), `fetchChainPools for chain ${chain}`).finally(
           () => {
-            if (LOG_FETCH_AMM) {
-              leftChains = leftChains.filter(c => c !== chain);
-              if (leftChains.length > 0) console.log(`> [PRICE SERVICE] fetch AMM prices: ${leftChains}`);
-              else console.log(`> [PRICE SERVICE] fetch AMM prices DONE`);
-            }
+            leftChains = leftChains.filter(c => c !== chain);
+            if (leftChains.length > 0)
+              logger.debug({ chain, count: leftChains.length }, 'fetched amm prices for chain');
+            else logger.info('amm prices fetched');
           }
         );
       })
@@ -185,12 +186,19 @@ export async function fetchAmmPrices(
         const betterPrice = weight > existingWeight;
 
         if (DEBUG_ORACLES.includes(unknownToken.oracleId)) {
-          console.log(
-            `${betterPrice ? 'Setting' : 'Skipping'} ${unknownToken.oracleId} to $${price} via ${
-              knownToken.oracleId
-            } ($${prices[knownToken.oracleId]}) in ${pool.name} (${
-              pool.address
-            }) - new weight ${weight} vs existing ${existingWeight}`
+          logger.debug(
+            {
+              action: betterPrice ? 'setting' : 'skipping',
+              oracleId: unknownToken.oracleId,
+              price,
+              via: knownToken.oracleId,
+              viaPrice: prices[knownToken.oracleId],
+              pool: pool.name,
+              address: pool.address,
+              weight,
+              existingWeight,
+            },
+            'solving token price'
           );
         }
 
@@ -207,9 +215,14 @@ export async function fetchAmmPrices(
 
   if (unsolved.length > 0) {
     // actually not solved
-    console.warn('Unsolved pools: ');
-    unsolved.forEach(pool => console.log(pool.chainId, pool.name, pool.lp0.oracleId, pool.lp1.oracleId));
-    console.warn('Unsolved tokens:');
+    logger.warn({ count: unsolved.length }, 'unsolved pools');
+    unsolved.forEach(pool =>
+      logger.debug(
+        { chain: pool.chainId, pool: pool.name, lp0: pool.lp0.oracleId, lp1: pool.lp1.oracleId },
+        'unsolved pool'
+      )
+    );
+    logger.warn('unsolved tokens');
     unsolved
       .flatMap(pool => [pool.lp0.oracleId, pool.lp1.oracleId])
       .filter(oracleId => typeof prices[oracleId] !== 'number');
@@ -252,21 +265,25 @@ function checkPoolsPrices(pools: PoolData[], prices: Record<string, number>) {
     'desc'
   );
   if (likelyHaveError.length > 0) {
-    console.warn(
-      `[WARN] ${likelyHaveError.length} AMM pools likely have bad prices/low liquidity which could have knock-on effects.`
+    logger.warn(
+      { count: likelyHaveError.length },
+      'amm pools likely have bad prices or low liquidity which could have knock-on effects'
     );
-    console.log(`       Threshold: ${AMM_PRICES_CHECK_POOLS_THRESHOLD}%`);
-    console.table(
-      likelyHaveError.map(r => ({
-        name: r.pool.name,
-        diff: `${r.percentDiff.toFixed(2)}%`,
-        oracle0: r.pool.lp0.oracleId,
-        price0: `$${r.lp0Price}`,
-        value0: `$${r.lp0Value.toNumber()}`,
-        oracle1: r.pool.lp1.oracleId,
-        price1: `$${r.lp1Price}`,
-        value1: `$${r.lp1Value.toNumber()}`,
-      }))
+    logger.debug({ threshold: AMM_PRICES_CHECK_POOLS_THRESHOLD }, 'amm price check threshold');
+    logger.debug(
+      {
+        pools: likelyHaveError.map(r => ({
+          name: r.pool.name,
+          diff: `${r.percentDiff.toFixed(2)}%`,
+          oracle0: r.pool.lp0.oracleId,
+          price0: `$${r.lp0Price}`,
+          value0: `$${r.lp0Value.toNumber()}`,
+          oracle1: r.pool.lp1.oracleId,
+          price1: `$${r.lp1Price}`,
+          value1: `$${r.lp1Value.toNumber()}`,
+        })),
+      },
+      'amm pools with likely bad prices'
     );
   }
 }
@@ -329,7 +346,7 @@ async function fetchChainPools(chain: ChainId, pools: Pool[]): Promise<PoolData[
   if (failed.length > 0) {
     // TODO old js code would set totalSupply/balance to `new BigNumber(undefined)` if a batch failed,
     // which is equivalent to NaN, so we just throw here instead.
-    console.error(failed);
+    logger.error({ chain, count: failed.length, failed }, 'failed to fetch amm pool data');
     throw new Error(`Failed to fetch data for ${failed.length} pools on chain ${chain}`);
   }
 

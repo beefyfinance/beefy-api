@@ -125,6 +125,9 @@ const {
   ROBINHOOD_VAULTS_ENDPOINT,
 } = require('../../constants');
 const { getKey, setKey } = require('../../utils/cache');
+const { getLoggerFor } = require('../../utils/logger/index.js');
+
+const logger = getLoggerFor({ module: 'tvl' });
 
 const INIT_DELAY = Number(process.env.TVL_INIT_DELAY || 40 * 1000);
 const REFRESH_INTERVAL = 15 * 60 * 1000;
@@ -306,7 +309,7 @@ const getTvl = () => {
 };
 
 const updateTvl = async () => {
-  console.log('> updating tvl');
+  logger.info('updating tvl');
   const start = Date.now();
 
   try {
@@ -318,16 +321,16 @@ const updateTvl = async () => {
 
     for (const result of results) {
       if (result.status !== 'fulfilled') {
-        console.warn('getChainTvl error', result.reason);
+        logger.warn({ err: result.reason }, 'chain tvl update failed');
         continue;
       }
       tvl = { ...tvl, ...result.value };
     }
 
-    console.log(`> updated tvl (${(Date.now() - start) / 1000}s)`);
+    logger.info({ durationMs: Date.now() - start }, 'updated tvl');
     saveToRedis();
   } catch (err) {
-    console.error('> tvl initialization failed', err);
+    logger.error({ err }, 'tvl initialization failed');
   }
 
   setTimeout(updateTvl, REFRESH_INTERVAL);

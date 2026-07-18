@@ -3,6 +3,9 @@ import { ABORT_REASON_TIMEOUT } from './http/helpers';
 import { chunk } from 'lodash';
 import NodeCache from 'node-cache';
 import AsyncLock from 'async-lock';
+import { getLoggerFor } from './logger/index.js';
+
+const logger = getLoggerFor({ module: 'app' });
 
 export type DeferredPromise<T> = Promise<T> & {
   resolve: (value: T) => void;
@@ -27,9 +30,7 @@ export function deferred<T>(): DeferredPromise<T> {
 export function withTimeout<T>(promise: Promise<T>, timeout: number, message?: string): Promise<T> {
   return new Promise<T>((resolve, reject) => {
     const timeoutId = setTimeout(() => {
-      reject(
-        new Error(`Promise timed out after ${(timeout / 1000).toFixed(1)}s${message ? `: ${message}` : ''}`)
-      );
+      reject(new Error(`Promise timed out after ${(timeout / 1000).toFixed(1)}s${message ? `: ${message}` : ''}`));
     }, timeout);
     promise.then(
       value => {
@@ -58,7 +59,7 @@ export const retryPromiseWithBackOff = async <T>(
     if (nthTry > maxTries) {
       return Promise.reject(e);
     }
-    console.log(`retrying [${label}]: ${nthTry}/${maxTries}, awaiting ${2 ** (nthTry + 1) * delayTime}`);
+    logger.debug({ label, attempt: nthTry, maxTries, delayMs: 2 ** (nthTry + 1) * delayTime }, 'retrying');
 
     await sleep(2 ** (nthTry + 1) * delayTime);
     return retryPromiseWithBackOff(f, args, label, nthTry + 1, delayTime, maxTries);
