@@ -25,6 +25,9 @@ const { getRobinhoodApys } = require('./robinhood');
 const { getKey, setKey } = require('../../utils/cache');
 const { fetchBoostAprs, BOOST_APR_EXPIRED } = require('./getBoostAprs');
 const { serviceEventBus } = require('../../utils/ServiceEventBus');
+const { getLoggerFor } = require('../../utils/logger/index.js');
+
+const logger = getLoggerFor({ module: 'apy' });
 
 const INIT_DELAY = process.env.INIT_DELAY || 30 * 1000;
 const BOOST_APR_INIT_DELAY = 5 * 1000;
@@ -45,7 +48,7 @@ const getApys = () => {
 const getBoostAprs = () => boostAprs;
 
 const updateApys = async () => {
-  console.log('> updating apys');
+  logger.info('updating apys');
   const start = Date.now();
   try {
     const results = await Promise.allSettled([
@@ -77,7 +80,7 @@ const updateApys = async () => {
 
     for (const result of results) {
       if (result.status !== 'fulfilled') {
-        console.warn('getApys error', result.reason);
+        logger.warn({ err: result.reason }, 'apy sub-calculation failed');
         continue;
       }
 
@@ -105,17 +108,17 @@ const updateApys = async () => {
       apyBreakdowns = { ...apyBreakdowns, ...mappedApyBreakdownValues };
     }
 
-    console.log(`> updated apys (${(Date.now() - start) / 1000}s)`);
+    logger.info({ durationMs: Date.now() - start }, 'updated apys');
     await saveToRedis();
   } catch (err) {
-    console.error('> apy initialization failed', err);
+    logger.error({ err }, 'apy update failed');
   }
 
   setTimeout(updateApys, REFRESH_INTERVAL);
 };
 
 const updateBoostAprs = async () => {
-  console.log('> updating boost aprs');
+  logger.info('updating boost aprs');
   const start = Date.now();
   try {
     const updatedBoostAprs = await fetchBoostAprs();
@@ -130,9 +133,9 @@ const updateBoostAprs = async () => {
         delete boostAprs[boostId];
       });
     await saveBoostsToRedis();
-    console.log(`> updated boost aprs (${(Date.now() - start) / 1000}s)`);
+    logger.info({ durationMs: Date.now() - start }, 'updated boost aprs');
   } catch (err) {
-    console.error(`> error updating boost aprs: ${err.message}`);
+    logger.error({ err }, 'error updating boost aprs');
   }
 
   setTimeout(updateBoostAprs, BOOST_REFRESH_INTERVAL);

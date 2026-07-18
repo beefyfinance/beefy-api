@@ -8,6 +8,9 @@ import InfraredGauge from '../../../abis/InfraredGauge';
 import IinSpirit from '../../../abis/fantom/IinSpirit';
 import IVe from '../../../abis/IVe';
 import { fetchContract } from '../../rpc/client';
+const { getLoggerFor } = require('../../../utils/logger/index.js');
+
+const logger = getLoggerFor({ module: 'apy', platform: 'solidlyGauge' });
 
 const KittenswapGauge = [
   {
@@ -75,15 +78,8 @@ export const getFarmApys = async params => {
   }
 
   const [nftResults, poolDataResults] = await Promise.all([Promise.all(nftCalls), poolDataCalls]);
-  const {
-    balances,
-    rewardRates,
-    depositBalances,
-    derivedBalances,
-    periodFinishes,
-    rewardsRates,
-    rewardData,
-  } = poolDataResults;
+  const { balances, rewardRates, depositBalances, derivedBalances, periodFinishes, rewardsRates, rewardData } =
+    poolDataResults;
   if (params.boosted && params.NFTid) {
     supply = new BigNumber(nftResults[0].toString());
     veBalance = new BigNumber(nftResults[1].toString());
@@ -121,10 +117,7 @@ export const getFarmApys = async params => {
             ? rewardRates[i].times(secondsPerYear).times(derived.plus(adjusted).dividedBy(gaugeDeposit))
             : rewardRates[i].times(secondsPerYear);
         } else if (params.spirit) {
-          yearlyRewards = rewardRates[i]
-            .times(secondsPerYear)
-            .times(derivedBalances[i])
-            .dividedBy(depositBalances[i]);
+          yearlyRewards = rewardRates[i].times(secondsPerYear).times(derivedBalances[i]).dividedBy(depositBalances[i]);
         } else {
           yearlyRewards = rewardRates[i].times(secondsPerYear).times(0.4);
         }
@@ -156,7 +149,15 @@ export const getFarmApys = async params => {
     apys.push(apy);
 
     if (params.log) {
-      console.log(pool.name, apy.toNumber(), totalStakedInUsd.valueOf(), yearlyRewardsInUsd.valueOf());
+      logger.debug(
+        {
+          pool: pool.name,
+          apy: apy.toNumber(),
+          tvl: totalStakedInUsd.valueOf(),
+          yearlyUsd: yearlyRewardsInUsd.valueOf(),
+        },
+        'pool apy'
+      );
     }
   }
   return apys;
@@ -216,11 +217,7 @@ const getPoolsData = async params => {
     }
 
     for (const rewards of pool.rewards ?? []) {
-      const gaugeContract = fetchContract(
-        pool.gauge,
-        params.abi ? params.abi : ISolidlyGauge,
-        params.chainId
-      );
+      const gaugeContract = fetchContract(pool.gauge, params.abi ? params.abi : ISolidlyGauge, params.chainId);
       rewardRateCalls.push(gaugeContract.read.rewardRate([rewards.address]));
       rewardDataCalls.push(
         params.abi

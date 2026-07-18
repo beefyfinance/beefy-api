@@ -14,6 +14,9 @@ const {
   },
 } = addressBook;
 
+const { getLoggerFor } = require('../../../utils/logger/index.js');
+const logger = getLoggerFor({ module: 'apy', platform: 'velodrome', chain: chainId });
+
 const pools = [...stablePools, ...volatilePools];
 const oldPools = [...oldStablePools, ...oldVolatilePools];
 const getVelodromeApys = async () => {
@@ -46,7 +49,7 @@ const getVelodromeApys = async () => {
   const results = await Promise.allSettled([oldGaugeApys, gaugeApys]);
   for (const result of results) {
     if (result.status !== 'fulfilled') {
-      console.warn('getVelodromeApys error', result.reason);
+      logger.warn({ err: result.reason }, 'apy sub-calculation failed');
     } else {
       apys = { ...apys, ...result.value.apys };
       apyBreakdowns = { ...apyBreakdowns, ...result.value.apyBreakdowns };

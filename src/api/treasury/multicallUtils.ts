@@ -18,6 +18,9 @@ import ERC20Abi from '../../abis/ERC20Abi';
 import { MULTICALL_V3 } from '../../utils/multicallHelpers';
 import MulticallAbi from '../../abis/common/Multicall/MulticallAbi';
 import { getValidatorBalanceCall } from './validatorHelpers';
+import { getLoggerFor } from '../../utils/logger/index.js';
+
+const logger = getLoggerFor({ module: 'treasury' });
 
 export const mapAssetToCall = (asset: TreasuryAsset, treasuryAddressesForChain: TreasuryWallet[], chainId: number) => {
   if (isTokenAsset(asset) || isVaultAsset(asset) || isGovAsset(asset)) {
@@ -83,7 +86,7 @@ export const extractBalancesFromTreasuryCallResults = (
           },
         });
       } else {
-        console.warn('Unknown treasury asset type:', asset);
+        logger.warn({ asset }, 'unknown treasury asset type');
       }
     } else {
       // console.error('Failed to fetch treasury balance for asset:', asset, callResults[i]);

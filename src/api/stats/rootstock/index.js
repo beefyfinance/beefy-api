@@ -1,4 +1,8 @@
 const { getBeefyCowRootstockApys } = require('./getBeefyCowRootstockApys');
+const { ROOTSTOCK_CHAIN_ID } = require('../../../constants');
+const { getLoggerFor } = require('../../../utils/logger/index.js');
+
+const logger = getLoggerFor({ module: 'apy', chain: ROOTSTOCK_CHAIN_ID });
 
 const getApys = [getBeefyCowRootstockApys];
 
@@ -13,7 +17,7 @@ const getRootstockApys = async () => {
 
   for (const result of results) {
     if (result.status !== 'fulfilled') {
-      console.warn('getRootstockApys error', result.reason);
+      logger.warn({ err: result.reason }, 'apy sub-calculation failed');
       continue;
     }
 
@@ -42,7 +46,7 @@ const getRootstockApys = async () => {
   }
 
   const end = Date.now();
-  console.log(`> [APY] Rootstock finished updating in ${(end - start) / 1000}s`);
+  logger.info({ durationMs: end - start }, 'apy updated');
 
   return {
     apys,

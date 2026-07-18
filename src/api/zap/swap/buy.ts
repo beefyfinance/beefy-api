@@ -4,10 +4,13 @@ import { ProviderId } from './providers';
 import { ApiChain } from '../../../utils/chain';
 import { BuyResult, BuyTestToken, TokenWithPrice } from './types';
 import { BIG_ONE } from '../../../utils/big-number';
+import { getLoggerFor } from '../../../utils/logger/index.js';
+
+const logger = getLoggerFor({ module: 'zap' });
 
 const MOCK_ALL_SUPPORTED = process.env.ZAP_MOCK_SKIP_LIQUIDITY_CHECKS === 'true';
 if (MOCK_ALL_SUPPORTED) {
-  console.warn('> [Zap] ZAP_MOCK_SKIP_LIQUIDITY_CHECKS is enabled - buy liquidity checks will be skipped');
+  logger.warn('ZAP_MOCK_SKIP_LIQUIDITY_CHECKS is enabled, buy liquidity checks will be skipped');
 }
 
 export async function checkBuy(
@@ -59,18 +62,15 @@ export async function checkBuy(
       return {
         supported: false,
         tokenWithPrice,
-        reason: `Buy output amount is less than expected [a=${actualOutput.toString(
+        reason: `Buy output amount is less than expected [a=${actualOutput.toString(10)}, e=${expectedOutput.toString(
           10
-        )}, e=${expectedOutput.toString(10)}, m=${minOutput.toString(10)}, f=${result.fromAmount.toString(
+        )}, m=${minOutput.toString(10)}, f=${result.fromAmount.toString(10)} n=${wnative.price.toString(
           10
-        )} n=${wnative.price.toString(10)}, t=${tokenWithPrice.price.toString(10)}]`,
+        )}, t=${tokenWithPrice.price.toString(10)}]`,
       };
     });
   } catch (err) {
-    console.error(
-      `> [Zap] Error while checking buy with swap provider ${providerKey} on chain ${apiChain}`,
-      err
-    );
+    logger.warn({ chain: apiChain, platform: providerKey, err }, 'error while checking buy with swap provider');
     const reason = err.message || 'Unknown swap provider error';
     return tokens.map(token => ({ supported: false, tokenWithPrice: token, reason }));
   }

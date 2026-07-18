@@ -3,6 +3,9 @@ const { getConvexApys } = require('./getConvexApys');
 const { getBeefyCowPolyApys } = require('./getBeefyCowPolyApys');
 const { getMorphoApys } = require('../common/morpho/getMorphoApys');
 const { POLYGON_CHAIN_ID } = require('../../../constants');
+const { getLoggerFor } = require('../../../utils/logger/index.js');
+
+const logger = getLoggerFor({ module: 'apy', chain: POLYGON_CHAIN_ID });
 
 const getApys = [
   getCurveApys,
@@ -29,7 +32,7 @@ const getMaticApys = async () => {
 
   for (const result of results) {
     if (result.status !== 'fulfilled') {
-      console.warn('getMaticApys error', result.reason);
+      logger.warn({ err: result.reason }, 'apy sub-calculation failed');
       continue;
     }
 
@@ -58,7 +61,7 @@ const getMaticApys = async () => {
   }
 
   const end = Date.now();
-  console.log(`> [APY] Polygon finished updating in ${(end - start) / 1000}s`);
+  logger.info({ durationMs: end - start }, 'apy updated');
 
   return {
     apys,

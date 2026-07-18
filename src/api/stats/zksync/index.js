@@ -1,4 +1,8 @@
 const { getBeefyzkSyncCowApys } = require('./getBeefyzkSyncCowApys');
+const { ZKSYNC_CHAIN_ID } = require('../../../constants');
+const { getLoggerFor } = require('../../../utils/logger/index.js');
+
+const logger = getLoggerFor({ module: 'apy', chain: ZKSYNC_CHAIN_ID });
 
 const getApys = [getBeefyzkSyncCowApys];
 
@@ -13,7 +17,7 @@ const getZksyncApys = async () => {
 
   for (const result of results) {
     if (result.status !== 'fulfilled') {
-      console.warn('getZksyncApys error', result.reason);
+      logger.warn({ err: result.reason }, 'apy sub-calculation failed');
       continue;
     }
 
@@ -42,7 +46,7 @@ const getZksyncApys = async () => {
   }
 
   const end = Date.now();
-  console.log(`> [APY] Zksync finished updating in ${(end - start) / 1000}s`);
+  logger.info({ durationMs: end - start }, 'apy updated');
 
   return {
     apys,

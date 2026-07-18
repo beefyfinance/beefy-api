@@ -2,6 +2,10 @@ const { getBeefyCowPlasmaApys } = require('./getBeefyCowPlasmaApys');
 const { getAaveV3Apys } = require('./getAaveV3Apys');
 const { getCurveApys } = require('./getCurveApys');
 const { getLithosApys } = require('./getLithosApys');
+const { PLASMA_CHAIN_ID } = require('../../../constants');
+const { getLoggerFor } = require('../../../utils/logger/index.js');
+
+const logger = getLoggerFor({ module: 'apy', chain: PLASMA_CHAIN_ID });
 
 const getApys = [getBeefyCowPlasmaApys, getAaveV3Apys, getCurveApys, getLithosApys];
 
@@ -16,7 +20,7 @@ const getPlasmaApys = async () => {
 
   for (const result of results) {
     if (result.status !== 'fulfilled') {
-      console.warn('getPlasmaApys error', result.reason);
+      logger.warn({ err: result.reason }, 'apy sub-calculation failed');
       continue;
     }
 
@@ -45,7 +49,7 @@ const getPlasmaApys = async () => {
   }
 
   const end = Date.now();
-  console.log(`> [APY] Plasma finished updating in ${(end - start) / 1000}s`);
+  logger.info({ durationMs: end - start }, 'apy updated');
 
   return {
     apys,

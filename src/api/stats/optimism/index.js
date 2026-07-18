@@ -4,6 +4,9 @@ const getBeVeloV2Apr = require('./getBeVeloV2Apr');
 const { getBeefyOPCowApys } = require('./getBeefyOPCowApys');
 const { getMorphoApys } = require('../common/morpho/getMorphoApys');
 const { OPTIMISM_CHAIN_ID } = require('../../../constants');
+const { getLoggerFor } = require('../../../utils/logger/index.js');
+
+const logger = getLoggerFor({ module: 'apy', chain: OPTIMISM_CHAIN_ID });
 
 const getApys = [
   getCurveApys,
@@ -24,7 +27,7 @@ const getOptimismApys = async () => {
 
   for (const result of results) {
     if (result.status !== 'fulfilled') {
-      console.warn('getOptimismApys error', result.reason);
+      logger.warn({ err: result.reason }, 'apy sub-calculation failed');
       continue;
     }
 
@@ -53,7 +56,7 @@ const getOptimismApys = async () => {
   }
 
   const end = Date.now();
-  console.log(`> [APY] Optimism finished updating in ${(end - start) / 1000}s`);
+  logger.info({ durationMs: end - start }, 'apy updated');
 
   return {
     apys,

@@ -6,17 +6,20 @@ import { sendServiceUnavailable, sendSuccess } from '../../utils/koa';
 import { getCampaignsForChainProviderWithMeta } from '../offchain-rewards';
 import { isMerklCampaign } from '../offchain-rewards/typeguards';
 import { pick } from 'lodash';
+import { getLoggerFor } from '../../utils/logger/index.js';
+
+const logger = getLoggerFor({ module: 'clm' });
 
 export function initCowcentratedService() {
   Promise.allSettled([initCowVaultsMetaService(), initCowPriceRangeService()])
     .then(results => {
       const failures = results.filter(isResultRejected);
       if (failures.length) {
-        console.error(`> [CLM Service] ${failures.length} services failed to initialize`, failures);
+        logger.error({ count: failures.length, failures }, 'services failed to initialize');
       }
     })
     .catch(err => {
-      console.error('> [CLM Service] Initialization failed', err);
+      logger.error({ err }, 'initialization failed');
     });
 }
 

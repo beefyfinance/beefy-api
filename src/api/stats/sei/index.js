@@ -1,4 +1,8 @@
 const { getBeefyCowSeiApys } = require('./getBeefyCowSeiApys');
+const { SEI_CHAIN_ID } = require('../../../constants');
+const { getLoggerFor } = require('../../../utils/logger/index.js');
+
+const logger = getLoggerFor({ module: 'apy', chain: SEI_CHAIN_ID });
 
 const getApys = [getBeefyCowSeiApys];
 
@@ -13,7 +17,7 @@ const getSeiApys = async () => {
 
   for (const result of results) {
     if (result.status !== 'fulfilled') {
-      console.warn('getSeiApys error', result.reason);
+      logger.warn({ err: result.reason }, 'apy sub-calculation failed');
       continue;
     }
 
@@ -42,7 +46,7 @@ const getSeiApys = async () => {
   }
 
   const end = Date.now();
-  console.log(`> [APY] Sei finished updating in ${(end - start) / 1000}s`);
+  logger.info({ durationMs: end - start }, 'apy updated');
 
   return {
     apys,

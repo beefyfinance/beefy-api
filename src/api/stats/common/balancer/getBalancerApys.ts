@@ -4,6 +4,9 @@ import { NormalizedCacheObject, ApolloClient } from '@apollo/client/core';
 import BigNumber from 'bignumber.js';
 import { getBalTradingAndLstApr } from '../../../../utils/getBalancerTradingFeeAndLstApr';
 import { getMerklAprByExplorerAddress } from '../../../offchain-rewards/providers/merkl/proxyClient';
+import { getLoggerFor } from '../../../../utils/logger/index.js';
+
+const logger = getLoggerFor({ module: 'apy', platform: 'balancer' });
 
 interface Token {
   newGauge?: boolean;
@@ -115,7 +118,15 @@ const getPoolApy = async (pool: Pool, params: BalancerParams) => {
   rewardsApy = yearlyRewardsInUsd.dividedBy(totalStakedInUsd);
 
   if (params.log) {
-    console.log(pool.name, rewardsApy.toNumber(), totalStakedInUsd.valueOf(), yearlyRewardsInUsd.valueOf());
+    logger.debug(
+      {
+        pool: pool.name,
+        apy: rewardsApy.toNumber(),
+        tvl: totalStakedInUsd.valueOf(),
+        yearlyRewardsUsd: yearlyRewardsInUsd.valueOf(),
+      },
+      'pool apy'
+    );
   }
 
   return rewardsApy;
@@ -129,7 +140,7 @@ const getMerklV4AprByExplorerAddress = async (
   try {
     return await getMerklAprByExplorerAddress(chainId, explorerAddresses);
   } catch (e) {
-    console.error(`Failed to fetch Merkl APRs via proxy: ${chainId}`);
+    logger.warn({ err: e, chain: chainId }, 'failed to fetch merkl aprs via proxy');
     return {};
   }
 };

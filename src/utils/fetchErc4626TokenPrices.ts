@@ -2,6 +2,9 @@ import BigNumber from 'bignumber.js';
 import { parseAbi } from 'viem';
 import { addressBook, ChainId, Token } from '../../packages/address-book/src/address-book';
 import { fetchContract } from '../api/rpc/client';
+import { getLoggerFor } from './logger/index.js';
+
+const logger = getLoggerFor({ module: 'prices', platform: 'erc4626' });
 
 const abi = parseAbi(['function convertToAssets(uint256 shares) view returns (uint256)']);
 
@@ -32,7 +35,7 @@ const getErc4626Prices = async (
   try {
     res = await Promise.all(assetCalls);
   } catch (e) {
-    console.error('getErc4626Prices', e.message);
+    logger.warn({ err: e, chain: chainId }, 'erc4626 price fetch failed');
     // NaN is filtered out below, so a transient failure omits the price instead of propagating a bad value
     return vaults.map(() => NaN);
   }
@@ -40,7 +43,7 @@ const getErc4626Prices = async (
   return vaults.map(([underlying, share], i) => {
     const underlyingPrice = tokenPrices[underlying.oracleId];
     if (!underlyingPrice) {
-      console.error(`getErc4626Prices: missing underlying price for ${underlying.oracleId} (${share.oracleId})`);
+      logger.warn({ oracleId: underlying.oracleId, share: share.oracleId }, 'missing underlying price');
       return NaN;
     }
     const assetsPerShare = new BigNumber(res[i].toString()).shiftedBy(-underlying.decimals);

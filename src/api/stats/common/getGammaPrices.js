@@ -2,6 +2,9 @@ import BigNumber from 'bignumber.js';
 import { fetchContract } from '../../rpc/client';
 import ThenaLPAbi from '../../../abis/bsc/ThenaLP';
 
+const { getLoggerFor } = require('../../../utils/logger/index.js');
+const logger = getLoggerFor({ module: 'prices', platform: 'gamma' });
+
 export const getGammaPrices = async (chainId, pools, tokenPrices) => {
   const [amountCalls, totalSupplyCalls] = pools.reduce(
     (acc, pool) => {
@@ -48,7 +51,7 @@ const getTokenPrice = (tokenPrices, oracleId) => {
   if (tokenPrices.hasOwnProperty(tokenSymbol)) {
     tokenPrice = tokenPrices[tokenSymbol];
   } else {
-    console.error(`Gamma Unknown token '${tokenSymbol}'. Consider adding it to .json file`);
+    logger.warn({ oracleId: tokenSymbol }, 'unknown token, defaulting price to 1');
   }
   return tokenPrice;
 };

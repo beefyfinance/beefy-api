@@ -1,4 +1,7 @@
 const BigNumber = require('bignumber.js');
+const { getLoggerFor } = require('../../../../utils/logger/index.js');
+
+const logger = getLoggerFor({ module: 'apy', platform: 'curve' });
 
 export async function getCurveVolumeApys(pools, url) {
   let apys = {};
@@ -13,7 +16,7 @@ export async function getCurveVolumeApys(pools, url) {
       apys = { ...apys, ...{ [pool.name]: apy } };
     });
   } catch (err) {
-    console.error('Curve getVolumes error ', url, err.message);
+    logger.warn({ url, err }, 'getVolumes fetch failed');
   }
   return apys;
 }
@@ -28,7 +31,7 @@ export const getCurveSubgraphApys = async (pools, url) => {
       apys = { ...apys, ...{ [pool.name]: apy } };
     });
   } catch (err) {
-    console.error('Curve base apy error ', url);
+    logger.warn({ url }, 'base apy fetch failed');
   }
   return apys;
 };
@@ -40,7 +43,7 @@ const getSubgraphDataApy = (apyData, poolAddress) => {
     let apy = Math.max(pool.latestDailyApy, pool.latestWeeklyApy);
     return Number(apy) / 100;
   } catch (err) {
-    console.error(err);
+    logger.warn({ pool: poolAddress, err }, 'subgraph apy parse failed');
     return 0;
   }
 };
@@ -59,7 +62,7 @@ export const getCurveGetBaseApys = async (pools, url) => {
       apys = { ...apys, ...{ [pool.name]: apy } };
     });
   } catch (err) {
-    console.error('Curve getBaseApys error ', url, err.message);
+    logger.warn({ url, err }, 'getBaseApys fetch failed');
   }
   return apys;
 };

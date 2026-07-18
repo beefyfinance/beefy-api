@@ -2,8 +2,10 @@ import BigNumber from 'bignumber.js';
 import { fetchContract } from '../../rpc/client';
 import ERC20Abi from '../../../abis/ERC20Abi';
 import { MONAD_CHAIN_ID } from '../../../constants';
+import { getLoggerFor } from '../../../utils/logger/index.js';
 
 const pools = require('../../../data/monad/neverlandPools.json');
+const logger = getLoggerFor({ module: 'prices', platform: 'neverland', chain: MONAD_CHAIN_ID });
 
 export const getNeverlandPrices = async tokenPrices => {
   const totalSupplyCalls = [];
@@ -39,7 +41,7 @@ const getTokenPrice = (tokenPrices, oracleId) => {
   if (tokenPrices.hasOwnProperty(tokenSymbol)) {
     tokenPrice = tokenPrices[tokenSymbol];
   } else {
-    console.error(`Silo Unknown token '${tokenSymbol}'. Consider adding it to .json file`);
+    logger.debug({ token: tokenSymbol }, 'unknown token price');
   }
   return tokenPrice;
 };

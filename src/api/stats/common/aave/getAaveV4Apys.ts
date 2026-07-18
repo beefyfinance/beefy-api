@@ -1,5 +1,8 @@
 import BigNumber from 'bignumber.js';
 import { getApyBreakdown } from '../getApyBreakdownNew';
+import { getLoggerFor } from '../../../../utils/logger/index.js';
+
+const logger = getLoggerFor({ module: 'apy', platform: 'aave' });
 
 const AAVE_V4_GRAPHQL_URL = 'https://api.v4.aave.com/graphql';
 
@@ -119,13 +122,13 @@ const fetchAaveV4Reserves = async (chainId: number): Promise<AaveV4Reserve[]> =>
     }).then(res => res.json());
 
     if (response.errors) {
-      console.error('Aave V4 GraphQL reserve error', response.errors);
+      logger.warn({ err: response.errors, chain: chainId }, 'graphql reserve query errors');
       return [];
     }
 
     return response.data?.reserves || [];
   } catch (e) {
-    console.error('Aave V4 GraphQL reserve fetch failed', e);
+    logger.warn({ err: e, chain: chainId }, 'reserve fetch failed');
     return [];
   }
 };
@@ -151,7 +154,7 @@ const fetchAaveMerklAprs = async (chainId: number): Promise<Record<string, numbe
       return acc;
     }, {} as Record<string, number>);
   } catch (e) {
-    console.error('Aave V4 Merkl data error', e);
+    logger.warn({ err: e, chain: chainId }, 'merkl apr fetch failed');
     return {};
   }
 };

@@ -1,3 +1,7 @@
+const { getLoggerFor } = require('./logger/index.js');
+
+const logger = getLoggerFor({ module: 'prices', platform: 'defillama' });
+
 export const fetchDefillamaPrices = async coins => {
   if (!coins) return {};
   const ids = coins.map(id => `coingecko:${id}`).join(',');
@@ -11,7 +15,7 @@ export const fetchDefillamaPrices = async coins => {
       prices = { ...prices, ...{ [id]: price } };
     });
   } catch (e) {
-    console.error('> fetchDefillamaPrices', e);
+    logger.warn({ err: e }, 'failed to fetch defillama prices');
   }
   return prices;
 };

@@ -1,4 +1,7 @@
 import { ICacheBackend } from './ICacheBackend';
+import { getLoggerFor } from '../logger/index.js';
+
+const logger = getLoggerFor({ module: 'cache' });
 
 export type CacheOptions = {
   logWrites?: boolean;
@@ -12,7 +15,7 @@ export class Cache {
       const value = await this.backend.get(key);
       return value === undefined ? undefined : (JSON.parse(value) as T);
     } catch {
-      console.error(`Failed to get value for cache key ${key}`);
+      logger.warn({ key }, 'failed to get cache value');
       return undefined;
     }
   }
@@ -25,10 +28,10 @@ export class Cache {
     try {
       await this.backend.set(key, JSON.stringify(value));
       if (this.options.logWrites) {
-        console.log(`> [${key}] saved to cache`);
+        logger.debug({ key }, 'saved to cache');
       }
     } catch {
-      console.error(`Failed to set value for cache key ${key}`);
+      logger.warn({ key }, 'failed to set cache value');
     }
   }
 
@@ -36,7 +39,7 @@ export class Cache {
     try {
       await this.backend.delete(key);
     } catch {
-      console.error(`Failed to delete value for cache key ${key}`);
+      logger.warn({ key }, 'failed to delete cache value');
     }
   }
 }

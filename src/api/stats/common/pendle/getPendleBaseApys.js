@@ -1,5 +1,8 @@
 import BigNumber from 'bignumber.js';
 
+const { getLoggerFor } = require('../../../../utils/logger/index.js');
+const logger = getLoggerFor({ module: 'apy', platform: 'pendle' });
+
 export const getPendleApys = async (chainId, pools) => {
   let tradingApys = {};
   const pendleApys = [];
@@ -27,7 +30,7 @@ export const getPendleApys = async (chainId, pools) => {
       arbApys.push(new BigNumber(res?.arbApy || 0));
     });
   } catch (err) {
-    console.error('Pendle apy error', err.message);
+    logger.warn({ err, chain: chainId }, 'apy fetch failed');
   }
   return { tradingApys, pendleApys, syRewardsApys, arbApys };
 };

@@ -3,18 +3,17 @@ import { parseAbi } from 'viem';
 const BigNumber = require('bignumber.js');
 const { fetchContract } = require('../../../rpc/client');
 const { default: ERC20Abi } = require('../../../../abis/ERC20Abi');
+const { getLoggerFor } = require('../../../../utils/logger/index.js');
+
+const logger = getLoggerFor({ module: 'prices', platform: 'curve' });
 
 const ICurveVault = parseAbi(['function pricePerShare() view returns (uint)']);
 
 export const getCurveLendPricesCommon = async (chainId, pools, tokenPrices) => {
   let prices = {};
 
-  const ppsCalls = pools.map(pool =>
-    fetchContract(pool.address, ICurveVault, chainId).read.pricePerShare()
-  );
-  const supplyCalls = pools.map(pool =>
-    fetchContract(pool.address, ERC20Abi, chainId).read.totalSupply()
-  );
+  const ppsCalls = pools.map(pool => fetchContract(pool.address, ICurveVault, chainId).read.pricePerShare());
+  const supplyCalls = pools.map(pool => fetchContract(pool.address, ERC20Abi, chainId).read.totalSupply());
   const [ppsRes, supplyRes] = await Promise.all([Promise.all(ppsCalls), Promise.all(supplyCalls)]);
 
   for (let i = 0; i < pools.length; i++) {
@@ -35,7 +34,7 @@ export const getCurveLendPricesCommon = async (chainId, pools, tokenPrices) => {
 
 const getTokenPrice = (tokenPrices, oracleId) => {
   if (!oracleId) {
-    console.error('Curve lend prices oracleId is not defined', oracleId);
+    logger.warn('lend prices oracleId is not defined');
     return 1;
   }
   let tokenPrice = 1;
@@ -43,9 +42,7 @@ const getTokenPrice = (tokenPrices, oracleId) => {
   if (tokenPrices.hasOwnProperty(tokenSymbol)) {
     tokenPrice = tokenPrices[tokenSymbol];
   } else {
-    console.error(
-      `Curve lend prices unknown token '${tokenSymbol}'. Consider adding it to .json file`
-    );
+    logger.warn({ token: tokenSymbol }, 'unknown token, consider adding it to json config');
   }
   return tokenPrice;
 };

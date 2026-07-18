@@ -5,6 +5,9 @@ import { AnyChain } from '../../../utils/chain';
 import { redactSecrets } from '../../../utils/secrets';
 import { isQuoteValueTooLow, setNoCacheHeaders } from './common';
 import { ApiResponse, ExtraQuoteResponse, isSuccessApiResponse } from '../api/common';
+import { getLoggerFor } from '../../../utils/logger/index.js';
+
+const logger = getLoggerFor({ module: 'zap', platform: 'liquidSwap' });
 
 const postProxiedSwap = async (request: SwapRequest, chain: AnyChain): Promise<ApiResponse<SwapResponse>> => {
   try {
@@ -44,7 +47,7 @@ export async function proxyLiquidSwapSwap(ctx: Koa.Context) {
   const requestObject: SwapRequest = ctx.request['body'] as any; // koa-bodyparser adds parsed json to body
   const proxiedSwap = await postProxiedSwap(requestObject, chain);
   if (isSuccessApiResponse(proxiedSwap)) {
-    console.log(`proxyLiquidSwapSwap took ${(Date.now() - start) / 1000}s on ${chain}`);
+    logger.debug({ chain, durationMs: Date.now() - start }, 'proxied swap');
   }
   setNoCacheHeaders(ctx);
   ctx.status = proxiedSwap.code;
@@ -57,7 +60,7 @@ export async function proxyLiquidSwapQuote(ctx: Koa.Context) {
   const requestObject: QuoteRequest = ctx.query as any;
   const proxiedQuote = await getProxiedQuote(requestObject, chain);
   if (isSuccessApiResponse(proxiedQuote)) {
-    console.log(`proxyLiquidSwapQuote took ${(Date.now() - start) / 1000}s on ${chain}`);
+    logger.debug({ chain, durationMs: Date.now() - start }, 'proxied quote');
   }
   setNoCacheHeaders(ctx);
   ctx.status = proxiedQuote.code;

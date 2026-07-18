@@ -3,6 +3,9 @@ import { fetchContract } from '../../rpc/client';
 import SiloTokenAbi from '../../../abis/arbitrum/SiloToken';
 import SiloAbi from '../../../abis/arbitrum/Silo';
 import SiloV2Abi from '../../../abis/SiloV2';
+import { getLoggerFor } from '../../../utils/logger/index.js';
+
+const logger = getLoggerFor({ module: 'prices', platform: 'silo' });
 
 export const getSiloPrices = async (chainId, pools, tokenPrices) => {
   const [amountCalls, totalSupplyCalls, decimalsCalls] = pools.reduce(
@@ -61,7 +64,7 @@ const getTokenPrice = (tokenPrices, oracleId) => {
   if (tokenPrices.hasOwnProperty(tokenSymbol)) {
     tokenPrice = tokenPrices[tokenSymbol];
   } else {
-    console.error(`Silo Unknown token '${tokenSymbol}'. Consider adding it to .json file`);
+    logger.warn({ oracleId }, 'unknown token price');
   }
   return tokenPrice;
 };

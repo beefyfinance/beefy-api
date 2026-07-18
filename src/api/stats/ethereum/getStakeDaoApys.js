@@ -2,6 +2,9 @@ import { getApyBreakdown } from '../common/getApyBreakdownNew';
 import BigNumber from 'bignumber.js';
 import { fetchPrice } from '../../../utils/fetchPrice';
 
+const { getLoggerFor } = require('../../../utils/logger/index.js');
+const logger = getLoggerFor({ module: 'apy', platform: 'stakedao', chain: 'ethereum' });
+
 const pools = require('../../../data/ethereum/convexPools.json').filter(p => p.stakeDao);
 const secondsPerYear = 31536000;
 
@@ -25,7 +28,7 @@ export const getStakeDaoApys = async () => {
       apys.push({ vault, trading });
     }
   } catch (e) {
-    console.error('StakeDao json apy error', e.message);
+    logger.warn({ err: e }, 'apy fetch failed');
   }
   return getApyBreakdown(
     pools.map((p, i) => ({
@@ -51,7 +54,7 @@ async function findMerkleApy(merkles, sdStrat) {
       apy = apy.plus(rewardApy);
     }
   } catch (e) {
-    console.error('StakeDao MerkleApy error', sdStrat.name, e);
+    logger.warn({ vault: sdStrat.name, err: e }, 'merkle apy calculation failed');
   }
   return apy;
 }

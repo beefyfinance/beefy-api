@@ -22,6 +22,9 @@ import { mapValues, partition } from 'lodash';
 import { isDefined } from '../../utils/array';
 import PQueue from 'p-queue';
 import { isUpdateResolved } from './typeguards';
+import { getLoggerFor } from '../../utils/logger/index.js';
+
+const logger = getLoggerFor({ module: 'rewards' });
 
 type ChainCampaigns<TProvider extends ProviderId = ProviderId> = {
   campaigns: ReadonlyArray<CampaignByProvider[TProvider]>;
@@ -120,7 +123,7 @@ export class OffchainRewards {
 
   protected scheduledUpdate() {
     this.updateIfStale().catch(err => {
-      console.error('> [Offchain Rewards] Failed to perform scheduled update', err);
+      logger.warn({ err }, 'scheduled update failed');
     });
   }
 
@@ -162,7 +165,7 @@ export class OffchainRewards {
     }
 
     this.performUpdates(updatesRequired).catch(err => {
-      console.error('> [Offchain Rewards] Failed to perform updates', err);
+      logger.warn({ err }, 'updates failed');
     });
   }
 
@@ -209,7 +212,7 @@ export class OffchainRewards {
     // Ensure full updates aren't requested multiple times while one is in queue
     await this.markFullRequestTimes(updates, getUnixNow());
 
-    console.info(`> [Offchain Rewards] Queuing ${updates.length} updates...`);
+    logger.debug({ count: updates.length }, 'queuing updates');
     const queue = new PQueue({
       concurrency: 1,
       autoStart: true,
@@ -218,18 +221,11 @@ export class OffchainRewards {
     const { shouldSave, errors, updated } = this.buildUpdateResultSummary(results);
 
     if (updated.length) {
-      console.info(
-        `> [Offchain Rewards] Updated campaigns for ${updated
-          .map(({ providerId, chainIds }) => `${providerId} on ${chainIds.join(', ')}`)
-          .join('; ')}`
-      );
+      logger.info({ updated }, 'updated campaigns');
     }
     if (errors.length) {
       for (const { chainId, providerId, reason } of errors) {
-        console.error(
-          `> [Offchain Rewards] Failed to update campaigns for ${providerId} on ${chainId}:`,
-          reason.message
-        );
+        logger.warn({ provider: providerId, chain: chainId, err: reason }, 'campaign update failed');
       }
     }
 

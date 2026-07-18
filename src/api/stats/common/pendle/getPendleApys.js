@@ -12,6 +12,9 @@ import {
   SONIC_CHAIN_ID,
 } from '../../../../constants';
 
+const { getLoggerFor } = require('../../../../utils/logger/index.js');
+const logger = getLoggerFor({ module: 'apy', platform: 'pendle' });
+
 const abi = parseAbi([
   'function balanceOf(address) view returns (uint256)',
   'function activeBalance(address) view returns (uint256)',
@@ -104,7 +107,7 @@ function filterExpired(pools) {
     const old = { 'equilibria-arb-seth': '26dec24', 'equilibria-arb-reth': '26jun25' };
     const date = old[pool.name] || pool.name.split('-').pop();
     const timestamp = Date.parse(`${date} UTC`) || 0;
-    if (timestamp === 0) console.error(pool.name, 'no expiry date');
+    if (timestamp === 0) logger.warn({ vault: pool.name }, 'no expiry date');
     if (timestamp > Date.now()) alive.push(pool);
     else expired.push(pool);
   });

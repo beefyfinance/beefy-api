@@ -10,13 +10,12 @@ import { LpPool, SingleAssetPool } from '../../../types/LpPool';
 import { fetchPrice } from '../../../utils/fetchPrice';
 import getBlockTime from '../../../utils/getBlockTime';
 import { getEDecimals } from '../../../utils/getEDecimals';
-import {
-  getTradingFeeAprSushi,
-  getTradingFeeAprBalancer,
-  getTradingFeeApr,
-} from '../../../utils/getTradingFeeApr';
+import { getTradingFeeAprSushi, getTradingFeeAprBalancer, getTradingFeeApr } from '../../../utils/getTradingFeeApr';
 import IMultiRewardMasterChef from '../../../abis/IMultiRewardMasterChef';
 import { fetchContract } from '../../rpc/client';
+import { getLoggerFor } from '../../../utils/logger/index.js';
+
+const logger = getLoggerFor({ module: 'apy', platform: 'multiRewardMasterChef' });
 
 export interface MasterChefApysParams {
   chainId: ChainId;
@@ -40,15 +39,9 @@ export interface MasterChefApysParams {
 export const getMultiRewardMasterChefApys = async (
   masterchefParams: MasterChefApysParams
 ): Promise<ApyBreakdownResult> => {
-  masterchefParams.pools = [
-    ...(masterchefParams.pools ?? []),
-    ...(masterchefParams.singlePools ?? []),
-  ];
+  masterchefParams.pools = [...(masterchefParams.pools ?? []), ...(masterchefParams.singlePools ?? [])];
 
-  const [tradingAprs, farmApys] = await Promise.all([
-    getTradingAprs(masterchefParams),
-    getFarmApys(masterchefParams),
-  ]);
+  const [tradingAprs, farmApys] = await Promise.all([getTradingAprs(masterchefParams), getFarmApys(masterchefParams)]);
 
   const liquidityProviderFee = masterchefParams.liquidityProviderFee ?? 0.003;
 
@@ -74,11 +67,10 @@ const getTradingAprs = async (params: MasterChefApysParams) => {
 const getFarmApys = async (params: MasterChefApysParams): Promise<BigNumber[]> => {
   const apys: BigNumber[] = [];
 
-  const [{ balances, rewardTokens, rewardDecimals, rewardsPerSec }, secondsPerBlock] =
-    await Promise.all([
-      getPoolsData(params),
-      params.secondsPerBlock ?? getBlockTime(params.chainId),
-    ]);
+  const [{ balances, rewardTokens, rewardDecimals, rewardsPerSec }, secondsPerBlock] = await Promise.all([
+    getPoolsData(params),
+    params.secondsPerBlock ?? getBlockTime(params.chainId),
+  ]);
 
   for (let i = 0; i < params.pools.length; i++) {
     const pool = params.pools[i];
@@ -108,11 +100,14 @@ const getFarmApys = async (params: MasterChefApysParams): Promise<BigNumber[]> =
     const apy = yearlyRewardsInUsd.dividedBy(totalStakedInUsd);
     apys.push(apy);
     if (params.log) {
-      console.log(
-        pool.name,
-        apy.toNumber(),
-        totalStakedInUsd.valueOf(),
-        yearlyRewardsInUsd.valueOf()
+      logger.debug(
+        {
+          pool: pool.name,
+          apy: apy.toNumber(),
+          tvl: totalStakedInUsd.valueOf(),
+          yearlyUsd: yearlyRewardsInUsd.valueOf(),
+        },
+        'pool apy'
       );
     }
   }
@@ -121,18 +116,11 @@ const getFarmApys = async (params: MasterChefApysParams): Promise<BigNumber[]> =
 };
 
 const getPoolsData = async (params: MasterChefApysParams) => {
-  const masterchefContract = fetchContract(
-    params.masterchef,
-    IMultiRewardMasterChef,
-    params.chainId
-  );
+  const masterchefContract = fetchContract(params.masterchef, IMultiRewardMasterChef, params.chainId);
   const balanceCalls = params.pools.map(p => masterchefContract.read.poolTotalLp([p.poolId]));
   const rewardsCalls = params.pools.map(p => masterchefContract.read.poolRewardsPerSec([p.poolId]));
 
-  const [balanceResults, rewardResults] = await Promise.all([
-    Promise.all(balanceCalls),
-    Promise.all(rewardsCalls),
-  ]);
+  const [balanceResults, rewardResults] = await Promise.all([Promise.all(balanceCalls), Promise.all(rewardsCalls)]);
 
   const balances: BigNumber[] = balanceResults.map(v => new BigNumber(v.toString()));
   const rewardTokens = rewardResults.map(v => v[1]);

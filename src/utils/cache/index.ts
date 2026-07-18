@@ -3,6 +3,9 @@ import { RedisCacheBackend } from './RedisCacheBackend';
 import { DummyCacheBackend } from './DummyCacheBackend';
 import { ICacheBackend } from './ICacheBackend';
 import { FileCacheBackend } from './FileCacheBackend';
+import { getLoggerFor } from '../logger/index.js';
+
+const logger = getLoggerFor({ module: 'cache' });
 
 let cache: Cache | undefined;
 
@@ -13,19 +16,19 @@ export async function initCache() {
 
   // Redis backend
   if (process.env.REDISCLOUD_URL && typeof process.env.REDISCLOUD_URL === 'string') {
-    console.log('> Using Redis cache backend');
+    logger.info({ backend: 'redis' }, 'using cache backend');
     backend = await RedisCacheBackend.create(process.env.REDISCLOUD_URL);
   }
 
   // File backend
   if (!backend && process.env.FILE_CACHE_BACKEND) {
-    console.log('> Using file cache backend');
+    logger.info({ backend: 'file' }, 'using cache backend');
     backend = new FileCacheBackend();
   }
 
   // Fallback backend
   if (!backend) {
-    console.log('> No cache backend specified, cache disabled');
+    logger.warn({ backend: 'none' }, 'no cache backend specified, cache disabled');
     backend = new DummyCacheBackend();
   }
 

@@ -2,6 +2,9 @@ import BigNumber from 'bignumber.js';
 import { ChainId } from '../../packages/address-book/src/address-book';
 import { fetchContract } from '../api/rpc/client';
 import BeefyVaultV6Abi from '../abis/BeefyVault';
+import { getLoggerFor } from './logger/index.js';
+
+const logger = getLoggerFor({ module: 'prices', platform: 'moo' });
 
 export async function fetchMooPrices(
   pools: any[],
@@ -40,7 +43,7 @@ const fetchPpfs = async (pools: any[]) => {
         filtered[i].ppfs = ppfss[i];
       }
     } catch (e) {
-      console.error('fetchMooPrices', e);
+      logger.warn({ err: e, chain: uniqueChainIds[i] }, 'ppfs fetch failed');
       continue;
     }
   }

@@ -4,6 +4,9 @@ import EulerVault from '../../../../abis/EulerVault';
 import { fetchContract } from '../../../rpc/client';
 import { getMerklApys } from '../getMerklApys';
 import { getApyBreakdown } from '../getApyBreakdownNew';
+import { getLoggerFor } from '../../../../utils/logger/index.js';
+
+const logger = getLoggerFor({ module: 'apy', platform: 'euler' });
 
 const SECONDS_PER_YEAR = 31536000;
 
@@ -21,7 +24,9 @@ const getEulerApyData = async (params: EulerApyParams) => {
   ]);
 
   if (params.log) {
-    params.pools.forEach((pool, i) => console.log(pool.name, supplyApys[i].valueOf()));
+    params.pools.forEach((pool, i) =>
+      logger.debug({ pool: pool.name, apy: supplyApys[i].valueOf() }, 'pool supply apy')
+    );
   }
 
   return getApyBreakdown(
@@ -91,7 +96,7 @@ const getPoolsApysFromApi = async (chainId: ChainId, pools: EulerPool[]): Promis
       const response = await fetch(url);
 
       if (!response.ok) {
-        console.error(`Euler API error for ${pool.name}: ${response.status}`);
+        logger.warn({ pool: pool.name, chain: chainId, status: response.status }, 'euler api error');
         return new BigNumber(0);
       }
 
@@ -101,11 +106,11 @@ const getPoolsApysFromApi = async (chainId: ChainId, pools: EulerPool[]): Promis
         // console.log(`${pool.name} APY:`, apyValue);
         return new BigNumber(apyValue).div(100); // Convert percentage to decimal
       } else {
-        console.error(`Euler API returned empty or missing APY data for ${pool.name}`);
+        logger.warn({ pool: pool.name }, 'euler api returned empty or missing apy data');
         return new BigNumber(0);
       }
     } catch (error) {
-      console.error(`Error fetching Euler APY for ${pool.name}:`, error.message);
+      logger.warn({ pool: pool.name, err: error }, 'error fetching euler apy');
       return new BigNumber(0);
     }
   });

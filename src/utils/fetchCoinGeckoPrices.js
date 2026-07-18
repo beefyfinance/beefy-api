@@ -1,3 +1,7 @@
+const { getLoggerFor } = require('./logger/index.js');
+
+const logger = getLoggerFor({ module: 'prices', platform: 'coingecko' });
+
 const fetchCoinGeckoPrices = async coins => {
   if (!coins) return {};
   const ids = coins.join(',');
@@ -10,7 +14,7 @@ const fetchCoinGeckoPrices = async coins => {
       prices = { ...prices, ...{ [coin]: price } };
     });
   } catch (e) {
-    console.error('> fetchCoinGeckoPrices', e);
+    logger.warn({ err: e }, 'failed to fetch coingecko prices');
   }
   return prices;
 };

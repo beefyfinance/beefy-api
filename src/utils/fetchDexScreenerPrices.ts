@@ -1,6 +1,9 @@
 import { ApiChain } from './chain';
 import { orderBy, uniqBy } from 'lodash';
 import { isFiniteNumber } from './number';
+import { getLoggerFor } from './logger/index.js';
+
+const logger = getLoggerFor({ module: 'prices', platform: 'dexScreener' });
 
 const MAX_VALID_PRICE_USD = 1_000_000;
 
@@ -141,9 +144,7 @@ async function fetchDexScreenerPairsWithRetry(
     return results;
   }
 
-  console.debug(
-    `Retrying ${unfulfilled.length} unfulfilled DexScreener price requests (${retriesLeft - 1} retries left)`
-  );
+  logger.debug({ count: unfulfilled.length, retriesLeft: retriesLeft - 1 }, 'retrying unfulfilled price requests');
   const extraResults = await fetchDexScreenerPairsWithRetry(unfulfilled, --retriesLeft);
   return results.concat(extraResults);
 }
@@ -200,14 +201,12 @@ export async function fetchDexScreenerPriceOracles(requests: OraclePriceRequest[
 
     if (isFiniteNumber(price)) {
       if (oracleId in acc) {
-        console.warn(`Duplicate price for oracle ${oracleId} via fetchDexScreenerPriceOracles, ignoring`);
+        logger.warn({ oracleId }, 'duplicate oracle price, ignoring');
       } else {
         acc[oracleId] = price;
       }
     } else {
-      console.error(
-        `Invalid price for oracle ${oracleId} for ${tokenAddress} on ${chainId} via fetchDexScreenerPriceOracles, ignoring`
-      );
+      logger.warn({ oracleId, address: tokenAddress, chain: chainId }, 'invalid oracle price, ignoring');
     }
 
     return acc;

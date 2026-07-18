@@ -1,4 +1,8 @@
 const { getBeefyGnosisCowApys } = require('./getBeefyGnosisCowApys');
+const { GNOSIS_CHAIN_ID } = require('../../../constants');
+const { getLoggerFor } = require('../../../utils/logger/index.js');
+
+const logger = getLoggerFor({ module: 'apy', chain: GNOSIS_CHAIN_ID });
 
 const getApys = [getBeefyGnosisCowApys];
 
@@ -13,7 +17,7 @@ const getGnosisApys = async () => {
 
   for (const result of results) {
     if (result.status !== 'fulfilled') {
-      console.warn('getGnosisApys error', result.reason);
+      logger.warn({ err: result.reason }, 'apy sub-calculation failed');
       continue;
     }
 
@@ -42,7 +46,7 @@ const getGnosisApys = async () => {
   }
 
   const end = Date.now();
-  console.log(`> [APY] Gnosis finished updating in ${(end - start) / 1000}s`);
+  logger.info({ durationMs: end - start }, 'apy updated');
 
   return {
     apys,

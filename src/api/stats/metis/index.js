@@ -1,5 +1,9 @@
 const getNetswapApys = require('./getNetswapApys');
 const { getAaveV3Apys } = require('./getAaveV3Apys');
+const { METIS_CHAIN_ID } = require('../../../constants');
+const { getLoggerFor } = require('../../../utils/logger/index.js');
+
+const logger = getLoggerFor({ module: 'apy', chain: METIS_CHAIN_ID });
 
 const getApys = [getAaveV3Apys, getNetswapApys];
 
@@ -14,7 +18,7 @@ const getMetisApys = async () => {
 
   for (const result of results) {
     if (result.status !== 'fulfilled') {
-      console.warn('getMetisApys error', result.reason);
+      logger.warn({ err: result.reason }, 'apy sub-calculation failed');
       continue;
     }
 
@@ -43,7 +47,7 @@ const getMetisApys = async () => {
   }
 
   const end = Date.now();
-  console.log(`> [APY] Metis finished updating in ${(end - start) / 1000}s`);
+  logger.info({ durationMs: end - start }, 'apy updated');
 
   return {
     apys,

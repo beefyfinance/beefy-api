@@ -9,6 +9,9 @@ import { ChainTokens, TokenEntity, TokenErc20, TokenNative, TokensByChain } from
 import { mapValues } from 'lodash';
 import { Address, getAddress } from 'viem';
 import { isDefined } from '../../utils/array';
+import { getLoggerFor } from '../../utils/logger/index.js';
+
+const logger = getLoggerFor({ module: 'tokens' });
 
 const tokensByChain: Partial<TokensByChain> = {};
 
@@ -92,9 +95,7 @@ export function isTokenErc20(token: TokenEntity): token is TokenErc20 {
 }
 
 export function areTokensEqual(tokenA: TokenEntity, tokenB: TokenEntity): boolean {
-  return (
-    tokenA.chainId === tokenB.chainId && tokenA.address === tokenB.address && tokenA.type === tokenB.type
-  );
+  return tokenA.chainId === tokenB.chainId && tokenA.address === tokenB.address && tokenA.type === tokenB.type;
 }
 
 async function fetchVaultTokensForChain(chainId: ApiChain): Promise<TokenEntity[]> {
@@ -141,9 +142,7 @@ async function fetchVaultTokensForChain(chainId: ApiChain): Promise<TokenEntity[
 
 async function fetchBoostTokensForChain(chainId: ApiChain): Promise<TokenEntity[]> {
   const boosts = getChainNewBoosts(chainId) || [];
-  const vaultAddresses = new Set(
-    (getSingleChainVaults(chainId) || []).map(vault => vault.earnContractAddress)
-  );
+  const vaultAddresses = new Set((getSingleChainVaults(chainId) || []).map(vault => vault.earnContractAddress));
 
   return boosts.reduce((tokens: TokenEntity[], boost) => {
     for (const reward of boost.rewards) {
@@ -212,12 +211,12 @@ async function fetchAddressBookTokensForChain(
 ): Promise<{ nativeTokens: TokenNative[]; erc20Tokens: TokenErc20[] }> {
   const chainBook = addressBook[chainId];
   if (!chainBook) {
-    console.error(`Missing address book for ${chainId}`);
+    logger.warn({ chain: chainId }, 'missing address book');
     return { nativeTokens: [], erc20Tokens: [] };
   }
   const abTokens: Record<string, Token> = chainBook.tokens;
   if (!abTokens || !Object.keys(abTokens).length || !abTokens.WNATIVE) {
-    console.warn(`No address book tokens found for chain ${chainId}`);
+    logger.warn({ chain: chainId }, 'no address book tokens found');
     return { nativeTokens: [], erc20Tokens: [] };
   }
 
@@ -328,7 +327,7 @@ export async function initTokenService() {
 
 async function updateTokens() {
   try {
-    console.log('> Updating token service');
+    logger.debug('updating token service');
     const chains = Object.keys(MULTICHAIN_ENDPOINTS) as ApiChain[];
     const byChain = await Promise.all(chains.map(chainId => fetchTokensForChain(chainId)));
 
@@ -339,9 +338,9 @@ async function updateTokens() {
 
     serviceEventBus.emit('tokens/updated');
 
-    console.log('> Token service updated');
+    logger.info({ chainCount: chains.length }, 'token service updated');
   } catch (err) {
-    console.error('> Token service update failed', err);
+    logger.error({ err }, 'token service update failed');
   } finally {
     // Update tokens whenever boosts or vaults update
     Promise.race([

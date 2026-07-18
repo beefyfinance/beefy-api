@@ -4,15 +4,16 @@ import { getSnapshotApi } from './getSnapshotApi';
 import { isBefore, sub } from 'date-fns';
 import { keyBy, omit } from 'lodash';
 import { retryPromiseWithBackOff } from '../../utils/promise';
+import { getLoggerFor } from '../../utils/logger/index.js';
+
+const logger = getLoggerFor({ module: 'snapshot' });
 
 const SPACES = {
   'beefydao.eth': {
-    proposalUrl: (proposalId: string, _spaceId: string) =>
-      `https://vote.beefy.finance/#/proposal/${proposalId}`,
+    proposalUrl: (proposalId: string, _spaceId: string) => `https://vote.beefy.finance/#/proposal/${proposalId}`,
   },
   'profit.beefy.eth': {
-    proposalUrl: (proposalId: string, spaceId: string) =>
-      `https://snapshot.box/#/s:${spaceId}/proposal/${proposalId}`,
+    proposalUrl: (proposalId: string, spaceId: string) => `https://snapshot.box/#/s:${spaceId}/proposal/${proposalId}`,
   },
 };
 
@@ -58,7 +59,7 @@ function hasProposalEnded(proposal: Proposal): boolean {
 }
 
 async function updateSpaces() {
-  console.log('[Snapshot] Updating spaces...');
+  logger.debug('updating spaces');
   const api = await getSnapshotApi();
   const spaces = await api.getSpaces(Object.keys(SPACES));
 
@@ -106,9 +107,9 @@ async function setProposals(proposals: Proposals) {
 }
 
 async function updateProposals() {
-  console.log('[Snapshot] Updating proposals...');
+  logger.debug('updating proposals');
   if (!cachedSpaces) {
-    console.error('Can not update proposals without updating spaces first.');
+    logger.warn('can not update proposals without updating spaces first');
     return;
   }
 
@@ -157,13 +158,13 @@ export async function initProposalsService() {
 
   setTimeout(() => {
     retryPromiseWithBackOff(updateIfNeeded, undefined, 'initProposalsService', 3).catch(err => {
-      console.error(`[Snapshot] failed to init`, err);
+      logger.error({ err }, 'failed to init');
     });
   }, INIT_DELAY);
 
   setInterval(() => {
     updateIfNeeded().catch(err => {
-      console.error(`[Snapshot] failed to update`, err);
+      logger.warn({ err }, 'failed to update');
     });
   }, MAX_PROPOSAL_AGE_MINS * 60 * 1000 + 1000);
 }

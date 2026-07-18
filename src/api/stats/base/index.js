@@ -6,6 +6,9 @@ const { getAaveV3Apys } = require('./getAaveV3Apys');
 const { getMellowVeloApys } = require('../common/getMellowVeloApys');
 const { getMorphoApys } = require('../common/morpho/getMorphoApys');
 const { BASE_CHAIN_ID } = require('../../../constants');
+const { getLoggerFor } = require('../../../utils/logger/index.js');
+
+const logger = getLoggerFor({ module: 'apy', chain: BASE_CHAIN_ID });
 
 const getApys = [
   getAaveV3Apys,
@@ -28,7 +31,7 @@ const getBaseApys = async () => {
 
   for (const result of results) {
     if (result.status !== 'fulfilled') {
-      console.warn('getBaseApys error', result.reason);
+      logger.warn({ err: result.reason }, 'apy sub-calculation failed');
       continue;
     }
 
@@ -57,7 +60,7 @@ const getBaseApys = async () => {
   }
 
   const end = Date.now();
-  console.log(`> [APY] Base finished updating in ${(end - start) / 1000}s`);
+  logger.info({ durationMs: end - start }, 'apy updated');
 
   return {
     apys,

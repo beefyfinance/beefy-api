@@ -6,6 +6,9 @@ import cv3Token from '../../../abis/cv3Token';
 import { Abi } from 'viem';
 import { fetchContract, fetchNoMulticallContract } from '../../rpc/client';
 import { getApyBreakdown } from './getApyBreakdownNew';
+import { getLoggerFor } from '../../../utils/logger/index.js';
+
+const logger = getLoggerFor({ module: 'apy', platform: 'compound' });
 
 const SECONDS_PER_YEAR = 31536000;
 
@@ -15,7 +18,12 @@ const getCompoundV3ApyData = async (params: CompoundV3ApyParams) => {
   const { supplyApys, supplyCompApys } = await getPoolsApys(params, poolsData);
 
   if (params.log) {
-    params.pools.forEach((pool, i) => console.log(pool.name, supplyApys[i].valueOf(), supplyCompApys[i].valueOf()));
+    params.pools.forEach((pool, i) =>
+      logger.debug(
+        { pool: pool.name, supplyApy: supplyApys[i].valueOf(), supplyCompApy: supplyCompApys[i].valueOf() },
+        'pool apy'
+      )
+    );
   }
 
   return getApyBreakdown(

@@ -11,6 +11,9 @@ import { getVaultsByType } from '../stats/getMultichainVaults';
 import { serviceEventBus } from '../../utils/ServiceEventBus';
 import { Address } from 'viem';
 import { sortBy, uniqBy } from 'lodash';
+import { getLoggerFor } from '../../utils/logger/index.js';
+
+const logger = getLoggerFor({ module: 'rewards' });
 
 const TIME_BETWEEN_UPDATES = 10 * 60; // seconds
 const CACHE_KEY = 'OFFCHAIN_REWARDS';
@@ -76,7 +79,7 @@ const getService = createFactory(async () => {
 export async function initOffchainRewardsService() {
   await Promise.all([serviceEventBus.waitForFirstEvent('vaults/updated')]);
   getService().catch(err => {
-    console.error('> [Offchain Rewards] Failed to initialize service', err);
+    logger.error({ err }, 'service initialization failed');
   });
 }
 

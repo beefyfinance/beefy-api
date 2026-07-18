@@ -1,6 +1,9 @@
 const { LISK_CHAIN_ID: chainId } = require('../../../constants');
 import { getEDecimals } from '../../../utils/getEDecimals';
 const { getSolidlyGaugeApys } = require('../common/getSolidlyGaugeApys');
+const { getLoggerFor } = require('../../../utils/logger/index.js');
+
+const logger = getLoggerFor({ module: 'apy', platform: 'velodrome', chain: chainId });
 
 const stablePools = require('../../../data/lisk/velodromeLiskStablePools.json');
 const volatilePools = require('../../../data/lisk/velodromeLiskPools.json');
@@ -32,7 +35,7 @@ const getVelodromeLiskApys = async () => {
   const results = await Promise.allSettled([gaugeApys]);
   for (const result of results) {
     if (result.status !== 'fulfilled') {
-      console.warn('getVelodromeApys error', result.reason);
+      logger.warn({ err: result.reason }, 'apy sub-calculation failed');
     } else {
       apys = { ...apys, ...result.value.apys };
       apyBreakdowns = { ...apyBreakdowns, ...result.value.apyBreakdowns };

@@ -1,10 +1,5 @@
 import BigNumber from 'bignumber.js';
-import {
-  contextAllSettled,
-  isContextResultFulfilled,
-  isContextResultRejected,
-  withTimeout,
-} from '../../utils/promise';
+import { contextAllSettled, isContextResultFulfilled, isContextResultRejected, withTimeout } from '../../utils/promise';
 import { serviceEventBus } from '../../utils/ServiceEventBus';
 import { first, groupBy, mapValues, orderBy, sumBy } from 'lodash';
 import { ApiChain, SupportedChains } from '../../utils/chain';
@@ -26,12 +21,14 @@ import { fetchContract } from '../rpc/client';
 import { HARVESTABLE_VAULT_TYPES, sortVaults, VAULT_TYPES } from '../vaults/helpers';
 import BeefyVaultV6Abi from '../../abis/BeefyVault';
 import { getVaultPpfsOverride } from '../../data/vaultOverrides';
+import { getLoggerFor } from '../../utils/logger/index.js';
+
+const logger = getLoggerFor({ module: 'vaults' });
 
 const CACHE_KEY = 'VAULTS_BY_TYPE_CHAIN';
 const CACHE_VERSION = 1;
 const INIT_DELAY = envNumber('VAULTS_INIT_DELAY', 2 * 1000);
 const REFRESH_INTERVAL = 5 * 60 * 1000;
-const LOG_PER_CHAIN = false;
 
 type VaultsById<T = AnyVault> = Record<string, T>;
 
@@ -154,9 +151,7 @@ class Storage {
     rebuild: boolean = true
   ) {
     this.byTypeChain[type] ??= {};
-    (this.byTypeChain[type][chain] as VaultOfType<T>[]) = sortVaults(
-      vaults.filter(v => isVaultOfType(v, type))
-    );
+    (this.byTypeChain[type][chain] as VaultOfType<T>[]) = sortVaults(vaults.filter(v => isVaultOfType(v, type)));
     this.lastUpdate = Date.now();
     if (rebuild) {
       this.build();
@@ -198,11 +193,7 @@ class Storage {
     return vault;
   }
 
-  getVaultByIdOfType<T extends AnyVault['type']>(
-    id: string,
-    type: T,
-    throwIfMissingOrWrongType: true
-  ): VaultOfType<T>;
+  getVaultByIdOfType<T extends AnyVault['type']>(id: string, type: T, throwIfMissingOrWrongType: true): VaultOfType<T>;
   getVaultByIdOfType<T extends AnyVault['type']>(
     id: string,
     type: T,
@@ -256,15 +247,11 @@ class Storage {
 const storage = new Storage();
 
 export const getVaultById = storage.getVaultById.bind(storage) as typeof storage.getVaultById;
-export const getVaultByIdOfType = storage.getVaultByIdOfType.bind(
-  storage
-) as typeof storage.getVaultByIdOfType;
+export const getVaultByIdOfType = storage.getVaultByIdOfType.bind(storage) as typeof storage.getVaultByIdOfType;
 export const getAllVaults = storage.getVaults.bind(storage) as typeof storage.getVaults;
 export const getVaultsByChain = storage.getVaultsByChain.bind(storage) as typeof storage.getVaultsByChain;
 export const getVaultsByType = storage.getVaultsByType.bind(storage) as typeof storage.getVaultsByType;
-export const getVaultsByTypeChain = storage.getVaultsByTypeChain.bind(
-  storage
-) as typeof storage.getVaultsByTypeChain;
+export const getVaultsByTypeChain = storage.getVaultsByTypeChain.bind(storage) as typeof storage.getVaultsByTypeChain;
 
 export function getAllHarvestableVaults(withRelated = false) {
   return sortVaults(
@@ -387,19 +374,13 @@ type VaultTypeHandlers = {
   [T in AnyVault as T['type']]: VaultHandler<T>;
 };
 
-function keepStaleOnError<T extends AnyVault>(
-  handler: VaultHandler<T>,
-  keys: Array<keyof T>
-): VaultHandler<T> {
+function keepStaleOnError<T extends AnyVault>(handler: VaultHandler<T>, keys: Array<keyof T>): VaultHandler<T> {
   return async (chain: ApiChain, vault: T, existing: T | undefined) => {
     try {
       return await handler(chain, vault, existing);
     } catch (err) {
       if (existing && keys.every(v => existing[v] !== undefined)) {
-        console.error(
-          `> failed to get update ${vault.id} on ${chain}, using stale data`,
-          err.shortMessage ?? err
-        );
+        logger.warn({ vault: vault.id, chain, err }, 'update failed, using stale data');
         for (const key of keys) {
           vault[key] = existing[key];
         }
@@ -467,11 +448,7 @@ async function getStrategyAddress(chain: ApiChain, vaultAddress: Address): Promi
  * incorrect. We return hardcoded values from before the incident instead.
  * See src/data/vaultOverrides.ts.
  */
-async function getPricePerFullShare(
-  chain: ApiChain,
-  vaultAddress: Address,
-  vaultId?: string
-): Promise<BigNumber> {
+async function getPricePerFullShare(chain: ApiChain, vaultAddress: Address, vaultId?: string): Promise<BigNumber> {
   const override = vaultId && getVaultPpfsOverride(vaultId);
   if (override) return override;
 
@@ -514,9 +491,7 @@ async function getTotalSupply(chain: ApiChain, vaultAddress: Address): Promise<n
 
 /** update all vaults of a specific chain */
 async function updateChainVaults(chain: ApiChain) {
-  if (LOG_PER_CHAIN) {
-    console.log(`> updating vaults on ${chain}`);
-  }
+  logger.debug({ chain }, 'updating chain vaults');
 
   // get all vaults from git .json
   const allVaults = await getVaults(chain);
@@ -529,7 +504,7 @@ async function updateChainVaults(chain: ApiChain) {
       try {
         return await handler(chain, vault, existing);
       } catch (err) {
-        console.error(`> failed to process vault ${vault.id} on ${chain}`, err);
+        logger.warn({ vault: vault.id, chain, err }, 'failed to process vault');
         return existing ?? vault;
       }
     })
@@ -553,21 +528,17 @@ async function updateChainVaults(chain: ApiChain) {
     storage.setTypeOfChain(chain, vaultType, vaults, false); // don't rebuild indexes, we will do it after all chains complete
   }
 
-  if (LOG_PER_CHAIN) {
-    console.log(`> updated ${processedVaults.length} vaults on ${chain}`);
-  }
+  logger.debug({ chain, count: processedVaults.length }, 'updated chain vaults');
 }
 
 /** update all vaults on all chains */
 async function updateMultichainVaults() {
-  console.log('> updating vaults');
+  logger.info('updating vaults');
 
   try {
     const start = Date.now();
     const timeout = Math.min(30_000, REFRESH_INTERVAL / 2);
-    const results = await contextAllSettled(SupportedChains, chain =>
-      withTimeout(updateChainVaults(chain), timeout)
-    );
+    const results = await contextAllSettled(SupportedChains, chain => withTimeout(updateChainVaults(chain), timeout));
     const fulfilled = results.filter(isContextResultFulfilled);
 
     if (fulfilled.length) {
@@ -579,19 +550,24 @@ async function updateMultichainVaults() {
 
     const activeIdsCounter = sumBy(storage.getVaults(), vault => (vault.status === 'active' ? 1 : 0));
 
-    console.log(
-      `> Vaults for ${fulfilled.length}/${results.length} chains updated: ${
-        storage.getVaults().length
-      } vaults (${activeIdsCounter} active) (${(Date.now() - start) / 1000}s)`
+    logger.info(
+      {
+        chains: fulfilled.length,
+        totalChains: results.length,
+        count: storage.getVaults().length,
+        active: activeIdsCounter,
+        durationMs: Date.now() - start,
+      },
+      'updated vaults'
     );
 
     if (fulfilled.length < results.length) {
       const rejected = results.filter(isContextResultRejected);
-      console.error(` - ${rejected.length} chains failed to update:`);
-      rejected.forEach(result => console.error(`  - ${result.context}`, result.reason));
+      logger.warn({ count: rejected.length }, 'chains failed to update');
+      rejected.forEach(result => logger.warn({ chain: result.context, err: result.reason }, 'chain update failed'));
     }
   } catch (err) {
-    console.error(`> vaults update failed `, err);
+    logger.error({ err }, 'vaults update failed');
   }
 
   setTimeout(updateMultichainVaults, REFRESH_INTERVAL);

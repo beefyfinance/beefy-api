@@ -1,5 +1,9 @@
 const { getLynexApys } = require('./getLynexApys');
 const { getBeefyCowLineaApys } = require('./getBeefyCowLineaApys');
+const { LINEA_CHAIN_ID } = require('../../../constants');
+const { getLoggerFor } = require('../../../utils/logger/index.js');
+
+const logger = getLoggerFor({ module: 'apy', chain: LINEA_CHAIN_ID });
 
 const getApys = [getLynexApys, getBeefyCowLineaApys];
 
@@ -14,7 +18,7 @@ const getLineaApys = async () => {
 
   for (const result of results) {
     if (result.status !== 'fulfilled') {
-      console.warn('getLineaApys error', result.reason);
+      logger.warn({ err: result.reason }, 'apy sub-calculation failed');
       continue;
     }
 
@@ -43,7 +47,7 @@ const getLineaApys = async () => {
   }
 
   const end = Date.now();
-  console.log(`> [APY] Linea finished updating in ${(end - start) / 1000}s`);
+  logger.info({ durationMs: end - start }, 'apy updated');
 
   return {
     apys,

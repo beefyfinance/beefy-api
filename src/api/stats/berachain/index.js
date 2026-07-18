@@ -1,6 +1,10 @@
 const { getBeefyCowBerachainApys } = require('./getBeefyCowBerachainApys');
 const getBeraswapApys = require('./getBeraswapApys');
 const { getKodiakApys } = require('./getKodiakApys');
+const { BERACHAIN_CHAIN_ID } = require('../../../constants');
+const { getLoggerFor } = require('../../../utils/logger/index.js');
+
+const logger = getLoggerFor({ module: 'apy', chain: BERACHAIN_CHAIN_ID });
 
 const getApys = [getBeefyCowBerachainApys, getBeraswapApys, getKodiakApys];
 
@@ -15,7 +19,7 @@ const getBerachainApys = async () => {
 
   for (const result of results) {
     if (result.status !== 'fulfilled') {
-      console.warn('getBerachainApys error', result.reason);
+      logger.warn({ err: result.reason }, 'apy sub-calculation failed');
       continue;
     }
 
@@ -44,7 +48,7 @@ const getBerachainApys = async () => {
   }
 
   const end = Date.now();
-  console.log(`> [APY] Berachain finished updating in ${(end - start) / 1000}s`);
+  logger.info({ durationMs: end - start }, 'apy updated');
 
   return {
     apys,

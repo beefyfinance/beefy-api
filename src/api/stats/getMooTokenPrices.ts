@@ -4,12 +4,14 @@ import { serviceEventBus } from '../../utils/ServiceEventBus';
 import { BIG_ZERO, isFiniteBigNumber } from '../../utils/big-number';
 import { isFiniteNumber } from '../../utils/number';
 import { getMultichainVaults } from './getMultichainVaults';
+import { getLoggerFor } from '../../utils/logger/index.js';
+
+const logger = getLoggerFor({ module: 'prices' });
 
 let mooTokenPrices = {};
 
 const INIT_DELAY = Number(process.env.MOOTOKEN_INIT_DELAY || 60 * 1000);
 const REFRESH_INTERVAL = 60 * 1000;
-const LOG_ERRORS = process.env.MOOTOKEN_LOG_ERRORS === 'true';
 
 export const getMooTokenPrices = () => {
   return mooTokenPrices;
@@ -23,7 +25,7 @@ const updateMooTokenPrices = async () => {
     missing = 0,
     failures = 0;
 
-  console.log('> updating mooToken prices');
+  logger.info('updating mooToken prices');
 
   for (const vault of vaults) {
     try {
@@ -56,22 +58,15 @@ const updateMooTokenPrices = async () => {
       ++successes;
     } catch (error) {
       ++failures;
-      if (LOG_ERRORS) {
-        console.log(`> failed to update mooPrice of vault ${vault.id}`);
-        console.log(error);
-      }
+      logger.debug({ vault: vault.id, err: error }, 'failed to update mooPrice');
     }
   }
 
   const level = failures > 0 ? 'error' : missing > 0 ? 'warn' : 'info';
-  console[level](
-    `> prices for mooTokens updated: ${successes} successes, ${missing} missing, ${failures} failures (${
-      (Date.now() - now) / 1000
-    }s)`
-  );
+  logger[level]({ successes, missing, failures, durationMs: Date.now() - now }, 'mooToken prices updated');
 
   saveToRedis().catch(err => {
-    console.error('> failed to save mooToken prices', err);
+    logger.error({ err }, 'failed to save mooToken prices');
   });
 
   setTimeout(updateMooTokenPrices, REFRESH_INTERVAL);

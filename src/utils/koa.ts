@@ -1,4 +1,7 @@
 import { Context } from 'koa';
+import { getLoggerFor } from './logger/index.js';
+
+const logger = getLoggerFor({ module: 'http' });
 
 const DEFAULT_RETRY_AFTER: number = 60; // seconds
 
@@ -52,11 +55,7 @@ export function sendInternalServerError(ctx: Context, body?: unknown, cache?: Ca
   sendStatusCode(ctx, 500, body, cache);
 }
 
-export function sendServiceUnavailable(
-  ctx: Context,
-  body?: unknown,
-  retryAfter: number = DEFAULT_RETRY_AFTER
-) {
+export function sendServiceUnavailable(ctx: Context, body?: unknown, retryAfter: number = DEFAULT_RETRY_AFTER) {
   sendStatusCode(ctx, 503, body, {
     control: 'no-cache',
     maxAge: retryAfter,
@@ -73,7 +72,7 @@ export function withErrorHandling(cb: KoaCallback): KoaCallback {
     try {
       await cb(ctx);
     } catch (error) {
-      console.error(error);
+      logger.error({ err: error }, 'request handler failed');
       sendInternalServerError(ctx);
     }
   };

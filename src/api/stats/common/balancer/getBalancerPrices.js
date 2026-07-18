@@ -2,6 +2,9 @@ const BigNumber = require('bignumber.js');
 const { default: ERC20Abi } = require('../../../../abis/ERC20Abi');
 const { default: IBalancerVault } = require('../../../../abis/IBalancerVault');
 const { fetchContract } = require('../../../rpc/client');
+const { getLoggerFor } = require('../../../../utils/logger/index.js');
+
+const logger = getLoggerFor({ module: 'prices', platform: 'balancer' });
 
 const getBalancerPrices = async (chainId, pools, tokenPrices) => {
   let prices = {};
@@ -23,10 +26,7 @@ const getPoolsData = async (chainId, pools) => {
     const contract = fetchContract(pool.vault, IBalancerVault, chainId);
     return contract.read.getPoolTokens([pool.vaultPoolId]);
   });
-  const [balanceResults, supplyResults] = await Promise.all([
-    Promise.all(balanceCalls),
-    Promise.all(totalSupplyCalls),
-  ]);
+  const [balanceResults, supplyResults] = await Promise.all([Promise.all(balanceCalls), Promise.all(totalSupplyCalls)]);
   const tokenAddresses = balanceResults.map(v => v[0]);
   const balances = balanceResults.map(v => {
     return v[1].map(v2 => new BigNumber(v2.toString()));
@@ -73,7 +73,7 @@ const getTokenPrice = (tokenPrices, oracleId) => {
   if (tokenPrices.hasOwnProperty(tokenSymbol)) {
     tokenPrice = tokenPrices[tokenSymbol];
   } else {
-    console.trace(`Unknown token '${tokenSymbol}'. Consider adding it to .json file`);
+    logger.warn({ token: tokenSymbol }, 'unknown token, consider adding it to .json file');
   }
   return tokenPrice;
 };

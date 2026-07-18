@@ -1,6 +1,9 @@
 const { getBeefyCowMegaethApys } = require('./getBeefyCowMegaethApys');
 const { getAaveV3Apys } = require('./getAaveV3Apys');
 const { MEGAETH_CHAIN_ID } = require('../../../constants');
+const { getLoggerFor } = require('../../../utils/logger/index.js');
+
+const logger = getLoggerFor({ module: 'apy', chain: MEGAETH_CHAIN_ID });
 
 const getApys = [getBeefyCowMegaethApys, getAaveV3Apys];
 
@@ -15,7 +18,7 @@ const getMegaethApys = async () => {
 
   for (const result of results) {
     if (result.status !== 'fulfilled') {
-      console.warn('getMegaethApys error', result.reason);
+      logger.warn({ err: result.reason }, 'apy sub-calculation failed');
       continue;
     }
 
@@ -44,7 +47,7 @@ const getMegaethApys = async () => {
   }
 
   const end = Date.now();
-  console.log(`> [APY] Megaeth finished updating in ${(end - start) / 1000}s`);
+  logger.info({ durationMs: end - start }, 'apy updated');
 
   return {
     apys,

@@ -1,5 +1,8 @@
 import { getKey, setKey } from '../../utils/cache';
+import { getLoggerFor } from '../../utils/logger/index.js';
 import { validatorStructure } from './validatorStructure';
+
+const logger = getLoggerFor({ module: 'validators' });
 
 export interface FetchValidatorPerformanceResponse {
   totalPerformanceEther: string;
@@ -21,7 +24,7 @@ const REFRESH_INTERVAL = 15 * 60 * 1000;
 let validatorPerformance: ValidatorsPerformance = {};
 
 const updateValidatorPerformance = async () => {
-  console.log('> updating validator performance');
+  logger.debug('updating validator performance');
   try {
     const settledPromises = await Promise.allSettled(
       Object.values(validatorStructure).map(val => val.validatorFunctionName())
@@ -33,13 +36,16 @@ const updateValidatorPerformance = async () => {
           lastUpdate: Date.now(),
         };
       } else {
-        console.error(`> ${Object.keys(validatorStructure)[i]} validator fetch failed`);
+        logger.warn(
+          { validator: Object.keys(validatorStructure)[i], err: settledPromise.reason },
+          'validator fetch failed'
+        );
       }
     });
-    console.log('> updated validator performance');
+    logger.info('updated validator performance');
     saveToRedis();
   } catch (e) {
-    console.error('> validator performance initialization failed', e);
+    logger.error({ err: e }, 'validator performance initialization failed');
   }
   setTimeout(updateValidatorPerformance, REFRESH_INTERVAL);
 };

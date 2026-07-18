@@ -3,6 +3,9 @@ import { getFarmApys } from '../common/getSolidlyGaugeApys';
 import { getApyBreakdown } from '../common/getApyBreakdownNew';
 import { BERACHAIN_CHAIN_ID as chainId } from '../../../constants';
 import pools from '../../../data/berachain/kodiakPools.json';
+import { getLoggerFor } from '../../../utils/logger/index.js';
+
+const logger = getLoggerFor({ module: 'apy', platform: 'kodiak', chain: chainId });
 
 export const getKodiakApys = async () => {
   const [farmApys, tradingApys] = await Promise.all([
@@ -54,7 +57,7 @@ async function getTradingApys(pools) {
     ).then(r => r.json());
     apys = vaults.map(id => new BigNumber(res.data.kodiakVaults.find(v => v.id === id)?.apr?.averageApr || 0).div(100));
   } catch (err) {
-    console.error('Kodiak subgraph apy error', chainId, err.message);
+    logger.warn({ err }, 'subgraph apy fetch failed');
   }
   return apys;
 }

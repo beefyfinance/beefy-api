@@ -1,6 +1,9 @@
 import { getKey, setKey } from '../../utils/cache';
 import { getPointsStructures } from './fetchPointsData';
 import { PointsStructure } from './types';
+import { getLoggerFor } from '../../utils/logger/index.js';
+
+const logger = getLoggerFor({ module: 'points' });
 
 const REDIS_KEY = 'POINTS_STRUCTURES';
 
@@ -14,15 +17,15 @@ export const getAllPointsStructures = () => {
 };
 
 export async function updatePointsStructures() {
-  console.log('> updating pointsStructures');
+  logger.debug('updating points structures');
   const start = Date.now();
   try {
     pointsStructures = await getPointsStructures();
     await saveToRedis();
 
-    console.log(`> updated pointsStructures (${(Date.now() - start) / 1000}s)`);
+    logger.info({ durationMs: Date.now() - start }, 'updated points structures');
   } catch (err) {
-    console.error(err);
+    logger.warn({ err }, 'update failed');
   }
   setTimeout(updatePointsStructures, REFRESH_INTERVAL);
 }

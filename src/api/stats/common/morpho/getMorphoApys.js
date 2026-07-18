@@ -1,6 +1,9 @@
 import BigNumber from 'bignumber.js';
 import { getApyBreakdown } from '../getApyBreakdownNew';
 
+const { getLoggerFor } = require('../../../../utils/logger/index.js');
+const logger = getLoggerFor({ module: 'apy', platform: 'morpho' });
+
 // Helper function to calculate APY breakdown
 const calculateApyBreakdown = (apy, isV2) => {
   if (isV2) {
@@ -89,7 +92,7 @@ export const getMorphoApys = async (chainId, pools) => {
       apysV2 = results[0]?.data?.vaultV2s?.items || [];
     }
   } catch (err) {
-    console.error('Morpho apy error', chainId, err.message);
+    logger.warn({ err, chain: chainId }, 'apy fetch failed');
   }
 
   // Create lookup maps for O(1) access instead of O(n) array.find

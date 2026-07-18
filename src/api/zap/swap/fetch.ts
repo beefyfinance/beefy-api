@@ -18,6 +18,9 @@ import { checkBuy } from './buy';
 import { checkSell } from './sell';
 import { redactSecrets } from '../../../utils/secrets';
 import { blockedTokensByChain } from './blocked-tokens';
+import { getLoggerFor } from '../../../utils/logger/index.js';
+
+const logger = getLoggerFor({ module: 'zap' });
 
 async function getTokensForChain(apiChain: ApiChain): Promise<TokenErc20[]> {
   const vaults = getSingleChainVaults(apiChain) || [];
@@ -118,7 +121,7 @@ export async function fetchProviderSupportForChainTokens(
   // Get tokens for chain
   const allTokens = await getTokensForChain(apiChain);
   if (allTokens.length === 0) {
-    console.warn(`> [Zap] No tokens found for chain ${apiChain}, skipping...`);
+    logger.warn({ chain: apiChain }, 'no tokens found for chain, skipping');
     return supportByAddress;
   }
 
@@ -211,11 +214,7 @@ export async function fetchProviderSupportForChainTokens(
     markTokensSupported(supportByAddress, [native, wnative]);
   } else {
     // mark native/wnative unsupported if nothing else is supported, so we don't attempt any swaps via this provider
-    markTokensUnsupported(
-      supportByAddress,
-      [native, wnative],
-      'No other supported tokens, likely API problem'
-    );
+    markTokensUnsupported(supportByAddress, [native, wnative], 'No other supported tokens, likely API problem');
   }
 
   return supportByAddress;

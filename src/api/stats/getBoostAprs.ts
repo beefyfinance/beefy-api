@@ -11,6 +11,9 @@ import { BeefyRewardPoolV2Config, getBeefyRewardPoolV2Aprs } from './common/getB
 import { getAddress } from 'viem';
 import { isDefined } from '../../utils/array';
 import { getVaultByIdOfType } from './getMultichainVaults';
+import { getLoggerFor } from '../../utils/logger/index.js';
+
+const logger = getLoggerFor({ module: 'apy' });
 
 export const BOOST_APR_EXPIRED = -1;
 
@@ -26,11 +29,7 @@ const updateBoostV2AprsForChain = async (chain: ApiChain, boosts: Boost[]) => {
         .map(boost => {
           const vault = getVaultByIdOfType(boost.vaultId, 'standard');
           if (!vault) {
-            console.warn(
-              `updateBoostV2AprsForChain`,
-              chain,
-              `vault ${boost.vaultId} not found for boost ${boost.id}`
-            );
+            logger.warn({ chain, boost: boost.id, vault: boost.vaultId }, 'vault not found for boost');
             return undefined;
           }
 
@@ -56,7 +55,7 @@ const updateBoostV2AprsForChain = async (chain: ApiChain, boosts: Boost[]) => {
       return aprs;
     }, Object.fromEntries(boosts.map(boost => [boost.id, BOOST_APR_EXPIRED])));
   } catch (err) {
-    console.error('updateBoostV2AprsForChain', chain, err.message);
+    logger.warn({ chain, err }, 'boost v2 apr calculation failed');
     return {};
   }
 };
@@ -96,7 +95,7 @@ const updateBoostV1AprsForChain = async (chain: ApiChain, boosts: Boost[]) => {
 
     return boostAprs;
   } catch (err) {
-    console.error('updateBoostV1AprsForChain', chain, err.message);
+    logger.warn({ chain, err }, 'boost v1 apr calculation failed');
     return {};
   }
 };
@@ -114,12 +113,7 @@ const updateBoostAprsForChain = async (chain: ApiChain, boosts: Boost[]): Promis
 /**
  * @returns -1 if boost has expired, null if error occurred, apr number value if successful
  */
-const mapResponseToBoostApr = async (
-  boost: Boost,
-  supply: bigint,
-  rate: bigint,
-  finish: bigint
-): Promise<number> => {
+const mapResponseToBoostApr = async (boost: Boost, supply: bigint, rate: bigint, finish: bigint): Promise<number> => {
   const totalSupply = new BigNumber(supply.toString());
   const rewardRate = new BigNumber(rate.toString());
   const periodFinish = new BigNumber(finish.toString());
@@ -129,20 +123,18 @@ const mapResponseToBoostApr = async (
   try {
     const vault = getVaultByIdOfType(boost.vaultId, 'standard', true);
     if (!vault) {
-      console.error(`[boost aprs] error calculating apr for ${boost.id}: vault ${boost.vaultId} not found`);
+      logger.warn({ boost: boost.id, vault: boost.vaultId }, 'vault not found calculating boost apr');
       return null;
     }
 
     if (!vault.pricePerFullShare) {
-      console.error(
-        `[boost aprs] error calculating apr for ${boost.id}: vault ${boost.vaultId} PPFS not available`
-      );
+      logger.warn({ boost: boost.id, vault: boost.vaultId }, 'ppfs not available calculating boost apr');
       return null;
     }
 
     const reward = boost.rewards[0];
     if (!reward) {
-      console.error(`[boost aprs] error calculating apr for ${boost.id}: no rewards found`);
+      logger.warn({ boost: boost.id }, 'no rewards found calculating boost apr');
       return null;
     }
     const depositTokenPrice = await fetchPrice({ oracle: vault.oracle, id: vault.oracleId });
@@ -158,9 +150,7 @@ const mapResponseToBoostApr = async (
       !isFiniteNumber(earnedTokenPrice) ||
       earnedTokenPrice === 0
     ) {
-      console.error(
-        `[boost aprs] error calculating apr for ${boost.id}: missing price deposit=${depositTokenPrice} earned=${earnedTokenPrice}`
-      );
+      logger.warn({ boost: boost.id, depositTokenPrice, earnedTokenPrice }, 'missing price calculating boost apr');
       return null;
     }
 
@@ -175,7 +165,7 @@ const mapResponseToBoostApr = async (
 
     return yearlyRewardsInUsd.dividedBy(amountStakedInUsd).toNumber();
   } catch (err) {
-    console.error(`[boost aprs] error calculating apr for ${boost.id}: ${err.message}`);
+    logger.warn({ boost: boost.id, err }, 'boost apr calculation failed');
     return null;
   }
 };
@@ -201,7 +191,7 @@ export const fetchBoostAprs = async () => {
       {}
     );
   } catch (error) {
-    console.log('Failed to update boost aprs: ' + error.message);
+    logger.error({ err: error }, 'failed to update boost aprs');
     return {};
   }
 };

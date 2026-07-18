@@ -2,6 +2,9 @@ const { getCurveApys } = require('./getCurveApys');
 const { getBeefyArbCowApys } = require('./getBeefyArbCowApys');
 const { getMorphoApys } = require('../common/morpho/getMorphoApys');
 const { ARBITRUM_CHAIN_ID: chainId } = require('../../../constants');
+const { getLoggerFor } = require('../../../utils/logger/index.js');
+
+const logger = getLoggerFor({ module: 'apy', chain: chainId });
 
 const getApys = [
   getCurveApys,
@@ -20,7 +23,7 @@ const getArbitrumApys = async () => {
 
   for (const result of results) {
     if (result.status !== 'fulfilled') {
-      console.warn('getArbitrumApys error', result.reason);
+      logger.warn({ err: result.reason }, 'apy sub-calculation failed');
       continue;
     }
 
@@ -49,7 +52,7 @@ const getArbitrumApys = async () => {
   }
 
   const end = Date.now();
-  console.log(`> [APY] Arbitrum finished updating in ${(end - start) / 1000}s`);
+  logger.info({ durationMs: end - start }, 'apy updated');
 
   return {
     apys,

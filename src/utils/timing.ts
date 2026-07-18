@@ -1,4 +1,7 @@
 import { toNumber } from './number';
+import { getLoggerFor } from './logger/index.js';
+
+const logger = getLoggerFor({ module: 'app' });
 
 const ENABLE_TIMING = process.env.TIMING_ENABLED === 'true' || false;
 const MIN_TIME_MS = toNumber(parseInt(process.env.TIMING_MIN || '30000'), 30_000);
@@ -8,7 +11,7 @@ export function startTimer() {
   return (messageFn: (elapsed: number) => string) => {
     const elapsed = performance.now() - start;
     if (elapsed >= MIN_TIME_MS) {
-      console.log(`[Timing]: ${messageFn(elapsed)}`);
+      logger.debug({ durationMs: elapsed }, messageFn(elapsed));
     }
   };
 }

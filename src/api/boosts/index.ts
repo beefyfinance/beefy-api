@@ -1,4 +1,7 @@
+import { getLoggerFor } from '../../utils/logger/index.js';
 import { getAllNewBoosts, getAllOldBoosts, getChainNewBoosts, getChainOldBoosts } from './getBoosts';
+
+const logger = getLoggerFor({ module: 'boosts' });
 
 export const boosts = async (ctx: any) => {
   try {
@@ -6,7 +9,7 @@ export const boosts = async (ctx: any) => {
     ctx.status = 200;
     ctx.body = [...allBoosts];
   } catch (err) {
-    console.error(err);
+    logger.error({ err }, 'failed to get boosts');
     ctx.status = 500;
   }
 };
@@ -17,7 +20,7 @@ export const chainBoosts = async (ctx: any) => {
     ctx.status = 200;
     ctx.body = [...chainBoosts];
   } catch (err) {
-    console.error(err);
+    logger.error({ err, chain: ctx.params.chainId }, 'failed to get chain boosts');
     ctx.status = 500;
   }
 };
@@ -28,7 +31,7 @@ export const boostsV2 = async (ctx: any) => {
     ctx.status = 200;
     ctx.body = [...allBoosts];
   } catch (err) {
-    console.error(err);
+    logger.error({ err }, 'failed to get boosts');
     ctx.status = 500;
   }
 };
@@ -39,7 +42,7 @@ export const chainBoostsV2 = async (ctx: any) => {
     ctx.status = 200;
     ctx.body = [...chainBoosts];
   } catch (err) {
-    console.error(err);
+    logger.error({ err, chain: ctx.params.chainId }, 'failed to get chain boosts');
     ctx.status = 500;
   }
 };

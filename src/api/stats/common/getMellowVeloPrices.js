@@ -3,6 +3,9 @@ import { fetchContract } from '../../rpc/client';
 import { parseAbi } from 'viem';
 import { addressBookByChainId } from '../../../../packages/address-book/src/address-book';
 
+const { getLoggerFor } = require('../../../utils/logger/index.js');
+const logger = getLoggerFor({ module: 'prices', platform: 'mellow' });
+
 const abi = parseAbi([
   'function previewMint(uint lpAmount) external view returns (uint amount0, uint amount1)',
   'function totalSupply() external view returns (uint)',
@@ -49,7 +52,7 @@ const getTokenPrice = (tokenPrices, token) => {
   if (tokenPrices.hasOwnProperty(token)) {
     tokenPrice = tokenPrices[token];
   } else {
-    console.error(`MellowVelo unknown token '${token}'. Consider adding it to .json file`);
+    logger.warn({ token }, 'unknown token, defaulting price to 1');
   }
   return tokenPrice;
 };

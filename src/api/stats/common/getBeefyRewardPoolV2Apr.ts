@@ -16,6 +16,9 @@ import { ZERO_ADDRESS } from '../../../utils/address';
 import { getUnixTime } from 'date-fns';
 import { isResultFulfilled } from '../../../utils/promise';
 import { envBoolean } from '../../../utils/env';
+import { getLoggerFor } from '../../../utils/logger/index.js';
+
+const logger = getLoggerFor({ module: 'apy', platform: 'beefyRewardPoolV2' });
 
 const WARN_STAKED_IS_ZERO: boolean = false;
 const WARN_STAKED_MISSING_PRICE: boolean = true;
@@ -70,10 +73,7 @@ export type RewardApr = RewardConfigPrice & {
   apr: number;
 };
 
-export type BeefyRewardPoolV2Result = Pick<
-  BeefyRewardPoolV2Config,
-  'oracleId' | 'address' | 'stakedToken'
-> & {
+export type BeefyRewardPoolV2Result = Pick<BeefyRewardPoolV2Config, 'oracleId' | 'address' | 'stakedToken'> & {
   chainId: ChainId;
   totalApr?: number | undefined;
   rewardsApr?: Array<RewardApr> | undefined;
@@ -127,7 +127,7 @@ export const getBeefyRewardPoolV2Apr = async (
       rewardsApr,
     };
   } catch (err) {
-    console.error(`> getBeefyRewardPoolV2Apr error for ${pool.oracleId}: ${err.message}`);
+    logger.warn({ chain: chainId, vault: pool.oracleId, err }, 'reward pool apr calculation failed');
     return undefined;
   }
 };
@@ -145,7 +145,7 @@ async function getRewardConfigsFromContract(
   const [rewardAddresses] = earned;
   if (rewardAddresses.length === 0) {
     if (WARN_REWARDS_NONE_IN_CONTRACT) {
-      console.warn(`getRewardConfigsFromContract for ${pool.oracleId}: no rewards found via contract`);
+      logger.warn({ vault: pool.oracleId }, 'no rewards found via contract');
     }
     return [];
   }
@@ -166,19 +166,14 @@ async function getRewardConfigsFromContract(
 
   if (rewardsInAddressBook.length === 0) {
     if (WARN_REWARDS_NONE_IN_ADDRESS_BOOK) {
-      console.warn(
-        `getRewardConfigsFromContract for ${pool.oracleId}: no rewards found via contract are in the address book`
-      );
+      logger.warn({ vault: pool.oracleId }, 'no contract rewards are in the address book');
     }
     return [];
   }
 
   if (rewardsInAddressBook.length < rewardAddresses.length) {
     if (WARN_REWARDS_SOME_IN_ADDRESS_BOOK) {
-      console.warn(
-        `getRewardConfigsFromContract for ${pool.oracleId}: some rewards found via contract are not in the address book`,
-        rewardAddresses
-      );
+      logger.warn({ vault: pool.oracleId, rewardAddresses }, 'some contract rewards are not in the address book');
     }
   }
 
@@ -195,18 +190,16 @@ async function getRewardConfigsPrices(
       const price = prices[index];
       if (price.status === 'rejected') {
         if (WARN_REWARD_PRICE_THREW) {
-          console.warn(
-            `getRewardConfigsPrices for ${pool.oracleId}: failed to get price for reward ${reward.oracleId}`,
-            price.reason
+          logger.warn(
+            { vault: pool.oracleId, reward: reward.oracleId, err: price.reason },
+            'failed to get reward price'
           );
         }
         return undefined;
       }
       if (!isFiniteNumber(price.value)) {
         if (WARN_REWARD_PRICE_MISSING) {
-          console.warn(
-            `getRewardConfigsPrices for ${pool.oracleId}: price for reward ${reward.oracleId} is not a finite number`
-          );
+          logger.warn({ vault: pool.oracleId, reward: reward.oracleId }, 'reward price is not a finite number');
         }
         return undefined;
       }
@@ -217,7 +210,7 @@ async function getRewardConfigsPrices(
 
   if (rewardsWithPrices.length === 0) {
     if (WARN_REWARDS_ALL_MISSING_PRICE) {
-      console.warn(`getRewardConfigsPrices for ${pool.oracleId}: no rewards have prices`);
+      logger.warn({ vault: pool.oracleId }, 'no rewards have prices');
     }
     return [];
   }
@@ -239,9 +232,9 @@ async function getRewardConfigsInfo(
       const info = rewardsInfo[index];
       if (info.status === 'rejected') {
         if (WARN_REWARD_INFO_REVERT) {
-          console.warn(
-            `getRewardConfigsInfo for ${pool.oracleId}: failed to get reward info for reward ${reward.oracleId} at ${reward.id}`,
-            info.reason
+          logger.warn(
+            { vault: pool.oracleId, reward: reward.oracleId, rewardId: reward.id, err: info.reason },
+            'failed to get reward info'
           );
         }
         return undefined;
@@ -261,7 +254,7 @@ async function getRewardConfigsInfo(
 
   if (rewardsWithInfo.length === 0) {
     if (WARN_REWARDS_ALL_INFO_REVERT) {
-      console.warn(`getRewardConfigsInfo for ${pool.oracleId}: no rewards have reward info`);
+      logger.warn({ vault: pool.oracleId }, 'no rewards have reward info');
     }
     return [];
   }
@@ -279,19 +272,12 @@ async function getRewardConfigsInfo(
   return activeRewards;
 }
 
-async function getYearlyRewardsInUsd(
-  chainId: ChainId,
-  pool: BeefyRewardPoolV2Config
-): Promise<RewardYearlyUsd[]> {
+async function getYearlyRewardsInUsd(chainId: ChainId, pool: BeefyRewardPoolV2Config): Promise<RewardYearlyUsd[]> {
   const rewardPoolContract = fetchContract(pool.address, IBeefyRewardPool, chainId);
   const rewardConfigs =
     pool.rewards && pool.rewards.length > 0
       ? pool.rewards
-      : await getRewardConfigsFromContract(
-          pool,
-          rewardPoolContract,
-          addressBookByChainId[chainId].tokenAddressMap
-        );
+      : await getRewardConfigsFromContract(pool, rewardPoolContract, addressBookByChainId[chainId].tokenAddressMap);
   if (!isNonEmptyArray(rewardConfigs)) {
     return [];
   }
@@ -308,9 +294,7 @@ async function getYearlyRewardsInUsd(
 
   return rewardsWithInfo.map(reward => ({
     ...reward,
-    yearlyUsd: fromWei(toBigNumber(reward.rewardRate), reward.decimals)
-      .times(reward.price)
-      .times(SECONDS_PER_YEAR),
+    yearlyUsd: fromWei(toBigNumber(reward.rewardRate), reward.decimals).times(reward.price).times(SECONDS_PER_YEAR),
   }));
 }
 
@@ -324,15 +308,16 @@ async function getTotalStakedInUsd(chainId: ChainId, pool: BeefyRewardPoolV2Conf
 
   if (totalStaked === 0n) {
     if (WARN_STAKED_IS_ZERO) {
-      console.warn(`getTotalStakedInUsd for ${pool.oracleId}: total staked is zero`);
+      logger.warn({ chain: chainId, vault: pool.oracleId }, 'total staked is zero');
     }
     return BIG_ZERO;
   }
 
   if (!isFiniteNumber(price)) {
     if (WARN_STAKED_MISSING_PRICE) {
-      console.warn(
-        `getTotalStakedInUsd for ${pool.oracleId}: failed to get price for underlying ${pool.stakedToken.oracleId}`
+      logger.warn(
+        { chain: chainId, vault: pool.oracleId, underlying: pool.stakedToken.oracleId },
+        'failed to get price for staked underlying'
       );
     }
     return BIG_ZERO;

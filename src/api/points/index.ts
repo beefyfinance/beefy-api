@@ -1,4 +1,7 @@
 import { getAllPointsStructures } from './getPointsStructures';
+import { getLoggerFor } from '../../utils/logger/index.js';
+
+const logger = getLoggerFor({ module: 'points' });
 
 export const pointStructures = async (ctx: any) => {
   try {
@@ -6,7 +9,7 @@ export const pointStructures = async (ctx: any) => {
     ctx.status = 200;
     ctx.body = [...allPointsStructures];
   } catch (err) {
-    console.error(err);
+    logger.warn({ err }, 'points structures request failed');
     ctx.status = 500;
   }
 };
