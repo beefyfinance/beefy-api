@@ -1,0 +1,15 @@
+engine biome(1.0)
+language js(typescript)
+
+// Bans the TypeScript double assertion `x as unknown as X`.
+TsAsExpression(expression = $inner) as $node where {
+    $inner <: or {
+        TsAsExpression(ty = TsUnknownType()),
+        JsParenthesizedExpression(expression = TsAsExpression(ty = TsUnknownType()))
+    },
+    register_diagnostic(
+        span = $node,
+        message = "Avoid the `as unknown as X` double assertion. It bypasses the type checker entirely. Use a proper type, a runtime type guard, or fix the underlying types instead.",
+        severity = "warn"
+    )
+}
