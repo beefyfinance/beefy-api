@@ -1,6 +1,6 @@
-import { Transport, TransportConfig, createTransport } from 'viem';
-import { OnResponseFn } from 'viem/_types/clients/transports/fallback';
-import { isDeterministicError } from 'viem/utils';
+import { type Transport, type TransportConfig, type FallbackTransport, createTransport } from 'viem';
+
+type OnResponseFn  = Parameters<ReturnType<FallbackTransport>['value']['onResponse']>[0];
 
 type RankOptions = {
   /**

@@ -1,8 +1,8 @@
-import BigNumber from 'bignumber.js';
-import { fetchContract } from '../../rpc/client';
-import ThenaLPAbi from '../../../abis/bsc/ThenaLP';
+import { BigNumber } from 'bignumber.js';
+import { fetchContract } from '../../rpc/client.ts';
+import ThenaLPAbi from '../../../abis/bsc/ThenaLP.ts';
 
-const { getLoggerFor } = require('../../../utils/logger/index.js');
+import { getLoggerFor } from '../../../utils/logger/index.ts';
 const logger = getLoggerFor({ module: 'prices', platform: 'gamma' });
 
 export const getGammaPrices = async (chainId, pools, tokenPrices) => {
@@ -56,4 +56,4 @@ const getTokenPrice = (tokenPrices, oracleId) => {
   return tokenPrice;
 };
 
-module.exports = getGammaPrices;
+export default getGammaPrices;

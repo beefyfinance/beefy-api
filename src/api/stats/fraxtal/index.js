@@ -1,7 +1,7 @@
-const { getCurveApys } = require('./getCurveApys');
-const { getConvexCvxFxsApys } = require('./getConvexCvxFxsApys');
-const { FRAXTAL_CHAIN_ID } = require('../../../constants');
-const { getLoggerFor } = require('../../../utils/logger/index.js');
+import { getCurveApys } from './getCurveApys.js';
+import { getConvexCvxFxsApys } from './getConvexCvxFxsApys.js';
+import { FRAXTAL_CHAIN_ID } from '../../../constants.ts';
+import { getLoggerFor } from '../../../utils/logger/index.ts';
 
 const logger = getLoggerFor({ module: 'apy', chain: FRAXTAL_CHAIN_ID });
 
@@ -55,4 +55,4 @@ const getFraxtalApys = async () => {
   };
 };
 
-module.exports = { getFraxtalApys };
+export { getFraxtalApys };

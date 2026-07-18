@@ -1,13 +1,13 @@
-import { sjoeClient } from '../../../apollo/client';
-import { fetchPrice } from '../../../utils/fetchPrice';
+import { sjoeClient } from '../../../apollo/client.ts';
+import { fetchPrice } from '../../../utils/fetchPrice.ts';
 
-const BigNumber = require('bignumber.js');
-const { DAILY_HPY, AVAX_CHAIN_ID } = require('../../../constants');
-const { compound } = require('../../../utils/compound');
-const { getYearlyRemittedUsdForSJOE } = require('../../../utils/getTradingFeeApr');
-const { getTotalPerformanceFeeForVault } = require('../../vaults/getVaultFees');
-const { default: StableJoeStaking } = require('../../../abis/avax/StableJoeStaking');
-const { fetchContract } = require('../../rpc/client');
+import { BigNumber } from 'bignumber.js';
+import { DAILY_HPY, AVAX_CHAIN_ID } from '../../../constants.ts';
+import { compound } from '../../../utils/compound.js';
+import { getYearlyRemittedUsdForSJOE } from '../../../utils/getTradingFeeApr.ts';
+import { getTotalPerformanceFeeForVault } from '../../vaults/getVaultFees.ts';
+import { default as StableJoeStaking }from '../../../abis/avax/StableJoeStaking.ts';
+import { fetchContract } from '../../rpc/client.ts';
 
 const oracle = 'tokens';
 const JOE = 'JOE';
@@ -57,4 +57,4 @@ const getJoeApy = async () => {
   };
 };
 
-module.exports = getJoeApy;
+export default getJoeApy;

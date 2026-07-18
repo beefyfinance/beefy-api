@@ -1,5 +1,5 @@
-const { getTvl } = require('../stats/getTvl');
-const { getLoggerFor } = require('../../utils/logger/index.js');
+import { getTvl } from '../stats/getTvl.js';
+import { getLoggerFor } from '../../utils/logger/index.ts';
 
 const logger = getLoggerFor({ module: 'tvl' });
 
@@ -14,6 +14,6 @@ async function vaultTvl(ctx) {
   }
 }
 
-module.exports = {
+export {
   vaultTvl,
 };

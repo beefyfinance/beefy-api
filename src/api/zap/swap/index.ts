@@ -1,14 +1,14 @@
-import { serviceEventBus } from '../../../utils/ServiceEventBus';
-import { ApiChain, SupportedChains } from '../../../utils/chain';
-import { groupBy, mapValues, partition } from 'lodash';
-import { isResultFulfilled } from '../../../utils/promise';
-import { sleep } from '../../../utils/time';
-import { ProviderSupportByChainByAddress } from './types';
-import { fetchProviderSupportForChainTokens, getProvidersForChain } from './fetch';
-import { ProviderId } from './providers';
-import { ChainProvider, DataLayer } from './DataLayer';
+import { serviceEventBus } from '../../../utils/ServiceEventBus.ts';
+import { type ApiChain, SupportedChains } from '../../../utils/chain.ts';
+import { groupBy, mapValues, partition } from 'lodash-es';
+import { isResultFulfilled } from '../../../utils/promise.ts';
+import { sleep } from '../../../utils/time.ts';
+import type { ProviderSupportByChainByAddress } from './types.ts';
+import { fetchProviderSupportForChainTokens, getProvidersForChain } from './fetch.ts';
+import type { ProviderId } from './providers/index.ts';
+import { type ChainProvider, DataLayer } from './DataLayer.ts';
 import PQueue from 'p-queue';
-import { getLoggerFor } from '../../../utils/logger/index.js';
+import { getLoggerFor } from '../../../utils/logger/index.ts';
 
 const logger = getLoggerFor({ module: 'zap' });
 

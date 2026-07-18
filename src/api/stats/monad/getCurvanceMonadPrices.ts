@@ -1,11 +1,12 @@
-import BigNumber from 'bignumber.js';
-import { fetchContract } from '../../rpc/client';
-import { CurvancePool } from './getCurvanceApys';
-import CurvanceVault from '../../../abis/CurvanceVault';
-import { MONAD_CHAIN_ID } from '../../../constants';
-import { getLoggerFor } from '../../../utils/logger/index.js';
+import { BigNumber } from 'bignumber.js';
+import { fetchContract } from '../../rpc/client.ts';
+import type { CurvancePool } from './getCurvanceApys.ts';
+import CurvanceVault from '../../../abis/CurvanceVault.ts';
+import { MONAD_CHAIN_ID } from '../../../constants.ts';
+import { getLoggerFor } from '../../../utils/logger/index.ts';
+import curvancePoolsData from '../../../data/monad/curvancePools.json' with { type: "json" };
 
-const pools: CurvancePool[] = require('../../../data/monad/curvancePools.json');
+const pools: CurvancePool[] = curvancePoolsData;
 const logger = getLoggerFor({ module: 'prices', platform: 'curvance', chain: MONAD_CHAIN_ID });
 
 export const getCurvanceMonadPrices = async tokenPrices => {

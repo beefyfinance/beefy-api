@@ -1,5 +1,5 @@
-import getBalancerPrices from '../api/stats/common/balancer/getBalancerPrices';
-import balancerLinearPools from '../data/ethereum/balancerLinearPools.json';
+import getBalancerPrices from '../api/stats/common/balancer/getBalancerPrices.js';
+import balancerLinearPools from '../data/ethereum/balancerLinearPools.json' with { type: "json" };
 
 const linearPoolPools = [...balancerLinearPools];
 

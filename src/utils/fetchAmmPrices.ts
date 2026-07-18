@@ -1,14 +1,14 @@
-import { ChainId } from '../../packages/address-book/src/types/chainid';
-import { Address } from 'viem';
-import BigNumber from 'bignumber.js';
-import { fetchContract } from '../api/rpc/client';
-import { default as BeefyPriceMulticall } from '../abis/BeefyPriceMulticall';
-import { batchMapRetry, isContextResultFulfilled, isContextResultRejected } from './promise';
-import { promiseTiming } from './timing';
-import { orderBy } from 'lodash';
-import { envBoolean, envNumber } from './env';
-import { normalizeNativeWrappedPrices } from './normalizeNativeWrappedPrices';
-import { getLoggerFor } from './logger/index.js';
+import { ChainId } from '../../packages/address-book/src/types/chainid.ts';
+import type { Address } from 'viem';
+import { BigNumber } from 'bignumber.js';
+import { fetchContract } from '../api/rpc/client.ts';
+import { default as BeefyPriceMulticall } from '../abis/BeefyPriceMulticall.ts';
+import { batchMapRetry, isContextResultFulfilled, isContextResultRejected } from './promise.ts';
+import { promiseTiming } from './timing.ts';
+import { orderBy } from 'lodash-es';
+import { envBoolean, envNumber } from './env.ts';
+import { normalizeNativeWrappedPrices } from './normalizeNativeWrappedPrices.ts';
+import { getLoggerFor } from './logger/index.ts';
 
 const logger = getLoggerFor({ module: 'prices' });
 

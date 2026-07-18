@@ -1,21 +1,24 @@
-const { getAuraApys } = require('./getAuraApys');
-const { getConvexApys } = require('./getConvexApys');
-const { getConvexCrvApy } = require('./getConvexCrvApy');
-const { getBifiMaxiApy } = require('./getBifiMaxiApy');
-const { getConvexCvxTokensApy } = require('./getConvexCvxTokensApy');
-const { getCurveApys } = require('./getCurveApys');
-const { getStakeDaoApys } = require('./getStakeDaoApys');
-const { getConvexCvxApy } = require('./getConvexCvxApy');
-const { getbeQIApy } = require('./getbeQIApy');
-const { getFxApys } = require('./getFxApys');
-const { getSkyApy } = require('./getSkyApy');
-const { getMorphoApys } = require('../common/morpho/getMorphoApys');
-const { ETH_CHAIN_ID } = require('../../../constants');
-const { getPendleApys } = require('../common/pendle/getPendleApys');
-const { getPendleUnboostedApys } = require('../common/pendle/getPendleUnboostedApys');
-const { getBeefyCowEthereumApys } = require('./getBeefyCowEthereumApys');
-const { getAaveV4Apys } = require('./getAaveV4Apys');
-const { getLoggerFor } = require('../../../utils/logger/index.js');
+import { getAuraApys } from './getAuraApys.js';
+import { getConvexApys } from './getConvexApys.js';
+import { getConvexCrvApy } from './getConvexCrvApy.js';
+import { getBifiMaxiApy } from './getBifiMaxiApy.js';
+import { getConvexCvxTokensApy } from './getConvexCvxTokensApy.js';
+import { getCurveApys } from './getCurveApys.js';
+import { getStakeDaoApys } from './getStakeDaoApys.js';
+import { getConvexCvxApy } from './getConvexCvxApy.js';
+import { getbeQIApy } from './getbeQIApy.js';
+import { getFxApys } from './getFxApys.js';
+import { getSkyApy } from './getSkyApy.js';
+import { getMorphoApys } from '../common/morpho/getMorphoApys.js';
+import { ETH_CHAIN_ID } from '../../../constants.ts';
+import { getPendleApys } from '../common/pendle/getPendleApys.js';
+import { getPendleUnboostedApys } from '../common/pendle/getPendleUnboostedApys.js';
+import { getBeefyCowEthereumApys } from './getBeefyCowEthereumApys.ts';
+import { getAaveV4Apys } from './getAaveV4Apys.ts';
+import { getLoggerFor } from '../../../utils/logger/index.ts';
+import pendlePoolsData from '../../../data/ethereum/pendlePools.json' with { type: "json" };
+import pendleUnboostedPoolsData from '../../../data/ethereum/pendleUnboostedPools.json' with { type: "json" };
+import morphoPoolsData from '../../../data/ethereum/morphoPools.json' with { type: "json" };
 
 const logger = getLoggerFor({ module: 'apy', chain: ETH_CHAIN_ID });
 
@@ -30,9 +33,9 @@ const getApys = [
   getConvexCvxTokensApy,
   getFxApys,
   getBifiMaxiApy,
-  () => getPendleApys(require('../../../data/ethereum/pendlePools.json')),
-  () => getPendleUnboostedApys(require('../../../data/ethereum/pendleUnboostedPools.json')),
-  () => getMorphoApys(ETH_CHAIN_ID, require('../../../data/ethereum/morphoPools.json')),
+  () => getPendleApys(pendlePoolsData),
+  () => getPendleUnboostedApys(pendleUnboostedPoolsData),
+  () => getMorphoApys(ETH_CHAIN_ID, morphoPoolsData),
   getSkyApy,
   getAaveV4Apys,
   getBeefyCowEthereumApys,
@@ -86,4 +89,4 @@ const getEthereumApys = async () => {
   };
 };
 
-module.exports = { getEthereumApys };
+export { getEthereumApys };

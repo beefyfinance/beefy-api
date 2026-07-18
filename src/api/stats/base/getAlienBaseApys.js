@@ -1,7 +1,7 @@
-import { BASE_CHAIN_ID as chainId } from '../../../constants';
-import { getMultiRewardMasterChefApys } from '../common/getMultiRewardMasterChefApys';
+import { BASE_CHAIN_ID as chainId } from '../../../constants.ts';
+import { getMultiRewardMasterChefApys } from '../common/getMultiRewardMasterChefApys.ts';
 
-const v3Pools = require('../../../data/base/alienBaseBunniPools.json');
+import v3Pools from '../../../data/base/alienBaseBunniPools.json' with { type: "json" };
 const pools = [...v3Pools];
 
 const getAlienBaseApys = async () =>
@@ -17,4 +17,4 @@ const getAlienBaseApys = async () =>
     // log: true,
   });
 
-module.exports = getAlienBaseApys;
+export default getAlienBaseApys;

@@ -1,7 +1,7 @@
-import { ApiChain } from './chain';
-import { orderBy, uniqBy } from 'lodash';
-import { isFiniteNumber } from './number';
-import { getLoggerFor } from './logger/index.js';
+import type { ApiChain } from './chain.ts';
+import { orderBy, uniqBy } from 'lodash-es';
+import { isFiniteNumber } from './number.ts';
+import { getLoggerFor } from './logger/index.ts';
 
 const logger = getLoggerFor({ module: 'prices', platform: 'dexScreener' });
 

@@ -1,23 +1,15 @@
-import { createHttpLink } from 'apollo-link-http';
-import {
-  ApolloClient,
-  ApolloError,
-  ApolloLink,
-  InMemoryCache,
-  NormalizedCacheObject,
-  RequestHandler,
-} from '@apollo/client/core';
-import ApolloLinkTimeout from 'apollo-link-timeout';
+import { ApolloClient, ApolloError, InMemoryCache } from '@apollo/client/core/index.js';
+import { HttpLink } from '@apollo/client/link/http/HttpLink.js';
+import type { NormalizedCacheObject } from '@apollo/client/cache/inmemory/types.js';
 
 const APOLLO_TIMEOUT = process.env.APOLLO_TIMEOUT ? parseInt(process.env.APOLLO_TIMEOUT) : 30_000;
 const THE_GRAPH_API_KEY = process.env.THE_GRAPH_API_KEY || undefined; // The Free Plan includes 100,000 free monthly queries; you still need an API key
-const timeoutLink: ApolloLink = new ApolloLinkTimeout(APOLLO_TIMEOUT);
+const timeoutFetch: typeof fetch = (input, init) =>
+  fetch(input, { ...init, signal: init?.signal ?? AbortSignal.timeout(APOLLO_TIMEOUT) });
 
 export function client(url: string) {
-  const httpLink = createHttpLink({ uri: url, fetch });
-  const timeoutHttpLink = timeoutLink.concat(httpLink as any as ApolloLink | RequestHandler);
   return new ApolloClient({
-    link: timeoutHttpLink,
+    link: new HttpLink({ uri: url, fetch: timeoutFetch }),
     cache: new InMemoryCache({
       addTypename: false,
     }),

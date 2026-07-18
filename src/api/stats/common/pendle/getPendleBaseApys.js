@@ -1,6 +1,6 @@
-import BigNumber from 'bignumber.js';
+import { BigNumber } from 'bignumber.js';
 
-const { getLoggerFor } = require('../../../../utils/logger/index.js');
+import { getLoggerFor } from '../../../../utils/logger/index.ts';
 const logger = getLoggerFor({ module: 'apy', platform: 'pendle' });
 
 export const getPendleApys = async (chainId, pools) => {

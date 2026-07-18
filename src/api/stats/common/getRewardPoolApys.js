@@ -1,16 +1,16 @@
-const BigNumber = require('bignumber.js');
-import { fetchPrice } from '../../../utils/fetchPrice';
-import getApyBreakdown from '../common/getApyBreakdown';
-import { isSushiClient } from '../../../apollo/client';
-import { getTradingFeeApr, getTradingFeeAprSushi } from '../../../utils/getTradingFeeApr';
-import IRewardPool from '../../../abis/IRewardPool';
-import InfraredGauge from '../../../abis/InfraredGauge';
-import IWrapper from '../../../abis/IWrapper';
-import { fetchContract } from '../../rpc/client';
-import ERC20Abi from '../../../abis/ERC20Abi';
-import getBlockNumber from '../../../utils/getBlockNumber';
-import getBlockTime from '../../../utils/getBlockTime';
-const { getLoggerFor } = require('../../../utils/logger/index.js');
+import { BigNumber } from 'bignumber.js';
+import { fetchPrice } from '../../../utils/fetchPrice.ts';
+import { getApyBreakdown } from '../common/getApyBreakdown.ts';
+import { isSushiClient } from '../../../apollo/client.ts';
+import { getTradingFeeApr, getTradingFeeAprSushi } from '../../../utils/getTradingFeeApr.ts';
+import IRewardPool from '../../../abis/IRewardPool.ts';
+import InfraredGauge from '../../../abis/InfraredGauge.ts';
+import IWrapper from '../../../abis/IWrapper.ts';
+import { fetchContract } from '../../rpc/client.ts';
+import ERC20Abi from '../../../abis/ERC20Abi.ts';
+import getBlockNumber from '../../../utils/getBlockNumber.js';
+import getBlockTime from '../../../utils/getBlockTime.js';
+import { getLoggerFor } from '../../../utils/logger/index.ts';
 
 const logger = getLoggerFor({ module: 'apy', platform: 'rewardPool' });
 
@@ -186,5 +186,3 @@ const getAbi = periodFinish => {
     },
   ];
 };
-
-module.exports = { getRewardPoolApys, getFarmApys, getPoolsData };

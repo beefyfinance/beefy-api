@@ -1,4 +1,4 @@
-import { getAllConfigs, getSingleChainConfig } from './getConfig';
+import { getAllConfigs, getSingleChainConfig } from './getConfig.ts';
 
 export const getConfigs = ctx => {
   const allConfigs = getAllConfigs();

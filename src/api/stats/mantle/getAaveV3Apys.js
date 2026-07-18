@@ -1,6 +1,6 @@
-const { getAaveV3ApyData } = require('../common/aave/getAaveV3Apys');
-const pools = require('../../../data/mantle/aaveV3Pools.json');
-const { MANTLE_CHAIN_ID } = require('../../../constants');
+import { getAaveV3ApyData } from '../common/aave/getAaveV3Apys.js';
+import pools from '../../../data/mantle/aaveV3Pools.json' with { type: "json" };
+import { MANTLE_CHAIN_ID } from '../../../constants.ts';
 
 const config = {
   dataProvider: '0x487c5c669D9eee6057C44973207101276cf73b68',

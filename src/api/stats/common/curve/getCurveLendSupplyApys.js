@@ -1,8 +1,8 @@
 import { parseAbi } from 'viem';
-import { compound } from '../../../../utils/compound';
+import { compound } from '../../../../utils/compound.js';
 
-const { fetchContract } = require('../../../rpc/client');
-const BigNumber = require('bignumber.js');
+import { fetchContract } from '../../../rpc/client.ts';
+import { BigNumber } from 'bignumber.js';
 
 const ICurveVault = parseAbi(['function lend_apr() view returns (uint)']);
 

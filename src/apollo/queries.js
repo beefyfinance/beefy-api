@@ -1,4 +1,4 @@
-const gql = require('graphql-tag');
+import gql from 'graphql-tag';
 
 const pairDayDataQuery = (pairs, startTimestamp, endTimestamp) => {
   let pairsString = `[`;
@@ -202,7 +202,7 @@ const baseSwapQuery = (pairs, startTimestamp, endTimestamp) => {
   return gql(queryString);
 };
 
-module.exports = {
+export {
   pairDayDataQuery,
   pairDayDataSushiQuery,
   pairDayDataSushiTridentQuery,

@@ -1,9 +1,9 @@
-import BigNumber from 'bignumber.js';
-import { fetchContract } from '../../rpc/client';
-import SiloTokenAbi from '../../../abis/arbitrum/SiloToken';
-import SiloAbi from '../../../abis/arbitrum/Silo';
-import SiloV2Abi from '../../../abis/SiloV2';
-import { getLoggerFor } from '../../../utils/logger/index.js';
+import { BigNumber } from 'bignumber.js';
+import { fetchContract } from '../../rpc/client.ts';
+import SiloTokenAbi from '../../../abis/arbitrum/SiloToken.ts';
+import SiloAbi from '../../../abis/arbitrum/Silo.ts';
+import SiloV2Abi from '../../../abis/SiloV2.ts';
+import { getLoggerFor } from '../../../utils/logger/index.ts';
 
 const logger = getLoggerFor({ module: 'prices', platform: 'silo' });
 

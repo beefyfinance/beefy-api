@@ -1,5 +1,5 @@
-import { getLoggerFor } from '../../utils/logger/index.js';
-import { getAllArticles, getLastArticle } from './fetchArticlesData';
+import { getLoggerFor } from '../../utils/logger/index.ts';
+import { getAllArticles, getLastArticle } from './fetchArticlesData.ts';
 
 const logger = getLoggerFor({ module: 'articles' });
 

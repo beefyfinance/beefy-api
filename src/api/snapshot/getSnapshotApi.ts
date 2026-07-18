@@ -1,6 +1,7 @@
-import { ApolloClient, gql, NormalizedCacheObject } from '@apollo/client/core';
-import { client } from '../../apollo/client';
-import { Proposal, ProposalApiResponse, Space } from './types';
+import { type ApolloClient, gql } from '@apollo/client/core/index.js';
+import type { NormalizedCacheObject } from '@apollo/client/cache/inmemory/types.js';
+import { client } from '../../apollo/client.ts';
+import type { ProposalApiResponse, Space } from './types.ts';
 
 // https://docs.snapshot.org/graphql-api#space
 const QUERY_SPACES = gql`

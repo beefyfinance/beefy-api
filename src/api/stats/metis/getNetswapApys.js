@@ -1,20 +1,17 @@
-const BigNumber = require('bignumber.js');
+import { BigNumber } from 'bignumber.js';
 
-import { fetchPrice } from '../../../utils/fetchPrice';
-import { getFarmWithTradingFeesApy } from '../../../utils/getFarmWithTradingFeesApy';
-import { NET_LPF } from '../../../constants';
-import { getTotalPerformanceFeeForVault } from '../../vaults/getVaultFees';
-import NettChef from '../../../abis/metis/NettChef';
-import { fetchContract } from '../../rpc/client';
-import ERC20Abi from '../../../abis/ERC20Abi';
-import SimpleRewarderPerSec from '../../../abis/avax/SimpleRewarderPerSec';
+import { fetchPrice } from '../../../utils/fetchPrice.ts';
+import { getFarmWithTradingFeesApy } from '../../../utils/getFarmWithTradingFeesApy.ts';
+import { NET_LPF } from '../../../constants.ts';
+import { getTotalPerformanceFeeForVault } from '../../vaults/getVaultFees.ts';
+import NettChef from '../../../abis/metis/NettChef.ts';
+import { fetchContract } from '../../rpc/client.ts';
+import ERC20Abi from '../../../abis/ERC20Abi.ts';
+import SimpleRewarderPerSec from '../../../abis/avax/SimpleRewarderPerSec.ts';
 
-const pools = require('../../../data/metis/netswapLpPools.json');
-const { BASE_HPY, METIS_CHAIN_ID } = require('../../../constants');
-const { getTradingFeeApr } = require('../../../utils/getTradingFeeApr');
-
-const { netswapClient } = require('../../../apollo/client');
-const { compound } = require('../../../utils/compound');
+import pools from '../../../data/metis/netswapLpPools.json' with { type: "json" };
+import { BASE_HPY, METIS_CHAIN_ID } from '../../../constants.ts';
+import { compound } from '../../../utils/compound.js';
 
 const masterchef = '0x9d1dbB49b2744A1555EDbF1708D64dC71B0CB052';
 const oracleIdA = 'NETT';
@@ -141,4 +138,4 @@ const getPoolsData = async pools => {
   return { balances, allocPoints, tokenPerSecData };
 };
 
-module.exports = getNetswapApys;
+export default getNetswapApys;

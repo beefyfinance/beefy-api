@@ -1,10 +1,10 @@
-import ICurveGauge from '../../../../abis/ICurveGauge';
-import { fetchContract } from '../../../rpc/client';
+import ICurveGauge from '../../../../abis/ICurveGauge.ts';
+import { fetchContract } from '../../../rpc/client.ts';
 
-const BigNumber = require('bignumber.js');
-import { fetchPrice } from '../../../../utils/fetchPrice';
-import { getMerklAprByIdentifier } from '../../../offchain-rewards/providers/merkl/proxyClient';
-const { getLoggerFor } = require('../../../../utils/logger/index.js');
+import { BigNumber } from 'bignumber.js';
+import { fetchPrice } from '../../../../utils/fetchPrice.ts';
+import { getMerklAprByIdentifier } from '../../../offchain-rewards/providers/merkl/proxyClient.ts';
+import { getLoggerFor } from '../../../../utils/logger/index.ts';
 
 const logger = getLoggerFor({ module: 'apy', platform: 'curve' });
 

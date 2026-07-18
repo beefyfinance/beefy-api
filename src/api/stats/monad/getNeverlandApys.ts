@@ -1,15 +1,15 @@
-import BigNumber from 'bignumber.js';
-import { getApyBreakdown, ApyBreakdownResult } from '../common/getApyBreakdownNew';
-import { fetchPrice } from '../../../utils/fetchPrice';
-import { MONAD_CHAIN_ID } from '../../../constants';
-import { fetchContract, getMulticallClientForChain } from '../../rpc/client';
-import { getMerklApys } from '../common/curve/getCurveApysCommon';
+import { BigNumber } from 'bignumber.js';
+import { getApyBreakdown, type ApyBreakdownResult } from '../common/getApyBreakdownNew.ts';
+import { fetchPrice } from '../../../utils/fetchPrice.ts';
+import { MONAD_CHAIN_ID } from '../../../constants.ts';
+import { fetchContract, } from '../../rpc/client.ts';
+import { getMerklApys } from '../common/curve/getCurveApysCommon.js';
 import jp from 'jsonpath';
-import IAaveV3PoolDataProvider from '../../../abis/AaveV3PoolDataProvider';
-import NeverlandIncentiveController from '../../../abis/monad/NeverlandIncentiveController';
-import pools from '../../../data/monad/neverlandPools.json';
+import IAaveV3PoolDataProvider from '../../../abis/AaveV3PoolDataProvider.ts';
+import NeverlandIncentiveController from '../../../abis/monad/NeverlandIncentiveController.ts';
+import pools from '../../../data/monad/neverlandPools.json' with { type: "json" };
 import type { Address } from 'viem';
-import { getLoggerFor } from '../../../utils/logger/index.js';
+import { getLoggerFor } from '../../../utils/logger/index.ts';
 
 const logger = getLoggerFor({ module: 'apy', platform: 'neverland', chain: MONAD_CHAIN_ID });
 

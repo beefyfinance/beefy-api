@@ -1,7 +1,7 @@
-import BigNumber from 'bignumber.js';
+import { BigNumber } from 'bignumber.js';
 import { parseAbi } from 'viem';
-import { fetchContract } from '../../rpc/client';
-import ERC20Abi from '../../../abis/ERC20Abi';
+import { fetchContract } from '../../rpc/client.ts';
+import ERC20Abi from '../../../abis/ERC20Abi.ts';
 import {
   ARBITRUM_CHAIN_ID,
   BASE_CHAIN_ID,
@@ -9,8 +9,8 @@ import {
   ETH_CHAIN_ID,
   PLASMA_CHAIN_ID,
   SONIC_CHAIN_ID,
-} from '../../../constants';
-const { getLoggerFor } = require('../../../utils/logger/index.js');
+} from '../../../constants.ts';
+import { getLoggerFor } from '../../../utils/logger/index.ts';
 
 const logger = getLoggerFor({ module: 'prices', platform: 'pendle' });
 

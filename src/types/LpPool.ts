@@ -1,5 +1,4 @@
-import { ChainId } from '../../packages/address-book/src/address-book';
-import { PriceOracle } from '../utils/fetchPrice.js';
+import type { ChainId } from '../../packages/address-book/src/address-book/index.ts';
 
 export interface LpPool {
   name: string;

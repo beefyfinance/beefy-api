@@ -1,12 +1,14 @@
-const getAlienBaseApys = require('./getAlienBaseApys');
-const { getAerodromeApys } = require('./getAerodromeApys');
-const { getCurveApys } = require('./getCurveApys');
-const { getBeefyBaseCowApys } = require('./getBeefyBaseCowApys');
-const { getAaveV3Apys } = require('./getAaveV3Apys');
-const { getMellowVeloApys } = require('../common/getMellowVeloApys');
-const { getMorphoApys } = require('../common/morpho/getMorphoApys');
-const { BASE_CHAIN_ID } = require('../../../constants');
-const { getLoggerFor } = require('../../../utils/logger/index.js');
+import getAlienBaseApys from './getAlienBaseApys.js';
+import { getAerodromeApys } from './getAerodromeApys.js';
+import { getCurveApys } from './getCurveApys.js';
+import { getBeefyBaseCowApys } from './getBeefyBaseCowApys.ts';
+import { getAaveV3Apys } from './getAaveV3Apys.js';
+import { getMellowVeloApys } from '../common/getMellowVeloApys.js';
+import { getMorphoApys } from '../common/morpho/getMorphoApys.js';
+import { BASE_CHAIN_ID } from '../../../constants.ts';
+import { getLoggerFor } from '../../../utils/logger/index.ts';
+import mellowAeroPoolsData from '../../../data/base/mellowAeroPools.json' with { type: "json" };
+import morphoPoolsData from '../../../data/base/morphoPools.json' with { type: "json" };
 
 const logger = getLoggerFor({ module: 'apy', chain: BASE_CHAIN_ID });
 
@@ -15,8 +17,8 @@ const getApys = [
   getAerodromeApys,
   getCurveApys,
   getAlienBaseApys,
-  () => getMellowVeloApys(BASE_CHAIN_ID, require('../../../data/base/mellowAeroPools.json')),
-  () => getMorphoApys(BASE_CHAIN_ID, require('../../../data/base/morphoPools.json')),
+  () => getMellowVeloApys(BASE_CHAIN_ID, mellowAeroPoolsData),
+  () => getMorphoApys(BASE_CHAIN_ID, morphoPoolsData),
   getBeefyBaseCowApys,
 ];
 
@@ -68,4 +70,4 @@ const getBaseApys = async () => {
   };
 };
 
-module.exports = { getBaseApys };
+export { getBaseApys };

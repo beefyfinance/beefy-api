@@ -1,8 +1,8 @@
-import { Address, isAddress } from 'viem';
-import { ApiChain } from '../../utils/chain';
-import { isNonEmptyArray, NonEmptyArray } from '../../utils/array';
-import { Token } from '../../../packages/address-book/src/types/token';
-import { providers } from './providers';
+import { type Address, isAddress } from 'viem';
+import type { ApiChain } from '../../utils/chain.ts';
+import { isNonEmptyArray, type NonEmptyArray } from '../../utils/array.ts';
+import type { Token } from '../../../packages/address-book/src/types/token.ts';
+import { providers } from './providers.ts';
 
 export type JsonCowClm = {
   beta?: boolean;

@@ -1,12 +1,12 @@
-import { Context } from 'koa';
-import { initCowVaultsMetaService } from './getCowVaultsMeta';
-import { getCowPriceRanges, initCowPriceRangeService } from './getCowPriceRanges';
-import { isResultRejected } from '../../utils/promise';
-import { sendServiceUnavailable, sendSuccess } from '../../utils/koa';
-import { getCampaignsForChainProviderWithMeta } from '../offchain-rewards';
-import { isMerklCampaign } from '../offchain-rewards/typeguards';
-import { pick } from 'lodash';
-import { getLoggerFor } from '../../utils/logger/index.js';
+import type { Context } from 'koa';
+import { initCowVaultsMetaService } from './getCowVaultsMeta.ts';
+import { getCowPriceRanges, initCowPriceRangeService } from './getCowPriceRanges.ts';
+import { isResultRejected } from '../../utils/promise.ts';
+import { sendServiceUnavailable, sendSuccess } from '../../utils/koa.ts';
+import { getCampaignsForChainProviderWithMeta } from '../offchain-rewards/index.ts';
+import { isMerklCampaign } from '../offchain-rewards/typeguards.ts';
+import { pick } from 'lodash-es';
+import { getLoggerFor } from '../../utils/logger/index.ts';
 
 const logger = getLoggerFor({ module: 'clm' });
 

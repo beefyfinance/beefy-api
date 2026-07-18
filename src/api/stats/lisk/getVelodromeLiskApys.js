@@ -1,13 +1,13 @@
-const { LISK_CHAIN_ID: chainId } = require('../../../constants');
-import { getEDecimals } from '../../../utils/getEDecimals';
-const { getSolidlyGaugeApys } = require('../common/getSolidlyGaugeApys');
-const { getLoggerFor } = require('../../../utils/logger/index.js');
+import { LISK_CHAIN_ID as chainId }from '../../../constants.ts';
+import { getEDecimals } from '../../../utils/getEDecimals.ts';
+import { getSolidlyGaugeApys } from '../common/getSolidlyGaugeApys.js';
+import { getLoggerFor } from '../../../utils/logger/index.ts';
 
 const logger = getLoggerFor({ module: 'apy', platform: 'velodrome', chain: chainId });
 
-const stablePools = require('../../../data/lisk/velodromeLiskStablePools.json');
-const volatilePools = require('../../../data/lisk/velodromeLiskPools.json');
-import { addressBook } from '../../../../packages/address-book/src/address-book';
+import stablePools from '../../../data/lisk/velodromeLiskStablePools.json' with { type: "json" };
+import volatilePools from '../../../data/lisk/velodromeLiskPools.json' with { type: "json" };
+import { addressBook } from '../../../../packages/address-book/src/address-book/index.ts';
 
 const {
   lisk: {
@@ -48,4 +48,4 @@ const getVelodromeLiskApys = async () => {
   };
 };
 
-module.exports = getVelodromeLiskApys;
+export default getVelodromeLiskApys;

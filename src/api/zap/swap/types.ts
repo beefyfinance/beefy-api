@@ -1,7 +1,7 @@
-import BigNumber from 'bignumber.js';
-import { TokenErc20 } from '../../tokens/types';
-import { ProviderId } from './providers';
-import { ApiChain } from '../../../utils/chain';
+import type { BigNumber } from 'bignumber.js';
+import type { TokenErc20 } from '../../tokens/types.ts';
+import type { ProviderId } from './providers/index.ts';
+import type { ApiChain } from '../../../utils/chain.ts';
 
 export type TokenSupported = {
   supported: true;

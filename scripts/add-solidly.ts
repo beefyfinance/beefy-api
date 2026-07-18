@@ -1,17 +1,18 @@
-import { ChainId } from '../packages/address-book/src/address-book';
+import { ChainId } from '../packages/address-book/src/address-book/index.ts';
 
 import yargs from 'yargs';
-import fs from 'fs';
-import path from 'path';
+import { hideBin } from 'yargs/helpers';
+import fs from 'node:fs';
+import path from 'node:path';
 
 import { ethers } from 'ethers';
-import { MULTICHAIN_RPC } from '../src/constants';
+import { MULTICHAIN_RPC } from '../src/constants.ts';
 
-import voterABI from '../src/abis/Voter.json';
-import etherexVoterABI from '../src/abis/EtherexVoter.json';
-import ERC20ABI from '../src/abis/ERC20.json';
-import { addressBook } from '../packages/address-book/src/address-book';
-import ISolidlyPair from '../src/abis/ISolidlyPair';
+import voterABI from '../src/abis/Voter.json' with { type: "json" };
+import etherexVoterABI from '../src/abis/EtherexVoter.json' with { type: "json" };
+import ERC20ABI from '../src/abis/ERC20.json' with { type: "json" };
+import { addressBook } from '../packages/address-book/src/address-book/index.ts';
+import ISolidlyPair from '../src/abis/ISolidlyPair.ts';
 const {
   fantom: {
     platforms: { spiritswap, equalizer, fvm },
@@ -220,30 +221,32 @@ const projects = {
   },
 };
 
-const args = yargs.options({
-  network: {
-    type: 'string',
-    demandOption: true,
-    describe: 'blockchain network',
-    choices: Object.keys(ChainId),
-  },
-  project: {
-    type: 'string',
-    demandOption: true,
-    describe: 'project name',
-    choices: Object.keys(projects),
-  },
-  lp: {
-    type: 'string',
-    demandOption: true,
-    describe: 'provide the solidly LP for gauge',
-  },
-  newFee: {
-    type: 'boolean',
-    demandOption: true,
-    describe: 'If the beefy fee is 9.5% use true else use false',
-  },
-}).argv;
+const args = yargs(hideBin(process.argv))
+  .options({
+    network: {
+      type: 'string',
+      demandOption: true,
+      describe: 'blockchain network',
+      choices: Object.keys(ChainId),
+    },
+    project: {
+      type: 'string',
+      demandOption: true,
+      describe: 'project name',
+      choices: Object.keys(projects),
+    },
+    lp: {
+      type: 'string',
+      demandOption: true,
+      describe: 'provide the solidly LP for gauge',
+    },
+    newFee: {
+      type: 'boolean',
+      demandOption: true,
+      describe: 'If the beefy fee is 9.5% use true else use false',
+    },
+  })
+  .parseSync();
 
 const poolPrefix = projects[args['project']].prefix;
 const lpAddress = args['lp'];
@@ -305,10 +308,8 @@ async function main() {
   const token0 = await fetchToken(lp.token0);
   const token1 = await fetchToken(lp.token1);
 
-  const poolsJsonFile = lp.stable
-    ? projects[args['project']].stableFile
-    : projects[args['project']].volatileFile;
-  const poolsJson = require(poolsJsonFile);
+  const poolsJsonFile = lp.stable ? projects[args['project']].stableFile : projects[args['project']].volatileFile;
+  const poolsJson = JSON.parse(fs.readFileSync(path.resolve(import.meta.dirname, poolsJsonFile), 'utf8'));
 
   const newPoolName = `${poolPrefix}-${token0.symbol.toLowerCase()}-${token1.symbol.toLowerCase()}`;
   const newPool = {
@@ -340,7 +341,7 @@ async function main() {
 
   const newPools = [newPool, ...poolsJson];
 
-  fs.writeFileSync(path.resolve(__dirname, poolsJsonFile), JSON.stringify(newPools, null, 2) + '\n');
+  fs.writeFileSync(path.resolve(import.meta.dirname, poolsJsonFile), JSON.stringify(newPools, null, 2) + '\n');
 
   console.log(newPool);
 }

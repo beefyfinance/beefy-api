@@ -1,8 +1,8 @@
-import ISolidlyPair from '../abis/ISolidlyPair';
-import { ChainId } from '../../packages/address-book/src/types/chainid';
-import { fetchContract } from '../api/rpc/client';
-import BigNumber from 'bignumber.js';
-import { getLoggerFor } from './logger/index.js';
+import ISolidlyPair from '../abis/ISolidlyPair.ts';
+import { ChainId } from '../../packages/address-book/src/types/chainid.ts';
+import { fetchContract } from '../api/rpc/client.ts';
+import { BigNumber } from 'bignumber.js';
+import { getLoggerFor } from './logger/index.ts';
 
 const logger = getLoggerFor({ module: 'prices', platform: 'solidly' });
 

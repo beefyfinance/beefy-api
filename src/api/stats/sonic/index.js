@@ -1,8 +1,8 @@
-const { getBeefyCowSonicApys } = require('./getBeefyCowSonicApys');
-const { getSwapxApys } = require('./getSwapxApys');
-const { getBeSonicApy } = require('./getBeSonicApy');
-const { SONIC_CHAIN_ID } = require('../../../constants');
-const { getLoggerFor } = require('../../../utils/logger/index.js');
+import { getBeefyCowSonicApys } from './getBeefyCowSonicApys.ts';
+import { getSwapxApys } from './getSwapxApys.js';
+import { getBeSonicApy } from './getBeSonicApy.ts';
+import { SONIC_CHAIN_ID } from '../../../constants.ts';
+import { getLoggerFor } from '../../../utils/logger/index.ts';
 
 const logger = getLoggerFor({ module: 'apy', chain: SONIC_CHAIN_ID });
 
@@ -56,4 +56,4 @@ const getSonicApys = async () => {
   };
 };
 
-module.exports = { getSonicApys };
+export { getSonicApys };

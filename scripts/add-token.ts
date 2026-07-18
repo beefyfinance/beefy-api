@@ -1,25 +1,28 @@
-import { ChainId } from '../packages/address-book/src/address-book';
+import { ChainId } from '../packages/address-book/src/address-book/index.ts';
 
 import yargs from 'yargs';
+import { hideBin } from 'yargs/helpers';
 
 import { ethers } from 'ethers';
-import { MULTICHAIN_RPC } from '../src/constants';
+import { MULTICHAIN_RPC } from '../src/constants.ts';
 
-import ERC20ABI from '../src/abis/ERC20.json';
+import ERC20ABI from '../src/abis/ERC20.json' with { type: "json" };
 
-const args = yargs.options({
-  network: {
-    type: 'string',
-    demandOption: true,
-    describe: 'blockchain network',
-    choices: Object.keys(ChainId),
-  },
-  address: {
-    type: 'string',
-    demandOption: true,
-    describe: 'token address',
-  },
-}).argv;
+const args = yargs(hideBin(process.argv))
+  .options({
+    network: {
+      type: 'string',
+      demandOption: true,
+      describe: 'blockchain network',
+      choices: Object.keys(ChainId),
+    },
+    address: {
+      type: 'string',
+      demandOption: true,
+      describe: 'token address',
+    },
+  })
+  .parseSync();
 
 const chainId = ChainId[args['network']];
 const provider = new ethers.providers.JsonRpcProvider(MULTICHAIN_RPC[chainId]);

@@ -1,10 +1,10 @@
-import { getKey, setKey } from '../../utils/cache';
-import { getBoostPeriodFinish, getBoosts } from './fetchBoostData';
-import { Boost, BoostEntity, OldBoost, PromoTokenRewardConfig } from './types';
-import { serviceEventBus } from '../../utils/ServiceEventBus';
-import { contextAllSettled, isContextResultFulfilled, isContextResultRejected, withTimeout } from '../../utils/promise';
-import { ApiChain, SupportedChains } from '../../utils/chain';
-import { getLoggerFor } from '../../utils/logger/index.js';
+import { getKey, setKey } from '../../utils/cache/index.ts';
+import { getBoostPeriodFinish, getBoosts } from './fetchBoostData.ts';
+import type { Boost, BoostEntity, OldBoost, PromoTokenRewardConfig } from './types.ts';
+import { serviceEventBus } from '../../utils/ServiceEventBus.ts';
+import { contextAllSettled, isContextResultFulfilled, isContextResultRejected, withTimeout } from '../../utils/promise.ts';
+import { SupportedChains, type ApiChain } from '../../utils/chain.ts';
+import { getLoggerFor } from '../../utils/logger/index.ts';
 
 const logger = getLoggerFor({ module: 'boosts' });
 

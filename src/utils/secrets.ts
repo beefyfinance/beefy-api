@@ -1,4 +1,4 @@
-import { omitBy, pick, pickBy } from 'lodash';
+import { omitBy, pick, pickBy } from 'lodash-es';
 import escapeStringRegexp from 'escape-string-regexp';
 
 const SECRET_ENV_KEYS = ['ONE_INCH_API_KEY', 'KYBER_CLIENT_ID', 'ODOS_CODE', 'ODOS_API'];

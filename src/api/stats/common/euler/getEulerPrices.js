@@ -1,7 +1,7 @@
-import BigNumber from 'bignumber.js';
+import { BigNumber } from 'bignumber.js';
 import { parseAbi } from 'viem';
-import { fetchContract } from '../../../rpc/client';
-import ERC20Abi from '../../../../abis/ERC20Abi';
+import { fetchContract } from '../../../rpc/client.ts';
+import ERC20Abi from '../../../../abis/ERC20Abi.ts';
 
 const abi = parseAbi(['function convertToAssets(uint shares) external view returns (uint)']);
 

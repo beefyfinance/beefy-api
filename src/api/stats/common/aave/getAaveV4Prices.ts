@@ -1,7 +1,7 @@
 import type { Abi } from 'abitype';
-import BigNumber from 'bignumber.js';
-import { fetchContract } from '../../../rpc/client';
-import type { AaveV4Pool } from './getAaveV4Apys';
+import { BigNumber } from 'bignumber.js';
+import { fetchContract } from '../../../rpc/client.ts';
+import type { AaveV4Pool } from './getAaveV4Apys.ts';
 
 const ISpokeAbi = [
   {

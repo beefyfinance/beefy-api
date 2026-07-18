@@ -1,9 +1,9 @@
 import { parseAbi } from 'viem';
 
-const BigNumber = require('bignumber.js');
-const { fetchContract } = require('../../rpc/client');
-const { ARBITRUM_CHAIN_ID: chainId } = require('../../../constants');
-const pools = require('../../../data/arbitrum/mimPools.json');
+import { BigNumber } from 'bignumber.js';
+import { fetchContract } from '../../rpc/client.ts';
+import { ARBITRUM_CHAIN_ID as chainId }from '../../../constants.ts';
+import pools from '../../../data/arbitrum/mimPools.json' with { type: "json" };
 
 const abi = parseAbi([
   'function getReserves() view returns (uint256 baseReserve, uint256 quoteReserve)',

@@ -1,6 +1,6 @@
-import { getKey, setKey } from '../../utils/cache';
-import { getLoggerFor } from '../../utils/logger/index.js';
-import { ArticleInterface } from './types';
+import { getKey, setKey } from '../../utils/cache/index.ts';
+import { getLoggerFor } from '../../utils/logger/index.ts';
+import type { ArticleInterface } from './types.ts';
 
 const logger = getLoggerFor({ module: 'articles' });
 

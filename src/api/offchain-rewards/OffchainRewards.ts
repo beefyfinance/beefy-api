@@ -1,4 +1,4 @@
-import {
+import type {
   Campaign,
   CampaignByProvider,
   CampaignsWithMeta,
@@ -9,20 +9,20 @@ import {
   UpdateResolved,
   UpdateResult,
   Vault,
-} from './types';
-import { StellaSwapProvider } from './providers/stellaswap/StellaSwapProvider';
-import { MerklProvider } from './providers/merkl/MerklProvider';
-import { AppChain } from '../../utils/chain';
+} from './types.ts';
+import { StellaSwapProvider } from './providers/stellaswap/StellaSwapProvider.ts';
+import { MerklProvider } from './providers/merkl/MerklProvider.ts';
+import type { AppChain } from '../../utils/chain.ts';
 import AsyncLock from 'async-lock';
-import { typedKeys } from '../../utils/object';
-import { getKey, setKey } from '../../utils/cache';
-import { createCachedFactory } from '../../utils/factory';
-import { getUnixNow } from '../../utils/date';
-import { mapValues, partition } from 'lodash';
-import { isDefined } from '../../utils/array';
+import { typedKeys } from '../../utils/object.ts';
+import { getKey, setKey } from '../../utils/cache/index.ts';
+import { createCachedFactory } from '../../utils/factory.ts';
+import { getUnixNow } from '../../utils/date.ts';
+import { mapValues, partition } from 'lodash-es';
+import { isDefined } from '../../utils/array.ts';
 import PQueue from 'p-queue';
-import { isUpdateResolved } from './typeguards';
-import { getLoggerFor } from '../../utils/logger/index.js';
+import { isUpdateResolved } from './typeguards.ts';
+import { getLoggerFor } from '../../utils/logger/index.ts';
 
 const logger = getLoggerFor({ module: 'rewards' });
 

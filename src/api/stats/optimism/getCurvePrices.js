@@ -1,9 +1,9 @@
-const getCurvePricesCommon = require('../common/curve/getCurvePricesCommon');
-const pools = require('../../../data/optimism/curvePools.json');
-const { OPTIMISM_CHAIN_ID } = require('../../../constants');
+import getCurvePricesCommon from '../common/curve/getCurvePricesCommon.js';
+import pools from '../../../data/optimism/curvePools.json' with { type: "json" };
+import { OPTIMISM_CHAIN_ID } from '../../../constants.ts';
 
 const getCurveOptimismPrices = async tokenPrices => {
   return await getCurvePricesCommon(OPTIMISM_CHAIN_ID, pools, tokenPrices);
 };
 
-module.exports = getCurveOptimismPrices;
+export default getCurveOptimismPrices;

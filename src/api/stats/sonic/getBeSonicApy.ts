@@ -1,11 +1,11 @@
-import { sonic } from '../../../../packages/address-book/src/address-book/sonic';
-import { fetchContract } from '../../rpc/client';
-import { beSonicAbi } from '../../../abis/sonic/beSonicAbi';
-import { fromWeiString } from '../../../utils/big-number';
-import { SECONDS_PER_YEAR } from '../../../utils/time';
-import { getApyBreakdown } from '../common/getApyBreakdownNew';
-import { DAILY_HPY, SONIC_CHAIN_ID } from '../../../constants';
-import { getLoggerFor } from '../../../utils/logger/index.js';
+import { sonic } from '../../../../packages/address-book/src/address-book/sonic/index.ts';
+import { fetchContract } from '../../rpc/client.ts';
+import { beSonicAbi } from '../../../abis/sonic/beSonicAbi.ts';
+import { fromWeiString } from '../../../utils/big-number.ts';
+import { SECONDS_PER_YEAR } from '../../../utils/time.ts';
+import { getApyBreakdown } from '../common/getApyBreakdownNew.ts';
+import { DAILY_HPY, SONIC_CHAIN_ID } from '../../../constants.ts';
+import { getLoggerFor } from '../../../utils/logger/index.ts';
 
 const logger = getLoggerFor({ module: 'apy', chain: SONIC_CHAIN_ID });
 

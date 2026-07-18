@@ -1,11 +1,12 @@
-import { getApyBreakdown } from '../common/getApyBreakdownNew';
-import BigNumber from 'bignumber.js';
-import { fetchPrice } from '../../../utils/fetchPrice';
+import { getApyBreakdown } from '../common/getApyBreakdownNew.ts';
+import { BigNumber } from 'bignumber.js';
+import { fetchPrice } from '../../../utils/fetchPrice.ts';
 
-const { getLoggerFor } = require('../../../utils/logger/index.js');
+import { getLoggerFor } from '../../../utils/logger/index.ts';
+import convexPoolsData from '../../../data/ethereum/convexPools.json' with { type: "json" };
 const logger = getLoggerFor({ module: 'apy', platform: 'stakedao', chain: 'ethereum' });
 
-const pools = require('../../../data/ethereum/convexPools.json').filter(p => p.stakeDao);
+const pools = convexPoolsData.filter(p => p.stakeDao);
 const secondsPerYear = 31536000;
 
 export const getStakeDaoApys = async () => {

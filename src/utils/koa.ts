@@ -1,5 +1,5 @@
-import { Context } from 'koa';
-import { getLoggerFor } from './logger/index.js';
+import type { Context } from 'koa';
+import { getLoggerFor } from './logger/index.ts';
 
 const logger = getLoggerFor({ module: 'http' });
 

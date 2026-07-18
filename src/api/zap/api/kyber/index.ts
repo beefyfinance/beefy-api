@@ -1,17 +1,16 @@
 import PQueue from 'p-queue';
-import { RateLimitedKyberApi } from './RateLimitedKyberApi';
-import { AnyChain, ApiChain, toApiChain } from '../../../../utils/chain';
-import { IKyberApi } from './types';
+import { RateLimitedKyberApi } from './RateLimitedKyberApi.ts';
+import { type AnyChain, type ApiChain, toApiChain } from '../../../../utils/chain.ts';
+import type { IKyberApi } from './types.ts';
 
 // Configure rate limiting
 const API_QUEUE_CONFIG = {
   concurrency: 2,
   intervalCap: 1, // 1 per 200ms is 5 RPS
   interval: 200,
-  carryoverConcurrencyCount: true,
+  carryoverIntervalCount: true,
   autoStart: true,
   timeout: 30 * 1000,
-  throwOnTimeout: true,
 };
 
 // @see https://docs.kyberswap.com/kyberswap-solutions/kyberswap-aggregator/aggregator-api-specification/evm-swaps

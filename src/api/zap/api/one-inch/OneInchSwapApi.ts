@@ -1,17 +1,17 @@
-import { URLSearchParams } from 'url';
+import { URLSearchParams } from 'node:url';
 import {
-  IOneInchSwapApi,
+  type IOneInchSwapApi,
   isOneInchErrorResponse,
   isOneInchSuccessResponse,
-  OneInchResponse,
-  QuoteRequest,
-  QuoteResponse,
-  SwapRequest,
-  SwapResponse,
-} from './types';
-import { mapValues, omitBy } from 'lodash';
-import { redactSecrets } from '../../../../utils/secrets';
-import { ApiResponse, ExtraQuoteResponse, isErrorApiResponse } from '../common';
+  type OneInchResponse,
+  type QuoteRequest,
+  type QuoteResponse,
+  type SwapRequest,
+  type SwapResponse,
+} from './types.ts';
+import { mapValues, omitBy } from 'lodash-es';
+import { redactSecrets } from '../../../../utils/secrets.ts';
+import { type ApiResponse, type ExtraQuoteResponse, isErrorApiResponse } from '../common.ts';
 
 export class OneInchSwapApi implements IOneInchSwapApi {
   constructor(protected readonly baseUrl: string, protected readonly apiKey: string) {}

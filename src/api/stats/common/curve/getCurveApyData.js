@@ -1,5 +1,5 @@
-const BigNumber = require('bignumber.js');
-const { getLoggerFor } = require('../../../../utils/logger/index.js');
+import { BigNumber } from 'bignumber.js';
+import { getLoggerFor } from '../../../../utils/logger/index.ts';
 
 const logger = getLoggerFor({ module: 'apy', platform: 'curve' });
 

@@ -1,6 +1,6 @@
-import { ICacheBackend } from './ICacheBackend';
-import { access, constants, promises as fsPromises } from 'fs';
-import { createHash } from 'crypto';
+import type { ICacheBackend } from './ICacheBackend.ts';
+import { access, constants, promises as fsPromises } from 'node:fs';
+import { createHash } from 'node:crypto';
 
 export class FileCacheBackend implements ICacheBackend {
   async get(key: string): Promise<string> {

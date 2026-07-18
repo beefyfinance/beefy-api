@@ -1,11 +1,12 @@
-import { getApyBreakdown } from '../common/getApyBreakdownNew';
-import { getCurveSubgraphApys } from '../common/curve/getCurveApyData';
-import { getCurveApysCommon } from '../common/curve/getCurveApysCommon';
-import { getStakeDaoV2Apys } from '../common/curve/getStakeDaoV2Apys';
-import { getConvexApyData } from '../common/curve/getConvexApyData';
-import { ARBITRUM_CHAIN_ID as chainId } from '../../../constants';
+import { getApyBreakdown } from '../common/getApyBreakdownNew.ts';
+import { getCurveSubgraphApys } from '../common/curve/getCurveApyData.js';
+import { getCurveApysCommon } from '../common/curve/getCurveApysCommon.js';
+import { getStakeDaoV2Apys } from '../common/curve/getStakeDaoV2Apys.js';
+import { getConvexApyData } from '../common/curve/getConvexApyData.js';
+import { ARBITRUM_CHAIN_ID as chainId } from '../../../constants.ts';
+import curvePoolsData from '../../../data/arbitrum/curvePools.json' with { type: "json" };
 
-const pools = require('../../../data/arbitrum/curvePools.json').filter(p => p.gauge);
+const pools = curvePoolsData.filter(p => p.gauge);
 const baseApyUrl = 'https://api.curve.finance/api/getSubgraphData/arbitrum';
 
 export const getCurveApys = async () => {

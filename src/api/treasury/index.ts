@@ -1,4 +1,4 @@
-import { getBeefyTreasury } from './getTreasury';
+import { getBeefyTreasury } from './getTreasury.ts';
 
 export const getTreasury = ctx => {
   const chainTokens = getBeefyTreasury();

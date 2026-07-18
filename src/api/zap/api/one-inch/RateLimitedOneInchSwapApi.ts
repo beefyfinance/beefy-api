@@ -1,6 +1,6 @@
-import { OneInchSwapApi } from './OneInchSwapApi';
-import PQueue from 'p-queue';
-import { ApiResponse } from '../common';
+import { OneInchSwapApi } from './OneInchSwapApi.ts';
+import type PQueue from 'p-queue';
+import type { ApiResponse } from '../common.ts';
 
 export class RateLimitedOneInchSwapApi extends OneInchSwapApi {
   constructor(baseUrl: string, apiKey: string, protected readonly queue: PQueue) {

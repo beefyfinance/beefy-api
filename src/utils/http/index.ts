@@ -3,7 +3,7 @@ import type {
   FetchGetJsonRequest,
   FetchPostJsonRequest,
   FetchRequestInit,
-} from './types';
+} from './types.ts';
 import {
   ABORT_REASON_TIMEOUT,
   getCacheBuster,
@@ -13,7 +13,7 @@ import {
   setAcceptsAnyIfMissing,
   setAcceptsJsonIfMissing,
   setContentTypeJsonIfMissing,
-} from './helpers';
+} from './helpers.ts';
 import {
   FetchAbortError,
   FetchError,
@@ -24,9 +24,9 @@ import {
   FetchResponseNotJsonError,
   FetchTimeoutError,
   isFetchError,
-} from './errors';
-import { isError } from '../error';
-import { getTimeoutAbortSignal } from '../promise';
+} from './errors.ts';
+import { isError } from '../error.ts';
+import { getTimeoutAbortSignal } from '../promise.ts';
 
 /** response decoded as JSON */
 export async function getJson<TResponse>(request: FetchGetJsonRequest): Promise<TResponse> {

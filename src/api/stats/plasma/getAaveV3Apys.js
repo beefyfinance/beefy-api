@@ -1,6 +1,6 @@
-const { getAaveV3ApyData } = require('../common/aave/getAaveV3Apys');
-const pools = require('../../../data/plasma/aaveV3Pools.json');
-const { PLASMA_CHAIN_ID } = require('../../../constants');
+import { getAaveV3ApyData } from '../common/aave/getAaveV3Apys.js';
+import pools from '../../../data/plasma/aaveV3Pools.json' with { type: "json" };
+import { PLASMA_CHAIN_ID } from '../../../constants.ts';
 
 const config = {
   dataProvider: '0xf2D6E38B407e31E7E7e4a16E6769728b76c7419F',

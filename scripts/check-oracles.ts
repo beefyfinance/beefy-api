@@ -1,8 +1,8 @@
 import commandLineArgs from 'command-line-args';
 import fg from 'fast-glob';
-import { promises as fsPromises } from 'fs';
-import { groupBy, uniq } from 'lodash';
-import { addressBookByChainId } from '../packages/address-book/src/address-book';
+import { promises as fsPromises } from 'node:fs';
+import { groupBy, uniq } from 'lodash-es';
+import { addressBookByChainId } from '../packages/address-book/src/address-book/index.ts';
 
 type PoolToken = {
   address: string;

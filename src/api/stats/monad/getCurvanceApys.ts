@@ -1,12 +1,13 @@
-import BigNumber from 'bignumber.js';
-import { MONAD_CHAIN_ID } from '../../../constants';
-import { getApyBreakdown } from '../common/getApyBreakdownNew';
-import { getMerklApys } from '../common/curve/getCurveApysCommon';
-import { fetchContract } from '../../rpc/client';
-import CurvanceVault from '../../../abis/CurvanceVault';
-import ICurvanceIRM from '../../../abis/CurvanceIRM';
+import { BigNumber } from 'bignumber.js';
+import { MONAD_CHAIN_ID } from '../../../constants.ts';
+import { getApyBreakdown } from '../common/getApyBreakdownNew.ts';
+import { getMerklApys } from '../common/curve/getCurveApysCommon.js';
+import { fetchContract } from '../../rpc/client.ts';
+import CurvanceVault from '../../../abis/CurvanceVault.ts';
+import ICurvanceIRM from '../../../abis/CurvanceIRM.ts';
+import curvancePoolsData from '../../../data/monad/curvancePools.json' with { type: "json" };
 
-const pools: CurvancePool[] = require('../../../data/monad/curvancePools.json');
+const pools: CurvancePool[] = curvancePoolsData;
 const SECONDS_PER_YEAR = 31536000;
 
 export const getCurvanceApys = async () => {

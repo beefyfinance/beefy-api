@@ -1,15 +1,15 @@
-const BigNumber = require('bignumber.js');
+import { BigNumber } from 'bignumber.js';
 
-import { fetchPrice } from '../../../../utils/fetchPrice';
-import { getMerklOpportunitiesByProtocol } from '../../../offchain-rewards/providers/merkl/proxyClient';
+import { fetchPrice } from '../../../../utils/fetchPrice.ts';
+import { getMerklOpportunitiesByProtocol } from '../../../offchain-rewards/providers/merkl/proxyClient.ts';
 
-const { getApyBreakdown } = require('../getApyBreakdownNew');
-const { default: IAaveV3Incentives } = require('../../../../abis/AaveV3Incentives');
-const { default: IAaveV3PoolDataProvider } = require('../../../../abis/AaveV3PoolDataProvider');
-const { fetchContract } = require('../../../rpc/client');
+import { getApyBreakdown } from '../getApyBreakdownNew.ts';
+import { default as IAaveV3Incentives }from '../../../../abis/AaveV3Incentives.ts';
+import { default as IAaveV3PoolDataProvider }from '../../../../abis/AaveV3PoolDataProvider.ts';
+import { fetchContract } from '../../../rpc/client.ts';
 import jp from 'jsonpath';
 
-const { getLoggerFor } = require('../../../../utils/logger/index.js');
+import { getLoggerFor } from '../../../../utils/logger/index.ts';
 const logger = getLoggerFor({ module: 'apy', platform: 'aave' });
 
 const secondsPerYear = 31536000;
@@ -185,4 +185,4 @@ const getLeveragedApys = (supplyBase, borrowBase, supplyNative, borrowNative, de
   };
 };
 
-module.exports = { getAaveV3ApyData, getAaveV3PoolData };
+export { getAaveV3ApyData, getAaveV3PoolData };

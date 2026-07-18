@@ -1,17 +1,16 @@
 import PQueue from 'p-queue';
-import { RateLimitedOneInchSwapApi } from './RateLimitedOneInchSwapApi';
-import { AnyChain, ApiChain, toApiChain, toChainId } from '../../../../utils/chain';
-import { IOneInchSwapApi } from './types';
+import { RateLimitedOneInchSwapApi } from './RateLimitedOneInchSwapApi.ts';
+import { type AnyChain, type ApiChain, toApiChain, toChainId } from '../../../../utils/chain.ts';
+import type { IOneInchSwapApi } from './types.ts';
 
 // Configure rate limiting
 const API_QUEUE_CONFIG = {
   concurrency: 2,
   intervalCap: 1, // 1 per 200ms is 5 RPS
   interval: 200,
-  carryoverConcurrencyCount: true,
+  carryoverIntervalCount: true,
   autoStart: true,
   timeout: 30 * 1000,
-  throwOnTimeout: true,
 };
 
 export const supportedSwapChains: Partial<Record<ApiChain, boolean>> = {

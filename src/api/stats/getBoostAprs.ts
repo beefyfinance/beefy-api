@@ -1,17 +1,17 @@
-import { getAllNewBoosts } from '../boosts/getBoosts';
-import { Boost } from '../boosts/types';
-import BigNumber from 'bignumber.js';
-import { fetchPrice } from '../../utils/fetchPrice';
-import { ApiChain, toChainId } from '../../utils/chain';
-import BeefyBoostAbi from '../../abis/BeefyBoost';
-import { fetchContract } from '../rpc/client';
-import { isFiniteNumber } from '../../utils/number';
-import { partition } from 'lodash';
-import { BeefyRewardPoolV2Config, getBeefyRewardPoolV2Aprs } from './common/getBeefyRewardPoolV2Apr';
+import { getAllNewBoosts } from '../boosts/getBoosts.ts';
+import type { Boost } from '../boosts/types.ts';
+import { BigNumber } from 'bignumber.js';
+import { fetchPrice } from '../../utils/fetchPrice.ts';
+import { type ApiChain, toChainId } from '../../utils/chain.ts';
+import BeefyBoostAbi from '../../abis/BeefyBoost.ts';
+import { fetchContract } from '../rpc/client.ts';
+import { isFiniteNumber } from '../../utils/number.ts';
+import { partition } from 'lodash-es';
+import { type BeefyRewardPoolV2Config, getBeefyRewardPoolV2Aprs } from './common/getBeefyRewardPoolV2Apr.ts';
 import { getAddress } from 'viem';
-import { isDefined } from '../../utils/array';
-import { getVaultByIdOfType } from './getMultichainVaults';
-import { getLoggerFor } from '../../utils/logger/index.js';
+import { isDefined } from '../../utils/array.ts';
+import { getVaultByIdOfType } from './getMultichainVaults.ts';
+import { getLoggerFor } from '../../utils/logger/index.ts';
 
 const logger = getLoggerFor({ module: 'apy' });
 

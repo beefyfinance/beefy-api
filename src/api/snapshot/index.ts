@@ -1,6 +1,6 @@
-import { getLatestProposal, getActiveProposals } from './getProposals';
-import Koa from 'koa';
-import { getLoggerFor } from '../../utils/logger/index.js';
+import { getLatestProposal, getActiveProposals } from './getProposals.ts';
+import type Koa from 'koa';
+import { getLoggerFor } from '../../utils/logger/index.ts';
 
 const logger = getLoggerFor({ module: 'snapshot' });
 

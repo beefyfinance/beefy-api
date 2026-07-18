@@ -1,9 +1,9 @@
-import BigNumber from 'bignumber.js';
-import { BASE_HPY } from '../../../constants';
+import type { BigNumber } from 'bignumber.js';
+import { BASE_HPY } from '../../../constants.ts';
 import {
   type ApyBreakdownResult,
   getApyBreakdownOnly as getApyBreakdownNew,
-} from './getApyBreakdownNew';
+} from './getApyBreakdownNew.ts';
 
 // back-compat export
 export type { ApyBreakdownResult };
@@ -52,5 +52,3 @@ export const getApyBreakdown = (
 
   return result;
 };
-
-export default getApyBreakdown;

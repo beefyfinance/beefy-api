@@ -1,9 +1,9 @@
-import BigNumber from 'bignumber.js';
-import { getFarmApys } from '../common/getSolidlyGaugeApys';
-import { getApyBreakdown } from '../common/getApyBreakdownNew';
-import { BERACHAIN_CHAIN_ID as chainId } from '../../../constants';
-import pools from '../../../data/berachain/kodiakPools.json';
-import { getLoggerFor } from '../../../utils/logger/index.js';
+import { BigNumber } from 'bignumber.js';
+import { getFarmApys } from '../common/getSolidlyGaugeApys.js';
+import { getApyBreakdown } from '../common/getApyBreakdownNew.ts';
+import { BERACHAIN_CHAIN_ID as chainId } from '../../../constants.ts';
+import pools from '../../../data/berachain/kodiakPools.json' with { type: "json" };
+import { getLoggerFor } from '../../../utils/logger/index.ts';
 
 const logger = getLoggerFor({ module: 'apy', platform: 'kodiak', chain: chainId });
 

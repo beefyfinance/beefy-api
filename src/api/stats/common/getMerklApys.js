@@ -1,5 +1,5 @@
-import { getMerklAprByExplorerAddress } from '../../offchain-rewards/providers/merkl/proxyClient';
-const { getLoggerFor } = require('../../../utils/logger/index.js');
+import { getMerklAprByExplorerAddress } from '../../offchain-rewards/providers/merkl/proxyClient.ts';
+import { getLoggerFor } from '../../../utils/logger/index.ts';
 const logger = getLoggerFor({ module: 'apy', platform: 'merkl' });
 
 export const getMerklApys = async (chainId, pools) => {

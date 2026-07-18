@@ -8,10 +8,10 @@ import {
   getVaultsByChain,
   getVaultsByType,
   getVaultsByTypeChain,
-} from '../stats/getMultichainVaults';
-import { getVaultFees } from './getVaultFees';
-import { sendBadRequest, sendNotFound, sendSuccess, withErrorHandling } from '../../utils/koa';
-import { withChainId } from './helpers';
+} from '../stats/getMultichainVaults.ts';
+import { getVaultFees } from './getVaultFees.ts';
+import { sendBadRequest, sendNotFound, sendSuccess, withErrorHandling } from '../../utils/koa.ts';
+import { withChainId } from './helpers.ts';
 
 // Multichain
 

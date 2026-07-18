@@ -1,12 +1,12 @@
-import { ETH_CHAIN_ID } from '../../../constants';
-import BigNumber from 'bignumber.js';
-import { fetchPrice } from '../../../utils/fetchPrice';
-import { getMintedCvxAmount } from './getConvexApys';
-import getApyBreakdown from '../common/getApyBreakdown';
-import IRewardPool from '../../../abis/IRewardPool';
-import ICvxCrvStaking from '../../../abis/ethereum/ICvxCrvStaking';
-import { fetchContract } from '../../rpc/client';
-import ERC20Abi from '../../../abis/ERC20Abi';
+import { ETH_CHAIN_ID } from '../../../constants.ts';
+import { BigNumber } from 'bignumber.js';
+import { fetchPrice } from '../../../utils/fetchPrice.ts';
+import { getMintedCvxAmount } from './getConvexApys.js';
+import { getApyBreakdown } from '../common/getApyBreakdown.ts';
+import IRewardPool from '../../../abis/IRewardPool.ts';
+import ICvxCrvStaking from '../../../abis/ethereum/ICvxCrvStaking.ts';
+import { fetchContract } from '../../rpc/client.ts';
+import ERC20Abi from '../../../abis/ERC20Abi.ts';
 
 const secondsPerYear = 31536000;
 const cvxAddress = '0x4e3FBD56CD56c3e72c1403e103b45Db9da5B9D2B';

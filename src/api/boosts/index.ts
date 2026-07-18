@@ -1,5 +1,5 @@
-import { getLoggerFor } from '../../utils/logger/index.js';
-import { getAllNewBoosts, getAllOldBoosts, getChainNewBoosts, getChainOldBoosts } from './getBoosts';
+import { getLoggerFor } from '../../utils/logger/index.ts';
+import { getAllNewBoosts, getAllOldBoosts, getChainNewBoosts, getChainOldBoosts } from './getBoosts.ts';
 
 const logger = getLoggerFor({ module: 'boosts' });
 

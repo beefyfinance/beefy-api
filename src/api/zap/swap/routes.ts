@@ -1,5 +1,5 @@
-import Koa from 'koa';
-import { getDebugTokenSwapSupport, getTokenSwapSupport } from './index';
+import type Koa from 'koa';
+import { getDebugTokenSwapSupport, getTokenSwapSupport } from './index.ts';
 
 export function zapSwapsSupport(ctx: Koa.Context) {
   const data = getTokenSwapSupport();

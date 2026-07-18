@@ -1,13 +1,13 @@
-import BigNumber from 'bignumber.js';
-import getApyBreakdown, { ApyBreakdownResult } from '../common/getApyBreakdown';
-import { fetchPrice } from '../../../utils/fetchPrice';
-import { MANTLE_CHAIN_ID } from '../../../constants';
-import { fetchContract } from '../../rpc/client';
-import MoeChefAbi from '../../../abis/mantle/MoeChef';
+import { BigNumber } from 'bignumber.js';
+import { type ApyBreakdownResult, getApyBreakdown } from '../common/getApyBreakdown.ts';
+import { fetchPrice } from '../../../utils/fetchPrice.ts';
+import { MANTLE_CHAIN_ID } from '../../../constants.ts';
+import { fetchContract } from '../../rpc/client.ts';
+import MoeChefAbi from '../../../abis/mantle/MoeChef.ts';
 import jp from 'jsonpath';
-import { getLoggerFor } from '../../../utils/logger/index.js';
+import { getLoggerFor } from '../../../utils/logger/index.ts';
 
-const pools = require('../../../data/mantle/moeLpPools.json');
+import pools from '../../../data/mantle/moeLpPools.json' with { type: "json" };
 const secondsPerYear = 31536000;
 const masterchef = '0xA756f7D419e1A5cbd656A438443011a7dE1955b5';
 const oracle = 'tokens';
@@ -54,8 +54,8 @@ const getFarmApys = async (): Promise<BigNumber[]> => {
   for (let i = 0; i < pools.length; i++) {
     const pool = pools[i];
 
-    const oracle = pool.oracle ?? 'lps';
-    const id = pool.oracleId ?? pool.name;
+    const oracle = /*pool.oracle ??*/ 'lps';
+    const id = /*pool.oracleId ??*/ pool.name;
     const stakedPrice = await fetchPrice({ oracle, id });
     const totalStakedInUsd = balances[i].times(stakedPrice).dividedBy(pool.decimals ?? '1e18');
 
@@ -92,4 +92,4 @@ const getData = async () => {
   };
 };
 
-module.exports = getMoeApys;
+export default getMoeApys;
