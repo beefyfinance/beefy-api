@@ -1,8 +1,8 @@
-const { getBeefyCowBerachainApys } = require('./getBeefyCowBerachainApys');
-const getBeraswapApys = require('./getBeraswapApys');
-const { getKodiakApys } = require('./getKodiakApys');
-const { BERACHAIN_CHAIN_ID } = require('../../../constants');
-const { getLoggerFor } = require('../../../utils/logger/index.js');
+import { getBeefyCowBerachainApys } from './getBeefyCowBerachainApys.ts';
+import getBeraswapApys from './getBeraswapApys.js';
+import { getKodiakApys } from './getKodiakApys.js';
+import { BERACHAIN_CHAIN_ID } from '../../../constants.ts';
+import { getLoggerFor } from '../../../utils/logger/index.ts';
 
 const logger = getLoggerFor({ module: 'apy', chain: BERACHAIN_CHAIN_ID });
 
@@ -56,4 +56,4 @@ const getBerachainApys = async () => {
   };
 };
 
-module.exports = { getBerachainApys };
+export { getBerachainApys };

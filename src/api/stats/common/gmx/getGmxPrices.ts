@@ -1,8 +1,8 @@
-import BigNumber from 'bignumber.js';
-import GlpManagerAbi from '../../../../abis/arbitrum/GlpManager';
-import ERC20Abi from '../../../../abis/ERC20Abi';
-import { fetchContract } from '../../../rpc/client';
-import { getLoggerFor } from '../../../../utils/logger/index.js';
+import { BigNumber } from 'bignumber.js';
+import GlpManagerAbi from '../../../../abis/arbitrum/GlpManager.ts';
+import ERC20Abi from '../../../../abis/ERC20Abi.ts';
+import { fetchContract } from '../../../rpc/client.ts';
+import { getLoggerFor } from '../../../../utils/logger/index.ts';
 
 const logger = getLoggerFor({ module: 'prices', platform: 'gmx' });
 

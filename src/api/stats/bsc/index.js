@@ -1,7 +1,7 @@
-const { getOOELpApys } = require('./ooe/getOOELpApys');
-const { getBeefyBscCowApys } = require('./getBeefyBscCowApys');
-const { BSC_CHAIN_ID } = require('../../../constants');
-const { getLoggerFor } = require('../../../utils/logger/index.js');
+import { getOOELpApys } from './ooe/getOOELpApys.ts';
+import { getBeefyBscCowApys } from './getBeefyBscCowApys.ts';
+import { BSC_CHAIN_ID } from '../../../constants.ts';
+import { getLoggerFor } from '../../../utils/logger/index.ts';
 
 const logger = getLoggerFor({ module: 'apy', chain: BSC_CHAIN_ID });
 
@@ -55,4 +55,4 @@ const getBSCApys = async () => {
   };
 };
 
-module.exports = { getBSCApys };
+export { getBSCApys };

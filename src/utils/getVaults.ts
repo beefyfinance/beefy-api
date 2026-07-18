@@ -1,6 +1,6 @@
-import { AnyVault } from '../api/vaults/types';
-import { ApiChain } from './chain';
-import { MULTICHAIN_ENDPOINTS } from '../constants';
+import type { AnyVault } from '../api/vaults/types.ts';
+import type { ApiChain } from './chain.ts';
+import { MULTICHAIN_ENDPOINTS } from '../constants.ts';
 
 export async function getVaults(chainId: ApiChain): Promise<AnyVault[]> {
   const endpoint = MULTICHAIN_ENDPOINTS[chainId];

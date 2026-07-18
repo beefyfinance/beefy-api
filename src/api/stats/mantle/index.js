@@ -1,8 +1,8 @@
-const getMoeApys = require('./getMoeApys');
-const { getBeefyCowMantleApys } = require('./getBeefyCowMantleApys');
-const { getAaveV3Apys } = require('./getAaveV3Apys');
-const { MANTLE_CHAIN_ID } = require('../../../constants');
-const { getLoggerFor } = require('../../../utils/logger/index.js');
+import getMoeApys from './getMoeApys.ts';
+import { getBeefyCowMantleApys } from './getBeefyCowMantleApys.ts';
+import { getAaveV3Apys } from './getAaveV3Apys.js';
+import { MANTLE_CHAIN_ID } from '../../../constants.ts';
+import { getLoggerFor } from '../../../utils/logger/index.ts';
 
 const logger = getLoggerFor({ module: 'apy', chain: MANTLE_CHAIN_ID });
 
@@ -56,4 +56,4 @@ const getMantleApys = async () => {
   };
 };
 
-module.exports = { getMantleApys };
+export { getMantleApys };

@@ -1,15 +1,15 @@
-import { AppChain, fromChainNumber, toAppChain, toChainId } from '../../../../utils/chain';
-import { CampaignType, IOffchainRewardProvider, MerklCampaign, Vault } from '../../types';
-import { UnsupportedChainError } from '../../errors';
-import { CampaignTypeSetting, MerklApiCampaignType } from './types';
-import { getMerklOpportunitiesForChain } from './proxyClient';
-import { MerklProxyCampaign, MerklProxyOpportunity } from './proxyTypes';
-import { groupBy, pick } from 'lodash';
-import { Address, getAddress, isAddressEqual } from 'viem';
-import { isFiniteNumber } from '../../../../utils/number';
-import { isDefined } from '../../../../utils/array';
-import { getUnixNow, isUnixBetween } from '../../../../utils/date';
-import { getLoggerFor } from '../../../../utils/logger/index.js';
+import { type AppChain, fromChainNumber, toAppChain, toChainId } from '../../../../utils/chain.ts';
+import type { CampaignType, IOffchainRewardProvider, MerklCampaign, Vault } from '../../types.ts';
+import { UnsupportedChainError } from '../../errors.ts';
+import type { CampaignTypeSetting, MerklApiCampaignType } from './types.ts';
+import { getMerklOpportunitiesForChain } from './proxyClient.ts';
+import type { MerklProxyCampaign, MerklProxyOpportunity } from './proxyTypes.ts';
+import { groupBy, pick } from 'lodash-es';
+import { type Address, getAddress, isAddressEqual } from 'viem';
+import { isFiniteNumber } from '../../../../utils/number.ts';
+import { isDefined } from '../../../../utils/array.ts';
+import { getUnixNow, isUnixBetween } from '../../../../utils/date.ts';
+import { getLoggerFor } from '../../../../utils/logger/index.ts';
 
 const logger = getLoggerFor({ module: 'rewards', platform: 'merkl' });
 

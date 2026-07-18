@@ -9,47 +9,54 @@
     "ignoreUnknown": true,
     "includes": [
       "src/**",
+      "scripts/**",
       "test/**",
       "!test/fixtures"
     ]
   },
   "formatter": {
     "enabled": false,
+    "formatWithErrors": false,
     "indentStyle": "space",
     "indentWidth": 2,
-    "lineWidth": 120
+    "lineWidth": 120,
+    "lineEnding": "lf"
   },
   "linter": {
     "enabled": true,
     "domains": {
-      "types": "recommended",
-      "project": "recommended"
+      "types": "none",
+      "project": "none"
     },
     "rules": {
-      "preset": "recommended",
+      "preset": "none",
       "style": {
-        "useImportType": "warn",
-        "noNonNullAssertion": "warn",
-        "useBlockStatements": "warn"
+        "useImportType": "error",
+        "noNonNullAssertion": "off",
+        "useBlockStatements": "off",
+        "noCommonJs": "error",
+        "useNodejsImportProtocol": "error"
       },
       "correctness": {
-        "noUnusedImports": "warn",
-        "noUnusedVariables": "warn",
-        "noUnreachable": "warn",
-        "noPrecisionLoss": "warn",
-        "noInnerDeclarations": "warn"
+        "noUnusedImports": "error",
+        "useJsonImportAttributes": "error",
+        "useImportExtensions": "error",
+        "noUnusedVariables": "off",
+        "noUnreachable": "off",
+        "noPrecisionLoss": "off",
+        "noInnerDeclarations": "off"
       },
       "suspicious": {
         "noConsole": "error",
-        "useIterableCallbackReturn": "warn",
-        "noDoubleEquals": "warn",
-        "noAssignInExpressions": "warn",
-        "noImplicitAnyLet": "warn",
-        "noSparseArray": "warn",
-        "noRedeclare": "warn"
+        "useIterableCallbackReturn": "off",
+        "noDoubleEquals": "off",
+        "noAssignInExpressions": "off",
+        "noImplicitAnyLet": "off",
+        "noSparseArray": "off",
+        "noRedeclare": "off"
       },
       "nursery": {
-        "noFloatingPromises": "warn"
+        "noFloatingPromises": "off"
       }
     }
   },
@@ -65,7 +72,15 @@
       "quoteStyle": "single",
       "semicolons": "always",
       "trailingCommas": "es5",
-      "arrowParentheses": "asNeeded"
+      "arrowParentheses": "asNeeded",
+      "bracketSameLine": false,
+      "bracketSpacing": true,
+      "delimiterSpacing": false,
+      "jsxQuoteStyle": "double",
+      "quoteProperties": "asNeeded",
+      "expand": "auto",
+      "operatorLinebreak": "before",
+      "trailingNewline": true,
     }
   },
   "plugins": [
@@ -75,6 +90,20 @@
         "**/src/**/*.ts",
         "!**/src/**/*.test.ts"
       ]
+    }
+  ],
+  "overrides": [
+    {
+      "includes": [
+        "scripts/**"
+      ],
+      "linter": {
+        "rules": {
+          "suspicious": {
+            "noConsole": "off"
+          }
+        }
+      }
     }
   ]
 }

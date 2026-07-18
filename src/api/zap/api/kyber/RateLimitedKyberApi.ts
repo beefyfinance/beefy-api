@@ -1,6 +1,6 @@
-import { KyberApi } from './KyberApi';
-import PQueue from 'p-queue';
-import { ApiResponse } from '../common';
+import { KyberApi } from './KyberApi.ts';
+import type PQueue from 'p-queue';
+import type { ApiResponse } from '../common.ts';
 
 export class RateLimitedKyberApi extends KyberApi {
   constructor(baseUrl: string, clientId: string, protected readonly queue: PQueue) {

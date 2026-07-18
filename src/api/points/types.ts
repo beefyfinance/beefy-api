@@ -1,4 +1,4 @@
-import { ApiChain } from '../../utils/chain';
+import type { ApiChain } from '../../utils/chain.ts';
 
 export interface PointsStructure {
   id: string;

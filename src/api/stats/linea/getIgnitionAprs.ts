@@ -1,7 +1,4 @@
-import { Address, getAddress } from 'viem';
-import { getJson } from '../../../utils/http';
-import { isFiniteNumber } from '../../../utils/number';
-import { AsyncCache } from '../../../utils/promise';
+import type { Address, } from 'viem';
 
 type CampaignInfo = {
   protocol: string;

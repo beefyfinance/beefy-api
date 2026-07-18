@@ -1,10 +1,10 @@
-const BigNumber = require('bignumber.js');
-import { fetchPrice } from '../../../utils/fetchPrice';
-const { OPTIMISM_CHAIN_ID } = require('../../../constants');
-import { addressBook } from '../../../../packages/address-book/src/address-book';
-import ERC20Abi from '../../../abis/ERC20Abi';
-import IRewardPool from '../../../abis/IRewardPool';
-import { fetchContract } from '../../rpc/client';
+import { BigNumber } from 'bignumber.js';
+import { fetchPrice } from '../../../utils/fetchPrice.ts';
+import { OPTIMISM_CHAIN_ID } from '../../../constants.ts';
+import { addressBook } from '../../../../packages/address-book/src/address-book/index.ts';
+import ERC20Abi from '../../../abis/ERC20Abi.ts';
+import IRewardPool from '../../../abis/IRewardPool.ts';
+import { fetchContract } from '../../rpc/client.ts';
 const {
   optimism: {
     tokens: { beVELO },
@@ -57,4 +57,4 @@ const getTotalStakedInUsd = async () => {
   return totalStaked.times(tokenPrice).dividedBy(DECIMALS);
 };
 
-module.exports = getBeVeloV2Apr;
+export default getBeVeloV2Apr;

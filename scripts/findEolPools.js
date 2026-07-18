@@ -1,7 +1,7 @@
-import fs from 'fs';
-import path from 'path';
-import { getVaults } from '../src/utils/getVaults';
-import { ChainId } from '../packages/address-book/src/types/chainid';
+import fs from 'node:fs';
+import path from 'node:path';
+import { getVaults } from '../src/utils/getVaults.ts';
+import { ChainId } from '../packages/address-book/src/types/chainid.ts';
 
 async function main() {
   const paths = process.argv.splice(2);

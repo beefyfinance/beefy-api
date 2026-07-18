@@ -1,4 +1,4 @@
-import { ApiChain, AppChain } from '../../utils/chain';
+import type { ApiChain, AppChain } from '../../utils/chain.ts';
 
 export type PromoTokenRewardConfig = {
   type: 'token';

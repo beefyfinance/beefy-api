@@ -1,5 +1,5 @@
-import { ICacheBackend } from './ICacheBackend';
-import { getLoggerFor } from '../logger/index.js';
+import type { ICacheBackend } from './ICacheBackend.ts';
+import { getLoggerFor } from '../logger/index.ts';
 
 const logger = getLoggerFor({ module: 'cache' });
 

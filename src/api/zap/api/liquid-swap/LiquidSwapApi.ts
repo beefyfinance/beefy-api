@@ -1,17 +1,17 @@
-import { URLSearchParams } from 'url';
+import { URLSearchParams } from 'node:url';
 import {
-  ILiquidSwapApi,
+  type ILiquidSwapApi,
   isLiquidSwapErrorResponse,
   isLiquidSwapSuccessResponse,
-  LiquidSwapResponse,
-  QuoteRequest,
-  QuoteResponse,
-  SwapRequest,
-  SwapResponse,
-} from './types';
-import { mapValues, omitBy } from 'lodash';
-import { redactSecrets } from '../../../../utils/secrets';
-import { ApiResponse, ExtraQuoteResponse, isErrorApiResponse, SuccessApiResponse } from '../common';
+  type LiquidSwapResponse,
+  type QuoteRequest,
+  type QuoteResponse,
+  type SwapRequest,
+  type SwapResponse,
+} from './types.ts';
+import { mapValues, omitBy } from 'lodash-es';
+import { redactSecrets } from '../../../../utils/secrets.ts';
+import { type ApiResponse, type ExtraQuoteResponse, isErrorApiResponse, type SuccessApiResponse } from '../common.ts';
 
 export class LiquidSwapApi implements ILiquidSwapApi {
   constructor(protected readonly baseUrl: string) {}

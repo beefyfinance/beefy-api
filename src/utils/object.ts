@@ -1,4 +1,4 @@
-import { cloneDeep, defaultsDeep } from 'lodash';
+import { cloneDeep, defaultsDeep } from 'lodash-es';
 
 export type OptionalRecord<TKeys extends string | number, TValue> = {
   [K in TKeys]?: TValue;

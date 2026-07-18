@@ -1,4 +1,4 @@
-import { ICacheBackend } from './ICacheBackend';
+import type { ICacheBackend } from './ICacheBackend.ts';
 
 export class DummyCacheBackend implements ICacheBackend {
   async get(key: string): Promise<string> {

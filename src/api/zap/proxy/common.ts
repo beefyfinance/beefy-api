@@ -1,8 +1,8 @@
-import Koa from 'koa';
-import { getTokenByAddress, getTokenNative } from '../../tokens/tokens';
-import { AnyChain, ApiChain, toApiChain } from '../../../utils/chain';
-import { getAmmPrice } from '../../stats/getAmmPrices';
-import { fromWeiString } from '../../../utils/big-number';
+import type Koa from 'koa';
+import { getTokenByAddress, getTokenNative } from '../../tokens/tokens.ts';
+import { type AnyChain, type ApiChain, toApiChain } from '../../../utils/chain.ts';
+import { getAmmPrice } from '../../stats/getAmmPrices.ts';
+import { fromWeiString } from '../../../utils/big-number.ts';
 
 const MIN_QUOTE_VALUE: Partial<Record<ApiChain, number>> = {};
 const NATIVE_ADDRESS = '0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE';

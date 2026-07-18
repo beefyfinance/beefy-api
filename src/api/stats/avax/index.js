@@ -1,10 +1,11 @@
-const getJoeApy = require('./getJoeApy');
-const { getGmxApys } = require('./getGmxApys');
-const { getBeefyAvaxCowApys } = require('./getBeefyAvaxCowApys');
-const { getBlackholeApys } = require('./getBlackholeApys');
-const { getSiloApys } = require('../common/silo/getSiloApys');
-const { AVAX_CHAIN_ID } = require('../../../constants');
-const { getLoggerFor } = require('../../../utils/logger/index.js');
+import getJoeApy from './getJoeApy.js';
+import { getGmxApys } from './getGmxApys.js';
+import { getBeefyAvaxCowApys } from './getBeefyAvaxCowApys.ts';
+import { getBlackholeApys } from './getBlackholeApys.js';
+import { getSiloApys } from '../common/silo/getSiloApys.js';
+import { AVAX_CHAIN_ID } from '../../../constants.ts';
+import { getLoggerFor } from '../../../utils/logger/index.ts';
+import siloPoolsData from '../../../data/avax/siloPools.json' with { type: "json" };
 
 const logger = getLoggerFor({ module: 'apy', chain: AVAX_CHAIN_ID });
 
@@ -13,7 +14,7 @@ const getApys = [
   getJoeApy,
   getBeefyAvaxCowApys,
   getBlackholeApys,
-  () => getSiloApys(43114, require('../../../data/avax/siloPools.json')),
+  () => getSiloApys(43114, siloPoolsData),
 ];
 
 const getAvaxApys = async () => {
@@ -64,4 +65,4 @@ const getAvaxApys = async () => {
   };
 };
 
-module.exports = { getAvaxApys };
+export { getAvaxApys };

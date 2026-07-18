@@ -1,8 +1,7 @@
 import { parseAbi } from 'viem';
-import { fetchContract } from '../../../rpc/client';
-import BigNumber from 'bignumber.js';
-import { getApyBreakdown } from '../getApyBreakdownNew';
-import { getPendleApys } from './getPendleBaseApys';
+import { fetchContract } from '../../../rpc/client.ts';
+import { BigNumber } from 'bignumber.js';
+import { getApyBreakdown } from '../getApyBreakdownNew.ts';
 import {
   ARBITRUM_CHAIN_ID,
   BASE_CHAIN_ID,
@@ -10,9 +9,10 @@ import {
   ETH_CHAIN_ID,
   PLASMA_CHAIN_ID,
   SONIC_CHAIN_ID,
-} from '../../../../constants';
+} from '../../../../constants.ts';
+import { getPendleApys as getPendleBaseApys } from './getPendleBaseApys.js';
+import { getLoggerFor } from '../../../../utils/logger/index.ts';
 
-const { getLoggerFor } = require('../../../../utils/logger/index.js');
 const logger = getLoggerFor({ module: 'apy', platform: 'pendle' });
 
 const abi = parseAbi([
@@ -49,7 +49,7 @@ export async function getPendleApys(allPools) {
   if (!eqbStaking) throw new Error(`No eqbProxy for chainId: ${chainId}`);
 
   const [expiredPools, pools] = filterExpired(allPools);
-  const { tradingApys, pendleApys, syRewardsApys } = await getPendleApys(chainId, pools);
+  const { tradingApys, pendleApys, syRewardsApys } = await getPendleBaseApys(chainId, pools);
 
   const balancesCalls = [],
     activeBalancesCalls = [],

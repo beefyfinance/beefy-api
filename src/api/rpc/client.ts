@@ -1,20 +1,20 @@
 import {
-  Client,
+  type Client,
   createClient,
   createPublicClient,
   getContract,
   http,
-  HttpTransport,
-  HttpTransportConfig,
-  PublicClient,
+  type HttpTransport,
+  type HttpTransportConfig,
+  type PublicClient,
 } from 'viem';
-import { Abi } from 'abitype';
-import { getChain } from './chains';
-import { ChainId } from '../../../packages/address-book/src/address-book';
-import { rateLimitedHttp } from './transport';
+import type { Abi } from 'abitype';
+import { getChain } from './chains.ts';
+import type { ChainId } from '../../../packages/address-book/src/address-book/index.ts';
+import { rateLimitedHttp } from './transport.ts';
 import PQueue from 'p-queue';
-import { envBoolean, envNumber } from '../../utils/env';
-import { customFallback, CustomFallbackTransport } from './fallbackTransport';
+import { envBoolean, envNumber } from '../../utils/env.ts';
+import { customFallback, type CustomFallbackTransport } from './fallbackTransport.ts';
 
 const BATCH_WAIT = envNumber('BATCH_WAIT', 1500);
 
@@ -36,10 +36,9 @@ function getQueueFor(rpcUrl: string): PQueue {
       concurrency: envNumber('RPC_RATE_LIMIT_CONCURRENCY', 2),
       intervalCap: envNumber('RPC_RATE_LIMIT_INTERVAL_CAP', 5),
       interval: envNumber('RPC_RATE_LIMIT_INTERVAL', 1000),
-      carryoverConcurrencyCount: true,
+      carryoverIntervalCount: true,
       autoStart: true,
       timeout: 30 * 1000,
-      throwOnTimeout: true,
     });
   }
 

@@ -1,13 +1,13 @@
-const BigNumber = require('bignumber.js');
-import { fetchPrice } from '../../../../utils/fetchPrice';
-import getApyBreakdown from '../../common/getApyBreakdown';
-import { BSC_CHAIN_ID as chainId } from '../../../../constants';
-import { addressBook } from '../../../../../packages/address-book/src/address-book';
-import { fetchContract } from '../../../rpc/client';
-import getBlockTime from '../../../../utils/getBlockTime';
-import { getEDecimals } from '../../../../utils/getEDecimals';
-import IOOEStaking from '../../../../abis/bsc/IOOEStaking';
-import pools from '../../../../data/bsc/ooeV2LpPools.json';
+import { BigNumber } from 'bignumber.js';
+import { fetchPrice } from '../../../../utils/fetchPrice.ts';
+import { getApyBreakdown } from '../../common/getApyBreakdown.ts';
+import { BSC_CHAIN_ID as chainId } from '../../../../constants.ts';
+import { addressBook } from '../../../../../packages/address-book/src/address-book/index.ts';
+import { fetchContract } from '../../../rpc/client.ts';
+import getBlockTime from '../../../../utils/getBlockTime.js';
+import { getEDecimals } from '../../../../utils/getEDecimals.ts';
+import IOOEStaking from '../../../../abis/bsc/IOOEStaking.ts';
+import pools from '../../../../data/bsc/ooeV2LpPools.json' with { type: "json" };
 
 const {
   bsc: {
@@ -65,4 +65,3 @@ const getPoolsData = async () => {
   return { balances, rewardRates };
 };
 
-module.exports = { getOOELpApys };

@@ -1,4 +1,4 @@
-import { MerklApiCampaignStatus } from './types';
+import type { MerklApiCampaignStatus } from './types.ts';
 
 // Mirrors beefy-merkl-api's SlimOpportunity / SlimCampaign response shapes.
 // Keep in sync with that service's src/api/read-store.ts + src/api/schemas/response.ts.

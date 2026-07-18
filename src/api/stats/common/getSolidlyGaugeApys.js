@@ -1,14 +1,14 @@
-const BigNumber = require('bignumber.js');
-import { fetchPrice } from '../../../utils/fetchPrice';
-import { getApyBreakdown } from '../common/getApyBreakdown';
-import ISpiritGauge from '../../../abis/fantom/ISpiritGauge';
-import ISolidlyGauge from '../../../abis/ISolidlyGauge';
-import RamsesGauge from '../../../abis/RamsesGauge';
-import InfraredGauge from '../../../abis/InfraredGauge';
-import IinSpirit from '../../../abis/fantom/IinSpirit';
-import IVe from '../../../abis/IVe';
-import { fetchContract } from '../../rpc/client';
-const { getLoggerFor } = require('../../../utils/logger/index.js');
+import { BigNumber } from 'bignumber.js';
+import { fetchPrice } from '../../../utils/fetchPrice.ts';
+import { getApyBreakdown } from '../common/getApyBreakdown.ts';
+import ISpiritGauge from '../../../abis/fantom/ISpiritGauge.ts';
+import ISolidlyGauge from '../../../abis/ISolidlyGauge.ts';
+import RamsesGauge from '../../../abis/RamsesGauge.ts';
+import InfraredGauge from '../../../abis/InfraredGauge.ts';
+import IinSpirit from '../../../abis/fantom/IinSpirit.ts';
+import IVe from '../../../abis/IVe.ts';
+import { fetchContract } from '../../rpc/client.ts';
+import { getLoggerFor } from '../../../utils/logger/index.ts';
 
 const logger = getLoggerFor({ module: 'apy', platform: 'solidlyGauge' });
 

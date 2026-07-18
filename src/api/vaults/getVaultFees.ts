@@ -1,14 +1,14 @@
-import BigNumber from 'bignumber.js';
-import { addressBookByChainId, ChainId } from '../../../packages/address-book/src/address-book';
-import { getKey, setKey } from '../../utils/cache';
-import { SupportedChains } from '../../utils/chain';
-import { fetchContract } from '../rpc/client';
-import FeeABI from '../../abis/FeeABI';
-import { HarvestableVault } from './types';
-import { getHarvestableVaultsByChain } from '../stats/getMultichainVaults';
-import { Address, BaseError } from 'viem';
-import { chunk } from 'lodash';
-import { getLoggerFor } from '../../utils/logger/index.js';
+import { BigNumber } from 'bignumber.js';
+import { addressBookByChainId, ChainId } from '../../../packages/address-book/src/address-book/index.ts';
+import { getKey, setKey } from '../../utils/cache/index.ts';
+import { SupportedChains } from '../../utils/chain.ts';
+import { fetchContract } from '../rpc/client.ts';
+import FeeABI from '../../abis/FeeABI.ts';
+import type { HarvestableVault } from './types.ts';
+import { getHarvestableVaultsByChain } from '../stats/getMultichainVaults.ts';
+import { type Address, BaseError } from 'viem';
+import { chunk } from 'lodash-es';
+import { getLoggerFor } from '../../utils/logger/index.ts';
 
 const logger = getLoggerFor({ module: 'vaults' });
 

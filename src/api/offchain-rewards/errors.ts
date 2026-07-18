@@ -1,5 +1,5 @@
-import { ProviderId } from './types';
-import { AppChain } from '../../utils/chain';
+import type { ProviderId } from './types.ts';
+import type { AppChain } from '../../utils/chain.ts';
 
 export class OffchainRewardsError extends Error {
   constructor(message: string, cause?: Error) {

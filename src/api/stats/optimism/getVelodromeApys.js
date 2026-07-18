@@ -1,12 +1,12 @@
-const { OPTIMISM_CHAIN_ID: chainId } = require('../../../constants');
-import { getEDecimals } from '../../../utils/getEDecimals';
-const { getSolidlyGaugeApys } = require('../common/getSolidlyGaugeApys');
+import { OPTIMISM_CHAIN_ID as chainId }from '../../../constants.ts';
+import { getEDecimals } from '../../../utils/getEDecimals.ts';
+import { getSolidlyGaugeApys } from '../common/getSolidlyGaugeApys.js';
 
-const oldStablePools = require('../../../data/optimism/oldVelodromeStableLpPools.json');
-const oldVolatilePools = require('../../../data/optimism/oldVelodromeLpPools.json');
-const stablePools = require('../../../data/optimism/velodromeStableLpPools.json');
-const volatilePools = require('../../../data/optimism/velodromeLpPools.json');
-import { addressBook } from '../../../../packages/address-book/src/address-book';
+import oldStablePools from '../../../data/optimism/oldVelodromeStableLpPools.json' with { type: "json" };
+import oldVolatilePools from '../../../data/optimism/oldVelodromeLpPools.json' with { type: "json" };
+import stablePools from '../../../data/optimism/velodromeStableLpPools.json' with { type: "json" };
+import volatilePools from '../../../data/optimism/velodromeLpPools.json' with { type: "json" };
+import { addressBook } from '../../../../packages/address-book/src/address-book/index.ts';
 
 const {
   optimism: {
@@ -14,7 +14,7 @@ const {
   },
 } = addressBook;
 
-const { getLoggerFor } = require('../../../utils/logger/index.js');
+import { getLoggerFor } from '../../../utils/logger/index.ts';
 const logger = getLoggerFor({ module: 'apy', platform: 'velodrome', chain: chainId });
 
 const pools = [...stablePools, ...volatilePools];
@@ -62,4 +62,4 @@ const getVelodromeApys = async () => {
   };
 };
 
-module.exports = getVelodromeApys;
+export default getVelodromeApys;

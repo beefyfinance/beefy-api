@@ -1,8 +1,8 @@
-const BigNumber = require('bignumber.js');
-const { fetchContract } = require('../../../rpc/client');
-const { default: ERC20Abi } = require('../../../../abis/ERC20Abi');
-const { default: ICurvePool } = require('../../../../abis/ICurvePool');
-const { getLoggerFor } = require('../../../../utils/logger/index.js');
+import { BigNumber } from 'bignumber.js';
+import { fetchContract } from '../../../rpc/client.ts';
+import { default as ERC20Abi }from '../../../../abis/ERC20Abi.ts';
+import { default as ICurvePool }from '../../../../abis/ICurvePool.ts';
+import { getLoggerFor } from '../../../../utils/logger/index.ts';
 
 const logger = getLoggerFor({ module: 'prices', platform: 'curve' });
 
@@ -102,4 +102,4 @@ const getTokenPrice = (lpPrices, tokenPrices, token) => {
   return tokenPrice;
 };
 
-module.exports = getCurvePricesCommon;
+export default getCurvePricesCommon;

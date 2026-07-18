@@ -1,5 +1,5 @@
-import { ApiChain, SupportedApiChain } from '../../../utils/chain';
-import { addressBook } from '../../../../packages/address-book/src/address-book';
+import type { SupportedApiChain } from '../../../utils/chain.ts';
+import { addressBook } from '../../../../packages/address-book/src/address-book/index.ts';
 
 /**
  * Tokens addresses that are blocked from being swapped on a given chain.

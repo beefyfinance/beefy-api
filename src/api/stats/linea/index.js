@@ -1,7 +1,7 @@
-const { getLynexApys } = require('./getLynexApys');
-const { getBeefyCowLineaApys } = require('./getBeefyCowLineaApys');
-const { LINEA_CHAIN_ID } = require('../../../constants');
-const { getLoggerFor } = require('../../../utils/logger/index.js');
+import { getLynexApys } from './getLynexApys.js';
+import { getBeefyCowLineaApys } from './getBeefyCowLineaApys.ts';
+import { LINEA_CHAIN_ID } from '../../../constants.ts';
+import { getLoggerFor } from '../../../utils/logger/index.ts';
 
 const logger = getLoggerFor({ module: 'apy', chain: LINEA_CHAIN_ID });
 
@@ -55,4 +55,4 @@ const getLineaApys = async () => {
   };
 };
 
-module.exports = { getLineaApys };
+export { getLineaApys };

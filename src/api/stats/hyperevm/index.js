@@ -1,7 +1,6 @@
-const { getBeefyCowHyperevmApys } = require('./getBeefyCowHyperevmApys');
-const { getMorphoApys } = require('../common/morpho/getMorphoApys');
-const { HYPEREVM_CHAIN_ID } = require('../../../constants');
-const { getLoggerFor } = require('../../../utils/logger/index.js');
+import { getBeefyCowHyperevmApys } from './getBeefyCowHyperevmApys.ts';
+import { HYPEREVM_CHAIN_ID } from '../../../constants.ts';
+import { getLoggerFor } from '../../../utils/logger/index.ts';
 
 const logger = getLoggerFor({ module: 'apy', chain: HYPEREVM_CHAIN_ID });
 
@@ -59,4 +58,4 @@ const getHyperevmApys = async () => {
   };
 };
 
-module.exports = { getHyperevmApys };
+export { getHyperevmApys };

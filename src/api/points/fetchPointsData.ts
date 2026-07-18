@@ -1,4 +1,4 @@
-import { PointsStructure } from './types';
+import type { PointsStructure } from './types.ts';
 
 export const getPointsStructures = async (): Promise<PointsStructure[]> => {
   const endpoint = `https://raw.githubusercontent.com/beefyfinance/beefy-v2/prod/src/config/points.json`;

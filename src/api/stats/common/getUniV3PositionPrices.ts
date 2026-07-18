@@ -1,8 +1,8 @@
-import BigNumber from 'bignumber.js';
-import { fetchContract } from '../../rpc/client';
-import { ChainId } from '../../../../packages/address-book/src/address-book';
-import { BaseLpBreakdown } from '../getAmmPrices';
-import BeefyUniswapPositionHelperAbi from '../../../abis/BeefyUniswapPositionHelper';
+import { BigNumber } from 'bignumber.js';
+import { fetchContract } from '../../rpc/client.ts';
+import type { ChainId } from '../../../../packages/address-book/src/address-book/index.ts';
+import type { BaseLpBreakdown } from '../getAmmPrices.ts';
+import BeefyUniswapPositionHelperAbi from '../../../abis/BeefyUniswapPositionHelper.ts';
 
 interface LpTokenConfig {
   address: string;

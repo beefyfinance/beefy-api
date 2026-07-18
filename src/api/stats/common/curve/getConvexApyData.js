@@ -1,9 +1,9 @@
-import BigNumber from 'bignumber.js';
-import { fetchPrice } from '../../../../utils/fetchPrice';
-import ICurveGauge from '../../../../abis/ICurveGauge';
-import { fetchContract } from '../../../rpc/client';
+import { BigNumber } from 'bignumber.js';
+import { fetchPrice } from '../../../../utils/fetchPrice.ts';
+import ICurveGauge from '../../../../abis/ICurveGauge.ts';
+import { fetchContract } from '../../../rpc/client.ts';
 import { parseAbi } from 'viem';
-import { FRAXTAL_CHAIN_ID } from '../../../../constants';
+import { FRAXTAL_CHAIN_ID } from '../../../../constants.ts';
 
 const IBooster = parseAbi(['function fees() view returns (uint)']);
 

@@ -1,6 +1,6 @@
-const getSolidlyStablePrices = require('../common/getSolidlyStablePrices');
-const pools = require('../../../data/base/aerodromeStableLpPools.json');
-const { BASE_CHAIN_ID: chainId } = require('../../../constants');
+import getSolidlyStablePrices from '../common/getSolidlyStablePrices.js';
+import pools from '../../../data/base/aerodromeStableLpPools.json' with { type: "json" };
+import { BASE_CHAIN_ID as chainId }from '../../../constants.ts';
 
 export const getAerodromeStablePrices = async tokenPrices => {
   return await getSolidlyStablePrices(chainId, pools, tokenPrices);

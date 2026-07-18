@@ -1,6 +1,6 @@
-import BigNumber from 'bignumber.js';
-import { getApyBreakdown } from '../getApyBreakdownNew';
-import { getLoggerFor } from '../../../../utils/logger/index.js';
+import { BigNumber } from 'bignumber.js';
+import { getApyBreakdown } from '../getApyBreakdownNew.ts';
+import { getLoggerFor } from '../../../../utils/logger/index.ts';
 
 const logger = getLoggerFor({ module: 'apy', platform: 'aave' });
 

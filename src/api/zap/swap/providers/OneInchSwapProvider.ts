@@ -1,8 +1,8 @@
-import { ISwapProvider, SwapRequest, SwapResponse } from './ISwapProvider';
-import { getOneInchSwapApi, supportedSwapChains } from '../../api/one-inch';
-import { fromWeiString, toWeiString } from '../../../../utils/big-number';
-import { ApiChain } from '../../../../utils/chain';
-import { isResultFulfilled } from '../../../../utils/promise';
+import type { ISwapProvider, SwapRequest, SwapResponse } from './ISwapProvider.ts';
+import { getOneInchSwapApi, supportedSwapChains } from '../../api/one-inch/index.ts';
+import { fromWeiString, toWeiString } from '../../../../utils/big-number.ts';
+import type { ApiChain } from '../../../../utils/chain.ts';
+import { isResultFulfilled } from '../../../../utils/promise.ts';
 
 export class OneInchSwapProvider implements ISwapProvider {
   public readonly id = 'one-inch';

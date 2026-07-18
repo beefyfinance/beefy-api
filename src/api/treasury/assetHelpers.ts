@@ -1,12 +1,12 @@
 import BigNumber from 'bignumber.js';
-import { keyBy } from 'lodash';
-import { getVaultsByTypeChain } from '../stats/getMultichainVaults';
-import { getTokensForChain, isTokenNative } from '../tokens/tokens';
-import { keysToObject } from '../../utils/array';
-import { SupportedChains } from '../../utils/chain';
-import { TreasuryAsset, TreasuryAssetRegistry } from './types';
-import { getChainValidators, hasChainValidator } from './validatorHelpers';
-import { getChainConcentratedLiquidityAssets, hasChainConcentratedLiquidityAssets } from './nftAssets';
+import { keyBy } from 'lodash-es';
+import { getVaultsByTypeChain } from '../stats/getMultichainVaults.ts';
+import { getTokensForChain, isTokenNative } from '../tokens/tokens.ts';
+import { keysToObject } from '../../utils/array.ts';
+import { SupportedChains } from '../../utils/chain.ts';
+import type { TreasuryAsset, TreasuryAssetRegistry } from './types.ts';
+import { getChainValidators, hasChainValidator } from './validatorHelpers.ts';
+import { getChainConcentratedLiquidityAssets, hasChainConcentratedLiquidityAssets } from './nftAssets.ts';
 
 // raw 1:1 ppfs, used for gov pools which have none (balanceOf is the staked amount, priced 1:1 by oracleId)
 const ONE_PPFS = new BigNumber('1e18');

@@ -1,6 +1,6 @@
-import { LiquidSwapApi } from './LiquidSwapApi.js';
-import PQueue from 'p-queue';
-import { ApiResponse } from '../common';
+import { LiquidSwapApi } from './LiquidSwapApi.ts';
+import type PQueue from 'p-queue';
+import type { ApiResponse } from '../common.ts';
 
 export class RateLimitedLiquidSwapApi extends LiquidSwapApi {
   constructor(baseUrl: string, protected readonly queue: PQueue) {

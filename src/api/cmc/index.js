@@ -1,12 +1,12 @@
-const { BigNumber, utils, ethers } = require('ethers');
+import { BigNumber, utils, ethers } from 'ethers';
 
-import { fetchPrice } from '../../utils/fetchPrice';
-const { API_BASE_URL, BSC_RPC } = require('../../constants');
+import { fetchPrice } from '../../utils/fetchPrice.ts';
+import { API_BASE_URL, BSC_RPC } from '../../constants.ts';
 
-const vaults_json = require('../../data/cmc.json');
-const BeefyVault = require('../../abis/BeefyVault.ts');
+import vaults_json from '../../data/cmc.json' with { type: "json" };
+import BeefyVault from '../../abis/BeefyVault.ts';
 
-const { getLoggerFor } = require('../../utils/logger/index.js');
+import { getLoggerFor } from '../../utils/logger/index.ts';
 const logger = getLoggerFor({ module: 'cmc' });
 
 const fetchVaultTvl = async ({ vault }) => {
@@ -31,7 +31,7 @@ const fetchVaultTvl = async ({ vault }) => {
   return result;
 };
 
-const vaults = async ctx => {
+export const vaults = async ctx => {
   try {
     const apys = await fetch(`${API_BASE_URL}/apy`).then(res.json());
 
@@ -46,8 +46,4 @@ const vaults = async ctx => {
   }
 
   ctx.body = vaults_json;
-};
-
-module.exports = {
-  vaults,
 };

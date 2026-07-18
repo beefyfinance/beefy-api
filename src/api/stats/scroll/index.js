@@ -1,8 +1,8 @@
-const { getBeefyCowScrollApys } = require('./getBeefyCowScrollApys');
-const { getNuriApys } = require('./getNuriApys');
-const { getScrollCompoundV3Apys } = require('./getScrollCompoundV3Apys');
-const { SCROLL_CHAIN_ID } = require('../../../constants');
-const { getLoggerFor } = require('../../../utils/logger/index.js');
+import { getBeefyCowScrollApys } from './getBeefyCowScrollApys.ts';
+import { getNuriApys } from './getNuriApys.js';
+import { getScrollCompoundV3Apys } from './getScrollCompoundV3Apys.ts';
+import { SCROLL_CHAIN_ID } from '../../../constants.ts';
+import { getLoggerFor } from '../../../utils/logger/index.ts';
 
 const logger = getLoggerFor({ module: 'apy', chain: SCROLL_CHAIN_ID });
 
@@ -56,4 +56,4 @@ const getScrollApys = async () => {
   };
 };
 
-module.exports = { getScrollApys };
+export { getScrollApys };

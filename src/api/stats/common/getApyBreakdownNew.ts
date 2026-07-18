@@ -1,9 +1,9 @@
-import { BigNumberish } from '../../../utils/big-number';
-import { toNumber } from '../../../utils/number';
-import { BASE_HPY } from '../../../constants';
-import { getTotalPerformanceFeeForVault } from '../../vaults/getVaultFees';
-import { getFarmWithTradingFeesApy } from '../../../utils/getFarmWithTradingFeesApy';
-import { toArray } from '../../../utils/array';
+import type { BigNumberish } from '../../../utils/big-number.ts';
+import { toNumber } from '../../../utils/number.ts';
+import { BASE_HPY } from '../../../constants.ts';
+import { getTotalPerformanceFeeForVault } from '../../vaults/getVaultFees.ts';
+import { getFarmWithTradingFeesApy } from '../../../utils/getFarmWithTradingFeesApy.ts';
+import { toArray } from '../../../utils/array.ts';
 
 // These component lists need to stay in sync with the app
 // Total APY = (((1 + Compounded APY) * (1 + Special APR)) - 1) + Non-Compoundable APR.

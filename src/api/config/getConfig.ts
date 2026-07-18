@@ -1,8 +1,8 @@
-import { addressBook } from '../../../packages/address-book/src/address-book';
-import { omitBy } from 'lodash';
-import { ZERO_ADDRESS } from '../../utils/address';
-import { BeefyFinance } from '../../../packages/address-book/src/types/beefyfinance';
-import { getLoggerFor } from '../../utils/logger/index.js';
+import { addressBook } from '../../../packages/address-book/src/address-book/index.ts';
+import { omitBy } from 'lodash-es';
+import { ZERO_ADDRESS } from '../../utils/address.ts';
+import type { BeefyFinance } from '../../../packages/address-book/src/types/beefyfinance.ts';
+import { getLoggerFor } from '../../utils/logger/index.ts';
 
 const logger = getLoggerFor({ module: 'config' });
 

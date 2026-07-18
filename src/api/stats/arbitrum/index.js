@@ -1,15 +1,16 @@
-const { getCurveApys } = require('./getCurveApys');
-const { getBeefyArbCowApys } = require('./getBeefyArbCowApys');
-const { getMorphoApys } = require('../common/morpho/getMorphoApys');
-const { ARBITRUM_CHAIN_ID: chainId } = require('../../../constants');
-const { getLoggerFor } = require('../../../utils/logger/index.js');
+import { getCurveApys } from './getCurveApys.js';
+import { getBeefyArbCowApys } from './getBeefyArbCowApys.ts';
+import { getMorphoApys } from '../common/morpho/getMorphoApys.js';
+import { ARBITRUM_CHAIN_ID as chainId }from '../../../constants.ts';
+import { getLoggerFor } from '../../../utils/logger/index.ts';
+import morphoPoolsData from '../../../data/arbitrum/morphoPools.json' with { type: "json" };
 
 const logger = getLoggerFor({ module: 'apy', chain: chainId });
 
 const getApys = [
   getCurveApys,
   getBeefyArbCowApys,
-  () => getMorphoApys(chainId, require('../../../data/arbitrum/morphoPools.json')),
+  () => getMorphoApys(chainId, morphoPoolsData),
 ];
 
 const getArbitrumApys = async () => {
@@ -60,4 +61,4 @@ const getArbitrumApys = async () => {
   };
 };
 
-module.exports = { getArbitrumApys };
+export { getArbitrumApys };

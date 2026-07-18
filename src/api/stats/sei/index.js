@@ -1,6 +1,6 @@
-const { getBeefyCowSeiApys } = require('./getBeefyCowSeiApys');
-const { SEI_CHAIN_ID } = require('../../../constants');
-const { getLoggerFor } = require('../../../utils/logger/index.js');
+import { getBeefyCowSeiApys } from './getBeefyCowSeiApys.ts';
+import { SEI_CHAIN_ID } from '../../../constants.ts';
+import { getLoggerFor } from '../../../utils/logger/index.ts';
 
 const logger = getLoggerFor({ module: 'apy', chain: SEI_CHAIN_ID });
 
@@ -54,4 +54,4 @@ const getSeiApys = async () => {
   };
 };
 
-module.exports = { getSeiApys };
+export { getSeiApys };

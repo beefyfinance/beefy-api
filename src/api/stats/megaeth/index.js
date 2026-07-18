@@ -1,7 +1,7 @@
-const { getBeefyCowMegaethApys } = require('./getBeefyCowMegaethApys');
-const { getAaveV3Apys } = require('./getAaveV3Apys');
-const { MEGAETH_CHAIN_ID } = require('../../../constants');
-const { getLoggerFor } = require('../../../utils/logger/index.js');
+import { getBeefyCowMegaethApys } from './getBeefyCowMegaethApys.ts';
+import { getAaveV3Apys } from './getAaveV3Apys.js';
+import { MEGAETH_CHAIN_ID } from '../../../constants.ts';
+import { getLoggerFor } from '../../../utils/logger/index.ts';
 
 const logger = getLoggerFor({ module: 'apy', chain: MEGAETH_CHAIN_ID });
 
@@ -55,4 +55,4 @@ const getMegaethApys = async () => {
   };
 };
 
-module.exports = { getMegaethApys };
+export { getMegaethApys };

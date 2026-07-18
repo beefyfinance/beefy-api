@@ -1,6 +1,6 @@
-const { getBeefyCowRootstockApys } = require('./getBeefyCowRootstockApys');
-const { ROOTSTOCK_CHAIN_ID } = require('../../../constants');
-const { getLoggerFor } = require('../../../utils/logger/index.js');
+import { getBeefyCowRootstockApys } from './getBeefyCowRootstockApys.ts';
+import { ROOTSTOCK_CHAIN_ID } from '../../../constants.ts';
+import { getLoggerFor } from '../../../utils/logger/index.ts';
 
 const logger = getLoggerFor({ module: 'apy', chain: ROOTSTOCK_CHAIN_ID });
 
@@ -54,4 +54,4 @@ const getRootstockApys = async () => {
   };
 };
 
-module.exports = { getRootstockApys };
+export { getRootstockApys };

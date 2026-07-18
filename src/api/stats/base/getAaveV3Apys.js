@@ -1,6 +1,6 @@
-const { getAaveV3ApyData } = require('../common/aave/getAaveV3Apys');
-const pools = require('../../../data/base/aaveV3Pools.json');
-const { BASE_CHAIN_ID } = require('../../../constants');
+import { getAaveV3ApyData } from '../common/aave/getAaveV3Apys.js';
+import pools from '../../../data/base/aaveV3Pools.json' with { type: "json" };
+import { BASE_CHAIN_ID } from '../../../constants.ts';
 
 const config = {
   dataProvider: '0x0F43731EB8d45A581f4a36DD74F5f358bc90C73A',

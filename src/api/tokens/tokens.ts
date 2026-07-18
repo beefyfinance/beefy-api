@@ -1,15 +1,15 @@
-import { getSingleChainVaults, getVaultsByChain } from '../stats/getMultichainVaults';
-import { getChainNewBoosts } from '../boosts/getBoosts';
-import { addressBook, Chain } from '../../../packages/address-book/src/address-book';
-import Token from '../../../packages/address-book/src/types/token';
-import { MULTICHAIN_ENDPOINTS } from '../../constants';
-import { serviceEventBus } from '../../utils/ServiceEventBus';
-import { ApiChain, isApiChain, toApiChain } from '../../utils/chain';
-import { ChainTokens, TokenEntity, TokenErc20, TokenNative, TokensByChain } from './types';
-import { mapValues } from 'lodash';
-import { Address, getAddress } from 'viem';
-import { isDefined } from '../../utils/array';
-import { getLoggerFor } from '../../utils/logger/index.js';
+import { getSingleChainVaults, getVaultsByChain } from '../stats/getMultichainVaults.ts';
+import { getChainNewBoosts } from '../boosts/getBoosts.ts';
+import { addressBook, type Chain } from '../../../packages/address-book/src/address-book/index.ts';
+import type { Token } from '../../../packages/address-book/src/types/token.ts';
+import { MULTICHAIN_ENDPOINTS } from '../../constants.ts';
+import { serviceEventBus } from '../../utils/ServiceEventBus.ts';
+import { type ApiChain, isApiChain, toApiChain } from '../../utils/chain.ts';
+import type { ChainTokens, TokenEntity, TokenErc20, TokenNative, TokensByChain } from './types.ts';
+import { mapValues } from 'lodash-es';
+import { type Address, getAddress } from 'viem';
+import { isDefined } from '../../utils/array.ts';
+import { getLoggerFor } from '../../utils/logger/index.ts';
 
 const logger = getLoggerFor({ module: 'tokens' });
 

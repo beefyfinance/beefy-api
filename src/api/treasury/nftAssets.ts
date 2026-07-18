@@ -1,5 +1,5 @@
-import { ApiChain } from '../../utils/chain';
-import { ConcLiquidityAsset } from './types';
+import type { ApiChain } from '../../utils/chain.ts';
+import type { ConcLiquidityAsset } from './types.ts';
 
 export const treasuryConcLiquidityAssets: Partial<Record<ApiChain, ConcLiquidityAsset[]>> = {
   ethereum: [

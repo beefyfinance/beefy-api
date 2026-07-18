@@ -1,7 +1,7 @@
-import { ChainId } from '../packages/address-book/src/address-book';
-import { ApiChain, SupportedApiChain, fromChainId, toChainId } from './utils/chain';
-import { mapValues, shuffle, uniq } from 'lodash';
-import { getChainRpcs } from './api/rpc/rpcs';
+import { ChainId } from '../packages/address-book/src/address-book/index.ts';
+import { type ApiChain, type SupportedApiChain, fromChainId, toChainId } from './utils/chain.ts';
+import { mapValues, uniq } from 'lodash-es';
+import { getChainRpcs } from './api/rpc/rpcs.ts';
 
 const API_BASE_URL = process.env.API_BASE_URL || 'http://localhost:3000';
 

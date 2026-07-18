@@ -1,12 +1,12 @@
-import BigNumber from 'bignumber.js';
-import { fetchContract } from '../../rpc/client';
-import ERC20Abi from '../../../abis/ERC20Abi';
-import { ApiChain, toChainId } from '../../../utils/chain';
-import { getCowClms } from '../../cowcentrated/getCowClms';
-import { ClmLpBreakdown } from '../getAmmPrices';
-import { Abi } from 'abitype';
-import { isCowClmWithRewardPool } from '../../cowcentrated/types';
-import { getLoggerFor } from '../../../utils/logger/index.js';
+import { BigNumber } from 'bignumber.js';
+import { fetchContract } from '../../rpc/client.ts';
+import ERC20Abi from '../../../abis/ERC20Abi.ts';
+import { type ApiChain, toChainId } from '../../../utils/chain.ts';
+import { getCowClms } from '../../cowcentrated/getCowClms.ts';
+import type { ClmLpBreakdown } from '../getAmmPrices.ts';
+import type { Abi } from 'abitype';
+import { isCowClmWithRewardPool } from '../../cowcentrated/types.ts';
+import { getLoggerFor } from '../../../utils/logger/index.ts';
 
 const logger = getLoggerFor({ module: 'prices' });
 

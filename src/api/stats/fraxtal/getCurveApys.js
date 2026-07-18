@@ -1,10 +1,11 @@
-import { getApyBreakdown } from '../common/getApyBreakdownNew';
-import { getCurveVolumeApys } from '../common/curve/getCurveApyData';
-import { getCurveApysCommon } from '../common/curve/getCurveApysCommon';
-import { getConvexApyData } from '../common/curve/getConvexApyData';
-import { FRAXTAL_CHAIN_ID as chainId } from '../../../constants';
+import { getApyBreakdown } from '../common/getApyBreakdownNew.ts';
+import { getCurveVolumeApys } from '../common/curve/getCurveApyData.js';
+import { getCurveApysCommon } from '../common/curve/getCurveApysCommon.js';
+import { getConvexApyData } from '../common/curve/getConvexApyData.js';
+import { FRAXTAL_CHAIN_ID as chainId } from '../../../constants.ts';
+import curvePoolsData from '../../../data/fraxtal/curvePools.json' with { type: "json" };
 
-const pools = require('../../../data/fraxtal/curvePools.json').filter(p => p.gauge);
+const pools = curvePoolsData.filter(p => p.gauge);
 const baseApyUrl = 'https://api.curve.finance/api/getVolumes/fraxtal';
 
 export const getCurveApys = async () => {

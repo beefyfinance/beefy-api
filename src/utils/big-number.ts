@@ -1,4 +1,4 @@
-import BigNumber from 'bignumber.js';
+import { BigNumber } from 'bignumber.js';
 
 /** Any type that can be passed to our toBigNumber function */
 export type BigNumberish = BigNumber.Value | bigint;

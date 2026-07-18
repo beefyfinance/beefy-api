@@ -1,5 +1,5 @@
-import { BERACHAIN_CHAIN_ID as chainId } from '../../../constants';
-import { getRewardPoolApys } from '../common/getRewardPoolApys';
+import { BERACHAIN_CHAIN_ID as chainId } from '../../../constants.ts';
+import { getRewardPoolApys } from '../common/getRewardPoolApys.js';
 
 const getBeraswapApys = async () =>
   getRewardPoolApys({
@@ -23,4 +23,4 @@ const getBeraswapApys = async () =>
     // log: true,
   });
 
-module.exports = getBeraswapApys;
+export default getBeraswapApys;

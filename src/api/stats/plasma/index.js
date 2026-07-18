@@ -1,9 +1,9 @@
-const { getBeefyCowPlasmaApys } = require('./getBeefyCowPlasmaApys');
-const { getAaveV3Apys } = require('./getAaveV3Apys');
-const { getCurveApys } = require('./getCurveApys');
-const { getLithosApys } = require('./getLithosApys');
-const { PLASMA_CHAIN_ID } = require('../../../constants');
-const { getLoggerFor } = require('../../../utils/logger/index.js');
+import { getBeefyCowPlasmaApys } from './getBeefyCowPlasmaApys.ts';
+import { getAaveV3Apys } from './getAaveV3Apys.js';
+import { getCurveApys } from './getCurveApys.js';
+import { getLithosApys } from './getLithosApys.js';
+import { PLASMA_CHAIN_ID } from '../../../constants.ts';
+import { getLoggerFor } from '../../../utils/logger/index.ts';
 
 const logger = getLoggerFor({ module: 'apy', chain: PLASMA_CHAIN_ID });
 
@@ -57,4 +57,4 @@ const getPlasmaApys = async () => {
   };
 };
 
-module.exports = { getPlasmaApys };
+export { getPlasmaApys };

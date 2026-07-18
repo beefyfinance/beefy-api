@@ -1,15 +1,15 @@
-import { getKey, setKey } from '../../../utils/cache';
-import { ProviderId } from './providers';
-import { ApiChain, SupportedChains } from '../../../utils/chain';
-import {
+import { getKey, setKey } from '../../../utils/cache/index.ts';
+import type { ProviderId } from './providers/index.ts';
+import { type ApiChain, SupportedChains } from '../../../utils/chain.ts';
+import type {
   ProviderSupportByChainByAddress,
   TokenSupportByAddress,
   TokenSupportByChainByProviderByAddress,
-} from './types';
-import { keysToObject } from '../../../utils/array';
-import { blockedTokensByChain } from './blocked-tokens';
-import { mapValues, pickBy } from 'lodash';
-import { getLoggerFor } from '../../../utils/logger/index.js';
+} from './types.ts';
+import { keysToObject } from '../../../utils/array.ts';
+import { blockedTokensByChain } from './blocked-tokens.ts';
+import { mapValues, pickBy } from 'lodash-es';
+import { getLoggerFor } from '../../../utils/logger/index.ts';
 
 const logger = getLoggerFor({ module: 'zap' });
 

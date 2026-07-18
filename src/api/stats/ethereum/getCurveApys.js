@@ -1,13 +1,13 @@
-import { ETH_CHAIN_ID } from '../../../constants';
-import { getApyBreakdown } from '../common/getApyBreakdownNew';
-import { getCurveVolumeApys } from '../common/curve/getCurveApyData';
-import { getCurveLendApyRequests } from '../common/curve/getCurveLendApys';
-import BigNumber from 'bignumber.js';
-import { fetchPrice } from '../../../utils/fetchPrice';
-import ICurveGauge from '../../../abis/ICurveGauge';
-import { fetchContract } from '../../rpc/client';
-import ICurveGaugeController from '../../../abis/ethereum/ICurveGaugeController';
-import ICrv from '../../../abis/ethereum/ICrv';
+import { ETH_CHAIN_ID } from '../../../constants.ts';
+import { getApyBreakdown } from '../common/getApyBreakdownNew.ts';
+import { getCurveVolumeApys } from '../common/curve/getCurveApyData.js';
+import { getCurveLendApyRequests } from '../common/curve/getCurveLendApys.js';
+import { BigNumber } from 'bignumber.js';
+import { fetchPrice } from '../../../utils/fetchPrice.ts';
+import ICurveGauge from '../../../abis/ICurveGauge.ts';
+import { fetchContract } from '../../rpc/client.ts';
+import ICurveGaugeController from '../../../abis/ethereum/ICurveGaugeController.ts';
+import ICrv from '../../../abis/ethereum/ICrv.ts';
 
 const crv = '0xD533a949740bb3306d119CC777fa900bA034cd52';
 const gaugeController = '0x2F50D538606Fa9EDD2B11E2446BEb18C9D5846bB';
@@ -15,8 +15,8 @@ const secondsPerYear = 31536000;
 const tradingFees = 0.0002;
 const volumeUrl = 'https://api.curve.finance/api/getVolumes/ethereum';
 
-const lpPools = require('../../../data/ethereum/convexPools.json');
-const lendPools = require('../../../data/ethereum/curveLendPools.json');
+import lpPools from '../../../data/ethereum/convexPools.json' with { type: "json" };
+import lendPools from '../../../data/ethereum/curveLendPools.json' with { type: "json" };
 const pools = [...lpPools, ...lendPools].filter(p => p.gauge && !p.rewardPool);
 const lendPoolNames = new Set(lendPools.map(p => p.name));
 

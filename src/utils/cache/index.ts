@@ -1,9 +1,9 @@
-import { Cache } from './Cache';
-import { RedisCacheBackend } from './RedisCacheBackend';
-import { DummyCacheBackend } from './DummyCacheBackend';
-import { ICacheBackend } from './ICacheBackend';
-import { FileCacheBackend } from './FileCacheBackend';
-import { getLoggerFor } from '../logger/index.js';
+import { Cache } from './Cache.ts';
+import { RedisCacheBackend } from './RedisCacheBackend.ts';
+import { DummyCacheBackend } from './DummyCacheBackend.ts';
+import type { ICacheBackend } from './ICacheBackend.ts';
+import { FileCacheBackend } from './FileCacheBackend.ts';
+import { getLoggerFor } from '../logger/index.ts';
 
 const logger = getLoggerFor({ module: 'cache' });
 

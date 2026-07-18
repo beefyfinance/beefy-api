@@ -1,17 +1,17 @@
-import { URLSearchParams } from 'url';
+import { URLSearchParams } from 'node:url';
 import {
-  IKyberApi,
+  type IKyberApi,
   isKyberErrorResponse,
   isKyberSuccessResponse,
-  KyberResponse,
-  QuoteData,
-  QuoteRequest,
-  SwapData,
-  SwapRequest,
-} from './types';
-import { mapValues, omitBy } from 'lodash';
-import { redactSecrets } from '../../../../utils/secrets';
-import { ApiResponse, ExtraQuoteResponse, isErrorApiResponse, SuccessApiResponse } from '../common';
+  type KyberResponse,
+  type QuoteData,
+  type QuoteRequest,
+  type SwapData,
+  type SwapRequest,
+} from './types.ts';
+import { mapValues, omitBy } from 'lodash-es';
+import { redactSecrets } from '../../../../utils/secrets.ts';
+import { type ApiResponse, type ExtraQuoteResponse, isErrorApiResponse, type SuccessApiResponse } from '../common.ts';
 
 export class KyberApi implements IKyberApi {
   constructor(protected readonly baseUrl: string, protected readonly clientId: string) {}

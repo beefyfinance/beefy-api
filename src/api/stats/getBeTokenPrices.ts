@@ -1,10 +1,10 @@
-import { fetchContract } from '../rpc/client';
-import { sonic } from '../../../packages/address-book/src/address-book/sonic';
-import { beSonicAbi } from '../../abis/sonic/beSonicAbi';
-import { bigintRange } from '../../utils/array';
-import BigNumber from 'bignumber.js';
-import { BIG_ONE, BIG_UNIT_18, BIG_ZERO } from '../../utils/big-number';
-import { sonicStakingAbi } from '../../abis/sonic/sonicStakingAbi';
+import { fetchContract } from '../rpc/client.ts';
+import { sonic } from '../../../packages/address-book/src/address-book/sonic/index.ts';
+import { beSonicAbi } from '../../abis/sonic/beSonicAbi.ts';
+import { bigintRange } from '../../utils/array.ts';
+import { BigNumber } from 'bignumber.js';
+import { BIG_ONE, BIG_UNIT_18, BIG_ZERO } from '../../utils/big-number.ts';
+import { sonicStakingAbi } from '../../abis/sonic/sonicStakingAbi.ts';
 
 export async function getBeTokenPrices(tokenPrices: Record<string, number>): Promise<Record<string, number>> {
   return {

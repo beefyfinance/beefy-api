@@ -1,8 +1,9 @@
-import { SCROLL_CHAIN_ID as chainId } from '../../../constants';
-import getCompoundV3ApyData from '../common/getCompoundV3Apys';
-import { CompoundV3ApyParams, CompoundV3Pool } from '../common/getCompoundV3Apys';
+import { SCROLL_CHAIN_ID as chainId } from '../../../constants.ts';
+import getCompoundV3ApyData from '../common/getCompoundV3Apys.ts';
+import type { CompoundV3ApyParams, CompoundV3Pool } from '../common/getCompoundV3Apys.ts';
+import compoundPoolsData from '../../../data/scroll/compoundPools.json' with { type: "json" };
 
-const pools: CompoundV3Pool[] = require('../../../data/scroll/compoundPools.json');
+const pools: CompoundV3Pool[] = compoundPoolsData;
 const params: CompoundV3ApyParams = {
   chainId,
   pools,
@@ -15,4 +16,4 @@ const getScrollCompoundV3Apys = async () => {
   return getCompoundV3ApyData(params);
 };
 
-module.exports = { getScrollCompoundV3Apys };
+export { getScrollCompoundV3Apys };

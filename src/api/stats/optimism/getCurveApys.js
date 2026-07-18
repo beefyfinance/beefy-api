@@ -1,9 +1,10 @@
-import getApyBreakdown from '../common/getApyBreakdown';
-import { getCurveSubgraphApys } from '../common/curve/getCurveApyData';
-import { getCurveApysCommon } from '../common/curve/getCurveApysCommon';
-import { OPTIMISM_CHAIN_ID } from '../../../constants';
+import { getApyBreakdown } from '../common/getApyBreakdown.ts';
+import { getCurveSubgraphApys } from '../common/curve/getCurveApyData.js';
+import { getCurveApysCommon } from '../common/curve/getCurveApysCommon.js';
+import { OPTIMISM_CHAIN_ID } from '../../../constants.ts';
+import curvePoolsData from '../../../data/optimism/curvePools.json' with { type: "json" };
 
-const pools = require('../../../data/optimism/curvePools.json').filter(p => p.gauge && !p.convex);
+const pools = curvePoolsData.filter(p => p.gauge && !p.convex);
 const baseApyUrl = 'https://api.curve.finance/api/getSubgraphData/optimism';
 const tradingFees = 0.0002;
 

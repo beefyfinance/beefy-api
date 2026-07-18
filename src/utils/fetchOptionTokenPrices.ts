@@ -1,10 +1,10 @@
-import BigNumber from 'bignumber.js';
-import { LINEA_CHAIN_ID } from '../constants';
-import { addressBook } from '../../packages/address-book/src/address-book';
-import OptionsToken from '../abis/OptionsToken';
-import { fetchContract } from '../api/rpc/client';
-import Token from '../../packages/address-book/src/types/token';
-import { getLoggerFor } from './logger/index.js';
+import { BigNumber } from 'bignumber.js';
+import { LINEA_CHAIN_ID } from '../constants.ts';
+import { addressBook } from '../../packages/address-book/src/address-book/index.ts';
+import OptionsToken from '../abis/OptionsToken.ts';
+import { fetchContract } from '../api/rpc/client.ts';
+import type { Token } from '../../packages/address-book/src/types/token.ts';
+import { getLoggerFor } from './logger/index.ts';
 
 const logger = getLoggerFor({ module: 'prices' });
 

@@ -1,4 +1,4 @@
-import { isBigNumberish, isFiniteBigNumber, toBigNumber } from './big-number';
+import { isBigNumberish, isFiniteBigNumber, toBigNumber } from './big-number.ts';
 
 export function isNumber(value: any): value is number {
   return typeof value === 'number';

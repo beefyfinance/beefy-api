@@ -1,6 +1,6 @@
-const BigNumber = require('bignumber.js');
-const { fetchContract } = require('../../rpc/client');
-const { default: ISolidlyPair } = require('../../../abis/ISolidlyPair');
+import { BigNumber } from 'bignumber.js';
+import { fetchContract } from '../../rpc/client.ts';
+import { default as ISolidlyPair }from '../../../abis/ISolidlyPair.ts';
 
 const getSolidlyStablePrices = async (chainId, pools, tokenPrices) => {
   let prices = {};
@@ -51,4 +51,4 @@ const getSolidlyStablePrices = async (chainId, pools, tokenPrices) => {
   return prices;
 };
 
-module.exports = getSolidlyStablePrices;
+export default getSolidlyStablePrices;

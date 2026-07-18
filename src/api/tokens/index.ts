@@ -5,17 +5,17 @@ import {
   getTokenNative,
   getTokensForChainById,
   getTokenWrappedNative,
-} from './tokens';
-import { isApiChain } from '../../utils/chain';
-import { mapValues } from 'lodash';
+} from './tokens.ts';
+import { isApiChain } from '../../utils/chain.ts';
+import { mapValues } from 'lodash-es';
 import {
   sendInternalServerError,
   sendNotFound,
   sendServiceUnavailable,
   sendSuccess,
   withErrorHandling,
-} from '../../utils/koa';
-import { withChainId } from '../vaults/helpers';
+} from '../../utils/koa.ts';
+import { withChainId } from '../vaults/helpers.ts';
 
 export const getTokens = withErrorHandling(async ctx => {
   const allTokens = getAllTokensByChain();

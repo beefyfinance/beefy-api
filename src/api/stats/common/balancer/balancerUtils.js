@@ -1,10 +1,10 @@
-import BigNumber from 'bignumber.js';
-import { fetchContract } from '../../../rpc/client';
-import { fetchPrice } from '../../../../utils/fetchPrice';
+import { BigNumber } from 'bignumber.js';
+import { fetchContract } from '../../../rpc/client.ts';
+import { fetchPrice } from '../../../../utils/fetchPrice.ts';
 
-const { default: ICurveGauge } = require('../../../../abis/ICurveGauge');
-const { default: ICurveRewards } = require('../../../../abis/ICurveRewards');
-const { default: ICurveRewardStream } = require('../../../../abis/ICurveRewardStream');
+import { default as ICurveGauge }from '../../../../abis/ICurveGauge.ts';
+import { default as ICurveRewards }from '../../../../abis/ICurveRewards.ts';
+import { default as ICurveRewardStream }from '../../../../abis/ICurveRewardStream.ts';
 
 const secondsPerYear = 31536000;
 

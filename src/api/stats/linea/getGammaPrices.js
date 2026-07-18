@@ -1,6 +1,6 @@
-const getGammaPrices = require('../common/getGammaPrices');
-import ichiPools from '../../../data/linea/lynexIchiPools.json';
-const { LINEA_CHAIN_ID: chainId } = require('../../../constants');
+import getGammaPrices from '../common/getGammaPrices.js';
+import ichiPools from '../../../data/linea/lynexIchiPools.json' with { type: "json" };
+import { LINEA_CHAIN_ID as chainId }from '../../../constants.ts';
 
 const pools = [...ichiPools];
 const getGammaLineaPrices = async tokenPrices => {

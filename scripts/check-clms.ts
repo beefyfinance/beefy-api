@@ -1,21 +1,21 @@
-import { promises as fsPromises } from 'fs';
+import { promises as fsPromises } from 'node:fs';
 import fg from 'fast-glob';
 import {
-  AnyCowClm,
-  CowClmWithRewardPool,
-  CowClmWithVault,
+  type AnyCowClm,
+  type CowClmWithRewardPool,
+  type CowClmWithVault,
   isCowClmWithRewardPool,
   isCowClmWithVault,
-  JsonCowClm,
+  type JsonCowClm,
   validateCowClms,
-} from '../src/api/cowcentrated/types';
-import { ApiChain, isApiChain } from '../src/utils/chain';
-import { getRPCClient } from '../src/api/rpc/client';
-import { ChainId } from '../packages/address-book/src/types/chainid';
-import { Client, parseAbi } from 'viem';
+} from '../src/api/cowcentrated/types.ts';
+import { type ApiChain, isApiChain } from '../src/utils/chain.ts';
+import { getRPCClient } from '../src/api/rpc/client.ts';
+import { ChainId } from '../packages/address-book/src/types/chainid.ts';
+import { type Client, parseAbi } from 'viem';
 import { readContract } from 'viem/actions';
-import { addressBook } from '../packages/address-book/src/address-book';
-import { groupBy } from 'lodash';
+import { addressBook } from '../packages/address-book/src/address-book/index.ts';
+import { groupBy } from 'lodash-es';
 
 /**
  * This script checks the beefyCowVaults.json configs against the on-chain contracts.

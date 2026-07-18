@@ -1,4 +1,4 @@
-import { ApyBreakdown } from './common/getApyBreakdown';
+import type { ApyBreakdown } from './common/getApyBreakdown.ts';
 
 export function getApys(): {
   apys: Record<string, number>;

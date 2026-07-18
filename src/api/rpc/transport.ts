@@ -1,5 +1,5 @@
-import PQueue from 'p-queue';
-import { http, HttpTransport, HttpTransportConfig } from 'viem';
+import type PQueue from 'p-queue';
+import { http, type HttpTransport, type HttpTransportConfig } from 'viem';
 
 /**
  * Wrapped version of http transport with rate limit support

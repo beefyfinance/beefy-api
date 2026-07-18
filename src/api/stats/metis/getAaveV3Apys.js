@@ -1,6 +1,6 @@
-const { getAaveV3ApyData, getAaveV3PoolData } = require('../common/aave/getAaveV3Apys');
-const pools = require('../../../data/metis/aaveV3Pools.json');
-const { METIS_CHAIN_ID } = require('../../../constants');
+import { getAaveV3ApyData, getAaveV3PoolData } from '../common/aave/getAaveV3Apys.js';
+import pools from '../../../data/metis/aaveV3Pools.json' with { type: "json" };
+import { METIS_CHAIN_ID } from '../../../constants.ts';
 
 const config = {
   dataProvider: '0xC01372469A17b6716A38F00c277533917B6859c0',
@@ -23,4 +23,4 @@ const getAavePoolData = async pool => {
   return getAaveV3PoolData(config, pool, METIS_CHAIN_ID);
 };
 
-module.exports = { getAaveV3Apys, getAavePoolData };
+export { getAaveV3Apys, getAavePoolData };

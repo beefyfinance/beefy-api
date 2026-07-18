@@ -1,7 +1,7 @@
-const { getBeefyCowRobinhoodApys } = require('./getBeefyCowRobinhoodApys');
-const { getUp33Apys } = require('./getUp33Apys');
-const { ROBINHOOD_CHAIN_ID } = require('../../../constants');
-const { getLoggerFor } = require('../../../utils/logger/index.js');
+import { getBeefyCowRobinhoodApys } from './getBeefyCowRobinhoodApys.ts';
+import { getUp33Apys } from './getUp33Apys.js';
+import { ROBINHOOD_CHAIN_ID } from '../../../constants.ts';
+import { getLoggerFor } from '../../../utils/logger/index.ts';
 
 const logger = getLoggerFor({ module: 'apy', chain: ROBINHOOD_CHAIN_ID });
 
@@ -50,4 +50,4 @@ const getRobinhoodApys = async () => {
   };
 };
 
-module.exports = { getRobinhoodApys };
+export { getRobinhoodApys };

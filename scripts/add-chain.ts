@@ -1,6 +1,7 @@
-import * as fs from 'fs';
-import * as path from 'path';
+import * as fs from 'node:fs';
+import * as path from 'node:path';
 
+// TODO: this is out of date and references files that don't exist
 function addChain() {
   const chainName = process.argv[2];
   const chainId = process.argv[3];
@@ -13,8 +14,8 @@ function addChain() {
     process.exit(1);
   }
 
-  const statsPath = path.join(__dirname, '..', 'src', 'api', 'stats');
-  const dataPath = path.join(__dirname, '..', 'src', 'data');
+  const statsPath = path.join(import.meta.dirname, '..', 'src', 'api', 'stats');
+  const dataPath = path.join(import.meta.dirname, '..', 'src', 'data');
 
   /// create a new folder in data with the chain name
   const chainPath = path.join(dataPath, chainName);
@@ -31,7 +32,7 @@ function addChain() {
   fs.writeFileSync(
     chainIndexFile,
     `
-        const { getBeefyCow${chainNameCapitalized}Apys } = require('./getBeefyCow${chainNameCapitalized}Apys');
+        import { getBeefyCow${chainNameCapitalized}Apys } from './getBeefyCow${chainNameCapitalized}Apys.ts';
 
         const getApys = [getBeefyCow${chainNameCapitalized}Apys];
 
@@ -85,12 +86,12 @@ function addChain() {
         };
         };
 
-        module.exports = { get${chainNameCapitalized}Apys };
+        export { get${chainNameCapitalized}Apys };
     `
   );
 
   // Add RPC endpoint to constants.ts
-  const constantsPath = path.join(__dirname, '..', 'src', 'constants.ts');
+  const constantsPath = path.join(import.meta.dirname, '..', 'src', 'constants.ts');
   let constantsContent = fs.readFileSync(constantsPath, 'utf8');
 
   const rpcStatement = `const ${chainName.toUpperCase()}_RPC = process.env.${chainName.toUpperCase()}_RPC || '${rpc}';`;
@@ -153,7 +154,7 @@ function addChain() {
   console.log(`Added ${chainName} constants including Vaults Endpoint to constants.ts`);
 
   // Add chain object to src/api/rpc/chains.ts
-  const chainsPath = path.join(__dirname, '..', 'src', 'api', 'rpc', 'chains.ts');
+  const chainsPath = path.join(import.meta.dirname, '..', 'src', 'api', 'rpc', 'chains.ts');
   let chainsContent = fs.readFileSync(chainsPath, 'utf8');
 
   // Add import for the new chain's RPC
@@ -212,7 +213,7 @@ const ${chainName}Chain = {
   );
 
   // Add the chain to src/api/rpc/rpcs.ts
-  const rpcsPath = path.join(__dirname, '../src/api/rpc/rpcs.ts');
+  const rpcsPath = path.join(import.meta.dirname, '../src/api/rpc/rpcs.ts');
   let rpcsContent = fs.readFileSync(rpcsPath, 'utf8');
 
   // Add the chain to the rpcs object
@@ -225,7 +226,7 @@ const ${chainName}Chain = {
   console.log(`Added ${chainName} to src/api/rpc/rpcs.ts`);
 
   // Add the blocked tokens set to src/api/zap/swap/blocked-tokens.ts
-  const blockedTokensPath = path.join(__dirname, '../src/api/zap/swap/blocked-tokens.ts');
+  const blockedTokensPath = path.join(import.meta.dirname, '../src/api/zap/swap/blocked-tokens.ts');
   let blockedTokensContent = fs.readFileSync(blockedTokensPath, 'utf8');
 
   // Add the chain to the blocked tokens set
@@ -239,7 +240,7 @@ const ${chainName}Chain = {
   console.log(`Added ${chainName} to src/api/zap/swap/blocked-tokens.ts`);
 
   // Add chain and imports to web3Helpers.ts
-  const web3HelpersPath = path.join(__dirname, '../src/utils/web3Helpers.ts');
+  const web3HelpersPath = path.join(import.meta.dirname, '../src/utils/web3Helpers.ts');
   let web3HelpersContent = fs.readFileSync(web3HelpersPath, 'utf8');
 
   // Add imports
@@ -300,7 +301,7 @@ const ${chainName}Chain = {
   console.log(`Updated web3Helpers.ts with ${chainName} chain information`);
 
   // Add the chain to src/utils/web3.js
-  const web3Path = path.join(__dirname, '../src/utils/web3.js');
+  const web3Path = path.join(import.meta.dirname, '../src/utils/web3.js');
   let web3Content = fs.readFileSync(web3Path, 'utf8');
 
   // Add the chain to the module.exports object

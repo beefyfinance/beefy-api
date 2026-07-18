@@ -1,8 +1,0 @@
-node_modules
-.vscode
-dist
-*.log
-*.tgz
-.envrc
-.nyc_output
-coverage

@@ -1,4 +1,4 @@
-import { getRewardPoolApys } from '../common/getRewardPoolApys';
+import { getRewardPoolApys } from '../common/getRewardPoolApys.js';
 
 const pools = [
   {

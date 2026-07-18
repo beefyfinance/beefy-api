@@ -1,9 +1,9 @@
-import getBalancerPrices from '../common/balancer/getBalancerPrices';
-import getBalancerV3Prices from '../common/balancer/getBalancerV3Prices';
-import { ARBITRUM_CHAIN_ID as chainId } from '../../../constants';
-import auraPools from '../../../data/arbitrum/auraLpPools.json';
-import auraV3Pools from '../../../data/arbitrum/auraV3Pools.json';
-import balancerV3Pools from '../../../data/arbitrum/balancerV3Pools.json';
+import getBalancerPrices from '../common/balancer/getBalancerPrices.js';
+import getBalancerV3Prices from '../common/balancer/getBalancerV3Prices.js';
+import { ARBITRUM_CHAIN_ID as chainId } from '../../../constants.ts';
+import auraPools from '../../../data/arbitrum/auraLpPools.json' with { type: "json" };
+import auraV3Pools from '../../../data/arbitrum/auraV3Pools.json' with { type: "json" };
+import balancerV3Pools from '../../../data/arbitrum/balancerV3Pools.json' with { type: "json" };
 
 const pools = [...auraPools];
 const v3Pools = [...auraV3Pools, ...balancerV3Pools];

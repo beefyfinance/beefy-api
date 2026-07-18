@@ -1,6 +1,6 @@
-const { getBeefyGnosisCowApys } = require('./getBeefyGnosisCowApys');
-const { GNOSIS_CHAIN_ID } = require('../../../constants');
-const { getLoggerFor } = require('../../../utils/logger/index.js');
+import { getBeefyGnosisCowApys } from './getBeefyGnosisCowApys.ts';
+import { GNOSIS_CHAIN_ID } from '../../../constants.ts';
+import { getLoggerFor } from '../../../utils/logger/index.ts';
 
 const logger = getLoggerFor({ module: 'apy', chain: GNOSIS_CHAIN_ID });
 
@@ -54,4 +54,4 @@ const getGnosisApys = async () => {
   };
 };
 
-module.exports = { getGnosisApys };
+export { getGnosisApys };

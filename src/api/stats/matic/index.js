@@ -1,9 +1,9 @@
-const { getCurveApys } = require('./getCurveApys');
-const { getConvexApys } = require('./getConvexApys');
-const { getBeefyCowPolyApys } = require('./getBeefyCowPolyApys');
-const { getMorphoApys } = require('../common/morpho/getMorphoApys');
-const { POLYGON_CHAIN_ID } = require('../../../constants');
-const { getLoggerFor } = require('../../../utils/logger/index.js');
+import { getCurveApys } from './getCurveApys.js';
+import { getBeefyCowPolyApys } from './getBeefyCowPolyApys.ts';
+import { getMorphoApys } from '../common/morpho/getMorphoApys.js';
+import { POLYGON_CHAIN_ID } from '../../../constants.ts';
+import { getLoggerFor } from '../../../utils/logger/index.ts';
+import morphoPoolsData from '../../../data/matic/morphoPools.json' with { type: "json" };
 
 const logger = getLoggerFor({ module: 'apy', chain: POLYGON_CHAIN_ID });
 
@@ -11,7 +11,7 @@ const getApys = [
   getCurveApys,
   // getConvexApys,
   getBeefyCowPolyApys,
-  () => getMorphoApys(POLYGON_CHAIN_ID, require('../../../data/matic/morphoPools.json')),
+  () => getMorphoApys(POLYGON_CHAIN_ID, morphoPoolsData),
 ];
 
 const BATCH_SIZE = 15;
@@ -69,4 +69,4 @@ const getMaticApys = async () => {
   };
 };
 
-module.exports = { getMaticApys };
+export { getMaticApys };

@@ -1,7 +1,7 @@
-const { PLASMA_CHAIN_ID: chainId } = require('../../../constants');
-const { getRewardPoolApys } = require('../common/getRewardPoolApys');
-const stablePools = require('../../../data/plasma/lithosStablePools.json');
-const volatilePools = require('../../../data/plasma/lithosPools.json');
+import { PLASMA_CHAIN_ID as chainId }from '../../../constants.ts';
+import { getRewardPoolApys } from '../common/getRewardPoolApys.js';
+import stablePools from '../../../data/plasma/lithosStablePools.json' with { type: "json" };
+import volatilePools from '../../../data/plasma/lithosPools.json' with { type: "json" };
 
 const pools = [...stablePools, ...volatilePools];
 export const getLithosApys = async () => {

@@ -1,4 +1,4 @@
-import BigNumber from 'bignumber.js';
+import { BigNumber } from 'bignumber.js';
 import {
   ARBITRUM_CHAIN_ID,
   AVAX_CHAIN_ID,
@@ -9,15 +9,15 @@ import {
   BASE_CHAIN_ID,
   MONAD_CHAIN_ID,
   SONIC_CHAIN_ID,
-} from '../constants';
-import { addressBook } from '../../packages/address-book/src/address-book';
-import { fetchContract } from '../api/rpc/client';
-import WrappedAaveTokenAbi from '../abis/WrappedAaveToken';
-import WrappedAave4626TokenAbi from '../abis/WrappedAave4626Token';
-import OrbETHAbi from '../abis/OrbETH';
-import rswETHAbi from '../abis/rswETH';
-import { getEDecimals } from './getEDecimals';
-import { getLoggerFor } from './logger/index.js';
+} from '../constants.ts';
+import { addressBook } from '../../packages/address-book/src/address-book/index.ts';
+import { fetchContract } from '../api/rpc/client.ts';
+import WrappedAaveTokenAbi from '../abis/WrappedAaveToken.ts';
+import WrappedAave4626TokenAbi from '../abis/WrappedAave4626Token.ts';
+import OrbETHAbi from '../abis/OrbETH.ts';
+import rswETHAbi from '../abis/rswETH.ts';
+import { getEDecimals } from './getEDecimals.ts';
+import { getLoggerFor } from './logger/index.ts';
 
 const logger = getLoggerFor({ module: 'prices', platform: 'aave' });
 
@@ -322,7 +322,7 @@ const getWrappedAavePrices = async (tokenPrices, tokens, chainId) => {
   return results;
 };
 
-const fetchWrappedAavePrices = async tokenPrices =>
+export const fetchWrappedAavePrices = async tokenPrices =>
   Promise.all([
     getWrappedAavePrices(tokenPrices, tokens.ethereum, ETH_CHAIN_ID),
     getWrappedAavePrices(tokenPrices, tokens.polygon, POLYGON_CHAIN_ID),
@@ -336,5 +336,3 @@ const fetchWrappedAavePrices = async tokenPrices =>
   ]).then(data =>
     data.flat().reduce((acc, cur, i) => ((acc[Object.values(tokens).flat()[i][1].oracleId] = cur), acc), {})
   );
-
-export { fetchWrappedAavePrices };

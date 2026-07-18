@@ -1,12 +1,12 @@
-import BigNumber from 'bignumber.js';
-import { fetchPrice } from '../../../../utils/fetchPrice';
-import { LpPool } from '../../../../types/LpPool';
-import { ChainId } from '../../../../../packages/address-book/src/address-book';
-import StrategyABI from '../../../../abis/StrategyABI';
-import RewardTrackerAbi from '../../../../abis/arbitrum/RewardTracker';
-import DistributorAbi from '../../../../abis/arbitrum/Distributor';
-import { fetchContract } from '../../../rpc/client';
-import getApyBreakdown, { ApyBreakdownResult } from '../getApyBreakdown';
+import { BigNumber } from 'bignumber.js';
+import { fetchPrice } from '../../../../utils/fetchPrice.ts';
+import type { LpPool } from '../../../../types/LpPool.ts';
+import type { ChainId } from '../../../../../packages/address-book/src/address-book/index.ts';
+import StrategyABI from '../../../../abis/StrategyABI.ts';
+import RewardTrackerAbi from '../../../../abis/arbitrum/RewardTracker.ts';
+import DistributorAbi from '../../../../abis/arbitrum/Distributor.ts';
+import { fetchContract } from '../../../rpc/client.ts';
+import { type ApyBreakdownResult, getApyBreakdown } from '../getApyBreakdown.ts';
 
 export interface GmxApysParams {
   pools: LpPool[];

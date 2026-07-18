@@ -1,11 +1,11 @@
-import Koa from 'koa';
-import { QuoteRequest, QuoteResponse, SwapRequest, SwapResponse } from '../api/liquid-swap/types';
-import { getLiquidSwapApi } from '../api/liquid-swap';
-import { AnyChain } from '../../../utils/chain';
-import { redactSecrets } from '../../../utils/secrets';
-import { isQuoteValueTooLow, setNoCacheHeaders } from './common';
-import { ApiResponse, ExtraQuoteResponse, isSuccessApiResponse } from '../api/common';
-import { getLoggerFor } from '../../../utils/logger/index.js';
+import type Koa from 'koa';
+import type { QuoteRequest, QuoteResponse, SwapRequest, SwapResponse } from '../api/liquid-swap/types.ts';
+import { getLiquidSwapApi } from '../api/liquid-swap/index.ts';
+import type { AnyChain } from '../../../utils/chain.ts';
+import { redactSecrets } from '../../../utils/secrets.ts';
+import { isQuoteValueTooLow, setNoCacheHeaders } from './common.ts';
+import { type ApiResponse, type ExtraQuoteResponse, isSuccessApiResponse } from '../api/common.ts';
+import { getLoggerFor } from '../../../utils/logger/index.ts';
 
 const logger = getLoggerFor({ module: 'zap', platform: 'liquidSwap' });
 

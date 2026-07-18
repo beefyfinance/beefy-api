@@ -1,7 +1,7 @@
-import BigNumber from 'bignumber.js';
-import { getApyBreakdown } from '../getApyBreakdownNew';
+import { BigNumber } from 'bignumber.js';
+import { getApyBreakdown } from '../getApyBreakdownNew.ts';
 
-const { getLoggerFor } = require('../../../../utils/logger/index.js');
+import { getLoggerFor } from '../../../../utils/logger/index.ts';
 const logger = getLoggerFor({ module: 'apy', platform: 'morpho' });
 
 // Helper function to calculate APY breakdown

@@ -1,10 +1,10 @@
-import { getKey, setKey } from '../../utils/cache';
-import { Cached, CachedProposals, CachedSpaces, Proposal, Proposals, SpaceWithAuthors } from './types';
-import { getSnapshotApi } from './getSnapshotApi';
+import { getKey, setKey } from '../../utils/cache/index.ts';
+import type { Cached, CachedProposals, CachedSpaces, Proposal, Proposals, SpaceWithAuthors } from './types.ts';
+import { getSnapshotApi } from './getSnapshotApi.ts';
 import { isBefore, sub } from 'date-fns';
-import { keyBy, omit } from 'lodash';
-import { retryPromiseWithBackOff } from '../../utils/promise';
-import { getLoggerFor } from '../../utils/logger/index.js';
+import { keyBy, omit } from 'lodash-es';
+import { retryPromiseWithBackOff } from '../../utils/promise.ts';
+import { getLoggerFor } from '../../utils/logger/index.ts';
 
 const logger = getLoggerFor({ module: 'snapshot' });
 

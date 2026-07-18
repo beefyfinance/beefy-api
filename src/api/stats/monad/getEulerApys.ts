@@ -1,8 +1,9 @@
-import { MONAD_CHAIN_ID as chainId } from '../../../constants';
-import getEulerApyData from '../common/euler/getEulerApys';
-import { EulerApyParams, EulerPool } from '../common/euler/getEulerApys';
+import { MONAD_CHAIN_ID as chainId } from '../../../constants.ts';
+import getEulerApyData from '../common/euler/getEulerApys.ts';
+import type { EulerApyParams, EulerPool } from '../common/euler/getEulerApys.ts';
+import eulerPoolsData from '../../../data/monad/eulerPools.json' with { type: "json" };
 
-const pools: EulerPool[] = require('../../../data/monad/eulerPools.json').filter(p => !p.eol);
+const pools: EulerPool[] = eulerPoolsData.filter(p => !p.eol);
 const params: EulerApyParams = {
   chainId,
   pools,

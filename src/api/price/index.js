@@ -1,6 +1,6 @@
-const { getAmmTokensPrices, getAmmLpPrices, getLpBreakdown } = require('../stats/getAmmPrices');
-const { getMooTokenPrices } = require('../stats/getMooTokenPrices');
-const { getLoggerFor } = require('../../utils/logger/index.js');
+import { getAmmTokensPrices, getAmmLpPrices, getLpBreakdown } from '../stats/getAmmPrices.ts';
+import { getMooTokenPrices } from '../stats/getMooTokenPrices.ts';
+import { getLoggerFor } from '../../utils/logger/index.ts';
 
 const logger = getLoggerFor({ module: 'prices' });
 
@@ -46,7 +46,7 @@ async function lpsBreakdown(ctx) {
   }
 }
 
-module.exports = {
+export {
   lpsPrices,
   tokenPrices,
   mooTokenPrices,

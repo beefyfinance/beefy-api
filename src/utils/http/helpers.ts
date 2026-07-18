@@ -1,4 +1,4 @@
-import {
+import type {
   FetchBody,
   FetchParams,
   FetchParamsOptions,
@@ -7,9 +7,9 @@ import {
   GetUrlSearchParamsValuesEntry,
   PassThroughBodyInit,
   PassThroughURLSearchParamsInit,
-} from './types';
-import { typedDefaultsDeep } from '../object';
-import { URLSearchParams } from 'url';
+} from './types.ts';
+import { typedDefaultsDeep } from '../object.ts';
+import { URLSearchParams } from 'node:url';
 
 export const ABORT_REASON_TIMEOUT = '__timeout';
 

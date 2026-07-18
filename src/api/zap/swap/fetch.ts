@@ -1,24 +1,24 @@
-import { ApiChain } from '../../../utils/chain';
-import { ProviderId, providers, providersById } from './providers';
-import { getAmmAllPrices } from '../../stats/getAmmPrices';
-import { getTokenById, getTokenNative, getTokenWrappedNative, isTokenErc20 } from '../../tokens/tokens';
-import { isFiniteNumber } from '../../../utils/number';
-import { partition, uniqBy } from 'lodash';
-import { TokenEntity, TokenErc20 } from '../../tokens/types';
-import { ISwapProvider } from './providers/ISwapProvider';
-import { getSingleChainCowVaults, getSingleChainVaults } from '../../stats/getMultichainVaults';
+import type { ApiChain } from '../../../utils/chain.ts';
+import { type ProviderId, providers, providersById } from './providers/index.ts';
+import { getAmmAllPrices } from '../../stats/getAmmPrices.ts';
+import { getTokenById, getTokenNative, getTokenWrappedNative, isTokenErc20 } from '../../tokens/tokens.ts';
+import { isFiniteNumber } from '../../../utils/number.ts';
+import { partition, uniqBy } from 'lodash-es';
+import type { TokenEntity, TokenErc20 } from '../../tokens/types.ts';
+import type { ISwapProvider } from './providers/ISwapProvider.ts';
+import { getSingleChainCowVaults, getSingleChainVaults } from '../../stats/getMultichainVaults.ts';
 import {
-  BuyTestToken,
+  type BuyTestToken,
   isBuyResultSupported,
   isSellResultSupported,
-  TokenSupportByAddress,
-  SellTestToken,
-} from './types';
-import { checkBuy } from './buy';
-import { checkSell } from './sell';
-import { redactSecrets } from '../../../utils/secrets';
-import { blockedTokensByChain } from './blocked-tokens';
-import { getLoggerFor } from '../../../utils/logger/index.js';
+  type TokenSupportByAddress,
+  type SellTestToken,
+} from './types.ts';
+import { checkBuy } from './buy.ts';
+import { checkSell } from './sell.ts';
+import { redactSecrets } from '../../../utils/secrets.ts';
+import { blockedTokensByChain } from './blocked-tokens.ts';
+import { getLoggerFor } from '../../../utils/logger/index.ts';
 
 const logger = getLoggerFor({ module: 'zap' });
 

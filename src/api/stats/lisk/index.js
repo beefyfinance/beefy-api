@@ -1,7 +1,7 @@
-const { getBeefyCowLiskApys } = require('./getBeefyCowLiskApys');
-const getVelodromeLiskApys = require('./getVelodromeLiskApys');
-const { LISK_CHAIN_ID } = require('../../../constants');
-const { getLoggerFor } = require('../../../utils/logger/index.js');
+import { getBeefyCowLiskApys } from './getBeefyCowLiskApys.ts';
+import getVelodromeLiskApys from './getVelodromeLiskApys.js';
+import { LISK_CHAIN_ID } from '../../../constants.ts';
+import { getLoggerFor } from '../../../utils/logger/index.ts';
 
 const logger = getLoggerFor({ module: 'apy', chain: LISK_CHAIN_ID });
 
@@ -55,4 +55,4 @@ const getLiskApys = async () => {
   };
 };
 
-module.exports = { getLiskApys };
+export { getLiskApys };
