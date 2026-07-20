@@ -120,6 +120,9 @@ const {
 
   MEGAETH_CHAIN_ID,
   MEGAETH_VAULTS_ENDPOINT,
+
+  ROBINHOOD_CHAIN_ID,
+  ROBINHOOD_VAULTS_ENDPOINT,
 } = require('../../constants');
 const { getKey, setKey } = require('../../utils/cache');
 
@@ -289,6 +292,10 @@ const chains = [
   {
     chainId: MEGAETH_CHAIN_ID,
     vaultsEndpoint: MEGAETH_VAULTS_ENDPOINT,
+  },
+  {
+    chainId: ROBINHOOD_CHAIN_ID,
+    vaultsEndpoint: ROBINHOOD_VAULTS_ENDPOINT,
   },
 ];
 
