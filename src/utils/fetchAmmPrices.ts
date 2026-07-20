@@ -51,6 +51,7 @@ const MULTICALLS = new Map<ChainId, Address>([
   [999, '0x99D7d8b7d4873F277CEDc7e1F4eDE57f4747e003'],
   [9745, '0xd32C07b78ee7e02393f020eAbdd40fE2cCe20bf7'],
   [143, '0x52A225f89a4AF9b24b00d4b52F3e7a72B7Fca75B'],
+  [4663, '0x43cf4f684ec0bcb5f09bbf1851e693ff0b24cdd6'],
 ]);
 
 const BATCH_SIZE = 128;
@@ -143,16 +144,15 @@ export async function fetchAmmPrices(
             ? pools.filter(p => p.chainId === chain || p.chainId === undefined)
             : pools.filter(p => p.chainId === chain);
 
-        return await promiseTiming(
-          fetchChainPools(chain, chainPools),
-          `fetchChainPools for chain ${chain}`
-        ).finally(() => {
-          if (LOG_FETCH_AMM) {
-            leftChains = leftChains.filter(c => c !== chain);
-            if (leftChains.length > 0) console.log(`> [PRICE SERVICE] fetch AMM prices: ${leftChains}`);
-            else console.log(`> [PRICE SERVICE] fetch AMM prices DONE`);
+        return await promiseTiming(fetchChainPools(chain, chainPools), `fetchChainPools for chain ${chain}`).finally(
+          () => {
+            if (LOG_FETCH_AMM) {
+              leftChains = leftChains.filter(c => c !== chain);
+              if (leftChains.length > 0) console.log(`> [PRICE SERVICE] fetch AMM prices: ${leftChains}`);
+              else console.log(`> [PRICE SERVICE] fetch AMM prices DONE`);
+            }
           }
-        });
+        );
       })
     )
   ).flat();
