@@ -15,7 +15,6 @@ const { boosts, chainBoosts, boostsV2, chainBoostsV2 } = require('./api/boosts')
 const { getTokens, getChainTokens, getChainNatives, getChainToken, getNativesFromAllChains } = require('./api/tokens');
 const { getConfigs, getChainConfig } = require('./api/config');
 const { getTreasury, getMMBal, getAllTreasury } = require('./api/treasury');
-const { validatorPerformance } = require('./api/validators/index');
 const { proxyOneInchSwap, proxyOneInchQuote } = require('./api/zap/proxy/one-inch');
 const { proxyKyberSwap, proxyKyberQuote } = require('./api/zap/proxy/kyber');
 const { zapSwapsSupport, zapSwapsSupportDebug } = require('./api/zap/swap/routes');
@@ -29,8 +28,6 @@ const {
 } = require('./api/offchain-rewards');
 const { pointStructures } = require('./api/points');
 const { proxyLiquidSwapSwap, proxyLiquidSwapQuote } = require('./api/zap/proxy/liquid-swap');
-
-router.get('/validator-performance', validatorPerformance);
 
 router.get('/apy', stats.apy);
 router.get('/apy/breakdown', stats.apyBreakdowns);
