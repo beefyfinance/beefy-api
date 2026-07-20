@@ -8,6 +8,7 @@ import { scroll } from '../../../packages/address-book/src/address-book/scroll';
 import { mode } from '../../../packages/address-book/src/address-book/mode';
 import { lisk } from '../../../packages/address-book/src/address-book/lisk';
 import { sonic } from '../../../packages/address-book/src/address-book/sonic';
+import { robinhood } from '../../../packages/address-book/src/address-book/robinhood';
 import { AnyCowClm, CowProvider } from './types';
 
 export const providers = {
@@ -58,6 +59,11 @@ export const providers = {
   etherex: {
     poolTradingRewardTokens: {
       linea: [linea.tokens.REX],
+    },
+  },
+  up33: {
+    poolTradingRewardTokens: {
+      robinhood: [robinhood.tokens.UP33],
     },
   },
 } as const satisfies Record<string, CowProvider>;
