@@ -8,6 +8,9 @@ import { HarvestableVault } from './types';
 import { getHarvestableVaultsByChain } from '../stats/getMultichainVaults';
 import { Address, BaseError } from 'viem';
 import { chunk } from 'lodash';
+import { getLoggerFor } from '../../utils/logger/index.js';
+
+const logger = getLoggerFor({ module: 'vaults' });
 
 const feeBatchTreasurySplitMethodABI = [
   {
@@ -78,8 +81,7 @@ const updateFeeBatch = async () => {
   try {
     treasurySplit = Number((await feeBatchContract.read.treasuryFee()).toString());
   } catch (err) {
-    console.log(` > Error updating feeBatch on chain ${chainId}:${feeBatchAddress}`);
-    console.log(err.message);
+    logger.warn({ err, chain: chainId, address: feeBatchAddress }, 'feeBatch update failed');
     treasurySplit = 640;
   }
 
@@ -90,11 +92,11 @@ const updateFeeBatch = async () => {
   };
 
   await setKey(FEE_BATCH_KEY, feeBatches);
-  console.log(`> feeBatches updated`);
+  logger.debug('feeBatches updated');
 };
 
 const updateVaultFees = async () => {
-  console.log(`> updating vault fees`);
+  logger.debug('updating vault fees');
   const start = Date.now();
 
   const expiredBefore = start - CACHE_EXPIRY;
@@ -110,7 +112,7 @@ const updateVaultFees = async () => {
 
   await saveToRedis();
 
-  console.log(`> updated vault fees (${(Date.now() - start) / 1000}s)`);
+  logger.info({ durationMs: Date.now() - start }, 'updated vault fees');
   setTimeout(updateVaultFees, REFRESH_INTERVAL);
 };
 
@@ -162,8 +164,7 @@ const callHandlers = {
   withdraw2: makeBigIntToNumberHandler('WITHDRAWAL_FEE'),
   withdrawMax: makeBigIntToNumberHandler('WITHDRAWAL_MAX'),
   withdrawMax2: makeBigIntToNumberHandler('withdrawalMax'),
-  liquidityFee: async (contract: FeeAbiContract) =>
-    new BigNumber((await contract.read.liquidityFee()).toString(10)),
+  liquidityFee: async (contract: FeeAbiContract) => new BigNumber((await contract.read.liquidityFee()).toString(10)),
   breakdown: async (contract: FeeAbiContract) => {
     const value = await contract.read.getFees();
     return {
@@ -231,18 +232,17 @@ const getChainFees = async (vaults: HarvestableVault[], chainId: number, feeBatc
           if (fees) {
             vaultFees[vault.id] = fees;
           } else {
-            console.warn(`> Failed to get fees for ` + vault.id);
+            logger.warn({ vault: vault.id }, 'failed to get fees');
           }
         }
       });
     }
 
     if (failed > 0) {
-      console.log(`> feeUpdate failed on chain ${chainId} for ${failed} vaults`);
+      logger.warn({ chain: chainId, count: failed }, 'fee update failed for vaults');
     }
   } catch (err) {
-    console.log('> feeUpdate error on chain ' + chainId);
-    console.error(err);
+    logger.warn({ err, chain: chainId }, 'fee update error on chain');
   }
 };
 
@@ -257,10 +257,10 @@ const mapStrategyCallsToFeeBreakdown = (
   let depositFee = depositFeeFromCalls(contractCalls);
 
   if (withdrawFee === undefined) {
-    console.log(`Failed to find withdrawFee for ${contractCalls.id}`);
+    logger.debug({ vault: contractCalls.id }, 'failed to find withdrawFee');
     return undefined;
   } else if (performanceFee === undefined) {
-    console.log(`Failed to find performanceFee for ${contractCalls.id}`);
+    logger.debug({ vault: contractCalls.id }, 'failed to find performanceFee');
     return undefined;
   }
 
@@ -295,17 +295,10 @@ const withdrawalFeeFromCalls = (contractCalls: StrategyCallResponse): number => 
   }
 };
 
-const performanceFeesFromCalls = (
-  contractCalls: StrategyCallResponse,
-  feeBatch: FeeBatchDetail
-): PerformanceFee => {
+const performanceFeesFromCalls = (contractCalls: StrategyCallResponse, feeBatch: FeeBatchDetail): PerformanceFee => {
   if (contractCalls.liquidityFee && contractCalls.allFees) {
     // beSonic as additional liquidity fee
-    return performanceFromGetFeesWithLiquidity(
-      contractCalls.allFees.performance,
-      feeBatch,
-      contractCalls.liquidityFee
-    );
+    return performanceFromGetFeesWithLiquidity(contractCalls.allFees.performance, feeBatch, contractCalls.liquidityFee);
   } else if (contractCalls.allFees !== undefined) {
     return performanceFromGetFees(contractCalls.allFees.performance, feeBatch);
   } else if (contractCalls.breakdown !== undefined) {
@@ -396,16 +389,13 @@ const legacyFeeMappings = (contractCalls: StrategyCallResponse, feeBatch: FeeBat
       stakers: (total * fee) / maxFee,
     };
   } else {
-    console.log(`> Performance fee fetch failed for: ${contractCalls.id} - ${contractCalls.strategy}`);
+    logger.debug({ vault: contractCalls.id, address: contractCalls.strategy }, 'performance fee fetch failed');
   }
 
   return performanceFee;
 };
 
-const performanceFromGetFees = (
-  fees: PerformanceFeeCallResponse,
-  feeBatch: FeeBatchDetail
-): PerformanceFee => {
+const performanceFromGetFees = (fees: PerformanceFeeCallResponse, feeBatch: FeeBatchDetail): PerformanceFee => {
   let total = fees.total;
   let beefy = fees.beefy;
   let call = fees.call;

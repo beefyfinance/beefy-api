@@ -2,6 +2,9 @@ const BigNumber = require('bignumber.js');
 const { fetchContract } = require('../../../rpc/client');
 const { default: ERC20Abi } = require('../../../../abis/ERC20Abi');
 const { default: ICurvePool } = require('../../../../abis/ICurvePool');
+const { getLoggerFor } = require('../../../../utils/logger/index.js');
+
+const logger = getLoggerFor({ module: 'prices', platform: 'curve' });
 
 const DECIMALS = '1e18';
 
@@ -83,10 +86,10 @@ const getTokenPrice = (lpPrices, tokenPrices, token) => {
   if (token.basePool) {
     const basePool = lpPrices[token.basePool];
     if (basePool) return basePool.price;
-    else console.error('Curve prices no basePool price', token.basePool, 'move it to the bottom');
+    else logger.warn({ basePool: token.basePool }, 'no basePool price, move it to the bottom');
   }
   if (!token.oracleId) {
-    console.error('Curve prices oracleId is not defined', token);
+    logger.warn({ token }, 'oracleId is not defined');
     return 1;
   }
   let tokenPrice = 1;
@@ -94,7 +97,7 @@ const getTokenPrice = (lpPrices, tokenPrices, token) => {
   if (tokenPrices.hasOwnProperty(tokenSymbol)) {
     tokenPrice = tokenPrices[tokenSymbol];
   } else {
-    console.error(`Curve prices unknown token '${tokenSymbol}'. Consider adding it to .json file`);
+    logger.warn({ token: tokenSymbol }, 'unknown token, consider adding it to json config');
   }
   return tokenPrice;
 };

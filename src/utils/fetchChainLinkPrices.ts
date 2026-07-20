@@ -7,6 +7,9 @@ import { isResultFulfilled } from './promise';
 import { median } from './number';
 import { fetchContract } from '../api/rpc/client';
 import { chainLinkOracleAbi } from '../abis/ChainLinkOracle';
+import { getLoggerFor } from './logger/index.js';
+
+const logger = getLoggerFor({ module: 'prices', platform: 'chainlink' });
 
 type Oracle = {
   oracleId: string;
@@ -233,7 +236,7 @@ export async function fetchChainLinkPrices(): Promise<Record<string, number>> {
         pricesByOracle[oracleId].push(price);
       }
     } else {
-      console.error(`ChainLink: Failed to fetch prices for chain ${chain}`, result.reason);
+      logger.warn({ chain, err: result.reason }, 'failed to fetch prices for chain');
     }
   }
 
@@ -264,15 +267,21 @@ async function fetchPricesForChain(chain: ApiChain, oracles: Oracle[]): Promise<
     const oracle = oracles[index];
 
     if (!isResultFulfilled(result)) {
-      console.error(`ChainLink: Failed to fetch price for ${oracle.oracleId} on chain ${chain}`, result.reason);
+      logger.warn({ oracleId: oracle.oracleId, chain, err: result.reason }, 'failed to fetch oracle price');
       return;
     }
 
     const roundData = result.value;
     const heartbeatAgo = subSeconds(now, oracle.heartbeat + Math.max(oracle.heartbeat * 0.2, 300)); // 10% leeway or min. 5 minutes
     if (roundData.updatedAt < heartbeatAgo) {
-      console.error(
-        `ChainLink: Price for ${oracle.oracleId} on chain ${chain} is too old (Updated at ${roundData.updatedAt}, heartbeat ${oracle.heartbeat}s)`
+      logger.warn(
+        {
+          oracleId: oracle.oracleId,
+          chain,
+          updatedAt: roundData.updatedAt,
+          heartbeat: oracle.heartbeat,
+        },
+        'oracle price too old'
       );
       return;
     }

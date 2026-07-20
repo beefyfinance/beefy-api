@@ -17,6 +17,9 @@ import WrappedAave4626TokenAbi from '../abis/WrappedAave4626Token';
 import OrbETHAbi from '../abis/OrbETH';
 import rswETHAbi from '../abis/rswETH';
 import { getEDecimals } from './getEDecimals';
+import { getLoggerFor } from './logger/index.js';
+
+const logger = getLoggerFor({ module: 'prices', platform: 'aave' });
 
 const RAY_DECIMALS = '1e27';
 
@@ -288,7 +291,7 @@ const getWrappedAavePrices = async (tokenPrices, tokens, chainId) => {
   try {
     res = await Promise.all(rateCalls);
   } catch (e) {
-    console.error('getWrappedAavePrices', e.message);
+    logger.warn({ chain: chainId, err: e }, 'wrapped aave prices failed');
     return tokens.map(() => 0);
   }
   const wrappedRates = res.map(v => new BigNumber(v.toString()));

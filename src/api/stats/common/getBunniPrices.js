@@ -3,6 +3,9 @@ import { fetchContract } from '../../rpc/client';
 import BunniLensAbi from '../../../abis/BunniLens';
 import { BASE_CHAIN_ID } from '../../../constants';
 
+const { getLoggerFor } = require('../../../utils/logger/index.js');
+const logger = getLoggerFor({ module: 'prices', platform: 'bunni' });
+
 const lens = {
   [BASE_CHAIN_ID]: '0x3eD7357337853E2Fd8d4b6CbABCDAA0858b40f01',
 };
@@ -49,7 +52,7 @@ const getTokenPrice = (tokenPrices, oracleId) => {
   if (tokenPrices.hasOwnProperty(tokenSymbol)) {
     tokenPrice = tokenPrices[tokenSymbol];
   } else {
-    console.error(`Bunni Unknown token '${tokenSymbol}'. Consider adding it to .json file`);
+    logger.warn({ oracleId: tokenSymbol }, 'unknown token, defaulting price to 1');
   }
   return tokenPrice;
 };

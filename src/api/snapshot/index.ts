@@ -1,5 +1,8 @@
 import { getLatestProposal, getActiveProposals } from './getProposals';
 import Koa from 'koa';
+import { getLoggerFor } from '../../utils/logger/index.js';
+
+const logger = getLoggerFor({ module: 'snapshot' });
 
 // latest proposal to display on app
 function latest(ctx: Koa.Context) {
@@ -8,7 +11,7 @@ function latest(ctx: Koa.Context) {
     ctx.status = 200;
     ctx.body = proposal;
   } catch (err) {
-    console.error(err);
+    logger.error({ err }, 'failed to get latest proposal');
     ctx.status = 500;
   }
 }
@@ -19,7 +22,7 @@ function active(ctx: Koa.Context) {
     ctx.status = 200;
     ctx.body = activeProposals;
   } catch (err) {
-    console.error(err);
+    logger.error({ err }, 'failed to get active proposals');
     ctx.status = 500;
   }
 }

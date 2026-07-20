@@ -3,6 +3,10 @@ const { getGmxApys } = require('./getGmxApys');
 const { getBeefyAvaxCowApys } = require('./getBeefyAvaxCowApys');
 const { getBlackholeApys } = require('./getBlackholeApys');
 const { getSiloApys } = require('../common/silo/getSiloApys');
+const { AVAX_CHAIN_ID } = require('../../../constants');
+const { getLoggerFor } = require('../../../utils/logger/index.js');
+
+const logger = getLoggerFor({ module: 'apy', chain: AVAX_CHAIN_ID });
 
 const getApys = [
   getGmxApys,
@@ -23,7 +27,7 @@ const getAvaxApys = async () => {
 
   for (const result of results) {
     if (result.status !== 'fulfilled') {
-      console.warn('getAvaxApys error', result.reason);
+      logger.warn({ err: result.reason }, 'apy sub-calculation failed');
       continue;
     }
 
@@ -52,7 +56,7 @@ const getAvaxApys = async () => {
   }
 
   const end = Date.now();
-  console.log(`> [APY] Avalanche finished updating in ${(end - start) / 1000}s`);
+  logger.info({ durationMs: end - start }, 'apy updated');
 
   return {
     apys,

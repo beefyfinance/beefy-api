@@ -6,6 +6,9 @@ import ICurvePoolV2Abi from '../abis/CurvePoolV2';
 import ICurvePoolAbi from '../abis/CurvePool';
 import ICurvePool from '../abis/ICurvePool';
 import StableSwap from '../abis/StableSwap';
+import { getLoggerFor } from './logger/index.js';
+
+const logger = getLoggerFor({ module: 'prices', platform: 'curve' });
 
 const tokens: Partial<Record<keyof typeof ChainId, CurveToken[]>> = {
   optimism: toCurveTokens(ChainId.optimism, require('../data/optimism/curvePools.json')),
@@ -159,7 +162,7 @@ async function getCurveTokenPrices(
       const t = chainTokens[i];
       const secondPrice = tokenPrices[t.secondToken] || pricesById[t.secondToken];
       if (!secondPrice) {
-        console.error(`fetchCurveTokenPrices error ${t.oracleId}, no price for ${t.secondToken}, pool ${t.pool}`);
+        logger.warn({ oracleId: t.oracleId, token: t.secondToken, pool: t.pool }, 'missing second token price');
       }
       pricesById[t.oracleId] = new BigNumber(res[i].toString())
         .times(secondPrice)
@@ -169,7 +172,7 @@ async function getCurveTokenPrices(
     }
     return prices;
   } catch (e) {
-    console.error('getCurveTokenPrices', e);
+    logger.warn({ err: e, chain: chainId }, 'curve token price fetch failed');
     return chainTokens.map(() => 0);
   }
 }

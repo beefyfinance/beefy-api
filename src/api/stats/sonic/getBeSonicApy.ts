@@ -4,7 +4,10 @@ import { beSonicAbi } from '../../../abis/sonic/beSonicAbi';
 import { fromWeiString } from '../../../utils/big-number';
 import { SECONDS_PER_YEAR } from '../../../utils/time';
 import { getApyBreakdown } from '../common/getApyBreakdownNew';
-import { DAILY_HPY } from '../../../constants';
+import { DAILY_HPY, SONIC_CHAIN_ID } from '../../../constants';
+import { getLoggerFor } from '../../../utils/logger/index.js';
+
+const logger = getLoggerFor({ module: 'apy', chain: SONIC_CHAIN_ID });
 
 export async function getBeSonicApy() {
   const token = sonic.tokens.beS;
@@ -16,9 +19,7 @@ export async function getBeSonicApy() {
     contract.read.lockDuration(),
   ]);
   const rewardsPerLockDuration = fromWeiString(totalLocked.toString(), token.decimals);
-  const yearlyRewards = rewardsPerLockDuration
-    .multipliedBy(SECONDS_PER_YEAR)
-    .dividedBy(lockDuration.toString());
+  const yearlyRewards = rewardsPerLockDuration.multipliedBy(SECONDS_PER_YEAR).dividedBy(lockDuration.toString());
   const totalStaked = fromWeiString(totalAssets.toString(), token.decimals);
   const lockApr = yearlyRewards.dividedBy(totalStaked); // both in wS so no need to convert to USD first
 
@@ -31,10 +32,13 @@ export async function getBeSonicApy() {
   );
   const penalty = secondsHarvestOverdue / lockDurationSeconds;
   if (secondsSinceHarvest > lockDurationSeconds) {
-    console.log(
-      `> beSonic harvest overdue by ${secondsSinceHarvest - lockDurationSeconds} seconds, penalty ${(
-        penalty * 100
-      ).toFixed(2)}%`
+    logger.warn(
+      {
+        vault: 'beefy-besonic',
+        overdueSeconds: secondsSinceHarvest - lockDurationSeconds,
+        penalty,
+      },
+      'harvest overdue, apr penalty applied'
     );
   }
   const apr = lockApr.multipliedBy(1 - penalty);

@@ -1,5 +1,8 @@
 import { ICacheBackend } from './ICacheBackend';
 import { createClient, RedisClientType } from 'redis';
+import { getLoggerFor } from '../logger/index.js';
+
+const logger = getLoggerFor({ module: 'cache' });
 
 export class RedisCacheBackend implements ICacheBackend {
   private client: RedisClientType;
@@ -9,11 +12,11 @@ export class RedisCacheBackend implements ICacheBackend {
     this.client = createClient({ url });
 
     this.client.on('connect', async () => {
-      console.log('Connected to redis');
+      logger.info('connected to redis');
     });
 
     this.client.on('error', err => {
-      console.error('Failed to connect to redis: ', err);
+      logger.warn({ err }, 'redis client error');
     });
   }
 
@@ -28,7 +31,7 @@ export class RedisCacheBackend implements ICacheBackend {
     try {
       return await Promise.race([operation(), timeout]);
     } catch (error) {
-      console.error(`❌ [REDIS] ${operationName} failed:`, error.message);
+      logger.warn({ operation: operationName, err: error }, 'redis operation failed');
     }
   }
 
@@ -46,11 +49,7 @@ export class RedisCacheBackend implements ICacheBackend {
     return this.withTimeout(async () => {
       const result = await this.client.get(key);
       // can return empty object when there's a serialization issue
-      if (
-        result === null ||
-        result === undefined ||
-        (typeof result === 'object' && Object.keys(result).length === 0)
-      ) {
+      if (result === null || result === undefined || (typeof result === 'object' && Object.keys(result).length === 0)) {
         return undefined;
       }
       return String(result);

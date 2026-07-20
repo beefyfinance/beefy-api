@@ -7,6 +7,9 @@ import { sleep } from '../../utils/time';
 import { isResultFulfilled } from '../../utils/promise';
 import { serviceEventBus } from '../../utils/ServiceEventBus';
 import { getCowClmChains, getCowClms } from './getCowClms';
+import { getLoggerFor } from '../../utils/logger/index.js';
+
+const logger = getLoggerFor({ module: 'clm' });
 
 const CACHE_KEY = 'COW_VAULTS_META';
 const INIT_DELAY = Number(process.env.COWCENTRATED_INIT_DELAY || 1000);
@@ -40,9 +43,7 @@ async function fetchCowVaultsMeta(chainId: ApiChain): Promise<AnyCowClmMeta[]> {
   const url = `${BEEFY_CLM_API}/api/v1/vaults/${chainId}/${period}`;
   const response = await fetch(url);
   if (!response.ok) {
-    throw new Error(
-      `Failed to fetch vaults from CLM API for ${chainId}: ${response.status} ${response.statusText}`
-    );
+    throw new Error(`Failed to fetch vaults from CLM API for ${chainId}: ${response.status} ${response.statusText}`);
   }
 
   const data = await response.json();
@@ -53,7 +54,7 @@ async function fetchCowVaultsMeta(chainId: ApiChain): Promise<AnyCowClmMeta[]> {
   return pools.map(pool => {
     const apiVault = data.find(v => isAddressEqual(v.vaultAddress, pool.address));
     if (!apiVault) {
-      console.error(`Missing vault data from CLM API for ${chainId} ${pool.oracleId} ${pool.address}`);
+      logger.warn({ chain: chainId, vault: pool.oracleId, address: pool.address }, 'missing vault data from CLM API');
       return {
         ...pool,
         currentPrice: '0',
@@ -86,7 +87,7 @@ async function updateChain(chainId: ApiChain) {
 
 async function updateAll() {
   try {
-    console.log('> [CLM Meta] Updating cow vaults metadata...');
+    logger.debug('updating cow vaults metadata');
     const start = Date.now();
     const updates = await Promise.allSettled(getCowClmChains().map(updateChain));
     const [fulfilled, rejected] = partition(updates, isResultFulfilled);
@@ -101,11 +102,11 @@ async function updateAll() {
       await saveToCache();
     }
 
-    const timing = (Date.now() - start) / 1000;
-    console.log(
-      `> [CLM Meta] Cow vaults metadata updated in ${timing}s, successes: ${fulfilled.length}, failures: ${rejected.length}`
+    logger.info(
+      { durationMs: Date.now() - start, successes: fulfilled.length, failures: rejected.length },
+      'cow vaults metadata updated'
     );
-    rejected.forEach(({ reason }) => console.error(reason));
+    rejected.forEach(({ reason }) => logger.warn({ err: reason }, 'chain metadata update failed'));
 
     serviceEventBus.emit('cowcentrated/vaults-meta/updated');
   } finally {
@@ -117,13 +118,13 @@ function scheduleUpdate() {
   sleep(UPDATE_INTERVAL)
     .then(updateAll)
     .catch(err => {
-      console.error(`> [CLM Meta] Update all failed`, err);
+      logger.error({ err }, 'update all failed');
       scheduleUpdate();
     });
 }
 
 export async function initCowVaultsMetaService() {
-  console.log(' > [CLM Meta] Initializing...');
+  logger.info('initializing');
   await loadFromCache();
   setTimeout(updateAll, INIT_DELAY);
 }

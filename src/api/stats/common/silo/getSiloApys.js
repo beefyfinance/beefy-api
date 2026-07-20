@@ -1,6 +1,9 @@
 import BigNumber from 'bignumber.js';
 import { getApyBreakdown } from '../getApyBreakdownNew';
 
+const { getLoggerFor } = require('../../../../utils/logger/index.js');
+const logger = getLoggerFor({ module: 'apy', platform: 'silo' });
+
 export const getSiloApys = async (chainId, pools) => {
   const chainName = getChainName(chainId);
 
@@ -12,14 +15,14 @@ export const getSiloApys = async (chainId, pools) => {
         const response = await fetch(url);
 
         if (!response.ok) {
-          console.error(`Silo v2 API error for ${pool.address}:`, response.status);
+          logger.warn({ chain: chainId, address: pool.address, status: response.status }, 'silo v2 api error');
           return { pool, data: null };
         }
 
         const data = await response.json();
         return { pool, data };
       } catch (err) {
-        console.error(`Silo v2 API fetch error for ${pool.address}:`, err.message);
+        logger.warn({ chain: chainId, address: pool.address, err }, 'silo v2 api fetch error');
         return { pool, data: null };
       }
     } else {
@@ -28,14 +31,14 @@ export const getSiloApys = async (chainId, pools) => {
         const response = await fetch(url);
 
         if (!response.ok) {
-          console.error(`Silo API error for ${pool.address}:`, response.status);
+          logger.warn({ chain: chainId, address: pool.address, status: response.status }, 'silo api error');
           return { pool, data: null };
         }
 
         const data = await response.json();
         return { pool, data };
       } catch (err) {
-        console.error(`Silo API fetch error for ${pool.address}:`, err.message);
+        logger.warn({ chain: chainId, address: pool.address, err }, 'silo api fetch error');
         return { pool, data: null };
       }
     }

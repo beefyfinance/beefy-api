@@ -1,6 +1,9 @@
 import { serviceEventBus } from '../../utils/ServiceEventBus';
 import { getAllCowVaultsMeta } from './getCowVaultsMeta';
 import { ApiChain } from '../../utils/chain';
+import { getLoggerFor } from '../../utils/logger/index.js';
+
+const logger = getLoggerFor({ module: 'clm' });
 
 type VaultCowData = Record<
   string,
@@ -14,7 +17,7 @@ type VaultCowData = Record<
 const chainToCowData: Partial<Record<ApiChain, VaultCowData>> = {};
 
 async function updateCowcentratedData() {
-  console.log('> [CLM Price Ranges] Updating cow vaults price ranges...');
+  logger.debug('updating cow vaults price ranges');
   const start = Date.now();
 
   const meta = getAllCowVaultsMeta();
@@ -31,13 +34,12 @@ async function updateCowcentratedData() {
     }, {} as VaultCowData);
   }
 
-  const timing = (Date.now() - start) / 1000;
-  console.log(`> [CLM Price Ranges] ${count} cow vaults price ranges updated in ${timing}s`);
+  logger.info({ count, durationMs: Date.now() - start }, 'cow vaults price ranges updated');
 }
 
 function updateAll() {
   updateCowcentratedData().catch(err => {
-    console.error('[CLM Price Ranges] Error updating cowcentrated price ranges', err);
+    logger.error({ err }, 'error updating cowcentrated price ranges');
   });
 }
 
@@ -46,7 +48,7 @@ export function getCowPriceRanges() {
 }
 
 export async function initCowPriceRangeService() {
-  console.log(' > [CLM Price Ranges] Initializing...');
+  logger.info('initializing');
   serviceEventBus.on('cowcentrated/vaults-meta/loaded', updateAll);
   serviceEventBus.on('cowcentrated/vaults-meta/updated', updateAll);
 }

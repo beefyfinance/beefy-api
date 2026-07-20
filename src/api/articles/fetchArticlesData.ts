@@ -1,5 +1,8 @@
 import { getKey, setKey } from '../../utils/cache';
+import { getLoggerFor } from '../../utils/logger/index.js';
 import { ArticleInterface } from './types';
+
+const logger = getLoggerFor({ module: 'articles' });
 
 const REDIS_KEY = 'ARTICLES';
 
@@ -14,16 +17,16 @@ export const getLastArticle = () => articles[0];
 
 export const updateArticles = async () => {
   try {
-    console.log('> [News] updating articles');
+    logger.debug('updating articles');
     const start = Date.now();
     articles = await fetch('https://beefy.com/api/articles.json')
       .then(res => res.json())
       .then((res: ArticleInterface[]) => Object.values(res));
 
     await saveToRedis();
-    console.log(`> [News] updated articles (${(Date.now() - start) / 1000}s)`);
+    logger.info({ durationMs: Date.now() - start, count: articles.length }, 'updated articles');
   } catch (err) {
-    console.error('[News] update failed', err);
+    logger.warn({ err }, 'update failed');
   } finally {
     setTimeout(updateArticles, REFRESH_INTERVAL);
   }
@@ -42,6 +45,6 @@ async function saveToRedis() {
 }
 
 export async function initArticlesService() {
-  loadFromRedis().catch(err => console.error('[News] Failed to load from cache', err));
+  loadFromRedis().catch(err => logger.warn({ err }, 'failed to load from cache'));
   setTimeout(updateArticles, INIT_DELAY);
 }

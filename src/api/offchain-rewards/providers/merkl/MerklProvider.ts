@@ -9,6 +9,9 @@ import { Address, getAddress, isAddressEqual } from 'viem';
 import { isFiniteNumber } from '../../../../utils/number';
 import { isDefined } from '../../../../utils/array';
 import { getUnixNow, isUnixBetween } from '../../../../utils/date';
+import { getLoggerFor } from '../../../../utils/logger/index.js';
+
+const logger = getLoggerFor({ module: 'rewards', platform: 'merkl' });
 
 const providerId = 'merkl' as const;
 const supportedChains = new Set<AppChain>([
@@ -192,7 +195,7 @@ export class MerklProvider implements IOffchainRewardProvider {
         }));
       }
       default: {
-        console.warn(`getVaultsWithAprFromCampaign: unsupported campaign type ${apiCampaign.type}`);
+        logger.warn({ campaignType: apiCampaign.type }, 'unsupported campaign type');
         return [];
       }
     }

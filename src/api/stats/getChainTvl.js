@@ -9,6 +9,10 @@ import BeefyVaultV6Abi from '../../abis/BeefyVault';
 import ERC20Abi from '../../abis/ERC20Abi';
 import { getVaultBalanceOverride } from '../../data/vaultOverrides';
 
+const { getLoggerFor } = require('../../utils/logger/index.js');
+
+const logger = getLoggerFor({ module: 'tvl' });
+
 const getChainTvl = async chain => {
   const apiChain = ChainId[chain.chainId];
   const chainId = chain.chainId;
@@ -23,9 +27,7 @@ const getChainTvl = async chain => {
     getCowVaultBalances(chainId, cowVaults),
     getErc4626VaultBalances(chainId, erc4626Vaults),
   ];
-  const [vaultBalances, govVaultBalances, cowVaultBalances, erc4624VaultBalances] = await Promise.all(
-    vaultsCalls
-  );
+  const [vaultBalances, govVaultBalances, cowVaultBalances, erc4624VaultBalances] = await Promise.all(vaultsCalls);
 
   let tvls = { [chainId]: {} };
 
@@ -71,7 +73,7 @@ const setVaultsTvl = async (vaults, balances, chainId, tvls) => {
     const vault = vaults[i];
 
     if (EXCLUDED_IDS_FROM_TVL.includes(vault.id)) {
-      console.warn('Excluding', vault.id, 'from tvl');
+      logger.debug({ chain: chainId, vault: vault.id }, 'excluding from tvl');
       continue;
     }
 
@@ -81,7 +83,7 @@ const setVaultsTvl = async (vaults, balances, chainId, tvls) => {
       const logUnknown = vault.status !== 'eol';
       tokenPrice = await fetchPrice({ oracle: vault.oracle, id: vault.oracleId }, logUnknown);
     } catch (e) {
-      console.error('getTvl fetchPrice', chainId, vault.oracle, vault.oracleId, e);
+      logger.warn({ chain: chainId, oracle: vault.oracle, token: vault.oracleId, err: e }, 'fetchPrice failed');
     }
 
     let tvl = vaultBalance.times(tokenPrice).shiftedBy(-vault.tokenDecimals ?? 18);

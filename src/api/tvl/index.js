@@ -1,4 +1,7 @@
 const { getTvl } = require('../stats/getTvl');
+const { getLoggerFor } = require('../../utils/logger/index.js');
+
+const logger = getLoggerFor({ module: 'tvl' });
 
 async function vaultTvl(ctx) {
   try {
@@ -6,7 +9,7 @@ async function vaultTvl(ctx) {
     ctx.status = 200;
     ctx.body = { ...vaultTvl };
   } catch (err) {
-    console.error(err);
+    logger.warn({ err }, 'failed to get tvl');
     ctx.status = 500;
   }
 }

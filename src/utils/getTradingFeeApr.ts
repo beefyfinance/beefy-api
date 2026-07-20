@@ -18,6 +18,9 @@ import getBlockNumber from './getBlockNumber';
 import BigNumber from 'bignumber.js';
 import { NormalizedCacheObject } from '@apollo/client/core';
 import { ApolloClient } from '@apollo/client/core';
+import { getLoggerFor } from './logger/index.js';
+
+const logger = getLoggerFor({ module: 'apy' });
 
 interface PairDayData {
   id: string;
@@ -86,12 +89,8 @@ export const getTradingFeeAprSushi = async (
     for (const pairDayData of zip([pairDayDatas0, pairDayDatas1])) {
       if (pairDayData && pairDayData[0] && pairDayData[1]) {
         const pairAddress = pairDayData[0].id.split('-')[0].toLowerCase();
-        const avgVol = new BigNumber(pairDayData[0].volumeUSD)
-          .plus(pairDayData[1].volumeUSD)
-          .dividedBy(2);
-        const avgReserve = new BigNumber(pairDayData[0].reserveUSD)
-          .plus(pairDayData[1].reserveUSD)
-          .dividedBy(2);
+        const avgVol = new BigNumber(pairDayData[0].volumeUSD).plus(pairDayData[1].volumeUSD).dividedBy(2);
+        const avgReserve = new BigNumber(pairDayData[0].reserveUSD).plus(pairDayData[1].reserveUSD).dividedBy(2);
         pairAddressToAprMap[pairAddress] = new BigNumber(avgVol)
           .times(liquidityProviderFee)
           .times(365)
@@ -129,12 +128,8 @@ export const getTradingFeeAprSushiTrident = async (
     for (const pairDayData of zip([pairDayDatas0, pairDayDatas1])) {
       if (pairDayData && pairDayData[0] && pairDayData[1]) {
         const pairAddress = pairDayData[0].id.split('-')[0].toLowerCase();
-        const avgVol = new BigNumber(pairDayData[0].volumeUSD)
-          .plus(pairDayData[1].volumeUSD)
-          .dividedBy(2);
-        const avgReserve = new BigNumber(pairDayData[0].liquidityUSD)
-          .plus(pairDayData[1].liquidityUSD)
-          .dividedBy(2);
+        const avgVol = new BigNumber(pairDayData[0].volumeUSD).plus(pairDayData[1].volumeUSD).dividedBy(2);
+        const avgReserve = new BigNumber(pairDayData[0].liquidityUSD).plus(pairDayData[1].liquidityUSD).dividedBy(2);
         pairAddressToAprMap[pairAddress] = new BigNumber(avgVol)
           .times(liquidityProviderFee)
           .times(365)
@@ -154,10 +149,7 @@ export const getTradingFeeAprBalancer = async (
   liquidityProviderFee: number,
   chainId: number
 ) => {
-  const [blockTime, currentBlock] = await Promise.all([
-    getBlockTime(chainId),
-    getBlockNumber(chainId),
-  ]);
+  const [blockTime, currentBlock] = await Promise.all([getBlockTime(chainId), getBlockNumber(chainId)]);
   const pastBlock = Math.floor(currentBlock - 86400 / blockTime);
   const pairAddressesToAprMap: Record<string, BigNumber> = {};
 
@@ -250,10 +242,7 @@ export const getTradingFeeAprHop = async (
       });
       const values = tokenSwaps.map(({ tokensSold }) => tokensSold);
       const sum = BigNumber.sum.apply(null, values);
-      pairAddressToAprMap[pairAddresses[i]] = sum
-        .times(liquidityProviderFee)
-        .times(365)
-        .dividedBy(tvl[i]);
+      pairAddressToAprMap[pairAddresses[i]] = sum.times(liquidityProviderFee).times(365).dividedBy(tvl[i]);
       ++i;
     }
   } catch (e) {
@@ -263,8 +252,7 @@ export const getTradingFeeAprHop = async (
   return pairAddressToAprMap;
 };
 
-const addressesToLowercase = (pairAddresses: string[]) =>
-  pairAddresses.map(address => address.toLowerCase());
+const addressesToLowercase = (pairAddresses: string[]) => pairAddresses.map(address => address.toLowerCase());
 
 const zip = arrays => {
   return arrays[0].map((_, i) => {
@@ -320,10 +308,7 @@ export const getYearlyRemittedUsdForSJOE = async (
   startDaysAgo: number = 1
 ) => {
   let yearlyRemittedUsd = new BigNumber(0);
-  const [startTimestamp, endTimestamp] = getUtcSecondsFromDayRange(
-    startDaysAgo,
-    startDaysAgo + numDays
-  );
+  const [startTimestamp, endTimestamp] = getUtcSecondsFromDayRange(startDaysAgo, startDaysAgo + numDays);
 
   try {
     const result = await client.query({
@@ -382,16 +367,13 @@ export const getYearlyBalancerPlatformTradingFees = async (
 
     yearlyTradingFeesUsd = dailySwapFeeUsd.times(365).times(liquidityProviderFeeShare);
   } catch (e) {
-    console.error('> getYearlyBalancerPlatformTradingFees error');
+    logger.warn({ platform: 'balancer', chain: 250 }, 'balancer platform trading fees failed');
   }
 
   return yearlyTradingFeesUsd;
 };
 
-export const getGmxTradingFeeApr = async (
-  client: ApolloClient<NormalizedCacheObject>,
-  marketAddresses: string[]
-) => {
+export const getGmxTradingFeeApr = async (client: ApolloClient<NormalizedCacheObject>, marketAddresses: string[]) => {
   const [start, end] = getUtcSecondsFromDayRange(0, 1);
   const marketAddressToAprMap: Record<string, BigNumber> = {};
 

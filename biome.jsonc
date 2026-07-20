@@ -1,0 +1,80 @@
+{
+  "$schema": "https://biomejs.dev/schemas/2.5.2/schema.json",
+  "vcs": {
+    "enabled": true,
+    "clientKind": "git",
+    "useIgnoreFile": true
+  },
+  "files": {
+    "ignoreUnknown": true,
+    "includes": [
+      "src/**",
+      "test/**",
+      "!test/fixtures"
+    ]
+  },
+  "formatter": {
+    "enabled": false,
+    "indentStyle": "space",
+    "indentWidth": 2,
+    "lineWidth": 120
+  },
+  "linter": {
+    "enabled": true,
+    "domains": {
+      "types": "recommended",
+      "project": "recommended"
+    },
+    "rules": {
+      "preset": "recommended",
+      "style": {
+        "useImportType": "warn",
+        "noNonNullAssertion": "warn",
+        "useBlockStatements": "warn"
+      },
+      "correctness": {
+        "noUnusedImports": "warn",
+        "noUnusedVariables": "warn",
+        "noUnreachable": "warn",
+        "noPrecisionLoss": "warn",
+        "noInnerDeclarations": "warn"
+      },
+      "suspicious": {
+        "noConsole": "error",
+        "useIterableCallbackReturn": "warn",
+        "noDoubleEquals": "warn",
+        "noAssignInExpressions": "warn",
+        "noImplicitAnyLet": "warn",
+        "noSparseArray": "warn",
+        "noRedeclare": "warn"
+      },
+      "nursery": {
+        "noFloatingPromises": "warn"
+      }
+    }
+  },
+  "assist": {
+    "actions": {
+      "source": {
+        "organizeImports": "off"
+      }
+    }
+  },
+  "javascript": {
+    "formatter": {
+      "quoteStyle": "single",
+      "semicolons": "always",
+      "trailingCommas": "es5",
+      "arrowParentheses": "asNeeded"
+    }
+  },
+  "plugins": [
+    {
+      "path": "./tooling/biome/noAsUnknownAs.grit",
+      "includes": [
+        "**/src/**/*.ts",
+        "!**/src/**/*.test.ts"
+      ]
+    }
+  ]
+}
