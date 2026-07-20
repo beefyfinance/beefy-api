@@ -18,6 +18,9 @@ import { Campaign } from '../../offchain-rewards/types';
 import { OptionalRecord } from '../../../utils/object';
 import { envBoolean } from '../../../utils/env';
 import { getIgnitionAprs, IgnitionAprs } from '../linea/getIgnitionAprs';
+import { getLoggerFor } from '../../../utils/logger/index.js';
+
+const logger = getLoggerFor({ module: 'apy' });
 
 type OffchainVaultApr = {
   total: number;
@@ -56,7 +59,7 @@ export const getCowApys = async (apiChain: ApiChain) => {
 
   const clmBreakdowns = clmBreakdownsResult.value;
   if (rewardPoolAprsResult.status === 'rejected') {
-    console.error(`Failed to get clm reward pool aprs for ${apiChain}: ${rewardPoolAprsResult.reason}`);
+    logger.warn({ chain: apiChain, err: rewardPoolAprsResult.reason }, 'failed to get clm reward pool aprs');
     // keep clm data even if reward pool data is missing
     return clmBreakdowns;
   }
@@ -240,9 +243,7 @@ const getCowRewardPoolApr = async (
     };
 
     if (!rewardPoolData) {
-      console.error(
-        `> getCowRewardPoolApr Error for ${clm.rewardPool.oracleId}: getBeefyRewardPoolV2Apr returned undefined`
-      );
+      logger.warn({ chain: chainId, vault: clm.rewardPool.oracleId }, 'getBeefyRewardPoolV2Apr returned undefined');
       return result;
     }
 
@@ -272,7 +273,7 @@ const getCowRewardPoolApr = async (
       total,
     };
   } catch (err) {
-    console.error(`> getCowRewardPoolApr Error for ${clm.rewardPool.oracleId}: ${err.message}`);
+    logger.warn({ chain: chainId, vault: clm.rewardPool.oracleId, err }, 'reward pool apr calculation failed');
     return undefined;
   }
 };

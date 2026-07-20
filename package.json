@@ -81,10 +81,13 @@
     "sonic:equalizer:add": "ts-node scripts/add-solidly.ts --network sonic --project sonicEqualizer --newFee true --lp",
     "hyperevm:kittenswap:add": "ts-node scripts/add-solidly.ts --network hyperevm --project kittenswap --newFee true --lp",
     "lithos": "ts-node scripts/add-solidly.ts --network plasma --project lithos --newFee true --lp",
-    "eols": "ts-node scripts/findEolPools.js"
+    "eols": "ts-node scripts/findEolPools.js",
+    "lint": "biome check",
+    "lint:ci": "biome ci --reporter github"
   },
   "dependencies": {
     "@apollo/client": "^3.5.6",
+    "@biomejs/biome": "2.5.2",
     "@koa/cors": "^3.1.0",
     "@koa/router": "^9.4.0",
     "@types/async-lock": "^1.4.2",
@@ -110,6 +113,7 @@
     "koa-router": "^9.4.0",
     "node-cache": "^5.1.2",
     "p-queue": "^6.6.2",
+    "pino": "^10.3.1",
     "redis": "^5.8.2",
     "ts-node": "^10.9.1",
     "typescript": "^5.1.6",
@@ -130,6 +134,7 @@
     "lodash": "^4.17.21",
     "nodemon": "^2.0.6",
     "nyc": "^15.1.0",
+    "pino-pretty": "^13.1.3",
     "prettier": "^2.8.8",
     "yargs": "^17.0.1"
   },

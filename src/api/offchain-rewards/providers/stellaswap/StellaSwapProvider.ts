@@ -11,6 +11,9 @@ import { rewarderAbi, rewardRegistryAbi } from './abi';
 import { getUnixNow, isUnixBetween } from '../../../../utils/date';
 import { moonbeam } from '../../../../../packages/address-book/src/address-book/moonbeam';
 import { getJson } from '../../../../utils/http';
+import { getLoggerFor } from '../../../../utils/logger/index.js';
+
+const logger = getLoggerFor({ module: 'rewards', platform: 'stellaswap' });
 
 const providerId = 'stellaswap' as const;
 const supportedChains = new Set<AppChain>([]);
@@ -60,8 +63,9 @@ export class StellaSwapProvider implements IOffchainRewardProvider {
           const rewardInfos = await this.fetchRewardInfos(chainId, rewarder.rewarderAddress);
           const tokenAprsForPool = aprByPoolAddress[poolAddressKey];
           if (!tokenAprsForPool && !rewarder.isPaused) {
-            console.warn(
-              `StellaSwapProvider: missing APRs for pool ${rewarder.poolAddress} (${rewarder.rewarderAddress} [unpaused])`
+            logger.warn(
+              { pool: rewarder.poolAddress, rewarder: rewarder.rewarderAddress },
+              'missing aprs for unpaused pool'
             );
           }
 
@@ -72,18 +76,21 @@ export class StellaSwapProvider implements IOffchainRewardProvider {
           return rewardInfos.map(reward => {
             const tokenAddress = getAddress(reward.tokenAddress);
             const tokenApr = tokenAprs[tokenAddress.toLowerCase()];
-            const rewardActive =
-              !rewarder.isPaused && isUnixBetween(reward.startTimestamp, reward.endTimestamp);
+            const rewardActive = !rewarder.isPaused && isUnixBetween(reward.startTimestamp, reward.endTimestamp);
             if (rewardActive && (!tokenApr || !isFiniteNumber(tokenApr.beefyApr))) {
-              console.warn(
-                `StellaSwapProvider: missing beefyApr for active reward ${tokenAddress} for pool ${rewarder.poolAddress}`
-              );
+              logger.warn({ token: tokenAddress, pool: rewarder.poolAddress }, 'missing beefyApr for active reward');
             }
             const apr = tokenApr && rewardActive ? toNumber(tokenApr.beefyApr, 0) / 100 : 0;
             const rewardToken = this.getRewardToken(chainId, reward, tokenApr);
             if (!rewardToken) {
-              console.error(
-                `StellaSwapProvider: unknown token ${tokenAddress} active reward for pool ${rewarder.poolAddress} (${rewarder.rewarderAddress} ${reward.rewardId})`
+              logger.warn(
+                {
+                  token: tokenAddress,
+                  pool: rewarder.poolAddress,
+                  rewarder: rewarder.rewarderAddress,
+                  rewardId: reward.rewardId,
+                },
+                'unknown reward token, dropping reward'
               );
               return undefined;
             }

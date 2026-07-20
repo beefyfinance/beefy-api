@@ -4,6 +4,9 @@ import { addressBook } from '../../packages/address-book/src/address-book';
 import OptionsToken from '../abis/OptionsToken';
 import { fetchContract } from '../api/rpc/client';
 import Token from '../../packages/address-book/src/types/token';
+import { getLoggerFor } from './logger/index.js';
+
+const logger = getLoggerFor({ module: 'prices' });
 
 const {
   linea: {
@@ -32,14 +35,12 @@ const getOptionTokenPrices = async (tokenPrices, tokens: Token[][], chainId) => 
       new BigNumber(tokenPrices[tokens[i][0].oracleId]).times(hundred.minus(v)).dividedBy(hundred).toNumber()
     );
   } catch (e) {
-    console.error('getOptionTokenPrices', e);
+    logger.warn({ err: e, chain: chainId }, 'option token price fetch failed');
     return tokens.map(() => 0);
   }
 };
 
-export async function fetchOptionTokenPrices(
-  tokenPrices: Record<string, number>
-): Promise<Record<string, number>> {
+export async function fetchOptionTokenPrices(tokenPrices: Record<string, number>): Promise<Record<string, number>> {
   return Promise.all([getOptionTokenPrices(tokenPrices, tokens.linea, LINEA_CHAIN_ID)]).then(data =>
     data.flat().reduce((acc, cur, i) => ((acc[Object.values(tokens).flat()[i][1].oracleId] = cur), acc), {})
   );

@@ -1,6 +1,10 @@
 const getMoeApys = require('./getMoeApys');
 const { getBeefyCowMantleApys } = require('./getBeefyCowMantleApys');
 const { getAaveV3Apys } = require('./getAaveV3Apys');
+const { MANTLE_CHAIN_ID } = require('../../../constants');
+const { getLoggerFor } = require('../../../utils/logger/index.js');
+
+const logger = getLoggerFor({ module: 'apy', chain: MANTLE_CHAIN_ID });
 
 const getApys = [getBeefyCowMantleApys, getMoeApys, getAaveV3Apys];
 
@@ -15,7 +19,7 @@ const getMantleApys = async () => {
 
   for (const result of results) {
     if (result.status !== 'fulfilled') {
-      console.warn('getMantleApys error', result.reason);
+      logger.warn({ err: result.reason }, 'apy sub-calculation failed');
       continue;
     }
 
@@ -44,7 +48,7 @@ const getMantleApys = async () => {
   }
 
   const end = Date.now();
-  console.log(`> [APY] Mantle finished updating in ${(end - start) / 1000}s`);
+  logger.info({ durationMs: end - start }, 'apy updated');
 
   return {
     apys,

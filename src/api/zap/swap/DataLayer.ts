@@ -9,6 +9,9 @@ import {
 import { keysToObject } from '../../../utils/array';
 import { blockedTokensByChain } from './blocked-tokens';
 import { mapValues, pickBy } from 'lodash';
+import { getLoggerFor } from '../../../utils/logger/index.js';
+
+const logger = getLoggerFor({ module: 'zap' });
 
 export type ChainProvider = { apiChain: ApiChain; providerId: ProviderId };
 
@@ -68,7 +71,7 @@ export class DataLayer {
       // Build the provider support object
       this.buildProviderSupport();
     } catch (e) {
-      console.error(`> [Zap] Failed to load zap token support from cache`, e);
+      logger.warn({ err: e }, 'failed to load token support from cache');
     }
   }
 
@@ -103,7 +106,7 @@ export class DataLayer {
    * @protected
    */
   protected async performGarbageCollection() {
-    console.log('> [Zap] Running garbage collection for zap token support...');
+    logger.debug('running garbage collection for token support');
 
     let deleted = 0;
     const now = Date.now();
@@ -125,7 +128,7 @@ export class DataLayer {
     }
 
     if (deleted > 0) {
-      console.log(`> [Zap] Deleted ${deleted} old zap token support entries`);
+      logger.debug({ count: deleted }, 'deleted old token support entries');
       await this.saveToCache();
     }
   }
@@ -136,7 +139,7 @@ export class DataLayer {
    */
   protected gc() {
     this.performGarbageCollection()
-      .catch(e => console.error('> [Zap] Failed to run gc', e))
+      .catch(e => logger.warn({ err: e }, 'failed to run gc'))
       .finally(() => setTimeout(() => this.gc(), this.gcInterval));
   }
 
@@ -150,7 +153,7 @@ export class DataLayer {
       await setKey(`${this.rootKey}/data`, this.tokenSupport);
       await setKey(`${this.rootKey}/metadata`, { version: VERSION });
     } catch (e) {
-      console.error('> [Zap] Failed to save zap token support to cache', e);
+      logger.warn({ err: e }, 'failed to save token support to cache');
     }
   }
 

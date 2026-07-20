@@ -2,6 +2,9 @@ import ISolidlyPair from '../abis/ISolidlyPair';
 import { ChainId } from '../../packages/address-book/src/types/chainid';
 import { fetchContract } from '../api/rpc/client';
 import BigNumber from 'bignumber.js';
+import { getLoggerFor } from './logger/index.js';
+
+const logger = getLoggerFor({ module: 'prices', platform: 'solidly' });
 
 type StablePoolLiquidityToken = {
   oracleId: string;
@@ -145,7 +148,7 @@ async function getStablePoolPrices(
     });
     return Object.values(prices);
   } catch (e) {
-    console.error('getSolidlyStableTokenPrices', e);
+    logger.warn({ chain: chainId, err: e }, 'stable pool price fetch failed');
     return chainTokens.map(() => 0);
   }
 }

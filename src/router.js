@@ -14,7 +14,7 @@ const snapshot = require('./api/snapshot');
 const { boosts, chainBoosts, boostsV2, chainBoostsV2 } = require('./api/boosts');
 const { getTokens, getChainTokens, getChainNatives, getChainToken, getNativesFromAllChains } = require('./api/tokens');
 const { getConfigs, getChainConfig } = require('./api/config');
-const { getTreasury, getMMBal, getAllTreasury } = require('./api/treasury');
+const { getTreasury } = require('./api/treasury');
 const { proxyOneInchSwap, proxyOneInchQuote } = require('./api/zap/proxy/one-inch');
 const { proxyKyberSwap, proxyKyberQuote } = require('./api/zap/proxy/kyber');
 const { zapSwapsSupport, zapSwapsSupportDebug } = require('./api/zap/swap/routes');
@@ -100,8 +100,6 @@ router.get('/config', getConfigs);
 router.get('/config/:chainId', getChainConfig);
 
 router.get('/treasury', getTreasury);
-router.get('/treasury/mm', getMMBal);
-router.get('/treasury/complete', getAllTreasury);
 
 router.get('/snapshot/latest', snapshot.latest);
 router.get('/snapshot/active', snapshot.active);

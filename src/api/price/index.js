@@ -1,5 +1,8 @@
 const { getAmmTokensPrices, getAmmLpPrices, getLpBreakdown } = require('../stats/getAmmPrices');
 const { getMooTokenPrices } = require('../stats/getMooTokenPrices');
+const { getLoggerFor } = require('../../utils/logger/index.js');
+
+const logger = getLoggerFor({ module: 'prices' });
 
 async function lpsPrices(ctx) {
   try {
@@ -7,7 +10,7 @@ async function lpsPrices(ctx) {
     ctx.status = 200;
     ctx.body = { ...lpTokenPrices };
   } catch (err) {
-    console.error(err);
+    logger.warn({ err }, 'failed to get lp prices');
     ctx.status = 500;
   }
 }
@@ -38,7 +41,7 @@ async function lpsBreakdown(ctx) {
     ctx.status = 200;
     ctx.body = { ...lpTokenBreakdown };
   } catch (err) {
-    console.error(err);
+    logger.warn({ err }, 'failed to get lp breakdown');
     ctx.status = 500;
   }
 }

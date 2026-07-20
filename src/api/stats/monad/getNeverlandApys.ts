@@ -9,6 +9,9 @@ import IAaveV3PoolDataProvider from '../../../abis/AaveV3PoolDataProvider';
 import NeverlandIncentiveController from '../../../abis/monad/NeverlandIncentiveController';
 import pools from '../../../data/monad/neverlandPools.json';
 import type { Address } from 'viem';
+import { getLoggerFor } from '../../../utils/logger/index.js';
+
+const logger = getLoggerFor({ module: 'apy', platform: 'neverland', chain: MONAD_CHAIN_ID });
 
 const aaveProtocolDataProvider = '0xfd0b6b6F736376F7B99ee989c749007c7757fDba';
 const neverlandIncentiveController = '0x57ea245cCbFAb074baBb9d01d1F0c60525E52cec';
@@ -104,7 +107,7 @@ const getLiquidStakingData = async (): Promise<number[]> => {
         responseByUrl.set(url, await fetch(url).then(res => res.json()));
       } catch {
         responseByUrl.set(url, null);
-        console.error(`Failed to fetch liquid staking APR from ${url}`);
+        logger.warn({ url }, 'failed to fetch liquid staking apr');
       }
     })
   );
@@ -122,7 +125,7 @@ const getLiquidStakingData = async (): Promise<number[]> => {
         }
         return (Number(lsApr) * lsAprFactor) / 100;
       } catch {
-        console.error(`Failed to parse ${pool.name} liquid staking APR from ${pool.lsUrl}`);
+        logger.warn({ pool: pool.name, url: pool.lsUrl }, 'failed to parse liquid staking apr');
         return 0;
       }
     }

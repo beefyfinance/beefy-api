@@ -3,6 +3,7 @@ import {
   AssetBalance,
   ChainTreasuryBalance,
   isConcLiquidityAsset,
+  isGovAsset,
   isNativeAsset,
   isTokenAsset,
   isValidatorAsset,
@@ -17,13 +18,12 @@ import ERC20Abi from '../../abis/ERC20Abi';
 import { MULTICALL_V3 } from '../../utils/multicallHelpers';
 import MulticallAbi from '../../abis/common/Multicall/MulticallAbi';
 import { getValidatorBalanceCall } from './validatorHelpers';
+import { getLoggerFor } from '../../utils/logger/index.js';
 
-export const mapAssetToCall = (
-  asset: TreasuryAsset,
-  treasuryAddressesForChain: TreasuryWallet[],
-  chainId: number
-) => {
-  if (isTokenAsset(asset) || isVaultAsset(asset)) {
+const logger = getLoggerFor({ module: 'treasury' });
+
+export const mapAssetToCall = (asset: TreasuryAsset, treasuryAddressesForChain: TreasuryWallet[], chainId: number) => {
+  if (isTokenAsset(asset) || isVaultAsset(asset) || isGovAsset(asset)) {
     const contract = fetchContract(asset.address, ERC20Abi, chainId);
     return treasuryAddressesForChain.map(treasuryData =>
       contract.read.balanceOf([treasuryData.address as `0x${string}`])
@@ -48,10 +48,8 @@ export const extractBalancesFromTreasuryCallResults = (
   const allBalances: AssetBalance[] = [];
   apiAssets.forEach((asset, i) => {
     if (callResults[i].status === 'fulfilled') {
-      const callResult = callResults[i] as PromiseFulfilledResult<
-        bigint[] | LpBreakdown[] | TreasuryApiResult[]
-      >;
-      if (isTokenAsset(asset) || isVaultAsset(asset) || isNativeAsset(asset)) {
+      const callResult = callResults[i] as PromiseFulfilledResult<bigint[] | LpBreakdown[] | TreasuryApiResult[]>;
+      if (isTokenAsset(asset) || isVaultAsset(asset) || isGovAsset(asset) || isNativeAsset(asset)) {
         const value = callResult.value as bigint[];
         const bal = {
           address: asset.address.toLowerCase(),
@@ -88,7 +86,7 @@ export const extractBalancesFromTreasuryCallResults = (
           },
         });
       } else {
-        console.warn('Unknown treasury asset type:', asset);
+        logger.warn({ asset }, 'unknown treasury asset type');
       }
     } else {
       // console.error('Failed to fetch treasury balance for asset:', asset, callResults[i]);

@@ -15,6 +15,9 @@ const { getPendleApys } = require('../common/pendle/getPendleApys');
 const { getPendleUnboostedApys } = require('../common/pendle/getPendleUnboostedApys');
 const { getBeefyCowEthereumApys } = require('./getBeefyCowEthereumApys');
 const { getAaveV4Apys } = require('./getAaveV4Apys');
+const { getLoggerFor } = require('../../../utils/logger/index.js');
+
+const logger = getLoggerFor({ module: 'apy', chain: ETH_CHAIN_ID });
 
 const getApys = [
   getAuraApys,
@@ -46,7 +49,7 @@ const getEthereumApys = async () => {
 
   for (const result of results) {
     if (result.status !== 'fulfilled') {
-      console.warn('getEthereumApys error', result.reason);
+      logger.warn({ err: result.reason }, 'apy sub-calculation failed');
       continue;
     }
 
@@ -75,7 +78,7 @@ const getEthereumApys = async () => {
   }
 
   const end = Date.now();
-  console.log(`> [APY] Ethereum finished updating in ${(end - start) / 1000}s`);
+  logger.info({ durationMs: end - start }, 'apy updated');
 
   return {
     apys,

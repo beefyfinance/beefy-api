@@ -9,6 +9,9 @@ const { default: IAaveV3PoolDataProvider } = require('../../../../abis/AaveV3Poo
 const { fetchContract } = require('../../../rpc/client');
 import jp from 'jsonpath';
 
+const { getLoggerFor } = require('../../../../utils/logger/index.js');
+const logger = getLoggerFor({ module: 'apy', platform: 'aave' });
+
 const secondsPerYear = 31536000;
 const RAY_DECIMALS = '1e27';
 
@@ -47,7 +50,7 @@ async function getMeritApys(pools) {
       const res = await fetch('https://apps.aavechan.com/api/merit/aprs').then(res => res.json());
       meritData = res.currentAPR.actionsAPR;
     } catch (e) {
-      console.error('AAVE getMeritApys', e);
+      logger.warn({ err: e }, 'merit apys fetch failed');
     }
   }
   return pools.map(p => new BigNumber(meritData[p.merit] || 0).div(100));
@@ -63,7 +66,7 @@ async function getMerklApys(chainId, pools) {
         return acc;
       }, {});
     } catch (e) {
-      console.error('AAVE getMerklApys', e.message);
+      logger.warn({ err: e, chain: chainId }, 'merkl apys fetch failed');
     }
   }
   return pools.map(p => new BigNumber(merklData[p.identifier] || 0).div(100));

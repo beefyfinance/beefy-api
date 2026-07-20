@@ -1,10 +1,13 @@
 import BigNumber from 'bignumber.js';
 import { fetchContract } from '../../rpc/client';
-import { addressBookByChainId, ChainId } from '../../../../packages/address-book/src/address-book';
+import { addressBookByChainId } from '../../../../packages/address-book/src/address-book';
 import RangeAbi from '../../../abis/Range';
 import { BERACHAIN_CHAIN_ID as chainId } from '../../../constants';
 import kodiak from '../../../data/berachain/kodiakPools.json';
 import berapaw from '../../../data/berachain/kodiakBeraPawPools.json';
+import { getLoggerFor } from '../../../utils/logger/index.js';
+
+const logger = getLoggerFor({ module: 'prices', platform: 'kodiak', chain: chainId });
 
 const pools = [...kodiak, ...berapaw];
 
@@ -19,8 +22,8 @@ export const getKodiakPrices = async tokenPrices => {
   pools.forEach((pool, i) => {
     const t0 = addressBookByChainId[chainId].tokens[pool.tokens[0]];
     const t1 = addressBookByChainId[chainId].tokens[pool.tokens[1]];
-    if (!t0) console.error(`No token ${pool.tokens[0]} in ${ChainId[chainId]} address book`);
-    if (!t1) console.error(`No token ${pool.tokens[1]} in ${ChainId[chainId]} address book`);
+    if (!t0) logger.error({ token: pool.tokens[0], pool: pool.name }, 'token missing from address book');
+    if (!t1) logger.error({ token: pool.tokens[1], pool: pool.name }, 'token missing from address book');
     const lp0Bal = new BigNumber(amounts[i][0]).div(`1e${t0.decimals}`);
     const lp1Bal = new BigNumber(amounts[i][1]).div(`1e${t1.decimals}`);
     const lp0Price = getTokenPrice(tokenPrices, t0.oracleId);
@@ -48,7 +51,7 @@ const getTokenPrice = (tokenPrices, oracleId) => {
   if (tokenPrices.hasOwnProperty(tokenSymbol)) {
     tokenPrice = tokenPrices[tokenSymbol];
   } else {
-    console.trace(`Unknown token price '${tokenSymbol}'`);
+    logger.debug({ token: tokenSymbol }, 'unknown token price');
   }
   return tokenPrice;
 };

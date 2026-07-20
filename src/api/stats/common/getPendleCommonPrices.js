@@ -10,6 +10,9 @@ import {
   PLASMA_CHAIN_ID,
   SONIC_CHAIN_ID,
 } from '../../../constants';
+const { getLoggerFor } = require('../../../utils/logger/index.js');
+
+const logger = getLoggerFor({ module: 'prices', platform: 'pendle' });
 
 const routerStatic = {
   [ARBITRUM_CHAIN_ID]: '0xAdB09F65bd90d19e3148D9ccb693F3161C6DB3E8',
@@ -32,7 +35,7 @@ export const getPendleCommonPrices = async (chainId, pools, tokenPrices, lpPrice
     const old = { 'equilibria-arb-seth': '26dec24', 'equilibria-arb-reth': '26jun25' };
     const date = old[p.name] || p.name.split('-').pop();
     const timestamp = Date.parse(`${date} UTC`) || 0;
-    if (timestamp === 0) console.error(p.name, 'no expiry date');
+    if (timestamp === 0) logger.warn({ pool: p.name }, 'no expiry date');
     return Date.now() > timestamp;
   });
   const supplyCalls = pools.map(pool => fetchContract(pool.address, ERC20Abi, chainId).read.totalSupply());
@@ -43,7 +46,7 @@ export const getPendleCommonPrices = async (chainId, pools, tokenPrices, lpPrice
       try {
         return await fetchContract(router, routerAbi, chainId).read.getLpToAssetRate([market]);
       } catch (e) {
-        console.error('Pendle lpToAssetRate failed', pool.name);
+        logger.warn({ chain: chainId, pool: pool.name, err: e }, 'lpToAssetRate failed');
         const [pt, sy, lp] = await fetchContract(market, routerAbi, chainId).read.readState([router]);
         return new BigNumber(pt).plus(new BigNumber(sy)).times('1e18').div(new BigNumber(lp));
       }
@@ -76,7 +79,7 @@ const getUnderlyingPrice = (pool, tokenPrices, lpPrices) => {
   const oracle = pool.oracle;
   const oracleId = pool.oracleId;
   if (!oracle || !oracleId) {
-    console.error(`getPendlePrices no oracle or oracleId on ${pool.name}`);
+    logger.warn({ pool: pool.name }, 'no oracle or oracleId');
     return 1;
   }
   let tokenPrice = 1;
@@ -84,13 +87,13 @@ const getUnderlyingPrice = (pool, tokenPrices, lpPrices) => {
     if (lpPrices.hasOwnProperty(oracleId)) {
       tokenPrice = lpPrices[oracleId];
     } else {
-      console.error(`getPendlePrices Unknown lp '${oracleId}'`);
+      logger.warn({ oracleId }, 'unknown lp price');
     }
   } else {
     if (tokenPrices.hasOwnProperty(oracleId)) {
       tokenPrice = tokenPrices[oracleId];
     } else {
-      console.error(`getPendlePrices Unknown token '${oracleId}'`);
+      logger.warn({ oracleId }, 'unknown token price');
     }
   }
   return tokenPrice;

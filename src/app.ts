@@ -19,6 +19,9 @@ import { initArticlesService } from './api/articles/fetchArticlesData';
 import { initCowcentratedService } from './api/cowcentrated';
 import { initOffchainRewardsService } from './api/offchain-rewards';
 import { initPointsStructureService } from './api/points/getPointsStructures';
+import { getLoggerFor } from './utils/logger/index.js';
+
+const logger = getLoggerFor({ module: 'app' });
 
 const Koa = require('koa');
 const helmet = require('koa-helmet');
@@ -69,7 +72,7 @@ const start = async () => {
   initPointsStructureService();
 
   app.listen(port);
-  console.log(`> beefy-api running! (:${port})`);
+  logger.info({ port }, 'beefy-api running');
 };
 
 start();

@@ -5,6 +5,9 @@ import { AnyChain } from '../../../utils/chain';
 import { redactSecrets } from '../../../utils/secrets';
 import { isQuoteValueTooLow, setNoCacheHeaders } from './common';
 import { ApiResponse, ExtraQuoteResponse, isSuccessApiResponse } from '../api/common';
+import { getLoggerFor } from '../../../utils/logger/index.js';
+
+const logger = getLoggerFor({ module: 'zap', platform: 'oneInch' });
 
 const getProxiedSwap = async (request: SwapRequest, chain: AnyChain): Promise<ApiResponse<SwapResponse>> => {
   try {
@@ -44,7 +47,7 @@ export async function proxyOneInchSwap(ctx: Koa.Context) {
   const requestObject: SwapRequest = ctx.query as any;
   const proxiedSwap = await getProxiedSwap(requestObject, chain);
   if (isSuccessApiResponse(proxiedSwap)) {
-    console.log(`proxyOneInchSwap took ${(Date.now() - start) / 1000}s on ${chain}`);
+    logger.debug({ chain, durationMs: Date.now() - start }, 'proxied swap');
   }
   setNoCacheHeaders(ctx);
   ctx.status = proxiedSwap.code;
@@ -57,7 +60,7 @@ export async function proxyOneInchQuote(ctx: Koa.Context) {
   const requestObject: QuoteRequest = ctx.query as any;
   const proxiedQuote = await getProxiedQuote(requestObject, chain);
   if (isSuccessApiResponse(proxiedQuote)) {
-    console.log(`proxyOneInchQuote took ${(Date.now() - start) / 1000}s on ${chain}`);
+    logger.debug({ chain, durationMs: Date.now() - start }, 'proxied quote');
   }
   setNoCacheHeaders(ctx);
   ctx.status = proxiedQuote.code;

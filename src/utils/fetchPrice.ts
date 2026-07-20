@@ -3,6 +3,9 @@ import Token from '../../packages/address-book/src/types/token';
 import { ChainId } from '../../packages/address-book/src/types/chainid';
 import { addressBookByChainId } from '../../packages/address-book/src/address-book/index';
 import { getAddress } from 'viem';
+import { getLoggerFor } from './logger/index.js';
+
+const logger = getLoggerFor({ module: 'prices' });
 
 export type PriceOracle = 'lps' | 'tokens' | 'any';
 export type HardcodeOracle = 'hardcode';
@@ -24,10 +27,7 @@ export type FetchPriceParams = FetchPriceOracleParams | FetchPriceHardcodeParams
  * Fetches the price of a given oracle id.
  * @dev This function no longer has a built-in cache as the underlying getAmmXPrice functions already have one.
  */
-export async function fetchPrice(
-  { oracle, id },
-  withUnknownLogging: boolean | string = true
-): Promise<number> {
+export async function fetchPrice({ oracle, id }, withUnknownLogging: boolean | string = true): Promise<number> {
   if ((oracle === 'lps' || oracle === 'tokens' || oracle === 'any') && typeof id === 'string') {
     return fetchPriceTyped({ oracle, id }, withUnknownLogging);
   }
@@ -35,9 +35,7 @@ export async function fetchPrice(
     return fetchPriceTyped({ oracle, id }, withUnknownLogging);
   }
 
-  throw new Error(
-    `Invalid oracle or id for fetchPrice, expected one of: lps, tokens, any, hardcode`
-  );
+  throw new Error(`Invalid oracle or id for fetchPrice, expected one of: lps, tokens, any, hardcode`);
 }
 
 /**
@@ -48,12 +46,12 @@ export async function fetchPriceTyped(
   withUnknownLogging: boolean | string = true
 ): Promise<number> {
   if (oracle === undefined) {
-    console.trace('Undefined oracle for fetchPrice, expected one of: lps, tokens, any, hardcode');
+    logger.warn('undefined oracle for fetchPrice');
     return 0;
   }
 
   if (id === undefined) {
-    console.trace('Undefined oracle id for fetchPrice');
+    logger.warn('undefined oracle id for fetchPrice');
     return 0;
   }
 
@@ -76,9 +74,7 @@ export async function fetchPriceTyped(
       break;
     }
     default:
-      throw new Error(
-        `Oracle '${oracle}' not implemented, expected one of: lps, tokens, any, hardcode`
-      );
+      throw new Error(`Oracle '${oracle}' not implemented, expected one of: lps, tokens, any, hardcode`);
   }
 
   return price;
@@ -97,10 +93,7 @@ export async function fetchPriceFromOracleId(
 /**
  * Fetches the price of a given address book token
  */
-export async function fetchPriceFromToken(
-  token: Token,
-  withUnknownLogging: boolean | string = true
-): Promise<number> {
+export async function fetchPriceFromToken(token: Token, withUnknownLogging: boolean | string = true): Promise<number> {
   return fetchPriceFromOracleId(token.oracleId, withUnknownLogging);
 }
 

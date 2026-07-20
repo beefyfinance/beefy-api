@@ -1,32 +1,29 @@
 import BigNumber from 'bignumber.js';
-import { keyBy } from 'lodash';
 import { addressBook } from '../../../packages/address-book/src/address-book';
 import chainIdMap from '../../../packages/address-book/src/util/chainIdMap';
 import { getKey, setKey } from '../../utils/cache';
-import { getSingleChainVaults } from '../stats/getMultichainVaults';
 import { extractBalancesFromTreasuryCallResults, mapAssetToCall } from './multicallUtils';
+import { getTokenAddressesByChain, getVaultAddressesByChain } from './assetHelpers';
 import {
+  isGovAsset,
   isValidatorAsset,
   isVaultAsset,
-  MarketMakerAPIResult,
-  MMExchangeBalance,
-  MMReport,
   TreasuryAsset,
   TreasuryAssetRegistry,
   TreasuryBalances,
   TreasuryReport,
   TreasuryWalletRegistry,
 } from './types';
-import { getChainValidators, hasChainValidator } from './validatorHelpers';
 import { serviceEventBus } from '../../utils/ServiceEventBus';
 import { ApiChain, SupportedChains } from '../../utils/chain';
-import { getTokensForChain, isTokenNative } from '../tokens/tokens';
 import { getAmmPrice } from '../stats/getAmmPrices';
 import { keysToObject } from '../../utils/array';
-import { getChainConcentratedLiquidityAssets, hasChainConcentratedLiquidityAssets } from './nftAssets';
 import { ZERO_ADDRESS } from '../../utils/address';
 import { contextAllSettled, isContextResultRejected, withTimeout } from '../../utils/promise';
 import { envNumber } from '../../utils/env';
+import { getLoggerFor } from '../../utils/logger/index.js';
+
+const logger = getLoggerFor({ module: 'treasury' });
 
 const REFRESH_INTERVAL = envNumber('TREASURY_REFRESH_INTERVAL', 1000 * 60);
 
@@ -39,9 +36,6 @@ let assetsByChain: TreasuryAssetRegistry = keysToObject(SupportedChains, () => (
 let tokenBalancesByChain: TreasuryBalances = keysToObject(SupportedChains, () => ({}));
 
 let treasurySummary: TreasuryReport = keysToObject(SupportedChains, () => ({}));
-
-// market maker
-let marketMakerReport: MMReport = {};
 
 function updateTreasuryAddressesByChain() {
   treasuryAddressesByChain = keysToObject(SupportedChains, chain => {
@@ -81,74 +75,6 @@ function updateAssetsByChain() {
   });
 }
 
-// Load token address
-function getTokenAddressesByChain(): TreasuryAssetRegistry {
-  return keysToObject(SupportedChains, chain => {
-    const tokens: Record<string, TreasuryAsset> = {};
-
-    for (const [tokenAddress, token] of Object.entries(getTokensForChain(chain))) {
-      // WCELO/WMETIS/WGLMR: duplicate as same as native
-      if (
-        [
-          '0x471EcE3750Da237f93B8E339c536989b8978a438',
-          '0xDeadDeAddeAddEAddeadDEaDDEAdDeaDDeAD0000',
-          '0x0000000000000000000000000000000000000802',
-        ].includes(token.address)
-      )
-        continue;
-
-      tokens[tokenAddress] = {
-        name: token.name,
-        address: token.address,
-        decimals: token.decimals,
-        assetType: isTokenNative(token) ? 'native' : 'token',
-        oracleId: token.oracleId,
-        oracleType: token.oracle,
-        symbol: token.symbol,
-        ...(token.staked && { staked: true }),
-      };
-    }
-
-    if (hasChainValidator(chain)) {
-      const validators = getChainValidators(chain);
-      for (let i = 0; i < validators.length; i++) {
-        tokens[validators[i].id] = validators[i];
-      }
-    }
-
-    if (hasChainConcentratedLiquidityAssets(chain)) {
-      getChainConcentratedLiquidityAssets(chain).forEach(asset => {
-        tokens[asset.address.toLowerCase()] = {
-          ...asset,
-          staked: true,
-        };
-      });
-    }
-
-    return tokens;
-  });
-}
-
-function getVaultAddressesByChain(): TreasuryAssetRegistry {
-  return keysToObject(SupportedChains, chain => {
-    const chainVaults = getSingleChainVaults(chain) || [];
-    return keyBy(
-      chainVaults.map(vault => ({
-        name: vault.earnedToken,
-        oracleId: vault.oracleId,
-        oracleType: vault.oracle,
-        assetType: 'vault',
-        vaultId: vault.id,
-        decimals: vault.tokenDecimals,
-        pricePerFullShare: vault.pricePerFullShare,
-        address: vault.earnContractAddress,
-        staked: true,
-      })),
-      asset => asset.address.toLowerCase()
-    );
-  });
-}
-
 async function updateSingleChainTreasuryBalance(chain: ApiChain) {
   try {
     // Don't let any one update take longer than the refresh interval
@@ -158,7 +84,7 @@ async function updateSingleChainTreasuryBalance(chain: ApiChain) {
       `updateSingleChainTreasuryBalance(${chain})`
     );
   } catch (err) {
-    console.error(`error updating treasury balances on chain ${chain}\n${err.message}`);
+    logger.warn({ chain, err }, 'error updating treasury balances');
     throw err;
   }
 }
@@ -174,10 +100,9 @@ async function updateSingleChainTreasuryBalanceImpl(chain: ApiChain) {
   const failedCalls = callResults.filter(res => res.status === 'rejected').length;
   const hasOneFailedCall = failedCalls > 0;
   if (hasOneFailedCall) {
-    console.error(
-      `> treasury update had at least one failed call on ${chain} ${((failedCalls / callResults.length) * 100).toFixed(
-        2
-      )}% error rate`
+    logger.warn(
+      { chain, failed: failedCalls, total: callResults.length },
+      'treasury update had at least one failed call'
     );
   }
   const balancesForChain = {};
@@ -198,22 +123,21 @@ async function updateSingleChainTreasuryBalanceImpl(chain: ApiChain) {
 
 async function updateTreasuryBalances() {
   try {
-    console.log('> updating treasury balances');
+    logger.debug('updating treasury balances');
     const start = Date.now();
 
     const chainResults = await contextAllSettled(SupportedChains, updateSingleChainTreasuryBalance);
     await buildTreasuryReport();
     await saveToRedis();
 
-    console.log(`> treasury balances updated (${((Date.now() - start) / 1000).toFixed(2)}s)`);
+    logger.info({ durationMs: Date.now() - start }, 'treasury balances updated');
 
     const rejectedChains = chainResults.filter(isContextResultRejected).map(r => r.context);
     if (rejectedChains.length > 0) {
-      console.error(`>> ${rejectedChains.length} chains rejected update: ${rejectedChains.join(', ')}`);
+      logger.warn({ count: rejectedChains.length, chains: rejectedChains }, 'chains rejected update');
     }
   } catch (err) {
-    console.log(`> error updating treasury`);
-    console.log(err.message);
+    logger.warn({ err }, 'error updating treasury');
   } finally {
     setTimeout(() => {
       updateTreasuryBalances();
@@ -269,7 +193,7 @@ async function buildTreasuryReportForChain(chain: ApiChain): Promise<TreasuryRep
           };
         }
       } catch (err) {
-        console.log(`> error setting treasury balance on ${chain} for asset ${treasuryAsset.name}`);
+        logger.warn({ chain, asset: treasuryAsset.name, err }, 'error setting treasury balance');
       }
     }
   }
@@ -278,7 +202,7 @@ async function buildTreasuryReportForChain(chain: ApiChain): Promise<TreasuryRep
 }
 
 function findUsdValueForBalance(tokenInfo: TreasuryAsset, tokenPrice: number, balance: BigNumber): BigNumber {
-  if (isVaultAsset(tokenInfo)) {
+  if (isVaultAsset(tokenInfo) || isGovAsset(tokenInfo)) {
     return balance
       .multipliedBy(tokenPrice)
       .multipliedBy(tokenInfo.pricePerFullShare)
@@ -292,13 +216,11 @@ function findUsdValueForBalance(tokenInfo: TreasuryAsset, tokenPrice: number, ba
 async function saveToRedis() {
   await setKey('TREASURY_BALANCES', tokenBalancesByChain);
   await setKey('TREASURY_REPORT', treasurySummary);
-  await setKey('MM_REPORT', marketMakerReport);
 }
 
 async function restoreFromRedis() {
   const cachedSummary = await getKey<TreasuryReport>('TREASURY_REPORT');
   const cachedBalances = await getKey<TreasuryBalances>('TREASURY_BALANCES');
-  const cachedMMReport = await getKey<MMReport>('MM_REPORT');
   if (cachedSummary) {
     treasurySummary = cachedSummary;
   }
@@ -312,9 +234,6 @@ async function restoreFromRedis() {
         });
       });
     });
-  }
-  if (cachedMMReport) {
-    marketMakerReport = cachedMMReport;
   }
 }
 
@@ -343,15 +262,4 @@ export async function initTreasuryService() {
 
 export function getBeefyTreasury(): TreasuryReport {
   return treasurySummary;
-}
-
-export function getMarketMakerBalances(): MMReport {
-  return marketMakerReport;
-}
-
-export function getAllBeefyHoldings() {
-  return {
-    treasury: getBeefyTreasury(),
-    marketMaker: getMarketMakerBalances(),
-  };
 }

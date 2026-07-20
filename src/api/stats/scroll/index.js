@@ -1,6 +1,10 @@
 const { getBeefyCowScrollApys } = require('./getBeefyCowScrollApys');
 const { getNuriApys } = require('./getNuriApys');
 const { getScrollCompoundV3Apys } = require('./getScrollCompoundV3Apys');
+const { SCROLL_CHAIN_ID } = require('../../../constants');
+const { getLoggerFor } = require('../../../utils/logger/index.js');
+
+const logger = getLoggerFor({ module: 'apy', chain: SCROLL_CHAIN_ID });
 
 const getApys = [getBeefyCowScrollApys, getNuriApys, getScrollCompoundV3Apys];
 
@@ -15,7 +19,7 @@ const getScrollApys = async () => {
 
   for (const result of results) {
     if (result.status !== 'fulfilled') {
-      console.warn('getScrollApys error', result.reason);
+      logger.warn({ err: result.reason }, 'apy sub-calculation failed');
       continue;
     }
 
@@ -44,7 +48,7 @@ const getScrollApys = async () => {
   }
 
   const end = Date.now();
-  console.log('> [APY] Scroll finished updating in ' + `${(end - start) / 1000}s`);
+  logger.info({ durationMs: end - start }, 'apy updated');
 
   return {
     apys,
