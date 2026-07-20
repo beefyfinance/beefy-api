@@ -44,6 +44,18 @@ const CASHCAT = {
   tags: ['MEMECOIN'],
 } as const satisfies Token;
 
+const TENDIES = {
+  name: 'TENDIES',
+  address: '0x45242320DBB855EeA8Fd36804C6487E10E97FCF9',
+  symbol: 'TENDIES',
+  oracleId: 'TENDIES',
+  decimals: 18,
+  chainId: 4663,
+  description: 'Tendies is a community/meme token. There is no team, there is no supply hoarding.',
+  bridge: 'native',
+  tags: ['MEMECOIN'],
+} as const satisfies Token;
+
 export const tokens = {
   WNATIVE: ETH,
   FEES: ETH,
@@ -51,4 +63,5 @@ export const tokens = {
   WETH: ETH,
   USDG,
   CASHCAT,
+  TENDIES,
 } as const satisfies Record<string, Token>;
