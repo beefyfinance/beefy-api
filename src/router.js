@@ -30,8 +30,6 @@ const {
 const { pointStructures } = require('./api/points');
 const { proxyLiquidSwapSwap, proxyLiquidSwapQuote } = require('./api/zap/proxy/liquid-swap');
 
-router.get('/validator-performance', validatorPerformance);
-
 router.get('/apy', stats.apy);
 router.get('/apy/breakdown', stats.apyBreakdowns);
 router.get('/apy/boosts', stats.boostApr);
