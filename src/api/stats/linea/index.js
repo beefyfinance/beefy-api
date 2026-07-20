@@ -1,8 +1,7 @@
 const { getLynexApys } = require('./getLynexApys');
 const { getBeefyCowLineaApys } = require('./getBeefyCowLineaApys');
-const { getEtherexApys } = require('./getEtherexApys');
 
-const getApys = [getLynexApys, getBeefyCowLineaApys, getEtherexApys];
+const getApys = [getLynexApys, getBeefyCowLineaApys];
 
 const getLineaApys = async () => {
   const start = Date.now();
