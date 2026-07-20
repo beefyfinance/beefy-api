@@ -1,5 +1,56 @@
 [
   {
+    "address": "0x4319C71984790f96ac190a7709B380F6F27DD238",
+    "lpAddress": "0x16679e2ac1A798865eCf1c1639e67693ddB1C220",
+    "tokens": ["0x0Bd7D308f8E1639FAb988df18A8011f41EAcAD73", "0x5fc5360D0400a0Fd4f2af552ADD042D716F1d168"],
+    "tokenOracleIds": ["WETH", "USDG"],
+    "decimals": [18, 6],
+    "oracleId": "up33-cow-robinhood-weth-usdg",
+    "providerId": "up33",
+    "rewardPool": {
+      "address": "0x55fD3b49Ef7E5f9a31DA68051989F5f749658f99",
+      "oracleId": "up33-cow-robinhood-weth-usdg-rp"
+    },
+    "vault": {
+      "address": "0x5008aa698d3BeDEa757C519F5342f861d7Ef78ed",
+      "oracleId": "up33-cow-robinhood-weth-usdg-vault"
+    }
+  },
+  {
+    "address": "0x137731B8B2D7Cd24aB4A4A9061f2D7b4Fd1aBFEE",
+    "lpAddress": "0x4E8649Be40aE67EBbcff99C291B92eE03015917b",
+    "tokens": ["0x020bfC650A365f8BB26819deAAbF3E21291018b4", "0x0Bd7D308f8E1639FAb988df18A8011f41EAcAD73"],
+    "tokenOracleIds": ["CASHCAT", "WETH"],
+    "decimals": [18, 18],
+    "oracleId": "up33-cow-robinhood-cashcat-weth",
+    "providerId": "up33",
+    "rewardPool": {
+      "address": "0x3B2162ea5C3F6f20Eb05818f40d54857d1Aa3B45",
+      "oracleId": "up33-cow-robinhood-cashcat-weth-rp"
+    },
+    "vault": {
+      "address": "0x25012D654bF9107B6E0Af0248656fEf0b718dBd3",
+      "oracleId": "up33-cow-robinhood-cashcat-weth-vault"
+    }
+  },
+  {
+    "address": "0x36759534741E28Eb052238738963D684bFe719E4",
+    "lpAddress": "0x23D641FeCcD207E8794c593e8240444A0674C4Ba",
+    "tokens": ["0x0Bd7D308f8E1639FAb988df18A8011f41EAcAD73", "0x57C0E45cB534413D1C20A4240955d6bB250BB4F1"],
+    "tokenOracleIds": ["WETH", "UP33"],
+    "decimals": [18, 18],
+    "oracleId": "up33-cow-robinhood-weth-up",
+    "providerId": "up33",
+    "rewardPool": {
+      "address": "0xCC3DB04bB136A34E8569c1EfF2Ab19E3FA915d48",
+      "oracleId": "up33-cow-robinhood-weth-up-rp"
+    },
+    "vault": {
+      "address": "0x56EA4b4AFAFbb87CFD8Fd8a0266a2F86561677b8",
+      "oracleId": "up33-cow-robinhood-weth-up-vault"
+    }
+  },
+  {
     "address": "0x104E6823bAB0be3fe9b48c5fB0F0413301d935a4",
     "lpAddress": "0x4B0c312fFbB068F6a0bEa128759E35d94B94D0E1",
     "tokens": ["0x020bfC650A365f8BB26819deAAbF3E21291018b4", "0x5fc5360D0400a0Fd4f2af552ADD042D716F1d168"],

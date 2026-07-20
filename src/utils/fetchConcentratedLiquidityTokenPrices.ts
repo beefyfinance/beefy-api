@@ -1908,6 +1908,14 @@ const tokens: Partial<Record<keyof typeof ChainId, ConcentratedLiquidityToken[]>
       firstToken: 'TENDIES',
       secondToken: 'WETH',
     },
+    {
+      type: 'Slipstream',
+      oracleId: 'UP33',
+      decimalDelta: 1,
+      pool: '0x23d641feccd207e8794c593e8240444a0674c4ba',
+      firstToken: 'UP33',
+      secondToken: 'WETH',
+    },
   ],
 };
 

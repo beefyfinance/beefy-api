@@ -56,6 +56,20 @@ const TENDIES = {
   tags: ['MEMECOIN'],
 } as const satisfies Token;
 
+const UP = {
+  name: 'up',
+  symbol: 'UP',
+  oracleId: 'UP33',
+  address: '0x57C0E45cB534413D1C20A4240955d6bB250BB4F1',
+  chainId: 4663,
+  decimals: 18,
+  website: 'https://up33.xyz/',
+  description:
+    'UP is the protocol token of Up Protocol on Robinhood. It is what emissions pay, what incentives buy votes with, and what trades freely on up. When locked as veUP, it becomes a governance token whose voting power equals the locked amount scaled by the remaining lock time, up to four years.',
+  documentation: 'https://up33.xyz/docs',
+  bridge: 'native',
+} as const satisfies Token;
+
 export const tokens = {
   WNATIVE: ETH,
   FEES: ETH,
@@ -64,4 +78,6 @@ export const tokens = {
   USDG,
   CASHCAT,
   TENDIES,
+  UP,
+  UP33: UP,
 } as const satisfies Record<string, Token>;
