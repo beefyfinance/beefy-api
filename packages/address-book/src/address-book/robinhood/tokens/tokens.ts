@@ -58,7 +58,7 @@ const TENDIES = {
 
 const UP = {
   name: 'up',
-  symbol: 'UP',
+  symbol: 'UP33',
   oracleId: 'UP33',
   address: '0x57C0E45cB534413D1C20A4240955d6bB250BB4F1',
   chainId: 4663,
