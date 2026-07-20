@@ -17,19 +17,7 @@
       "oracle": "tokens",
       "oracleId": "STONE",
       "decimals": "1e18"
-    },
-    "rewards": [
-      {
-        "oracleId": "FOXY",
-        "address": "0x5FBDF89403270a1846F5ae7D113A989F850d1566",
-        "decimals": "1e18"
-      },
-      {
-        "oracleId": "lineaZERO",
-        "address": "0x78354f8DcCB269a615A7e0a24f9B0718FDC3C7A7",
-        "decimals": "1e18"
-      }
-    ]
+    }
   },
   {
     "name": "lynex-ichi-weth-lynx",
@@ -49,19 +37,7 @@
       "oracle": "tokens",
       "oracleId": "WETH",
       "decimals": "1e18"
-    },
-    "rewards": [
-      {
-        "oracleId": "FOXY",
-        "address": "0x5FBDF89403270a1846F5ae7D113A989F850d1566",
-        "decimals": "1e18"
-      },
-      {
-        "oracleId": "lineaZERO",
-        "address": "0x78354f8DcCB269a615A7e0a24f9B0718FDC3C7A7",
-        "decimals": "1e18"
-      }
-    ]
+    }
   },
   {
     "name": "lynex-ichi-wbtc-weth",
@@ -101,18 +77,6 @@
       "oracle": "tokens",
       "oracleId": "LYNX",
       "decimals": "1e18"
-    },
-    "rewards": [
-      {
-        "oracleId": "FOXY",
-        "address": "0x5FBDF89403270a1846F5ae7D113A989F850d1566",
-        "decimals": "1e18"
-      },
-      {
-        "oracleId": "lineaZERO",
-        "address": "0x78354f8DcCB269a615A7e0a24f9B0718FDC3C7A7",
-        "decimals": "1e18"
-      }
-    ]
+    }
   }
 ]
