@@ -16,7 +16,7 @@ const validatorsByChain: Partial<Record<ApiChain, ValidatorAsset[]>> = {
       decimals: 18,
       symbol: 'ETH',
       method: 'api',
-      methodPath: 'https://beaconcha.in/api/v1/validator/402418',
+      methodPath: 'https://ethereum-beacon-api.publicnode.com/eth/v1/beacon/states/head/validators/402418',
       assetType: 'validator',
     },
   ],
