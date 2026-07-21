@@ -48,6 +48,42 @@
     }
   },
   {
+    "address": "0xE97ce6404eA5847Bfcd11A6F7EB3Ff8f30F619eE",
+    "lpAddress": "0x1d42064Fc4Beb5F8aAF85F4617AE8b3b5B8Bd801",
+    "tokens": ["0x1f9840a85d5aF5bf1D1762F925BDADdC4201F984", "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2"],
+    "tokenOracleIds": ["UNI", "WETH"],
+    "decimals": [18, 18],
+    "oracleId": "uniswap-cow-ethereum-uni-weth",
+    "rewardPool": {
+      "address": "0x5fcA009de68595FC4f746F88429370a2A79E37D9",
+      "oracleId": "uniswap-cow-ethereum-uni-weth-rp"
+    }
+  },
+  {
+    "address": "0xeD64dD50515E6A1FE5a4B1a2F514B6e847514BE1",
+    "lpAddress": "0x5aB53EE1d50eeF2C1DD3d5402789cd27bB52c1bB",
+    "tokens": ["0x7Fc66500c84A76Ad7e9c93437bFc5Ac33E2DDaE9", "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2"],
+    "tokenOracleIds": ["AAVE", "WETH"],
+    "decimals": [18, 18],
+    "oracleId": "uniswap-cow-ethereum-aave-weth",
+    "rewardPool": {
+      "address": "0xA9101eF1288259bd61C4EedD852679C355aa29dB",
+      "oracleId": "uniswap-cow-ethereum-aave-weth-rp"
+    }
+  },
+  {
+    "address": "0x2Ae85f4A9c16e2dAa65c624452332f74314F2Ec8",
+    "lpAddress": "0xa6Cc3C2531FdaA6Ae1A3CA84c2855806728693e8",
+    "tokens": ["0x514910771AF9Ca656af840dff83E8264EcF986CA", "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2"],
+    "tokenOracleIds": ["LINK", "WETH"],
+    "decimals": [18, 18],
+    "oracleId": "uniswap-cow-ethereum-link-weth",
+    "rewardPool": {
+      "address": "0x484966d04B230a110e594De2769EAf00449b2DBe",
+      "oracleId": "uniswap-cow-ethereum-link-weth-rp"
+    }
+  },
+  {
     "address": "0x1f2E246a23D9E620F0c643e1239D77dDc5a82743",
     "lpAddress": "0x53e3d506F468c4BC30cc8CaA21Eb7E56c2fA2D55",
     "tokens": ["0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2", "0xf280B16EF293D8e534e370794ef26bF312694126"],
