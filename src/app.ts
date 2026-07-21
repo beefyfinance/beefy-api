@@ -15,7 +15,6 @@ import { initVaultFeeService } from './api/vaults/getVaultFees';
 import { initTreasuryService } from './api/treasury/getTreasury';
 import { initProposalsService } from './api/snapshot/getProposals';
 import { initZapSwapService } from './api/zap/swap';
-import { initValidatorPerformanceService } from './api/validators/validators';
 import { initArticlesService } from './api/articles/fetchArticlesData';
 import { initCowcentratedService } from './api/cowcentrated';
 import { initOffchainRewardsService } from './api/offchain-rewards';
@@ -57,7 +56,6 @@ const start = async () => {
 
   initApyService();
   initPriceService();
-  initValidatorPerformanceService();
   initVaultService();
   initBoostService();
   initVaultFeeService();
