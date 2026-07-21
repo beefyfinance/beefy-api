@@ -124,7 +124,7 @@ function scheduleUpdate() {
 }
 
 export async function initCowVaultsMetaService() {
-  logger.info('initializing');
+  logger.info('initializing meta');
   await loadFromCache();
   setTimeout(updateAll, INIT_DELAY);
 }

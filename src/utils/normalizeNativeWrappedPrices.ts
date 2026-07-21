@@ -45,7 +45,7 @@ export function debugNativeWrappedPrices(tokenPrices: Record<string, number>, ta
       oracleId => tokenPrices[oracleId] === undefined
     );
     if (missingOracle.length > 0) {
-      logger.warn({ tag, chain: chainId, missingOracle }, 'missing native/wrapped prices');
+      logger.debug({ tag, chain: chainId, missingOracle }, 'missing native/wrapped prices');
     }
   }
 }

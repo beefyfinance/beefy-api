@@ -24,7 +24,6 @@ import ooeV2Pools from '../../data/bsc/ooeV2LpPools.json';
 import aerodromePools from '../../data/base/aerodromeLpPools.json';
 import alienBasePools from '../../data/base/alienBaseLpPools.json';
 import moePools from '../../data/mantle/moeLpPools.json';
-import nuriPools from '../../data/scroll/nuriVolatilePools.json';
 import velodromeLiskPools from '../../data/lisk/velodromeLiskPools.json';
 import shadowPools from '../../data/sonic/shadowLpPools.json';
 import defivePools from '../../data/sonic/defiveLpPools.json';
@@ -62,7 +61,6 @@ const pools = normalizePoolOracleIds([
   ...defivePools,
   ...shadowPools,
   ...velodromeLiskPools,
-  ...nuriPools,
   ...moePools,
   ...alienBasePools,
   ...aerodromePools,

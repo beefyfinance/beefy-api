@@ -48,7 +48,7 @@ export function getCowPriceRanges() {
 }
 
 export async function initCowPriceRangeService() {
-  logger.info('initializing');
+  logger.info('initializing price ranges');
   serviceEventBus.on('cowcentrated/vaults-meta/loaded', updateAll);
   serviceEventBus.on('cowcentrated/vaults-meta/updated', updateAll);
 }

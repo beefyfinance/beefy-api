@@ -1,9 +1,7 @@
 const { SCROLL_CHAIN_ID: chainId } = require('../../../constants');
 const { getSolidlyGaugeApys } = require('../common/getSolidlyGaugeApys');
-const stablePools = require('../../../data/scroll/nuriStablePools.json');
-const volatilePools = require('../../../data/scroll/nuriVolatilePools.json');
 
-const pools = [...stablePools, ...volatilePools];
+const pools = [];
 export const getNuriApys = async () => {
   return getSolidlyGaugeApys({
     chainId: chainId,
