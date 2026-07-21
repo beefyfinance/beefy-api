@@ -1,7 +1,6 @@
 `use strict`;
 
 import { fetchAmmPrices } from '../../utils/fetchAmmPrices';
-import { fetchMooPrices } from '../../utils/fetchMooPrices';
 import { fetchOptionTokenPrices } from '../../utils/fetchOptionTokenPrices';
 import { fetchWrappedAavePrices } from '../../utils/fetchWrappedAaveTokenPrices';
 import { fetchErc4626TokenPrices } from '../../utils/fetchErc4626TokenPrices';
@@ -14,7 +13,6 @@ import { fetchDefillamaPrices } from '../../utils/fetchDefillamaPrices';
 import { getKey, setKey } from '../../utils/cache';
 
 import getNonAmmPrices from './getNonAmmPrices';
-import mooTokens from '../../data/mooTokens.json';
 import netswapPools from '../../data/metis/netswapLpPools.json';
 import velodromePools from '../../data/optimism/velodromeLpPools.json';
 import oldVelodromePools from '../../data/optimism/oldVelodromeLpPools.json';
@@ -447,14 +445,6 @@ async function performUpdateAmmPrices() {
     return result;
   });
 
-  logger.debug('starting moo prices');
-  const mooPrices = ammPrices.then(async ({ poolPrices, tokenPrices }) => {
-    logger.debug('moo prices fetch started');
-    const result = await promiseTiming(fetchMooPrices(mooTokens, tokenPrices, poolPrices), 'fetchMooPrices');
-    logger.debug('moo prices completed');
-    return result;
-  });
-
   logger.debug('starting option prices');
   const optionPrices = ammPrices.then(async ({ tokenPrices }) => {
     logger.debug('option prices fetch started');
@@ -514,8 +504,6 @@ async function performUpdateAmmPrices() {
     logger.debug('curve prices resolved');
     const solidlyStablePrices = await solidlyStableTokenPrices;
     logger.debug('solidly stable prices resolved');
-    const mooTokenPrices = await mooPrices;
-    logger.debug('moo token prices resolved');
     const beTokenTokenPrice = await beTokenPrice;
     logger.debug('be token prices resolved');
     const linearPoolTokenPrice = await linearPoolPrice;
@@ -527,7 +515,6 @@ async function performUpdateAmmPrices() {
     logger.debug('all token price dependencies resolved, consolidating');
     return {
       ...tokenPrices,
-      ...mooTokenPrices,
       ...beTokenTokenPrice,
       ...curvePrices,
       ...solidlyStablePrices,
