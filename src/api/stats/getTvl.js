@@ -1,7 +1,7 @@
 const getChainTvl = require('./getChainTvl.js');
 const { getKey, setKey } = require('../../utils/cache');
 const { getLoggerFor } = require('../../utils/logger/index.js');
-import { contextAllSettled, isContextResultFulfilled, isContextResultRejected, withTimeout } from '../../utils/promise';
+import { contextAllSettled, isContextResultFulfilled, isContextResultRejected } from '../../utils/promise';
 import { SupportedChains } from '../../utils/chain';
 
 const logger = getLoggerFor({ module: 'tvl' });
@@ -22,7 +22,6 @@ const updateTvl = async () => {
   const start = Date.now();
 
   try {
-    const failedChains = [];
     const results = await contextAllSettled(SupportedChains, getChainTvl);
     const fulfilled = results.filter(isContextResultFulfilled);
 

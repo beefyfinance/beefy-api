@@ -1,4 +1,3 @@
-import { ChainId } from '../../../packages/address-book/src/address-book';
 import { fetchPrice } from '../../utils/fetchPrice';
 import { getVaultById, getVaultsByTypeChain } from './getMultichainVaults';
 import { beSonicAbi } from '../../abis/sonic/beSonicAbi';
