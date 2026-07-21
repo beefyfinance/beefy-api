@@ -20,7 +20,6 @@ import getBalancerGnosisPrices from './gnosis/getBalancerGnosisPrices';
 import getCurvePricesCommon from './common/curve/getCurvePricesCommon';
 import { getCurveLendPricesCommon } from './common/curve/getCurveLendPricesCommon';
 import getVelodromeLiskStablePrices from './lisk/getVelodromeLiskStablePrices';
-import getNuriStablePrices from './scroll/getNuriStablePrices';
 import { getKittenswapStablePrices } from './hyperevm/getKittenswapStablePrices';
 import { getKodiakPrices } from './berachain/getKodiakPrices';
 import { getSiloPrices } from './common/getSiloPrices';
@@ -172,7 +171,6 @@ export async function getNonAmmPrices(
     getEulerPrices(MONAD_CHAIN_ID, require('../../data/monad/eulerPools.json'), tokenPrices),
     getSolidlyStablePrices(AVAX_CHAIN_ID, require('../../data/avax/blackStableLpPools.json'), tokenPrices),
     getSolidlyStablePrices(PLASMA_CHAIN_ID, require('../../data/plasma/lithosStablePools.json'), tokenPrices),
-    getNuriStablePrices(tokenPrices),
     getSiloPrices(AVAX_CHAIN_ID, require('../../data/avax/siloPools.json'), tokenPrices),
     getAerodromePositionPrices(tokenPrices),
   ];
