@@ -13,11 +13,11 @@ let tvl = {};
 
 const CACHE_KEY = 'TVL';
 
-const getTvl = () => {
+export const getTvl = () => {
   return tvl;
 };
 
-export const updateTvl = async () => {
+const updateTvl = async () => {
   logger.info('updating tvl');
   const start = Date.now();
 
