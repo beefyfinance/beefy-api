@@ -1,4 +1,4 @@
-import { ApiChain } from '../../utils/chain';
+import { ApiChain, SupportedChains } from '../../utils/chain';
 import { AnyCowClmMeta, CowClmsMeta, isClmApiVaultsResponse } from './types';
 import { isAddressEqual } from 'viem';
 import { getKey, setKey } from '../../utils/cache';
@@ -15,6 +15,8 @@ const CACHE_KEY = 'COW_VAULTS_META';
 const INIT_DELAY = Number(process.env.COWCENTRATED_INIT_DELAY || 1000);
 const UPDATE_INTERVAL = 60000;
 const BEEFY_CLM_API = process.env.BEEFY_CLM_API || 'https://clm-api.beefy.finance';
+const API_EOL_CHAINS: ApiChain[] = ['berachain', 'lisk', 'scroll', 'sei', 'mantle'];
+const SUPPORTED_CHAINS = new Set(SupportedChains.filter(c => !API_EOL_CHAINS.includes(c)));
 
 const chainToVaults: Partial<Record<ApiChain, CowClmsMeta>> = {};
 
@@ -32,7 +34,7 @@ export function getAllCowVaultsMeta(): Partial<Record<ApiChain, CowClmsMeta>> {
 
 async function fetchCowVaultsMeta(chainId: ApiChain): Promise<AnyCowClmMeta[]> {
   const pools = getCowClms(chainId);
-  if (!pools || !pools.length) {
+  if (!pools || !pools.length || !SUPPORTED_CHAINS.has(chainId)) {
     return [];
   }
 
