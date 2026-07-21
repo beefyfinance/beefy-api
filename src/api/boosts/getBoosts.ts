@@ -1,10 +1,9 @@
-import { MULTICHAIN_ENDPOINTS } from '../../constants';
 import { getKey, setKey } from '../../utils/cache';
 import { getBoostPeriodFinish, getBoosts } from './fetchBoostData';
 import { Boost, BoostEntity, OldBoost, PromoTokenRewardConfig } from './types';
 import { serviceEventBus } from '../../utils/ServiceEventBus';
-import { isResultFulfilled, isResultRejected, withTimeout } from '../../utils/promise';
-import { ApiChain } from '../../utils/chain';
+import { contextAllSettled, isContextResultFulfilled, isContextResultRejected, withTimeout } from '../../utils/promise';
+import { ApiChain, SupportedChains } from '../../utils/chain';
 import { getLoggerFor } from '../../utils/logger/index.js';
 
 const logger = getLoggerFor({ module: 'boosts' });
@@ -74,10 +73,8 @@ const updateBoosts = async () => {
   try {
     const start = Date.now();
     const timeout = Math.floor(REFRESH_INTERVAL / 2);
-    const results = await Promise.allSettled(
-      Object.keys(MULTICHAIN_ENDPOINTS).map(chain => withTimeout(updateChainBoosts(chain as ApiChain), timeout))
-    );
-    const fulfilled = results.filter(isResultFulfilled);
+    const results = await contextAllSettled(SupportedChains, chain => withTimeout(updateChainBoosts(chain), timeout));
+    const fulfilled = results.filter(isContextResultFulfilled);
 
     if (fulfilled.length) {
       // TODO: add TTL so entries are removed if not updated (e.g. chain rpc is down)
@@ -96,9 +93,9 @@ const updateBoosts = async () => {
     );
 
     if (fulfilled.length < results.length) {
-      const rejected = results.filter(isResultRejected);
+      const rejected = results.filter(isContextResultRejected);
       logger.warn({ count: rejected.length }, 'chains failed to update');
-      rejected.forEach(result => logger.warn({ err: result.reason }, 'chain update failed'));
+      rejected.forEach(result => logger.warn({ err: result.reason, chain: result.context }, 'chain update failed'));
     }
   } catch (err) {
     logger.error({ err }, 'boost update failed');

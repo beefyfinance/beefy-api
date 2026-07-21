@@ -10,7 +10,7 @@ export type LogScope = {
 };
 
 export type ResolveLogScope = {
-  __module: LogScope['module'];
-  __platform?: LogScope['platform'];
-  __chain?: Exclude<LogScope['chain'], number>;
+  module: LogScope['module'];
+  platform?: LogScope['platform'];
+  chain?: Exclude<LogScope['chain'], number>;
 };

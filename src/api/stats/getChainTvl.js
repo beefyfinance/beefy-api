@@ -1,4 +1,3 @@
-import { ChainId } from '../../../packages/address-book/src/address-book';
 import { fetchPrice } from '../../utils/fetchPrice';
 import { getVaultById, getVaultsByTypeChain } from './getMultichainVaults';
 import { beSonicAbi } from '../../abis/sonic/beSonicAbi';
@@ -8,14 +7,13 @@ import { fetchContract } from '../rpc/client';
 import BeefyVaultV6Abi from '../../abis/BeefyVault';
 import ERC20Abi from '../../abis/ERC20Abi';
 import { getVaultBalanceOverride } from '../../data/vaultOverrides';
-
-const { getLoggerFor } = require('../../utils/logger/index.js');
+import { toChainId } from '../../utils/chain.js';
+import { getLoggerFor } from '../../utils/logger/index.js';
 
 const logger = getLoggerFor({ module: 'tvl' });
 
-const getChainTvl = async chain => {
-  const apiChain = ChainId[chain.chainId];
-  const chainId = chain.chainId;
+const getChainTvl = async apiChain => {
+  const chainId = toChainId(apiChain);
 
   const lpVaults = getVaultsByTypeChain('standard', apiChain);
   const govVaults = getVaultsByTypeChain('gov', apiChain);
@@ -113,11 +111,15 @@ const getVaultBalances = async (chainId, vaults) => {
   }
   const calls = vaults.map(vault => {
     const contract = fetchContract(vault.earnContractAddress, BeefyVaultV6Abi, chainId);
-    return contract.read.balance();
+    return contract.read.balance().catch(err => {
+      logger.warn({ chain: chainId, vault: vault.id, err }, 'failed to read balance');
+      return 0n;
+    });
   });
   const res = await Promise.all(calls);
   return res.map((v, i) => getVaultBalanceOverride(vaults[i].id) ?? new BigNumber(v.toString()));
 };
+
 const getGovVaultBalances = async (chainId, govPools) => {
   if (!govPools) {
     throw new Error(`getGovVaultBalances: undefined govPools passed for ${chainId}`);
@@ -125,7 +127,10 @@ const getGovVaultBalances = async (chainId, govPools) => {
 
   const calls = govPools.map(vault => {
     const tokenContract = fetchContract(vault.tokenAddress, ERC20Abi, chainId);
-    return tokenContract.read.balanceOf([vault.earnContractAddress]);
+    return tokenContract.read.balanceOf([vault.earnContractAddress]).catch(err => {
+      logger.warn({ chain: chainId, vault: vault.id, err }, 'failed to read balanceOf');
+      return 0n;
+    });
   });
 
   const res = await Promise.all(calls);
@@ -139,7 +144,10 @@ const getCowVaultBalances = async (chainId, cowVaults) => {
 
   const calls = cowVaults.map(vault => {
     const tokenContract = fetchContract(vault.earnContractAddress, ERC20Abi, chainId);
-    return tokenContract.read.totalSupply();
+    return tokenContract.read.totalSupply().catch(err => {
+      logger.warn({ chain: chainId, vault: vault.id, err }, 'failed to read totalSupply');
+      return 0n;
+    });
   });
 
   const res = await Promise.all(calls);
@@ -152,7 +160,10 @@ const getErc4626VaultBalances = async (chainId, vaults) => {
   }
   const calls = vaults.map(vault => {
     const contract = fetchContract(vault.earnContractAddress, beSonicAbi, chainId);
-    return contract.read.totalAssets();
+    return contract.read.totalAssets().catch(err => {
+      logger.warn({ chain: chainId, vault: vault.id, err }, 'failed to read totalAssets');
+      return 0n;
+    });
   });
   const res = await Promise.all(calls);
   return res.map(v => new BigNumber(v.toString()));

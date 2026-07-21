@@ -17,17 +17,13 @@ export default function (opts: PrettyOptions = {}): PrettyStream {
     singleLine: true,
     customPrettifiers: {
       level: (_level, _levelKey, log: ResolveLogScope, { label, labelColorized, colors }) => {
-        const tags = [
-          tag(log.__module, colors.magenta),
-          tag(log.__chain, colors.yellow),
-          tag(log.__platform, colors.blue),
-        ];
+        const tags = [tag(log.module, colors.magenta), tag(log.chain, colors.yellow), tag(log.platform, colors.blue)];
         return `${colorize ? labelColorized : label}${tags.filter(Boolean).join('')}`;
       },
       // if added to `ignore` they are not available in `log` for level formatter
-      __module: () => undefined,
-      __chain: () => undefined,
-      __platform: () => undefined,
+      module: () => undefined,
+      chain: () => undefined,
+      platform: () => undefined,
     },
   });
 }
