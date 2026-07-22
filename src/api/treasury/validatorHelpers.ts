@@ -83,7 +83,7 @@ export const fetchSonicValidatorBalance = async (asset: SonicValidator, chainId:
 export const fetchAPIValidatorBalance = async (apiAsset: ValidatorAsset): Promise<TreasuryApiResult> => {
   let balance: number = await fetch(apiAsset.methodPath)
     .then(res => res.json())
-    .then((res: any) => ((res.data?.length ?? 0) > 0 ? res.data[0].balance : res.data.balance));
+    .then((res: any) => ((res.data?.length ?? 0) > 0 ? res.data[0].balance : res.data.balance) ?? 0);
   return {
     apiAsset,
     balance: new BigNumber(balance).shiftedBy(9),

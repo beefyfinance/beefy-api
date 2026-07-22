@@ -50,7 +50,7 @@ const getPoolsApys = async (params: CompoundV3ApyParams, data: PoolsData) => {
   );
 
   const totalSuppliesInUsd = data.totalSupplies.map((v, i) =>
-    v.div(params.pools[i].decimals).times(data.tokenPrices[i])
+    v.div(params.pools[i].decimals).times(data.tokenPrices[i] ?? 0)
   );
 
   const supplyCompApys = annualCompSupplyInUsd.map((v, i) => v.div(totalSuppliesInUsd[i]));

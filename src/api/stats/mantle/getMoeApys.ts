@@ -32,8 +32,8 @@ const getTradingAprs = async (): Promise<Record<string, BigNumber>> => {
     pairAddresses.forEach(pair => {
       const pairData = jp.query(response, '$..[?(@.pairAddress==' + pair + ')]')[0];
       if (pairData) {
-        const tvl = new BigNumber(pairData.liquidityUsd);
-        const volume = new BigNumber(pairData.volumeUsd);
+        const tvl = new BigNumber(pairData.liquidityUsd ?? 0);
+        const volume = new BigNumber(pairData.volumeUsd ?? 0);
         pairAddressToAprMap[pair] = volume.times(liquidityProviderFee).dividedBy(tvl);
       } else {
         pairAddressToAprMap[pair] = new BigNumber(0);

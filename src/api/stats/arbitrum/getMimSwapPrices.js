@@ -42,8 +42,8 @@ export const getMimSwapPrices = async tokenPrices => {
     const lp1Bal = poolsData[i].lp1Bal;
     const totalSupply = poolsData[i].totalSupply;
 
-    const lp0 = lp0Bal.multipliedBy(tokenPrices[pool.lp0.oracleId]).dividedBy(pool.lp0.decimals);
-    const lp1 = lp1Bal.multipliedBy(tokenPrices[pool.lp1.oracleId]).dividedBy(pool.lp1.decimals);
+    const lp0 = lp0Bal.multipliedBy(tokenPrices[pool.lp0.oracleId] ?? 0).dividedBy(pool.lp0.decimals);
+    const lp1 = lp1Bal.multipliedBy(tokenPrices[pool.lp1.oracleId] ?? 0).dividedBy(pool.lp1.decimals);
     const price = lp0.plus(lp1).multipliedBy('1e18').dividedBy(totalSupply).toNumber();
 
     prices[pool.name] = {

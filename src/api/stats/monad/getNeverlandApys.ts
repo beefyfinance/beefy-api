@@ -10,6 +10,7 @@ import NeverlandIncentiveController from '../../../abis/monad/NeverlandIncentive
 import pools from '../../../data/monad/neverlandPools.json' with { type: "json" };
 import type { Address } from 'viem';
 import { getLoggerFor } from '../../../utils/logger/index.ts';
+import { BIG_ZERO } from '../../../utils/big-number.ts';
 
 const logger = getLoggerFor({ module: 'apy', platform: 'neverland', chain: MONAD_CHAIN_ID });
 
@@ -48,8 +49,8 @@ export const getNeverlandApys = async (): Promise<ApyBreakdownResult> => {
 };
 
 const getPoolData = async () => {
-  const supplyAprs: Record<string, BigNumber> = {};
-  const suppliesInUsd: BigNumber[] = [];
+  const supplyAprs: Record<string, BigNumber> = Object.fromEntries(pools.map(pool => ([pool.address.toLowerCase(), BIG_ZERO])));
+  const suppliesInUsd: BigNumber[] = pools.map(() => BIG_ZERO);
 
   const dataProvider = fetchContract(aaveProtocolDataProvider, IAaveV3PoolDataProvider, MONAD_CHAIN_ID);
   await Promise.allSettled(

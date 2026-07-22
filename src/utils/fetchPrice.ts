@@ -77,7 +77,7 @@ export async function fetchPriceTyped(
       throw new Error(`Oracle '${oracle}' not implemented, expected one of: lps, tokens, any, hardcode`);
   }
 
-  return price;
+  return price ?? 0;
 }
 
 /**

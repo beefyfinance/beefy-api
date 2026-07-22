@@ -172,7 +172,7 @@ async function getCurveTokenPrices(
         logger.warn({ oracleId: t.oracleId, token: t.secondToken, pool: t.pool }, 'missing second token price');
       }
       pricesById[t.oracleId] = new BigNumber(res[i].toString())
-        .times(secondPrice)
+        .times(secondPrice ?? 0)
         .dividedBy(t.secondTokenDecimals)
         .toNumber();
       prices.push(pricesById[t.oracleId]);
