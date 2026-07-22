@@ -11,7 +11,7 @@ export function startTimer() {
   return (messageFn: (elapsed: number) => string) => {
     const elapsed = performance.now() - start;
     if (elapsed >= MIN_TIME_MS) {
-      logger.warn(messageFn(elapsed));
+      logger.debug({ durationMs: elapsed }, messageFn(elapsed));
     }
   };
 }

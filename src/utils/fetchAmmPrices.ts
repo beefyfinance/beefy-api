@@ -89,8 +89,8 @@ type LpBreakdown = {
 };
 
 function calcLpPrice(pool: PoolData, tokenPrices: Record<string, number>): LpBreakdown {
-  const lp0 = pool.lp0.balance.multipliedBy(tokenPrices[pool.lp0.oracleId]).dividedBy(pool.lp0.decimals);
-  const lp1 = pool.lp1.balance.multipliedBy(tokenPrices[pool.lp1.oracleId]).dividedBy(pool.lp1.decimals);
+  const lp0 = pool.lp0.balance.multipliedBy(tokenPrices[pool.lp0.oracleId] ?? 0).dividedBy(pool.lp0.decimals);
+  const lp1 = pool.lp1.balance.multipliedBy(tokenPrices[pool.lp1.oracleId] ?? 0).dividedBy(pool.lp1.decimals);
   const price = lp0.plus(lp1).multipliedBy(pool.decimals).dividedBy(pool.totalSupply).toNumber();
 
   return {

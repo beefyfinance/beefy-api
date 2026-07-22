@@ -33,6 +33,26 @@ export function typedOmit<TEntry, TKeys extends keyof TEntry>(
   ) as TypedOmit<TEntry, TKeys>;
 }
 
+/** Element type shared by every array-valued property of `T`. */
+type ValueElement<T> = NonNullable<T[keyof T]> extends ReadonlyArray<infer E> ? E : never;
+
+export function mapValues<T extends Record<string, readonly unknown[] | undefined>>(
+  object: T,
+  iteratee: <X extends ValueElement<T>>(value: X[], key: keyof T & string) => X[]
+): T;
+export function mapValues<T extends object, R>(
+  object: T,
+  iteratee: (value: NonNullable<T[keyof T]>, key: keyof T & string) => R
+): { [K in keyof T]: R };
+export function mapValues<T extends object, R>(
+  object: T,
+  iteratee: (value: NonNullable<T[keyof T]>, key: keyof T & string) => R
+): { [K in keyof T]: R } {
+  return Object.fromEntries(
+    Object.entries(object).map(([key, value]) => [key, iteratee(value, key as keyof T & string)])
+  ) as { [K in keyof T]: R };
+}
+
 export type PlainObject = Record<string | number, unknown>;
 
 // @dev supports plain objects/arrays only, does not traverse into Maps, Sets etc

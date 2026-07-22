@@ -2,9 +2,8 @@ import { getSingleChainVaults, getVaultsByChain } from '../stats/getMultichainVa
 import { getChainNewBoosts } from '../boosts/getBoosts.ts';
 import { addressBook, type Chain } from '../../../packages/address-book/src/address-book/index.ts';
 import type { Token } from '../../../packages/address-book/src/types/token.ts';
-import { MULTICHAIN_ENDPOINTS } from '../../constants.ts';
 import { serviceEventBus } from '../../utils/ServiceEventBus.ts';
-import { type ApiChain, isApiChain, toApiChain } from '../../utils/chain.ts';
+import { type ApiChain, isApiChain, SupportedChains, toApiChain } from '../../utils/chain.ts';
 import type { ChainTokens, TokenEntity, TokenErc20, TokenNative, TokensByChain } from './types.ts';
 import { mapValues } from 'lodash-es';
 import { type Address, getAddress } from 'viem';
@@ -328,7 +327,7 @@ export async function initTokenService() {
 async function updateTokens() {
   try {
     logger.debug('updating token service');
-    const chains = Object.keys(MULTICHAIN_ENDPOINTS) as ApiChain[];
+    const chains = SupportedChains;
     const byChain = await Promise.all(chains.map(chainId => fetchTokensForChain(chainId)));
 
     chains.forEach((chainId, i) => {

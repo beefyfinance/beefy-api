@@ -58,13 +58,10 @@ export const getSiloPrices = async (chainId, pools, tokenPrices) => {
 };
 
 const getTokenPrice = (tokenPrices, oracleId) => {
-  if (!oracleId) return 1;
-  let tokenPrice = 1;
-  const tokenSymbol = oracleId;
-  if (tokenPrices.hasOwnProperty(tokenSymbol)) {
-    tokenPrice = tokenPrices[tokenSymbol];
-  } else {
-    logger.warn({ oracleId }, 'unknown token price');
+  const price = tokenPrices[oracleId];
+  if (price === undefined) {
+    logger.warn({ oracleId }, 'unknown token, defaulting price to 0');
+    return 0;
   }
-  return tokenPrice;
+  return price;
 };

@@ -1,7 +1,7 @@
 import { BigNumber } from 'bignumber.js';
 import { contextAllSettled, isContextResultFulfilled, isContextResultRejected, withTimeout } from '../../utils/promise.ts';
 import { serviceEventBus } from '../../utils/ServiceEventBus.ts';
-import { first, groupBy, mapValues, orderBy, sumBy } from 'lodash-es';
+import { first, groupBy, orderBy, sumBy } from 'lodash-es';
 import { type ApiChain, SupportedChains } from '../../utils/chain.ts';
 import {
   type AnyVault,
@@ -22,6 +22,7 @@ import { HARVESTABLE_VAULT_TYPES, sortVaults, VAULT_TYPES } from '../vaults/help
 import BeefyVaultV6Abi from '../../abis/BeefyVault.ts';
 import { getVaultPpfsOverride } from '../../data/vaultOverrides.ts';
 import { getLoggerFor } from '../../utils/logger/index.ts';
+import { mapValues } from '../../utils/object.ts';
 
 const logger = getLoggerFor({ module: 'vaults' });
 
@@ -178,7 +179,7 @@ class Storage {
     }
 
     this.byId = byId;
-    this.byType = mapValues(byType, sortVaults) as unknown as VaultsByType;
+    this.byType = mapValues(byType, sortVaults);
     this.byChain = mapValues(byChain, sortVaults);
   }
 

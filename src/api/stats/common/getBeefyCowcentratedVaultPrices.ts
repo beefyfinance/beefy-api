@@ -123,9 +123,10 @@ export const getBeefyCowcentratedVaultPrices = async (
 };
 
 const getTokenPrice = (tokenPrices, token) => {
-  if (!tokenPrices.hasOwnProperty(token)) {
-    logger.warn({ token }, 'unknown token, defaulting price to 1');
-    return 1;
+  const price = tokenPrices[token];
+  if (price === undefined) {
+    logger.warn({ token }, 'unknown token, defaulting price to 0');
+    return 0;
   }
-  return tokenPrices[token];
+  return price;
 };

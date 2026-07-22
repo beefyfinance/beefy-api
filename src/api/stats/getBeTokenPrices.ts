@@ -8,11 +8,11 @@ import { sonicStakingAbi } from '../../abis/sonic/sonicStakingAbi.ts';
 
 export async function getBeTokenPrices(tokenPrices: Record<string, number>): Promise<Record<string, number>> {
   return {
-    beJOE: tokenPrices['JOE'],
-    beQI: tokenPrices['QI'],
-    beCAKE: tokenPrices['Cake'],
-    beVelo: tokenPrices['BeVELO'],
-    beS: await getBeSonicRedeemablePrice(tokenPrices['WS']),
+    beJOE: tokenPrices['JOE'] ?? 0,
+    beQI: tokenPrices['QI'] ?? 0,
+    beCAKE: tokenPrices['Cake'] ?? 0,
+    beVelo: tokenPrices['BeVELO'] ?? 0,
+    beS: await getBeSonicRedeemablePrice(tokenPrices['WS'] ?? 0),
   };
 }
 

@@ -14,7 +14,7 @@ export const getGearboxPrices = async (chainId, pools, tokenPrices) => {
   for (let i = 0; i < pools.length; i++) {
     const pool = pools[i];
     const pps = new BigNumber(ppsRes[i]).div('1e18');
-    const tokenPrice = tokenPrices[pool.oracleId];
+    const tokenPrice = tokenPrices[pool.oracleId] ?? 0;
     const price = pps.times(tokenPrice).toNumber();
     const totalSupply = new BigNumber(supplyRes[i]).div(pool.decimals).toString(10);
     prices[pool.name] = {
