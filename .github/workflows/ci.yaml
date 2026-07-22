@@ -1,0 +1,42 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+    branches:
+      - master
+
+jobs:
+  biome:
+    name: 'Lint'
+    runs-on: ubuntu-latest
+    steps:
+      - name: 'Checkout Repository'
+        uses: actions/checkout@v7
+      - name: 'Setup Node'
+        uses: actions/setup-node@v7
+        with:
+          node-version-file: '.nvmrc'
+          cache: 'yarn'
+      - name: 'Install Packages'
+        run: yarn install --frozen-lockfile
+      - name: 'Run Biome'
+        run: yarn biome ci --reporter github
+
+  typecheck:
+    name: 'Typecheck'
+    runs-on: ubuntu-latest
+    steps:
+      - name: 'Checkout Repository'
+        uses: actions/checkout@v7
+      - name: 'Setup Node'
+        uses: actions/setup-node@v7
+        with:
+          node-version-file: '.nvmrc'
+          cache: 'yarn'
+      - name: 'Install Packages'
+        run: yarn install --frozen-lockfile
+      - name: 'Run tsc'
+        run: yarn tsc --project tsconfig.json
