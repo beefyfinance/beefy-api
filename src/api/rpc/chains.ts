@@ -1,6 +1,6 @@
 import type { Chain } from 'viem/chains';
-import { getRpcsForChain } from '../../constants.ts';
 import { ChainId } from '../../../packages/address-book/src/address-book/index.ts';
+import { getRpcsForChain } from '../../constants.ts';
 
 const avalancheChain = {
   id: 43_114,

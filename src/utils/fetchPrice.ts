@@ -1,8 +1,8 @@
-import { getAmmTokenPrice, getAmmLpPrice, getAmmPrice } from '../api/stats/getAmmPrices.ts';
-import type { Token } from '../../packages/address-book/src/types/token.ts';
-import { ChainId } from '../../packages/address-book/src/types/chainid.ts';
-import { addressBookByChainId } from '../../packages/address-book/src/address-book/index.ts';
 import { getAddress } from 'viem';
+import { addressBookByChainId } from '../../packages/address-book/src/address-book/index.ts';
+import { ChainId } from '../../packages/address-book/src/types/chainid.ts';
+import type { Token } from '../../packages/address-book/src/types/token.ts';
+import { getAmmLpPrice, getAmmPrice, getAmmTokenPrice } from '../api/stats/getAmmPrices.ts';
 import { getLoggerFor } from './logger/index.ts';
 
 const logger = getLoggerFor({ module: 'prices' });

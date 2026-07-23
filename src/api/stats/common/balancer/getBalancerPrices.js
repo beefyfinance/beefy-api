@@ -1,8 +1,8 @@
 import { BigNumber } from 'bignumber.js';
-import { default as ERC20Abi }from '../../../../abis/ERC20Abi.ts';
-import { default as IBalancerVault }from '../../../../abis/IBalancerVault.ts';
-import { fetchContract } from '../../../rpc/client.ts';
+import { default as ERC20Abi } from '../../../../abis/ERC20Abi.ts';
+import { default as IBalancerVault } from '../../../../abis/IBalancerVault.ts';
 import { getLoggerFor } from '../../../../utils/logger/index.ts';
+import { fetchContract } from '../../../rpc/client.ts';
 
 const logger = getLoggerFor({ module: 'prices', platform: 'balancer' });
 

@@ -1,35 +1,35 @@
 import Router from 'koa-router';
-import noop from './api/noop.js';
-import * as stats from './api/stats/index.ts';
-import * as supply from './api/supply/index.js';
-import * as price from './api/price/index.js';
-import * as cmc from './api/cmc/index.js';
-import * as tvl from './api/tvl/index.js';
-import * as multichainVaults from './api/vaults/index.ts';
-import * as snapshot from './api/snapshot/index.ts';
-import { boosts, chainBoosts, boostsV2, chainBoostsV2 } from './api/boosts/index.ts';
-import {
-  getTokens,
-  getChainTokens,
-  getChainNatives,
-  getChainToken,
-  getNativesFromAllChains,
-} from './api/tokens/index.ts';
-import { getConfigs, getChainConfig } from './api/config/index.ts';
-import { getTreasury } from './api/treasury/index.ts';
-import { proxyOneInchSwap, proxyOneInchQuote } from './api/zap/proxy/one-inch.ts';
-import { proxyKyberSwap, proxyKyberQuote } from './api/zap/proxy/kyber.ts';
-import { zapSwapsSupport, zapSwapsSupportDebug } from './api/zap/swap/routes.ts';
 import { getArticles, getLatestArticle } from './api/articles/index.ts';
-import { handleCowcentratedPriceRanges, handleCowcentratedLTIPPCampaignsForDune } from './api/cowcentrated/index.ts';
+import { boosts, boostsV2, chainBoosts, chainBoostsV2 } from './api/boosts/index.ts';
+import * as cmc from './api/cmc/index.js';
+import { getChainConfig, getConfigs } from './api/config/index.ts';
+import { handleCowcentratedLTIPPCampaignsForDune, handleCowcentratedPriceRanges } from './api/cowcentrated/index.ts';
+import noop from './api/noop.js';
 import {
-  handleOffChainRewardsAll,
-  handleOffChainRewardsAllForChain,
   handleOffChainRewardsActive,
   handleOffChainRewardsActiveForChain,
+  handleOffChainRewardsAll,
+  handleOffChainRewardsAllForChain,
 } from './api/offchain-rewards/index.ts';
 import { pointStructures } from './api/points/index.ts';
-import { proxyLiquidSwapSwap, proxyLiquidSwapQuote } from './api/zap/proxy/liquid-swap.ts';
+import * as price from './api/price/index.js';
+import * as snapshot from './api/snapshot/index.ts';
+import * as stats from './api/stats/index.ts';
+import * as supply from './api/supply/index.js';
+import {
+  getChainNatives,
+  getChainToken,
+  getChainTokens,
+  getNativesFromAllChains,
+  getTokens,
+} from './api/tokens/index.ts';
+import { getTreasury } from './api/treasury/index.ts';
+import * as tvl from './api/tvl/index.js';
+import * as multichainVaults from './api/vaults/index.ts';
+import { proxyKyberQuote, proxyKyberSwap } from './api/zap/proxy/kyber.ts';
+import { proxyLiquidSwapQuote, proxyLiquidSwapSwap } from './api/zap/proxy/liquid-swap.ts';
+import { proxyOneInchQuote, proxyOneInchSwap } from './api/zap/proxy/one-inch.ts';
+import { zapSwapsSupport, zapSwapsSupportDebug } from './api/zap/swap/routes.ts';
 
 const router = new Router();
 

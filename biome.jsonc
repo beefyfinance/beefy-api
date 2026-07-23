@@ -7,15 +7,10 @@
   },
   "files": {
     "ignoreUnknown": true,
-    "includes": [
-      "src/**",
-      "scripts/**",
-      "test/**",
-      "!test/fixtures"
-    ]
+    "includes": ["src/**", "scripts/**", "test/**", "!test/fixtures"]
   },
   "formatter": {
-    "enabled": false,
+    "enabled": true,
     "formatWithErrors": false,
     "indentStyle": "space",
     "indentWidth": 2,
@@ -63,7 +58,21 @@
   "assist": {
     "actions": {
       "source": {
-        "organizeImports": "off"
+        "organizeImports": {
+          "level": "on",
+          "options": {
+            "groups": [
+              [":URL:"],
+              [":NODE:"],
+              [":BUN:"],
+              [":PACKAGE_WITH_PROTOCOL:"],
+              [":PACKAGE:"],
+              [":ALIAS:"],
+              [":PATH:", "!**/*.json"],
+              ["**/*.json"]
+            ]
+          }
+        }
       }
     }
   },
@@ -80,23 +89,18 @@
       "quoteProperties": "asNeeded",
       "expand": "auto",
       "operatorLinebreak": "before",
-      "trailingNewline": true,
+      "trailingNewline": true
     }
   },
   "plugins": [
     {
       "path": "./tooling/biome/noAsUnknownAs.grit",
-      "includes": [
-        "**/src/**/*.ts",
-        "!**/src/**/*.test.ts"
-      ]
+      "includes": ["**/src/**/*.ts", "!**/src/**/*.test.ts"]
     }
   ],
   "overrides": [
     {
-      "includes": [
-        "scripts/**"
-      ],
+      "includes": ["scripts/**"],
       "linter": {
         "rules": {
           "suspicious": {

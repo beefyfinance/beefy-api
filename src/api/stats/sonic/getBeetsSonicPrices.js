@@ -1,8 +1,8 @@
+import { SONIC_CHAIN_ID as chainId } from '../../../constants.ts';
 import getBalancerPrices from '../common/balancer/getBalancerPrices.js';
 import getBalancerV3Prices from '../common/balancer/getBalancerV3Prices.js';
-import { SONIC_CHAIN_ID as chainId } from '../../../constants.ts';
-import beetsPools from '../../../data/sonic/beetsPools.json' with { type: "json" };
-import beetsV3Pools from '../../../data/sonic/beetsV3Pools.json' with { type: "json" };
+import beetsPools from '../../../data/sonic/beetsPools.json' with { type: 'json' };
+import beetsV3Pools from '../../../data/sonic/beetsV3Pools.json' with { type: 'json' };
 
 const getBeetsSonicPrices = async tokenPrices => {
   const data = await getBalancerPrices(chainId, beetsPools, tokenPrices);

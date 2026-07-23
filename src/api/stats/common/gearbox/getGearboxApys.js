@@ -1,7 +1,7 @@
 import { BigNumber } from 'bignumber.js';
-import { getApyBreakdown } from '../getApyBreakdownNew.ts';
-import { fetchContract } from '../../../rpc/client.ts';
 import GearboxVault from '../../../../abis/GearboxVault.ts';
+import { fetchContract } from '../../../rpc/client.ts';
+import { getApyBreakdown } from '../getApyBreakdownNew.ts';
 import { getMerklApys } from '../getMerklApys.js';
 
 export const getGearboxApys = async (chainId, pools) => {

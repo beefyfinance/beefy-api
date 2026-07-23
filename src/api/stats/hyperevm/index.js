@@ -1,6 +1,6 @@
-import { getBeefyCowHyperevmApys } from './getBeefyCowHyperevmApys.ts';
 import { HYPEREVM_CHAIN_ID } from '../../../constants.ts';
 import { getLoggerFor } from '../../../utils/logger/index.ts';
+import { getBeefyCowHyperevmApys } from './getBeefyCowHyperevmApys.ts';
 
 const logger = getLoggerFor({ module: 'apy', chain: HYPEREVM_CHAIN_ID });
 

@@ -1,13 +1,13 @@
-import { type ApiChain, SupportedChains } from '../../utils/chain.ts';
-import { type AnyCowClmMeta, type CowClmsMeta, isClmApiVaultsResponse } from './types.ts';
+import { partition } from 'lodash-es';
 import { isAddressEqual } from 'viem';
 import { getKey, setKey } from '../../utils/cache/index.ts';
-import { partition } from 'lodash-es';
-import { sleep } from '../../utils/time.ts';
+import { type ApiChain, SupportedChains } from '../../utils/chain.ts';
+import { getLoggerFor } from '../../utils/logger/index.ts';
 import { isResultFulfilled } from '../../utils/promise.ts';
 import { serviceEventBus } from '../../utils/ServiceEventBus.ts';
+import { sleep } from '../../utils/time.ts';
 import { getCowClmChains, getCowClms } from './getCowClms.ts';
-import { getLoggerFor } from '../../utils/logger/index.ts';
+import { type AnyCowClmMeta, type CowClmsMeta, isClmApiVaultsResponse } from './types.ts';
 
 const logger = getLoggerFor({ module: 'clm' });
 

@@ -13,4 +13,4 @@ function circulating(ctx) {
   ctx.body = 80000;
 }
 
-export { supply, total, circulating };
+export { circulating, supply, total };

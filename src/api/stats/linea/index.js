@@ -1,7 +1,7 @@
-import { getLynexApys } from './getLynexApys.js';
-import { getBeefyCowLineaApys } from './getBeefyCowLineaApys.ts';
 import { LINEA_CHAIN_ID } from '../../../constants.ts';
 import { getLoggerFor } from '../../../utils/logger/index.ts';
+import { getBeefyCowLineaApys } from './getBeefyCowLineaApys.ts';
+import { getLynexApys } from './getLynexApys.js';
 
 const logger = getLoggerFor({ module: 'apy', chain: LINEA_CHAIN_ID });
 

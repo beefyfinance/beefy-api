@@ -1,9 +1,9 @@
-import { sleep } from './time.ts';
-import { ABORT_REASON_TIMEOUT } from './http/helpers.ts';
+import AsyncLock from 'async-lock';
 import { chunk } from 'lodash-es';
 import NodeCache from 'node-cache';
-import AsyncLock from 'async-lock';
+import { ABORT_REASON_TIMEOUT } from './http/helpers.ts';
 import { getLoggerFor } from './logger/index.ts';
+import { sleep } from './time.ts';
 
 const logger = getLoggerFor({ module: 'app' });
 

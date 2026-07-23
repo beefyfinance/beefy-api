@@ -1,16 +1,16 @@
 import { BigNumber } from 'bignumber.js';
-import { getApyBreakdown, type ApyBreakdownResult } from '../common/getApyBreakdownNew.ts';
-import { fetchPrice } from '../../../utils/fetchPrice.ts';
-import { MONAD_CHAIN_ID } from '../../../constants.ts';
-import { fetchContract, } from '../../rpc/client.ts';
-import { getMerklApys } from '../common/curve/getCurveApysCommon.js';
 import jp from 'jsonpath';
+import type { Address } from 'viem';
 import IAaveV3PoolDataProvider from '../../../abis/AaveV3PoolDataProvider.ts';
 import NeverlandIncentiveController from '../../../abis/monad/NeverlandIncentiveController.ts';
-import pools from '../../../data/monad/neverlandPools.json' with { type: "json" };
-import type { Address } from 'viem';
-import { getLoggerFor } from '../../../utils/logger/index.ts';
+import { MONAD_CHAIN_ID } from '../../../constants.ts';
 import { BIG_ZERO } from '../../../utils/big-number.ts';
+import { fetchPrice } from '../../../utils/fetchPrice.ts';
+import { getLoggerFor } from '../../../utils/logger/index.ts';
+import { fetchContract } from '../../rpc/client.ts';
+import { getMerklApys } from '../common/curve/getCurveApysCommon.js';
+import { type ApyBreakdownResult, getApyBreakdown } from '../common/getApyBreakdownNew.ts';
+import pools from '../../../data/monad/neverlandPools.json' with { type: 'json' };
 
 const logger = getLoggerFor({ module: 'apy', platform: 'neverland', chain: MONAD_CHAIN_ID });
 
@@ -49,7 +49,9 @@ export const getNeverlandApys = async (): Promise<ApyBreakdownResult> => {
 };
 
 const getPoolData = async () => {
-  const supplyAprs: Record<string, BigNumber> = Object.fromEntries(pools.map(pool => ([pool.address.toLowerCase(), BIG_ZERO])));
+  const supplyAprs: Record<string, BigNumber> = Object.fromEntries(
+    pools.map(pool => [pool.address.toLowerCase(), BIG_ZERO])
+  );
   const suppliesInUsd: BigNumber[] = pools.map(() => BIG_ZERO);
 
   const dataProvider = fetchContract(aaveProtocolDataProvider, IAaveV3PoolDataProvider, MONAD_CHAIN_ID);

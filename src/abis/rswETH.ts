@@ -408,9 +408,7 @@ const rswETH = [
     type: 'function',
   },
   {
-    inputs: [
-      { internalType: 'uint256', name: '_maximumRepriceDifferencePercentage', type: 'uint256' },
-    ],
+    inputs: [{ internalType: 'uint256', name: '_maximumRepriceDifferencePercentage', type: 'uint256' }],
     name: 'setMaximumRepriceDifferencePercentage',
     outputs: [],
     stateMutability: 'nonpayable',
@@ -437,18 +435,14 @@ const rswETH = [
     type: 'function',
   },
   {
-    inputs: [
-      { internalType: 'uint256', name: '_newNodeOperatorRewardPercentage', type: 'uint256' },
-    ],
+    inputs: [{ internalType: 'uint256', name: '_newNodeOperatorRewardPercentage', type: 'uint256' }],
     name: 'setNodeOperatorRewardPercentage',
     outputs: [],
     stateMutability: 'nonpayable',
     type: 'function',
   },
   {
-    inputs: [
-      { internalType: 'uint256', name: '_newSwellTreasuryRewardPercentage', type: 'uint256' },
-    ],
+    inputs: [{ internalType: 'uint256', name: '_newSwellTreasuryRewardPercentage', type: 'uint256' }],
     name: 'setSwellTreasuryRewardPercentage',
     outputs: [],
     stateMutability: 'nonpayable',

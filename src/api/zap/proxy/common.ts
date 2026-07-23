@@ -1,8 +1,8 @@
 import type Koa from 'koa';
-import { getTokenByAddress, getTokenNative } from '../../tokens/tokens.ts';
+import { fromWeiString } from '../../../utils/big-number.ts';
 import { type AnyChain, type ApiChain, toApiChain } from '../../../utils/chain.ts';
 import { getAmmPrice } from '../../stats/getAmmPrices.ts';
-import { fromWeiString } from '../../../utils/big-number.ts';
+import { getTokenByAddress, getTokenNative } from '../../tokens/tokens.ts';
 
 const MIN_QUOTE_VALUE: Partial<Record<ApiChain, number>> = {};
 const NATIVE_ADDRESS = '0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE';
@@ -13,11 +13,7 @@ export function setNoCacheHeaders(ctx: Koa.Context) {
   ctx.set('Expires', '0');
 }
 
-export async function isQuoteValueTooLow(
-  inputAmount: string,
-  inputAddress: string,
-  chainId: AnyChain
-) {
+export async function isQuoteValueTooLow(inputAmount: string, inputAddress: string, chainId: AnyChain) {
   const apiChainId = toApiChain(chainId);
   const minQuoteValue = MIN_QUOTE_VALUE[apiChainId];
   if (!minQuoteValue) {
@@ -35,10 +31,7 @@ export async function isQuoteValueTooLow(
     };
   }
 
-  const srcPrice = await getAmmPrice(
-    srcToken.oracleId || srcToken.id,
-    `via isQuoteValueTooLow for ${inputAddress}`
-  );
+  const srcPrice = await getAmmPrice(srcToken.oracleId || srcToken.id, `via isQuoteValueTooLow for ${inputAddress}`);
   if (!srcPrice) {
     return {
       code: 400,

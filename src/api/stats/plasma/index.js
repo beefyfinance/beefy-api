@@ -1,9 +1,9 @@
-import { getBeefyCowPlasmaApys } from './getBeefyCowPlasmaApys.ts';
-import { getAaveV3Apys } from './getAaveV3Apys.js';
-import { getCurveApys } from './getCurveApys.js';
-import { getLithosApys } from './getLithosApys.js';
 import { PLASMA_CHAIN_ID } from '../../../constants.ts';
 import { getLoggerFor } from '../../../utils/logger/index.ts';
+import { getAaveV3Apys } from './getAaveV3Apys.js';
+import { getBeefyCowPlasmaApys } from './getBeefyCowPlasmaApys.ts';
+import { getCurveApys } from './getCurveApys.js';
+import { getLithosApys } from './getLithosApys.js';
 
 const logger = getLoggerFor({ module: 'apy', chain: PLASMA_CHAIN_ID });
 

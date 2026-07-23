@@ -1,5 +1,5 @@
-import { toNumber } from './number.ts';
 import { getLoggerFor } from './logger/index.ts';
+import { toNumber } from './number.ts';
 
 const logger = getLoggerFor({ module: 'app' });
 

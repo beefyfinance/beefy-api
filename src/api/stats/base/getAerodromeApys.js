@@ -1,7 +1,7 @@
-import { BASE_CHAIN_ID as chainId }from '../../../constants.ts';
+import { BASE_CHAIN_ID as chainId } from '../../../constants.ts';
 import { getSolidlyGaugeApys } from '../common/getSolidlyGaugeApys.js';
-import stablePools from '../../../data/base/aerodromeStableLpPools.json' with { type: "json" };
-import volatilePools from '../../../data/base/aerodromeLpPools.json' with { type: "json" };
+import volatilePools from '../../../data/base/aerodromeLpPools.json' with { type: 'json' };
+import stablePools from '../../../data/base/aerodromeStableLpPools.json' with { type: 'json' };
 
 const pools = [...stablePools, ...volatilePools];
 export const getAerodromeApys = async () => {

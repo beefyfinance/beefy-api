@@ -1,9 +1,9 @@
 import { BigNumber } from 'bignumber.js';
-import { fetchPrice } from '../../../../utils/fetchPrice.ts';
-import ICurveGauge from '../../../../abis/ICurveGauge.ts';
-import { fetchContract } from '../../../rpc/client.ts';
 import { parseAbi } from 'viem';
+import ICurveGauge from '../../../../abis/ICurveGauge.ts';
 import { FRAXTAL_CHAIN_ID } from '../../../../constants.ts';
+import { fetchPrice } from '../../../../utils/fetchPrice.ts';
+import { fetchContract } from '../../../rpc/client.ts';
 
 const IBooster = parseAbi(['function fees() view returns (uint)']);
 
@@ -75,19 +75,11 @@ const getData = async (chainId, pools) => {
     extraCalls = [];
   pools.forEach(pool => {
     const gauge = fetchContract(pool.gauge, ICurveGauge, chainId);
-    gaugeRewardRatesCalls.push(
-      gauge.read.inflation_rate([weekEpoch]).then(v => new BigNumber(v.toString()))
-    );
+    gaugeRewardRatesCalls.push(gauge.read.inflation_rate([weekEpoch]).then(v => new BigNumber(v.toString())));
     gaugeTotalSuppliesCalls.push(gauge.read.totalSupply().then(v => new BigNumber(v.toString())));
-    gaugeWorkingSuppliesCalls.push(
-      gauge.read.working_supply().then(v => new BigNumber(v.toString()))
-    );
-    gaugeBalancesCalls.push(
-      gauge.read.balanceOf([voterProxy]).then(v => new BigNumber(v.toString()))
-    );
-    gaugeWorkingBalancesCalls.push(
-      gauge.read.working_balances([voterProxy]).then(v => new BigNumber(v.toString()))
-    );
+    gaugeWorkingSuppliesCalls.push(gauge.read.working_supply().then(v => new BigNumber(v.toString())));
+    gaugeBalancesCalls.push(gauge.read.balanceOf([voterProxy]).then(v => new BigNumber(v.toString())));
+    gaugeWorkingBalancesCalls.push(gauge.read.working_balances([voterProxy]).then(v => new BigNumber(v.toString())));
     pool.rewards?.forEach(extra => {
       extraCalls.push(gauge.read.reward_data([extra.token]));
       extraData.push({ pool: pool.name, token: extra.token });

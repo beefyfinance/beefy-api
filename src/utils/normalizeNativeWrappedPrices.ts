@@ -1,5 +1,5 @@
-import { addressBookByChainId } from '../../packages/address-book/src/address-book/index.ts';
 import { uniq } from 'lodash-es';
+import { addressBookByChainId } from '../../packages/address-book/src/address-book/index.ts';
 import { getLoggerFor } from './logger/index.ts';
 
 const logger = getLoggerFor({ module: 'prices' });

@@ -1,9 +1,9 @@
-import { getApyBreakdown } from '../common/getApyBreakdownNew.ts';
 import { BigNumber } from 'bignumber.js';
 import { fetchPrice } from '../../../utils/fetchPrice.ts';
-
 import { getLoggerFor } from '../../../utils/logger/index.ts';
-import convexPoolsData from '../../../data/ethereum/convexPools.json' with { type: "json" };
+import { getApyBreakdown } from '../common/getApyBreakdownNew.ts';
+import convexPoolsData from '../../../data/ethereum/convexPools.json' with { type: 'json' };
+
 const logger = getLoggerFor({ module: 'apy', platform: 'stakedao', chain: 'ethereum' });
 
 const pools = convexPoolsData.filter(p => p.stakeDao);

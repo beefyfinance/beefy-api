@@ -1,8 +1,8 @@
-import getChainTvl from './getChainTvl.js';
 import { getKey, setKey } from '../../utils/cache/index.ts';
+import { SupportedChains } from '../../utils/chain';
 import { getLoggerFor } from '../../utils/logger/index.js';
 import { contextAllSettled, isContextResultFulfilled, isContextResultRejected } from '../../utils/promise';
-import { SupportedChains } from '../../utils/chain';
+import getChainTvl from './getChainTvl.js';
 
 const logger = getLoggerFor({ module: 'tvl' });
 

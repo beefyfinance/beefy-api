@@ -1,4 +1,7 @@
 import { URLSearchParams } from 'node:url';
+import { mapValues, omitBy } from 'lodash-es';
+import { redactSecrets } from '../../../../utils/secrets.ts';
+import { type ApiResponse, type ExtraQuoteResponse, isErrorApiResponse, type SuccessApiResponse } from '../common.ts';
 import {
   type ILiquidSwapApi,
   isLiquidSwapErrorResponse,
@@ -9,9 +12,6 @@ import {
   type SwapRequest,
   type SwapResponse,
 } from './types.ts';
-import { mapValues, omitBy } from 'lodash-es';
-import { redactSecrets } from '../../../../utils/secrets.ts';
-import { type ApiResponse, type ExtraQuoteResponse, isErrorApiResponse, type SuccessApiResponse } from '../common.ts';
 
 export class LiquidSwapApi implements ILiquidSwapApi {
   constructor(protected readonly baseUrl: string) {}
@@ -95,7 +95,7 @@ export class LiquidSwapApi implements ILiquidSwapApi {
 
   protected async priorityGet<
     ResponseType extends object,
-    Extra extends Record<string, unknown> | undefined = undefined
+    Extra extends Record<string, unknown> | undefined = undefined,
   >(path: string, request?: Record<string, string>, extra?: Extra): Promise<ApiResponse<ResponseType, Extra>> {
     return this.doGet(path, request, extra);
   }

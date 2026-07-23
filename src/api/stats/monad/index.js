@@ -1,17 +1,17 @@
-import { getBeefyCowMonadApys } from './getBeefyCowMonadApys.ts';
-import { getCurveApys } from './getCurveApys.js';
-import { getMorphoApys } from '../common/morpho/getMorphoApys.js';
-import { getCurvanceApys } from './getCurvanceApys.ts';
-import { getNeverlandApys } from './getNeverlandApys.ts';
-import { getEulerApys } from './getEulerApys.ts';
-import { getGearboxApys } from '../common/gearbox/getGearboxApys.js';
-import { getUniswapApys } from './getUniswapApys.js';
-import getBalancerMonadApys from './getBalancerApys.ts';
-import { getAaveV3Apys } from './getAaveV3Apys.js';
 import { MONAD_CHAIN_ID } from '../../../constants.ts';
 import { getLoggerFor } from '../../../utils/logger/index.ts';
-import morphoPoolsData from '../../../data/monad/morphoPools.json' with { type: "json" };
-import gearboxPoolsData from '../../../data/monad/gearboxPools.json' with { type: "json" };
+import { getGearboxApys } from '../common/gearbox/getGearboxApys.js';
+import { getMorphoApys } from '../common/morpho/getMorphoApys.js';
+import { getAaveV3Apys } from './getAaveV3Apys.js';
+import getBalancerMonadApys from './getBalancerApys.ts';
+import { getBeefyCowMonadApys } from './getBeefyCowMonadApys.ts';
+import { getCurvanceApys } from './getCurvanceApys.ts';
+import { getCurveApys } from './getCurveApys.js';
+import { getEulerApys } from './getEulerApys.ts';
+import { getNeverlandApys } from './getNeverlandApys.ts';
+import { getUniswapApys } from './getUniswapApys.js';
+import gearboxPoolsData from '../../../data/monad/gearboxPools.json' with { type: 'json' };
+import morphoPoolsData from '../../../data/monad/morphoPools.json' with { type: 'json' };
 
 const logger = getLoggerFor({ module: 'apy', chain: MONAD_CHAIN_ID });
 

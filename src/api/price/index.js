@@ -1,6 +1,6 @@
-import { getAmmTokensPrices, getAmmLpPrices, getLpBreakdown } from '../stats/getAmmPrices.ts';
-import { getMooTokenPrices } from '../stats/getMooTokenPrices.ts';
 import { getLoggerFor } from '../../utils/logger/index.ts';
+import { getAmmLpPrices, getAmmTokensPrices, getLpBreakdown } from '../stats/getAmmPrices.ts';
+import { getMooTokenPrices } from '../stats/getMooTokenPrices.ts';
 
 const logger = getLoggerFor({ module: 'prices' });
 
@@ -46,9 +46,4 @@ async function lpsBreakdown(ctx) {
   }
 }
 
-export {
-  lpsPrices,
-  tokenPrices,
-  mooTokenPrices,
-  lpsBreakdown,
-};
+export { lpsBreakdown, lpsPrices, mooTokenPrices, tokenPrices };

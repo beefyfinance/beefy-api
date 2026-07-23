@@ -1,14 +1,14 @@
-import getAlienBaseApys from './getAlienBaseApys.js';
-import { getAerodromeApys } from './getAerodromeApys.js';
-import { getCurveApys } from './getCurveApys.js';
-import { getBeefyBaseCowApys } from './getBeefyBaseCowApys.ts';
-import { getAaveV3Apys } from './getAaveV3Apys.js';
-import { getMellowVeloApys } from '../common/getMellowVeloApys.js';
-import { getMorphoApys } from '../common/morpho/getMorphoApys.js';
 import { BASE_CHAIN_ID } from '../../../constants.ts';
 import { getLoggerFor } from '../../../utils/logger/index.ts';
-import mellowAeroPoolsData from '../../../data/base/mellowAeroPools.json' with { type: "json" };
-import morphoPoolsData from '../../../data/base/morphoPools.json' with { type: "json" };
+import { getMellowVeloApys } from '../common/getMellowVeloApys.js';
+import { getMorphoApys } from '../common/morpho/getMorphoApys.js';
+import { getAaveV3Apys } from './getAaveV3Apys.js';
+import { getAerodromeApys } from './getAerodromeApys.js';
+import getAlienBaseApys from './getAlienBaseApys.js';
+import { getBeefyBaseCowApys } from './getBeefyBaseCowApys.ts';
+import { getCurveApys } from './getCurveApys.js';
+import mellowAeroPoolsData from '../../../data/base/mellowAeroPools.json' with { type: 'json' };
+import morphoPoolsData from '../../../data/base/morphoPools.json' with { type: 'json' };
 
 const logger = getLoggerFor({ module: 'apy', chain: BASE_CHAIN_ID });
 

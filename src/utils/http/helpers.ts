@@ -1,3 +1,5 @@
+import { URLSearchParams } from 'node:url';
+import { typedDefaultsDeep } from '../object.ts';
 import type {
   FetchBody,
   FetchParams,
@@ -8,8 +10,6 @@ import type {
   PassThroughBodyInit,
   PassThroughURLSearchParamsInit,
 } from './types.ts';
-import { typedDefaultsDeep } from '../object.ts';
-import { URLSearchParams } from 'node:url';
 
 export const ABORT_REASON_TIMEOUT = '__timeout';
 
@@ -20,24 +20,15 @@ const DEFAULT_FETCH_PARAMS_OPTIONS: FetchParamsOptions = {
   keepUndefined: false,
 };
 
-export function getUrlSearchParams(
-  params: GetUrlSearchParamsRecord,
-  options?: FetchParamsOptions
-): URLSearchParams {
+export function getUrlSearchParams(params: GetUrlSearchParamsRecord, options?: FetchParamsOptions): URLSearchParams {
   return new URLSearchParams(
-    valuesToString(
-      flattenArrayValues(Object.entries(params)),
-      typedDefaultsDeep(options, DEFAULT_FETCH_PARAMS_OPTIONS)
-    )
+    valuesToString(flattenArrayValues(Object.entries(params)), typedDefaultsDeep(options, DEFAULT_FETCH_PARAMS_OPTIONS))
   );
 }
 
-function flattenArrayValues(
-  entries: Array<GetUrlSearchParamsValuesEntry>
-): Array<GetUrlSearchParamsScalarsEntry> {
+function flattenArrayValues(entries: Array<GetUrlSearchParamsValuesEntry>): Array<GetUrlSearchParamsScalarsEntry> {
   return entries.flatMap(
-    ([k, v]): Array<GetUrlSearchParamsScalarsEntry> =>
-      Array.isArray(v) ? v.map(i => [k, i]) : [[k, v]]
+    ([k, v]): Array<GetUrlSearchParamsScalarsEntry> => (Array.isArray(v) ? v.map(i => [k, i]) : [[k, v]])
   );
 }
 
@@ -55,18 +46,12 @@ function valuesToString(
   }
 
   const nullString = typeof keepNull === 'string' ? keepNull : DEFAULT_NULL_STRING;
-  const undefinedString =
-    typeof keepUndefined === 'string' ? keepUndefined : DEFAULT_UNDEFINED_STRING;
+  const undefinedString = typeof keepUndefined === 'string' ? keepUndefined : DEFAULT_UNDEFINED_STRING;
 
-  return entries.map(([k, v]) => [
-    k,
-    v === null ? nullString : v === undefined ? undefinedString : v.toString(),
-  ]);
+  return entries.map(([k, v]) => [k, v === null ? nullString : v === undefined ? undefinedString : v.toString()]);
 }
 
-export function isPassThroughURLSearchParamsInit(
-  params: FetchParams
-): params is PassThroughURLSearchParamsInit {
+export function isPassThroughURLSearchParamsInit(params: FetchParams): params is PassThroughURLSearchParamsInit {
   if (!!params) {
     return false;
   }
@@ -91,10 +76,7 @@ export function isPassThroughBodyInit(body: FetchBody): body is PassThroughBodyI
   }
   if (typeof body === 'object') {
     return (
-      body instanceof ArrayBuffer ||
-      body instanceof Blob ||
-      body instanceof FormData ||
-      body instanceof URLSearchParams
+      body instanceof ArrayBuffer || body instanceof Blob || body instanceof FormData || body instanceof URLSearchParams
     );
   }
   return false;

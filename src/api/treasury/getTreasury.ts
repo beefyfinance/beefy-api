@@ -1,9 +1,17 @@
-import { BigNumber  }from 'bignumber.js';
+import { BigNumber } from 'bignumber.js';
 import { addressBook } from '../../../packages/address-book/src/address-book/index.ts';
 import { chainIdMap } from '../../../packages/address-book/src/util/chainIdMap.ts';
+import { ZERO_ADDRESS } from '../../utils/address.ts';
+import { keysToObject } from '../../utils/array.ts';
 import { getKey, setKey } from '../../utils/cache/index.ts';
-import { extractBalancesFromTreasuryCallResults, mapAssetToCall } from './multicallUtils.ts';
+import { type ApiChain, SupportedChains } from '../../utils/chain.ts';
+import { envNumber } from '../../utils/env.ts';
+import { getLoggerFor } from '../../utils/logger/index.ts';
+import { contextAllSettled, isContextResultRejected, withTimeout } from '../../utils/promise.ts';
+import { serviceEventBus } from '../../utils/ServiceEventBus.ts';
+import { getAmmPrice } from '../stats/getAmmPrices.ts';
 import { getTokenAddressesByChain, getVaultAddressesByChain } from './assetHelpers.ts';
+import { extractBalancesFromTreasuryCallResults, mapAssetToCall } from './multicallUtils.ts';
 import {
   isGovAsset,
   isValidatorAsset,
@@ -14,14 +22,6 @@ import {
   type TreasuryReport,
   type TreasuryWalletRegistry,
 } from './types.ts';
-import { serviceEventBus } from '../../utils/ServiceEventBus.ts';
-import { type ApiChain, SupportedChains } from '../../utils/chain.ts';
-import { getAmmPrice } from '../stats/getAmmPrices.ts';
-import { keysToObject } from '../../utils/array.ts';
-import { ZERO_ADDRESS } from '../../utils/address.ts';
-import { contextAllSettled, isContextResultRejected, withTimeout } from '../../utils/promise.ts';
-import { envNumber } from '../../utils/env.ts';
-import { getLoggerFor } from '../../utils/logger/index.ts';
 
 const logger = getLoggerFor({ module: 'treasury' });
 

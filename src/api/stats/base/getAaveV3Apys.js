@@ -1,6 +1,6 @@
-import { getAaveV3ApyData } from '../common/aave/getAaveV3Apys.js';
-import pools from '../../../data/base/aaveV3Pools.json' with { type: "json" };
 import { BASE_CHAIN_ID } from '../../../constants.ts';
+import { getAaveV3ApyData } from '../common/aave/getAaveV3Apys.js';
+import pools from '../../../data/base/aaveV3Pools.json' with { type: 'json' };
 
 const config = {
   dataProvider: '0x0F43731EB8d45A581f4a36DD74F5f358bc90C73A',

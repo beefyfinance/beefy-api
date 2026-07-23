@@ -1,20 +1,20 @@
+import type { Abi } from 'abitype';
+import PQueue from 'p-queue';
 import {
   type Client,
   createClient,
   createPublicClient,
   getContract,
-  http,
   type HttpTransport,
   type HttpTransportConfig,
+  http,
   type PublicClient,
 } from 'viem';
-import type { Abi } from 'abitype';
-import { getChain } from './chains.ts';
 import type { ChainId } from '../../../packages/address-book/src/address-book/index.ts';
-import { rateLimitedHttp } from './transport.ts';
-import PQueue from 'p-queue';
 import { envBoolean, envNumber } from '../../utils/env.ts';
-import { customFallback, type CustomFallbackTransport } from './fallbackTransport.ts';
+import { getChain } from './chains.ts';
+import { type CustomFallbackTransport, customFallback } from './fallbackTransport.ts';
+import { rateLimitedHttp } from './transport.ts';
 
 const BATCH_WAIT = envNumber('BATCH_WAIT', 1500);
 
@@ -142,11 +142,7 @@ export const trimContractError = (error: any): any => {
   return error;
 };
 
-export const fetchContract = <ContractAbi extends Abi>(
-  address: string,
-  abi: ContractAbi,
-  chainId: ChainId
-) => {
+export const fetchContract = <ContractAbi extends Abi>(address: string, abi: ContractAbi, chainId: ChainId) => {
   const publicClient = getMulticallClientForChain(chainId);
   const contract = getContract({ address: address as `0x${string}`, abi, publicClient });
 

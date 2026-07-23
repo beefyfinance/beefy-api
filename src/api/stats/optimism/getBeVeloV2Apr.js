@@ -1,10 +1,11 @@
 import { BigNumber } from 'bignumber.js';
-import { fetchPrice } from '../../../utils/fetchPrice.ts';
-import { OPTIMISM_CHAIN_ID } from '../../../constants.ts';
 import { addressBook } from '../../../../packages/address-book/src/address-book/index.ts';
 import ERC20Abi from '../../../abis/ERC20Abi.ts';
 import IRewardPool from '../../../abis/IRewardPool.ts';
+import { OPTIMISM_CHAIN_ID } from '../../../constants.ts';
+import { fetchPrice } from '../../../utils/fetchPrice.ts';
 import { fetchContract } from '../../rpc/client.ts';
+
 const {
   optimism: {
     tokens: { beVELO },
@@ -19,10 +20,7 @@ const BLOCKS_PER_DAY = 28800;
 const rewards = '0x2489F2f7f972cA7eE6436666A3Ab0AAFB5A06c7b';
 
 const getBeVeloV2Apr = async () => {
-  const [yearlyRewardsInUsd, totalStakedInUsd] = await Promise.all([
-    getYearlyRewardsInUsd(),
-    getTotalStakedInUsd(),
-  ]);
+  const [yearlyRewardsInUsd, totalStakedInUsd] = await Promise.all([getYearlyRewardsInUsd(), getTotalStakedInUsd()]);
 
   const apr = yearlyRewardsInUsd.dividedBy(totalStakedInUsd);
 

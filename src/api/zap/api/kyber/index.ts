@@ -1,6 +1,6 @@
 import PQueue from 'p-queue';
-import { RateLimitedKyberApi } from './RateLimitedKyberApi.ts';
 import { type AnyChain, type ApiChain, toApiChain } from '../../../../utils/chain.ts';
+import { RateLimitedKyberApi } from './RateLimitedKyberApi.ts';
 import type { IKyberApi } from './types.ts';
 
 // Configure rate limiting

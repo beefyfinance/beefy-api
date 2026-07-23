@@ -1,7 +1,7 @@
 import { BASE_CHAIN_ID as chainId } from '../../../constants.ts';
 import { getMultiRewardMasterChefApys } from '../common/getMultiRewardMasterChefApys.ts';
+import v3Pools from '../../../data/base/alienBaseBunniPools.json' with { type: 'json' };
 
-import v3Pools from '../../../data/base/alienBaseBunniPools.json' with { type: "json" };
 const pools = [...v3Pools];
 
 const getAlienBaseApys = async () =>

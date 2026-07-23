@@ -1,6 +1,6 @@
 import { BigNumber } from 'bignumber.js';
+import { default as ISolidlyPair } from '../../../abis/ISolidlyPair.ts';
 import { fetchContract } from '../../rpc/client.ts';
-import { default as ISolidlyPair }from '../../../abis/ISolidlyPair.ts';
 
 const getSolidlyStablePrices = async (chainId, pools, tokenPrices) => {
   let prices = {};
@@ -15,10 +15,7 @@ const getSolidlyStablePrices = async (chainId, pools, tokenPrices) => {
     [[], []]
   );
 
-  const [reserveResults, supplyResults] = await Promise.all([
-    Promise.all(reserveCalls),
-    Promise.all(supplyCalls),
-  ]);
+  const [reserveResults, supplyResults] = await Promise.all([Promise.all(reserveCalls), Promise.all(supplyCalls)]);
 
   const poolsData = reserveResults.map((_, i) => {
     return {
@@ -41,10 +38,7 @@ const getSolidlyStablePrices = async (chainId, pools, tokenPrices) => {
     prices[pool.name] = {
       price,
       tokens: [pool.lp0.address, pool.lp1.address],
-      balances: [
-        lp0Bal.dividedBy(pool.lp0.decimals).toString(10),
-        lp1Bal.dividedBy(pool.lp1.decimals).toString(10),
-      ],
+      balances: [lp0Bal.dividedBy(pool.lp0.decimals).toString(10), lp1Bal.dividedBy(pool.lp1.decimals).toString(10)],
       totalSupply: totalSupply.dividedBy(pool.decimals).toString(10),
     };
   }

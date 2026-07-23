@@ -1,10 +1,10 @@
 import { BigNumber } from 'bignumber.js';
-import { fetchContract } from '../../rpc/client.ts';
 import ERC20Abi from '../../../abis/ERC20Abi.ts';
 import { MONAD_CHAIN_ID } from '../../../constants.ts';
 import { getLoggerFor } from '../../../utils/logger/index.ts';
+import { fetchContract } from '../../rpc/client.ts';
+import pools from '../../../data/monad/neverlandPools.json' with { type: 'json' };
 
-import pools from '../../../data/monad/neverlandPools.json' with { type: "json" };
 const logger = getLoggerFor({ module: 'prices', platform: 'neverland', chain: MONAD_CHAIN_ID });
 
 export const getNeverlandPrices = async tokenPrices => {

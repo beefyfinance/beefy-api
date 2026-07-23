@@ -1,8 +1,8 @@
-import { getBeefyCowSonicApys } from './getBeefyCowSonicApys.ts';
-import { getSwapxApys } from './getSwapxApys.js';
-import { getBeSonicApy } from './getBeSonicApy.ts';
 import { SONIC_CHAIN_ID } from '../../../constants.ts';
 import { getLoggerFor } from '../../../utils/logger/index.ts';
+import { getBeefyCowSonicApys } from './getBeefyCowSonicApys.ts';
+import { getBeSonicApy } from './getBeSonicApy.ts';
+import { getSwapxApys } from './getSwapxApys.js';
 
 const logger = getLoggerFor({ module: 'apy', chain: SONIC_CHAIN_ID });
 

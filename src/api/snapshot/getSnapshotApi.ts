@@ -1,5 +1,5 @@
-import { type ApolloClient, gql } from '@apollo/client/core/index.js';
 import type { NormalizedCacheObject } from '@apollo/client/cache/inmemory/types.js';
+import { type ApolloClient, gql } from '@apollo/client/core/index.js';
 import { client } from '../../apollo/client.ts';
 import type { ProposalApiResponse, Space } from './types.ts';
 

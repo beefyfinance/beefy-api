@@ -1,21 +1,15 @@
-import getJoeApy from './getJoeApy.js';
-import { getGmxApys } from './getGmxApys.js';
-import { getBeefyAvaxCowApys } from './getBeefyAvaxCowApys.ts';
-import { getBlackholeApys } from './getBlackholeApys.js';
-import { getSiloApys } from '../common/silo/getSiloApys.js';
 import { AVAX_CHAIN_ID } from '../../../constants.ts';
 import { getLoggerFor } from '../../../utils/logger/index.ts';
-import siloPoolsData from '../../../data/avax/siloPools.json' with { type: "json" };
+import { getSiloApys } from '../common/silo/getSiloApys.js';
+import { getBeefyAvaxCowApys } from './getBeefyAvaxCowApys.ts';
+import { getBlackholeApys } from './getBlackholeApys.js';
+import { getGmxApys } from './getGmxApys.js';
+import getJoeApy from './getJoeApy.js';
+import siloPoolsData from '../../../data/avax/siloPools.json' with { type: 'json' };
 
 const logger = getLoggerFor({ module: 'apy', chain: AVAX_CHAIN_ID });
 
-const getApys = [
-  getGmxApys,
-  getJoeApy,
-  getBeefyAvaxCowApys,
-  getBlackholeApys,
-  () => getSiloApys(43114, siloPoolsData),
-];
+const getApys = [getGmxApys, getJoeApy, getBeefyAvaxCowApys, getBlackholeApys, () => getSiloApys(43114, siloPoolsData)];
 
 const getAvaxApys = async () => {
   const start = Date.now();

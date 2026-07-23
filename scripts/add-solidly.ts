@@ -1,18 +1,15 @@
-import { ChainId } from '../packages/address-book/src/address-book/index.ts';
-
-import yargs from 'yargs';
-import { hideBin } from 'yargs/helpers';
 import fs from 'node:fs';
 import path from 'node:path';
-
 import { ethers } from 'ethers';
-import { MULTICHAIN_RPC } from '../src/constants.ts';
-
-import voterABI from '../src/abis/Voter.json' with { type: "json" };
-import etherexVoterABI from '../src/abis/EtherexVoter.json' with { type: "json" };
-import ERC20ABI from '../src/abis/ERC20.json' with { type: "json" };
-import { addressBook } from '../packages/address-book/src/address-book/index.ts';
+import yargs from 'yargs';
+import { hideBin } from 'yargs/helpers';
+import { addressBook, ChainId } from '../packages/address-book/src/address-book/index.ts';
 import ISolidlyPair from '../src/abis/ISolidlyPair.ts';
+import { MULTICHAIN_RPC } from '../src/constants.ts';
+import ERC20ABI from '../src/abis/ERC20.json' with { type: 'json' };
+import etherexVoterABI from '../src/abis/EtherexVoter.json' with { type: 'json' };
+import voterABI from '../src/abis/Voter.json' with { type: 'json' };
+
 const {
   fantom: {
     platforms: { spiritswap, equalizer, fvm },

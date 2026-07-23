@@ -1,5 +1,5 @@
 import { getUniV3PositionPrices } from '../common/getUniV3PositionPrices.ts';
-import pools from '../../../data/base/aerodromeClPools.json' with { type: "json" };
+import pools from '../../../data/base/aerodromeClPools.json' with { type: 'json' };
 
 export default async function getAerodromePositionPrices(tokenPrices: Record<string, number>) {
   const params = {

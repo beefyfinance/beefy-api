@@ -1,14 +1,14 @@
-import { fetchPrice } from '../../utils/fetchPrice.ts';
-import { getVaultById, getVaultsByTypeChain } from './getMultichainVaults.ts';
-import { beSonicAbi } from '../../abis/sonic/beSonicAbi.ts';
 import { BigNumber } from 'bignumber.js';
-import { EXCLUDED_IDS_FROM_TVL } from '../../constants.ts';
-import { fetchContract } from '../rpc/client.ts';
 import BeefyVaultV6Abi from '../../abis/BeefyVault.ts';
 import ERC20Abi from '../../abis/ERC20Abi.ts';
+import { beSonicAbi } from '../../abis/sonic/beSonicAbi.ts';
+import { EXCLUDED_IDS_FROM_TVL } from '../../constants.ts';
 import { getVaultBalanceOverride } from '../../data/vaultOverrides.ts';
 import { toChainId } from '../../utils/chain.js';
+import { fetchPrice } from '../../utils/fetchPrice.ts';
 import { getLoggerFor } from '../../utils/logger/index.ts';
+import { fetchContract } from '../rpc/client.ts';
+import { getVaultById, getVaultsByTypeChain } from './getMultichainVaults.ts';
 
 const logger = getLoggerFor({ module: 'tvl' });
 

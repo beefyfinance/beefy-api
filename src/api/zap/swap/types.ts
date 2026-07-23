@@ -1,7 +1,7 @@
 import type { BigNumber } from 'bignumber.js';
+import type { ApiChain } from '../../../utils/chain.ts';
 import type { TokenErc20 } from '../../tokens/types.ts';
 import type { ProviderId } from './providers/index.ts';
-import type { ApiChain } from '../../../utils/chain.ts';
 
 export type TokenSupported = {
   supported: true;
@@ -20,15 +20,9 @@ export type TokenSupportByAddress = Record<string, TokenSupport>;
 
 export type TokenSupportByProviderByAddress = Partial<Record<ProviderId, TokenSupportByAddress>>;
 
-export type TokenSupportByChainByProviderByAddress = Record<
-  ApiChain,
-  TokenSupportByProviderByAddress
->;
+export type TokenSupportByChainByProviderByAddress = Record<ApiChain, TokenSupportByProviderByAddress>;
 
-export type ProviderSupportByChainByAddress = Record<
-  ApiChain,
-  Record<string, Partial<Record<ProviderId, boolean>>>
->;
+export type ProviderSupportByChainByAddress = Record<ApiChain, Record<string, Partial<Record<ProviderId, boolean>>>>;
 
 export type TokenWithPrice = {
   token: TokenErc20;

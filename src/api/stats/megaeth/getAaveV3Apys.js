@@ -1,6 +1,6 @@
-import { getAaveV3ApyData } from '../common/aave/getAaveV3Apys.js';
-import pools from '../../../data/megaeth/aaveV3Pools.json' with { type: "json" };
 import { MEGAETH_CHAIN_ID } from '../../../constants.ts';
+import { getAaveV3ApyData } from '../common/aave/getAaveV3Apys.js';
+import pools from '../../../data/megaeth/aaveV3Pools.json' with { type: 'json' };
 
 const config = {
   dataProvider: '0x9588b453A4EE24a420830CB3302195cA7aA3b403',

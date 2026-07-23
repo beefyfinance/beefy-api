@@ -8,7 +8,7 @@
     "v2": true,
     "skim": true
   },
-  { 
+  {
     "name": "morpho-v2-monad-august-usdc-v2",
     "address": "0x80017bF0f793EBbE9679Cd61ff0e395B62CAbB59",
     "oracle": "tokens",

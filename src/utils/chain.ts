@@ -1,5 +1,5 @@
-import { addressBook, ChainId } from '../../packages/address-book/src/address-book/index.ts';
 import { invert } from 'lodash-es';
+import { addressBook, ChainId } from '../../packages/address-book/src/address-book/index.ts';
 import { chainIdMap } from '../../packages/address-book/src/util/chainIdMap.ts';
 
 export type ApiChain = keyof typeof ChainId;

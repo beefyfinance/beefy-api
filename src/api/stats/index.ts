@@ -1,6 +1,6 @@
-import { getApys, getBoostAprs } from './getApys.js';
 import type { Context } from 'koa';
 import { infinityToStringReplacer } from '../../utils/json.ts';
+import { getApys, getBoostAprs } from './getApys.js';
 
 /**
  * Infinity is serialized to JSON as null, so we convert it to a string instead

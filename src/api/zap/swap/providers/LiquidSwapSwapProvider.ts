@@ -1,8 +1,8 @@
-import type { ISwapProvider, SwapRequest, SwapResponse } from './ISwapProvider.ts';
-import { getLiquidSwapApi, supportedChains } from '../../api/liquid-swap/index.ts';
+import { BigNumber } from 'bignumber.js';
 import type { ApiChain } from '../../../../utils/chain.ts';
 import { isResultFulfilled } from '../../../../utils/promise.ts';
-import { BigNumber } from 'bignumber.js';
+import { getLiquidSwapApi, supportedChains } from '../../api/liquid-swap/index.ts';
+import type { ISwapProvider, SwapRequest, SwapResponse } from './ISwapProvider.ts';
 
 export class LiquidSwapSwapProvider implements ISwapProvider {
   public readonly id = 'liquid-swap';

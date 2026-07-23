@@ -1,13 +1,13 @@
 import { BigNumber } from 'bignumber.js';
-import { fetchPrice } from '../../../../utils/fetchPrice.ts';
-import { getApyBreakdown } from '../../common/getApyBreakdown.ts';
-import { BSC_CHAIN_ID as chainId } from '../../../../constants.ts';
 import { addressBook } from '../../../../../packages/address-book/src/address-book/index.ts';
-import { fetchContract } from '../../../rpc/client.ts';
+import IOOEStaking from '../../../../abis/bsc/IOOEStaking.ts';
+import { BSC_CHAIN_ID as chainId } from '../../../../constants.ts';
+import { fetchPrice } from '../../../../utils/fetchPrice.ts';
 import getBlockTime from '../../../../utils/getBlockTime.js';
 import { getEDecimals } from '../../../../utils/getEDecimals.ts';
-import IOOEStaking from '../../../../abis/bsc/IOOEStaking.ts';
-import pools from '../../../../data/bsc/ooeV2LpPools.json' with { type: "json" };
+import { fetchContract } from '../../../rpc/client.ts';
+import { getApyBreakdown } from '../../common/getApyBreakdown.ts';
+import pools from '../../../../data/bsc/ooeV2LpPools.json' with { type: 'json' };
 
 const {
   bsc: {
@@ -39,9 +39,7 @@ const getFarmApys = async () => {
 
     const secondsPerYear = 31536000;
     const yearlyRewards = rewardRates[i].times(secondsPerYear).dividedBy(secondsPerBlock);
-    const yearlyRewardsInUsd = yearlyRewards
-      .times(rewardTokenPrice)
-      .dividedBy(getEDecimals(OOEV2.decimals));
+    const yearlyRewardsInUsd = yearlyRewards.times(rewardTokenPrice).dividedBy(getEDecimals(OOEV2.decimals));
 
     const apy = yearlyRewardsInUsd.dividedBy(totalStakedInUsd);
     apys.push(apy);
@@ -64,4 +62,3 @@ const getPoolsData = async () => {
   const rewardRates = res[1].map(v => new BigNumber(v.toString()));
   return { balances, rewardRates };
 };
-

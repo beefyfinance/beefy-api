@@ -1,15 +1,15 @@
-import { type AppChain, fromChainNumber, toAppChain, toChainId } from '../../../../utils/chain.ts';
-import type { CampaignType, IOffchainRewardProvider, MerklCampaign, Vault } from '../../types.ts';
-import { UnsupportedChainError } from '../../errors.ts';
-import type { CampaignTypeSetting, MerklApiCampaignType } from './types.ts';
-import { getMerklOpportunitiesForChain } from './proxyClient.ts';
-import type { MerklProxyCampaign, MerklProxyOpportunity } from './proxyTypes.ts';
 import { groupBy, pick } from 'lodash-es';
 import { type Address, getAddress, isAddressEqual } from 'viem';
-import { isFiniteNumber } from '../../../../utils/number.ts';
 import { isDefined } from '../../../../utils/array.ts';
+import { type AppChain, fromChainNumber, toAppChain, toChainId } from '../../../../utils/chain.ts';
 import { getUnixNow, isUnixBetween } from '../../../../utils/date.ts';
 import { getLoggerFor } from '../../../../utils/logger/index.ts';
+import { isFiniteNumber } from '../../../../utils/number.ts';
+import { UnsupportedChainError } from '../../errors.ts';
+import type { CampaignType, IOffchainRewardProvider, MerklCampaign, Vault } from '../../types.ts';
+import { getMerklOpportunitiesForChain } from './proxyClient.ts';
+import type { MerklProxyCampaign, MerklProxyOpportunity } from './proxyTypes.ts';
+import type { CampaignTypeSetting, MerklApiCampaignType } from './types.ts';
 
 const logger = getLoggerFor({ module: 'rewards', platform: 'merkl' });
 
@@ -90,8 +90,8 @@ export class MerklProvider implements IOffchainRewardProvider {
     const vaultsByPoolAddress = groupBy(vaults, v => v.poolAddress.toLowerCase());
     const poolMatches = opportunities.filter(
       o =>
-        !!vaultsByPoolAddress[o.identifier.toLowerCase()] &&
-        !(o.campaigns ?? []).some(c => receiptMatchedRootCampaigns.has(c.id))
+        !!vaultsByPoolAddress[o.identifier.toLowerCase()]
+        && !(o.campaigns ?? []).some(c => receiptMatchedRootCampaigns.has(c.id))
     );
 
     const vaultOpportunities = receiptMatches

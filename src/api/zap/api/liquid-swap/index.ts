@@ -1,6 +1,6 @@
 import PQueue from 'p-queue';
-import { RateLimitedLiquidSwapApi } from './RateLimitedLiquidSwapApi.ts';
 import { type AnyChain, type ApiChain, toApiChain } from '../../../../utils/chain.ts';
+import { RateLimitedLiquidSwapApi } from './RateLimitedLiquidSwapApi.ts';
 import type { ILiquidSwapApi } from './types.ts';
 
 // Configure rate limiting

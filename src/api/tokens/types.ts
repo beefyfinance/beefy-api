@@ -1,5 +1,5 @@
-import type { ApiChain } from '../../utils/chain.ts';
 import type { Address } from 'viem';
+import type { ApiChain } from '../../utils/chain.ts';
 
 type TokenBase = {
   id: string;

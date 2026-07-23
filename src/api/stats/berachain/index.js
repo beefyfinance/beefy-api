@@ -1,8 +1,8 @@
+import { BERACHAIN_CHAIN_ID } from '../../../constants.ts';
+import { getLoggerFor } from '../../../utils/logger/index.ts';
 import { getBeefyCowBerachainApys } from './getBeefyCowBerachainApys.ts';
 import getBeraswapApys from './getBeraswapApys.js';
 import { getKodiakApys } from './getKodiakApys.js';
-import { BERACHAIN_CHAIN_ID } from '../../../constants.ts';
-import { getLoggerFor } from '../../../utils/logger/index.ts';
 
 const logger = getLoggerFor({ module: 'apy', chain: BERACHAIN_CHAIN_ID });
 

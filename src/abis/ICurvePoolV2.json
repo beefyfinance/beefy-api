@@ -195,10 +195,7 @@
     "stateMutability": "payable",
     "type": "function",
     "name": "add_liquidity",
-    "inputs": [
-      { "name": "amounts", "type": "uint256[2]" },
-      { "name": "min_mint_amount", "type": "uint256" }
-    ],
+    "inputs": [{ "name": "amounts", "type": "uint256[2]" }, { "name": "min_mint_amount", "type": "uint256" }],
     "outputs": [{ "name": "", "type": "uint256" }]
   },
   {
@@ -228,10 +225,7 @@
     "stateMutability": "nonpayable",
     "type": "function",
     "name": "remove_liquidity",
-    "inputs": [
-      { "name": "_amount", "type": "uint256" },
-      { "name": "min_amounts", "type": "uint256[2]" }
-    ],
+    "inputs": [{ "name": "_amount", "type": "uint256" }, { "name": "min_amounts", "type": "uint256[2]" }],
     "outputs": []
   },
   {
@@ -369,10 +363,7 @@
     "stateMutability": "view",
     "type": "function",
     "name": "calc_withdraw_one_coin",
-    "inputs": [
-      { "name": "token_amount", "type": "uint256" },
-      { "name": "i", "type": "uint256" }
-    ],
+    "inputs": [{ "name": "token_amount", "type": "uint256" }, { "name": "i", "type": "uint256" }],
     "outputs": [{ "name": "", "type": "uint256" }]
   },
   {

@@ -1,15 +1,13 @@
-import { ChainId, addressBook } from '../packages/address-book/src/address-book/index.ts';
-import yargs from 'yargs';
-import { hideBin } from 'yargs/helpers';
 import fs from 'node:fs';
 import path from 'node:path';
-
 import { ethers } from 'ethers';
-import { MULTICHAIN_RPC } from '../src/constants.ts';
-
-import ERC20ABI from '../src/abis/ERC20.json' with { type: "json" };
-import MasterChef from '../src/abis/MasterChef.ts';
+import yargs from 'yargs';
+import { hideBin } from 'yargs/helpers';
+import { addressBook, ChainId } from '../packages/address-book/src/address-book/index.ts';
 import LPPairABI from '../src/abis/LPPair.ts';
+import MasterChef from '../src/abis/MasterChef.ts';
+import { MULTICHAIN_RPC } from '../src/constants.ts';
+import ERC20ABI from '../src/abis/ERC20.json' with { type: 'json' };
 
 const {
   fantom: {

@@ -20,11 +20,11 @@ export function merklAprFromOpportunity(o: MerklProxyOpportunity | undefined): n
     return o.apr / 100;
   }
   if (
-    typeof o.dailyRewards === 'number' &&
-    Number.isFinite(o.dailyRewards) &&
-    typeof o.tvl === 'number' &&
-    Number.isFinite(o.tvl) &&
-    o.tvl > 0
+    typeof o.dailyRewards === 'number'
+    && Number.isFinite(o.dailyRewards)
+    && typeof o.tvl === 'number'
+    && Number.isFinite(o.tvl)
+    && o.tvl > 0
   ) {
     return (o.dailyRewards * 365) / o.tvl;
   }

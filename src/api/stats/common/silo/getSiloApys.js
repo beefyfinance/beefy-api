@@ -1,7 +1,7 @@
 import { BigNumber } from 'bignumber.js';
+import { getLoggerFor } from '../../../../utils/logger/index.ts';
 import { getApyBreakdown } from '../getApyBreakdownNew.ts';
 
-import { getLoggerFor } from '../../../../utils/logger/index.ts';
 const logger = getLoggerFor({ module: 'apy', platform: 'silo' });
 
 export const getSiloApys = async (chainId, pools) => {

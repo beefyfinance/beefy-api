@@ -1,17 +1,13 @@
-import { getCurveApys } from './getCurveApys.js';
-import { getBeefyArbCowApys } from './getBeefyArbCowApys.ts';
-import { getMorphoApys } from '../common/morpho/getMorphoApys.js';
-import { ARBITRUM_CHAIN_ID as chainId }from '../../../constants.ts';
+import { ARBITRUM_CHAIN_ID as chainId } from '../../../constants.ts';
 import { getLoggerFor } from '../../../utils/logger/index.ts';
-import morphoPoolsData from '../../../data/arbitrum/morphoPools.json' with { type: "json" };
+import { getMorphoApys } from '../common/morpho/getMorphoApys.js';
+import { getBeefyArbCowApys } from './getBeefyArbCowApys.ts';
+import { getCurveApys } from './getCurveApys.js';
+import morphoPoolsData from '../../../data/arbitrum/morphoPools.json' with { type: 'json' };
 
 const logger = getLoggerFor({ module: 'apy', chain: chainId });
 
-const getApys = [
-  getCurveApys,
-  getBeefyArbCowApys,
-  () => getMorphoApys(chainId, morphoPoolsData),
-];
+const getApys = [getCurveApys, getBeefyArbCowApys, () => getMorphoApys(chainId, morphoPoolsData)];
 
 const getArbitrumApys = async () => {
   const start = Date.now();

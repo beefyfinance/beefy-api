@@ -1,8 +1,8 @@
 import { BigNumber } from 'bignumber.js';
-import { fetchContract } from '../../rpc/client.ts';
 import ThenaLPAbi from '../../../abis/bsc/ThenaLP.ts';
-
 import { getLoggerFor } from '../../../utils/logger/index.ts';
+import { fetchContract } from '../../rpc/client.ts';
+
 const logger = getLoggerFor({ module: 'prices', platform: 'gamma' });
 
 export const getGammaPrices = async (chainId, pools, tokenPrices) => {

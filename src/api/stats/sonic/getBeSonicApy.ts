@@ -1,11 +1,11 @@
 import { sonic } from '../../../../packages/address-book/src/address-book/sonic/index.ts';
-import { fetchContract } from '../../rpc/client.ts';
 import { beSonicAbi } from '../../../abis/sonic/beSonicAbi.ts';
-import { fromWeiString } from '../../../utils/big-number.ts';
-import { SECONDS_PER_YEAR } from '../../../utils/time.ts';
-import { getApyBreakdown } from '../common/getApyBreakdownNew.ts';
 import { DAILY_HPY, SONIC_CHAIN_ID } from '../../../constants.ts';
+import { fromWeiString } from '../../../utils/big-number.ts';
 import { getLoggerFor } from '../../../utils/logger/index.ts';
+import { SECONDS_PER_YEAR } from '../../../utils/time.ts';
+import { fetchContract } from '../../rpc/client.ts';
+import { getApyBreakdown } from '../common/getApyBreakdownNew.ts';
 
 const logger = getLoggerFor({ module: 'apy', chain: SONIC_CHAIN_ID });
 

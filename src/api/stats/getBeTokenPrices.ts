@@ -1,10 +1,10 @@
-import { fetchContract } from '../rpc/client.ts';
+import { BigNumber } from 'bignumber.js';
 import { sonic } from '../../../packages/address-book/src/address-book/sonic/index.ts';
 import { beSonicAbi } from '../../abis/sonic/beSonicAbi.ts';
-import { bigintRange } from '../../utils/array.ts';
-import { BigNumber } from 'bignumber.js';
-import { BIG_ONE, BIG_UNIT_18, BIG_ZERO } from '../../utils/big-number.ts';
 import { sonicStakingAbi } from '../../abis/sonic/sonicStakingAbi.ts';
+import { bigintRange } from '../../utils/array.ts';
+import { BIG_ONE, BIG_UNIT_18, BIG_ZERO } from '../../utils/big-number.ts';
+import { fetchContract } from '../rpc/client.ts';
 
 export async function getBeTokenPrices(tokenPrices: Record<string, number>): Promise<Record<string, number>> {
   return {
@@ -34,15 +34,9 @@ async function getBeSonicPriceWhileWithdrawingSlashed(sonicPrice: number): Promi
     beContract.read.getPricePerFullShare(),
     beContract.read.lockedProfit(),
   ]);
-  const validators = await Promise.all(
-    bigintRange(validatorsLength).map(i => beContract.read.validatorByIndex([i]))
-  );
+  const validators = await Promise.all(bigintRange(validatorsLength).map(i => beContract.read.validatorByIndex([i])));
 
-  const stakingContract = fetchContract(
-    '0xFC00FACE00000000000000000000000000000000',
-    sonicStakingAbi,
-    token.chainId
-  );
+  const stakingContract = fetchContract('0xFC00FACE00000000000000000000000000000000', sonicStakingAbi, token.chainId);
 
   const validatorsWithStatus = await Promise.all(
     validators.map(async v => {
@@ -93,10 +87,7 @@ function getPenalty(amount: BigNumber, isCheater: boolean, refundRatio: BigNumbe
   }
 
   // penalty = (amount * (Decimal.unit() - refundRatio)) / Decimal.unit() + 1;
-  const penalty = amount
-    .multipliedBy(BIG_UNIT_18.minus(refundRatio))
-    .dividedToIntegerBy(BIG_UNIT_18)
-    .plus(BIG_ONE);
+  const penalty = amount.multipliedBy(BIG_UNIT_18.minus(refundRatio)).dividedToIntegerBy(BIG_UNIT_18).plus(BIG_ONE);
 
   if (penalty.gt(amount)) {
     return BIG_ZERO;

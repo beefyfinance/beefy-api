@@ -1,5 +1,10 @@
 import { promises as fsPromises } from 'node:fs';
 import fg from 'fast-glob';
+import { groupBy } from 'lodash-es';
+import { type Client, parseAbi } from 'viem';
+import { readContract } from 'viem/actions';
+import { addressBook } from '../packages/address-book/src/address-book/index.ts';
+import { ChainId } from '../packages/address-book/src/types/chainid.ts';
 import {
   type AnyCowClm,
   type CowClmWithRewardPool,
@@ -9,13 +14,8 @@ import {
   type JsonCowClm,
   validateCowClms,
 } from '../src/api/cowcentrated/types.ts';
-import { type ApiChain, isApiChain } from '../src/utils/chain.ts';
 import { getRPCClient } from '../src/api/rpc/client.ts';
-import { ChainId } from '../packages/address-book/src/types/chainid.ts';
-import { type Client, parseAbi } from 'viem';
-import { readContract } from 'viem/actions';
-import { addressBook } from '../packages/address-book/src/address-book/index.ts';
-import { groupBy } from 'lodash-es';
+import { type ApiChain, isApiChain } from '../src/utils/chain.ts';
 
 /**
  * This script checks the beefyCowVaults.json configs against the on-chain contracts.
@@ -106,9 +106,7 @@ async function checkFile(
         } else {
           error.push({
             oracleId: local.oracleId,
-            error: `tokens mismatch: config "${local.tokens.join(', ')}" !== contract "${clm.tokens.join(
-              ', '
-            )}"`,
+            error: `tokens mismatch: config "${local.tokens.join(', ')}" !== contract "${clm.tokens.join(', ')}"`,
           });
         }
       }
@@ -121,9 +119,7 @@ async function checkFile(
       if (!local.decimals.every((decimals, i) => decimals === clm.decimals[i])) {
         error.push({
           oracleId: local.oracleId,
-          error: `decimals mismatch: config "${local.decimals.join(', ')}" !== contract "${clm.decimals.join(
-            ', '
-          )}"`,
+          error: `decimals mismatch: config "${local.decimals.join(', ')}" !== contract "${clm.decimals.join(', ')}"`,
         });
       }
       if (local.tokenOracleIds.length !== clm.tokenOracleIds.length) {
