@@ -1,14 +1,14 @@
-import { serviceEventBus } from '../../../utils/ServiceEventBus.ts';
-import { type ApiChain, SupportedChains } from '../../../utils/chain.ts';
 import { groupBy, mapValues, partition } from 'lodash-es';
+import PQueue from 'p-queue';
+import { type ApiChain, SupportedChains } from '../../../utils/chain.ts';
+import { getLoggerFor } from '../../../utils/logger/index.ts';
 import { isResultFulfilled } from '../../../utils/promise.ts';
+import { serviceEventBus } from '../../../utils/ServiceEventBus.ts';
 import { sleep } from '../../../utils/time.ts';
-import type { ProviderSupportByChainByAddress } from './types.ts';
+import { type ChainProvider, DataLayer } from './DataLayer.ts';
 import { fetchProviderSupportForChainTokens, getProvidersForChain } from './fetch.ts';
 import type { ProviderId } from './providers/index.ts';
-import { type ChainProvider, DataLayer } from './DataLayer.ts';
-import PQueue from 'p-queue';
-import { getLoggerFor } from '../../../utils/logger/index.ts';
+import type { ProviderSupportByChainByAddress } from './types.ts';
 
 const logger = getLoggerFor({ module: 'zap' });
 

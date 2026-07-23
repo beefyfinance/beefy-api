@@ -1,6 +1,6 @@
-import { getAaveV3ApyData } from '../common/aave/getAaveV3Apys.js';
-import pools from '../../../data/plasma/aaveV3Pools.json' with { type: "json" };
 import { PLASMA_CHAIN_ID } from '../../../constants.ts';
+import { getAaveV3ApyData } from '../common/aave/getAaveV3Apys.js';
+import pools from '../../../data/plasma/aaveV3Pools.json' with { type: 'json' };
 
 const config = {
   dataProvider: '0xf2D6E38B407e31E7E7e4a16E6769728b76c7419F',

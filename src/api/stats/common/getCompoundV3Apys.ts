@@ -1,12 +1,12 @@
 import { BigNumber } from 'bignumber.js';
-import type { ChainId } from '../../../../packages/address-book/src/address-book/index.ts';
-import getBlockTime from '../../../utils/getBlockTime.js';
-import { fetchPrice } from '../../../utils/fetchPrice.ts';
-import cv3Token from '../../../abis/cv3Token.ts';
 import type { Abi } from 'viem';
+import type { ChainId } from '../../../../packages/address-book/src/address-book/index.ts';
+import cv3Token from '../../../abis/cv3Token.ts';
+import { fetchPrice } from '../../../utils/fetchPrice.ts';
+import getBlockTime from '../../../utils/getBlockTime.js';
+import { getLoggerFor } from '../../../utils/logger/index.ts';
 import { fetchContract, fetchNoMulticallContract } from '../../rpc/client.ts';
 import { getApyBreakdown } from './getApyBreakdownNew.ts';
-import { getLoggerFor } from '../../../utils/logger/index.ts';
 
 const logger = getLoggerFor({ module: 'apy', platform: 'compound' });
 

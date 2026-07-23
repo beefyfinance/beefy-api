@@ -1,17 +1,14 @@
 import { BigNumber } from 'bignumber.js';
-
+import SimpleRewarderPerSec from '../../../abis/avax/SimpleRewarderPerSec.ts';
+import ERC20Abi from '../../../abis/ERC20Abi.ts';
+import NettChef from '../../../abis/metis/NettChef.ts';
+import { BASE_HPY, METIS_CHAIN_ID, NET_LPF } from '../../../constants.ts';
+import { compound } from '../../../utils/compound.js';
 import { fetchPrice } from '../../../utils/fetchPrice.ts';
 import { getFarmWithTradingFeesApy } from '../../../utils/getFarmWithTradingFeesApy.ts';
-import { NET_LPF } from '../../../constants.ts';
-import { getTotalPerformanceFeeForVault } from '../../vaults/getVaultFees.ts';
-import NettChef from '../../../abis/metis/NettChef.ts';
 import { fetchContract } from '../../rpc/client.ts';
-import ERC20Abi from '../../../abis/ERC20Abi.ts';
-import SimpleRewarderPerSec from '../../../abis/avax/SimpleRewarderPerSec.ts';
-
-import pools from '../../../data/metis/netswapLpPools.json' with { type: "json" };
-import { BASE_HPY, METIS_CHAIN_ID } from '../../../constants.ts';
-import { compound } from '../../../utils/compound.js';
+import { getTotalPerformanceFeeForVault } from '../../vaults/getVaultFees.ts';
+import pools from '../../../data/metis/netswapLpPools.json' with { type: 'json' };
 
 const masterchef = '0x9d1dbB49b2744A1555EDbF1708D64dC71B0CB052';
 const oracleIdA = 'NETT';
@@ -28,8 +25,10 @@ const getNetswapApys = async () => {
   let apyBreakdowns = {};
 
   const tokenPriceA = await fetchPrice({ oracle: oracleA, id: oracleIdA });
-  const [{ rewardPerSecond, totalAllocPoint }, { balances, allocPoints, tokenPerSecData }] =
-    await Promise.all([getMasterChefData(), getPoolsData(pools)]);
+  const [{ rewardPerSecond, totalAllocPoint }, { balances, allocPoints, tokenPerSecData }] = await Promise.all([
+    getMasterChefData(),
+    getPoolsData(pools),
+  ]);
 
   const pairAddresses = pools.map(pool => pool.address);
   // const tradingAprs = await getTradingFeeApr(netswapClient, pairAddresses, liquidityProviderFee);
@@ -64,13 +63,7 @@ const getNetswapApys = async () => {
     const vaultApy = compound(simpleApy, BASE_HPY, 1, shareAfterBeefyPerformanceFee);
 
     const tradingApr = tradingAprs[pool.address.toLowerCase()] ?? new BigNumber(0);
-    const totalApy = getFarmWithTradingFeesApy(
-      simpleApy,
-      tradingApr,
-      BASE_HPY,
-      1,
-      shareAfterBeefyPerformanceFee
-    );
+    const totalApy = getFarmWithTradingFeesApy(simpleApy, tradingApr, BASE_HPY, 1, shareAfterBeefyPerformanceFee);
     // console.log(pool.name, simpleApy.valueOf(), tradingApr.valueOf(), totalApy.valueOf(), totalStakedInUsd.valueOf(), yearlyRewardsInUsd.valueOf());
 
     // Create reference for legacy /apy

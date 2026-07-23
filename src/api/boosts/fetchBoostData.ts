@@ -1,11 +1,11 @@
 import { ChainId } from '../../../packages/address-book/src/address-book/index.ts';
-import { type ApiChain, toAppChain } from '../../utils/chain.ts';
-import { fetchContract } from '../rpc/client.ts';
 import BeefyBoostAbi from '../../abis/BeefyBoost.ts';
 import { IBeefyRewardPool } from '../../abis/IBeefyRewardPool.ts';
-import type { Boost, BoostEntity, BoostPromoConfig, PromoConfig } from './types.ts';
 import { bigintRange } from '../../utils/array.ts';
 import { bigintToNumber } from '../../utils/big-int.ts';
+import { type ApiChain, toAppChain } from '../../utils/chain.ts';
+import { fetchContract } from '../rpc/client.ts';
+import type { Boost, BoostEntity, BoostPromoConfig, PromoConfig } from './types.ts';
 
 function isBoostPromo(promo: PromoConfig): promo is BoostPromoConfig {
   return promo.type === 'boost';

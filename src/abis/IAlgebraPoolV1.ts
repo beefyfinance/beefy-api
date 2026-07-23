@@ -59,9 +59,7 @@ const IAlgebraPoolV1 = [
   },
   {
     anonymous: false,
-    inputs: [
-      { indexed: true, internalType: 'address', name: 'virtualPoolAddress', type: 'address' },
-    ],
+    inputs: [{ indexed: true, internalType: 'address', name: 'virtualPoolAddress', type: 'address' }],
     name: 'Incentive',
     type: 'event',
   },

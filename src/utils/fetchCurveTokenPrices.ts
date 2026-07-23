@@ -1,19 +1,19 @@
 import { BigNumber } from 'bignumber.js';
-import ICurvePoolV2 from '../abis/ICurvePoolV2.json' with { type: "json" };
 import { addressBookByChainId, ChainId } from '../../packages/address-book/src/address-book/index.ts';
-import { fetchContract } from '../api/rpc/client.ts';
-import ICurvePoolV2Abi from '../abis/CurvePoolV2.ts';
 import type ICurvePoolAbi from '../abis/CurvePool.ts';
+import ICurvePoolV2Abi from '../abis/CurvePoolV2.ts';
 import ICurvePool from '../abis/ICurvePool.ts';
 import type StableSwap from '../abis/StableSwap.ts';
+import { fetchContract } from '../api/rpc/client.ts';
 import { getLoggerFor } from './logger/index.ts';
-import optimismCurvePools from '../data/optimism/curvePools.json' with { type: "json" };
-import fraxtalCurvePools from '../data/fraxtal/curvePools.json' with { type: "json" };
-import monadCurvePools from '../data/monad/curvePools.json' with { type: "json" };
-import arbitrumCurvePools from '../data/arbitrum/curvePools.json' with { type: "json" };
-import maticCurvePools from '../data/matic/curvePools.json' with { type: "json" };
-import ethereumConvexPools from '../data/ethereum/convexPools.json' with { type: "json" };
-import ethereumFxPools from '../data/ethereum/fxPools.json' with { type: "json" };
+import ICurvePoolV2 from '../abis/ICurvePoolV2.json' with { type: 'json' };
+import arbitrumCurvePools from '../data/arbitrum/curvePools.json' with { type: 'json' };
+import ethereumConvexPools from '../data/ethereum/convexPools.json' with { type: 'json' };
+import ethereumFxPools from '../data/ethereum/fxPools.json' with { type: 'json' };
+import fraxtalCurvePools from '../data/fraxtal/curvePools.json' with { type: 'json' };
+import maticCurvePools from '../data/matic/curvePools.json' with { type: 'json' };
+import monadCurvePools from '../data/monad/curvePools.json' with { type: 'json' };
+import optimismCurvePools from '../data/optimism/curvePools.json' with { type: 'json' };
 
 const logger = getLoggerFor({ module: 'prices', platform: 'curve' });
 
@@ -149,16 +149,16 @@ async function getCurveTokenPrices(
           BigInt(new BigNumber(token.decimals).toString(10)),
         ])
       : token.useUnderlying
-      ? poolContract.read.get_dy_underlying([
-          BigInt(token.index0),
-          BigInt(token.index1),
-          BigInt(new BigNumber(token.decimals).toString(10)),
-        ])
-      : poolContract.read.get_dy([
-          BigInt(token.index0),
-          BigInt(token.index1),
-          BigInt(new BigNumber(token.decimals).toString(10)),
-        ]);
+        ? poolContract.read.get_dy_underlying([
+            BigInt(token.index0),
+            BigInt(token.index1),
+            BigInt(new BigNumber(token.decimals).toString(10)),
+          ])
+        : poolContract.read.get_dy([
+            BigInt(token.index0),
+            BigInt(token.index1),
+            BigInt(new BigNumber(token.decimals).toString(10)),
+          ]);
   });
 
   try {

@@ -1,6 +1,6 @@
-import type { TokenErc20 } from '../../../tokens/types.ts';
 import type { BigNumber } from 'bignumber.js';
 import type { ApiChain } from '../../../../utils/chain.ts';
+import type { TokenErc20 } from '../../../tokens/types.ts';
 
 export type SwapRequest = {
   from: TokenErc20;

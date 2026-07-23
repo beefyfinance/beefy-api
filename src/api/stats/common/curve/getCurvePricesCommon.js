@@ -1,8 +1,8 @@
 import { BigNumber } from 'bignumber.js';
-import { fetchContract } from '../../../rpc/client.ts';
-import { default as ERC20Abi }from '../../../../abis/ERC20Abi.ts';
-import { default as ICurvePool }from '../../../../abis/ICurvePool.ts';
+import { default as ERC20Abi } from '../../../../abis/ERC20Abi.ts';
+import { default as ICurvePool } from '../../../../abis/ICurvePool.ts';
 import { getLoggerFor } from '../../../../utils/logger/index.ts';
+import { fetchContract } from '../../../rpc/client.ts';
 
 const logger = getLoggerFor({ module: 'prices', platform: 'curve' });
 

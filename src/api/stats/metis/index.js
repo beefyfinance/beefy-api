@@ -1,7 +1,7 @@
-import getNetswapApys from './getNetswapApys.js';
-import { getAaveV3Apys } from './getAaveV3Apys.js';
 import { METIS_CHAIN_ID } from '../../../constants.ts';
 import { getLoggerFor } from '../../../utils/logger/index.ts';
+import { getAaveV3Apys } from './getAaveV3Apys.js';
+import getNetswapApys from './getNetswapApys.js';
 
 const logger = getLoggerFor({ module: 'apy', chain: METIS_CHAIN_ID });
 

@@ -432,9 +432,7 @@ const OptionsToken = [
     type: 'function',
   },
   {
-    inputs: [
-      { internalType: 'contract IOptionFeeDistributor', name: '_feeDistributor', type: 'address' },
-    ],
+    inputs: [{ internalType: 'contract IOptionFeeDistributor', name: '_feeDistributor', type: 'address' }],
     name: 'setFeeDistributor',
     outputs: [],
     stateMutability: 'nonpayable',

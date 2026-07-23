@@ -1,4 +1,4 @@
-import type { Address, } from 'viem';
+import type { Address } from 'viem';
 
 type CampaignInfo = {
   protocol: string;

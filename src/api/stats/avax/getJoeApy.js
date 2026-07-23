@@ -1,13 +1,12 @@
-import { sjoeClient } from '../../../apollo/client.ts';
-import { fetchPrice } from '../../../utils/fetchPrice.ts';
-
 import { BigNumber } from 'bignumber.js';
-import { DAILY_HPY, AVAX_CHAIN_ID } from '../../../constants.ts';
+import { default as StableJoeStaking } from '../../../abis/avax/StableJoeStaking.ts';
+import { sjoeClient } from '../../../apollo/client.ts';
+import { AVAX_CHAIN_ID, DAILY_HPY } from '../../../constants.ts';
 import { compound } from '../../../utils/compound.js';
+import { fetchPrice } from '../../../utils/fetchPrice.ts';
 import { getYearlyRemittedUsdForSJOE } from '../../../utils/getTradingFeeApr.ts';
-import { getTotalPerformanceFeeForVault } from '../../vaults/getVaultFees.ts';
-import { default as StableJoeStaking }from '../../../abis/avax/StableJoeStaking.ts';
 import { fetchContract } from '../../rpc/client.ts';
+import { getTotalPerformanceFeeForVault } from '../../vaults/getVaultFees.ts';
 
 const oracle = 'tokens';
 const JOE = 'JOE';

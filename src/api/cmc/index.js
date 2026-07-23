@@ -1,12 +1,10 @@
-import { BigNumber, utils, ethers } from 'ethers';
-
-import { fetchPrice } from '../../utils/fetchPrice.ts';
-import { API_BASE_URL, BSC_RPC } from '../../constants.ts';
-
-import vaults_json from '../../data/cmc.json' with { type: "json" };
+import { BigNumber, ethers, utils } from 'ethers';
 import BeefyVault from '../../abis/BeefyVault.ts';
-
+import { API_BASE_URL, BSC_RPC } from '../../constants.ts';
+import { fetchPrice } from '../../utils/fetchPrice.ts';
 import { getLoggerFor } from '../../utils/logger/index.ts';
+import vaults_json from '../../data/cmc.json' with { type: 'json' };
+
 const logger = getLoggerFor({ module: 'cmc' });
 
 const fetchVaultTvl = async ({ vault }) => {

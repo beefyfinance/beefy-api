@@ -1,7 +1,7 @@
-import { getBeefyCowLiskApys } from './getBeefyCowLiskApys.ts';
-import getVelodromeLiskApys from './getVelodromeLiskApys.js';
 import { LISK_CHAIN_ID } from '../../../constants.ts';
 import { getLoggerFor } from '../../../utils/logger/index.ts';
+import { getBeefyCowLiskApys } from './getBeefyCowLiskApys.ts';
+import getVelodromeLiskApys from './getVelodromeLiskApys.js';
 
 const logger = getLoggerFor({ module: 'apy', chain: LISK_CHAIN_ID });
 

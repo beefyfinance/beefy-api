@@ -1,10 +1,10 @@
 import { BigNumber } from 'bignumber.js';
 import type { ChainId } from '../../../../../packages/address-book/src/address-book/index.ts';
 import EulerVault from '../../../../abis/EulerVault.ts';
-import { fetchContract } from '../../../rpc/client.ts';
-import { getMerklApys } from '../getMerklApys.js';
-import { getApyBreakdown } from '../getApyBreakdownNew.ts';
 import { getLoggerFor } from '../../../../utils/logger/index.ts';
+import { fetchContract } from '../../../rpc/client.ts';
+import { getApyBreakdown } from '../getApyBreakdownNew.ts';
+import { getMerklApys } from '../getMerklApys.js';
 
 const logger = getLoggerFor({ module: 'apy', platform: 'euler' });
 

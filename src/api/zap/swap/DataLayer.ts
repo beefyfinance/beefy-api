@@ -1,15 +1,15 @@
+import { mapValues, pickBy } from 'lodash-es';
+import { keysToObject } from '../../../utils/array.ts';
 import { getKey, setKey } from '../../../utils/cache/index.ts';
-import type { ProviderId } from './providers/index.ts';
 import { type ApiChain, SupportedChains } from '../../../utils/chain.ts';
+import { getLoggerFor } from '../../../utils/logger/index.ts';
+import { blockedTokensByChain } from './blocked-tokens.ts';
+import type { ProviderId } from './providers/index.ts';
 import type {
   ProviderSupportByChainByAddress,
   TokenSupportByAddress,
   TokenSupportByChainByProviderByAddress,
 } from './types.ts';
-import { keysToObject } from '../../../utils/array.ts';
-import { blockedTokensByChain } from './blocked-tokens.ts';
-import { mapValues, pickBy } from 'lodash-es';
-import { getLoggerFor } from '../../../utils/logger/index.ts';
 
 const logger = getLoggerFor({ module: 'zap' });
 
@@ -25,7 +25,11 @@ export class DataLayer {
   protected tokenSupport: TokenSupportByChainByProviderByAddress = keysToObject(SupportedChains, () => ({}));
   protected providerSupport: ProviderSupportByChainByAddress = keysToObject(SupportedChains, () => ({}));
 
-  constructor(protected rootKey: string, protected maxAge: number, protected gcInterval: number) {}
+  constructor(
+    protected rootKey: string,
+    protected maxAge: number,
+    protected gcInterval: number
+  ) {}
 
   /**
    * Loads token support data from cache (and runs garbage collection if it exists)

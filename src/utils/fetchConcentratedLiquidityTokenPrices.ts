@@ -1,10 +1,10 @@
-import IUniV3PoolAbi from '../abis/IUniV3Pool.ts';
-import IKyberElasticPoolAbi from '../abis/IKyberElasticPool.ts';
+import { ChainId } from '../../packages/address-book/src/types/chainid.ts';
 import IAlgebraPool from '../abis/IAlgebraPool.ts';
 import IAlgebraPoolV1 from '../abis/IAlgebraPoolV1.ts';
 import IAlgebraPoolV2 from '../abis/IAlgebraPoolV2.ts';
+import IKyberElasticPoolAbi from '../abis/IKyberElasticPool.ts';
 import ISlipstreamPool from '../abis/ISlipstreamPool.ts';
-import { ChainId } from '../../packages/address-book/src/types/chainid.ts';
+import IUniV3PoolAbi from '../abis/IUniV3Pool.ts';
 import { fetchContract } from '../api/rpc/client.ts';
 import { getLoggerFor } from './logger/index.ts';
 

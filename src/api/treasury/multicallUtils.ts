@@ -1,4 +1,10 @@
 import { BigNumber } from 'bignumber.js';
+import MulticallAbi from '../../abis/common/Multicall/MulticallAbi.ts';
+import ERC20Abi from '../../abis/ERC20Abi.ts';
+import { getLoggerFor } from '../../utils/logger/index.ts';
+import { MULTICALL_V3 } from '../../utils/multicallHelpers.ts';
+import { fetchContract } from '../rpc/client.ts';
+import { getLpBreakdownForOracle, type LpBreakdown } from '../stats/getAmmPrices.ts';
 import {
   type AssetBalance,
   type ChainTreasuryBalance,
@@ -12,13 +18,7 @@ import {
   type TreasuryAsset,
   type TreasuryWallet,
 } from './types.ts';
-import { getLpBreakdownForOracle, type LpBreakdown } from '../stats/getAmmPrices.ts';
-import { fetchContract } from '../rpc/client.ts';
-import ERC20Abi from '../../abis/ERC20Abi.ts';
-import { MULTICALL_V3 } from '../../utils/multicallHelpers.ts';
-import MulticallAbi from '../../abis/common/Multicall/MulticallAbi.ts';
 import { getValidatorBalanceCall } from './validatorHelpers.ts';
-import { getLoggerFor } from '../../utils/logger/index.ts';
 
 const logger = getLoggerFor({ module: 'treasury' });
 

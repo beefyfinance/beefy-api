@@ -1,7 +1,7 @@
-import { getBeefyCowMegaethApys } from './getBeefyCowMegaethApys.ts';
-import { getAaveV3Apys } from './getAaveV3Apys.js';
 import { MEGAETH_CHAIN_ID } from '../../../constants.ts';
 import { getLoggerFor } from '../../../utils/logger/index.ts';
+import { getAaveV3Apys } from './getAaveV3Apys.js';
+import { getBeefyCowMegaethApys } from './getBeefyCowMegaethApys.ts';
 
 const logger = getLoggerFor({ module: 'apy', chain: MEGAETH_CHAIN_ID });
 

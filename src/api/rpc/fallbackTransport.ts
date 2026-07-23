@@ -1,6 +1,6 @@
-import { type Transport, type TransportConfig, type FallbackTransport, createTransport } from 'viem';
+import { createTransport, type FallbackTransport, type Transport, type TransportConfig } from 'viem';
 
-type OnResponseFn  = Parameters<ReturnType<FallbackTransport>['value']['onResponse']>[0];
+type OnResponseFn = Parameters<ReturnType<FallbackTransport>['value']['onResponse']>[0];
 
 type RankOptions = {
   /**

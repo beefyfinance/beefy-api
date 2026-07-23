@@ -1,8 +1,8 @@
-import { getCurveSubgraphApys } from '../common/curve/getCurveApyData.js';
-import { getApyBreakdown } from '../common/getApyBreakdown.ts';
 import { POLYGON_CHAIN_ID } from '../../../constants.ts';
 import { getConvexApyData } from '../common/curve/getConvexApyData.js';
-import curvePoolsData from '../../../data/matic/curvePools.json' with { type: "json" };
+import { getCurveSubgraphApys } from '../common/curve/getCurveApyData.js';
+import { getApyBreakdown } from '../common/getApyBreakdown.ts';
+import curvePoolsData from '../../../data/matic/curvePools.json' with { type: 'json' };
 
 const pools = curvePoolsData.filter(p => p.convex);
 const baseApyUrl = 'https://api.curve.finance/api/getSubgraphData/polygon';

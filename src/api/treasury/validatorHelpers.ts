@@ -1,8 +1,8 @@
-import type { TreasuryApiResult, ValidatorAsset } from './types.ts';
+import { BigNumber } from 'bignumber.js';
+import type { ChainId } from '../../../packages/address-book/src/address-book/index.ts';
 import type { ApiChain } from '../../utils/chain.ts';
 import { fetchContract } from '../rpc/client.ts';
-import type { ChainId } from '../../../packages/address-book/src/address-book/index.ts';
-import { BigNumber } from 'bignumber.js';
+import type { TreasuryApiResult, ValidatorAsset } from './types.ts';
 
 const validatorsByChain: Partial<Record<ApiChain, ValidatorAsset[]>> = {
   ethereum: [

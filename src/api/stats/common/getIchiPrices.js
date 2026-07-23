@@ -1,9 +1,9 @@
 import { BigNumber } from 'bignumber.js';
-import { fetchContract } from '../../rpc/client.ts';
-import IchiAbi from '../../../abis/Ichi.json' with { type: "json" };
 import { addressBookByChainId } from '../../../../packages/address-book/src/address-book/index.ts';
-
 import { getLoggerFor } from '../../../utils/logger/index.ts';
+import { fetchContract } from '../../rpc/client.ts';
+import IchiAbi from '../../../abis/Ichi.json' with { type: 'json' };
+
 const logger = getLoggerFor({ module: 'prices', platform: 'ichi' });
 
 export const getIchiPrices = async (chainId, pools, tokenPrices) => {

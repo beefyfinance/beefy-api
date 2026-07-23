@@ -1,9 +1,9 @@
 import { BigNumber } from 'bignumber.js';
+import { parseAbi } from 'viem';
 import ICurveGauge from '../../../../abis/ICurveGauge.ts';
+import { ARBITRUM_CHAIN_ID, BASE_CHAIN_ID, FRAXTAL_CHAIN_ID, SONIC_CHAIN_ID } from '../../../../constants.ts';
 import { fetchPrice } from '../../../../utils/fetchPrice.ts';
 import { fetchContract } from '../../../rpc/client.ts';
-import { parseAbi } from 'viem';
-import { ARBITRUM_CHAIN_ID, BASE_CHAIN_ID, FRAXTAL_CHAIN_ID, SONIC_CHAIN_ID } from '../../../../constants.ts';
 
 const secondsPerYear = 31536000;
 const abi = parseAbi([

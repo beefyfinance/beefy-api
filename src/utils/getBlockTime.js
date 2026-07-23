@@ -1,4 +1,4 @@
-import { default as BigNumber }from 'bignumber.js';
+import { default as BigNumber } from 'bignumber.js';
 import { getRPCClient } from '../api/rpc/client.ts';
 import { getLoggerFor } from './logger/index.ts';
 

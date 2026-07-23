@@ -1,8 +1,8 @@
 import { BigNumber } from 'bignumber.js';
-import { fetchContract } from '../../rpc/client.ts';
 import type { ChainId } from '../../../../packages/address-book/src/address-book/index.ts';
-import type { BaseLpBreakdown } from '../getAmmPrices.ts';
 import BeefyUniswapPositionHelperAbi from '../../../abis/BeefyUniswapPositionHelper.ts';
+import { fetchContract } from '../../rpc/client.ts';
+import type { BaseLpBreakdown } from '../getAmmPrices.ts';
 
 interface LpTokenConfig {
   address: string;
@@ -62,21 +62,14 @@ const getPrice = (
     [pool.name]: {
       price,
       tokens: [pool.lp0.address, pool.lp1.address],
-      balances: [
-        lp0Bal.dividedBy(pool.lp0.decimals).toString(10),
-        lp1Bal.dividedBy(pool.lp1.decimals).toString(10),
-      ],
+      balances: [lp0Bal.dividedBy(pool.lp0.decimals).toString(10), lp1Bal.dividedBy(pool.lp1.decimals).toString(10)],
       totalSupply: liquidity.dividedBy(1e18).toString(10),
     },
   };
 };
 
 const getPoolData = async (params: UniV3PositionPricesParams): Promise<PositionTokens[]> => {
-  const beefyHelperContract = fetchContract(
-    params.beefyHelper,
-    BeefyUniswapPositionHelperAbi,
-    params.chainId
-  ) as {
+  const beefyHelperContract = fetchContract(params.beefyHelper, BeefyUniswapPositionHelperAbi, params.chainId) as {
     read: {
       getPositionTokens: (args: [bigint, `0x${string}`, `0x${string}`]) => Promise<PositionTokens>;
     };

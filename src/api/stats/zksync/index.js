@@ -1,6 +1,6 @@
-import { getBeefyzkSyncCowApys } from './getBeefyzkSyncCowApys.ts';
 import { ZKSYNC_CHAIN_ID } from '../../../constants.ts';
 import { getLoggerFor } from '../../../utils/logger/index.ts';
+import { getBeefyzkSyncCowApys } from './getBeefyzkSyncCowApys.ts';
 
 const logger = getLoggerFor({ module: 'apy', chain: ZKSYNC_CHAIN_ID });
 

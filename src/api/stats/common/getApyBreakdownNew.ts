@@ -1,9 +1,9 @@
-import type { BigNumberish } from '../../../utils/big-number.ts';
-import { toNumber } from '../../../utils/number.ts';
 import { BASE_HPY } from '../../../constants.ts';
-import { getTotalPerformanceFeeForVault } from '../../vaults/getVaultFees.ts';
-import { getFarmWithTradingFeesApy } from '../../../utils/getFarmWithTradingFeesApy.ts';
 import { toArray } from '../../../utils/array.ts';
+import type { BigNumberish } from '../../../utils/big-number.ts';
+import { getFarmWithTradingFeesApy } from '../../../utils/getFarmWithTradingFeesApy.ts';
+import { toNumber } from '../../../utils/number.ts';
+import { getTotalPerformanceFeeForVault } from '../../vaults/getVaultFees.ts';
 
 // These component lists need to stay in sync with the app
 // Total APY = (((1 + Compounded APY) * (1 + Special APR)) - 1) + Non-Compoundable APR.
@@ -149,9 +149,9 @@ export function getApyBreakdownOnly(request: ApyBreakdownRequest): ApyBreakdown 
 
   // @dev shareAfterBeefyPerformanceFee = 1 as fee is already removed from all components
   breakdown.totalApy =
-    getFarmWithTradingFeesApy(totalCompoundable, totalSpecial, compoundingsPerYear, 1, 1) +
-    totalNonCompoundable +
-    totalLending;
+    getFarmWithTradingFeesApy(totalCompoundable, totalSpecial, compoundingsPerYear, 1, 1)
+    + totalNonCompoundable
+    + totalLending;
 
   return breakdown;
 }

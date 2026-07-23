@@ -1,9 +1,8 @@
-import { parseAbi } from 'viem';
-
 import { BigNumber } from 'bignumber.js';
-import { fetchContract } from '../../../rpc/client.ts';
-import { default as ERC20Abi }from '../../../../abis/ERC20Abi.ts';
+import { parseAbi } from 'viem';
+import { default as ERC20Abi } from '../../../../abis/ERC20Abi.ts';
 import { getLoggerFor } from '../../../../utils/logger/index.ts';
+import { fetchContract } from '../../../rpc/client.ts';
 
 const logger = getLoggerFor({ module: 'prices', platform: 'curve' });
 

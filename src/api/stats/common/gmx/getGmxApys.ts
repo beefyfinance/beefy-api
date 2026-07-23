@@ -1,10 +1,10 @@
 import { BigNumber } from 'bignumber.js';
-import { fetchPrice } from '../../../../utils/fetchPrice.ts';
-import type { LpPool } from '../../../../types/LpPool.ts';
 import type { ChainId } from '../../../../../packages/address-book/src/address-book/index.ts';
-import StrategyABI from '../../../../abis/StrategyABI.ts';
-import RewardTrackerAbi from '../../../../abis/arbitrum/RewardTracker.ts';
 import DistributorAbi from '../../../../abis/arbitrum/Distributor.ts';
+import RewardTrackerAbi from '../../../../abis/arbitrum/RewardTracker.ts';
+import StrategyABI from '../../../../abis/StrategyABI.ts';
+import type { LpPool } from '../../../../types/LpPool.ts';
+import { fetchPrice } from '../../../../utils/fetchPrice.ts';
 import { fetchContract } from '../../../rpc/client.ts';
 import { type ApyBreakdownResult, getApyBreakdown } from '../getApyBreakdown.ts';
 
@@ -88,9 +88,7 @@ const getTotalStakedInUsd = async (params: GmxApysParams, pool): Promise<BigNumb
     staked = new BigNumber((await strategy.read.balanceOf()).toString());
   } else {
     const stakedTrackerContract = fetchContract(pool.stakedTracker, RewardTrackerAbi, params.chainId);
-    staked = new BigNumber(
-      (await stakedTrackerContract.read.depositBalances([pool.strat, pool.address])).toString()
-    );
+    staked = new BigNumber((await stakedTrackerContract.read.depositBalances([pool.strat, pool.address])).toString());
   }
   const stakedPrice = await fetchPrice({ oracle: pool.oracle, id: pool.oracleId });
   return staked.times(stakedPrice).dividedBy(pool.decimals);

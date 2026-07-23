@@ -1,19 +1,5 @@
-import type {
-  FetchCommonJsonRequest,
-  FetchGetJsonRequest,
-  FetchPostJsonRequest,
-  FetchRequestInit,
-} from './types.ts';
-import {
-  ABORT_REASON_TIMEOUT,
-  getCacheBuster,
-  getUrlSearchParams,
-  isPassThroughBodyInit,
-  isPassThroughURLSearchParamsInit,
-  setAcceptsAnyIfMissing,
-  setAcceptsJsonIfMissing,
-  setContentTypeJsonIfMissing,
-} from './helpers.ts';
+import { isError } from '../error.ts';
+import { getTimeoutAbortSignal } from '../promise.ts';
 import {
   FetchAbortError,
   FetchError,
@@ -25,8 +11,17 @@ import {
   FetchTimeoutError,
   isFetchError,
 } from './errors.ts';
-import { isError } from '../error.ts';
-import { getTimeoutAbortSignal } from '../promise.ts';
+import {
+  ABORT_REASON_TIMEOUT,
+  getCacheBuster,
+  getUrlSearchParams,
+  isPassThroughBodyInit,
+  isPassThroughURLSearchParamsInit,
+  setAcceptsAnyIfMissing,
+  setAcceptsJsonIfMissing,
+  setContentTypeJsonIfMissing,
+} from './helpers.ts';
+import type { FetchCommonJsonRequest, FetchGetJsonRequest, FetchPostJsonRequest, FetchRequestInit } from './types.ts';
 
 /** response decoded as JSON */
 export async function getJson<TResponse>(request: FetchGetJsonRequest): Promise<TResponse> {
@@ -67,8 +62,8 @@ function getRequestUrlInit(request: FetchCommonJsonRequest): FetchRequestUrlInit
     'signal' in request && request.signal
       ? request.signal
       : 'timeout' in request && request.timeout
-      ? getTimeoutAbortSignal(request.timeout)
-      : undefined;
+        ? getTimeoutAbortSignal(request.timeout)
+        : undefined;
 
   const headers = request.headers ? new Headers(request.headers) : new Headers();
 

@@ -76,9 +76,9 @@ function addChain() {
         }
 
         const end = Date.now();
-        console.log('> [APY] ${chainNameCapitalized} finished updating in '` +
-      '`${(end - start) / 1000}s`' +
-      `);
+        console.log('> [APY] ${chainNameCapitalized} finished updating in '`
+      + '`${(end - start) / 1000}s`'
+      + `);
 
         return {
             apys,
@@ -145,8 +145,8 @@ function addChain() {
   const exportsRegex = /export {[\s\S]*?};/;
   constantsContent = constantsContent.replace(exportsRegex, match => {
     return (
-      match.slice(0, -2) +
-      `  ${chainName.toUpperCase()}_RPC,\n  ${chainName.toUpperCase()}_CHAIN_ID,\n  ${chainName.toUpperCase()}_VAULTS_ENDPOINT,\n};`
+      match.slice(0, -2)
+      + `  ${chainName.toUpperCase()}_RPC,\n  ${chainName.toUpperCase()}_CHAIN_ID,\n  ${chainName.toUpperCase()}_VAULTS_ENDPOINT,\n};`
     );
   });
 
@@ -230,8 +230,7 @@ const ${chainName}Chain = {
   let blockedTokensContent = fs.readFileSync(blockedTokensPath, 'utf8');
 
   // Add the chain to the blocked tokens set
-  const blockedTokensObjectRegex =
-    /export const blockedTokensByChain: Record<ApiChain, Set<string>> = \{[\s\S]*?\};/;
+  const blockedTokensObjectRegex = /export const blockedTokensByChain: Record<ApiChain, Set<string>> = \{[\s\S]*?\};/;
   blockedTokensContent = blockedTokensContent.replace(blockedTokensObjectRegex, match => {
     return match.slice(0, -2) + `  ${chainName}: new Set([]),\n};`;
   });
@@ -255,13 +254,12 @@ const ${chainName}Chain = {
     /const MULTICALLS: Record<ChainId, Pick<BeefyFinance, 'multicall'>\['multicall'\]> = {[\s\S]*?};/;
   web3HelpersContent = web3HelpersContent.replace(multicallsWeb3Regex, match => {
     return (
-      match.slice(0, -2) +
-      `  [ChainId.${chainName}]: addressBookByChainId[ChainId.${chainName}].platforms.beefyfinance.multicall,\n};`
+      match.slice(0, -2)
+      + `  [ChainId.${chainName}]: addressBookByChainId[ChainId.${chainName}].platforms.beefyfinance.multicall,\n};`
     );
   });
 
-  const multicallsV3Web3Regex =
-    /const MULTICALL_V3: Partial<Readonly<Record<ChainId, string>>> = {[\s\S]*?};/;
+  const multicallsV3Web3Regex = /const MULTICALL_V3: Partial<Readonly<Record<ChainId, string>>> = {[\s\S]*?};/;
   web3HelpersContent = web3HelpersContent.replace(multicallsV3Web3Regex, match => {
     return match.slice(0, -2) + `  [ChainId.${chainName}]: '0xcA11bde05977b3631167028862bE2a173976CA11',\n};`;
   });
@@ -283,8 +281,8 @@ const ${chainName}Chain = {
   const chainRandomClientsWeb3Regex = /export const chainRandomClients = {[\s\S]*?};/;
   web3HelpersContent = web3HelpersContent.replace(chainRandomClientsWeb3Regex, match => {
     return (
-      match.slice(0, -2) +
-      `  ${chainName}RandomClient: () => clients.${chainName}[~~(clients.${chainName}.length * Math.random())],\n};`
+      match.slice(0, -2)
+      + `  ${chainName}RandomClient: () => clients.${chainName}[~~(clients.${chainName}.length * Math.random())],\n};`
     );
   });
 
@@ -292,8 +290,8 @@ const ${chainName}Chain = {
   const ethersFactoryWeb3Regex = /switch \(chainId\) {[\s\S]*?}/;
   web3HelpersContent = web3HelpersContent.replace(ethersFactoryWeb3Regex, match => {
     return (
-      match.slice(0, -2) +
-      `   case ${chainName.toUpperCase()}_CHAIN_ID:\n      return chainRandomClients.${chainName}RandomClient();\n  }`
+      match.slice(0, -2)
+      + `   case ${chainName.toUpperCase()}_CHAIN_ID:\n      return chainRandomClients.${chainName}RandomClient();\n  }`
     );
   });
 
@@ -308,12 +306,12 @@ const ${chainName}Chain = {
   const web3ObjectRegex = /(module\.exports = {[\s\S]*?)(,\s*\n\s*web3Factory:)/;
   web3Content = web3Content.replace(web3ObjectRegex, (match, p1, p2) => {
     return (
-      p1 +
-      `,
+      p1
+      + `,
   get ${chainName}Web3() {
     return chainRandomClients.${chainName}RandomClient();
-  }` +
-      p2
+  }`
+      + p2
     );
   });
 

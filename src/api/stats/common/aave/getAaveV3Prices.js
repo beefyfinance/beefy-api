@@ -1,6 +1,6 @@
 import { BigNumber } from 'bignumber.js';
-import { fetchContract } from '../../../rpc/client.ts';
 import ERC20Abi from '../../../../abis/ERC20Abi.ts';
+import { fetchContract } from '../../../rpc/client.ts';
 
 export const getAaveV3Prices = async (chainId, pools, tokenPrices) => {
   const supplyCalls = pools.map(pool => fetchContract(pool.aToken, ERC20Abi, chainId).read.totalSupply());

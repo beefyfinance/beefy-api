@@ -1,21 +1,21 @@
 import { BigNumber } from 'bignumber.js';
+import { addressBook } from '../../packages/address-book/src/address-book/index.ts';
+import OrbETHAbi from '../abis/OrbETH.ts';
+import rswETHAbi from '../abis/rswETH.ts';
+import WrappedAave4626TokenAbi from '../abis/WrappedAave4626Token.ts';
+import WrappedAaveTokenAbi from '../abis/WrappedAaveToken.ts';
+import { fetchContract } from '../api/rpc/client.ts';
 import {
   ARBITRUM_CHAIN_ID,
   AVAX_CHAIN_ID,
+  BASE_CHAIN_ID,
   ETH_CHAIN_ID,
   GNOSIS_CHAIN_ID,
+  MONAD_CHAIN_ID,
   OPTIMISM_CHAIN_ID,
   POLYGON_CHAIN_ID,
-  BASE_CHAIN_ID,
-  MONAD_CHAIN_ID,
   SONIC_CHAIN_ID,
 } from '../constants.ts';
-import { addressBook } from '../../packages/address-book/src/address-book/index.ts';
-import { fetchContract } from '../api/rpc/client.ts';
-import WrappedAaveTokenAbi from '../abis/WrappedAaveToken.ts';
-import WrappedAave4626TokenAbi from '../abis/WrappedAave4626Token.ts';
-import OrbETHAbi from '../abis/OrbETH.ts';
-import rswETHAbi from '../abis/rswETH.ts';
 import { getEDecimals } from './getEDecimals.ts';
 import { getLoggerFor } from './logger/index.ts';
 
@@ -310,14 +310,17 @@ const getWrappedAavePrices = async (tokenPrices, tokens, chainId) => {
     }
 
     const [unwrapped, wrapped, inverseRate] = tokenGroup;
-    const setPrice = (price) => {
+    const setPrice = price => {
       results.push(price);
       mergedPrices[wrapped.oracleId] = price;
-    }
+    };
 
     let token0Price = mergedPrices[unwrapped.oracleId];
     if (!token0Price) {
-      logger.warn({ chain: chainId, unwrapped: unwrapped.oracleId, wrapped: wrapped.oracleId }, 'missing unwrapped price');
+      logger.warn(
+        { chain: chainId, unwrapped: unwrapped.oracleId, wrapped: wrapped.oracleId },
+        'missing unwrapped price'
+      );
       setPrice(0);
       continue;
     }
@@ -328,10 +331,7 @@ const getWrappedAavePrices = async (tokenPrices, tokens, chainId) => {
     } else if (unwrapped.oracleId === 'rsETH') {
       price = wrappedRate.times(token0Price).dividedBy('1e18').toNumber();
     } else {
-      price = new BigNumber(token0Price)
-        .times(getEDecimals(wrapped.decimals))
-        .dividedBy(wrappedRate)
-        .toNumber();
+      price = new BigNumber(token0Price).times(getEDecimals(wrapped.decimals)).dividedBy(wrappedRate).toNumber();
     }
     setPrice(price);
   }

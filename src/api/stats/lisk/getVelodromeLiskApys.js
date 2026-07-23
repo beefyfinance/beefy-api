@@ -1,13 +1,13 @@
-import { LISK_CHAIN_ID as chainId }from '../../../constants.ts';
+import { LISK_CHAIN_ID as chainId } from '../../../constants.ts';
 import { getEDecimals } from '../../../utils/getEDecimals.ts';
-import { getSolidlyGaugeApys } from '../common/getSolidlyGaugeApys.js';
 import { getLoggerFor } from '../../../utils/logger/index.ts';
+import { getSolidlyGaugeApys } from '../common/getSolidlyGaugeApys.js';
 
 const logger = getLoggerFor({ module: 'apy', platform: 'velodrome', chain: chainId });
 
-import stablePools from '../../../data/lisk/velodromeLiskStablePools.json' with { type: "json" };
-import volatilePools from '../../../data/lisk/velodromeLiskPools.json' with { type: "json" };
 import { addressBook } from '../../../../packages/address-book/src/address-book/index.ts';
+import volatilePools from '../../../data/lisk/velodromeLiskPools.json' with { type: 'json' };
+import stablePools from '../../../data/lisk/velodromeLiskStablePools.json' with { type: 'json' };
 
 const {
   lisk: {

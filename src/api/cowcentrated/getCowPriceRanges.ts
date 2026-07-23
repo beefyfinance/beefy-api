@@ -1,7 +1,7 @@
-import { serviceEventBus } from '../../utils/ServiceEventBus.ts';
-import { getAllCowVaultsMeta } from './getCowVaultsMeta.ts';
 import type { ApiChain } from '../../utils/chain.ts';
 import { getLoggerFor } from '../../utils/logger/index.ts';
+import { serviceEventBus } from '../../utils/ServiceEventBus.ts';
+import { getAllCowVaultsMeta } from './getCowVaultsMeta.ts';
 
 const logger = getLoggerFor({ module: 'clm' });
 

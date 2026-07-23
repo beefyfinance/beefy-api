@@ -1,12 +1,9 @@
-import { ChainId } from '../packages/address-book/src/address-book/index.ts';
-
+import { ethers } from 'ethers';
 import yargs from 'yargs';
 import { hideBin } from 'yargs/helpers';
-
-import { ethers } from 'ethers';
+import { ChainId } from '../packages/address-book/src/address-book/index.ts';
 import { MULTICHAIN_RPC } from '../src/constants.ts';
-
-import ERC20ABI from '../src/abis/ERC20.json' with { type: "json" };
+import ERC20ABI from '../src/abis/ERC20.json' with { type: 'json' };
 
 const args = yargs(hideBin(process.argv))
   .options({

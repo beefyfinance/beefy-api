@@ -1,8 +1,8 @@
-import type { ISwapProvider, SwapRequest, SwapResponse } from './ISwapProvider.ts';
-import { getKyberApi, supportedChains } from '../../api/kyber/index.ts';
 import { fromWeiString, toWeiString } from '../../../../utils/big-number.ts';
 import type { ApiChain } from '../../../../utils/chain.ts';
 import { isResultFulfilled } from '../../../../utils/promise.ts';
+import { getKyberApi, supportedChains } from '../../api/kyber/index.ts';
+import type { ISwapProvider, SwapRequest, SwapResponse } from './ISwapProvider.ts';
 
 export class KyberSwapProvider implements ISwapProvider {
   public readonly id = 'kyber';

@@ -1,7 +1,7 @@
-import { getBeefyCowRobinhoodApys } from './getBeefyCowRobinhoodApys.ts';
-import { getUp33Apys } from './getUp33Apys.js';
 import { ROBINHOOD_CHAIN_ID } from '../../../constants.ts';
 import { getLoggerFor } from '../../../utils/logger/index.ts';
+import { getBeefyCowRobinhoodApys } from './getBeefyCowRobinhoodApys.ts';
+import { getUp33Apys } from './getUp33Apys.js';
 
 const logger = getLoggerFor({ module: 'apy', chain: ROBINHOOD_CHAIN_ID });
 

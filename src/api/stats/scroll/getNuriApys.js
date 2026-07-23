@@ -1,4 +1,4 @@
-import { SCROLL_CHAIN_ID as chainId }from '../../../constants.ts';
+import { SCROLL_CHAIN_ID as chainId } from '../../../constants.ts';
 import { getSolidlyGaugeApys } from '../common/getSolidlyGaugeApys.js';
 
 const pools = [];

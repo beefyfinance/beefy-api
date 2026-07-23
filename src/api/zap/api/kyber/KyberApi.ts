@@ -1,4 +1,7 @@
 import { URLSearchParams } from 'node:url';
+import { mapValues, omitBy } from 'lodash-es';
+import { redactSecrets } from '../../../../utils/secrets.ts';
+import { type ApiResponse, type ExtraQuoteResponse, isErrorApiResponse, type SuccessApiResponse } from '../common.ts';
 import {
   type IKyberApi,
   isKyberErrorResponse,
@@ -9,12 +12,12 @@ import {
   type SwapData,
   type SwapRequest,
 } from './types.ts';
-import { mapValues, omitBy } from 'lodash-es';
-import { redactSecrets } from '../../../../utils/secrets.ts';
-import { type ApiResponse, type ExtraQuoteResponse, isErrorApiResponse, type SuccessApiResponse } from '../common.ts';
 
 export class KyberApi implements IKyberApi {
-  constructor(protected readonly baseUrl: string, protected readonly clientId: string) {}
+  constructor(
+    protected readonly baseUrl: string,
+    protected readonly clientId: string
+  ) {}
 
   protected buildUrl<T extends {}>(path: string, request?: T) {
     const params = request ? new URLSearchParams(request).toString() : '';
@@ -104,7 +107,7 @@ export class KyberApi implements IKyberApi {
 
   protected async priorityGet<
     ResponseType extends object,
-    Extra extends Record<string, unknown> | undefined = undefined
+    Extra extends Record<string, unknown> | undefined = undefined,
   >(path: string, request?: Record<string, string>, extra?: Extra): Promise<ApiResponse<ResponseType, Extra>> {
     return this.doGet(path, request, extra);
   }
@@ -119,7 +122,7 @@ export class KyberApi implements IKyberApi {
 
   protected async priorityPost<
     ResponseType extends object,
-    Extra extends Record<string, unknown> | undefined = undefined
+    Extra extends Record<string, unknown> | undefined = undefined,
   >(path: string, request: Record<string, unknown>, extra?: Extra): Promise<ApiResponse<ResponseType, Extra>> {
     return this.doPost(path, request, extra);
   }

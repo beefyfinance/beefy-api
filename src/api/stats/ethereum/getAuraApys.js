@@ -1,14 +1,14 @@
-import { getApyBreakdown } from '../common/getApyBreakdown.ts';
 import { BigNumber } from 'bignumber.js';
+import { addressBook } from '../../../../packages/address-book/src/address-book/index.ts';
+import AuraBooster from '../../../abis/ethereum/AuraBooster.ts';
+import AuraGauge from '../../../abis/ethereum/AuraGauge.ts';
+import AuraToken from '../../../abis/ethereum/AuraToken.ts';
 import { ETH_CHAIN_ID as chainId, ETH_CHAIN_ID } from '../../../constants.ts';
 import { fetchPrice } from '../../../utils/fetchPrice.ts';
-import { addressBook } from '../../../../packages/address-book/src/address-book/index.ts';
-import { getEDecimals } from '../../../utils/getEDecimals.ts';
-import AuraToken from '../../../abis/ethereum/AuraToken.ts';
-import AuraBooster from '../../../abis/ethereum/AuraBooster.ts';
-import { fetchContract } from '../../rpc/client.ts';
-import AuraGauge from '../../../abis/ethereum/AuraGauge.ts';
 import { getBalTradingAndLstApr } from '../../../utils/getBalancerTradingFeeAndLstApr.js';
+import { getEDecimals } from '../../../utils/getEDecimals.ts';
+import { fetchContract } from '../../rpc/client.ts';
+import { getApyBreakdown } from '../common/getApyBreakdown.ts';
 import { getMerklApys } from '../common/getMerklApys.js';
 
 const {
@@ -17,7 +17,7 @@ const {
   },
 } = addressBook;
 
-import balV3Pools from '../../../data/ethereum/balancerV3pools.json' with { type: "json" };
+import balV3Pools from '../../../data/ethereum/balancerV3pools.json' with { type: 'json' };
 
 const pools = [...balV3Pools].filter(p => !p.eol);
 

@@ -1,6 +1,6 @@
 import PQueue from 'p-queue';
-import { RateLimitedOneInchSwapApi } from './RateLimitedOneInchSwapApi.ts';
 import { type AnyChain, type ApiChain, toApiChain, toChainId } from '../../../../utils/chain.ts';
+import { RateLimitedOneInchSwapApi } from './RateLimitedOneInchSwapApi.ts';
 import type { IOneInchSwapApi } from './types.ts';
 
 // Configure rate limiting

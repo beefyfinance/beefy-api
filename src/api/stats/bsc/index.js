@@ -1,7 +1,7 @@
-import { getOOELpApys } from './ooe/getOOELpApys.ts';
-import { getBeefyBscCowApys } from './getBeefyBscCowApys.ts';
 import { BSC_CHAIN_ID } from '../../../constants.ts';
 import { getLoggerFor } from '../../../utils/logger/index.ts';
+import { getBeefyBscCowApys } from './getBeefyBscCowApys.ts';
+import { getOOELpApys } from './ooe/getOOELpApys.ts';
 
 const logger = getLoggerFor({ module: 'apy', chain: BSC_CHAIN_ID });
 

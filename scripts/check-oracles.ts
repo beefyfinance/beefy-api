@@ -1,6 +1,6 @@
+import { promises as fsPromises } from 'node:fs';
 import commandLineArgs from 'command-line-args';
 import fg from 'fast-glob';
-import { promises as fsPromises } from 'node:fs';
 import { groupBy, uniq } from 'lodash-es';
 import { addressBookByChainId } from '../packages/address-book/src/address-book/index.ts';
 
@@ -207,9 +207,7 @@ async function getPaths(onlyAmm: boolean) {
 
   const source = await loadString('./src/api/stats/getAmmPrices.ts');
   const regex = / from '([^']+\.json)';/gm;
-  const ammPaths = new Set(
-    [...source.matchAll(regex)].map(match => match[1].replace('../../data', './src/data'))
-  );
+  const ammPaths = new Set([...source.matchAll(regex)].map(match => match[1].replace('../../data', './src/data')));
   return paths.filter(path => ammPaths.has(path));
 }
 

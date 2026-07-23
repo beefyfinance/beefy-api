@@ -1,13 +1,13 @@
 import { BigNumber } from 'bignumber.js';
-import { type ApyBreakdownResult, getApyBreakdown } from '../common/getApyBreakdown.ts';
-import { fetchPrice } from '../../../utils/fetchPrice.ts';
-import { MANTLE_CHAIN_ID } from '../../../constants.ts';
-import { fetchContract } from '../../rpc/client.ts';
-import MoeChefAbi from '../../../abis/mantle/MoeChef.ts';
 import jp from 'jsonpath';
+import MoeChefAbi from '../../../abis/mantle/MoeChef.ts';
+import { MANTLE_CHAIN_ID } from '../../../constants.ts';
+import { fetchPrice } from '../../../utils/fetchPrice.ts';
 import { getLoggerFor } from '../../../utils/logger/index.ts';
+import { fetchContract } from '../../rpc/client.ts';
+import { type ApyBreakdownResult, getApyBreakdown } from '../common/getApyBreakdown.ts';
+import pools from '../../../data/mantle/moeLpPools.json' with { type: 'json' };
 
-import pools from '../../../data/mantle/moeLpPools.json' with { type: "json" };
 const secondsPerYear = 31536000;
 const masterchef = '0xA756f7D419e1A5cbd656A438443011a7dE1955b5';
 const oracle = 'tokens';

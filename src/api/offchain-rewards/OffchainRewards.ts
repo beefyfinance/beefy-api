@@ -1,3 +1,16 @@
+import AsyncLock from 'async-lock';
+import { mapValues, partition } from 'lodash-es';
+import PQueue from 'p-queue';
+import { isDefined } from '../../utils/array.ts';
+import { getKey, setKey } from '../../utils/cache/index.ts';
+import type { AppChain } from '../../utils/chain.ts';
+import { getUnixNow } from '../../utils/date.ts';
+import { createCachedFactory } from '../../utils/factory.ts';
+import { getLoggerFor } from '../../utils/logger/index.ts';
+import { typedKeys } from '../../utils/object.ts';
+import { MerklProvider } from './providers/merkl/MerklProvider.ts';
+import { StellaSwapProvider } from './providers/stellaswap/StellaSwapProvider.ts';
+import { isUpdateResolved } from './typeguards.ts';
 import type {
   Campaign,
   CampaignByProvider,
@@ -10,19 +23,6 @@ import type {
   UpdateResult,
   Vault,
 } from './types.ts';
-import { StellaSwapProvider } from './providers/stellaswap/StellaSwapProvider.ts';
-import { MerklProvider } from './providers/merkl/MerklProvider.ts';
-import type { AppChain } from '../../utils/chain.ts';
-import AsyncLock from 'async-lock';
-import { typedKeys } from '../../utils/object.ts';
-import { getKey, setKey } from '../../utils/cache/index.ts';
-import { createCachedFactory } from '../../utils/factory.ts';
-import { getUnixNow } from '../../utils/date.ts';
-import { mapValues, partition } from 'lodash-es';
-import { isDefined } from '../../utils/array.ts';
-import PQueue from 'p-queue';
-import { isUpdateResolved } from './typeguards.ts';
-import { getLoggerFor } from '../../utils/logger/index.ts';
 
 const logger = getLoggerFor({ module: 'rewards' });
 
@@ -108,11 +108,11 @@ export class OffchainRewards {
   static async create(vaults: Vault[], secondsBetweenUpdates: number, cacheKey: string): Promise<OffchainRewards> {
     const maybeCache = await getKey<{ type: string; version: number; data: CachedByProvider } | undefined>(cacheKey);
     const cachedValues: CachedByProvider | undefined =
-      typeof maybeCache === 'object' &&
-      maybeCache !== null &&
-      maybeCache.type === CACHE_TYPE &&
-      maybeCache.version === CACHE_VERSION &&
-      typeof maybeCache.data === 'object'
+      typeof maybeCache === 'object'
+      && maybeCache !== null
+      && maybeCache.type === CACHE_TYPE
+      && maybeCache.version === CACHE_VERSION
+      && typeof maybeCache.data === 'object'
         ? maybeCache.data
         : undefined;
 
@@ -144,9 +144,9 @@ export class OffchainRewards {
           const providerChain = providerEntry.byChain[chainId];
 
           if (
-            !providerChain ||
-            providerChain.lastRequested < this.startTime ||
-            now - providerChain.lastRequested >= this.secondsBetweenUpdates
+            !providerChain
+            || providerChain.lastRequested < this.startTime
+            || now - providerChain.lastRequested >= this.secondsBetweenUpdates
           ) {
             return { chainId, providerId, type: 'full' as const };
           }
@@ -237,11 +237,14 @@ export class OffchainRewards {
   protected async markFullRequestTimes(updates: UpdateRequest[], requestTime: number) {
     const chainsPerProvider = updates
       .filter(u => u.type === 'full')
-      .reduce((acc, update) => {
-        acc[update.providerId] ??= [];
-        acc[update.providerId].push(update.chainId);
-        return acc;
-      }, {} as Record<ProviderId, AppChain[]>);
+      .reduce(
+        (acc, update) => {
+          acc[update.providerId] ??= [];
+          acc[update.providerId].push(update.chainId);
+          return acc;
+        },
+        {} as Record<ProviderId, AppChain[]>
+      );
 
     for (const [providerId, chainIds] of Object.entries(chainsPerProvider)) {
       const providerEntry = this.byProvider[providerId];

@@ -4,10 +4,7 @@
  * @param keys
  * @param fn
  */
-export function keysToObject<T extends object>(
-  keys: (keyof T)[],
-  fn: (key: keyof T) => T[keyof T]
-): T {
+export function keysToObject<T extends object>(keys: (keyof T)[], fn: (key: keyof T) => T[keyof T]): T {
   return keys.reduce((acc: T, key: keyof T) => {
     acc[key] = fn(key);
     return acc;

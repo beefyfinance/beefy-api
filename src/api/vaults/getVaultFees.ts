@@ -1,14 +1,14 @@
 import { BigNumber } from 'bignumber.js';
+import { chunk } from 'lodash-es';
+import { type Address, BaseError } from 'viem';
 import { addressBookByChainId, ChainId } from '../../../packages/address-book/src/address-book/index.ts';
+import FeeABI from '../../abis/FeeABI.ts';
 import { getKey, setKey } from '../../utils/cache/index.ts';
 import { SupportedChains } from '../../utils/chain.ts';
-import { fetchContract } from '../rpc/client.ts';
-import FeeABI from '../../abis/FeeABI.ts';
-import type { HarvestableVault } from './types.ts';
-import { getHarvestableVaultsByChain } from '../stats/getMultichainVaults.ts';
-import { type Address, BaseError } from 'viem';
-import { chunk } from 'lodash-es';
 import { getLoggerFor } from '../../utils/logger/index.ts';
+import { fetchContract } from '../rpc/client.ts';
+import { getHarvestableVaultsByChain } from '../stats/getMultichainVaults.ts';
+import type { HarvestableVault } from './types.ts';
 
 const logger = getLoggerFor({ module: 'vaults' });
 
@@ -283,9 +283,9 @@ const withdrawalFeeFromCalls = (contractCalls: StrategyCallResponse): number => 
   if (contractCalls.allFees) {
     return contractCalls.allFees.withdraw / 10000;
   } else if (
-    (contractCalls.withdraw === undefined && contractCalls.withdraw2 === undefined) ||
-    (contractCalls.withdrawMax === undefined && contractCalls.withdrawMax2 === undefined) ||
-    contractCalls.paused
+    (contractCalls.withdraw === undefined && contractCalls.withdraw2 === undefined)
+    || (contractCalls.withdrawMax === undefined && contractCalls.withdrawMax2 === undefined)
+    || contractCalls.paused
   ) {
     return 0;
   } else {

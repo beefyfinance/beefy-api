@@ -1,6 +1,6 @@
-import { getBeefyGnosisCowApys } from './getBeefyGnosisCowApys.ts';
 import { GNOSIS_CHAIN_ID } from '../../../constants.ts';
 import { getLoggerFor } from '../../../utils/logger/index.ts';
+import { getBeefyGnosisCowApys } from './getBeefyGnosisCowApys.ts';
 
 const logger = getLoggerFor({ module: 'apy', chain: GNOSIS_CHAIN_ID });
 

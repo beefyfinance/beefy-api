@@ -2,10 +2,7 @@ import type { Blob } from 'node:buffer';
 import type { URLSearchParams } from 'node:url';
 import type { HeadersInit } from 'undici-types';
 
-export type PassThroughHeadersInit =
-  | [string,string][]
-  | Record<string, string | ReadonlyArray<string>>
-  | Headers;
+export type PassThroughHeadersInit = [string, string][] | Record<string, string | ReadonlyArray<string>> | Headers;
 export type PassThroughBodyInit = ArrayBuffer | Blob | FormData | URLSearchParams | null | string;
 
 export type GetUrlSearchParamsScalars = string | number | boolean | null | undefined;
@@ -14,10 +11,7 @@ export type GetUrlSearchParamsRecord = Record<string, GetUrlSearchParamsValues>;
 export type GetUrlSearchParamsValuesEntry = [string, GetUrlSearchParamsValues];
 export type GetUrlSearchParamsScalarsEntry = [string, GetUrlSearchParamsScalars];
 
-export type PassThroughURLSearchParamsInit =
-  | URLSearchParams
-  | string
-  | string[][];
+export type PassThroughURLSearchParamsInit = URLSearchParams | string | string[][];
 
 export type FetchParams = PassThroughURLSearchParamsInit | GetUrlSearchParamsRecord;
 

@@ -1,6 +1,6 @@
-import { getBeefyCowRootstockApys } from './getBeefyCowRootstockApys.ts';
 import { ROOTSTOCK_CHAIN_ID } from '../../../constants.ts';
 import { getLoggerFor } from '../../../utils/logger/index.ts';
+import { getBeefyCowRootstockApys } from './getBeefyCowRootstockApys.ts';
 
 const logger = getLoggerFor({ module: 'apy', chain: ROOTSTOCK_CHAIN_ID });
 

@@ -1,15 +1,13 @@
 import { BigNumber } from 'bignumber.js';
-
-import { fetchPrice } from '../../../../utils/fetchPrice.ts';
-import { getMerklOpportunitiesByProtocol } from '../../../offchain-rewards/providers/merkl/proxyClient.ts';
-
-import { getApyBreakdown } from '../getApyBreakdownNew.ts';
-import { default as IAaveV3Incentives }from '../../../../abis/AaveV3Incentives.ts';
-import { default as IAaveV3PoolDataProvider }from '../../../../abis/AaveV3PoolDataProvider.ts';
-import { fetchContract } from '../../../rpc/client.ts';
 import jp from 'jsonpath';
-
+import { default as IAaveV3Incentives } from '../../../../abis/AaveV3Incentives.ts';
+import { default as IAaveV3PoolDataProvider } from '../../../../abis/AaveV3PoolDataProvider.ts';
+import { fetchPrice } from '../../../../utils/fetchPrice.ts';
 import { getLoggerFor } from '../../../../utils/logger/index.ts';
+import { getMerklOpportunitiesByProtocol } from '../../../offchain-rewards/providers/merkl/proxyClient.ts';
+import { fetchContract } from '../../../rpc/client.ts';
+import { getApyBreakdown } from '../getApyBreakdownNew.ts';
+
 const logger = getLoggerFor({ module: 'apy', platform: 'aave' });
 
 const secondsPerYear = 31536000;

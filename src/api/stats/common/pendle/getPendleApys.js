@@ -1,7 +1,5 @@
-import { parseAbi } from 'viem';
-import { fetchContract } from '../../../rpc/client.ts';
 import { BigNumber } from 'bignumber.js';
-import { getApyBreakdown } from '../getApyBreakdownNew.ts';
+import { parseAbi } from 'viem';
 import {
   ARBITRUM_CHAIN_ID,
   BASE_CHAIN_ID,
@@ -10,8 +8,10 @@ import {
   PLASMA_CHAIN_ID,
   SONIC_CHAIN_ID,
 } from '../../../../constants.ts';
-import { getPendleApys as getPendleBaseApys } from './getPendleBaseApys.js';
 import { getLoggerFor } from '../../../../utils/logger/index.ts';
+import { fetchContract } from '../../../rpc/client.ts';
+import { getApyBreakdown } from '../getApyBreakdownNew.ts';
+import { getPendleApys as getPendleBaseApys } from './getPendleBaseApys.js';
 
 const logger = getLoggerFor({ module: 'apy', platform: 'pendle' });
 

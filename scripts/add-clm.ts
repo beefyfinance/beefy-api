@@ -1,14 +1,14 @@
-import { ChainId } from '../packages/address-book/src/address-book/index.ts';
-import yargs from 'yargs';
-import { hideBin } from 'yargs/helpers';
 import fs from 'node:fs';
 import path from 'node:path';
 import { ethers } from 'ethers';
-import { MULTICHAIN_RPC } from '../src/constants.ts';
-import UniV3LPPairABI from '../src/abis/UniV3LPPair.json' with { type: "json" };
-import ERC20ABI from '../src/abis/ERC20.json' with { type: "json" };
+import yargs from 'yargs';
+import { hideBin } from 'yargs/helpers';
+import { ChainId } from '../packages/address-book/src/address-book/index.ts';
 import CowVault from '../src/abis/CowVault.ts';
 import StratUniV3 from '../src/abis/StratUniV3.ts';
+import { MULTICHAIN_RPC } from '../src/constants.ts';
+import ERC20ABI from '../src/abis/ERC20.json' with { type: 'json' };
+import UniV3LPPairABI from '../src/abis/UniV3LPPair.json' with { type: 'json' };
 
 let vaultsFile = '../src/data/$network/beefyCowVaults.json';
 

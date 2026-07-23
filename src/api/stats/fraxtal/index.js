@@ -1,7 +1,7 @@
-import { getCurveApys } from './getCurveApys.js';
-import { getConvexCvxFxsApys } from './getConvexCvxFxsApys.js';
 import { FRAXTAL_CHAIN_ID } from '../../../constants.ts';
 import { getLoggerFor } from '../../../utils/logger/index.ts';
+import { getConvexCvxFxsApys } from './getConvexCvxFxsApys.js';
+import { getCurveApys } from './getCurveApys.js';
 
 const logger = getLoggerFor({ module: 'apy', chain: FRAXTAL_CHAIN_ID });
 

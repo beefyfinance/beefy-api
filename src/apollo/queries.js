@@ -203,17 +203,17 @@ const baseSwapQuery = (pairs, startTimestamp, endTimestamp) => {
 };
 
 export {
+  balancerDataQuery,
+  baseSwapQuery,
+  dayDataQuery,
+  gmxQuery,
+  hopQuery,
+  joeDayDataQuery,
+  joeDayDataRangeQuery,
   pairDayDataQuery,
   pairDayDataSushiQuery,
   pairDayDataSushiTridentQuery,
   poolsDataQuery,
-  dayDataQuery,
-  joeDayDataQuery,
-  joeDayDataRangeQuery,
-  balancerDataQuery,
   protocolDayDataRangeQuery,
   uniswapPositionQuery,
-  hopQuery,
-  gmxQuery,
-  baseSwapQuery,
 };

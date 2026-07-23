@@ -1,7 +1,7 @@
-import { AVAX_CHAIN_ID as chainId }from '../../../constants.ts';
+import { AVAX_CHAIN_ID as chainId } from '../../../constants.ts';
 import { getRewardPoolApys } from '../common/getRewardPoolApys.js';
-import stablePools from '../../../data/avax/blackStableLpPools.json' with { type: "json" };
-import volatilePools from '../../../data/avax/blackLpPools.json' with { type: "json" };
+import volatilePools from '../../../data/avax/blackLpPools.json' with { type: 'json' };
+import stablePools from '../../../data/avax/blackStableLpPools.json' with { type: 'json' };
 
 const pools = [...stablePools, ...volatilePools];
 export const getBlackholeApys = async () => {
