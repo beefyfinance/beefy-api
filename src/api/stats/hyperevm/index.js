@@ -1,11 +1,10 @@
 const { getBeefyCowHyperevmApys } = require('./getBeefyCowHyperevmApys');
-const { getKittenswapApys } = require('./getKittenswapApys');
 const { HYPEREVM_CHAIN_ID } = require('../../../constants');
 const { getLoggerFor } = require('../../../utils/logger/index.js');
 
 const logger = getLoggerFor({ module: 'apy', chain: HYPEREVM_CHAIN_ID });
 
-const getApys = [getBeefyCowHyperevmApys, getKittenswapApys];
+const getApys = [getBeefyCowHyperevmApys];
 
 const getHyperevmApys = async () => {
   const start = Date.now();
