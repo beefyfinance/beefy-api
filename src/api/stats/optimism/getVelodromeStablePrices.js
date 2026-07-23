@@ -1,11 +1,11 @@
-const getSolidlyStablePrices = require('../common/getSolidlyStablePrices');
-const newPools = require('../../../data/optimism/velodromeStableLpPools.json');
-const oldPools = require('../../../data/optimism/oldVelodromeStableLpPools.json');
-const { OPTIMISM_CHAIN_ID } = require('../../../constants');
+import { OPTIMISM_CHAIN_ID } from '../../../constants.ts';
+import getSolidlyStablePrices from '../common/getSolidlyStablePrices.js';
+import oldPools from '../../../data/optimism/oldVelodromeStableLpPools.json' with { type: 'json' };
+import newPools from '../../../data/optimism/velodromeStableLpPools.json' with { type: 'json' };
 
 const pools = [...oldPools, ...newPools];
 const getVelodromeStablePrices = async tokenPrices => {
   return await getSolidlyStablePrices(OPTIMISM_CHAIN_ID, pools, tokenPrices);
 };
 
-module.exports = getVelodromeStablePrices;
+export default getVelodromeStablePrices;

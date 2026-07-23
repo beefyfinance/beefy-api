@@ -1,10 +1,11 @@
-import { getTotalStakedInUsd, getYearlyRewardsInUsd } from './balancerUtils';
-import { getApyBreakdown, ApyBreakdownResult } from '../getApyBreakdown';
-import { NormalizedCacheObject, ApolloClient } from '@apollo/client/core';
-import BigNumber from 'bignumber.js';
-import { getBalTradingAndLstApr } from '../../../../utils/getBalancerTradingFeeAndLstApr';
-import { getMerklAprByExplorerAddress } from '../../../offchain-rewards/providers/merkl/proxyClient';
-import { getLoggerFor } from '../../../../utils/logger/index.js';
+import type { NormalizedCacheObject } from '@apollo/client/cache/inmemory/types.js';
+import type { ApolloClient } from '@apollo/client/core/index.js';
+import { BigNumber } from 'bignumber.js';
+import { getBalTradingAndLstApr } from '../../../../utils/getBalancerTradingFeeAndLstApr.js';
+import { getLoggerFor } from '../../../../utils/logger/index.ts';
+import { getMerklAprByExplorerAddress } from '../../../offchain-rewards/providers/merkl/proxyClient.ts';
+import { type ApyBreakdownResult, getApyBreakdown } from '../getApyBreakdown.ts';
+import { getTotalStakedInUsd, getYearlyRewardsInUsd } from './balancerUtils.js';
 
 const logger = getLoggerFor({ module: 'apy', platform: 'balancer' });
 
@@ -95,10 +96,10 @@ const getPoolApys = async (params: BalancerParams) => {
 
   params.pools.forEach((pool, i) => {
     const addressKey = pool.address?.toLowerCase?.();
-    const merklApr = pool.merkl && addressKey ? merklAprByAddress[addressKey] ?? 0 : 0;
+    const merklApr = pool.merkl && addressKey ? (merklAprByAddress[addressKey] ?? 0) : 0;
 
     // fold merkl into vault APR (fee charged + autocompounded), not a standalone merklApr
-    const base = pool.merkl ? new BigNumber(0) : poolApyResults[i] ?? new BigNumber(0);
+    const base = pool.merkl ? new BigNumber(0) : (poolApyResults[i] ?? new BigNumber(0));
     farmAprs[i] = base.plus(merklApr);
   });
 

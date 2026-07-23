@@ -1,8 +1,8 @@
-import { TreasuryApiResult, ValidatorAsset } from './types';
-import { ApiChain } from '../../utils/chain';
-import { fetchContract } from '../rpc/client';
-import { ChainId } from '../../../packages/address-book/src/address-book';
-import BigNumber from 'bignumber.js';
+import { BigNumber } from 'bignumber.js';
+import type { ChainId } from '../../../packages/address-book/src/address-book/index.ts';
+import type { ApiChain } from '../../utils/chain.ts';
+import { fetchContract } from '../rpc/client.ts';
+import type { TreasuryApiResult, ValidatorAsset } from './types.ts';
 
 const validatorsByChain: Partial<Record<ApiChain, ValidatorAsset[]>> = {
   ethereum: [
@@ -83,7 +83,7 @@ export const fetchSonicValidatorBalance = async (asset: SonicValidator, chainId:
 export const fetchAPIValidatorBalance = async (apiAsset: ValidatorAsset): Promise<TreasuryApiResult> => {
   let balance: number = await fetch(apiAsset.methodPath)
     .then(res => res.json())
-    .then((res: any) => ((res.data?.length ?? 0) > 0 ? res.data[0].balance : res.data.balance));
+    .then((res: any) => ((res.data?.length ?? 0) > 0 ? res.data[0].balance : res.data.balance) ?? 0);
   return {
     apiAsset,
     balance: new BigNumber(balance).shiftedBy(9),

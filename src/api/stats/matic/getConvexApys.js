@@ -1,9 +1,10 @@
-import { getCurveSubgraphApys } from '../common/curve/getCurveApyData';
-import getApyBreakdown from '../common/getApyBreakdown';
-import { POLYGON_CHAIN_ID } from '../../../constants';
-import { getConvexApyData } from '../common/curve/getConvexApyData';
+import { POLYGON_CHAIN_ID } from '../../../constants.ts';
+import { getConvexApyData } from '../common/curve/getConvexApyData.js';
+import { getCurveSubgraphApys } from '../common/curve/getCurveApyData.js';
+import { getApyBreakdown } from '../common/getApyBreakdown.ts';
+import curvePoolsData from '../../../data/matic/curvePools.json' with { type: 'json' };
 
-const pools = require('../../../data/matic/curvePools.json').filter(p => p.convex);
+const pools = curvePoolsData.filter(p => p.convex);
 const baseApyUrl = 'https://api.curve.finance/api/getSubgraphData/polygon';
 const tradingFees = 0.0002;
 

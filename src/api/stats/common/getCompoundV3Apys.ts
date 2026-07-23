@@ -1,12 +1,12 @@
-import BigNumber from 'bignumber.js';
-import { ChainId } from '../../../../packages/address-book/src/address-book';
-import getBlockTime from '../../../utils/getBlockTime';
-import { fetchPrice } from '../../../utils/fetchPrice';
-import cv3Token from '../../../abis/cv3Token';
-import { Abi } from 'viem';
-import { fetchContract, fetchNoMulticallContract } from '../../rpc/client';
-import { getApyBreakdown } from './getApyBreakdownNew';
-import { getLoggerFor } from '../../../utils/logger/index.js';
+import { BigNumber } from 'bignumber.js';
+import type { Abi } from 'viem';
+import type { ChainId } from '../../../../packages/address-book/src/address-book/index.ts';
+import cv3Token from '../../../abis/cv3Token.ts';
+import { fetchPrice } from '../../../utils/fetchPrice.ts';
+import getBlockTime from '../../../utils/getBlockTime.js';
+import { getLoggerFor } from '../../../utils/logger/index.ts';
+import { fetchContract, fetchNoMulticallContract } from '../../rpc/client.ts';
+import { getApyBreakdown } from './getApyBreakdownNew.ts';
 
 const logger = getLoggerFor({ module: 'apy', platform: 'compound' });
 
@@ -50,7 +50,7 @@ const getPoolsApys = async (params: CompoundV3ApyParams, data: PoolsData) => {
   );
 
   const totalSuppliesInUsd = data.totalSupplies.map((v, i) =>
-    v.div(params.pools[i].decimals).times(data.tokenPrices[i])
+    v.div(params.pools[i].decimals).times(data.tokenPrices[i] ?? 0)
   );
 
   const supplyCompApys = annualCompSupplyInUsd.map((v, i) => v.div(totalSuppliesInUsd[i]));

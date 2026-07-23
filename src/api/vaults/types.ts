@@ -1,6 +1,6 @@
-import BigNumber from 'bignumber.js';
-import { ApiChain, AppChain } from '../../utils/chain';
-import { Address } from 'viem';
+import type { BigNumber } from 'bignumber.js';
+import type { Address } from 'viem';
+import type { ApiChain, AppChain } from '../../utils/chain.ts';
 
 /** Added to all vault configs by API */
 type ApiCommonVault = {

@@ -1,5 +1,5 @@
-import { getUniV3PositionPrices } from '../common/getUniV3PositionPrices';
-import pools from '../../../data/ethereum/uniswapLpPools.json';
+import { getUniV3PositionPrices } from '../common/getUniV3PositionPrices.ts';
+import pools from '../../../data/ethereum/uniswapLpPools.json' with { type: 'json' };
 
 export default async function getUniswapPositionPrices(tokenPrices: Record<string, number>) {
   const params = {

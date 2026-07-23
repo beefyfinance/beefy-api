@@ -1,33 +1,37 @@
-'use strict';
-
-const Router = require('koa-router');
-const router = new Router();
-
-const noop = require('./api/noop');
-const stats = require('./api/stats');
-const supply = require('./api/supply');
-const price = require('./api/price');
-const cmc = require('./api/cmc');
-const tvl = require('./api/tvl');
-const multichainVaults = require('./api/vaults');
-const snapshot = require('./api/snapshot');
-const { boosts, chainBoosts, boostsV2, chainBoostsV2 } = require('./api/boosts');
-const { getTokens, getChainTokens, getChainNatives, getChainToken, getNativesFromAllChains } = require('./api/tokens');
-const { getConfigs, getChainConfig } = require('./api/config');
-const { getTreasury } = require('./api/treasury');
-const { proxyOneInchSwap, proxyOneInchQuote } = require('./api/zap/proxy/one-inch');
-const { proxyKyberSwap, proxyKyberQuote } = require('./api/zap/proxy/kyber');
-const { zapSwapsSupport, zapSwapsSupportDebug } = require('./api/zap/swap/routes');
-const { getArticles, getLatestArticle } = require('./api/articles');
-const { handleCowcentratedPriceRanges, handleCowcentratedLTIPPCampaignsForDune } = require('./api/cowcentrated');
-const {
-  handleOffChainRewardsAll,
-  handleOffChainRewardsAllForChain,
+import Router from 'koa-router';
+import { getArticles, getLatestArticle } from './api/articles/index.ts';
+import { boosts, boostsV2, chainBoosts, chainBoostsV2 } from './api/boosts/index.ts';
+import * as cmc from './api/cmc/index.js';
+import { getChainConfig, getConfigs } from './api/config/index.ts';
+import { handleCowcentratedLTIPPCampaignsForDune, handleCowcentratedPriceRanges } from './api/cowcentrated/index.ts';
+import noop from './api/noop.js';
+import {
   handleOffChainRewardsActive,
   handleOffChainRewardsActiveForChain,
-} = require('./api/offchain-rewards');
-const { pointStructures } = require('./api/points');
-const { proxyLiquidSwapSwap, proxyLiquidSwapQuote } = require('./api/zap/proxy/liquid-swap');
+  handleOffChainRewardsAll,
+  handleOffChainRewardsAllForChain,
+} from './api/offchain-rewards/index.ts';
+import { pointStructures } from './api/points/index.ts';
+import * as price from './api/price/index.js';
+import * as snapshot from './api/snapshot/index.ts';
+import * as stats from './api/stats/index.ts';
+import * as supply from './api/supply/index.js';
+import {
+  getChainNatives,
+  getChainToken,
+  getChainTokens,
+  getNativesFromAllChains,
+  getTokens,
+} from './api/tokens/index.ts';
+import { getTreasury } from './api/treasury/index.ts';
+import * as tvl from './api/tvl/index.js';
+import * as multichainVaults from './api/vaults/index.ts';
+import { proxyKyberQuote, proxyKyberSwap } from './api/zap/proxy/kyber.ts';
+import { proxyLiquidSwapQuote, proxyLiquidSwapSwap } from './api/zap/proxy/liquid-swap.ts';
+import { proxyOneInchQuote, proxyOneInchSwap } from './api/zap/proxy/one-inch.ts';
+import { zapSwapsSupport, zapSwapsSupportDebug } from './api/zap/swap/routes.ts';
+
+const router = new Router();
 
 router.get('/apy', stats.apy);
 router.get('/apy/breakdown', stats.apyBreakdowns);
@@ -120,4 +124,4 @@ router.get('/points-structures', pointStructures);
 
 router.get('/', noop);
 
-module.exports = router;
+export default router;

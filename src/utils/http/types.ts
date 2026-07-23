@@ -1,11 +1,8 @@
-import { Blob } from 'buffer';
-import { FormData } from 'undici-types/formdata';
-import { URLSearchParams } from 'url';
+import type { Blob } from 'node:buffer';
+import type { URLSearchParams } from 'node:url';
+import type { HeadersInit } from 'undici-types';
 
-export type PassThroughHeadersInit =
-  | string[][]
-  | Record<string, string | ReadonlyArray<string>>
-  | Headers;
+export type PassThroughHeadersInit = [string, string][] | Record<string, string | ReadonlyArray<string>> | Headers;
 export type PassThroughBodyInit = ArrayBuffer | Blob | FormData | URLSearchParams | null | string;
 
 export type GetUrlSearchParamsScalars = string | number | boolean | null | undefined;
@@ -14,10 +11,7 @@ export type GetUrlSearchParamsRecord = Record<string, GetUrlSearchParamsValues>;
 export type GetUrlSearchParamsValuesEntry = [string, GetUrlSearchParamsValues];
 export type GetUrlSearchParamsScalarsEntry = [string, GetUrlSearchParamsScalars];
 
-export type PassThroughURLSearchParamsInit =
-  | URLSearchParams
-  | string
-  | ReadonlyArray<[string, string]>;
+export type PassThroughURLSearchParamsInit = URLSearchParams | string | string[][];
 
 export type FetchParams = PassThroughURLSearchParamsInit | GetUrlSearchParamsRecord;
 
@@ -28,7 +22,7 @@ export type FetchParamsOptions = {
   keepUndefined?: boolean | string;
 };
 
-export type FetchHeaders = PassThroughHeadersInit;
+export type FetchHeaders = HeadersInit;
 
 export type FetchAbortSignal = { signal?: AbortSignal } | { timeout?: number };
 

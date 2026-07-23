@@ -1,9 +1,9 @@
-import BigNumber from 'bignumber.js';
-import { fetchContract } from '../../rpc/client';
-import SiloTokenAbi from '../../../abis/arbitrum/SiloToken';
-import SiloAbi from '../../../abis/arbitrum/Silo';
-import SiloV2Abi from '../../../abis/SiloV2';
-import { getLoggerFor } from '../../../utils/logger/index.js';
+import { BigNumber } from 'bignumber.js';
+import SiloAbi from '../../../abis/arbitrum/Silo.ts';
+import SiloTokenAbi from '../../../abis/arbitrum/SiloToken.ts';
+import SiloV2Abi from '../../../abis/SiloV2.ts';
+import { getLoggerFor } from '../../../utils/logger/index.ts';
+import { fetchContract } from '../../rpc/client.ts';
 
 const logger = getLoggerFor({ module: 'prices', platform: 'silo' });
 
@@ -40,8 +40,8 @@ export const getSiloPrices = async (chainId, pools, tokenPrices) => {
       pool.v2 || pool.vault
         ? new BigNumber(amountResults[i]).div(pool.decimals)
         : pool.collateral
-        ? new BigNumber(amountResults[i]['collateralOnlyDeposits']).div(pool.decimals)
-        : new BigNumber(amountResults[i]['totalDeposits']).div(pool.decimals);
+          ? new BigNumber(amountResults[i]['collateralOnlyDeposits']).div(pool.decimals)
+          : new BigNumber(amountResults[i]['totalDeposits']).div(pool.decimals);
     const totalSupply = new BigNumber(totalSupplyResults[i]).shiftedBy(-totalSupplyDecimals);
 
     const priceUnderlying = getTokenPrice(tokenPrices, pool.oracleId);
@@ -58,13 +58,10 @@ export const getSiloPrices = async (chainId, pools, tokenPrices) => {
 };
 
 const getTokenPrice = (tokenPrices, oracleId) => {
-  if (!oracleId) return 1;
-  let tokenPrice = 1;
-  const tokenSymbol = oracleId;
-  if (tokenPrices.hasOwnProperty(tokenSymbol)) {
-    tokenPrice = tokenPrices[tokenSymbol];
-  } else {
-    logger.warn({ oracleId }, 'unknown token price');
+  const price = tokenPrices[oracleId];
+  if (price === undefined) {
+    logger.warn({ oracleId }, 'unknown token, defaulting price to 0');
+    return 0;
   }
-  return tokenPrice;
+  return price;
 };

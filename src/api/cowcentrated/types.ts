@@ -1,8 +1,8 @@
-import { Address, isAddress } from 'viem';
-import { ApiChain } from '../../utils/chain';
-import { isNonEmptyArray, NonEmptyArray } from '../../utils/array';
-import { Token } from '../../../packages/address-book/src/types/token';
-import { providers } from './providers';
+import { type Address, isAddress } from 'viem';
+import type { Token } from '../../../packages/address-book/src/types/token.ts';
+import { isNonEmptyArray, type NonEmptyArray } from '../../utils/array.ts';
+import type { ApiChain } from '../../utils/chain.ts';
+import { providers } from './providers.ts';
 
 export type JsonCowClm = {
   beta?: boolean;
@@ -94,11 +94,11 @@ function isValidCowRewardPoolRewardConfig(
 
 function isValidCowClmRewardPoolConfig(rewardPool: JsonCowClm['rewardPool']): rewardPool is CowRewardPool {
   return (
-    rewardPool &&
-    rewardPool.oracleId &&
-    isAddress(rewardPool.address) &&
-    (!rewardPool.rewards ||
-      (isNonEmptyArray(rewardPool.rewards) && rewardPool.rewards.every(isValidCowRewardPoolRewardConfig)))
+    rewardPool
+    && rewardPool.oracleId
+    && isAddress(rewardPool.address)
+    && (!rewardPool.rewards
+      || (isNonEmptyArray(rewardPool.rewards) && rewardPool.rewards.every(isValidCowRewardPoolRewardConfig)))
   );
 }
 
@@ -112,19 +112,16 @@ function isValidCowProviderId(id: string): boolean {
 
 function isValidCowClmConfig(clm: JsonCowClm): clm is AnyCowClm {
   return (
-    (clm.tokens.length === 2 &&
-      clm.tokenOracleIds.length === 2 &&
-      clm.decimals.length === 2 &&
-      isAddress(clm.address) &&
-      isAddress(clm.lpAddress) &&
-      clm.tokens.every(isAddress) &&
-      // no reward pool if beta clm, or valid reward pool
-      ((!clm.rewardPool && clm.beta) || isValidCowClmRewardPoolConfig(clm.rewardPool)) &&
-      // no vault, or reward pool and valid vault
-      (!clm.vault || (clm.rewardPool && isValidCowClmVaultConfig(clm.vault))) &&
-      // no provider, or valid provider
-      !clm.providerId) ||
-    isValidCowProviderId(clm.providerId)
+    (clm.tokens.length === 2
+      && clm.tokenOracleIds.length === 2
+      && clm.decimals.length === 2
+      && isAddress(clm.address)
+      && isAddress(clm.lpAddress)
+      && clm.tokens.every(isAddress) // no reward pool if beta clm, or valid reward pool
+      && ((!clm.rewardPool && clm.beta) || isValidCowClmRewardPoolConfig(clm.rewardPool)) // no vault, or reward pool and valid vault
+      && (!clm.vault || (clm.rewardPool && isValidCowClmVaultConfig(clm.vault))) // no provider, or valid provider
+      && !clm.providerId)
+    || isValidCowProviderId(clm.providerId)
   );
 }
 
@@ -177,12 +174,12 @@ export type ClmApiVaultsResponse = ClmApiVault[];
 
 export function isClmApiVault(data: any): data is ClmApiVault {
   return (
-    isAddress(data.vaultAddress) &&
-    typeof data.priceOfToken0InToken1 === 'string' &&
-    typeof data.priceRangeMin1 === 'string' &&
-    typeof data.priceRangeMax1 === 'string' &&
-    typeof data.apr === 'string' &&
-    typeof data.apy === 'string'
+    isAddress(data.vaultAddress)
+    && typeof data.priceOfToken0InToken1 === 'string'
+    && typeof data.priceRangeMin1 === 'string'
+    && typeof data.priceRangeMax1 === 'string'
+    && typeof data.apr === 'string'
+    && typeof data.apy === 'string'
   );
 }
 

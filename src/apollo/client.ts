@@ -1,23 +1,17 @@
-import { createHttpLink } from 'apollo-link-http';
-import {
-  ApolloClient,
-  ApolloError,
-  ApolloLink,
-  InMemoryCache,
-  NormalizedCacheObject,
-  RequestHandler,
-} from '@apollo/client/core';
-import ApolloLinkTimeout from 'apollo-link-timeout';
+import type { NormalizedCacheObject } from '@apollo/client/cache/inmemory/types.js';
+import { ApolloClient, ApolloError, InMemoryCache } from '@apollo/client/core/index.js';
+import { HttpLink } from '@apollo/client/link/http/HttpLink.js';
 
 const APOLLO_TIMEOUT = process.env.APOLLO_TIMEOUT ? parseInt(process.env.APOLLO_TIMEOUT) : 30_000;
 const THE_GRAPH_API_KEY = process.env.THE_GRAPH_API_KEY || undefined; // The Free Plan includes 100,000 free monthly queries; you still need an API key
-const timeoutLink: ApolloLink = new ApolloLinkTimeout(APOLLO_TIMEOUT);
+const timeoutFetch: typeof fetch = (input, init) => {
+  const timeout = AbortSignal.timeout(APOLLO_TIMEOUT);
+  return fetch(input, { ...init, signal: init?.signal ? AbortSignal.any([init.signal, timeout]) : timeout });
+};
 
 export function client(url: string) {
-  const httpLink = createHttpLink({ uri: url, fetch });
-  const timeoutHttpLink = timeoutLink.concat(httpLink as any as ApolloLink | RequestHandler);
   return new ApolloClient({
-    link: timeoutHttpLink,
+    link: new HttpLink({ uri: url, fetch: timeoutFetch }),
     cache: new InMemoryCache({
       addTypename: false,
     }),
@@ -65,13 +59,9 @@ export const apePolyClient = client('https://api.thegraph.com/subgraphs/name/pro
 export const sushiMainnetClient = client('https://api.thegraph.com/subgraphs/name/sushiswap/exchange');
 export const sushiPolyClient = client('https://api.thegraph.com/subgraphs/name/sushiswap/matic-exchange');
 export const sushiOneClient = client('https://api.thegraph.com/subgraphs/name/sushiswap/exchange-harmony');
-export const sushiArbitrumClient = client(
-  'https://api.thegraph.com/subgraphs/name/sushiswap/arbitrum-exchange'
-);
+export const sushiArbitrumClient = client('https://api.thegraph.com/subgraphs/name/sushiswap/arbitrum-exchange');
 export const sushiCeloClient = client('https://api.thegraph.com/subgraphs/name/sushiswap/celo-exchange');
-export const sushiMoonriverClient = client(
-  'https://api.thegraph.com/subgraphs/name/sushiswap/moonriver-exchange'
-);
+export const sushiMoonriverClient = client('https://api.thegraph.com/subgraphs/name/sushiswap/moonriver-exchange');
 export const sushiFantomClient = client('https://api.thegraph.com/subgraphs/name/sushiswap/fantom-exchange');
 export const sushiFuseClient = client('https://api.thegraph.com/subgraphs/name/sushiswap/fuse-exchange');
 export const sushiKavaClient = client('https://pvt.graph.kava.io/subgraphs/name/sushi-0m/trident-kava');
@@ -95,9 +85,7 @@ export const joeClient = client('https://api.thegraph.com/subgraphs/name/traderj
 export const sjoeClient = theGraphClient('22nJbR5KwAPVrxsPtKGVfopNAtrcDP7JxvnbCn2DXPgK');
 // export const babyClient = client('https://api.thegraph.com/subgraphs/name/babyswapgraph/exchange3');
 export const beetClient = client('https://api.thegraph.com/subgraphs/name/beethovenxfi/beethovenx');
-export const beetOpClient = client(
-  'https://api.studio.thegraph.com/query/75376/balancer-optimism-v2/version/latest'
-);
+export const beetOpClient = client('https://api.studio.thegraph.com/query/75376/balancer-optimism-v2/version/latest');
 export const balancerArbClient = client(
   'https://api.studio.thegraph.com/query/75376/balancer-arbitrum-v2/version/latest'
 );
@@ -110,9 +98,7 @@ export const balancerPolyClient = client(
 export const balancerZkevmClient = client(
   'https://api.studio.thegraph.com/query/24660/balancer-polygon-zk-v2/version/latest'
 );
-export const balancerBaseClient = client(
-  'https://api.studio.thegraph.com/query/24660/balancer-base-v2/version/latest'
-);
+export const balancerBaseClient = client('https://api.studio.thegraph.com/query/24660/balancer-base-v2/version/latest');
 
 export const balancerGnosisClient = client(
   'https://api.studio.thegraph.com/query/75376/balancer-gnosis-chain-v2/version/latest'
@@ -121,9 +107,7 @@ export const beamClient = client('https://api.thegraph.com/subgraphs/name/beamsw
 export const solarflareClient = client('https://analytics.solarflare.io/api/subgraph');
 export const stellaClient = client('https://api.thegraph.com/subgraphs/name/stellaswap/stella-swap');
 export const vvsClient = client('https://graph.cronoslabs.com/subgraphs/name/vvs/exchange');
-export const finnClient = client(
-  'https://api.thegraph.com/subgraphs/name/huckleberrydex/huckleberry-subgraph'
-);
+export const finnClient = client('https://api.thegraph.com/subgraphs/name/huckleberrydex/huckleberry-subgraph');
 export const dinoClient = client('https://api.thegraph.com/subgraphs/name/jannerveglobal/dino-swap-dex');
 export const fusefiClient = client('https://api.thegraph.com/subgraphs/name/fuseio/fuseswap');
 export const netswapClient = client('https://api.netswap.io/graph/subgraphs/name/netswap/exchange');
@@ -131,9 +115,7 @@ export const tethysClient = client('https://graph-node.tethys.finance/subgraphs/
 // export const tombswapClient = client('https://api.thegraph.com/subgraphs/name/github-qfg/tombswap');
 export const biswapClient = client('https://api.thegraph.com/subgraphs/name/biswapcom/exchange5');
 // export const uniswapPolygonClient = client(  'https://api.thegraph.com/subgraphs/name/ianlapham/uniswap-v3-polygon');
-export const balancerClient = client(
-  'https://api.studio.thegraph.com/query/75376/balancer-v2/version/latest'
-);
+export const balancerClient = client('https://api.studio.thegraph.com/query/75376/balancer-v2/version/latest');
 
 export const isSushiTridentClient = (client: ApolloClient<NormalizedCacheObject>) => {
   return client == sushiKavaClient;
@@ -141,24 +123,22 @@ export const isSushiTridentClient = (client: ApolloClient<NormalizedCacheObject>
 export const hopArbClient = client('https://api.thegraph.com/subgraphs/name/hop-protocol/hop-arbitrum');
 export const hopOpClient = client('https://api.thegraph.com/subgraphs/name/hop-protocol/hop-optimism');
 export const hopPolyClient = client('https://api.thegraph.com/subgraphs/name/hop-protocol/hop-polygon');
-export const gmxArbClient = client(
-  'https://subgraph.satsuma-prod.com/3b2ced13c8d9/gmx/synthetics-arbitrum-stats/api'
-);
+export const gmxArbClient = client('https://subgraph.satsuma-prod.com/3b2ced13c8d9/gmx/synthetics-arbitrum-stats/api');
 export const baseSwapClient = client('https://api.thegraph.com/subgraphs/name/messari/baseswap-base');
 export const defiveClient = theGraphClient('DJpniEjry879CJGYXnvryurMGbGZdY4gpT4faVUh4KdZ');
 
 export const isSushiClient = (client: ApolloClient<NormalizedCacheObject>) => {
   return (
-    client === sushiMainnetClient ||
-    client === sushiPolyClient ||
-    client === sushiOneClient ||
-    client === sushiArbitrumClient ||
-    client === joeClient ||
-    client === sushiCeloClient ||
-    client === sushiMoonriverClient ||
-    client === sushiFantomClient ||
-    client === sushiFuseClient ||
-    client === dinoClient
+    client === sushiMainnetClient
+    || client === sushiPolyClient
+    || client === sushiOneClient
+    || client === sushiArbitrumClient
+    || client === joeClient
+    || client === sushiCeloClient
+    || client === sushiMoonriverClient
+    || client === sushiFantomClient
+    || client === sushiFuseClient
+    || client === dinoClient
   );
 };
 

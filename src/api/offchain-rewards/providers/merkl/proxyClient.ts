@@ -1,6 +1,6 @@
-import { getJson } from '../../../../utils/http';
-import { FetchParams } from '../../../../utils/http/types';
-import { MerklProxyOpportunity } from './proxyTypes';
+import { getJson } from '../../../../utils/http/index.ts';
+import type { FetchParams } from '../../../../utils/http/types.ts';
+import type { MerklProxyOpportunity } from './proxyTypes.ts';
 
 const BASE_URL = process.env.BEEFY_MERKL_API_URL || 'https://merkl-api.beefy.finance';
 const API_KEY = process.env.BEEFY_MERKL_API_KEY;
@@ -20,11 +20,11 @@ export function merklAprFromOpportunity(o: MerklProxyOpportunity | undefined): n
     return o.apr / 100;
   }
   if (
-    typeof o.dailyRewards === 'number' &&
-    Number.isFinite(o.dailyRewards) &&
-    typeof o.tvl === 'number' &&
-    Number.isFinite(o.tvl) &&
-    o.tvl > 0
+    typeof o.dailyRewards === 'number'
+    && Number.isFinite(o.dailyRewards)
+    && typeof o.tvl === 'number'
+    && Number.isFinite(o.tvl)
+    && o.tvl > 0
   ) {
     return (o.dailyRewards * 365) / o.tvl;
   }

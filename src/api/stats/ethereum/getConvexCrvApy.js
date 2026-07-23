@@ -1,12 +1,12 @@
-import { ETH_CHAIN_ID } from '../../../constants';
-import BigNumber from 'bignumber.js';
-import { fetchPrice } from '../../../utils/fetchPrice';
-import { getMintedCvxAmount } from './getConvexApys';
-import getApyBreakdown from '../common/getApyBreakdown';
-import IRewardPool from '../../../abis/IRewardPool';
-import ICvxCrvStaking from '../../../abis/ethereum/ICvxCrvStaking';
-import { fetchContract } from '../../rpc/client';
-import ERC20Abi from '../../../abis/ERC20Abi';
+import { BigNumber } from 'bignumber.js';
+import ERC20Abi from '../../../abis/ERC20Abi.ts';
+import ICvxCrvStaking from '../../../abis/ethereum/ICvxCrvStaking.ts';
+import IRewardPool from '../../../abis/IRewardPool.ts';
+import { ETH_CHAIN_ID } from '../../../constants.ts';
+import { fetchPrice } from '../../../utils/fetchPrice.ts';
+import { fetchContract } from '../../rpc/client.ts';
+import { getApyBreakdown } from '../common/getApyBreakdown.ts';
+import { getMintedCvxAmount } from './getConvexApys.js';
 
 const secondsPerYear = 31536000;
 const cvxAddress = '0x4e3FBD56CD56c3e72c1403e103b45Db9da5B9D2B';
@@ -111,11 +111,7 @@ export const getConvexCrvApy = async () => {
 
   const group0Ratio = info.stakingTotalSupply.div(info.stakingTotalSupply.minus(info.supplyWeight));
 
-  let group0Apy = crvRewardsInUsd
-    .plus(cvxRewardsInUsd)
-    .div(totalStakedInUsd)
-    .times(group0Ratio)
-    .toNumber();
+  let group0Apy = crvRewardsInUsd.plus(cvxRewardsInUsd).div(totalStakedInUsd).times(group0Ratio).toNumber();
   // console.log(pool.name, 'group0 apy', group0Apy);
 
   const cvxDistApy = cvxDistRewards.rewardRate

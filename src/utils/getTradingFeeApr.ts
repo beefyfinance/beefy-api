@@ -1,24 +1,24 @@
-import { getUtcSecondsFromDayRange } from './getUtcSecondsFromDayRange';
+import type { NormalizedCacheObject } from '@apollo/client/cache/inmemory/types.js';
+import type { ApolloClient } from '@apollo/client/core/index.js';
+import { BigNumber } from 'bignumber.js';
 import {
+  balancerDataQuery,
+  baseSwapQuery,
+  dayDataQuery,
+  gmxQuery,
+  hopQuery,
+  joeDayDataQuery,
+  joeDayDataRangeQuery,
   pairDayDataQuery,
   pairDayDataSushiQuery,
   pairDayDataSushiTridentQuery,
   poolsDataQuery,
-  dayDataQuery,
-  joeDayDataQuery,
-  balancerDataQuery,
-  joeDayDataRangeQuery,
   protocolDayDataRangeQuery,
-  hopQuery,
-  gmxQuery,
-  baseSwapQuery,
-} from '../apollo/queries';
-import getBlockTime from './getBlockTime';
-import getBlockNumber from './getBlockNumber';
-import BigNumber from 'bignumber.js';
-import { NormalizedCacheObject } from '@apollo/client/core';
-import { ApolloClient } from '@apollo/client/core';
-import { getLoggerFor } from './logger/index.js';
+} from '../apollo/queries.js';
+import getBlockNumber from './getBlockNumber.js';
+import getBlockTime from './getBlockTime.js';
+import { getUtcSecondsFromDayRange } from './getUtcSecondsFromDayRange.ts';
+import { getLoggerFor } from './logger/index.ts';
 
 const logger = getLoggerFor({ module: 'apy' });
 

@@ -1,7 +1,7 @@
-import { OneInchSwapProvider } from './OneInchSwapProvider';
-import { KyberSwapProvider } from './KyberSwapProvider';
-import { ISwapProvider } from './ISwapProvider';
-import { LiquidSwapSwapProvider } from './LiquidSwapSwapProvider.js';
+import type { ISwapProvider } from './ISwapProvider.ts';
+import { KyberSwapProvider } from './KyberSwapProvider.ts';
+import { LiquidSwapSwapProvider } from './LiquidSwapSwapProvider.ts';
+import { OneInchSwapProvider } from './OneInchSwapProvider.ts';
 
 export const providersById = {
   'one-inch': new OneInchSwapProvider(),

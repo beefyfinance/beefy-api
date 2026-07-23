@@ -1,8 +1,8 @@
-import { build, isColorSupported, type PrettyOptions, type PrettyStream } from 'pino-pretty';
-import type { ResolveLogScope } from './types';
+import pinoPretty, { type PrettyOptions, type PrettyStream } from 'pino-pretty';
+import type { ResolveLogScope } from './types.ts';
 
 export default function (opts: PrettyOptions = {}): PrettyStream {
-  const colorize = opts.colorize === false ? false : isColorSupported;
+  const colorize = opts.colorize === false ? false : pinoPretty.isColorSupported;
   const tag = (text: string | undefined, colorFn: (text: string) => string) => {
     if (!text) {
       return undefined;
@@ -10,7 +10,7 @@ export default function (opts: PrettyOptions = {}): PrettyStream {
     return ` ${colorize ? colorFn(text) : text}`;
   };
 
-  return build({
+  return pinoPretty.build({
     colorize,
     translateTime: 'SYS:HH:MM:ss',
     ignore: 'pid,hostname',

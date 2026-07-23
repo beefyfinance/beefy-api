@@ -1,15 +1,14 @@
-import { getSingleChainVaults, getVaultsByChain } from '../stats/getMultichainVaults';
-import { getChainNewBoosts } from '../boosts/getBoosts';
-import { addressBook, Chain } from '../../../packages/address-book/src/address-book';
-import Token from '../../../packages/address-book/src/types/token';
-import { MULTICHAIN_ENDPOINTS } from '../../constants';
-import { serviceEventBus } from '../../utils/ServiceEventBus';
-import { ApiChain, isApiChain, toApiChain } from '../../utils/chain';
-import { ChainTokens, TokenEntity, TokenErc20, TokenNative, TokensByChain } from './types';
-import { mapValues } from 'lodash';
-import { Address, getAddress } from 'viem';
-import { isDefined } from '../../utils/array';
-import { getLoggerFor } from '../../utils/logger/index.js';
+import { mapValues } from 'lodash-es';
+import { type Address, getAddress } from 'viem';
+import { addressBook, type Chain } from '../../../packages/address-book/src/address-book/index.ts';
+import type { Token } from '../../../packages/address-book/src/types/token.ts';
+import { isDefined } from '../../utils/array.ts';
+import { type ApiChain, isApiChain, SupportedChains, toApiChain } from '../../utils/chain.ts';
+import { getLoggerFor } from '../../utils/logger/index.ts';
+import { serviceEventBus } from '../../utils/ServiceEventBus.ts';
+import { getChainNewBoosts } from '../boosts/getBoosts.ts';
+import { getSingleChainVaults, getVaultsByChain } from '../stats/getMultichainVaults.ts';
+import type { ChainTokens, TokenEntity, TokenErc20, TokenNative, TokensByChain } from './types.ts';
 
 const logger = getLoggerFor({ module: 'tokens' });
 
@@ -119,9 +118,9 @@ async function fetchVaultTokensForChain(chainId: ApiChain): Promise<TokenEntity[
 
     // Skip natives and mooTokens
     if (
-      vault.earnedTokenAddress &&
-      vault.earnedTokenAddress !== 'native' &&
-      vault.earnedTokenAddress !== vault.earnContractAddress
+      vault.earnedTokenAddress
+      && vault.earnedTokenAddress !== 'native'
+      && vault.earnedTokenAddress !== vault.earnContractAddress
     ) {
       tokens.push({
         type: 'erc20',
@@ -147,10 +146,10 @@ async function fetchBoostTokensForChain(chainId: ApiChain): Promise<TokenEntity[
   return boosts.reduce((tokens: TokenEntity[], boost) => {
     for (const reward of boost.rewards) {
       if (
-        reward.type === 'token' &&
-        reward.address &&
-        reward.address !== 'native' &&
-        !vaultAddresses.has(reward.address as Address)
+        reward.type === 'token'
+        && reward.address
+        && reward.address !== 'native'
+        && !vaultAddresses.has(reward.address as Address)
       ) {
         tokens.push({
           type: 'erc20',
@@ -328,7 +327,7 @@ export async function initTokenService() {
 async function updateTokens() {
   try {
     logger.debug('updating token service');
-    const chains = Object.keys(MULTICHAIN_ENDPOINTS) as ApiChain[];
+    const chains = SupportedChains;
     const byChain = await Promise.all(chains.map(chainId => fetchTokensForChain(chainId)));
 
     chains.forEach((chainId, i) => {

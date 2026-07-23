@@ -1,11 +1,11 @@
-import Koa from 'koa';
-import { QuoteData, QuoteRequest, SwapData, SwapRequest } from '../api/kyber/types';
-import { getKyberApi } from '../api/kyber';
-import { AnyChain } from '../../../utils/chain';
-import { redactSecrets } from '../../../utils/secrets';
-import { isQuoteValueTooLow, setNoCacheHeaders } from './common';
-import { ApiResponse, ExtraQuoteResponse, isSuccessApiResponse } from '../api/common';
-import { getLoggerFor } from '../../../utils/logger/index.js';
+import type Koa from 'koa';
+import type { AnyChain } from '../../../utils/chain.ts';
+import { getLoggerFor } from '../../../utils/logger/index.ts';
+import { redactSecrets } from '../../../utils/secrets.ts';
+import { type ApiResponse, type ExtraQuoteResponse, isSuccessApiResponse } from '../api/common.ts';
+import { getKyberApi } from '../api/kyber/index.ts';
+import type { QuoteData, QuoteRequest, SwapData, SwapRequest } from '../api/kyber/types.ts';
+import { isQuoteValueTooLow, setNoCacheHeaders } from './common.ts';
 
 const logger = getLoggerFor({ module: 'zap', platform: 'kyber' });
 

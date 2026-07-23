@@ -1,10 +1,11 @@
-const { getCurveApys } = require('./getCurveApys');
-const getVelodromeApys = require('./getVelodromeApys');
-const getBeVeloV2Apr = require('./getBeVeloV2Apr');
-const { getBeefyOPCowApys } = require('./getBeefyOPCowApys');
-const { getMorphoApys } = require('../common/morpho/getMorphoApys');
-const { OPTIMISM_CHAIN_ID } = require('../../../constants');
-const { getLoggerFor } = require('../../../utils/logger/index.js');
+import { OPTIMISM_CHAIN_ID } from '../../../constants.ts';
+import { getLoggerFor } from '../../../utils/logger/index.ts';
+import { getMorphoApys } from '../common/morpho/getMorphoApys.js';
+import { getBeefyOPCowApys } from './getBeefyOPCowApys.ts';
+import getBeVeloV2Apr from './getBeVeloV2Apr.js';
+import { getCurveApys } from './getCurveApys.js';
+import getVelodromeApys from './getVelodromeApys.js';
+import morphoPoolsData from '../../../data/optimism/morphoPools.json' with { type: 'json' };
 
 const logger = getLoggerFor({ module: 'apy', chain: OPTIMISM_CHAIN_ID });
 
@@ -13,7 +14,7 @@ const getApys = [
   getVelodromeApys,
   getBeVeloV2Apr,
   getBeefyOPCowApys,
-  () => getMorphoApys(OPTIMISM_CHAIN_ID, require('../../../data/optimism/morphoPools.json')),
+  () => getMorphoApys(OPTIMISM_CHAIN_ID, morphoPoolsData),
 ];
 
 const getOptimismApys = async () => {
@@ -64,4 +65,4 @@ const getOptimismApys = async () => {
   };
 };
 
-module.exports = { getOptimismApys };
+export { getOptimismApys };

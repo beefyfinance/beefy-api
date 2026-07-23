@@ -1,10 +1,15 @@
-import { getKey, setKey } from '../../utils/cache';
-import { getBoostPeriodFinish, getBoosts } from './fetchBoostData';
-import { Boost, BoostEntity, OldBoost, PromoTokenRewardConfig } from './types';
-import { serviceEventBus } from '../../utils/ServiceEventBus';
-import { contextAllSettled, isContextResultFulfilled, isContextResultRejected, withTimeout } from '../../utils/promise';
-import { ApiChain, SupportedChains } from '../../utils/chain';
-import { getLoggerFor } from '../../utils/logger/index.js';
+import { getKey, setKey } from '../../utils/cache/index.ts';
+import { type ApiChain, SupportedChains } from '../../utils/chain.ts';
+import { getLoggerFor } from '../../utils/logger/index.ts';
+import {
+  contextAllSettled,
+  isContextResultFulfilled,
+  isContextResultRejected,
+  withTimeout,
+} from '../../utils/promise.ts';
+import { serviceEventBus } from '../../utils/ServiceEventBus.ts';
+import { getBoostPeriodFinish, getBoosts } from './fetchBoostData.ts';
+import type { Boost, BoostEntity, OldBoost, PromoTokenRewardConfig } from './types.ts';
 
 const logger = getLoggerFor({ module: 'boosts' });
 
@@ -120,11 +125,11 @@ async function loadFromRedis() {
   const cached = await getKey<BoostsByChainCacheSchema>(REDIS_KEY);
 
   if (
-    cached &&
-    typeof cached === 'object' &&
-    'version' in cached &&
-    'data' in cached &&
-    cached.version === CACHE_SCHEMA_VERSION
+    cached
+    && typeof cached === 'object'
+    && 'version' in cached
+    && 'data' in cached
+    && cached.version === CACHE_SCHEMA_VERSION
   ) {
     boostsByChain = cached.data;
     buildFromChains();

@@ -1,6 +1,6 @@
 import { pino } from 'pino';
-import { type ApiChain, fromChainNumber } from '../chain';
-import type { LogScope, ResolveLogScope } from './types';
+import { type ApiChain, fromChainNumber } from '../chain.ts';
+import type { LogScope, ResolveLogScope } from './types.ts';
 
 const LEVELS = new Set(['fatal', 'error', 'warn', 'info', 'debug', 'trace', 'silent']);
 const requested = process.env.LOG_LEVEL ?? 'info';

@@ -1,9 +1,9 @@
-import { getApyBreakdown } from '../common/getApyBreakdownNew';
-import { getCurveSubgraphApys } from '../common/curve/getCurveApyData';
-import { getCurveApysCommon, getMerklApys } from '../common/curve/getCurveApysCommon';
-import { MONAD_CHAIN_ID as chainId } from '../../../constants';
+import { MONAD_CHAIN_ID as chainId } from '../../../constants.ts';
+import { getMerklApys } from '../common/curve/getCurveApysCommon.js';
+import { getApyBreakdown } from '../common/getApyBreakdownNew.ts';
+import curvePoolsData from '../../../data/monad/curvePools.json' with { type: 'json' };
 
-const pools = require('../../../data/monad/curvePools.json').filter(p => p.gauge);
+const pools = curvePoolsData.filter(p => p.gauge);
 const subgraphApyUrl = 'https://api.curve.finance/api/getSubgraphData/plasma';
 
 export const getCurveApys = async () => {
@@ -13,7 +13,5 @@ export const getCurveApys = async () => {
     getMerklApys(chainId, pools),
   ]);
 
-  return getApyBreakdown(
-    pools.map((p, i) => ({ vaultId: p.name, vault: curveApys[i], trading: baseApys[p.name] }))
-  );
+  return getApyBreakdown(pools.map((p, i) => ({ vaultId: p.name, vault: curveApys[i], trading: baseApys[p.name] })));
 };

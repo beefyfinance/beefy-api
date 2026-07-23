@@ -1,14 +1,14 @@
-import { ETH_CHAIN_ID } from '../../../constants';
-import getApyBreakdown from '../common/getApyBreakdown';
-import { getCurveSubgraphApys } from '../common/curve/getCurveApyData';
-import BigNumber from 'bignumber.js';
-import { fetchPrice } from '../../../utils/fetchPrice';
-import { fetchContract } from '../../rpc/client';
-import ICurveGaugeController from '../../../abis/ethereum/ICurveGaugeController';
-import IFees from '../../../abis/ConvexFeeRegistry.json';
-import ICrv from '../../../abis/ethereum/ICrv';
-import IFxGauge from '../../../abis/IFxGauge';
-import ERC20Abi from '../../../abis/ERC20Abi';
+import { BigNumber } from 'bignumber.js';
+import ERC20Abi from '../../../abis/ERC20Abi.ts';
+import ICrv from '../../../abis/ethereum/ICrv.ts';
+import ICurveGaugeController from '../../../abis/ethereum/ICurveGaugeController.ts';
+import IFxGauge from '../../../abis/IFxGauge.ts';
+import { ETH_CHAIN_ID } from '../../../constants.ts';
+import { fetchPrice } from '../../../utils/fetchPrice.ts';
+import { fetchContract } from '../../rpc/client.ts';
+import { getCurveSubgraphApys } from '../common/curve/getCurveApyData.js';
+import { getApyBreakdown } from '../common/getApyBreakdown.ts';
+import IFees from '../../../abis/ConvexFeeRegistry.json' with { type: 'json' };
 
 const fxn = '0x365AccFCa291e7D3914637ABf1F7635dB165Bb09';
 const veFxn = '0xEC6B8A3F3605B083F7044C0F31f2cac0caf1d469';
@@ -18,7 +18,8 @@ const cvxFees = '0x4f258feCc91b2ff162cA702c2Bd9ABf2AF089611';
 const secondsPerYear = 31536000;
 const tradingFees = 0.0002;
 const subgraphUrl = 'https://api.curve.finance/api/getSubgraphData/ethereum';
-const pools = require('../../../data/ethereum/fxPools.json');
+
+import pools from '../../../data/ethereum/fxPools.json' with { type: 'json' };
 
 const defaultRewards = [
   {
@@ -33,10 +34,7 @@ const defaultRewards = [
 pools.forEach(p => (p.rewards = p.rewards = [...defaultRewards, ...(p.rewards || [])]));
 
 export const getFxApys = async () => {
-  const [baseApys, farmApys] = await Promise.all([
-    getCurveSubgraphApys(pools, subgraphUrl),
-    getPoolApys(pools),
-  ]);
+  const [baseApys, farmApys] = await Promise.all([getCurveSubgraphApys(pools, subgraphUrl), getPoolApys(pools)]);
   const poolsMap = pools.map(p => ({ name: p.name, address: p.name }));
   return getApyBreakdown(poolsMap, baseApys, farmApys, tradingFees);
 };

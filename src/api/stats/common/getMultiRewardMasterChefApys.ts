@@ -1,19 +1,17 @@
-import BigNumber from 'bignumber.js';
-import { NormalizedCacheObject } from '@apollo/client/core';
-import { ApolloClient } from '@apollo/client/core';
-
-import { ChainId } from '../../../../packages/address-book/src/address-book';
-
-import { isSushiClient, isBeetClient } from '../../../apollo/client';
-import getApyBreakdown, { ApyBreakdownResult } from '../common/getApyBreakdown';
-import { LpPool, SingleAssetPool } from '../../../types/LpPool';
-import { fetchPrice } from '../../../utils/fetchPrice';
-import getBlockTime from '../../../utils/getBlockTime';
-import { getEDecimals } from '../../../utils/getEDecimals';
-import { getTradingFeeAprSushi, getTradingFeeAprBalancer, getTradingFeeApr } from '../../../utils/getTradingFeeApr';
-import IMultiRewardMasterChef from '../../../abis/IMultiRewardMasterChef';
-import { fetchContract } from '../../rpc/client';
-import { getLoggerFor } from '../../../utils/logger/index.js';
+import type { NormalizedCacheObject } from '@apollo/client/cache/inmemory/types.js';
+import type { ApolloClient } from '@apollo/client/core/index.js';
+import { BigNumber } from 'bignumber.js';
+import type { ChainId } from '../../../../packages/address-book/src/address-book/index.ts';
+import IMultiRewardMasterChef from '../../../abis/IMultiRewardMasterChef.ts';
+import { isBeetClient, isSushiClient } from '../../../apollo/client.ts';
+import type { LpPool, SingleAssetPool } from '../../../types/LpPool.ts';
+import { fetchPrice } from '../../../utils/fetchPrice.ts';
+import getBlockTime from '../../../utils/getBlockTime.js';
+import { getEDecimals } from '../../../utils/getEDecimals.ts';
+import { getTradingFeeApr, getTradingFeeAprBalancer, getTradingFeeAprSushi } from '../../../utils/getTradingFeeApr.ts';
+import { getLoggerFor } from '../../../utils/logger/index.ts';
+import { fetchContract } from '../../rpc/client.ts';
+import { type ApyBreakdownResult, getApyBreakdown } from '../common/getApyBreakdown.ts';
 
 const logger = getLoggerFor({ module: 'apy', platform: 'multiRewardMasterChef' });
 
@@ -57,8 +55,8 @@ const getTradingAprs = async (params: MasterChefApysParams) => {
     const aprs = isSushiClient(client)
       ? await getTradingFeeAprSushi(client, pairAddresses, fee)
       : isBeetClient(client)
-      ? await getTradingFeeAprBalancer(client, pairAddresses, fee, params.chainId)
-      : await getTradingFeeApr(client, pairAddresses, fee);
+        ? await getTradingFeeAprBalancer(client, pairAddresses, fee, params.chainId)
+        : await getTradingFeeApr(client, pairAddresses, fee);
     tradingAprs = { ...tradingAprs, ...aprs };
   }
   return tradingAprs;

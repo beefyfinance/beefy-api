@@ -1,10 +1,11 @@
-const BigNumber = require('bignumber.js');
-import { fetchPrice } from '../../../utils/fetchPrice';
-const { OPTIMISM_CHAIN_ID } = require('../../../constants');
-import { addressBook } from '../../../../packages/address-book/src/address-book';
-import ERC20Abi from '../../../abis/ERC20Abi';
-import IRewardPool from '../../../abis/IRewardPool';
-import { fetchContract } from '../../rpc/client';
+import { BigNumber } from 'bignumber.js';
+import { addressBook } from '../../../../packages/address-book/src/address-book/index.ts';
+import ERC20Abi from '../../../abis/ERC20Abi.ts';
+import IRewardPool from '../../../abis/IRewardPool.ts';
+import { OPTIMISM_CHAIN_ID } from '../../../constants.ts';
+import { fetchPrice } from '../../../utils/fetchPrice.ts';
+import { fetchContract } from '../../rpc/client.ts';
+
 const {
   optimism: {
     tokens: { beVELO },
@@ -19,10 +20,7 @@ const BLOCKS_PER_DAY = 28800;
 const rewards = '0x2489F2f7f972cA7eE6436666A3Ab0AAFB5A06c7b';
 
 const getBeVeloV2Apr = async () => {
-  const [yearlyRewardsInUsd, totalStakedInUsd] = await Promise.all([
-    getYearlyRewardsInUsd(),
-    getTotalStakedInUsd(),
-  ]);
+  const [yearlyRewardsInUsd, totalStakedInUsd] = await Promise.all([getYearlyRewardsInUsd(), getTotalStakedInUsd()]);
 
   const apr = yearlyRewardsInUsd.dividedBy(totalStakedInUsd);
 
@@ -57,4 +55,4 @@ const getTotalStakedInUsd = async () => {
   return totalStaked.times(tokenPrice).dividedBy(DECIMALS);
 };
 
-module.exports = getBeVeloV2Apr;
+export default getBeVeloV2Apr;

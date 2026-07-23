@@ -2,8 +2,8 @@ const ifStaged = fn => stagedFiles => stagedFiles.length === 0 ? [] : fn(stagedF
 
 module.exports = {
   './(src|scripts)/**/*.{ts,js,json}': ifStaged(stagedFiles => [
-    `prettier --write ${stagedFiles.join(' ')}`,
-    `tsc --noEmit`,
+    `biome check --reporter concise --staged --fix`,
+    `tsc --project tsconfig.json`,
   ]),
   './src/data/**/beefyCowVaults.json': ifStaged(stagedFiles => [
     `yarn checkClms`,

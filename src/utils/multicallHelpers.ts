@@ -1,4 +1,4 @@
-import { ChainId } from '../../packages/address-book/src/address-book';
+import { ChainId } from '../../packages/address-book/src/address-book/index.ts';
 
 export const MULTICALL_V3: Partial<Readonly<Record<ChainId, string>>> = {
   [ChainId.bsc]: '0xcA11bde05977b3631167028862bE2a173976CA11',

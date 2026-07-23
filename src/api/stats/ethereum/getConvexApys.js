@@ -1,15 +1,17 @@
-import { ETH_CHAIN_ID } from '../../../constants';
-import { getCurveSubgraphApys } from '../common/curve/getCurveApyData';
-import { getApyBreakdown } from '../common/getApyBreakdownNew';
-import BigNumber from 'bignumber.js';
-import { fetchPrice } from '../../../utils/fetchPrice';
-import IRewardPool from '../../../abis/IRewardPool';
-import { fetchContract } from '../../rpc/client';
-import ERC20Abi from '../../../abis/ERC20Abi';
-import { getCurveLendApyRequests } from '../common/curve/getCurveLendApys';
+import { BigNumber } from 'bignumber.js';
+import ERC20Abi from '../../../abis/ERC20Abi.ts';
+import IRewardPool from '../../../abis/IRewardPool.ts';
+import { ETH_CHAIN_ID } from '../../../constants.ts';
+import { fetchPrice } from '../../../utils/fetchPrice.ts';
+import { fetchContract } from '../../rpc/client.ts';
+import { getCurveSubgraphApys } from '../common/curve/getCurveApyData.js';
+import { getCurveLendApyRequests } from '../common/curve/getCurveLendApys.js';
+import { getApyBreakdown } from '../common/getApyBreakdownNew.ts';
+import convexPoolsData from '../../../data/ethereum/convexPools.json' with { type: 'json' };
+import curveLendPoolsData from '../../../data/ethereum/curveLendPools.json' with { type: 'json' };
 
-const lpPools = require('../../../data/ethereum/convexPools.json').filter(p => p.rewardPool);
-const lendPools = require('../../../data/ethereum/curveLendPools.json').filter(p => p.rewardPool);
+const lpPools = convexPoolsData.filter(p => p.rewardPool);
+const lendPools = curveLendPoolsData.filter(p => p.rewardPool);
 const subgraphUrl = 'https://api.curve.finance/api/getSubgraphData/ethereum';
 const tradingFees = 0.0002;
 const secondsPerYear = 31536000;

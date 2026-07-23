@@ -1,4 +1,4 @@
-const { getLoggerFor } = require('./logger/index.js');
+import { getLoggerFor } from './logger/index.ts';
 
 const logger = getLoggerFor({ module: 'prices', platform: 'defillama' });
 

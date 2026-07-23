@@ -50,9 +50,7 @@ const IWrapper = [
   },
   {
     anonymous: false,
-    inputs: [
-      { indexed: false, internalType: 'uint256', name: 'poolLimitPerUser', type: 'uint256' },
-    ],
+    inputs: [{ indexed: false, internalType: 'uint256', name: 'poolLimitPerUser', type: 'uint256' }],
     name: 'NewPoolLimit',
     type: 'event',
   },

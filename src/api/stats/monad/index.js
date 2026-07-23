@@ -1,15 +1,17 @@
-const { getBeefyCowMonadApys } = require('./getBeefyCowMonadApys');
-const { getCurveApys } = require('./getCurveApys');
-const { getMorphoApys } = require('../common/morpho/getMorphoApys');
-const { getCurvanceApys } = require('./getCurvanceApys');
-const { getNeverlandApys } = require('./getNeverlandApys');
-const { getEulerApys } = require('./getEulerApys');
-const { getGearboxApys } = require('../common/gearbox/getGearboxApys');
-const { getUniswapApys } = require('./getUniswapApys');
-const getBalancerMonadApys = require('./getBalancerApys');
-const { getAaveV3Apys } = require('./getAaveV3Apys');
-const { MONAD_CHAIN_ID } = require('../../../constants');
-const { getLoggerFor } = require('../../../utils/logger/index.js');
+import { MONAD_CHAIN_ID } from '../../../constants.ts';
+import { getLoggerFor } from '../../../utils/logger/index.ts';
+import { getGearboxApys } from '../common/gearbox/getGearboxApys.js';
+import { getMorphoApys } from '../common/morpho/getMorphoApys.js';
+import { getAaveV3Apys } from './getAaveV3Apys.js';
+import getBalancerMonadApys from './getBalancerApys.ts';
+import { getBeefyCowMonadApys } from './getBeefyCowMonadApys.ts';
+import { getCurvanceApys } from './getCurvanceApys.ts';
+import { getCurveApys } from './getCurveApys.js';
+import { getEulerApys } from './getEulerApys.ts';
+import { getNeverlandApys } from './getNeverlandApys.ts';
+import { getUniswapApys } from './getUniswapApys.js';
+import gearboxPoolsData from '../../../data/monad/gearboxPools.json' with { type: 'json' };
+import morphoPoolsData from '../../../data/monad/morphoPools.json' with { type: 'json' };
 
 const logger = getLoggerFor({ module: 'apy', chain: MONAD_CHAIN_ID });
 
@@ -18,10 +20,10 @@ const getApys = [
   getAaveV3Apys,
   getCurveApys,
   getBeefyCowMonadApys,
-  () => getMorphoApys(MONAD_CHAIN_ID, require('../../../data/monad/morphoPools.json')),
+  () => getMorphoApys(MONAD_CHAIN_ID, morphoPoolsData),
   getCurvanceApys,
   getNeverlandApys,
-  () => getGearboxApys(MONAD_CHAIN_ID, require('../../../data/monad/gearboxPools.json')),
+  () => getGearboxApys(MONAD_CHAIN_ID, gearboxPoolsData),
   getUniswapApys,
   getBalancerMonadApys,
 ];
@@ -74,4 +76,4 @@ const getMonadApys = async () => {
   };
 };
 
-module.exports = { getMonadApys };
+export { getMonadApys };

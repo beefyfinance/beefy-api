@@ -1,6 +1,6 @@
-import BigNumber from 'bignumber.js';
-import { isObject } from 'lodash';
-import { ApiChain } from '../../utils/chain';
+import type { BigNumber } from 'bignumber.js';
+import { isObject } from 'lodash-es';
+import type { ApiChain } from '../../utils/chain.ts';
 
 //Treasury wallets
 export type TreasuryWallet = {

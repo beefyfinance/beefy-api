@@ -1,7 +1,7 @@
-const { AVAX_CHAIN_ID: chainId } = require('../../../constants');
-const { getRewardPoolApys } = require('../common/getRewardPoolApys');
-const stablePools = require('../../../data/avax/blackStableLpPools.json');
-const volatilePools = require('../../../data/avax/blackLpPools.json');
+import { AVAX_CHAIN_ID as chainId } from '../../../constants.ts';
+import { getRewardPoolApys } from '../common/getRewardPoolApys.js';
+import volatilePools from '../../../data/avax/blackLpPools.json' with { type: 'json' };
+import stablePools from '../../../data/avax/blackStableLpPools.json' with { type: 'json' };
 
 const pools = [...stablePools, ...volatilePools];
 export const getBlackholeApys = async () => {

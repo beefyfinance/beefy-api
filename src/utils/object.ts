@@ -1,4 +1,4 @@
-import { cloneDeep, defaultsDeep } from 'lodash';
+import { cloneDeep, defaultsDeep } from 'lodash-es';
 
 export type OptionalRecord<TKeys extends string | number, TValue> = {
   [K in TKeys]?: TValue;
@@ -28,28 +28,47 @@ export function typedOmit<TEntry, TKeys extends keyof TEntry>(
   entry: TEntry,
   ...keys: TKeys[]
 ): TypedOmit<TEntry, TKeys> {
+  return Object.fromEntries(Object.entries(entry).filter(([key]) => !keys.includes(key as TKeys))) as TypedOmit<
+    TEntry,
+    TKeys
+  >;
+}
+
+/** Element type shared by every array-valued property of `T`. */
+type ValueElement<T> = NonNullable<T[keyof T]> extends ReadonlyArray<infer E> ? E : never;
+
+export function mapValues<T extends Record<string, readonly unknown[] | undefined>>(
+  object: T,
+  iteratee: <X extends ValueElement<T>>(value: X[], key: keyof T & string) => X[]
+): T;
+export function mapValues<T extends object, R>(
+  object: T,
+  iteratee: (value: NonNullable<T[keyof T]>, key: keyof T & string) => R
+): { [K in keyof T]: R };
+export function mapValues<T extends object, R>(
+  object: T,
+  iteratee: (value: NonNullable<T[keyof T]>, key: keyof T & string) => R
+): { [K in keyof T]: R } {
   return Object.fromEntries(
-    Object.entries(entry).filter(([key]) => !keys.includes(key as TKeys))
-  ) as TypedOmit<TEntry, TKeys>;
+    Object.entries(object).map(([key, value]) => [key, iteratee(value, key as keyof T & string)])
+  ) as { [K in keyof T]: R };
 }
 
 export type PlainObject = Record<string | number, unknown>;
 
 // @dev supports plain objects/arrays only, does not traverse into Maps, Sets etc
-type DeepPartialInner<T> = T extends Array<infer U>
-  ? Array<DeepPartialInner<U>>
-  : T extends PlainObject
-  ? {
-      [P in keyof T]?: DeepPartialInner<T[P]>;
-    }
-  : T;
+type DeepPartialInner<T> =
+  T extends Array<infer U>
+    ? Array<DeepPartialInner<U>>
+    : T extends PlainObject
+      ? {
+          [P in keyof T]?: DeepPartialInner<T[P]>;
+        }
+      : T;
 
 export type DeepPartial<T extends PlainObject> = DeepPartialInner<T>;
 
-export function typedDefaultsDeep<T extends PlainObject>(
-  input: DeepPartial<T> | undefined | null,
-  defaults: T
-): T {
+export function typedDefaultsDeep<T extends PlainObject>(input: DeepPartial<T> | undefined | null, defaults: T): T {
   if (!input) {
     return cloneDeep(defaults);
   }

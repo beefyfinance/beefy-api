@@ -1,7 +1,7 @@
-import BigNumber from 'bignumber.js';
+import { BigNumber } from 'bignumber.js';
 import { parseAbi } from 'viem';
-import { fetchContract } from '../../../rpc/client';
-import ERC20Abi from '../../../../abis/ERC20Abi';
+import ERC20Abi from '../../../../abis/ERC20Abi.ts';
+import { fetchContract } from '../../../rpc/client.ts';
 
 const abi = parseAbi(['function convertToAssets(uint shares) external view returns (uint)']);
 
@@ -14,7 +14,7 @@ export const getEulerPrices = async (chainId, pools, tokenPrices) => {
   for (let i = 0; i < pools.length; i++) {
     const pool = pools[i];
     const pps = new BigNumber(ppsRes[i]).div('1e18');
-    const tokenPrice = tokenPrices[pool.oracleId];
+    const tokenPrice = tokenPrices[pool.oracleId] ?? 0;
     const price = pps.times(tokenPrice).toNumber();
     const totalSupply = new BigNumber(supplyRes[i]).div(pool.decimals).toString(10);
     prices[pool.name] = {

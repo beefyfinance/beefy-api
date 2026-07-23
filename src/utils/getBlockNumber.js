@@ -1,5 +1,5 @@
-const { default: BigNumber } = require('bignumber.js');
-const { getRPCClient } = require('../api/rpc/client');
+import { default as BigNumber } from 'bignumber.js';
+import { getRPCClient } from '../api/rpc/client.ts';
 
 const fastestChainBlockTimeInMilliseconds = 3000;
 
@@ -12,13 +12,11 @@ const getBlockNumber = async chainId => {
   }
 
   const client = getRPCClient(chainId);
-  const blockNumberPromise = await client
-    .getBlockNumber()
-    .then(res => new BigNumber(res.toString()));
+  const blockNumberPromise = await client.getBlockNumber().then(res => new BigNumber(res.toString()));
   cache[chainId] = {
     [cacheKey]: blockNumberPromise,
   };
   return blockNumberPromise;
 };
 
-module.exports = getBlockNumber;
+export default getBlockNumber;

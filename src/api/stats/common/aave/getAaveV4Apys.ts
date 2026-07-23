@@ -1,6 +1,6 @@
-import BigNumber from 'bignumber.js';
-import { getApyBreakdown } from '../getApyBreakdownNew';
-import { getLoggerFor } from '../../../../utils/logger/index.js';
+import { BigNumber } from 'bignumber.js';
+import { getLoggerFor } from '../../../../utils/logger/index.ts';
+import { getApyBreakdown } from '../getApyBreakdownNew.ts';
 
 const logger = getLoggerFor({ module: 'apy', platform: 'aave' });
 
@@ -147,12 +147,15 @@ const getAaveV4MerklAprData = async (chainId: number, pools: AaveV4Pool[]): Prom
 const fetchAaveMerklAprs = async (chainId: number): Promise<Record<string, number>> => {
   try {
     const opportunities = await fetchAaveMerklOpportunities(chainId);
-    return opportunities.reduce((acc, opportunity) => {
-      if (typeof opportunity.identifier === 'string') {
-        acc[opportunity.identifier] = opportunity.apr || 0;
-      }
-      return acc;
-    }, {} as Record<string, number>);
+    return opportunities.reduce(
+      (acc, opportunity) => {
+        if (typeof opportunity.identifier === 'string') {
+          acc[opportunity.identifier] = opportunity.apr || 0;
+        }
+        return acc;
+      },
+      {} as Record<string, number>
+    );
   } catch (e) {
     logger.warn({ err: e, chain: chainId }, 'merkl apr fetch failed');
     return {};

@@ -1,13 +1,13 @@
-import { ApiChain, SupportedChains } from '../../utils/chain';
-import { AnyCowClmMeta, CowClmsMeta, isClmApiVaultsResponse } from './types';
+import { partition } from 'lodash-es';
 import { isAddressEqual } from 'viem';
-import { getKey, setKey } from '../../utils/cache';
-import { partition } from 'lodash';
-import { sleep } from '../../utils/time';
-import { isResultFulfilled } from '../../utils/promise';
-import { serviceEventBus } from '../../utils/ServiceEventBus';
-import { getCowClmChains, getCowClms } from './getCowClms';
-import { getLoggerFor } from '../../utils/logger/index.js';
+import { getKey, setKey } from '../../utils/cache/index.ts';
+import { type ApiChain, SupportedChains } from '../../utils/chain.ts';
+import { getLoggerFor } from '../../utils/logger/index.ts';
+import { isResultFulfilled } from '../../utils/promise.ts';
+import { serviceEventBus } from '../../utils/ServiceEventBus.ts';
+import { sleep } from '../../utils/time.ts';
+import { getCowClmChains, getCowClms } from './getCowClms.ts';
+import { type AnyCowClmMeta, type CowClmsMeta, isClmApiVaultsResponse } from './types.ts';
 
 const logger = getLoggerFor({ module: 'clm' });
 
@@ -126,7 +126,7 @@ function scheduleUpdate() {
 }
 
 export async function initCowVaultsMetaService() {
-  logger.info('initializing meta');
+  logger.info('initializing');
   await loadFromCache();
   setTimeout(updateAll, INIT_DELAY);
 }

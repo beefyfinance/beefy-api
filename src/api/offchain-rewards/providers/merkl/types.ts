@@ -1,5 +1,5 @@
-import { AppChain } from '../../../../utils/chain';
-import { CampaignType } from '../../types';
+import type { AppChain } from '../../../../utils/chain.ts';
+import type { CampaignType } from '../../types.ts';
 
 type MerklApiForwarder = {
   token?: string;

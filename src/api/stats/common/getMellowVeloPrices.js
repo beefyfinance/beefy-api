@@ -1,9 +1,9 @@
-import BigNumber from 'bignumber.js';
-import { fetchContract } from '../../rpc/client';
+import { BigNumber } from 'bignumber.js';
 import { parseAbi } from 'viem';
-import { addressBookByChainId } from '../../../../packages/address-book/src/address-book';
+import { addressBookByChainId } from '../../../../packages/address-book/src/address-book/index.ts';
+import { getLoggerFor } from '../../../utils/logger/index.ts';
+import { fetchContract } from '../../rpc/client.ts';
 
-const { getLoggerFor } = require('../../../utils/logger/index.js');
 const logger = getLoggerFor({ module: 'prices', platform: 'mellow' });
 
 const abi = parseAbi([

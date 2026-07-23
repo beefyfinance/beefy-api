@@ -1,10 +1,10 @@
-import { getKey, setKey } from '../../utils/cache';
-import { Cached, CachedProposals, CachedSpaces, Proposal, Proposals, SpaceWithAuthors } from './types';
-import { getSnapshotApi } from './getSnapshotApi';
 import { isBefore, sub } from 'date-fns';
-import { keyBy, omit } from 'lodash';
-import { retryPromiseWithBackOff } from '../../utils/promise';
-import { getLoggerFor } from '../../utils/logger/index.js';
+import { keyBy, omit } from 'lodash-es';
+import { getKey, setKey } from '../../utils/cache/index.ts';
+import { getLoggerFor } from '../../utils/logger/index.ts';
+import { retryPromiseWithBackOff } from '../../utils/promise.ts';
+import { getSnapshotApi } from './getSnapshotApi.ts';
+import type { Cached, CachedProposals, CachedSpaces, Proposal, Proposals, SpaceWithAuthors } from './types.ts';
 
 const logger = getLoggerFor({ module: 'snapshot' });
 
@@ -162,11 +162,14 @@ export async function initProposalsService() {
     });
   }, INIT_DELAY);
 
-  setInterval(() => {
-    updateIfNeeded().catch(err => {
-      logger.warn({ err }, 'failed to update');
-    });
-  }, MAX_PROPOSAL_AGE_MINS * 60 * 1000 + 1000);
+  setInterval(
+    () => {
+      updateIfNeeded().catch(err => {
+        logger.warn({ err }, 'failed to update');
+      });
+    },
+    MAX_PROPOSAL_AGE_MINS * 60 * 1000 + 1000
+  );
 }
 
 export function getLatestProposal(): Proposal | null {

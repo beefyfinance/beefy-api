@@ -1,9 +1,8 @@
-import BigNumber from 'bignumber.js';
-import { getFarmApys } from '../common/getSolidlyGaugeApys';
-import { getApyBreakdown } from '../common/getApyBreakdownNew';
-
-const { SONIC_CHAIN_ID: chainId } = require('../../../constants');
-const ichiPools = require('../../../data/sonic/swapxIchiPools.json');
+import { BigNumber } from 'bignumber.js';
+import { SONIC_CHAIN_ID as chainId } from '../../../constants.ts';
+import { getApyBreakdown } from '../common/getApyBreakdownNew.ts';
+import { getFarmApys } from '../common/getSolidlyGaugeApys.js';
+import ichiPools from '../../../data/sonic/swapxIchiPools.json' with { type: 'json' };
 
 const pools = [...ichiPools];
 

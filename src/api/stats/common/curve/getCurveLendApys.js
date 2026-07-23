@@ -1,4 +1,4 @@
-import { getCurveLendSupplyApys } from './getCurveLendSupplyApys';
+import { getCurveLendSupplyApys } from './getCurveLendSupplyApys.js';
 
 // Curve-lend vaults: supply APY -> lending (fee charged, not autocompounded);
 // gauge/convex rewards -> vault (autocompounded).

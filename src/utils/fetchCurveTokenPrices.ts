@@ -1,21 +1,28 @@
-import BigNumber from 'bignumber.js';
-import ICurvePoolV2 from '../abis/ICurvePoolV2.json';
-import { addressBookByChainId, ChainId } from '../../packages/address-book/src/address-book';
-import { fetchContract } from '../api/rpc/client';
-import ICurvePoolV2Abi from '../abis/CurvePoolV2';
-import ICurvePoolAbi from '../abis/CurvePool';
-import ICurvePool from '../abis/ICurvePool';
-import StableSwap from '../abis/StableSwap';
-import { getLoggerFor } from './logger/index.js';
+import { BigNumber } from 'bignumber.js';
+import { addressBookByChainId, ChainId } from '../../packages/address-book/src/address-book/index.ts';
+import type ICurvePoolAbi from '../abis/CurvePool.ts';
+import ICurvePoolV2Abi from '../abis/CurvePoolV2.ts';
+import ICurvePool from '../abis/ICurvePool.ts';
+import type StableSwap from '../abis/StableSwap.ts';
+import { fetchContract } from '../api/rpc/client.ts';
+import { getLoggerFor } from './logger/index.ts';
+import ICurvePoolV2 from '../abis/ICurvePoolV2.json' with { type: 'json' };
+import arbitrumCurvePools from '../data/arbitrum/curvePools.json' with { type: 'json' };
+import ethereumConvexPools from '../data/ethereum/convexPools.json' with { type: 'json' };
+import ethereumFxPools from '../data/ethereum/fxPools.json' with { type: 'json' };
+import fraxtalCurvePools from '../data/fraxtal/curvePools.json' with { type: 'json' };
+import maticCurvePools from '../data/matic/curvePools.json' with { type: 'json' };
+import monadCurvePools from '../data/monad/curvePools.json' with { type: 'json' };
+import optimismCurvePools from '../data/optimism/curvePools.json' with { type: 'json' };
 
 const logger = getLoggerFor({ module: 'prices', platform: 'curve' });
 
 const tokens: Partial<Record<keyof typeof ChainId, CurveToken[]>> = {
-  optimism: toCurveTokens(ChainId.optimism, require('../data/optimism/curvePools.json')),
-  fraxtal: toCurveTokens(ChainId.fraxtal, require('../data/fraxtal/curvePools.json')).slice().reverse(),
-  monad: toCurveTokens(ChainId.monad, require('../data/monad/curvePools.json')).slice().reverse(),
+  optimism: toCurveTokens(ChainId.optimism, optimismCurvePools),
+  fraxtal: toCurveTokens(ChainId.fraxtal, fraxtalCurvePools).slice().reverse(),
+  monad: toCurveTokens(ChainId.monad, monadCurvePools).slice().reverse(),
   arbitrum: [
-    ...toCurveTokens(ChainId.arbitrum, require('../data/arbitrum/curvePools.json')),
+    ...toCurveTokens(ChainId.arbitrum, arbitrumCurvePools),
     {
       oracleId: 'vsdCRV',
       decimals: '1e18',
@@ -47,11 +54,11 @@ const tokens: Partial<Record<keyof typeof ChainId, CurveToken[]>> = {
       abi: ICurvePoolV2Abi,
     },
   ],
-  polygon: toCurveTokens(ChainId.polygon, [...require('../data/matic/curvePools.json')]),
+  polygon: toCurveTokens(ChainId.polygon, [...maticCurvePools]),
   ethereum: [
     ...toCurveTokens(ChainId.ethereum, [
-      ...require('../data/ethereum/convexPools.json').slice().reverse(),
-      ...require('../data/ethereum/fxPools.json').slice().reverse(),
+      ...ethereumConvexPools.slice().reverse(),
+      ...ethereumFxPools.slice().reverse(),
     ]),
     {
       oracleId: 'msETH',
@@ -142,16 +149,16 @@ async function getCurveTokenPrices(
           BigInt(new BigNumber(token.decimals).toString(10)),
         ])
       : token.useUnderlying
-      ? poolContract.read.get_dy_underlying([
-          BigInt(token.index0),
-          BigInt(token.index1),
-          BigInt(new BigNumber(token.decimals).toString(10)),
-        ])
-      : poolContract.read.get_dy([
-          BigInt(token.index0),
-          BigInt(token.index1),
-          BigInt(new BigNumber(token.decimals).toString(10)),
-        ]);
+        ? poolContract.read.get_dy_underlying([
+            BigInt(token.index0),
+            BigInt(token.index1),
+            BigInt(new BigNumber(token.decimals).toString(10)),
+          ])
+        : poolContract.read.get_dy([
+            BigInt(token.index0),
+            BigInt(token.index1),
+            BigInt(new BigNumber(token.decimals).toString(10)),
+          ]);
   });
 
   try {
@@ -165,7 +172,7 @@ async function getCurveTokenPrices(
         logger.warn({ oracleId: t.oracleId, token: t.secondToken, pool: t.pool }, 'missing second token price');
       }
       pricesById[t.oracleId] = new BigNumber(res[i].toString())
-        .times(secondPrice)
+        .times(secondPrice ?? 0)
         .dividedBy(t.secondTokenDecimals)
         .toNumber();
       prices.push(pricesById[t.oracleId]);

@@ -1,7 +1,7 @@
-import { getKey, setKey } from '../../utils/cache';
-import { getPointsStructures } from './fetchPointsData';
-import { PointsStructure } from './types';
-import { getLoggerFor } from '../../utils/logger/index.js';
+import { getKey, setKey } from '../../utils/cache/index.ts';
+import { getLoggerFor } from '../../utils/logger/index.ts';
+import { getPointsStructures } from './fetchPointsData.ts';
+import type { PointsStructure } from './types.ts';
 
 const logger = getLoggerFor({ module: 'points' });
 

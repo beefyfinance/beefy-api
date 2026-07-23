@@ -1,15 +1,11 @@
-import PQueue from 'p-queue';
-import { http, HttpTransport, HttpTransportConfig } from 'viem';
+import type PQueue from 'p-queue';
+import { type HttpTransport, type HttpTransportConfig, http } from 'viem';
 
 /**
  * Wrapped version of http transport with rate limit support
  * @see @view/src/clients/transports/http.ts
  */
-export function rateLimitedHttp(
-  queue: PQueue,
-  url?: string,
-  config: HttpTransportConfig = {}
-): HttpTransport {
+export function rateLimitedHttp(queue: PQueue, url?: string, config: HttpTransportConfig = {}): HttpTransport {
   const original = http(url, config);
 
   return args => {

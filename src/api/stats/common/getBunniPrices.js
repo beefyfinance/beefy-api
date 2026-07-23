@@ -1,9 +1,9 @@
-import BigNumber from 'bignumber.js';
-import { fetchContract } from '../../rpc/client';
-import BunniLensAbi from '../../../abis/BunniLens';
-import { BASE_CHAIN_ID } from '../../../constants';
+import { BigNumber } from 'bignumber.js';
+import BunniLensAbi from '../../../abis/BunniLens.ts';
+import { BASE_CHAIN_ID } from '../../../constants.ts';
+import { getLoggerFor } from '../../../utils/logger/index.ts';
+import { fetchContract } from '../../rpc/client.ts';
 
-const { getLoggerFor } = require('../../../utils/logger/index.js');
 const logger = getLoggerFor({ module: 'prices', platform: 'bunni' });
 
 const lens = {

@@ -1,6 +1,6 @@
-import { getLatestProposal, getActiveProposals } from './getProposals';
-import Koa from 'koa';
-import { getLoggerFor } from '../../utils/logger/index.js';
+import type Koa from 'koa';
+import { getLoggerFor } from '../../utils/logger/index.ts';
+import { getActiveProposals, getLatestProposal } from './getProposals.ts';
 
 const logger = getLoggerFor({ module: 'snapshot' });
 
@@ -27,4 +27,4 @@ function active(ctx: Koa.Context) {
   }
 }
 
-export { latest, active };
+export { active, latest };
