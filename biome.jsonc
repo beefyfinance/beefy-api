@@ -21,7 +21,7 @@
     "enabled": true,
     "domains": {
       "types": "none",
-      "project": "none"
+      "project": "recommended"
     },
     "rules": {
       "preset": "none",
