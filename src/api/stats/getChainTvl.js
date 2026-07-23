@@ -4,7 +4,7 @@ import ERC20Abi from '../../abis/ERC20Abi.ts';
 import { beSonicAbi } from '../../abis/sonic/beSonicAbi.ts';
 import { EXCLUDED_IDS_FROM_TVL } from '../../constants.ts';
 import { getVaultBalanceOverride } from '../../data/vaultOverrides.ts';
-import { toChainId } from '../../utils/chain.js';
+import { toChainId } from '../../utils/chain.ts';
 import { fetchPrice } from '../../utils/fetchPrice.ts';
 import { getLoggerFor } from '../../utils/logger/index.ts';
 import { fetchContract } from '../rpc/client.ts';
