@@ -20,7 +20,6 @@ import getBalancerGnosisPrices from './gnosis/getBalancerGnosisPrices';
 import getCurvePricesCommon from './common/curve/getCurvePricesCommon';
 import { getCurveLendPricesCommon } from './common/curve/getCurveLendPricesCommon';
 import getVelodromeLiskStablePrices from './lisk/getVelodromeLiskStablePrices';
-import { getKittenswapStablePrices } from './hyperevm/getKittenswapStablePrices';
 import { getKodiakPrices } from './berachain/getKodiakPrices';
 import { getSiloPrices } from './common/getSiloPrices';
 import {
@@ -108,7 +107,6 @@ export async function getNonAmmPrices(
     getGearboxPrices(MONAD_CHAIN_ID, require('../../data/monad/gearboxPools.json'), tokenPrices),
     getNeverlandPrices(tokenPrices),
     getCurvanceMonadPrices(tokenPrices),
-    getKittenswapStablePrices(tokenPrices),
     getUniswapEthereumPrices(tokenPrices),
     getMimSwapPrices(tokenPrices),
     getAuraBalancerPrices(tokenPrices),

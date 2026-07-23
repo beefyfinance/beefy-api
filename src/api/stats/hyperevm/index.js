@@ -1,14 +1,13 @@
 const { getBeefyCowHyperevmApys } = require('./getBeefyCowHyperevmApys');
-const { getKittenswapApys } = require('./getKittenswapApys');
 const { getMorphoApys } = require('../common/morpho/getMorphoApys');
 const { HYPEREVM_CHAIN_ID } = require('../../../constants');
 const { getLoggerFor } = require('../../../utils/logger/index.js');
 
 const logger = getLoggerFor({ module: 'apy', chain: HYPEREVM_CHAIN_ID });
 
+const getApys = [getBeefyCowHyperevmApys];
 const getApys = [
   getBeefyCowHyperevmApys,
-  getKittenswapApys,
   () => getMorphoApys(HYPEREVM_CHAIN_ID, require('../../../data/hyperevm/morphoPools.json')),
 ];
 
