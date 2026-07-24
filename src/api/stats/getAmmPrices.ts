@@ -31,6 +31,7 @@ import etherexPools from '../../data/linea/etherexVolatilePools.json';
 import lithosPools from '../../data/plasma/lithosPools.json';
 import up33Pools from '../../data/robinhood/up33Pools.json';
 import uniswapMonadPools from '../../data/monad/uniswapLpPools.json';
+import pancakeBscLpPools from '../../data/bsc/pancakeLpPools.json';
 import { addressBookByChainId } from '../../../packages/address-book/src/address-book';
 import { sleep } from '../../utils/time';
 import { isFiniteNumber } from '../../utils/number';
@@ -51,6 +52,7 @@ const REFRESH_INTERVAL = 5 * 60 * 1000;
 // Implement in case of emergency -> https://github.com/beefyfinance/beefy-api/issues/103
 const pools = normalizePoolOracleIds([
   ...up33Pools,
+  ...pancakeBscLpPools,
   ...uniswapMonadPools,
   ...lithosPools,
   ...etherexPools,
@@ -137,7 +139,6 @@ const coinGeckoCoins: Record<string, string[]> = {
   penpie: ['PNP'],
   dogwifcoin: ['WIF'],
   scroll: ['SCR'],
-  'binance-bitcoin': ['BTCB'],
   ankreth: ['ankrETH'],
   'usda-2': ['USDa'],
   'kim-token': ['xKIM', 'KIM'],
