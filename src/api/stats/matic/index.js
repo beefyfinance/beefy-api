@@ -1,7 +1,6 @@
 const { getCurveApys } = require('./getCurveApys');
 const { getConvexApys } = require('./getConvexApys');
 const { getBeefyCowPolyApys } = require('./getBeefyCowPolyApys');
-const { getMorphoApys } = require('../common/morpho/getMorphoApys');
 const { POLYGON_CHAIN_ID } = require('../../../constants');
 const { getLoggerFor } = require('../../../utils/logger/index.js');
 
@@ -11,7 +10,6 @@ const getApys = [
   getCurveApys,
   // getConvexApys,
   getBeefyCowPolyApys,
-  () => getMorphoApys(POLYGON_CHAIN_ID, require('../../../data/matic/morphoPools.json')),
 ];
 
 const BATCH_SIZE = 15;
