@@ -1,5 +1,5 @@
-import { addressBook } from '../src/address-book';
-import Token from '../src/types/token';
+import { addressBook } from '../src/address-book/index.js';
+import type { Token } from '../src/types/token.js';
 
 type ChainId = keyof typeof addressBook;
 type TokenWithId = Token & { id: string };

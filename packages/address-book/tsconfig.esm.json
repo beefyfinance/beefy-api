@@ -17,5 +17,5 @@
     "declaration": true,
     "verbatimModuleSyntax": true,
   },
-  "include": ["./src/address-book/index.ts"]
+  "include": ["./src/**/*"]
 }
