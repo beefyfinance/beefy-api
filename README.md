@@ -1,127 +1,59 @@
 # Beefy API
 
-API that powers [Beefy Finance](https://app.beefy.finance). You can find the repo for the frontend [here](https://github.com/beefyfinance/beefy-app).
+The backend that powers [Beefy](https://app.beefy.com). It reads prices, APYs, TVL and vault
+metadata from the chains Beefy is deployed on, caches them in memory, and serves them as JSON.
 
----
+The frontend lives in [beefy-v2](https://github.com/beefyfinance/beefy-v2). The endpoint reference
+is published at [docs.beefy.finance](https://docs.beefy.finance/developer-documentation/beefy-api).
 
-## To Run.
+## Requirements
 
-```
-yarn install-all 
-yarn start
-```
+- Node — version in [`.nvmrc`](.nvmrc)
+- pnpm — version pinned by the `packageManager` field in [`package.json`](package.json)
 
-Note: After you start the API it can take a minute or two before you can fetch the APYs. We currently log `getApys()` to the console when all the data is available.
+## Running
 
-Optional environment vars:
-
-`BSC_RPC` - A custom RPC endpoint that you want to use.
-`HECO_RPC` - A custom RPC endpoint for HECO. You can just leave the default one otherwise.
-`FORTUBE_API_TOKEN` - A token from Fortube to use their API. If you don't have a token you will get a console warning and the Fortube APYs will be slightly smaller than in production. Everything works fine otherwise. 
-
----
-
----
-
-## Endpoints
-
-http://localhost:3000/
-
----
-
-### Consumed by the [app](https://app.beefy.finance)
-
-#### **/apy**
-
-The main endpoint used by the frontend. It returns the APY of all the vaults in the following format. 
-
-```
-{
-	"bifi-maxi": 0.22448469479728606, // 22%
-	"cake-cake": 2.8002377054263174, // 280%
-	"cake-smart": 2.8002377054263174, // 280%
-	"cake-swingby-bnb": 21.85102752680053 // 2185%
-}
+```sh
+pnpm install
+pnpm start
 ```
 
-NB This is the legacy format. A new endpoint is being created at **/apy/breakdown** with a staggered migration.
+The API listens on port 3000 (`PORT` to override). It fetches everything on boot, so expect a
+minute or two before data is available; endpoints return 503 until their data is ready.
 
-#### **/apy/breakdown**
+Configuration is optional — the repo ships default public RPCs and sane fallbacks. To override
+anything, copy [`.env.example`](.env.example) to `.env`; `pnpm start` loads it automatically.
+Public RPCs are heavily rate-limited, so supplying your own is worthwhile if you are working on a
+specific chain.
 
-The new version of the APY endpoint, broken down into component parts when they are available. The endpoint moves to a new format, which is consistent whether or not the breakdown stats are possible to display. It has the following structure:
+## Commands
 
-```json
-{
-  "bifi-maxi": {
-    "totalApy": 0.07598675804818633
-  },
-  "cometh-must-eth": {
-    "vaultApr": 1.186973388240745,
-    "compoundingsPerYear": 2190,
-    "beefyPerformanceFee": 0.045,
-    "vaultApy": 2.1057844292858614,
-    "lpFee": 0.005,
-    "tradingApr": 0.22324214039526927,
-    "totalApy": 2.8825691266420788
-  }
-}
-```
+| Command | Purpose |
+| --- | --- |
+| `pnpm start` | Run from source with tsx (development) |
+| `pnpm build` | Bundle to `dist/` with tsdown |
+| `pnpm start:prod` | Run the built bundle |
+| `pnpm typecheck` | Type-check the API |
+| `pnpm lint` / `pnpm lint:fix` | Lint and format with Biome |
 
-Note the endpoint exposes elements needed for the Total APY calculation. Where this is not possible, we just show the legacy Total APY. Note that the legacy Total APY -> totalApy does not include the trading fees.
+## Layout
 
-Each of these fields within the structure are:
+This repository is a pnpm workspace containing the API and one published package.
 
-- **vaultApr** - Yearly rewards in USD divided by total staked in USD.
-- **compoundingsPerYear** - The estimated compounding events. This is an internal field and references the value used within the calculation for this project.
-- **beefyPerformanceFee** - The flat Beefy performance fee included in the calculation. This is an internal field for reference.
-- **vaultApy** - The vaultApr compounded, using compoundingsPerYear and beefyPerformanceFee in the calculation.
-- **lpFee** - The Liquidity Provider (LP) fee per trade. This is an internal field for reference.
-- **tradingApr** - Annual interest from trading fees, not compounded.
-- **totalApy** - The known Total APY. Where fields are available to calculate the Total APY including trading fees, this is calculated. The final calculation is totalApy = (1 + vaultApy) * (1 + tradingApr) - 1.
+| Path | Contents |
+| --- | --- |
+| `src/router.js` | Every route and the handler it maps to — the source of truth for what the API serves |
+| `src/app.ts` | Server setup and the boot sequence that starts each data service |
+| `src/api/` | Route handlers and the services that fetch and cache their data |
+| `src/data/` | Per-chain vault, pool and boost configuration (JSON) |
+| `src/abis/` | Contract ABIs |
+| `src/utils/` | Shared helpers — RPC clients, caching, HTTP, logging |
+| `scripts/` | Maintenance helpers, mostly for adding new vaults and pools |
+| `packages/address-book/` | Token and protocol addresses per chain, published to npm as [`@beefyfinance/blockchain-addressbook`](https://www.npmjs.com/package/@beefyfinance/blockchain-addressbook) |
 
+## Contributing
 
-#### **/prices** All token prices under the same endpoint (crosschain).
-
-#### **/lps**: All liquidity pair prices under a single endpoint (crosschain).
-
-#### **/vaults**: TBD
-
-
----
-
-### Consumed by the [dashboard](https://dashboard.beefy.finance)
-
-#### **/earnings**: Used to display the total and daily earnings of the platform
-
-#### **/holders**: Used to display the total number of holders. This calc takes into account users with 0 BIFI in their wallet, but BIFI staked in the reward pool
-
----
-
-### Consumed by third party platforms
-
-#### **/cmc**: Custom endpoint required by [CoinMarketCap](https://coinmarketcap.com/) to display our vaults in their yield farming section
-
-#### **/supply**: Used by [Coingecko](https://coingecko.com) to display BIFI's total supply and circulating supply
-
----
-
----
-
-## Further Information
-
-For further information on the range of endpoints currently supported by the Beefy API, check out the latest version of our [API documentation](https://docs.beefy.finance/developer-documentation/beefy-api).
-
----
-
----
-
-## Contribute
-
-Beefy.Finance exists thanks to its contributors. There are many ways you can participate and help build high quality software. Check out the [contribution guide](CONTRIBUTING.md)!
-
----
-
----
+See [CONTRIBUTING.md](CONTRIBUTING.md).
 
 ## License
 

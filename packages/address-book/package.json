@@ -60,7 +60,6 @@
     "type": "git",
     "url": "git+https://github.com/beefyfinance/beefy-api.git"
   },
-  "packageManager": "npm@11.6.2",
   "license": "MIT",
   "scripts": {
     "addChain": "tsx ./scripts/addChain.ts",
@@ -81,11 +80,11 @@
     "lint:fix": "biome check --fix"
   },
   "devDependencies": {
-    "@biomejs/biome": "2.5.2",
-    "@ethereumjs/util": "^9.0.3",
-    "@types/node": "^24.10.3",
-    "tsx": "^4.23.1",
-    "typescript": "^5.5.2",
-    "viem": "^1.20.2"
+    "@biomejs/biome": "catalog:",
+    "@ethereumjs/util": "catalog:",
+    "@types/node": "catalog:",
+    "tsx": "catalog:",
+    "typescript": "catalog:",
+    "viem": "catalog:"
   }
 }

@@ -15,15 +15,17 @@ jobs:
     steps:
       - name: 'Checkout Repository'
         uses: actions/checkout@v7
+      - name: 'Setup pnpm'
+        uses: pnpm/action-setup@v6.0.9
       - name: 'Setup Node'
         uses: actions/setup-node@v7
         with:
           node-version-file: '.nvmrc'
-          cache: 'yarn'
+          cache: 'pnpm'
       - name: 'Install Packages'
-        run: yarn install --frozen-lockfile
+        run: pnpm install --frozen-lockfile
       - name: 'Run Biome'
-        run: yarn biome ci --reporter github
+        run: pnpm biome ci --reporter github
 
   typecheck:
     name: 'Typecheck'
@@ -31,12 +33,16 @@ jobs:
     steps:
       - name: 'Checkout Repository'
         uses: actions/checkout@v7
+      - name: 'Setup pnpm'
+        uses: pnpm/action-setup@v6.0.9
       - name: 'Setup Node'
         uses: actions/setup-node@v7
         with:
           node-version-file: '.nvmrc'
-          cache: 'yarn'
+          cache: 'pnpm'
       - name: 'Install Packages'
-        run: yarn install --frozen-lockfile
+        run: pnpm install --frozen-lockfile
       - name: 'Run tsc'
-        run: yarn tsc --project tsconfig.json
+        run: pnpm run test:ts
+      - name: 'Run tsc (address-book)'
+        run: pnpm --filter @beefyfinance/blockchain-addressbook run test:ts
