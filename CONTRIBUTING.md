@@ -1,67 +1,63 @@
-Contributing to Beefy's API
-=======
+# Contributing to Beefy API
 
-This API supplies the data to our front end (e.g. APY and TVL metrics) and is an important part of Beefy.Finance. We value your contribution to our repositories. To help contributions get merged as soon as possible, please take 5' to review the items below.
+Thanks for helping out. This guide covers the mechanics; see the [README](README.md) for what the
+project is and how to run it.
 
-## Creating Pull Requests (PRs)
+## Getting set up
 
-Fork this repository, work on your own fork and submit pull requests. The pull requests will be reviewed and eventually merged into the main repo. See ["Fork-a-Repo"](https://help.github.com/articles/fork-a-repo/).
+Fork the repository, then:
 
-## A typical workflow
-
-1) Make sure your fork is up to date with the main repository:
-
-```
+```sh
+git clone https://github.com/<you>/beefy-api.git
 cd beefy-api
-git remote add upstream https://github.com/beefyfinance/beefy-api.git
-git fetch upstream
-git pull --rebase upstream master
-```
-NOTE: The directory `beefy-api` represents your fork's local copy.
-
-2) Branch out from `master` into `fix/some-bug-#123`:
-(Postfixing #123 will associate your PR with the issue #123 and make everyone's life easier =D)
-```
-git checkout -b fix/some-bug-#123
+pnpm install
 ```
 
-3) Make your changes, add your files, commit, and push to your fork.
+`pnpm install` from the root installs both workspace packages and the git hooks. Run it again after
+pulling changes that touch dependencies.
 
-```
-git add SomeFile.js
-git commit "Fix some bug #123"
-git push origin fix/some-bug-#123
-```
+## Making a change
 
-4) Go to [github.com/beefyfinance/beefy-api](https://github.com/beefyfinance/beefy-api) in your web browser and issue a new pull request.
+1. Branch off `master`.
+2. Make your change and commit. Hooks run on commit — formatting is applied automatically, and
+   type or data errors will block the commit.
+3. Push and open a pull request against `master`.
 
-5) Verify your local build succeeds. 
+## What gets checked
 
-First, start up a yarn copy of the API:
+What you stage decides which checks run on commit. On a pull request, CI runs:
 
-```
-yarn
-yarn start
-```
+- Biome lint and format
+- TypeScript, for both the API and the address book
+- A production build
 
-If contributing a vault, ensure the /APY/breakdown endpoing contains your newly created vault.   
+Address book changes additionally get their validation scripts and a packaging test. There is no
+unit test suite — correctness of new pools is verified by running the API and checking the data it
+produces.
 
-6) Maintainers will review your code and possibly ask for changes before your code is pulled in to the main repository. We'll check that all tests pass, review the coding style, and check for general code correctness. If everything is OK, we'll merge your pull request and your code will be part of Beefy's API.
+## Where things go
 
-*IMPORTANT* Please pay attention to the maintainer's feedback, since its a necessary step to keep up with the standards Beefy.Finance attains to.
+**Vaults, pools and boosts** are configured as JSON under `src/data/<chain>/`. The `scripts/`
+directory has helpers that read a pool on-chain and append a correctly shaped entry for you —
+`add-farm.ts` for MasterChef farms, `add-solidly.ts` for Solidly-style gauges, `add-univ3.ts` and
+`add-clm.ts` for concentrated liquidity. Each takes a `--network` flag plus its own arguments, so
+read the one you need before running it. They do not load `.env`, so export any RPC override into
+your shell first.
 
-## All set!
+If you are adding a vault, start the API and confirm it appears in `/apy/breakdown` with a sensible
+number before opening the PR.
 
-If you have any questions, feel free to post them to [github.com/beefyfinance/beefy-api/issues](https://github.com/beefyfinance/beefy-api/issues).
+**Token and protocol addresses** go in `packages/address-book/`, under
+`src/address-book/<chain>/tokens/` and `<chain>/platforms/`. Two rules matter:
 
-Finally, if you're looking to collaborate and want to find easy tasks to start, look at the issues we marked as ["Good first issue"](https://github.com/beefyfinance/beefy-api/issues?q=label%3A%22good+first+issue%22).
+- Addresses must be EIP-55 checksummed. The commit hook tells you the correct form if you get it wrong.
+- Never edit the package version by hand — it is bumped and published automatically when your PR merges.
 
-## Contributor rewards 
+**New endpoints** need a handler under `src/api/` and a route in `src/router.js`. If the data needs
+fetching on a schedule rather than per request, follow an existing service in `src/api/` and
+initialise it in `src/app.ts`.
 
-Beefy wants to be a self-sustainable community. A portion of the fees that come from running the vaults at [beefy.finance](https://app.beefy.finance) goes into a community managed treasury. The treasury is used to pay for marketing, community managers, developers, etc. We are learning together how to do this in a fair and effective way. When it comes to devs there are a few options: 
+## Questions
 
-1. There are some issues that will have a "Treasury Bounty" tag and a dollar amount in the issue title. This means that the issue carries a reward to the dev that closes it. 
-2. You can propose a bounty or budget to get something done by following our [proposal guidelines](PROPOSAL_GUIDELINES.md)
-3. We are tracking all contributions using [Sourcecred](https://sourcecred.io/). This is a project designed specifically to track community contributions. We have [our instance](https://beefy.finance/beefy-cred/#/explorer) and track GitHub contributions. A percentage of the treasury funds might be used every month to reward developers based on that distribution. This initiative is just getting started.
-
-Thanks for your time and code!
+Open an issue at
+[github.com/beefyfinance/beefy-api/issues](https://github.com/beefyfinance/beefy-api/issues).
