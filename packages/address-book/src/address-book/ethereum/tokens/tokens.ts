@@ -1199,8 +1199,8 @@ export const tokens = {
     decimals: 18,
     website: 'https://archimedesfi.com/',
     description:
-      'The stablecoin lvUSD is pegged to the USD and is used for lending and repaying loans.\n' +
-      'When liquidity providers (LPs) deposit 3CRV, Archimedes borrows lvUSD on behalf of leverage takers (LTs) and uses it to enter a strategy. Investing in the 3CRV/lvUSD pool gives LPs exposure to both 3CRV and the collateral provided by LTs. This allows the market to decide on the best investment strategy.',
+      'The stablecoin lvUSD is pegged to the USD and is used for lending and repaying loans.\n'
+      + 'When liquidity providers (LPs) deposit 3CRV, Archimedes borrows lvUSD on behalf of leverage takers (LTs) and uses it to enter a strategy. Investing in the 3CRV/lvUSD pool gives LPs exposure to both 3CRV and the collateral provided by LTs. This allows the market to decide on the best investment strategy.',
     bridge: 'native',
     documentation: 'https://docs.archimedesfi.com/',
     tags: ['STABLECOIN', 'SYNTHETIC'],

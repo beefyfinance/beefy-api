@@ -77,20 +77,15 @@
     "test:ts:cjs": "tsc --noEmit --project tsconfig.cjs.json",
     "test:ts:esm": "tsc --noEmit --project tsconfig.esm.json",
     "test:lint": "pnpm run lint",
-    "lint": "pnpm run lint:eslint:check && pnpm run lint:prettier:check",
-    "lint:prettier:check": "prettier --check ./{src,scripts}/**/*.ts",
-    "lint:prettier:fix": "prettier --write ./{src,scripts}/**/*.ts",
-    "lint:eslint:check": "eslint",
-    "lint:eslint:fix": "eslint --fix"
+    "lint": "biome check",
+    "lint:fix": "biome check --fix"
   },
   "devDependencies": {
+    "@biomejs/biome": "2.5.2",
     "@ethereumjs/util": "^9.0.3",
     "@types/node": "^24.10.3",
-    "eslint": "^9.5.0",
-    "prettier": "^3.3.2",
     "tsx": "^4.23.1",
     "typescript": "^5.5.2",
-    "typescript-eslint": "^8.49.0",
     "viem": "^1.20.2"
   }
 }

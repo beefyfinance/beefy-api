@@ -35,8 +35,8 @@ function checkChain(chainId: ChainId) {
         );
         ++errors;
       } else if (
-        duplicates[0].address !== tokens.WNATIVE.address &&
-        duplicates[0].address !== tokens.FEES.address
+        duplicates[0].address !== tokens.WNATIVE.address
+        && duplicates[0].address !== tokens.FEES.address
       ) {
         // Only warn if same token address is used for multiple tokens and oracleIds are the same
         // (exclude WNATIVE as it is always duplicated)

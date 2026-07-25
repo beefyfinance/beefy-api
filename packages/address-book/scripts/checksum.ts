@@ -1,5 +1,5 @@
-import { addressBook } from '../src/address-book/index.js';
 import { isValidChecksumAddress, toChecksumAddress } from '@ethereumjs/util';
+import { addressBook } from '../src/address-book/index.js';
 
 type ChainId = keyof typeof addressBook;
 
