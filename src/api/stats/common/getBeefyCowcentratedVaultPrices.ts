@@ -1,5 +1,5 @@
-import type { Abi } from 'abitype';
 import { BigNumber } from 'bignumber.js';
+import type { Abi } from 'viem';
 import ERC20Abi from '../../../abis/ERC20Abi.ts';
 import { type ApiChain, toChainId } from '../../../utils/chain.ts';
 import { getLoggerFor } from '../../../utils/logger/index.ts';
