@@ -25,6 +25,7 @@ import blackholePools from '../../data/avax/blackLpPools.json' with { type: 'jso
 import aerodromePools from '../../data/base/aerodromeLpPools.json' with { type: 'json' };
 import alienBasePools from '../../data/base/alienBaseLpPools.json' with { type: 'json' };
 import ooeV2Pools from '../../data/bsc/ooeV2LpPools.json' with { type: 'json' };
+import pancakeBscLpPools from '../../data/bsc/pancakeLpPools.json' with { type: 'json' };
 import kittenswapPools from '../../data/hyperevm/kittenswapLpPools.json' with { type: 'json' };
 import etherexPools from '../../data/linea/etherexVolatilePools.json' with { type: 'json' };
 import velodromeLiskPools from '../../data/lisk/velodromeLiskPools.json' with { type: 'json' };
@@ -48,6 +49,7 @@ const REFRESH_INTERVAL = 5 * 60 * 1000;
 // Implement in case of emergency -> https://github.com/beefyfinance/beefy-api/issues/103
 const pools = normalizePoolOracleIds([
   ...up33Pools,
+  ...pancakeBscLpPools,
   ...uniswapMonadPools,
   ...lithosPools,
   ...etherexPools,
@@ -134,7 +136,6 @@ const coinGeckoCoins: Record<string, string[]> = {
   penpie: ['PNP'],
   dogwifcoin: ['WIF'],
   scroll: ['SCR'],
-  'binance-bitcoin': ['BTCB'],
   ankreth: ['ankrETH'],
   'usda-2': ['USDa'],
   'kim-token': ['xKIM', 'KIM'],

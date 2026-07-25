@@ -1,9 +1,7 @@
 import { POLYGON_CHAIN_ID } from '../../../constants.ts';
 import { getLoggerFor } from '../../../utils/logger/index.ts';
-import { getMorphoApys } from '../common/morpho/getMorphoApys.js';
 import { getBeefyCowPolyApys } from './getBeefyCowPolyApys.ts';
 import { getCurveApys } from './getCurveApys.js';
-import morphoPoolsData from '../../../data/matic/morphoPools.json' with { type: 'json' };
 
 const logger = getLoggerFor({ module: 'apy', chain: POLYGON_CHAIN_ID });
 
@@ -11,7 +9,6 @@ const getApys = [
   getCurveApys,
   // getConvexApys,
   getBeefyCowPolyApys,
-  () => getMorphoApys(POLYGON_CHAIN_ID, morphoPoolsData),
 ];
 
 const BATCH_SIZE = 15;
