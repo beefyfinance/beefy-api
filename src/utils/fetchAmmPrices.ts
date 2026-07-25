@@ -1,7 +1,7 @@
+import { ChainId } from '@beefyfinance/blockchain-addressbook/types/chainid';
 import { BigNumber } from 'bignumber.js';
 import { orderBy } from 'lodash-es';
 import type { Address } from 'viem';
-import { ChainId } from '../../packages/address-book/src/types/chainid.ts';
 import { default as BeefyPriceMulticall } from '../abis/BeefyPriceMulticall.ts';
 import { fetchContract } from '../api/rpc/client.ts';
 import { envBoolean, envNumber } from './env.ts';

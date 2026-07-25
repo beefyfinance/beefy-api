@@ -1,5 +1,5 @@
+import type { ChainId } from '@beefyfinance/blockchain-addressbook';
 import { BigNumber } from 'bignumber.js';
-import type { ChainId } from '../../../../../packages/address-book/src/address-book/index.ts';
 import DistributorAbi from '../../../../abis/arbitrum/Distributor.ts';
 import RewardTrackerAbi from '../../../../abis/arbitrum/RewardTracker.ts';
 import StrategyABI from '../../../../abis/StrategyABI.ts';

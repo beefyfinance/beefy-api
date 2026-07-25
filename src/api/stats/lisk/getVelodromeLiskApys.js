@@ -5,7 +5,7 @@ import { getSolidlyGaugeApys } from '../common/getSolidlyGaugeApys.js';
 
 const logger = getLoggerFor({ module: 'apy', platform: 'velodrome', chain: chainId });
 
-import { addressBook } from '../../../../packages/address-book/src/address-book/index.ts';
+import { addressBook } from '@beefyfinance/blockchain-addressbook';
 import volatilePools from '../../../data/lisk/velodromeLiskPools.json' with { type: 'json' };
 import stablePools from '../../../data/lisk/velodromeLiskStablePools.json' with { type: 'json' };
 

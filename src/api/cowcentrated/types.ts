@@ -1,5 +1,5 @@
+import type { Token } from '@beefyfinance/blockchain-addressbook/types/token';
 import { type Address, isAddress } from 'viem';
-import type { Token } from '../../../packages/address-book/src/types/token.ts';
 import { isNonEmptyArray, type NonEmptyArray } from '../../utils/array.ts';
 import type { ApiChain } from '../../utils/chain.ts';
 import { providers } from './providers.ts';

@@ -1,6 +1,6 @@
+import type { ChainId } from '@beefyfinance/blockchain-addressbook';
 import { BigNumber } from 'bignumber.js';
 import type { Abi } from 'viem';
-import type { ChainId } from '../../../../packages/address-book/src/address-book/index.ts';
 import cv3Token from '../../../abis/cv3Token.ts';
 import { fetchPrice } from '../../../utils/fetchPrice.ts';
 import getBlockTime from '../../../utils/getBlockTime.js';

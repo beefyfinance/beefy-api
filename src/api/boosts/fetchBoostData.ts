@@ -1,4 +1,4 @@
-import { ChainId } from '../../../packages/address-book/src/address-book/index.ts';
+import { ChainId } from '@beefyfinance/blockchain-addressbook';
 import BeefyBoostAbi from '../../abis/BeefyBoost.ts';
 import { IBeefyRewardPool } from '../../abis/IBeefyRewardPool.ts';
 import { bigintRange } from '../../utils/array.ts';

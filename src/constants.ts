@@ -1,5 +1,5 @@
+import { ChainId } from '@beefyfinance/blockchain-addressbook';
 import { mapValues, uniq } from 'lodash-es';
-import { ChainId } from '../packages/address-book/src/address-book/index.ts';
 import { getChainRpcs } from './api/rpc/rpcs.ts';
 import { type ApiChain, fromChainId, type SupportedApiChain, toChainId } from './utils/chain.ts';
 

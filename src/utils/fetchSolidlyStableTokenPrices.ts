@@ -1,5 +1,5 @@
+import { ChainId } from '@beefyfinance/blockchain-addressbook/types/chainid';
 import { BigNumber } from 'bignumber.js';
-import { ChainId } from '../../packages/address-book/src/types/chainid.ts';
 import ISolidlyPair from '../abis/ISolidlyPair.ts';
 import { fetchContract } from '../api/rpc/client.ts';
 import { getLoggerFor } from './logger/index.ts';

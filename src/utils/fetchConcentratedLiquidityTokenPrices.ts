@@ -1,4 +1,4 @@
-import { ChainId } from '../../packages/address-book/src/types/chainid.ts';
+import { ChainId } from '@beefyfinance/blockchain-addressbook/types/chainid';
 import IAlgebraPool from '../abis/IAlgebraPool.ts';
 import IAlgebraPoolV1 from '../abis/IAlgebraPoolV1.ts';
 import IAlgebraPoolV2 from '../abis/IAlgebraPoolV2.ts';

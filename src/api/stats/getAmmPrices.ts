@@ -1,4 +1,4 @@
-import { addressBookByChainId } from '../../../packages/address-book/src/address-book/index.ts';
+import { addressBookByChainId } from '@beefyfinance/blockchain-addressbook';
 import { getKey, setKey } from '../../utils/cache/index.ts';
 import { fetchAmmPrices } from '../../utils/fetchAmmPrices.ts';
 import { fetchBalancerLinearPoolPrice } from '../../utils/fetchBalancerStablePoolPrices.js';

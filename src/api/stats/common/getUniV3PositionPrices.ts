@@ -1,5 +1,5 @@
+import type { ChainId } from '@beefyfinance/blockchain-addressbook';
 import { BigNumber } from 'bignumber.js';
-import type { ChainId } from '../../../../packages/address-book/src/address-book/index.ts';
 import BeefyUniswapPositionHelperAbi from '../../../abis/BeefyUniswapPositionHelper.ts';
 import { fetchContract } from '../../rpc/client.ts';
 import type { BaseLpBreakdown } from '../getAmmPrices.ts';

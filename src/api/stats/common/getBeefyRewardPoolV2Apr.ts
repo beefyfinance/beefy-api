@@ -1,10 +1,10 @@
+import { addressBookByChainId } from '@beefyfinance/blockchain-addressbook';
+import type { ChainId } from '@beefyfinance/blockchain-addressbook/types/chainid';
+import type { TokenWithId } from '@beefyfinance/blockchain-addressbook/types/token';
 import type { BigNumber } from 'bignumber.js';
 import { getUnixTime } from 'date-fns';
 import type { GetContractReturnType } from 'viem';
 import { type Address, type Client, getAddress } from 'viem';
-import { addressBookByChainId } from '../../../../packages/address-book/src/address-book/index.ts';
-import type { ChainId } from '../../../../packages/address-book/src/types/chainid.ts';
-import type { TokenWithId } from '../../../../packages/address-book/src/types/token.ts';
 import ERC20Abi from '../../../abis/ERC20Abi.ts';
 import { IBeefyRewardPool } from '../../../abis/IBeefyRewardPool.ts';
 import { ZERO_ADDRESS } from '../../../utils/address.ts';

@@ -1,9 +1,9 @@
 import fs from 'node:fs';
 import path from 'node:path';
+import { addressBook, ChainId } from '@beefyfinance/blockchain-addressbook';
 import { ethers } from 'ethers';
 import yargs from 'yargs';
 import { hideBin } from 'yargs/helpers';
-import { addressBook, ChainId } from '../packages/address-book/src/address-book/index.ts';
 import ISolidlyPair from '../src/abis/ISolidlyPair.ts';
 import { MULTICHAIN_RPC } from '../src/constants.ts';
 import ERC20ABI from '../src/abis/ERC20.json' with { type: 'json' };

@@ -1,5 +1,5 @@
+import { addressBook } from '@beefyfinance/blockchain-addressbook';
 import { BigNumber } from 'bignumber.js';
-import { addressBook } from '../../../../../packages/address-book/src/address-book/index.ts';
 import IOOEStaking from '../../../../abis/bsc/IOOEStaking.ts';
 import { BSC_CHAIN_ID as chainId } from '../../../../constants.ts';
 import { fetchPrice } from '../../../../utils/fetchPrice.ts';

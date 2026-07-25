@@ -1,6 +1,6 @@
+import { addressBook, ChainId, type Token } from '@beefyfinance/blockchain-addressbook';
 import { BigNumber } from 'bignumber.js';
 import { parseAbi } from 'viem';
-import { addressBook, ChainId, type Token } from '../../packages/address-book/src/address-book/index.ts';
 import { fetchContract } from '../api/rpc/client.ts';
 import { getLoggerFor } from './logger/index.ts';
 

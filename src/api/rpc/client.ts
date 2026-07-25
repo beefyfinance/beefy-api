@@ -1,3 +1,4 @@
+import type { ChainId } from '@beefyfinance/blockchain-addressbook';
 import PQueue from 'p-queue';
 import type { Abi } from 'viem';
 import {
@@ -10,7 +11,6 @@ import {
   http,
   type PublicClient,
 } from 'viem';
-import type { ChainId } from '../../../packages/address-book/src/address-book/index.ts';
 import { envBoolean, envNumber } from '../../utils/env.ts';
 import { getChain } from './chains.ts';
 import { type CustomFallbackTransport, customFallback } from './fallbackTransport.ts';

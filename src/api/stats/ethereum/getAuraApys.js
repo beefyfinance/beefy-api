@@ -1,5 +1,5 @@
+import { addressBook } from '@beefyfinance/blockchain-addressbook';
 import { BigNumber } from 'bignumber.js';
-import { addressBook } from '../../../../packages/address-book/src/address-book/index.ts';
 import AuraBooster from '../../../abis/ethereum/AuraBooster.ts';
 import AuraGauge from '../../../abis/ethereum/AuraGauge.ts';
 import AuraToken from '../../../abis/ethereum/AuraToken.ts';

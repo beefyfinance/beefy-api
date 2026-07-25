@@ -1,6 +1,6 @@
+import { moonbeam } from '@beefyfinance/blockchain-addressbook/moonbeam';
 import { groupBy, mapKeys } from 'lodash-es';
 import { type Address, getAddress } from 'viem';
-import { moonbeam } from '../../../../../packages/address-book/src/address-book/moonbeam/index.ts';
 import { bigintRange, isDefined } from '../../../../utils/array.ts';
 import { type AppChain, toChainId } from '../../../../utils/chain.ts';
 import { getUnixNow, isUnixBetween } from '../../../../utils/date.ts';

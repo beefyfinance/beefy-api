@@ -1,10 +1,10 @@
 import { promises as fsPromises } from 'node:fs';
+import { addressBook } from '@beefyfinance/blockchain-addressbook';
+import { ChainId } from '@beefyfinance/blockchain-addressbook/types/chainid';
 import fg from 'fast-glob';
 import { groupBy } from 'lodash-es';
 import { type Client, parseAbi } from 'viem';
 import { readContract } from 'viem/actions';
-import { addressBook } from '../packages/address-book/src/address-book/index.ts';
-import { ChainId } from '../packages/address-book/src/types/chainid.ts';
 import {
   type AnyCowClm,
   type CowClmWithRewardPool,

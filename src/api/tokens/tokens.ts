@@ -1,7 +1,7 @@
+import { addressBook, type Chain } from '@beefyfinance/blockchain-addressbook';
+import type { Token } from '@beefyfinance/blockchain-addressbook/types/token';
 import { mapValues } from 'lodash-es';
 import { type Address, getAddress } from 'viem';
-import { addressBook, type Chain } from '../../../packages/address-book/src/address-book/index.ts';
-import type { Token } from '../../../packages/address-book/src/types/token.ts';
 import { isDefined } from '../../utils/array.ts';
 import { type ApiChain, isApiChain, SupportedChains, toApiChain } from '../../utils/chain.ts';
 import { getLoggerFor } from '../../utils/logger/index.ts';

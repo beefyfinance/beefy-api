@@ -1,9 +1,9 @@
 import fs from 'node:fs';
 import path from 'node:path';
+import { ChainId } from '@beefyfinance/blockchain-addressbook';
 import { ethers } from 'ethers';
 import yargs from 'yargs';
 import { hideBin } from 'yargs/helpers';
-import { ChainId } from '../packages/address-book/src/address-book/index.ts';
 import CowVault from '../src/abis/CowVault.ts';
 import StratUniV3 from '../src/abis/StratUniV3.ts';
 import { MULTICHAIN_RPC } from '../src/constants.ts';

@@ -1,6 +1,6 @@
+import { addressBook } from '@beefyfinance/blockchain-addressbook';
+import type { Token } from '@beefyfinance/blockchain-addressbook/types/token';
 import { BigNumber } from 'bignumber.js';
-import { addressBook } from '../../packages/address-book/src/address-book/index.ts';
-import type { Token } from '../../packages/address-book/src/types/token.ts';
 import OptionsToken from '../abis/OptionsToken.ts';
 import { fetchContract } from '../api/rpc/client.ts';
 import { LINEA_CHAIN_ID } from '../constants.ts';
