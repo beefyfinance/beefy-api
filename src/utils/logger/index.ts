@@ -5,28 +5,24 @@ import type { LogScope, ResolveLogScope } from './types.ts';
 const LEVELS = new Set(['fatal', 'error', 'warn', 'info', 'debug', 'trace', 'silent']);
 const requested = process.env.LOG_LEVEL ?? 'info';
 const level = LEVELS.has(requested) ? requested : 'info';
-const isProd = process.env.NODE_ENV === 'production';
-const usePretty = !isProd && !!process.stdout.isTTY;
+const usePretty = process.env.NODE_ENV !== 'production' && !!process.stdout.isTTY;
+const prettyStream = usePretty ? (await import('./pretty-transport.ts')).default() : undefined;
 const cache = new Map<string, Logger>();
 
-const rootLogger = pino({
-  level,
-  serializers: {
-    chain: (v: unknown): unknown => {
-      if (typeof v === 'number' || isIntegerString(v)) {
-        return toChainSlug(Number(v));
-      }
-      return v;
+const rootLogger = pino(
+  {
+    level,
+    serializers: {
+      chain: (v: unknown): unknown => {
+        if (typeof v === 'number' || isIntegerString(v)) {
+          return toChainSlug(Number(v));
+        }
+        return v;
+      },
     },
   },
-  ...(usePretty
-    ? {
-        transport: {
-          target: './pretty-transport',
-        },
-      }
-    : {}),
-});
+  prettyStream
+);
 
 type Logger = typeof rootLogger;
 
