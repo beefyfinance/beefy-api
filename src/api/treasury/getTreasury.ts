@@ -1,6 +1,6 @@
+import { addressBook } from '@beefyfinance/blockchain-addressbook';
+import { chainIdMap } from '@beefyfinance/blockchain-addressbook/util/chainIdMap';
 import { BigNumber } from 'bignumber.js';
-import { addressBook } from '../../../packages/address-book/src/address-book/index.ts';
-import { chainIdMap } from '../../../packages/address-book/src/util/chainIdMap.ts';
 import { ZERO_ADDRESS } from '../../utils/address.ts';
 import { keysToObject } from '../../utils/array.ts';
 import { getKey, setKey } from '../../utils/cache/index.ts';

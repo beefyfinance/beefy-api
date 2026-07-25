@@ -1,5 +1,5 @@
+import { addressBook } from '@beefyfinance/blockchain-addressbook';
 import { BigNumber } from 'bignumber.js';
-import { addressBook } from '../../../../packages/address-book/src/address-book/index.ts';
 import ERC20Abi from '../../../abis/ERC20Abi.ts';
 import IRewardPool from '../../../abis/IRewardPool.ts';
 import { OPTIMISM_CHAIN_ID } from '../../../constants.ts';

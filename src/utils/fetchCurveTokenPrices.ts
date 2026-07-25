@@ -1,5 +1,5 @@
+import { addressBookByChainId, ChainId } from '@beefyfinance/blockchain-addressbook';
 import { BigNumber } from 'bignumber.js';
-import { addressBookByChainId, ChainId } from '../../packages/address-book/src/address-book/index.ts';
 import type ICurvePoolAbi from '../abis/CurvePool.ts';
 import ICurvePoolV2Abi from '../abis/CurvePoolV2.ts';
 import ICurvePool from '../abis/ICurvePool.ts';

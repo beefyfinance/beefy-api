@@ -1,8 +1,8 @@
 import { promises as fsPromises } from 'node:fs';
+import { addressBookByChainId } from '@beefyfinance/blockchain-addressbook';
 import commandLineArgs from 'command-line-args';
 import fg from 'fast-glob';
 import { groupBy, uniq } from 'lodash-es';
-import { addressBookByChainId } from '../packages/address-book/src/address-book/index.ts';
 
 type PoolToken = {
   address: string;

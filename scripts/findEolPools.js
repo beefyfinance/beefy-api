@@ -1,6 +1,6 @@
 import fs from 'node:fs';
 import path from 'node:path';
-import { ChainId } from '../packages/address-book/src/types/chainid.ts';
+import { ChainId } from '@beefyfinance/blockchain-addressbook/types/chainid';
 import { getVaults } from '../src/utils/getVaults.ts';
 
 async function main() {

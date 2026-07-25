@@ -1,5 +1,5 @@
+import { addressBook } from '@beefyfinance/blockchain-addressbook';
 import { BigNumber } from 'bignumber.js';
-import { addressBook } from '../../packages/address-book/src/address-book/index.ts';
 import OrbETHAbi from '../abis/OrbETH.ts';
 import rswETHAbi from '../abis/rswETH.ts';
 import WrappedAave4626TokenAbi from '../abis/WrappedAave4626Token.ts';

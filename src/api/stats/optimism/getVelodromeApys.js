@@ -1,4 +1,4 @@
-import { addressBook } from '../../../../packages/address-book/src/address-book/index.ts';
+import { addressBook } from '@beefyfinance/blockchain-addressbook';
 import { OPTIMISM_CHAIN_ID as chainId } from '../../../constants.ts';
 import { getEDecimals } from '../../../utils/getEDecimals.ts';
 import { getSolidlyGaugeApys } from '../common/getSolidlyGaugeApys.js';

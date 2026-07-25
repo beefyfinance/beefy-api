@@ -1,7 +1,7 @@
 import type { NormalizedCacheObject } from '@apollo/client/cache/inmemory/types.js';
 import type { ApolloClient } from '@apollo/client/core/index.js';
+import type { ChainId } from '@beefyfinance/blockchain-addressbook';
 import { BigNumber } from 'bignumber.js';
-import type { ChainId } from '../../../../packages/address-book/src/address-book/index.ts';
 import IMultiRewardMasterChef from '../../../abis/IMultiRewardMasterChef.ts';
 import { isBeetClient, isSushiClient } from '../../../apollo/client.ts';
 import type { LpPool, SingleAssetPool } from '../../../types/LpPool.ts';

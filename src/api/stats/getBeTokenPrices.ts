@@ -1,5 +1,5 @@
+import { sonic } from '@beefyfinance/blockchain-addressbook/sonic';
 import { BigNumber } from 'bignumber.js';
-import { sonic } from '../../../packages/address-book/src/address-book/sonic/index.ts';
 import { beSonicAbi } from '../../abis/sonic/beSonicAbi.ts';
 import { sonicStakingAbi } from '../../abis/sonic/sonicStakingAbi.ts';
 import { bigintRange } from '../../utils/array.ts';

@@ -1,5 +1,5 @@
+import type { ChainId } from '@beefyfinance/blockchain-addressbook';
 import { partition } from 'lodash-es';
-import type { ChainId } from '../../../../packages/address-book/src/address-book/index.ts';
 import { DAILY_HPY } from '../../../constants.ts';
 import { isDefined } from '../../../utils/array.ts';
 import { type ApiChain, fromChainId, toChainId } from '../../../utils/chain.ts';

@@ -1,7 +1,7 @@
+import { ChainId } from '@beefyfinance/blockchain-addressbook/types/chainid';
 import { BigNumber } from 'bignumber.js';
 import { first, groupBy, orderBy, sumBy } from 'lodash-es';
 import type { Address } from 'viem';
-import { ChainId } from '../../../packages/address-book/src/types/chainid.ts';
 import BeefyVaultV6Abi from '../../abis/BeefyVault.ts';
 import { getVaultPpfsOverride } from '../../data/vaultOverrides.ts';
 import { deleteKey, getKey, setKey } from '../../utils/cache/index.ts';

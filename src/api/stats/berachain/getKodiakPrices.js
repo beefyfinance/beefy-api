@@ -1,5 +1,5 @@
+import { addressBookByChainId } from '@beefyfinance/blockchain-addressbook';
 import { BigNumber } from 'bignumber.js';
-import { addressBookByChainId } from '../../../../packages/address-book/src/address-book/index.ts';
 import RangeAbi from '../../../abis/Range.ts';
 import { BERACHAIN_CHAIN_ID as chainId } from '../../../constants.ts';
 import { getLoggerFor } from '../../../utils/logger/index.ts';

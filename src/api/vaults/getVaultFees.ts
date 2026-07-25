@@ -1,7 +1,7 @@
+import { addressBookByChainId, ChainId } from '@beefyfinance/blockchain-addressbook';
 import { BigNumber } from 'bignumber.js';
 import { chunk } from 'lodash-es';
 import { type Address, BaseError } from 'viem';
-import { addressBookByChainId, ChainId } from '../../../packages/address-book/src/address-book/index.ts';
 import FeeABI from '../../abis/FeeABI.ts';
 import { getKey, setKey } from '../../utils/cache/index.ts';
 import { SupportedChains } from '../../utils/chain.ts';

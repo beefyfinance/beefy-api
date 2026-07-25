@@ -1,4 +1,4 @@
-import { addressBook } from '../../../../packages/address-book/src/address-book/index.ts';
+import { addressBook } from '@beefyfinance/blockchain-addressbook';
 import type { SupportedApiChain } from '../../../utils/chain.ts';
 
 /**

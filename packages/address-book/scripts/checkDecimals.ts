@@ -1,9 +1,32 @@
-import { type Address, decodeAbiParameters, getAddress, getFunctionSelector } from 'viem';
-import { getRPCClient } from '../../../src/api/rpc/client.ts';
-import { addressBook, ChainId as ChainIdEnum, type Token } from '../src/address-book/index.js';
+import {
+  type Address,
+  createPublicClient,
+  decodeAbiParameters,
+  fallback,
+  getAddress,
+  getFunctionSelector,
+  http,
+} from 'viem';
+import { addressBook, type Token } from '../src/address-book/index.js';
 
 type ChainId = keyof typeof addressBook;
 const allChains = Object.keys(addressBook) as ChainId[];
+
+const rpcEnvKeyOverrides: Partial<Record<ChainId, string>> = {
+  ethereum: 'ETH',
+};
+
+function getClientFor(chainId: ChainId) {
+  const key = `${(rpcEnvKeyOverrides[chainId] ?? chainId).toUpperCase()}_RPC`;
+  const urls = (process.env[key] ?? '')
+    .split(',')
+    .map(url => url.trim())
+    .filter(Boolean);
+  if (!urls.length) {
+    throw new Error(`${key} is not set`);
+  }
+  return createPublicClient({ transport: fallback(urls.map(url => http(url))) });
+}
 
 function isChainId(chainId: string): chainId is ChainId {
   return !!addressBook[chainId as ChainId];
@@ -30,7 +53,7 @@ async function checkChain(chainId: ChainId) {
   const allAddresses = Object.values(tokens)
     .filter(t => !shouldSkip(chainId, t))
     .map(t => getAddress(t.address));
-  const publicClient = getRPCClient(ChainIdEnum[chainId]);
+  const publicClient = getClientFor(chainId);
   const decimalsByAddress: Record<Address, number | undefined> = Object.fromEntries(
     (
       await Promise.allSettled(
@@ -76,6 +99,11 @@ async function checkChain(chainId: ChainId) {
 
 async function checkChains(chains: ChainId[]) {
   const mismatchesPerChain = await Promise.allSettled(chains.map(checkChain));
+  for (const result of mismatchesPerChain) {
+    if (result.status === 'rejected') {
+      console.error(result.reason);
+    }
+  }
   if (
     !mismatchesPerChain.every(
       (result): result is PromiseFulfilledResult<number> => result.status === 'fulfilled'
