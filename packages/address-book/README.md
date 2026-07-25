@@ -6,7 +6,7 @@ A collection of useful addresses on EVM chains for defi development
 
 
 1. Read the [CONTRIBUTING](./CONTRIBUTING.md) doc first
-1. run `pnpm install` from the repository root. This will install the packages and prepare husky pre-commit hook 
+1. run `pnpm install` from the repository root. This will install the packages and the lefthook pre-commit hook
 1. Add addresses:
    1. If new platform: 
        1. Add a file for the platform (i.e pancakeswap) under the respective chain in address-book/<your chain name>

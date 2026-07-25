@@ -1,0 +1,32 @@
+glob_matcher: doublestar
+
+pre-commit:
+  parallel: true
+  skip: [merge, rebase]
+  jobs:
+    - name: lint
+      run: pnpm exec biome check --staged --fix --reporter=concise --no-errors-on-unmatched
+      stage_fixed: true
+
+    - name: typecheck
+      glob: '**/*.{ts,js,json}'
+      run: pnpm exec tsc --project tsconfig.json
+
+    - name: check-clms
+      glob: 'src/data/**/beefyCowVaults.json'
+      run: pnpm exec tsx scripts/check-clms.ts
+
+    - name: address-book-typecheck
+      glob: 'packages/address-book/**/*.ts'
+      root: 'packages/address-book/'
+      run: pnpm exec tsc --noEmit --project tsconfig.json
+
+    - name: address-book-checksum
+      glob: 'packages/address-book/src/address-book/*/**/*.ts'
+      root: 'packages/address-book/'
+      run: pnpm exec tsx ./scripts/checksum.ts
+
+    - name: address-book-duplicates
+      glob: 'packages/address-book/src/address-book/*/tokens/tokens.ts'
+      root: 'packages/address-book/'
+      run: pnpm exec tsx ./scripts/checkDuplicates.ts
