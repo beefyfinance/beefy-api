@@ -1,6 +1,6 @@
-import { addressBook, ChainId as ChainIdEnum, type Token } from '../src/address-book/index.js';
+import { type Address, decodeAbiParameters, getAddress, getFunctionSelector } from 'viem';
 import { getRPCClient } from '../../../src/api/rpc/client.ts';
-import { Address, decodeAbiParameters, getAddress, getFunctionSelector } from 'viem';
+import { addressBook, ChainId as ChainIdEnum, type Token } from '../src/address-book/index.js';
 
 type ChainId = keyof typeof addressBook;
 const allChains = Object.keys(addressBook) as ChainId[];
