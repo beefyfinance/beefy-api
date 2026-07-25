@@ -11,9 +11,9 @@ function addChain() {
     process.exit(1);
   }
 
-  const addressBookPath = path.join(__dirname, '..', 'src', 'address-book');
-  const typesPath = path.join(__dirname, '..', 'src', 'types');
-  const utilPath = path.join(__dirname, '..', 'src', 'util');
+  const addressBookPath = path.join(import.meta.dirname, '..', 'src', 'address-book');
+  const typesPath = path.join(import.meta.dirname, '..', 'src', 'types');
+  const utilPath = path.join(import.meta.dirname, '..', 'src', 'util');
 
   // Create a new folder in the address book
   const newChainPath = path.join(addressBookPath, chainName);

@@ -1,4 +1,4 @@
-import { addressBook } from '../src/address-book';
+import { addressBook } from '../src/address-book/index.js';
 
 type ChainId = keyof typeof addressBook;
 const allChains = Object.keys(addressBook) as ChainId[];

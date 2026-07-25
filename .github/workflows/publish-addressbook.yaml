@@ -35,7 +35,7 @@ jobs:
       - name: 'Run Checksum Test'
         run: npm run checksum
       - name: 'Compile Package'
-        run: npm run compile
+        run: npm run build
       - name: 'Automated Version Bump'
         uses: 'phips28/gh-action-bump-version@v9.1.0'
         if: github.repository == 'beefyfinance/beefy-api'

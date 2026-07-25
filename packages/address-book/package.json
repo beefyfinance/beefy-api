@@ -2,25 +2,55 @@
   "name": "@beefyfinance/blockchain-addressbook",
   "version": "0.57.2",
   "description": "A collection of useful addresses on various chains for defi development",
-  "type": "commonjs",
-  "types": "./build/address-book/index.d.ts",
+  "type": "module",
+  "types": "./src/address-book/index.ts",
   "exports": {
     ".": {
-      "import": "./build-esm/address-book/index.js",
-      "require": "./build/address-book/index.js"
+      "types": "./src/address-book/index.ts",
+      "import": "./src/address-book/index.ts"
+    },
+    "./types/*": {
+      "types": "./src/types/*.ts",
+      "import": "./src/types/*.ts"
+    },
+    "./util/*": {
+      "types": "./src/util/*.ts",
+      "import": "./src/util/*.ts"
     },
     "./*": {
-      "import": "./build-esm/address-book/*/index.js",
-      "require": "./build/address-book/*/index.js"
+      "types": "./src/address-book/*/index.ts",
+      "import": "./src/address-book/*/index.ts"
     },
-    "./build/types/token": {
-      "import": "./build-esm/types/token.js",
-      "require": "./build/types/token.js"
-    }
+    "./package.json": "./package.json"
   },
-  "main": "./build/address-book/index.js",
+  "main": "./src/address-book/index.ts",
   "publishConfig": {
-    "access": "public"
+    "access": "public",
+    "types": "./build-esm/address-book/index.d.ts",
+    "main": "./build/address-book/index.js",
+    "exports": {
+      ".": {
+        "types": "./build-esm/address-book/index.d.ts",
+        "import": "./build-esm/address-book/index.js",
+        "require": "./build/address-book/index.js"
+      },
+      "./types/*": {
+        "types": "./build-esm/types/*.d.ts",
+        "import": "./build-esm/types/*.js",
+        "require": "./build/types/*.js"
+      },
+      "./util/*": {
+        "types": "./build-esm/util/*.d.ts",
+        "import": "./build-esm/util/*.js",
+        "require": "./build/util/*.js"
+      },
+      "./*": {
+        "types": "./build-esm/address-book/*/index.d.ts",
+        "import": "./build-esm/address-book/*/index.js",
+        "require": "./build/address-book/*/index.js"
+      },
+      "./package.json": "./package.json"
+    }
   },
   "files": [
     "./build",
@@ -33,21 +63,21 @@
   "packageManager": "npm@11.6.2",
   "license": "MIT",
   "scripts": {
-    "addChain": "bun run ./scripts/addChain.ts",
-    "compile": "npm run compile:cjs && npm run compile:esm",
-    "compile:cjs": "tsc --project tsconfig.cjs.json && echo '{\"type\": \"commonjs\"}' > ./build/package.json",
-    "compile:esm": "tsc --project tsconfig.esm.json && echo '{\"type\": \"module\"}' > ./build-esm/package.json",
-    "checksum": "bun run ./scripts/checksum.ts",
-    "checkDecimals": "bun run ./scripts/checkDecimals.ts",
-    "checkOracles": "bun run scripts/checkOracles.ts",
-    "checkDuplicates": "bun run ./scripts/checkDuplicates.ts",
-    "submit": "npm run checksum && npm run compile && npm publish",
-    "test": "npm run test:ts && npm run test:lint",
-    "test:ts": "npm run test:ts:cjs && npm run test:ts:esm",
+    "addChain": "tsx ./scripts/addChain.ts",
+    "build": "pnpm run build:cjs && pnpm run build:esm",
+    "build:cjs": "tsc --project tsconfig.cjs.json && echo '{\"type\": \"commonjs\"}' > ./build/package.json",
+    "build:esm": "tsc --project tsconfig.esm.json && echo '{\"type\": \"module\"}' > ./build-esm/package.json",
+    "checksum": "tsx ./scripts/checksum.ts",
+    "checkDecimals": "tsx ./scripts/checkDecimals.ts",
+    "checkOracles": "tsx ./scripts/checkOracles.ts",
+    "checkDuplicates": "tsx ./scripts/checkDuplicates.ts",
+    "submit": "pnpm run checksum && pnpm run build && pnpm publish",
+    "test": "pnpm run test:ts && pnpm run test:lint",
+    "test:ts": "pnpm run test:ts:cjs && pnpm run test:ts:esm",
     "test:ts:cjs": "tsc --noEmit --project tsconfig.cjs.json",
     "test:ts:esm": "tsc --noEmit --project tsconfig.esm.json",
-    "test:lint": "npm run lint",
-    "lint": "npm run lint:eslint:check && npm run lint:prettier:check",
+    "test:lint": "pnpm run lint",
+    "lint": "pnpm run lint:eslint:check && pnpm run lint:prettier:check",
     "lint:prettier:check": "prettier --check ./{src,scripts}/**/*.ts",
     "lint:prettier:fix": "prettier --write ./{src,scripts}/**/*.ts",
     "lint:eslint:check": "eslint",
@@ -56,11 +86,11 @@
   "devDependencies": {
     "@ethereumjs/util": "^9.0.3",
     "@types/node": "^24.10.3",
-    "bun": "^1.3.4",
-    "cross-env": "^10.1.0",
     "eslint": "^9.5.0",
     "prettier": "^3.3.2",
+    "tsx": "^4.23.1",
     "typescript": "^5.5.2",
-    "typescript-eslint": "^8.49.0"
+    "typescript-eslint": "^8.49.0",
+    "viem": "^1.20.2"
   }
 }
