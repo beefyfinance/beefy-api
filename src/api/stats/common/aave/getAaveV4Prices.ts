@@ -1,5 +1,5 @@
-import type { Abi } from 'abitype';
 import { BigNumber } from 'bignumber.js';
+import type { Abi } from 'viem';
 import { fetchContract } from '../../../rpc/client.ts';
 import type { AaveV4Pool } from './getAaveV4Apys.ts';
 

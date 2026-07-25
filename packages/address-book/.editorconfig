@@ -1,0 +1,2 @@
+[*.{ts,js,json,jsonc,yml,yaml}]
+max_line_length = 100

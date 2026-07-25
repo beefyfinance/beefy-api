@@ -1,6 +1,5 @@
 import type { Blob } from 'node:buffer';
 import type { URLSearchParams } from 'node:url';
-import type { HeadersInit } from 'undici-types';
 
 export type PassThroughHeadersInit = [string, string][] | Record<string, string | ReadonlyArray<string>> | Headers;
 export type PassThroughBodyInit = ArrayBuffer | Blob | FormData | URLSearchParams | null | string;
@@ -22,7 +21,7 @@ export type FetchParamsOptions = {
   keepUndefined?: boolean | string;
 };
 
-export type FetchHeaders = HeadersInit;
+export type FetchHeaders = NonNullable<ConstructorParameters<typeof Headers>[0]>;
 
 export type FetchAbortSignal = { signal?: AbortSignal } | { timeout?: number };
 

@@ -1,5 +1,5 @@
-import type { Abi } from 'abitype';
 import PQueue from 'p-queue';
+import type { Abi } from 'viem';
 import {
   type Client,
   createClient,
