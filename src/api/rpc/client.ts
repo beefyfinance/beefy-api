@@ -1,20 +1,20 @@
+import type { Abi } from 'abitype';
+import PQueue from 'p-queue';
 import {
-  Client,
+  type Client,
   createClient,
   createPublicClient,
   getContract,
+  type HttpTransport,
+  type HttpTransportConfig,
   http,
-  HttpTransport,
-  HttpTransportConfig,
-  PublicClient,
+  type PublicClient,
 } from 'viem';
-import { Abi } from 'abitype';
-import { getChain } from './chains';
-import { ChainId } from '../../../packages/address-book/src/address-book';
-import { rateLimitedHttp } from './transport';
-import PQueue from 'p-queue';
-import { envBoolean, envNumber } from '../../utils/env';
-import { customFallback, CustomFallbackTransport } from './fallbackTransport';
+import type { ChainId } from '../../../packages/address-book/src/address-book/index.ts';
+import { envBoolean, envNumber } from '../../utils/env.ts';
+import { getChain } from './chains.ts';
+import { type CustomFallbackTransport, customFallback } from './fallbackTransport.ts';
+import { rateLimitedHttp } from './transport.ts';
 
 const BATCH_WAIT = envNumber('BATCH_WAIT', 1500);
 
@@ -36,10 +36,9 @@ function getQueueFor(rpcUrl: string): PQueue {
       concurrency: envNumber('RPC_RATE_LIMIT_CONCURRENCY', 2),
       intervalCap: envNumber('RPC_RATE_LIMIT_INTERVAL_CAP', 5),
       interval: envNumber('RPC_RATE_LIMIT_INTERVAL', 1000),
-      carryoverConcurrencyCount: true,
+      carryoverIntervalCount: true,
       autoStart: true,
       timeout: 30 * 1000,
-      throwOnTimeout: true,
     });
   }
 
@@ -143,11 +142,7 @@ export const trimContractError = (error: any): any => {
   return error;
 };
 
-export const fetchContract = <ContractAbi extends Abi>(
-  address: string,
-  abi: ContractAbi,
-  chainId: ChainId
-) => {
+export const fetchContract = <ContractAbi extends Abi>(address: string, abi: ContractAbi, chainId: ChainId) => {
   const publicClient = getMulticallClientForChain(chainId);
   const contract = getContract({ address: address as `0x${string}`, abi, publicClient });
 

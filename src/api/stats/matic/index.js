@@ -1,8 +1,7 @@
-const { getCurveApys } = require('./getCurveApys');
-const { getConvexApys } = require('./getConvexApys');
-const { getBeefyCowPolyApys } = require('./getBeefyCowPolyApys');
-const { POLYGON_CHAIN_ID } = require('../../../constants');
-const { getLoggerFor } = require('../../../utils/logger/index.js');
+import { POLYGON_CHAIN_ID } from '../../../constants.ts';
+import { getLoggerFor } from '../../../utils/logger/index.ts';
+import { getBeefyCowPolyApys } from './getBeefyCowPolyApys.ts';
+import { getCurveApys } from './getCurveApys.js';
 
 const logger = getLoggerFor({ module: 'apy', chain: POLYGON_CHAIN_ID });
 
@@ -67,4 +66,4 @@ const getMaticApys = async () => {
   };
 };
 
-module.exports = { getMaticApys };
+export { getMaticApys };

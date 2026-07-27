@@ -1,5 +1,5 @@
-import BigNumber from 'bignumber.js';
-import { getLoggerFor } from './logger/index.js';
+import { BigNumber } from 'bignumber.js';
+import { getLoggerFor } from './logger/index.ts';
 
 const logger = getLoggerFor({ module: 'apy', platform: 'balancer' });
 

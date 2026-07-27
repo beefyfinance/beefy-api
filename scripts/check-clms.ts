@@ -1,21 +1,21 @@
-import { promises as fsPromises } from 'fs';
+import { promises as fsPromises } from 'node:fs';
 import fg from 'fast-glob';
+import { groupBy } from 'lodash-es';
+import { type Client, parseAbi } from 'viem';
+import { readContract } from 'viem/actions';
+import { addressBook } from '../packages/address-book/src/address-book/index.ts';
+import { ChainId } from '../packages/address-book/src/types/chainid.ts';
 import {
-  AnyCowClm,
-  CowClmWithRewardPool,
-  CowClmWithVault,
+  type AnyCowClm,
+  type CowClmWithRewardPool,
+  type CowClmWithVault,
   isCowClmWithRewardPool,
   isCowClmWithVault,
-  JsonCowClm,
+  type JsonCowClm,
   validateCowClms,
-} from '../src/api/cowcentrated/types';
-import { ApiChain, isApiChain } from '../src/utils/chain';
-import { getRPCClient } from '../src/api/rpc/client';
-import { ChainId } from '../packages/address-book/src/types/chainid';
-import { Client, parseAbi } from 'viem';
-import { readContract } from 'viem/actions';
-import { addressBook } from '../packages/address-book/src/address-book';
-import { groupBy } from 'lodash';
+} from '../src/api/cowcentrated/types.ts';
+import { getRPCClient } from '../src/api/rpc/client.ts';
+import { type ApiChain, isApiChain } from '../src/utils/chain.ts';
 
 /**
  * This script checks the beefyCowVaults.json configs against the on-chain contracts.
@@ -106,9 +106,7 @@ async function checkFile(
         } else {
           error.push({
             oracleId: local.oracleId,
-            error: `tokens mismatch: config "${local.tokens.join(', ')}" !== contract "${clm.tokens.join(
-              ', '
-            )}"`,
+            error: `tokens mismatch: config "${local.tokens.join(', ')}" !== contract "${clm.tokens.join(', ')}"`,
           });
         }
       }
@@ -121,9 +119,7 @@ async function checkFile(
       if (!local.decimals.every((decimals, i) => decimals === clm.decimals[i])) {
         error.push({
           oracleId: local.oracleId,
-          error: `decimals mismatch: config "${local.decimals.join(', ')}" !== contract "${clm.decimals.join(
-            ', '
-          )}"`,
+          error: `decimals mismatch: config "${local.decimals.join(', ')}" !== contract "${clm.decimals.join(', ')}"`,
         });
       }
       if (local.tokenOracleIds.length !== clm.tokenOracleIds.length) {

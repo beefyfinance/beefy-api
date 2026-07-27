@@ -1,28 +1,28 @@
 {
-  // See https://github.com/tsconfig/bases - we use 16 as base since we have commonjs modules
-  "extends": "@tsconfig/node16/tsconfig.json",
+  "include": [
+    "src/",
+    "scripts/"
+  ],
   "compilerOptions": {
-    "lib": ["es2022"],
+    "module": "nodenext",
+    "moduleResolution": "nodenext",
     "target": "es2022",
-    "outDir": "./dist",
+    "lib": [
+      "es2022"
+    ],
+    "esModuleInterop": true,
+    "resolveJsonModule": true,
     "allowJs": true,
     "checkJs": false,
-    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "allowImportingTsExtensions": true,
     "strict": false,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "noEmit": true,
     "noErrorTruncation": true,
-    "incremental": true,
-    "typeRoots": ["./node_modules/@types"],
-    "types": ["node"]
-  },
-  "ts-node": {
-    // skip type checking (faster, since we run in prod via ts-node)
-    "transpileOnly": true,
-    // allow loading using .js extension when disk has .ts file (for address-book imports)
-    "experimentalResolver": true,
-    "files": true,
-    "pretty": true,
-    "compilerOptions": {
-      // compilerOptions specified here will override those declared above, but *only* in ts-node.
-    }
+    "types": [
+      "node"
+    ]
   }
 }

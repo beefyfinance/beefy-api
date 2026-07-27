@@ -1,9 +1,9 @@
-import { ETH_CHAIN_ID } from '../../../constants';
-import BigNumber from 'bignumber.js';
-import { fetchPrice } from '../../../utils/fetchPrice';
-import getApyBreakdown from '../common/getApyBreakdown';
-import ICvxFxsStaking from '../../../abis/ethereum/ICvxFxsStaking';
-import { fetchContract } from '../../rpc/client';
+import { BigNumber } from 'bignumber.js';
+import ICvxFxsStaking from '../../../abis/ethereum/ICvxFxsStaking.ts';
+import { ETH_CHAIN_ID } from '../../../constants.ts';
+import { fetchPrice } from '../../../utils/fetchPrice.ts';
+import { fetchContract } from '../../rpc/client.ts';
+import { getApyBreakdown } from '../common/getApyBreakdown.ts';
 
 const secondsPerYear = 31536000;
 

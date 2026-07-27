@@ -1,7 +1,7 @@
-import { getApyBreakdown } from '../getApyBreakdownNew';
-import { getPendleApys } from './getPendleBaseApys';
+import { getLoggerFor } from '../../../../utils/logger/index.ts';
+import { getApyBreakdown } from '../getApyBreakdownNew.ts';
+import { getPendleApys } from './getPendleBaseApys.js';
 
-const { getLoggerFor } = require('../../../../utils/logger/index.js');
 const logger = getLoggerFor({ module: 'apy', platform: 'pendle' });
 
 export async function getPendleUnboostedApys(allPools) {

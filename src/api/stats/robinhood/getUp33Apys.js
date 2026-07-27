@@ -1,6 +1,7 @@
-const { ROBINHOOD_CHAIN_ID: chainId } = require('../../../constants');
-const { getSolidlyGaugeApys } = require('../common/getSolidlyGaugeApys');
-const volatilePools = require('../../../data/robinhood/up33Pools.json');
+import { ROBINHOOD_CHAIN_ID as chainId } from '../../../constants.ts';
+import { getSolidlyGaugeApys } from '../common/getSolidlyGaugeApys.js';
+import volatilePools from '../../../data/robinhood/up33Pools.json' with { type: 'json' };
+
 const stablePools = [];
 
 const pools = [...stablePools, ...volatilePools];

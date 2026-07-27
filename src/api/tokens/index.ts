@@ -1,3 +1,13 @@
+import { mapValues } from 'lodash-es';
+import { isApiChain } from '../../utils/chain.ts';
+import {
+  sendInternalServerError,
+  sendNotFound,
+  sendServiceUnavailable,
+  sendSuccess,
+  withErrorHandling,
+} from '../../utils/koa.ts';
+import { withChainId } from '../vaults/helpers.ts';
 import {
   getAllTokensByChain,
   getTokenById,
@@ -5,26 +15,14 @@ import {
   getTokenNative,
   getTokensForChainById,
   getTokenWrappedNative,
-} from './tokens';
-import { isApiChain } from '../../utils/chain';
-import { mapValues } from 'lodash';
-import {
-  sendInternalServerError,
-  sendNotFound,
-  sendServiceUnavailable,
-  sendSuccess,
-  withErrorHandling,
-} from '../../utils/koa';
-import { withChainId } from '../vaults/helpers';
+} from './tokens.ts';
 
 export const getTokens = withErrorHandling(async ctx => {
   const allTokens = getAllTokensByChain();
   if (allTokens) {
     sendSuccess(
       ctx,
-      mapValues(allTokens, chainTokens =>
-        mapValues(chainTokens.byId, address => chainTokens.byAddress[address])
-      )
+      mapValues(allTokens, chainTokens => mapValues(chainTokens.byId, address => chainTokens.byAddress[address]))
     );
   } else {
     sendServiceUnavailable(ctx, { error: 'Tokens not available yet' });

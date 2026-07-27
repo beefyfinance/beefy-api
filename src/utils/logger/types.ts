@@ -1,4 +1,4 @@
-import type { ApiChain } from '../chain';
+import type { ApiChain } from '../chain.ts';
 
 export type LogScope = {
   /** top-level domain, e.g. 'apy', 'prices', 'tvl', 'zap', 'articles' */

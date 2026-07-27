@@ -1,15 +1,16 @@
-import BigNumber from 'bignumber.js';
-import { getApyBreakdown, ApyBreakdownResult } from '../common/getApyBreakdownNew';
-import { fetchPrice } from '../../../utils/fetchPrice';
-import { MONAD_CHAIN_ID } from '../../../constants';
-import { fetchContract, getMulticallClientForChain } from '../../rpc/client';
-import { getMerklApys } from '../common/curve/getCurveApysCommon';
+import { BigNumber } from 'bignumber.js';
 import jp from 'jsonpath';
-import IAaveV3PoolDataProvider from '../../../abis/AaveV3PoolDataProvider';
-import NeverlandIncentiveController from '../../../abis/monad/NeverlandIncentiveController';
-import pools from '../../../data/monad/neverlandPools.json';
 import type { Address } from 'viem';
-import { getLoggerFor } from '../../../utils/logger/index.js';
+import IAaveV3PoolDataProvider from '../../../abis/AaveV3PoolDataProvider.ts';
+import NeverlandIncentiveController from '../../../abis/monad/NeverlandIncentiveController.ts';
+import { MONAD_CHAIN_ID } from '../../../constants.ts';
+import { BIG_ZERO } from '../../../utils/big-number.ts';
+import { fetchPrice } from '../../../utils/fetchPrice.ts';
+import { getLoggerFor } from '../../../utils/logger/index.ts';
+import { fetchContract } from '../../rpc/client.ts';
+import { getMerklApys } from '../common/curve/getCurveApysCommon.js';
+import { type ApyBreakdownResult, getApyBreakdown } from '../common/getApyBreakdownNew.ts';
+import pools from '../../../data/monad/neverlandPools.json' with { type: 'json' };
 
 const logger = getLoggerFor({ module: 'apy', platform: 'neverland', chain: MONAD_CHAIN_ID });
 
@@ -48,8 +49,10 @@ export const getNeverlandApys = async (): Promise<ApyBreakdownResult> => {
 };
 
 const getPoolData = async () => {
-  const supplyAprs: Record<string, BigNumber> = {};
-  const suppliesInUsd: BigNumber[] = [];
+  const supplyAprs: Record<string, BigNumber> = Object.fromEntries(
+    pools.map(pool => [pool.address.toLowerCase(), BIG_ZERO])
+  );
+  const suppliesInUsd: BigNumber[] = pools.map(() => BIG_ZERO);
 
   const dataProvider = fetchContract(aaveProtocolDataProvider, IAaveV3PoolDataProvider, MONAD_CHAIN_ID);
   await Promise.allSettled(

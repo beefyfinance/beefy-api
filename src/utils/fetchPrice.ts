@@ -1,9 +1,9 @@
-import { getAmmTokenPrice, getAmmLpPrice, getAmmPrice } from '../api/stats/getAmmPrices';
-import Token from '../../packages/address-book/src/types/token';
-import { ChainId } from '../../packages/address-book/src/types/chainid';
-import { addressBookByChainId } from '../../packages/address-book/src/address-book/index';
 import { getAddress } from 'viem';
-import { getLoggerFor } from './logger/index.js';
+import { addressBookByChainId } from '../../packages/address-book/src/address-book/index.ts';
+import { ChainId } from '../../packages/address-book/src/types/chainid.ts';
+import type { Token } from '../../packages/address-book/src/types/token.ts';
+import { getAmmLpPrice, getAmmPrice, getAmmTokenPrice } from '../api/stats/getAmmPrices.ts';
+import { getLoggerFor } from './logger/index.ts';
 
 const logger = getLoggerFor({ module: 'prices' });
 
@@ -77,7 +77,7 @@ export async function fetchPriceTyped(
       throw new Error(`Oracle '${oracle}' not implemented, expected one of: lps, tokens, any, hardcode`);
   }
 
-  return price;
+  return price ?? 0;
 }
 
 /**

@@ -1,23 +1,23 @@
-import BigNumber from 'bignumber.js';
+import { BigNumber } from 'bignumber.js';
+import { addressBook } from '../../packages/address-book/src/address-book/index.ts';
+import OrbETHAbi from '../abis/OrbETH.ts';
+import rswETHAbi from '../abis/rswETH.ts';
+import WrappedAave4626TokenAbi from '../abis/WrappedAave4626Token.ts';
+import WrappedAaveTokenAbi from '../abis/WrappedAaveToken.ts';
+import { fetchContract } from '../api/rpc/client.ts';
 import {
   ARBITRUM_CHAIN_ID,
   AVAX_CHAIN_ID,
+  BASE_CHAIN_ID,
   ETH_CHAIN_ID,
   GNOSIS_CHAIN_ID,
+  MONAD_CHAIN_ID,
   OPTIMISM_CHAIN_ID,
   POLYGON_CHAIN_ID,
-  BASE_CHAIN_ID,
-  MONAD_CHAIN_ID,
   SONIC_CHAIN_ID,
-} from '../constants';
-import { addressBook } from '../../packages/address-book/src/address-book';
-import { fetchContract } from '../api/rpc/client';
-import WrappedAaveTokenAbi from '../abis/WrappedAaveToken';
-import WrappedAave4626TokenAbi from '../abis/WrappedAave4626Token';
-import OrbETHAbi from '../abis/OrbETH';
-import rswETHAbi from '../abis/rswETH';
-import { getEDecimals } from './getEDecimals';
-import { getLoggerFor } from './logger/index.js';
+} from '../constants.ts';
+import { getEDecimals } from './getEDecimals.ts';
+import { getLoggerFor } from './logger/index.ts';
 
 const logger = getLoggerFor({ module: 'prices', platform: 'aave' });
 
@@ -291,7 +291,7 @@ const getWrappedAavePrices = async (tokenPrices, tokens, chainId) => {
   try {
     res = await Promise.all(rateCalls);
   } catch (e) {
-    logger.warn({ chain: chainId, err: e }, 'wrapped aave prices failed');
+    logger.error({ chain: chainId, err: e }, 'failed to read all rates');
     return tokens.map(() => 0);
   }
   const wrappedRates = res.map(v => new BigNumber(v.toString()));
@@ -300,29 +300,46 @@ const getWrappedAavePrices = async (tokenPrices, tokens, chainId) => {
   const results = [];
 
   for (let i = 0; i < wrappedRates.length; i++) {
-    const v = wrappedRates[i];
+    const wrappedRate = wrappedRates[i];
     const tokenGroup = tokens[i];
 
-    let price;
-    if (!tokenGroup[2]) {
-      price = v.times(mergedPrices[tokenGroup[0].oracleId]).dividedBy(RAY_DECIMALS).toNumber();
-    } else if (tokenGroup[0].oracleId === 'rsETH') {
-      price = v.times(mergedPrices[tokenGroup[0].oracleId]).dividedBy('1e18').toNumber();
-    } else {
-      price = new BigNumber(mergedPrices[tokenGroup[0].oracleId])
-        .times(getEDecimals(tokenGroup[1].decimals))
-        .dividedBy(v)
-        .toNumber();
+    if (!tokenGroup) {
+      logger.warn({ chain: chainId, index: i }, 'missing token group');
+      results.push(0);
+      continue;
     }
 
-    results.push(price);
-    mergedPrices[tokenGroup[1].oracleId] = price;
+    const [unwrapped, wrapped, inverseRate] = tokenGroup;
+    const setPrice = price => {
+      results.push(price);
+      mergedPrices[wrapped.oracleId] = price;
+    };
+
+    let token0Price = mergedPrices[unwrapped.oracleId];
+    if (!token0Price) {
+      logger.warn(
+        { chain: chainId, unwrapped: unwrapped.oracleId, wrapped: wrapped.oracleId },
+        'missing unwrapped price'
+      );
+      setPrice(0);
+      continue;
+    }
+
+    let price;
+    if (!inverseRate) {
+      price = wrappedRate.times(token0Price).dividedBy(RAY_DECIMALS).toNumber();
+    } else if (unwrapped.oracleId === 'rsETH') {
+      price = wrappedRate.times(token0Price).dividedBy('1e18').toNumber();
+    } else {
+      price = new BigNumber(token0Price).times(getEDecimals(wrapped.decimals)).dividedBy(wrappedRate).toNumber();
+    }
+    setPrice(price);
   }
 
   return results;
 };
 
-const fetchWrappedAavePrices = async tokenPrices =>
+export const fetchWrappedAavePrices = async tokenPrices =>
   Promise.all([
     getWrappedAavePrices(tokenPrices, tokens.ethereum, ETH_CHAIN_ID),
     getWrappedAavePrices(tokenPrices, tokens.polygon, POLYGON_CHAIN_ID),
@@ -336,5 +353,3 @@ const fetchWrappedAavePrices = async tokenPrices =>
   ]).then(data =>
     data.flat().reduce((acc, cur, i) => ((acc[Object.values(tokens).flat()[i][1].oracleId] = cur), acc), {})
   );
-
-export { fetchWrappedAavePrices };

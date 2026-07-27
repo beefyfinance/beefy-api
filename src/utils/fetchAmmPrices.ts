@@ -1,14 +1,14 @@
-import { ChainId } from '../../packages/address-book/src/types/chainid';
-import { Address } from 'viem';
-import BigNumber from 'bignumber.js';
-import { fetchContract } from '../api/rpc/client';
-import { default as BeefyPriceMulticall } from '../abis/BeefyPriceMulticall';
-import { batchMapRetry, isContextResultFulfilled, isContextResultRejected } from './promise';
-import { promiseTiming } from './timing';
-import { orderBy } from 'lodash';
-import { envBoolean, envNumber } from './env';
-import { normalizeNativeWrappedPrices } from './normalizeNativeWrappedPrices';
-import { getLoggerFor } from './logger/index.js';
+import { BigNumber } from 'bignumber.js';
+import { orderBy } from 'lodash-es';
+import type { Address } from 'viem';
+import { ChainId } from '../../packages/address-book/src/types/chainid.ts';
+import { default as BeefyPriceMulticall } from '../abis/BeefyPriceMulticall.ts';
+import { fetchContract } from '../api/rpc/client.ts';
+import { envBoolean, envNumber } from './env.ts';
+import { getLoggerFor } from './logger/index.ts';
+import { normalizeNativeWrappedPrices } from './normalizeNativeWrappedPrices.ts';
+import { batchMapRetry, isContextResultFulfilled, isContextResultRejected } from './promise.ts';
+import { promiseTiming } from './timing.ts';
 
 const logger = getLoggerFor({ module: 'prices' });
 
@@ -89,8 +89,8 @@ type LpBreakdown = {
 };
 
 function calcLpPrice(pool: PoolData, tokenPrices: Record<string, number>): LpBreakdown {
-  const lp0 = pool.lp0.balance.multipliedBy(tokenPrices[pool.lp0.oracleId]).dividedBy(pool.lp0.decimals);
-  const lp1 = pool.lp1.balance.multipliedBy(tokenPrices[pool.lp1.oracleId]).dividedBy(pool.lp1.decimals);
+  const lp0 = pool.lp0.balance.multipliedBy(tokenPrices[pool.lp0.oracleId] ?? 0).dividedBy(pool.lp0.decimals);
+  const lp1 = pool.lp1.balance.multipliedBy(tokenPrices[pool.lp1.oracleId] ?? 0).dividedBy(pool.lp1.decimals);
   const price = lp0.plus(lp1).multipliedBy(pool.decimals).dividedBy(pool.totalSupply).toNumber();
 
   return {

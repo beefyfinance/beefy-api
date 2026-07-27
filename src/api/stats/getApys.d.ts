@@ -1,9 +1,6 @@
-import { ApyBreakdown } from './common/getApyBreakdown';
+import type { ApyBreakdownResult } from './common/getApyBreakdown.ts';
 
-export function getApys(): {
-  apys: Record<string, number>;
-  apyBreakdowns: Record<string, ApyBreakdown>;
-};
+export function getApys(): ApyBreakdownResult;
 
 export function getBoostAprs(): Record<string, number>;
 

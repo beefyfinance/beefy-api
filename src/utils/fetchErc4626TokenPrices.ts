@@ -1,8 +1,8 @@
-import BigNumber from 'bignumber.js';
+import { BigNumber } from 'bignumber.js';
 import { parseAbi } from 'viem';
-import { addressBook, ChainId, Token } from '../../packages/address-book/src/address-book';
-import { fetchContract } from '../api/rpc/client';
-import { getLoggerFor } from './logger/index.js';
+import { addressBook, ChainId, type Token } from '../../packages/address-book/src/address-book/index.ts';
+import { fetchContract } from '../api/rpc/client.ts';
+import { getLoggerFor } from './logger/index.ts';
 
 const logger = getLoggerFor({ module: 'prices', platform: 'erc4626' });
 

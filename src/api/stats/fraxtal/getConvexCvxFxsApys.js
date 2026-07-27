@@ -1,7 +1,7 @@
-import BigNumber from 'bignumber.js';
-import getApyBreakdown from '../common/getApyBreakdown';
+import { BigNumber } from 'bignumber.js';
+import { getLoggerFor } from '../../../utils/logger/index.ts';
+import { getApyBreakdown } from '../common/getApyBreakdown.ts';
 
-const { getLoggerFor } = require('../../../utils/logger/index.js');
 const logger = getLoggerFor({ module: 'apy', platform: 'convex', chain: 'fraxtal' });
 
 export const getConvexCvxFxsApys = async () => {

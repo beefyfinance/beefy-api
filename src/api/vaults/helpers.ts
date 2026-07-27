@@ -1,8 +1,8 @@
-import { Context } from 'koa';
-import { ApiChain, fromChainNumber, isApiChain, isAppChain, toApiChain } from '../../utils/chain';
-import { KoaCallback, sendNotFound, withErrorHandling } from '../../utils/koa';
-import { AnyVault, HarvestableVault } from './types';
-import { sortBy } from 'lodash';
+import type { Context } from 'koa';
+import { sortBy } from 'lodash-es';
+import { type ApiChain, fromChainNumber, isApiChain, isAppChain, toApiChain } from '../../utils/chain.ts';
+import { type KoaCallback, sendNotFound, withErrorHandling } from '../../utils/koa.ts';
+import type { AnyVault, HarvestableVault } from './types.ts';
 
 export function getChainIdParam(ctx: Context): ApiChain | undefined {
   const raw = ctx.params.chainId;

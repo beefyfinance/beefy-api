@@ -1,7 +1,7 @@
-import { ApiChain } from './chain';
-import { orderBy, uniqBy } from 'lodash';
-import { isFiniteNumber } from './number';
-import { getLoggerFor } from './logger/index.js';
+import { orderBy, uniqBy } from 'lodash-es';
+import type { ApiChain } from './chain.ts';
+import { getLoggerFor } from './logger/index.ts';
+import { isFiniteNumber } from './number.ts';
 
 const logger = getLoggerFor({ module: 'prices', platform: 'dexScreener' });
 
@@ -159,8 +159,8 @@ function getRequestAddresses(requests: PriceRequest[]): string[] {
 
 function pairIsForRequest(pair: EnhancedPair, request: PriceRequest): boolean {
   return (
-    pair.chainId === request.chainId &&
-    (pair.baseToken.address === request.tokenAddress || pair.quoteToken.address === request.tokenAddress)
+    pair.chainId === request.chainId
+    && (pair.baseToken.address === request.tokenAddress || pair.quoteToken.address === request.tokenAddress)
   );
 }
 
@@ -196,19 +196,22 @@ export type OraclePriceRequest = PriceRequest & {
  */
 export async function fetchDexScreenerPriceOracles(requests: OraclePriceRequest[]): Promise<Record<string, number>> {
   const prices = await fetchDexScreenerPrices(requests);
-  return prices.reduce((acc, { price }, i) => {
-    const { oracleId, tokenAddress, chainId } = requests[i]!;
+  return prices.reduce(
+    (acc, { price }, i) => {
+      const { oracleId, tokenAddress, chainId } = requests[i]!;
 
-    if (isFiniteNumber(price)) {
-      if (oracleId in acc) {
-        logger.warn({ oracleId }, 'duplicate oracle price, ignoring');
+      if (isFiniteNumber(price)) {
+        if (oracleId in acc) {
+          logger.warn({ oracleId }, 'duplicate oracle price, ignoring');
+        } else {
+          acc[oracleId] = price;
+        }
       } else {
-        acc[oracleId] = price;
+        logger.warn({ oracleId, address: tokenAddress, chain: chainId }, 'invalid oracle price, ignoring');
       }
-    } else {
-      logger.warn({ oracleId, address: tokenAddress, chain: chainId }, 'invalid oracle price, ignoring');
-    }
 
-    return acc;
-  }, {} as Record<string, number>);
+      return acc;
+    },
+    {} as Record<string, number>
+  );
 }

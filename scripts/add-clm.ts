@@ -1,33 +1,32 @@
-import { ChainId, addressBook } from '../packages/address-book/src/address-book';
-import yargs from 'yargs';
-import fs from 'fs';
-import path from 'path';
-
+import fs from 'node:fs';
+import path from 'node:path';
 import { ethers } from 'ethers';
-import { MULTICHAIN_RPC } from '../src/constants';
-
-import UniV3LPPairABI from '../src/abis/UniV3LPPair.json';
-import ERC20ABI from '../src/abis/ERC20.json';
-import CowVault from '../src/abis/CowVault';
-import StratUniV3 from '../src/abis/StratUniV3';
-
-const {} = addressBook;
+import yargs from 'yargs';
+import { hideBin } from 'yargs/helpers';
+import { ChainId } from '../packages/address-book/src/address-book/index.ts';
+import CowVault from '../src/abis/CowVault.ts';
+import StratUniV3 from '../src/abis/StratUniV3.ts';
+import { MULTICHAIN_RPC } from '../src/constants.ts';
+import ERC20ABI from '../src/abis/ERC20.json' with { type: 'json' };
+import UniV3LPPairABI from '../src/abis/UniV3LPPair.json' with { type: 'json' };
 
 let vaultsFile = '../src/data/$network/beefyCowVaults.json';
 
-const args = yargs.options({
-  network: {
-    type: 'string',
-    demandOption: true,
-    describe: 'blockchain network',
-    choices: Object.keys(ChainId),
-  },
-  platform: {
-    type: 'string',
-    demandOption: true,
-    describe: 'project name',
-  },
-}).argv;
+const args = yargs(hideBin(process.argv))
+  .options({
+    network: {
+      type: 'string',
+      demandOption: true,
+      describe: 'blockchain network',
+      choices: Object.keys(ChainId),
+    },
+    platform: {
+      type: 'string',
+      demandOption: true,
+      describe: 'project name',
+    },
+  })
+  .parseSync();
 
 const poolPrefix = args['platform'];
 const clmAddress = process.argv[6];
@@ -35,7 +34,7 @@ console.log(clmAddress);
 const rewardPoolAddress = process.argv[7];
 const vaultAddress = process.argv[8] ?? '';
 const poolsJsonFile = vaultsFile.replace('$network', args['network']);
-const poolsJson = require(poolsJsonFile);
+const poolsJson = JSON.parse(fs.readFileSync(path.resolve(import.meta.dirname, poolsJsonFile), 'utf8'));
 const chainName = args['network'];
 
 const chainId = ChainId[args['network']];
@@ -162,7 +161,7 @@ async function main() {
 
   const newPools = [newPool, ...poolsJson];
 
-  fs.writeFileSync(path.resolve(__dirname, poolsJsonFile), formatCowVaultsJson(newPools) + '\n');
+  fs.writeFileSync(path.resolve(import.meta.dirname, poolsJsonFile), formatCowVaultsJson(newPools) + '\n');
 
   console.log(newPool);
 }

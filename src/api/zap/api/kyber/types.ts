@@ -1,4 +1,4 @@
-import { ApiResponse, ExtraQuoteResponse } from '../common';
+import type { ApiResponse, ExtraQuoteResponse } from '../common.ts';
 
 export type QuoteRequest = {
   tokenIn: string;

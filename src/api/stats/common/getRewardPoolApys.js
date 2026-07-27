@@ -1,16 +1,16 @@
-const BigNumber = require('bignumber.js');
-import { fetchPrice } from '../../../utils/fetchPrice';
-import getApyBreakdown from '../common/getApyBreakdown';
-import { isSushiClient } from '../../../apollo/client';
-import { getTradingFeeApr, getTradingFeeAprSushi } from '../../../utils/getTradingFeeApr';
-import IRewardPool from '../../../abis/IRewardPool';
-import InfraredGauge from '../../../abis/InfraredGauge';
-import IWrapper from '../../../abis/IWrapper';
-import { fetchContract } from '../../rpc/client';
-import ERC20Abi from '../../../abis/ERC20Abi';
-import getBlockNumber from '../../../utils/getBlockNumber';
-import getBlockTime from '../../../utils/getBlockTime';
-const { getLoggerFor } = require('../../../utils/logger/index.js');
+import { BigNumber } from 'bignumber.js';
+import ERC20Abi from '../../../abis/ERC20Abi.ts';
+import InfraredGauge from '../../../abis/InfraredGauge.ts';
+import IRewardPool from '../../../abis/IRewardPool.ts';
+import IWrapper from '../../../abis/IWrapper.ts';
+import { isSushiClient } from '../../../apollo/client.ts';
+import { fetchPrice } from '../../../utils/fetchPrice.ts';
+import getBlockNumber from '../../../utils/getBlockNumber.js';
+import getBlockTime from '../../../utils/getBlockTime.js';
+import { getTradingFeeApr, getTradingFeeAprSushi } from '../../../utils/getTradingFeeApr.ts';
+import { getLoggerFor } from '../../../utils/logger/index.ts';
+import { fetchContract } from '../../rpc/client.ts';
+import { getApyBreakdown } from '../common/getApyBreakdown.ts';
 
 const logger = getLoggerFor({ module: 'apy', platform: 'rewardPool' });
 
@@ -113,10 +113,10 @@ export const getPoolsData = async params => {
   const abi = params.periodFinish
     ? getAbi(periodFinish)
     : params.cake
-    ? IWrapper
-    : params.infrared
-    ? InfraredGauge
-    : IRewardPool;
+      ? IWrapper
+      : params.infrared
+        ? InfraredGauge
+        : IRewardPool;
 
   params.pools.forEach(pool => {
     const rewardPool = fetchContract(pool.rewardPool ? pool.rewardPool : pool.gauge, abi, params.chainId);
@@ -127,15 +127,15 @@ export const getPoolsData = async params => {
       params.cake
         ? rewardPool.read.rewardPerSecond()
         : params.infrared
-        ? rewardPool.read.rewardData([params.reward])
-        : rewardPool.read.rewardRate()
+          ? rewardPool.read.rewardData([params.reward])
+          : rewardPool.read.rewardRate()
     );
     periodFinishCalls.push(
       params.cake
         ? rewardPool.read.endTimestamp()
         : params.infrared
-        ? rewardPool.read.rewardData([params.reward])
-        : rewardPool.read[periodFinish]()
+          ? rewardPool.read.rewardData([params.reward])
+          : rewardPool.read[periodFinish]()
     );
 
     pool.extras?.forEach(extra => {
@@ -186,5 +186,3 @@ const getAbi = periodFinish => {
     },
   ];
 };
-
-module.exports = { getRewardPoolApys, getFarmApys, getPoolsData };

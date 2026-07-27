@@ -1,8 +1,8 @@
-const BigNumber = require('bignumber.js');
-const { default: ERC20Abi } = require('../../../../abis/ERC20Abi');
-const { default: IBalancerVaultV3 } = require('../../../../abis/IBalancerVaultV3');
-const { fetchContract } = require('../../../rpc/client');
-const { getLoggerFor } = require('../../../../utils/logger/index.js');
+import { BigNumber } from 'bignumber.js';
+import { default as ERC20Abi } from '../../../../abis/ERC20Abi.ts';
+import { default as IBalancerVaultV3 } from '../../../../abis/IBalancerVaultV3.ts';
+import { getLoggerFor } from '../../../../utils/logger/index.ts';
+import { fetchContract } from '../../../rpc/client.ts';
 
 const logger = getLoggerFor({ module: 'prices', platform: 'balancer' });
 
@@ -86,4 +86,4 @@ const getTokenPrice = (tokenPrices, oracleId) => {
   return tokenPrice;
 };
 
-module.exports = getBalancerV3Prices;
+export default getBalancerV3Prices;

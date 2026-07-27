@@ -1,38 +1,32 @@
-'use strict';
-
-require('dotenv').config();
-
-import { initCache } from './utils/cache';
-import { initBoostService } from './api/boosts/getBoosts';
-import { initPriceService } from './api/stats/getAmmPrices';
-import { initApyService } from './api/stats/getApys';
-import { initMooTokenPriceService } from './api/stats/getMooTokenPrices';
-import { initVaultService } from './api/stats/getMultichainVaults';
-import { initTvlService } from './api/stats/getTvl';
-import { initTokenService } from './api/tokens/tokens';
-import { initConfigService } from './api/config/getConfig';
-import { initVaultFeeService } from './api/vaults/getVaultFees';
-import { initTreasuryService } from './api/treasury/getTreasury';
-import { initProposalsService } from './api/snapshot/getProposals';
-import { initZapSwapService } from './api/zap/swap';
-import { initArticlesService } from './api/articles/fetchArticlesData';
-import { initCowcentratedService } from './api/cowcentrated';
-import { initOffchainRewardsService } from './api/offchain-rewards';
-import { initPointsStructureService } from './api/points/getPointsStructures';
-import { getLoggerFor } from './utils/logger/index.js';
+import cors from '@koa/cors';
+import Koa from 'koa';
+import body from 'koa-bodyparser';
+import conditional from 'koa-conditional-get';
+import etag from 'koa-etag';
+import helmet from 'koa-helmet';
+import { initArticlesService } from './api/articles/fetchArticlesData.ts';
+import { initBoostService } from './api/boosts/getBoosts.ts';
+import { initConfigService } from './api/config/getConfig.ts';
+import { initCowcentratedService } from './api/cowcentrated/index.ts';
+import { initOffchainRewardsService } from './api/offchain-rewards/index.ts';
+import { initPointsStructureService } from './api/points/getPointsStructures.ts';
+import { initProposalsService } from './api/snapshot/getProposals.ts';
+import { initPriceService } from './api/stats/getAmmPrices.ts';
+import { initApyService } from './api/stats/getApys.js';
+import { initMooTokenPriceService } from './api/stats/getMooTokenPrices.ts';
+import { initVaultService } from './api/stats/getMultichainVaults.ts';
+import { initTvlService } from './api/stats/getTvl.js';
+import { initTokenService } from './api/tokens/tokens.ts';
+import { initTreasuryService } from './api/treasury/getTreasury.ts';
+import { initVaultFeeService } from './api/vaults/getVaultFees.ts';
+import { initZapSwapService } from './api/zap/swap/index.ts';
+import powered from './middleware/powered.js';
+import rt from './middleware/rt.js';
+import router from './router.js';
+import { initCache } from './utils/cache/index.ts';
+import { getLoggerFor } from './utils/logger/index.ts';
 
 const logger = getLoggerFor({ module: 'app' });
-
-const Koa = require('koa');
-const helmet = require('koa-helmet');
-const body = require('koa-bodyparser');
-const cors = require('@koa/cors');
-const conditional = require('koa-conditional-get');
-const etag = require('koa-etag');
-
-const rt = require('./middleware/rt');
-const powered = require('./middleware/powered');
-const router = require('./router');
 
 const app = new Koa();
 

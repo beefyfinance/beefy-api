@@ -1,15 +1,15 @@
-import { arbitrum } from '../../../packages/address-book/src/address-book/arbitrum';
-import { optimism } from '../../../packages/address-book/src/address-book/optimism';
-import { base } from '../../../packages/address-book/src/address-book/base';
-import { linea } from '../../../packages/address-book/src/address-book/linea';
-import { bsc } from '../../../packages/address-book/src/address-book/bsc';
-import { avax } from '../../../packages/address-book/src/address-book/avax';
-import { scroll } from '../../../packages/address-book/src/address-book/scroll';
-import { mode } from '../../../packages/address-book/src/address-book/mode';
-import { lisk } from '../../../packages/address-book/src/address-book/lisk';
-import { sonic } from '../../../packages/address-book/src/address-book/sonic';
-import { robinhood } from '../../../packages/address-book/src/address-book/robinhood';
-import { AnyCowClm, CowProvider } from './types';
+import { arbitrum } from '../../../packages/address-book/src/address-book/arbitrum/index.ts';
+import { avax } from '../../../packages/address-book/src/address-book/avax/index.ts';
+import { base } from '../../../packages/address-book/src/address-book/base/index.ts';
+import { bsc } from '../../../packages/address-book/src/address-book/bsc/index.ts';
+import { linea } from '../../../packages/address-book/src/address-book/linea/index.ts';
+import { lisk } from '../../../packages/address-book/src/address-book/lisk/index.ts';
+import { mode } from '../../../packages/address-book/src/address-book/mode/index.ts';
+import { optimism } from '../../../packages/address-book/src/address-book/optimism/index.ts';
+import { robinhood } from '../../../packages/address-book/src/address-book/robinhood/index.ts';
+import { scroll } from '../../../packages/address-book/src/address-book/scroll/index.ts';
+import { sonic } from '../../../packages/address-book/src/address-book/sonic/index.ts';
+import type { AnyCowClm, CowProvider } from './types.ts';
 
 export const providers = {
   ramses: {

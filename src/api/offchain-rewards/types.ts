@@ -1,6 +1,6 @@
-import { AppChain } from '../../utils/chain';
-import { Address } from 'viem';
-import { MerklApiCampaignStatus } from './providers/merkl/types';
+import type { Address } from 'viem';
+import type { AppChain } from '../../utils/chain.ts';
+import type { MerklApiCampaignStatus } from './providers/merkl/types.ts';
 
 export type ProviderId = 'merkl' | 'stellaswap';
 

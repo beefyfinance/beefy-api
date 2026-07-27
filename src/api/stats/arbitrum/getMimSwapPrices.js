@@ -1,9 +1,8 @@
+import { BigNumber } from 'bignumber.js';
 import { parseAbi } from 'viem';
-
-const BigNumber = require('bignumber.js');
-const { fetchContract } = require('../../rpc/client');
-const { ARBITRUM_CHAIN_ID: chainId } = require('../../../constants');
-const pools = require('../../../data/arbitrum/mimPools.json');
+import { ARBITRUM_CHAIN_ID as chainId } from '../../../constants.ts';
+import { fetchContract } from '../../rpc/client.ts';
+import pools from '../../../data/arbitrum/mimPools.json' with { type: 'json' };
 
 const abi = parseAbi([
   'function getReserves() view returns (uint256 baseReserve, uint256 quoteReserve)',
@@ -23,10 +22,7 @@ export const getMimSwapPrices = async tokenPrices => {
     [[], []]
   );
 
-  const [reserveResults, supplyResults] = await Promise.all([
-    Promise.all(reserveCalls),
-    Promise.all(supplyCalls),
-  ]);
+  const [reserveResults, supplyResults] = await Promise.all([Promise.all(reserveCalls), Promise.all(supplyCalls)]);
 
   const poolsData = reserveResults.map((_, i) => {
     return {
@@ -42,17 +38,14 @@ export const getMimSwapPrices = async tokenPrices => {
     const lp1Bal = poolsData[i].lp1Bal;
     const totalSupply = poolsData[i].totalSupply;
 
-    const lp0 = lp0Bal.multipliedBy(tokenPrices[pool.lp0.oracleId]).dividedBy(pool.lp0.decimals);
-    const lp1 = lp1Bal.multipliedBy(tokenPrices[pool.lp1.oracleId]).dividedBy(pool.lp1.decimals);
+    const lp0 = lp0Bal.multipliedBy(tokenPrices[pool.lp0.oracleId] ?? 0).dividedBy(pool.lp0.decimals);
+    const lp1 = lp1Bal.multipliedBy(tokenPrices[pool.lp1.oracleId] ?? 0).dividedBy(pool.lp1.decimals);
     const price = lp0.plus(lp1).multipliedBy('1e18').dividedBy(totalSupply).toNumber();
 
     prices[pool.name] = {
       price,
       tokens: [pool.lp0.address, pool.lp1.address],
-      balances: [
-        lp0Bal.dividedBy(pool.lp0.decimals).toString(10),
-        lp1Bal.dividedBy(pool.lp1.decimals).toString(10),
-      ],
+      balances: [lp0Bal.dividedBy(pool.lp0.decimals).toString(10), lp1Bal.dividedBy(pool.lp1.decimals).toString(10)],
       totalSupply: totalSupply.dividedBy('1e18').toString(10),
     };
   }

@@ -1,7 +1,7 @@
-const getNetswapApys = require('./getNetswapApys');
-const { getAaveV3Apys } = require('./getAaveV3Apys');
-const { METIS_CHAIN_ID } = require('../../../constants');
-const { getLoggerFor } = require('../../../utils/logger/index.js');
+import { METIS_CHAIN_ID } from '../../../constants.ts';
+import { getLoggerFor } from '../../../utils/logger/index.ts';
+import { getAaveV3Apys } from './getAaveV3Apys.js';
+import getNetswapApys from './getNetswapApys.js';
 
 const logger = getLoggerFor({ module: 'apy', chain: METIS_CHAIN_ID });
 
@@ -55,4 +55,4 @@ const getMetisApys = async () => {
   };
 };
 
-module.exports = { getMetisApys };
+export { getMetisApys };

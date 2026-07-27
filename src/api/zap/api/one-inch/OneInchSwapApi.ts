@@ -1,20 +1,23 @@
-import { URLSearchParams } from 'url';
+import { URLSearchParams } from 'node:url';
+import { mapValues, omitBy } from 'lodash-es';
+import { redactSecrets } from '../../../../utils/secrets.ts';
+import { type ApiResponse, type ExtraQuoteResponse, isErrorApiResponse } from '../common.ts';
 import {
-  IOneInchSwapApi,
+  type IOneInchSwapApi,
   isOneInchErrorResponse,
   isOneInchSuccessResponse,
-  OneInchResponse,
-  QuoteRequest,
-  QuoteResponse,
-  SwapRequest,
-  SwapResponse,
-} from './types';
-import { mapValues, omitBy } from 'lodash';
-import { redactSecrets } from '../../../../utils/secrets';
-import { ApiResponse, ExtraQuoteResponse, isErrorApiResponse } from '../common';
+  type OneInchResponse,
+  type QuoteRequest,
+  type QuoteResponse,
+  type SwapRequest,
+  type SwapResponse,
+} from './types.ts';
 
 export class OneInchSwapApi implements IOneInchSwapApi {
-  constructor(protected readonly baseUrl: string, protected readonly apiKey: string) {}
+  constructor(
+    protected readonly baseUrl: string,
+    protected readonly apiKey: string
+  ) {}
 
   async getProxiedQuote(request: QuoteRequest): Promise<ApiResponse<QuoteResponse, ExtraQuoteResponse>> {
     return await this.priorityGet('/quote', this.toStringDict(this.addRequiredParams(request)), {
@@ -118,7 +121,7 @@ export class OneInchSwapApi implements IOneInchSwapApi {
 
   protected async priorityGet<
     ResponseType extends object,
-    Extra extends Record<string, unknown> | undefined = undefined
+    Extra extends Record<string, unknown> | undefined = undefined,
   >(path: string, request?: Record<string, string>, extra?: Extra): Promise<ApiResponse<ResponseType, Extra>> {
     return this.doGet(path, request, extra);
   }

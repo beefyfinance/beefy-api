@@ -1,8 +1,9 @@
-import { getApyBreakdown } from '../common/getApyBreakdownNew';
-import { getMerklApys } from '../common/getMerklApys';
-import { MONAD_CHAIN_ID as chainId } from '../../../constants';
+import { MONAD_CHAIN_ID as chainId } from '../../../constants.ts';
+import { getApyBreakdown } from '../common/getApyBreakdownNew.ts';
+import { getMerklApys } from '../common/getMerklApys.js';
+import uniswapLpPoolsData from '../../../data/monad/uniswapLpPools.json' with { type: 'json' };
 
-const pools = require('../../../data/monad/uniswapLpPools.json').filter(p => p.merkl);
+const pools = uniswapLpPoolsData.filter(p => p.merkl);
 
 export const getUniswapApys = async () => {
   const [merklApys] = await Promise.all([getMerklApys(chainId, pools)]);

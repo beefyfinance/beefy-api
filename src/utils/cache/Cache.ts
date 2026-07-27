@@ -1,5 +1,5 @@
-import { ICacheBackend } from './ICacheBackend';
-import { getLoggerFor } from '../logger/index.js';
+import { getLoggerFor } from '../logger/index.ts';
+import type { ICacheBackend } from './ICacheBackend.ts';
 
 const logger = getLoggerFor({ module: 'cache' });
 
@@ -8,7 +8,10 @@ export type CacheOptions = {
 };
 
 export class Cache {
-  constructor(protected backend: ICacheBackend, protected options: CacheOptions = {}) {}
+  constructor(
+    protected backend: ICacheBackend,
+    protected options: CacheOptions = {}
+  ) {}
 
   async get<T extends any>(key: string): Promise<T | undefined> {
     try {

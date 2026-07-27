@@ -1,4 +1,4 @@
-import { EventEmitter } from 'events';
+import { EventEmitter } from 'node:events';
 
 class ServiceEventBus extends EventEmitter {
   protected firstPromises: Record<string, Promise<any>> = {};

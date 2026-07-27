@@ -1,5 +1,5 @@
-import { getAllPointsStructures } from './getPointsStructures';
-import { getLoggerFor } from '../../utils/logger/index.js';
+import { getLoggerFor } from '../../utils/logger/index.ts';
+import { getAllPointsStructures } from './getPointsStructures.ts';
 
 const logger = getLoggerFor({ module: 'points' });
 

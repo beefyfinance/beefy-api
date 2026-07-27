@@ -1,6 +1,6 @@
-import { ICacheBackend } from './ICacheBackend';
-import { createClient, RedisClientType } from 'redis';
-import { getLoggerFor } from '../logger/index.js';
+import { createClient, type RedisClientType } from 'redis';
+import { getLoggerFor } from '../logger/index.ts';
+import type { ICacheBackend } from './ICacheBackend.ts';
 
 const logger = getLoggerFor({ module: 'cache' });
 

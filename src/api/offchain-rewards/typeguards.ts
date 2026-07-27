@@ -1,4 +1,4 @@
-import { Campaign, MerklCampaign, UpdateResolved, UpdateResult } from './types';
+import type { Campaign, MerklCampaign, UpdateResolved, UpdateResult } from './types.ts';
 
 export function isMerklCampaign(campaign: Campaign): campaign is MerklCampaign {
   return campaign.providerId === 'merkl';

@@ -1,6 +1,6 @@
-const { default: BigNumber } = require('bignumber.js');
-const { getRPCClient } = require('../api/rpc/client');
-const { getLoggerFor } = require('./logger/index.js');
+import { default as BigNumber } from 'bignumber.js';
+import { getRPCClient } from '../api/rpc/client.ts';
+import { getLoggerFor } from './logger/index.ts';
 
 const logger = getLoggerFor({ module: 'rpc' });
 
@@ -33,4 +33,4 @@ const getBlockTime = async chainId => {
   }
 };
 
-module.exports = getBlockTime;
+export default getBlockTime;

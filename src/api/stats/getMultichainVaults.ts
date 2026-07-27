@@ -1,27 +1,33 @@
-import BigNumber from 'bignumber.js';
-import { contextAllSettled, isContextResultFulfilled, isContextResultRejected, withTimeout } from '../../utils/promise';
-import { serviceEventBus } from '../../utils/ServiceEventBus';
-import { first, groupBy, mapValues, orderBy, sumBy } from 'lodash';
-import { ApiChain, SupportedChains } from '../../utils/chain';
+import { BigNumber } from 'bignumber.js';
+import { first, groupBy, orderBy, sumBy } from 'lodash-es';
+import type { Address } from 'viem';
+import { ChainId } from '../../../packages/address-book/src/types/chainid.ts';
+import BeefyVaultV6Abi from '../../abis/BeefyVault.ts';
+import { getVaultPpfsOverride } from '../../data/vaultOverrides.ts';
+import { deleteKey, getKey, setKey } from '../../utils/cache/index.ts';
+import { type ApiChain, SupportedChains } from '../../utils/chain.ts';
+import { envNumber } from '../../utils/env.ts';
+import { getVaults } from '../../utils/getVaults.ts';
+import { getLoggerFor } from '../../utils/logger/index.ts';
+import { mapValues } from '../../utils/object.ts';
 import {
-  AnyVault,
-  ClmWithVaultPool,
-  CowVault,
-  GovVault,
+  contextAllSettled,
+  isContextResultFulfilled,
+  isContextResultRejected,
+  withTimeout,
+} from '../../utils/promise.ts';
+import { serviceEventBus } from '../../utils/ServiceEventBus.ts';
+import { fetchContract } from '../rpc/client.ts';
+import { HARVESTABLE_VAULT_TYPES, sortVaults, VAULT_TYPES } from '../vaults/helpers.ts';
+import {
+  type AnyVault,
+  type ClmWithVaultPool,
+  type CowVault,
+  type GovVault,
   isVaultOfType,
-  StandardVault,
-  VaultOfType,
-} from '../vaults/types';
-import { getVaults } from '../../utils/getVaults';
-import { deleteKey, getKey, setKey } from '../../utils/cache';
-import { envNumber } from '../../utils/env';
-import { Address } from 'viem';
-import { ChainId } from '../../../packages/address-book/src/types/chainid';
-import { fetchContract } from '../rpc/client';
-import { HARVESTABLE_VAULT_TYPES, sortVaults, VAULT_TYPES } from '../vaults/helpers';
-import BeefyVaultV6Abi from '../../abis/BeefyVault';
-import { getVaultPpfsOverride } from '../../data/vaultOverrides';
-import { getLoggerFor } from '../../utils/logger/index.js';
+  type StandardVault,
+  type VaultOfType,
+} from '../vaults/types.ts';
 
 const logger = getLoggerFor({ module: 'vaults' });
 
@@ -178,7 +184,7 @@ class Storage {
     }
 
     this.byId = byId;
-    this.byType = mapValues(byType, sortVaults) as unknown as VaultsByType;
+    this.byType = mapValues(byType, sortVaults);
     this.byChain = mapValues(byChain, sortVaults);
   }
 

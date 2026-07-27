@@ -1,7 +1,7 @@
-import { serviceEventBus } from '../../utils/ServiceEventBus';
-import { getAllCowVaultsMeta } from './getCowVaultsMeta';
-import { ApiChain } from '../../utils/chain';
-import { getLoggerFor } from '../../utils/logger/index.js';
+import type { ApiChain } from '../../utils/chain.ts';
+import { getLoggerFor } from '../../utils/logger/index.ts';
+import { serviceEventBus } from '../../utils/ServiceEventBus.ts';
+import { getAllCowVaultsMeta } from './getCowVaultsMeta.ts';
 
 const logger = getLoggerFor({ module: 'clm' });
 
@@ -48,7 +48,7 @@ export function getCowPriceRanges() {
 }
 
 export async function initCowPriceRangeService() {
-  logger.info('initializing price ranges');
+  logger.info('initializing');
   serviceEventBus.on('cowcentrated/vaults-meta/loaded', updateAll);
   serviceEventBus.on('cowcentrated/vaults-meta/updated', updateAll);
 }

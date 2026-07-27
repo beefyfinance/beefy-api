@@ -1,15 +1,15 @@
-import getApyBreakdown from '../common/getApyBreakdown';
-const BigNumber = require('bignumber.js');
-const { ETH_CHAIN_ID: chainId, ETH_CHAIN_ID } = require('../../../constants');
-import { fetchPrice } from '../../../utils/fetchPrice';
-import { addressBook } from '../../../../packages/address-book/src/address-book';
-import { getEDecimals } from '../../../utils/getEDecimals';
-import AuraToken from '../../../abis/ethereum/AuraToken';
-import AuraBooster from '../../../abis/ethereum/AuraBooster';
-import { fetchContract } from '../../rpc/client';
-import AuraGauge from '../../../abis/ethereum/AuraGauge';
-import { getBalTradingAndLstApr } from '../../../utils/getBalancerTradingFeeAndLstApr';
-import { getMerklApys } from '../common/getMerklApys';
+import { BigNumber } from 'bignumber.js';
+import { addressBook } from '../../../../packages/address-book/src/address-book/index.ts';
+import AuraBooster from '../../../abis/ethereum/AuraBooster.ts';
+import AuraGauge from '../../../abis/ethereum/AuraGauge.ts';
+import AuraToken from '../../../abis/ethereum/AuraToken.ts';
+import { ETH_CHAIN_ID as chainId, ETH_CHAIN_ID } from '../../../constants.ts';
+import { fetchPrice } from '../../../utils/fetchPrice.ts';
+import { getBalTradingAndLstApr } from '../../../utils/getBalancerTradingFeeAndLstApr.js';
+import { getEDecimals } from '../../../utils/getEDecimals.ts';
+import { fetchContract } from '../../rpc/client.ts';
+import { getApyBreakdown } from '../common/getApyBreakdown.ts';
+import { getMerklApys } from '../common/getMerklApys.js';
 
 const {
   ethereum: {
@@ -17,7 +17,7 @@ const {
   },
 } = addressBook;
 
-const balV3Pools = require('../../../data/ethereum/balancerV3pools.json');
+import balV3Pools from '../../../data/ethereum/balancerV3pools.json' with { type: 'json' };
 
 const pools = [...balV3Pools].filter(p => !p.eol);
 
@@ -209,4 +209,4 @@ const getAuraData = async () => {
   return [reduction, totalCliff, amtTillMax];
 };
 
-module.exports = { getAuraApys, getAuraData };
+export { getAuraApys, getAuraData };

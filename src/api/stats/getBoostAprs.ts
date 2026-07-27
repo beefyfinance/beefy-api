@@ -1,17 +1,17 @@
-import { getAllNewBoosts } from '../boosts/getBoosts';
-import { Boost } from '../boosts/types';
-import BigNumber from 'bignumber.js';
-import { fetchPrice } from '../../utils/fetchPrice';
-import { ApiChain, toChainId } from '../../utils/chain';
-import BeefyBoostAbi from '../../abis/BeefyBoost';
-import { fetchContract } from '../rpc/client';
-import { isFiniteNumber } from '../../utils/number';
-import { partition } from 'lodash';
-import { BeefyRewardPoolV2Config, getBeefyRewardPoolV2Aprs } from './common/getBeefyRewardPoolV2Apr';
+import { BigNumber } from 'bignumber.js';
+import { partition } from 'lodash-es';
 import { getAddress } from 'viem';
-import { isDefined } from '../../utils/array';
-import { getVaultByIdOfType } from './getMultichainVaults';
-import { getLoggerFor } from '../../utils/logger/index.js';
+import BeefyBoostAbi from '../../abis/BeefyBoost.ts';
+import { isDefined } from '../../utils/array.ts';
+import { type ApiChain, toChainId } from '../../utils/chain.ts';
+import { fetchPrice } from '../../utils/fetchPrice.ts';
+import { getLoggerFor } from '../../utils/logger/index.ts';
+import { isFiniteNumber } from '../../utils/number.ts';
+import { getAllNewBoosts } from '../boosts/getBoosts.ts';
+import type { Boost } from '../boosts/types.ts';
+import { fetchContract } from '../rpc/client.ts';
+import { type BeefyRewardPoolV2Config, getBeefyRewardPoolV2Aprs } from './common/getBeefyRewardPoolV2Apr.ts';
+import { getVaultByIdOfType } from './getMultichainVaults.ts';
 
 const logger = getLoggerFor({ module: 'apy' });
 
@@ -48,12 +48,15 @@ const updateBoostV2AprsForChain = async (chain: ApiChain, boosts: Boost[]) => {
         .filter(isDefined)
     );
 
-    return results.reduce((aprs: Record<string, number>, result) => {
-      if (result && result.totalApr !== undefined && result.rewardsApr && result.rewardsApr.length > 0) {
-        aprs[result.oracleId] = result.totalApr;
-      }
-      return aprs;
-    }, Object.fromEntries(boosts.map(boost => [boost.id, BOOST_APR_EXPIRED])));
+    return results.reduce(
+      (aprs: Record<string, number>, result) => {
+        if (result && result.totalApr !== undefined && result.rewardsApr && result.rewardsApr.length > 0) {
+          aprs[result.oracleId] = result.totalApr;
+        }
+        return aprs;
+      },
+      Object.fromEntries(boosts.map(boost => [boost.id, BOOST_APR_EXPIRED]))
+    );
   } catch (err) {
     logger.warn({ chain, err }, 'boost v2 apr calculation failed');
     return {};
@@ -145,10 +148,10 @@ const mapResponseToBoostApr = async (boost: Boost, supply: bigint, rate: bigint,
 
     //Price is missing, we can't consider this as a successful calculation
     if (
-      !isFiniteNumber(depositTokenPrice) ||
-      depositTokenPrice === 0 ||
-      !isFiniteNumber(earnedTokenPrice) ||
-      earnedTokenPrice === 0
+      !isFiniteNumber(depositTokenPrice)
+      || depositTokenPrice === 0
+      || !isFiniteNumber(earnedTokenPrice)
+      || earnedTokenPrice === 0
     ) {
       logger.warn({ boost: boost.id, depositTokenPrice, earnedTokenPrice }, 'missing price calculating boost apr');
       return null;

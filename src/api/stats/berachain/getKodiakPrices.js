@@ -1,11 +1,11 @@
-import BigNumber from 'bignumber.js';
-import { fetchContract } from '../../rpc/client';
-import { addressBookByChainId } from '../../../../packages/address-book/src/address-book';
-import RangeAbi from '../../../abis/Range';
-import { BERACHAIN_CHAIN_ID as chainId } from '../../../constants';
-import kodiak from '../../../data/berachain/kodiakPools.json';
-import berapaw from '../../../data/berachain/kodiakBeraPawPools.json';
-import { getLoggerFor } from '../../../utils/logger/index.js';
+import { BigNumber } from 'bignumber.js';
+import { addressBookByChainId } from '../../../../packages/address-book/src/address-book/index.ts';
+import RangeAbi from '../../../abis/Range.ts';
+import { BERACHAIN_CHAIN_ID as chainId } from '../../../constants.ts';
+import { getLoggerFor } from '../../../utils/logger/index.ts';
+import { fetchContract } from '../../rpc/client.ts';
+import berapaw from '../../../data/berachain/kodiakBeraPawPools.json' with { type: 'json' };
+import kodiak from '../../../data/berachain/kodiakPools.json' with { type: 'json' };
 
 const logger = getLoggerFor({ module: 'prices', platform: 'kodiak', chain: chainId });
 

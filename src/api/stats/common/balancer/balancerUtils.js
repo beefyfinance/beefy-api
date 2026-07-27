@@ -1,16 +1,14 @@
-import BigNumber from 'bignumber.js';
-import { fetchContract } from '../../../rpc/client';
-import { fetchPrice } from '../../../../utils/fetchPrice';
-
-const { default: ICurveGauge } = require('../../../../abis/ICurveGauge');
-const { default: ICurveRewards } = require('../../../../abis/ICurveRewards');
-const { default: ICurveRewardStream } = require('../../../../abis/ICurveRewardStream');
+import { BigNumber } from 'bignumber.js';
+import { default as ICurveGauge } from '../../../../abis/ICurveGauge.ts';
+import { default as ICurveRewardStream } from '../../../../abis/ICurveRewardStream.ts';
+import { default as ICurveRewards } from '../../../../abis/ICurveRewards.ts';
+import { fetchPrice } from '../../../../utils/fetchPrice.ts';
+import { fetchContract } from '../../../rpc/client.ts';
 
 const secondsPerYear = 31536000;
 
 const ZERO_ADDRESS = '0x0000000000000000000000000000000000000000';
-const hasGauge = pool =>
-  !!pool?.gauge && typeof pool.gauge === 'string' && pool.gauge.toLowerCase() !== ZERO_ADDRESS;
+const hasGauge = pool => !!pool?.gauge && typeof pool.gauge === 'string' && pool.gauge.toLowerCase() !== ZERO_ADDRESS;
 
 export const getTotalStakedInUsd = async (chainId, pool) => {
   if (!hasGauge(pool)) return new BigNumber(1);
@@ -31,11 +29,7 @@ export const getBoostedYearlyRewardsInUsd = async (chainId, pool, tokenID) => {
   // so total APY can be calculated as yearlyRewards / totalStaked
   const weekEpoch = Math.floor(Date.now() / 1000 / (86400 * 7));
   const gauge = fetchContract(pool.gauge, ICurveGauge, chainId);
-  const calls = [
-    gauge.read.inflation_rate([weekEpoch]),
-    gauge.read.totalSupply(),
-    gauge.read.working_supply(),
-  ];
+  const calls = [gauge.read.inflation_rate([weekEpoch]), gauge.read.totalSupply(), gauge.read.working_supply()];
 
   const res = await Promise.all(calls);
 
@@ -54,9 +48,7 @@ export const getBoostedYearlyRewardsInUsd = async (chainId, pool, tokenID) => {
 
 export const getYearlyRewardsInUsd = async (chainId, pool) => {
   let [yearRewardsInUsd, ratesAndPeriods] = await Promise.all([
-    pool.boosted
-      ? getBoostedYearlyRewardsInUsd(chainId, pool)
-      : new Promise(resolve => resolve(new BigNumber(0))),
+    pool.boosted ? getBoostedYearlyRewardsInUsd(chainId, pool) : new Promise(resolve => resolve(new BigNumber(0))),
     getPoolsRatesAndPeriodFinish(chainId, pool),
   ]);
 

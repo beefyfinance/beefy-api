@@ -1,4 +1,4 @@
-import BigNumber from 'bignumber.js';
+import { BigNumber } from 'bignumber.js';
 
 /** Any type that can be passed to our toBigNumber function */
 export type BigNumberish = BigNumber.Value | bigint;
@@ -6,14 +6,10 @@ export type BigNumberish = BigNumber.Value | bigint;
 export const BIG_ZERO = new BigNumber(0);
 export const BIG_ONE = new BigNumber(1);
 export const BIG_UNIT_18 = BIG_ONE.shiftedBy(18);
-export const BIG_MAX_UINT256 = new BigNumber(
-  '0xffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff'
-);
+export const BIG_MAX_UINT256 = new BigNumber('0xffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff');
 
 export function isBigNumberish(value: any): value is BigNumberish {
-  return (
-    typeof value === 'number' || typeof value === 'string' || typeof value === 'bigint' || isBigNumber(value)
-  );
+  return typeof value === 'number' || typeof value === 'string' || typeof value === 'bigint' || isBigNumber(value);
 }
 
 export function toBigNumber(input: BigNumberish): BigNumber {

@@ -1,5 +1,3 @@
-'use strict';
-
 async function rt(ctx, next) {
   const start = Date.now();
   await next();
@@ -7,4 +5,4 @@ async function rt(ctx, next) {
   ctx.set('X-Response-Time', `${ms}ms`);
 }
 
-module.exports = rt;
+export default rt;

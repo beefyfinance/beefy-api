@@ -1,13 +1,13 @@
-import { groupBy, mapValues } from 'lodash';
-import { ApiChain, toChainId } from './chain';
-import BigNumber from 'bignumber.js';
-import { fromWei } from './big-number';
+import { BigNumber } from 'bignumber.js';
 import { subSeconds } from 'date-fns';
-import { isResultFulfilled } from './promise';
-import { median } from './number';
-import { fetchContract } from '../api/rpc/client';
-import { chainLinkOracleAbi } from '../abis/ChainLinkOracle';
-import { getLoggerFor } from './logger/index.js';
+import { groupBy, mapValues } from 'lodash-es';
+import { chainLinkOracleAbi } from '../abis/ChainLinkOracle.ts';
+import { fetchContract } from '../api/rpc/client.ts';
+import { fromWei } from './big-number.ts';
+import { type ApiChain, toChainId } from './chain.ts';
+import { getLoggerFor } from './logger/index.ts';
+import { median } from './number.ts';
+import { isResultFulfilled } from './promise.ts';
 
 const logger = getLoggerFor({ module: 'prices', platform: 'chainlink' });
 

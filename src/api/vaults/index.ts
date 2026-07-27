@@ -1,3 +1,4 @@
+import { sendBadRequest, sendNotFound, sendSuccess, withErrorHandling } from '../../utils/koa.ts';
 import {
   getAllHarvestableVaults,
   getAllVaults,
@@ -8,10 +9,9 @@ import {
   getVaultsByChain,
   getVaultsByType,
   getVaultsByTypeChain,
-} from '../stats/getMultichainVaults';
-import { getVaultFees } from './getVaultFees';
-import { sendBadRequest, sendNotFound, sendSuccess, withErrorHandling } from '../../utils/koa';
-import { withChainId } from './helpers';
+} from '../stats/getMultichainVaults.ts';
+import { getVaultFees } from './getVaultFees.ts';
+import { withChainId } from './helpers.ts';
 
 // Multichain
 
@@ -198,15 +198,18 @@ export const vaultFees = withErrorHandling(async ctx => {
 });
 
 export const vaultsLastHarvest = withErrorHandling(async ctx => {
-  const lastHarvests = getAllVaults().reduce((res, vault) => {
-    if ('lastHarvest' in vault) {
-      const { id, lastHarvest } = vault;
-      if (lastHarvest) {
-        res[id] = lastHarvest;
+  const lastHarvests = getAllVaults().reduce(
+    (res, vault) => {
+      if ('lastHarvest' in vault) {
+        const { id, lastHarvest } = vault;
+        if (lastHarvest) {
+          res[id] = lastHarvest;
+        }
       }
-    }
-    return res;
-  }, {} as Record<string, number>);
+      return res;
+    },
+    {} as Record<string, number>
+  );
   ctx.status = 200;
   ctx.body = lastHarvests;
 });

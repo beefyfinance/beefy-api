@@ -1,5 +1,5 @@
-import { toNumber } from './number';
-import { getLoggerFor } from './logger/index.js';
+import { getLoggerFor } from './logger/index.ts';
+import { toNumber } from './number.ts';
 
 const logger = getLoggerFor({ module: 'app' });
 
@@ -11,7 +11,7 @@ export function startTimer() {
   return (messageFn: (elapsed: number) => string) => {
     const elapsed = performance.now() - start;
     if (elapsed >= MIN_TIME_MS) {
-      logger.warn(messageFn(elapsed));
+      logger.debug({ durationMs: elapsed }, messageFn(elapsed));
     }
   };
 }

@@ -1,18 +1,18 @@
-import { fetchContract } from '../rpc/client';
-import { sonic } from '../../../packages/address-book/src/address-book/sonic';
-import { beSonicAbi } from '../../abis/sonic/beSonicAbi';
-import { bigintRange } from '../../utils/array';
-import BigNumber from 'bignumber.js';
-import { BIG_ONE, BIG_UNIT_18, BIG_ZERO } from '../../utils/big-number';
-import { sonicStakingAbi } from '../../abis/sonic/sonicStakingAbi';
+import { BigNumber } from 'bignumber.js';
+import { sonic } from '../../../packages/address-book/src/address-book/sonic/index.ts';
+import { beSonicAbi } from '../../abis/sonic/beSonicAbi.ts';
+import { sonicStakingAbi } from '../../abis/sonic/sonicStakingAbi.ts';
+import { bigintRange } from '../../utils/array.ts';
+import { BIG_ONE, BIG_UNIT_18, BIG_ZERO } from '../../utils/big-number.ts';
+import { fetchContract } from '../rpc/client.ts';
 
 export async function getBeTokenPrices(tokenPrices: Record<string, number>): Promise<Record<string, number>> {
   return {
-    beJOE: tokenPrices['JOE'],
-    beQI: tokenPrices['QI'],
-    beCAKE: tokenPrices['Cake'],
-    beVelo: tokenPrices['BeVELO'],
-    beS: await getBeSonicRedeemablePrice(tokenPrices['WS']),
+    beJOE: tokenPrices['JOE'] ?? 0,
+    beQI: tokenPrices['QI'] ?? 0,
+    beCAKE: tokenPrices['Cake'] ?? 0,
+    beVelo: tokenPrices['BeVELO'] ?? 0,
+    beS: await getBeSonicRedeemablePrice(tokenPrices['WS'] ?? 0),
   };
 }
 
@@ -34,15 +34,9 @@ async function getBeSonicPriceWhileWithdrawingSlashed(sonicPrice: number): Promi
     beContract.read.getPricePerFullShare(),
     beContract.read.lockedProfit(),
   ]);
-  const validators = await Promise.all(
-    bigintRange(validatorsLength).map(i => beContract.read.validatorByIndex([i]))
-  );
+  const validators = await Promise.all(bigintRange(validatorsLength).map(i => beContract.read.validatorByIndex([i])));
 
-  const stakingContract = fetchContract(
-    '0xFC00FACE00000000000000000000000000000000',
-    sonicStakingAbi,
-    token.chainId
-  );
+  const stakingContract = fetchContract('0xFC00FACE00000000000000000000000000000000', sonicStakingAbi, token.chainId);
 
   const validatorsWithStatus = await Promise.all(
     validators.map(async v => {
@@ -93,10 +87,7 @@ function getPenalty(amount: BigNumber, isCheater: boolean, refundRatio: BigNumbe
   }
 
   // penalty = (amount * (Decimal.unit() - refundRatio)) / Decimal.unit() + 1;
-  const penalty = amount
-    .multipliedBy(BIG_UNIT_18.minus(refundRatio))
-    .dividedToIntegerBy(BIG_UNIT_18)
-    .plus(BIG_ONE);
+  const penalty = amount.multipliedBy(BIG_UNIT_18.minus(refundRatio)).dividedToIntegerBy(BIG_UNIT_18).plus(BIG_ONE);
 
   if (penalty.gt(amount)) {
     return BIG_ZERO;

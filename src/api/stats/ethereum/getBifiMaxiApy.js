@@ -1,12 +1,12 @@
-import { IBeefyRewardPool } from '../../../abis/IBeefyRewardPool';
-import { fetchContract } from '../../rpc/client';
-import ERC20Abi from '../../../abis/ERC20Abi';
-import { addressBook } from '../../../../packages/address-book/src/address-book';
-import { ETH_CHAIN_ID } from '../../../constants';
-import { fetchPrice } from '../../../utils/fetchPrice';
-import { getApyBreakdown } from '../common/getApyBreakdownNew';
+import { BigNumber } from 'bignumber.js';
+import { addressBook } from '../../../../packages/address-book/src/address-book/index.ts';
+import ERC20Abi from '../../../abis/ERC20Abi.ts';
+import { IBeefyRewardPool } from '../../../abis/IBeefyRewardPool.ts';
+import { ETH_CHAIN_ID } from '../../../constants.ts';
+import { fetchPrice } from '../../../utils/fetchPrice.ts';
+import { fetchContract } from '../../rpc/client.ts';
+import { getApyBreakdown } from '../common/getApyBreakdownNew.ts';
 
-const BigNumber = require('bignumber.js');
 const secondsPerYear = 31536000;
 const {
   ethereum: {
@@ -26,10 +26,7 @@ const rewards = [
 ];
 
 export const getBifiMaxiApy = async () => {
-  const [yearlyRewardsInUsd, totalStakedInUsd] = await Promise.all([
-    getYearlyRewardsInUsd(),
-    getTotalStakedInUsd(),
-  ]);
+  const [yearlyRewardsInUsd, totalStakedInUsd] = await Promise.all([getYearlyRewardsInUsd(), getTotalStakedInUsd()]);
   const apr = yearlyRewardsInUsd.dividedBy(totalStakedInUsd);
 
   return getApyBreakdown([

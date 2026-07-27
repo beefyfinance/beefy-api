@@ -1,10 +1,10 @@
-import { fetchPrice } from '../../utils/fetchPrice';
-import { getKey, setKey } from '../../utils/cache';
-import { serviceEventBus } from '../../utils/ServiceEventBus';
-import { BIG_ZERO, isFiniteBigNumber } from '../../utils/big-number';
-import { isFiniteNumber } from '../../utils/number';
-import { getMultichainVaults } from './getMultichainVaults';
-import { getLoggerFor } from '../../utils/logger/index.js';
+import { BIG_ZERO, isFiniteBigNumber } from '../../utils/big-number.ts';
+import { getKey, setKey } from '../../utils/cache/index.ts';
+import { fetchPrice } from '../../utils/fetchPrice.ts';
+import { getLoggerFor } from '../../utils/logger/index.ts';
+import { isFiniteNumber } from '../../utils/number.ts';
+import { serviceEventBus } from '../../utils/ServiceEventBus.ts';
+import { getMultichainVaults } from './getMultichainVaults.ts';
 
 const logger = getLoggerFor({ module: 'prices' });
 

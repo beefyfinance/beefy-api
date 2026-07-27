@@ -1,14 +1,13 @@
-import { ChainId, addressBook } from '../packages/address-book/src/address-book';
-import yargs from 'yargs';
-import fs from 'fs';
-import path from 'path';
-
+import fs from 'node:fs';
+import path from 'node:path';
 import { ethers } from 'ethers';
-import { MULTICHAIN_RPC } from '../src/constants';
-
-import ERC20ABI from '../src/abis/ERC20.json';
-import MasterChef from '../src/abis/MasterChef';
-import LPPairABI from '../src/abis/LPPair';
+import yargs from 'yargs';
+import { hideBin } from 'yargs/helpers';
+import { addressBook, ChainId } from '../packages/address-book/src/address-book/index.ts';
+import LPPairABI from '../src/abis/LPPair.ts';
+import MasterChef from '../src/abis/MasterChef.ts';
+import { MULTICHAIN_RPC } from '../src/constants.ts';
+import ERC20ABI from '../src/abis/ERC20.json' with { type: 'json' };
 
 const {
   fantom: {
@@ -146,36 +145,38 @@ const projects = {
   },
 };
 
-const args = yargs.options({
-  network: {
-    type: 'string',
-    demandOption: true,
-    describe: 'blockchain network',
-    choices: Object.keys(ChainId),
-  },
-  project: {
-    type: 'string',
-    demandOption: true,
-    describe: 'project name',
-    choices: Object.keys(projects),
-  },
-  pool: {
-    type: 'integer',
-    demandOption: true,
-    describe: 'poolId from respective masterchef contract',
-  },
-  newFee: {
-    type: 'bool',
-    demandOption: true,
-    describe: 'If the beefy fee is 9.5% use true else use false',
-  },
-}).argv;
+const args = yargs(hideBin(process.argv))
+  .options({
+    network: {
+      type: 'string',
+      demandOption: true,
+      describe: 'blockchain network',
+      choices: Object.keys(ChainId),
+    },
+    project: {
+      type: 'string',
+      demandOption: true,
+      describe: 'project name',
+      choices: Object.keys(projects),
+    },
+    pool: {
+      type: 'integer',
+      demandOption: true,
+      describe: 'poolId from respective masterchef contract',
+    },
+    newFee: {
+      type: 'bool',
+      demandOption: true,
+      describe: 'If the beefy fee is 9.5% use true else use false',
+    },
+  })
+  .parseSync();
 
 const poolPrefix = projects[args['project']].prefix;
 const poolId = args['pool'];
 const masterchef = projects[args['project']].masterchef;
 const poolsJsonFile = projects[args['project']].file;
-const poolsJson = require(poolsJsonFile);
+const poolsJson = JSON.parse(fs.readFileSync(path.resolve(import.meta.dirname, poolsJsonFile), 'utf8'));
 
 const chainId = ChainId[args['network']];
 const provider = new ethers.providers.JsonRpcProvider(MULTICHAIN_RPC[chainId]);
@@ -257,7 +258,7 @@ async function main() {
 
   const newPools = [newPool, ...poolsJson];
 
-  fs.writeFileSync(path.resolve(__dirname, poolsJsonFile), JSON.stringify(newPools, null, 2) + '\n');
+  fs.writeFileSync(path.resolve(import.meta.dirname, poolsJsonFile), JSON.stringify(newPools, null, 2) + '\n');
 
   console.log(newPool);
 }

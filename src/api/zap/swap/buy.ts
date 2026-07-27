@@ -1,10 +1,10 @@
-import BigNumber from 'bignumber.js';
-import { isSwapResponseFailure, ISwapProvider, SwapRequest } from './providers/ISwapProvider';
-import { ProviderId } from './providers';
-import { ApiChain } from '../../../utils/chain';
-import { BuyResult, BuyTestToken, TokenWithPrice } from './types';
-import { BIG_ONE } from '../../../utils/big-number';
-import { getLoggerFor } from '../../../utils/logger/index.js';
+import { BigNumber } from 'bignumber.js';
+import { BIG_ONE } from '../../../utils/big-number.ts';
+import type { ApiChain } from '../../../utils/chain.ts';
+import { getLoggerFor } from '../../../utils/logger/index.ts';
+import { type ISwapProvider, isSwapResponseFailure, type SwapRequest } from './providers/ISwapProvider.ts';
+import type { ProviderId } from './providers/index.ts';
+import type { BuyResult, BuyTestToken, TokenWithPrice } from './types.ts';
 
 const logger = getLoggerFor({ module: 'zap' });
 

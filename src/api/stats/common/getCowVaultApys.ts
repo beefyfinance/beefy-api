@@ -1,24 +1,24 @@
-import { ChainId } from '../../../../packages/address-book/src/address-book';
-import { ApiChain, fromChainId, toChainId } from '../../../utils/chain';
-import { getCowVaultsMeta } from '../../cowcentrated/getCowVaultsMeta';
+import { partition } from 'lodash-es';
+import type { ChainId } from '../../../../packages/address-book/src/address-book/index.ts';
+import { DAILY_HPY } from '../../../constants.ts';
+import { isDefined } from '../../../utils/array.ts';
+import { type ApiChain, fromChainId, toChainId } from '../../../utils/chain.ts';
+import { envBoolean } from '../../../utils/env.ts';
+import { getLoggerFor } from '../../../utils/logger/index.ts';
+import type { OptionalRecord } from '../../../utils/object.ts';
+import { getCowVaultsMeta } from '../../cowcentrated/getCowVaultsMeta.ts';
+import { getCowProviderForClm } from '../../cowcentrated/providers.ts';
 import {
   type AnyCowClmMeta,
   type CowClmWithRewardPoolMeta,
   isCowClmWithRewardPoolMeta,
   isCowClmWithVaultMeta,
-} from '../../cowcentrated/types';
-import { isDefined } from '../../../utils/array';
-import { getBeefyRewardPoolV2Apr } from './getBeefyRewardPoolV2Apr';
-import { ApyBreakdownRequest, ApyBreakdownResult, getApyBreakdown } from './getApyBreakdownNew';
-import { partition } from 'lodash';
-import { DAILY_HPY } from '../../../constants';
-import { getCowProviderForClm } from '../../cowcentrated/providers';
-import { getCampaignsForChain } from '../../offchain-rewards';
-import { Campaign } from '../../offchain-rewards/types';
-import { OptionalRecord } from '../../../utils/object';
-import { envBoolean } from '../../../utils/env';
-import { getIgnitionAprs, IgnitionAprs } from '../linea/getIgnitionAprs';
-import { getLoggerFor } from '../../../utils/logger/index.js';
+} from '../../cowcentrated/types.ts';
+import { getCampaignsForChain } from '../../offchain-rewards/index.ts';
+import type { Campaign } from '../../offchain-rewards/types.ts';
+import { getIgnitionAprs, type IgnitionAprs } from '../linea/getIgnitionAprs.ts';
+import { type ApyBreakdownRequest, type ApyBreakdownResult, getApyBreakdown } from './getApyBreakdownNew.ts';
+import { getBeefyRewardPoolV2Apr } from './getBeefyRewardPoolV2Apr.ts';
 
 const logger = getLoggerFor({ module: 'apy' });
 
@@ -165,10 +165,10 @@ function getCowVaultApyBreakdown(
           vaultId: clm.vault.oracleId,
           clm: clm.apr,
           vault:
-            (clmPoolBreakdown?.rewardPoolApr || 0) +
-            (clmPoolBreakdown?.rewardPoolTradingApr || 0) +
-            merklApr +
-            (clmPoolBreakdown?.stellaSwapApr || 0),
+            (clmPoolBreakdown?.rewardPoolApr || 0)
+            + (clmPoolBreakdown?.rewardPoolTradingApr || 0)
+            + merklApr
+            + (clmPoolBreakdown?.stellaSwapApr || 0),
           lineaIgnition: clmPoolBreakdown?.lineaIgnitionApr, // user claims
           compoundingsPerYear: DAILY_HPY,
         };

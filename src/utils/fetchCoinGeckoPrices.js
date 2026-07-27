@@ -1,4 +1,4 @@
-const { getLoggerFor } = require('./logger/index.js');
+import { getLoggerFor } from './logger/index.ts';
 
 const logger = getLoggerFor({ module: 'prices', platform: 'coingecko' });
 
@@ -19,4 +19,4 @@ const fetchCoinGeckoPrices = async coins => {
   return prices;
 };
 
-module.exports = { fetchCoinGeckoPrices };
+export { fetchCoinGeckoPrices };

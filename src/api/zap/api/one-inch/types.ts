@@ -1,6 +1,6 @@
-import BigNumber from 'bignumber.js';
-import { Address } from 'viem';
-import { ApiResponse, ExtraQuoteResponse } from '../common';
+import type { BigNumber } from 'bignumber.js';
+import type { Address } from 'viem';
+import type { ApiResponse, ExtraQuoteResponse } from '../common.ts';
 
 /** GET request to /quote with url params */
 export type QuoteRequest = {

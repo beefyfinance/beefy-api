@@ -1,24 +1,24 @@
-import BigNumber from 'bignumber.js';
+import { BigNumber } from 'bignumber.js';
+import MulticallAbi from '../../abis/common/Multicall/MulticallAbi.ts';
+import ERC20Abi from '../../abis/ERC20Abi.ts';
+import { getLoggerFor } from '../../utils/logger/index.ts';
+import { MULTICALL_V3 } from '../../utils/multicallHelpers.ts';
+import { fetchContract } from '../rpc/client.ts';
+import { getLpBreakdownForOracle, type LpBreakdown } from '../stats/getAmmPrices.ts';
 import {
-  AssetBalance,
-  ChainTreasuryBalance,
+  type AssetBalance,
+  type ChainTreasuryBalance,
   isConcLiquidityAsset,
   isGovAsset,
   isNativeAsset,
   isTokenAsset,
   isValidatorAsset,
   isVaultAsset,
-  TreasuryApiResult,
-  TreasuryAsset,
-  TreasuryWallet,
-} from './types';
-import { getLpBreakdownForOracle, LpBreakdown } from '../stats/getAmmPrices';
-import { fetchContract } from '../rpc/client';
-import ERC20Abi from '../../abis/ERC20Abi';
-import { MULTICALL_V3 } from '../../utils/multicallHelpers';
-import MulticallAbi from '../../abis/common/Multicall/MulticallAbi';
-import { getValidatorBalanceCall } from './validatorHelpers';
-import { getLoggerFor } from '../../utils/logger/index.js';
+  type TreasuryApiResult,
+  type TreasuryAsset,
+  type TreasuryWallet,
+} from './types.ts';
+import { getValidatorBalanceCall } from './validatorHelpers.ts';
 
 const logger = getLoggerFor({ module: 'treasury' });
 

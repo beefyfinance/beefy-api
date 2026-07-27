@@ -1,6 +1,7 @@
-import * as fs from 'fs';
-import * as path from 'path';
+import * as fs from 'node:fs';
+import * as path from 'node:path';
 
+// TODO: this is out of date and references files that don't exist
 function addChain() {
   const chainName = process.argv[2];
   const chainId = process.argv[3];
@@ -13,8 +14,8 @@ function addChain() {
     process.exit(1);
   }
 
-  const statsPath = path.join(__dirname, '..', 'src', 'api', 'stats');
-  const dataPath = path.join(__dirname, '..', 'src', 'data');
+  const statsPath = path.join(import.meta.dirname, '..', 'src', 'api', 'stats');
+  const dataPath = path.join(import.meta.dirname, '..', 'src', 'data');
 
   /// create a new folder in data with the chain name
   const chainPath = path.join(dataPath, chainName);
@@ -31,7 +32,7 @@ function addChain() {
   fs.writeFileSync(
     chainIndexFile,
     `
-        const { getBeefyCow${chainNameCapitalized}Apys } = require('./getBeefyCow${chainNameCapitalized}Apys');
+        import { getBeefyCow${chainNameCapitalized}Apys } from './getBeefyCow${chainNameCapitalized}Apys.ts';
 
         const getApys = [getBeefyCow${chainNameCapitalized}Apys];
 
@@ -75,9 +76,9 @@ function addChain() {
         }
 
         const end = Date.now();
-        console.log('> [APY] ${chainNameCapitalized} finished updating in '` +
-      '`${(end - start) / 1000}s`' +
-      `);
+        console.log('> [APY] ${chainNameCapitalized} finished updating in '`
+      + '`${(end - start) / 1000}s`'
+      + `);
 
         return {
             apys,
@@ -85,12 +86,12 @@ function addChain() {
         };
         };
 
-        module.exports = { get${chainNameCapitalized}Apys };
+        export { get${chainNameCapitalized}Apys };
     `
   );
 
   // Add RPC endpoint to constants.ts
-  const constantsPath = path.join(__dirname, '..', 'src', 'constants.ts');
+  const constantsPath = path.join(import.meta.dirname, '..', 'src', 'constants.ts');
   let constantsContent = fs.readFileSync(constantsPath, 'utf8');
 
   const rpcStatement = `const ${chainName.toUpperCase()}_RPC = process.env.${chainName.toUpperCase()}_RPC || '${rpc}';`;
@@ -144,8 +145,8 @@ function addChain() {
   const exportsRegex = /export {[\s\S]*?};/;
   constantsContent = constantsContent.replace(exportsRegex, match => {
     return (
-      match.slice(0, -2) +
-      `  ${chainName.toUpperCase()}_RPC,\n  ${chainName.toUpperCase()}_CHAIN_ID,\n  ${chainName.toUpperCase()}_VAULTS_ENDPOINT,\n};`
+      match.slice(0, -2)
+      + `  ${chainName.toUpperCase()}_RPC,\n  ${chainName.toUpperCase()}_CHAIN_ID,\n  ${chainName.toUpperCase()}_VAULTS_ENDPOINT,\n};`
     );
   });
 
@@ -153,7 +154,7 @@ function addChain() {
   console.log(`Added ${chainName} constants including Vaults Endpoint to constants.ts`);
 
   // Add chain object to src/api/rpc/chains.ts
-  const chainsPath = path.join(__dirname, '..', 'src', 'api', 'rpc', 'chains.ts');
+  const chainsPath = path.join(import.meta.dirname, '..', 'src', 'api', 'rpc', 'chains.ts');
   let chainsContent = fs.readFileSync(chainsPath, 'utf8');
 
   // Add import for the new chain's RPC
@@ -212,7 +213,7 @@ const ${chainName}Chain = {
   );
 
   // Add the chain to src/api/rpc/rpcs.ts
-  const rpcsPath = path.join(__dirname, '../src/api/rpc/rpcs.ts');
+  const rpcsPath = path.join(import.meta.dirname, '../src/api/rpc/rpcs.ts');
   let rpcsContent = fs.readFileSync(rpcsPath, 'utf8');
 
   // Add the chain to the rpcs object
@@ -225,12 +226,11 @@ const ${chainName}Chain = {
   console.log(`Added ${chainName} to src/api/rpc/rpcs.ts`);
 
   // Add the blocked tokens set to src/api/zap/swap/blocked-tokens.ts
-  const blockedTokensPath = path.join(__dirname, '../src/api/zap/swap/blocked-tokens.ts');
+  const blockedTokensPath = path.join(import.meta.dirname, '../src/api/zap/swap/blocked-tokens.ts');
   let blockedTokensContent = fs.readFileSync(blockedTokensPath, 'utf8');
 
   // Add the chain to the blocked tokens set
-  const blockedTokensObjectRegex =
-    /export const blockedTokensByChain: Record<ApiChain, Set<string>> = \{[\s\S]*?\};/;
+  const blockedTokensObjectRegex = /export const blockedTokensByChain: Record<ApiChain, Set<string>> = \{[\s\S]*?\};/;
   blockedTokensContent = blockedTokensContent.replace(blockedTokensObjectRegex, match => {
     return match.slice(0, -2) + `  ${chainName}: new Set([]),\n};`;
   });
@@ -239,7 +239,7 @@ const ${chainName}Chain = {
   console.log(`Added ${chainName} to src/api/zap/swap/blocked-tokens.ts`);
 
   // Add chain and imports to web3Helpers.ts
-  const web3HelpersPath = path.join(__dirname, '../src/utils/web3Helpers.ts');
+  const web3HelpersPath = path.join(import.meta.dirname, '../src/utils/web3Helpers.ts');
   let web3HelpersContent = fs.readFileSync(web3HelpersPath, 'utf8');
 
   // Add imports
@@ -254,13 +254,12 @@ const ${chainName}Chain = {
     /const MULTICALLS: Record<ChainId, Pick<BeefyFinance, 'multicall'>\['multicall'\]> = {[\s\S]*?};/;
   web3HelpersContent = web3HelpersContent.replace(multicallsWeb3Regex, match => {
     return (
-      match.slice(0, -2) +
-      `  [ChainId.${chainName}]: addressBookByChainId[ChainId.${chainName}].platforms.beefyfinance.multicall,\n};`
+      match.slice(0, -2)
+      + `  [ChainId.${chainName}]: addressBookByChainId[ChainId.${chainName}].platforms.beefyfinance.multicall,\n};`
     );
   });
 
-  const multicallsV3Web3Regex =
-    /const MULTICALL_V3: Partial<Readonly<Record<ChainId, string>>> = {[\s\S]*?};/;
+  const multicallsV3Web3Regex = /const MULTICALL_V3: Partial<Readonly<Record<ChainId, string>>> = {[\s\S]*?};/;
   web3HelpersContent = web3HelpersContent.replace(multicallsV3Web3Regex, match => {
     return match.slice(0, -2) + `  [ChainId.${chainName}]: '0xcA11bde05977b3631167028862bE2a173976CA11',\n};`;
   });
@@ -282,8 +281,8 @@ const ${chainName}Chain = {
   const chainRandomClientsWeb3Regex = /export const chainRandomClients = {[\s\S]*?};/;
   web3HelpersContent = web3HelpersContent.replace(chainRandomClientsWeb3Regex, match => {
     return (
-      match.slice(0, -2) +
-      `  ${chainName}RandomClient: () => clients.${chainName}[~~(clients.${chainName}.length * Math.random())],\n};`
+      match.slice(0, -2)
+      + `  ${chainName}RandomClient: () => clients.${chainName}[~~(clients.${chainName}.length * Math.random())],\n};`
     );
   });
 
@@ -291,8 +290,8 @@ const ${chainName}Chain = {
   const ethersFactoryWeb3Regex = /switch \(chainId\) {[\s\S]*?}/;
   web3HelpersContent = web3HelpersContent.replace(ethersFactoryWeb3Regex, match => {
     return (
-      match.slice(0, -2) +
-      `   case ${chainName.toUpperCase()}_CHAIN_ID:\n      return chainRandomClients.${chainName}RandomClient();\n  }`
+      match.slice(0, -2)
+      + `   case ${chainName.toUpperCase()}_CHAIN_ID:\n      return chainRandomClients.${chainName}RandomClient();\n  }`
     );
   });
 
@@ -300,19 +299,19 @@ const ${chainName}Chain = {
   console.log(`Updated web3Helpers.ts with ${chainName} chain information`);
 
   // Add the chain to src/utils/web3.js
-  const web3Path = path.join(__dirname, '../src/utils/web3.js');
+  const web3Path = path.join(import.meta.dirname, '../src/utils/web3.js');
   let web3Content = fs.readFileSync(web3Path, 'utf8');
 
   // Add the chain to the module.exports object
   const web3ObjectRegex = /(module\.exports = {[\s\S]*?)(,\s*\n\s*web3Factory:)/;
   web3Content = web3Content.replace(web3ObjectRegex, (match, p1, p2) => {
     return (
-      p1 +
-      `,
+      p1
+      + `,
   get ${chainName}Web3() {
     return chainRandomClients.${chainName}RandomClient();
-  }` +
-      p2
+  }`
+      + p2
     );
   });
 

@@ -1,9 +1,9 @@
-import getBalancerPrices from '../common/balancer/getBalancerPrices';
-import { AVAX_CHAIN_ID as chainId } from '../../../constants';
-import balancerPools from '../../../data/avax/balancerLpPools.json';
-import auraPools from '../../../data/avax/auraLpPools.json';
-import balancerV3Pools from '../../../data/avax/balancerV3Pools.json';
-import getBalancerV3Prices from '../common/balancer/getBalancerV3Prices';
+import { AVAX_CHAIN_ID as chainId } from '../../../constants.ts';
+import getBalancerPrices from '../common/balancer/getBalancerPrices.js';
+import getBalancerV3Prices from '../common/balancer/getBalancerV3Prices.js';
+import auraPools from '../../../data/avax/auraLpPools.json' with { type: 'json' };
+import balancerPools from '../../../data/avax/balancerLpPools.json' with { type: 'json' };
+import balancerV3Pools from '../../../data/avax/balancerV3Pools.json' with { type: 'json' };
 
 const pools = [...balancerPools, ...auraPools];
 
