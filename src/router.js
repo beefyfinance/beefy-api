@@ -8,30 +8,10 @@ import noop from './api/noop.js';
 import {
   handleOffChainRewardsActive,
   handleOffChainRewardsActiveForChain,
-  handleOffChainRewardsAll,
-  handleOffChainRewardsAllForChain,
-} from './api/offchain-rewards/index.ts';
-import { pointStructures } from './api/points/index.ts';
-import * as price from './api/price/index.js';
-import * as snapshot from './api/snapshot/index.ts';
-import * as stats from './api/stats/index.ts';
-import * as supply from './api/supply/index.js';
-import {
-  getChainNatives,
-  getChainToken,
-  getChainTokens,
-  getNativesFromAllChains,
-  getTokens,
-} from './api/tokens/index.ts';
-import { getTreasury } from './api/treasury/index.ts';
-import * as tvl from './api/tvl/index.js';
-import * as multichainVaults from './api/vaults/index.ts';
-import { proxyKyberQuote, proxyKyberSwap } from './api/zap/proxy/kyber.ts';
-import { proxyLiquidSwapQuote, proxyLiquidSwapSwap } from './api/zap/proxy/liquid-swap.ts';
-import { proxyOneInchQuote, proxyOneInchSwap } from './api/zap/proxy/one-inch.ts';
-import { zapSwapsSupport, zapSwapsSupportDebug } from './api/zap/swap/routes.ts';
-
-const router = new Router();
+} = require('./api/offchain-rewards');
+const { pointStructures } = require('./api/points');
+const { proxyLiquidSwapSwap, proxyLiquidSwapQuote } = require('./api/zap/proxy/liquid-swap');
+const { getCountry } = require('./api/geo');
 
 router.get('/apy', stats.apy);
 router.get('/apy/breakdown', stats.apyBreakdowns);
@@ -121,6 +101,8 @@ router.get('/articles', getArticles);
 router.get('/articles/latest', getLatestArticle);
 
 router.get('/points-structures', pointStructures);
+
+router.get('/geo/country', getCountry);
 
 router.get('/', noop);
 
