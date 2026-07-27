@@ -1,14 +1,15 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { addressBook, ChainId } from '@beefyfinance/blockchain-addressbook';
-import { ethers } from 'ethers';
+import { type Client, createPublicClient, getAddress, getContract, http, parseAbi } from 'viem';
 import yargs from 'yargs';
 import { hideBin } from 'yargs/helpers';
+import ERC20ABI from '../src/abis/ERC20Abi.ts';
 import ISolidlyPair from '../src/abis/ISolidlyPair.ts';
 import { MULTICHAIN_RPC } from '../src/constants.ts';
-import ERC20ABI from '../src/abis/ERC20.json' with { type: 'json' };
-import etherexVoterABI from '../src/abis/EtherexVoter.json' with { type: 'json' };
-import voterABI from '../src/abis/Voter.json' with { type: 'json' };
+
+const voterABI = parseAbi(['function gauges(address) view returns (address)']);
+const etherexVoterABI = parseAbi(['function gaugeForPool(address) view returns (address)']);
 
 const {
   fantom: {
@@ -249,19 +250,28 @@ const poolPrefix = projects[args['project']].prefix;
 const lpAddress = args['lp'];
 
 const chainId = ChainId[args['network']];
-const provider = new ethers.providers.JsonRpcProvider(MULTICHAIN_RPC[chainId]);
+// cast: viem's PublicClient type collapses to never without strictNullChecks
+const publicClient = createPublicClient({ transport: http(MULTICHAIN_RPC[chainId]) }) as Client;
 
 async function fetchGauge(lp) {
   console.log(`fetchGauge(${lp})`);
   if (projects[args['project']] === projects['etherex']) {
-    const voterContract = new ethers.Contract(projects['etherex'].voter, etherexVoterABI, provider);
-    const rewardsContract = await voterContract.gaugeForPool(lp);
+    const voterContract = getContract({
+      address: getAddress(projects['etherex'].voter),
+      abi: etherexVoterABI,
+      publicClient,
+    });
+    const rewardsContract = await voterContract.read.gaugeForPool([getAddress(lp)]);
     return {
       newGauge: rewardsContract,
     };
   } else {
-    const voterContract = new ethers.Contract(projects[args['project']].voter, voterABI, provider);
-    const rewardsContract = await voterContract.gauges(lp);
+    const voterContract = getContract({
+      address: getAddress(projects[args['project']].voter),
+      abi: voterABI,
+      publicClient,
+    });
+    const rewardsContract = await voterContract.read.gauges([getAddress(lp)]);
     return {
       newGauge: rewardsContract,
     };
@@ -270,26 +280,25 @@ async function fetchGauge(lp) {
 
 async function fetchLiquidityPair(lp) {
   console.log(`fetchLiquidityPair(${lp})`);
-  const lpContract = new ethers.Contract(lp, ISolidlyPair as any, provider);
-  const lpTokenContract = new ethers.Contract(lp, ERC20ABI, provider);
+  const lpContract = getContract({ address: getAddress(lp), abi: ISolidlyPair, publicClient });
   return {
-    address: ethers.utils.getAddress(lpAddress),
-    token0: await lpContract.token0(),
-    token1: await lpContract.token1(),
-    decimals: await lpTokenContract.decimals(),
-    stable: await lpContract.stable(),
+    address: getAddress(lpAddress),
+    token0: await lpContract.read.token0(),
+    token1: await lpContract.read.token1(),
+    decimals: await lpContract.read.decimals(),
+    stable: await lpContract.read.stable(),
   };
 }
 
 async function fetchToken(tokenAddress) {
-  const tokenContract = new ethers.Contract(tokenAddress, ERC20ABI, provider);
-  const checksummedTokenAddress = ethers.utils.getAddress(tokenAddress);
+  const checksummedTokenAddress = getAddress(tokenAddress);
+  const tokenContract = getContract({ address: checksummedTokenAddress, abi: ERC20ABI, publicClient });
   const token = {
-    name: await tokenContract.name(),
-    symbol: await tokenContract.symbol(),
+    name: await tokenContract.read.name(),
+    symbol: await tokenContract.read.symbol(),
     address: checksummedTokenAddress,
     chainId: chainId,
-    decimals: await tokenContract.decimals(),
+    decimals: await tokenContract.read.decimals(),
     website: '',
     description: '',
     documentation: '',
