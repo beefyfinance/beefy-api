@@ -1,7 +1,6 @@
 import Router from 'koa-router';
 import { getArticles, getLatestArticle } from './api/articles/index.ts';
 import { boosts, boostsV2, chainBoosts, chainBoostsV2 } from './api/boosts/index.ts';
-import * as cmc from './api/cmc/index.js';
 import { getChainConfig, getConfigs } from './api/config/index.ts';
 import { handleCowcentratedLTIPPCampaignsForDune, handleCowcentratedPriceRanges } from './api/cowcentrated/index.ts';
 import noop from './api/noop.js';
@@ -18,7 +17,6 @@ router.get('/apy/breakdown', stats.apyBreakdowns);
 router.get('/apy/boosts', stats.boostApr);
 
 router.get('/tvl', tvl.vaultTvl);
-router.get('/cmc', cmc.vaults);
 
 router.get('/supply', supply.supply);
 router.get('/supply/total', supply.total);

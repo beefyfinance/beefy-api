@@ -1,13 +1,13 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { addressBook, ChainId } from '@beefyfinance/blockchain-addressbook';
-import { ethers } from 'ethers';
+import { type Client, createPublicClient, getAddress, getContract, http } from 'viem';
 import yargs from 'yargs';
 import { hideBin } from 'yargs/helpers';
+import ERC20ABI from '../src/abis/ERC20Abi.ts';
 import LPPairABI from '../src/abis/LPPair.ts';
 import MasterChef from '../src/abis/MasterChef.ts';
 import { MULTICHAIN_RPC } from '../src/constants.ts';
-import ERC20ABI from '../src/abis/ERC20.json' with { type: 'json' };
 
 const {
   fantom: {
@@ -179,41 +179,44 @@ const poolsJsonFile = projects[args['project']].file;
 const poolsJson = JSON.parse(fs.readFileSync(path.resolve(import.meta.dirname, poolsJsonFile), 'utf8'));
 
 const chainId = ChainId[args['network']];
-const provider = new ethers.providers.JsonRpcProvider(MULTICHAIN_RPC[chainId]);
+// cast: viem's PublicClient type collapses to never without strictNullChecks
+const publicClient = createPublicClient({ transport: http(MULTICHAIN_RPC[chainId]) }) as Client;
 
 async function fetchFarm(masterchefAddress, poolId) {
   console.log(`fetchFarm(${masterchefAddress}, ${poolId})`);
-  const masterchefContract = new ethers.Contract(masterchefAddress, MasterChef as any, provider);
-  const poolInfo = await masterchefContract.poolInfo(poolId);
+  const masterchefContract = getContract({ address: getAddress(masterchefAddress), abi: MasterChef, publicClient });
+  const [lpToken, allocPoint, lastRewardBlock, accCakePerShare] = await masterchefContract.read.poolInfo([
+    BigInt(poolId),
+  ]);
   return {
-    lpToken: poolInfo.lpToken,
-    allocPoint: poolInfo.allocPoint,
-    lastRewardBlock: poolInfo.lastRewardBlock,
-    accCakePerShare: poolInfo.accCakePerShare,
+    lpToken,
+    allocPoint,
+    lastRewardBlock,
+    accCakePerShare,
   };
 }
 
 async function fetchLiquidityPair(lpAddress) {
   console.log(`fetchLiquidityPair(${lpAddress})`);
-  const lpContract = new ethers.Contract(lpAddress, LPPairABI as any, provider);
-  const lpTokenContract = new ethers.Contract(lpAddress, ERC20ABI, provider);
+  const checksummedLpAddress = getAddress(lpAddress);
+  const lpContract = getContract({ address: checksummedLpAddress, abi: LPPairABI, publicClient });
   return {
-    address: ethers.utils.getAddress(lpAddress),
-    token0: await lpContract.token0(),
-    token1: await lpContract.token1(),
-    decimals: await lpTokenContract.decimals(),
+    address: checksummedLpAddress,
+    token0: await lpContract.read.token0(),
+    token1: await lpContract.read.token1(),
+    decimals: await lpContract.read.decimals(),
   };
 }
 
 async function fetchToken(tokenAddress) {
-  const tokenContract = new ethers.Contract(tokenAddress, ERC20ABI, provider);
-  const checksummedTokenAddress = ethers.utils.getAddress(tokenAddress);
+  const checksummedTokenAddress = getAddress(tokenAddress);
+  const tokenContract = getContract({ address: checksummedTokenAddress, abi: ERC20ABI, publicClient });
   const token = {
-    name: await tokenContract.name(),
-    symbol: await tokenContract.symbol(),
+    name: await tokenContract.read.name(),
+    symbol: await tokenContract.read.symbol(),
     address: checksummedTokenAddress,
     chainId: chainId,
-    decimals: await tokenContract.decimals(),
+    decimals: await tokenContract.read.decimals(),
     website: '',
     description: '',
     documentation: '',

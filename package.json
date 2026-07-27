@@ -79,7 +79,6 @@
     "command-line-args": "catalog:",
     "date-fns": "catalog:",
     "escape-string-regexp": "catalog:",
-    "ethers": "catalog:",
     "fast-glob": "catalog:",
     "graphql": "catalog:",
     "graphql-tag": "catalog:",
