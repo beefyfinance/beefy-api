@@ -1,15 +1,10 @@
 {
-  "include": [
-    "src/",
-    "scripts/"
-  ],
+  "include": ["src/", "scripts/"],
   "compilerOptions": {
     "module": "nodenext",
     "moduleResolution": "nodenext",
     "target": "es2022",
-    "lib": [
-      "es2022"
-    ],
+    "lib": ["es2022"],
     "esModuleInterop": true,
     "resolveJsonModule": true,
     "allowJs": true,
@@ -21,8 +16,6 @@
     "forceConsistentCasingInFileNames": true,
     "noEmit": true,
     "noErrorTruncation": true,
-    "types": [
-      "node"
-    ]
+    "types": ["node"]
   }
 }
