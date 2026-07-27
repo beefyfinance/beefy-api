@@ -6,8 +6,8 @@
     "useIgnoreFile": true
   },
   "files": {
-    "ignoreUnknown": true,
-    "includes": ["src/**", "scripts/**", "test/**", "!test/fixtures", "packages/*/src/**", "packages/*/scripts/**"]
+    "ignoreUnknown": false,
+    "includes": ["**/*.{json,ts,cts,mts,js,cjs,mjs}"]
   },
   "formatter": {
     "enabled": true,
