@@ -94,5 +94,29 @@
       "address": "0x8CEa55446F8C2314B3995C448Be8F04AeaABd5C4",
       "oracleId": "uniswap-cow-ethereum-weth-asteroid-rp"
     }
+  },
+  {
+    "address": "0x213a9d299CfFB129321b71376773C74832985533",
+    "lpAddress": "0x6546055f46e866a4B9a4A13e81273e3152BAE5dA",
+    "tokens": ["0x68749665FF8D2d112Fa859AA293F07A622782F38", "0xdAC17F958D2ee523a2206206994597C13D831ec7"],
+    "tokenOracleIds": ["XAUt", "USDT"],
+    "decimals": [6, 6],
+    "oracleId": "uniswap-cow-ethereum-xaut-usdt",
+    "rewardPool": {
+      "address": "0x3d372C16B391b05d927F3fEfD935d08c31599199",
+      "oracleId": "uniswap-cow-ethereum-xaut-usdt-rp"
+    }
+  },
+  {
+    "address": "0x2f16815C6F7c705DEC15F28b40A4e63d9763a27E",
+    "lpAddress": "0x5aE13BAAEF0620FdaE1D355495Dc51a17adb4082",
+    "tokens": ["0x45804880De22913dAFE09f4980848ECE6EcbAf78", "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48"],
+    "tokenOracleIds": ["PAXG", "USDC"],
+    "decimals": [18, 6],
+    "oracleId": "uniswap-cow-ethereum-paxg-usdc",
+    "rewardPool": {
+      "address": "0x846039AfB24E12fA36C60B03967F6E1967e97F29",
+      "oracleId": "uniswap-cow-ethereum-paxg-usdc-rp"
+    }
   }
 ]

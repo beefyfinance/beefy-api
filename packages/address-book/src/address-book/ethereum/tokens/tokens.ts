@@ -3171,4 +3171,30 @@ export const tokens = {
     bridge: 'native',
     tags: ['BLUECHIP'],
   },
+  XAUt: {
+    name: 'Tether Gold',
+    symbol: 'XAUt',
+    oracleId: 'XAUt',
+    address: '0x68749665FF8D2d112Fa859AA293F07A622782F38',
+    chainId: 1,
+    decimals: 6,
+    website: 'https://gold.tether.to/',
+    documentation: 'https://gold.tether.to/faq',
+    description:
+      'Tether Gold (XAUt) is a tokenized gold product where each token represents ownership of one fine troy ounce of physical gold on a London Good Delivery gold bar.',
+    bridge: 'native',
+  },
+  PAXG: {
+    name: 'Paxos Gold',
+    symbol: 'PAXG',
+    oracleId: 'PAXG',
+    address: '0x45804880De22913dAFE09f4980848ECE6EcbAf78',
+    chainId: 1,
+    decimals: 18,
+    website: 'https://www.paxos.com/pax-gold',
+    documentation: 'https://docs.paxos.com/guides/stablecoin/paxg',
+    description:
+      'Paxos Gold (PAXG) is a regulated tokenized gold product where each token represents one fine troy ounce of London Good Delivery gold held in LBMA-accredited vaults.',
+    bridge: 'native',
+  },
 } as const satisfies Record<string, Token>;
