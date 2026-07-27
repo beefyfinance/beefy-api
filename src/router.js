@@ -28,6 +28,7 @@ const {
 } = require('./api/offchain-rewards');
 const { pointStructures } = require('./api/points');
 const { proxyLiquidSwapSwap, proxyLiquidSwapQuote } = require('./api/zap/proxy/liquid-swap');
+const { getCountry } = require('./api/geo');
 
 router.get('/apy', stats.apy);
 router.get('/apy/breakdown', stats.apyBreakdowns);
@@ -117,6 +118,8 @@ router.get('/articles', getArticles);
 router.get('/articles/latest', getLatestArticle);
 
 router.get('/points-structures', pointStructures);
+
+router.get('/geo/country', getCountry);
 
 router.get('/', noop);
 
