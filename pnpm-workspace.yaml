@@ -40,9 +40,22 @@ catalog:
   # --- types + dev ---
   '@ethereumjs/util': ^9.0.3
   '@types/async-lock': ^1.4.2
+  '@types/command-line-args': ^5.2.3
+  '@types/jsonpath': ^0.2.4
   '@types/koa': ^2.13.5
+  # runtime @koa/cors is 3.x; @types 4.x/5.x track later majors
+  '@types/koa__cors': ^3.3.1
+  '@types/koa-bodyparser': ^4.3.13
+  # no @types major matches koa-conditional-get 3.x; 2.x is the newest published
+  '@types/koa-conditional-get': ^2.0.4
+  # no @types major matches koa-etag 4.x; 3.x is the newest published
+  '@types/koa-etag': ^3.0.4
+  # runtime koa-helmet is 5.x; @types 6.x tracks a later major
+  '@types/koa-helmet': ^5.2.7
   '@types/lodash-es': ^4.17.12
   '@types/node': ^26.1.1
+  # no @types major matches yargs 18.x; 17.x is the newest published
+  '@types/yargs': ^17.0.35
   command-line-args: ^5.2.1
   fast-glob: ^3.2.12
   pino-pretty: ^13.1.3
