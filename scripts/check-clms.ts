@@ -15,7 +15,7 @@ import {
   validateCowClms,
 } from '../src/api/cowcentrated/types.ts';
 import { getRPCClient } from '../src/api/rpc/client.ts';
-import { type ApiChain, isApiChain } from '../src/utils/chain.ts';
+import { type ApiChain, isApiChain, SupportedChains } from '../src/utils/chain.ts';
 
 /**
  * This script checks the beefyCowVaults.json configs against the on-chain contracts.
@@ -24,7 +24,10 @@ import { type ApiChain, isApiChain } from '../src/utils/chain.ts';
  */
 
 async function start() {
-  const clmFiles = await fg(['./src/data/**/beefyCowVaults.json', '!./src/data/saga/beefyCowVaults.json']);
+  const supported = new Set<ApiChain>(SupportedChains);
+  const clmFiles = (await fg(['./src/data/**/beefyCowVaults.json'])).filter(path =>
+    supported.has(extractChainIdFromPath(path))
+  );
 
   const errorsPerFile = await Promise.all(clmFiles.map(checkFile));
   const totalErrors = errorsPerFile.reduce((acc, { errors }) => acc + errors.length, 0);
@@ -59,8 +62,7 @@ async function checkFile(
   const apiChain = extractChainIdFromPath(path);
   const chainId = ChainId[apiChain];
   const localData = validateCowClms(await loadJson<JsonCowClm[]>(path));
-  if (chainId === 130) return { apiChain, errors: [] };
-  const client = getRPCClient(chainId) as Client;
+  const client = getRPCClient(chainId);
   const data = await Promise.all(
     localData.map(async local => {
       const [clm, pool, vault] = await Promise.all([

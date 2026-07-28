@@ -1,7 +1,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { ChainId } from '@beefyfinance/blockchain-addressbook';
-import { type Client, createPublicClient, getAddress, getContract, http } from 'viem';
+import { createPublicClient, getAddress, getContract, http } from 'viem';
 import yargs from 'yargs';
 import { hideBin } from 'yargs/helpers';
 import ERC20ABI from '../src/abis/ERC20Abi.ts';
@@ -45,14 +45,13 @@ const poolsJsonFile = project.file;
 const poolsJson = JSON.parse(fs.readFileSync(path.resolve(import.meta.dirname, poolsJsonFile), 'utf8'));
 
 const chainId = ChainId[args['network'] as keyof typeof ChainId];
-// cast: viem's PublicClient type collapses to never without strictNullChecks
-const publicClient = createPublicClient({ transport: http(MULTICHAIN_RPC[chainId]) }) as Client;
+const client = createPublicClient({ transport: http(MULTICHAIN_RPC[chainId]) });
 
 async function fetchLiquidityPair(strategyAddress: string) {
   console.log(`fetchLiquidityPair for (${strategyAddress})`);
-  const strategyContract = getContract({ address: getAddress(strategyAddress), abi: StratUniV3, publicClient });
+  const strategyContract = getContract({ address: getAddress(strategyAddress), abi: StratUniV3, client });
   const lpAddress = await strategyContract.read.pool();
-  const lpContract = getContract({ address: lpAddress, abi: UniV3LPPairABI, publicClient });
+  const lpContract = getContract({ address: lpAddress, abi: UniV3LPPairABI, client });
   interface Results {
     address: string;
     strategy: string;
@@ -74,7 +73,7 @@ async function fetchLiquidityPair(strategyAddress: string) {
 
 async function fetchToken(tokenAddress: string) {
   const checksummedTokenAddress = getAddress(tokenAddress);
-  const tokenContract = getContract({ address: checksummedTokenAddress, abi: ERC20ABI, publicClient });
+  const tokenContract = getContract({ address: checksummedTokenAddress, abi: ERC20ABI, client });
   const token = {
     name: await tokenContract.read.name(),
     symbol: await tokenContract.read.symbol(),

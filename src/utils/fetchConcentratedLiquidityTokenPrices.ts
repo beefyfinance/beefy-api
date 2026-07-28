@@ -1167,7 +1167,7 @@ const tokens = {
       type: 'Slipstream',
       oracleId: 'TEA',
       decimalDelta: 1e-12,
-      pool: '0xabe1f289107c20081F591bB3972B8289ADD64F6C',
+      pool: '0xAbe1f289107C20081F591BB3972b8289aDd64f6C',
       firstToken: 'TEA',
       secondToken: 'USDC',
     },

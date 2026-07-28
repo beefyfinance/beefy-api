@@ -5,7 +5,6 @@ import { getRpcsForChain } from '../../constants.ts';
 const avalancheChain = {
   id: 43_114,
   name: 'Avalanche',
-  network: 'avalanche',
   nativeCurrency: {
     decimals: 18,
     name: 'Avalanche',
@@ -30,7 +29,6 @@ const avalancheChain = {
 const bscChain = {
   id: 56,
   name: 'BNBChain',
-  network: 'bsc',
   nativeCurrency: {
     decimals: 18,
     name: 'BNB',
@@ -55,7 +53,6 @@ const bscChain = {
 const polygonChain = {
   id: 137,
   name: 'Polygon',
-  network: 'polygon',
   nativeCurrency: {
     decimals: 18,
     name: 'Pol',
@@ -80,7 +77,6 @@ const polygonChain = {
 const arbitrumChain = {
   id: 42161,
   name: 'Arbitrum',
-  network: 'arbitrum',
   nativeCurrency: {
     decimals: 18,
     name: 'Arbitrum',
@@ -105,7 +101,6 @@ const arbitrumChain = {
 const celoChain = {
   id: 42220,
   name: 'Celo',
-  network: 'celo',
   nativeCurrency: {
     decimals: 18,
     name: 'Celo',
@@ -130,7 +125,6 @@ const celoChain = {
 const moonriverChain = {
   id: 1285,
   name: 'Moonriver',
-  network: 'moonriver',
   nativeCurrency: {
     decimals: 18,
     name: 'Moonriver',
@@ -155,7 +149,6 @@ const moonriverChain = {
 const auroraChain = {
   id: 1313161554,
   name: 'Aurora',
-  network: 'aurora',
   nativeCurrency: {
     decimals: 18,
     name: 'Ether',
@@ -190,7 +183,6 @@ const auroraChain = {
 const fuseChain = {
   id: 122,
   name: 'Fuse',
-  network: 'fuse',
   nativeCurrency: {
     decimals: 18,
     name: 'Fuse',
@@ -214,7 +206,6 @@ const fuseChain = {
 const metisChain = {
   id: 1088,
   name: 'Metis',
-  network: 'metis',
   nativeCurrency: {
     decimals: 18,
     name: 'Metis',
@@ -238,7 +229,6 @@ const metisChain = {
 const emeraldChain = {
   id: 42262,
   name: 'Emerald',
-  network: 'emerald',
   nativeCurrency: {
     decimals: 18,
     name: 'Rose',
@@ -262,7 +252,6 @@ const emeraldChain = {
 const optimismChain = {
   id: 10,
   name: 'Optimism',
-  network: 'optimism',
   nativeCurrency: {
     decimals: 18,
     name: 'Ether',
@@ -287,7 +276,6 @@ const optimismChain = {
 const ethereumChain = {
   id: 1,
   name: 'Ethereum',
-  network: 'ethereum',
   nativeCurrency: {
     decimals: 18,
     name: 'Ether',
@@ -312,7 +300,6 @@ const ethereumChain = {
 const zkSyncChain = {
   id: 324,
   name: 'zkSync',
-  network: 'zksync',
   nativeCurrency: {
     decimals: 18,
     name: 'Ether',
@@ -336,7 +323,6 @@ const zkSyncChain = {
 const zkEvmChain = {
   id: 1101,
   name: 'zkEvm',
-  network: 'zkevm',
   nativeCurrency: {
     decimals: 18,
     name: 'ETH',
@@ -359,7 +345,6 @@ const zkEvmChain = {
 const baseChain = {
   id: 8453,
   name: 'Base',
-  network: 'base',
   nativeCurrency: {
     decimals: 18,
     name: 'ETH',
@@ -382,7 +367,6 @@ const baseChain = {
 const gnosisChain = {
   id: 100,
   name: 'Gnosis',
-  network: 'gnosis',
   nativeCurrency: {
     decimals: 18,
     name: 'xDAI',
@@ -405,7 +389,6 @@ const gnosisChain = {
 const lineaChain = {
   id: 59144,
   name: 'Linea',
-  network: 'linea',
   nativeCurrency: {
     decimals: 18,
     name: 'ETH',
@@ -428,7 +411,6 @@ const lineaChain = {
 const mantleChain = {
   id: 5000,
   name: 'Mantle',
-  network: 'mantle',
   nativeCurrency: {
     decimals: 18,
     name: 'MNT',
@@ -451,7 +433,6 @@ const mantleChain = {
 const fraxtalChain = {
   id: 252,
   name: 'Fraxtal',
-  network: 'fraxtal',
   nativeCurrency: {
     decimals: 18,
     name: 'Frax',
@@ -474,7 +455,6 @@ const fraxtalChain = {
 const seiChain = {
   id: 1329,
   name: 'Sei',
-  network: 'sei',
   nativeCurrency: {
     decimals: 18,
     name: 'WSEI',
@@ -497,7 +477,6 @@ const seiChain = {
 const rootstockChain = {
   id: 30,
   name: 'Rootstock',
-  network: 'rootstock',
   nativeCurrency: {
     decimals: 18,
     name: 'WRBTC',
@@ -522,7 +501,6 @@ const rootstockChain = {
 const plasmaChain = {
   id: 9745,
   name: 'Plasma',
-  network: 'plasma',
   nativeCurrency: {
     decimals: 18,
     name: 'WXLP',
@@ -545,7 +523,6 @@ const plasmaChain = {
 const monadChain = {
   id: 143,
   name: 'Monad',
-  network: 'monad',
   nativeCurrency: {
     decimals: 18,
     name: 'WMON',
@@ -568,7 +545,6 @@ const monadChain = {
 const hyperevmChain = {
   id: 999,
   name: 'Hyperevm',
-  network: 'hyperevm',
   nativeCurrency: {
     decimals: 18,
     name: 'WHYPE',
@@ -591,7 +567,6 @@ const hyperevmChain = {
 const berachainChain = {
   id: 80094,
   name: 'Bera',
-  network: 'berachain',
   nativeCurrency: {
     decimals: 18,
     name: 'WBERACHAIN',
@@ -614,7 +589,6 @@ const berachainChain = {
 const sonicChain = {
   id: 146,
   name: 'Sonic',
-  network: 'sonic',
   nativeCurrency: {
     decimals: 18,
     name: 'WS',
@@ -637,7 +611,6 @@ const sonicChain = {
 const liskChain = {
   id: 1135,
   name: 'Lisk',
-  network: 'lisk',
   nativeCurrency: {
     decimals: 18,
     name: 'WETH',
@@ -660,7 +633,6 @@ const liskChain = {
 const scrollChain = {
   id: 534352,
   name: 'Scroll',
-  network: 'scroll',
   nativeCurrency: {
     decimals: 18,
     name: 'WETH',
@@ -683,7 +655,6 @@ const scrollChain = {
 const megaethChain = {
   id: 4326,
   name: 'MegaETH',
-  network: 'MegaETH',
   nativeCurrency: {
     decimals: 18,
     name: 'WETH',
@@ -706,7 +677,6 @@ const megaethChain = {
 const robinhoodChain = {
   id: 4663,
   name: 'Robinhood',
-  network: 'robinhood',
   nativeCurrency: {
     decimals: 18,
     name: 'Ether',

@@ -251,20 +251,6 @@ export const IBeefyRewardPool = [
     stateMutability: 'view',
     type: 'function',
   },
-  {
-    inputs: [
-      { internalType: 'address', name: '_user', type: 'address' },
-      {
-        internalType: 'address',
-        name: '_reward',
-        type: 'address',
-      },
-    ],
-    name: 'earned',
-    outputs: [{ internalType: 'uint256', name: 'earnedAmount', type: 'uint256' }],
-    stateMutability: 'view',
-    type: 'function',
-  },
   { inputs: [], name: 'exit', outputs: [], stateMutability: 'nonpayable', type: 'function' },
   {
     inputs: [],

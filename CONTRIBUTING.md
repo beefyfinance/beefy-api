@@ -39,10 +39,9 @@ produces.
 
 **Vaults, pools and boosts** are configured as JSON under `src/data/<chain>/`. The `scripts/`
 directory has helpers that read a pool on-chain and append a correctly shaped entry for you —
-`add-farm.ts` for MasterChef farms, `add-solidly.ts` for Solidly-style gauges, `add-univ3.ts` and
+`add-solidly.ts` for Solidly-style gauges, `add-univ3.ts` and
 `add-clm.ts` for concentrated liquidity. Each takes a `--network` flag plus its own arguments, so
-read the one you need before running it. They do not load `.env`, so export any RPC override into
-your shell first.
+read the one you need before running it.
 
 If you are adding a vault, start the API and confirm it appears in `/apy/breakdown` with a sensible
 number before opening the PR.
