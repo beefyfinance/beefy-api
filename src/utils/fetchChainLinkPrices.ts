@@ -1,6 +1,6 @@
 import { BigNumber } from 'bignumber.js';
 import { subSeconds } from 'date-fns';
-import { groupBy, mapValues } from 'lodash-es';
+import { groupBy } from 'lodash-es';
 import { chainLinkOracleAbi } from '../abis/ChainLinkOracle.ts';
 import { fetchContract } from '../api/rpc/client.ts';
 import { fromWei } from './big-number.ts';
@@ -241,7 +241,15 @@ export async function fetchChainLinkPrices(): Promise<Record<string, number>> {
   }
 
   // Median price for same oracle on multiple chains
-  return mapValues(pricesByOracle, median);
+  const medianPrices: Record<string, number> = {};
+  for (const [oracleId, prices] of Object.entries(pricesByOracle)) {
+    const medianPrice = median(prices);
+    if (medianPrice !== undefined) {
+      medianPrices[oracleId] = medianPrice;
+    }
+  }
+
+  return medianPrices;
 }
 
 async function fetchPricesForChain(chain: ApiChain, oracles: Oracle[]): Promise<Record<string, number>> {

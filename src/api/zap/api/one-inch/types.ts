@@ -184,11 +184,11 @@ export type SwapResponse = Pick<QuoteResponse, 'srcToken' | 'dstToken' | 'dstAmo
 export type OneInchResponse = OneInchErrorResponse | QuoteResponse | SwapResponse;
 
 export function isOneInchErrorResponse(obj: unknown): obj is OneInchErrorResponse {
-  return obj && typeof obj === 'object' && 'error' in obj;
+  return !!obj && typeof obj === 'object' && 'error' in obj;
 }
 
 export function isOneInchSuccessResponse(obj: unknown): obj is QuoteResponse | SwapResponse {
-  return obj && typeof obj === 'object' && 'dstAmount' in obj;
+  return !!obj && typeof obj === 'object' && 'dstAmount' in obj;
 }
 
 export interface IOneInchSwapApi {

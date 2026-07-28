@@ -26,7 +26,9 @@ export function median(values: number[]): number | undefined {
  * If finite number or BigNumber is provided, return as number, otherwise return the default value.
  * Disallows Infinity and NaN
  */
-export function toFiniteNumber<T = undefined>(value: any, defaultValue: T = undefined): number | T {
+export function toFiniteNumber(value: any): number | undefined;
+export function toFiniteNumber<T>(value: any, defaultValue: T): number | T;
+export function toFiniteNumber<T>(value: any, defaultValue?: T): number | T | undefined {
   if (isFiniteNumber(value)) {
     return value;
   }
@@ -41,7 +43,9 @@ export function toFiniteNumber<T = undefined>(value: any, defaultValue: T = unde
  * If number or BigNumber is provided, return as number, otherwise return the default value.
  * Allows Infinity, Disallows NaN
  */
-export function toNumber<T = undefined>(value: any, defaultValue: T = undefined): number | T {
+export function toNumber(value: any): number | undefined;
+export function toNumber<T>(value: any, defaultValue: T): number | T;
+export function toNumber<T>(value: any, defaultValue?: T): number | T | undefined {
   if (isNumber(value)) {
     return isNaN(value) ? defaultValue : value;
   }
@@ -50,4 +54,13 @@ export function toNumber<T = undefined>(value: any, defaultValue: T = undefined)
     return bn.isNaN() ? defaultValue : bn.toNumber();
   }
   return defaultValue;
+}
+
+/**
+ * Keeps an absent value absent through arithmetic. `NaN` propagates through +, *, / and
+ * compares false, exactly as `undefined` did, so callers whose branch selection depends on
+ * that (see getVaultFees) keep working. Never use `?? 0` for this — a zero fee is a real value.
+ */
+export function orNaN(value: number | undefined | null): number {
+  return value ?? Number.NaN;
 }

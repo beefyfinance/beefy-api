@@ -19,7 +19,7 @@ import optimismCurvePools from '../data/optimism/curvePools.json' with { type: '
 
 const logger = getLoggerFor({ module: 'prices', platform: 'curve' });
 
-const tokens: Partial<Record<keyof typeof ChainId, CurveToken[]>> = {
+const tokens = {
   optimism: toCurveTokens(ChainId.optimism, optimismCurvePools),
   fraxtal: toCurveTokens(ChainId.fraxtal, fraxtalCurvePools).slice().reverse(),
   monad: toCurveTokens(ChainId.monad, monadCurvePools).slice().reverse(),
@@ -94,7 +94,7 @@ const tokens: Partial<Record<keyof typeof ChainId, CurveToken[]>> = {
       abi: ICurvePoolAbi,
     },
   ],
-};
+} satisfies Partial<Record<keyof typeof ChainId, CurveToken[]>>;
 
 type CurveToken = {
   oracleId: string;
@@ -124,9 +124,17 @@ function toCurveTokens(chainId: ChainId, pools: CurvePoolConfig[]): CurveToken[]
       const [version, index0, index1, underlyingId] = p.getDy as GetDy;
       const abi = version === 'v2' ? ICurvePoolV2Abi : ICurvePoolAbi;
       const oracleId = p.tokens[index0].oracleId;
+      if (!oracleId) {
+        throw new Error(`Curve pool ${p.pool} token ${index0} has no oracleId`);
+      }
+
       const decimals = p.tokens[index0].decimals;
       const useUnderlying = underlyingId !== undefined;
       const secondToken = useUnderlying ? underlyingId : p.tokens[index1].oracleId;
+      if (!secondToken) {
+        throw new Error(`Curve pool ${p.pool} token ${index1} has no oracleId`);
+      }
+
       const secondTokenDecimals = useUnderlying
         ? `1e${addressBookByChainId[chainId].tokens[underlyingId].decimals}`
         : p.tokens[index1].decimals;

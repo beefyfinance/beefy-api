@@ -73,6 +73,9 @@ const getLpTokenBalances = async (chainId: ChainId, pool: GmxPool) => {
 };
 
 const getLpPrice = async (chainId: ChainId, pool: GmxPool) => {
+  if (!pool.glpManager) {
+    throw new Error(`gmx pool ${pool.name} is missing glpManager`);
+  }
   const glpManagerContract = fetchContract(pool.glpManager, GlpManagerAbi, chainId);
   const glpContract = fetchContract(pool.address, ERC20Abi, chainId);
 

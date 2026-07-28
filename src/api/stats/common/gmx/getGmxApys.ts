@@ -80,6 +80,9 @@ const getTotalStakedInUsd = async (params: GmxApysParams, pool: GmxPool): Promis
     const strategy = fetchContract(pool.strat, StrategyABI, params.chainId);
     staked = new BigNumber((await strategy.read.balanceOf()).toString());
   } else {
+    if (!pool.stakedTracker) {
+      throw new Error(`gmx pool ${pool.name} is missing stakedTracker`);
+    }
     const stakedTrackerContract = fetchContract(pool.stakedTracker, RewardTrackerAbi, params.chainId);
     staked = new BigNumber(
       (await stakedTrackerContract.read.depositBalances([pool.strat as Address, pool.address as Address])).toString()

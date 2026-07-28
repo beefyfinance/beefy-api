@@ -24,14 +24,17 @@ export function getLiquidSwapApi(chain: AnyChain): ILiquidSwapApi {
     throw new Error(`LiquidSwap api is not supported on ${apiChain}`);
   }
 
-  if (!swapApiByChain[apiChain]) {
-    if (!swapApiQueue) {
-      swapApiQueue = new PQueue(API_QUEUE_CONFIG);
-    }
-
-    const baseUrl = `https://api.liqd.ag/v2`;
-    swapApiByChain[apiChain] = new RateLimitedLiquidSwapApi(baseUrl, swapApiQueue);
+  const existing = swapApiByChain[apiChain];
+  if (existing) {
+    return existing;
   }
 
-  return swapApiByChain[apiChain];
+  if (!swapApiQueue) {
+    swapApiQueue = new PQueue(API_QUEUE_CONFIG);
+  }
+
+  const baseUrl = `https://api.liqd.ag/v2`;
+  const api = new RateLimitedLiquidSwapApi(baseUrl, swapApiQueue);
+  swapApiByChain[apiChain] = api;
+  return api;
 }

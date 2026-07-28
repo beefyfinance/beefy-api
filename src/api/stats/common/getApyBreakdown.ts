@@ -24,16 +24,14 @@ export const getApyBreakdown = (
     apyBreakdowns: {},
   };
 
-  if (providerFee === undefined) {
-    providerFee = 0;
-  }
+  const providerFees = providerFee === undefined ? 0 : providerFee;
 
   pools.forEach((pool, i) => {
     const breakdown = getApyBreakdownNew({
       vaultId: pool.name,
       beefyFee: pool.beefyFee,
       compoundingsPerYear: BASE_HPY,
-      providerFee: typeof providerFee === 'number' ? providerFee : providerFee[i],
+      providerFee: typeof providerFees === 'number' ? providerFees : providerFees[i],
       trading: tradingAprs?.[pool.address.toLowerCase()],
       vault: farmAprs?.[i],
       liquidStaking: liquidStakingAprs?.[i],

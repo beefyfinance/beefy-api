@@ -58,7 +58,7 @@ export async function fetchPriceTyped(
     return 0;
   }
 
-  let price = 0;
+  let price: number | undefined = 0;
   switch (oracle) {
     case 'any': {
       price = await getAmmPrice(id, withUnknownLogging);

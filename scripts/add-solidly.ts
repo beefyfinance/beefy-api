@@ -316,6 +316,9 @@ async function main() {
   const token1 = await fetchToken(lp.token1);
 
   const poolsJsonFile = lp.stable ? project.stableFile : project.volatileFile;
+  if (!poolsJsonFile) {
+    throw new Error(`No ${lp.stable ? 'stable' : 'volatile'} pools file configured for project ${args['project']}`);
+  }
   const poolsJson = JSON.parse(fs.readFileSync(path.resolve(import.meta.dirname, poolsJsonFile), 'utf8'));
 
   const newPoolName = `${poolPrefix}-${token0.symbol.toLowerCase()}-${token1.symbol.toLowerCase()}`;

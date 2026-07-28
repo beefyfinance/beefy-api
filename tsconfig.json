@@ -13,6 +13,8 @@
     "allowImportingTsExtensions": true,
     "strict": false,
     "noImplicitAny": true,
+    "strictNullChecks": true,
+    "strictPropertyInitialization": true,
     "strictFunctionTypes": true,
     "strictBindCallApply": true,
     "noImplicitThis": true,

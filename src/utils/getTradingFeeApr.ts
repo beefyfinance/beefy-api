@@ -374,6 +374,10 @@ export const getGmxTradingFeeApr = async (client: ApolloClient<NormalizedCacheOb
       market = market.toLowerCase();
       const currentMarket = currentFees.find(m => m.marketAddress === market);
       const pastMarket = pastFees.find(m => m.marketAddress === market);
+      if (!currentMarket || !pastMarket) {
+        throw new Error(`missing gmx market fees for ${market}`);
+      }
+
       const elapsed = new BigNumber(currentMarket.timestampGroup).minus(pastMarket.timestampGroup);
       marketAddressToAprMap[market] = new BigNumber(currentMarket.cumulativeFeeUsdPerPoolValue)
         .minus(pastMarket.cumulativeFeeUsdPerPoolValue)

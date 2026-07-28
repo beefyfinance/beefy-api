@@ -30,7 +30,11 @@ export const mapAssetToCall = (asset: TreasuryAsset, treasuryAddressesForChain: 
     const contract = fetchContract(asset.address, ERC20Abi, chainId);
     return treasuryAddressesForChain.map(treasuryData => contract.read.balanceOf([treasuryData.address as Address]));
   } else if (isNativeAsset(asset)) {
-    const multicallContract = fetchContract(MULTICALL_V3[chainId], MulticallAbi, chainId);
+    const multicall = MULTICALL_V3[chainId];
+    if (!multicall) {
+      throw new Error(`no multicall3 address for chain ${chainId}`);
+    }
+    const multicallContract = fetchContract(multicall, MulticallAbi, chainId);
     return treasuryAddressesForChain.map(treasuryData =>
       multicallContract.read.getEthBalance([treasuryData.address as Address])
     );
@@ -39,6 +43,7 @@ export const mapAssetToCall = (asset: TreasuryAsset, treasuryAddressesForChain: 
   } else if (isValidatorAsset(asset)) {
     return getValidatorBalanceCall(asset, chainId);
   }
+  throw new Error(`unknown treasury asset type for ${asset.oracleId}`);
 };
 
 export const extractBalancesFromTreasuryCallResults = (

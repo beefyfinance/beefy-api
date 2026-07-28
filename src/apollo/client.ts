@@ -11,7 +11,7 @@ const timeoutFetch: typeof fetch = (input, init) => {
   return fetch(input, { ...init, signal: init?.signal ? AbortSignal.any([init.signal, timeout]) : timeout });
 };
 
-export function client(url: string) {
+export function client(url: string | undefined) {
   return new ApolloClient({
     link: new HttpLink({ uri: url, fetch: timeoutFetch }),
     cache: new InMemoryCache({

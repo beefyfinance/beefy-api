@@ -39,19 +39,23 @@ export function getOneInchSwapApi(chain: AnyChain): IOneInchSwapApi {
     throw new Error(`OneInch swap api is not supported on ${apiChain}`);
   }
 
-  if (!swapApiByChain[apiChain]) {
-    if (!swapApiQueue) {
-      swapApiQueue = new PQueue(API_QUEUE_CONFIG);
-    }
-
-    const chainId = toChainId(apiChain);
-    const baseUrl = `https://api.1inch.com/swap/v6.1/${chainId}`;
-    const apiKey = process.env.ONE_INCH_API_KEY;
-    if (!apiKey) {
-      throw new Error(`ONE_INCH_API_KEY env variable is not set`);
-    }
-    swapApiByChain[apiChain] = new RateLimitedOneInchSwapApi(baseUrl, apiKey, swapApiQueue);
+  const existing = swapApiByChain[apiChain];
+  if (existing) {
+    return existing;
   }
 
-  return swapApiByChain[apiChain];
+  if (!swapApiQueue) {
+    swapApiQueue = new PQueue(API_QUEUE_CONFIG);
+  }
+
+  const chainId = toChainId(apiChain);
+  const baseUrl = `https://api.1inch.com/swap/v6.1/${chainId}`;
+  const apiKey = process.env.ONE_INCH_API_KEY;
+  if (!apiKey) {
+    throw new Error(`ONE_INCH_API_KEY env variable is not set`);
+  }
+
+  const api = new RateLimitedOneInchSwapApi(baseUrl, apiKey, swapApiQueue);
+  swapApiByChain[apiChain] = api;
+  return api;
 }

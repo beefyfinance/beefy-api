@@ -22,9 +22,11 @@ import { getBeefyRewardPoolV2Apr } from './getBeefyRewardPoolV2Apr.ts';
 
 const logger = getLoggerFor({ module: 'apy' });
 
+type OffchainAprProvider = Campaign['providerId'] | 'lineaIgnition';
+
 type OffchainVaultApr = {
   total: number;
-  byProvider: OptionalRecord<Campaign['providerId'] | 'lineaIgnition', number>;
+  byProvider: OptionalRecord<OffchainAprProvider, number>;
 };
 
 type RewardPoolApr = {
@@ -97,6 +99,19 @@ export const getCowApys = async (apiChain: ApiChain) => {
   };
 };
 
+function addOffchainApr(
+  byVaultId: Record<string, OffchainVaultApr>,
+  vaultId: string,
+  providerId: OffchainAprProvider,
+  apr: number
+) {
+  const vaultApr = (byVaultId[vaultId] ??= { total: 0, byProvider: {} });
+  const providerApr = vaultApr.byProvider[providerId];
+
+  vaultApr.total += apr;
+  vaultApr.byProvider[providerId] = providerApr === undefined ? apr : providerApr + apr;
+}
+
 async function getOffchainCampaignsByVault(
   apiChain: ApiChain,
   clms: AnyCowClmMeta[]
@@ -112,11 +127,7 @@ async function getOffchainCampaignsByVault(
       if (campaign.active) {
         for (const vault of campaign.vaults) {
           if (vault.apr > 0) {
-            byVaultId[vault.id] ??= { total: 0, byProvider: {} };
-            byVaultId[vault.id].byProvider[campaign.providerId] ??= 0;
-
-            byVaultId[vault.id].total += vault.apr;
-            byVaultId[vault.id].byProvider[campaign.providerId] += vault.apr;
+            addOffchainApr(byVaultId, vault.id, campaign.providerId, vault.apr);
           }
         }
       }
@@ -137,11 +148,7 @@ async function getOffchainCampaignsByVault(
         }
 
         for (const vaultId of vaultIds) {
-          byVaultId[vaultId] ??= { total: 0, byProvider: {} };
-          byVaultId[vaultId].byProvider['lineaIgnition'] ??= 0;
-
-          byVaultId[vaultId].total += ignitionApr;
-          byVaultId[vaultId].byProvider['lineaIgnition'] += ignitionApr;
+          addOffchainApr(byVaultId, vaultId, 'lineaIgnition', ignitionApr);
         }
       }
     }
@@ -247,7 +254,13 @@ const getCowRewardPoolApr = async (
       return result;
     }
 
-    result.rewardPool = result.total = rewardPoolData.totalApr;
+    const { totalApr } = rewardPoolData;
+    if (totalApr === undefined) {
+      logger.warn({ chain: chainId, vault: clm.rewardPool.oracleId }, 'getBeefyRewardPoolV2Apr returned no total apr');
+      return result;
+    }
+
+    result.rewardPool = result.total = totalApr;
 
     const provider = getCowProviderForClm(clm);
     if (!provider) {

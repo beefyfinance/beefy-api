@@ -1,15 +1,19 @@
 import escapeStringRegexp from 'escape-string-regexp';
-import { omitBy, pick, pickBy } from 'lodash-es';
+import { pick, pickBy } from 'lodash-es';
 
 const SECRET_ENV_KEYS = ['ONE_INCH_API_KEY', 'KYBER_CLIENT_ID', 'ODOS_CODE', 'ODOS_API'];
 const SECRET_ENV_SUFFIXES = ['_RPC', '_KEY', '_TOKEN', '_URL'];
 
-const SECRETS: Record<string, string> = omitBy(
+function isNonBlankString(value: unknown): value is string {
+  return typeof value === 'string' && value.trim().length > 0;
+}
+
+const SECRETS: Record<string, string> = pickBy(
   {
     ...pick(process.env, SECRET_ENV_KEYS),
     ...pickBy(process.env, (_, key) => SECRET_ENV_SUFFIXES.some(affix => key.endsWith(affix))),
   },
-  value => typeof value !== 'string' || value.length == 0 || value.trim().length == 0
+  isNonBlankString
 );
 
 const SECRETS_REGEX = Object.entries(SECRETS).reduce(

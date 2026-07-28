@@ -74,7 +74,7 @@ export type LiquidSwapSuccessResponse = QuoteResponse | SwapResponse;
 export type LiquidSwapResponse = LiquidSwapSuccessResponse | LiquidSwapErrorResponse;
 
 export function isLiquidSwapResponse(obj: unknown): obj is LiquidSwapResponse {
-  return obj && typeof obj === 'object' && 'success' in obj;
+  return !!obj && typeof obj === 'object' && 'success' in obj;
 }
 
 export function isLiquidSwapErrorResponse(obj: LiquidSwapResponse): obj is LiquidSwapErrorResponse {

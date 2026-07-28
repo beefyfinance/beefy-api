@@ -1,6 +1,5 @@
 import { addressBook, type Chain } from '@beefyfinance/blockchain-addressbook';
 import type { Token } from '@beefyfinance/blockchain-addressbook/types/token';
-import { mapValues } from 'lodash-es';
 import { type Address, getAddress } from 'viem';
 import { isDefined } from '../../utils/array.ts';
 import { type ApiChain, isApiChain, SupportedChains, toApiChain } from '../../utils/chain.ts';
@@ -30,10 +29,20 @@ export function getTokensForChain(chainId: ApiChain): Record<string, TokenEntity
 }
 
 export function getTokensForChainById(chainId: ApiChain): Record<string, TokenEntity> | undefined {
-  const idMap = tokensByChain[chainId]?.byId;
-  if (idMap) {
-    return mapValues(idMap, address => getTokenByAddress(address, chainId));
+  const chainTokens = tokensByChain[chainId];
+  if (!chainTokens) {
+    return undefined;
   }
+
+  const byId: Record<string, TokenEntity> = {};
+  for (const [id, address] of Object.entries(chainTokens.byId)) {
+    const token = chainTokens.byAddress[address];
+    if (token) {
+      byId[id] = token;
+    }
+  }
+
+  return byId;
 }
 
 export function getAllTokensByChain(): Partial<TokensByChain> {

@@ -1,4 +1,3 @@
-import { mapValues } from 'lodash-es';
 import { type ApiChain, isApiChain } from '../../utils/chain.ts';
 import {
   sendInternalServerError,
@@ -7,6 +6,7 @@ import {
   sendSuccess,
   withErrorHandling,
 } from '../../utils/koa.ts';
+import { mapValues } from '../../utils/object.ts';
 import { withChainId } from '../vaults/helpers.ts';
 import {
   getAllTokensByChain,
