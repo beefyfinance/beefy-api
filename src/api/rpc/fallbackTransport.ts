@@ -1,4 +1,7 @@
-import { createTransport, type FallbackTransport, type Transport, type TransportConfig } from 'viem';
+import { createTransport, type FallbackTransport, RpcRequestError, type Transport, type TransportConfig } from 'viem';
+import { getLoggerFor } from '../../utils/logger/index.ts';
+
+const logger = getLoggerFor({ module: 'transport' });
 
 type OnResponseFn = Parameters<ReturnType<FallbackTransport>['value']['onResponse']>[0];
 
@@ -56,6 +59,13 @@ export type CustomFallbackTransport = Transport<
   }
 >;
 
+function tmpLog(chain: number, err: RpcRequestError, willRetry: boolean) {
+  const urlString = err.metaMessages?.find(m => m.startsWith('URL: '))?.slice(5);
+  const rpc = urlString ? new URL(urlString).hostname : 'unknown';
+
+  logger.warn({ chain, rpc, willRetry }, 'rpc request failed');
+}
+
 export function customFallback(
   transports_: Transport[],
   config: FallbackTransportConfig = {}
@@ -89,6 +99,9 @@ export function customFallback(
 
               return response;
             } catch (err) {
+              if (err instanceof RpcRequestError) {
+                tmpLog(chain.id, err, i + 1 < transports.length);
+              }
               onResponse({
                 error: err as Error,
                 method,
