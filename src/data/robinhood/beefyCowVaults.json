@@ -1,5 +1,17 @@
 [
   {
+    "address": "0x4f95D85389de296869A5a815A1AA05ec32F7efb5",
+    "lpAddress": "0xE2b46c905E12Ab8E2f864e4821a4325884C1B126",
+    "tokens": ["0x1b0E319c6A659F002271B69dB8A7df2F911c153E", "0x5fc5360D0400a0Fd4f2af552ADD042D716F1d168"],
+    "tokenOracleIds": ["rhGME", "USDG"],
+    "decimals": [18, 6],
+    "oracleId": "uniswap-cow-robinhood-gme-usdg",
+    "rewardPool": {
+      "address": "0x0365ce42fbe05C07Cb835c06d3B68dD871E94Ae4",
+      "oracleId": "uniswap-cow-robinhood-gme-usdg-rp"
+    }
+  },
+  {
     "address": "0x4F702C76dd9D7841784922f87470E3F718aAF6DA",
     "lpAddress": "0x10CC6BD38112cAc182db90B6a71d8Bb5939526bA",
     "tokens": ["0x0Bd7D308f8E1639FAb988df18A8011f41EAcAD73", "0x39dBED3a2bd333467115dE45665cC57F813C4571"],
