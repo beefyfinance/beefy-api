@@ -1,5 +1,5 @@
 import { ChainId } from '@beefyfinance/blockchain-addressbook';
-import { type Client, createPublicClient, getAddress, getContract, http } from 'viem';
+import { createPublicClient, getAddress, getContract, http } from 'viem';
 import yargs from 'yargs';
 import { hideBin } from 'yargs/helpers';
 import ERC20ABI from '../src/abis/ERC20Abi.ts';
@@ -22,12 +22,11 @@ const args = yargs(hideBin(process.argv))
   .parseSync();
 
 const chainId = ChainId[args['network'] as keyof typeof ChainId];
-// cast: viem's PublicClient type collapses to never without strictNullChecks
-const publicClient = createPublicClient({ transport: http(MULTICHAIN_RPC[chainId]) }) as Client;
+const client = createPublicClient({ transport: http(MULTICHAIN_RPC[chainId]) });
 
 async function fetchToken(tokenAddress: string) {
   const checksummedTokenAddress = getAddress(tokenAddress);
-  const tokenContract = getContract({ address: checksummedTokenAddress, abi: ERC20ABI, publicClient });
+  const tokenContract = getContract({ address: checksummedTokenAddress, abi: ERC20ABI, client });
   const token = {
     name: await tokenContract.read.name(),
     symbol: await tokenContract.read.symbol(),

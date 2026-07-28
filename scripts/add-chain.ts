@@ -168,7 +168,6 @@ function addChain() {
 const ${chainName}Chain = {
   id: ${chainId},
   name: '${chainName.charAt(0).toUpperCase() + chainName.slice(1)}',
-  network: '${chainName.toLowerCase()}',
   nativeCurrency: {
     decimals: 18,
     name: '${oracleId}',

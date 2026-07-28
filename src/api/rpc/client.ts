@@ -6,6 +6,8 @@ import {
   type Client,
   createClient,
   createPublicClient,
+  type FallbackTransport,
+  fallback,
   getContract,
   type HttpTransport,
   type HttpTransportConfig,
@@ -14,7 +16,6 @@ import {
 } from 'viem';
 import { envBoolean, envNumber } from '../../utils/env.ts';
 import { getChain } from './chains.ts';
-import { type CustomFallbackTransport, customFallback } from './fallbackTransport.ts';
 import { rateLimitedHttp } from './transport.ts';
 
 const BATCH_WAIT = envNumber('BATCH_WAIT', 1500);
@@ -56,7 +57,7 @@ function makeHttpTransport(url: string, config: HttpTransportConfig = {}): HttpT
   return http(url, config);
 }
 
-function makeCustomFallbackTransport(rpcUrls: string[] | readonly string[]): CustomFallbackTransport {
+function makeFallbackTransport(rpcUrls: string[] | readonly string[]): FallbackTransport {
   const transports = rpcUrls.map((url: string) =>
     makeHttpTransport(url, {
       timeout: 15000,
@@ -64,7 +65,7 @@ function makeCustomFallbackTransport(rpcUrls: string[] | readonly string[]): Cus
       retryDelay: 100,
     })
   );
-  return customFallback(transports, { rank: true });
+  return fallback(transports);
 }
 
 export const getMulticallClientForChain = (chainId: ChainId): Client => {
@@ -79,7 +80,7 @@ export const getMulticallClientForChain = (chainId: ChainId): Client => {
         },
       },
       chain: chain,
-      transport: makeCustomFallbackTransport(chain.rpcUrls.default.http),
+      transport: makeFallbackTransport(chain.rpcUrls.default.http),
     });
   }
   return multicallClientsByChain[chain.id];
@@ -97,7 +98,7 @@ const getPublicClientForChain = (chainId: ChainId): PublicClient => {
         },
       },
       chain: chain,
-      transport: makeCustomFallbackTransport(chain.rpcUrls.default.http),
+      transport: makeFallbackTransport(chain.rpcUrls.default.http),
     });
   }
   return publicClientsByChain[chain.id];
@@ -109,7 +110,7 @@ const getSingleCallClientForChain = (chainId: ChainId): Client => {
   if (!singleCallClientsByChain[chain.id]) {
     singleCallClientsByChain[chain.id] = createClient({
       chain: chain,
-      transport: makeCustomFallbackTransport(chain.rpcUrls.default.http),
+      transport: makeFallbackTransport(chain.rpcUrls.default.http),
     });
   }
   return singleCallClientsByChain[chain.id];
@@ -168,8 +169,8 @@ const withTrimmedErrors = <T extends object>(contract: T): T =>
   }) as T;
 
 export const fetchContract = <ContractAbi extends Abi>(address: string, abi: ContractAbi, chainId: ChainId) => {
-  const publicClient = getMulticallClientForChain(chainId);
-  const contract = getContract({ address: address as Address, abi, publicClient });
+  const client = getMulticallClientForChain(chainId);
+  const contract = getContract({ address: address as Address, abi, client });
   return withTrimmedErrors(contract);
 };
 
@@ -178,8 +179,8 @@ export const fetchNoMulticallContract = <ContractAbi extends Abi>(
   abi: ContractAbi,
   chainId: ChainId
 ) => {
-  const publicClient = getSingleCallClientForChain(chainId);
-  const contract = getContract({ address: address as Address, abi, publicClient });
+  const client = getSingleCallClientForChain(chainId);
+  const contract = getContract({ address: address as Address, abi, client });
   return withTrimmedErrors(contract);
 };
 

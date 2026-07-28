@@ -117,7 +117,7 @@ function isValidCowClmConfig(clm: JsonCowClm): clm is AnyCowClm {
       && clm.decimals.length === 2
       && isAddress(clm.address)
       && isAddress(clm.lpAddress)
-      && clm.tokens.every(isAddress) // no reward pool if beta clm, or valid reward pool
+      && clm.tokens.every(token => isAddress(token)) // no reward pool if beta clm, or valid reward pool
       && ((!clm.rewardPool && clm.beta) || isValidCowClmRewardPoolConfig(clm.rewardPool)) // no vault, or reward pool and valid vault
       && (!clm.vault || (clm.rewardPool && isValidCowClmVaultConfig(clm.vault))) // no provider, or valid provider
       && !clm.providerId)

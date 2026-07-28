@@ -1,7 +1,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { addressBook, ChainId } from '@beefyfinance/blockchain-addressbook';
-import { type Client, createPublicClient, getAddress, getContract, http, parseAbi } from 'viem';
+import { createPublicClient, getAddress, getContract, http, parseAbi } from 'viem';
 import yargs from 'yargs';
 import { hideBin } from 'yargs/helpers';
 import ERC20ABI from '../src/abis/ERC20Abi.ts';
@@ -251,8 +251,7 @@ const poolPrefix = project.prefix;
 const lpAddress = args['lp'];
 
 const chainId = ChainId[args['network'] as keyof typeof ChainId];
-// cast: viem's PublicClient type collapses to never without strictNullChecks
-const publicClient = createPublicClient({ transport: http(MULTICHAIN_RPC[chainId]) }) as Client;
+const client = createPublicClient({ transport: http(MULTICHAIN_RPC[chainId]) });
 
 async function fetchGauge(lp: string) {
   console.log(`fetchGauge(${lp})`);
@@ -260,7 +259,7 @@ async function fetchGauge(lp: string) {
     const voterContract = getContract({
       address: getAddress(projects['etherex'].voter),
       abi: etherexVoterABI,
-      publicClient,
+      client,
     });
     const rewardsContract = await voterContract.read.gaugeForPool([getAddress(lp)]);
     return {
@@ -270,7 +269,7 @@ async function fetchGauge(lp: string) {
     const voterContract = getContract({
       address: getAddress(project.voter),
       abi: voterABI,
-      publicClient,
+      client,
     });
     const rewardsContract = await voterContract.read.gauges([getAddress(lp)]);
     return {
@@ -281,7 +280,7 @@ async function fetchGauge(lp: string) {
 
 async function fetchLiquidityPair(lp: string) {
   console.log(`fetchLiquidityPair(${lp})`);
-  const lpContract = getContract({ address: getAddress(lp), abi: ISolidlyPair, publicClient });
+  const lpContract = getContract({ address: getAddress(lp), abi: ISolidlyPair, client });
   return {
     address: getAddress(lpAddress),
     token0: await lpContract.read.token0(),
@@ -293,7 +292,7 @@ async function fetchLiquidityPair(lp: string) {
 
 async function fetchToken(tokenAddress: string) {
   const checksummedTokenAddress = getAddress(tokenAddress);
-  const tokenContract = getContract({ address: checksummedTokenAddress, abi: ERC20ABI, publicClient });
+  const tokenContract = getContract({ address: checksummedTokenAddress, abi: ERC20ABI, client });
   const token = {
     name: await tokenContract.read.name(),
     symbol: await tokenContract.read.symbol(),

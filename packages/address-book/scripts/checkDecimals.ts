@@ -4,8 +4,8 @@ import {
   decodeAbiParameters,
   fallback,
   getAddress,
-  getFunctionSelector,
   http,
+  toFunctionSelector,
 } from 'viem';
 import { addressBook, type Token } from '../src/address-book/index.js';
 
@@ -32,7 +32,7 @@ function isChainId(chainId: string): chainId is ChainId {
   return !!addressBook[chainId as ChainId];
 }
 
-const selector = getFunctionSelector({
+const selector = toFunctionSelector({
   name: 'decimals',
   type: 'function',
   inputs: [],

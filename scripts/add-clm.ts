@@ -1,7 +1,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { ChainId } from '@beefyfinance/blockchain-addressbook';
-import { type Address, type Client, createPublicClient, getAddress, getContract, http } from 'viem';
+import { type Address, createPublicClient, getAddress, getContract, http } from 'viem';
 import yargs from 'yargs';
 import { hideBin } from 'yargs/helpers';
 import CowVault from '../src/abis/CowVault.ts';
@@ -38,8 +38,7 @@ const poolsJson = JSON.parse(fs.readFileSync(path.resolve(import.meta.dirname, p
 const chainName = args['network'];
 
 const chainId = ChainId[args['network'] as keyof typeof ChainId];
-// cast: viem's PublicClient type collapses to never without strictNullChecks
-const publicClient = createPublicClient({ transport: http(MULTICHAIN_RPC[chainId]) }) as Client;
+const client = createPublicClient({ transport: http(MULTICHAIN_RPC[chainId]) });
 
 function formatCowVaultsJson(pools: unknown) {
   return JSON.stringify(pools, null, 2).replace(
@@ -62,7 +61,7 @@ function formatCowVaultsJson(pools: unknown) {
 
 async function fetchLiquidityPair(clmAddress: string) {
   console.log(`fetchLiquidityPair for (${clmAddress})`);
-  const clmContract = getContract({ address: getAddress(clmAddress), abi: CowVault, publicClient });
+  const clmContract = getContract({ address: getAddress(clmAddress), abi: CowVault, client });
 
   let lpAddress: Address;
   let token0: Address;
@@ -70,13 +69,13 @@ async function fetchLiquidityPair(clmAddress: string) {
 
   try {
     lpAddress = await clmContract.read.want();
-    const lpContract = getContract({ address: lpAddress, abi: UniV3LPPairABI, publicClient });
+    const lpContract = getContract({ address: lpAddress, abi: UniV3LPPairABI, client });
     token0 = await lpContract.read.token0();
     token1 = await lpContract.read.token1();
   } catch {
     // Newer CLMs expose wants() instead of want(); get lpAddress from strategy
     const strategyAddress = await clmContract.read.strategy();
-    const strategyContract = getContract({ address: strategyAddress, abi: StratUniV3, publicClient });
+    const strategyContract = getContract({ address: strategyAddress, abi: StratUniV3, client });
     lpAddress = await strategyContract.read.pool();
     [token0, token1] = await clmContract.read.wants();
   }
@@ -98,7 +97,7 @@ async function fetchLiquidityPair(clmAddress: string) {
 
 async function fetchToken(tokenAddress: string) {
   const checksummedTokenAddress = getAddress(tokenAddress);
-  const tokenContract = getContract({ address: checksummedTokenAddress, abi: ERC20ABI, publicClient });
+  const tokenContract = getContract({ address: checksummedTokenAddress, abi: ERC20ABI, client });
   const symbol = await tokenContract.read.symbol();
   const token = {
     name: await tokenContract.read.name(),

@@ -137,12 +137,7 @@ async function getRewardConfigsFromContract(
   rewardPoolContract: GetContractReturnType<typeof IBeefyRewardPool, Client>,
   tokenAddressMap: Record<string, TokenWithId>
 ): Promise<RewardConfig[]> {
-  const earned = await rewardPoolContract.read.earned([ZERO_ADDRESS] as const);
-  if (typeof earned === 'bigint') {
-    throw new Error(`earned(address) returned uint256, expected (address[],uint256[])`);
-  }
-
-  const [rewardAddresses] = earned;
+  const [rewardAddresses] = await rewardPoolContract.read.earned([ZERO_ADDRESS] as const);
   if (rewardAddresses.length === 0) {
     if (WARN_REWARDS_NONE_IN_CONTRACT) {
       logger.warn({ vault: pool.oracleId }, 'no rewards found via contract');
