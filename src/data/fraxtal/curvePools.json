@@ -465,7 +465,6 @@
     "pool": "0xcaef324bea3ff5c7a08710081294f3344ffadc54",
     "gauge": "0xe049aa6fbd64210bdeddc15f5a861084e6ee8b57",
     "convex": true,
-    "getDy": ["v1", 0, 1],
     "rewards": [
       {
         "token": "0xFc00000000000000000000000000000000000002",
