@@ -1,6 +1,6 @@
 import { OPTIMISM_CHAIN_ID as chainId } from '../../../constants.ts';
 import type { PricesById } from '../../../types/prices.ts';
-import getBalancerV3Prices from '../common/balancer/getBalancerV3Prices.js';
+import getBalancerV3Prices from '../common/balancer/getBalancerV3Prices.ts';
 import auraV3Pools from '../../../data/optimism/auraV3Pools.json' with { type: 'json' };
 import balancerV3Pools from '../../../data/optimism/balancerV3.json' with { type: 'json' };
 

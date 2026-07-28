@@ -4,7 +4,7 @@ import EulerVault from '../../../../abis/EulerVault.ts';
 import { getLoggerFor } from '../../../../utils/logger/index.ts';
 import { fetchContract } from '../../../rpc/client.ts';
 import { getApyBreakdown } from '../getApyBreakdownNew.ts';
-import { getMerklApys } from '../getMerklApys.js';
+import { getMerklApys } from '../getMerklApys.ts';
 
 const logger = getLoggerFor({ module: 'apy', platform: 'euler' });
 

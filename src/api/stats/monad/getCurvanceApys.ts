@@ -3,7 +3,7 @@ import ICurvanceIRM from '../../../abis/CurvanceIRM.ts';
 import CurvanceVault from '../../../abis/CurvanceVault.ts';
 import { MONAD_CHAIN_ID } from '../../../constants.ts';
 import { fetchContract } from '../../rpc/client.ts';
-import { getMerklApys } from '../common/curve/getCurveApysCommon.js';
+import { getMerklApys } from '../common/curve/getCurveApysCommon.ts';
 import { getApyBreakdown } from '../common/getApyBreakdownNew.ts';
 import curvancePoolsData from '../../../data/monad/curvancePools.json' with { type: 'json' };
 

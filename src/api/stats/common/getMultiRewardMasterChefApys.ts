@@ -6,7 +6,7 @@ import IMultiRewardMasterChef from '../../../abis/IMultiRewardMasterChef.ts';
 import { isBeetClient, isSushiClient } from '../../../apollo/client.ts';
 import type { LpPool, SingleAssetPool } from '../../../types/LpPool.ts';
 import { fetchPrice } from '../../../utils/fetchPrice.ts';
-import getBlockTime from '../../../utils/getBlockTime.js';
+import getBlockTime from '../../../utils/getBlockTime.ts';
 import { getEDecimals } from '../../../utils/getEDecimals.ts';
 import { getTradingFeeApr, getTradingFeeAprBalancer, getTradingFeeAprSushi } from '../../../utils/getTradingFeeApr.ts';
 import { getLoggerFor } from '../../../utils/logger/index.ts';

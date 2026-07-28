@@ -15,8 +15,8 @@ import {
   poolsDataQuery,
   protocolDayDataRangeQuery,
 } from '../apollo/queries.ts';
-import getBlockNumber from './getBlockNumber.js';
-import getBlockTime from './getBlockTime.js';
+import getBlockNumber from './getBlockNumber.ts';
+import getBlockTime from './getBlockTime.ts';
 import { getUtcSecondsFromDayRange } from './getUtcSecondsFromDayRange.ts';
 import { getLoggerFor } from './logger/index.ts';
 

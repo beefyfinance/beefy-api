@@ -46,7 +46,7 @@
     "sonic:equalizer:add": "node --env-file-if-exists=.env --import tsx scripts/add-solidly.ts --network sonic --project sonicEqualizer --newFee true --lp",
     "hyperevm:kittenswap:add": "node --env-file-if-exists=.env --import tsx scripts/add-solidly.ts --network hyperevm --project kittenswap --newFee true --lp",
     "lithos": "node --env-file-if-exists=.env --import tsx scripts/add-solidly.ts --network plasma --project lithos --newFee true --lp",
-    "eols": "node --env-file-if-exists=.env --import tsx scripts/findEolPools.js"
+    "eols": "node --env-file-if-exists=.env --import tsx scripts/findEolPools.ts"
   },
   "dependencies": {
     "jsonpath": "catalog:",
