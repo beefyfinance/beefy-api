@@ -59,7 +59,7 @@ function makeCustomFallbackTransport(rpcUrls: string[] | readonly string[]): Cus
   const transports = rpcUrls.map((url: string) =>
     makeHttpTransport(url, {
       timeout: 15000,
-      retryCount: 5,
+      retryCount: 0,
       retryDelay: 100,
     })
   );
