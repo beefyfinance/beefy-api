@@ -78,7 +78,7 @@ export const getMulticallClientForChain = (chainId: ChainId): Client => {
         },
       },
       chain: chain,
-      transport: makeCustomFallbackTransport(chain.rpcUrls.public.http),
+      transport: makeCustomFallbackTransport(chain.rpcUrls.default.http),
     });
   }
   return multicallClientsByChain[chain.id];
@@ -96,7 +96,7 @@ const getPublicClientForChain = (chainId: ChainId): PublicClient => {
         },
       },
       chain: chain,
-      transport: makeCustomFallbackTransport(chain.rpcUrls.public.http),
+      transport: makeCustomFallbackTransport(chain.rpcUrls.default.http),
     });
   }
   return publicClientsByChain[chain.id];
@@ -108,7 +108,7 @@ const getSingleCallClientForChain = (chainId: ChainId): Client => {
   if (!singleCallClientsByChain[chain.id]) {
     singleCallClientsByChain[chain.id] = createClient({
       chain: chain,
-      transport: makeCustomFallbackTransport(chain.rpcUrls.public.http),
+      transport: makeCustomFallbackTransport(chain.rpcUrls.default.http),
     });
   }
   return singleCallClientsByChain[chain.id];
@@ -142,12 +142,8 @@ export const trimContractError = (error: any): any => {
   return error;
 };
 
-export const fetchContract = <ContractAbi extends Abi>(address: string, abi: ContractAbi, chainId: ChainId) => {
-  const publicClient = getMulticallClientForChain(chainId);
-  const contract = getContract({ address: address as `0x${string}`, abi, publicClient });
-
-  // Wrap contract methods to trim errors
-  return new Proxy(contract as any, {
+const withTrimmedErrors = <T extends object>(contract: T): T =>
+  new Proxy(contract as any, {
     get(target, prop) {
       if (prop === 'read') {
         return new Proxy(target.read, {
@@ -168,7 +164,12 @@ export const fetchContract = <ContractAbi extends Abi>(address: string, abi: Con
       }
       return target[prop];
     },
-  }) as typeof contract;
+  }) as T;
+
+export const fetchContract = <ContractAbi extends Abi>(address: string, abi: ContractAbi, chainId: ChainId) => {
+  const publicClient = getMulticallClientForChain(chainId);
+  const contract = getContract({ address: address as `0x${string}`, abi, publicClient });
+  return withTrimmedErrors(contract);
 };
 
 export const fetchNoMulticallContract = <ContractAbi extends Abi>(
@@ -177,7 +178,8 @@ export const fetchNoMulticallContract = <ContractAbi extends Abi>(
   chainId: ChainId
 ) => {
   const publicClient = getSingleCallClientForChain(chainId);
-  return getContract({ address: address as `0x${string}`, abi, publicClient });
+  const contract = getContract({ address: address as `0x${string}`, abi, publicClient });
+  return withTrimmedErrors(contract);
 };
 
 export const getRPCClient = (chainId: ChainId): PublicClient => getPublicClientForChain(chainId);

@@ -12,9 +12,9 @@ export function rateLimitedHttp(queue: PQueue, url?: string, config: HttpTranspo
     const transport = original(args);
     const originalRequest = transport.request;
 
-    transport.request = function (arg) {
+    transport.request = function (arg: Parameters<typeof originalRequest>[0]) {
       return queue.add(() => originalRequest(arg));
-    }.bind(transport);
+    }.bind(transport) as typeof originalRequest;
 
     return transport;
   };

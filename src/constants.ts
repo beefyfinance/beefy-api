@@ -1,7 +1,8 @@
 import { ChainId } from '@beefyfinance/blockchain-addressbook';
-import { mapValues, uniq } from 'lodash-es';
+import { uniq } from 'lodash-es';
 import { getChainRpcs } from './api/rpc/rpcs.ts';
 import { type ApiChain, fromChainId, type SupportedApiChain, toChainId } from './utils/chain.ts';
+import { mapValues, typedEntries } from './utils/object.ts';
 
 const API_BASE_URL = process.env.API_BASE_URL || 'http://localhost:3000';
 
@@ -96,16 +97,16 @@ const getRpcsFromEnv = (chain: ApiChain): string[] => {
   return [];
 };
 
-const RPCS_BY_CHAIN = mapValues(DEFAULT_RPCS, (hereDefaultRpcs, chain: ApiChain) => {
+const RPCS_BY_CHAIN = mapValues(DEFAULT_RPCS, (hereDefaultRpcs: ReadonlyArray<string>, chain) => {
   const customRpcs = getRpcsFromEnv(chain);
   const otherDefaultRpcs = getChainRpcs(toChainId(chain));
   // FIXME we should only have one list of rpcs
   return uniq([...customRpcs, ...hereDefaultRpcs, ...otherDefaultRpcs]) as ReadonlyArray<string>;
 });
 
-const RPC_BY_ENV_KEY = Object.entries(RPCS_BY_CHAIN).reduce(
-  (acc, [chainId, rpcs]: [ApiChain, ReadonlyArray<string>]) => {
-    const key = getRpcEnvKey(chainId);
+const RPC_BY_ENV_KEY = typedEntries(RPCS_BY_CHAIN).reduce(
+  (acc, [chain, rpcs]) => {
+    const key = getRpcEnvKey(chain);
     acc[key] = rpcs[0];
     return acc;
   },
@@ -168,7 +169,7 @@ const BISWAP_LPF = 0.0005;
 const HOP_LPF = 0.0004;
 
 const MULTICHAIN_RPC: Record<ChainId, string> = Object.fromEntries(
-  Object.entries(RPCS_BY_CHAIN).map(([key, value]: [ApiChain, string[]]) => [ChainId[key], value[0]])
+  typedEntries(RPCS_BY_CHAIN).map(([chain, rpcs]) => [ChainId[chain], rpcs[0]])
 ) as Record<ChainId, string>;
 
 /// Beefy Vaults Endpoints
