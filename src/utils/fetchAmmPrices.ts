@@ -318,7 +318,12 @@ async function fetchChainPools(chain: ChainId, pools: Pool[]): Promise<PoolData[
   if (pools.length === 0) {
     return [];
   }
-  const multicallContract = fetchContract(MULTICALLS.get(chain), BeefyPriceMulticall, chain);
+  const multicallAddress = MULTICALLS.get(chain);
+  if (!multicallAddress) {
+    throw new Error(`No price multicall address for chain ${chain}`);
+  }
+
+  const multicallContract = fetchContract(multicallAddress, BeefyPriceMulticall, chain);
   const results = await batchMapRetry<Pool, PoolData>({
     items: pools,
     batchSize: BATCH_SIZE,

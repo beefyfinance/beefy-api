@@ -30,5 +30,5 @@ export class ProviderApiError extends OffchainRewardsError {
 }
 
 export function isProviderApiError(err: unknown): err is ProviderApiError {
-  return err && err instanceof ProviderApiError;
+  return !!err && err instanceof ProviderApiError;
 }

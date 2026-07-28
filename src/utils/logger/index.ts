@@ -30,7 +30,7 @@ function isIntegerString(v: unknown) {
   return typeof v === 'string' && v.match(/^[0-9]+$/);
 }
 
-function toChainSlug(chain: ApiChain | number): ApiChain {
+function toChainSlug(chain: ApiChain | number): ApiChain | undefined {
   return typeof chain === 'number' ? fromChainNumber(chain) : chain;
 }
 

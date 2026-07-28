@@ -5,9 +5,8 @@ import { type AnyChain, isApiChain, toAppChain } from '../../utils/chain.ts';
 import { createFactory } from '../../utils/factory.ts';
 import { sendBadRequest, sendServiceUnavailable, sendSuccess } from '../../utils/koa.ts';
 import { getLoggerFor } from '../../utils/logger/index.ts';
-import { typedEntries } from '../../utils/object.ts';
 import { serviceEventBus } from '../../utils/ServiceEventBus.ts';
-import { getAllCowClmsByChain } from '../cowcentrated/getCowClms.ts';
+import { getCowClmChains, getCowClms } from '../cowcentrated/getCowClms.ts';
 import { isCowClmWithRewardPool, isCowClmWithVault } from '../cowcentrated/types.ts';
 import { getVaultsByType } from '../stats/getMultichainVaults.ts';
 import { OffchainRewards } from './OffchainRewards.ts';
@@ -20,9 +19,9 @@ const CACHE_KEY = 'OFFCHAIN_REWARDS';
 
 const getVaultsWithOffchainRewards = createFactory((): Vault[] => {
   // CLM vaults
-  const clmVaults: Vault[] = typedEntries(getAllCowClmsByChain()).flatMap(([apiChain, clms]) => {
+  const clmVaults: Vault[] = getCowClmChains().flatMap(apiChain => {
     const chainId = toAppChain(apiChain);
-    return clms.flatMap(clm => {
+    return getCowClms(apiChain).flatMap(clm => {
       const clmVaults: Vault[] = [
         {
           id: clm.oracleId,

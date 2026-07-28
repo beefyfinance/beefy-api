@@ -141,7 +141,7 @@ async function checkFile(
         });
       }
 
-      if (isCowClmWithRewardPool(local)) {
+      if (isCowClmWithRewardPool(local) && pool) {
         if (local.address !== pool.stakedToken) {
           if (local.address.toLowerCase() === pool.stakedToken.toLowerCase()) {
             error.push({
@@ -157,7 +157,7 @@ async function checkFile(
         }
       }
 
-      if (isCowClmWithVault(local)) {
+      if (isCowClmWithVault(local) && vault) {
         if (local.address !== vault.want) {
           if (local.address.toLowerCase() === vault.want.toLowerCase()) {
             error.push({

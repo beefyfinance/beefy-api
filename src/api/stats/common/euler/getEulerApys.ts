@@ -100,7 +100,7 @@ const getPoolsApysFromApi = async (chainId: ChainId, pools: EulerPool[]): Promis
         return new BigNumber(0);
       }
 
-      const data: EulerApiResponse = await response.json();
+      const data = (await response.json()) as EulerApiResponse;
       const apyValue = data.apyCurrent;
       if (apyValue !== undefined && apyValue !== null) {
         // console.log(`${pool.name} APY:`, apyValue);

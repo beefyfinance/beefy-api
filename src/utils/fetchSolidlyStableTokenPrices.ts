@@ -19,7 +19,7 @@ type StablePoolLiquidityToken = {
   secondTokenAddress: Address;
 };
 
-const tokens: Partial<Record<keyof typeof ChainId, StablePoolLiquidityToken[]>> = {
+const tokens = {
   base: [
     {
       oracleId: 'bMAI',
@@ -126,7 +126,7 @@ const tokens: Partial<Record<keyof typeof ChainId, StablePoolLiquidityToken[]>> 
       secondTokenAddress: '0x7130d2A12B9BCbFAe4f2634d864A1Ee1Ce3Ead9c',
     },
   ],
-};
+} satisfies Partial<Record<keyof typeof ChainId, StablePoolLiquidityToken[]>>;
 
 async function getStablePoolPrices(
   tokenPrices: Record<string, number>,

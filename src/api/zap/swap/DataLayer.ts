@@ -122,9 +122,13 @@ export class DataLayer {
 
       for (const providerId of typedKeys(this.tokenSupport[apiChain])) {
         const supportByAddress = this.tokenSupport[apiChain][providerId];
+        if (!supportByAddress) {
+          continue;
+        }
+
         for (const address of Object.keys(supportByAddress)) {
           const support = supportByAddress[address];
-          if (support.updatedAt + this.maxAge < now || blockedTokens.has(address)) {
+          if (support.updatedAt + this.maxAge < now || blockedTokens?.has(address)) {
             delete supportByAddress[address];
             ++deleted;
           }

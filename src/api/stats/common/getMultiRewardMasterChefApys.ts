@@ -34,19 +34,24 @@ export interface MasterChefApysParams {
   burn?: number;
 }
 
+type NormalizedMasterChefApysParams = MasterChefApysParams & { pools: (LpPool | SingleAssetPool)[] };
+
 export const getMultiRewardMasterChefApys = async (
   masterchefParams: MasterChefApysParams
 ): Promise<ApyBreakdownResult> => {
-  masterchefParams.pools = [...(masterchefParams.pools ?? []), ...(masterchefParams.singlePools ?? [])];
+  const params: NormalizedMasterChefApysParams = {
+    ...masterchefParams,
+    pools: [...(masterchefParams.pools ?? []), ...(masterchefParams.singlePools ?? [])],
+  };
 
-  const [tradingAprs, farmApys] = await Promise.all([getTradingAprs(masterchefParams), getFarmApys(masterchefParams)]);
+  const [tradingAprs, farmApys] = await Promise.all([getTradingAprs(params), getFarmApys(params)]);
 
-  const liquidityProviderFee = masterchefParams.liquidityProviderFee ?? 0.003;
+  const liquidityProviderFee = params.liquidityProviderFee ?? 0.003;
 
-  return getApyBreakdown(masterchefParams.pools, tradingAprs, farmApys, liquidityProviderFee);
+  return getApyBreakdown(params.pools, tradingAprs, farmApys, liquidityProviderFee);
 };
 
-const getTradingAprs = async (params: MasterChefApysParams) => {
+const getTradingAprs = async (params: NormalizedMasterChefApysParams) => {
   let tradingAprs = params.tradingAprs ?? {};
   const client = params.tradingFeeInfoClient;
   const fee = params.liquidityProviderFee;
@@ -62,7 +67,7 @@ const getTradingAprs = async (params: MasterChefApysParams) => {
   return tradingAprs;
 };
 
-const getFarmApys = async (params: MasterChefApysParams): Promise<BigNumber[]> => {
+const getFarmApys = async (params: NormalizedMasterChefApysParams): Promise<BigNumber[]> => {
   const apys: BigNumber[] = [];
 
   const [{ balances, rewardTokens, rewardDecimals, rewardsPerSec }, secondsPerBlock] = await Promise.all([
@@ -113,10 +118,16 @@ const getFarmApys = async (params: MasterChefApysParams): Promise<BigNumber[]> =
   return apys;
 };
 
-const getPoolsData = async (params: MasterChefApysParams) => {
+const getPoolsData = async (params: NormalizedMasterChefApysParams) => {
   const masterchefContract = fetchContract(params.masterchef, IMultiRewardMasterChef, params.chainId);
-  const balanceCalls = params.pools.map(p => masterchefContract.read.poolTotalLp([BigInt(p.poolId)]));
-  const rewardsCalls = params.pools.map(p => masterchefContract.read.poolRewardsPerSec([BigInt(p.poolId)]));
+  const poolIds = params.pools.map(p => {
+    if (p.poolId === undefined) {
+      throw new Error(`masterchef pool ${p.name} has no poolId`);
+    }
+    return BigInt(p.poolId);
+  });
+  const balanceCalls = poolIds.map(id => masterchefContract.read.poolTotalLp([id]));
+  const rewardsCalls = poolIds.map(id => masterchefContract.read.poolRewardsPerSec([id]));
 
   const [balanceResults, rewardResults] = await Promise.all([Promise.all(balanceCalls), Promise.all(rewardsCalls)]);
 

@@ -52,7 +52,7 @@ function valuesToString(
 }
 
 export function isPassThroughURLSearchParamsInit(params: FetchParams): params is PassThroughURLSearchParamsInit {
-  if (!!params) {
+  if (!params) {
     return false;
   }
   if (typeof params === 'string') {

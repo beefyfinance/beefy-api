@@ -23,7 +23,7 @@ type ConcentratedLiquidityToken = {
   secondToken: string;
 };
 
-const tokens: Partial<Record<keyof typeof ChainId, ConcentratedLiquidityToken[]>> = {
+const tokens = {
   ethereum: [
     {
       type: 'Kyber',
@@ -1860,7 +1860,7 @@ const tokens: Partial<Record<keyof typeof ChainId, ConcentratedLiquidityToken[]>
       secondToken: 'XAUt0',
     },
   ],
-  monad: [],
+  monad: [] as ConcentratedLiquidityToken[],
   megaeth: [
     {
       type: 'UniV3',
@@ -1945,7 +1945,7 @@ const tokens: Partial<Record<keyof typeof ChainId, ConcentratedLiquidityToken[]>
       secondToken: 'WETH',
     },
   ],
-};
+} satisfies Partial<Record<keyof typeof ChainId, ConcentratedLiquidityToken[]>>;
 
 async function getConcentratedLiquidityPrices(
   tokenPrices: Record<string, number>,

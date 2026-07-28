@@ -3,7 +3,7 @@ import { getLoggerFor } from '../../utils/logger/index.ts';
 
 const logger = getLoggerFor({ module: 'transport' });
 
-type OnResponseFn = Parameters<ReturnType<FallbackTransport>['value']['onResponse']>[0];
+type OnResponseFn = Parameters<NonNullable<ReturnType<FallbackTransport>['value']>['onResponse']>[0];
 
 type RankOptions = {
   /**

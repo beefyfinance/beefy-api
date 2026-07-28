@@ -12,7 +12,7 @@ let cache: Cache | undefined;
 export async function initCache() {
   if (cache) return;
 
-  let backend: ICacheBackend;
+  let backend: ICacheBackend | undefined;
 
   // Redis backend
   if (process.env.REDISCLOUD_URL && typeof process.env.REDISCLOUD_URL === 'string') {

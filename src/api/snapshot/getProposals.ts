@@ -76,9 +76,9 @@ async function updateSpaces() {
   await setKey(CACHE_KEY_SPACES, cachedSpaces);
 }
 
-function getSpacesWithAllowedAuthors(): Record<string, SpaceWithAuthors> {
+function getSpacesWithAllowedAuthors(cached: CachedSpaces): Record<string, SpaceWithAuthors> {
   return keyBy(
-    cachedSpaces.spaces.map((space): SpaceWithAuthors => {
+    cached.spaces.map((space): SpaceWithAuthors => {
       const local = SPACES[space.id];
       if (!local) {
         throw new Error(`Unknown space: ${space.id}`);
@@ -116,7 +116,8 @@ async function setProposals(proposals: Proposals) {
 
 async function updateProposals() {
   logger.debug('updating proposals');
-  if (!cachedSpaces) {
+  const spacesCache = cachedSpaces;
+  if (!spacesCache) {
     logger.warn('can not update proposals without updating spaces first');
     return;
   }
@@ -124,7 +125,7 @@ async function updateProposals() {
   const api = await getSnapshotApi();
   const proposalResponse = await api.getProposals(Object.keys(SPACES), 'open', 10, 0);
 
-  const spaces = getSpacesWithAllowedAuthors();
+  const spaces = getSpacesWithAllowedAuthors(spacesCache);
   const proposals: Proposal[] = proposalResponse
     .map(p => {
       const space = spaces[p.space.id];

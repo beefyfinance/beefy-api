@@ -52,11 +52,11 @@ function areAllNativeWrappedOracles(oracleIds: string[]) {
 }
 
 function isObject(item: unknown): item is Record<string | number | symbol, unknown> {
-  return item && typeof item === 'object';
+  return !!item && typeof item === 'object';
 }
 
 function isPoolToken(token: unknown): token is PoolToken {
-  return token && isObject(token) && 'address' in token && 'oracleId' in token && 'decimals' in token;
+  return !!token && isObject(token) && 'address' in token && 'oracleId' in token && 'decimals' in token;
 }
 
 function isBasePool(pool: unknown): pool is BasePool {

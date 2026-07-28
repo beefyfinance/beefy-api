@@ -41,7 +41,7 @@ const validatorsByChain: Partial<Record<ApiChain, ValidatorAsset[]>> = {
 
 export const hasChainValidator = (chain: ApiChain): boolean => !!validatorsByChain[chain];
 
-export const getChainValidators = (chain: ApiChain): ValidatorAsset[] => validatorsByChain[chain];
+export const getChainValidators = (chain: ApiChain): ValidatorAsset[] => validatorsByChain[chain] ?? [];
 
 type SonicValidator = Omit<Required<ValidatorAsset>, 'method'> & { method: 'sonic-contract' };
 

@@ -83,7 +83,8 @@ function enhancePairs(pairs: DexScreenerPair[]): EnhancedPair[] {
   return (
     pairs
       // Have price, and on supported chain
-      .filter(({ priceUsd, chainId }) => {
+      .filter((pair): pair is DexScreenerPair & { priceUsd: string } => {
+        const { priceUsd, chainId } = pair;
         if (!priceUsd || !(chainId in dexScreenerChainIdToChainId)) {
           return false;
         }

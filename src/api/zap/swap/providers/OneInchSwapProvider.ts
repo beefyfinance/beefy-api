@@ -39,11 +39,16 @@ export class OneInchSwapProvider implements ISwapProvider {
       }
 
       const quote = result.value;
+      const dstToken = quote.dstToken;
+      if (!dstToken) {
+        throw new Error('OneInch quote response is missing destination token info');
+      }
+
       return {
         from: swaps[index].from,
         fromAmount: swaps[index].fromAmount,
         to: swaps[index].to,
-        toAmount: fromWeiString(quote.dstAmount, quote.dstToken.decimals),
+        toAmount: fromWeiString(quote.dstAmount, dstToken.decimals),
       };
     });
   }

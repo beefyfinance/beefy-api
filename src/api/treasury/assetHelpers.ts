@@ -4,7 +4,7 @@ import { keysToObject } from '../../utils/array.ts';
 import { SupportedChains } from '../../utils/chain.ts';
 import { getVaultsByTypeChain } from '../stats/getMultichainVaults.ts';
 import { getTokensForChain, isTokenNative } from '../tokens/tokens.ts';
-import { getChainConcentratedLiquidityAssets, hasChainConcentratedLiquidityAssets } from './nftAssets.ts';
+import { getChainConcentratedLiquidityAssets } from './nftAssets.ts';
 import type { TreasuryAsset, TreasuryAssetRegistry } from './types.ts';
 import { getChainValidators, hasChainValidator } from './validatorHelpers.ts';
 
@@ -46,8 +46,9 @@ export function getTokenAddressesByChain(): TreasuryAssetRegistry {
       }
     }
 
-    if (hasChainConcentratedLiquidityAssets(chain)) {
-      getChainConcentratedLiquidityAssets(chain).forEach(asset => {
+    const concentratedLiquidityAssets = getChainConcentratedLiquidityAssets(chain);
+    if (concentratedLiquidityAssets) {
+      concentratedLiquidityAssets.forEach(asset => {
         tokens[asset.address.toLowerCase()] = {
           ...asset,
           staked: true,

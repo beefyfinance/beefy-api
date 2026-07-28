@@ -89,11 +89,11 @@ export function isCowClmWithVault(clm: AnyCowClm): clm is CowClmWithVault {
 function isValidCowRewardPoolRewardConfig(
   reward: NonNullable<NonNullable<JsonCowClm['rewardPool']>['rewards']>[number]
 ): reward is CowRewardPoolReward {
-  return reward.id >= 0 && reward.oracleId && reward.decimals >= 0 && isAddress(reward.address);
+  return reward.id >= 0 && !!reward.oracleId && reward.decimals >= 0 && isAddress(reward.address);
 }
 
 function isValidCowClmRewardPoolConfig(rewardPool: JsonCowClm['rewardPool']): rewardPool is CowRewardPool {
-  return (
+  return !!(
     rewardPool
     && rewardPool.oracleId
     && isAddress(rewardPool.address)
@@ -103,11 +103,11 @@ function isValidCowClmRewardPoolConfig(rewardPool: JsonCowClm['rewardPool']): re
 }
 
 function isValidCowClmVaultConfig(vault: JsonCowClm['vault']): vault is CowVault {
-  return vault && vault.oracleId && isAddress(vault.address);
+  return !!vault && !!vault.oracleId && isAddress(vault.address);
 }
 
-function isValidCowProviderId(id: string): boolean {
-  return id in providers;
+function isValidCowProviderId(id: string | undefined): boolean {
+  return !!id && id in providers;
 }
 
 function isValidCowClmConfig(clm: JsonCowClm): clm is AnyCowClm {

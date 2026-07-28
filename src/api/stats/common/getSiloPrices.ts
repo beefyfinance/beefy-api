@@ -24,8 +24,12 @@ type SiloPool = {
   collateral?: boolean;
 };
 
+type SiloAmount = bigint | { collateralOnlyDeposits: bigint; totalDeposits: bigint };
+
 export const getSiloPrices = async (chainId: ChainId, pools: SiloPool[], tokenPrices: PricesById) => {
-  const [amountCalls, totalSupplyCalls, decimalsCalls] = pools.reduce(
+  const [amountCalls, totalSupplyCalls, decimalsCalls] = pools.reduce<
+    [Promise<SiloAmount>[], Promise<bigint>[], Promise<number>[]]
+  >(
     (acc, pool) => {
       const siloTokenContract = fetchContract(pool.address, SiloTokenAbi, chainId);
       if (pool.v2 || pool.vault) {
@@ -53,12 +57,13 @@ export const getSiloPrices = async (chainId: ChainId, pools: SiloPool[], tokenPr
     const pool = pools[i];
     const token = pool.underlying;
     const totalSupplyDecimals = new BigNumber(decimalsResults[i]).toNumber(); // [as X, not Xe18] Needed as V2 uses SiloMathLib._DECIMALS_OFFSET extra decimals for LP tokens
+    const amount = amountResults[i];
     const balance =
-      pool.v2 || pool.vault
-        ? new BigNumber(amountResults[i]).div(pool.decimals)
+      typeof amount === 'bigint'
+        ? new BigNumber(amount.toString()).div(pool.decimals)
         : pool.collateral
-          ? new BigNumber(amountResults[i]['collateralOnlyDeposits']).div(pool.decimals)
-          : new BigNumber(amountResults[i]['totalDeposits']).div(pool.decimals);
+          ? new BigNumber(amount.collateralOnlyDeposits.toString()).div(pool.decimals)
+          : new BigNumber(amount.totalDeposits.toString()).div(pool.decimals);
     const totalSupply = new BigNumber(totalSupplyResults[i]).shiftedBy(-totalSupplyDecimals);
 
     const priceUnderlying = getTokenPrice(tokenPrices, pool.oracleId);
