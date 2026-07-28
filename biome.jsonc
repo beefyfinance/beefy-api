@@ -96,6 +96,45 @@
     {
       "path": "./tooling/biome/noAsUnknownAs.grit",
       "includes": ["**/src/**/*.ts", "!**/src/**/*.test.ts"]
+    },
+    {
+      // The price/fee/TVL pipeline. The `!` entries are files that already contain `?? <num>`
+      // and are exempt until the stage that touches them cleans them up -- delete an entry as
+      // each file is done, so this list shrinking is the progress signal.
+      "path": "./tooling/biome/noSilentCoerce.grit",
+      "includes": [
+        "**/src/api/stats/**/*.ts",
+        "**/src/api/vaults/**/*.ts",
+        "**/src/api/treasury/**/*.ts",
+        "**/src/api/tokens/**/*.ts",
+        "**/src/api/boosts/**/*.ts",
+        "**/src/api/cowcentrated/**/*.ts",
+        "**/src/utils/fetchPrice.ts",
+        "**/src/utils/fetchAmmPrices.ts",
+        "**/src/utils/fetchChainLinkPrices.ts",
+        "**/src/utils/fetchCurveTokenPrices.ts",
+        "!**/src/api/boosts/fetchBoostData.ts",
+        "!**/src/api/boosts/getBoosts.ts",
+        "!**/src/api/cowcentrated/getCowVaultsMeta.ts",
+        "!**/src/api/stats/common/aave/getAaveV4Apys.ts",
+        "!**/src/api/stats/common/aave/getAaveV4Prices.ts",
+        "!**/src/api/stats/common/balancer/getBalancerApys.ts",
+        "!**/src/api/stats/common/getCompoundV3Apys.ts",
+        "!**/src/api/stats/common/getCowVaultApys.ts",
+        "!**/src/api/stats/common/getMultiRewardMasterChefApys.ts",
+        "!**/src/api/stats/getBeTokenPrices.ts",
+        "!**/src/api/stats/getBoostAprs.ts",
+        "!**/src/api/stats/getMooTokenPrices.ts",
+        "!**/src/api/stats/mantle/getMoeApys.ts",
+        "!**/src/api/stats/monad/getNeverlandApys.ts",
+        "!**/src/api/tokens/tokens.ts",
+        "!**/src/api/treasury/getTreasury.ts",
+        "!**/src/api/treasury/validatorHelpers.ts",
+        "!**/src/api/vaults/getVaultFees.ts",
+        "!**/src/utils/fetchAmmPrices.ts",
+        "!**/src/utils/fetchCurveTokenPrices.ts",
+        "!**/src/utils/fetchPrice.ts"
+      ]
     }
   ],
   "overrides": [
@@ -105,6 +144,31 @@
         "rules": {
           "suspicious": {
             "noConsole": "off"
+          }
+        }
+      }
+    },
+    {
+      // `!` is a silent lie about a value the compiler believes may be absent; in this pipeline
+      // that lie becomes a wrong number rather than a crash. The 4 `!` entries are pre-existing
+      // and all of the benign `arr[i]!` / post-`.filter()` kind that TypeScript cannot narrow --
+      // not the dangerous "assert a price exists" kind. Exempt until their stage rewrites them.
+      "includes": [
+        "src/api/stats/**/*.ts",
+        "src/api/vaults/**/*.ts",
+        "src/api/treasury/**/*.ts",
+        "src/api/tokens/**/*.ts",
+        "src/api/boosts/**/*.ts",
+        "src/api/cowcentrated/**/*.ts",
+        "src/utils/fetch*.ts",
+        "!src/api/stats/monad/getNeverlandApys.ts",
+        "!src/api/vaults/getVaultFees.ts",
+        "!src/utils/fetchDexScreenerPrices.ts"
+      ],
+      "linter": {
+        "rules": {
+          "style": {
+            "noNonNullAssertion": "error"
           }
         }
       }

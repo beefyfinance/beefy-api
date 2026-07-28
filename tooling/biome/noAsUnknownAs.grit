@@ -10,6 +10,6 @@ TsAsExpression(expression = $inner) as $node where {
     register_diagnostic(
         span = $node,
         message = "Avoid the `as unknown as X` double assertion. It bypasses the type checker entirely. Use a proper type, a runtime type guard, or fix the underlying types instead.",
-        severity = "warn"
+        severity = "error"
     )
 }
