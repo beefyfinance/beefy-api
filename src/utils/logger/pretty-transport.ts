@@ -16,8 +16,13 @@ export default function (opts: PrettyOptions = {}): PrettyStream {
     ignore: 'pid,hostname',
     singleLine: true,
     customPrettifiers: {
-      level: (_level, _levelKey, log: ResolveLogScope, { label, labelColorized, colors }) => {
-        const tags = [tag(log.module, colors.magenta), tag(log.chain, colors.yellow), tag(log.platform, colors.blue)];
+      level: (_level, _levelKey, log, { label, labelColorized, colors }) => {
+        const scope = log as ResolveLogScope;
+        const tags = [
+          tag(scope.module, colors.magenta),
+          tag(scope.chain, colors.yellow),
+          tag(scope.platform, colors.blue),
+        ];
         return `${colorize ? labelColorized : label}${tags.filter(Boolean).join('')}`;
       },
       // if added to `ignore` they are not available in `log` for level formatter

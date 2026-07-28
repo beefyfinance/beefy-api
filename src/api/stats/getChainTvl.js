@@ -84,7 +84,7 @@ const setVaultsTvl = async (vaults, balances, chainId, tvls) => {
       logger.warn({ chain: chainId, oracle: vault.oracle, token: vault.oracleId, err: e }, 'fetchPrice failed');
     }
 
-    let tvl = vaultBalance.times(tokenPrice).shiftedBy(-vault.tokenDecimals ?? 18);
+    let tvl = vaultBalance.times(tokenPrice).shiftedBy(-(vault.tokenDecimals ?? 18));
 
     //substract the tvl from itself
     if (vault.excluded) {

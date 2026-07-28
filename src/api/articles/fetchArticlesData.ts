@@ -20,8 +20,8 @@ export const updateArticles = async () => {
     logger.debug('updating articles');
     const start = Date.now();
     articles = await fetch('https://beefy.com/api/articles.json')
-      .then(res => res.json())
-      .then((res: ArticleInterface[]) => Object.values(res));
+      .then(res => res.json() as Promise<ArticleInterface[]>)
+      .then(res => Object.values(res));
 
     await saveToRedis();
     logger.info({ durationMs: Date.now() - start, count: articles.length }, 'updated articles');
