@@ -8,7 +8,7 @@ import { BIG_ZERO } from '../../../utils/big-number.ts';
 import { fetchPrice } from '../../../utils/fetchPrice.ts';
 import { getLoggerFor } from '../../../utils/logger/index.ts';
 import { fetchContract } from '../../rpc/client.ts';
-import { getMerklApys } from '../common/curve/getCurveApysCommon.js';
+import { getMerklApys } from '../common/curve/getCurveApysCommon.ts';
 import { type ApyBreakdownResult, getApyBreakdown } from '../common/getApyBreakdownNew.ts';
 import pools from '../../../data/monad/neverlandPools.json' with { type: 'json' };
 

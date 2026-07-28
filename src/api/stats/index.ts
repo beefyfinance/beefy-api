@@ -1,7 +1,7 @@
 import type { Context } from 'koa';
 import { errorToString, isError } from '../../utils/error.ts';
 import { infinityToStringReplacer } from '../../utils/json.ts';
-import { getApys, getBoostAprs } from './getApys.js';
+import { getApys, getBoostAprs } from './getApys.ts';
 
 /**
  * Infinity is serialized to JSON as null, so we convert it to a string instead

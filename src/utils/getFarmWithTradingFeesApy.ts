@@ -1,4 +1,4 @@
-import { compound } from './compound.js';
+import { compound } from './compound.ts';
 
 export const getFarmWithTradingFeesApy = (
   farmApr: number,

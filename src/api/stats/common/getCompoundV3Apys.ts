@@ -4,7 +4,7 @@ import type { Abi } from 'viem';
 import cv3Token from '../../../abis/cv3Token.ts';
 import { isBigNumberish, toBigNumber } from '../../../utils/big-number.ts';
 import { fetchPrice } from '../../../utils/fetchPrice.ts';
-import getBlockTime from '../../../utils/getBlockTime.js';
+import getBlockTime from '../../../utils/getBlockTime.ts';
 import { getLoggerFor } from '../../../utils/logger/index.ts';
 import { fetchContract, fetchNoMulticallContract } from '../../rpc/client.ts';
 import { getApyBreakdown } from './getApyBreakdownNew.ts';

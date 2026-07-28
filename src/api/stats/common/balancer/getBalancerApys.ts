@@ -2,11 +2,11 @@ import type { NormalizedCacheObject } from '@apollo/client/cache/inmemory/types.
 import type { ApolloClient } from '@apollo/client/core/ApolloClient.js';
 import type { ChainId } from '@beefyfinance/blockchain-addressbook';
 import { BigNumber } from 'bignumber.js';
-import { getBalTradingAndLstApr } from '../../../../utils/getBalancerTradingFeeAndLstApr.js';
+import { getBalTradingAndLstApr } from '../../../../utils/getBalancerTradingFeeAndLstApr.ts';
 import { getLoggerFor } from '../../../../utils/logger/index.ts';
 import { getMerklAprByExplorerAddress } from '../../../offchain-rewards/providers/merkl/proxyClient.ts';
 import { type ApyBreakdownResult, getApyBreakdown } from '../getApyBreakdown.ts';
-import { getTotalStakedInUsd, getYearlyRewardsInUsd } from './balancerUtils.js';
+import { getTotalStakedInUsd, getYearlyRewardsInUsd } from './balancerUtils.ts';
 
 const logger = getLoggerFor({ module: 'apy', platform: 'balancer' });
 

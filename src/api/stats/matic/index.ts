@@ -1,0 +1,69 @@
+import { POLYGON_CHAIN_ID } from '../../../constants.ts';
+import { getLoggerFor } from '../../../utils/logger/index.ts';
+import { getBeefyCowPolyApys } from './getBeefyCowPolyApys.ts';
+import { getCurveApys } from './getCurveApys.ts';
+
+const logger = getLoggerFor({ module: 'apy', chain: POLYGON_CHAIN_ID });
+
+const getApys = [
+  getCurveApys,
+  // getConvexApys,
+  getBeefyCowPolyApys,
+];
+
+const BATCH_SIZE = 15;
+
+const getMaticApys = async () => {
+  const start = Date.now();
+  let apys = {};
+  let apyBreakdowns = {};
+
+  let results = [];
+  for (let i = 0; i < getApys.length; i += BATCH_SIZE) {
+    const batchApys = getApys.slice(i, i + BATCH_SIZE);
+    const promises = [];
+    batchApys.forEach(getApy => promises.push(getApy()));
+    const batchResults = await Promise.allSettled(promises);
+    results = [...results, ...batchResults];
+  }
+
+  for (const result of results) {
+    if (result.status !== 'fulfilled') {
+      logger.warn({ err: result.reason }, 'apy sub-calculation failed');
+      continue;
+    }
+
+    // Set default APY values
+    let mappedApyValues = result.value;
+    let mappedApyBreakdownValues = {};
+
+    // Loop through key values and move default breakdown format
+    // To require totalApy key
+    for (const [key, value] of Object.entries(result.value)) {
+      mappedApyBreakdownValues[key] = {
+        totalApy: value,
+      };
+    }
+
+    // Break out to apy and breakdowns if possible
+    let hasApyBreakdowns = 'apyBreakdowns' in result.value;
+    if (hasApyBreakdowns) {
+      mappedApyValues = result.value.apys;
+      mappedApyBreakdownValues = result.value.apyBreakdowns;
+    }
+
+    apys = { ...apys, ...mappedApyValues };
+
+    apyBreakdowns = { ...apyBreakdowns, ...mappedApyBreakdownValues };
+  }
+
+  const end = Date.now();
+  logger.info({ durationMs: end - start }, 'apy updated');
+
+  return {
+    apys,
+    apyBreakdowns,
+  };
+};
+
+export { getMaticApys };
