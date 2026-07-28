@@ -1,0 +1,30 @@
+[
+  {
+    "name": "yb-eth",
+    "address": "0x2B9c9f3BdcEb5d8E36a4704F08a78Fca53343cEa",
+    "gauge": "0xd829456FD63Ada7DE0657714A3A7A26DE403E3D8",
+    "oracleId": "WETH",
+    "decimals": "1e18"
+  },
+  {
+    "name": "yb-wbtc",
+    "address": "0x651D4b8168488FA163D85304662E8278d4c55BAa",
+    "gauge": "0xAa0b1d265F23972eafB7d088e963BD31403A58F5",
+    "oracleId": "WBTC",
+    "decimals": "1e8"
+  },
+  {
+    "name": "yb-cbbtc",
+    "address": "0x722FC3640BA007C3E9867CCdB0dCa59F2e2F29F9",
+    "gauge": "0xF8764cBcdb15a9E4c7CA1b0b8a578d9ebEEC1b6f",
+    "oracleId": "cbBTC",
+    "decimals": "1e8"
+  },
+  {
+    "name": "yb-tbtc",
+    "address": "0x771F7290428d830ECd41E980745c327e507823Ec",
+    "gauge": "0xe83D888FE3213DD3471DE0bC1957E0f94F038483",
+    "oracleId": "tBTC",
+    "decimals": "1e18"
+  }
+]

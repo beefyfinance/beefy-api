@@ -184,6 +184,7 @@ const coinGeckoCoins: Record<string, string[]> = {
   xdai: ['WXDAI'],
   sky: ['SKY'],
   joe: ['JOE'],
+  'yield-basis': ['YB'],
   'spell-token': ['SPELL'],
   arbitrum: ['ARB'],
   'savings-crvusd': ['scrvUSD'],

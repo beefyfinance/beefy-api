@@ -47,6 +47,7 @@ import getAuraBalancerPrices from './ethereum/getAuraBalancerPrices.ts';
 import { getBeefyCowEthereumPrices } from './ethereum/getBeefyCowEthereumPrices.ts';
 import { getCurveEthereumPrices } from './ethereum/getCurvePrices.js';
 import getUniswapEthereumPrices from './ethereum/getUniswapPositionPrices.ts';
+import { getYieldBasisPrices } from './ethereum/getYieldBasisPrices.js';
 import getBalancerGnosisPrices from './gnosis/getBalancerGnosisPrices.js';
 import { getBeefyCowGnosisPrices } from './gnosis/getBeefyGnosisCowPrices.ts';
 import { getBeefyCowHyperevmPrices } from './hyperevm/getBeefyHyperevmCowPrices.ts';
@@ -158,6 +159,7 @@ export async function getNonAmmPrices(
     getCurvePricesCommon(PLASMA_CHAIN_ID, plasmaCurvePools, tokenPrices),
     getCurvePricesCommon(MONAD_CHAIN_ID, monadCurvePools, tokenPrices),
     getCurveBasePrices(tokenPrices),
+    getYieldBasisPrices(tokenPrices),
     getGammaLineaPrices(tokenPrices),
     getBeefyCowArbPrices(tokenPrices),
     getBeefyCowOPPrices(tokenPrices),
