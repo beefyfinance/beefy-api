@@ -1,4 +1,5 @@
 import type { Context } from 'koa';
+import { errorToString, isError } from '../../utils/error.ts';
 import { infinityToStringReplacer } from '../../utils/json.ts';
 import { getApys, getBoostAprs } from './getApys.js';
 
@@ -23,7 +24,7 @@ export async function apy(ctx: Context) {
 
     sendJsonInfinityAsString(ctx, apys);
   } catch (err) {
-    ctx.throw(500, err);
+    ctx.throw(500, isError(err) ? err : errorToString(err));
   }
 }
 
@@ -38,7 +39,7 @@ export async function apyBreakdowns(ctx: Context) {
 
     sendJsonInfinityAsString(ctx, apyBreakdowns);
   } catch (err) {
-    ctx.throw(500, err);
+    ctx.throw(500, isError(err) ? err : errorToString(err));
   }
 }
 
@@ -54,6 +55,6 @@ export async function boostApr(ctx: Context) {
     ctx.status = 200;
     ctx.body = boostAprs;
   } catch (err) {
-    ctx.throw(500, err);
+    ctx.throw(500, isError(err) ? err : errorToString(err));
   }
 }

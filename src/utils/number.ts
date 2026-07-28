@@ -56,11 +56,6 @@ export function toNumber<T>(value: any, defaultValue?: T): number | T | undefine
   return defaultValue;
 }
 
-/**
- * Keeps an absent value absent through arithmetic. `NaN` propagates through +, *, / and
- * compares false, exactly as `undefined` did, so callers whose branch selection depends on
- * that (see getVaultFees) keep working. Never use `?? 0` for this — a zero fee is a real value.
- */
 export function orNaN(value: number | undefined | null): number {
   return value ?? Number.NaN;
 }

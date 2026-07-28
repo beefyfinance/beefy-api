@@ -1,6 +1,7 @@
 import { BigNumber } from 'bignumber.js';
 import { BIG_ONE } from '../../../utils/big-number.ts';
 import type { ApiChain } from '../../../utils/chain.ts';
+import { errorToString } from '../../../utils/error.ts';
 import { getLoggerFor } from '../../../utils/logger/index.ts';
 import { type ISwapProvider, isSwapResponseFailure, type SwapRequest } from './providers/ISwapProvider.ts';
 import type { ProviderId } from './providers/index.ts';
@@ -71,7 +72,7 @@ export async function checkBuy(
     });
   } catch (err) {
     logger.warn({ chain: apiChain, platform: providerKey, err }, 'error while checking buy with swap provider');
-    const reason = err.message || 'Unknown swap provider error';
+    const reason = errorToString(err);
     return tokens.map(token => ({ supported: false, tokenWithPrice: token, reason }));
   }
 }
