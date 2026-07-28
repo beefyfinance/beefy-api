@@ -1,12 +1,12 @@
 import { BigNumber } from 'bignumber.js';
 import type { Abi } from 'viem';
 import ERC20Abi from '../../../abis/ERC20Abi.ts';
+import type { ClmLpBreakdown, PricesById } from '../../../types/prices.ts';
 import { type ApiChain, toChainId } from '../../../utils/chain.ts';
 import { getLoggerFor } from '../../../utils/logger/index.ts';
 import { getCowClms } from '../../cowcentrated/getCowClms.ts';
 import { isCowClmWithRewardPool } from '../../cowcentrated/types.ts';
 import { fetchContract } from '../../rpc/client.ts';
-import type { ClmLpBreakdown } from '../getAmmPrices.ts';
 
 const logger = getLoggerFor({ module: 'prices' });
 
@@ -122,7 +122,7 @@ export const getBeefyCowcentratedVaultPrices = async (
   return prices;
 };
 
-const getTokenPrice = (tokenPrices, token) => {
+const getTokenPrice = (tokenPrices: PricesById, token: string) => {
   const price = tokenPrices[token];
   if (price === undefined) {
     logger.warn({ token }, 'unknown token, defaulting price to 0');

@@ -300,7 +300,7 @@ const EXCLUDED_IDS_FROM_TVL = ['venus-wbnb'];
  */
 export function getRpcsForChain(chain: ApiChain | ChainId): readonly string[] {
   const apiChain = typeof chain === 'string' ? chain : fromChainId(chain);
-  const rpcs = RPCS_BY_CHAIN[apiChain];
+  const rpcs = (RPCS_BY_CHAIN as Partial<Record<ApiChain, ReadonlyArray<string>>>)[apiChain];
   if (!rpcs) {
     throw new Error(`No RPCs found for chain ${apiChain}`);
   }

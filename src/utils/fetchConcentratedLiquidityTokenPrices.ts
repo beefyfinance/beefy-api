@@ -1,4 +1,5 @@
-import { ChainId } from '@beefyfinance/blockchain-addressbook/types/chainid';
+import type { ChainId } from '@beefyfinance/blockchain-addressbook/types/chainid';
+import type { Address } from 'viem';
 import IAlgebraPool from '../abis/IAlgebraPool.ts';
 import IAlgebraPoolV1 from '../abis/IAlgebraPoolV1.ts';
 import IAlgebraPoolV2 from '../abis/IAlgebraPoolV2.ts';
@@ -6,7 +7,10 @@ import IKyberElasticPoolAbi from '../abis/IKyberElasticPool.ts';
 import ISlipstreamPool from '../abis/ISlipstreamPool.ts';
 import IUniV3PoolAbi from '../abis/IUniV3Pool.ts';
 import { fetchContract } from '../api/rpc/client.ts';
+import type { PricesById } from '../types/prices.ts';
+import { toChainId } from './chain.ts';
 import { getLoggerFor } from './logger/index.ts';
+import { typedEntries } from './object.ts';
 
 const logger = getLoggerFor({ module: 'prices' });
 
@@ -14,7 +18,7 @@ type ConcentratedLiquidityToken = {
   type: string;
   oracleId: string;
   decimalDelta: number;
-  pool: `0x${string}`;
+  pool: Address;
   firstToken: string;
   secondToken: string;
 };
@@ -1973,7 +1977,7 @@ async function getConcentratedLiquidityPrices(
   try {
     const res = await Promise.all(concentratedLiquidityPriceCalls);
     const tokenPrice = res.map(v => Number(v[1]));
-    const prices = {};
+    const prices: PricesById = {};
     tokenPrice.forEach((v, i) => {
       const first = chainTokens[i].firstToken;
       const second = chainTokens[i].secondToken;
@@ -1989,10 +1993,10 @@ async function getConcentratedLiquidityPrices(
   }
 }
 
-export async function fetchConcentratedLiquidityTokenPrices(tokenPrices): Promise<Record<string, number>> {
+export async function fetchConcentratedLiquidityTokenPrices(tokenPrices: PricesById): Promise<Record<string, number>> {
   const pricesByChain: Record<string, number>[] = await Promise.all(
-    Object.entries(tokens).map(async ([chainId, chainTokens]) => {
-      const prices = await getConcentratedLiquidityPrices(tokenPrices, chainTokens, ChainId[chainId]);
+    typedEntries(tokens).map(async ([chainId, chainTokens]) => {
+      const prices = await getConcentratedLiquidityPrices(tokenPrices, chainTokens, toChainId(chainId));
       return Object.fromEntries(chainTokens.map((token, i) => [token.oracleId, prices[i] || 0]));
     })
   );

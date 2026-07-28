@@ -2,6 +2,7 @@ import type { ChainId } from '@beefyfinance/blockchain-addressbook';
 import PQueue from 'p-queue';
 import type { Abi } from 'viem';
 import {
+  type Address,
   type Client,
   createClient,
   createPublicClient,
@@ -168,7 +169,7 @@ const withTrimmedErrors = <T extends object>(contract: T): T =>
 
 export const fetchContract = <ContractAbi extends Abi>(address: string, abi: ContractAbi, chainId: ChainId) => {
   const publicClient = getMulticallClientForChain(chainId);
-  const contract = getContract({ address: address as `0x${string}`, abi, publicClient });
+  const contract = getContract({ address: address as Address, abi, publicClient });
   return withTrimmedErrors(contract);
 };
 
@@ -178,7 +179,7 @@ export const fetchNoMulticallContract = <ContractAbi extends Abi>(
   chainId: ChainId
 ) => {
   const publicClient = getSingleCallClientForChain(chainId);
-  const contract = getContract({ address: address as `0x${string}`, abi, publicClient });
+  const contract = getContract({ address: address as Address, abi, publicClient });
   return withTrimmedErrors(contract);
 };
 

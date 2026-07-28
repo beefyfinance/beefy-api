@@ -1,4 +1,5 @@
 import { moonbeam } from '@beefyfinance/blockchain-addressbook/moonbeam';
+import type { Chain } from '@beefyfinance/blockchain-addressbook/types/chain';
 import { groupBy, mapKeys } from 'lodash-es';
 import { type Address, getAddress } from 'viem';
 import { bigintRange, isDefined } from '../../../../utils/array.ts';
@@ -152,7 +153,8 @@ export class StellaSwapProvider implements IOffchainRewardProvider {
       };
     }
 
-    const maybeToken = moonbeam.tokenAddressMap[tokenAddress];
+    const tokenAddressMap: Chain['tokenAddressMap'] = moonbeam.tokenAddressMap;
+    const maybeToken = tokenAddressMap[tokenAddress];
     if (maybeToken) {
       return {
         address: tokenAddress,

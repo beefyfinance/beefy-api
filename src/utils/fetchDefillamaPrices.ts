@@ -1,19 +1,23 @@
+import type { PricesById } from '../types/prices.ts';
 import { getLoggerFor } from './logger/index.ts';
 
 const logger = getLoggerFor({ module: 'prices', platform: 'defillama' });
 
-export const fetchDefillamaPrices = async coins => {
+type DefillamaPricesResponse = {
+  coins: Record<string, { price: number }>;
+};
+
+export const fetchDefillamaPrices = async (coins: string[] | undefined): Promise<PricesById> => {
   if (!coins) return {};
   const ids = coins.map(id => `coingecko:${id}`).join(',');
   const url = `https://coins.llama.fi/prices/current/${ids}`;
-  let prices = {};
+  const prices: PricesById = {};
   try {
-    const data = await fetch(url).then(res => res.json());
-    Object.keys(data.coins).forEach(coin => {
+    const data = (await fetch(url).then(res => res.json())) as DefillamaPricesResponse;
+    for (const [coin, { price }] of Object.entries(data.coins)) {
       const id = coin.split('coingecko:')[1];
-      const price = Number(data.coins[coin].price);
-      prices = { ...prices, ...{ [id]: price } };
-    });
+      prices[id] = Number(price);
+    }
   } catch (e) {
     logger.warn({ err: e }, 'failed to fetch defillama prices');
   }

@@ -1,6 +1,36 @@
-import gql from 'graphql-tag';
+import type { TypedDocumentNode } from '@apollo/client/core/types.js';
+import { gql } from 'graphql-tag';
 
-const pairDayDataQuery = (pairs, startTimestamp, endTimestamp) => {
+export type PairDayData = { id: string; dailyVolumeUSD: string; volumeUSD: string; reserveUSD: string };
+export type PairDayDatasResult = { pairDayDatas: PairDayData[] };
+
+export type SushiPairDayData = { id: string; volumeUSD: string; reserveUSD: string };
+export type SushiPairsResult = { pairs: { dayData: SushiPairDayData[] }[] };
+
+export type TridentPairDaySnapshot = { id: string; volumeUSD: string; liquidityUSD: string };
+export type TridentPairsResult = { pairDaySnapshots: TridentPairDaySnapshot[] };
+
+export type BalancerPool = { address: string; totalSwapFee: string; totalLiquidity: string };
+export type BalancerPoolsResult = { pools: BalancerPool[] };
+
+export type HopResult = { tokenSwaps: { tokensSold: string }[] };
+
+export type JoeDayDataResult = { dayDatas: { usdRemitted: string }[] };
+
+export type ProtocolDayDataResult = { uniswapDayDatas: { dailyVolumeUSD: string }[] };
+
+export type GmxMarketFees = { marketAddress: string; timestampGroup: string; cumulativeFeeUsdPerPoolValue: string };
+export type GmxFeesResult = { collectedMarketFeesInfos: GmxMarketFees[] };
+
+export type BaseSwapResult = {
+  liquidityPoolDailySnapshots: { id: string; dailyVolumeUSD: string; totalValueLockedUSD: string }[];
+};
+
+export const pairDayDataQuery = (
+  pairs: string[],
+  startTimestamp: number,
+  endTimestamp: number
+): TypedDocumentNode<PairDayDatasResult> => {
   let pairsString = `[`;
   pairs.map(pair => {
     return (pairsString += `"${pair}"`);
@@ -18,12 +48,16 @@ const pairDayDataQuery = (pairs, startTimestamp, endTimestamp) => {
         totalSupply
         reserveUSD
       }
-    } 
+    }
 `;
   return gql(queryString);
 };
 
-const pairDayDataSushiQuery = (pairs, startTimestamp, endTimestamp) => {
+export const pairDayDataSushiQuery = (
+  pairs: string[],
+  startTimestamp: number,
+  endTimestamp: number
+): TypedDocumentNode<SushiPairsResult> => {
   let pairsString = `[`;
   pairs.map(pair => {
     return (pairsString += `"${pair}"`);
@@ -42,12 +76,16 @@ const pairDayDataSushiQuery = (pairs, startTimestamp, endTimestamp) => {
           reserveUSD
         }
       }
-    } 
+    }
 `;
   return gql(queryString);
 };
 
-const pairDayDataSushiTridentQuery = (pairs, startTimestamp, endTimestamp) => {
+export const pairDayDataSushiTridentQuery = (
+  pairs: string[],
+  startTimestamp: number,
+  endTimestamp: number
+): TypedDocumentNode<TridentPairsResult> => {
   let pairsString = `[`;
   pairs.map(pair => {
     return (pairsString += `"${pair}"`);
@@ -67,7 +105,7 @@ const pairDayDataSushiTridentQuery = (pairs, startTimestamp, endTimestamp) => {
   return gql(queryString);
 };
 
-const poolsDataQuery = (pairs, block) => {
+export const poolsDataQuery = (pairs: string[], block: number): TypedDocumentNode<BalancerPoolsResult> => {
   let pairsString = `[`;
   pairs.map(pair => {
     return (pairsString += `"${pair}"`);
@@ -85,7 +123,7 @@ const poolsDataQuery = (pairs, block) => {
   return gql(queryString);
 };
 
-const dayDataQuery = timestamp => {
+export const dayDataQuery = (timestamp: number) => {
   const dayId = Math.floor(timestamp / 86400000) - 1;
   const queryString = `
     query days {
@@ -97,7 +135,7 @@ const dayDataQuery = timestamp => {
   return gql(queryString);
 };
 
-const joeDayDataQuery = timestamp => {
+export const joeDayDataQuery = (timestamp: number) => {
   const dayId = Math.floor(timestamp / 86400000) - 1;
   const queryString = `
     query days {
@@ -109,7 +147,10 @@ const joeDayDataQuery = timestamp => {
   return gql(queryString);
 };
 
-const joeDayDataRangeQuery = (startTimestamp, endTimestamp) => {
+export const joeDayDataRangeQuery = (
+  startTimestamp: number,
+  endTimestamp: number
+): TypedDocumentNode<JoeDayDataResult> => {
   const queryString = `
   query volumeUSD {
     dayDatas(where: { date_gt: ${startTimestamp}, date_lt: ${endTimestamp} }) {
@@ -120,7 +161,10 @@ const joeDayDataRangeQuery = (startTimestamp, endTimestamp) => {
   return gql(queryString);
 };
 
-const protocolDayDataRangeQuery = (startTimestamp, endTimestamp) => {
+export const protocolDayDataRangeQuery = (
+  startTimestamp: number,
+  endTimestamp: number
+): TypedDocumentNode<ProtocolDayDataResult> => {
   const queryString = `
   query volume {
     uniswapDayDatas(where: { date_gt: ${startTimestamp}, date_lt: ${endTimestamp} }) {
@@ -131,7 +175,7 @@ const protocolDayDataRangeQuery = (startTimestamp, endTimestamp) => {
   return gql(queryString);
 };
 
-const balancerDataQuery = block => {
+export const balancerDataQuery = (block: number) => {
   const queryString = `
     query balancer {
       balancers(block: { number: ${block} }) {
@@ -142,7 +186,7 @@ const balancerDataQuery = block => {
   return gql(queryString);
 };
 
-const uniswapPositionQuery = (strategy, block) => {
+export const uniswapPositionQuery = (strategy: string, block: number) => {
   const queryString = `
     query positionData {
       positions(where: {owner: "${strategy}", _change_block: {number_gte: ${block}}}) {
@@ -155,7 +199,11 @@ const uniswapPositionQuery = (strategy, block) => {
   return gql(queryString);
 };
 
-const hopQuery = (address, startTimestamp, endTimestamp) => {
+export const hopQuery = (
+  address: string,
+  startTimestamp: number,
+  endTimestamp: number
+): TypedDocumentNode<HopResult> => {
   const queryString = `
   query hop {
     tokenSwaps(first: 1000, orderBy: tokensSold, orderDirection: desc, where: { tokenEntity_: { address:"${address}" } , timestamp_gt: ${startTimestamp}, timestamp_lt: ${endTimestamp} }) {
@@ -166,7 +214,7 @@ const hopQuery = (address, startTimestamp, endTimestamp) => {
   return gql(queryString);
 };
 
-const gmxQuery = (markets, timestamp) => {
+export const gmxQuery = (markets: string[], timestamp: number): TypedDocumentNode<GmxFeesResult> => {
   let marketsString = `[`;
   markets.map(market => {
     return (marketsString += `"${market}"`);
@@ -184,7 +232,11 @@ const gmxQuery = (markets, timestamp) => {
   return gql(queryString);
 };
 
-const baseSwapQuery = (pairs, startTimestamp, endTimestamp) => {
+export const baseSwapQuery = (
+  pairs: string[],
+  startTimestamp: number,
+  endTimestamp: number
+): TypedDocumentNode<BaseSwapResult> => {
   let pairsString = `[`;
   pairs.map(pair => {
     return (pairsString += `"${pair}"`);
@@ -200,20 +252,4 @@ const baseSwapQuery = (pairs, startTimestamp, endTimestamp) => {
     }
   `;
   return gql(queryString);
-};
-
-export {
-  balancerDataQuery,
-  baseSwapQuery,
-  dayDataQuery,
-  gmxQuery,
-  hopQuery,
-  joeDayDataQuery,
-  joeDayDataRangeQuery,
-  pairDayDataQuery,
-  pairDayDataSushiQuery,
-  pairDayDataSushiTridentQuery,
-  poolsDataQuery,
-  protocolDayDataRangeQuery,
-  uniswapPositionQuery,
 };

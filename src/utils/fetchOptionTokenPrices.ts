@@ -1,9 +1,11 @@
+import type { ChainId } from '@beefyfinance/blockchain-addressbook';
 import { addressBook } from '@beefyfinance/blockchain-addressbook';
 import type { Token } from '@beefyfinance/blockchain-addressbook/types/token';
 import { BigNumber } from 'bignumber.js';
 import OptionsToken from '../abis/OptionsToken.ts';
 import { fetchContract } from '../api/rpc/client.ts';
 import { LINEA_CHAIN_ID } from '../constants.ts';
+import type { PricesById } from '../types/prices.ts';
 import { getLoggerFor } from './logger/index.ts';
 
 const logger = getLoggerFor({ module: 'prices' });
@@ -20,7 +22,7 @@ const tokens = {
 
 let hundred = new BigNumber(100);
 
-const getOptionTokenPrices = async (tokenPrices, tokens: Token[][], chainId) => {
+const getOptionTokenPrices = async (tokenPrices: PricesById, tokens: Token[][], chainId: ChainId) => {
   const discountCalls = tokens.map(token => {
     const contract = fetchContract(token[1].address, OptionsToken, chainId);
     return contract.read.discount();
@@ -42,6 +44,6 @@ const getOptionTokenPrices = async (tokenPrices, tokens: Token[][], chainId) => 
 
 export async function fetchOptionTokenPrices(tokenPrices: Record<string, number>): Promise<Record<string, number>> {
   return Promise.all([getOptionTokenPrices(tokenPrices, tokens.linea, LINEA_CHAIN_ID)]).then(data =>
-    data.flat().reduce((acc, cur, i) => ((acc[Object.values(tokens).flat()[i][1].oracleId] = cur), acc), {})
+    data.flat().reduce<PricesById>((acc, cur, i) => ((acc[Object.values(tokens).flat()[i][1].oracleId] = cur), acc), {})
   );
 }

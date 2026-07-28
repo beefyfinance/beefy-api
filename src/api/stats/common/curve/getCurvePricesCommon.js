@@ -1,6 +1,6 @@
 import { BigNumber } from 'bignumber.js';
+import { default as ICurvePool } from '../../../../abis/CurvePool.ts';
 import { default as ERC20Abi } from '../../../../abis/ERC20Abi.ts';
-import { default as ICurvePool } from '../../../../abis/ICurvePool.ts';
 import { getLoggerFor } from '../../../../utils/logger/index.ts';
 import { fetchContract } from '../../../rpc/client.ts';
 

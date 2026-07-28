@@ -1,5 +1,5 @@
 import type { NormalizedCacheObject } from '@apollo/client/cache/inmemory/types.js';
-import type { ApolloClient } from '@apollo/client/core/index.js';
+import type { ApolloClient } from '@apollo/client/core/ApolloClient.js';
 import type { ChainId } from '@beefyfinance/blockchain-addressbook';
 import { BigNumber } from 'bignumber.js';
 import IMultiRewardMasterChef from '../../../abis/IMultiRewardMasterChef.ts';
@@ -19,7 +19,7 @@ export interface MasterChefApysParams {
   chainId: ChainId;
   masterchef: string;
   singlePools?: SingleAssetPool[];
-  pools?: LpPool[] | (LpPool | SingleAssetPool)[];
+  pools?: (LpPool | SingleAssetPool)[];
   oracle: string;
   oracleId: string;
   decimals: string;
@@ -115,8 +115,8 @@ const getFarmApys = async (params: MasterChefApysParams): Promise<BigNumber[]> =
 
 const getPoolsData = async (params: MasterChefApysParams) => {
   const masterchefContract = fetchContract(params.masterchef, IMultiRewardMasterChef, params.chainId);
-  const balanceCalls = params.pools.map(p => masterchefContract.read.poolTotalLp([p.poolId]));
-  const rewardsCalls = params.pools.map(p => masterchefContract.read.poolRewardsPerSec([p.poolId]));
+  const balanceCalls = params.pools.map(p => masterchefContract.read.poolTotalLp([BigInt(p.poolId)]));
+  const rewardsCalls = params.pools.map(p => masterchefContract.read.poolRewardsPerSec([BigInt(p.poolId)]));
 
   const [balanceResults, rewardResults] = await Promise.all([Promise.all(balanceCalls), Promise.all(rewardsCalls)]);
 

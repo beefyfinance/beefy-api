@@ -1,16 +1,18 @@
+import type { ChainId } from '@beefyfinance/blockchain-addressbook';
 import { BigNumber } from 'bignumber.js';
+import type { Address } from 'viem';
 import GlpManagerAbi from '../../../../abis/arbitrum/GlpManager.ts';
 import ERC20Abi from '../../../../abis/ERC20Abi.ts';
+import type { PricesById } from '../../../../types/prices.ts';
 import { getLoggerFor } from '../../../../utils/logger/index.ts';
 import { fetchContract } from '../../../rpc/client.ts';
+import type { GmxPool } from './types.ts';
 
 const logger = getLoggerFor({ module: 'prices', platform: 'gmx' });
 
-export const getGmxPrices = async (chainId, pools, tokenPrices) => {
+export const getGmxPrices = async (chainId: ChainId, pools: GmxPool[], tokenPrices: PricesById) => {
   let prices = {};
-  let promises = [];
-  pools.forEach(pool => promises.push(getPrice(chainId, pool, tokenPrices)));
-  const values = await Promise.all(promises);
+  const values = await Promise.all(pools.map(pool => getPrice(chainId, pool, tokenPrices)));
 
   for (const item of values) {
     prices = { ...prices, ...item };
@@ -19,7 +21,7 @@ export const getGmxPrices = async (chainId, pools, tokenPrices) => {
   return prices;
 };
 
-const getPrice = async (chainId, pool, tokenPrices) => {
+const getPrice = async (chainId: ChainId, pool: GmxPool, tokenPrices: PricesById) => {
   if (pool.oracle == 'lps') {
     const [{ price, totalSupply }, { tokens, shiftedBalances }] = await Promise.all([
       getLpPrice(chainId, pool),
@@ -39,7 +41,7 @@ const getPrice = async (chainId, pool, tokenPrices) => {
   }
 };
 
-const getTokenPrice = (tokenPrices, oracleId) => {
+const getTokenPrice = (tokenPrices: PricesById, oracleId: string | undefined) => {
   if (!oracleId) return 1;
   let tokenPrice = 1;
   const tokenSymbol = oracleId;
@@ -51,25 +53,26 @@ const getTokenPrice = (tokenPrices, oracleId) => {
   return tokenPrice;
 };
 
-const getLpTokenBalances = async (chainId, pool) => {
-  const balanceCalls = pool.tokens.map(token => {
+const getLpTokenBalances = async (chainId: ChainId, pool: GmxPool) => {
+  const poolTokens = pool.tokens ?? [];
+  const balanceCalls = poolTokens.map(token => {
     const contract = fetchContract(token.address, ERC20Abi, chainId);
-    return contract.read.balanceOf([pool.vault]);
+    return contract.read.balanceOf([pool.vault as Address]);
   });
   const balanceResults = await Promise.all(balanceCalls);
   const bal = balanceResults.map(v => new BigNumber(v.toString()));
 
-  let tokens = [];
-  let shiftedBalances = [];
-  for (let i = 0; i < pool.tokens.length; i++) {
-    shiftedBalances.push(new BigNumber(bal[i]).dividedBy(pool.tokens[i].decimals).toString(10));
-    tokens.push(pool.tokens[i].address);
+  const tokens: string[] = [];
+  const shiftedBalances: string[] = [];
+  for (let i = 0; i < poolTokens.length; i++) {
+    shiftedBalances.push(new BigNumber(bal[i]).dividedBy(poolTokens[i].decimals).toString(10));
+    tokens.push(poolTokens[i].address);
   }
 
   return { tokens, shiftedBalances };
 };
 
-const getLpPrice = async (chainId, pool) => {
+const getLpPrice = async (chainId: ChainId, pool: GmxPool) => {
   const glpManagerContract = fetchContract(pool.glpManager, GlpManagerAbi, chainId);
   const glpContract = fetchContract(pool.address, ERC20Abi, chainId);
 

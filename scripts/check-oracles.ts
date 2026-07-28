@@ -110,7 +110,7 @@ async function processFile(path: string, ignorePools: boolean): Promise<Token[]>
       continue;
     }
 
-    for (const key of ['lp0', 'lp1']) {
+    for (const key of ['lp0', 'lp1'] as const) {
       tokens.push({
         pool: pool.name,
         address: pool[key].address.toLowerCase(),

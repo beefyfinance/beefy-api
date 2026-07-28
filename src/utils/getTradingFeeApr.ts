@@ -1,5 +1,5 @@
 import type { NormalizedCacheObject } from '@apollo/client/cache/inmemory/types.js';
-import type { ApolloClient } from '@apollo/client/core/index.js';
+import type { ApolloClient } from '@apollo/client/core/ApolloClient.js';
 import { BigNumber } from 'bignumber.js';
 import {
   balancerDataQuery,
@@ -14,26 +14,13 @@ import {
   pairDayDataSushiTridentQuery,
   poolsDataQuery,
   protocolDayDataRangeQuery,
-} from '../apollo/queries.js';
+} from '../apollo/queries.ts';
 import getBlockNumber from './getBlockNumber.js';
 import getBlockTime from './getBlockTime.js';
 import { getUtcSecondsFromDayRange } from './getUtcSecondsFromDayRange.ts';
 import { getLoggerFor } from './logger/index.ts';
 
 const logger = getLoggerFor({ module: 'apy' });
-
-interface PairDayData {
-  id: string;
-  dailyVolumeUSD: number;
-  volumeUSD: number;
-  reserveUSD: number;
-}
-
-interface Pools {
-  address: string;
-  totalSwapFee: number;
-  totalLiquidity: number;
-}
 
 export const getTradingFeeApr = async (
   client: ApolloClient<NormalizedCacheObject>,
@@ -44,9 +31,9 @@ export const getTradingFeeApr = async (
   const pairAddressToAprMap: Record<string, BigNumber> = {};
 
   try {
-    let {
+    const {
       data: { pairDayDatas },
-    }: { data: { pairDayDatas: PairDayData[] } } = await client.query({
+    } = await client.query({
       query: pairDayDataQuery(addressesToLowercase(pairAddresses), start, end),
     });
 
@@ -86,7 +73,7 @@ export const getTradingFeeAprSushi = async (
     const pairDayDatas0 = queryResponse0.data.pairs.map(pair => pair.dayData[0]);
     const pairDayDatas1 = queryResponse1.data.pairs.map(pair => pair.dayData[0]);
 
-    for (const pairDayData of zip([pairDayDatas0, pairDayDatas1])) {
+    for (const pairDayData of zip(pairDayDatas0, pairDayDatas1)) {
       if (pairDayData && pairDayData[0] && pairDayData[1]) {
         const pairAddress = pairDayData[0].id.split('-')[0].toLowerCase();
         const avgVol = new BigNumber(pairDayData[0].volumeUSD).plus(pairDayData[1].volumeUSD).dividedBy(2);
@@ -114,18 +101,18 @@ export const getTradingFeeAprSushiTrident = async (
   const pairAddressToAprMap: Record<string, BigNumber> = {};
 
   try {
-    let queryResponse0 = await client.query({
+    const queryResponse0 = await client.query({
       query: pairDayDataSushiTridentQuery(addressesToLowercase(pairAddresses), start0, end0),
     });
 
-    let queryResponse1 = await client.query({
+    const queryResponse1 = await client.query({
       query: pairDayDataSushiTridentQuery(addressesToLowercase(pairAddresses), start1, end1),
     });
 
     const pairDayDatas0 = queryResponse0.data.pairDaySnapshots.map(pair => pair);
     const pairDayDatas1 = queryResponse1.data.pairDaySnapshots.map(pair => pair);
 
-    for (const pairDayData of zip([pairDayDatas0, pairDayDatas1])) {
+    for (const pairDayData of zip(pairDayDatas0, pairDayDatas1)) {
       if (pairDayData && pairDayData[0] && pairDayData[1]) {
         const pairAddress = pairDayData[0].id.split('-')[0].toLowerCase();
         const avgVol = new BigNumber(pairDayData[0].volumeUSD).plus(pairDayData[1].volumeUSD).dividedBy(2);
@@ -235,9 +222,9 @@ export const getTradingFeeAprHop = async (
     let i = 0;
     // TODO: client requests could be done concurrently
     for (const token of tokens) {
-      let {
+      const {
         data: { tokenSwaps },
-      }: { data: { tokenSwaps } } = await client.query({
+      } = await client.query({
         query: hopQuery(token, start, end),
       });
       const values = tokenSwaps.map(({ tokensSold }) => tokensSold);
@@ -254,13 +241,7 @@ export const getTradingFeeAprHop = async (
 
 const addressesToLowercase = (pairAddresses: string[]) => pairAddresses.map(address => address.toLowerCase());
 
-const zip = arrays => {
-  return arrays[0].map((_, i) => {
-    return arrays.map(array => {
-      return array[i];
-    });
-  });
-};
+const zip = <T>(first: T[], second: T[]): [T, T][] => first.map((value, i) => [value, second[i]]);
 
 export const getYearlyPlatformTradingFees = async (
   client: ApolloClient<NormalizedCacheObject>,
@@ -332,7 +313,9 @@ export const getYearlyTradingFeesForProtocols = async (
   const [start0, end0] = getUtcSecondsFromDayRange(1, 8);
 
   try {
-    let data = await client.query({ query: protocolDayDataRangeQuery(start0, end0) });
+    const data = await client.query({
+      query: protocolDayDataRangeQuery(start0, end0),
+    });
 
     const dayData = data.data.uniswapDayDatas.map(data => new BigNumber(data.dailyVolumeUSD));
 
@@ -414,9 +397,9 @@ export const getBaseSwapTradingFeeApr = async (
   const pairAddressToAprMap: Record<string, BigNumber> = {};
 
   try {
-    let {
+    const {
       data: { liquidityPoolDailySnapshots },
-    }: { data: { liquidityPoolDailySnapshots } } = await client.query({
+    } = await client.query({
       query: baseSwapQuery(addressesToLowercase(pairAddresses), start, end),
     });
 

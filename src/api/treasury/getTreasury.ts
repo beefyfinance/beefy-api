@@ -40,7 +40,7 @@ let treasurySummary: TreasuryReport = keysToObject(SupportedChains, () => ({}));
 function updateTreasuryAddressesByChain() {
   treasuryAddressesByChain = keysToObject(SupportedChains, chain => {
     const chainAddressbook = addressBook[chain];
-    const addresses = {};
+    const addresses: Record<string, { address: string; label: string }> = {};
     const treasuryMultisig = chainAddressbook.platforms.beefyfinance.treasuryMultisig;
     const treasury = chainAddressbook.platforms.beefyfinance.treasury;
 
@@ -105,7 +105,7 @@ async function updateSingleChainTreasuryBalanceImpl(chain: ApiChain) {
       'treasury update had at least one failed call'
     );
   }
-  const balancesForChain = {};
+  const balancesForChain: Record<string, Record<string, unknown>> = {};
   treasuryAddressesForChain.forEach((treasuryData: any) => {
     balancesForChain[treasuryData.address.toLowerCase()] = {};
   });

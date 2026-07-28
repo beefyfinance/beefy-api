@@ -1,5 +1,5 @@
 import { mapValues } from 'lodash-es';
-import { isApiChain } from '../../utils/chain.ts';
+import { type ApiChain, isApiChain } from '../../utils/chain.ts';
 import {
   sendInternalServerError,
   sendNotFound,
@@ -16,6 +16,7 @@ import {
   getTokensForChainById,
   getTokenWrappedNative,
 } from './tokens.ts';
+import type { TokenEntity } from './types.ts';
 
 export const getTokens = withErrorHandling(async ctx => {
   const allTokens = getAllTokensByChain();
@@ -59,7 +60,7 @@ export const getChainNatives = withChainId(async (ctx, chainId) => {
 });
 
 export const getNativesFromAllChains = withErrorHandling(async ctx => {
-  const natives = {};
+  const natives: Partial<Record<ApiChain, { NATIVE: TokenEntity; WNATIVE: TokenEntity; FEES: TokenEntity }>> = {};
   Object.keys(getAllTokensByChain()).forEach(chainId => {
     if (isApiChain(chainId)) {
       const native = getTokenNative(chainId);

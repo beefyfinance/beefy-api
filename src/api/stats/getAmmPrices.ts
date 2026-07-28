@@ -1,4 +1,5 @@
 import { addressBookByChainId } from '@beefyfinance/blockchain-addressbook';
+import type { BreakdownsById, PricesById } from '../../types/prices.ts';
 import { getKey, setKey } from '../../utils/cache/index.ts';
 import { fetchAmmPrices } from '../../utils/fetchAmmPrices.ts';
 import { fetchBalancerLinearPoolPrice } from '../../utils/fetchBalancerStablePoolPrices.js';
@@ -6,7 +7,7 @@ import { fetchChainLinkPrices } from '../../utils/fetchChainLinkPrices.ts';
 import { fetchCoinGeckoPrices } from '../../utils/fetchCoinGeckoPrices.js';
 import { fetchConcentratedLiquidityTokenPrices } from '../../utils/fetchConcentratedLiquidityTokenPrices.ts';
 import { fetchCurveTokenPrices } from '../../utils/fetchCurveTokenPrices.ts';
-import { fetchDefillamaPrices } from '../../utils/fetchDefillamaPrices.js';
+import { fetchDefillamaPrices } from '../../utils/fetchDefillamaPrices.ts';
 import { fetchDexScreenerPriceOracles, type OraclePriceRequest } from '../../utils/fetchDexScreenerPrices.ts';
 import { fetchErc4626TokenPrices } from '../../utils/fetchErc4626TokenPrices.ts';
 import { fetchOptionTokenPrices } from '../../utils/fetchOptionTokenPrices.ts';
@@ -316,27 +317,12 @@ const seedPeggedPrices = {
   USDCe: 'USDC',
 };
 
-export type BaseLpBreakdown = {
-  price: number;
-  tokens: string[];
-  balances: string[];
-  totalSupply: string;
-};
-export type ClmLpBreakdown = BaseLpBreakdown & {
-  underlyingLiquidity: string;
-  underlyingBalances: string[];
-  underlyingPrice: number;
-};
-export type LpBreakdown = BaseLpBreakdown | ClmLpBreakdown;
-export type PricesById = Record<string, number>;
-export type BreakdownsById = Record<string, LpBreakdown>;
-
 const cachedTokenPrices: PricesById = {};
 const cachedLpPrices: PricesById = {};
 const cachedAllPrices: PricesById = {};
 const cachedLpBreakdowns: BreakdownsById = {};
 
-const ORACLES_TO_BE_CLEARED = [];
+const ORACLES_TO_BE_CLEARED: string[] = [];
 
 async function fetchSeedPrices() {
   logger.debug('fetching seed prices from external apis');
@@ -344,19 +330,19 @@ async function fetchSeedPrices() {
   try {
     const [seedPrices, coinGeckoPrices, defillamaPrices, dexscreenerPrices] = await Promise.all([
       // ChainLink gives: ETH, BTC, MATIC, AVAX, BNB, LINK, USDT, DAI, USDC
-      fetchChainLinkPrices().catch(err => {
+      fetchChainLinkPrices().catch((err): PricesById => {
         logger.warn({ err }, 'chainlink fetch failed');
         return {};
       }),
-      fetchCoinGeckoPrices(Object.keys(coinGeckoCoins)).catch(err => {
+      fetchCoinGeckoPrices(Object.keys(coinGeckoCoins)).catch((err): PricesById => {
         logger.warn({ err }, 'coingecko fetch failed');
         return {};
       }),
-      fetchDefillamaPrices(Object.keys(coinGeckoCoins)).catch(err => {
+      fetchDefillamaPrices(Object.keys(coinGeckoCoins)).catch((err): PricesById => {
         logger.warn({ err }, 'defillama fetch failed');
         return {};
       }),
-      fetchDexScreenerPriceOracles(dexscreenerCoins).catch(err => {
+      fetchDexScreenerPriceOracles(dexscreenerCoins).catch((err): PricesById => {
         logger.warn({ err }, 'dexscreener fetch failed');
         return {};
       }),

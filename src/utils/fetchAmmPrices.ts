@@ -57,7 +57,7 @@ const MULTICALLS = new Map<ChainId, Address>([
 ]);
 
 const BATCH_SIZE = 128;
-const DEBUG_ORACLES = [];
+const DEBUG_ORACLES: string[] = [];
 
 function sortByKeys<T extends Record<string, unknown>>(o: T): T {
   return (Object.keys(o) as Array<keyof T>).sort().reduce((r, k) => {

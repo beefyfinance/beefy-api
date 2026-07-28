@@ -1,6 +1,7 @@
+import type { Context } from 'koa';
 import { getBeefyTreasury } from './getTreasury.ts';
 
-export const getTreasury = ctx => {
+export const getTreasury = (ctx: Context) => {
   const chainTokens = getBeefyTreasury();
   if (chainTokens) {
     ctx.status = 200;

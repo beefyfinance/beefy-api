@@ -7,7 +7,7 @@ import type { AppChain } from '../../utils/chain.ts';
 import { getUnixNow } from '../../utils/date.ts';
 import { createCachedFactory } from '../../utils/factory.ts';
 import { getLoggerFor } from '../../utils/logger/index.ts';
-import { typedKeys } from '../../utils/object.ts';
+import { typedEntries, typedKeys } from '../../utils/object.ts';
 import { MerklProvider } from './providers/merkl/MerklProvider.ts';
 import { StellaSwapProvider } from './providers/stellaswap/StellaSwapProvider.ts';
 import { isUpdateResolved } from './typeguards.ts';
@@ -246,7 +246,7 @@ export class OffchainRewards {
         {} as Record<ProviderId, AppChain[]>
       );
 
-    for (const [providerId, chainIds] of Object.entries(chainsPerProvider)) {
+    for (const [providerId, chainIds] of typedEntries(chainsPerProvider)) {
       const providerEntry = this.byProvider[providerId];
       if (!providerEntry) {
         return;

@@ -174,7 +174,7 @@ const mapResponseToBoostApr = async (boost: Boost, supply: bigint, rate: bigint,
 };
 
 export const fetchBoostAprs = async () => {
-  const boostByChain: { [chain: string]: Boost[] } = getAllNewBoosts().reduce((allBoosts, previousBoost) => {
+  const boostByChain = getAllNewBoosts().reduce<Record<string, Boost[]>>((allBoosts, previousBoost) => {
     if (!allBoosts[previousBoost.chain]) allBoosts[previousBoost.chain] = [];
     allBoosts[previousBoost.chain].push(previousBoost);
     return allBoosts;

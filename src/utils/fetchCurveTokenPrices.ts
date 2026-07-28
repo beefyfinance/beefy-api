@@ -1,12 +1,14 @@
 import { addressBookByChainId, ChainId } from '@beefyfinance/blockchain-addressbook';
 import { BigNumber } from 'bignumber.js';
-import type ICurvePoolAbi from '../abis/CurvePool.ts';
+import type { Address } from 'viem';
+import ICurvePoolAbi from '../abis/CurvePool.ts';
 import ICurvePoolV2Abi from '../abis/CurvePoolV2.ts';
-import ICurvePool from '../abis/ICurvePool.ts';
 import type StableSwap from '../abis/StableSwap.ts';
 import { fetchContract } from '../api/rpc/client.ts';
+import type { PricesById } from '../types/prices.ts';
+import { toChainId } from './chain.ts';
 import { getLoggerFor } from './logger/index.ts';
-import ICurvePoolV2 from '../abis/ICurvePoolV2.json' with { type: 'json' };
+import { typedEntries } from './object.ts';
 import arbitrumCurvePools from '../data/arbitrum/curvePools.json' with { type: 'json' };
 import ethereumConvexPools from '../data/ethereum/convexPools.json' with { type: 'json' };
 import ethereumFxPools from '../data/ethereum/fxPools.json' with { type: 'json' };
@@ -68,7 +70,7 @@ const tokens: Partial<Record<keyof typeof ChainId, CurveToken[]>> = {
       pool: '0x2d600BbBcC3F1B6Cb9910A70BaB59eC9d5F81B9A',
       secondToken: 'frxETH',
       secondTokenDecimals: '1e18',
-      abi: ICurvePool,
+      abi: ICurvePoolAbi,
     },
     {
       oracleId: 'sFRAX',
@@ -78,7 +80,7 @@ const tokens: Partial<Record<keyof typeof ChainId, CurveToken[]>> = {
       pool: '0xfEF79304C80A694dFd9e603D624567D470e1a0e7',
       secondToken: 'crvUSD',
       secondTokenDecimals: '1e18',
-      abi: ICurvePool,
+      abi: ICurvePoolAbi,
     },
     {
       oracleId: 'MAI',
@@ -89,7 +91,7 @@ const tokens: Partial<Record<keyof typeof ChainId, CurveToken[]>> = {
       useUnderlying: true,
       secondToken: 'USDC',
       secondTokenDecimals: '1e6',
-      abi: ICurvePool,
+      abi: ICurvePoolAbi,
     },
   ],
 };
@@ -99,7 +101,7 @@ type CurveToken = {
   decimals: string;
   index0: number;
   index1: number;
-  pool: `0x${string}`;
+  pool: Address;
   useUnderlying?: boolean;
   secondToken: string;
   secondTokenDecimals: string;
@@ -107,22 +109,29 @@ type CurveToken = {
   stableSwap?: boolean;
 };
 
-function toCurveTokens(chainId, pools) {
+type CurvePoolConfig = {
+  pool: string;
+  tokens: { oracleId?: string; decimals: string; oracle?: string; basePool?: string }[];
+  getDy?: (string | number)[];
+};
+
+type GetDy = [version: string, index0: number, index1: number, underlyingId?: string];
+
+function toCurveTokens(chainId: ChainId, pools: CurvePoolConfig[]): CurveToken[] {
   return pools
     .filter(p => p.getDy !== undefined)
     .map(p => {
-      const abi = p.getDy[0] === 'v2' ? ICurvePoolV2 : ICurvePool;
-      const index0 = p.getDy[1];
-      const index1 = p.getDy[2];
+      const [version, index0, index1, underlyingId] = p.getDy as GetDy;
+      const abi = version === 'v2' ? ICurvePoolV2Abi : ICurvePoolAbi;
       const oracleId = p.tokens[index0].oracleId;
       const decimals = p.tokens[index0].decimals;
-      const useUnderlying = p.getDy[3] !== undefined;
-      const secondToken = useUnderlying ? p.getDy[3] : p.tokens[index1].oracleId;
+      const useUnderlying = underlyingId !== undefined;
+      const secondToken = useUnderlying ? underlyingId : p.tokens[index1].oracleId;
       const secondTokenDecimals = useUnderlying
-        ? `1e${addressBookByChainId[chainId].tokens[p.getDy[3]].decimals}`
+        ? `1e${addressBookByChainId[chainId].tokens[underlyingId].decimals}`
         : p.tokens[index1].decimals;
       return {
-        pool: p.pool,
+        pool: p.pool as Address,
         abi,
         oracleId,
         decimals,
@@ -163,8 +172,8 @@ async function getCurveTokenPrices(
 
   try {
     const res = await Promise.all(curvePriceCalls);
-    const prices = [];
-    const pricesById = {};
+    const prices: number[] = [];
+    const pricesById: PricesById = {};
     for (let i = 0; i < res.length; i++) {
       const t = chainTokens[i];
       const secondPrice = tokenPrices[t.secondToken] || pricesById[t.secondToken];
@@ -184,10 +193,10 @@ async function getCurveTokenPrices(
   }
 }
 
-export async function fetchCurveTokenPrices(tokenPrices): Promise<Record<string, number>> {
+export async function fetchCurveTokenPrices(tokenPrices: PricesById): Promise<Record<string, number>> {
   const pricesByChain: Record<string, number>[] = await Promise.all(
-    Object.entries(tokens).map(async ([chainId, chainTokens]) => {
-      const prices = await getCurveTokenPrices(tokenPrices, chainTokens, ChainId[chainId]);
+    typedEntries(tokens).map(async ([chainId, chainTokens]) => {
+      const prices = await getCurveTokenPrices(tokenPrices, chainTokens, toChainId(chainId));
       return Object.fromEntries(chainTokens.map((token, i) => [token.oracleId, prices[i] || 0]));
     })
   );

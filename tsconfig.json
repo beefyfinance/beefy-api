@@ -12,6 +12,7 @@
     "isolatedModules": true,
     "allowImportingTsExtensions": true,
     "strict": false,
+    "noImplicitAny": true,
     "strictFunctionTypes": true,
     "strictBindCallApply": true,
     "noImplicitThis": true,

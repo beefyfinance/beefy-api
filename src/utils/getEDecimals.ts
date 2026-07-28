@@ -1,1 +1,1 @@
-export const getEDecimals = decimals => '1e' + decimals.toString();
+export const getEDecimals = (decimals: number | bigint) => '1e' + decimals.toString();

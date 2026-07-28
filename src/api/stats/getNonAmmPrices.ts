@@ -13,6 +13,7 @@ import {
   POLYGON_CHAIN_ID,
   SONIC_CHAIN_ID,
 } from '../../constants.ts';
+import type { BreakdownsById, PricesById } from '../../types/prices.ts';
 import { getLoggerFor } from '../../utils/logger/index.ts';
 import { promiseArrayTiming } from '../../utils/timing.ts';
 import getBalancerArbPrices from './arbitrum/getBalancerArbPrices.ts';
@@ -105,24 +106,16 @@ import sonicSwapxIchiPools from '../../data/sonic/swapxIchiPools.json' with { ty
 const logger = getLoggerFor({ module: 'prices' });
 
 export type NonAmmPrices = {
-  prices: Record<string, number>;
-  breakdown: Record<
-    string,
-    {
-      price: number;
-      tokens: string[];
-      balances: string[];
-      totalSupply: string;
-    }
-  >;
+  prices: PricesById;
+  breakdown: BreakdownsById;
 };
 
 export async function getNonAmmPrices(
   tokenPrices: Record<string, number>,
   ammPrices: Record<string, number>
 ): Promise<NonAmmPrices> {
-  let prices = {};
-  let breakdown = {};
+  const prices: PricesById = {};
+  const breakdown: BreakdownsById = {};
 
   const promises = [
     getAaveV4Prices(ETH_CHAIN_ID, ethereumAaveV4Pools, tokenPrices),

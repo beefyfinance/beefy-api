@@ -60,7 +60,7 @@ export const getAllOldBoosts = () => {
   return allBoosts.map(convertBoostToOldFormat);
 };
 
-export const getChainOldBoosts = chain => {
+export const getChainOldBoosts = (chain: string) => {
   return (boostsByChain[chain] || []).map(convertBoostToOldFormat);
 };
 
@@ -68,7 +68,7 @@ export const getAllNewBoosts = () => {
   return allBoosts;
 };
 
-export const getChainNewBoosts = chain => {
+export const getChainNewBoosts = (chain: string) => {
   return boostsByChain[chain];
 };
 

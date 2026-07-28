@@ -44,7 +44,7 @@ async function getTokensForChain(apiChain: ApiChain): Promise<TokenErc20[]> {
   }, [] as TokenEntity[]);
 
   const uniqueTokens = uniqBy(tokens, 'address').filter(isTokenErc20);
-  const blockedTokens = blockedTokensByChain[apiChain];
+  const blockedTokens = (blockedTokensByChain as Partial<Record<ApiChain, Set<string>>>)[apiChain];
   if (blockedTokens && blockedTokens.size) {
     return uniqueTokens.filter(token => !blockedTokens.has(token.address));
   }

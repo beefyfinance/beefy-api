@@ -172,17 +172,18 @@ const args = yargs(hideBin(process.argv))
   })
   .parseSync();
 
-const poolPrefix = projects[args['project']].prefix;
+const project = projects[args['project'] as keyof typeof projects];
+const poolPrefix = project.prefix;
 const poolId = args['pool'];
-const masterchef = projects[args['project']].masterchef;
-const poolsJsonFile = projects[args['project']].file;
+const masterchef = project.masterchef;
+const poolsJsonFile = project.file;
 const poolsJson = JSON.parse(fs.readFileSync(path.resolve(import.meta.dirname, poolsJsonFile), 'utf8'));
 
-const chainId = ChainId[args['network']];
+const chainId = ChainId[args['network'] as keyof typeof ChainId];
 // cast: viem's PublicClient type collapses to never without strictNullChecks
 const publicClient = createPublicClient({ transport: http(MULTICHAIN_RPC[chainId]) }) as Client;
 
-async function fetchFarm(masterchefAddress, poolId) {
+async function fetchFarm(masterchefAddress: string, poolId: number) {
   console.log(`fetchFarm(${masterchefAddress}, ${poolId})`);
   const masterchefContract = getContract({ address: getAddress(masterchefAddress), abi: MasterChef, publicClient });
   const [lpToken, allocPoint, lastRewardBlock, accCakePerShare] = await masterchefContract.read.poolInfo([
@@ -196,7 +197,7 @@ async function fetchFarm(masterchefAddress, poolId) {
   };
 }
 
-async function fetchLiquidityPair(lpAddress) {
+async function fetchLiquidityPair(lpAddress: string) {
   console.log(`fetchLiquidityPair(${lpAddress})`);
   const checksummedLpAddress = getAddress(lpAddress);
   const lpContract = getContract({ address: checksummedLpAddress, abi: LPPairABI, publicClient });
@@ -208,7 +209,7 @@ async function fetchLiquidityPair(lpAddress) {
   };
 }
 
-async function fetchToken(tokenAddress) {
+async function fetchToken(tokenAddress: string) {
   const checksummedTokenAddress = getAddress(tokenAddress);
   const tokenContract = getContract({ address: checksummedTokenAddress, abi: ERC20ABI, publicClient });
   const token = {
@@ -253,7 +254,7 @@ async function main() {
     },
   };
 
-  poolsJson.forEach(pool => {
+  poolsJson.forEach((pool: { name: string }) => {
     if (pool.name === newPoolName) {
       throw Error(`Duplicate: pool with name ${newPoolName} already exists`);
     }
