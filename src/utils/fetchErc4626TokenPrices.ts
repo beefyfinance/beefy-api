@@ -31,7 +31,7 @@ const getErc4626Prices = async (
     fetchContract(share.address, abi, chainId).read.convertToAssets([10n ** BigInt(share.decimals)])
   );
 
-  let res;
+  let res: bigint[];
   try {
     res = await Promise.all(assetCalls);
   } catch (e) {

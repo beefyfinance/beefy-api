@@ -37,14 +37,14 @@ const poolsJsonFile = vaultsFile.replace('$network', args['network']);
 const poolsJson = JSON.parse(fs.readFileSync(path.resolve(import.meta.dirname, poolsJsonFile), 'utf8'));
 const chainName = args['network'];
 
-const chainId = ChainId[args['network']];
+const chainId = ChainId[args['network'] as keyof typeof ChainId];
 // cast: viem's PublicClient type collapses to never without strictNullChecks
 const publicClient = createPublicClient({ transport: http(MULTICHAIN_RPC[chainId]) }) as Client;
 
 function formatCowVaultsJson(pools: unknown) {
   return JSON.stringify(pools, null, 2).replace(
     /^(\s*)"(tokens|tokenOracleIds|decimals)": \[\n([\s\S]*?)\n\1\](,?)$/gm,
-    (match, indent, key, body, trailingComma) => {
+    (match: string, indent: string, key: string, body: string, trailingComma: string) => {
       const values = body
         .split('\n')
         .map(line => line.trim())
@@ -60,7 +60,7 @@ function formatCowVaultsJson(pools: unknown) {
   );
 }
 
-async function fetchLiquidityPair(clmAddress) {
+async function fetchLiquidityPair(clmAddress: string) {
   console.log(`fetchLiquidityPair for (${clmAddress})`);
   const clmContract = getContract({ address: getAddress(clmAddress), abi: CowVault, publicClient });
 
@@ -82,9 +82,9 @@ async function fetchLiquidityPair(clmAddress) {
   }
 
   interface Results {
-    address: String;
-    token0: String;
-    token1: String;
+    address: string;
+    token0: string;
+    token1: string;
   }
 
   const results: Results = {
@@ -96,7 +96,7 @@ async function fetchLiquidityPair(clmAddress) {
   return results;
 }
 
-async function fetchToken(tokenAddress) {
+async function fetchToken(tokenAddress: string) {
   const checksummedTokenAddress = getAddress(tokenAddress);
   const tokenContract = getContract({ address: checksummedTokenAddress, abi: ERC20ABI, publicClient });
   const symbol = await tokenContract.read.symbol();
@@ -154,7 +154,7 @@ async function main() {
           },
         };
 
-  poolsJson.forEach(pool => {
+  poolsJson.forEach((pool: { name: string }) => {
     if (pool.name === newPoolName) {
       throw Error(`Duplicate: pool with name ${newPoolName} already exists`);
     }

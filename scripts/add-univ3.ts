@@ -38,25 +38,26 @@ const args = yargs(hideBin(process.argv))
   })
   .parseSync();
 
-const poolPrefix = projects[args['project']].prefix;
+const project = projects[args['project'] as keyof typeof projects];
+const poolPrefix = project.prefix;
 const strategyAddress = args['strategy'];
-const poolsJsonFile = projects[args['project']].file;
+const poolsJsonFile = project.file;
 const poolsJson = JSON.parse(fs.readFileSync(path.resolve(import.meta.dirname, poolsJsonFile), 'utf8'));
 
-const chainId = ChainId[args['network']];
+const chainId = ChainId[args['network'] as keyof typeof ChainId];
 // cast: viem's PublicClient type collapses to never without strictNullChecks
 const publicClient = createPublicClient({ transport: http(MULTICHAIN_RPC[chainId]) }) as Client;
 
-async function fetchLiquidityPair(strategyAddress) {
+async function fetchLiquidityPair(strategyAddress: string) {
   console.log(`fetchLiquidityPair for (${strategyAddress})`);
   const strategyContract = getContract({ address: getAddress(strategyAddress), abi: StratUniV3, publicClient });
   const lpAddress = await strategyContract.read.pool();
   const lpContract = getContract({ address: lpAddress, abi: UniV3LPPairABI, publicClient });
   interface Results {
-    address: String;
-    strategy: String;
-    token0: String;
-    token1: String;
+    address: string;
+    strategy: string;
+    token0: string;
+    token1: string;
     fee: number;
   }
 
@@ -71,7 +72,7 @@ async function fetchLiquidityPair(strategyAddress) {
   return results;
 }
 
-async function fetchToken(tokenAddress) {
+async function fetchToken(tokenAddress: string) {
   const checksummedTokenAddress = getAddress(tokenAddress);
   const tokenContract = getContract({ address: checksummedTokenAddress, abi: ERC20ABI, publicClient });
   const token = {
@@ -116,7 +117,7 @@ async function main() {
     },
   };
 
-  poolsJson.forEach(pool => {
+  poolsJson.forEach((pool: { name: string }) => {
     if (pool.name === newPoolName) {
       throw Error(`Duplicate: pool with name ${newPoolName} already exists`);
     }

@@ -1,5 +1,6 @@
 import type { ChainId } from '@beefyfinance/blockchain-addressbook';
 import { BigNumber } from 'bignumber.js';
+import type { Address } from 'viem';
 import type { ApiChain } from '../../utils/chain.ts';
 import { fetchContract } from '../rpc/client.ts';
 import type { TreasuryApiResult, ValidatorAsset } from './types.ts';
@@ -74,7 +75,7 @@ export const fetchSonicValidatorBalance = async (asset: SonicValidator, chainId:
   const contract = fetchContract(asset.helper, sonicValidatorContractAbi, chainId);
   const [selfStaked, pending] = await Promise.all([
     contract.read.getSelfStake([BigInt(asset.numberId)]),
-    contract.read.pendingRewards([asset.methodPath as `0x${string}`, BigInt(asset.numberId)]),
+    contract.read.pendingRewards([asset.methodPath as Address, BigInt(asset.numberId)]),
   ]);
 
   return selfStaked + pending;

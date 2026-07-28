@@ -4,11 +4,19 @@ import { getKey, setKey } from '../../utils/cache/index.ts';
 import { getLoggerFor } from '../../utils/logger/index.ts';
 import { retryPromiseWithBackOff } from '../../utils/promise.ts';
 import { getSnapshotApi } from './getSnapshotApi.ts';
-import type { Cached, CachedProposals, CachedSpaces, Proposal, Proposals, SpaceWithAuthors } from './types.ts';
+import type {
+  Cached,
+  CachedProposals,
+  CachedSpaces,
+  Proposal,
+  Proposals,
+  SpaceConfig,
+  SpaceWithAuthors,
+} from './types.ts';
 
 const logger = getLoggerFor({ module: 'snapshot' });
 
-const SPACES = {
+const SPACES: Record<string, SpaceConfig> = {
   'beefydao.eth': {
     proposalUrl: (proposalId: string, _spaceId: string) => `https://vote.beefy.finance/#/proposal/${proposalId}`,
   },

@@ -1,5 +1,7 @@
+import { InMemoryCache } from '@apollo/client/cache/inmemory/inMemoryCache.js';
 import type { NormalizedCacheObject } from '@apollo/client/cache/inmemory/types.js';
-import { ApolloClient, ApolloError, InMemoryCache } from '@apollo/client/core/index.js';
+import { ApolloClient } from '@apollo/client/core/ApolloClient.js';
+import { ApolloError } from '@apollo/client/errors/index.js';
 import { HttpLink } from '@apollo/client/link/http/HttpLink.js';
 
 const APOLLO_TIMEOUT = process.env.APOLLO_TIMEOUT ? parseInt(process.env.APOLLO_TIMEOUT) : 30_000;

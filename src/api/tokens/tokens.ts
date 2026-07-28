@@ -251,7 +251,7 @@ function addToken(
   byId: Record<TokenEntity['id'], string>,
   byAddress: Record<TokenEntity['address'], TokenEntity>
 ) {
-  const addressLower = token.address.toLowerCase();
+  const addressLower = token.address.toLowerCase() as TokenEntity['address'];
 
   // Map id to address
   if (byId[token.id] === undefined) {

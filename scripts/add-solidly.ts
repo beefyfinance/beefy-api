@@ -62,7 +62,7 @@ const {
   },
 } = addressBook;
 
-const projects = {
+const projects: Record<string, { prefix: string; voter: string; stableFile?: string; volatileFile?: string }> = {
   equilibre: {
     prefix: 'equilibre',
     stableFile: '../src/data/kava/equilibreStableLpPools.json',
@@ -246,16 +246,17 @@ const args = yargs(hideBin(process.argv))
   })
   .parseSync();
 
-const poolPrefix = projects[args['project']].prefix;
+const project = projects[args['project'] as keyof typeof projects];
+const poolPrefix = project.prefix;
 const lpAddress = args['lp'];
 
-const chainId = ChainId[args['network']];
+const chainId = ChainId[args['network'] as keyof typeof ChainId];
 // cast: viem's PublicClient type collapses to never without strictNullChecks
 const publicClient = createPublicClient({ transport: http(MULTICHAIN_RPC[chainId]) }) as Client;
 
-async function fetchGauge(lp) {
+async function fetchGauge(lp: string) {
   console.log(`fetchGauge(${lp})`);
-  if (projects[args['project']] === projects['etherex']) {
+  if (project === projects['etherex']) {
     const voterContract = getContract({
       address: getAddress(projects['etherex'].voter),
       abi: etherexVoterABI,
@@ -267,7 +268,7 @@ async function fetchGauge(lp) {
     };
   } else {
     const voterContract = getContract({
-      address: getAddress(projects[args['project']].voter),
+      address: getAddress(project.voter),
       abi: voterABI,
       publicClient,
     });
@@ -278,7 +279,7 @@ async function fetchGauge(lp) {
   }
 }
 
-async function fetchLiquidityPair(lp) {
+async function fetchLiquidityPair(lp: string) {
   console.log(`fetchLiquidityPair(${lp})`);
   const lpContract = getContract({ address: getAddress(lp), abi: ISolidlyPair, publicClient });
   return {
@@ -290,7 +291,7 @@ async function fetchLiquidityPair(lp) {
   };
 }
 
-async function fetchToken(tokenAddress) {
+async function fetchToken(tokenAddress: string) {
   const checksummedTokenAddress = getAddress(tokenAddress);
   const tokenContract = getContract({ address: checksummedTokenAddress, abi: ERC20ABI, publicClient });
   const token = {
@@ -314,7 +315,7 @@ async function main() {
   const token0 = await fetchToken(lp.token0);
   const token1 = await fetchToken(lp.token1);
 
-  const poolsJsonFile = lp.stable ? projects[args['project']].stableFile : projects[args['project']].volatileFile;
+  const poolsJsonFile = lp.stable ? project.stableFile : project.volatileFile;
   const poolsJson = JSON.parse(fs.readFileSync(path.resolve(import.meta.dirname, poolsJsonFile), 'utf8'));
 
   const newPoolName = `${poolPrefix}-${token0.symbol.toLowerCase()}-${token1.symbol.toLowerCase()}`;
@@ -339,7 +340,7 @@ async function main() {
     },
   };
 
-  poolsJson.forEach(pool => {
+  poolsJson.forEach((pool: { name: string }) => {
     if (pool.name === newPoolName) {
       throw Error(`Duplicate: pool with name ${newPoolName} already exists`);
     }

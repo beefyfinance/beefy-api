@@ -21,11 +21,11 @@ const args = yargs(hideBin(process.argv))
   })
   .parseSync();
 
-const chainId = ChainId[args['network']];
+const chainId = ChainId[args['network'] as keyof typeof ChainId];
 // cast: viem's PublicClient type collapses to never without strictNullChecks
 const publicClient = createPublicClient({ transport: http(MULTICHAIN_RPC[chainId]) }) as Client;
 
-async function fetchToken(tokenAddress) {
+async function fetchToken(tokenAddress: string) {
   const checksummedTokenAddress = getAddress(tokenAddress);
   const tokenContract = getContract({ address: checksummedTokenAddress, abi: ERC20ABI, publicClient });
   const token = {

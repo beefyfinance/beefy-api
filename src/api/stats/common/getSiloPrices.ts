@@ -1,13 +1,30 @@
+import type { ChainId } from '@beefyfinance/blockchain-addressbook';
 import { BigNumber } from 'bignumber.js';
+import type { Address } from 'viem';
 import SiloAbi from '../../../abis/arbitrum/Silo.ts';
 import SiloTokenAbi from '../../../abis/arbitrum/SiloToken.ts';
 import SiloV2Abi from '../../../abis/SiloV2.ts';
+import type { PricesById, StandardLpBreakdown } from '../../../types/prices.ts';
 import { getLoggerFor } from '../../../utils/logger/index.ts';
 import { fetchContract } from '../../rpc/client.ts';
 
 const logger = getLoggerFor({ module: 'prices', platform: 'silo' });
 
-export const getSiloPrices = async (chainId, pools, tokenPrices) => {
+type SiloPool = {
+  name: string;
+  address: string;
+  silo: string;
+  underlying: string;
+  oracleId: string;
+  decimals: string;
+  chainId: number;
+  v2?: boolean;
+  vault?: boolean;
+  vaultId?: number;
+  collateral?: boolean;
+};
+
+export const getSiloPrices = async (chainId: ChainId, pools: SiloPool[], tokenPrices: PricesById) => {
   const [amountCalls, totalSupplyCalls, decimalsCalls] = pools.reduce(
     (acc, pool) => {
       const siloTokenContract = fetchContract(pool.address, SiloTokenAbi, chainId);
@@ -16,7 +33,7 @@ export const getSiloPrices = async (chainId, pools, tokenPrices) => {
         acc[0].push(siloContract.read.totalAssets());
       } else {
         const siloContract = fetchContract(pool.silo, SiloAbi, chainId);
-        acc[0].push(siloContract.read.assetStorage([pool.underlying]));
+        acc[0].push(siloContract.read.assetStorage([pool.underlying as Address]));
       }
       acc[1].push(siloTokenContract.read.totalSupply());
       acc[2].push(siloTokenContract.read.decimals());
@@ -31,7 +48,7 @@ export const getSiloPrices = async (chainId, pools, tokenPrices) => {
     Promise.all(decimalsCalls),
   ]);
 
-  let prices = {};
+  const prices: Record<string, StandardLpBreakdown> = {};
   for (let i = 0; i < pools.length; i++) {
     const pool = pools[i];
     const token = pool.underlying;
@@ -57,7 +74,7 @@ export const getSiloPrices = async (chainId, pools, tokenPrices) => {
   return prices;
 };
 
-const getTokenPrice = (tokenPrices, oracleId) => {
+const getTokenPrice = (tokenPrices: PricesById, oracleId: string) => {
   const price = tokenPrices[oracleId];
   if (price === undefined) {
     logger.warn({ oracleId }, 'unknown token, defaulting price to 0');

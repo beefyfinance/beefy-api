@@ -1,5 +1,6 @@
 import type { NormalizedCacheObject } from '@apollo/client/cache/inmemory/types.js';
-import type { ApolloClient } from '@apollo/client/core/index.js';
+import type { ApolloClient } from '@apollo/client/core/ApolloClient.js';
+import type { ChainId } from '@beefyfinance/blockchain-addressbook';
 import { BigNumber } from 'bignumber.js';
 import { getBalTradingAndLstApr } from '../../../../utils/getBalancerTradingFeeAndLstApr.js';
 import { getLoggerFor } from '../../../../utils/logger/index.ts';
@@ -74,7 +75,7 @@ export const getBalancerApys = async (params: BalancerParams): Promise<ApyBreakd
   );
 };
 
-const getTradingFeeAprBalancer = async (chainId, pairAddresses) => {
+const getTradingFeeAprBalancer = async (chainId: ChainId, pairAddresses: string[]) => {
   const data = await getBalTradingAndLstApr(chainId, pairAddresses);
   return data;
 };

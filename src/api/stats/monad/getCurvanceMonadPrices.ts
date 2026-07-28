@@ -1,6 +1,7 @@
 import { BigNumber } from 'bignumber.js';
 import CurvanceVault from '../../../abis/CurvanceVault.ts';
 import { MONAD_CHAIN_ID } from '../../../constants.ts';
+import type { PricesById, StandardLpBreakdown } from '../../../types/prices.ts';
 import { getLoggerFor } from '../../../utils/logger/index.ts';
 import { fetchContract } from '../../rpc/client.ts';
 import type { CurvancePool } from './getCurvanceApys.ts';
@@ -9,7 +10,7 @@ import curvancePoolsData from '../../../data/monad/curvancePools.json' with { ty
 const pools: CurvancePool[] = curvancePoolsData;
 const logger = getLoggerFor({ module: 'prices', platform: 'curvance', chain: MONAD_CHAIN_ID });
 
-export const getCurvanceMonadPrices = async tokenPrices => {
+export const getCurvanceMonadPrices = async (tokenPrices: PricesById) => {
   const totalAssetsCalls = [];
   const totalSupplyCalls = [];
 
@@ -24,7 +25,7 @@ export const getCurvanceMonadPrices = async tokenPrices => {
     Promise.all(totalSupplyCalls),
   ]);
 
-  let prices = {};
+  const prices: Record<string, StandardLpBreakdown> = {};
   for (const pool of pools) {
     const token = pool.underlying;
     const totalAssets = new BigNumber(totalAssetsResults[pools.indexOf(pool)]).div(pool.decimals);
@@ -43,7 +44,7 @@ export const getCurvanceMonadPrices = async tokenPrices => {
   return prices;
 };
 
-const getTokenPrice = (tokenPrices, oracleId) => {
+const getTokenPrice = (tokenPrices: PricesById, oracleId: string) => {
   const price = tokenPrices[oracleId];
   if (price === undefined) {
     logger.warn({ oracleId }, 'unknown token, defaulting price to 0');

@@ -1,18 +1,22 @@
-import { ChainId } from '@beefyfinance/blockchain-addressbook/types/chainid';
+import type { ChainId } from '@beefyfinance/blockchain-addressbook/types/chainid';
 import { BigNumber } from 'bignumber.js';
+import type { Address } from 'viem';
 import ISolidlyPair from '../abis/ISolidlyPair.ts';
 import { fetchContract } from '../api/rpc/client.ts';
+import type { PricesById } from '../types/prices.ts';
+import { toChainId } from './chain.ts';
 import { getLoggerFor } from './logger/index.ts';
+import { typedEntries } from './object.ts';
 
 const logger = getLoggerFor({ module: 'prices', platform: 'solidly' });
 
 type StablePoolLiquidityToken = {
   oracleId: string;
-  pool: `0x${string}`;
+  pool: Address;
   firstTokenDecimals: string;
   secondToken: string;
   secondTokenDecimals: number;
-  secondTokenAddress: `0x${string}`;
+  secondTokenAddress: Address;
 };
 
 const tokens: Partial<Record<keyof typeof ChainId, StablePoolLiquidityToken[]>> = {
@@ -140,7 +144,7 @@ async function getStablePoolPrices(
   try {
     const res = await Promise.all(stablePoolLiquidityPriceCalls);
     const tokenPrice = res.map(v => Number(v));
-    const prices = {};
+    const prices: PricesById = {};
     tokenPrice.forEach((v, i) => {
       const second = chainTokens[i].secondToken;
       const amount = new BigNumber(v).dividedBy(new BigNumber(chainTokens[i].firstTokenDecimals)).toNumber();
@@ -153,10 +157,10 @@ async function getStablePoolPrices(
   }
 }
 
-export async function fetchSolidlyStableTokenPrices(tokenPrices): Promise<Record<string, number>> {
+export async function fetchSolidlyStableTokenPrices(tokenPrices: PricesById): Promise<Record<string, number>> {
   const pricesByChain: Record<string, number>[] = await Promise.all(
-    Object.entries(tokens).map(async ([chainId, chainTokens]) => {
-      const prices = await getStablePoolPrices(tokenPrices, chainTokens, ChainId[chainId]);
+    typedEntries(tokens).map(async ([chainId, chainTokens]) => {
+      const prices = await getStablePoolPrices(tokenPrices, chainTokens, toChainId(chainId));
       return Object.fromEntries(chainTokens.map((token, i) => [token.oracleId, prices[i] || 0]));
     })
   );

@@ -1,10 +1,13 @@
+import type { ChainId } from '@beefyfinance/blockchain-addressbook';
 import { BigNumber } from 'bignumber.js';
+import type { Address } from 'viem';
 import MulticallAbi from '../../abis/common/Multicall/MulticallAbi.ts';
 import ERC20Abi from '../../abis/ERC20Abi.ts';
+import type { LpBreakdown, StandardLpBreakdown } from '../../types/prices.ts';
 import { getLoggerFor } from '../../utils/logger/index.ts';
 import { MULTICALL_V3 } from '../../utils/multicallHelpers.ts';
 import { fetchContract } from '../rpc/client.ts';
-import { getLpBreakdownForOracle, type LpBreakdown } from '../stats/getAmmPrices.ts';
+import { getLpBreakdownForOracle } from '../stats/getAmmPrices.ts';
 import {
   type AssetBalance,
   type ChainTreasuryBalance,
@@ -22,16 +25,14 @@ import { getValidatorBalanceCall } from './validatorHelpers.ts';
 
 const logger = getLoggerFor({ module: 'treasury' });
 
-export const mapAssetToCall = (asset: TreasuryAsset, treasuryAddressesForChain: TreasuryWallet[], chainId: number) => {
+export const mapAssetToCall = (asset: TreasuryAsset, treasuryAddressesForChain: TreasuryWallet[], chainId: ChainId) => {
   if (isTokenAsset(asset) || isVaultAsset(asset) || isGovAsset(asset)) {
     const contract = fetchContract(asset.address, ERC20Abi, chainId);
-    return treasuryAddressesForChain.map(treasuryData =>
-      contract.read.balanceOf([treasuryData.address as `0x${string}`])
-    );
+    return treasuryAddressesForChain.map(treasuryData => contract.read.balanceOf([treasuryData.address as Address]));
   } else if (isNativeAsset(asset)) {
     const multicallContract = fetchContract(MULTICALL_V3[chainId], MulticallAbi, chainId);
     return treasuryAddressesForChain.map(treasuryData =>
-      multicallContract.read.getEthBalance([treasuryData.address as `0x${string}`])
+      multicallContract.read.getEthBalance([treasuryData.address as Address])
     );
   } else if (isConcLiquidityAsset(asset)) {
     return [getLpBreakdownForOracle(asset.oracleId)];
@@ -51,7 +52,7 @@ export const extractBalancesFromTreasuryCallResults = (
       const callResult = callResults[i] as PromiseFulfilledResult<bigint[] | LpBreakdown[] | TreasuryApiResult[]>;
       if (isTokenAsset(asset) || isVaultAsset(asset) || isGovAsset(asset) || isNativeAsset(asset)) {
         const value = callResult.value as bigint[];
-        const bal = {
+        const bal: AssetBalance = {
           address: asset.address.toLowerCase(),
           balances: {},
         };
@@ -78,7 +79,7 @@ export const extractBalancesFromTreasuryCallResults = (
           });
         }
       } else if (isConcLiquidityAsset(asset)) {
-        const value = callResult.value as LpBreakdown[];
+        const value = callResult.value as StandardLpBreakdown[];
         allBalances.push({
           address: asset.address.toLowerCase(),
           balances: {
@@ -92,5 +93,5 @@ export const extractBalancesFromTreasuryCallResults = (
       // console.error('Failed to fetch treasury balance for asset:', asset, callResults[i]);
     }
   });
-  return allBalances.reduce((all, cur) => ((all[cur.address] = cur), all), {});
+  return allBalances.reduce<ChainTreasuryBalance>((all, cur) => ((all[cur.address] = cur), all), {});
 };

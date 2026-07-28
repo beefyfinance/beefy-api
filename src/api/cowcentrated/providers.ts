@@ -69,7 +69,7 @@ export const providers = {
 } as const satisfies Record<string, CowProvider>;
 
 export function getCowProvider(providerId: string | undefined): CowProvider | undefined {
-  return providerId ? providers[providerId] : undefined;
+  return providerId ? (providers as Record<string, CowProvider>)[providerId] : undefined;
 }
 
 export function getCowProviderForClm(clm: AnyCowClm): CowProvider | undefined {

@@ -1,5 +1,6 @@
 import { BigNumber } from 'bignumber.js';
 import type { Abi } from 'viem';
+import type { StandardLpBreakdown } from '../../../../types/prices.ts';
 import { fetchContract } from '../../../rpc/client.ts';
 import type { AaveV4Pool } from './getAaveV4Apys.ts';
 
@@ -18,7 +19,7 @@ export const getAaveV4Prices = async (chainId: number, pools: AaveV4Pool[], toke
     fetchContract(pool.spoke, ISpokeAbi, chainId).read.getReserveSuppliedAssets([BigInt(pool.reserveId)])
   );
   const supplyRes = await Promise.all(supplyCalls);
-  const prices = {};
+  const prices: Record<string, StandardLpBreakdown> = {};
 
   for (let i = 0; i < pools.length; i++) {
     const pool = pools[i];

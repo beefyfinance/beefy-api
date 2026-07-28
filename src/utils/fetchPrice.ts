@@ -27,7 +27,10 @@ export type FetchPriceParams = FetchPriceOracleParams | FetchPriceHardcodeParams
  * Fetches the price of a given oracle id.
  * @dev This function no longer has a built-in cache as the underlying getAmmXPrice functions already have one.
  */
-export async function fetchPrice({ oracle, id }, withUnknownLogging: boolean | string = true): Promise<number> {
+export async function fetchPrice(
+  { oracle, id }: { oracle: unknown; id: unknown },
+  withUnknownLogging: boolean | string = true
+): Promise<number> {
   if ((oracle === 'lps' || oracle === 'tokens' || oracle === 'any') && typeof id === 'string') {
     return fetchPriceTyped({ oracle, id }, withUnknownLogging);
   }

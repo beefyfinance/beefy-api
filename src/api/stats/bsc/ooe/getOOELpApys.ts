@@ -48,8 +48,8 @@ const getFarmApys = async () => {
 };
 
 const getPoolsData = async () => {
-  const balanceCalls = [];
-  const rewardRateCalls = [];
+  const balanceCalls: Promise<bigint>[] = [];
+  const rewardRateCalls: Promise<bigint>[] = [];
   pools.forEach(pool => {
     const rewardPool = fetchContract(pool.rewardPool, IOOEStaking, chainId);
     balanceCalls.push(rewardPool.read.totalCollateral());
