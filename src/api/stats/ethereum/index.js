@@ -16,6 +16,7 @@ import { getCurveApys } from './getCurveApys.js';
 import { getFxApys } from './getFxApys.js';
 import { getSkyApy } from './getSkyApy.js';
 import { getStakeDaoApys } from './getStakeDaoApys.js';
+import { getYieldBasisApys } from './getYieldBasisApys.js';
 import morphoPoolsData from '../../../data/ethereum/morphoPools.json' with { type: 'json' };
 import pendlePoolsData from '../../../data/ethereum/pendlePools.json' with { type: 'json' };
 import pendleUnboostedPoolsData from '../../../data/ethereum/pendleUnboostedPools.json' with { type: 'json' };
@@ -36,6 +37,7 @@ const getApys = [
   () => getPendleApys(pendlePoolsData),
   () => getPendleUnboostedApys(pendleUnboostedPoolsData),
   () => getMorphoApys(ETH_CHAIN_ID, morphoPoolsData),
+  getYieldBasisApys,
   getSkyApy,
   getAaveV4Apys,
   getBeefyCowEthereumApys,
