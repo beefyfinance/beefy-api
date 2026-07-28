@@ -160,12 +160,12 @@ const args = yargs(hideBin(process.argv))
       choices: Object.keys(projects),
     },
     pool: {
-      type: 'integer',
+      type: 'number',
       demandOption: true,
       describe: 'poolId from respective masterchef contract',
     },
     newFee: {
-      type: 'bool',
+      type: 'boolean',
       demandOption: true,
       describe: 'If the beefy fee is 9.5% use true else use false',
     },
