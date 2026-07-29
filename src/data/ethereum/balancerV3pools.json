@@ -26,8 +26,8 @@
   },
   {
     "name": "balancerv3-ethereum-oseth-waethweth",
-    "address": "0x57c23c58b1d8c3292c15becf07c62c5c52457a42",
-    "gauge": "0x994be003de5fd6e41d37c6948f405eb0759149e6",
+    "address": "0x57c23c58B1D8C3292c15BEcF07c62C5c52457A42",
+    "gauge": "0x994BE003de5FD6E41d37c6948f405EB0759149e6",
     "decimals": "1e18",
     "eol": true,
     "rewards": [
@@ -57,7 +57,7 @@
   },
   {
     "name": "balancerv3-ethereum-waethweth-reth",
-    "address": "0x1ea5870f7c037930ce1d5d8d9317c670e89e13e3",
+    "address": "0x1ea5870f7C037930CE1d5d8d9317c670e89e13E3",
     "gauge": "0x20283cce209b29D19329E8aDa47215a52188aFDc",
     "decimals": "1e18",
     "rewards": [
@@ -84,7 +84,7 @@
         "decimals": "1e18"
       },
       {
-        "address": "0xae78736cd615f374d3085123a210448e74fc6393",
+        "address": "0xae78736Cd615f374D3085123A210448E74Fc6393",
         "oracleId": "rETH",
         "decimals": "1e18"
       }

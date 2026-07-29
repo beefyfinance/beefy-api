@@ -24,8 +24,8 @@
   },
   {
     "name": "curve-op-usdc-usdm",
-    "pool": "0xb52c9213d318956bfa26df2656b161e3cacbb64d",
-    "gauge": "0x9f72b930f58e9fc9f6fbc1e1eb06837391b788b5",
+    "pool": "0xb52c9213d318956bFa26Df2656B161e3cAcbB64d",
+    "gauge": "0x9F72B930f58E9fc9F6fBc1e1EB06837391b788B5",
     "rewards": [
       {
         "token": "0x4200000000000000000000000000000000000042",
@@ -51,8 +51,8 @@
   },
   {
     "name": "curve-op-tricrv",
-    "pool": "0xd8dd9a8b2aca88e68c46af9008259d0ec04b7751",
-    "gauge": "0xb280fab4817c54796f9e6147aa1ad0198cfefb41",
+    "pool": "0xd8dD9a8b2AcA88E68c46aF9008259d0EC04b7751",
+    "gauge": "0xB280fab4817C54796F9E6147aa1ad0198CFEfb41",
     "rewards": [
       {
         "token": "0x4200000000000000000000000000000000000042",
@@ -76,8 +76,8 @@
   },
   {
     "name": "curve-op-tricrypto-crvusd",
-    "pool": "0x4456d13fc6736e8e8330394c0c622103e06ea419",
-    "gauge": "0x3050a62335948e008c6241b3ef9a81a8c0613b76",
+    "pool": "0x4456d13Fc6736e8e8330394c0C622103E06ea419",
+    "gauge": "0x3050A62335948e008C6241B3Ef9A81a8C0613B76",
     "rewards": [
       {
         "token": "0x4200000000000000000000000000000000000042",
@@ -101,8 +101,8 @@
   },
   {
     "name": "curve-op-crvusd-usdc.e",
-    "pool": "0x05fa06d4fb883f67f1cfea0889edbff9e8358101",
-    "gauge": "0x57ef895af21a6c4813043e9d04e8a34592951280",
+    "pool": "0x05FA06D4Fb883F67f1cfEA0889edBff9e8358101",
+    "gauge": "0x57eF895Af21A6C4813043e9D04E8A34592951280",
     "rewards": [
       {
         "token": "0xC52D7F23a2e460248Db6eE192Cb23dD12bDDCbf6",
@@ -128,8 +128,8 @@
   },
   {
     "name": "curve-op-crvusd-usdt",
-    "pool": "0xd1b30ba128573fcd7d141c8a987961b40e047bb6",
-    "gauge": "0x393f3d6bba96db02c3653d21ec582b7f843a2668",
+    "pool": "0xD1b30BA128573fcd7D141C8A987961b40e047BB6",
+    "gauge": "0x393F3d6bBA96dB02C3653D21Ec582b7f843a2668",
     "rewards": [
       {
         "token": "0xC52D7F23a2e460248Db6eE192Cb23dD12bDDCbf6",
@@ -155,8 +155,8 @@
   },
   {
     "name": "curve-op-crvusd-usdc",
-    "pool": "0x03771e24b7c9172d163bf447490b142a15be3485",
-    "gauge": "0xf9cb3854a922655004022a84ba1618b1100cbeef",
+    "pool": "0x03771e24b7C9172d163Bf447490B142a15be3485",
+    "gauge": "0xf9CB3854A922655004022A84Ba1618B1100CBEEf",
     "rewards": [
       {
         "token": "0xC52D7F23a2e460248Db6eE192Cb23dD12bDDCbf6",
@@ -182,8 +182,8 @@
   },
   {
     "name": "curve-op-crvusd-susd",
-    "pool": "0x56771e7a9df6e977164b48e07aa3f5dadf448402",
-    "gauge": "0x6a7b02338a0a7152e08f768c46d9dd837c35c2df",
+    "pool": "0x56771e7a9Df6E977164B48e07Aa3F5dadf448402",
+    "gauge": "0x6A7b02338A0A7152e08f768c46D9Dd837c35C2df",
     "rewards": [
       {
         "token": "0xC52D7F23a2e460248Db6eE192Cb23dD12bDDCbf6",

@@ -81,7 +81,7 @@
   },
   {
     "name": "lithos-wxpl-usdt0",
-    "address": "0xa0926801a2abc718822a60d8fa1bc2a51fa09f1e",
+    "address": "0xA0926801A2abC718822a60d8Fa1bc2A51Fa09F1e",
     "gauge": "0x74d336DB3d5BE2BDc9D07048a7E0cE6f4ad4E7Dc",
     "decimals": "1e18",
     "chainId": 9745,

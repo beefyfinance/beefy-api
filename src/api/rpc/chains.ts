@@ -20,7 +20,7 @@ const avalancheChain = {
   },
   contracts: {
     multicall3: {
-      address: '0xca11bde05977b3631167028862be2a173976ca11',
+      address: '0xcA11bde05977b3631167028862bE2a173976CA11',
       blockCreated: 11_907_934,
     },
   },
@@ -44,7 +44,7 @@ const bscChain = {
   },
   contracts: {
     multicall3: {
-      address: '0xca11bde05977b3631167028862be2a173976ca11',
+      address: '0xcA11bde05977b3631167028862bE2a173976CA11',
       blockCreated: 15_921_452,
     },
   },
@@ -68,7 +68,7 @@ const polygonChain = {
   },
   contracts: {
     multicall3: {
-      address: '0xca11bde05977b3631167028862be2a173976ca11',
+      address: '0xcA11bde05977b3631167028862bE2a173976CA11',
       blockCreated: 25_770_160,
     },
   },
@@ -92,7 +92,7 @@ const arbitrumChain = {
   },
   contracts: {
     multicall3: {
-      address: '0xca11bde05977b3631167028862be2a173976ca11',
+      address: '0xcA11bde05977b3631167028862bE2a173976CA11',
       blockCreated: 24_185_753,
     },
   },
@@ -115,7 +115,7 @@ const celoChain = {
   },
   contracts: {
     multicall3: {
-      address: '0xca11bde05977b3631167028862be2a173976ca11',
+      address: '0xcA11bde05977b3631167028862bE2a173976CA11',
       blockCreated: 13_112_599,
     },
   },
@@ -140,7 +140,7 @@ const moonriverChain = {
   },
   contracts: {
     multicall3: {
-      address: '0xca11bde05977b3631167028862be2a173976ca11',
+      address: '0xcA11bde05977b3631167028862bE2a173976CA11',
       blockCreated: 1_597_904,
     },
   },
@@ -174,7 +174,7 @@ const auroraChain = {
   },
   contracts: {
     multicall3: {
-      address: '0xca11bde05977b3631167028862be2a173976ca11',
+      address: '0xcA11bde05977b3631167028862bE2a173976CA11',
       blockCreated: 62_907_816,
     },
   },
@@ -197,7 +197,7 @@ const fuseChain = {
   },
   contracts: {
     multicall3: {
-      address: '0xca11bde05977b3631167028862be2a173976ca11',
+      address: '0xcA11bde05977b3631167028862bE2a173976CA11',
       blockCreated: 16_146_628,
     },
   },
@@ -220,7 +220,7 @@ const metisChain = {
   },
   contracts: {
     multicall3: {
-      address: '0xca11bde05977b3631167028862be2a173976ca11',
+      address: '0xcA11bde05977b3631167028862bE2a173976CA11',
       blockCreated: 2_338_552,
     },
   },
@@ -243,7 +243,7 @@ const emeraldChain = {
   },
   contracts: {
     multicall3: {
-      address: '0xca11bde05977b3631167028862be2a173976ca11',
+      address: '0xcA11bde05977b3631167028862bE2a173976CA11',
       blockCreated: 1_481_392,
     },
   },
@@ -267,7 +267,7 @@ const optimismChain = {
   },
   contracts: {
     multicall3: {
-      address: '0xca11bde05977b3631167028862be2a173976ca11',
+      address: '0xcA11bde05977b3631167028862bE2a173976CA11',
       blockCreated: 4_286_263,
     },
   },
@@ -291,7 +291,7 @@ const ethereumChain = {
   },
   contracts: {
     multicall3: {
-      address: '0xca11bde05977b3631167028862be2a173976ca11',
+      address: '0xcA11bde05977b3631167028862bE2a173976CA11',
       blockCreated: 14_353_601,
     },
   },
@@ -337,7 +337,7 @@ const zkEvmChain = {
   },
   contracts: {
     multicall3: {
-      address: '0xca11bde05977b3631167028862be2a173976ca11',
+      address: '0xcA11bde05977b3631167028862bE2a173976CA11',
     },
   },
 } as const satisfies Chain;
@@ -359,7 +359,7 @@ const baseChain = {
   },
   contracts: {
     multicall3: {
-      address: '0xca11bde05977b3631167028862be2a173976ca11',
+      address: '0xcA11bde05977b3631167028862bE2a173976CA11',
     },
   },
 } as const satisfies Chain;
@@ -381,7 +381,7 @@ const gnosisChain = {
   },
   contracts: {
     multicall3: {
-      address: '0xca11bde05977b3631167028862be2a173976ca11',
+      address: '0xcA11bde05977b3631167028862bE2a173976CA11',
     },
   },
 } as const satisfies Chain;
@@ -403,7 +403,7 @@ const lineaChain = {
   },
   contracts: {
     multicall3: {
-      address: '0xca11bde05977b3631167028862be2a173976ca11',
+      address: '0xcA11bde05977b3631167028862bE2a173976CA11',
     },
   },
 } as const satisfies Chain;
@@ -425,7 +425,7 @@ const mantleChain = {
   },
   contracts: {
     multicall3: {
-      address: '0xca11bde05977b3631167028862be2a173976ca11',
+      address: '0xcA11bde05977b3631167028862bE2a173976CA11',
     },
   },
 } as const satisfies Chain;
@@ -447,7 +447,7 @@ const fraxtalChain = {
   },
   contracts: {
     multicall3: {
-      address: '0xca11bde05977b3631167028862be2a173976ca11',
+      address: '0xcA11bde05977b3631167028862bE2a173976CA11',
     },
   },
 } as const satisfies Chain;
@@ -469,7 +469,7 @@ const seiChain = {
   },
   contracts: {
     multicall3: {
-      address: '0xca11bde05977b3631167028862be2a173976ca11',
+      address: '0xcA11bde05977b3631167028862bE2a173976CA11',
     },
   },
 } as const satisfies Chain;
@@ -491,7 +491,7 @@ const rootstockChain = {
   },
   contracts: {
     multicall3: {
-      address: '0xca11bde05977b3631167028862be2a173976ca11',
+      address: '0xcA11bde05977b3631167028862bE2a173976CA11',
     },
   },
 } as const satisfies Chain;
@@ -515,7 +515,7 @@ const plasmaChain = {
   },
   contracts: {
     multicall3: {
-      address: '0xca11bde05977b3631167028862be2a173976ca11',
+      address: '0xcA11bde05977b3631167028862bE2a173976CA11',
     },
   },
 } as const satisfies Chain;
@@ -537,7 +537,7 @@ const monadChain = {
   },
   contracts: {
     multicall3: {
-      address: '0xca11bde05977b3631167028862be2a173976ca11',
+      address: '0xcA11bde05977b3631167028862bE2a173976CA11',
     },
   },
 } as const satisfies Chain;
@@ -559,7 +559,7 @@ const hyperevmChain = {
   },
   contracts: {
     multicall3: {
-      address: '0xca11bde05977b3631167028862be2a173976ca11',
+      address: '0xcA11bde05977b3631167028862bE2a173976CA11',
     },
   },
 } as const satisfies Chain;
@@ -581,7 +581,7 @@ const berachainChain = {
   },
   contracts: {
     multicall3: {
-      address: '0xca11bde05977b3631167028862be2a173976ca11',
+      address: '0xcA11bde05977b3631167028862bE2a173976CA11',
     },
   },
 } as const satisfies Chain;
@@ -603,7 +603,7 @@ const sonicChain = {
   },
   contracts: {
     multicall3: {
-      address: '0xca11bde05977b3631167028862be2a173976ca11',
+      address: '0xcA11bde05977b3631167028862bE2a173976CA11',
     },
   },
 } as const satisfies Chain;
@@ -625,7 +625,7 @@ const liskChain = {
   },
   contracts: {
     multicall3: {
-      address: '0xca11bde05977b3631167028862be2a173976ca11',
+      address: '0xcA11bde05977b3631167028862bE2a173976CA11',
     },
   },
 } as const satisfies Chain;
@@ -647,7 +647,7 @@ const scrollChain = {
   },
   contracts: {
     multicall3: {
-      address: '0xca11bde05977b3631167028862be2a173976ca11',
+      address: '0xcA11bde05977b3631167028862bE2a173976CA11',
     },
   },
 } as const satisfies Chain;
@@ -669,7 +669,7 @@ const megaethChain = {
   },
   contracts: {
     multicall3: {
-      address: '0xca11bde05977b3631167028862be2a173976ca11',
+      address: '0xcA11bde05977b3631167028862bE2a173976CA11',
     },
   },
 } as const satisfies Chain;
@@ -691,7 +691,7 @@ const robinhoodChain = {
   },
   contracts: {
     multicall3: {
-      address: '0xca11bde05977b3631167028862be2a173976ca11',
+      address: '0xcA11bde05977b3631167028862bE2a173976CA11',
     },
   },
 } as const satisfies Chain;
@@ -714,7 +714,7 @@ const robinhoodChain = {
 //   },
 //   contracts: {
 //     multicall3: {
-//       address: '0xca11bde05977b3631167028862be2a173976ca11',
+//       address: '0xcA11bde05977b3631167028862bE2a173976CA11',
 //     },
 //   },
 // } as const satisfies Chain;
