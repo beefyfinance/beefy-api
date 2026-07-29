@@ -1,5 +1,6 @@
 import { ETH_CHAIN_ID } from '../../../constants.ts';
 import { getLoggerFor } from '../../../utils/logger/index.ts';
+import type { ApyBreakdownResult } from '../common/getApyBreakdownNew.ts';
 import { getMorphoApys } from '../common/morpho/getMorphoApys.ts';
 import { getPendleApys } from '../common/pendle/getPendleApys.ts';
 import { getPendleUnboostedApys } from '../common/pendle/getPendleUnboostedApys.ts';
@@ -48,7 +49,7 @@ const getEthereumApys = async () => {
   let apys = {};
   let apyBreakdowns = {};
 
-  let promises = [];
+  let promises: Promise<Partial<ApyBreakdownResult>>[] = [];
   getApys.forEach(getApy => promises.push(getApy()));
   const results = await Promise.allSettled(promises);
 
@@ -59,8 +60,8 @@ const getEthereumApys = async () => {
     }
 
     // Set default APY values
-    let mappedApyValues = result.value;
-    let mappedApyBreakdownValues = {};
+    let mappedApyValues: object | undefined = result.value;
+    let mappedApyBreakdownValues: Record<string, unknown> | undefined = {};
 
     // Loop through key values and move default breakdown format
     // To require totalApy key

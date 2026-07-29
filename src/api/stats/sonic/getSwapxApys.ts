@@ -1,7 +1,7 @@
 import { BigNumber } from 'bignumber.js';
 import { SONIC_CHAIN_ID as chainId } from '../../../constants.ts';
 import { getApyBreakdown } from '../common/getApyBreakdownNew.ts';
-import { getFarmApys } from '../common/getSolidlyGaugeApys.ts';
+import { getFarmApys, type SolidlyGaugePool } from '../common/getSolidlyGaugeApys.ts';
 import ichiPools from '../../../data/sonic/swapxIchiPools.json' with { type: 'json' };
 
 const pools = [...ichiPools];
@@ -23,6 +23,6 @@ export const getSwapxApys = async () => {
   return getApyBreakdown(pools.map((p, i) => ({ vaultId: p.name, vault: farmApys[i].plus(gemsxApys[i]) })));
 };
 
-async function getGemsxApy(pools) {
+async function getGemsxApy(pools: SolidlyGaugePool[]) {
   return pools.map(_ => new BigNumber(0));
 }

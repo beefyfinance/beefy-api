@@ -1,12 +1,24 @@
+import type { ChainId } from '@beefyfinance/blockchain-addressbook';
 import { BigNumber } from 'bignumber.js';
 import ThenaLPAbi from '../../../abis/bsc/ThenaLP.ts';
+import type { LpToken } from '../../../types/LpPool.ts';
+import type { PricesById, StandardLpBreakdown } from '../../../types/prices.ts';
 import { getLoggerFor } from '../../../utils/logger/index.ts';
 import { fetchContract } from '../../rpc/client.ts';
 
 const logger = getLoggerFor({ module: 'prices', platform: 'gamma' });
 
-export const getGammaPrices = async (chainId, pools, tokenPrices) => {
-  const [amountCalls, totalSupplyCalls] = pools.reduce(
+export type GammaPool = {
+  name: string;
+  address: string;
+  lp0: LpToken;
+  lp1: LpToken;
+};
+
+type GammaTotalAmounts = readonly [bigint, bigint];
+
+export const getGammaPrices = async (chainId: ChainId, pools: GammaPool[], tokenPrices: PricesById) => {
+  const [amountCalls, totalSupplyCalls] = pools.reduce<[Promise<GammaTotalAmounts>[], Promise<bigint>[]]>(
     (acc, pool) => {
       const contract = fetchContract(pool.address, ThenaLPAbi, chainId);
       acc[0].push(contract.read.getTotalAmounts());
@@ -21,7 +33,7 @@ export const getGammaPrices = async (chainId, pools, tokenPrices) => {
     Promise.all(totalSupplyCalls),
   ]);
 
-  let prices = {};
+  let prices: Record<string, StandardLpBreakdown> = {};
   for (let i = 0; i < pools.length; i++) {
     const pool = pools[i];
     const lp0 = pool.lp0;
@@ -44,7 +56,7 @@ export const getGammaPrices = async (chainId, pools, tokenPrices) => {
   return prices;
 };
 
-const getTokenPrice = (tokenPrices, oracleId) => {
+const getTokenPrice = (tokenPrices: PricesById, oracleId: string) => {
   if (!oracleId) return 1;
   let tokenPrice = 1;
   const tokenSymbol = oracleId;

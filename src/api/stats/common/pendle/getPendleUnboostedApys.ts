@@ -1,10 +1,10 @@
 import { getLoggerFor } from '../../../../utils/logger/index.ts';
 import { getApyBreakdown } from '../getApyBreakdownNew.ts';
-import { getPendleApys } from './getPendleBaseApys.ts';
+import { getPendleApys, type PendlePool } from './getPendleBaseApys.ts';
 
 const logger = getLoggerFor({ module: 'apy', platform: 'pendle' });
 
-export async function getPendleUnboostedApys(allPools) {
+export async function getPendleUnboostedApys(allPools: PendlePool[]) {
   const chainId = allPools[0].chainId;
   if (!chainId) throw new Error(`Add chainId to first pendle pool: ${allPools[0].name}`);
 
@@ -21,9 +21,9 @@ export async function getPendleUnboostedApys(allPools) {
   ]);
 }
 
-function filterExpired(pools) {
-  const expired = [];
-  const alive = [];
+function filterExpired(pools: PendlePool[]) {
+  const expired: PendlePool[] = [];
+  const alive: PendlePool[] = [];
   pools.forEach(pool => {
     const date = pool.name.split('-').pop();
     const timestamp = Date.parse(`${date} UTC`) || 0;

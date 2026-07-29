@@ -1,6 +1,8 @@
+import type { ChainId } from '@beefyfinance/blockchain-addressbook';
 import { BigNumber } from 'bignumber.js';
 import { parseAbi } from 'viem';
 import { default as ERC20Abi } from '../../../../abis/ERC20Abi.ts';
+import type { PricesById, StandardLpBreakdown } from '../../../../types/prices.ts';
 import { getLoggerFor } from '../../../../utils/logger/index.ts';
 import { fetchContract } from '../../../rpc/client.ts';
 
@@ -8,8 +10,18 @@ const logger = getLoggerFor({ module: 'prices', platform: 'curve' });
 
 const ICurveVault = parseAbi(['function pricePerShare() view returns (uint)']);
 
-export const getCurveLendPricesCommon = async (chainId, pools, tokenPrices) => {
-  let prices = {};
+export type CurveLendPricePool = {
+  name: string;
+  address: string;
+  oracleId?: string;
+};
+
+export const getCurveLendPricesCommon = async (
+  chainId: ChainId,
+  pools: CurveLendPricePool[],
+  tokenPrices: PricesById
+) => {
+  let prices: Record<string, StandardLpBreakdown> = {};
 
   const ppsCalls = pools.map(pool => fetchContract(pool.address, ICurveVault, chainId).read.pricePerShare());
   const supplyCalls = pools.map(pool => fetchContract(pool.address, ERC20Abi, chainId).read.totalSupply());
@@ -31,7 +43,7 @@ export const getCurveLendPricesCommon = async (chainId, pools, tokenPrices) => {
   return prices;
 };
 
-const getTokenPrice = (tokenPrices, oracleId) => {
+const getTokenPrice = (tokenPrices: PricesById, oracleId: string | undefined) => {
   if (!oracleId) {
     logger.warn('lend prices oracleId is not defined');
     return 1;

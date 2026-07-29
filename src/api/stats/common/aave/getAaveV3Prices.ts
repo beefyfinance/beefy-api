@@ -1,12 +1,21 @@
+import type { ChainId } from '@beefyfinance/blockchain-addressbook';
 import { BigNumber } from 'bignumber.js';
 import ERC20Abi from '../../../../abis/ERC20Abi.ts';
+import type { PricesById, StandardLpBreakdown } from '../../../../types/prices.ts';
 import { fetchContract } from '../../../rpc/client.ts';
 
-export const getAaveV3Prices = async (chainId, pools, tokenPrices) => {
+export type AaveV3PricePool = {
+  name: string;
+  aToken: string;
+  oracleId: string;
+  decimals: string;
+};
+
+export const getAaveV3Prices = async (chainId: ChainId, pools: AaveV3PricePool[], tokenPrices: PricesById) => {
   const supplyCalls = pools.map(pool => fetchContract(pool.aToken, ERC20Abi, chainId).read.totalSupply());
   const [supplyRes] = await Promise.all([Promise.all(supplyCalls)]);
 
-  let prices = {};
+  let prices: Record<string, StandardLpBreakdown> = {};
   for (let i = 0; i < pools.length; i++) {
     const pool = pools[i];
     const price = tokenPrices[pool.oracleId];

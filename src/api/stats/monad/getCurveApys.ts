@@ -1,3 +1,4 @@
+import type { BigNumber } from 'bignumber.js';
 import { MONAD_CHAIN_ID as chainId } from '../../../constants.ts';
 import { getMerklApys } from '../common/curve/getCurveApysCommon.ts';
 import { getApyBreakdown } from '../common/getApyBreakdownNew.ts';
@@ -7,7 +8,7 @@ const pools = curvePoolsData.filter(p => p.gauge);
 const subgraphApyUrl = 'https://api.curve.finance/api/getSubgraphData/plasma';
 
 export const getCurveApys = async () => {
-  const [baseApys, curveApys] = await Promise.all([
+  const [baseApys, curveApys]: [Record<string, BigNumber>, BigNumber[]] = await Promise.all([
     // getCurveSubgraphApys(pools, subgraphApyUrl),
     {},
     getMerklApys(chainId, pools),

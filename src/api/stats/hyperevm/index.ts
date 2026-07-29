@@ -1,5 +1,6 @@
 import { HYPEREVM_CHAIN_ID } from '../../../constants.ts';
 import { getLoggerFor } from '../../../utils/logger/index.ts';
+import type { ApyBreakdownResult } from '../common/getApyBreakdownNew.ts';
 import { getBeefyCowHyperevmApys } from './getBeefyCowHyperevmApys.ts';
 
 const logger = getLoggerFor({ module: 'apy', chain: HYPEREVM_CHAIN_ID });
@@ -15,7 +16,7 @@ const getHyperevmApys = async () => {
   let apys = {};
   let apyBreakdowns = {};
 
-  let promises = [];
+  let promises: Promise<Partial<ApyBreakdownResult>>[] = [];
   getApys.forEach(getApy => promises.push(getApy()));
   const results = await Promise.allSettled(promises);
 
@@ -26,8 +27,8 @@ const getHyperevmApys = async () => {
     }
 
     // Set default APY values
-    let mappedApyValues = result.value;
-    let mappedApyBreakdownValues = {};
+    let mappedApyValues: Partial<ApyBreakdownResult> | Record<string, number> | undefined = result.value;
+    let mappedApyBreakdownValues: Record<string, { totalApy: unknown }> | undefined = {};
 
     // Loop through key values and move default breakdown format
     // To require totalApy key

@@ -1,19 +1,23 @@
-import getBalancerPrices from '../api/stats/common/balancer/getBalancerPrices.ts';
+import type { ChainId } from '@beefyfinance/blockchain-addressbook';
+import getBalancerPrices, { type BalancerPricePool } from '../api/stats/common/balancer/getBalancerPrices.ts';
+import type { PricesById } from '../types/prices.ts';
 import balancerLinearPools from '../data/ethereum/balancerLinearPools.json' with { type: 'json' };
+
+type MultiChainBalancerPricePool = BalancerPricePool & { chainId: ChainId };
 
 const linearPoolPools = [...balancerLinearPools];
 
-const fetchBalancerLinearPoolPrice = async tokenPrices => {
-  let prices = {};
+const fetchBalancerLinearPoolPrice = async (tokenPrices: PricesById): Promise<PricesById> => {
+  let prices: PricesById = {};
   const results = await fetchPoolPrice(tokenPrices, linearPoolPools);
 
   return { ...prices, ...results };
 };
 
-const fetchPoolPrice = async (tokenPrices, pools) => {
+const fetchPoolPrice = async (tokenPrices: PricesById, pools: MultiChainBalancerPricePool[]): Promise<PricesById> => {
   const chainIds = pools.map(p => p.chainId);
   const uniqueChainIds = [...new Set(chainIds)];
-  let prices = {};
+  let prices: PricesById = {};
 
   const results = await Promise.all(
     uniqueChainIds.map(chainId => {
@@ -26,8 +30,8 @@ const fetchPoolPrice = async (tokenPrices, pools) => {
   return prices;
 };
 
-const getPrice = async (chainId, pools, tokenPrices) => {
-  let prices = {};
+const getPrice = async (chainId: ChainId, pools: BalancerPricePool[], tokenPrices: PricesById): Promise<PricesById> => {
+  let prices: PricesById = {};
   let results = await getBalancerPrices(chainId, pools, tokenPrices);
   for (const [key, value] of Object.entries(results)) {
     let price = { [key]: value.price };

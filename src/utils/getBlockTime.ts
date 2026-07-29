@@ -1,3 +1,4 @@
+import type { ChainId } from '@beefyfinance/blockchain-addressbook';
 import { default as BigNumber } from 'bignumber.js';
 import { getRPCClient } from '../api/rpc/client.ts';
 import { getLoggerFor } from './logger/index.ts';
@@ -7,8 +8,8 @@ const logger = getLoggerFor({ module: 'rpc' });
 const updateDelay = 3000000;
 const blockPeriod = 1000n;
 
-let cache = {};
-const getBlockTime = async chainId => {
+let cache: Record<number, { lastUpdate: number; blockDuration: BigNumber }> = {};
+const getBlockTime = async (chainId: ChainId) => {
   try {
     const now = Date.now();
     if (cache[chainId] && cache[chainId].lastUpdate > now - updateDelay) {

@@ -1,6 +1,9 @@
 import { BigNumber } from 'bignumber.js';
+import type { Address } from 'viem';
 import BunniLensAbi from '../../../abis/BunniLens.ts';
 import { BASE_CHAIN_ID } from '../../../constants.ts';
+import type { LpToken } from '../../../types/LpPool.ts';
+import type { PricesById, StandardLpBreakdown } from '../../../types/prices.ts';
 import { getLoggerFor } from '../../../utils/logger/index.ts';
 import { fetchContract } from '../../rpc/client.ts';
 
@@ -10,11 +13,20 @@ const lens = {
   [BASE_CHAIN_ID]: '0x3eD7357337853E2Fd8d4b6CbABCDAA0858b40f01',
 };
 
-export const getBunniPrices = async (chainId, pools, tokenPrices) => {
-  const [calls] = pools.reduce(
+export type BunniPool = {
+  name: string;
+  address: string;
+  lp0: LpToken;
+  lp1: LpToken;
+};
+
+type BunniTokenBalances = readonly [bigint, bigint, bigint];
+
+export const getBunniPrices = async (chainId: typeof BASE_CHAIN_ID, pools: BunniPool[], tokenPrices: PricesById) => {
+  const [calls] = pools.reduce<[Promise<BunniTokenBalances>[], unknown[]]>(
     (acc, pool) => {
       const contract = fetchContract(lens[chainId], BunniLensAbi, chainId);
-      acc[0].push(contract.read.tokenBalances([pool.address]));
+      acc[0].push(contract.read.tokenBalances([pool.address as Address]));
       return acc;
     },
     [[], []]
@@ -22,7 +34,7 @@ export const getBunniPrices = async (chainId, pools, tokenPrices) => {
 
   const [balanceCalls] = await Promise.all([Promise.all(calls)]);
 
-  let prices = {};
+  let prices: Record<string, StandardLpBreakdown> = {};
   for (let i = 0; i < pools.length; i++) {
     const pool = pools[i];
     const lp0 = pool.lp0;
@@ -45,7 +57,7 @@ export const getBunniPrices = async (chainId, pools, tokenPrices) => {
   return prices;
 };
 
-const getTokenPrice = (tokenPrices, oracleId) => {
+const getTokenPrice = (tokenPrices: PricesById, oracleId: string) => {
   if (!oracleId) return 1;
   let tokenPrice = 1;
   const tokenSymbol = oracleId;

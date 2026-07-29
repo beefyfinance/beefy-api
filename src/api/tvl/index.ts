@@ -1,9 +1,10 @@
+import type { Context } from 'koa';
 import { getLoggerFor } from '../../utils/logger/index.ts';
 import { getTvl } from '../stats/getTvl.ts';
 
 const logger = getLoggerFor({ module: 'tvl' });
 
-async function vaultTvl(ctx) {
+async function vaultTvl(ctx: Context) {
   try {
     const vaultTvl = await getTvl();
     ctx.status = 200;

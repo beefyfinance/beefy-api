@@ -10,16 +10,27 @@ import getBlockTime from '../../../utils/getBlockTime.ts';
 import { getEDecimals } from '../../../utils/getEDecimals.ts';
 import { getTradingFeeApr, getTradingFeeAprBalancer, getTradingFeeAprSushi } from '../../../utils/getTradingFeeApr.ts';
 import { getLoggerFor } from '../../../utils/logger/index.ts';
+import type { TypedOmit } from '../../../utils/object.ts';
 import { fetchContract } from '../../rpc/client.ts';
 import { type ApyBreakdownResult, getApyBreakdown } from '../common/getApyBreakdown.ts';
 
 const logger = getLoggerFor({ module: 'apy', platform: 'multiRewardMasterChef' });
 
+type WithOptionalDecimalsAndChainId<T extends { decimals: string; chainId: ChainId }> = TypedOmit<
+  T,
+  'decimals' | 'chainId'
+> & {
+  decimals?: string;
+  chainId?: ChainId;
+};
+
+export type MasterChefPool = WithOptionalDecimalsAndChainId<LpPool> | WithOptionalDecimalsAndChainId<SingleAssetPool>;
+
 export interface MasterChefApysParams {
   chainId: ChainId;
   masterchef: string;
   singlePools?: SingleAssetPool[];
-  pools?: (LpPool | SingleAssetPool)[];
+  pools?: MasterChefPool[];
   oracle: string;
   oracleId: string;
   decimals: string;
@@ -34,7 +45,7 @@ export interface MasterChefApysParams {
   burn?: number;
 }
 
-type NormalizedMasterChefApysParams = MasterChefApysParams & { pools: (LpPool | SingleAssetPool)[] };
+type NormalizedMasterChefApysParams = MasterChefApysParams & { pools: MasterChefPool[] };
 
 export const getMultiRewardMasterChefApys = async (
   masterchefParams: MasterChefApysParams

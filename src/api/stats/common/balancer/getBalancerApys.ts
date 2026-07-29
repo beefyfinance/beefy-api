@@ -68,7 +68,7 @@ export const getBalancerApys = async (params: BalancerParams): Promise<ApyBreakd
 
   return getApyBreakdown(
     params.pools,
-    tradingAprs.tradingAprMap as Record<string, BigNumber>,
+    tradingAprs.tradingAprMap,
     poolApys.farmAprs,
     liquidityProviderFee,
     tradingAprs.lstAprs
