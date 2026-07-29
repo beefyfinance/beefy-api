@@ -15,9 +15,7 @@ const timeoutFetch: typeof fetch = (input, init) => {
 export function client(url: string | undefined) {
   return new ApolloClient({
     link: new HttpLink({ uri: url, fetch: timeoutFetch }),
-    cache: new InMemoryCache({
-      addTypename: false,
-    }),
+    cache: new InMemoryCache(),
     defaultOptions: {
       query: {
         fetchPolicy: 'no-cache',
