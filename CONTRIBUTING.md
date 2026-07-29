@@ -49,7 +49,7 @@ number before opening the PR.
 **Token and protocol addresses** go in `packages/address-book/`, under
 `src/address-book/<chain>/tokens/` and `<chain>/platforms/`. Two rules matter:
 
-- Addresses must be EIP-55 checksummed. The commit hook tells you the correct form if you get it wrong.
+- Addresses must be EIP-55 checksummed. The commit hook rewrites them for you, so a wrong-case address is staged corrected rather than rejected. Run `pnpm run check-addresses` to check by hand, or `:fix` to rewrite.
 - Never edit the package version by hand — it is bumped and published automatically when your PR merges.
 
 **New endpoints** need a handler under `src/api/` and a route in `src/router.js`. If the data needs
