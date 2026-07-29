@@ -15,6 +15,7 @@ type ConvexStakedCvxFxsResponse = {
 export const getConvexCvxFxsApys = async () => {
   let apy = new BigNumber(0);
   try {
+    // FIXME(unsafe-cast): unchecked response shape
     const apyData = (await fetch('https://frax.convexfinance.com/api/frax/staked-cvxfxs').then(res =>
       res.json()
     )) as ConvexStakedCvxFxsResponse;

@@ -88,6 +88,7 @@ export const getMorphoApys = async (chainId: ChainId, pools: MorphoPool[]) => {
   // Execute API calls concurrently
   const apiCalls: Promise<MorphoApiResponse>[] = [];
   if (queryV1) {
+    // FIXME(unsafe-cast): unchecked response shape
     apiCalls.push(
       fetch('https://api.morpho.org/graphql', {
         method: 'POST',
@@ -99,6 +100,7 @@ export const getMorphoApys = async (chainId: ChainId, pools: MorphoPool[]) => {
     );
   }
   if (queryV2) {
+    // FIXME(unsafe-cast): unchecked response shape
     apiCalls.push(
       fetch('https://api.morpho.org/graphql', {
         method: 'POST',

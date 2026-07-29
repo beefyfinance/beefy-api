@@ -49,6 +49,7 @@ type FxExtraRewardInfo = {
 type FxGaugeRewardData = readonly [bigint, bigint, number, number];
 
 export const getFxApys = async () => {
+  // FIXME(unsafe-cast): may be undefined
   const [baseApys, farmApys] = await Promise.all([
     getCurveSubgraphApys(pools, subgraphUrl),
     getPoolApys(pools as FxApyPool[]),
@@ -140,6 +141,7 @@ const getPoolApys = async (pools: FxApyPool[]) => {
 
     for (const extra of extras.filter(e => e.pool === pool.name)) {
       if (extra.periodFinish.lt(Date.now() / 1000)) continue;
+      // FIXME(unsafe-cast): may be undefined
       const poolExtra = pool.rewards.find(e => e.token === extra.token) as CurveApyReward;
       const price = await fetchPrice({
         oracle: poolExtra.oracle ?? 'tokens',

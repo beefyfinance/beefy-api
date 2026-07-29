@@ -74,6 +74,7 @@ export async function getStakeDaoV2Apys(chainId: ChainId, pools: StakeDaoV2Pool[
   const extraData: StakeDaoV2ExtraRewardData[] = [],
     extraCalls: Promise<StakeDaoV2GaugeRewardData>[] = [];
   const gauges = pools.map(pool => {
+    // FIXME(unsafe-cast): checked previously; add typeguard
     const gauge = fetchContract(pool.gauge as string, ICurveGauge, chainId);
     pool.rewards?.forEach(extra => {
       extraCalls.push(gauge.read.reward_data([extra.token as Address]));
@@ -152,6 +153,7 @@ export async function getStakeDaoV2Apys(chainId: ChainId, pools: StakeDaoV2Pool[
 
     for (const extra of extras.filter(e => e.pool === pool.name)) {
       if (extra.periodFinish < Date.now() / 1000) continue;
+      // FIXME(unsafe-cast): checked previously; add typeguard
       const poolExtra = pool.rewards?.find(e => e.token === extra.token) as CurveApyReward;
       const price = await fetchPrice({ oracle: poolExtra.oracle ?? 'tokens', id: poolExtra.oracleId });
       const extraRewardsInUsd = extra.rewardRate.times(secondsPerYear).times(price);

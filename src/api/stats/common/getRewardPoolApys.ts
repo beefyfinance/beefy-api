@@ -89,6 +89,7 @@ const getTradingAprs = async (params: RewardPoolApyParams) => {
   }
 
   if (params.gammaClient) {
+    // FIXME(unsafe-cast): unchecked response shape
     const response = await fetch(params.gammaClient).then(res => res.json() as Promise<GammaFeeApiResponse>);
     params.pools.forEach(p => {
       tradingAprs[p.address.toLowerCase()] = new BigNumber(response[p.address.toLowerCase()].returns.daily.feeApr);
@@ -174,9 +175,11 @@ export const getPoolsData = async (params: RewardPoolApyParams) => {
         : IRewardPool;
 
   params.pools.forEach(pool => {
+    // FIXME(unsafe-cast): checked previously; add typeguard
     const rewardPool = fetchContract(pool.rewardPool ? pool.rewardPool : (pool.gauge as string), abi, params.chainId);
 
     const stakedTokenContract = fetchContract(pool.address, ERC20Abi, params.chainId);
+    // FIXME(unsafe-cast): checked previously; add typeguard
     balanceCalls.push(
       params.cake ? stakedTokenContract.read.balanceOf([pool.gauge as Address]) : rewardPool.read.totalSupply()
     );
@@ -197,6 +200,7 @@ export const getPoolsData = async (params: RewardPoolApyParams) => {
 
     pool.extras?.forEach(extra => {
       const extraPool = fetchContract(extra.rewardPool, extra.infrared ? InfraredGauge : IWrapper, params.chainId);
+      // FIXME(unsafe-cast): may be undefined
       extraCalls.push(
         extra.infrared ? extraPool.read.rewardData([extra.rewardToken as Address]) : extraPool.read.rewardPerSecond()
       );
@@ -211,13 +215,17 @@ export const getPoolsData = async (params: RewardPoolApyParams) => {
     Promise.all(extraCalls),
   ]);
 
+  // FIXME(unsafe-cast): unchecked response shape
   const balances = res[0].map(v => new BigNumber(v as bigint));
+  // FIXME(unsafe-cast): unchecked response shape
   const rewardRates = res[1].map(
     v => new BigNumber(params.infrared ? (v as InfraredRewardData)[3].toString() : (v as bigint).toString())
   );
+  // FIXME(unsafe-cast): unchecked response shape
   const periodFinishes = res[2].map(
     v => new BigNumber(params.infrared ? (v as InfraredRewardData)[2].toString() : (v as bigint).toString())
   );
+  // FIXME(unsafe-cast): unchecked response shape
   const extraRates = res[3].map(
     v => new BigNumber(params.infrared ? (v as InfraredRewardData)[3].toString() : (v as bigint).toString())
   );
@@ -227,8 +235,11 @@ export const getPoolsData = async (params: RewardPoolApyParams) => {
 };
 
 const getXPrice = async (tokenPrice: number, params: RewardPoolApyParams) => {
+  // FIXME(unsafe-cast): may be undefined
   const tokenContract = fetchContract(params.tokenAddress as string, ERC20Abi, params.chainId);
+  // FIXME(unsafe-cast): may be undefined
   const xTokenContract = fetchContract(params.xTokenAddress as string, ERC20Abi, params.chainId);
+  // FIXME(unsafe-cast): may be undefined
   const [stakedInXPool, totalXSupply] = await Promise.all([
     tokenContract.read.balanceOf([params.xTokenAddress as Address]),
     xTokenContract.read.totalSupply(),

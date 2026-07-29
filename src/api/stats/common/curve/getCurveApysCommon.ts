@@ -45,6 +45,7 @@ export async function getCurveApysCommon(chainId: ChainId, pools: CurveApyPool[]
     extraCalls: Promise<CurveGaugeRewardData>[] = [],
     extraData: CurveExtraRewardData[] = [];
   pools.forEach(pool => {
+    // FIXME(unsafe-cast): checked previously; add typeguard
     const gauge = fetchContract(pool.gauge as string, ICurveGauge, chainId);
     rewardCalls.push(gauge.read.inflation_rate([BigInt(weekEpoch)]));
     totalSupplyCalls.push(gauge.read.totalSupply());
@@ -94,6 +95,7 @@ export async function getCurveApysCommon(chainId: ChainId, pools: CurveApyPool[]
 
     for (const extra of extras.filter(e => e.pool === pool.name)) {
       if (extra.periodFinish < Date.now() / 1000) continue;
+      // FIXME(unsafe-cast): checked previously; add typeguard
       const poolExtra = pool.rewards?.find(e => e.token === extra.token) as CurveApyReward;
       const price = await fetchPrice({
         oracle: poolExtra.oracle ?? 'tokens',
@@ -118,6 +120,7 @@ export async function getCurveApysCommon(chainId: ChainId, pools: CurveApyPool[]
 }
 
 export async function getMerklApys(chainId: ChainId, pools: CurveMerklPool[]) {
+  // FIXME(unsafe-cast): may be undefined
   const ids = pools.filter(p => p.merklId).map(p => p.merklId) as string[];
   let aprById: Record<string, number> = {};
   if (ids.length) {

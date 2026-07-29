@@ -87,6 +87,7 @@ const getCurvePricesCommon = async (chainId: ChainId, pools: CurvePricePool[], t
 
   // reverse to calc base pools (3pool, fraxbp) first and use their prices in metapools
   for (const pool of pools.slice().reverse()) {
+    // FIXME(unsafe-cast): checked previously; add typeguard
     const supplyInfo = poolsInfo.find(r => r.pool === pool.pool) as CurvePoolSupplyInfo;
     const totalSupply = supplyInfo.totalSupply.div(DECIMALS);
     const tokens = tokensInfo.filter(r => r.poolName === pool.name);

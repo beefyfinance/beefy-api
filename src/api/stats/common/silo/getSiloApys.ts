@@ -37,6 +37,7 @@ export const getSiloApys = async (chainId: ChainId, pools: SiloApyPool[]) => {
           return { pool, data: null };
         }
 
+        // FIXME(unsafe-cast): unchecked response shape
         const data = (await response.json()) as SiloApiResponse;
         return { pool, data };
       } catch (err) {
@@ -53,6 +54,7 @@ export const getSiloApys = async (chainId: ChainId, pools: SiloApyPool[]) => {
           return { pool, data: null };
         }
 
+        // FIXME(unsafe-cast): unchecked response shape
         const data = (await response.json()) as SiloApiResponse;
         return { pool, data };
       } catch (err) {

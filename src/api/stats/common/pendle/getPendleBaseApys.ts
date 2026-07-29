@@ -43,6 +43,7 @@ export const getPendleApys = async (chainId: ChainId, pools: PendlePool[]) => {
   const syRewardsApys: BigNumber[] = [];
   const arbApys: BigNumber[] = [];
   try {
+    // FIXME(unsafe-cast): unchecked response shape
     const response = (await fetch(
       `https://api-v2.pendle.finance/core/v1/${chainId}/markets?limit=100&is_active=true`
     ).then(res => res.json())) as PendleMarketsApiResponse;

@@ -79,6 +79,7 @@ const getPoolPrice = (
   let tokens = [];
   for (let i = 0; i < pool.tokens.length; i++) {
     if (!pool.composable || i != pool.bptIndex) {
+      // FIXME(unsafe-cast): checked previously; add typeguard
       const decimals = pool.tokens[i].decimals as string;
       tokenPrice = getTokenPrice(tokenPrices, pool.tokens[i].oracleId);
       tokenBalInUsd = balance[i].times(tokenPrice).dividedBy(decimals);

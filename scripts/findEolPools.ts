@@ -24,6 +24,7 @@ async function main() {
   const pools: PoolConfig[] = [];
   const chains: string[] = [];
   poolsFiles.forEach(file => {
+    // FIXME(unsafe-cast): unchecked response shape
     pools.push(...(JSON.parse(fs.readFileSync(file, 'utf8')) as PoolConfig[]));
     const poolChainId = pools.find(p => p.chainId)?.chainId;
     let chain =
@@ -33,9 +34,11 @@ async function main() {
   });
   console.log(`check ${pools.length} pools on ${chains}`);
 
+  // FIXME(unsafe-cast): unsafe narrow
   const chainVaults = await Promise.all(chains.map(c => getVaults(c as ApiChain)));
   const vaults = chainVaults.flat();
 
+  // FIXME(unsafe-cast): unchecked response shape
   const tvlByChain = (await fetch('https://api.beefy.finance/tvl').then(r => r.json())) as TvlByChainApiResponse;
   const tvl = Object.keys(tvlByChain)
     .map(k => tvlByChain[k])
@@ -72,6 +75,7 @@ async function main() {
       let totalTvl = tvl[id];
       if (p.rewardPool) totalTvl += tvl[p.rewardPool.oracleId];
       if (p.vault) totalTvl += tvl[p.vault.oracleId];
+      // FIXME(unsafe-cast): may be undefined
       console.warn(id, 'eol', new Date((v.retiredAt as number) * 1000).toLocaleDateString(), totalTvl, h);
     } else {
       livePools.push(id);

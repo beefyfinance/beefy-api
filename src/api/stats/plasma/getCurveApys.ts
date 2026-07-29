@@ -8,6 +8,7 @@ const pools = curvePoolsData.filter(p => p.gauge);
 const subgraphApyUrl = 'https://api.curve.finance/api/getSubgraphData/plasma';
 
 export const getCurveApys = async () => {
+  // FIXME(unsafe-cast): unsafe narrow
   const [baseApys, curveApys] = await Promise.all([
     // getCurveSubgraphApys(pools, subgraphApyUrl),
     {} as Record<string, BigNumber>,

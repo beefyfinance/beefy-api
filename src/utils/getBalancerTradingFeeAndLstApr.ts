@@ -84,6 +84,7 @@ export const getBalTradingAndLstApr = async (chain: ChainId, poolAddresses: stri
       }),
     });
 
+    // FIXME(unsafe-cast): unchecked response shape
     const responseData = (await data.json()) as BalancerPoolsAprResponse;
 
     const pools = responseData?.data?.poolGetPools || [];

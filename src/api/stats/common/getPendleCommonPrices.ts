@@ -91,6 +91,7 @@ export const getPendleCommonPrices = async (
     const pool = pools[i];
     const lpRate = poolsData[i].lpRate;
     // console.log(pool.name, 'lpRate', lpRate.div('1e18').valueOf());
+    // FIXME(unsafe-cast): may be undefined
     const underlyingPrice = getUnderlyingPrice(pool, tokenPrices, lpPrices as PricesById);
     const price = lpRate.times(underlyingPrice).div(pool.decimals).toNumber();
     const totalSupply = poolsData[i].totalSupply.div('1e18').toString(10);

@@ -47,6 +47,7 @@ type CurveBaseApysApiResponse = {
 export async function getCurveVolumeApys(pools: CurveApyDataPool[], url: string) {
   let apys: Record<string, BigNumber> = {};
   try {
+    // FIXME(unsafe-cast): unchecked response shape
     const response = (await fetch(url).then(res => res.json())) as CurveVolumesApiResponse;
     const apyData = response.data.pools;
     pools.forEach(pool => {
@@ -65,6 +66,7 @@ export async function getCurveVolumeApys(pools: CurveApyDataPool[], url: string)
 export const getCurveSubgraphApys = async (pools: CurveApyDataPool[], url: string) => {
   let apys: Record<string, BigNumber> = {};
   try {
+    // FIXME(unsafe-cast): unchecked response shape
     const response = (await fetch(url).then(res => res.json())) as CurveSubgraphApiResponse;
     const apyData = response.data.poolList;
     pools.forEach(pool => {
@@ -93,9 +95,11 @@ const getSubgraphDataApy = (apyData: CurveSubgraphApiPool[], poolAddress: string
 export const getCurveGetBaseApys = async (pools: CurveApyDataPool[], url: string) => {
   let apys: Record<string, BigNumber> = {};
   try {
+    // FIXME(unsafe-cast): unchecked response shape
     const response = (await fetch(url).then(res => res.json())) as CurveBaseApysApiResponse;
     const apyData = response.data.baseApys;
     pools.forEach(pool => {
+      // FIXME(unsafe-cast): may be undefined
       let poolData = apyData.find(p => p.address.toLowerCase() === pool.pool.toLowerCase()) as CurveBaseApysApiPool;
       let apy: number | BigNumber = 0;
       if (pool) apy = Math.max(poolData.latestDailyApyPcent, poolData.latestWeeklyApyPcent);
