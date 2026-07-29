@@ -149,7 +149,6 @@ const coinGeckoCoins: Record<string, string[]> = {
   'stader-ethx': ['ETHx'],
   'liquid-bgt': ['LBGT'],
   'solv-btc': ['SolvBTC'],
-  'solv-protocol-solvbtc-bbn': ['xSolvBTC'],
   'agora-dollar': ['AUSD'],
   'falcon-finance': ['USDf'],
   'ripple-usd': ['RLUSD'],
