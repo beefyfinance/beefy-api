@@ -6,40 +6,20 @@ import { ETH_CHAIN_ID } from '../../../constants.ts';
 import { fetchPrice } from '../../../utils/fetchPrice.ts';
 import { fetchContract } from '../../rpc/client.ts';
 import { getCurveVolumeApys } from '../common/curve/getCurveApyData.js';
-import { getCurveLendApyRequests } from '../common/curve/getCurveLendApys.js';
 import { getApyBreakdown } from '../common/getApyBreakdownNew.ts';
 
 const crv = '0xD533a949740bb3306d119CC777fa900bA034cd52';
 const gaugeController = '0x2F50D538606Fa9EDD2B11E2446BEb18C9D5846bB';
 const secondsPerYear = 31536000;
-const tradingFees = 0.0002;
 const volumeUrl = 'https://api.curve.finance/api/getVolumes/ethereum';
 
 import lpPools from '../../../data/ethereum/convexPools.json' with { type: 'json' };
-import lendPools from '../../../data/ethereum/curveLendPools.json' with { type: 'json' };
 
-const pools = [...lpPools, ...lendPools].filter(p => p.gauge && !p.rewardPool);
-const lendPoolNames = new Set(lendPools.map(p => p.name));
+const pools = lpPools.filter(p => p.gauge && !p.rewardPool);
 
 export const getCurveApys = async () => {
   const [baseApys, farmApys] = await Promise.all([getCurveVolumeApys(lpPools, volumeUrl), getPoolApys(pools)]);
-  const farmAprByName = Object.fromEntries(pools.map((p, i) => [p.name, farmApys[i]]));
-
-  const lpRequests = pools
-    .filter(p => !lendPoolNames.has(p.name))
-    .map(p => ({
-      vaultId: p.name,
-      trading: baseApys[p.name],
-      vault: farmAprByName[p.name],
-      providerFee: tradingFees,
-    }));
-  const lendRequests = await getCurveLendApyRequests(
-    ETH_CHAIN_ID,
-    pools.filter(p => lendPoolNames.has(p.name)),
-    farmAprByName,
-    tradingFees
-  );
-  return getApyBreakdown([...lpRequests, ...lendRequests]);
+  return getApyBreakdown(pools.map((p, i) => ({ vaultId: p.name, trading: baseApys[p.name], vault: farmApys[i] })));
 };
 
 const getPoolApys = async pools => {
