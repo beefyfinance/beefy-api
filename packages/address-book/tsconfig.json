@@ -14,7 +14,8 @@
     "pretty": true,
     "declaration": true,
     "noEmit": true,
-    "verbatimModuleSyntax": true
+    "verbatimModuleSyntax": true,
+    "types": ["node"]
   },
   "include": ["./src/**/*", "./scripts/**/*"]
 }

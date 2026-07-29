@@ -18,6 +18,8 @@
     "lint": "biome check",
     "lint:fix": "biome check --fix",
     "lint:fix:unsafe": "biome check --fix --unsafe",
+    "check-addresses": "node --import tsx scripts/check-addresses.ts",
+    "check-addresses:fix": "node --import tsx scripts/check-addresses.ts --fix",
     "add:chain": "node --env-file-if-exists=.env --import tsx scripts/add-chain.ts",
     "add:chain:addressbook": "pnpm --filter @beefyfinance/blockchain-addressbook run addChain",
     "addClm": "node --env-file-if-exists=.env --import tsx scripts/add-clm.ts",

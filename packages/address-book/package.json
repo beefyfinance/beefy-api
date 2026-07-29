@@ -83,20 +83,18 @@
   "scripts": {
     "addChain": "tsx ./scripts/addChain.ts",
     "build": "tsdown",
-    "checksum": "tsx ./scripts/checksum.ts",
     "checkDecimals": "tsx ./scripts/checkDecimals.ts",
     "checkOracles": "tsx ./scripts/checkOracles.ts",
     "checkDuplicates": "tsx ./scripts/checkDuplicates.ts",
-    "submit": "pnpm run checksum && pnpm run build && pnpm publish",
+    "submit": "pnpm -w exec tsx scripts/check-addresses.ts packages/address-book/src && pnpm run build && pnpm publish",
     "test": "pnpm run typecheck && pnpm run test:lint",
-    "typecheck": "tsc --noEmit --project tsconfig.json",
+    "typecheck": "tsc --project tsconfig.json",
     "test:lint": "pnpm run lint",
     "lint": "biome check",
     "lint:fix": "biome check --fix"
   },
   "devDependencies": {
     "@biomejs/biome": "catalog:",
-    "@ethereumjs/util": "catalog:",
     "@types/node": "catalog:",
     "tsdown": "catalog:",
     "tsx": "catalog:",

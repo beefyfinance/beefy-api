@@ -32,12 +32,16 @@ jobs:
           scope: 'beefyfinance'
       - name: 'Install Packages'
         run: pnpm install --frozen-lockfile
-      - name: 'Run Checksum Test'
-        run: pnpm --filter @beefyfinance/blockchain-addressbook run checksum
+      - name: 'Lint'
+        run: pnpm --filter @beefyfinance/blockchain-addressbook exec biome ci --reporter github
+      - name: 'Typecheck'
+        run: pnpm --filter @beefyfinance/blockchain-addressbook run typecheck
+      - name: 'Checksum Test'
+        run: pnpm exec tsx scripts/check-addresses.ts packages/address-book/src
       - name: 'Build Package'
         run: pnpm --filter @beefyfinance/blockchain-addressbook run build
       - name: 'Automated Version Bump'
-        uses: 'phips28/gh-action-bump-version@v9.1.0'
+        uses: 'phips28/gh-action-bump-version@v11.0.7'
         if: github.repository == 'beefyfinance/beefy-api'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
