@@ -33,7 +33,7 @@
   },
   {
     "name": "curve-mim-2pool",
-    "pool": "0x579a9a9d43f9c112dee359e09a87a44f2718a483",
+    "pool": "0x579a9A9d43f9C112dEe359e09a87a44F2718a483",
     "stakeDao": true,
     "tokens": [
       {
@@ -78,7 +78,7 @@
   },
   {
     "name": "curve-ynusdx-scrvusd",
-    "pool": "0xa256d38e73cce6e00447fa64a95069ea7d32f841",
+    "pool": "0xA256D38e73ccE6e00447fa64a95069ea7d32f841",
     "stakeDao": true,
     "tokens": [
       {
@@ -156,8 +156,8 @@
   },
   {
     "name": "curve-mseth-oeth",
-    "pool": "0xb5b93dde9d87563184d31f3b7f85dd58404e2ee0",
-    "gauge": "0x8c84b88562ced07f84af488cc45d434186d07b6e",
+    "pool": "0xB5b93dde9D87563184d31F3b7f85dd58404E2ee0",
+    "gauge": "0x8C84B88562cED07F84aF488CC45d434186d07B6e",
     "rewardPool": "0x6597d955e2510Ee86539C68fe2e4D6b01ba6374d",
     "stakeDao": true,
     "tokens": [
@@ -173,8 +173,8 @@
   },
   {
     "name": "curve-pmusd-ireet",
-    "pool": "0x57129759d0e23116c1e7402dbc084e53d2e209a2",
-    "gauge": "0xf814283bfd37dc24b2fb5515982f5c0708e508b6",
+    "pool": "0x57129759d0E23116c1e7402dbC084E53d2e209a2",
+    "gauge": "0xF814283bfd37dC24B2fB5515982F5C0708E508b6",
     "stakeDao": true,
     "getDy": ["v2", 1, 0],
     "tokens": [
@@ -192,8 +192,8 @@
   },
   {
     "name": "curve-frxusd-sdola",
-    "pool": "0x9d8afd5ce19a3b948049468188f1de13951a4383",
-    "gauge": "0xbd6d1a33a6fa37379ecc89b6cff7c7d7f8c305ec",
+    "pool": "0x9D8AFD5Ce19A3b948049468188f1De13951A4383",
+    "gauge": "0xbD6d1A33A6FA37379eCc89b6CFf7c7d7F8C305eC",
     "stakeDao": true,
     "tokens": [
       {
@@ -210,8 +210,8 @@
   },
   {
     "name": "curve-ynrwax-usdc",
-    "pool": "0xf05bc5c38a8f5e3d98c72f11bc59e713f8a32228",
-    "gauge": "0xc98179648625316a8e1763e58256d31f517ea02a",
+    "pool": "0xf05Bc5C38a8F5E3D98c72f11bC59E713F8a32228",
+    "gauge": "0xc98179648625316A8e1763e58256D31f517ea02a",
     "stakeDao": true,
     "tokens": [
       {
@@ -228,8 +228,8 @@
   },
   {
     "name": "curve-musd-2pool",
-    "pool": "0xb5571e76693ba60110b5811dd650ffefce1c955f",
-    "gauge": "0x7d6b0d7e8f5e78c0890f9e512ed70f57fd225cac",
+    "pool": "0xB5571E76693ba60110B5811DD650FFefce1C955f",
+    "gauge": "0x7D6b0D7e8F5E78c0890F9e512eD70F57fd225cac",
     "stakeDao": true,
     "tokens": [
       {
@@ -247,8 +247,8 @@
   },
   {
     "name": "curve-2pool",
-    "pool": "0x4f493b7de8aac7d55f71853688b1f7c8f0243c85",
-    "gauge": "0x479dfb03cddea20dc4e8788b81fd7c7a08fd3555",
+    "pool": "0x4f493B7dE8aAC7d55F71853688b1F7C8F0243C85",
+    "gauge": "0x479dFB03cdDEa20dC4e8788B81Fd7C7A08FD3555",
     "tokens": [
       {
         "oracle": "tokens",
@@ -265,7 +265,7 @@
   {
     "name": "curve-oeth-arm",
     "pool": "0x95753095F15870ACC0cB0Ed224478ea61aeb0b8e",
-    "gauge": "0xfcadecfc207e3329a38821e5b04f88029cc4fa62",
+    "gauge": "0xFcaDecfc207e3329a38821E5B04f88029cc4fa62",
     "stakeDao": true,
     "tokens": [
       {
@@ -282,8 +282,8 @@
   },
   {
     "name": "curve-ynrwax-ynusdx",
-    "pool": "0xffd3b4d343a8964a5c3c1caac20f319c41a97bff",
-    "gauge": "0xb341f2d7e56524b52e3f7989a2e59366e1e5f18f",
+    "pool": "0xFFd3b4D343A8964a5C3c1caAc20f319C41A97BFF",
+    "gauge": "0xb341f2d7e56524B52E3F7989A2E59366e1e5F18F",
     "stakeDao": true,
     "tokens": [
       {
@@ -300,8 +300,8 @@
   },
   {
     "name": "curve-ynethx-weth",
-    "pool": "0xd65ed4bce447195187f37ce7d82f56adf1826f8f",
-    "gauge": "0x01a968c8c1909b264ce59357c4098dc674f8af09",
+    "pool": "0xD65ed4BcE447195187f37cE7D82f56AdF1826F8F",
+    "gauge": "0x01A968C8C1909B264Ce59357c4098Dc674f8af09",
     "stakeDao": true,
     "tokens": [
       {
@@ -318,8 +318,8 @@
   },
   {
     "name": "curve-ousd-usde",
-    "pool": "0xdbdc27b649239f9c5afdc92e57c2601a0ce71a89",
-    "gauge": "0x8605c1fde3bed25b4cde604daec1599644629159",
+    "pool": "0xDbdc27b649239f9C5aFdc92e57c2601A0cE71a89",
+    "gauge": "0x8605C1fDE3Bed25b4cdE604daEc1599644629159",
     "stakeDao": true,
     "tokens": [
       {
@@ -336,8 +336,8 @@
   },
   {
     "name": "curve-ousd-pmusd",
-    "pool": "0x57690e5287d36733664caa21fa2dc48c156e962d",
-    "gauge": "0x5e54eb89fb1ba7f735c96a45e6641b362009b228",
+    "pool": "0x57690E5287d36733664caa21fa2Dc48c156e962D",
+    "gauge": "0x5E54eB89fb1bA7F735C96a45e6641b362009b228",
     "stakeDao": true,
     "tokens": [
       {
@@ -354,8 +354,8 @@
   },
   {
     "name": "curve-ousd-msusd",
-    "pool": "0x9afad25833d0f47b3a3d9204ddf965cb172de0cb",
-    "gauge": "0x35e4b1bc8818fc098efcf9ad9784b28d8b4bf639",
+    "pool": "0x9AfAd25833D0F47b3A3D9204dDF965CB172De0CB",
+    "gauge": "0x35e4B1Bc8818fc098EFcf9AD9784B28d8B4Bf639",
     "stakeDao": true,
     "tokens": [
       {
@@ -372,8 +372,8 @@
   },
   {
     "name": "curve-frax-pyusd",
-    "pool": "0xa5588f7cdf560811710a2d82d3c9c99769db1dcb",
-    "gauge": "0xdc6d319fac1498125e871ccedf7f1b9998eba3c5",
+    "pool": "0xA5588F7cdf560811710A2D82D3C9c99769DB1Dcb",
+    "gauge": "0xdc6d319FAc1498125e871ccEdF7f1B9998ebA3C5",
     "stakeDao": true,
     "tokens": [
       {
@@ -391,7 +391,7 @@
   {
     "name": "curve-ynrwax-ousd",
     "pool": "0xf75f2b5fc5F375e1aD3130dD0eEC7219Fe821204",
-    "gauge": "0x0228fa0bb44acb35582d429bc93c6c1bbb1ae81e",
+    "gauge": "0x0228fA0bB44Acb35582D429bC93C6c1BBB1Ae81E",
     "stakeDao": true,
     "tokens": [
       {
@@ -408,8 +408,8 @@
   },
   {
     "name": "curve-ousd-musd",
-    "pool": "0x23b78dc3b1b0a27f3838219e97d806aae377a1b2",
-    "gauge": "0x26f57596d7b9258c0ac747f20196e8ec6cd569b1",
+    "pool": "0x23b78Dc3b1b0A27f3838219e97d806Aae377a1b2",
+    "gauge": "0x26f57596d7B9258C0ac747f20196E8ec6cD569b1",
     "stakeDao": true,
     "tokens": [
       {
@@ -426,8 +426,8 @@
   },
   {
     "name": "curve-usdc-savusd",
-    "pool": "0x2e1776968ec75bfd13dbc5b94ae57034d7e85fb9",
-    "gauge": "0x9c798b022b014a37fcbf871b8de42d63c7ccd7f9",
+    "pool": "0x2E1776968EC75Bfd13dbC5B94AE57034d7e85Fb9",
+    "gauge": "0x9C798b022B014A37FCbF871b8DE42D63c7ccD7f9",
     "stakeDao": true,
     "tokens": [
       {
@@ -936,8 +936,8 @@
   },
   {
     "name": "curve-ebtc-tbtc",
-    "pool": "0x272bf7e4ce3308b1fb5e54d6a1fc32113619c401",
-    "gauge": "0x48727018d010dc2e414c5a14d588385ae112869e",
+    "pool": "0x272BF7e4Ce3308B1Fb5e54d6a1Fc32113619c401",
+    "gauge": "0x48727018D010Dc2e414C5A14D588385Ae112869e",
     "rewardPool": "0xDbd17Dc03a442D4349de988533737db3fBb5eC39",
     "getDy": ["v1", 0, 1],
     "tokens": [
@@ -955,8 +955,8 @@
   },
   {
     "name": "curve-eusd-usdc",
-    "pool": "0x08bfa22bb3e024cdfeb3eca53c0cb93bf59c4147",
-    "gauge": "0x87f791090b09069b3f9c64e3be3cbbc0b45fc9b6",
+    "pool": "0x08BfA22bB3e024CDfEB3eca53c0cb93bF59c4147",
+    "gauge": "0x87F791090B09069b3F9c64E3be3cBBc0b45Fc9b6",
     "rewardPool": "0xdD2642EBD57A6e8BF9644040Ef15A39Ad568feC9",
     "tokens": [
       {
@@ -971,8 +971,8 @@
   },
   {
     "name": "curve-crvusd-susde",
-    "pool": "0x57064f49ad7123c92560882a45518374ad982e85",
-    "gauge": "0x76f236a0cc1c90425d8ab5f042970454311482ab",
+    "pool": "0x57064F49Ad7123C92560882a45518374ad982e85",
+    "gauge": "0x76f236A0Cc1C90425D8Ab5F042970454311482AB",
     "rewardPool": "0x0Fce355888851408F30A6ccC3C77f6D9EEe75834",
     "getDy": ["v1", 1, 0],
     "tokens": [
@@ -988,8 +988,8 @@
   },
   {
     "name": "convex-tricrypto-usdt",
-    "pool": "0xf5f5b97624542d72a9e06f04804bf81baa15e2b4",
-    "gauge": "0xf29fff074f5cf755b55fbb3eb10a29203ac91ea2",
+    "pool": "0xf5f5B97624542D72A9E06f04804Bf81baA15e2B4",
+    "gauge": "0xF29FfF074f5cF755b55FbB3eb10A29203ac91EA2",
     "rewardPool": "0xb05262D4aaAA38D0Af4AaB244D446ebDb5afd4A7",
     "stakeDao": true,
     "tokens": [
@@ -1009,8 +1009,8 @@
   },
   {
     "name": "convex-gho-crvusd",
-    "pool": "0x635ef0056a597d13863b73825cca297236578595",
-    "gauge": "0x4717c25df44e280ec5b31acbd8c194e1ed24efe2",
+    "pool": "0x635EF0056A597D13863B73825CcA297236578595",
+    "gauge": "0x4717C25df44e280ec5b31aCBd8C194e1eD24efe2",
     "rewardPool": "0x5eC758f79b96AE74e7F1Ba9583009aFB3fc8eACB",
     "tokens": [
       {
@@ -1025,8 +1025,8 @@
   },
   {
     "name": "convex-aleth-frxeth",
-    "pool": "0xb657b895b265c38c53fff00166cf7f6a3c70587d",
-    "gauge": "0x415f30505368fa1db82feea02eb778be04e75907",
+    "pool": "0xB657B895B265C38c53FFF00166cF7F6A3C70587d",
+    "gauge": "0x415F30505368fa1dB82Feea02EB778be04e75907",
     "rewardPool": "0xe0DbbCF08A5465db7c7401C86cce89030e11aB67",
     "tokens": [
       {
@@ -1043,8 +1043,8 @@
   },
   {
     "name": "convex-alusd-fraxbp",
-    "pool": "0xb30da2376f63de30b42dc055c93fa474f31330a5",
-    "gauge": "0x740ba8aa0052e07b925908b380248cb03f3de5cb",
+    "pool": "0xB30dA2376F63De30b42dC055C93fa474F31330A5",
+    "gauge": "0x740BA8aa0052E07b925908B380248cb03f3DE5cB",
     "rewardPool": "0x26598e3E511ADFadefD70ab2C3475Ff741741104",
     "tokens": [
       {
@@ -1062,8 +1062,8 @@
   },
   {
     "name": "curve-paypool",
-    "pool": "0x383e6b4437b59fff47b619cba855ca29342a8559",
-    "gauge": "0x9da75997624c697444958aded6790bfca96af19a",
+    "pool": "0x383E6b4437b59fff47B619CBA855CA29342A8559",
+    "gauge": "0x9da75997624C697444958aDeD6790bfCa96Af19A",
     "getDy": ["v1", 0, 1],
     "rewards": [
       {
@@ -1115,8 +1115,8 @@
   },
   {
     "name": "convex-tricrypto-usdc",
-    "pool": "0x7f86bf177dd4f3494b841a37e810a34dd56c829b",
-    "token": "0x7f86bf177dd4f3494b841a37e810a34dd56c829b",
+    "pool": "0x7F86Bf177Dd4F3494b841a37e810A34dD56c829B",
+    "token": "0x7F86Bf177Dd4F3494b841a37e810A34dD56c829B",
     "rewardPool": "0x57f4cf13b325Ad101CfE9AD3a84d3B2302AA96c8",
     "extras": [
       {

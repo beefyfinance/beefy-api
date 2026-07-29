@@ -1,9 +1,9 @@
 [
   {
     "name": "curve-monad-ausd-avusd",
-    "pool": "0xa98edc41c867184367691234d46ae04b7dae4545",
-    "gauge": "0x7f15aa90b82f8e9d38b71ddac4533564f9d6b0c5",
-    "merklId": "0x7f15aa90b82f8e9d38b71ddac4533564f9d6b0c5",
+    "pool": "0xa98edC41c867184367691234D46ae04B7Dae4545",
+    "gauge": "0x7F15AA90B82f8E9d38B71DdAc4533564F9d6B0c5",
+    "merklId": "0x7F15AA90B82f8E9d38B71DdAc4533564F9d6B0c5",
     "tokens": [
       {
         "oracleId": "AUSD",

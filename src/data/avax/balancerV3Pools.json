@@ -48,7 +48,7 @@
     ],
     "tokens": [
       {
-        "address": "0x2d324fd1ca86d90f61b0965d2db2f86d22ea4b74",
+        "address": "0x2d324fD1Ca86D90f61B0965d2db2f86d22eA4B74",
         "oracleId": "waAvaBTCb",
         "decimals": "1e8"
       },

@@ -1,7 +1,7 @@
 [
   {
     "name": "pendle-wousd-17dec26",
-    "address": "0x30ee7618e0ef0682f0f354d6f84be87de6b8878c",
+    "address": "0x30ee7618E0eF0682f0f354d6f84be87DE6B8878c",
     "oracle": "tokens",
     "oracleId": "OUSD",
     "decimals": "1e18",
@@ -9,7 +9,7 @@
   },
   {
     "name": "pendle-reusd-10dec26",
-    "address": "0x13285bcbc27f92b47b4edb99d744c07b48c977c0",
+    "address": "0x13285bCbc27F92b47B4EDB99D744C07B48C977c0",
     "oracle": "tokens",
     "oracleId": "USDC",
     "decimals": "1e6",
@@ -17,7 +17,7 @@
   },
   {
     "name": "pendle-reusde-10dec26",
-    "address": "0x90b70c407f1077f8eb92bf423b44cd92329b737a",
+    "address": "0x90B70c407f1077F8eb92Bf423b44CD92329b737a",
     "oracle": "tokens",
     "oracleId": "USDe",
     "decimals": "1e18",
@@ -25,7 +25,7 @@
   },
   {
     "name": "pendle-apyusd-18jun26",
-    "address": "0x3c53fae231ad3c0408a8b6d33138bbff1caec330",
+    "address": "0x3C53faE231ad3c0408A8b6D33138bBFf1cAeC330",
     "oracle": "tokens",
     "oracleId": "USDC",
     "decimals": "1e18",
@@ -33,7 +33,7 @@
   },
   {
     "name": "pendle-apxusd-18jun26",
-    "address": "0x50dce085af29caba28f7308bea57c4043757b491",
+    "address": "0x50DCE085af29CABa28f7308beA57C4043757b491",
     "oracle": "tokens",
     "oracleId": "USDC",
     "decimals": "1e18",
@@ -41,7 +41,7 @@
   },
   {
     "name": "pendle-susdf-18jun26",
-    "address": "0x42826337a249b3162d133f65d8f79b4a22e82f45",
+    "address": "0x42826337a249b3162d133F65D8f79b4A22E82f45",
     "oracle": "tokens",
     "oracleId": "USDf",
     "decimals": "1e18",
@@ -49,7 +49,7 @@
   },
   {
     "name": "pendle-cusd-23jul26",
-    "address": "0x9eaaeda23177b7168c55a3a0f937f67919733449",
+    "address": "0x9EaAedA23177B7168c55a3A0F937f67919733449",
     "oracle": "tokens",
     "oracleId": "USDC",
     "decimals": "1e18",
@@ -57,7 +57,7 @@
   },
   {
     "name": "pendle-stcusd-23jul26",
-    "address": "0xac24a6f0068d9701eaea76ab0b418021017f8d59",
+    "address": "0xaC24A6f0068d9701EAEa76AB0B418021017F8D59",
     "oracle": "tokens",
     "oracleId": "USDC",
     "decimals": "1e18",

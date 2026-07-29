@@ -3,7 +3,7 @@ import { getRewardPoolApys } from '../common/getRewardPoolApys.ts';
 const pools = [
   {
     name: 'sky-staking',
-    rewardPool: '0xb44c2fb4181d7cb06bdff34a46fdfe4a259b40fc',
+    rewardPool: '0xB44C2Fb4181D7Cb06bdFf34A46FdFe4a259B40Fc',
     stakingToken: 'SKY',
     reward: 'SKY',
   },
@@ -15,7 +15,7 @@ const pools = [
   },
   {
     name: 'sky-usds-grove',
-    rewardPool: '0x4e41488c19cd35eb4de3083fc3e204854c75c86a',
+    rewardPool: '0x4E41488C19cD35EB4de3083Fc3e204854c75c86a',
     stakingToken: 'USDS',
     reward: 'GROVE',
   },

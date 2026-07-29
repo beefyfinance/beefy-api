@@ -1,7 +1,7 @@
 [
   {
     "name": "pendle-reusd-25jun26",
-    "address": "0xf5929a1c332ceab7918a4593a43db2b9ac20095f",
+    "address": "0xf5929a1C332ceaB7918A4593a43Db2B9aC20095f",
     "oracle": "tokens",
     "oracleId": "USDC",
     "decimals": "1e6",
@@ -9,7 +9,7 @@
   },
   {
     "name": "pendle-reusde-25jun26",
-    "address": "0x6cb9a013604a567a5834fadd411165b1ca616783",
+    "address": "0x6CB9A013604A567a5834fadD411165B1ca616783",
     "oracle": "tokens",
     "oracleId": "USDe",
     "decimals": "1e18",
@@ -35,7 +35,7 @@
   },
   {
     "name": "pendle-cusd-29jan26",
-    "address": "0x307c15f808914df5a5dbe17e5608f84953ffa023",
+    "address": "0x307c15f808914Df5a5DbE17E5608f84953fFa023",
     "eqbGauge": "0xc5e7819FAB1dc370404354893499965D597C58a7",
     "oracle": "tokens",
     "oracleId": "USDC",
@@ -44,7 +44,7 @@
   },
   {
     "name": "pendle-stcusd-29jan26",
-    "address": "0xcc781b043933c10a04409b22aada3a3d1a7f29d4",
+    "address": "0xCC781b043933c10a04409b22aaDa3a3D1A7f29D4",
     "eqbGauge": "0xEc71e3326C9ab00583565AB43538Ae724730d9E9",
     "oracle": "tokens",
     "oracleId": "USDC",
@@ -53,7 +53,7 @@
   },
   {
     "name": "pendle-usdf-29jan26",
-    "address": "0xc65b7a0f8fc97e1d548860d866f4304e039ef016",
+    "address": "0xc65B7a0f8Fc97e1D548860d866f4304E039EF016",
     "eqbGauge": "0xb3D29e68BE632A203bBbBba819e3FE4745c9c72e",
     "oracle": "tokens",
     "oracleId": "USDf",
@@ -62,7 +62,7 @@
   },
   {
     "name": "pendle-susdf-25sep25",
-    "address": "0x45f163e583d34b8e276445dd3da9ae077d137d72",
+    "address": "0x45F163E583D34b8E276445dd3Da9aE077D137d72",
     "eqbGauge": "0x881acc0266e025Ae346f7613dEB34907532DB40e",
     "oracle": "tokens",
     "oracleId": "USDf",

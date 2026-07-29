@@ -1,7 +1,7 @@
 [
   {
     "name": "uniswap-ethereum-bifi-eth-0.3",
-    "address": "0xfba26c3f9c8ecef989def3c5c8ad037487462d83",
+    "address": "0xfBa26C3F9C8eCeF989def3C5c8aD037487462d83",
     "nftId": 697353,
     "beefyFee": 0,
     "poolFee": 0.3,
@@ -21,7 +21,7 @@
   },
   {
     "name": "uniswap-ethereum-bifi-eth-0.3-tight",
-    "address": "0xfba26c3f9c8ecef989def3c5c8ad037487462d83",
+    "address": "0xfBa26C3F9C8eCeF989def3C5c8aD037487462d83",
     "nftId": 697355,
     "beefyFee": 0,
     "poolFee": 0.3,
@@ -41,7 +41,7 @@
   },
   {
     "name": "uniswap-ethereum-bifi-eth-0.3-tighter",
-    "address": "0xfba26c3f9c8ecef989def3c5c8ad037487462d83",
+    "address": "0xfBa26C3F9C8eCeF989def3C5c8aD037487462d83",
     "nftId": 697697,
     "beefyFee": 0,
     "poolFee": 0.3,
@@ -61,7 +61,7 @@
   },
   {
     "name": "uniswap-ethereum-bifi-eth-0.3-tighter-1",
-    "address": "0xfba26c3f9c8ecef989def3c5c8ad037487462d83",
+    "address": "0xfBa26C3F9C8eCeF989def3C5c8aD037487462d83",
     "nftId": 747836,
     "beefyFee": 0,
     "poolFee": 0.3,
@@ -81,7 +81,7 @@
   },
   {
     "name": "uniswap-ethereum-bifi-eth-0.3-tighter-2",
-    "address": "0xfba26c3f9c8ecef989def3c5c8ad037487462d83",
+    "address": "0xfBa26C3F9C8eCeF989def3C5c8aD037487462d83",
     "nftId": 1005753,
     "beefyFee": 0,
     "poolFee": 0.3,
