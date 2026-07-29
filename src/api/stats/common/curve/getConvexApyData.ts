@@ -51,6 +51,7 @@ export const getConvexApyData = async (chainId: ChainId, pools: CurveApyPool[]) 
 
     for (const extra of extras.filter(e => e.pool === pool.name)) {
       if (extra.periodFinish < Date.now() / 1000) continue;
+      // FIXME(unsafe-cast): checked previously; add typeguard
       const poolExtra = pool.rewards?.find(e => e.token === extra.token) as CurveApyReward;
       const price = await fetchPrice({
         oracle: poolExtra.oracle ?? 'tokens',
@@ -83,6 +84,7 @@ const getData = async (chainId: ChainId, pools: CurveApyPool[]) => {
   const extraData: ConvexExtraRewardData[] = [],
     extraCalls: Promise<ConvexGaugeRewardData>[] = [];
   pools.forEach(pool => {
+    // FIXME(unsafe-cast): checked previously; add typeguard
     const gauge = fetchContract(pool.gauge as string, ICurveGauge, chainId);
     gaugeRewardRatesCalls.push(gauge.read.inflation_rate([BigInt(weekEpoch)]).then(v => new BigNumber(v)));
     gaugeTotalSuppliesCalls.push(gauge.read.totalSupply().then(v => new BigNumber(v)));

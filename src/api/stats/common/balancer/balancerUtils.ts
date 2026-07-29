@@ -102,6 +102,7 @@ const getPoolsRatesAndPeriodFinish = async (chainId: ChainId, pool: BalancerApyP
   const periodFinishCalls: Promise<number | bigint>[] = [];
   const rewardRateCalls: Promise<number | bigint>[] = [];
   (pool.rewards ?? []).forEach(rewards => {
+    // FIXME(unsafe-cast): may be undefined
     const stream = rewards.stream as string;
     if (pool.boosted || rewards.rewardToken) {
       if (!hasGauge(pool)) {
@@ -111,6 +112,7 @@ const getPoolsRatesAndPeriodFinish = async (chainId: ChainId, pool: BalancerApyP
       }
       const token = rewards.rewardToken ? rewards.rewardToken : rewards.token;
       const rewardStream = fetchContract(pool.gauge, ICurveGauge, chainId);
+      // FIXME(unsafe-cast): may be undefined
       const call = rewardStream.read.reward_data([token as Address]);
 
       periodFinishCalls.push(call.then(res => res[1]));

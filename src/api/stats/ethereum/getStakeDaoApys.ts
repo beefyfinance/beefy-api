@@ -41,6 +41,7 @@ export const getStakeDaoApys = async () => {
     //     res => res.json()
     //   ),
     // ]);
+    // FIXME(unsafe-cast): unchecked response shape
     const res = (await fetch('https://api.stakedao.org/api/strategies/v2/curve/1.json').then(res =>
       res.json()
     )) as StakeDaoStrategy[];

@@ -223,6 +223,7 @@ const getChainFees = async (vaults: HarvestableVault[], chainId: number, feeBatc
           return undefined;
         }
         const contract = fetchContract(vault.strategy, FeeABI, chainId);
+        // FIXME(unsafe-cast): unchecked response shape
         const results = Object.fromEntries(
           (
             await Promise.all(

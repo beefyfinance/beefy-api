@@ -11,6 +11,7 @@ const fetchCoinGeckoPrices = async (coins: string[] | undefined): Promise<Prices
   const url = `https://api.coingecko.com/api/v3/simple/price?ids=${ids}&vs_currencies=usd`;
   let prices: PricesById = {};
   try {
+    // FIXME(unsafe-cast): unchecked response shape
     const data = (await fetch(url).then(res => res.json())) as CoinGeckoPricesResponse;
     Object.keys(data).forEach(coin => {
       const price = Number(data[coin].usd);

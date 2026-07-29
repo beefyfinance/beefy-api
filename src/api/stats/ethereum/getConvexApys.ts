@@ -47,6 +47,7 @@ const getPoolApys = async (pools: ConvexApyPool[]) => {
     extraRewardRateCalls: Promise<bigint>[] = [],
     extraPeriodFinishCalls: Promise<bigint>[] = [];
   pools.forEach(pool => {
+    // FIXME(unsafe-cast): may be undefined
     const rewardPool = fetchContract(pool.rewardPool as string, IRewardPool, ETH_CHAIN_ID);
     totalSupplyCalls.push(rewardPool.read.totalSupply());
     rewardRateCalls.push(rewardPool.read.rewardRate());
@@ -108,6 +109,7 @@ const getPoolApys = async (pools: ConvexApyPool[]) => {
 
     for (const extra of extras.filter(e => e.pool === pool.name)) {
       if (extra.periodFinish.lt(Date.now() / 1000)) continue;
+      // FIXME(unsafe-cast): may be undefined
       const poolExtra = (pool.extras as ConvexExtraReward[]).find(
         e => e.rewardPool === extra.rewardPool
       ) as ConvexExtraReward;

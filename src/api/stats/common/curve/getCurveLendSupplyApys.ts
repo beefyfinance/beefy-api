@@ -14,6 +14,7 @@ export type CurveLendPool = {
 export const getCurveLendSupplyApys = async (chainId: ChainId, pools: CurveLendPool[]) => {
   const apys: Record<string, BigNumber> = {};
 
+  // FIXME(unsafe-cast): checked previously; add typeguard
   const lendAprs = await Promise.all(
     pools.map(pool => fetchContract(pool.address as string, ICurveVault, chainId).read.lend_apr())
   );

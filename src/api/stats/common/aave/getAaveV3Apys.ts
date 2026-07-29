@@ -94,6 +94,7 @@ async function getMeritApys(pools: AaveV3Pool[]) {
   let meritData: Record<string, number> = {};
   if (pools.some(p => p.merit)) {
     try {
+      // FIXME(unsafe-cast): unchecked response shape
       const res = (await fetch('https://apps.aavechan.com/api/merit/aprs').then(res =>
         res.json()
       )) as AaveMeritAprsResponse;
@@ -193,6 +194,7 @@ const getRewardsPerYear = async (config: AaveV3Config, pool: AaveV3Pool, chainId
 
   let supplyNativeInUsd = new BigNumber(0);
   let borrowNativeInUsd = new BigNumber(0);
+  // FIXME(unsafe-cast): unsafe narrow
   for (const [index, reward] of Object.entries(config.rewards) as [`${number}`, AaveV3Reward][]) {
     const supplyNativeRate = new BigNumber(aTokenRewardsDataResults[index][1]);
     const distributionEnd = new BigNumber(aTokenRewardsDataResults[index][3]);

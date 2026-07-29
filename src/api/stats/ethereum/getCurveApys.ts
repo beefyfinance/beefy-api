@@ -40,6 +40,7 @@ const getPoolApys = async (pools: CurveApyPool[]) => {
   const extraRewardDataCalls: Promise<CurveGaugeRewardData>[] = [];
   const weightCalls: Promise<bigint>[] = [];
   pools.forEach(pool => {
+    // FIXME(unsafe-cast): checked previously; add typeguard
     const gauge = fetchContract(pool.gauge as string, ICurveGauge, ETH_CHAIN_ID);
     totalSupplyCalls.push(gauge.read.totalSupply());
     workingCalls.push(gauge.read.working_supply());
@@ -48,6 +49,7 @@ const getPoolApys = async (pools: CurveApyPool[]) => {
       extraRewardDataCalls.push(gauge.read.reward_data([reward.token as Address]));
     });
     const controller = fetchContract(gaugeController, ICurveGaugeController, ETH_CHAIN_ID);
+    // FIXME(unsafe-cast): checked previously; add typeguard
     weightCalls.push(controller.read.gauge_relative_weight([pool.gauge as Address]));
   });
   const inflationRateCall = fetchContract(crv, ICrv, ETH_CHAIN_ID)
@@ -92,6 +94,7 @@ const getPoolApys = async (pools: CurveApyPool[]) => {
 
     for (const extra of extras.filter(e => e.pool === pool.name)) {
       if (extra.periodFinish.lt(Date.now() / 1000)) continue;
+      // FIXME(unsafe-cast): checked previously; add typeguard
       const poolExtra = pool.rewards?.find(e => e.token === extra.token) as CurveApyReward;
       const price = await fetchPrice({
         oracle: poolExtra.oracle ?? 'tokens',

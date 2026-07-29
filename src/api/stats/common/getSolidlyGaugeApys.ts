@@ -264,6 +264,7 @@ const getPoolsData = async (params: SolidlyGaugeApyParams) => {
       params.boosted && params.NFTid ? poolContract.read.derivedSupply() : poolContract.read.totalSupply()
     );
 
+    // FIXME(unsafe-cast): may be undefined
     const reward = params.reward as Address;
     rateCalls.push(
       params.spirit || params.singleReward || params.kitten
@@ -320,6 +321,7 @@ const getPoolsData = async (params: SolidlyGaugeApyParams) => {
   ]);
 
   const balances = balanceResults.map(v => new BigNumber(v));
+  // FIXME(unsafe-cast): unsafe narrow
   const rates = params.ramses
     ? rateResults.map(v => new BigNumber((v as SolidlyGaugeStructRewardData)['rewardRate']))
     : params.infrared
@@ -327,12 +329,15 @@ const getPoolsData = async (params: SolidlyGaugeApyParams) => {
       : rateResults.map(v => new BigNumber(v.toString()));
   const depositBalances = depositBalanceResults.map(v => new BigNumber(v));
   const derivedBalances = derivedBalanceResults.map(v => new BigNumber(v));
+  // FIXME(unsafe-cast): unsafe narrow
   const periodFinishes = params.ramses
     ? periodFinishResults.map(v => (v as SolidlyGaugeStructRewardData)['periodFinish'].toString())
     : params.infrared
       ? periodFinishResults.map(v => (v as SolidlyGaugeTupleRewardData)[2].toString())
       : periodFinishResults.map(v => new BigNumber(v.toString()));
+  // FIXME(unsafe-cast): unchecked response shape
   const rewardRateFlat = rewardRateResults.map(v => new BigNumber(v as bigint));
+  // FIXME(unsafe-cast): unchecked response shape
   const rewardDataFlat = rewardDataResults.map(v => new BigNumber(v as bigint));
 
   const rewardsRates: BigNumber[][] = [];

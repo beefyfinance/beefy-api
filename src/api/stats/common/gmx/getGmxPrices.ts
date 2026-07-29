@@ -57,6 +57,7 @@ const getLpTokenBalances = async (chainId: ChainId, pool: GmxPool) => {
   const poolTokens = pool.tokens ?? [];
   const balanceCalls = poolTokens.map(token => {
     const contract = fetchContract(token.address, ERC20Abi, chainId);
+    // FIXME(unsafe-cast): may be undefined
     return contract.read.balanceOf([pool.vault as Address]);
   });
   const balanceResults = await Promise.all(balanceCalls);

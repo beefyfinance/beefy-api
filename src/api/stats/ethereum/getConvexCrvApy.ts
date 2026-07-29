@@ -139,6 +139,7 @@ export const getConvexCrvApy = async () => {
   let group1Apy = 0;
   for (const extra of extras) {
     if (extra.periodFinish.lt(Date.now() / 1000)) continue;
+    // FIXME(unsafe-cast): may be undefined
     const poolExtra = pool.extras.find(e => e.rewardPool === extra.rewardPool) as CvxCrvExtraReward;
     const price = await fetchPrice({
       oracle: poolExtra.oracle ?? 'tokens',
