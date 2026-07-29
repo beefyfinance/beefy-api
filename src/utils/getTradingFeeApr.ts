@@ -78,10 +78,7 @@ export const getTradingFeeAprSushi = async (
         const pairAddress = pairDayData[0].id.split('-')[0].toLowerCase();
         const avgVol = new BigNumber(pairDayData[0].volumeUSD).plus(pairDayData[1].volumeUSD).dividedBy(2);
         const avgReserve = new BigNumber(pairDayData[0].reserveUSD).plus(pairDayData[1].reserveUSD).dividedBy(2);
-        pairAddressToAprMap[pairAddress] = new BigNumber(avgVol)
-          .times(liquidityProviderFee)
-          .times(365)
-          .dividedBy(avgReserve);
+        pairAddressToAprMap[pairAddress] = avgVol.times(liquidityProviderFee).times(365).dividedBy(avgReserve);
       }
     }
   } catch (e) {
@@ -117,10 +114,7 @@ export const getTradingFeeAprSushiTrident = async (
         const pairAddress = pairDayData[0].id.split('-')[0].toLowerCase();
         const avgVol = new BigNumber(pairDayData[0].volumeUSD).plus(pairDayData[1].volumeUSD).dividedBy(2);
         const avgReserve = new BigNumber(pairDayData[0].liquidityUSD).plus(pairDayData[1].liquidityUSD).dividedBy(2);
-        pairAddressToAprMap[pairAddress] = new BigNumber(avgVol)
-          .times(liquidityProviderFee)
-          .times(365)
-          .dividedBy(avgReserve);
+        pairAddressToAprMap[pairAddress] = avgVol.times(liquidityProviderFee).times(365).dividedBy(avgReserve);
       }
     }
   } catch (e) {
@@ -137,12 +131,12 @@ export const getTradingFeeAprBalancer = async (
   chainId: number
 ) => {
   const [blockTime, currentBlock] = await Promise.all([getBlockTime(chainId), getBlockNumber(chainId)]);
-  const pastBlock = Math.floor(currentBlock - 86400 / blockTime);
+  const pastBlock = Math.floor(currentBlock.toNumber() - 86400 / blockTime.toNumber());
   const pairAddressesToAprMap: Record<string, BigNumber> = {};
 
   try {
     const queryCurrent = await client.query({
-      query: poolsDataQuery(addressesToLowercase(pairAddresses), currentBlock - 600),
+      query: poolsDataQuery(addressesToLowercase(pairAddresses), currentBlock.toNumber() - 600),
     });
 
     const queryPast = await client.query({
@@ -176,12 +170,12 @@ export const getTradingFeeAprBalancerFTM = async (
 ) => {
   const blockTime = await getBlockTime(250);
   const currentBlock = await getBlockNumber(250);
-  const pastBlock = Math.floor(currentBlock - 86400 / blockTime);
+  const pastBlock = Math.floor(currentBlock.toNumber() - 86400 / blockTime.toNumber());
   const pairAddressesToAprMap: Record<string, BigNumber> = {};
 
   try {
     const queryCurrent = await client.query({
-      query: poolsDataQuery(addressesToLowercase(pairAddresses), currentBlock - 600),
+      query: poolsDataQuery(addressesToLowercase(pairAddresses), currentBlock.toNumber() - 600),
     });
 
     const queryPast = await client.query({
@@ -336,12 +330,12 @@ export const getYearlyBalancerPlatformTradingFees = async (
 ) => {
   const blockTime = await getBlockTime(250);
   const currentBlock = await getBlockNumber(250);
-  const pastBlock = Math.floor(currentBlock - 86400 / blockTime);
+  const pastBlock = Math.floor(currentBlock.toNumber() - 86400 / blockTime.toNumber());
 
   let yearlyTradingFeesUsd = new BigNumber(0);
 
   try {
-    const currentData = await client.query({ query: balancerDataQuery(currentBlock) });
+    const currentData = await client.query({ query: balancerDataQuery(currentBlock.toNumber()) });
     const pastData = await client.query({ query: balancerDataQuery(pastBlock) });
     const currentSwapFee = new BigNumber(currentData.data.balancers[0].totalSwapFee);
     const pastSwapFee = new BigNumber(pastData.data.balancers[0].totalSwapFee);

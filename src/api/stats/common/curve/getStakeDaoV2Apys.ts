@@ -1,9 +1,12 @@
+import type { ChainId } from '@beefyfinance/blockchain-addressbook';
 import { BigNumber } from 'bignumber.js';
-import { parseAbi } from 'viem';
+import { type Address, parseAbi } from 'viem';
 import ICurveGauge from '../../../../abis/ICurveGauge.ts';
 import { ARBITRUM_CHAIN_ID, BASE_CHAIN_ID, FRAXTAL_CHAIN_ID, SONIC_CHAIN_ID } from '../../../../constants.ts';
 import { fetchPrice } from '../../../../utils/fetchPrice.ts';
+import type { OptionalRecord } from '../../../../utils/object.ts';
 import { fetchContract } from '../../../rpc/client.ts';
+import type { CurveApyPool, CurveApyReward } from './getCurveApysCommon.ts';
 
 const secondsPerYear = 31536000;
 const abi = parseAbi([
@@ -11,11 +14,32 @@ const abi = parseAbi([
   'function fees() view returns (uint)',
   'function balanceOf() view returns (uint)',
 ]);
-const convex = {
+export type StakeDaoV2Pool = CurveApyPool & {
+  sdSideCar?: string;
+};
+
+type StakeDaoV2ConvexAddresses = {
+  convexVoterProxy: Address;
+  convexBooster: Address;
+};
+
+type StakeDaoV2Addresses = StakeDaoV2ConvexAddresses & {
+  accountant: Address;
+  locker: Address;
+};
+
+type StakeDaoV2GaugeRewardData = readonly [Address, bigint, bigint, bigint, bigint];
+
+type StakeDaoV2ExtraRewardData = {
+  pool: string;
+  token: string;
+};
+
+const convex: StakeDaoV2ConvexAddresses = {
   convexVoterProxy: '0x989AEb4d175e16225E39E87d0D97A3360524AD80',
   convexBooster: '0xF403C135812408BFbE8713b5A23a04b3D48AAE31',
 };
-const addresses = {
+const addresses: OptionalRecord<ChainId, StakeDaoV2Addresses> = {
   [BASE_CHAIN_ID]: {
     ...convex,
     accountant: '0x8f872cE018898ae7f218E5a3cE6Fe267206697F8',
@@ -39,20 +63,20 @@ const addresses = {
   },
 };
 
-export async function getStakeDaoV2Apys(chainId, pools) {
-  const apys = [];
+export async function getStakeDaoV2Apys(chainId: ChainId, pools: StakeDaoV2Pool[]) {
+  const apys: BigNumber[] = [];
   const addr = addresses[chainId];
   if (!addr) throw new Error(`StakeDaoV2: no config for chain ${chainId}`);
 
   const hasConvex = pools.some(p => p.sdSideCar);
   const weekEpoch = Math.floor(Date.now() / 1000 / (86400 * 7));
 
-  const extraData = [],
-    extraCalls = [];
+  const extraData: StakeDaoV2ExtraRewardData[] = [],
+    extraCalls: Promise<StakeDaoV2GaugeRewardData>[] = [];
   const gauges = pools.map(pool => {
-    const gauge = fetchContract(pool.gauge, ICurveGauge, chainId);
+    const gauge = fetchContract(pool.gauge as string, ICurveGauge, chainId);
     pool.rewards?.forEach(extra => {
-      extraCalls.push(gauge.read.reward_data([extra.token]));
+      extraCalls.push(gauge.read.reward_data([extra.token as Address]));
       extraData.push({ pool: pool.name, token: extra.token });
     });
     return gauge;
@@ -77,7 +101,7 @@ export async function getStakeDaoV2Apys(chainId, pools) {
     convexFee,
     extraResults,
   ] = await Promise.all([
-    Promise.all(gauges.map(g => g.read.inflation_rate([weekEpoch]))),
+    Promise.all(gauges.map(g => g.read.inflation_rate([BigInt(weekEpoch)]))),
     Promise.all(gauges.map(g => g.read.totalSupply())),
     Promise.all(gauges.map(g => g.read.working_supply())),
     Promise.all(gauges.map(g => g.read.balanceOf([addr.locker]))),
@@ -91,7 +115,7 @@ export async function getStakeDaoV2Apys(chainId, pools) {
   ]);
 
   const crvPrice = await fetchPrice({ oracle: 'tokens', id: 'CRV' });
-  const sdAfterFees = new BigNumber('1e18').minus(new BigNumber(stakeDaoFee)).div('1e18');
+  const sdAfterFees = new BigNumber('1e18').minus(stakeDaoFee).div('1e18');
   const convexAfterFees = new BigNumber(10000).minus(convexFee).div(new BigNumber(10000));
 
   const extras = extraResults.map((_, i) => ({
@@ -105,15 +129,15 @@ export async function getStakeDaoV2Apys(chainId, pools) {
 
     const lockerBal = new BigNumber(stakeDaoBalances[i]);
     const lockerWorkingBal = new BigNumber(stakeDaoWorkingBalances[i]);
-    const sdBoost = lockerWorkingBal > 0 ? lockerWorkingBal.div(lockerBal) : new BigNumber(1);
+    const sdBoost = lockerWorkingBal.gt(0) ? lockerWorkingBal.div(lockerBal) : new BigNumber(1);
     const convexBal = new BigNumber(convexBalances[i]);
     const convexWorkingBal = new BigNumber(convexWorkingBalances[i]);
-    const convexBoost = convexWorkingBal > 0 ? convexWorkingBal.div(convexBal) : new BigNumber(1);
+    const convexBoost = convexWorkingBal.gt(0) ? convexWorkingBal.div(convexBal) : new BigNumber(1);
     // console.log(pool.name, 'sdBoost', sdBoost.toNumber(), 'convexBoost', convexBoost.toNumber());
 
     let boost = sdAfterFees; // max boost minus fees if empty pool
     const sideCarBal = new BigNumber(sideCarBalances[i]);
-    if (lockerBal > 0 || sideCarBal > 0) {
+    if (lockerBal.gt(0) || sideCarBal.gt(0)) {
       const totalBal = lockerBal.plus(sideCarBal);
       const sdShare = lockerBal.div(totalBal).times(sdAfterFees);
       const convexShare = sideCarBal.div(totalBal).times(convexAfterFees);
@@ -128,7 +152,7 @@ export async function getStakeDaoV2Apys(chainId, pools) {
 
     for (const extra of extras.filter(e => e.pool === pool.name)) {
       if (extra.periodFinish < Date.now() / 1000) continue;
-      const poolExtra = pool.rewards.find(e => e.token === extra.token);
+      const poolExtra = pool.rewards?.find(e => e.token === extra.token) as CurveApyReward;
       const price = await fetchPrice({ oracle: poolExtra.oracle ?? 'tokens', id: poolExtra.oracleId });
       const extraRewardsInUsd = extra.rewardRate.times(secondsPerYear).times(price);
       const extraApy = extraRewardsInUsd.div(new BigNumber(gaugeTotalSupplies[i]).times(lpPrice));

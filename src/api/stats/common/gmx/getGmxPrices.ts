@@ -60,12 +60,12 @@ const getLpTokenBalances = async (chainId: ChainId, pool: GmxPool) => {
     return contract.read.balanceOf([pool.vault as Address]);
   });
   const balanceResults = await Promise.all(balanceCalls);
-  const bal = balanceResults.map(v => new BigNumber(v.toString()));
+  const bal = balanceResults.map(v => new BigNumber(v));
 
   const tokens: string[] = [];
   const shiftedBalances: string[] = [];
   for (let i = 0; i < poolTokens.length; i++) {
-    shiftedBalances.push(new BigNumber(bal[i]).dividedBy(poolTokens[i].decimals).toString(10));
+    shiftedBalances.push(bal[i].dividedBy(poolTokens[i].decimals).toString(10));
     tokens.push(poolTokens[i].address);
   }
 
@@ -80,8 +80,8 @@ const getLpPrice = async (chainId: ChainId, pool: GmxPool) => {
   const glpContract = fetchContract(pool.address, ERC20Abi, chainId);
 
   const result = await Promise.all([glpManagerContract.read.getAum([false]), glpContract.read.totalSupply()]);
-  const aum = new BigNumber((result[0] as BigInt).toString());
-  const totalSupply = new BigNumber(result[1].toString());
+  const aum = new BigNumber(result[0]);
+  const totalSupply = new BigNumber(result[1]);
   const price = aum.dividedBy(totalSupply).dividedBy('1e12').toNumber();
 
   return { price, totalSupply };

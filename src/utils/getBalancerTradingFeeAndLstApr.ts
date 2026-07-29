@@ -1,9 +1,30 @@
+import type { ChainId } from '@beefyfinance/blockchain-addressbook';
 import { BigNumber } from 'bignumber.js';
 import { getLoggerFor } from './logger/index.ts';
 
 const logger = getLoggerFor({ module: 'apy', platform: 'balancer' });
 
-const getChainName = chain => {
+type BalancerAprItem = {
+  apr: number;
+  rewardTokenAddress: string | null;
+  rewardTokenSymbol: string | null;
+  type: string;
+};
+
+type BalancerPoolApr = {
+  address: string;
+  dynamicData?: {
+    aprItems?: BalancerAprItem[];
+  };
+};
+
+type BalancerPoolsAprResponse = {
+  data?: {
+    poolGetPools?: BalancerPoolApr[];
+  };
+};
+
+const getChainName = (chain: ChainId) => {
   switch (chain) {
     case 146:
       return 'SONIC';
@@ -30,8 +51,8 @@ const getChainName = chain => {
   }
 };
 
-export const getBalTradingAndLstApr = async (chain, poolAddresses) => {
-  let tradingAprMap = {};
+export const getBalTradingAndLstApr = async (chain: ChainId, poolAddresses: string[]) => {
+  let tradingAprMap: Record<string, number> = {};
   // Keep order aligned with `poolAddresses` (index used downstream)
   let lstAprs = poolAddresses.map(() => new BigNumber(0));
   const api = 'https://api-v3.balancer.fi/graphql';
@@ -63,10 +84,10 @@ export const getBalTradingAndLstApr = async (chain, poolAddresses) => {
       }),
     });
 
-    const responseData = await data.json();
+    const responseData = (await data.json()) as BalancerPoolsAprResponse;
 
     const pools = responseData?.data?.poolGetPools || [];
-    const byAddress = new Map(pools.map(p => [p.address?.toLowerCase?.(), p]));
+    const byAddress = new Map<string, BalancerPoolApr>(pools.map(p => [p.address?.toLowerCase?.(), p]));
 
     poolAddresses.forEach((address, i) => {
       const key = address?.toLowerCase?.();
@@ -90,7 +111,7 @@ export const getBalTradingAndLstApr = async (chain, poolAddresses) => {
           } else if (aprItem.type === 'IB_YIELD') {
             // IB_YIELD = yield from interest-bearing / LST-like assets
             // NOTE: Merkl incentives are handled separately in APY breakdown as `merklApr`
-            lstApr = lstApr.plus(new BigNumber(aprItem.apr));
+            lstApr = lstApr.plus(aprItem.apr);
           }
         });
       }

@@ -7,6 +7,23 @@ import { fetchContract } from '../../rpc/client.ts';
 import { getCurveSubgraphApys } from '../common/curve/getCurveApyData.ts';
 import { getApyBreakdown } from '../common/getApyBreakdownNew.ts';
 
+type ConvexExtraReward = {
+  rewardPool: string;
+  oracle?: string;
+  oracleId: string;
+};
+
+type ConvexApyPool = {
+  name: string;
+  rewardPool?: string;
+  extras?: ConvexExtraReward[];
+};
+
+type ConvexExtraRewardInfo = {
+  pool: string;
+  rewardPool: string;
+};
+
 const subgraphUrl = 'https://api.curve.finance/api/getSubgraphData/ethereum';
 const secondsPerYear = 31536000;
 const cvxAddress = '0x4e3FBD56CD56c3e72c1403e103b45Db9da5B9D2B';
@@ -20,17 +37,17 @@ export const getConvexApys = async () => {
   return getApyBreakdown(pools.map((p, i) => ({ vaultId: p.name, trading: baseApys[p.name], vault: farmApys[i] })));
 };
 
-const getPoolApys = async pools => {
+const getPoolApys = async (pools: ConvexApyPool[]) => {
   const apys = [];
 
-  const totalSupplyCalls = [],
-    rewardRateCalls = [],
-    periodFinishCalls = [];
-  const extraRewardInfo = [],
-    extraRewardRateCalls = [],
-    extraPeriodFinishCalls = [];
+  const totalSupplyCalls: Promise<bigint>[] = [],
+    rewardRateCalls: Promise<bigint>[] = [],
+    periodFinishCalls: Promise<bigint>[] = [];
+  const extraRewardInfo: ConvexExtraRewardInfo[] = [],
+    extraRewardRateCalls: Promise<bigint>[] = [],
+    extraPeriodFinishCalls: Promise<bigint>[] = [];
   pools.forEach(pool => {
-    const rewardPool = fetchContract(pool.rewardPool, IRewardPool, ETH_CHAIN_ID);
+    const rewardPool = fetchContract(pool.rewardPool as string, IRewardPool, ETH_CHAIN_ID);
     totalSupplyCalls.push(rewardPool.read.totalSupply());
     rewardRateCalls.push(rewardPool.read.rewardRate());
     periodFinishCalls.push(rewardPool.read.periodFinish());
@@ -53,17 +70,17 @@ const getPoolApys = async pools => {
     cvxSupplyCall,
   ]);
   const poolInfo = res[0].map((_, i) => ({
-    totalSupply: new BigNumber(res[0][i].toString()),
-    rewardRate: new BigNumber(res[1][i].toString()),
-    periodFinish: new BigNumber(res[2][i].toString()),
+    totalSupply: new BigNumber(res[0][i]),
+    rewardRate: new BigNumber(res[1][i]),
+    periodFinish: new BigNumber(res[2][i]),
   }));
   const extras = extraRewardInfo.map((_, i) => ({
     ...extraRewardInfo[i],
-    rewardRate: new BigNumber(res[3][i].toString()),
-    periodFinish: new BigNumber(res[4][i].toString()),
+    rewardRate: new BigNumber(res[3][i]),
+    periodFinish: new BigNumber(res[4][i]),
   }));
 
-  const cvxSupply = new BigNumber(res[5].toString());
+  const cvxSupply = new BigNumber(res[5]);
   const cvxPrice = await fetchPrice({ oracle: 'tokens', id: 'CVX' });
   const crvPrice = await fetchPrice({ oracle: 'tokens', id: 'CRV' });
 
@@ -73,7 +90,7 @@ const getPoolApys = async pools => {
 
     let crvRewardsInUsd = new BigNumber(0);
     let cvxRewardsInUsd = new BigNumber(0);
-    if (info.periodFinish > Date.now() / 1000) {
+    if (info.periodFinish.gt(Date.now() / 1000)) {
       const crvRewards = info.rewardRate.times(secondsPerYear);
       crvRewardsInUsd = crvRewards.times(crvPrice).div('1e18');
       const cvxRewards = getMintedCvxAmount(crvRewards, cvxSupply);
@@ -90,8 +107,10 @@ const getPoolApys = async pools => {
     let yearlyRewardsInUsd = crvRewardsInUsd.plus(cvxRewardsInUsd);
 
     for (const extra of extras.filter(e => e.pool === pool.name)) {
-      if (extra.periodFinish < Date.now() / 1000) continue;
-      const poolExtra = pool.extras.find(e => e.rewardPool === extra.rewardPool);
+      if (extra.periodFinish.lt(Date.now() / 1000)) continue;
+      const poolExtra = (pool.extras as ConvexExtraReward[]).find(
+        e => e.rewardPool === extra.rewardPool
+      ) as ConvexExtraReward;
       const price = await fetchPrice({
         oracle: poolExtra.oracle ?? 'tokens',
         id: poolExtra.oracleId,
@@ -108,7 +127,7 @@ const getPoolApys = async pools => {
   return apys;
 };
 
-export function getMintedCvxAmount(crvAmount, cvxSupply) {
+export function getMintedCvxAmount(crvAmount: BigNumber, cvxSupply: BigNumber) {
   const totalCliffs = new BigNumber(1000);
   const reductionPerCliff = new BigNumber(100000000000000000000000);
   const cliff = cvxSupply.div(reductionPerCliff).integerValue(BigNumber.ROUND_DOWN);

@@ -1,4 +1,5 @@
 import { getKey, setKey } from '../../utils/cache/index.ts';
+import { envNumber } from '../../utils/env.ts';
 import { getLoggerFor } from '../../utils/logger/index.ts';
 import { serviceEventBus } from '../../utils/ServiceEventBus.ts';
 import { getArbitrumApys } from './arbitrum/index.ts';
@@ -23,14 +24,14 @@ import { getZksyncApys } from './zksync/index.ts';
 
 const logger = getLoggerFor({ module: 'apy' });
 
-const INIT_DELAY = process.env.INIT_DELAY || 30 * 1000;
+const INIT_DELAY = envNumber('INIT_DELAY', 30 * 1000);
 const BOOST_APR_INIT_DELAY = 5 * 1000;
 var REFRESH_INTERVAL = 15 * 60 * 1000;
 const BOOST_REFRESH_INTERVAL = 2 * 60 * 1000;
 
-let apys = {};
-let apyBreakdowns = {};
-let boostAprs = {};
+let apys: Record<string, unknown> = {};
+let apyBreakdowns: Record<string, unknown> = {};
+let boostAprs: Record<string, number> = {};
 
 const getApys = () => {
   return {
@@ -79,8 +80,8 @@ const updateApys = async () => {
       }
 
       // Set default APY values
-      let mappedApyValues = result.value;
-      let mappedApyBreakdownValues = {};
+      let mappedApyValues: Record<string, unknown> | undefined = result.value;
+      let mappedApyBreakdownValues: Record<string, unknown> | undefined = {};
 
       // Loop through key values and move default breakdown format
       // To require totalApy key
@@ -136,9 +137,9 @@ const updateBoostAprs = async () => {
 };
 
 const initApyService = async () => {
-  let cachedApy = await getKey('APY');
-  let cachedApyBreakdown = await getKey('APY_BREAKDOWN');
-  let cachedBoostAprs = await getKey('BOOST_APRS');
+  let cachedApy = await getKey<Record<string, unknown>>('APY');
+  let cachedApyBreakdown = await getKey<Record<string, unknown>>('APY_BREAKDOWN');
+  let cachedBoostAprs = await getKey<Record<string, number>>('BOOST_APRS');
   apys = cachedApy ?? {};
   apyBreakdowns = cachedApyBreakdown ?? {};
   boostAprs = cachedBoostAprs ?? {};

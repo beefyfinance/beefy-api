@@ -1,5 +1,6 @@
-import { addressBook } from '@beefyfinance/blockchain-addressbook';
+import { addressBook, type ChainId } from '@beefyfinance/blockchain-addressbook';
 import { BigNumber } from 'bignumber.js';
+import type { Address } from 'viem';
 import AuraBooster from '../../../abis/ethereum/AuraBooster.ts';
 import AuraGauge from '../../../abis/ethereum/AuraGauge.ts';
 import AuraToken from '../../../abis/ethereum/AuraToken.ts';
@@ -25,6 +26,31 @@ const liquidityProviderFee = 0.0025;
 const secondsInAYear = 31536000;
 const REWARD_MULTIPLIER_DENOMINATOR = 10000;
 
+type AuraPoolReward = {
+  rewardGauge: string;
+  oracleId: string;
+  decimals: string;
+};
+
+type AuraPool = {
+  name: string;
+  address: string;
+  gauge: string;
+  status?: string;
+  rewards?: AuraPoolReward[];
+};
+
+type AuraExtraRewardInfo = {
+  pool: string;
+  oracleId: string;
+  decimals: string;
+};
+
+type AuraExtraReward = AuraExtraRewardInfo & {
+  rewardRate: BigNumber;
+  periodFinish: BigNumber;
+};
+
 const getAuraApys = async () => {
   const pairAddresses = pools.map(pool => pool.address);
 
@@ -45,12 +71,12 @@ const getAuraApys = async () => {
   );
 };
 
-const getTradingFeeAprBalancer = async (chainId, pairAddresses) => {
+const getTradingFeeAprBalancer = async (chainId: ChainId, pairAddresses: string[]) => {
   const data = await getBalTradingAndLstApr(chainId, pairAddresses);
   return data;
 };
 
-const getPoolApys = async pools => {
+const getPoolApys = async (pools: AuraPool[]) => {
   return pools.map(() => new BigNumber(0));
 
   const apys = [];
@@ -72,7 +98,15 @@ const getPoolApys = async pools => {
   return apys;
 };
 
-const getPoolApy = async (pool, auraData, balance, rewardRate, finish, multiplier, extras) => {
+const getPoolApy = async (
+  pool: AuraPool,
+  auraData: BigNumber[],
+  balance: BigNumber,
+  rewardRate: BigNumber,
+  finish: BigNumber,
+  multiplier: BigNumber,
+  extras: AuraExtraReward[]
+) => {
   if (pool.status === 'eol') return new BigNumber(0);
 
   let [yearlyRewardsInUsd, totalStakedInUsd] = await Promise.all([
@@ -87,9 +121,16 @@ const getPoolApy = async (pool, auraData, balance, rewardRate, finish, multiplie
   return rewardsApy;
 };
 
-const getYearlyRewardsInUsd = async (auraData, pool, rewardRate, finish, multiplier, extras) => {
+const getYearlyRewardsInUsd = async (
+  auraData: BigNumber[],
+  pool: AuraPool,
+  rewardRate: BigNumber,
+  finish: BigNumber,
+  multiplier: BigNumber,
+  extras: AuraExtraReward[]
+) => {
   let yearlyRewardsInUsd = new BigNumber(0);
-  if (finish > Date.now() / 1000) {
+  if (finish.gt(Date.now() / 1000)) {
     const balPrice = await fetchPrice({ oracle: 'tokens', id: 'BAL' });
     const yearlyRewards = rewardRate.times(secondsInAYear);
     yearlyRewardsInUsd = yearlyRewards.times(balPrice).dividedBy(getEDecimals(BAL.decimals));
@@ -112,7 +153,7 @@ const getYearlyRewardsInUsd = async (auraData, pool, rewardRate, finish, multipl
 
     let extraRewardsInUsd = new BigNumber(0);
     for (const extra of extras.filter(e => e.pool === pool.name)) {
-      if (extra.periodFinish < Date.now() / 1000) continue;
+      if (extra.periodFinish.lt(Date.now() / 1000)) continue;
       const price = await fetchPrice({
         oracle: 'tokens',
         id: extra.oracleId,
@@ -130,26 +171,26 @@ const getYearlyRewardsInUsd = async (auraData, pool, rewardRate, finish, multipl
   return yearlyRewardsInUsd;
 };
 
-const getTotalStakedInUsd = async (pool, balance) => {
+const getTotalStakedInUsd = async (pool: AuraPool, balance: BigNumber) => {
   const lpPrice = await fetchPrice({ oracle: 'lps', id: pool.name });
   return balance.multipliedBy(lpPrice).dividedBy('1e18');
 };
 
-const getPoolsData = async pools => {
-  const balanceCalls = [];
-  const rewardRateCalls = [];
-  const periodFinishCalls = [];
-  const extraRewardInfo = [];
-  const extraRewardRateCalls = [];
-  const extraRewardPeriodFinishCalls = [];
-  const multiplierCalls = [];
+const getPoolsData = async (pools: AuraPool[]) => {
+  const balanceCalls: Promise<bigint>[] = [];
+  const rewardRateCalls: Promise<bigint>[] = [];
+  const periodFinishCalls: Promise<bigint>[] = [];
+  const extraRewardInfo: AuraExtraRewardInfo[] = [];
+  const extraRewardRateCalls: Promise<bigint>[] = [];
+  const extraRewardPeriodFinishCalls: Promise<bigint>[] = [];
+  const multiplierCalls: Promise<bigint>[] = [];
   const booster = fetchContract(addressBook.ethereum.platforms.aura.booster, AuraBooster, ETH_CHAIN_ID);
   pools.forEach(pool => {
     const gaugeContract = fetchContract(pool.gauge, AuraGauge, ETH_CHAIN_ID);
     balanceCalls.push(gaugeContract.read.totalSupply());
     rewardRateCalls.push(gaugeContract.read.rewardRate());
     periodFinishCalls.push(gaugeContract.read.periodFinish());
-    multiplierCalls.push(booster.read.getRewardMultipliers([pool.gauge]));
+    multiplierCalls.push(booster.read.getRewardMultipliers([pool.gauge as Address]));
     pool.rewards?.forEach(reward => {
       const virtualGauge = fetchContract(reward.rewardGauge, AuraGauge, ETH_CHAIN_ID);
       extraRewardInfo.push({
@@ -171,14 +212,14 @@ const getPoolsData = async pools => {
     Promise.all(multiplierCalls),
   ]);
 
-  const balances = res[0].map(v => new BigNumber(v.toString()));
-  const rewardRates = res[1].map(v => new BigNumber(v.toString()));
-  const finishes = res[2].map(v => new BigNumber(v.toString()));
-  const multipliers = res[5].map(v => new BigNumber(v.toString()));
+  const balances = res[0].map(v => new BigNumber(v));
+  const rewardRates = res[1].map(v => new BigNumber(v));
+  const finishes = res[2].map(v => new BigNumber(v));
+  const multipliers = res[5].map(v => new BigNumber(v));
   const extras = extraRewardInfo.map((_, i) => ({
     ...extraRewardInfo[i],
-    rewardRate: new BigNumber(res[3][i].toString()),
-    periodFinish: new BigNumber(res[4][i].toString()),
+    rewardRate: new BigNumber(res[3][i]),
+    periodFinish: new BigNumber(res[4][i]),
   }));
 
   return { balances, rewardRates, finishes, multipliers, extras };
@@ -188,10 +229,10 @@ const getAuraData = async () => {
   const auraContract = fetchContract(AURA.address, AuraToken, ETH_CHAIN_ID);
 
   const [total, max, cliffs, totalCliff] = await Promise.all([
-    auraContract.read.totalSupply().then(res => new BigNumber(res.toString())),
-    auraContract.read.EMISSIONS_MAX_SUPPLY().then(res => new BigNumber(res.toString())),
-    auraContract.read.reductionPerCliff().then(res => new BigNumber(res.toString())),
-    auraContract.read.totalCliffs().then(res => new BigNumber(res.toString())),
+    auraContract.read.totalSupply().then(res => new BigNumber(res)),
+    auraContract.read.EMISSIONS_MAX_SUPPLY().then(res => new BigNumber(res)),
+    auraContract.read.reductionPerCliff().then(res => new BigNumber(res)),
+    auraContract.read.totalCliffs().then(res => new BigNumber(res)),
   ]);
 
   let premint = new BigNumber('5e25');

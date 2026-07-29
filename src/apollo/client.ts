@@ -3,8 +3,9 @@ import type { NormalizedCacheObject } from '@apollo/client/cache/inmemory/types.
 import { ApolloClient } from '@apollo/client/core/ApolloClient.js';
 import { ApolloError } from '@apollo/client/errors/index.js';
 import { HttpLink } from '@apollo/client/link/http/HttpLink.js';
+import { envNumber } from '../utils/env.ts';
 
-const APOLLO_TIMEOUT = process.env.APOLLO_TIMEOUT ? parseInt(process.env.APOLLO_TIMEOUT) : 30_000;
+const APOLLO_TIMEOUT = envNumber('APOLLO_TIMEOUT', 30_000);
 const THE_GRAPH_API_KEY = process.env.THE_GRAPH_API_KEY || undefined; // The Free Plan includes 100,000 free monthly queries; you still need an API key
 const timeoutFetch: typeof fetch = (input, init) => {
   const timeout = AbortSignal.timeout(APOLLO_TIMEOUT);

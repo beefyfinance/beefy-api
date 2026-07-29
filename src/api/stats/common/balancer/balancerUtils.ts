@@ -1,4 +1,6 @@
+import type { ChainId } from '@beefyfinance/blockchain-addressbook';
 import { BigNumber } from 'bignumber.js';
+import type { Address } from 'viem';
 import { default as ICurveGauge } from '../../../../abis/ICurveGauge.ts';
 import { default as ICurveRewardStream } from '../../../../abis/ICurveRewardStream.ts';
 import { default as ICurveRewards } from '../../../../abis/ICurveRewards.ts';
@@ -8,17 +10,38 @@ import { fetchContract } from '../../../rpc/client.ts';
 const secondsPerYear = 31536000;
 
 const ZERO_ADDRESS = '0x0000000000000000000000000000000000000000';
-const hasGauge = pool => !!pool?.gauge && typeof pool.gauge === 'string' && pool.gauge.toLowerCase() !== ZERO_ADDRESS;
 
-export const getTotalStakedInUsd = async (chainId, pool) => {
+export type BalancerApyReward = {
+  token?: string;
+  rewardToken?: string;
+  stream?: string;
+  newGauge?: boolean;
+  oracle?: string;
+  oracleId: string;
+  decimals?: string;
+};
+
+export type BalancerApyPool = {
+  name: string;
+  gauge?: string;
+  boosted?: boolean;
+  rewards?: BalancerApyReward[];
+};
+
+type BalancerGaugedPool = BalancerApyPool & { gauge: string };
+
+const hasGauge = (pool: BalancerApyPool | undefined): pool is BalancerGaugedPool =>
+  !!pool?.gauge && typeof pool.gauge === 'string' && pool.gauge.toLowerCase() !== ZERO_ADDRESS;
+
+export const getTotalStakedInUsd = async (chainId: ChainId, pool: BalancerApyPool) => {
   if (!hasGauge(pool)) return new BigNumber(1);
   const gauge = fetchContract(pool.gauge, ICurveGauge, chainId);
-  const totalSupply = new BigNumber((await gauge.read.totalSupply()).toString());
+  const totalSupply = new BigNumber(await gauge.read.totalSupply());
   const lpPrice = await fetchPrice({ oracle: 'lps', id: pool.name });
   return totalSupply.multipliedBy(lpPrice).dividedBy('1e18');
 };
 
-export const getBoostedYearlyRewardsInUsd = async (chainId, pool, tokenID) => {
+export const getBoostedYearlyRewardsInUsd = async (chainId: ChainId, pool: BalancerApyPool, tokenID?: string) => {
   if (!hasGauge(pool)) return new BigNumber(0);
   const id = tokenID !== undefined ? tokenID : 'CRV';
   const crvPrice = await fetchPrice({ oracle: 'tokens', id: id });
@@ -29,13 +52,13 @@ export const getBoostedYearlyRewardsInUsd = async (chainId, pool, tokenID) => {
   // so total APY can be calculated as yearlyRewards / totalStaked
   const weekEpoch = Math.floor(Date.now() / 1000 / (86400 * 7));
   const gauge = fetchContract(pool.gauge, ICurveGauge, chainId);
-  const calls = [gauge.read.inflation_rate([weekEpoch]), gauge.read.totalSupply(), gauge.read.working_supply()];
+  const calls = [gauge.read.inflation_rate([BigInt(weekEpoch)]), gauge.read.totalSupply(), gauge.read.working_supply()];
 
   const res = await Promise.all(calls);
 
-  const rewardRate = new BigNumber(res[0].toString());
-  const totalSupply = new BigNumber(res[1].toString());
-  const workingSupply = new BigNumber(res[2].toString());
+  const rewardRate = new BigNumber(res[0]);
+  const totalSupply = new BigNumber(res[1]);
+  const workingSupply = new BigNumber(res[2]);
 
   return rewardRate
     .times(secondsPerYear)
@@ -46,17 +69,19 @@ export const getBoostedYearlyRewardsInUsd = async (chainId, pool, tokenID) => {
     .dividedBy('1e18');
 };
 
-export const getYearlyRewardsInUsd = async (chainId, pool) => {
+export const getYearlyRewardsInUsd = async (chainId: ChainId, pool: BalancerApyPool) => {
   let [yearRewardsInUsd, ratesAndPeriods] = await Promise.all([
-    pool.boosted ? getBoostedYearlyRewardsInUsd(chainId, pool) : new Promise(resolve => resolve(new BigNumber(0))),
+    pool.boosted
+      ? getBoostedYearlyRewardsInUsd(chainId, pool)
+      : new Promise<BigNumber>(resolve => resolve(new BigNumber(0))),
     getPoolsRatesAndPeriodFinish(chainId, pool),
   ]);
 
   const { rewardRates, periodsFinish } = ratesAndPeriods;
 
   for (const [index, rewards] of Object.entries(pool.rewards ?? [])) {
-    const rewardRate = rewardRates[index];
-    const periodFinish = periodsFinish[index];
+    const rewardRate = rewardRates[Number(index)];
+    const periodFinish = periodsFinish[Number(index)];
 
     if (periodFinish < Date.now() / 1000) {
       continue;
@@ -73,10 +98,11 @@ export const getYearlyRewardsInUsd = async (chainId, pool) => {
   return yearRewardsInUsd;
 };
 
-const getPoolsRatesAndPeriodFinish = async (chainId, pool) => {
-  const periodFinishCalls = [];
-  const rewardRateCalls = [];
+const getPoolsRatesAndPeriodFinish = async (chainId: ChainId, pool: BalancerApyPool) => {
+  const periodFinishCalls: Promise<number | bigint>[] = [];
+  const rewardRateCalls: Promise<number | bigint>[] = [];
   (pool.rewards ?? []).forEach(rewards => {
+    const stream = rewards.stream as string;
     if (pool.boosted || rewards.rewardToken) {
       if (!hasGauge(pool)) {
         periodFinishCalls.push(new Promise(resolve => resolve(0)));
@@ -85,25 +111,25 @@ const getPoolsRatesAndPeriodFinish = async (chainId, pool) => {
       }
       const token = rewards.rewardToken ? rewards.rewardToken : rewards.token;
       const rewardStream = fetchContract(pool.gauge, ICurveGauge, chainId);
-      const call = rewardStream.read.reward_data([token]);
+      const call = rewardStream.read.reward_data([token as Address]);
 
       periodFinishCalls.push(call.then(res => res[1]));
       rewardRateCalls.push(call.then(res => res[2]));
     } else if (rewards.newGauge) {
-      const rewardStream = fetchContract(rewards.stream, ICurveGauge, chainId);
+      const rewardStream = fetchContract(stream, ICurveGauge, chainId);
       const weekEpoch = Math.floor(Date.now() / 1000 / (86400 * 7));
       const periodFinish = (weekEpoch + 1) * (86400 * 7) + 86400;
 
       periodFinishCalls.push(new Promise(resolve => resolve(periodFinish)));
-      rewardRateCalls.push(rewardStream.read.inflation_rate([weekEpoch]));
+      rewardRateCalls.push(rewardStream.read.inflation_rate([BigInt(weekEpoch)]));
     } else if (rewards.token) {
-      const rewardStream = fetchContract(rewards.stream, ICurveRewards, chainId);
-      const call = rewardStream.read.reward_data([rewards.token]);
+      const rewardStream = fetchContract(stream, ICurveRewards, chainId);
+      const call = rewardStream.read.reward_data([rewards.token as Address]);
 
       periodFinishCalls.push(call.then(res => res[1]));
       rewardRateCalls.push(call.then(res => res[2]));
     } else {
-      const rewardStream = fetchContract(rewards.stream, ICurveRewardStream, chainId);
+      const rewardStream = fetchContract(stream, ICurveRewardStream, chainId);
 
       periodFinishCalls.push(rewardStream.read.period_finish());
       rewardRateCalls.push(rewardStream.read.reward_rate());

@@ -1,4 +1,6 @@
+import type { ChainId } from '@beefyfinance/blockchain-addressbook';
 import { BigNumber } from 'bignumber.js';
+import type { Address } from 'viem';
 import ICurveGauge from '../../../../abis/ICurveGauge.ts';
 import { fetchPrice } from '../../../../utils/fetchPrice.ts';
 import { getLoggerFor } from '../../../../utils/logger/index.ts';
@@ -9,22 +11,46 @@ const logger = getLoggerFor({ module: 'apy', platform: 'curve' });
 
 const secondsPerYear = 31536000;
 
-export async function getCurveApysCommon(chainId, pools) {
-  const apys = [];
+export type CurveApyReward = {
+  token: string;
+  oracle?: string;
+  oracleId: string;
+  decimals?: string;
+};
+
+export type CurveApyPool = {
+  name: string;
+  gauge?: string;
+  rewards?: CurveApyReward[];
+};
+
+export type CurveMerklPool = {
+  merklId?: string;
+};
+
+type CurveGaugeRewardData = readonly [Address, bigint, bigint, bigint, bigint];
+
+type CurveExtraRewardData = {
+  pool: string;
+  token: string;
+};
+
+export async function getCurveApysCommon(chainId: ChainId, pools: CurveApyPool[]) {
+  const apys: BigNumber[] = [];
 
   const weekEpoch = Math.floor(Date.now() / 1000 / (86400 * 7));
-  const rewardCalls = [],
-    totalSupplyCalls = [],
-    workingSupplyCalls = [],
-    extraCalls = [],
-    extraData = [];
+  const rewardCalls: Promise<bigint>[] = [],
+    totalSupplyCalls: Promise<bigint>[] = [],
+    workingSupplyCalls: Promise<bigint>[] = [],
+    extraCalls: Promise<CurveGaugeRewardData>[] = [],
+    extraData: CurveExtraRewardData[] = [];
   pools.forEach(pool => {
-    const gauge = fetchContract(pool.gauge, ICurveGauge, chainId);
-    rewardCalls.push(gauge.read.inflation_rate([weekEpoch]));
+    const gauge = fetchContract(pool.gauge as string, ICurveGauge, chainId);
+    rewardCalls.push(gauge.read.inflation_rate([BigInt(weekEpoch)]));
     totalSupplyCalls.push(gauge.read.totalSupply());
     workingSupplyCalls.push(gauge.read.working_supply());
     pool.rewards?.forEach(reward => {
-      extraCalls.push(gauge.read.reward_data([reward.token]));
+      extraCalls.push(gauge.read.reward_data([reward.token as Address]));
       extraData.push({ pool: pool.name, token: reward.token });
     });
   });
@@ -36,15 +62,15 @@ export async function getCurveApysCommon(chainId, pools) {
   ]);
 
   const poolInfo = rewardResults.map((_, i) => ({
-    rewardRate: new BigNumber(rewardResults[i].toString()),
-    totalSupply: new BigNumber(totalSupplyResults[i].toString()),
-    workingSupply: new BigNumber(workingSupplyResults[i].toString()),
+    rewardRate: new BigNumber(rewardResults[i]),
+    totalSupply: new BigNumber(totalSupplyResults[i]),
+    workingSupply: new BigNumber(workingSupplyResults[i]),
   }));
 
   const extras = extraResults.map((_, i) => ({
     ...extraData[i],
     periodFinish: Number(extraResults[i][1]),
-    rewardRate: new BigNumber(extraResults[i][2].toString()),
+    rewardRate: new BigNumber(extraResults[i][2]),
   }));
 
   const crvPrice = await fetchPrice({ oracle: 'tokens', id: 'CRV' });
@@ -68,7 +94,7 @@ export async function getCurveApysCommon(chainId, pools) {
 
     for (const extra of extras.filter(e => e.pool === pool.name)) {
       if (extra.periodFinish < Date.now() / 1000) continue;
-      const poolExtra = pool.rewards.find(e => e.token === extra.token);
+      const poolExtra = pool.rewards?.find(e => e.token === extra.token) as CurveApyReward;
       const price = await fetchPrice({
         oracle: poolExtra.oracle ?? 'tokens',
         id: poolExtra.oracleId,
@@ -91,9 +117,9 @@ export async function getCurveApysCommon(chainId, pools) {
   return apys;
 }
 
-export async function getMerklApys(chainId, pools) {
-  const ids = pools.filter(p => p.merklId).map(p => p.merklId);
-  let aprById = {};
+export async function getMerklApys(chainId: ChainId, pools: CurveMerklPool[]) {
+  const ids = pools.filter(p => p.merklId).map(p => p.merklId) as string[];
+  let aprById: Record<string, number> = {};
   if (ids.length) {
     try {
       aprById = await getMerklAprByIdentifier(chainId, ids);

@@ -1,5 +1,7 @@
+import type { ChainId } from '@beefyfinance/blockchain-addressbook';
 import { BigNumber } from 'bignumber.js';
 import jp from 'jsonpath';
+import type { Address } from 'viem';
 import { default as IAaveV3Incentives } from '../../../../abis/AaveV3Incentives.ts';
 import { default as IAaveV3PoolDataProvider } from '../../../../abis/AaveV3PoolDataProvider.ts';
 import { fetchPrice } from '../../../../utils/fetchPrice.ts';
@@ -13,11 +15,58 @@ const logger = getLoggerFor({ module: 'apy', platform: 'aave' });
 const secondsPerYear = 31536000;
 const RAY_DECIMALS = '1e27';
 
+export type AaveV3Reward = {
+  token: string;
+  oracle: string;
+  oracleId: string;
+  decimals: string;
+};
+
+export type AaveV3Config = {
+  dataProvider: string;
+  incentives: string;
+  rewards: AaveV3Reward[];
+};
+
+type AaveV3PoolFields = {
+  name: string;
+  token: string;
+  aToken: string;
+  debtToken: string;
+  oracle: string;
+  oracleId: string;
+  decimals: string;
+  borrowDepth: number;
+  borrowPercent: number;
+  merit?: string;
+  identifier?: string;
+};
+
+type AaveV3PoolWithoutLiquidStaking = {
+  lsUrl?: undefined;
+  dataPath?: undefined;
+  lsAprFactor?: undefined;
+};
+
+type AaveV3PoolWithLiquidStaking = {
+  lsUrl: string;
+  dataPath: string;
+  lsAprFactor?: number;
+};
+
+export type AaveV3Pool = AaveV3PoolFields & (AaveV3PoolWithoutLiquidStaking | AaveV3PoolWithLiquidStaking);
+
+type AaveMeritAprsResponse = {
+  currentAPR: {
+    actionsAPR: Record<string, number>;
+  };
+};
+
 // config = { dataProvider: address, incentives: address, rewards: []}
-const getAaveV3ApyData = async (config, pools, chainId) => {
-  const rewardApys = [];
-  const lendingApys = [];
-  const lsApys = [];
+const getAaveV3ApyData = async (config: AaveV3Config, pools: AaveV3Pool[], chainId: ChainId) => {
+  const rewardApys: BigNumber[] = [];
+  const lendingApys: BigNumber[] = [];
+  const lsApys: number[] = [];
 
   const [values, meritApys, merklApys] = await Promise.all([
     Promise.all(pools.map(pool => getPoolApy(config, pool, chainId))),
@@ -41,25 +90,27 @@ const getAaveV3ApyData = async (config, pools, chainId) => {
   );
 };
 
-async function getMeritApys(pools) {
-  let meritData = {};
+async function getMeritApys(pools: AaveV3Pool[]) {
+  let meritData: Record<string, number> = {};
   if (pools.some(p => p.merit)) {
     try {
-      const res = await fetch('https://apps.aavechan.com/api/merit/aprs').then(res => res.json());
+      const res = (await fetch('https://apps.aavechan.com/api/merit/aprs').then(res =>
+        res.json()
+      )) as AaveMeritAprsResponse;
       meritData = res.currentAPR.actionsAPR;
     } catch (e) {
       logger.warn({ err: e }, 'merit apys fetch failed');
     }
   }
-  return pools.map(p => new BigNumber(meritData[p.merit] || 0).div(100));
+  return pools.map(p => new BigNumber(p.merit ? meritData[p.merit] || 0 : 0).div(100));
 }
 
-async function getMerklApys(chainId, pools) {
-  let merklData = {};
+async function getMerklApys(chainId: ChainId, pools: AaveV3Pool[]) {
+  let merklData: Record<string, number> = {};
   if (pools.some(p => p.identifier)) {
     try {
       const opportunities = await getMerklOpportunitiesByProtocol(chainId, 'aave');
-      merklData = opportunities.reduce((acc, opportunity) => {
+      merklData = opportunities.reduce<Record<string, number>>((acc, opportunity) => {
         acc[opportunity.identifier] = opportunity.apr;
         return acc;
       }, {});
@@ -67,10 +118,14 @@ async function getMerklApys(chainId, pools) {
       logger.warn({ err: e, chain: chainId }, 'merkl apys fetch failed');
     }
   }
-  return pools.map(p => new BigNumber(merklData[p.identifier] || 0).div(100));
+  return pools.map(p => new BigNumber(p.identifier ? merklData[p.identifier] || 0 : 0).div(100));
 }
 
-const getPoolApy = async (config, pool, chainId) => {
+const getPoolApy = async (
+  config: AaveV3Config,
+  pool: AaveV3Pool,
+  chainId: ChainId
+): Promise<[BigNumber, BigNumber, number]> => {
   const { supplyBase, supplyNative, borrowBase, borrowNative } = await getAaveV3PoolData(config, pool, chainId);
   const { leveragedSupplyBase, leveragedBorrowBase, leveragedSupplyNative, leveragedBorrowNative } = getLeveragedApys(
     supplyBase,
@@ -95,25 +150,25 @@ const getPoolApy = async (config, pool, chainId) => {
   return [rewardsApy, lendingApy, lsApy];
 };
 
-const getAaveV3PoolData = async (config, pool, chainId) => {
+const getAaveV3PoolData = async (config: AaveV3Config, pool: AaveV3Pool, chainId: ChainId) => {
   const dataProvider = fetchContract(config.dataProvider, IAaveV3PoolDataProvider, chainId);
 
   const [reserveData, { supplyNativeInUsd, borrowNativeInUsd }] = await Promise.all([
-    dataProvider.read.getReserveData([pool.token]),
+    dataProvider.read.getReserveData([pool.token as Address]),
     getRewardsPerYear(config, pool, chainId),
   ]);
 
-  const totalAToken = new BigNumber(reserveData[2].toString());
-  const totalVariableDebt = new BigNumber(reserveData[4].toString());
-  const liquidityRate = new BigNumber(reserveData[5].toString());
-  const variableBorrowRate = new BigNumber(reserveData[6].toString());
+  const totalAToken = new BigNumber(reserveData[2]);
+  const totalVariableDebt = new BigNumber(reserveData[4]);
+  const liquidityRate = new BigNumber(reserveData[5]);
+  const variableBorrowRate = new BigNumber(reserveData[6]);
 
-  const supplyBase = new BigNumber(liquidityRate).div(RAY_DECIMALS);
-  const borrowBase = new BigNumber(variableBorrowRate).div(RAY_DECIMALS);
+  const supplyBase = liquidityRate.div(RAY_DECIMALS);
+  const borrowBase = variableBorrowRate.div(RAY_DECIMALS);
 
   const tokenPrice = await fetchPrice({ oracle: pool.oracle, id: pool.oracleId });
-  const totalSupplyInUsd = new BigNumber(totalAToken).div(pool.decimals).times(tokenPrice);
-  const totalBorrowInUsd = new BigNumber(totalVariableDebt).div(pool.decimals).times(tokenPrice);
+  const totalSupplyInUsd = totalAToken.div(pool.decimals).times(tokenPrice);
+  const totalBorrowInUsd = totalVariableDebt.div(pool.decimals).times(tokenPrice);
 
   const supplyNative = supplyNativeInUsd.div(totalSupplyInUsd);
   const borrowNative = totalBorrowInUsd.isZero() ? new BigNumber(0) : borrowNativeInUsd.div(totalBorrowInUsd);
@@ -121,14 +176,14 @@ const getAaveV3PoolData = async (config, pool, chainId) => {
   return { supplyBase, supplyNative, borrowBase, borrowNative };
 };
 
-const getRewardsPerYear = async (config, pool, chainId) => {
+const getRewardsPerYear = async (config: AaveV3Config, pool: AaveV3Pool, chainId: ChainId) => {
   const distribution = fetchContract(config.incentives, IAaveV3Incentives, chainId);
 
   const aTokenRewardsDataCalls = config.rewards.map(reward =>
-    distribution.read.getRewardsData([pool.aToken, reward.token])
+    distribution.read.getRewardsData([pool.aToken as Address, reward.token as Address])
   );
   const debtTokenRewardsDataCalls = config.rewards.map(reward =>
-    distribution.read.getRewardsData([pool.debtToken, reward.token])
+    distribution.read.getRewardsData([pool.debtToken as Address, reward.token as Address])
   );
 
   const [aTokenRewardsDataResults, debtTokenRewardsDataResults] = await Promise.all([
@@ -138,13 +193,13 @@ const getRewardsPerYear = async (config, pool, chainId) => {
 
   let supplyNativeInUsd = new BigNumber(0);
   let borrowNativeInUsd = new BigNumber(0);
-  for (const [index, reward] of Object.entries(config.rewards)) {
+  for (const [index, reward] of Object.entries(config.rewards) as [`${number}`, AaveV3Reward][]) {
     const supplyNativeRate = new BigNumber(aTokenRewardsDataResults[index][1]);
     const distributionEnd = new BigNumber(aTokenRewardsDataResults[index][3]);
     const borrowNativeRate = new BigNumber(debtTokenRewardsDataResults[index][1]);
 
     const tokenPrice = await fetchPrice({ oracle: reward.oracle, id: reward.oracleId });
-    if (distributionEnd.gte(new BigNumber(Date.now() / 1000))) {
+    if (distributionEnd.gte(Date.now() / 1000)) {
       supplyNativeInUsd = supplyNativeInUsd.plus(
         supplyNativeRate.times(secondsPerYear).div(reward.decimals).times(tokenPrice)
       );
@@ -160,7 +215,14 @@ const getRewardsPerYear = async (config, pool, chainId) => {
   return { supplyNativeInUsd, borrowNativeInUsd };
 };
 
-const getLeveragedApys = (supplyBase, borrowBase, supplyNative, borrowNative, depth, borrowPercent) => {
+const getLeveragedApys = (
+  supplyBase: BigNumber,
+  borrowBase: BigNumber,
+  supplyNative: BigNumber,
+  borrowNative: BigNumber,
+  depth: number,
+  borrowPercent: number | BigNumber
+) => {
   borrowPercent = new BigNumber(borrowPercent);
   let leveragedSupplyBase = new BigNumber(0);
   let leveragedBorrowBase = new BigNumber(0);

@@ -4,13 +4,23 @@ import { getApyBreakdown } from '../common/getApyBreakdown.ts';
 
 const logger = getLoggerFor({ module: 'apy', platform: 'convex', chain: 'fraxtal' });
 
+type ConvexStakedCvxFxsReward = {
+  apr?: number;
+};
+
+type ConvexStakedCvxFxsResponse = {
+  rewards?: ConvexStakedCvxFxsReward[];
+};
+
 export const getConvexCvxFxsApys = async () => {
   let apy = new BigNumber(0);
   try {
-    const apyData = await fetch('https://frax.convexfinance.com/api/frax/staked-cvxfxs').then(res => res.json());
+    const apyData = (await fetch('https://frax.convexfinance.com/api/frax/staked-cvxfxs').then(res =>
+      res.json()
+    )) as ConvexStakedCvxFxsResponse;
     apyData?.rewards?.forEach(r => {
       const apr = (r?.apr || 0) / 100;
-      apy = apy.plus(new BigNumber(apr));
+      apy = apy.plus(apr);
     });
   } catch (e) {
     logger.warn({ err: e }, 'apy fetch failed');

@@ -1,12 +1,13 @@
 import { getKey, setKey } from '../../utils/cache/index.ts';
 import { SupportedChains } from '../../utils/chain.ts';
+import { envNumber } from '../../utils/env.ts';
 import { getLoggerFor } from '../../utils/logger/index.ts';
 import { contextAllSettled, isContextResultFulfilled, isContextResultRejected } from '../../utils/promise.ts';
 import getChainTvl from './getChainTvl.ts';
 
 const logger = getLoggerFor({ module: 'tvl' });
 
-const INIT_DELAY = Number(process.env.TVL_INIT_DELAY || 40 * 1000);
+const INIT_DELAY = envNumber('TVL_INIT_DELAY', 40 * 1000);
 const REFRESH_INTERVAL = 15 * 60 * 1000;
 
 let tvl = {};

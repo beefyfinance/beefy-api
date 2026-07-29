@@ -40,9 +40,9 @@ const getYearlyRewardsInUsd = async () => {
   const rewardPoolContract = fetchContract(rewardPool, IBeefyRewardPool, ETH_CHAIN_ID);
   for (let i = 0; i < rewards.length; ++i) {
     const rewardPrice = await fetchPrice({ oracle: 'tokens', id: rewards[i].symbol });
-    const rewardInfo = await rewardPoolContract.read.rewardInfo([rewards[i].id]);
-    const rewardRate = new BigNumber(rewardInfo[4].toString());
-    const periodFinish = new BigNumber(rewardInfo[1].toString());
+    const rewardInfo = await rewardPoolContract.read.rewardInfo([BigInt(rewards[i].id)]);
+    const rewardRate = new BigNumber(rewardInfo[4]);
+    const periodFinish = new BigNumber(rewardInfo[1]);
     if (periodFinish.isGreaterThan(Math.floor(Date.now() / 1000))) {
       yearlyRewards = yearlyRewards.plus(
         rewardRate.times(secondsPerYear).times(rewardPrice).dividedBy(rewards[i].decimals)
@@ -54,7 +54,7 @@ const getYearlyRewardsInUsd = async () => {
 
 const getTotalStakedInUsd = async () => {
   const tokenContract = fetchContract(beQI.address, ERC20Abi, ETH_CHAIN_ID);
-  const totalStaked = new BigNumber((await tokenContract.read.balanceOf([rewardPool])).toString());
+  const totalStaked = new BigNumber(await tokenContract.read.balanceOf([rewardPool]));
   const tokenPrice = await fetchPrice({ oracle: 'tokens', id: 'beQIv2' });
 
   return totalStaked.times(tokenPrice).dividedBy('1e18');

@@ -1,5 +1,6 @@
+import type { ChainId } from '@beefyfinance/blockchain-addressbook';
 import { BigNumber } from 'bignumber.js';
-import { parseAbi } from 'viem';
+import { type Address, parseAbi } from 'viem';
 import {
   ARBITRUM_CHAIN_ID,
   BASE_CHAIN_ID,
@@ -9,9 +10,10 @@ import {
   SONIC_CHAIN_ID,
 } from '../../../../constants.ts';
 import { getLoggerFor } from '../../../../utils/logger/index.ts';
+import type { OptionalRecord } from '../../../../utils/object.ts';
 import { fetchContract } from '../../../rpc/client.ts';
 import { getApyBreakdown } from '../getApyBreakdownNew.ts';
-import { getPendleApys as getPendleBaseApys } from './getPendleBaseApys.ts';
+import { getPendleApys as getPendleBaseApys, type PendlePool } from './getPendleBaseApys.ts';
 
 const logger = getLoggerFor({ module: 'apy', platform: 'pendle' });
 
@@ -22,7 +24,7 @@ const abi = parseAbi([
 const penpieAfterFees = 1 - 0.22;
 const eqbAfterFees = 1 - 0.225;
 
-const penpieProxy = {
+const penpieProxy: OptionalRecord<ChainId, Address> = {
   [PLASMA_CHAIN_ID]: '0xfFf28A2845aEB11394ed63dDFC62161af6310701',
   [ETH_CHAIN_ID]: '0x6E799758CEE75DAe3d84e09D40dc416eCf713652',
   [SONIC_CHAIN_ID]: '0xF9619e8B01Acc23FAc7Ee0AEb1258433b85814ec',
@@ -30,7 +32,7 @@ const penpieProxy = {
   [BSC_CHAIN_ID]: '0x782D9D67FeaA4d1CDF8222D9053c8CBA1c3B7982',
   [BASE_CHAIN_ID]: '0x7A89614B596720D4D0f51A69D6C1d55dB97E9aAB',
 };
-const eqbPendleProxy = {
+const eqbPendleProxy: OptionalRecord<ChainId, Address> = {
   [PLASMA_CHAIN_ID]: '0xfE80D611c6403f70e5B1b9B722D2B3510B740B2B',
   [ETH_CHAIN_ID]: '0x64627901dAdb46eD7f275fD4FC87d086cfF1e6E3',
   [SONIC_CHAIN_ID]: '0x479603DE0a8B6D2f4D4eaA1058Eea0d7Ac9E218d',
@@ -39,7 +41,7 @@ const eqbPendleProxy = {
   [BASE_CHAIN_ID]: '0x920873E5b302A619C54c908aDFB77a1C4256A3B8',
 };
 
-export async function getPendleApys(allPools) {
+export async function getPendleApys(allPools: PendlePool[]) {
   const chainId = allPools[0].chainId;
   if (!chainId) throw new Error(`Add chainId to first pendle pool: ${allPools[0].name}`);
 
@@ -51,10 +53,10 @@ export async function getPendleApys(allPools) {
   const [expiredPools, pools] = filterExpired(allPools);
   const { tradingApys, pendleApys, syRewardsApys } = await getPendleBaseApys(chainId, pools);
 
-  const balancesCalls = [],
-    activeBalancesCalls = [],
-    eqbBalancesCalls = [],
-    eqbActiveBalancesCalls = [];
+  const balancesCalls: Promise<BigNumber>[] = [],
+    activeBalancesCalls: Promise<BigNumber>[] = [],
+    eqbBalancesCalls: Promise<BigNumber>[] = [],
+    eqbActiveBalancesCalls: Promise<BigNumber>[] = [];
   pools.forEach(pool => {
     const lp = fetchContract(pool.address, abi, chainId);
     balancesCalls.push(lp.read.balanceOf([penpieStaking]).then(v => new BigNumber(v)));
@@ -69,8 +71,8 @@ export async function getPendleApys(allPools) {
     Promise.all(eqbActiveBalancesCalls),
   ]);
 
-  const penpieApys = [];
-  const eqbApys = [];
+  const penpieApys: BigNumber[] = [];
+  const eqbApys: BigNumber[] = [];
   pendleApys.forEach((apy, i) => {
     const penpieBoost = balances[i].isZero() ? 2.5 : activeBalances[i].div(balances[i]).times(2.5);
     const eqbBoost = eqbBalances[i].isZero() ? 2.5 : eqbActiveBalances[i].div(eqbBalances[i]).times(2.5);
@@ -100,11 +102,14 @@ export async function getPendleApys(allPools) {
   ]);
 }
 
-function filterExpired(pools) {
-  const expired = [];
-  const alive = [];
+function filterExpired(pools: PendlePool[]) {
+  const expired: PendlePool[] = [];
+  const alive: PendlePool[] = [];
   pools.forEach(pool => {
-    const old = { 'equilibria-arb-seth': '26dec24', 'equilibria-arb-reth': '26jun25' };
+    const old: OptionalRecord<string, string> = {
+      'equilibria-arb-seth': '26dec24',
+      'equilibria-arb-reth': '26jun25',
+    };
     const date = old[pool.name] || pool.name.split('-').pop();
     const timestamp = Date.parse(`${date} UTC`) || 0;
     if (timestamp === 0) logger.warn({ vault: pool.name }, 'no expiry date');

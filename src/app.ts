@@ -24,6 +24,7 @@ import powered from './middleware/powered.ts';
 import rt from './middleware/rt.ts';
 import router from './router.ts';
 import { initCache } from './utils/cache/index.ts';
+import { envNumber } from './utils/env.ts';
 import { getLoggerFor } from './utils/logger/index.ts';
 
 const logger = getLoggerFor({ module: 'app' });
@@ -43,7 +44,7 @@ app.context.cache = {};
 app.use(router.routes());
 app.use(router.allowedMethods());
 
-const port = process.env.PORT || 3000;
+const port = envNumber('PORT', 3000);
 
 const start = async () => {
   await initCache();

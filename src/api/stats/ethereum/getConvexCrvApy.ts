@@ -1,4 +1,5 @@
 import { BigNumber } from 'bignumber.js';
+import type { Address } from 'viem';
 import ERC20Abi from '../../../abis/ERC20Abi.ts';
 import ICvxCrvStaking from '../../../abis/ethereum/ICvxCrvStaking.ts';
 import IRewardPool from '../../../abis/IRewardPool.ts';
@@ -10,6 +11,16 @@ import { getMintedCvxAmount } from './getConvexApys.ts';
 
 const secondsPerYear = 31536000;
 const cvxAddress = '0x4e3FBD56CD56c3e72c1403e103b45Db9da5B9D2B';
+
+type CvxCrvExtraReward = {
+  rewardPool: string;
+  oracle?: string;
+  oracleId: string;
+};
+
+type CvxCrvExtraRewardInfo = {
+  rewardPool: string;
+};
 
 const pool = {
   name: 'convex-staked-cvxCRV',
@@ -33,9 +44,9 @@ export const getConvexCrvApy = async () => {
   const periodFinishCall = rewardPool.read.periodFinish();
 
   //extra reward calls
-  const extraRewardInfo = [],
-    extraRewardRateCalls = [],
-    extraRewardRatePeriodFinishCalls = [];
+  const extraRewardInfo: CvxCrvExtraRewardInfo[] = [],
+    extraRewardRateCalls: Promise<bigint>[] = [],
+    extraRewardRatePeriodFinishCalls: Promise<bigint>[] = [];
   pool.extras?.forEach(extra => {
     const extraRewards = fetchContract(extra.rewardPool, IRewardPool, ETH_CHAIN_ID);
     extraRewardInfo.push({ rewardPool: extra.rewardPool });
@@ -57,7 +68,7 @@ export const getConvexCrvApy = async () => {
   const cvxDistributorRewardRateCall = cvxDistributor.read.rewardRate();
   const cvxDistributorPeriodFinishCall = cvxDistributor.read.periodFinish();
   const cvxDistributorTotalSupplyCall = cvxDistributor.read.totalSupply();
-  const cvxDistributorBalanceOfCall = cvxDistributor.read.balanceOf([pool.staking]);
+  const cvxDistributorBalanceOfCall = cvxDistributor.read.balanceOf([pool.staking as Address]);
 
   const res = await Promise.all([
     totalSupplyCall,
@@ -75,26 +86,26 @@ export const getConvexCrvApy = async () => {
   ]);
 
   const poolInfo = {
-    totalSupply: new BigNumber(res[0].toString()),
-    rewardRate: new BigNumber(res[1].toString()),
-    periodFinish: new BigNumber(res[2].toString()),
+    totalSupply: new BigNumber(res[0]),
+    rewardRate: new BigNumber(res[1]),
+    periodFinish: new BigNumber(res[2]),
   };
   const extras = extraRewardInfo.map((_, index) => ({
     ...extraRewardInfo[index],
-    rewardRate: new BigNumber(res[3][index].toString()),
-    periodFinish: new BigNumber(res[4][index].toString()),
+    rewardRate: new BigNumber(res[3][index]),
+    periodFinish: new BigNumber(res[4][index]),
   }));
   const info = {
     ...poolInfo,
-    supplyWeight: new BigNumber(res[5].toString()),
-    stakingTotalSupply: new BigNumber(res[6].toString()),
-    cvxSupply: new BigNumber(res[7].toString()),
+    supplyWeight: new BigNumber(res[5]),
+    stakingTotalSupply: new BigNumber(res[6]),
+    cvxSupply: new BigNumber(res[7]),
   };
   const cvxDistRewards = {
-    rewardRate: new BigNumber(res[8].toString()),
-    periodFinish: new BigNumber(res[9].toString()),
-    totalSupply: new BigNumber(res[10].toString()),
-    balanceOf: new BigNumber(res[11].toString()),
+    rewardRate: new BigNumber(res[8]),
+    periodFinish: new BigNumber(res[9]),
+    totalSupply: new BigNumber(res[10]),
+    balanceOf: new BigNumber(res[11]),
   };
 
   const cvxPrice = await fetchPrice({ oracle: 'tokens', id: 'CVX' });
@@ -127,8 +138,8 @@ export const getConvexCrvApy = async () => {
 
   let group1Apy = 0;
   for (const extra of extras) {
-    if (extra.periodFinish < Date.now() / 1000) continue;
-    const poolExtra = pool.extras.find(e => e.rewardPool === extra.rewardPool);
+    if (extra.periodFinish.lt(Date.now() / 1000)) continue;
+    const poolExtra = pool.extras.find(e => e.rewardPool === extra.rewardPool) as CvxCrvExtraReward;
     const price = await fetchPrice({
       oracle: poolExtra.oracle ?? 'tokens',
       id: poolExtra.oracleId,

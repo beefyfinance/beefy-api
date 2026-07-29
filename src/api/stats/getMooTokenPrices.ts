@@ -1,6 +1,7 @@
 import type { PricesById } from '../../types/prices.ts';
 import { BIG_ZERO, isFiniteBigNumber } from '../../utils/big-number.ts';
 import { getKey, setKey } from '../../utils/cache/index.ts';
+import { envNumber } from '../../utils/env.ts';
 import { fetchPrice } from '../../utils/fetchPrice.ts';
 import { getLoggerFor } from '../../utils/logger/index.ts';
 import { isFiniteNumber } from '../../utils/number.ts';
@@ -11,7 +12,7 @@ const logger = getLoggerFor({ module: 'prices' });
 
 let mooTokenPrices: Record<string, PricesById> = {};
 
-const INIT_DELAY = Number(process.env.MOOTOKEN_INIT_DELAY || 60 * 1000);
+const INIT_DELAY = envNumber('MOOTOKEN_INIT_DELAY', 60 * 1000);
 const REFRESH_INTERVAL = 60 * 1000;
 
 export const getMooTokenPrices = () => {

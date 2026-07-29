@@ -1,5 +1,6 @@
 import { getKey, setKey } from '../../utils/cache/index.ts';
 import { type ApiChain, SupportedChains } from '../../utils/chain.ts';
+import { envNumber } from '../../utils/env.ts';
 import { getLoggerFor } from '../../utils/logger/index.ts';
 import {
   contextAllSettled,
@@ -15,7 +16,7 @@ const logger = getLoggerFor({ module: 'boosts' });
 
 const REDIS_KEY = 'BOOSTS_BY_CHAIN';
 
-const INIT_DELAY = Number(process.env.BOOSTS_INIT_DELAY || 4 * 1000);
+const INIT_DELAY = envNumber('BOOSTS_INIT_DELAY', 4 * 1000);
 const REFRESH_INTERVAL = 5 * 60 * 1000;
 const CACHE_SCHEMA_VERSION: number = 2; // increment when changing cache schema
 

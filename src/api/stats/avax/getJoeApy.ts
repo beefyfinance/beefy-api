@@ -24,7 +24,7 @@ const getJoeApy = async () => {
 
   const rewardPool = fetchContract(pool.rewardPool, StableJoeStaking, AVAX_CHAIN_ID);
   const [totalStaked, yearlyRemittedUsd] = await Promise.all([
-    rewardPool.read.internalJoeBalance().then(v => new BigNumber(v.toString())),
+    rewardPool.read.internalJoeBalance().then(v => new BigNumber(v)),
     getYearlyRemittedUsdForSJOE(sjoeClient),
   ]);
 
@@ -35,7 +35,7 @@ const getJoeApy = async () => {
 
   const simpleApr = yearlyRemittedUsd.dividedBy(totalStakedInUsd);
   const vaultApr = simpleApr.times(shareAfterBeefyPerformanceFee);
-  const vaultApy = compound(simpleApr, DAILY_HPY, 1, shareAfterBeefyPerformanceFee);
+  const vaultApy = compound(simpleApr.toNumber(), DAILY_HPY, 1, shareAfterBeefyPerformanceFee);
   const apys = { [pool.name]: vaultApy };
 
   const apyBreakdowns = {

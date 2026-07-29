@@ -3,14 +3,55 @@ import { getLoggerFor } from '../../../../utils/logger/index.ts';
 
 const logger = getLoggerFor({ module: 'apy', platform: 'curve' });
 
-export async function getCurveVolumeApys(pools, url) {
-  let apys = {};
+export type CurveApyDataPool = {
+  name: string;
+  pool: string;
+};
+
+type CurveVolumesApiPool = {
+  address: string;
+  latestDailyApyPcent: number;
+  latestWeeklyApyPcent: number;
+};
+
+type CurveVolumesApiResponse = {
+  data: {
+    pools: CurveVolumesApiPool[];
+  };
+};
+
+type CurveSubgraphApiPool = {
+  address: string;
+  latestDailyApy: number;
+  latestWeeklyApy: number;
+};
+
+type CurveSubgraphApiResponse = {
+  data: {
+    poolList: CurveSubgraphApiPool[];
+  };
+};
+
+type CurveBaseApysApiPool = {
+  address: string;
+  latestDailyApyPcent: number;
+  latestWeeklyApyPcent: number;
+};
+
+type CurveBaseApysApiResponse = {
+  data: {
+    baseApys: CurveBaseApysApiPool[];
+  };
+};
+
+export async function getCurveVolumeApys(pools: CurveApyDataPool[], url: string) {
+  let apys: Record<string, BigNumber> = {};
   try {
-    const response = await fetch(url).then(res => res.json());
+    const response = (await fetch(url).then(res => res.json())) as CurveVolumesApiResponse;
     const apyData = response.data.pools;
     pools.forEach(pool => {
       const poolData = apyData.find(p => p.address.toLowerCase() === pool.pool.toLowerCase());
-      let apy = 0;
+      let apy: number | BigNumber = 0;
       if (poolData) apy = Math.max(poolData.latestDailyApyPcent, poolData.latestWeeklyApyPcent);
       apy = new BigNumber(Number(apy) / 100);
       apys = { ...apys, ...{ [pool.name]: apy } };
@@ -21,10 +62,10 @@ export async function getCurveVolumeApys(pools, url) {
   return apys;
 }
 
-export const getCurveSubgraphApys = async (pools, url) => {
-  let apys = {};
+export const getCurveSubgraphApys = async (pools: CurveApyDataPool[], url: string) => {
+  let apys: Record<string, BigNumber> = {};
   try {
-    const response = await fetch(url).then(res => res.json());
+    const response = (await fetch(url).then(res => res.json())) as CurveSubgraphApiResponse;
     const apyData = response.data.poolList;
     pools.forEach(pool => {
       let apy = new BigNumber(getSubgraphDataApy(apyData, pool.pool));
@@ -36,7 +77,7 @@ export const getCurveSubgraphApys = async (pools, url) => {
   return apys;
 };
 
-const getSubgraphDataApy = (apyData, poolAddress) => {
+const getSubgraphDataApy = (apyData: CurveSubgraphApiPool[], poolAddress: string) => {
   try {
     let pool = apyData.find(p => p.address.toLowerCase() === poolAddress.toLowerCase());
     if (!pool) return 0;
@@ -49,14 +90,14 @@ const getSubgraphDataApy = (apyData, poolAddress) => {
 };
 
 // https://api.curve.finance/v1/getBaseApys/chain
-export const getCurveGetBaseApys = async (pools, url) => {
-  let apys = {};
+export const getCurveGetBaseApys = async (pools: CurveApyDataPool[], url: string) => {
+  let apys: Record<string, BigNumber> = {};
   try {
-    const response = await fetch(url).then(res => res.json());
+    const response = (await fetch(url).then(res => res.json())) as CurveBaseApysApiResponse;
     const apyData = response.data.baseApys;
     pools.forEach(pool => {
-      let poolData = apyData.find(p => p.address.toLowerCase() === pool.pool.toLowerCase());
-      let apy = 0;
+      let poolData = apyData.find(p => p.address.toLowerCase() === pool.pool.toLowerCase()) as CurveBaseApysApiPool;
+      let apy: number | BigNumber = 0;
       if (pool) apy = Math.max(poolData.latestDailyApyPcent, poolData.latestWeeklyApyPcent);
       apy = new BigNumber(Number(apy) / 100);
       apys = { ...apys, ...{ [pool.name]: apy } };
