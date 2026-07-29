@@ -47,6 +47,21 @@ export const tokens = {
     documentation: 'https://docs.paxos.com/guides/stablecoin/usdg',
     tags: ['STABLECOIN'],
   },
+  rhGME: {
+    name: 'GameStop • Robinhood Token',
+    address: '0x1b0E319c6A659F002271B69dB8A7df2F911c153E',
+    symbol: 'GME',
+    oracleId: 'rhGME',
+    decimals: 18,
+    chainId: 4663,
+    website: 'https://robinhood.com/rhj/stocktokens/',
+    description:
+      'GameStop Robinhood Token is a tokenized debt security issued by Robinhood Assets (Jersey) Limited that provides price exposure to GameStop shares without conferring ownership or shareholder rights.',
+    documentation:
+      'https://cdn.robinhood.com/assets/robinhood/legal/rhj_final_terms_for_tokenised_debt_securities_linked_to_gamestop.pdf',
+    bridge: 'native',
+    tags: ['LARGE_HOLDERS'],
+  },
   CASHCAT: {
     name: 'Cash Cat',
     address: '0x020bfC650A365f8BB26819deAAbF3E21291018b4',
