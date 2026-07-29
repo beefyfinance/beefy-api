@@ -5,40 +5,19 @@ import { ETH_CHAIN_ID } from '../../../constants.ts';
 import { fetchPrice } from '../../../utils/fetchPrice.ts';
 import { fetchContract } from '../../rpc/client.ts';
 import { getCurveSubgraphApys } from '../common/curve/getCurveApyData.js';
-import { getCurveLendApyRequests } from '../common/curve/getCurveLendApys.js';
 import { getApyBreakdown } from '../common/getApyBreakdownNew.ts';
-import convexPoolsData from '../../../data/ethereum/convexPools.json' with { type: 'json' };
-import curveLendPoolsData from '../../../data/ethereum/curveLendPools.json' with { type: 'json' };
 
-const lpPools = convexPoolsData.filter(p => p.rewardPool);
-const lendPools = curveLendPoolsData.filter(p => p.rewardPool);
 const subgraphUrl = 'https://api.curve.finance/api/getSubgraphData/ethereum';
-const tradingFees = 0.0002;
 const secondsPerYear = 31536000;
 const cvxAddress = '0x4e3FBD56CD56c3e72c1403e103b45Db9da5B9D2B';
 
-const pools = [...lpPools, ...lendPools];
-const lendPoolNames = new Set(lendPools.map(p => p.name));
+import convexPools from '../../../data/ethereum/convexPools.json' with { type: 'json' };
+
+const pools = convexPools.filter(p => p.rewardPool);
 
 export const getConvexApys = async () => {
-  const [baseApys, farmApys] = await Promise.all([getCurveSubgraphApys(lpPools, subgraphUrl), getPoolApys(pools)]);
-  const farmAprByName = Object.fromEntries(pools.map((p, i) => [p.name, farmApys[i]]));
-
-  const lpRequests = pools
-    .filter(p => !lendPoolNames.has(p.name))
-    .map(p => ({
-      vaultId: p.name,
-      trading: baseApys[p.name],
-      vault: farmAprByName[p.name],
-      providerFee: tradingFees,
-    }));
-  const lendRequests = await getCurveLendApyRequests(
-    ETH_CHAIN_ID,
-    pools.filter(p => lendPoolNames.has(p.name)),
-    farmAprByName,
-    tradingFees
-  );
-  return getApyBreakdown([...lpRequests, ...lendRequests]);
+  const [baseApys, farmApys] = await Promise.all([getCurveSubgraphApys(pools, subgraphUrl), getPoolApys(pools)]);
+  return getApyBreakdown(pools.map((p, i) => ({ vaultId: p.name, trading: baseApys[p.name], vault: farmApys[i] })));
 };
 
 const getPoolApys = async pools => {

@@ -83,7 +83,6 @@ import baseAlienBaseBunniPools from '../../data/base/alienBaseBunniPools.json' w
 import baseMellowAeroPools from '../../data/base/mellowAeroPools.json' with { type: 'json' };
 import baseMorphoPools from '../../data/base/morphoPools.json' with { type: 'json' };
 import ethereumAaveV4Pools from '../../data/ethereum/aaveV4Pools.json' with { type: 'json' };
-import ethereumCurveLendPools from '../../data/ethereum/curveLendPools.json' with { type: 'json' };
 import ethereumMorphoPools from '../../data/ethereum/morphoPools.json' with { type: 'json' };
 import ethereumPendlePools from '../../data/ethereum/pendlePools.json' with { type: 'json' };
 import ethereumPendleUnboostedPools from '../../data/ethereum/pendleUnboostedPools.json' with { type: 'json' };
@@ -152,7 +151,6 @@ export async function getNonAmmPrices(
     getCurveEthereumPrices(tokenPrices),
     getCurvePolygonPrices(tokenPrices),
     getCurveArbitrumPrices(tokenPrices),
-    getCurveLendPricesCommon(ETH_CHAIN_ID, ethereumCurveLendPools, tokenPrices),
     getCurveLendPricesCommon(FRX_CHAIN_ID, fraxtalCurveLendPools, tokenPrices),
     getCurveOptimismPrices(tokenPrices),
     getCurvePricesCommon(FRX_CHAIN_ID, fraxtalCurvePools, tokenPrices),
