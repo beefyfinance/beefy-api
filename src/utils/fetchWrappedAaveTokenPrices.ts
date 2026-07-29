@@ -1,4 +1,6 @@
+import type { ChainId } from '@beefyfinance/blockchain-addressbook';
 import { addressBook } from '@beefyfinance/blockchain-addressbook';
+import type { Token } from '@beefyfinance/blockchain-addressbook/types/token';
 import { BigNumber } from 'bignumber.js';
 import OrbETHAbi from '../abis/OrbETH.ts';
 import rswETHAbi from '../abis/rswETH.ts';
@@ -16,12 +18,15 @@ import {
   POLYGON_CHAIN_ID,
   SONIC_CHAIN_ID,
 } from '../constants.ts';
+import type { PricesById } from '../types/prices.ts';
 import { getEDecimals } from './getEDecimals.ts';
 import { getLoggerFor } from './logger/index.ts';
 
 const logger = getLoggerFor({ module: 'prices', platform: 'aave' });
 
 const RAY_DECIMALS = '1e27';
+
+type WrappedAaveTokenGroup = [unwrapped: Token, wrapped: Token, inverseRate?: boolean, useGetRate?: boolean];
 
 const {
   ethereum: {
@@ -266,9 +271,9 @@ const tokens = {
     [loAZND, wnloAZND, true],
   ],
   sonic: [[S, wawS, true]],
-};
+} satisfies Record<string, WrappedAaveTokenGroup[]>;
 
-const getWrappedAavePrices = async (tokenPrices, tokens, chainId) => {
+const getWrappedAavePrices = async (tokenPrices: PricesById, tokens: WrappedAaveTokenGroup[], chainId: ChainId) => {
   const rateCalls = tokens.map(token => {
     if (!token[2]) {
       const contract = fetchContract(token[1].address, WrappedAaveTokenAbi, chainId);
@@ -282,7 +287,7 @@ const getWrappedAavePrices = async (tokenPrices, tokens, chainId) => {
         return contract.read.tokensPerLST();
       }
       const contract = fetchContract(token[1].address, WrappedAave4626TokenAbi, chainId);
-      return contract.read.convertToShares([Number(getEDecimals(token[0].decimals))]);
+      return contract.read.convertToShares([BigInt(Number(getEDecimals(token[0].decimals)))]);
     }
   });
 
@@ -293,10 +298,10 @@ const getWrappedAavePrices = async (tokenPrices, tokens, chainId) => {
     logger.error({ chain: chainId, err: e }, 'failed to read all rates');
     return tokens.map(() => 0);
   }
-  const wrappedRates = res.map(v => new BigNumber(v.toString()));
+  const wrappedRates = res.map(v => new BigNumber(v));
 
   const mergedPrices = { ...tokenPrices };
-  const results = [];
+  const results: number[] = [];
 
   for (let i = 0; i < wrappedRates.length; i++) {
     const wrappedRate = wrappedRates[i];
@@ -309,7 +314,7 @@ const getWrappedAavePrices = async (tokenPrices, tokens, chainId) => {
     }
 
     const [unwrapped, wrapped, inverseRate] = tokenGroup;
-    const setPrice = price => {
+    const setPrice = (price: number) => {
       results.push(price);
       mergedPrices[wrapped.oracleId] = price;
     };
@@ -338,7 +343,7 @@ const getWrappedAavePrices = async (tokenPrices, tokens, chainId) => {
   return results;
 };
 
-export const fetchWrappedAavePrices = async tokenPrices =>
+export const fetchWrappedAavePrices = async (tokenPrices: PricesById): Promise<PricesById> =>
   Promise.all([
     getWrappedAavePrices(tokenPrices, tokens.ethereum, ETH_CHAIN_ID),
     getWrappedAavePrices(tokenPrices, tokens.polygon, POLYGON_CHAIN_ID),
@@ -350,5 +355,5 @@ export const fetchWrappedAavePrices = async tokenPrices =>
     getWrappedAavePrices(tokenPrices, tokens.monad, MONAD_CHAIN_ID),
     getWrappedAavePrices(tokenPrices, tokens.sonic, SONIC_CHAIN_ID),
   ]).then(data =>
-    data.flat().reduce((acc, cur, i) => ((acc[Object.values(tokens).flat()[i][1].oracleId] = cur), acc), {})
+    data.flat().reduce<PricesById>((acc, cur, i) => ((acc[Object.values(tokens).flat()[i][1].oracleId] = cur), acc), {})
   );

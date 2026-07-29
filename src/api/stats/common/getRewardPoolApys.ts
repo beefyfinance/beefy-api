@@ -1,4 +1,8 @@
+import type { NormalizedCacheObject } from '@apollo/client/cache/inmemory/types.js';
+import type { ApolloClient } from '@apollo/client/core/ApolloClient.js';
+import type { ChainId } from '@beefyfinance/blockchain-addressbook';
 import { BigNumber } from 'bignumber.js';
+import type { Abi, Address } from 'viem';
 import ERC20Abi from '../../../abis/ERC20Abi.ts';
 import InfraredGauge from '../../../abis/InfraredGauge.ts';
 import IRewardPool from '../../../abis/IRewardPool.ts';
@@ -14,7 +18,58 @@ import { getApyBreakdown } from '../common/getApyBreakdown.ts';
 
 const logger = getLoggerFor({ module: 'apy', platform: 'rewardPool' });
 
-export const getRewardPoolApys = async params => {
+export type RewardPoolExtra = {
+  rewardPool: string;
+  rewardToken?: string;
+  oracleId: string;
+  decimals?: string;
+  infrared?: boolean;
+};
+
+export type RewardPoolPool = {
+  name: string;
+  address: string;
+  chainId?: ChainId;
+  rewardPool?: string;
+  gauge?: string;
+  oracle?: string;
+  oracleId?: string;
+  decimals?: string;
+  beefyFee?: number;
+  extras?: RewardPoolExtra[];
+};
+
+export type RewardPoolApyParams = {
+  chainId: ChainId;
+  pools: RewardPoolPool[];
+  oracle: string;
+  oracleId: string;
+  decimals: string;
+  reward?: string;
+  periodFinish?: string;
+  liquidityProviderFee?: number;
+  tradingAprs?: Record<string, BigNumber>;
+  tradingFeeInfoClient?: ApolloClient<NormalizedCacheObject>;
+  gammaClient?: string;
+  isRewardInXToken?: boolean;
+  tokenAddress?: string;
+  xTokenAddress?: string;
+  cake?: boolean;
+  infrared?: boolean;
+  log?: boolean;
+};
+
+type RewardPoolExtraData = {
+  pool: string;
+  token: string;
+  decimals?: string;
+};
+
+type InfraredRewardData = readonly [Address, bigint, bigint, bigint, bigint, bigint, bigint];
+
+type GammaFeeApiResponse = Record<string, { returns: { daily: { feeApr: number } } }>;
+
+export const getRewardPoolApys = async (params: RewardPoolApyParams) => {
   const [tradingAprs, farmApys] = await Promise.all([getTradingAprs(params), getFarmApys(params)]);
 
   const liquidityProviderFee = params.liquidityProviderFee ?? 0.003;
@@ -22,7 +77,7 @@ export const getRewardPoolApys = async params => {
   return getApyBreakdown(params.pools, tradingAprs, farmApys, liquidityProviderFee);
 };
 
-const getTradingAprs = async params => {
+const getTradingAprs = async (params: RewardPoolApyParams) => {
   let tradingAprs = params.tradingAprs ?? {};
   const client = params.tradingFeeInfoClient;
   const fee = params.liquidityProviderFee;
@@ -34,7 +89,7 @@ const getTradingAprs = async params => {
   }
 
   if (params.gammaClient) {
-    const response = await fetch(params.gammaClient).then(res => res.json());
+    const response = await fetch(params.gammaClient).then(res => res.json() as Promise<GammaFeeApiResponse>);
     params.pools.forEach(p => {
       tradingAprs[p.address.toLowerCase()] = new BigNumber(response[p.address.toLowerCase()].returns.daily.feeApr);
     });
@@ -42,12 +97,12 @@ const getTradingAprs = async params => {
   return tradingAprs;
 };
 
-export const getFarmApys = async params => {
-  const apys = [];
+export const getFarmApys = async (params: RewardPoolApyParams) => {
+  const apys: BigNumber[] = [];
   const tokenPrice = await fetchPrice({ oracle: params.oracle, id: params.oracleId });
   const rewardTokenPriceCall = params.isRewardInXToken
     ? getXPrice(tokenPrice, params)
-    : new Promise(resolve => resolve(tokenPrice));
+    : new Promise<number>(resolve => resolve(tokenPrice));
 
   const [rewardTokenPrice, { balances, rewardRates, periodFinishes, extras }] = await Promise.all([
     rewardTokenPriceCall,
@@ -63,7 +118,7 @@ export const getFarmApys = async params => {
     const totalStakedInUsd = balances[i].times(stakedPrice).dividedBy(pool.decimals ?? '1e18');
 
     const blockTime = params.periodFinish === 'periodInBlockFinish' ? await getBlockTime(params.chainId) : 0;
-    const secondsPerYear = params.periodFinish === 'periodInBlockFinish' ? 31536000 / blockTime : 31536000;
+    const secondsPerYear = params.periodFinish === 'periodInBlockFinish' ? 31536000 / Number(blockTime) : 31536000;
     const yearlyRewards = rewardRates[i].times(secondsPerYear);
     let yearlyRewardsInUsd = yearlyRewards.times(rewardTokenPrice).dividedBy(params.decimals);
     const block = params.periodFinish === 'periodInBlockFinish' ? await getBlockNumber(params.chainId) : 0;
@@ -103,14 +158,14 @@ export const getFarmApys = async params => {
   return apys;
 };
 
-export const getPoolsData = async params => {
-  const balanceCalls = [];
-  const rewardRateCalls = [];
-  const periodFinishCalls = [];
-  const extraCalls = [];
-  const extraData = [];
+export const getPoolsData = async (params: RewardPoolApyParams) => {
+  const balanceCalls: Promise<unknown>[] = [];
+  const rewardRateCalls: Promise<unknown>[] = [];
+  const periodFinishCalls: Promise<unknown>[] = [];
+  const extraCalls: Promise<unknown>[] = [];
+  const extraData: RewardPoolExtraData[] = [];
   const periodFinish = params.periodFinish ?? 'periodFinish';
-  const abi = params.periodFinish
+  const abi: Abi = params.periodFinish
     ? getAbi(periodFinish)
     : params.cake
       ? IWrapper
@@ -119,10 +174,12 @@ export const getPoolsData = async params => {
         : IRewardPool;
 
   params.pools.forEach(pool => {
-    const rewardPool = fetchContract(pool.rewardPool ? pool.rewardPool : pool.gauge, abi, params.chainId);
+    const rewardPool = fetchContract(pool.rewardPool ? pool.rewardPool : (pool.gauge as string), abi, params.chainId);
 
     const stakedTokenContract = fetchContract(pool.address, ERC20Abi, params.chainId);
-    balanceCalls.push(params.cake ? stakedTokenContract.read.balanceOf([pool.gauge]) : rewardPool.read.totalSupply());
+    balanceCalls.push(
+      params.cake ? stakedTokenContract.read.balanceOf([pool.gauge as Address]) : rewardPool.read.totalSupply()
+    );
     rewardRateCalls.push(
       params.cake
         ? rewardPool.read.rewardPerSecond()
@@ -141,7 +198,7 @@ export const getPoolsData = async params => {
     pool.extras?.forEach(extra => {
       const extraPool = fetchContract(extra.rewardPool, extra.infrared ? InfraredGauge : IWrapper, params.chainId);
       extraCalls.push(
-        extra.infrared ? extraPool.read.rewardData([extra.rewardToken]) : extraPool.read.rewardPerSecond()
+        extra.infrared ? extraPool.read.rewardData([extra.rewardToken as Address]) : extraPool.read.rewardPerSecond()
       );
       extraData.push({ pool: pool.name, token: extra.oracleId });
     });
@@ -154,27 +211,33 @@ export const getPoolsData = async params => {
     Promise.all(extraCalls),
   ]);
 
-  const balances = res[0].map(v => new BigNumber(v.toString()));
-  const rewardRates = res[1].map(v => new BigNumber(params.infrared ? v[3].toString() : v.toString()));
-  const periodFinishes = res[2].map(v => new BigNumber(params.infrared ? v[2].toString() : v.toString()));
-  const extraRates = res[3].map(v => new BigNumber(params.infrared ? v[3].toString() : v.toString()));
+  const balances = res[0].map(v => new BigNumber(v as bigint));
+  const rewardRates = res[1].map(
+    v => new BigNumber(params.infrared ? (v as InfraredRewardData)[3].toString() : (v as bigint).toString())
+  );
+  const periodFinishes = res[2].map(
+    v => new BigNumber(params.infrared ? (v as InfraredRewardData)[2].toString() : (v as bigint).toString())
+  );
+  const extraRates = res[3].map(
+    v => new BigNumber(params.infrared ? (v as InfraredRewardData)[3].toString() : (v as bigint).toString())
+  );
   const extras = extraData.map((v, i) => ({ ...v, rewardRate: extraRates[i] }));
 
   return { balances, rewardRates, periodFinishes, extras };
 };
 
-const getXPrice = async (tokenPrice, params) => {
-  const tokenContract = fetchContract(params.tokenAddress, ERC20Abi, params.chainId);
-  const xTokenContract = fetchContract(params.xTokenAddress, ERC20Abi, params.chainId);
+const getXPrice = async (tokenPrice: number, params: RewardPoolApyParams) => {
+  const tokenContract = fetchContract(params.tokenAddress as string, ERC20Abi, params.chainId);
+  const xTokenContract = fetchContract(params.xTokenAddress as string, ERC20Abi, params.chainId);
   const [stakedInXPool, totalXSupply] = await Promise.all([
-    tokenContract.read.balanceOf([params.xTokenAddress]),
+    tokenContract.read.balanceOf([params.xTokenAddress as Address]),
     xTokenContract.read.totalSupply(),
   ]);
 
-  return new BigNumber(stakedInXPool.toString()).times(tokenPrice).dividedBy(new BigNumber(totalXSupply.toString));
+  return new BigNumber(stakedInXPool).times(tokenPrice).dividedBy(totalXSupply);
 };
 
-const getAbi = periodFinish => {
+const getAbi = (periodFinish: string): Abi => {
   return [
     ...IRewardPool,
     {

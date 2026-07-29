@@ -49,7 +49,7 @@ const getPoolsApys = async (params: CompoundV3ApyParams, data: PoolsData) => {
   const compOracle = params.compOracle ?? 'tokens';
   const compPrice = await fetchPrice({ oracle: compOracle, id: params.compOracleId });
   const secondsPerBlock = params.secondsPerBlock ?? (await getBlockTime(params.chainId));
-  const BLOCKS_PER_YEAR = SECONDS_PER_YEAR / secondsPerBlock;
+  const BLOCKS_PER_YEAR = SECONDS_PER_YEAR / Number(secondsPerBlock);
   const trackingIndexScale = 1000000000000000;
 
   const supplyApys = data.supplyRates.map(v => v.times(BLOCKS_PER_YEAR).div('1e18'));

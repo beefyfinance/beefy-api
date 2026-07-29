@@ -1,5 +1,5 @@
 import BigNumber from 'bignumber.js';
-import { parseAbi } from 'viem';
+import { type Address, parseAbi } from 'viem';
 import ERC20Abi from '../../../abis/ERC20Abi.ts';
 import { ETH_CHAIN_ID } from '../../../constants.ts';
 import { getUnixNow } from '../../../utils/date.ts';
@@ -17,7 +17,7 @@ const abi = parseAbi([
 ]);
 
 export async function getYieldBasisApys() {
-  const apys = [];
+  const apys: BigNumber[] = [];
 
   const secondsPerYear = 31536000;
   const gaugeController = '0x1Be14811A3a06F6aF4fA64310a636e1Df04c1c21';
@@ -28,13 +28,13 @@ export async function getYieldBasisApys() {
     gc.read.gauge_weight_sum(),
     gc.read.adjusted_gauge_weight_sum(),
     yb.read.last_minted(),
-    Promise.all(pools.map(p => gc.read.adjusted_gauge_weight([p.gauge]))),
+    Promise.all(pools.map(p => gc.read.adjusted_gauge_weight([p.gauge as Address]))),
     Promise.all(pools.map(p => fetchContract(p.gauge, ERC20Abi, ETH_CHAIN_ID).read.totalSupply())),
   ]);
 
   const now = getUnixNow();
   const rate_factor = new BigNumber(awSum).times('1e18').div(new BigNumber(wSum)).decimalPlaces(0, 1);
-  const emissions = await yb.read.preview_emissions([now, rate_factor]);
+  const emissions = await yb.read.preview_emissions([BigInt(now), BigInt(rate_factor.toString(10))]);
 
   const time = now - new BigNumber(lastMinted).toNumber();
   const price = await fetchPrice({ oracle: 'tokens', id: 'YB' });

@@ -1,4 +1,5 @@
 import { getKey, setKey } from '../../utils/cache/index.ts';
+import { envNumber } from '../../utils/env.ts';
 import { getLoggerFor } from '../../utils/logger/index.ts';
 import type { ArticleInterface } from './types.ts';
 
@@ -8,7 +9,7 @@ const REDIS_KEY = 'ARTICLES';
 
 let articles: ArticleInterface[] = [];
 
-const INIT_DELAY = Number(process.env.BLOG_INIT_DELAY || 4 * 1000);
+const INIT_DELAY = envNumber('BLOG_INIT_DELAY', 4 * 1000);
 const REFRESH_INTERVAL = 12 * 60 * 1000;
 
 export const getAllArticles = () => articles;

@@ -1,10 +1,28 @@
+import type { ChainId } from '@beefyfinance/blockchain-addressbook';
 import { BigNumber } from 'bignumber.js';
 import { getLoggerFor } from '../../../../utils/logger/index.ts';
+import type { OptionalRecord } from '../../../../utils/object.ts';
 import { getApyBreakdown } from '../getApyBreakdownNew.ts';
 
 const logger = getLoggerFor({ module: 'apy', platform: 'silo' });
 
-export const getSiloApys = async (chainId, pools) => {
+export type SiloApyPool = {
+  name: string;
+  address: string;
+  v2?: boolean;
+  vaultId?: number;
+};
+
+type SiloApiResponse = {
+  silo0: {
+    underlyingApy?: string | number | null;
+    protectedRewards?: { apr?: string | number | null }[] | null;
+  };
+  supplyApr?: string | number | null;
+  supplyBaseApr?: string | number | null;
+};
+
+export const getSiloApys = async (chainId: ChainId, pools: SiloApyPool[]) => {
   const chainName = getChainName(chainId);
 
   // Create promises for all pool API calls
@@ -19,7 +37,7 @@ export const getSiloApys = async (chainId, pools) => {
           return { pool, data: null };
         }
 
-        const data = await response.json();
+        const data = (await response.json()) as SiloApiResponse;
         return { pool, data };
       } catch (err) {
         logger.warn({ chain: chainId, address: pool.address, err }, 'silo v2 api fetch error');
@@ -35,7 +53,7 @@ export const getSiloApys = async (chainId, pools) => {
           return { pool, data: null };
         }
 
-        const data = await response.json();
+        const data = (await response.json()) as SiloApiResponse;
         return { pool, data };
       } catch (err) {
         logger.warn({ chain: chainId, address: pool.address, err }, 'silo api fetch error');
@@ -92,8 +110,8 @@ export const getSiloApys = async (chainId, pools) => {
 };
 
 // Helper function to map chain IDs to chain names used by Silo API
-const getChainName = chainId => {
-  const chainMap = {
+const getChainName = (chainId: ChainId) => {
+  const chainMap: OptionalRecord<ChainId, string> = {
     1: 'ethereum',
     43114: 'avalanche',
     42161: 'arbitrum',

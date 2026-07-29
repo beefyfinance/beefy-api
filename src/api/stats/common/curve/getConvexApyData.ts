@@ -1,23 +1,32 @@
+import type { ChainId } from '@beefyfinance/blockchain-addressbook';
 import { BigNumber } from 'bignumber.js';
-import { parseAbi } from 'viem';
+import { type Address, parseAbi } from 'viem';
 import ICurveGauge from '../../../../abis/ICurveGauge.ts';
 import { FRAXTAL_CHAIN_ID } from '../../../../constants.ts';
 import { fetchPrice } from '../../../../utils/fetchPrice.ts';
 import { fetchContract } from '../../../rpc/client.ts';
+import type { CurveApyPool, CurveApyReward } from './getCurveApysCommon.ts';
 
 const IBooster = parseAbi(['function fees() view returns (uint)']);
 
 const voterProxy = '0x989AEb4d175e16225E39E87d0D97A3360524AD80';
 const secondsPerYear = 31536000;
 
-function getBooster(chainId) {
+type ConvexGaugeRewardData = readonly [Address, bigint, bigint, bigint, bigint];
+
+type ConvexExtraRewardData = {
+  pool: string;
+  token: string;
+};
+
+function getBooster(chainId: ChainId) {
   return chainId === FRAXTAL_CHAIN_ID
     ? '0xd3327cb05a8E0095A543D582b5B3Ce3e19270389'
     : '0xF403C135812408BFbE8713b5A23a04b3D48AAE31';
 }
 
-export const getConvexApyData = async (chainId, pools) => {
-  const apys = [];
+export const getConvexApyData = async (chainId: ChainId, pools: CurveApyPool[]) => {
+  const apys: BigNumber[] = [];
 
   const { fees, poolInfo, extras } = await getData(chainId, pools);
   const afterFees = new BigNumber(10000).minus(fees).div(new BigNumber(10000));
@@ -29,7 +38,7 @@ export const getConvexApyData = async (chainId, pools) => {
 
     const lpPrice = await fetchPrice({ oracle: 'lps', id: pool.name });
     const totalStakedInUsd = info.workingSupply.times(lpPrice);
-    const boost = info.workingBalance > 0 ? info.workingBalance.div(info.balance) : 1;
+    const boost = info.workingBalance.gt(0) ? info.workingBalance.div(info.balance) : 1;
 
     const crvAPY = info.rewardRate
       .times(secondsPerYear)
@@ -42,7 +51,7 @@ export const getConvexApyData = async (chainId, pools) => {
 
     for (const extra of extras.filter(e => e.pool === pool.name)) {
       if (extra.periodFinish < Date.now() / 1000) continue;
-      const poolExtra = pool.rewards.find(e => e.token === extra.token);
+      const poolExtra = pool.rewards?.find(e => e.token === extra.token) as CurveApyReward;
       const price = await fetchPrice({
         oracle: poolExtra.oracle ?? 'tokens',
         id: poolExtra.oracleId,
@@ -60,28 +69,28 @@ export const getConvexApyData = async (chainId, pools) => {
   return apys;
 };
 
-const getData = async (chainId, pools) => {
+const getData = async (chainId: ChainId, pools: CurveApyPool[]) => {
   const boosterContract = fetchContract(getBooster(chainId), IBooster, chainId);
-  const feeCall = boosterContract.read.fees().then(v => new BigNumber(v.toString()));
+  const feeCall = boosterContract.read.fees().then(v => new BigNumber(v));
 
   const weekEpoch = Math.floor(Date.now() / 1000 / (86400 * 7));
 
-  const gaugeRewardRatesCalls = [],
-    gaugeTotalSuppliesCalls = [],
-    gaugeWorkingSuppliesCalls = [],
-    gaugeBalancesCalls = [],
-    gaugeWorkingBalancesCalls = [];
-  const extraData = [],
-    extraCalls = [];
+  const gaugeRewardRatesCalls: Promise<BigNumber>[] = [],
+    gaugeTotalSuppliesCalls: Promise<BigNumber>[] = [],
+    gaugeWorkingSuppliesCalls: Promise<BigNumber>[] = [],
+    gaugeBalancesCalls: Promise<BigNumber>[] = [],
+    gaugeWorkingBalancesCalls: Promise<BigNumber>[] = [];
+  const extraData: ConvexExtraRewardData[] = [],
+    extraCalls: Promise<ConvexGaugeRewardData>[] = [];
   pools.forEach(pool => {
-    const gauge = fetchContract(pool.gauge, ICurveGauge, chainId);
-    gaugeRewardRatesCalls.push(gauge.read.inflation_rate([weekEpoch]).then(v => new BigNumber(v.toString())));
-    gaugeTotalSuppliesCalls.push(gauge.read.totalSupply().then(v => new BigNumber(v.toString())));
-    gaugeWorkingSuppliesCalls.push(gauge.read.working_supply().then(v => new BigNumber(v.toString())));
-    gaugeBalancesCalls.push(gauge.read.balanceOf([voterProxy]).then(v => new BigNumber(v.toString())));
-    gaugeWorkingBalancesCalls.push(gauge.read.working_balances([voterProxy]).then(v => new BigNumber(v.toString())));
+    const gauge = fetchContract(pool.gauge as string, ICurveGauge, chainId);
+    gaugeRewardRatesCalls.push(gauge.read.inflation_rate([BigInt(weekEpoch)]).then(v => new BigNumber(v)));
+    gaugeTotalSuppliesCalls.push(gauge.read.totalSupply().then(v => new BigNumber(v)));
+    gaugeWorkingSuppliesCalls.push(gauge.read.working_supply().then(v => new BigNumber(v)));
+    gaugeBalancesCalls.push(gauge.read.balanceOf([voterProxy]).then(v => new BigNumber(v)));
+    gaugeWorkingBalancesCalls.push(gauge.read.working_balances([voterProxy]).then(v => new BigNumber(v)));
     pool.rewards?.forEach(extra => {
-      extraCalls.push(gauge.read.reward_data([extra.token]));
+      extraCalls.push(gauge.read.reward_data([extra.token as Address]));
       extraData.push({ pool: pool.name, token: extra.token });
     });
   });
@@ -115,7 +124,7 @@ const getData = async (chainId, pools) => {
   const extras = extraResults.map((_, i) => ({
     ...extraData[i],
     periodFinish: Number(extraResults[i][1]),
-    rewardRate: new BigNumber(extraResults[i][2].toString()),
+    rewardRate: new BigNumber(extraResults[i][2]),
   }));
 
   return { fees, poolInfo, extras };

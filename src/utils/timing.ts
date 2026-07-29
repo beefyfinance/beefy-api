@@ -1,10 +1,10 @@
+import { envBoolean, envNumber } from './env.ts';
 import { getLoggerFor } from './logger/index.ts';
-import { toNumber } from './number.ts';
 
 const logger = getLoggerFor({ module: 'app' });
 
-const ENABLE_TIMING = process.env.TIMING_ENABLED === 'true' || false;
-const MIN_TIME_MS = toNumber(parseInt(process.env.TIMING_MIN || '30000'), 30_000);
+const ENABLE_TIMING = envBoolean('TIMING_ENABLED', false);
+const MIN_TIME_MS = envNumber('TIMING_MIN', 30_000);
 
 export function startTimer() {
   const start = performance.now();

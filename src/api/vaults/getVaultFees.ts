@@ -5,6 +5,7 @@ import { type Address, BaseError } from 'viem';
 import FeeABI from '../../abis/FeeABI.ts';
 import { getKey, setKey } from '../../utils/cache/index.ts';
 import { SupportedChains } from '../../utils/chain.ts';
+import { envNumber } from '../../utils/env.ts';
 import { getLoggerFor } from '../../utils/logger/index.ts';
 import { orNaN } from '../../utils/number.ts';
 import { fetchContract } from '../rpc/client.ts';
@@ -23,7 +24,7 @@ const feeBatchTreasurySplitMethodABI = [
   },
 ] as const;
 
-const INIT_DELAY = Number(process.env.FEES_INIT_DELAY || 15000);
+const INIT_DELAY = envNumber('FEES_INIT_DELAY', 15000);
 const REFRESH_INTERVAL = 5 * 60 * 1000;
 const CACHE_EXPIRY = 12 * 60 * 60 * 1000;
 const VAULT_FEES_KEY = 'VAULT_FEES';

@@ -1,5 +1,6 @@
+import type { ChainId } from '@beefyfinance/blockchain-addressbook';
 import { BigNumber } from 'bignumber.js';
-import IinSpirit from '../../../abis/fantom/IinSpirit.ts';
+import type { Abi, Address } from 'viem';
 import ISpiritGauge from '../../../abis/fantom/ISpiritGauge.ts';
 import InfraredGauge from '../../../abis/InfraredGauge.ts';
 import ISolidlyGauge from '../../../abis/ISolidlyGauge.ts';
@@ -52,26 +53,98 @@ const KittenswapGauge = [
     stateMutability: 'view',
     type: 'function',
   },
-];
+] as const satisfies Abi;
 
-export const getSolidlyGaugeApys = async params => {
-  const apys = await getFarmApys(params);
-  return getApyBreakdown(params.pools, 0, apys, 0);
+type SolidlyGaugeStructRewardData = {
+  rewardRate: bigint;
+  periodFinish: bigint;
+  lastUpdateTime: bigint;
+  rewardPerTokenStored: bigint;
 };
 
-export const getFarmApys = async params => {
-  const apys = [];
+type SolidlyGaugeTupleRewardData = readonly [Address, bigint, bigint, bigint, bigint, bigint, bigint];
+
+type SolidlyGaugeRewardRate = bigint | SolidlyGaugeStructRewardData | SolidlyGaugeTupleRewardData;
+
+type SolidlyGaugeRewardDataEntry = BigNumber & Partial<Pick<SolidlyGaugeStructRewardData, 'periodFinish'>>;
+
+export type SolidlyGaugeReward = {
+  address: string;
+  oracleId: string;
+  decimals: string;
+};
+
+export type SolidlyGaugePool = {
+  name: string;
+  address: string;
+  gauge: string;
+  oracle?: string;
+  oracleId?: string;
+  decimals?: string;
+  bribe?: number;
+  beefyFee?: number;
+  rewards?: SolidlyGaugeReward[];
+};
+
+type SolidlyGaugeApyParamsFields = {
+  chainId: ChainId;
+  pools: SolidlyGaugePool[];
+  oracle: string;
+  oracleId: string;
+  decimals: string;
+  reward?: string;
+  singleReward?: boolean;
+  ramses?: boolean;
+  infrared?: boolean;
+  kitten?: boolean;
+  abi?: Abi;
+  rewardScale?: number;
+  log?: boolean;
+};
+
+type SolidlyGaugeVeless = {
+  boosted?: false | undefined;
+  NFTid?: undefined;
+  ve?: undefined;
+  spirit?: false | undefined;
+  gaugeStaker?: undefined;
+};
+
+type SolidlyGaugeVeBoosted = {
+  boosted: boolean;
+  NFTid: bigint;
+  ve: Address;
+  spirit?: false | undefined;
+  gaugeStaker: Address;
+};
+
+type SolidlyGaugeSpiritBoosted = {
+  boosted?: false | undefined;
+  NFTid?: undefined;
+  ve?: undefined;
+  spirit: boolean;
+  gaugeStaker: Address;
+};
+
+export type SolidlyGaugeApyParams = SolidlyGaugeApyParamsFields &
+  (SolidlyGaugeVeless | SolidlyGaugeVeBoosted | SolidlyGaugeSpiritBoosted);
+
+export const getSolidlyGaugeApys = async (params: SolidlyGaugeApyParams) => {
+  const apys = await getFarmApys(params);
+  return getApyBreakdown(params.pools, undefined, apys, 0);
+};
+
+export const getFarmApys = async (params: SolidlyGaugeApyParams) => {
+  const apys: BigNumber[] = [];
 
   let supply = new BigNumber(0);
   let veBalance = new BigNumber(0);
 
   const poolDataCalls = getPoolsData(params);
 
-  const nftCalls = [];
+  const nftCalls: Promise<bigint>[] = [];
   if (params.boosted && params.NFTid) {
-    const veContract = params.spirit
-      ? fetchContract(params.ve, IinSpirit, params.chainId)
-      : fetchContract(params.ve, IVe, params.chainId);
+    const veContract = fetchContract(params.ve, IVe, params.chainId);
 
     nftCalls.push(veContract.read.totalSupply());
     nftCalls.push(veContract.read.balanceOfNFT([params.NFTid]));
@@ -81,8 +154,8 @@ export const getFarmApys = async params => {
   const { balances, rewardRates, depositBalances, derivedBalances, periodFinishes, rewardsRates, rewardData } =
     poolDataResults;
   if (params.boosted && params.NFTid) {
-    supply = new BigNumber(nftResults[0].toString());
-    veBalance = new BigNumber(nftResults[1].toString());
+    supply = new BigNumber(nftResults[0]);
+    veBalance = new BigNumber(nftResults[1]);
   }
 
   const rewardTokenPrice = await fetchPrice({ oracle: params.oracle, id: params.oracleId });
@@ -91,30 +164,30 @@ export const getFarmApys = async params => {
     let yearlyRewardsInUsd = new BigNumber(0);
     let totalStakedInUsd = new BigNumber(0);
     const pool = params.pools[i];
-    if (periodFinishes[i] > Date.now() / 1000) {
+    if (Number(periodFinishes[i]) > Date.now() / 1000) {
       const oracle = pool.oracle ?? 'lps';
       const id = pool.oracleId ?? pool.name;
       const stakedPrice = await fetchPrice({ oracle, id });
 
-      let boost = false;
-      let derived;
-      let adjusted;
-      let gaugeDeposit;
+      let boost: { deposit: BigNumber; derived: BigNumber; adjusted: BigNumber } | undefined;
       if (params.boosted && params.NFTid) {
-        boost = true;
-        gaugeDeposit = depositBalances[i].dividedBy('1e18');
-        derived = gaugeDeposit.times(40).dividedBy(100);
-        adjusted = balances[i].times(veBalance).dividedBy(supply).dividedBy('1e18').times(60).dividedBy(100);
+        const deposit = depositBalances[i].dividedBy('1e18');
+        boost = {
+          deposit,
+          derived: deposit.times(40).dividedBy(100),
+          adjusted: balances[i].times(veBalance).dividedBy(supply).dividedBy('1e18').times(60).dividedBy(100),
+        };
       }
 
       totalStakedInUsd = balances[i].times(stakedPrice).dividedBy(pool.decimals ?? '1e18');
 
       const secondsPerYear = 31536000;
-      let yearlyRewards = 0;
+      let yearlyRewards: number | BigNumber = 0;
       if (params.boosted) {
         if (boost) {
-          yearlyRewards = gaugeDeposit.gt(derived.plus(adjusted))
-            ? rewardRates[i].times(secondsPerYear).times(derived.plus(adjusted).dividedBy(gaugeDeposit))
+          const boostedBalance = boost.derived.plus(boost.adjusted);
+          yearlyRewards = boost.deposit.gt(boostedBalance)
+            ? rewardRates[i].times(secondsPerYear).times(boostedBalance.dividedBy(boost.deposit))
             : rewardRates[i].times(secondsPerYear);
         } else if (params.spirit) {
           yearlyRewards = rewardRates[i].times(secondsPerYear).times(derivedBalances[i]).dividedBy(depositBalances[i]);
@@ -130,10 +203,10 @@ export const getFarmApys = async params => {
       if (params.rewardScale) yearlyRewardsInUsd = yearlyRewardsInUsd.dividedBy(params.rewardScale);
 
       for (const [index, reward] of Object.entries(pool.rewards ?? [])) {
-        const rate = rewardsRates[i][index];
-        const periodFinish = rewardData[i][index].periodFinish ?? rewardData[i][index];
+        const rate = rewardsRates[i][Number(index)];
+        const periodFinish = rewardData[i][Number(index)].periodFinish ?? rewardData[i][Number(index)];
 
-        if (periodFinish > Date.now() / 1000) {
+        if (Number(periodFinish) > Date.now() / 1000) {
           const additionalRewards = rate
             .times(secondsPerYear)
             .times(await fetchPrice({ oracle: 'tokens', id: reward.oracleId }))
@@ -163,14 +236,14 @@ export const getFarmApys = async params => {
   return apys;
 };
 
-const getPoolsData = async params => {
-  const balanceCalls = [];
-  const rateCalls = [];
-  const depositBalanceCalls = [];
-  const derivedBalanceCalls = [];
-  const periodFinishCalls = [];
-  const rewardRateCalls = [];
-  const rewardDataCalls = [];
+const getPoolsData = async (params: SolidlyGaugeApyParams) => {
+  const balanceCalls: Promise<bigint>[] = [];
+  const rateCalls: Promise<SolidlyGaugeRewardRate>[] = [];
+  const depositBalanceCalls: Promise<bigint>[] = [];
+  const derivedBalanceCalls: Promise<bigint>[] = [];
+  const periodFinishCalls: Promise<SolidlyGaugeRewardRate>[] = [];
+  const rewardRateCalls: Promise<unknown>[] = [];
+  const rewardDataCalls: Promise<unknown>[] = [];
 
   params.pools.forEach(pool => {
     const poolContract = fetchContract(
@@ -191,21 +264,22 @@ const getPoolsData = async params => {
       params.boosted && params.NFTid ? poolContract.read.derivedSupply() : poolContract.read.totalSupply()
     );
 
+    const reward = params.reward as Address;
     rateCalls.push(
       params.spirit || params.singleReward || params.kitten
         ? poolContract.read.rewardRate()
         : params.ramses || params.infrared
-          ? poolContract.read.rewardData([params.reward])
-          : poolContract.read.rewardRate([params.reward])
+          ? poolContract.read.rewardData([reward])
+          : poolContract.read.rewardRate([reward])
     );
     periodFinishCalls.push(
       params.spirit || params.singleReward
         ? poolContract.read.periodFinish()
         : params.ramses || params.infrared
-          ? poolContract.read.rewardData([params.reward])
+          ? poolContract.read.rewardData([reward])
           : params.kitten
             ? poolContract.read.finishAt()
-            : poolContract.read.periodFinish([params.reward])
+            : poolContract.read.periodFinish([reward])
     );
 
     if (params.boosted && params.NFTid) {
@@ -245,28 +319,28 @@ const getPoolsData = async params => {
     Promise.all(rewardDataCalls),
   ]);
 
-  const balances = balanceResults.map(v => new BigNumber(v.toString()));
+  const balances = balanceResults.map(v => new BigNumber(v));
   const rates = params.ramses
-    ? rateResults.map(v => new BigNumber(v['rewardRate'].toString()))
+    ? rateResults.map(v => new BigNumber((v as SolidlyGaugeStructRewardData)['rewardRate']))
     : params.infrared
-      ? rateResults.map(v => new BigNumber(v[3].toString()))
+      ? rateResults.map(v => new BigNumber((v as SolidlyGaugeTupleRewardData)[3]))
       : rateResults.map(v => new BigNumber(v.toString()));
-  const depositBalances = depositBalanceResults.map(v => new BigNumber(v.toString()));
-  const derivedBalances = derivedBalanceResults.map(v => new BigNumber(v.toString()));
+  const depositBalances = depositBalanceResults.map(v => new BigNumber(v));
+  const derivedBalances = derivedBalanceResults.map(v => new BigNumber(v));
   const periodFinishes = params.ramses
-    ? periodFinishResults.map(v => v['periodFinish'].toString())
+    ? periodFinishResults.map(v => (v as SolidlyGaugeStructRewardData)['periodFinish'].toString())
     : params.infrared
-      ? periodFinishResults.map(v => v[2].toString())
+      ? periodFinishResults.map(v => (v as SolidlyGaugeTupleRewardData)[2].toString())
       : periodFinishResults.map(v => new BigNumber(v.toString()));
-  const rewardRateFlat = rewardRateResults.map(v => new BigNumber(v.toString()));
-  const rewardDataFlat = rewardDataResults.map(v => new BigNumber(v.toString()));
+  const rewardRateFlat = rewardRateResults.map(v => new BigNumber(v as bigint));
+  const rewardDataFlat = rewardDataResults.map(v => new BigNumber(v as bigint));
 
-  const rewardsRates = [];
-  const rewardData = [];
+  const rewardsRates: BigNumber[][] = [];
+  const rewardData: SolidlyGaugeRewardDataEntry[][] = [];
   let globalIndex = 0;
   params.pools.forEach(pool => {
-    const rates = [];
-    const data = [];
+    const rates: BigNumber[] = [];
+    const data: SolidlyGaugeRewardDataEntry[] = [];
 
     for (const _ of pool.rewards ?? []) {
       rates.push(rewardRateFlat[globalIndex]);

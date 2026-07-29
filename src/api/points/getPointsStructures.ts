@@ -1,4 +1,5 @@
 import { getKey, setKey } from '../../utils/cache/index.ts';
+import { envNumber } from '../../utils/env.ts';
 import { getLoggerFor } from '../../utils/logger/index.ts';
 import { getPointsStructures } from './fetchPointsData.ts';
 import type { PointsStructure } from './types.ts';
@@ -7,7 +8,7 @@ const logger = getLoggerFor({ module: 'points' });
 
 const REDIS_KEY = 'POINTS_STRUCTURES';
 
-const INIT_DELAY = Number(process.env.POINTS_STRUCTURES_INIT_DELAY || 20 * 1000);
+const INIT_DELAY = envNumber('POINTS_STRUCTURES_INIT_DELAY', 20 * 1000);
 const REFRESH_INTERVAL = 4 * 60 * 60 * 1000;
 
 let pointsStructures: PointsStructure[] = [];

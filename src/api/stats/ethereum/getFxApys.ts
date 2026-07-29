@@ -1,4 +1,6 @@
 import { BigNumber } from 'bignumber.js';
+import type { Address } from 'viem';
+import { ConvexFeeRegistry } from '../../../abis/ConvexFeeRegistry.ts';
 import ERC20Abi from '../../../abis/ERC20Abi.ts';
 import ICrv from '../../../abis/ethereum/ICrv.ts';
 import ICurveGaugeController from '../../../abis/ethereum/ICurveGaugeController.ts';
@@ -7,8 +9,8 @@ import { ETH_CHAIN_ID } from '../../../constants.ts';
 import { fetchPrice } from '../../../utils/fetchPrice.ts';
 import { fetchContract } from '../../rpc/client.ts';
 import { getCurveSubgraphApys } from '../common/curve/getCurveApyData.ts';
+import type { CurveApyReward } from '../common/curve/getCurveApysCommon.ts';
 import { getApyBreakdown } from '../common/getApyBreakdown.ts';
-import IFees from '../../../abis/ConvexFeeRegistry.json' with { type: 'json' };
 
 const fxn = '0x365AccFCa291e7D3914637ABf1F7635dB165Bb09';
 const veFxn = '0xEC6B8A3F3605B083F7044C0F31f2cac0caf1d469';
@@ -33,21 +35,37 @@ const defaultRewards = [
 ];
 pools.forEach(p => (p.rewards = p.rewards = [...defaultRewards, ...(p.rewards || [])]));
 
+type FxApyPool = {
+  name: string;
+  gauge: string;
+  rewards: CurveApyReward[];
+};
+
+type FxExtraRewardInfo = {
+  pool: string;
+  token: string;
+};
+
+type FxGaugeRewardData = readonly [bigint, bigint, number, number];
+
 export const getFxApys = async () => {
-  const [baseApys, farmApys] = await Promise.all([getCurveSubgraphApys(pools, subgraphUrl), getPoolApys(pools)]);
+  const [baseApys, farmApys] = await Promise.all([
+    getCurveSubgraphApys(pools, subgraphUrl),
+    getPoolApys(pools as FxApyPool[]),
+  ]);
   const poolsMap = pools.map(p => ({ name: p.name, address: p.name }));
   return getApyBreakdown(poolsMap, baseApys, farmApys, tradingFees);
 };
 
-const getPoolApys = async pools => {
+const getPoolApys = async (pools: FxApyPool[]) => {
   const apys = [];
 
-  const totalSupplyCalls = [];
-  const workingCalls = [];
-  const sharedBalCalls = [];
-  const extraInfo = [];
-  const extraRewardDataCalls = [];
-  const weightCalls = [];
+  const totalSupplyCalls: Promise<bigint>[] = [];
+  const workingCalls: Promise<bigint>[] = [];
+  const sharedBalCalls: Promise<bigint>[] = [];
+  const extraInfo: FxExtraRewardInfo[] = [];
+  const extraRewardDataCalls: Promise<FxGaugeRewardData>[] = [];
+  const weightCalls: Promise<bigint>[] = [];
   pools.forEach(pool => {
     const gauge = fetchContract(pool.gauge, IFxGauge, ETH_CHAIN_ID);
     totalSupplyCalls.push(gauge.read.totalSupply());
@@ -55,14 +73,14 @@ const getPoolApys = async pools => {
     sharedBalCalls.push(gauge.read.sharedBalanceOf([cvxVoterProxy]));
     pool.rewards.forEach(reward => {
       extraInfo.push({ pool: pool.name, token: reward.token });
-      extraRewardDataCalls.push(gauge.read.rewardData([reward.token]));
+      extraRewardDataCalls.push(gauge.read.rewardData([reward.token as Address]));
     });
     const controller = fetchContract(gaugeController, ICurveGaugeController, ETH_CHAIN_ID);
-    weightCalls.push(controller.read.gauge_relative_weight([pool.gauge]));
+    weightCalls.push(controller.read.gauge_relative_weight([pool.gauge as Address]));
   });
   const inflationRateCall = fetchContract(fxn, ICrv, ETH_CHAIN_ID)
     .read.rate()
-    .then(v => new BigNumber(v.toString()));
+    .then(v => new BigNumber(v));
   const res = await Promise.all([
     Promise.all(totalSupplyCalls),
     Promise.all(workingCalls),
@@ -72,13 +90,13 @@ const getPoolApys = async pools => {
     Promise.all(sharedBalCalls),
     fetchContract(veFxn, ERC20Abi, ETH_CHAIN_ID).read.balanceOf([cvxVoterProxy]),
     fetchContract(veFxn, ERC20Abi, ETH_CHAIN_ID).read.totalSupply(),
-    fetchContract(cvxFees, IFees, ETH_CHAIN_ID).read.totalFees(),
+    fetchContract(cvxFees, ConvexFeeRegistry, ETH_CHAIN_ID).read.totalFees(),
   ]);
   const poolInfo = res[0].map((_, i) => ({
-    rewardRate: new BigNumber(res[4].toString()).times(new BigNumber(res[3][i].toString())).div('1e18'),
-    totalSupply: new BigNumber(res[0][i].toString()),
-    workingSupply: new BigNumber(res[1][i].toString()),
-    cvxSharedBal: new BigNumber(res[5][i].toString()),
+    rewardRate: res[4].times(res[3][i]).div('1e18'),
+    totalSupply: new BigNumber(res[0][i]),
+    workingSupply: new BigNumber(res[1][i]),
+    cvxSharedBal: new BigNumber(res[5][i]),
   }));
   const extras = extraInfo.map((_, i) => ({
     ...extraInfo[i],
@@ -86,9 +104,9 @@ const getPoolApys = async pools => {
     rewardRate: new BigNumber(res[2][i][1]),
   }));
 
-  const cvxVeBal = new BigNumber(res[6].toString());
-  const veSupply = new BigNumber(res[7].toString());
-  const afterFees = new BigNumber(10000).minus(new BigNumber(res[8].toString())).div(10000);
+  const cvxVeBal = new BigNumber(res[6]);
+  const veSupply = new BigNumber(res[7]);
+  const afterFees = new BigNumber(10000).minus(res[8]).div(10000);
 
   const fxnPrice = await fetchPrice({ oracle: 'tokens', id: 'FXN' });
   for (let i = 0; i < pools.length; i++) {
@@ -100,7 +118,7 @@ const getPoolApys = async pools => {
 
     let boost = new BigNumber(2.5);
     // min (Individual TVL x 0.4 + (Total TVL x Individual veFXN for the epoch) x 0.6 / Total veFXN for the epoch, Individual TVL) / (Individual TVL x 0.4)
-    if (info.cvxSharedBal > 0) {
+    if (info.cvxSharedBal.gt(0)) {
       boost = BigNumber.min(
         info.cvxSharedBal.times(0.4).plus(info.totalSupply.times(cvxVeBal).times(0.6).div(veSupply)),
         info.cvxSharedBal
@@ -121,8 +139,8 @@ const getPoolApys = async pools => {
       .times(afterFees);
 
     for (const extra of extras.filter(e => e.pool === pool.name)) {
-      if (extra.periodFinish < Date.now() / 1000) continue;
-      const poolExtra = pool.rewards.find(e => e.token === extra.token);
+      if (extra.periodFinish.lt(Date.now() / 1000)) continue;
+      const poolExtra = pool.rewards.find(e => e.token === extra.token) as CurveApyReward;
       const price = await fetchPrice({
         oracle: poolExtra.oracle ?? 'tokens',
         id: poolExtra.oracleId,

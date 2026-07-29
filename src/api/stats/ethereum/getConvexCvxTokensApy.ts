@@ -1,4 +1,5 @@
 import { BigNumber } from 'bignumber.js';
+import type { Address } from 'viem';
 import ICvxFxsStaking from '../../../abis/ethereum/ICvxFxsStaking.ts';
 import { ETH_CHAIN_ID } from '../../../constants.ts';
 import { fetchPrice } from '../../../utils/fetchPrice.ts';
@@ -6,6 +7,13 @@ import { fetchContract } from '../../rpc/client.ts';
 import { getApyBreakdown } from '../common/getApyBreakdown.ts';
 
 const secondsPerYear = 31536000;
+
+type CvxTokenRewardInfo = {
+  pool: string;
+  oracleId: string;
+};
+
+type CvxTokenRewardData = readonly [bigint, bigint, bigint, bigint];
 
 const pools = [
   {
@@ -21,27 +29,27 @@ const pools = [
 ];
 
 export const getConvexCvxTokensApy = async () => {
-  const rewardsInfo = [];
-  const rewardDataCalls = [];
-  const totalSupplyCalls = [];
+  const rewardsInfo: CvxTokenRewardInfo[] = [];
+  const rewardDataCalls: Promise<CvxTokenRewardData>[] = [];
+  const totalSupplyCalls: Promise<bigint>[] = [];
   pools.forEach(pool => {
     const rewardPool = fetchContract(pool.address, ICvxFxsStaking, ETH_CHAIN_ID);
     totalSupplyCalls.push(rewardPool.read.totalSupply());
     pool.rewards?.forEach(r => {
       rewardsInfo.push({ pool: pool.name, oracleId: r.oracleId });
-      rewardDataCalls.push(rewardPool.read.rewardData([r.address]));
+      rewardDataCalls.push(rewardPool.read.rewardData([r.address as Address]));
     });
   });
 
   const res = await Promise.all([Promise.all(totalSupplyCalls), Promise.all(rewardDataCalls)]);
 
   const poolInfo = res[0].map((_, i) => ({
-    totalSupply: new BigNumber(res[0][i].toString()),
+    totalSupply: new BigNumber(res[0][i]),
   }));
   const rewards = rewardsInfo.map((_, i) => ({
     ...rewardsInfo[i],
-    periodFinish: new BigNumber(res[1][i]['0'].toString()),
-    rewardRate: new BigNumber(res[1][i]['1'].toString()),
+    periodFinish: new BigNumber(res[1][i]['0']),
+    rewardRate: new BigNumber(res[1][i]['1']),
   }));
 
   const apys = [];
@@ -54,7 +62,7 @@ export const getConvexCvxTokensApy = async () => {
     let yearlyRewardsInUsd = new BigNumber(0);
 
     for (const r of rewards.filter(r => r.pool === pool.name)) {
-      if (r.periodFinish < Date.now() / 1000) continue;
+      if (r.periodFinish.lt(Date.now() / 1000)) continue;
       const price = await fetchPrice({ oracle: 'tokens', id: r.oracleId });
       const extraRewardsInUsd = r.rewardRate.times(secondsPerYear).times(price).div('1e18');
       yearlyRewardsInUsd = yearlyRewardsInUsd.plus(extraRewardsInUsd);

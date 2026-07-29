@@ -1,5 +1,5 @@
 import { BigNumber } from 'bignumber.js';
-import { parseAbi } from 'viem';
+import { type Address, parseAbi } from 'viem';
 import ERC20Abi from '../../../abis/ERC20Abi.ts';
 import {
   ARBITRUM_CHAIN_ID,
@@ -9,7 +9,9 @@ import {
   PLASMA_CHAIN_ID,
   SONIC_CHAIN_ID,
 } from '../../../constants.ts';
+import type { PricesById, StandardLpBreakdown } from '../../../types/prices.ts';
 import { getLoggerFor } from '../../../utils/logger/index.ts';
+import type { OptionalRecord } from '../../../utils/object.ts';
 import { fetchContract } from '../../rpc/client.ts';
 
 const logger = getLoggerFor({ module: 'prices', platform: 'pendle' });
@@ -28,11 +30,35 @@ const routerAbi = parseAbi([
   'function getLpToAssetRate(address market) external view returns (uint256)',
 ]);
 
-export const getPendleCommonPrices = async (chainId, pools, tokenPrices, lpPrices) => {
-  let prices = {};
+export type PendlePool = {
+  name: string;
+  address: string;
+  decimals: string;
+  oracle?: string;
+  oracleId?: string;
+};
+
+type PendleChainId =
+  | typeof ARBITRUM_CHAIN_ID
+  | typeof ETH_CHAIN_ID
+  | typeof BSC_CHAIN_ID
+  | typeof BASE_CHAIN_ID
+  | typeof SONIC_CHAIN_ID
+  | typeof PLASMA_CHAIN_ID;
+
+export const getPendleCommonPrices = async (
+  chainId: PendleChainId,
+  pools: PendlePool[],
+  tokenPrices: PricesById,
+  lpPrices?: PricesById
+) => {
+  let prices: Record<string, StandardLpBreakdown> = {};
 
   const isExpired = pools.map(p => {
-    const old = { 'equilibria-arb-seth': '26dec24', 'equilibria-arb-reth': '26jun25' };
+    const old: OptionalRecord<string, string> = {
+      'equilibria-arb-seth': '26dec24',
+      'equilibria-arb-reth': '26jun25',
+    };
     const date = old[p.name] || p.name.split('-').pop();
     const timestamp = Date.parse(`${date} UTC`) || 0;
     if (timestamp === 0) logger.warn({ pool: p.name }, 'no expiry date');
@@ -41,14 +67,14 @@ export const getPendleCommonPrices = async (chainId, pools, tokenPrices, lpPrice
   const supplyCalls = pools.map(pool => fetchContract(pool.address, ERC20Abi, chainId).read.totalSupply());
   const lpRatesCalls = pools.map(async (pool, i) => {
     const router = routerStatic[chainId];
-    const market = pool.address;
+    const market = pool.address as Address;
     if (isExpired[i]) {
       try {
         return await fetchContract(router, routerAbi, chainId).read.getLpToAssetRate([market]);
       } catch (e) {
         logger.warn({ chain: chainId, pool: pool.name, err: e }, 'lpToAssetRate failed');
-        const [pt, sy, lp] = await fetchContract(market, routerAbi, chainId).read.readState([router]);
-        return new BigNumber(pt).plus(new BigNumber(sy)).times('1e18').div(new BigNumber(lp));
+        const [pt, sy, lp] = await fetchContract(market, routerAbi, chainId).read.readState([router as Address]);
+        return new BigNumber(pt).plus(sy).times('1e18').div(lp);
       }
     }
     return fetchContract(router, routerAbi, chainId).read.getLpToAssetRate([market]);
@@ -65,7 +91,7 @@ export const getPendleCommonPrices = async (chainId, pools, tokenPrices, lpPrice
     const pool = pools[i];
     const lpRate = poolsData[i].lpRate;
     // console.log(pool.name, 'lpRate', lpRate.div('1e18').valueOf());
-    const underlyingPrice = getUnderlyingPrice(pool, tokenPrices, lpPrices);
+    const underlyingPrice = getUnderlyingPrice(pool, tokenPrices, lpPrices as PricesById);
     const price = lpRate.times(underlyingPrice).div(pool.decimals).toNumber();
     const totalSupply = poolsData[i].totalSupply.div('1e18').toString(10);
     prices[pool.name] = { price, totalSupply, tokens: [], balances: [] };
@@ -75,7 +101,7 @@ export const getPendleCommonPrices = async (chainId, pools, tokenPrices, lpPrice
   return prices;
 };
 
-const getUnderlyingPrice = (pool, tokenPrices, lpPrices) => {
+const getUnderlyingPrice = (pool: PendlePool, tokenPrices: PricesById, lpPrices: PricesById) => {
   const oracle = pool.oracle;
   const oracleId = pool.oracleId;
   if (!oracle || !oracleId) {

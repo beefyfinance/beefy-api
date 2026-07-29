@@ -1,6 +1,9 @@
+import type { ChainId } from '@beefyfinance/blockchain-addressbook';
 import { BigNumber } from 'bignumber.js';
+import type { Address } from 'viem';
 import { default as ICurvePool } from '../../../../abis/CurvePool.ts';
 import { default as ERC20Abi } from '../../../../abis/ERC20Abi.ts';
+import type { PricesById, StandardLpBreakdown } from '../../../../types/prices.ts';
 import { getLoggerFor } from '../../../../utils/logger/index.ts';
 import { fetchContract } from '../../../rpc/client.ts';
 
@@ -8,8 +11,32 @@ const logger = getLoggerFor({ module: 'prices', platform: 'curve' });
 
 const DECIMALS = '1e18';
 
-const getCurvePricesCommon = async (chainId, pools, tokenPrices) => {
-  let prices = {};
+export type CurvePriceToken = {
+  oracleId?: string;
+  decimals: string;
+  basePool?: string;
+};
+
+export type CurvePricePool = {
+  name: string;
+  pool: string;
+  token?: string;
+  tokens: CurvePriceToken[];
+};
+
+type CurvePriceTokenData = {
+  poolName: string;
+  oracleId: string | undefined;
+  token: CurvePriceToken;
+};
+
+type CurvePoolSupplyInfo = {
+  pool: string;
+  totalSupply: BigNumber;
+};
+
+const getCurvePricesCommon = async (chainId: ChainId, pools: CurvePricePool[], tokenPrices: PricesById) => {
+  let prices: Record<string, StandardLpBreakdown> = {};
 
   //Split needed pool data and calls
   const poolData = pools.map(pool => pool.pool);
@@ -19,9 +46,9 @@ const getCurvePricesCommon = async (chainId, pools, tokenPrices) => {
   });
 
   //Split needed token data and calls
-  const tokenData = [],
-    tokenBalanceCalls = [],
-    tokenAddressCalls = [];
+  const tokenData: CurvePriceTokenData[] = [],
+    tokenBalanceCalls: Promise<bigint>[] = [],
+    tokenAddressCalls: Promise<Address>[] = [];
   pools.forEach(pool => {
     const contract = fetchContract(pool.pool, ICurvePool, chainId);
     pool.tokens.forEach((token, index) => {
@@ -30,8 +57,8 @@ const getCurvePricesCommon = async (chainId, pools, tokenPrices) => {
         oracleId: token.oracleId,
         token,
       });
-      tokenBalanceCalls.push(contract.read.balances([index]));
-      tokenAddressCalls.push(contract.read.coins([index]));
+      tokenBalanceCalls.push(contract.read.balances([BigInt(index)]));
+      tokenAddressCalls.push(contract.read.coins([BigInt(index)]));
     });
   });
 
@@ -51,7 +78,7 @@ const getCurvePricesCommon = async (chainId, pools, tokenPrices) => {
     };
   });
   //Build supply result object
-  const poolsInfo = supplyResults.map((totalSupply, index) => {
+  const poolsInfo: CurvePoolSupplyInfo[] = supplyResults.map((totalSupply, index) => {
     return {
       pool: poolData[index],
       totalSupply: new BigNumber(totalSupply),
@@ -60,7 +87,7 @@ const getCurvePricesCommon = async (chainId, pools, tokenPrices) => {
 
   // reverse to calc base pools (3pool, fraxbp) first and use their prices in metapools
   for (const pool of pools.slice().reverse()) {
-    const supplyInfo = poolsInfo.find(r => r.pool === pool.pool);
+    const supplyInfo = poolsInfo.find(r => r.pool === pool.pool) as CurvePoolSupplyInfo;
     const totalSupply = supplyInfo.totalSupply.div(DECIMALS);
     const tokens = tokensInfo.filter(r => r.poolName === pool.name);
 
@@ -82,7 +109,11 @@ const getCurvePricesCommon = async (chainId, pools, tokenPrices) => {
   return prices;
 };
 
-const getTokenPrice = (lpPrices, tokenPrices, token) => {
+const getTokenPrice = (
+  lpPrices: Record<string, StandardLpBreakdown>,
+  tokenPrices: PricesById,
+  token: CurvePriceToken
+) => {
   if (token.basePool) {
     const basePool = lpPrices[token.basePool];
     if (basePool) return basePool.price;

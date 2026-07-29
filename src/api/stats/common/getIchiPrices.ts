@@ -1,19 +1,26 @@
-import { addressBookByChainId } from '@beefyfinance/blockchain-addressbook';
+import { addressBookByChainId, type ChainId } from '@beefyfinance/blockchain-addressbook';
 import { BigNumber } from 'bignumber.js';
+import { Ichi } from '../../../abis/Ichi.ts';
+import type { PricesById, StandardLpBreakdown } from '../../../types/prices.ts';
 import { getLoggerFor } from '../../../utils/logger/index.ts';
 import { fetchContract } from '../../rpc/client.ts';
-import IchiAbi from '../../../abis/Ichi.json' with { type: 'json' };
 
 const logger = getLoggerFor({ module: 'prices', platform: 'ichi' });
 
-export const getIchiPrices = async (chainId, pools, tokenPrices) => {
-  const contracts = pools.map(p => fetchContract(p.address, IchiAbi, chainId));
+export type IchiPool = {
+  name: string;
+  address: string;
+  tokens: string[];
+};
+
+export const getIchiPrices = async (chainId: ChainId, pools: IchiPool[], tokenPrices: PricesById) => {
+  const contracts = pools.map(p => fetchContract(p.address, Ichi, chainId));
   const [amounts, totalSupplies] = await Promise.all([
     Promise.all(contracts.map(c => c.read.getTotalAmounts())),
     Promise.all(contracts.map(c => c.read.totalSupply().then(v => new BigNumber(v)))),
   ]);
 
-  let prices = {};
+  let prices: Record<string, StandardLpBreakdown> = {};
   pools.forEach((pool, i) => {
     const t0 = addressBookByChainId[chainId].tokens[pool.tokens[0]];
     const t1 = addressBookByChainId[chainId].tokens[pool.tokens[1]];
@@ -39,7 +46,7 @@ export const getIchiPrices = async (chainId, pools, tokenPrices) => {
   return prices;
 };
 
-const getTokenPrice = (tokenPrices, oracleId) => {
+const getTokenPrice = (tokenPrices: PricesById, oracleId: string) => {
   if (!oracleId) return 1;
   let tokenPrice = 1;
   const tokenSymbol = oracleId;

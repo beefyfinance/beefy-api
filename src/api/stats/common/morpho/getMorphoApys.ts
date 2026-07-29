@@ -1,11 +1,44 @@
+import type { ChainId } from '@beefyfinance/blockchain-addressbook';
 import { BigNumber } from 'bignumber.js';
 import { getLoggerFor } from '../../../../utils/logger/index.ts';
 import { getApyBreakdown } from '../getApyBreakdownNew.ts';
 
 const logger = getLoggerFor({ module: 'apy', platform: 'morpho' });
 
+export type MorphoPool = {
+  name: string;
+  address: string;
+  v2?: boolean;
+};
+
+type MorphoVaultApy = {
+  address: string;
+  avgNetApy?: number;
+  avgNetApyExcludingRewards?: number;
+  state?: {
+    avgNetApy?: number;
+    avgNetApyExcludingRewards?: number;
+  };
+  asset?: {
+    yield?: {
+      apr?: number;
+    };
+  };
+};
+
+type MorphoApiResponse = {
+  data?: {
+    vaults?: { items?: MorphoVaultApy[] };
+    vaultV2s?: { items?: MorphoVaultApy[] };
+  };
+};
+
+type MorphoGraphQLQuery = {
+  query: string;
+};
+
 // Helper function to calculate APY breakdown
-const calculateApyBreakdown = (apy, isV2) => {
+const calculateApyBreakdown = (apy: MorphoVaultApy | undefined, isV2: boolean | undefined) => {
   if (isV2) {
     const lending = new BigNumber(apy?.avgNetApyExcludingRewards || 0);
     const assetYield = new BigNumber(apy?.asset?.yield?.apr || 0);
@@ -22,7 +55,7 @@ const calculateApyBreakdown = (apy, isV2) => {
 };
 
 // Helper function to create GraphQL query
-const createGraphQLQuery = (chainId, addresses, isV2) => {
+const createGraphQLQuery = (chainId: ChainId, addresses: string[], isV2: boolean): MorphoGraphQLQuery | null => {
   if (addresses.length === 0) return null;
 
   const entityName = isV2 ? 'vaultV2s' : 'vaults';
@@ -41,7 +74,7 @@ const createGraphQLQuery = (chainId, addresses, isV2) => {
   };
 };
 
-export const getMorphoApys = async (chainId, pools) => {
+export const getMorphoApys = async (chainId: ChainId, pools: MorphoPool[]) => {
   // Separate pools and create address arrays
   const poolsV1 = pools.filter(p => !p.v2);
   const poolsV2 = pools.filter(p => p.v2);
@@ -53,7 +86,7 @@ export const getMorphoApys = async (chainId, pools) => {
   const queryV2 = createGraphQLQuery(chainId, vaultsV2, true);
 
   // Execute API calls concurrently
-  const apiCalls = [];
+  const apiCalls: Promise<MorphoApiResponse>[] = [];
   if (queryV1) {
     apiCalls.push(
       fetch('https://api.morpho.org/graphql', {
@@ -61,7 +94,7 @@ export const getMorphoApys = async (chainId, pools) => {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(queryV1),
       })
-        .then(r => r.json())
+        .then(r => r.json() as Promise<MorphoApiResponse>)
         .catch(() => ({ data: { vaults: { items: [] } } }))
     );
   }
@@ -72,13 +105,13 @@ export const getMorphoApys = async (chainId, pools) => {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(queryV2),
       })
-        .then(r => r.json())
+        .then(r => r.json() as Promise<MorphoApiResponse>)
         .catch(() => ({ data: { vaultV2s: { items: [] } } }))
     );
   }
 
-  let apysV1 = [];
-  let apysV2 = [];
+  let apysV1: MorphoVaultApy[] = [];
+  let apysV2: MorphoVaultApy[] = [];
 
   try {
     const results = await Promise.all(apiCalls);
@@ -96,8 +129,8 @@ export const getMorphoApys = async (chainId, pools) => {
   }
 
   // Create lookup maps for O(1) access instead of O(n) array.find
-  const apyMapV1 = new Map(apysV1.map(apy => [apy.address, apy]));
-  const apyMapV2 = new Map(apysV2.map(apy => [apy.address, apy]));
+  const apyMapV1 = new Map(apysV1.map((apy): [string, MorphoVaultApy] => [apy.address, apy]));
+  const apyMapV2 = new Map(apysV2.map((apy): [string, MorphoVaultApy] => [apy.address, apy]));
 
   // Process pools and calculate APY breakdown
   return getApyBreakdown(

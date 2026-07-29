@@ -9,8 +9,31 @@ const logger = getLoggerFor({ module: 'apy', platform: 'stakedao', chain: 'ether
 const pools = convexPoolsData.filter(p => p.stakeDao);
 const secondsPerYear = 31536000;
 
+type StakeDaoStrategy = {
+  name: string;
+  vault: string;
+  tvl: number;
+  lpToken?: { address?: string };
+  tradingApy?: number;
+  apr?: { current?: { total?: number } };
+};
+
+type StakeDaoMerkleIncentive = {
+  vault: string;
+  ended: boolean;
+  rewardSymbol: string;
+  rewardDecimals: number;
+  amount: string;
+  duration: number;
+};
+
+type StakeDaoApr = {
+  vault: BigNumber;
+  trading: BigNumber;
+};
+
 export const getStakeDaoApys = async () => {
-  const apys = [];
+  const apys: StakeDaoApr[] = [];
   try {
     // const [res, merkles] = await Promise.all([
     //   fetch('https://api.stakedao.org/api/strategies/v2/curve/1.json').then(res => res.json()),
@@ -18,7 +41,9 @@ export const getStakeDaoApys = async () => {
     //     res => res.json()
     //   ),
     // ]);
-    const res = await fetch('https://api.stakedao.org/api/strategies/v2/curve/1.json').then(res => res.json());
+    const res = (await fetch('https://api.stakedao.org/api/strategies/v2/curve/1.json').then(res =>
+      res.json()
+    )) as StakeDaoStrategy[];
     for (const p of pools) {
       const apy = res.find(r => r.lpToken?.address?.toLowerCase() === (p.token || p.pool).toLowerCase());
       const trading = new BigNumber(apy?.tradingApy || 0).div(100);
@@ -40,7 +65,7 @@ export const getStakeDaoApys = async () => {
   );
 };
 
-async function findMerkleApy(merkles, sdStrat) {
+async function findMerkleApy(merkles: StakeDaoMerkleIncentive[], sdStrat: StakeDaoStrategy | undefined) {
   let apy = new BigNumber(0);
   if (!sdStrat) return apy;
   try {

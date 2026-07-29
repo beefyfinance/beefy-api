@@ -1,6 +1,7 @@
 import { isBefore, sub } from 'date-fns';
 import { keyBy, omit } from 'lodash-es';
 import { getKey, setKey } from '../../utils/cache/index.ts';
+import { envNumber } from '../../utils/env.ts';
 import { getLoggerFor } from '../../utils/logger/index.ts';
 import { retryPromiseWithBackOff } from '../../utils/promise.ts';
 import { getSnapshotApi } from './getSnapshotApi.ts';
@@ -35,7 +36,7 @@ const ALLOW_FROM_LIST: boolean = true;
 const ALLOW_FROM_ANYONE: boolean = true;
 
 const ALLOW_LIST: string[] = ['0x280A53cBf252F1B5F6Bde7471299c94Ec566a7C8'];
-const INIT_DELAY = Number(process.env.PROPOSALS_INIT_DELAY || 0);
+const INIT_DELAY = envNumber('PROPOSALS_INIT_DELAY', 0);
 
 let cachedSpaces: CachedSpaces | null = null;
 let cachedProposals: CachedProposals | null = null;

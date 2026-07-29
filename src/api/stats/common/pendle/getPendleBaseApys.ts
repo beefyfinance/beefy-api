@@ -1,17 +1,51 @@
+import type { ChainId } from '@beefyfinance/blockchain-addressbook';
 import { BigNumber } from 'bignumber.js';
 import { getLoggerFor } from '../../../../utils/logger/index.ts';
 
 const logger = getLoggerFor({ module: 'apy', platform: 'pendle' });
 
-export const getPendleApys = async (chainId, pools) => {
-  let tradingApys = {};
-  const pendleApys = [];
-  const syRewardsApys = [];
-  const arbApys = [];
+export type PendlePool = {
+  name: string;
+  address: string;
+  chainId: ChainId;
+};
+
+type PendleTokenApi = {
+  price: {
+    usd: number;
+  };
+};
+
+type PendleMarketApi = {
+  address: string;
+  totalPt: number;
+  totalSy: number;
+  pt: PendleTokenApi;
+  sy: PendleTokenApi;
+  liquidity?: {
+    usd?: number;
+  };
+  swapFeeApy?: number;
+  underlyingInterestApy?: number;
+  impliedApy?: number;
+  pendleApy?: number;
+  lpRewardApy?: number;
+  arbApy?: number;
+};
+
+type PendleMarketsApiResponse = {
+  results: PendleMarketApi[];
+};
+
+export const getPendleApys = async (chainId: ChainId, pools: PendlePool[]) => {
+  let tradingApys: Record<string, BigNumber> = {};
+  const pendleApys: BigNumber[] = [];
+  const syRewardsApys: BigNumber[] = [];
+  const arbApys: BigNumber[] = [];
   try {
-    const response = await fetch(
+    const response = (await fetch(
       `https://api-v2.pendle.finance/core/v1/${chainId}/markets?limit=100&is_active=true`
-    ).then(res => res.json());
+    ).then(res => res.json())) as PendleMarketsApiResponse;
     pools.forEach(pool => {
       let baseApy = new BigNumber(0);
       const res = response.results.find(r => r.address.toLowerCase() === pool.address.toLowerCase());

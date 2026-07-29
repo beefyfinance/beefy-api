@@ -1,6 +1,7 @@
-import { addressBookByChainId } from '@beefyfinance/blockchain-addressbook';
+import { addressBookByChainId, type ChainId } from '@beefyfinance/blockchain-addressbook';
 import { BigNumber } from 'bignumber.js';
 import { parseAbi } from 'viem';
+import type { PricesById, StandardLpBreakdown } from '../../../types/prices.ts';
 import { getLoggerFor } from '../../../utils/logger/index.ts';
 import { fetchContract } from '../../rpc/client.ts';
 
@@ -12,15 +13,21 @@ const abi = parseAbi([
   'function totalSupplyLimit() external view returns (uint)',
 ]);
 
-export const getMellowVeloPrices = async (chainId, pools, tokenPrices) => {
-  let prices = {};
+export type MellowVeloPool = {
+  name: string;
+  address: string;
+  tokens: string[];
+};
+
+export const getMellowVeloPrices = async (chainId: ChainId, pools: MellowVeloPool[], tokenPrices: PricesById) => {
+  let prices: Record<string, StandardLpBreakdown> = {};
 
   const contracts = pools.map(p => fetchContract(p.address, abi, chainId));
   const [supplies, limits] = await Promise.all([
     Promise.all(contracts.map(c => c.read.totalSupply().then(v => new BigNumber(v)))),
     Promise.all(contracts.map(c => c.read.totalSupplyLimit().then(v => new BigNumber(v)))),
   ]);
-  const amounts = await Promise.all(contracts.map((c, i) => c.read.previewMint([supplies[i].toString(10)])));
+  const amounts = await Promise.all(contracts.map((c, i) => c.read.previewMint([BigInt(supplies[i].toString(10))])));
 
   pools.forEach((pool, i) => {
     const t0 = addressBookByChainId[chainId].tokens[pool.tokens[0]];
@@ -47,7 +54,7 @@ export const getMellowVeloPrices = async (chainId, pools, tokenPrices) => {
   return prices;
 };
 
-const getTokenPrice = (tokenPrices, token) => {
+const getTokenPrice = (tokenPrices: PricesById, token: string) => {
   let tokenPrice = 1;
   if (tokenPrices.hasOwnProperty(token)) {
     tokenPrice = tokenPrices[token];
