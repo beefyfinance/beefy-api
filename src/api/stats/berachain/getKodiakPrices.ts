@@ -2,6 +2,7 @@ import { addressBookByChainId } from '@beefyfinance/blockchain-addressbook';
 import { BigNumber } from 'bignumber.js';
 import RangeAbi from '../../../abis/Range.ts';
 import { BERACHAIN_CHAIN_ID as chainId } from '../../../constants.ts';
+import type { PricesById, StandardLpBreakdown } from '../../../types/prices.ts';
 import { getLoggerFor } from '../../../utils/logger/index.ts';
 import { fetchContract } from '../../rpc/client.ts';
 import berapaw from '../../../data/berachain/kodiakBeraPawPools.json' with { type: 'json' };
@@ -11,14 +12,14 @@ const logger = getLoggerFor({ module: 'prices', platform: 'kodiak', chain: chain
 
 const pools = [...kodiak, ...berapaw];
 
-export const getKodiakPrices = async tokenPrices => {
+export const getKodiakPrices = async (tokenPrices: PricesById) => {
   const contracts = pools.map(p => fetchContract(p.address, RangeAbi, chainId));
   const [amounts, totalSupplies] = await Promise.all([
     Promise.all(contracts.map(c => c.read.getUnderlyingBalances())),
     Promise.all(contracts.map(c => c.read.totalSupply().then(v => new BigNumber(v)))),
   ]);
 
-  let prices = {};
+  let prices: Record<string, StandardLpBreakdown> = {};
   pools.forEach((pool, i) => {
     const t0 = addressBookByChainId[chainId].tokens[pool.tokens[0]];
     const t1 = addressBookByChainId[chainId].tokens[pool.tokens[1]];
@@ -44,7 +45,7 @@ export const getKodiakPrices = async tokenPrices => {
   return prices;
 };
 
-const getTokenPrice = (tokenPrices, oracleId) => {
+const getTokenPrice = (tokenPrices: PricesById, oracleId: string) => {
   if (!oracleId) return 1;
   let tokenPrice = 1;
   const tokenSymbol = oracleId;

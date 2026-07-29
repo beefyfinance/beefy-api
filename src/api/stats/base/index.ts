@@ -1,5 +1,6 @@
 import { BASE_CHAIN_ID } from '../../../constants.ts';
 import { getLoggerFor } from '../../../utils/logger/index.ts';
+import type { ApyBreakdownResult } from '../common/getApyBreakdownNew.ts';
 import { getMellowVeloApys } from '../common/getMellowVeloApys.ts';
 import { getMorphoApys } from '../common/morpho/getMorphoApys.ts';
 import { getAaveV3Apys } from './getAaveV3Apys.ts';
@@ -24,10 +25,10 @@ const getApys = [
 
 const getBaseApys = async () => {
   const start = Date.now();
-  let apys = {};
-  let apyBreakdowns = {};
+  let apys: Record<string, unknown> = {};
+  let apyBreakdowns: Record<string, unknown> = {};
 
-  let promises = [];
+  let promises: Promise<Partial<ApyBreakdownResult>>[] = [];
   getApys.forEach(getApy => promises.push(getApy()));
   const results = await Promise.allSettled(promises);
 
@@ -38,8 +39,8 @@ const getBaseApys = async () => {
     }
 
     // Set default APY values
-    let mappedApyValues = result.value;
-    let mappedApyBreakdownValues = {};
+    let mappedApyValues: Record<string, unknown> | undefined = result.value;
+    let mappedApyBreakdownValues: Record<string, unknown> | undefined = {};
 
     // Loop through key values and move default breakdown format
     // To require totalApy key

@@ -1,8 +1,9 @@
+import type { BigNumberish } from './big-number.ts';
 import { compound } from './compound.ts';
 
 export const getFarmWithTradingFeesApy = (
-  farmApr: number,
-  tradingApr: number | undefined,
+  farmApr: BigNumberish,
+  tradingApr: BigNumberish | undefined,
   compoundingsPerYear: number,
   t: number,
   shareAfterBeefyPerformanceFee: number

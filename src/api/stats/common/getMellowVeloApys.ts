@@ -1,5 +1,5 @@
 import { BigNumber } from 'bignumber.js';
-import { parseAbi } from 'viem';
+import { type Address, parseAbi } from 'viem';
 import { BASE_CHAIN_ID, OPTIMISM_CHAIN_ID } from '../../../constants.ts';
 import { fetchPrice } from '../../../utils/fetchPrice.ts';
 import { fetchContract } from '../../rpc/client.ts';
@@ -15,17 +15,24 @@ const abi = parseAbi([
   'function totalSupply() external view returns (uint)',
 ]);
 
-export const getMellowVeloApys = async (chainId, pools) => {
+export type MellowVeloApyPool = {
+  name: string;
+  address: string;
+};
+
+type MellowVeloChainId = typeof OPTIMISM_CHAIN_ID | typeof BASE_CHAIN_ID;
+
+export const getMellowVeloApys = async (chainId: MellowVeloChainId, pools: MellowVeloApyPool[]) => {
   const token = chainId === BASE_CHAIN_ID ? 'AERO' : 'VELO';
   const price = await fetchPrice({ oracle: 'tokens', id: token });
 
   const totalSupply = pools.map(p => fetchContract(p.address, abi, chainId).read.totalSupply());
   const [rewardRates, supplies] = await Promise.all([
-    fetchContract(helpers[chainId], abi, chainId).read.rewardRate([pools.map(p => p.address)]),
+    fetchContract(helpers[chainId], abi, chainId).read.rewardRate([pools.map(p => p.address as Address)]),
     Promise.all(totalSupply),
   ]);
 
-  const apys = [];
+  const apys: BigNumber[] = [];
   for (let i = 0; i < pools.length; i++) {
     const pool = pools[i];
     const lpPrice = await fetchPrice({ oracle: 'lps', id: pool.name });

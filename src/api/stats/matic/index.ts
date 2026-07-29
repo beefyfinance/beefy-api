@@ -1,5 +1,6 @@
 import { POLYGON_CHAIN_ID } from '../../../constants.ts';
 import { getLoggerFor } from '../../../utils/logger/index.ts';
+import type { ApyBreakdownResult } from '../common/getApyBreakdownNew.ts';
 import { getBeefyCowPolyApys } from './getBeefyCowPolyApys.ts';
 import { getCurveApys } from './getCurveApys.ts';
 
@@ -15,13 +16,13 @@ const BATCH_SIZE = 15;
 
 const getMaticApys = async () => {
   const start = Date.now();
-  let apys = {};
-  let apyBreakdowns = {};
+  let apys: Record<string, unknown> = {};
+  let apyBreakdowns: Record<string, unknown> = {};
 
-  let results = [];
+  let results: PromiseSettledResult<Partial<ApyBreakdownResult>>[] = [];
   for (let i = 0; i < getApys.length; i += BATCH_SIZE) {
     const batchApys = getApys.slice(i, i + BATCH_SIZE);
-    const promises = [];
+    const promises: Promise<Partial<ApyBreakdownResult>>[] = [];
     batchApys.forEach(getApy => promises.push(getApy()));
     const batchResults = await Promise.allSettled(promises);
     results = [...results, ...batchResults];
@@ -34,8 +35,8 @@ const getMaticApys = async () => {
     }
 
     // Set default APY values
-    let mappedApyValues = result.value;
-    let mappedApyBreakdownValues = {};
+    let mappedApyValues: Record<string, unknown> | undefined = result.value;
+    let mappedApyBreakdownValues: Record<string, unknown> | undefined = {};
 
     // Loop through key values and move default breakdown format
     // To require totalApy key

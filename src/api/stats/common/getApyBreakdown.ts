@@ -1,5 +1,6 @@
 import type { BigNumber } from 'bignumber.js';
 import { BASE_HPY } from '../../../constants.ts';
+import type { BigNumberish } from '../../../utils/big-number.ts';
 import { type ApyBreakdownResult, getApyBreakdownOnly as getApyBreakdownNew } from './getApyBreakdownNew.ts';
 
 // back-compat export
@@ -11,10 +12,10 @@ export type { ApyBreakdownResult };
  * */
 export const getApyBreakdown = (
   pools: { name: string; address: string; beefyFee?: number }[],
-  tradingAprs?: Record<string, BigNumber> | undefined,
+  tradingAprs?: Record<string, BigNumberish> | undefined,
   farmAprs?: BigNumber[] | undefined,
   providerFee?: number | BigNumber[] | undefined,
-  liquidStakingAprs?: number[] | undefined,
+  liquidStakingAprs?: BigNumberish[] | undefined,
   composablePoolAprs?: number[] | undefined,
   clmAprs?: number[] | undefined,
   merklAprs?: number[] | undefined

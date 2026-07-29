@@ -1,5 +1,6 @@
 import { ROBINHOOD_CHAIN_ID } from '../../../constants.ts';
 import { getLoggerFor } from '../../../utils/logger/index.ts';
+import type { ApyBreakdownResult } from '../common/getApyBreakdownNew.ts';
 import { getBeefyCowRobinhoodApys } from './getBeefyCowRobinhoodApys.ts';
 import { getUp33Apys } from './getUp33Apys.ts';
 
@@ -9,10 +10,10 @@ const getApys = [getBeefyCowRobinhoodApys, getUp33Apys];
 
 const getRobinhoodApys = async () => {
   const start = Date.now();
-  let apys = {};
-  let apyBreakdowns = {};
+  let apys: Record<string, unknown> = {};
+  let apyBreakdowns: Record<string, unknown> = {};
 
-  let promises = [];
+  let promises: Promise<Partial<ApyBreakdownResult>>[] = [];
   getApys.forEach(getApy => promises.push(getApy()));
   const results = await Promise.allSettled(promises);
 
@@ -22,8 +23,8 @@ const getRobinhoodApys = async () => {
       continue;
     }
 
-    let mappedApyValues = result.value;
-    let mappedApyBreakdownValues = {};
+    let mappedApyValues: Record<string, unknown> | undefined = result.value;
+    let mappedApyBreakdownValues: Record<string, unknown> | undefined = {};
 
     for (const [key, value] of Object.entries(result.value)) {
       mappedApyBreakdownValues[key] = {

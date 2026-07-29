@@ -1,11 +1,14 @@
+import type { ChainId } from '@beefyfinance/blockchain-addressbook';
 import { BigNumber } from 'bignumber.js';
 import { default as ISolidlyPair } from '../../../abis/ISolidlyPair.ts';
+import type { LpPool } from '../../../types/LpPool.ts';
+import type { PricesById, StandardLpBreakdown } from '../../../types/prices.ts';
 import { fetchContract } from '../../rpc/client.ts';
 
-const getSolidlyStablePrices = async (chainId, pools, tokenPrices) => {
-  let prices = {};
+const getSolidlyStablePrices = async (chainId: ChainId, pools: LpPool[], tokenPrices: PricesById) => {
+  let prices: Record<string, StandardLpBreakdown> = {};
 
-  const [reserveCalls, supplyCalls] = pools.reduce(
+  const [reserveCalls, supplyCalls] = pools.reduce<[Promise<readonly [bigint, bigint, bigint]>[], Promise<bigint>[]]>(
     (acc, pool) => {
       const contract = fetchContract(pool.address, ISolidlyPair, chainId);
       acc[0].push(contract.read.getReserves());

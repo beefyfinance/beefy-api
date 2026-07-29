@@ -1,6 +1,7 @@
 import { BigNumber } from 'bignumber.js';
 import { parseAbi } from 'viem';
 import { ARBITRUM_CHAIN_ID as chainId } from '../../../constants.ts';
+import type { PricesById, StandardLpBreakdown } from '../../../types/prices.ts';
 import { fetchContract } from '../../rpc/client.ts';
 import pools from '../../../data/arbitrum/mimPools.json' with { type: 'json' };
 
@@ -9,10 +10,10 @@ const abi = parseAbi([
   'function totalSupply() view returns (uint256)',
 ]);
 
-export const getMimSwapPrices = async tokenPrices => {
-  let prices = {};
+export const getMimSwapPrices = async (tokenPrices: PricesById) => {
+  let prices: Record<string, StandardLpBreakdown> = {};
 
-  const [reserveCalls, supplyCalls] = pools.reduce(
+  const [reserveCalls, supplyCalls] = pools.reduce<[Promise<readonly [bigint, bigint]>[], Promise<bigint>[]]>(
     (acc, pool) => {
       const contract = fetchContract(pool.address, abi, chainId);
       acc[0].push(contract.read.getReserves());

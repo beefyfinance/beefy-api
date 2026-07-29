@@ -1,3 +1,4 @@
+import type { BigNumber } from 'bignumber.js';
 import { PLASMA_CHAIN_ID as chainId } from '../../../constants.ts';
 import { getMerklApys } from '../common/curve/getCurveApysCommon.ts';
 import { getApyBreakdown } from '../common/getApyBreakdownNew.ts';
@@ -9,7 +10,7 @@ const subgraphApyUrl = 'https://api.curve.finance/api/getSubgraphData/plasma';
 export const getCurveApys = async () => {
   const [baseApys, curveApys] = await Promise.all([
     // getCurveSubgraphApys(pools, subgraphApyUrl),
-    {},
+    {} as Record<string, BigNumber>,
     getMerklApys(chainId, pools),
   ]);
 
