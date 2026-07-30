@@ -94,5 +94,17 @@
       "address": "0x8CEa55446F8C2314B3995C448Be8F04AeaABd5C4",
       "oracleId": "uniswap-cow-ethereum-weth-asteroid-rp"
     }
+  },
+  {
+    "address": "0x2f16815C6F7c705DEC15F28b40A4e63d9763a27E",
+    "lpAddress": "0x5aE13BAAEF0620FdaE1D355495Dc51a17adb4082",
+    "tokens": ["0x45804880De22913dAFE09f4980848ECE6EcbAf78", "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48"],
+    "tokenOracleIds": ["PAXG", "USDC"],
+    "decimals": [18, 6],
+    "oracleId": "uniswap-cow-ethereum-paxg-usdc",
+    "rewardPool": {
+      "address": "0x846039AfB24E12fA36C60B03967F6E1967e97F29",
+      "oracleId": "uniswap-cow-ethereum-paxg-usdc-rp"
+    }
   }
 ]

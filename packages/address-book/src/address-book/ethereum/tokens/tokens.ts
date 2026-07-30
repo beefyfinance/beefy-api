@@ -3171,4 +3171,17 @@ export const tokens = {
     bridge: 'native',
     tags: ['BLUECHIP'],
   },
+  PAXG: {
+    name: 'Paxos Gold',
+    symbol: 'PAXG',
+    oracleId: 'PAXG',
+    address: '0x45804880De22913dAFE09f4980848ECE6EcbAf78',
+    chainId: 1,
+    decimals: 18,
+    website: 'https://www.paxos.com/pax-gold',
+    documentation: 'https://docs.paxos.com/guides/stablecoin/paxg',
+    description:
+      'Paxos Gold (PAXG) is a regulated tokenized gold product where each token represents one fine troy ounce of London Good Delivery gold held in LBMA-accredited vaults.',
+    bridge: 'native',
+  },
 } as const satisfies Record<string, Token>;
