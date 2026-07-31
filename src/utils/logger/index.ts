@@ -1,5 +1,6 @@
 import { pino } from 'pino';
-import { type ApiChain, fromChainNumber } from '../chain.ts';
+import { envBoolean } from '../env.ts';
+import { makeErrorSerializer, serializeChain, toChainSlug } from './serializers.ts';
 import type { LogScope, ResolveLogScope } from './types.ts';
 
 const LEVELS = new Set(['fatal', 'error', 'warn', 'info', 'debug', 'trace', 'silent']);
@@ -8,31 +9,26 @@ const level = LEVELS.has(requested) ? requested : 'info';
 const usePretty = process.env.NODE_ENV !== 'production' && !!process.stdout.isTTY;
 const prettyStream = usePretty ? (await import('./pretty-transport.ts')).default() : undefined;
 const cache = new Map<string, Logger>();
+const serializeError = makeErrorSerializer({
+  stack: envBoolean('LOG_ERROR_STACK', true),
+  cause: envBoolean('LOG_ERROR_CAUSE', false),
+  details: envBoolean('LOG_ERROR_DETAILS', false),
+});
 
 const rootLogger = pino(
   {
     level,
+    base: null,
     serializers: {
-      chain: (v: unknown): unknown => {
-        if (typeof v === 'number' || isIntegerString(v)) {
-          return toChainSlug(Number(v));
-        }
-        return v;
-      },
+      chain: serializeChain,
+      err: serializeError,
+      error: serializeError,
     },
   },
   prettyStream
 );
 
 type Logger = typeof rootLogger;
-
-function isIntegerString(v: unknown) {
-  return typeof v === 'string' && v.match(/^[0-9]+$/);
-}
-
-function toChainSlug(chain: ApiChain | number): ApiChain | undefined {
-  return typeof chain === 'number' ? fromChainNumber(chain) : chain;
-}
 
 function buildKey(head: string, ...tails: (string | undefined)[]): string {
   return [head, ...tails].filter(Boolean).join(':');
