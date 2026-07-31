@@ -10,7 +10,7 @@ import { fetchContract } from '../rpc/client.ts';
 import { getHarvestableVaultsByChain } from '../stats/getMultichainVaults.ts';
 import type { HarvestableVault } from './types.ts';
 
-const logger = getLoggerFor({ module: 'vaults' });
+const logger = getLoggerFor({ module: 'vault-fees' });
 
 const feeBatchTreasurySplitMethodABI = [
   {
@@ -104,9 +104,16 @@ const updateVaultFees = async () => {
     const chainVaults = getHarvestableVaultsByChain(chain).filter(
       v => (vaultFees[v.id]?.lastUpdated || 0) < expiredBefore
     );
-    if (chainVaults.length > 0) {
+    const haveStrategy = chainVaults.filter(v => !!v.strategy);
+    if (haveStrategy.length < chainVaults.length) {
+      logger.warn(
+        { total: chainVaults.length, skipped: chainVaults.length - haveStrategy.length, chain },
+        'skipped vaults due to missing strategy address'
+      );
+    }
+    if (haveStrategy.length > 0) {
       // Use ethereum feeBatch for all chains (only place where revenue is split)
-      await getChainFees(chainVaults, ChainId[chain], feeBatches[ChainId.ethereum]);
+      await getChainFees(haveStrategy, ChainId[chain], feeBatches[ChainId.ethereum]);
     }
   }
 

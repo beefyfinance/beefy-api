@@ -5,7 +5,7 @@
   "license": "MIT",
   "type": "module",
   "engines": {
-    "node": "26.5.1"
+    "node": "24.x"
   },
   "scripts": {
     "install-all": "yarn install --frozen-lockfile && cd packages/address-book && npm ci",
