@@ -1,7 +1,7 @@
 import { BigNumber } from 'bignumber.js';
 import { getLoggerFor } from '../../../../utils/logger/index.ts';
 
-const logger = getLoggerFor({ module: 'apy', platform: 'curve' });
+const logger = getLoggerFor({ module: 'apy', component: 'curve' });
 
 export type CurveApyDataPool = {
   name: string;

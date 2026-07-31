@@ -1,7 +1,7 @@
 import type { PricesById } from '../types/prices.ts';
 import { getLoggerFor } from './logger/index.ts';
 
-const logger = getLoggerFor({ module: 'prices', platform: 'defillama' });
+const logger = getLoggerFor({ module: 'prices', component: 'defillama' });
 
 type DefillamaPricesResponse = {
   coins: Record<string, { price: number }>;

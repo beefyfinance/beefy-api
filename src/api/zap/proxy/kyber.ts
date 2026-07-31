@@ -8,7 +8,7 @@ import { getKyberApi } from '../api/kyber/index.ts';
 import type { QuoteData, QuoteRequest, SwapData, SwapRequest } from '../api/kyber/types.ts';
 import { isQuoteValueTooLow, setNoCacheHeaders } from './common.ts';
 
-const logger = getLoggerFor({ module: 'zap', platform: 'kyber' });
+const logger = getLoggerFor({ module: 'zap', component: 'kyber' });
 
 const postProxiedSwap = async (request: SwapRequest, chain: AnyChain): Promise<ApiResponse<SwapData>> => {
   try {

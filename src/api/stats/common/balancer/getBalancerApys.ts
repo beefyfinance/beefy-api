@@ -8,7 +8,7 @@ import { getMerklAprByExplorerAddress } from '../../../offchain-rewards/provider
 import { type ApyBreakdownResult, getApyBreakdown } from '../getApyBreakdown.ts';
 import { getTotalStakedInUsd, getYearlyRewardsInUsd } from './balancerUtils.ts';
 
-const logger = getLoggerFor({ module: 'apy', platform: 'balancer' });
+const logger = getLoggerFor({ module: 'apy', component: 'balancer' });
 
 interface Token {
   newGauge?: boolean;

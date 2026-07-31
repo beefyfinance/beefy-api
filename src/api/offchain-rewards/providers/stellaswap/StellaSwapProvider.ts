@@ -14,7 +14,7 @@ import type { IOffchainRewardProvider, RewardToken, StellaSwapCampaign, Vault } 
 import { rewarderAbi, rewardRegistryAbi } from './abi.ts';
 import type { FarmingAprResponse, FarmingAprResult, RewarderEntry, RewardInfo } from './types.ts';
 
-const logger = getLoggerFor({ module: 'rewards', platform: 'stellaswap' });
+const logger = getLoggerFor({ module: 'rewards', component: 'stellaswap' });
 
 const providerId = 'stellaswap' as const;
 const supportedChains = new Set<AppChain>([]);

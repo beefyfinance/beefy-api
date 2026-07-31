@@ -22,7 +22,7 @@ import type { PricesById } from '../types/prices.ts';
 import { getEDecimals } from './getEDecimals.ts';
 import { getLoggerFor } from './logger/index.ts';
 
-const logger = getLoggerFor({ module: 'prices', platform: 'aave' });
+const logger = getLoggerFor({ module: 'prices', component: 'aave-wrapped' });
 
 const RAY_DECIMALS = '1e27';
 

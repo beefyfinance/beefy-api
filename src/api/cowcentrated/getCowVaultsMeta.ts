@@ -10,7 +10,7 @@ import { sleep } from '../../utils/time.ts';
 import { getCowClmChains, getCowClms } from './getCowClms.ts';
 import { type AnyCowClmMeta, type CowClmsMeta, isClmApiVaultsResponse } from './types.ts';
 
-const logger = getLoggerFor({ module: 'clm' });
+const logger = getLoggerFor({ module: 'clm', component: 'meta' });
 
 const CACHE_KEY = 'COW_VAULTS_META';
 const INIT_DELAY = envNumber('COWCENTRATED_INIT_DELAY', 1000);

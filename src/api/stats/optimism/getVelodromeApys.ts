@@ -15,7 +15,7 @@ const {
 
 import { getLoggerFor } from '../../../utils/logger/index.ts';
 
-const logger = getLoggerFor({ module: 'apy', platform: 'velodrome', chain: chainId });
+const logger = getLoggerFor({ module: 'apy', component: 'velodrome', chain: chainId });
 
 const pools = [...stablePools, ...volatilePools];
 const oldPools = [...oldStablePools, ...oldVolatilePools];

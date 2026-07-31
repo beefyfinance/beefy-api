@@ -8,7 +8,7 @@ import { getLoggerFor } from '../../../../utils/logger/index.ts';
 import { fetchContract } from '../../../rpc/client.ts';
 import type { GmxPool } from './types.ts';
 
-const logger = getLoggerFor({ module: 'prices', platform: 'gmx' });
+const logger = getLoggerFor({ module: 'prices', component: 'gmx' });
 
 export const getGmxPrices = async (chainId: ChainId, pools: GmxPool[], tokenPrices: PricesById) => {
   let prices = {};

@@ -2,7 +2,7 @@ import type { ChainId } from '@beefyfinance/blockchain-addressbook';
 import { BigNumber } from 'bignumber.js';
 import { getLoggerFor } from './logger/index.ts';
 
-const logger = getLoggerFor({ module: 'apy', platform: 'balancer' });
+const logger = getLoggerFor({ module: 'apy', component: 'balancer' });
 
 type BalancerAprItem = {
   apr: number;
@@ -60,7 +60,7 @@ export const getBalTradingAndLstApr = async (chain: ChainId, poolAddresses: stri
   const queryString = `query apr {
             poolGetPools (where: {chainIn: ${getChainName(chain)}, idIn: ${JSON.stringify(poolAddresses)}}) {
                 address
-                dynamicData { 
+                dynamicData {
                 aprItems {
                     apr
                     rewardTokenAddress
@@ -68,7 +68,7 @@ export const getBalTradingAndLstApr = async (chain: ChainId, poolAddresses: stri
                     type
                     }
                 }
-            } 
+            }
         }`;
 
   try {

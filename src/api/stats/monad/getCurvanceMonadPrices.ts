@@ -8,7 +8,7 @@ import type { CurvancePool } from './getCurvanceApys.ts';
 import curvancePoolsData from '../../../data/monad/curvancePools.json' with { type: 'json' };
 
 const pools: CurvancePool[] = curvancePoolsData;
-const logger = getLoggerFor({ module: 'prices', platform: 'curvance', chain: MONAD_CHAIN_ID });
+const logger = getLoggerFor({ module: 'prices', component: 'curvance', chain: MONAD_CHAIN_ID });
 
 export const getCurvanceMonadPrices = async (tokenPrices: PricesById) => {
   const totalAssetsCalls = [];

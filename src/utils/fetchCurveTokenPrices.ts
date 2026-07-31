@@ -17,7 +17,7 @@ import maticCurvePools from '../data/matic/curvePools.json' with { type: 'json' 
 import monadCurvePools from '../data/monad/curvePools.json' with { type: 'json' };
 import optimismCurvePools from '../data/optimism/curvePools.json' with { type: 'json' };
 
-const logger = getLoggerFor({ module: 'prices', platform: 'curve' });
+const logger = getLoggerFor({ module: 'prices', component: 'curve' });
 
 const tokens = {
   optimism: toCurveTokens(ChainId.optimism, optimismCurvePools),

@@ -10,7 +10,7 @@ import { normalizeNativeWrappedPrices } from './normalizeNativeWrappedPrices.ts'
 import { batchMapRetry, isContextResultFulfilled, isContextResultRejected } from './promise.ts';
 import { promiseTiming } from './timing.ts';
 
-const logger = getLoggerFor({ module: 'prices' });
+const logger = getLoggerFor({ module: 'prices', component: 'amm' });
 
 /** Output a warning if LP (balance0*price0) != (balance1*price1) within a threshold % */
 const AMM_PRICES_CHECK_POOLS = envBoolean('AMM_PRICES_CHECK_POOLS', false);

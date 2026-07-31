@@ -10,7 +10,7 @@ import { getMerklOpportunitiesByProtocol } from '../../../offchain-rewards/provi
 import { fetchContract } from '../../../rpc/client.ts';
 import { getApyBreakdown } from '../getApyBreakdownNew.ts';
 
-const logger = getLoggerFor({ module: 'apy', platform: 'aave' });
+const logger = getLoggerFor({ module: 'apy', component: 'aave-v3' });
 
 const secondsPerYear = 31536000;
 const RAY_DECIMALS = '1e27';

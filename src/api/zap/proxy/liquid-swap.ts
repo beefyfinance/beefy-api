@@ -8,7 +8,7 @@ import { getLiquidSwapApi } from '../api/liquid-swap/index.ts';
 import type { QuoteRequest, QuoteResponse, SwapRequest, SwapResponse } from '../api/liquid-swap/types.ts';
 import { isQuoteValueTooLow, setNoCacheHeaders } from './common.ts';
 
-const logger = getLoggerFor({ module: 'zap', platform: 'liquidSwap' });
+const logger = getLoggerFor({ module: 'zap', component: 'liquidSwap' });
 
 const postProxiedSwap = async (request: SwapRequest, chain: AnyChain): Promise<ApiResponse<SwapResponse>> => {
   try {

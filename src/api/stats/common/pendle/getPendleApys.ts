@@ -15,7 +15,7 @@ import { fetchContract } from '../../../rpc/client.ts';
 import { getApyBreakdown } from '../getApyBreakdownNew.ts';
 import { getPendleApys as getPendleBaseApys, type PendlePool } from './getPendleBaseApys.ts';
 
-const logger = getLoggerFor({ module: 'apy', platform: 'pendle' });
+const logger = getLoggerFor({ module: 'apy', component: 'pendle' });
 
 const abi = parseAbi([
   'function balanceOf(address) view returns (uint256)',

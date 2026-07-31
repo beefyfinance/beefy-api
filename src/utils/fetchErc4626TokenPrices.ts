@@ -4,7 +4,7 @@ import { parseAbi } from 'viem';
 import { fetchContract } from '../api/rpc/client.ts';
 import { getLoggerFor } from './logger/index.ts';
 
-const logger = getLoggerFor({ module: 'prices', platform: 'erc4626' });
+const logger = getLoggerFor({ module: 'prices', component: 'erc4626' });
 
 const abi = parseAbi(['function convertToAssets(uint256 shares) view returns (uint256)']);
 

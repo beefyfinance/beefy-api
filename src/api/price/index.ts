@@ -4,7 +4,7 @@ import { getLoggerFor } from '../../utils/logger/index.ts';
 import { getAmmLpPrices, getAmmTokensPrices, getLpBreakdown } from '../stats/getAmmPrices.ts';
 import { getMooTokenPrices } from '../stats/getMooTokenPrices.ts';
 
-const logger = getLoggerFor({ module: 'prices' });
+const logger = getLoggerFor({ module: 'prices', component: 'routes' });
 
 async function lpsPrices(ctx: Context) {
   try {

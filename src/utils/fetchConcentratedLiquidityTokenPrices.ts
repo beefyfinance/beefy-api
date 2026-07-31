@@ -12,7 +12,7 @@ import { toChainId } from './chain.ts';
 import { getLoggerFor } from './logger/index.ts';
 import { typedEntries } from './object.ts';
 
-const logger = getLoggerFor({ module: 'prices' });
+const logger = getLoggerFor({ module: 'prices', component: 'concentrated-liquidity' });
 
 type ConcentratedLiquidityToken = {
   type: string;

@@ -8,7 +8,7 @@ import { getOneInchSwapApi } from '../api/one-inch/index.ts';
 import type { QuoteRequest, QuoteResponse, SwapRequest, SwapResponse } from '../api/one-inch/types.ts';
 import { isQuoteValueTooLow, setNoCacheHeaders } from './common.ts';
 
-const logger = getLoggerFor({ module: 'zap', platform: 'oneInch' });
+const logger = getLoggerFor({ module: 'zap', component: 'one-inch' });
 
 const getProxiedSwap = async (request: SwapRequest, chain: AnyChain): Promise<ApiResponse<SwapResponse>> => {
   try {

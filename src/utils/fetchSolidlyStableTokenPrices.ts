@@ -8,7 +8,7 @@ import { toChainId } from './chain.ts';
 import { getLoggerFor } from './logger/index.ts';
 import { typedEntries } from './object.ts';
 
-const logger = getLoggerFor({ module: 'prices', platform: 'solidly' });
+const logger = getLoggerFor({ module: 'prices', component: 'solidly-stable' });
 
 type StablePoolLiquidityToken = {
   oracleId: string;

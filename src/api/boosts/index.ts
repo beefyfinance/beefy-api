@@ -1,7 +1,7 @@
 import { getLoggerFor } from '../../utils/logger/index.ts';
 import { getAllNewBoosts, getAllOldBoosts, getChainNewBoosts, getChainOldBoosts } from './getBoosts.ts';
 
-const logger = getLoggerFor({ module: 'boosts' });
+const logger = getLoggerFor({ module: 'boosts', component: 'routes' });
 
 export const boosts = async (ctx: any) => {
   try {

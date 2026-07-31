@@ -344,7 +344,7 @@ export const getYearlyBalancerPlatformTradingFees = async (
 
     yearlyTradingFeesUsd = dailySwapFeeUsd.times(365).times(liquidityProviderFeeShare);
   } catch (e) {
-    logger.warn({ platform: 'balancer', chain: 250 }, 'balancer platform trading fees failed');
+    logger.warn({ component: 'balancer', chain: 250 }, 'balancer platform trading fees failed');
   }
 
   return yearlyTradingFeesUsd;

@@ -44,7 +44,7 @@ export async function getYieldBasisPrices(tokenPrices: PricesById) {
 }
 
 const getTokenPrice = (tokenPrices: PricesById, oracleId: string | undefined) => {
-  const logger = getLoggerFor({ module: 'apy', platform: 'yieldbasis' });
+  const logger = getLoggerFor({ module: 'apy', component: 'yieldbasis' });
   if (!oracleId) {
     logger.warn('oracleId is not defined');
     return 1;

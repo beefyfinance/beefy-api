@@ -31,14 +31,14 @@ export default function (opts: PrettyOptions = {}): PrettyStream {
         const tags = [
           tag(scope.module, colors.magenta),
           tag(scope.chain, colors.yellow),
-          tag(scope.platform, colors.blue),
+          tag(scope.component, colors.blue),
         ];
         return `${colorize ? labelColorized : label}${tags.filter(Boolean).join('')}`;
       },
       // if added to `ignore` they are not available in `log` for level formatter
       module: omitKeyFromLine,
       chain: omitKeyFromLine,
-      platform: omitKeyFromLine,
+      component: omitKeyFromLine,
     },
   });
 }

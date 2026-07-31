@@ -1,7 +1,7 @@
 import type { PricesById } from '../types/prices.ts';
 import { getLoggerFor } from './logger/index.ts';
 
-const logger = getLoggerFor({ module: 'prices', platform: 'coingecko' });
+const logger = getLoggerFor({ module: 'prices', component: 'coingecko' });
 
 type CoinGeckoPricesResponse = Record<string, { usd: number }>;
 

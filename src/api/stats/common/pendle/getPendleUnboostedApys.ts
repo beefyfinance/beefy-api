@@ -2,7 +2,7 @@ import { getLoggerFor } from '../../../../utils/logger/index.ts';
 import { getApyBreakdown } from '../getApyBreakdownNew.ts';
 import { getPendleApys, type PendlePool } from './getPendleBaseApys.ts';
 
-const logger = getLoggerFor({ module: 'apy', platform: 'pendle' });
+const logger = getLoggerFor({ module: 'apy', component: 'pendle-unboosted' });
 
 export async function getPendleUnboostedApys(allPools: PendlePool[]) {
   const chainId = allPools[0].chainId;

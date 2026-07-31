@@ -23,7 +23,7 @@ const dataLayer = new DataLayer(CACHE_KEY_ROOT, DATA_DELETE_AFTER, DATA_GC_INTER
 
 async function updateChainProvider(apiChain: ApiChain, providerId: ProviderId) {
   const start = Date.now();
-  logger.debug({ chain: apiChain, platform: providerId }, 'chain provider update started');
+  logger.debug({ chain: apiChain, component: providerId }, 'chain provider update started');
 
   const supportByAddress = await fetchProviderSupportForChainTokens(
     providerId,
@@ -36,7 +36,7 @@ async function updateChainProvider(apiChain: ApiChain, providerId: ProviderId) {
   await dataLayer.set(apiChain, providerId, supportByAddress);
 
   logger.debug(
-    { chain: apiChain, platform: providerId, durationMs: Date.now() - start },
+    { chain: apiChain, component: providerId, durationMs: Date.now() - start },
     'chain provider update completed'
   );
 }

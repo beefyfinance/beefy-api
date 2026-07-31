@@ -7,7 +7,7 @@ import type { PricesById, StandardLpBreakdown } from '../../../../types/prices.t
 import { getLoggerFor } from '../../../../utils/logger/index.ts';
 import { fetchContract } from '../../../rpc/client.ts';
 
-const logger = getLoggerFor({ module: 'prices', platform: 'balancer' });
+const logger = getLoggerFor({ module: 'prices', component: 'balancer-v2' });
 
 export type BalancerPriceToken = {
   oracleId?: string;

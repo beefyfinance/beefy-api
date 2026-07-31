@@ -11,7 +11,7 @@ import { getLoggerFor } from '../../../utils/logger/index.ts';
 import { fetchContract } from '../../rpc/client.ts';
 import { getApyBreakdown } from '../common/getApyBreakdown.ts';
 
-const logger = getLoggerFor({ module: 'apy', platform: 'solidlyGauge' });
+const logger = getLoggerFor({ module: 'apy', component: 'solidlyGauge' });
 
 const KittenswapGauge = [
   {

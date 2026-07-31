@@ -5,7 +5,7 @@ import type { PricesById, StandardLpBreakdown } from '../../../types/prices.ts';
 import { getLoggerFor } from '../../../utils/logger/index.ts';
 import { fetchContract } from '../../rpc/client.ts';
 
-const logger = getLoggerFor({ module: 'prices', platform: 'mellow' });
+const logger = getLoggerFor({ module: 'prices', component: 'mellow' });
 
 const abi = parseAbi([
   'function previewMint(uint lpAmount) external view returns (uint amount0, uint amount1)',

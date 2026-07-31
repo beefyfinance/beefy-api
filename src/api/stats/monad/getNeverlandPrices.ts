@@ -6,7 +6,7 @@ import { getLoggerFor } from '../../../utils/logger/index.ts';
 import { fetchContract } from '../../rpc/client.ts';
 import pools from '../../../data/monad/neverlandPools.json' with { type: 'json' };
 
-const logger = getLoggerFor({ module: 'prices', platform: 'neverland', chain: MONAD_CHAIN_ID });
+const logger = getLoggerFor({ module: 'prices', component: 'neverland', chain: MONAD_CHAIN_ID });
 
 export const getNeverlandPrices = async (tokenPrices: PricesById) => {
   const totalSupplyCalls = [];

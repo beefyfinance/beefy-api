@@ -7,7 +7,7 @@ import { getLoggerFor } from '../../../../utils/logger/index.ts';
 import { getMerklAprByIdentifier } from '../../../offchain-rewards/providers/merkl/proxyClient.ts';
 import { fetchContract } from '../../../rpc/client.ts';
 
-const logger = getLoggerFor({ module: 'apy', platform: 'curve' });
+const logger = getLoggerFor({ module: 'apy', component: 'curve' });
 
 const secondsPerYear = 31536000;
 

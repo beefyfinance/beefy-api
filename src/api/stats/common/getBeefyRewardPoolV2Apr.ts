@@ -18,7 +18,7 @@ import { SECONDS_PER_YEAR } from '../../../utils/time.ts';
 import { fetchContract } from '../../rpc/client.ts';
 import { getAmmPrice } from '../getAmmPrices.ts';
 
-const logger = getLoggerFor({ module: 'apy', platform: 'beefyRewardPoolV2' });
+const logger = getLoggerFor({ module: 'apy', component: 'beefyRewardPoolV2' });
 
 const WARN_STAKED_IS_ZERO: boolean = false;
 const WARN_STAKED_MISSING_PRICE: boolean = true;

@@ -8,7 +8,7 @@ import type { PricesById, StandardLpBreakdown } from '../../../types/prices.ts';
 import { getLoggerFor } from '../../../utils/logger/index.ts';
 import { fetchContract } from '../../rpc/client.ts';
 
-const logger = getLoggerFor({ module: 'prices', platform: 'silo' });
+const logger = getLoggerFor({ module: 'prices', component: 'silo' });
 
 type SiloPool = {
   name: string;
