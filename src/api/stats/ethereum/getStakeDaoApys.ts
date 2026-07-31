@@ -4,7 +4,7 @@ import { getLoggerFor } from '../../../utils/logger/index.ts';
 import { getApyBreakdown } from '../common/getApyBreakdownNew.ts';
 import convexPoolsData from '../../../data/ethereum/convexPools.json' with { type: 'json' };
 
-const logger = getLoggerFor({ module: 'apy', platform: 'stakedao', chain: 'ethereum' });
+const logger = getLoggerFor({ module: 'apy', component: 'stakedao', chain: 'ethereum' });
 
 const pools = convexPoolsData.filter(p => p.stakeDao);
 const secondsPerYear = 31536000;

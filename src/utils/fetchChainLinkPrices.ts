@@ -9,7 +9,7 @@ import { getLoggerFor } from './logger/index.ts';
 import { median } from './number.ts';
 import { isResultFulfilled } from './promise.ts';
 
-const logger = getLoggerFor({ module: 'prices', platform: 'chainlink' });
+const logger = getLoggerFor({ module: 'prices', component: 'chainlink' });
 
 type Oracle = {
   oracleId: string;

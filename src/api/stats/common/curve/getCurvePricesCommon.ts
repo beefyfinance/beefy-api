@@ -7,7 +7,7 @@ import type { PricesById, StandardLpBreakdown } from '../../../../types/prices.t
 import { getLoggerFor } from '../../../../utils/logger/index.ts';
 import { fetchContract } from '../../../rpc/client.ts';
 
-const logger = getLoggerFor({ module: 'prices', platform: 'curve' });
+const logger = getLoggerFor({ module: 'prices', component: 'curve' });
 
 const DECIMALS = '1e18';
 

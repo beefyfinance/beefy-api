@@ -2,7 +2,7 @@ import { BigNumber } from 'bignumber.js';
 import { getLoggerFor } from '../../../utils/logger/index.ts';
 import { getApyBreakdown } from '../common/getApyBreakdown.ts';
 
-const logger = getLoggerFor({ module: 'apy', platform: 'convex', chain: 'fraxtal' });
+const logger = getLoggerFor({ module: 'apy', component: 'convex', chain: 'fraxtal' });
 
 type ConvexStakedCvxFxsReward = {
   apr?: number;

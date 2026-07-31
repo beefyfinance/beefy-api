@@ -40,24 +40,24 @@ function buildKey(head: string, ...tails: (string | undefined)[]): string {
 
 /**
  * Create a scoped child logger. Bindings appear as structured fields on every line, so logs can be
- * filtered by `module` / `platform` / `chain`.
+ * filtered by `module` / `component` / `chain`.
  *
  * @example
- *   const logger = getLoggerFor({ module: 'apy', platform: 'curve' });
+ *   const logger = getLoggerFor({ module: 'apy', component: 'curve' });
  *   // inside a per-chain function, add the chain for that call:
- *   const chainLogger = getLoggerFor({ module: 'apy', platform: 'curve', chain });
+ *   const chainLogger = getLoggerFor({ module: 'apy', component: 'curve', chain });
  *   chainLogger.warn({ vault: pool.oracleId, err }, 'apr calculation failed');
  */
 export function getLoggerFor(scope: LogScope) {
   const chain = scope.chain === undefined ? undefined : toChainSlug(scope.chain);
-  const key = buildKey(scope.module, scope.platform, chain);
+  const key = buildKey(scope.module, scope.component, chain);
   const hit = cache.get(key);
   if (hit) {
     return hit;
   }
   const bindings: ResolveLogScope = { module: scope.module };
-  if (scope.platform) {
-    bindings.platform = scope.platform;
+  if (scope.component) {
+    bindings.component = scope.component;
   }
   if (chain) {
     bindings.chain = chain;

@@ -3,7 +3,7 @@ import { BigNumber } from 'bignumber.js';
 import { getLoggerFor } from '../../../../utils/logger/index.ts';
 import { getApyBreakdown } from '../getApyBreakdownNew.ts';
 
-const logger = getLoggerFor({ module: 'apy', platform: 'morpho' });
+const logger = getLoggerFor({ module: 'apy', component: 'morpho' });
 
 export type MorphoPool = {
   name: string;

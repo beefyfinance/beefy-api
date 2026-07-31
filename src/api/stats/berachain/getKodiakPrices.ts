@@ -8,7 +8,7 @@ import { fetchContract } from '../../rpc/client.ts';
 import berapaw from '../../../data/berachain/kodiakBeraPawPools.json' with { type: 'json' };
 import kodiak from '../../../data/berachain/kodiakPools.json' with { type: 'json' };
 
-const logger = getLoggerFor({ module: 'prices', platform: 'kodiak', chain: chainId });
+const logger = getLoggerFor({ module: 'prices', component: 'kodiak', chain: chainId });
 
 const pools = [...kodiak, ...berapaw];
 

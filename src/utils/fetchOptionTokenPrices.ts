@@ -8,7 +8,7 @@ import { LINEA_CHAIN_ID } from '../constants.ts';
 import type { PricesById } from '../types/prices.ts';
 import { getLoggerFor } from './logger/index.ts';
 
-const logger = getLoggerFor({ module: 'prices' });
+const logger = getLoggerFor({ module: 'prices', component: 'option' });
 
 const {
   linea: {

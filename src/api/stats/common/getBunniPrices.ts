@@ -7,7 +7,7 @@ import type { PricesById, StandardLpBreakdown } from '../../../types/prices.ts';
 import { getLoggerFor } from '../../../utils/logger/index.ts';
 import { fetchContract } from '../../rpc/client.ts';
 
-const logger = getLoggerFor({ module: 'prices', platform: 'bunni' });
+const logger = getLoggerFor({ module: 'prices', component: 'bunni' });
 
 const lens = {
   [BASE_CHAIN_ID]: '0x3eD7357337853E2Fd8d4b6CbABCDAA0858b40f01',

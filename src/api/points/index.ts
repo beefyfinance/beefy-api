@@ -1,7 +1,7 @@
 import { getLoggerFor } from '../../utils/logger/index.ts';
 import { getAllPointsStructures } from './getPointsStructures.ts';
 
-const logger = getLoggerFor({ module: 'points' });
+const logger = getLoggerFor({ module: 'points', component: 'routes' });
 
 export const pointStructures = async (ctx: any) => {
   try {

@@ -9,7 +9,7 @@ import { getLoggerFor } from '../../../utils/logger/index.ts';
 import { fetchContract, fetchNoMulticallContract } from '../../rpc/client.ts';
 import { getApyBreakdown } from './getApyBreakdownNew.ts';
 
-const logger = getLoggerFor({ module: 'apy', platform: 'compound' });
+const logger = getLoggerFor({ module: 'apy', component: 'compound' });
 
 const SECONDS_PER_YEAR = 31536000;
 

@@ -14,7 +14,7 @@ import { getLoggerFor } from '../../../utils/logger/index.ts';
 import type { OptionalRecord } from '../../../utils/object.ts';
 import { fetchContract } from '../../rpc/client.ts';
 
-const logger = getLoggerFor({ module: 'prices', platform: 'pendle' });
+const logger = getLoggerFor({ module: 'prices', component: 'pendle' });
 
 const routerStatic = {
   [ARBITRUM_CHAIN_ID]: '0xAdB09F65bd90d19e3148D9ccb693F3161C6DB3E8',

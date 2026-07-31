@@ -5,7 +5,7 @@ import { ABORT_REASON_TIMEOUT } from './http/helpers.ts';
 import { getLoggerFor } from './logger/index.ts';
 import { sleep } from './time.ts';
 
-const logger = getLoggerFor({ module: 'app' });
+const logger = getLoggerFor({ module: 'promise' });
 
 export function withTimeout<T>(promise: Promise<T>, timeout: number, message?: string): Promise<T> {
   return new Promise<T>((resolve, reject) => {
@@ -39,7 +39,10 @@ export const retryPromiseWithBackOff = async <T>(
     if (nthTry > maxTries) {
       return Promise.reject(e);
     }
-    logger.debug({ label, attempt: nthTry, maxTries, delayMs: 2 ** (nthTry + 1) * delayTime }, 'retrying');
+    logger.debug(
+      { component: 'retry', label, attempt: nthTry, maxTries, delayMs: 2 ** (nthTry + 1) * delayTime },
+      'retrying'
+    );
 
     await sleep(2 ** (nthTry + 1) * delayTime);
     return retryPromiseWithBackOff(f, args, label, nthTry + 1, delayTime, maxTries);

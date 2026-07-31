@@ -1,7 +1,7 @@
 import { envBoolean, envNumber } from './env.ts';
 import { getLoggerFor } from './logger/index.ts';
 
-const logger = getLoggerFor({ module: 'app' });
+const logger = getLoggerFor({ module: 'timing' });
 
 const ENABLE_TIMING = envBoolean('TIMING_ENABLED', false);
 const MIN_TIME_MS = envNumber('TIMING_MIN', 30_000);

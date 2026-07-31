@@ -2,7 +2,7 @@ import { BigNumber } from 'bignumber.js';
 import { getLoggerFor } from '../../../../utils/logger/index.ts';
 import { getApyBreakdown } from '../getApyBreakdownNew.ts';
 
-const logger = getLoggerFor({ module: 'apy', platform: 'aave' });
+const logger = getLoggerFor({ module: 'apy', component: 'aave-v4' });
 
 const AAVE_V4_GRAPHQL_URL = 'https://api.v4.aave.com/graphql';
 

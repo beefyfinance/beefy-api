@@ -2,7 +2,7 @@ import type { ChainId } from '@beefyfinance/blockchain-addressbook';
 import { BigNumber } from 'bignumber.js';
 import { getLoggerFor } from '../../../../utils/logger/index.ts';
 
-const logger = getLoggerFor({ module: 'apy', platform: 'pendle' });
+const logger = getLoggerFor({ module: 'apy', component: 'pendle-base' });
 
 export type PendlePool = {
   name: string;

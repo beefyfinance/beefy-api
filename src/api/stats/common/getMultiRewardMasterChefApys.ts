@@ -14,7 +14,7 @@ import type { TypedOmit } from '../../../utils/object.ts';
 import { fetchContract } from '../../rpc/client.ts';
 import { type ApyBreakdownResult, getApyBreakdown } from '../common/getApyBreakdown.ts';
 
-const logger = getLoggerFor({ module: 'apy', platform: 'multiRewardMasterChef' });
+const logger = getLoggerFor({ module: 'apy', component: 'multiRewardMasterChef' });
 
 type WithOptionalDecimalsAndChainId<T extends { decimals: string; chainId: ChainId }> = TypedOmit<
   T,

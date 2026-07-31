@@ -2,7 +2,7 @@ import type { ChainId } from '@beefyfinance/blockchain-addressbook';
 import { getLoggerFor } from '../../../utils/logger/index.ts';
 import { getMerklAprByExplorerAddress } from '../../offchain-rewards/providers/merkl/proxyClient.ts';
 
-const logger = getLoggerFor({ module: 'apy', platform: 'merkl' });
+const logger = getLoggerFor({ module: 'apy', component: 'merkl' });
 
 export type MerklApyPool = {
   address: string;

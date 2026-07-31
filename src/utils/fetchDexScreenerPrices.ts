@@ -3,7 +3,7 @@ import type { ApiChain } from './chain.ts';
 import { getLoggerFor } from './logger/index.ts';
 import { isFiniteNumber } from './number.ts';
 
-const logger = getLoggerFor({ module: 'prices', platform: 'dexScreener' });
+const logger = getLoggerFor({ module: 'prices', component: 'dex-screener' });
 
 const MAX_VALID_PRICE_USD = 1_000_000;
 

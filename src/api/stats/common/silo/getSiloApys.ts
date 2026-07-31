@@ -4,7 +4,7 @@ import { getLoggerFor } from '../../../../utils/logger/index.ts';
 import type { OptionalRecord } from '../../../../utils/object.ts';
 import { getApyBreakdown } from '../getApyBreakdownNew.ts';
 
-const logger = getLoggerFor({ module: 'apy', platform: 'silo' });
+const logger = getLoggerFor({ module: 'apy', component: 'silo' });
 
 export type SiloApyPool = {
   name: string;

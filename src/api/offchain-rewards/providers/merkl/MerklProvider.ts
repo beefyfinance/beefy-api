@@ -11,7 +11,7 @@ import { getMerklOpportunitiesForChain } from './proxyClient.ts';
 import type { MerklProxyCampaign, MerklProxyOpportunity } from './proxyTypes.ts';
 import type { CampaignTypeSetting, MerklApiCampaignType } from './types.ts';
 
-const logger = getLoggerFor({ module: 'rewards', platform: 'merkl' });
+const logger = getLoggerFor({ module: 'rewards', component: 'merkl' });
 
 const providerId = 'merkl' as const;
 const supportedChains = new Set<AppChain>([

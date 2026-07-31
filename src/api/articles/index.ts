@@ -1,7 +1,7 @@
 import { getLoggerFor } from '../../utils/logger/index.ts';
 import { getAllArticles, getLastArticle } from './fetchArticlesData.ts';
 
-const logger = getLoggerFor({ module: 'articles' });
+const logger = getLoggerFor({ module: 'articles', component: 'routes' });
 
 export const getArticles = async (ctx: any) => {
   try {

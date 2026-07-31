@@ -2,7 +2,7 @@ import { createClient, type RedisClientType } from 'redis';
 import { getLoggerFor } from '../logger/index.ts';
 import type { ICacheBackend } from './ICacheBackend.ts';
 
-const logger = getLoggerFor({ module: 'cache' });
+const logger = getLoggerFor({ module: 'cache', component: 'redis' });
 
 export class RedisCacheBackend implements ICacheBackend {
   private client: RedisClientType;

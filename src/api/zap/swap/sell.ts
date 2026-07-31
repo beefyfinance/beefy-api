@@ -67,7 +67,7 @@ export async function checkSell(
       };
     });
   } catch (err) {
-    logger.warn({ platform: providerKey, chain: apiChain, err }, 'error while checking sell with swap provider');
+    logger.warn({ component: providerKey, chain: apiChain, err }, 'error while checking sell with swap provider');
     const reason = errorToString(err);
     return tokens.map(tokenWithPrice => ({ supported: false, tokenWithPrice, reason }));
   }

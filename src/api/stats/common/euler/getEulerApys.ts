@@ -6,7 +6,7 @@ import { fetchContract } from '../../../rpc/client.ts';
 import { getApyBreakdown } from '../getApyBreakdownNew.ts';
 import { getMerklApys } from '../getMerklApys.ts';
 
-const logger = getLoggerFor({ module: 'apy', platform: 'euler' });
+const logger = getLoggerFor({ module: 'apy', component: 'euler' });
 
 const SECONDS_PER_YEAR = 31536000;
 
