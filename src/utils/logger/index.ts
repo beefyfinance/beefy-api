@@ -1,11 +1,10 @@
 import { pino } from 'pino';
-import { envBoolean } from '../env.ts';
+import { envBoolean, envEnum } from '../env.ts';
 import { makeErrorSerializer, serializeChain, toChainSlug } from './serializers.ts';
 import type { LogScope, ResolveLogScope } from './types.ts';
 
-const LEVELS = new Set(['fatal', 'error', 'warn', 'info', 'debug', 'trace', 'silent']);
-const requested = process.env.LOG_LEVEL ?? 'info';
-const level = LEVELS.has(requested) ? requested : 'info';
+const LEVELS = ['fatal', 'error', 'warn', 'info', 'debug', 'trace', 'silent'] as const;
+const level = envEnum('LOG_LEVEL', LEVELS, 'info');
 const usePretty = process.env.NODE_ENV !== 'production' && !!process.stdout.isTTY;
 const prettyStream = usePretty ? (await import('./pretty-transport.ts')).default() : undefined;
 const cache = new Map<string, Logger>();

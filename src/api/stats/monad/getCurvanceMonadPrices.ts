@@ -3,6 +3,7 @@ import CurvanceVault from '../../../abis/CurvanceVault.ts';
 import { MONAD_CHAIN_ID } from '../../../constants.ts';
 import type { PricesById, StandardLpBreakdown } from '../../../types/prices.ts';
 import { getLoggerFor } from '../../../utils/logger/index.ts';
+import { withTracing } from '../../../utils/tracing.ts';
 import { fetchContract } from '../../rpc/client.ts';
 import type { CurvancePool } from './getCurvanceApys.ts';
 import curvancePoolsData from '../../../data/monad/curvancePools.json' with { type: 'json' };
@@ -10,39 +11,42 @@ import curvancePoolsData from '../../../data/monad/curvancePools.json' with { ty
 const pools: CurvancePool[] = curvancePoolsData;
 const logger = getLoggerFor({ module: 'prices', component: 'curvance', chain: MONAD_CHAIN_ID });
 
-export const getCurvanceMonadPrices = async (tokenPrices: PricesById) => {
-  const totalAssetsCalls = [];
-  const totalSupplyCalls = [];
+export const getCurvanceMonadPrices = withTracing(
+  async (tokenPrices: PricesById) => {
+    const totalAssetsCalls = [];
+    const totalSupplyCalls = [];
 
-  for (const pool of pools) {
-    const curvanceVaultContract = fetchContract(pool.address, CurvanceVault, MONAD_CHAIN_ID) as any;
-    totalAssetsCalls.push(curvanceVaultContract.read.totalAssets());
-    totalSupplyCalls.push(curvanceVaultContract.read.totalSupply());
-  }
+    for (const pool of pools) {
+      const curvanceVaultContract = fetchContract(pool.address, CurvanceVault, MONAD_CHAIN_ID) as any;
+      totalAssetsCalls.push(curvanceVaultContract.read.totalAssets());
+      totalSupplyCalls.push(curvanceVaultContract.read.totalSupply());
+    }
 
-  const [totalAssetsResults, totalSupplyResults] = await Promise.all([
-    Promise.all(totalAssetsCalls),
-    Promise.all(totalSupplyCalls),
-  ]);
+    const [totalAssetsResults, totalSupplyResults] = await Promise.all([
+      Promise.all(totalAssetsCalls),
+      Promise.all(totalSupplyCalls),
+    ]);
 
-  const prices: Record<string, StandardLpBreakdown> = {};
-  for (const pool of pools) {
-    const token = pool.underlying;
-    const totalAssets = new BigNumber(totalAssetsResults[pools.indexOf(pool)]).div(pool.decimals);
-    const totalSupply = new BigNumber(totalSupplyResults[pools.indexOf(pool)]).div(pool.decimals);
+    const prices: Record<string, StandardLpBreakdown> = {};
+    for (const pool of pools) {
+      const token = pool.underlying;
+      const totalAssets = new BigNumber(totalAssetsResults[pools.indexOf(pool)]).div(pool.decimals);
+      const totalSupply = new BigNumber(totalSupplyResults[pools.indexOf(pool)]).div(pool.decimals);
 
-    const priceUnderlying = getTokenPrice(tokenPrices, pool.oracleId);
-    const price = totalAssets.div(totalSupply).times(priceUnderlying).toNumber();
+      const priceUnderlying = getTokenPrice(tokenPrices, pool.oracleId);
+      const price = totalAssets.div(totalSupply).times(priceUnderlying).toNumber();
 
-    prices[pool.name] = {
-      price,
-      tokens: [token],
-      balances: [totalAssets.toString(10)],
-      totalSupply: totalSupply.toString(10),
-    };
-  }
-  return prices;
-};
+      prices[pool.name] = {
+        price,
+        tokens: [token],
+        balances: [totalAssets.toString(10)],
+        totalSupply: totalSupply.toString(10),
+      };
+    }
+    return prices;
+  },
+  { logger }
+);
 
 const getTokenPrice = (tokenPrices: PricesById, oracleId: string) => {
   const price = tokenPrices[oracleId];

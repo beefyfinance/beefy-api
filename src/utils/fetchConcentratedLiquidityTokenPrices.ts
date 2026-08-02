@@ -11,6 +11,7 @@ import type { PricesById } from '../types/prices.ts';
 import { toChainId } from './chain.ts';
 import { getLoggerFor } from './logger/index.ts';
 import { typedEntries } from './object.ts';
+import { withTracing } from './tracing.ts';
 
 const logger = getLoggerFor({ module: 'prices', component: 'concentrated-liquidity' });
 
@@ -1993,13 +1994,16 @@ async function getConcentratedLiquidityPrices(
   }
 }
 
-export async function fetchConcentratedLiquidityTokenPrices(tokenPrices: PricesById): Promise<Record<string, number>> {
-  const pricesByChain: Record<string, number>[] = await Promise.all(
-    typedEntries(tokens).map(async ([chainId, chainTokens]) => {
-      const prices = await getConcentratedLiquidityPrices(tokenPrices, chainTokens, toChainId(chainId));
-      return Object.fromEntries(chainTokens.map((token, i) => [token.oracleId, prices[i] || 0]));
-    })
-  );
+export const fetchConcentratedLiquidityTokenPrices = withTracing(
+  async (tokenPrices: PricesById): Promise<Record<string, number>> => {
+    const pricesByChain: Record<string, number>[] = await Promise.all(
+      typedEntries(tokens).map(async ([chainId, chainTokens]) => {
+        const prices = await getConcentratedLiquidityPrices(tokenPrices, chainTokens, toChainId(chainId));
+        return Object.fromEntries(chainTokens.map((token, i) => [token.oracleId, prices[i] || 0]));
+      })
+    );
 
-  return Object.assign({}, ...pricesByChain);
-}
+    return Object.assign({}, ...pricesByChain);
+  },
+  { logger }
+);

@@ -21,6 +21,7 @@ import {
 import type { PricesById } from '../types/prices.ts';
 import { getEDecimals } from './getEDecimals.ts';
 import { getLoggerFor } from './logger/index.ts';
+import { withTracing } from './tracing.ts';
 
 const logger = getLoggerFor({ module: 'prices', component: 'aave-wrapped' });
 
@@ -343,17 +344,22 @@ const getWrappedAavePrices = async (tokenPrices: PricesById, tokens: WrappedAave
   return results;
 };
 
-export const fetchWrappedAavePrices = async (tokenPrices: PricesById): Promise<PricesById> =>
-  Promise.all([
-    getWrappedAavePrices(tokenPrices, tokens.ethereum, ETH_CHAIN_ID),
-    getWrappedAavePrices(tokenPrices, tokens.polygon, POLYGON_CHAIN_ID),
-    getWrappedAavePrices(tokenPrices, tokens.optimism, OPTIMISM_CHAIN_ID),
-    getWrappedAavePrices(tokenPrices, tokens.arbitrum, ARBITRUM_CHAIN_ID),
-    getWrappedAavePrices(tokenPrices, tokens.avax, AVAX_CHAIN_ID),
-    getWrappedAavePrices(tokenPrices, tokens.gnosis, GNOSIS_CHAIN_ID),
-    getWrappedAavePrices(tokenPrices, tokens.base, BASE_CHAIN_ID),
-    getWrappedAavePrices(tokenPrices, tokens.monad, MONAD_CHAIN_ID),
-    getWrappedAavePrices(tokenPrices, tokens.sonic, SONIC_CHAIN_ID),
-  ]).then(data =>
-    data.flat().reduce<PricesById>((acc, cur, i) => ((acc[Object.values(tokens).flat()[i][1].oracleId] = cur), acc), {})
-  );
+export const fetchWrappedAavePrices = withTracing(
+  async (tokenPrices: PricesById): Promise<PricesById> =>
+    Promise.all([
+      getWrappedAavePrices(tokenPrices, tokens.ethereum, ETH_CHAIN_ID),
+      getWrappedAavePrices(tokenPrices, tokens.polygon, POLYGON_CHAIN_ID),
+      getWrappedAavePrices(tokenPrices, tokens.optimism, OPTIMISM_CHAIN_ID),
+      getWrappedAavePrices(tokenPrices, tokens.arbitrum, ARBITRUM_CHAIN_ID),
+      getWrappedAavePrices(tokenPrices, tokens.avax, AVAX_CHAIN_ID),
+      getWrappedAavePrices(tokenPrices, tokens.gnosis, GNOSIS_CHAIN_ID),
+      getWrappedAavePrices(tokenPrices, tokens.base, BASE_CHAIN_ID),
+      getWrappedAavePrices(tokenPrices, tokens.monad, MONAD_CHAIN_ID),
+      getWrappedAavePrices(tokenPrices, tokens.sonic, SONIC_CHAIN_ID),
+    ]).then(data =>
+      data
+        .flat()
+        .reduce<PricesById>((acc, cur, i) => ((acc[Object.values(tokens).flat()[i][1].oracleId] = cur), acc), {})
+    ),
+  { logger }
+);

@@ -42,3 +42,7 @@ export function bigintRange(start: bigint, end?: bigint | undefined): bigint[] {
 
   return Array.from({ length: parseInt((end - start).toString(10)) }, (_, i) => start + BigInt(i));
 }
+
+export function isArrayValue<const T>(value: unknown, validValues: T[] | readonly T[]): value is T {
+  return (validValues as unknown[]).includes(value);
+}

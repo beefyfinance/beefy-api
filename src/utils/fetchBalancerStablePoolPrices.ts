@@ -1,18 +1,25 @@
 import type { ChainId } from '@beefyfinance/blockchain-addressbook';
 import getBalancerPrices, { type BalancerPricePool } from '../api/stats/common/balancer/getBalancerPrices.ts';
 import type { PricesById } from '../types/prices.ts';
+import { getLoggerFor } from './logger/index.ts';
+import { withTracing } from './tracing.ts';
 import balancerLinearPools from '../data/ethereum/balancerLinearPools.json' with { type: 'json' };
+
+const logger = getLoggerFor({ module: 'prices', component: 'balancer-linear' });
 
 type MultiChainBalancerPricePool = BalancerPricePool & { chainId: ChainId };
 
 const linearPoolPools = [...balancerLinearPools];
 
-const fetchBalancerLinearPoolPrice = async (tokenPrices: PricesById): Promise<PricesById> => {
-  let prices: PricesById = {};
-  const results = await fetchPoolPrice(tokenPrices, linearPoolPools);
+const fetchBalancerLinearPoolPrice = withTracing(
+  async (tokenPrices: PricesById): Promise<PricesById> => {
+    let prices: PricesById = {};
+    const results = await fetchPoolPrice(tokenPrices, linearPoolPools);
 
-  return { ...prices, ...results };
-};
+    return { ...prices, ...results };
+  },
+  { logger }
+);
 
 const fetchPoolPrice = async (tokenPrices: PricesById, pools: MultiChainBalancerPricePool[]): Promise<PricesById> => {
   const chainIds = pools.map(p => p.chainId);

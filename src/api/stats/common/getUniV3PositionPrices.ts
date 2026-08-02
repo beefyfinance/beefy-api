@@ -3,7 +3,11 @@ import { BigNumber } from 'bignumber.js';
 import type { Address } from 'viem';
 import BeefyUniswapPositionHelperAbi from '../../../abis/BeefyUniswapPositionHelper.ts';
 import type { StandardLpBreakdown } from '../../../types/prices.ts';
+import { getLoggerFor } from '../../../utils/logger/index.ts';
+import { withTracing } from '../../../utils/tracing.ts';
 import { fetchContract } from '../../rpc/client.ts';
+
+const logger = getLoggerFor({ module: 'prices', component: 'uniswap-v3' });
 
 interface LpTokenConfig {
   address: string;
@@ -32,19 +36,20 @@ interface UniV3PositionPricesParams {
 
 type PositionTokens = readonly [bigint, bigint, bigint];
 
-export const getUniV3PositionPrices = async (
-  params: UniV3PositionPricesParams
-): Promise<Record<string, StandardLpBreakdown>> => {
-  const positionTokens = await getPoolData(params);
-  const prices: Record<string, StandardLpBreakdown> = {};
+export const getUniV3PositionPrices = withTracing(
+  async (params: UniV3PositionPricesParams): Promise<Record<string, StandardLpBreakdown>> => {
+    const positionTokens = await getPoolData(params);
+    const prices: Record<string, StandardLpBreakdown> = {};
 
-  for (let i = 0; i < params.pools.length; i++) {
-    const price = getPrice(params.pools[i], positionTokens[i], params.tokenPrices);
-    Object.assign(prices, price);
-  }
+    for (let i = 0; i < params.pools.length; i++) {
+      const price = getPrice(params.pools[i], positionTokens[i], params.tokenPrices);
+      Object.assign(prices, price);
+    }
 
-  return prices;
-};
+    return prices;
+  },
+  { logger, fieldsFn: (params: UniV3PositionPricesParams) => ({ chain: params.chainId }) }
+);
 
 const getPrice = (
   pool: UniV3Pool,

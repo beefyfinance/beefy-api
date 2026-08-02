@@ -9,6 +9,7 @@ import type { PricesById } from '../types/prices.ts';
 import { toChainId } from './chain.ts';
 import { getLoggerFor } from './logger/index.ts';
 import { typedEntries } from './object.ts';
+import { withTracing } from './tracing.ts';
 import arbitrumCurvePools from '../data/arbitrum/curvePools.json' with { type: 'json' };
 import ethereumConvexPools from '../data/ethereum/convexPools.json' with { type: 'json' };
 import ethereumFxPools from '../data/ethereum/fxPools.json' with { type: 'json' };
@@ -201,13 +202,16 @@ async function getCurveTokenPrices(
   }
 }
 
-export async function fetchCurveTokenPrices(tokenPrices: PricesById): Promise<Record<string, number>> {
-  const pricesByChain: Record<string, number>[] = await Promise.all(
-    typedEntries(tokens).map(async ([chainId, chainTokens]) => {
-      const prices = await getCurveTokenPrices(tokenPrices, chainTokens, toChainId(chainId));
-      return Object.fromEntries(chainTokens.map((token, i) => [token.oracleId, prices[i] || 0]));
-    })
-  );
+export const fetchCurveTokenPrices = withTracing(
+  async (tokenPrices: PricesById): Promise<Record<string, number>> => {
+    const pricesByChain: Record<string, number>[] = await Promise.all(
+      typedEntries(tokens).map(async ([chainId, chainTokens]) => {
+        const prices = await getCurveTokenPrices(tokenPrices, chainTokens, toChainId(chainId));
+        return Object.fromEntries(chainTokens.map((token, i) => [token.oracleId, prices[i] || 0]));
+      })
+    );
 
-  return Object.assign({}, ...pricesByChain);
-}
+    return Object.assign({}, ...pricesByChain);
+  },
+  { logger }
+);

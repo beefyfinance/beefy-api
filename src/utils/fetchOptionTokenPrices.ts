@@ -7,6 +7,7 @@ import { fetchContract } from '../api/rpc/client.ts';
 import { LINEA_CHAIN_ID } from '../constants.ts';
 import type { PricesById } from '../types/prices.ts';
 import { getLoggerFor } from './logger/index.ts';
+import { withTracing } from './tracing.ts';
 
 const logger = getLoggerFor({ module: 'prices', component: 'option' });
 
@@ -42,8 +43,13 @@ const getOptionTokenPrices = async (tokenPrices: PricesById, tokens: Token[][], 
   }
 };
 
-export async function fetchOptionTokenPrices(tokenPrices: Record<string, number>): Promise<Record<string, number>> {
-  return Promise.all([getOptionTokenPrices(tokenPrices, tokens.linea, LINEA_CHAIN_ID)]).then(data =>
-    data.flat().reduce<PricesById>((acc, cur, i) => ((acc[Object.values(tokens).flat()[i][1].oracleId] = cur), acc), {})
-  );
-}
+export const fetchOptionTokenPrices = withTracing(
+  async (tokenPrices: Record<string, number>): Promise<Record<string, number>> => {
+    return Promise.all([getOptionTokenPrices(tokenPrices, tokens.linea, LINEA_CHAIN_ID)]).then(data =>
+      data
+        .flat()
+        .reduce<PricesById>((acc, cur, i) => ((acc[Object.values(tokens).flat()[i][1].oracleId] = cur), acc), {})
+    );
+  },
+  { logger }
+);

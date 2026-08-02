@@ -15,7 +15,7 @@ import {
 } from '../../constants.ts';
 import type { BreakdownsById, PricesById } from '../../types/prices.ts';
 import { getLoggerFor } from '../../utils/logger/index.ts';
-import { promiseArrayTiming } from '../../utils/timing.ts';
+import { withTracing } from '../../utils/tracing.ts';
 import getBalancerArbPrices from './arbitrum/getBalancerArbPrices.ts';
 import { getBeefyCowArbPrices } from './arbitrum/getBeefyCowArbPrices.ts';
 import getCurveArbitrumPrices from './arbitrum/getCurvePrices.ts';
@@ -110,115 +110,113 @@ export type NonAmmPrices = {
   breakdown: BreakdownsById;
 };
 
-export async function getNonAmmPrices(
-  tokenPrices: Record<string, number>,
-  ammPrices: Record<string, number>
-): Promise<NonAmmPrices> {
-  const prices: PricesById = {};
-  const breakdown: BreakdownsById = {};
+export const getNonAmmPrices = withTracing(
+  async (tokenPrices: Record<string, number>, ammPrices: Record<string, number>): Promise<NonAmmPrices> => {
+    const prices: PricesById = {};
+    const breakdown: BreakdownsById = {};
 
-  const promises = [
-    getAaveV4Prices(ETH_CHAIN_ID, ethereumAaveV4Pools, tokenPrices),
-    getAaveV3Prices(BASE_CHAIN_ID, baseAaveV3Pools, tokenPrices),
-    getAaveV3Prices(MANTLE_CHAIN_ID, mantleAaveV3Pools, tokenPrices),
-    getAaveV3Prices(MEGAETH_CHAIN_ID, megaethAaveV3Pools, tokenPrices),
-    getAaveV3Prices(MONAD_CHAIN_ID, monadAaveV3Pools, tokenPrices),
-    getGearboxPrices(MONAD_CHAIN_ID, monadGearboxPools, tokenPrices),
-    getNeverlandPrices(tokenPrices),
-    getCurvanceMonadPrices(tokenPrices),
-    getUniswapEthereumPrices(tokenPrices),
-    getMimSwapPrices(tokenPrices),
-    getAuraBalancerPrices(tokenPrices),
-    getGmxAvalanchePrices(tokenPrices),
-    getGmxArbitrumPrices(tokenPrices),
-    getVelodromeStablePrices(tokenPrices),
-    getVelodromeLiskStablePrices(tokenPrices),
-    getAerodromeStablePrices(tokenPrices),
-    getBalancerAvaxPrices(tokenPrices),
-    getBalancerBasePrices(tokenPrices),
-    getBalancerArbPrices(tokenPrices),
-    getBalancerGnosisPrices(tokenPrices),
-    getBalancerMonadPrices(tokenPrices),
-    getBeetsSonicPrices(tokenPrices),
-    getBeetsOPPrices(tokenPrices),
-    getKodiakPrices(tokenPrices),
-    getCurveEthereumPrices(tokenPrices),
-    getCurvePolygonPrices(tokenPrices),
-    getCurveArbitrumPrices(tokenPrices),
-    getCurveLendPricesCommon(FRX_CHAIN_ID, fraxtalCurveLendPools, tokenPrices),
-    getCurveOptimismPrices(tokenPrices),
-    getCurvePricesCommon(FRX_CHAIN_ID, fraxtalCurvePools, tokenPrices),
-    getCurvePricesCommon(PLASMA_CHAIN_ID, plasmaCurvePools, tokenPrices),
-    getCurvePricesCommon(MONAD_CHAIN_ID, monadCurvePools, tokenPrices),
-    getCurveBasePrices(tokenPrices),
-    getYieldBasisPrices(tokenPrices),
-    getGammaLineaPrices(tokenPrices),
-    getBeefyCowArbPrices(tokenPrices),
-    getBeefyCowOPPrices(tokenPrices),
-    getBeefyCowBasePrices(tokenPrices),
-    getBeefyCowLineaPrices(tokenPrices),
-    getBeefyCowPolyPrices(tokenPrices),
-    getBeefyCowZkSyncPrices(tokenPrices),
-    getBeefyCowMantlePrices(tokenPrices),
-    getBeefyCowSeiPrices(tokenPrices),
-    getBeefyCowBscPrices(tokenPrices),
-    getBeefyCowAvaxPrices(tokenPrices),
-    getBeefyCowRootstockPrices(tokenPrices),
-    getBeefyCowScrollPrices(tokenPrices),
-    getBeefyCowLiskPrices(tokenPrices),
-    getBeefyCowSonicPrices(tokenPrices),
-    getBeefyCowBerachainPrices(tokenPrices),
-    getBeefyCowGnosisPrices(tokenPrices),
-    getBeefyCowHyperevmPrices(tokenPrices),
-    getBeefyCowPlasmaPrices(tokenPrices),
-    getBeefyCowMonadPrices(tokenPrices),
-    getBeefyCowMegaethPrices(tokenPrices),
-    getBeefyCowRobinhoodPrices(tokenPrices),
-    getBeefyCowEthereumPrices(tokenPrices),
-    getPendleCommonPrices(ETH_CHAIN_ID, ethereumPendlePools, tokenPrices),
-    getPendleCommonPrices(ETH_CHAIN_ID, ethereumPendleUnboostedPools, tokenPrices),
-    getMellowVeloPrices(BASE_CHAIN_ID, baseMellowAeroPools, tokenPrices),
-    getBunniPrices(BASE_CHAIN_ID, baseAlienBaseBunniPools, tokenPrices),
-    getMorphoPrices(BASE_CHAIN_ID, baseMorphoPools, tokenPrices),
-    getMorphoPrices(ETH_CHAIN_ID, ethereumMorphoPools, tokenPrices),
-    getMorphoPrices(POLYGON_CHAIN_ID, maticMorphoPools, tokenPrices),
-    getMorphoPrices(MONAD_CHAIN_ID, monadMorphoPools, tokenPrices),
-    getMorphoPrices(ARB_CHAIN_ID, arbitrumMorphoPools, tokenPrices),
-    getMorphoPrices(OPTIMISM_CHAIN_ID, optimismMorphoPools, tokenPrices),
-    getIchiPrices(SONIC_CHAIN_ID, sonicSwapxIchiPools, tokenPrices),
-    getEulerPrices(MONAD_CHAIN_ID, monadEulerPools, tokenPrices),
-    getSolidlyStablePrices(AVAX_CHAIN_ID, avaxBlackStableLpPools, tokenPrices),
-    getSolidlyStablePrices(PLASMA_CHAIN_ID, plasmaLithosStablePools, tokenPrices),
-    getSiloPrices(AVAX_CHAIN_ID, avaxSiloPools, tokenPrices),
-    getAerodromePositionPrices(tokenPrices),
-  ];
+    const promises = [
+      getAaveV4Prices(ETH_CHAIN_ID, ethereumAaveV4Pools, tokenPrices),
+      getAaveV3Prices(BASE_CHAIN_ID, baseAaveV3Pools, tokenPrices),
+      getAaveV3Prices(MANTLE_CHAIN_ID, mantleAaveV3Pools, tokenPrices),
+      getAaveV3Prices(MEGAETH_CHAIN_ID, megaethAaveV3Pools, tokenPrices),
+      getAaveV3Prices(MONAD_CHAIN_ID, monadAaveV3Pools, tokenPrices),
+      getGearboxPrices(MONAD_CHAIN_ID, monadGearboxPools, tokenPrices),
+      getNeverlandPrices(tokenPrices),
+      getCurvanceMonadPrices(tokenPrices),
+      getUniswapEthereumPrices(tokenPrices),
+      getMimSwapPrices(tokenPrices),
+      getAuraBalancerPrices(tokenPrices),
+      getGmxAvalanchePrices(tokenPrices),
+      getGmxArbitrumPrices(tokenPrices),
+      getVelodromeStablePrices(tokenPrices),
+      getVelodromeLiskStablePrices(tokenPrices),
+      getAerodromeStablePrices(tokenPrices),
+      getBalancerAvaxPrices(tokenPrices),
+      getBalancerBasePrices(tokenPrices),
+      getBalancerArbPrices(tokenPrices),
+      getBalancerGnosisPrices(tokenPrices),
+      getBalancerMonadPrices(tokenPrices),
+      getBeetsSonicPrices(tokenPrices),
+      getBeetsOPPrices(tokenPrices),
+      getKodiakPrices(tokenPrices),
+      getCurveEthereumPrices(tokenPrices),
+      getCurvePolygonPrices(tokenPrices),
+      getCurveArbitrumPrices(tokenPrices),
+      getCurveLendPricesCommon(FRX_CHAIN_ID, fraxtalCurveLendPools, tokenPrices),
+      getCurveOptimismPrices(tokenPrices),
+      getCurvePricesCommon(FRX_CHAIN_ID, fraxtalCurvePools, tokenPrices),
+      getCurvePricesCommon(PLASMA_CHAIN_ID, plasmaCurvePools, tokenPrices),
+      getCurvePricesCommon(MONAD_CHAIN_ID, monadCurvePools, tokenPrices),
+      getCurveBasePrices(tokenPrices),
+      getYieldBasisPrices(tokenPrices),
+      getGammaLineaPrices(tokenPrices),
+      getBeefyCowArbPrices(tokenPrices),
+      getBeefyCowOPPrices(tokenPrices),
+      getBeefyCowBasePrices(tokenPrices),
+      getBeefyCowLineaPrices(tokenPrices),
+      getBeefyCowPolyPrices(tokenPrices),
+      getBeefyCowZkSyncPrices(tokenPrices),
+      getBeefyCowMantlePrices(tokenPrices),
+      getBeefyCowSeiPrices(tokenPrices),
+      getBeefyCowBscPrices(tokenPrices),
+      getBeefyCowAvaxPrices(tokenPrices),
+      getBeefyCowRootstockPrices(tokenPrices),
+      getBeefyCowScrollPrices(tokenPrices),
+      getBeefyCowLiskPrices(tokenPrices),
+      getBeefyCowSonicPrices(tokenPrices),
+      getBeefyCowBerachainPrices(tokenPrices),
+      getBeefyCowGnosisPrices(tokenPrices),
+      getBeefyCowHyperevmPrices(tokenPrices),
+      getBeefyCowPlasmaPrices(tokenPrices),
+      getBeefyCowMonadPrices(tokenPrices),
+      getBeefyCowMegaethPrices(tokenPrices),
+      getBeefyCowRobinhoodPrices(tokenPrices),
+      getBeefyCowEthereumPrices(tokenPrices),
+      getPendleCommonPrices(ETH_CHAIN_ID, ethereumPendlePools, tokenPrices),
+      getPendleCommonPrices(ETH_CHAIN_ID, ethereumPendleUnboostedPools, tokenPrices),
+      getMellowVeloPrices(BASE_CHAIN_ID, baseMellowAeroPools, tokenPrices),
+      getBunniPrices(BASE_CHAIN_ID, baseAlienBaseBunniPools, tokenPrices),
+      getMorphoPrices(BASE_CHAIN_ID, baseMorphoPools, tokenPrices),
+      getMorphoPrices(ETH_CHAIN_ID, ethereumMorphoPools, tokenPrices),
+      getMorphoPrices(POLYGON_CHAIN_ID, maticMorphoPools, tokenPrices),
+      getMorphoPrices(MONAD_CHAIN_ID, monadMorphoPools, tokenPrices),
+      getMorphoPrices(ARB_CHAIN_ID, arbitrumMorphoPools, tokenPrices),
+      getMorphoPrices(OPTIMISM_CHAIN_ID, optimismMorphoPools, tokenPrices),
+      getIchiPrices(SONIC_CHAIN_ID, sonicSwapxIchiPools, tokenPrices),
+      getEulerPrices(MONAD_CHAIN_ID, monadEulerPools, tokenPrices),
+      getSolidlyStablePrices(AVAX_CHAIN_ID, avaxBlackStableLpPools, tokenPrices),
+      getSolidlyStablePrices(PLASMA_CHAIN_ID, plasmaLithosStablePools, tokenPrices),
+      getSiloPrices(AVAX_CHAIN_ID, avaxSiloPools, tokenPrices),
+      getAerodromePositionPrices(tokenPrices),
+    ];
 
-  // Setup error logs
-  promiseArrayTiming(promises, i => `getNonAmmPrices[${i}]`).forEach(
-    (p, i) => p.catch(e => logger.warn({ index: i, err: e }, 'non-amm price source failed')) //e.shortMessage ?? e.message))
-  );
+    // Setup error logs
+    promises.forEach((p, i) => p.catch(e => logger.warn({ index: i, err: e }, 'non-amm price source failed')));
 
-  const results = await Promise.allSettled(promises);
-  // results.forEach((r: any, i) => console.log(i, Object.keys(r.value)[0]));
+    const results = await Promise.allSettled(promises);
+    // results.forEach((r: any, i) => console.log(i, Object.keys(r.value)[0]));
 
-  results
-    .filter((r): r is PromiseFulfilledResult<any> => r.status === 'fulfilled')
-    .forEach(r => {
-      Object.keys(r.value).forEach(lp => {
-        if (typeof r.value[lp] === 'object') {
-          let lpData = r.value[lp];
-          prices[lp] = lpData.price;
-          breakdown[lp] = lpData;
-        } else {
-          prices[lp] = r.value[lp];
-          breakdown[lp] = {
-            price: r.value[lp],
-          };
-        }
+    results
+      .filter((r): r is PromiseFulfilledResult<any> => r.status === 'fulfilled')
+      .forEach(r => {
+        Object.keys(r.value).forEach(lp => {
+          if (typeof r.value[lp] === 'object') {
+            let lpData = r.value[lp];
+            prices[lp] = lpData.price;
+            breakdown[lp] = lpData;
+          } else {
+            prices[lp] = r.value[lp];
+            breakdown[lp] = {
+              price: r.value[lp],
+            };
+          }
+        });
       });
-    });
 
-  return { prices, breakdown };
-}
+    return { prices, breakdown };
+  },
+  { logger }
+);
 
 export default getNonAmmPrices;

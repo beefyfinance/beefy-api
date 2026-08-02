@@ -5,6 +5,7 @@ import { default as ERC20Abi } from '../../../../abis/ERC20Abi.ts';
 import { default as IBalancerVault } from '../../../../abis/IBalancerVault.ts';
 import type { PricesById, StandardLpBreakdown } from '../../../../types/prices.ts';
 import { getLoggerFor } from '../../../../utils/logger/index.ts';
+import { withTracing } from '../../../../utils/tracing.ts';
 import { fetchContract } from '../../../rpc/client.ts';
 
 const logger = getLoggerFor({ module: 'prices', component: 'balancer-v2' });
@@ -35,16 +36,19 @@ type Composable = {
 
 export type BalancerPricePool = BalancerPricePoolFields & (NotComposable | Composable);
 
-const getBalancerPrices = async (chainId: ChainId, pools: BalancerPricePool[], tokenPrices: PricesById) => {
-  let prices: Record<string, StandardLpBreakdown> = {};
-  const { tokenAddresses, balances, totalSupplys } = await getPoolsData(chainId, pools);
-  for (let i = 0; i < pools.length; i++) {
-    const price = getPoolPrice(pools[i], tokenAddresses[i], balances[i], totalSupplys[i], tokenPrices);
-    prices = { ...prices, ...price };
-  }
+const getBalancerPrices = withTracing(
+  async (chainId: ChainId, pools: BalancerPricePool[], tokenPrices: PricesById) => {
+    let prices: Record<string, StandardLpBreakdown> = {};
+    const { tokenAddresses, balances, totalSupplys } = await getPoolsData(chainId, pools);
+    for (let i = 0; i < pools.length; i++) {
+      const price = getPoolPrice(pools[i], tokenAddresses[i], balances[i], totalSupplys[i], tokenPrices);
+      prices = { ...prices, ...price };
+    }
 
-  return prices;
-};
+    return prices;
+  },
+  { logger, fieldsFn: (chainId: ChainId) => ({ chain: chainId }) }
+);
 
 const getPoolsData = async (chainId: ChainId, pools: BalancerPricePool[]) => {
   const totalSupplyCalls = pools.map(pool => {
