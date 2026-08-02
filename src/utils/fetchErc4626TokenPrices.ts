@@ -3,6 +3,7 @@ import { BigNumber } from 'bignumber.js';
 import { parseAbi } from 'viem';
 import { fetchContract } from '../api/rpc/client.ts';
 import { getLoggerFor } from './logger/index.ts';
+import { withTracing } from './tracing.ts';
 
 const logger = getLoggerFor({ module: 'prices', component: 'erc4626' });
 
@@ -51,18 +52,21 @@ const getErc4626Prices = async (
   });
 };
 
-const fetchErc4626TokenPrices = async (tokenPrices: Record<string, number>): Promise<Record<string, number>> => {
-  // Prices and oracleIds both derive from the same entries so they can't fall out of alignment
-  const entries = Object.entries(tokens) as [keyof typeof ChainId, Erc4626Vault[]][];
-  const results = await Promise.all(
-    entries.map(([chain, vaults]) => getErc4626Prices(tokenPrices, vaults, ChainId[chain]))
-  );
-  const vaults = entries.flatMap(([, chainVaults]) => chainVaults);
-  return results.flat().reduce<Record<string, number>>((acc, price, i) => {
-    // Skip unpriced vaults (NaN) so the oracleId stays absent rather than resolving to a bad value
-    if (Number.isFinite(price)) acc[vaults[i][1].oracleId] = price;
-    return acc;
-  }, {});
-};
+const fetchErc4626TokenPrices = withTracing(
+  async (tokenPrices: Record<string, number>): Promise<Record<string, number>> => {
+    // Prices and oracleIds both derive from the same entries so they can't fall out of alignment
+    const entries = Object.entries(tokens) as [keyof typeof ChainId, Erc4626Vault[]][];
+    const results = await Promise.all(
+      entries.map(([chain, vaults]) => getErc4626Prices(tokenPrices, vaults, ChainId[chain]))
+    );
+    const vaults = entries.flatMap(([, chainVaults]) => chainVaults);
+    return results.flat().reduce<Record<string, number>>((acc, price, i) => {
+      // Skip unpriced vaults (NaN) so the oracleId stays absent rather than resolving to a bad value
+      if (Number.isFinite(price)) acc[vaults[i][1].oracleId] = price;
+      return acc;
+    }, {});
+  },
+  { logger }
+);
 
 export { fetchErc4626TokenPrices };

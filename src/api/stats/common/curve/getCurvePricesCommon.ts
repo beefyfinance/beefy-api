@@ -5,6 +5,7 @@ import { default as ICurvePool } from '../../../../abis/CurvePool.ts';
 import { default as ERC20Abi } from '../../../../abis/ERC20Abi.ts';
 import type { PricesById, StandardLpBreakdown } from '../../../../types/prices.ts';
 import { getLoggerFor } from '../../../../utils/logger/index.ts';
+import { withTracing } from '../../../../utils/tracing.ts';
 import { fetchContract } from '../../../rpc/client.ts';
 
 const logger = getLoggerFor({ module: 'prices', component: 'curve' });
@@ -35,80 +36,86 @@ type CurvePoolSupplyInfo = {
   totalSupply: BigNumber;
 };
 
-const getCurvePricesCommon = async (chainId: ChainId, pools: CurvePricePool[], tokenPrices: PricesById) => {
-  let prices: Record<string, StandardLpBreakdown> = {};
+const getCurvePricesCommon = withTracing(
+  async (chainId: ChainId, pools: CurvePricePool[], tokenPrices: PricesById) => {
+    let prices: Record<string, StandardLpBreakdown> = {};
 
-  //Split needed pool data and calls
-  const poolData = pools.map(pool => pool.pool);
-  const supplyCalls = pools.map(pool => {
-    const contract = fetchContract(pool.token ?? pool.pool, ERC20Abi, chainId);
-    return contract.read.totalSupply();
-  });
-
-  //Split needed token data and calls
-  const tokenData: CurvePriceTokenData[] = [],
-    tokenBalanceCalls: Promise<bigint>[] = [],
-    tokenAddressCalls: Promise<Address>[] = [];
-  pools.forEach(pool => {
-    const contract = fetchContract(pool.pool, ICurvePool, chainId);
-    pool.tokens.forEach((token, index) => {
-      tokenData.push({
-        poolName: pool.name,
-        oracleId: token.oracleId,
-        token,
-      });
-      tokenBalanceCalls.push(contract.read.balances([BigInt(index)]));
-      tokenAddressCalls.push(contract.read.coins([BigInt(index)]));
+    //Split needed pool data and calls
+    const poolData = pools.map(pool => pool.pool);
+    const supplyCalls = pools.map(pool => {
+      const contract = fetchContract(pool.token ?? pool.pool, ERC20Abi, chainId);
+      return contract.read.totalSupply();
     });
-  });
 
-  //Single await for all calls
-  const [balanceResults, addressResults, supplyResults] = await Promise.all([
-    Promise.all(tokenBalanceCalls),
-    Promise.all(tokenAddressCalls),
-    Promise.all(supplyCalls),
-  ]);
+    //Split needed token data and calls
+    const tokenData: CurvePriceTokenData[] = [],
+      tokenBalanceCalls: Promise<bigint>[] = [],
+      tokenAddressCalls: Promise<Address>[] = [];
+    pools.forEach(pool => {
+      const contract = fetchContract(pool.pool, ICurvePool, chainId);
+      pool.tokens.forEach((token, index) => {
+        tokenData.push({
+          poolName: pool.name,
+          oracleId: token.oracleId,
+          token,
+        });
+        tokenBalanceCalls.push(contract.read.balances([BigInt(index)]));
+        tokenAddressCalls.push(contract.read.coins([BigInt(index)]));
+      });
+    });
 
-  //Build token result object
-  const tokensInfo = balanceResults.map((_, index) => {
-    return {
-      ...tokenData[index],
-      balance: new BigNumber(balanceResults[index]),
-      address: addressResults[index],
-    };
-  });
-  //Build supply result object
-  const poolsInfo: CurvePoolSupplyInfo[] = supplyResults.map((totalSupply, index) => {
-    return {
-      pool: poolData[index],
-      totalSupply: new BigNumber(totalSupply),
-    };
-  });
+    //Single await for all calls
+    const [balanceResults, addressResults, supplyResults] = await Promise.all([
+      Promise.all(tokenBalanceCalls),
+      Promise.all(tokenAddressCalls),
+      Promise.all(supplyCalls),
+    ]);
 
-  // reverse to calc base pools (3pool, fraxbp) first and use their prices in metapools
-  for (const pool of pools.slice().reverse()) {
-    // FIXME(unsafe-cast): checked previously; add typeguard
-    const supplyInfo = poolsInfo.find(r => r.pool === pool.pool) as CurvePoolSupplyInfo;
-    const totalSupply = supplyInfo.totalSupply.div(DECIMALS);
-    const tokens = tokensInfo.filter(r => r.poolName === pool.name);
+    //Build token result object
+    const tokensInfo = balanceResults.map((_, index) => {
+      return {
+        ...tokenData[index],
+        balance: new BigNumber(balanceResults[index]),
+        address: addressResults[index],
+      };
+    });
+    //Build supply result object
+    const poolsInfo: CurvePoolSupplyInfo[] = supplyResults.map((totalSupply, index) => {
+      return {
+        pool: poolData[index],
+        totalSupply: new BigNumber(totalSupply),
+      };
+    });
 
-    let totalBalInUsd = new BigNumber(0);
-    for (const t of tokens) {
-      const price = getTokenPrice(prices, tokenPrices, t.token);
-      const usdBalance = t.balance.times(price).div(t.token.decimals);
-      totalBalInUsd = totalBalInUsd.plus(usdBalance);
+    // reverse to calc base pools (3pool, fraxbp) first and use their prices in metapools
+    for (const pool of pools.slice().reverse()) {
+      // FIXME(unsafe-cast): checked previously; add typeguard
+      const supplyInfo = poolsInfo.find(r => r.pool === pool.pool) as CurvePoolSupplyInfo;
+      const totalSupply = supplyInfo.totalSupply.div(DECIMALS);
+      const tokens = tokensInfo.filter(r => r.poolName === pool.name);
+
+      let totalBalInUsd = new BigNumber(0);
+      for (const t of tokens) {
+        const price = getTokenPrice(prices, tokenPrices, t.token);
+        const usdBalance = t.balance.times(price).div(t.token.decimals);
+        totalBalInUsd = totalBalInUsd.plus(usdBalance);
+      }
+      let price = totalBalInUsd.div(totalSupply).toNumber();
+
+      prices[pool.name] = {
+        price,
+        tokens: tokens.map(t => t.address),
+        balances: tokens.map(t => t.balance.div(t.token.decimals).toString(10)),
+        totalSupply: totalSupply.toString(10),
+      };
     }
-    let price = totalBalInUsd.div(totalSupply).toNumber();
-
-    prices[pool.name] = {
-      price,
-      tokens: tokens.map(t => t.address),
-      balances: tokens.map(t => t.balance.div(t.token.decimals).toString(10)),
-      totalSupply: totalSupply.toString(10),
-    };
+    return prices;
+  },
+  {
+    logger,
+    fieldsFn: (chainId: ChainId) => ({ chain: chainId }),
   }
-  return prices;
-};
+);
 
 const getTokenPrice = (
   lpPrices: Record<string, StandardLpBreakdown>,

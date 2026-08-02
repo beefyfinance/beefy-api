@@ -5,21 +5,25 @@ import GlpManagerAbi from '../../../../abis/arbitrum/GlpManager.ts';
 import ERC20Abi from '../../../../abis/ERC20Abi.ts';
 import type { PricesById } from '../../../../types/prices.ts';
 import { getLoggerFor } from '../../../../utils/logger/index.ts';
+import { withTracing } from '../../../../utils/tracing.ts';
 import { fetchContract } from '../../../rpc/client.ts';
 import type { GmxPool } from './types.ts';
 
 const logger = getLoggerFor({ module: 'prices', component: 'gmx' });
 
-export const getGmxPrices = async (chainId: ChainId, pools: GmxPool[], tokenPrices: PricesById) => {
-  let prices = {};
-  const values = await Promise.all(pools.map(pool => getPrice(chainId, pool, tokenPrices)));
+export const getGmxPrices = withTracing(
+  async (chainId: ChainId, pools: GmxPool[], tokenPrices: PricesById) => {
+    let prices = {};
+    const values = await Promise.all(pools.map(pool => getPrice(chainId, pool, tokenPrices)));
 
-  for (const item of values) {
-    prices = { ...prices, ...item };
-  }
+    for (const item of values) {
+      prices = { ...prices, ...item };
+    }
 
-  return prices;
-};
+    return prices;
+  },
+  { logger, fieldsFn: (chainId: ChainId) => ({ chain: chainId }) }
+);
 
 const getPrice = async (chainId: ChainId, pool: GmxPool, tokenPrices: PricesById) => {
   if (pool.oracle == 'lps') {

@@ -12,6 +12,7 @@ import {
 import type { PricesById, StandardLpBreakdown } from '../../../types/prices.ts';
 import { getLoggerFor } from '../../../utils/logger/index.ts';
 import type { OptionalRecord } from '../../../utils/object.ts';
+import { withTracing } from '../../../utils/tracing.ts';
 import { fetchContract } from '../../rpc/client.ts';
 
 const logger = getLoggerFor({ module: 'prices', component: 'pendle' });
@@ -46,61 +47,59 @@ type PendleChainId =
   | typeof SONIC_CHAIN_ID
   | typeof PLASMA_CHAIN_ID;
 
-export const getPendleCommonPrices = async (
-  chainId: PendleChainId,
-  pools: PendlePool[],
-  tokenPrices: PricesById,
-  lpPrices?: PricesById
-) => {
-  let prices: Record<string, StandardLpBreakdown> = {};
+export const getPendleCommonPrices = withTracing(
+  async (chainId: PendleChainId, pools: PendlePool[], tokenPrices: PricesById, lpPrices?: PricesById) => {
+    let prices: Record<string, StandardLpBreakdown> = {};
 
-  const isExpired = pools.map(p => {
-    const old: OptionalRecord<string, string> = {
-      'equilibria-arb-seth': '26dec24',
-      'equilibria-arb-reth': '26jun25',
-    };
-    const date = old[p.name] || p.name.split('-').pop();
-    const timestamp = Date.parse(`${date} UTC`) || 0;
-    if (timestamp === 0) logger.warn({ pool: p.name }, 'no expiry date');
-    return Date.now() > timestamp;
-  });
-  const supplyCalls = pools.map(pool => fetchContract(pool.address, ERC20Abi, chainId).read.totalSupply());
-  const lpRatesCalls = pools.map(async (pool, i) => {
-    const router = routerStatic[chainId];
-    const market = pool.address as Address;
-    if (isExpired[i]) {
-      try {
-        return await fetchContract(router, routerAbi, chainId).read.getLpToAssetRate([market]);
-      } catch (e) {
-        logger.warn({ chain: chainId, pool: pool.name, err: e }, 'lpToAssetRate failed');
-        const [pt, sy, lp] = await fetchContract(market, routerAbi, chainId).read.readState([router as Address]);
-        return new BigNumber(pt).plus(sy).times('1e18').div(lp);
+    const isExpired = pools.map(p => {
+      const old: OptionalRecord<string, string> = {
+        'equilibria-arb-seth': '26dec24',
+        'equilibria-arb-reth': '26jun25',
+      };
+      const date = old[p.name] || p.name.split('-').pop();
+      const timestamp = Date.parse(`${date} UTC`) || 0;
+      if (timestamp === 0) logger.warn({ pool: p.name }, 'no expiry date');
+      return Date.now() > timestamp;
+    });
+    const supplyCalls = pools.map(pool => fetchContract(pool.address, ERC20Abi, chainId).read.totalSupply());
+    const lpRatesCalls = pools.map(async (pool, i) => {
+      const router = routerStatic[chainId];
+      const market = pool.address as Address;
+      if (isExpired[i]) {
+        try {
+          return await fetchContract(router, routerAbi, chainId).read.getLpToAssetRate([market]);
+        } catch (e) {
+          logger.warn({ chain: chainId, pool: pool.name, err: e }, 'lpToAssetRate failed');
+          const [pt, sy, lp] = await fetchContract(market, routerAbi, chainId).read.readState([router as Address]);
+          return new BigNumber(pt).plus(sy).times('1e18').div(lp);
+        }
       }
+      return fetchContract(router, routerAbi, chainId).read.getLpToAssetRate([market]);
+    });
+    const [supplyResults, lpRates] = await Promise.all([Promise.all(supplyCalls), Promise.all(lpRatesCalls)]);
+
+    const poolsData = supplyResults.map((_, i) => {
+      return {
+        lpRate: new BigNumber(lpRates[i]),
+        totalSupply: new BigNumber(supplyResults[i]),
+      };
+    });
+    for (let i = 0; i < pools.length; i++) {
+      const pool = pools[i];
+      const lpRate = poolsData[i].lpRate;
+      // console.log(pool.name, 'lpRate', lpRate.div('1e18').valueOf());
+      // FIXME(unsafe-cast): may be undefined
+      const underlyingPrice = getUnderlyingPrice(pool, tokenPrices, lpPrices as PricesById);
+      const price = lpRate.times(underlyingPrice).div(pool.decimals).toNumber();
+      const totalSupply = poolsData[i].totalSupply.div('1e18').toString(10);
+      prices[pool.name] = { price, totalSupply, tokens: [], balances: [] };
+
+      // console.log(pool.name, 'tvl', poolsData[i].totalSupply.div(pool.decimals).times(price).toNumber());
     }
-    return fetchContract(router, routerAbi, chainId).read.getLpToAssetRate([market]);
-  });
-  const [supplyResults, lpRates] = await Promise.all([Promise.all(supplyCalls), Promise.all(lpRatesCalls)]);
-
-  const poolsData = supplyResults.map((_, i) => {
-    return {
-      lpRate: new BigNumber(lpRates[i]),
-      totalSupply: new BigNumber(supplyResults[i]),
-    };
-  });
-  for (let i = 0; i < pools.length; i++) {
-    const pool = pools[i];
-    const lpRate = poolsData[i].lpRate;
-    // console.log(pool.name, 'lpRate', lpRate.div('1e18').valueOf());
-    // FIXME(unsafe-cast): may be undefined
-    const underlyingPrice = getUnderlyingPrice(pool, tokenPrices, lpPrices as PricesById);
-    const price = lpRate.times(underlyingPrice).div(pool.decimals).toNumber();
-    const totalSupply = poolsData[i].totalSupply.div('1e18').toString(10);
-    prices[pool.name] = { price, totalSupply, tokens: [], balances: [] };
-
-    // console.log(pool.name, 'tvl', poolsData[i].totalSupply.div(pool.decimals).times(price).toNumber());
-  }
-  return prices;
-};
+    return prices;
+  },
+  { logger, fieldsFn: (chainId: PendleChainId) => ({ chain: chainId }) }
+);
 
 const getUnderlyingPrice = (pool: PendlePool, tokenPrices: PricesById, lpPrices: PricesById) => {
   const oracle = pool.oracle;
