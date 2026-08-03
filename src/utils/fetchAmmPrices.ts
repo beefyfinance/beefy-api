@@ -156,18 +156,20 @@ export const fetchAmmPrices = withTracing(
       )
     ).flat();
 
-    const unsolved = poolsWithData.slice();
+    const unpriced = poolsWithData.slice();
     let solving = true;
     while (solving) {
       solving = false;
 
-      for (let i = unsolved.length - 1; i >= 0; i--) {
-        const pool = unsolved[i];
+      for (let i = unpriced.length - 1; i >= 0; i--) {
+        const pool = unpriced[i];
         const trySolve: KnownUnknownPair[] = [];
+        let poolPriced = false;
 
         if (pool.lp0.oracleId in weights && pool.lp1.oracleId in weights) {
           trySolve.push({ knownToken: pool.lp0, unknownToken: pool.lp1 });
           trySolve.push({ knownToken: pool.lp1, unknownToken: pool.lp0 });
+          poolPriced = true;
         } else if (pool.lp0.oracleId in prices) {
           trySolve.push({ knownToken: pool.lp0, unknownToken: pool.lp1 });
         } else if (pool.lp1.oracleId in prices) {
@@ -203,27 +205,35 @@ export const fetchAmmPrices = withTracing(
           if (betterPrice) {
             prices[unknownToken.oracleId] = price;
             weights[unknownToken.oracleId] = weight;
+            poolPriced = true;
           }
         }
 
-        unsolved.splice(i, 1);
-        solving = true;
+        if (poolPriced) {
+          unpriced.splice(i, 1);
+          // keep going only if at least once pool was solved this loop
+          solving = true;
+        }
       }
     }
 
-    if (unsolved.length > 0) {
+    if (unpriced.length > 0) {
       // actually not solved
-      logger.warn({ count: unsolved.length }, 'unsolved pools');
-      unsolved.forEach(pool =>
+      logger.warn({ count: unpriced.length }, 'unsolved pools');
+      for (const pool of unpriced) {
         logger.debug(
           { chain: pool.chainId, pool: pool.name, lp0: pool.lp0.oracleId, lp1: pool.lp1.oracleId },
           'unsolved pool'
-        )
-      );
-      logger.warn('unsolved tokens');
-      unsolved
+        );
+      }
+
+      const unsolvedTokens = unpriced
         .flatMap(pool => [pool.lp0.oracleId, pool.lp1.oracleId])
         .filter(oracleId => typeof prices[oracleId] !== 'number');
+      if (unsolvedTokens.length) {
+        logger.warn({ count: unsolvedTokens.length }, 'unsolved tokens');
+        logger.debug({ tokens: unsolvedTokens }, 'unsolved tokens');
+      }
     }
 
     for (const pool of poolsWithData) {
