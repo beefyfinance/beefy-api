@@ -1,12 +1,14 @@
-import { addressBookByChainId } from '@beefyfinance/blockchain-addressbook';
+import { addressBook } from '@beefyfinance/blockchain-addressbook';
 import { uniq } from 'lodash-es';
+import { SupportedChains } from './chain.ts';
 import { getLoggerFor } from './logger/index.ts';
 
 const logger = getLoggerFor({ module: 'prices' });
 
 /** Set wnative to native, or native to wnative, if one exists and the other doesn't. */
 export function normalizeNativeWrappedPrices(prices: Record<string, number>): Record<string, number> {
-  for (const [chainId, chainBook] of Object.entries(addressBookByChainId)) {
+  for (const chainId of SupportedChains) {
+    const chainBook = addressBook[chainId];
     const nativeOracleId = chainBook.native.oracleId;
     const wrappedOracleId = chainBook.tokens.WNATIVE.oracleId;
 
@@ -40,7 +42,8 @@ export function normalizeNativeWrappedPrices(prices: Record<string, number>): Re
 }
 
 export function debugNativeWrappedPrices(tokenPrices: Record<string, number>, tag: string) {
-  for (const [chainId, chainBook] of Object.entries(addressBookByChainId)) {
+  for (const chainId of SupportedChains) {
+    const chainBook = addressBook[chainId];
     const missingOracle = uniq([chainBook.native.oracleId, chainBook.tokens.WNATIVE.oracleId]).filter(
       oracleId => tokenPrices[oracleId] === undefined
     );
