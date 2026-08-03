@@ -10,13 +10,15 @@ import { fetchContract } from '../api/rpc/client.ts';
 import type { PricesById } from '../types/prices.ts';
 import { toChainId } from './chain.ts';
 import { getLoggerFor } from './logger/index.ts';
+import { isFiniteNumber } from './number.ts';
 import { typedEntries } from './object.ts';
+import { contextAllSettled, isContextResultRejected } from './promise.ts';
 import { withTracing } from './tracing.ts';
 
 const logger = getLoggerFor({ module: 'prices', component: 'concentrated-liquidity' });
 
 type ConcentratedLiquidityToken = {
-  type: string;
+  type: SourceType;
   oracleId: string;
   decimalDelta: number;
   pool: Address;
@@ -1138,7 +1140,7 @@ const tokens = {
       decimalDelta: 1e12,
       pool: '0x592E01EDEb601016a20A3E6cD5bF533eBBadBC8b',
       firstToken: 'USDC',
-      secondToken: 'CHIP',
+      secondToken: 'bCHIP',
     },
     {
       type: 'Slipstream',
@@ -1948,59 +1950,121 @@ const tokens = {
   ],
 } satisfies Partial<Record<keyof typeof ChainId, ConcentratedLiquidityToken[]>>;
 
-async function getConcentratedLiquidityPrices(
-  tokenPrices: Record<string, number>,
-  chainTokens: ConcentratedLiquidityToken[],
-  chainId: ChainId
-): Promise<number[]> {
-  const concentratedLiquidityPriceCalls = chainTokens.map(token => {
-    if (token.type == 'Kyber') {
-      const tokenContract = fetchContract(token.pool, IKyberElasticPoolAbi, chainId);
-      return tokenContract.read.getPoolState();
-    } else if (token.type == 'Algebra') {
-      const tokenContract = fetchContract(token.pool, IAlgebraPool, chainId);
-      return tokenContract.read.globalState();
-    } else if (token.type == 'AlgebraV1') {
-      const tokenContract = fetchContract(token.pool, IAlgebraPoolV1, chainId);
-      return tokenContract.read.globalState();
-    } else if (token.type == 'AlgebraV2') {
-      const tokenContract = fetchContract(token.pool, IAlgebraPoolV2, chainId);
-      return tokenContract.read.globalState();
-    } else if (token.type == 'Slipstream') {
-      const tokenContract = fetchContract(token.pool, ISlipstreamPool, chainId);
-      return tokenContract.read.slot0();
-    } else {
-      const tokenContract = fetchContract(token.pool, IUniV3PoolAbi, chainId);
-      return tokenContract.read.slot0();
-    }
-  });
+type Context = {
+  token: ConcentratedLiquidityToken;
+  chainId: ChainId;
+};
+type ReadTickFn = (ctx: Context) => Promise<number>;
+type SourceTypeFunctions = {
+  readTick: ReadTickFn;
+};
 
-  try {
-    const res = await Promise.all(concentratedLiquidityPriceCalls);
-    const tokenPrice = res.map(v => Number(v[1]));
-    const prices: PricesById = {};
-    tokenPrice.forEach((v, i) => {
-      const first = chainTokens[i].firstToken;
-      const second = chainTokens[i].secondToken;
-      prices[chainTokens[i].oracleId] =
-        first == chainTokens[i].oracleId
-          ? (tokenPrices[second] || prices[second]) / (chainTokens[i].decimalDelta * Math.pow(1.0001, v))
-          : (tokenPrices[first] || prices[first]) * (chainTokens[i].decimalDelta * Math.pow(1.0001, v));
-    });
-    return Object.values(prices);
-  } catch (e) {
-    logger.warn({ err: e, chain: chainId }, 'concentrated liquidity price fetch failed');
-    return chainTokens.map(() => 0);
+const sourceTypes = {
+  UniV3: {
+    async readTick({ token, chainId }: Context) {
+      const [, tick] = await fetchContract(token.pool, IUniV3PoolAbi, chainId).read.slot0();
+      return tick;
+    },
+  },
+  Slipstream: {
+    async readTick({ token, chainId }: Context) {
+      const [, tick] = await fetchContract(token.pool, ISlipstreamPool, chainId).read.slot0();
+      return tick;
+    },
+  },
+  Kyber: {
+    async readTick({ token, chainId }: Context) {
+      const [, tick] = await fetchContract(token.pool, IKyberElasticPoolAbi, chainId).read.getPoolState();
+      return tick;
+    },
+  },
+  Algebra: {
+    async readTick({ token, chainId }: Context) {
+      const [, tick] = await fetchContract(token.pool, IAlgebraPool, chainId).read.globalState();
+      return tick;
+    },
+  },
+  AlgebraV1: {
+    async readTick({ token, chainId }: Context) {
+      const [, tick] = await fetchContract(token.pool, IAlgebraPoolV1, chainId).read.globalState();
+      return tick;
+    },
+  },
+  AlgebraV2: {
+    async readTick({ token, chainId }: Context) {
+      const [, tick] = await fetchContract(token.pool, IAlgebraPoolV2, chainId).read.globalState();
+      return tick;
+    },
+  },
+} as const satisfies Record<string, SourceTypeFunctions>;
+
+type SourceType = keyof typeof sourceTypes;
+
+/** The oracleId must be one side of the pool pair, and is priced against the other */
+function getPairing(token: ConcentratedLiquidityToken): { pairedId: string; divide: boolean } {
+  const { oracleId, firstToken, secondToken, pool } = token;
+  if (firstToken === oracleId) {
+    return { pairedId: secondToken, divide: true };
+  } else if (secondToken === oracleId) {
+    return { pairedId: firstToken, divide: false };
+  } else {
+    throw new Error(`Incorrectly configured concentrated liquidity price, ${oracleId} is not in pool ${pool}`);
   }
 }
 
+async function getConcentratedLiquidityPrices(
+  tokenPrices: PricesById,
+  chainTokens: ConcentratedLiquidityToken[],
+  chainId: ChainId
+): Promise<PricesById> {
+  const contexts = chainTokens.map((token): Context => ({ token, chainId }));
+
+  const tickResults = await contextAllSettled(contexts, async (ctx: Context) => {
+    const source = sourceTypes[ctx.token.type];
+    if (!source) {
+      throw new Error(`Incorrectly configured concentrated liquidity price, unexpected type ${ctx.token.type}`);
+    }
+    return source.readTick(ctx);
+  });
+
+  // sequential, so an entry can use the price of a token listed above it
+  const prices: PricesById = {};
+  for (const result of tickResults) {
+    const { oracleId, decimalDelta, pool } = result.context.token;
+    const fields = { chain: chainId, oracleId, pool };
+
+    if (isContextResultRejected(result)) {
+      logger.warn({ ...fields, err: result.reason }, 'failed to read tick');
+      continue;
+    }
+
+    const { pairedId, divide } = getPairing(result.context.token);
+    const externalPrice = tokenPrices[pairedId];
+    const pairedPrice = isFiniteNumber(externalPrice) && externalPrice > 0 ? externalPrice : prices[pairedId];
+    if (!isFiniteNumber(pairedPrice) || pairedPrice <= 0) {
+      logger.warn({ ...fields, paired: pairedId }, 'missing paired price');
+      continue;
+    }
+
+    const ratio = decimalDelta * Math.pow(1.0001, result.value);
+    const price = divide ? pairedPrice / ratio : pairedPrice * ratio;
+    if (!isFiniteNumber(price) || price <= 0) {
+      logger.warn({ ...fields, price, tick: result.value }, 'invalid price calculated');
+      continue;
+    }
+
+    prices[oracleId] = price;
+  }
+
+  return prices;
+}
+
 export const fetchConcentratedLiquidityTokenPrices = withTracing(
-  async (tokenPrices: PricesById): Promise<Record<string, number>> => {
-    const pricesByChain: Record<string, number>[] = await Promise.all(
-      typedEntries(tokens).map(async ([chainId, chainTokens]) => {
-        const prices = await getConcentratedLiquidityPrices(tokenPrices, chainTokens, toChainId(chainId));
-        return Object.fromEntries(chainTokens.map((token, i) => [token.oracleId, prices[i] || 0]));
-      })
+  async (tokenPrices: PricesById): Promise<PricesById> => {
+    const pricesByChain = await Promise.all(
+      typedEntries(tokens).map(([chainId, chainTokens]) =>
+        getConcentratedLiquidityPrices(tokenPrices, chainTokens, toChainId(chainId))
+      )
     );
 
     return Object.assign({}, ...pricesByChain);
