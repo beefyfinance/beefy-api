@@ -1,12 +1,14 @@
-import type { ChainId } from '@beefyfinance/blockchain-addressbook';
 import { addressBook } from '@beefyfinance/blockchain-addressbook';
+import type { ChainId } from '@beefyfinance/blockchain-addressbook/types/chainid';
 import type { Token } from '@beefyfinance/blockchain-addressbook/types/token';
-import { BigNumber } from 'bignumber.js';
 import OptionsToken from '../abis/OptionsToken.ts';
 import { fetchContract } from '../api/rpc/client.ts';
-import { LINEA_CHAIN_ID } from '../constants.ts';
 import type { PricesById } from '../types/prices.ts';
+import { toChainId } from './chain.ts';
 import { getLoggerFor } from './logger/index.ts';
+import { isFiniteNumber } from './number.ts';
+import { typedEntries } from './object.ts';
+import { contextAllSettled, isContextResultRejected } from './promise.ts';
 import { withTracing } from './tracing.ts';
 
 const logger = getLoggerFor({ module: 'prices', component: 'option' });
@@ -17,39 +19,76 @@ const {
   },
 } = addressBook;
 
+/** An option token is exercisable at a percentage discount to its underlying */
+type OptionTokenGroup = [underlying: Token, option: Token];
+
 const tokens = {
   linea: [[LYNX, oLYNX]],
+} satisfies Partial<Record<keyof typeof ChainId, OptionTokenGroup[]>>;
+
+type Context = {
+  underlying: Token;
+  option: Token;
+  chainId: ChainId;
 };
 
-let hundred = new BigNumber(100);
+async function getOptionTokenPrices(
+  tokenPrices: PricesById,
+  chainTokens: OptionTokenGroup[],
+  chainId: ChainId
+): Promise<PricesById> {
+  const contexts = chainTokens.map(([underlying, option]): Context => ({ underlying, option, chainId }));
 
-const getOptionTokenPrices = async (tokenPrices: PricesById, tokens: Token[][], chainId: ChainId) => {
-  const discountCalls = tokens.map(token => {
-    const contract = fetchContract(token[1].address, OptionsToken, chainId);
+  /** Whole-number percentage off the underlying price */
+  const discountResults = await contextAllSettled(contexts, async ({ option, chainId }: Context) => {
+    const contract = fetchContract(option.address, OptionsToken, chainId);
     return contract.read.discount();
   });
 
-  try {
-    const [discountCallResults] = await Promise.all([Promise.all(discountCalls)]);
+  const prices: PricesById = {};
+  for (const result of discountResults) {
+    const { underlying, option } = result.context;
+    const fields = { chain: chainId, underlying: underlying.oracleId, option: option.oracleId };
 
-    const discount = discountCallResults.map(v => new BigNumber(v.toString()));
+    if (isContextResultRejected(result)) {
+      logger.warn({ ...fields, err: result.reason }, 'failed to read discount');
+      continue;
+    }
 
-    return discount.map((v, i) =>
-      new BigNumber(tokenPrices[tokens[i][0].oracleId]).times(hundred.minus(v)).dividedBy(hundred).toNumber()
-    );
-  } catch (e) {
-    logger.warn({ err: e, chain: chainId }, 'option token price fetch failed');
-    return tokens.map(() => 0);
+    // a full discount would price the option at zero
+    const discount = result.value;
+    if (discount >= 100n) {
+      logger.warn({ ...fields, discount }, 'invalid discount read');
+      continue;
+    }
+
+    const underlyingPrice = tokenPrices[underlying.oracleId];
+    if (!isFiniteNumber(underlyingPrice) || underlyingPrice <= 0) {
+      logger.warn(fields, 'missing underlying price');
+      continue;
+    }
+
+    const price = (underlyingPrice * Number(100n - discount)) / 100;
+    if (!isFiniteNumber(price) || price <= 0) {
+      logger.warn({ ...fields, price }, 'invalid price calculated');
+      continue;
+    }
+
+    prices[option.oracleId] = price;
   }
-};
+
+  return prices;
+}
 
 export const fetchOptionTokenPrices = withTracing(
-  async (tokenPrices: Record<string, number>): Promise<Record<string, number>> => {
-    return Promise.all([getOptionTokenPrices(tokenPrices, tokens.linea, LINEA_CHAIN_ID)]).then(data =>
-      data
-        .flat()
-        .reduce<PricesById>((acc, cur, i) => ((acc[Object.values(tokens).flat()[i][1].oracleId] = cur), acc), {})
+  async (tokenPrices: PricesById): Promise<PricesById> => {
+    const pricesByChain = await Promise.all(
+      typedEntries(tokens).map(([chainId, chainTokens]) =>
+        getOptionTokenPrices(tokenPrices, chainTokens, toChainId(chainId))
+      )
     );
+
+    return Object.assign({}, ...pricesByChain);
   },
   { logger }
 );
