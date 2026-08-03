@@ -11,8 +11,8 @@ import type { PricesById } from '../types/prices.ts';
 import { bigintDecimals } from './big-int.ts';
 import { toChainId } from './chain.ts';
 import { getLoggerFor } from './logger/index.ts';
-import { isFiniteNumber } from './number.ts';
 import { typedEntries } from './object.ts';
+import { isValidPrice } from './prices.ts';
 import { contextAllSettled, isContextResultRejected } from './promise.ts';
 import { withTracing } from './tracing.ts';
 
@@ -351,13 +351,13 @@ const getWrappedAavePrices = async (tokenPrices: PricesById, tokens: WrappedAave
     }
 
     const unwrappedPrice = prices[unwrapped.oracleId] ?? tokenPrices[unwrapped.oracleId];
-    if (!isFiniteNumber(unwrappedPrice) || unwrappedPrice <= 0) {
+    if (!isValidPrice(unwrappedPrice)) {
       logger.warn(fields, 'missing unwrapped price');
       continue;
     }
 
     const price = sourceTypes[type].calculatePrice(rate, unwrappedPrice, result.context);
-    if (!isFiniteNumber(price) || price <= 0) {
+    if (!isValidPrice(price)) {
       logger.warn({ ...fields, price }, 'invalid price calculated');
       continue;
     }

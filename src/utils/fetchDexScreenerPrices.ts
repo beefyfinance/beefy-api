@@ -2,6 +2,7 @@ import { orderBy, uniqBy } from 'lodash-es';
 import type { ApiChain } from './chain.ts';
 import { getLoggerFor } from './logger/index.ts';
 import { isFiniteNumber } from './number.ts';
+import { isValidPrice } from './prices.ts';
 
 const logger = getLoggerFor({ module: 'prices', component: 'dex-screener' });
 
@@ -90,7 +91,7 @@ function enhancePairs(pairs: DexScreenerPair[]): EnhancedPair[] {
         }
 
         const parsedPriceUsd = parseFloat(priceUsd);
-        if (!isFiniteNumber(parsedPriceUsd) || parsedPriceUsd <= 0 || parsedPriceUsd > MAX_VALID_PRICE_USD) {
+        if (!isValidPrice(parsedPriceUsd) || parsedPriceUsd > MAX_VALID_PRICE_USD) {
           return false;
         }
 

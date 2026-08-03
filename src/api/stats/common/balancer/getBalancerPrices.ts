@@ -5,7 +5,7 @@ import { default as ERC20Abi } from '../../../../abis/ERC20Abi.ts';
 import { default as IBalancerVault } from '../../../../abis/IBalancerVault.ts';
 import type { PricesById, StandardLpBreakdown } from '../../../../types/prices.ts';
 import { getLoggerFor } from '../../../../utils/logger/index.ts';
-import { isFiniteNumber } from '../../../../utils/number.ts';
+import { isValidPrice } from '../../../../utils/prices.ts';
 import { contextAllSettled, isContextResultRejected } from '../../../../utils/promise.ts';
 import { withTracing } from '../../../../utils/tracing.ts';
 import { fetchContract } from '../../../rpc/client.ts';
@@ -103,7 +103,7 @@ const getPoolPrice = (
 
     // every token has to be priced
     const tokenPrice = tokenPrices[oracleId];
-    if (!isFiniteNumber(tokenPrice) || tokenPrice <= 0) {
+    if (!isValidPrice(tokenPrice)) {
       logger.warn({ ...fields, oracleId }, 'missing token price');
       return undefined;
     }
@@ -115,7 +115,7 @@ const getPoolPrice = (
 
   const supply = pool.composable ? totalSupply.minus(balance[pool.bptIndex]) : totalSupply;
   const price = totalStakedinUsd.times(pool.decimals).dividedBy(supply).toNumber();
-  if (!isFiniteNumber(price) || price <= 0) {
+  if (!isValidPrice(price)) {
     logger.warn({ ...fields, price, supply: supply.toString(10) }, 'invalid price calculated');
     return undefined;
   }

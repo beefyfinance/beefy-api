@@ -16,6 +16,7 @@ import { fetchWrappedAavePrices } from '../../utils/fetchWrappedAaveTokenPrices.
 import { getLoggerFor } from '../../utils/logger/index.ts';
 import { debugNativeWrappedPrices, normalizeNativeWrappedPrices } from '../../utils/normalizeNativeWrappedPrices.ts';
 import { isFiniteNumber } from '../../utils/number.ts';
+import { isValidPrice } from '../../utils/prices.ts';
 import { serviceEventBus } from '../../utils/ServiceEventBus.ts';
 import { sleep } from '../../utils/time.ts';
 import { getBeTokenPrices } from './getBeTokenPrices.ts';
@@ -45,8 +46,6 @@ const logger = getLoggerFor({ module: 'prices' });
 const INIT_DELAY = 2 * 1000;
 const REFRESH_INTERVAL = 5 * 60 * 1000;
 
-// FIXME: if this list grows too big we might hit the ratelimit on initialization everytime
-// Implement in case of emergency -> https://github.com/beefyfinance/beefy-api/issues/103
 const pools = normalizePoolOracleIds([
   ...up33Pools,
   ...pancakeBscLpPools,
@@ -363,16 +362,16 @@ async function fetchSeedPrices() {
         const cg = coinGeckoPrices[geckoId];
         const dl = defillamaPrices[geckoId];
 
-        if (isFiniteNumber(cg) && cg > 0) {
+        if (isValidPrice(cg)) {
           seedPrices[oracleId] = cg;
 
-          if (isFiniteNumber(dl) && dl > 0) {
+          if (isValidPrice(dl)) {
             const diff = (Math.abs(cg - dl) / cg) * 100;
             if (diff > 10) {
               logger.warn({ token: oracleId, cg, dl }, 'coingecko and defillama price too different, picked coingecko');
             }
           }
-        } else if (isFiniteNumber(dl) && dl > 0) {
+        } else if (isValidPrice(dl)) {
           seedPrices[oracleId] = dl;
         } else {
           logger.warn({ oracleId, geckoId }, 'missing seed price from coingecko and defillama');
@@ -383,7 +382,7 @@ async function fetchSeedPrices() {
     // DexScreener
     for (const { oracleId } of dexscreenerCoins) {
       const price = dexscreenerPrices[oracleId];
-      if (isFiniteNumber(price) && price > 0) {
+      if (isValidPrice(price)) {
         seedPrices[oracleId] = price;
       } else {
         logger.warn({ oracleId }, 'missing seed price from dexscreener');
@@ -393,7 +392,7 @@ async function fetchSeedPrices() {
     // Set pegged prices
     for (const [oracleId, peggedOracleId] of Object.entries(seedPeggedPrices)) {
       const peggedPrice = seedPrices[peggedOracleId];
-      if (isFiniteNumber(peggedPrice) && peggedPrice > 0) {
+      if (isValidPrice(peggedPrice)) {
         seedPrices[oracleId] = peggedPrice;
       } else {
         logger.warn({ oracleId, peggedOracleId }, 'pegged oracle not found');

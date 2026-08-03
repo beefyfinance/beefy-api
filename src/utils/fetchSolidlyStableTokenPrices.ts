@@ -7,8 +7,8 @@ import type { PricesById } from '../types/prices.ts';
 import { bigintDecimals } from './big-int.ts';
 import { toChainId } from './chain.ts';
 import { getLoggerFor } from './logger/index.ts';
-import { isFiniteNumber } from './number.ts';
 import { typedEntries } from './object.ts';
+import { isValidPrice } from './prices.ts';
 import { contextAllSettled, isContextResultRejected } from './promise.ts';
 import { withTracing } from './tracing.ts';
 
@@ -167,13 +167,13 @@ async function getStablePoolPrices(
     }
 
     const secondPrice = tokenPrices[secondToken];
-    if (!isFiniteNumber(secondPrice) || secondPrice <= 0) {
+    if (!isValidPrice(secondPrice)) {
       logger.warn({ ...fields, second: secondToken }, 'missing second token price');
       continue;
     }
 
     const price = secondPrice / new BigNumber(amountOut).shiftedBy(-firstTokenDecimals).toNumber();
-    if (!isFiniteNumber(price) || price <= 0) {
+    if (!isValidPrice(price)) {
       logger.warn({ ...fields, price }, 'invalid price calculated');
       continue;
     }

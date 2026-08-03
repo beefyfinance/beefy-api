@@ -4,7 +4,7 @@ import { getKey, setKey } from '../../utils/cache/index.ts';
 import { envNumber } from '../../utils/env.ts';
 import { fetchPrice } from '../../utils/fetchPrice.ts';
 import { getLoggerFor } from '../../utils/logger/index.ts';
-import { isFiniteNumber } from '../../utils/number.ts';
+import { isValidPrice } from '../../utils/prices.ts';
 import { serviceEventBus } from '../../utils/ServiceEventBus.ts';
 import { getMultichainVaults } from './getMultichainVaults.ts';
 
@@ -44,7 +44,7 @@ const updateMooTokenPrices = async () => {
       );
 
       // Skip vault if price is missing
-      if (!isFiniteNumber(price) || price <= 0) {
+      if (!isValidPrice(price)) {
         ++missing;
         continue;
       }

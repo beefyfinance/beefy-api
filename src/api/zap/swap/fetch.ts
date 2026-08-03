@@ -1,7 +1,7 @@
 import { partition, uniqBy } from 'lodash-es';
 import type { ApiChain } from '../../../utils/chain.ts';
 import { getLoggerFor } from '../../../utils/logger/index.ts';
-import { isFiniteNumber } from '../../../utils/number.ts';
+import { isValidPrice } from '../../../utils/prices.ts';
 import { redactSecrets } from '../../../utils/secrets.ts';
 import { getAmmAllPrices } from '../../stats/getAmmPrices.ts';
 import { getSingleChainCowVaults, getSingleChainVaults } from '../../stats/getMultichainVaults.ts';
@@ -139,7 +139,7 @@ export async function fetchProviderSupportForChainTokens(
   const native = getTokenNative(apiChain);
   const wnative = getTokenWrappedNative(apiChain);
   const wnativePrice = beefyPrices[wnative.oracleId];
-  if (!isFiniteNumber(wnativePrice) || wnativePrice <= 0) {
+  if (!isValidPrice(wnativePrice)) {
     return markTokensUnsupported(
       supportByAddress,
       allTokens,
@@ -153,9 +153,7 @@ export async function fetchProviderSupportForChainTokens(
   // Check tokens have a price
   const wnativeWithPrice = { token: wnative, price: wnativePrice };
   const tokenPrices: (number | undefined)[] = tokensToCheck.map(token =>
-    token.oracleId && isFiniteNumber(beefyPrices[token.oracleId]) && beefyPrices[token.oracleId] > 0
-      ? beefyPrices[token.oracleId]
-      : undefined
+    token.oracleId && isValidPrice(beefyPrices[token.oracleId]) ? beefyPrices[token.oracleId] : undefined
   );
 
   const buyTestTokens: BuyTestToken[] = tokensToCheck.reduce((acc, token, index) => {
