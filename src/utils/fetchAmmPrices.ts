@@ -4,9 +4,11 @@ import { orderBy } from 'lodash-es';
 import type { Address } from 'viem';
 import { default as BeefyPriceMulticall } from '../abis/BeefyPriceMulticall.ts';
 import { fetchContract } from '../api/rpc/client.ts';
+import { isDefined } from './array.ts';
 import { envBoolean, envNumber } from './env.ts';
 import { getLoggerFor } from './logger/index.ts';
 import { normalizeNativeWrappedPrices } from './normalizeNativeWrappedPrices.ts';
+import { isValidPrice } from './prices.ts';
 import { batchMapRetry, isContextResultFulfilled, isContextResultRejected } from './promise.ts';
 import { withTracing } from './tracing.ts';
 
@@ -88,10 +90,28 @@ type LpBreakdown = {
   totalSupply: string;
 };
 
-function calcLpPrice(pool: PoolData, tokenPrices: Record<string, number>): LpBreakdown {
-  const lp0 = pool.lp0.balance.multipliedBy(tokenPrices[pool.lp0.oracleId] ?? 0).dividedBy(pool.lp0.decimals);
-  const lp1 = pool.lp1.balance.multipliedBy(tokenPrices[pool.lp1.oracleId] ?? 0).dividedBy(pool.lp1.decimals);
+function calcLpPrice(pool: PoolData, tokenPrices: Record<string, number>): LpBreakdown | undefined {
+  const fields = { chain: pool.chainId, pool: pool.name };
+
+  const lp0Price = tokenPrices[pool.lp0.oracleId];
+  if (!isValidPrice(lp0Price)) {
+    logger.warn({ ...fields, token: pool.lp0.oracleId, price: lp0Price }, 'missing token 0 price');
+    return undefined;
+  }
+
+  const lp1Price = tokenPrices[pool.lp1.oracleId];
+  if (!isValidPrice(lp1Price)) {
+    logger.warn({ ...fields, token: pool.lp1.oracleId, price: lp1Price }, 'missing token 1 price');
+    return undefined;
+  }
+
+  const lp0 = pool.lp0.balance.multipliedBy(lp0Price).dividedBy(pool.lp0.decimals);
+  const lp1 = pool.lp1.balance.multipliedBy(lp1Price).dividedBy(pool.lp1.decimals);
   const price = lp0.plus(lp1).multipliedBy(pool.decimals).dividedBy(pool.totalSupply).toNumber();
+  if (!isValidPrice(price)) {
+    logger.warn({ ...fields, price, totalSupply: pool.totalSupply.toString(10) }, 'invalid price calculated');
+    return undefined;
+  }
 
   return {
     price,
@@ -166,13 +186,13 @@ export const fetchAmmPrices = withTracing(
         const trySolve: KnownUnknownPair[] = [];
         let poolPriced = false;
 
-        if (pool.lp0.oracleId in weights && pool.lp1.oracleId in weights) {
+        if (isValidPrice(prices[pool.lp0.oracleId]) && isValidPrice(prices[pool.lp1.oracleId])) {
           trySolve.push({ knownToken: pool.lp0, unknownToken: pool.lp1 });
           trySolve.push({ knownToken: pool.lp1, unknownToken: pool.lp0 });
           poolPriced = true;
-        } else if (pool.lp0.oracleId in prices) {
+        } else if (isValidPrice(prices[pool.lp0.oracleId])) {
           trySolve.push({ knownToken: pool.lp0, unknownToken: pool.lp1 });
-        } else if (pool.lp1.oracleId in prices) {
+        } else if (isValidPrice(prices[pool.lp1.oracleId])) {
           trySolve.push({ knownToken: pool.lp1, unknownToken: pool.lp0 });
         } else {
           // both unknown: not solved yet but could be solved later
@@ -181,6 +201,9 @@ export const fetchAmmPrices = withTracing(
 
         for (const { knownToken, unknownToken } of trySolve) {
           const { price, weight } = calcTokenPrice(prices[knownToken.oracleId], knownToken, unknownToken);
+          if (!isValidPrice(price)) {
+            continue;
+          }
 
           const existingWeight = weights[unknownToken.oracleId] || 0;
           const betterPrice = weight > existingWeight;
@@ -217,29 +240,12 @@ export const fetchAmmPrices = withTracing(
       }
     }
 
-    if (unpriced.length > 0) {
-      // actually not solved
-      logger.warn({ count: unpriced.length }, 'unsolved pools');
-      for (const pool of unpriced) {
-        logger.debug(
-          { chain: pool.chainId, pool: pool.name, lp0: pool.lp0.oracleId, lp1: pool.lp1.oracleId },
-          'unsolved pool'
-        );
-      }
-
-      const unsolvedTokens = unpriced
-        .flatMap(pool => [pool.lp0.oracleId, pool.lp1.oracleId])
-        .filter(oracleId => typeof prices[oracleId] !== 'number');
-      if (unsolvedTokens.length) {
-        logger.warn({ count: unsolvedTokens.length }, 'unsolved tokens');
-        logger.debug({ tokens: unsolvedTokens }, 'unsolved tokens');
-      }
-    }
-
     for (const pool of poolsWithData) {
       const lpData = calcLpPrice(pool, prices);
-      lps[pool.name] = lpData.price;
-      breakdown[pool.name] = lpData;
+      if (lpData) {
+        lps[pool.name] = lpData.price;
+        breakdown[pool.name] = lpData;
+      }
     }
 
     if (AMM_PRICES_CHECK_POOLS) {
@@ -256,19 +262,27 @@ export const fetchAmmPrices = withTracing(
 );
 
 function checkPoolsPrices(pools: PoolData[], prices: Record<string, number>) {
-  const results = pools.map(pool => {
-    const lp0Price = prices[pool.lp0.oracleId];
-    const lp1Price = prices[pool.lp1.oracleId];
-    const lp0Value = pool.lp0.balance.multipliedBy(lp0Price).dividedBy(pool.lp0.decimals);
-    const lp1Value = pool.lp1.balance.multipliedBy(lp1Price).dividedBy(pool.lp1.decimals);
-    const percentDiff = lp0Value
-      .minus(lp1Value)
-      .abs()
-      .dividedBy(lp0Value.plus(lp1Value).dividedBy(2))
-      .multipliedBy(100)
-      .toNumber();
-    return { pool, lp0Price, lp1Price, lp0Value, lp1Value, percentDiff };
-  });
+  const results = pools
+    .map(pool => {
+      const lp0Price = prices[pool.lp0.oracleId];
+      const lp1Price = prices[pool.lp1.oracleId];
+      if (!isValidPrice(lp0Price) || !isValidPrice(lp1Price)) {
+        // already logged via calcLpPrice
+        return undefined;
+      }
+
+      const lp0Value = pool.lp0.balance.multipliedBy(lp0Price).dividedBy(pool.lp0.decimals);
+      const lp1Value = pool.lp1.balance.multipliedBy(lp1Price).dividedBy(pool.lp1.decimals);
+      const percentDiff = lp0Value
+        .minus(lp1Value)
+        .abs()
+        .dividedBy(lp0Value.plus(lp1Value).dividedBy(2))
+        .multipliedBy(100)
+        .toNumber();
+      return { pool, lp0Price, lp1Price, lp0Value, lp1Value, percentDiff };
+    })
+    .filter(isDefined);
+
   const likelyHaveError = orderBy(
     results.filter(r => r.percentDiff >= AMM_PRICES_CHECK_POOLS_THRESHOLD),
     r => r.percentDiff,

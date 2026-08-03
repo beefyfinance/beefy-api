@@ -4,7 +4,7 @@ import { default as ISolidlyPair } from '../../../abis/ISolidlyPair.ts';
 import type { LpPool } from '../../../types/LpPool.ts';
 import type { PricesById, StandardLpBreakdown } from '../../../types/prices.ts';
 import { getLoggerFor } from '../../../utils/logger/index.ts';
-import { isFiniteNumber } from '../../../utils/number.ts';
+import { isValidPrice } from '../../../utils/prices.ts';
 import { contextAllSettled, isContextResultRejected } from '../../../utils/promise.ts';
 import { withTracing } from '../../../utils/tracing.ts';
 import { fetchContract } from '../../rpc/client.ts';
@@ -62,13 +62,13 @@ const getPoolPrice = (
   const fields = { chain: chainId, pool: pool.name };
 
   const lp0Price = tokenPrices[pool.lp0.oracleId];
-  if (!isFiniteNumber(lp0Price) || lp0Price <= 0) {
+  if (!isValidPrice(lp0Price)) {
     logger.warn({ ...fields, token: pool.lp0.oracleId }, 'missing token price');
     return undefined;
   }
 
   const lp1Price = tokenPrices[pool.lp1.oracleId];
-  if (!isFiniteNumber(lp1Price) || lp1Price <= 0) {
+  if (!isValidPrice(lp1Price)) {
     logger.warn({ ...fields, token: pool.lp1.oracleId }, 'missing token price');
     return undefined;
   }
@@ -76,7 +76,7 @@ const getPoolPrice = (
   const lp0 = lp0Bal.multipliedBy(lp0Price).dividedBy(pool.lp0.decimals);
   const lp1 = lp1Bal.multipliedBy(lp1Price).dividedBy(pool.lp1.decimals);
   const price = lp0.plus(lp1).multipliedBy(pool.decimals).dividedBy(totalSupply).toNumber();
-  if (!isFiniteNumber(price) || price <= 0) {
+  if (!isValidPrice(price)) {
     logger.warn({ ...fields, price, totalSupply: totalSupply.toString(10) }, 'invalid price calculated');
     return undefined;
   }

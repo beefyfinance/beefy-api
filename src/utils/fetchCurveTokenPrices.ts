@@ -8,8 +8,8 @@ import type { PricesById } from '../types/prices.ts';
 import { bigintDecimals } from './big-int.ts';
 import { toChainId } from './chain.ts';
 import { getLoggerFor } from './logger/index.ts';
-import { isFiniteNumber } from './number.ts';
 import { typedEntries } from './object.ts';
+import { isValidPrice } from './prices.ts';
 import { contextAllSettled, isContextResultRejected } from './promise.ts';
 import { withTracing } from './tracing.ts';
 import arbitrumCurvePools from '../data/arbitrum/curvePools.json' with { type: 'json' };
@@ -257,14 +257,14 @@ async function getCurveTokenPrices(
     }
 
     const externalPrice = tokenPrices[secondToken];
-    const secondPrice = isFiniteNumber(externalPrice) && externalPrice > 0 ? externalPrice : prices[secondToken];
-    if (!isFiniteNumber(secondPrice) || secondPrice <= 0) {
+    const secondPrice = isValidPrice(externalPrice) ? externalPrice : prices[secondToken];
+    if (!isValidPrice(secondPrice)) {
       logger.warn({ ...fields, second: secondToken }, 'missing second token price');
       continue;
     }
 
     const price = new BigNumber(result.value).times(secondPrice).shiftedBy(-secondTokenDecimals).toNumber();
-    if (!isFiniteNumber(price) || price <= 0) {
+    if (!isValidPrice(price)) {
       logger.warn({ ...fields, price }, 'invalid price calculated');
       continue;
     }

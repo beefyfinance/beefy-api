@@ -6,8 +6,8 @@ import { fetchContract } from '../api/rpc/client.ts';
 import type { PricesById } from '../types/prices.ts';
 import { toChainId } from './chain.ts';
 import { getLoggerFor } from './logger/index.ts';
-import { isFiniteNumber } from './number.ts';
 import { typedEntries } from './object.ts';
+import { isValidPrice } from './prices.ts';
 import { contextAllSettled, isContextResultRejected } from './promise.ts';
 import { withTracing } from './tracing.ts';
 
@@ -63,13 +63,13 @@ async function getOptionTokenPrices(
     }
 
     const underlyingPrice = tokenPrices[underlying.oracleId];
-    if (!isFiniteNumber(underlyingPrice) || underlyingPrice <= 0) {
+    if (!isValidPrice(underlyingPrice)) {
       logger.warn(fields, 'missing underlying price');
       continue;
     }
 
     const price = (underlyingPrice * Number(100n - discount)) / 100;
-    if (!isFiniteNumber(price) || price <= 0) {
+    if (!isValidPrice(price)) {
       logger.warn({ ...fields, price }, 'invalid price calculated');
       continue;
     }

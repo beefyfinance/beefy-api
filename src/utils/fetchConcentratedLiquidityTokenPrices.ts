@@ -10,8 +10,8 @@ import { fetchContract } from '../api/rpc/client.ts';
 import type { PricesById } from '../types/prices.ts';
 import { toChainId } from './chain.ts';
 import { getLoggerFor } from './logger/index.ts';
-import { isFiniteNumber } from './number.ts';
 import { typedEntries } from './object.ts';
+import { isValidPrice } from './prices.ts';
 import { contextAllSettled, isContextResultRejected } from './promise.ts';
 import { withTracing } from './tracing.ts';
 
@@ -2040,15 +2040,15 @@ async function getConcentratedLiquidityPrices(
 
     const { pairedId, divide } = getPairing(result.context.token);
     const externalPrice = tokenPrices[pairedId];
-    const pairedPrice = isFiniteNumber(externalPrice) && externalPrice > 0 ? externalPrice : prices[pairedId];
-    if (!isFiniteNumber(pairedPrice) || pairedPrice <= 0) {
+    const pairedPrice = isValidPrice(externalPrice) ? externalPrice : prices[pairedId];
+    if (!isValidPrice(pairedPrice)) {
       logger.warn({ ...fields, paired: pairedId }, 'missing paired price');
       continue;
     }
 
     const ratio = decimalDelta * Math.pow(1.0001, result.value);
     const price = divide ? pairedPrice / ratio : pairedPrice * ratio;
-    if (!isFiniteNumber(price) || price <= 0) {
+    if (!isValidPrice(price)) {
       logger.warn({ ...fields, price, tick: result.value }, 'invalid price calculated');
       continue;
     }
