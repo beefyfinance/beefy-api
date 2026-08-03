@@ -7,27 +7,18 @@ import rswETHAbi from '../abis/rswETH.ts';
 import WrappedAave4626TokenAbi from '../abis/WrappedAave4626Token.ts';
 import WrappedAaveTokenAbi from '../abis/WrappedAaveToken.ts';
 import { fetchContract } from '../api/rpc/client.ts';
-import {
-  ARBITRUM_CHAIN_ID,
-  AVAX_CHAIN_ID,
-  BASE_CHAIN_ID,
-  ETH_CHAIN_ID,
-  GNOSIS_CHAIN_ID,
-  MONAD_CHAIN_ID,
-  OPTIMISM_CHAIN_ID,
-  POLYGON_CHAIN_ID,
-  SONIC_CHAIN_ID,
-} from '../constants.ts';
 import type { PricesById } from '../types/prices.ts';
-import { getEDecimals } from './getEDecimals.ts';
+import { bigintDecimals } from './big-int.ts';
+import { toChainId } from './chain.ts';
 import { getLoggerFor } from './logger/index.ts';
+import { isFiniteNumber } from './number.ts';
+import { typedEntries } from './object.ts';
+import { contextAllSettled, isContextResultRejected } from './promise.ts';
 import { withTracing } from './tracing.ts';
 
 const logger = getLoggerFor({ module: 'prices', component: 'aave-wrapped' });
 
-const RAY_DECIMALS = '1e27';
-
-type WrappedAaveTokenGroup = [unwrapped: Token, wrapped: Token, inverseRate?: boolean, useGetRate?: boolean];
+const RAY_DECIMALS = 27;
 
 const {
   ethereum: {
@@ -131,8 +122,6 @@ const {
       waAvaBTCb,
       waAvaUSDC,
       USDC: avaUSDC,
-      sAVAX,
-      waAvaSAVAX,
     },
   },
   gnosis: {
@@ -181,185 +170,218 @@ const {
   },
 } = addressBook;
 
+type WrappedAaveTokenGroup = [unwrapped: Token, wrapped: Token, sourceType: SourceType];
+
 const tokens = {
   ethereum: [
-    [aUSDT, waUSDT],
-    [aUSDC, waUSDC],
-    [aDAI, waDAI],
-    [aETH, waETH],
-    [DAI, sDAI, true],
-    [rsETH, rswETH, true, true],
-    [DOLA, sDOLA, true],
-    [ethUSDC, csUSDC, true],
-    [USDL, wUSDL, true],
-    [wUSDL, csUSDL, true],
-    [aUSDT, waEthUSDT, true],
-    [ethUSDC, waEthUSDC, true],
-    [ethGHO, waEthLidoGHO, true],
-    [USDe, waEthUSDe, true],
-    [wstETH, waEthLidowstETH, true],
-    [WETH, waEthLidoWETH, true],
-    [WETH, fWETH, true],
-    [wstETH, fwstETH, true],
-    [WETH, waEthWETH, true],
+    [aUSDT, waUSDT, 'standard'],
+    [aUSDC, waUSDC, 'standard'],
+    [aDAI, waDAI, 'standard'],
+    [aETH, waETH, 'standard'],
+    [DAI, sDAI, 'erc4626'],
+    [rsETH, rswETH, 'rswETH'],
+    [DOLA, sDOLA, 'erc4626'],
+    [ethUSDC, csUSDC, 'erc4626'],
+    [USDL, wUSDL, 'erc4626'],
+    [wUSDL, csUSDL, 'erc4626'],
+    [aUSDT, waEthUSDT, 'erc4626'],
+    [ethUSDC, waEthUSDC, 'erc4626'],
+    [ethGHO, waEthLidoGHO, 'erc4626'],
+    [USDe, waEthUSDe, 'erc4626'],
+    [wstETH, waEthLidowstETH, 'erc4626'],
+    [WETH, waEthLidoWETH, 'erc4626'],
+    [WETH, fWETH, 'erc4626'],
+    [wstETH, fwstETH, 'erc4626'],
+    [WETH, waEthWETH, 'erc4626'],
   ],
   polygon: [
-    [amUSDT, wamUSDT],
-    [amUSDC, wamUSDC],
-    [amDAI, wamDAI],
-    [aWMATIC, waWMATIC, true],
-    [aWETH, waWETH, true],
+    [amUSDT, wamUSDT, 'standard'],
+    [amUSDC, wamUSDC, 'standard'],
+    [amDAI, wamDAI, 'standard'],
+    [aWMATIC, waWMATIC, 'erc4626'],
+    [aWETH, waWETH, 'erc4626'],
   ],
   optimism: [
-    [optWETH, waOptWETH, true],
-    [optwstETH, waOptwstETH, true],
-    [optrETH, waOptrETH, true],
-    [optUSDC, waOptUSDCn, true],
+    [optWETH, waOptWETH, 'erc4626'],
+    [optwstETH, waOptwstETH, 'erc4626'],
+    [optrETH, waOptrETH, 'erc4626'],
+    [optUSDC, waOptUSDCn, 'erc4626'],
   ],
   arbitrum: [
-    [aaWETH, waaWETH, true],
-    [aaUSDT, waaUSDT, true],
-    [aaUSDC, waaUSDC, true],
-    [aaDAI, waaDAI, true],
-    [DAI, gDAI, true, false],
-    [aaUSDC, stataArbUSDCn],
-    [aaUSDT, stataArbUSDTn],
-    [USDC, gUSDC, true, false],
-    [FRAX, stataArbFRAXn],
-    [GHO, stataArbGHOn],
-    [GHO, waArbGHO, true],
-    [arbWETH, waArbWETH, true],
-    [USDC, waArbUSDCn, true],
-    [arbUSDT, waArbUSDT, true],
-    [arbWBTC, waArbWBTC, true],
-    [arbwstETH, waArbwstETH, true],
-    [arbezETH, waArbezETH, true],
-    [arbWETH, orbETH, true],
+    [aaWETH, waaWETH, 'erc4626'],
+    [aaUSDT, waaUSDT, 'erc4626'],
+    [aaUSDC, waaUSDC, 'erc4626'],
+    [aaDAI, waaDAI, 'erc4626'],
+    [DAI, gDAI, 'erc4626'],
+    [aaUSDC, stataArbUSDCn, 'standard'],
+    [aaUSDT, stataArbUSDTn, 'standard'],
+    [USDC, gUSDC, 'erc4626'],
+    [FRAX, stataArbFRAXn, 'standard'],
+    [GHO, stataArbGHOn, 'standard'],
+    [GHO, waArbGHO, 'erc4626'],
+    [arbWETH, waArbWETH, 'erc4626'],
+    [USDC, waArbUSDCn, 'erc4626'],
+    [arbUSDT, waArbUSDT, 'erc4626'],
+    [arbWBTC, waArbWBTC, 'erc4626'],
+    [arbwstETH, waArbwstETH, 'erc4626'],
+    [arbezETH, waArbezETH, 'erc4626'],
+    [arbWETH, orbETH, 'orbETH'],
   ],
   avax: [
-    [aavAVAX, waavAVAX],
-    [aavUSDC, waavUSDC],
-    [aavUSDT, waavUSDT],
-    [WAVAX, waAvaWAVAX, true],
-    [avaWETH, waAvaWETH, true],
-    [BTCb, waAvaBTCb, true],
-    [avaUSDC, waAvaUSDC, true],
+    [aavAVAX, waavAVAX, 'standard'],
+    [aavUSDC, waavUSDC, 'standard'],
+    [aavUSDT, waavUSDT, 'standard'],
+    [WAVAX, waAvaWAVAX, 'erc4626'],
+    [avaWETH, waAvaWETH, 'erc4626'],
+    [BTCb, waAvaBTCb, 'erc4626'],
+    [avaUSDC, waAvaUSDC, 'erc4626'],
   ],
   gnosis: [
-    [EURA, stEUR, true],
-    [agETH, wagETH, true],
-    [agwstETH, wagwstETH, true],
-    [agGNO, wagGNO, true],
+    [EURA, stEUR, 'erc4626'],
+    [agETH, wagETH, 'erc4626'],
+    [agwstETH, wagwstETH, 'erc4626'],
+    [agGNO, wagGNO, 'erc4626'],
   ],
   base: [
-    [baseGHO, waBasGHO, true],
-    [baseUSDC, waBasUSDC, true],
-    [basewstETH, waBaswstETH, true],
-    [baseezETH, waBasezETH, true],
-    [baseWETH, waBasWETH, true],
-    [baseUSDC, smUSDC, true],
+    [baseGHO, waBasGHO, 'erc4626'],
+    [baseUSDC, waBasUSDC, 'erc4626'],
+    [basewstETH, waBaswstETH, 'erc4626'],
+    [baseezETH, waBasezETH, 'erc4626'],
+    [baseWETH, waBasWETH, 'erc4626'],
+    [baseUSDC, smUSDC, 'erc4626'],
   ],
   monad: [
-    [WMON, cWMON, true],
-    [AZND, loAZND, true],
-    [USDT0, wnUSDT0, true],
-    [AUSD, wnAUSD, true],
-    [mUSDC, wnUSDC, true],
-    [WMON, wnWMON, true],
-    [gMON, wngMON, true],
-    [shMON, wnshMON, true],
-    [sMON, wnsMON, true],
-    [loAZND, wnloAZND, true],
+    [WMON, cWMON, 'erc4626'],
+    [AZND, loAZND, 'erc4626'],
+    [USDT0, wnUSDT0, 'erc4626'],
+    [AUSD, wnAUSD, 'erc4626'],
+    [mUSDC, wnUSDC, 'erc4626'],
+    [WMON, wnWMON, 'erc4626'],
+    [gMON, wngMON, 'erc4626'],
+    [shMON, wnshMON, 'erc4626'],
+    [sMON, wnsMON, 'erc4626'],
+    [loAZND, wnloAZND, 'erc4626'],
   ],
-  sonic: [[S, wawS, true]],
+  sonic: [[S, wawS, 'erc4626']],
 } satisfies Record<string, WrappedAaveTokenGroup[]>;
 
-const getWrappedAavePrices = async (tokenPrices: PricesById, tokens: WrappedAaveTokenGroup[], chainId: ChainId) => {
-  const rateCalls = tokens.map(token => {
-    if (!token[2]) {
-      const contract = fetchContract(token[1].address, WrappedAaveTokenAbi, chainId);
+type Context = {
+  wrapped: Token;
+  unwrapped: Token;
+  type: SourceType;
+  chainId: ChainId;
+};
+type ReadRateFn = (ctx: Context) => Promise<bigint>;
+type CalculatePriceFn = (rate: bigint, unwrappedPrice: number, ctx: Context) => number;
+type SourceTypeFunctions = {
+  readRate: ReadRateFn;
+  calculatePrice: CalculatePriceFn;
+};
+
+const sourceTypes = {
+  standard: {
+    async readRate({ wrapped, chainId }: Context) {
+      const contract = fetchContract(wrapped.address, WrappedAaveTokenAbi, chainId);
       return contract.read.rate();
-    } else if (token[3]) {
-      const contract = fetchContract(token[1].address, rswETHAbi, chainId);
+    },
+    calculatePrice(rate: bigint, unwrappedPrice: number) {
+      return new BigNumber(rate).times(unwrappedPrice).shiftedBy(-RAY_DECIMALS).toNumber();
+    },
+  },
+  erc4626: {
+    async readRate({ wrapped, unwrapped, chainId }: Context) {
+      const contract = fetchContract(wrapped.address, WrappedAave4626TokenAbi, chainId);
+      return contract.read.convertToShares([bigintDecimals(unwrapped.decimals)]);
+    },
+    calculatePrice(rate: bigint, unwrappedPrice: number, { wrapped }: Context) {
+      return new BigNumber(unwrappedPrice).shiftedBy(wrapped.decimals).dividedBy(rate).toNumber();
+    },
+  },
+  rswETH: {
+    async readRate({ wrapped, chainId }: Context) {
+      const contract = fetchContract(wrapped.address, rswETHAbi, chainId);
       return contract.read.getRate();
-    } else {
-      if (token[1].oracleId === 'orbETH') {
-        const contract = fetchContract(token[1].address, OrbETHAbi, chainId);
-        return contract.read.tokensPerLST();
-      }
-      const contract = fetchContract(token[1].address, WrappedAave4626TokenAbi, chainId);
-      return contract.read.convertToShares([BigInt(Number(getEDecimals(token[0].decimals)))]);
-    }
+    },
+    calculatePrice(rate: bigint, unwrappedPrice: number) {
+      return new BigNumber(rate).times(unwrappedPrice).shiftedBy(-18).toNumber();
+    },
+  },
+  orbETH: {
+    async readRate({ wrapped, chainId }: Context) {
+      const contract = fetchContract(wrapped.address, OrbETHAbi, chainId);
+      return contract.read.tokensPerLST();
+    },
+    calculatePrice(rate: bigint, unwrappedPrice: number, { wrapped }: Context) {
+      return new BigNumber(unwrappedPrice).shiftedBy(wrapped.decimals).dividedBy(rate).toNumber();
+    },
+  },
+} as const satisfies Record<string, SourceTypeFunctions>;
+
+type SourceType = keyof typeof sourceTypes;
+
+const getWrappedAavePrices = async (tokenPrices: PricesById, tokens: WrappedAaveTokenGroup[], chainId: ChainId) => {
+  const contexts = tokens.map((tokenGroup): Context => {
+    const [unwrapped, wrapped, type] = tokenGroup;
+    return { unwrapped, wrapped, type, chainId };
   });
 
-  let res;
-  try {
-    res = await Promise.all(rateCalls);
-  } catch (e) {
-    logger.error({ chain: chainId, err: e }, 'failed to read all rates');
-    return tokens.map(() => 0);
-  }
-  const wrappedRates = res.map(v => new BigNumber(v));
+  const rateResults = await contextAllSettled(contexts, async (ctx: Context) => {
+    const source = sourceTypes[ctx.type];
+    if (!source) {
+      throw new Error(`Incorrectly configured wrapped aave price, unexpected type ${ctx.type}`);
+    }
+    return source.readRate(ctx);
+  });
 
-  const mergedPrices = { ...tokenPrices };
-  const results: number[] = [];
+  // sequential, so an entry can use the price of a wrapped token listed above it
+  const prices: PricesById = {};
+  for (const result of rateResults) {
+    const { unwrapped, wrapped, type } = result.context;
+    const fields = { chain: chainId, unwrapped: unwrapped.oracleId, wrapped: wrapped.oracleId };
 
-  for (let i = 0; i < wrappedRates.length; i++) {
-    const wrappedRate = wrappedRates[i];
-    const tokenGroup = tokens[i];
-
-    if (!tokenGroup) {
-      logger.warn({ chain: chainId, index: i }, 'missing token group');
-      results.push(0);
+    if (isContextResultRejected(result)) {
+      logger.warn({ ...fields, err: result.reason }, 'failed to read rate');
       continue;
     }
 
-    const [unwrapped, wrapped, inverseRate] = tokenGroup;
-    const setPrice = (price: number) => {
-      results.push(price);
-      mergedPrices[wrapped.oracleId] = price;
-    };
-
-    let token0Price = mergedPrices[unwrapped.oracleId];
-    if (!token0Price) {
-      logger.warn(
-        { chain: chainId, unwrapped: unwrapped.oracleId, wrapped: wrapped.oracleId },
-        'missing unwrapped price'
-      );
-      setPrice(0);
+    const rate = result.value;
+    if (rate <= 0n) {
+      logger.warn({ ...fields, rate }, 'invalid rate read');
       continue;
     }
 
-    let price;
-    if (!inverseRate) {
-      price = wrappedRate.times(token0Price).dividedBy(RAY_DECIMALS).toNumber();
-    } else if (unwrapped.oracleId === 'rsETH') {
-      price = wrappedRate.times(token0Price).dividedBy('1e18').toNumber();
-    } else {
-      price = new BigNumber(token0Price).times(getEDecimals(wrapped.decimals)).dividedBy(wrappedRate).toNumber();
+    const unwrappedPrice = prices[unwrapped.oracleId] ?? tokenPrices[unwrapped.oracleId];
+    if (!isFiniteNumber(unwrappedPrice) || unwrappedPrice <= 0) {
+      logger.warn(fields, 'missing unwrapped price');
+      continue;
     }
-    setPrice(price);
+
+    const price = sourceTypes[type].calculatePrice(rate, unwrappedPrice, result.context);
+    if (!isFiniteNumber(price) || price <= 0) {
+      logger.warn({ ...fields, price }, 'invalid price calculated');
+      continue;
+    }
+
+    prices[wrapped.oracleId] = price;
   }
 
-  return results;
+  return {
+    chainId,
+    prices,
+  };
 };
 
 export const fetchWrappedAavePrices = withTracing(
-  async (tokenPrices: PricesById): Promise<PricesById> =>
-    Promise.all([
-      getWrappedAavePrices(tokenPrices, tokens.ethereum, ETH_CHAIN_ID),
-      getWrappedAavePrices(tokenPrices, tokens.polygon, POLYGON_CHAIN_ID),
-      getWrappedAavePrices(tokenPrices, tokens.optimism, OPTIMISM_CHAIN_ID),
-      getWrappedAavePrices(tokenPrices, tokens.arbitrum, ARBITRUM_CHAIN_ID),
-      getWrappedAavePrices(tokenPrices, tokens.avax, AVAX_CHAIN_ID),
-      getWrappedAavePrices(tokenPrices, tokens.gnosis, GNOSIS_CHAIN_ID),
-      getWrappedAavePrices(tokenPrices, tokens.base, BASE_CHAIN_ID),
-      getWrappedAavePrices(tokenPrices, tokens.monad, MONAD_CHAIN_ID),
-      getWrappedAavePrices(tokenPrices, tokens.sonic, SONIC_CHAIN_ID),
-    ]).then(data =>
-      data
-        .flat()
-        .reduce<PricesById>((acc, cur, i) => ((acc[Object.values(tokens).flat()[i][1].oracleId] = cur), acc), {})
-    ),
+  async (tokenPrices: PricesById): Promise<PricesById> => {
+    const results = await Promise.all(
+      typedEntries(tokens).map(([chain, chainTokens]) =>
+        getWrappedAavePrices(tokenPrices, chainTokens, toChainId(chain))
+      )
+    );
+    return results.reduce<PricesById>((acc, { prices }) => {
+      Object.assign(acc, prices);
+      return acc;
+    }, {});
+  },
   { logger }
 );
