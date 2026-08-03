@@ -362,34 +362,43 @@ async function fetchSeedPrices() {
       for (const oracleId of oracleIds) {
         const cg = coinGeckoPrices[geckoId];
         const dl = defillamaPrices[geckoId];
-        if (!cg) seedPrices[oracleId] = dl;
-        else if (!dl) seedPrices[oracleId] = cg;
-        else {
+
+        if (isFiniteNumber(cg) && cg > 0) {
           seedPrices[oracleId] = cg;
-          const diff = (Math.abs(cg - dl) / cg) * 100;
-          if (diff > 10) {
-            logger.warn({ token: oracleId, cg, dl }, 'coingecko and defillama price too different');
+
+          if (isFiniteNumber(dl) && dl > 0) {
+            const diff = (Math.abs(cg - dl) / cg) * 100;
+            if (diff > 10) {
+              logger.warn({ token: oracleId, cg, dl }, 'coingecko and defillama price too different, picked coingecko');
+            }
           }
+        } else if (isFiniteNumber(dl) && dl > 0) {
+          seedPrices[oracleId] = dl;
+        } else {
+          logger.warn({ oracleId, geckoId }, 'missing seed price from coingecko and defillama');
         }
       }
     }
 
     // DexScreener
-    for (const [oracleId, price] of Object.entries(dexscreenerPrices)) {
-      seedPrices[oracleId] = price;
-    }
-
-    // Set pegged prices
-    for (const [oracle, peggedOracle] of Object.entries(seedPeggedPrices)) {
-      if (peggedOracle in seedPrices) {
-        seedPrices[oracle] = seedPrices[peggedOracle];
+    for (const { oracleId } of dexscreenerCoins) {
+      const price = dexscreenerPrices[oracleId];
+      if (isFiniteNumber(price) && price > 0) {
+        seedPrices[oracleId] = price;
       } else {
-        logger.warn({ oracle, peggedOracle }, 'pegged oracle not found');
+        logger.warn({ oracleId }, 'missing seed price from dexscreener');
       }
     }
 
-    // Static
-    seedPrices['GAS'] = 0; // Saga, users don't pay for gas
+    // Set pegged prices
+    for (const [oracleId, peggedOracleId] of Object.entries(seedPeggedPrices)) {
+      const peggedPrice = seedPrices[peggedOracleId];
+      if (isFiniteNumber(peggedPrice) && peggedPrice > 0) {
+        seedPrices[oracleId] = peggedPrice;
+      } else {
+        logger.warn({ oracleId, peggedOracleId }, 'pegged oracle not found');
+      }
+    }
 
     logger.debug({ count: Object.keys(seedPrices).length }, 'total seed prices');
     return normalizeNativeWrappedPrices(seedPrices);
