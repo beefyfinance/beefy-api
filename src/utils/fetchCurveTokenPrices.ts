@@ -3,12 +3,14 @@ import { BigNumber } from 'bignumber.js';
 import type { Address } from 'viem';
 import ICurvePoolAbi from '../abis/CurvePool.ts';
 import ICurvePoolV2Abi from '../abis/CurvePoolV2.ts';
-import type StableSwap from '../abis/StableSwap.ts';
 import { fetchContract } from '../api/rpc/client.ts';
 import type { PricesById } from '../types/prices.ts';
+import { bigintDecimals } from './big-int.ts';
 import { toChainId } from './chain.ts';
 import { getLoggerFor } from './logger/index.ts';
+import { isFiniteNumber } from './number.ts';
 import { typedEntries } from './object.ts';
+import { contextAllSettled, isContextResultRejected } from './promise.ts';
 import { withTracing } from './tracing.ts';
 import arbitrumCurvePools from '../data/arbitrum/curvePools.json' with { type: 'json' };
 import ethereumConvexPools from '../data/ethereum/convexPools.json' with { type: 'json' };
@@ -20,6 +22,57 @@ import optimismCurvePools from '../data/optimism/curvePools.json' with { type: '
 
 const logger = getLoggerFor({ module: 'prices', component: 'curve' });
 
+type Context = {
+  token: CurveToken;
+  chainId: ChainId;
+};
+type ReadAmountOutFn = (ctx: Context) => Promise<bigint>;
+type SourceTypeFunctions = {
+  readAmountOut: ReadAmountOutFn;
+};
+
+/** Amount of secondToken received for one whole unit of oracleId */
+const sourceTypes = {
+  v1: {
+    async readAmountOut({ token, chainId }: Context) {
+      const contract = fetchContract(token.pool, ICurvePoolAbi, chainId);
+      return contract.read.get_dy([BigInt(token.index0), BigInt(token.index1), bigintDecimals(token.decimals)]);
+    },
+  },
+  v2: {
+    async readAmountOut({ token, chainId }: Context) {
+      const contract = fetchContract(token.pool, ICurvePoolV2Abi, chainId);
+      return contract.read.get_dy([BigInt(token.index0), BigInt(token.index1), bigintDecimals(token.decimals)]);
+    },
+  },
+  'v1-underlying': {
+    async readAmountOut({ token, chainId }: Context) {
+      const contract = fetchContract(token.pool, ICurvePoolAbi, chainId);
+      return contract.read.get_dy_underlying([
+        BigInt(token.index0),
+        BigInt(token.index1),
+        bigintDecimals(token.decimals),
+      ]);
+    },
+  },
+} as const satisfies Record<string, SourceTypeFunctions>;
+
+type SourceType = keyof typeof sourceTypes;
+
+function isSourceType(value: string): value is SourceType {
+  return Object.hasOwn(sourceTypes, value);
+}
+
+/** '1e18' -> 18 */
+function toDecimals(value: string): number {
+  const num = /^1e(\d+)$/.exec(value)?.[1];
+  if (num === undefined) {
+    throw new Error(`Invalid decimals ${value}`);
+  }
+
+  return Number(num);
+}
+
 const tokens = {
   optimism: toCurveTokens(ChainId.optimism, optimismCurvePools),
   fraxtal: toCurveTokens(ChainId.fraxtal, fraxtalCurvePools).slice().reverse(),
@@ -28,33 +81,33 @@ const tokens = {
     ...toCurveTokens(ChainId.arbitrum, arbitrumCurvePools),
     {
       oracleId: 'vsdCRV',
-      decimals: '1e18',
+      decimals: 18,
       index0: 1,
       index1: 0,
       pool: '0x5C959D2c1a49B637Fb988c40d663265F8Bf6d289',
       secondToken: 'CRV',
-      secondTokenDecimals: '1e18',
-      abi: ICurvePoolV2Abi,
+      secondTokenDecimals: 18,
+      type: 'v2',
     },
     {
       oracleId: 'fETH',
-      decimals: '1e18',
+      decimals: 18,
       index0: 0,
       index1: 2,
       pool: '0xF7Fed8Ae0c5B78c19Aadd68b700696933B0Cefd9',
       secondToken: 'ETH',
-      secondTokenDecimals: '1e18',
-      abi: ICurvePoolV2Abi,
+      secondTokenDecimals: 18,
+      type: 'v2',
     },
     {
       oracleId: 'xETH',
-      decimals: '1e18',
+      decimals: 18,
       index0: 1,
       index1: 2,
       pool: '0xF7Fed8Ae0c5B78c19Aadd68b700696933B0Cefd9',
       secondToken: 'ETH',
-      secondTokenDecimals: '1e18',
-      abi: ICurvePoolV2Abi,
+      secondTokenDecimals: 18,
+      type: 'v2',
     },
   ],
   polygon: toCurveTokens(ChainId.polygon, [...maticCurvePools]),
@@ -65,49 +118,46 @@ const tokens = {
     ]),
     {
       oracleId: 'msETH',
-      decimals: '1e18',
+      decimals: 18,
       index0: 1,
       index1: 0,
       pool: '0x2d600BbBcC3F1B6Cb9910A70BaB59eC9d5F81B9A',
       secondToken: 'frxETH',
-      secondTokenDecimals: '1e18',
-      abi: ICurvePoolAbi,
+      secondTokenDecimals: 18,
+      type: 'v1',
     },
     {
       oracleId: 'sFRAX',
-      decimals: '1e18',
+      decimals: 18,
       index0: 1,
       index1: 0,
       pool: '0xfEF79304C80A694dFd9e603D624567D470e1a0e7',
       secondToken: 'crvUSD',
-      secondTokenDecimals: '1e18',
-      abi: ICurvePoolAbi,
+      secondTokenDecimals: 18,
+      type: 'v1',
     },
     {
       oracleId: 'MAI',
-      decimals: '1e18',
+      decimals: 18,
       index0: 0,
       index1: 2,
       pool: '0x66E335622ad7a6C9c72c98dbfCCE684996a20Ef9',
-      useUnderlying: true,
       secondToken: 'USDC',
-      secondTokenDecimals: '1e6',
-      abi: ICurvePoolAbi,
+      secondTokenDecimals: 6,
+      type: 'v1-underlying',
     },
   ],
 } satisfies Partial<Record<keyof typeof ChainId, CurveToken[]>>;
 
 type CurveToken = {
   oracleId: string;
-  decimals: string;
+  decimals: number;
   index0: number;
   index1: number;
   pool: Address;
-  useUnderlying?: boolean;
   secondToken: string;
-  secondTokenDecimals: string;
-  abi: typeof ICurvePoolV2Abi | typeof ICurvePoolAbi | typeof StableSwap;
-  stableSwap?: boolean;
+  secondTokenDecimals: number;
+  type: SourceType;
 };
 
 type CurvePoolConfig = {
@@ -118,18 +168,35 @@ type CurvePoolConfig = {
 
 type GetDy = [version: string, index0: number, index1: number, underlyingId?: string];
 
+function isGetDy(value: unknown[] | undefined): value is GetDy {
+  if (value === undefined || (value.length !== 3 && value.length !== 4)) {
+    return false;
+  }
+
+  const [version, index0, index1, underlyingId] = value;
+  return (
+    typeof version === 'string'
+    && typeof index0 === 'number'
+    && typeof index1 === 'number'
+    && (underlyingId === undefined || typeof underlyingId === 'string')
+  );
+}
+
 function toCurveTokens(chainId: ChainId, pools: CurvePoolConfig[]): CurveToken[] {
   return pools
     .filter(p => p.getDy !== undefined)
     .map(p => {
-      const [version, index0, index1, underlyingId] = p.getDy as GetDy;
-      const abi = version === 'v2' ? ICurvePoolV2Abi : ICurvePoolAbi;
+      if (!isGetDy(p.getDy)) {
+        throw new Error(`Curve pool ${p.pool} has invalid getDy ${JSON.stringify(p.getDy)}`);
+      }
+
+      const [version, index0, index1, underlyingId] = p.getDy;
       const oracleId = p.tokens[index0].oracleId;
       if (!oracleId) {
         throw new Error(`Curve pool ${p.pool} token ${index0} has no oracleId`);
       }
 
-      const decimals = p.tokens[index0].decimals;
+      const decimals = toDecimals(p.tokens[index0].decimals);
       const useUnderlying = underlyingId !== undefined;
       const secondToken = useUnderlying ? underlyingId : p.tokens[index1].oracleId;
       if (!secondToken) {
@@ -137,78 +204,83 @@ function toCurveTokens(chainId: ChainId, pools: CurvePoolConfig[]): CurveToken[]
       }
 
       const secondTokenDecimals = useUnderlying
-        ? `1e${addressBookByChainId[chainId].tokens[underlyingId].decimals}`
-        : p.tokens[index1].decimals;
+        ? addressBookByChainId[chainId].tokens[underlyingId].decimals
+        : toDecimals(p.tokens[index1].decimals);
+      const type = useUnderlying ? `${version}-underlying` : version;
+      if (!isSourceType(type)) {
+        throw new Error(`Curve pool ${p.pool} has unsupported getDy type ${type}`);
+      }
+
       return {
         pool: p.pool as Address,
-        abi,
         oracleId,
         decimals,
         index0,
         index1,
-        useUnderlying,
         secondToken,
         secondTokenDecimals,
+        type,
       };
     });
 }
 
 async function getCurveTokenPrices(
-  tokenPrices: Record<string, number>,
+  tokenPrices: PricesById,
   chainTokens: CurveToken[],
   chainId: ChainId
-): Promise<number[]> {
-  const curvePriceCalls = chainTokens.map(token => {
-    const poolContract = fetchContract(token.pool, token.abi, chainId);
-    return token.stableSwap
-      ? poolContract.read.calculateSwap([
-          token.index0,
-          token.index1,
-          BigInt(new BigNumber(token.decimals).toString(10)),
-        ])
-      : token.useUnderlying
-        ? poolContract.read.get_dy_underlying([
-            BigInt(token.index0),
-            BigInt(token.index1),
-            BigInt(new BigNumber(token.decimals).toString(10)),
-          ])
-        : poolContract.read.get_dy([
-            BigInt(token.index0),
-            BigInt(token.index1),
-            BigInt(new BigNumber(token.decimals).toString(10)),
-          ]);
+): Promise<PricesById> {
+  const contexts = chainTokens.map((token): Context => ({ token, chainId }));
+
+  const amountResults = await contextAllSettled(contexts, async (ctx: Context) => {
+    const source = sourceTypes[ctx.token.type];
+    if (!source) {
+      throw new Error(`Incorrectly configured curve price, unexpected type ${ctx.token.type}`);
+    }
+    return source.readAmountOut(ctx);
   });
 
-  try {
-    const res = await Promise.all(curvePriceCalls);
-    const prices: number[] = [];
-    const pricesById: PricesById = {};
-    for (let i = 0; i < res.length; i++) {
-      const t = chainTokens[i];
-      const secondPrice = tokenPrices[t.secondToken] || pricesById[t.secondToken];
-      if (!secondPrice) {
-        logger.warn({ oracleId: t.oracleId, token: t.secondToken, pool: t.pool }, 'missing second token price');
-      }
-      pricesById[t.oracleId] = new BigNumber(res[i].toString())
-        .times(secondPrice ?? 0)
-        .dividedBy(t.secondTokenDecimals)
-        .toNumber();
-      prices.push(pricesById[t.oracleId]);
+  // sequential, so an entry can use the price of a token listed above it
+  const prices: PricesById = {};
+  for (const result of amountResults) {
+    const { oracleId, secondToken, secondTokenDecimals, pool } = result.context.token;
+    const fields = { chain: chainId, oracleId, pool };
+
+    if (isContextResultRejected(result)) {
+      logger.warn({ ...fields, err: result.reason }, 'failed to read amount out');
+      continue;
     }
-    return prices;
-  } catch (e) {
-    logger.warn({ err: e, chain: chainId }, 'curve token price fetch failed');
-    return chainTokens.map(() => 0);
+
+    const amountOut = result.value;
+    if (amountOut <= 0n) {
+      logger.warn({ ...fields, amountOut }, 'invalid amount out read');
+      continue;
+    }
+
+    const externalPrice = tokenPrices[secondToken];
+    const secondPrice = isFiniteNumber(externalPrice) && externalPrice > 0 ? externalPrice : prices[secondToken];
+    if (!isFiniteNumber(secondPrice) || secondPrice <= 0) {
+      logger.warn({ ...fields, second: secondToken }, 'missing second token price');
+      continue;
+    }
+
+    const price = new BigNumber(result.value).times(secondPrice).shiftedBy(-secondTokenDecimals).toNumber();
+    if (!isFiniteNumber(price) || price <= 0) {
+      logger.warn({ ...fields, price }, 'invalid price calculated');
+      continue;
+    }
+
+    prices[oracleId] = price;
   }
+
+  return prices;
 }
 
 export const fetchCurveTokenPrices = withTracing(
-  async (tokenPrices: PricesById): Promise<Record<string, number>> => {
-    const pricesByChain: Record<string, number>[] = await Promise.all(
-      typedEntries(tokens).map(async ([chainId, chainTokens]) => {
-        const prices = await getCurveTokenPrices(tokenPrices, chainTokens, toChainId(chainId));
-        return Object.fromEntries(chainTokens.map((token, i) => [token.oracleId, prices[i] || 0]));
-      })
+  async (tokenPrices: PricesById): Promise<PricesById> => {
+    const pricesByChain = await Promise.all(
+      typedEntries(tokens).map(([chainId, chainTokens]) =>
+        getCurveTokenPrices(tokenPrices, chainTokens, toChainId(chainId))
+      )
     );
 
     return Object.assign({}, ...pricesByChain);
