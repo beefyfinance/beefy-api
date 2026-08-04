@@ -88,6 +88,19 @@ export const tokens = {
     bridge: 'native',
     tags: ['MEMECOIN'],
   },
+  FRONG: {
+    name: 'frong',
+    address: '0x6245e67affA44a23077f0Ea7f981a8DC743a0c47',
+    symbol: 'FRONG',
+    oracleId: 'FRONG',
+    decimals: 18,
+    chainId: 4663,
+    description: "it's frong, baby",
+    documentation:
+      'https://developers.uniswap.org/docs/liquidity/liquidity-launchpad/concepts/token-factory',
+    bridge: 'native',
+    tags: ['MEMECOIN'],
+  },
   UP,
   UP33: UP,
   PONS: {
