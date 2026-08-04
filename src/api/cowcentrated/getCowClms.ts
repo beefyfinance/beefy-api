@@ -1,4 +1,5 @@
 import type { ApiChain } from '../../utils/chain.ts';
+import { typedEntries } from '../../utils/object.ts';
 import { type CowClm, validateCowClms } from './types.ts';
 import arbitrumPools from '../../data/arbitrum/beefyCowVaults.json' with { type: 'json' };
 import avaxPools from '../../data/avax/beefyCowVaults.json' with { type: 'json' };
@@ -48,9 +49,9 @@ const chainToClms: Readonly<Partial<Record<ApiChain, CowClm[]>>> = {
   ethereum: validateCowClms(ethereumPools),
 };
 
-const chainsWithClms = (Object.keys(chainToClms) as ReadonlyArray<ApiChain>).filter(
-  chainId => chainToClms[chainId].length > 0
-);
+const chainsWithClms: ReadonlyArray<ApiChain> = typedEntries(chainToClms)
+  .filter(([, clms]) => clms !== undefined && clms.length > 0)
+  .map(([chainId]) => chainId);
 
 export function getCowClmChains(): ReadonlyArray<ApiChain> {
   return chainsWithClms;

@@ -3,7 +3,7 @@ import { getLoggerFor } from '../../utils/logger/index.ts';
 import { serviceEventBus } from '../../utils/ServiceEventBus.ts';
 import { getAllCowVaultsMeta } from './getCowVaultsMeta.ts';
 
-const logger = getLoggerFor({ module: 'clm' });
+const logger = getLoggerFor({ module: 'clm', component: 'price-ranges' });
 
 type VaultCowData = Record<
   string,

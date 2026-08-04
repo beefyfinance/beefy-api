@@ -1,6 +1,7 @@
+import { moonbeam } from '@beefyfinance/blockchain-addressbook/moonbeam';
+import type { Chain } from '@beefyfinance/blockchain-addressbook/types/chain';
 import { groupBy, mapKeys } from 'lodash-es';
 import { type Address, getAddress } from 'viem';
-import { moonbeam } from '../../../../../packages/address-book/src/address-book/moonbeam/index.ts';
 import { bigintRange, isDefined } from '../../../../utils/array.ts';
 import { type AppChain, toChainId } from '../../../../utils/chain.ts';
 import { getUnixNow, isUnixBetween } from '../../../../utils/date.ts';
@@ -13,7 +14,7 @@ import type { IOffchainRewardProvider, RewardToken, StellaSwapCampaign, Vault } 
 import { rewarderAbi, rewardRegistryAbi } from './abi.ts';
 import type { FarmingAprResponse, FarmingAprResult, RewarderEntry, RewardInfo } from './types.ts';
 
-const logger = getLoggerFor({ module: 'rewards', platform: 'stellaswap' });
+const logger = getLoggerFor({ module: 'rewards', component: 'stellaswap' });
 
 const providerId = 'stellaswap' as const;
 const supportedChains = new Set<AppChain>([]);
@@ -152,7 +153,8 @@ export class StellaSwapProvider implements IOffchainRewardProvider {
       };
     }
 
-    const maybeToken = moonbeam.tokenAddressMap[tokenAddress];
+    const tokenAddressMap: Chain['tokenAddressMap'] = moonbeam.tokenAddressMap;
+    const maybeToken = tokenAddressMap[tokenAddress];
     if (maybeToken) {
       return {
         address: tokenAddress,

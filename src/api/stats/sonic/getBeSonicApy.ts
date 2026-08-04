@@ -1,4 +1,4 @@
-import { sonic } from '../../../../packages/address-book/src/address-book/sonic/index.ts';
+import { sonic } from '@beefyfinance/blockchain-addressbook/sonic';
 import { beSonicAbi } from '../../../abis/sonic/beSonicAbi.ts';
 import { DAILY_HPY, SONIC_CHAIN_ID } from '../../../constants.ts';
 import { fromWeiString } from '../../../utils/big-number.ts';

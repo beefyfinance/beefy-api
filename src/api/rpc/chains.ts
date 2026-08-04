@@ -1,11 +1,10 @@
+import { ChainId } from '@beefyfinance/blockchain-addressbook';
 import type { Chain } from 'viem/chains';
-import { ChainId } from '../../../packages/address-book/src/address-book/index.ts';
 import { getRpcsForChain } from '../../constants.ts';
 
 const avalancheChain = {
   id: 43_114,
   name: 'Avalanche',
-  network: 'avalanche',
   nativeCurrency: {
     decimals: 18,
     name: 'Avalanche',
@@ -21,7 +20,7 @@ const avalancheChain = {
   },
   contracts: {
     multicall3: {
-      address: '0xca11bde05977b3631167028862be2a173976ca11',
+      address: '0xcA11bde05977b3631167028862bE2a173976CA11',
       blockCreated: 11_907_934,
     },
   },
@@ -30,7 +29,6 @@ const avalancheChain = {
 const bscChain = {
   id: 56,
   name: 'BNBChain',
-  network: 'bsc',
   nativeCurrency: {
     decimals: 18,
     name: 'BNB',
@@ -46,7 +44,7 @@ const bscChain = {
   },
   contracts: {
     multicall3: {
-      address: '0xca11bde05977b3631167028862be2a173976ca11',
+      address: '0xcA11bde05977b3631167028862bE2a173976CA11',
       blockCreated: 15_921_452,
     },
   },
@@ -55,7 +53,6 @@ const bscChain = {
 const polygonChain = {
   id: 137,
   name: 'Polygon',
-  network: 'polygon',
   nativeCurrency: {
     decimals: 18,
     name: 'Pol',
@@ -71,7 +68,7 @@ const polygonChain = {
   },
   contracts: {
     multicall3: {
-      address: '0xca11bde05977b3631167028862be2a173976ca11',
+      address: '0xcA11bde05977b3631167028862bE2a173976CA11',
       blockCreated: 25_770_160,
     },
   },
@@ -80,7 +77,6 @@ const polygonChain = {
 const arbitrumChain = {
   id: 42161,
   name: 'Arbitrum',
-  network: 'arbitrum',
   nativeCurrency: {
     decimals: 18,
     name: 'Arbitrum',
@@ -96,7 +92,7 @@ const arbitrumChain = {
   },
   contracts: {
     multicall3: {
-      address: '0xca11bde05977b3631167028862be2a173976ca11',
+      address: '0xcA11bde05977b3631167028862bE2a173976CA11',
       blockCreated: 24_185_753,
     },
   },
@@ -105,7 +101,6 @@ const arbitrumChain = {
 const celoChain = {
   id: 42220,
   name: 'Celo',
-  network: 'celo',
   nativeCurrency: {
     decimals: 18,
     name: 'Celo',
@@ -120,7 +115,7 @@ const celoChain = {
   },
   contracts: {
     multicall3: {
-      address: '0xca11bde05977b3631167028862be2a173976ca11',
+      address: '0xcA11bde05977b3631167028862bE2a173976CA11',
       blockCreated: 13_112_599,
     },
   },
@@ -130,7 +125,6 @@ const celoChain = {
 const moonriverChain = {
   id: 1285,
   name: 'Moonriver',
-  network: 'moonriver',
   nativeCurrency: {
     decimals: 18,
     name: 'Moonriver',
@@ -146,7 +140,7 @@ const moonriverChain = {
   },
   contracts: {
     multicall3: {
-      address: '0xca11bde05977b3631167028862be2a173976ca11',
+      address: '0xcA11bde05977b3631167028862bE2a173976CA11',
       blockCreated: 1_597_904,
     },
   },
@@ -155,7 +149,6 @@ const moonriverChain = {
 const auroraChain = {
   id: 1313161554,
   name: 'Aurora',
-  network: 'aurora',
   nativeCurrency: {
     decimals: 18,
     name: 'Ether',
@@ -181,7 +174,7 @@ const auroraChain = {
   },
   contracts: {
     multicall3: {
-      address: '0xca11bde05977b3631167028862be2a173976ca11',
+      address: '0xcA11bde05977b3631167028862bE2a173976CA11',
       blockCreated: 62_907_816,
     },
   },
@@ -190,7 +183,6 @@ const auroraChain = {
 const fuseChain = {
   id: 122,
   name: 'Fuse',
-  network: 'fuse',
   nativeCurrency: {
     decimals: 18,
     name: 'Fuse',
@@ -205,7 +197,7 @@ const fuseChain = {
   },
   contracts: {
     multicall3: {
-      address: '0xca11bde05977b3631167028862be2a173976ca11',
+      address: '0xcA11bde05977b3631167028862bE2a173976CA11',
       blockCreated: 16_146_628,
     },
   },
@@ -214,7 +206,6 @@ const fuseChain = {
 const metisChain = {
   id: 1088,
   name: 'Metis',
-  network: 'metis',
   nativeCurrency: {
     decimals: 18,
     name: 'Metis',
@@ -229,7 +220,7 @@ const metisChain = {
   },
   contracts: {
     multicall3: {
-      address: '0xca11bde05977b3631167028862be2a173976ca11',
+      address: '0xcA11bde05977b3631167028862bE2a173976CA11',
       blockCreated: 2_338_552,
     },
   },
@@ -238,7 +229,6 @@ const metisChain = {
 const emeraldChain = {
   id: 42262,
   name: 'Emerald',
-  network: 'emerald',
   nativeCurrency: {
     decimals: 18,
     name: 'Rose',
@@ -253,7 +243,7 @@ const emeraldChain = {
   },
   contracts: {
     multicall3: {
-      address: '0xca11bde05977b3631167028862be2a173976ca11',
+      address: '0xcA11bde05977b3631167028862bE2a173976CA11',
       blockCreated: 1_481_392,
     },
   },
@@ -262,7 +252,6 @@ const emeraldChain = {
 const optimismChain = {
   id: 10,
   name: 'Optimism',
-  network: 'optimism',
   nativeCurrency: {
     decimals: 18,
     name: 'Ether',
@@ -278,7 +267,7 @@ const optimismChain = {
   },
   contracts: {
     multicall3: {
-      address: '0xca11bde05977b3631167028862be2a173976ca11',
+      address: '0xcA11bde05977b3631167028862bE2a173976CA11',
       blockCreated: 4_286_263,
     },
   },
@@ -287,7 +276,6 @@ const optimismChain = {
 const ethereumChain = {
   id: 1,
   name: 'Ethereum',
-  network: 'ethereum',
   nativeCurrency: {
     decimals: 18,
     name: 'Ether',
@@ -303,7 +291,7 @@ const ethereumChain = {
   },
   contracts: {
     multicall3: {
-      address: '0xca11bde05977b3631167028862be2a173976ca11',
+      address: '0xcA11bde05977b3631167028862bE2a173976CA11',
       blockCreated: 14_353_601,
     },
   },
@@ -312,7 +300,6 @@ const ethereumChain = {
 const zkSyncChain = {
   id: 324,
   name: 'zkSync',
-  network: 'zksync',
   nativeCurrency: {
     decimals: 18,
     name: 'Ether',
@@ -336,7 +323,6 @@ const zkSyncChain = {
 const zkEvmChain = {
   id: 1101,
   name: 'zkEvm',
-  network: 'zkevm',
   nativeCurrency: {
     decimals: 18,
     name: 'ETH',
@@ -351,7 +337,7 @@ const zkEvmChain = {
   },
   contracts: {
     multicall3: {
-      address: '0xca11bde05977b3631167028862be2a173976ca11',
+      address: '0xcA11bde05977b3631167028862bE2a173976CA11',
     },
   },
 } as const satisfies Chain;
@@ -359,7 +345,6 @@ const zkEvmChain = {
 const baseChain = {
   id: 8453,
   name: 'Base',
-  network: 'base',
   nativeCurrency: {
     decimals: 18,
     name: 'ETH',
@@ -374,7 +359,7 @@ const baseChain = {
   },
   contracts: {
     multicall3: {
-      address: '0xca11bde05977b3631167028862be2a173976ca11',
+      address: '0xcA11bde05977b3631167028862bE2a173976CA11',
     },
   },
 } as const satisfies Chain;
@@ -382,7 +367,6 @@ const baseChain = {
 const gnosisChain = {
   id: 100,
   name: 'Gnosis',
-  network: 'gnosis',
   nativeCurrency: {
     decimals: 18,
     name: 'xDAI',
@@ -397,7 +381,7 @@ const gnosisChain = {
   },
   contracts: {
     multicall3: {
-      address: '0xca11bde05977b3631167028862be2a173976ca11',
+      address: '0xcA11bde05977b3631167028862bE2a173976CA11',
     },
   },
 } as const satisfies Chain;
@@ -405,7 +389,6 @@ const gnosisChain = {
 const lineaChain = {
   id: 59144,
   name: 'Linea',
-  network: 'linea',
   nativeCurrency: {
     decimals: 18,
     name: 'ETH',
@@ -420,7 +403,7 @@ const lineaChain = {
   },
   contracts: {
     multicall3: {
-      address: '0xca11bde05977b3631167028862be2a173976ca11',
+      address: '0xcA11bde05977b3631167028862bE2a173976CA11',
     },
   },
 } as const satisfies Chain;
@@ -428,7 +411,6 @@ const lineaChain = {
 const mantleChain = {
   id: 5000,
   name: 'Mantle',
-  network: 'mantle',
   nativeCurrency: {
     decimals: 18,
     name: 'MNT',
@@ -443,7 +425,7 @@ const mantleChain = {
   },
   contracts: {
     multicall3: {
-      address: '0xca11bde05977b3631167028862be2a173976ca11',
+      address: '0xcA11bde05977b3631167028862bE2a173976CA11',
     },
   },
 } as const satisfies Chain;
@@ -451,7 +433,6 @@ const mantleChain = {
 const fraxtalChain = {
   id: 252,
   name: 'Fraxtal',
-  network: 'fraxtal',
   nativeCurrency: {
     decimals: 18,
     name: 'Frax',
@@ -466,7 +447,7 @@ const fraxtalChain = {
   },
   contracts: {
     multicall3: {
-      address: '0xca11bde05977b3631167028862be2a173976ca11',
+      address: '0xcA11bde05977b3631167028862bE2a173976CA11',
     },
   },
 } as const satisfies Chain;
@@ -474,7 +455,6 @@ const fraxtalChain = {
 const seiChain = {
   id: 1329,
   name: 'Sei',
-  network: 'sei',
   nativeCurrency: {
     decimals: 18,
     name: 'WSEI',
@@ -489,7 +469,7 @@ const seiChain = {
   },
   contracts: {
     multicall3: {
-      address: '0xca11bde05977b3631167028862be2a173976ca11',
+      address: '0xcA11bde05977b3631167028862bE2a173976CA11',
     },
   },
 } as const satisfies Chain;
@@ -497,7 +477,6 @@ const seiChain = {
 const rootstockChain = {
   id: 30,
   name: 'Rootstock',
-  network: 'rootstock',
   nativeCurrency: {
     decimals: 18,
     name: 'WRBTC',
@@ -512,7 +491,7 @@ const rootstockChain = {
   },
   contracts: {
     multicall3: {
-      address: '0xca11bde05977b3631167028862be2a173976ca11',
+      address: '0xcA11bde05977b3631167028862bE2a173976CA11',
     },
   },
 } as const satisfies Chain;
@@ -522,7 +501,6 @@ const rootstockChain = {
 const plasmaChain = {
   id: 9745,
   name: 'Plasma',
-  network: 'plasma',
   nativeCurrency: {
     decimals: 18,
     name: 'WXLP',
@@ -537,7 +515,7 @@ const plasmaChain = {
   },
   contracts: {
     multicall3: {
-      address: '0xca11bde05977b3631167028862be2a173976ca11',
+      address: '0xcA11bde05977b3631167028862bE2a173976CA11',
     },
   },
 } as const satisfies Chain;
@@ -545,7 +523,6 @@ const plasmaChain = {
 const monadChain = {
   id: 143,
   name: 'Monad',
-  network: 'monad',
   nativeCurrency: {
     decimals: 18,
     name: 'WMON',
@@ -560,7 +537,7 @@ const monadChain = {
   },
   contracts: {
     multicall3: {
-      address: '0xca11bde05977b3631167028862be2a173976ca11',
+      address: '0xcA11bde05977b3631167028862bE2a173976CA11',
     },
   },
 } as const satisfies Chain;
@@ -568,7 +545,6 @@ const monadChain = {
 const hyperevmChain = {
   id: 999,
   name: 'Hyperevm',
-  network: 'hyperevm',
   nativeCurrency: {
     decimals: 18,
     name: 'WHYPE',
@@ -583,7 +559,7 @@ const hyperevmChain = {
   },
   contracts: {
     multicall3: {
-      address: '0xca11bde05977b3631167028862be2a173976ca11',
+      address: '0xcA11bde05977b3631167028862bE2a173976CA11',
     },
   },
 } as const satisfies Chain;
@@ -591,7 +567,6 @@ const hyperevmChain = {
 const berachainChain = {
   id: 80094,
   name: 'Bera',
-  network: 'berachain',
   nativeCurrency: {
     decimals: 18,
     name: 'WBERACHAIN',
@@ -606,7 +581,7 @@ const berachainChain = {
   },
   contracts: {
     multicall3: {
-      address: '0xca11bde05977b3631167028862be2a173976ca11',
+      address: '0xcA11bde05977b3631167028862bE2a173976CA11',
     },
   },
 } as const satisfies Chain;
@@ -614,7 +589,6 @@ const berachainChain = {
 const sonicChain = {
   id: 146,
   name: 'Sonic',
-  network: 'sonic',
   nativeCurrency: {
     decimals: 18,
     name: 'WS',
@@ -629,7 +603,7 @@ const sonicChain = {
   },
   contracts: {
     multicall3: {
-      address: '0xca11bde05977b3631167028862be2a173976ca11',
+      address: '0xcA11bde05977b3631167028862bE2a173976CA11',
     },
   },
 } as const satisfies Chain;
@@ -637,7 +611,6 @@ const sonicChain = {
 const liskChain = {
   id: 1135,
   name: 'Lisk',
-  network: 'lisk',
   nativeCurrency: {
     decimals: 18,
     name: 'WETH',
@@ -652,7 +625,7 @@ const liskChain = {
   },
   contracts: {
     multicall3: {
-      address: '0xca11bde05977b3631167028862be2a173976ca11',
+      address: '0xcA11bde05977b3631167028862bE2a173976CA11',
     },
   },
 } as const satisfies Chain;
@@ -660,7 +633,6 @@ const liskChain = {
 const scrollChain = {
   id: 534352,
   name: 'Scroll',
-  network: 'scroll',
   nativeCurrency: {
     decimals: 18,
     name: 'WETH',
@@ -675,7 +647,7 @@ const scrollChain = {
   },
   contracts: {
     multicall3: {
-      address: '0xca11bde05977b3631167028862be2a173976ca11',
+      address: '0xcA11bde05977b3631167028862bE2a173976CA11',
     },
   },
 } as const satisfies Chain;
@@ -683,7 +655,6 @@ const scrollChain = {
 const megaethChain = {
   id: 4326,
   name: 'MegaETH',
-  network: 'MegaETH',
   nativeCurrency: {
     decimals: 18,
     name: 'WETH',
@@ -698,7 +669,7 @@ const megaethChain = {
   },
   contracts: {
     multicall3: {
-      address: '0xca11bde05977b3631167028862be2a173976ca11',
+      address: '0xcA11bde05977b3631167028862bE2a173976CA11',
     },
   },
 } as const satisfies Chain;
@@ -706,7 +677,6 @@ const megaethChain = {
 const robinhoodChain = {
   id: 4663,
   name: 'Robinhood',
-  network: 'robinhood',
   nativeCurrency: {
     decimals: 18,
     name: 'Ether',
@@ -721,7 +691,7 @@ const robinhoodChain = {
   },
   contracts: {
     multicall3: {
-      address: '0xca11bde05977b3631167028862be2a173976ca11',
+      address: '0xcA11bde05977b3631167028862bE2a173976CA11',
     },
   },
 } as const satisfies Chain;
@@ -744,7 +714,7 @@ const robinhoodChain = {
 //   },
 //   contracts: {
 //     multicall3: {
-//       address: '0xca11bde05977b3631167028862be2a173976ca11',
+//       address: '0xcA11bde05977b3631167028862bE2a173976CA11',
 //     },
 //   },
 // } as const satisfies Chain;

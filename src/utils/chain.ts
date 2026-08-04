@@ -1,6 +1,6 @@
+import { addressBook, ChainId } from '@beefyfinance/blockchain-addressbook';
+import { chainIdMap } from '@beefyfinance/blockchain-addressbook/util/chainIdMap';
 import { invert } from 'lodash-es';
-import { addressBook, ChainId } from '../../packages/address-book/src/address-book/index.ts';
-import { chainIdMap } from '../../packages/address-book/src/util/chainIdMap.ts';
 
 export type ApiChain = keyof typeof ChainId;
 export type AppChain = Exclude<ApiChain, 'one'> | 'harmony';
@@ -39,8 +39,9 @@ export function toAppChain(chain: AnyChain): AppChain {
     return chain;
   }
 
-  if (apiChainToAppChain[chain]) {
-    return apiChainToAppChain[chain];
+  const appChain = apiChainToAppChain[chain];
+  if (appChain) {
+    return appChain;
   }
 
   throw new Error(`Invalid api chain: ${chain}`);
@@ -51,8 +52,9 @@ export function toApiChain(chain: AnyChain): ApiChain {
     return chain;
   }
 
-  if (appChainToApiChain[chain]) {
-    return appChainToApiChain[chain];
+  const apiChain = appChainToApiChain[chain];
+  if (apiChain) {
+    return apiChain;
   }
 
   throw new Error(`Invalid app chain: ${chain}`);

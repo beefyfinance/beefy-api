@@ -81,7 +81,7 @@
   },
   {
     "name": "lithos-weth-weeth",
-    "address": "0x82862237f37e8495d88287d72a4c0073250487e0",
+    "address": "0x82862237F37e8495D88287d72A4C0073250487E0",
     "gauge": "0x43a58F6f97376cC80a8EC5FeB233A9931a7CE86f",
     "decimals": "1e18",
     "chainId": 9745,

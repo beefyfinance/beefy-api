@@ -66,8 +66,8 @@
   },
   {
     "name": "balancerv3-arbitrum-waarbweth-reth",
-    "address": "0x5418a64e0cdb20548acb394f5d00a089baf02161",
-    "gauge": "0xc7cf9be16cebe2bf737f72eb6595cf4f7cef91ff",
+    "address": "0x5418a64e0cdb20548ACB394f5D00a089BAf02161",
+    "gauge": "0xC7CF9bE16cEBe2bf737f72eb6595cF4f7cEF91ff",
     "decimals": "1e18",
     "rewards": [
       {
@@ -78,12 +78,12 @@
     ],
     "tokens": [
       {
-        "address": "0x4ce13a79f45c1be00bdabd38b764ac28c082704e",
+        "address": "0x4cE13a79f45C1Be00BdABD38B764aC28C082704E",
         "oracleId": "waArbWETH",
         "decimals": "1e18"
       },
       {
-        "address": "0xec70dcb4a1efa46b8f2d97c310c9c4790ba5ffa8",
+        "address": "0xEC70Dcb4A1EFa46b8F2D97C310C9c4790ba5ffA8",
         "oracleId": "rETH",
         "decimals": "1e18"
       }
@@ -91,8 +91,8 @@
   },
   {
     "name": "balancerv3-arbitrum-waarbusdcn-eure",
-    "address": "0xa978cc348a0b5de8bd564a1d8fe437787fd12664",
-    "gauge": "0xe8d5ca86d969510c20d911010c657573cf66e358",
+    "address": "0xa978CC348A0B5dE8Bd564A1D8fe437787FD12664",
+    "gauge": "0xE8d5ca86D969510C20d911010c657573CF66E358",
     "decimals": "1e18",
     "rewards": [
       {
@@ -108,12 +108,12 @@
     ],
     "tokens": [
       {
-        "address": "0x0c06ccf38114ddfc35e07427b9424adcca9f44f8",
+        "address": "0x0c06cCF38114ddfc35e07427B9424adcca9F44F8",
         "oracleId": "EURe",
         "decimals": "1e18"
       },
       {
-        "address": "0x7f6501d3b98ee91f9b9535e4b0ac710fb0f9e0bc",
+        "address": "0x7F6501d3B98eE91f9b9535E4b0ac710Fb0f9e0bc",
         "oracleId": "waArbUSDCn",
         "decimals": "1e6"
       }

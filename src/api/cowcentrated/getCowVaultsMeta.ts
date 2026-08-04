@@ -2,6 +2,7 @@ import { partition } from 'lodash-es';
 import { isAddressEqual } from 'viem';
 import { getKey, setKey } from '../../utils/cache/index.ts';
 import { type ApiChain, SupportedChains } from '../../utils/chain.ts';
+import { envNumber } from '../../utils/env.ts';
 import { getLoggerFor } from '../../utils/logger/index.ts';
 import { isResultFulfilled } from '../../utils/promise.ts';
 import { serviceEventBus } from '../../utils/ServiceEventBus.ts';
@@ -9,10 +10,10 @@ import { sleep } from '../../utils/time.ts';
 import { getCowClmChains, getCowClms } from './getCowClms.ts';
 import { type AnyCowClmMeta, type CowClmsMeta, isClmApiVaultsResponse } from './types.ts';
 
-const logger = getLoggerFor({ module: 'clm' });
+const logger = getLoggerFor({ module: 'clm', component: 'meta' });
 
 const CACHE_KEY = 'COW_VAULTS_META';
-const INIT_DELAY = Number(process.env.COWCENTRATED_INIT_DELAY || 1000);
+const INIT_DELAY = envNumber('COWCENTRATED_INIT_DELAY', 1000);
 const UPDATE_INTERVAL = 60000;
 const BEEFY_CLM_API = process.env.BEEFY_CLM_API || 'https://clm-api.beefy.finance';
 const API_EOL_CHAINS: ApiChain[] = ['berachain', 'lisk', 'scroll', 'sei', 'mantle'];

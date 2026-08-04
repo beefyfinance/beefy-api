@@ -1,5 +1,5 @@
+import type { Token } from '@beefyfinance/blockchain-addressbook/types/token';
 import { type Address, isAddress } from 'viem';
-import type { Token } from '../../../packages/address-book/src/types/token.ts';
 import { isNonEmptyArray, type NonEmptyArray } from '../../utils/array.ts';
 import type { ApiChain } from '../../utils/chain.ts';
 import { providers } from './providers.ts';
@@ -89,11 +89,11 @@ export function isCowClmWithVault(clm: AnyCowClm): clm is CowClmWithVault {
 function isValidCowRewardPoolRewardConfig(
   reward: NonNullable<NonNullable<JsonCowClm['rewardPool']>['rewards']>[number]
 ): reward is CowRewardPoolReward {
-  return reward.id >= 0 && reward.oracleId && reward.decimals >= 0 && isAddress(reward.address);
+  return reward.id >= 0 && !!reward.oracleId && reward.decimals >= 0 && isAddress(reward.address);
 }
 
 function isValidCowClmRewardPoolConfig(rewardPool: JsonCowClm['rewardPool']): rewardPool is CowRewardPool {
-  return (
+  return !!(
     rewardPool
     && rewardPool.oracleId
     && isAddress(rewardPool.address)
@@ -103,11 +103,11 @@ function isValidCowClmRewardPoolConfig(rewardPool: JsonCowClm['rewardPool']): re
 }
 
 function isValidCowClmVaultConfig(vault: JsonCowClm['vault']): vault is CowVault {
-  return vault && vault.oracleId && isAddress(vault.address);
+  return !!vault && !!vault.oracleId && isAddress(vault.address);
 }
 
-function isValidCowProviderId(id: string): boolean {
-  return id in providers;
+function isValidCowProviderId(id: string | undefined): boolean {
+  return !!id && id in providers;
 }
 
 function isValidCowClmConfig(clm: JsonCowClm): clm is AnyCowClm {
@@ -117,7 +117,7 @@ function isValidCowClmConfig(clm: JsonCowClm): clm is AnyCowClm {
       && clm.decimals.length === 2
       && isAddress(clm.address)
       && isAddress(clm.lpAddress)
-      && clm.tokens.every(isAddress) // no reward pool if beta clm, or valid reward pool
+      && clm.tokens.every(token => isAddress(token)) // no reward pool if beta clm, or valid reward pool
       && ((!clm.rewardPool && clm.beta) || isValidCowClmRewardPoolConfig(clm.rewardPool)) // no vault, or reward pool and valid vault
       && (!clm.vault || (clm.rewardPool && isValidCowClmVaultConfig(clm.vault))) // no provider, or valid provider
       && !clm.providerId)

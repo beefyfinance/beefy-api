@@ -1,3 +1,9 @@
+type ProposalUrlFn = (proposalId: string, spaceId: string) => string;
+
+export type SpaceConfig = {
+  proposalUrl: ProposalUrlFn;
+};
+
 export type Space = {
   id: string;
   members: string;
@@ -5,7 +11,7 @@ export type Space = {
 };
 
 export type SpaceWithAuthors = Space & {
-  proposalUrl: (proposalId: string, spaceId: string) => string;
+  proposalUrl: ProposalUrlFn;
   authors: string[];
 };
 

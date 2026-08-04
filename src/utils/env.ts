@@ -1,3 +1,5 @@
+import { isArrayValue } from './array.ts';
+
 /**
  * Undefined, NaN, or Infinity returns defaultValue
  * Otherwise returns value cast to Number
@@ -31,9 +33,18 @@ export function envBoolean(key: string, defaultValue: boolean): boolean {
   }
 
   const value = process.env[key];
-  if (value.length === 0) {
+  if (value === undefined || value.length === 0) {
     return defaultValue;
   }
 
   return value.toLowerCase() === 'true' || value === '1';
+}
+
+export function envEnum<const T extends string>(key: string, validValues: T[] | readonly T[], defaultValue: T): T {
+  const value = process.env[key];
+  if (!!value && isArrayValue(value, validValues)) {
+    return value;
+  }
+
+  return defaultValue;
 }

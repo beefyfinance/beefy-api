@@ -1,13 +1,13 @@
 import fs from 'node:fs';
 import path from 'node:path';
-import { ethers } from 'ethers';
+import { ChainId } from '@beefyfinance/blockchain-addressbook';
+import { createPublicClient, getAddress, getContract, http } from 'viem';
 import yargs from 'yargs';
 import { hideBin } from 'yargs/helpers';
-import { ChainId } from '../packages/address-book/src/address-book/index.ts';
+import ERC20ABI from '../src/abis/ERC20Abi.ts';
+import UniV3LPPairABI from '../src/abis/IUniV3Pool.ts';
 import StratUniV3 from '../src/abis/StratUniV3.ts';
 import { MULTICHAIN_RPC } from '../src/constants.ts';
-import ERC20ABI from '../src/abis/ERC20.json' with { type: 'json' };
-import UniV3LPPairABI from '../src/abis/UniV3LPPair.json' with { type: 'json' };
 
 const projects = {
   uniswap_polygon: {
@@ -38,47 +38,48 @@ const args = yargs(hideBin(process.argv))
   })
   .parseSync();
 
-const poolPrefix = projects[args['project']].prefix;
+const project = projects[args['project'] as keyof typeof projects];
+const poolPrefix = project.prefix;
 const strategyAddress = args['strategy'];
-const poolsJsonFile = projects[args['project']].file;
+const poolsJsonFile = project.file;
 const poolsJson = JSON.parse(fs.readFileSync(path.resolve(import.meta.dirname, poolsJsonFile), 'utf8'));
 
-const chainId = ChainId[args['network']];
-const provider = new ethers.providers.JsonRpcProvider(MULTICHAIN_RPC[chainId]);
+const chainId = ChainId[args['network'] as keyof typeof ChainId];
+const client = createPublicClient({ transport: http(MULTICHAIN_RPC[chainId]) });
 
-async function fetchLiquidityPair(strategyAddress) {
+async function fetchLiquidityPair(strategyAddress: string) {
   console.log(`fetchLiquidityPair for (${strategyAddress})`);
-  const strategyContract = new ethers.Contract(strategyAddress, StratUniV3 as any, provider);
-  const lpAddress = await strategyContract.pool();
-  const lpContract = new ethers.Contract(lpAddress, UniV3LPPairABI, provider);
+  const strategyContract = getContract({ address: getAddress(strategyAddress), abi: StratUniV3, client });
+  const lpAddress = await strategyContract.read.pool();
+  const lpContract = getContract({ address: lpAddress, abi: UniV3LPPairABI, client });
   interface Results {
-    address: String;
-    strategy: String;
-    token0: String;
-    token1: String;
+    address: string;
+    strategy: string;
+    token0: string;
+    token1: string;
     fee: number;
   }
 
   const results: Results = {
-    address: ethers.utils.getAddress(lpAddress),
-    strategy: ethers.utils.getAddress(strategyAddress),
-    token0: await lpContract.token0(),
-    token1: await lpContract.token1(),
-    fee: await lpContract.fee(),
+    address: getAddress(lpAddress),
+    strategy: getAddress(strategyAddress),
+    token0: await lpContract.read.token0(),
+    token1: await lpContract.read.token1(),
+    fee: await lpContract.read.fee(),
   };
 
   return results;
 }
 
-async function fetchToken(tokenAddress) {
-  const tokenContract = new ethers.Contract(tokenAddress, ERC20ABI, provider);
-  const checksummedTokenAddress = ethers.utils.getAddress(tokenAddress);
+async function fetchToken(tokenAddress: string) {
+  const checksummedTokenAddress = getAddress(tokenAddress);
+  const tokenContract = getContract({ address: checksummedTokenAddress, abi: ERC20ABI, client });
   const token = {
-    name: await tokenContract.name(),
-    symbol: await tokenContract.symbol(),
+    name: await tokenContract.read.name(),
+    symbol: await tokenContract.read.symbol(),
     address: checksummedTokenAddress,
     chainId: chainId,
-    decimals: await tokenContract.decimals(),
+    decimals: await tokenContract.read.decimals(),
     website: '',
     description: '',
     documentation: '',
@@ -115,7 +116,7 @@ async function main() {
     },
   };
 
-  poolsJson.forEach(pool => {
+  poolsJson.forEach((pool: { name: string }) => {
     if (pool.name === newPoolName) {
       throw Error(`Duplicate: pool with name ${newPoolName} already exists`);
     }

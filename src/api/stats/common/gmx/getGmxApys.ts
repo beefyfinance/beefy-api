@@ -1,15 +1,16 @@
+import type { ChainId } from '@beefyfinance/blockchain-addressbook';
 import { BigNumber } from 'bignumber.js';
-import type { ChainId } from '../../../../../packages/address-book/src/address-book/index.ts';
+import type { Address } from 'viem';
 import DistributorAbi from '../../../../abis/arbitrum/Distributor.ts';
 import RewardTrackerAbi from '../../../../abis/arbitrum/RewardTracker.ts';
 import StrategyABI from '../../../../abis/StrategyABI.ts';
-import type { LpPool } from '../../../../types/LpPool.ts';
 import { fetchPrice } from '../../../../utils/fetchPrice.ts';
 import { fetchContract } from '../../../rpc/client.ts';
 import { type ApyBreakdownResult, getApyBreakdown } from '../getApyBreakdown.ts';
+import type { GmxPool } from './types.ts';
 
 export interface GmxApysParams {
-  pools: LpPool[];
+  pools: GmxPool[];
   trackers: Tracker[];
   chainId: ChainId;
 }
@@ -28,18 +29,12 @@ export interface Reward {
 const SECONDS_PER_YEAR = 31536000;
 
 export const getGmxCommonApys = async (params: GmxApysParams): Promise<ApyBreakdownResult> => {
-  let promises = [];
-  let farmAprs: BigNumber[] = [];
-  params.pools.forEach(pool => promises.push(getPoolApy(params, pool)));
-  const values = await Promise.all(promises);
-  for (const item of values) {
-    farmAprs.push(item);
-  }
+  const farmAprs: BigNumber[] = await Promise.all(params.pools.map(pool => getPoolApy(params, pool)));
 
   return getApyBreakdown(params.pools, {}, farmAprs, 0);
 };
 
-const getPoolApy = async (params, pool): Promise<BigNumber> => {
+const getPoolApy = async (params: GmxApysParams, pool: GmxPool): Promise<BigNumber> => {
   const [yearlyRewardsInUsd, totalStakedInUsd] = await Promise.all([
     getYearlyRewardsInUsd(params, pool),
     getTotalStakedInUsd(params, pool),
@@ -47,24 +42,22 @@ const getPoolApy = async (params, pool): Promise<BigNumber> => {
   return yearlyRewardsInUsd.dividedBy(totalStakedInUsd);
 };
 
-const getYearlyRewardsInUsd = async (params: GmxApysParams, pool): Promise<BigNumber> => {
-  let promises = [];
+const getYearlyRewardsInUsd = async (params: GmxApysParams, pool: GmxPool): Promise<BigNumber> => {
   let yearlyRewardsInUsd: BigNumber = new BigNumber(0);
-  params.trackers.forEach(tracker => promises.push(getTrackerRewards(params, pool, tracker)));
-  const values = await Promise.all(promises);
+  const values = await Promise.all(params.trackers.map(tracker => getTrackerRewards(params, pool, tracker)));
   for (const item of values) {
     yearlyRewardsInUsd = yearlyRewardsInUsd.plus(item);
   }
   return yearlyRewardsInUsd;
 };
 
-const getTrackerRewards = async (params, pool, tracker): Promise<BigNumber> => {
+const getTrackerRewards = async (params: GmxApysParams, pool: GmxPool, tracker: Tracker): Promise<BigNumber> => {
   const rewardTrackerContract = fetchContract(tracker.address, RewardTrackerAbi, params.chainId);
   const distributorContract = fetchContract(tracker.distributor, DistributorAbi, params.chainId);
 
   const res = await Promise.all([
     distributorContract.read.tokensPerInterval(),
-    rewardTrackerContract.read.stakedAmounts([pool.strat]),
+    rewardTrackerContract.read.stakedAmounts([pool.strat as Address]),
     rewardTrackerContract.read.totalSupply(),
   ]);
 
@@ -81,14 +74,19 @@ const getTrackerRewards = async (params, pool, tracker): Promise<BigNumber> => {
   return yearlyRewardsInUsd.times(stakedAmounts).dividedBy(totalSupply);
 };
 
-const getTotalStakedInUsd = async (params: GmxApysParams, pool): Promise<BigNumber> => {
+const getTotalStakedInUsd = async (params: GmxApysParams, pool: GmxPool): Promise<BigNumber> => {
   let staked: BigNumber = new BigNumber(0);
   if (pool.glp) {
     const strategy = fetchContract(pool.strat, StrategyABI, params.chainId);
     staked = new BigNumber((await strategy.read.balanceOf()).toString());
   } else {
+    if (!pool.stakedTracker) {
+      throw new Error(`gmx pool ${pool.name} is missing stakedTracker`);
+    }
     const stakedTrackerContract = fetchContract(pool.stakedTracker, RewardTrackerAbi, params.chainId);
-    staked = new BigNumber((await stakedTrackerContract.read.depositBalances([pool.strat, pool.address])).toString());
+    staked = new BigNumber(
+      (await stakedTrackerContract.read.depositBalances([pool.strat as Address, pool.address as Address])).toString()
+    );
   }
   const stakedPrice = await fetchPrice({ oracle: pool.oracle, id: pool.oracleId });
   return staked.times(stakedPrice).dividedBy(pool.decimals);

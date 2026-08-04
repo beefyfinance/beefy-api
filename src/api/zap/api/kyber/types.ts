@@ -92,7 +92,7 @@ export type KyberSuccessResponse = QuoteResponse | SwapResponse;
 export type KyberResponse = KyberSuccessResponse | KyberErrorResponse;
 
 export function isKyberResponse(obj: unknown): obj is KyberResponse {
-  return obj && typeof obj === 'object' && 'code' in obj;
+  return !!obj && typeof obj === 'object' && 'code' in obj;
 }
 
 export function isKyberErrorResponse(obj: KyberResponse): obj is KyberErrorResponse {

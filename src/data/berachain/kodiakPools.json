@@ -1,7 +1,7 @@
 [
   {
     "name": "kodiak-susde-honey",
-    "address": "0xd5b6ea3544a51bfdda7e6926bdf778339801dfe8",
+    "address": "0xD5B6EA3544a51BfdDa7E6926BdF778339801dFe8",
     "gauge": "0xd042c637765fdACEbFBAFe553d8e78D8d1179fB1",
     "tokens": ["sUSDe", "HONEY"]
   },
@@ -56,7 +56,7 @@
   {
     "name": "kodiak-bera-ibera",
     "address": "0xE3EeB9e48934634d8B5B39A0d15DD89eE0F969C4",
-    "gauge": "0x5f044b3bf3fa10d51ab157998c70d07807baf5c4",
+    "gauge": "0x5F044B3bf3fA10d51AB157998C70D07807BAF5C4",
     "tokens": ["WBERA", "iBERA"]
   },
   {

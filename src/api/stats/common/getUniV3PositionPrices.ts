@@ -1,8 +1,13 @@
+import type { ChainId } from '@beefyfinance/blockchain-addressbook';
 import { BigNumber } from 'bignumber.js';
-import type { ChainId } from '../../../../packages/address-book/src/address-book/index.ts';
+import type { Address } from 'viem';
 import BeefyUniswapPositionHelperAbi from '../../../abis/BeefyUniswapPositionHelper.ts';
+import type { StandardLpBreakdown } from '../../../types/prices.ts';
+import { getLoggerFor } from '../../../utils/logger/index.ts';
+import { withTracing } from '../../../utils/tracing.ts';
 import { fetchContract } from '../../rpc/client.ts';
-import type { BaseLpBreakdown } from '../getAmmPrices.ts';
+
+const logger = getLoggerFor({ module: 'prices', component: 'uniswap-v3' });
 
 interface LpTokenConfig {
   address: string;
@@ -31,25 +36,26 @@ interface UniV3PositionPricesParams {
 
 type PositionTokens = readonly [bigint, bigint, bigint];
 
-export const getUniV3PositionPrices = async (
-  params: UniV3PositionPricesParams
-): Promise<Record<string, BaseLpBreakdown>> => {
-  const positionTokens = await getPoolData(params);
-  const prices: Record<string, BaseLpBreakdown> = {};
+export const getUniV3PositionPrices = withTracing(
+  async (params: UniV3PositionPricesParams): Promise<Record<string, StandardLpBreakdown>> => {
+    const positionTokens = await getPoolData(params);
+    const prices: Record<string, StandardLpBreakdown> = {};
 
-  for (let i = 0; i < params.pools.length; i++) {
-    const price = getPrice(params.pools[i], positionTokens[i], params.tokenPrices);
-    Object.assign(prices, price);
-  }
+    for (let i = 0; i < params.pools.length; i++) {
+      const price = getPrice(params.pools[i], positionTokens[i], params.tokenPrices);
+      Object.assign(prices, price);
+    }
 
-  return prices;
-};
+    return prices;
+  },
+  { logger, fieldsFn: (params: UniV3PositionPricesParams) => ({ chain: params.chainId }) }
+);
 
 const getPrice = (
   pool: UniV3Pool,
   positionTokens: PositionTokens,
   tokenPrices: Record<string, number>
-): Record<string, BaseLpBreakdown> => {
+): Record<string, StandardLpBreakdown> => {
   const lp0Bal = new BigNumber(positionTokens[0].toString());
   const lp1Bal = new BigNumber(positionTokens[1].toString());
   const liquidity = new BigNumber(positionTokens[2].toString());
@@ -71,14 +77,14 @@ const getPrice = (
 const getPoolData = async (params: UniV3PositionPricesParams): Promise<PositionTokens[]> => {
   const beefyHelperContract = fetchContract(params.beefyHelper, BeefyUniswapPositionHelperAbi, params.chainId) as {
     read: {
-      getPositionTokens: (args: [bigint, `0x${string}`, `0x${string}`]) => Promise<PositionTokens>;
+      getPositionTokens: (args: [bigint, Address, Address]) => Promise<PositionTokens>;
     };
   };
   const calls = params.pools.map(pool =>
     beefyHelperContract.read.getPositionTokens([
       BigInt(pool.nftId),
-      pool.address as `0x${string}`,
-      params.nftManager as `0x${string}`,
+      pool.address as Address,
+      params.nftManager as Address,
     ])
   );
   return await Promise.all(calls);

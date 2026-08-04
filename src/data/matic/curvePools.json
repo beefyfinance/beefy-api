@@ -1,8 +1,8 @@
 [
   {
     "name": "curve-poly-mai-usdc.e",
-    "pool": "0x53c38755748745e2dd7d0a136fbcc9fb1a5b83b2",
-    "gauge": "0x41cb0cb61c11039459dc81db76bd64d3ede704f2",
+    "pool": "0x53C38755748745e2dd7D0a136FBCC9fB1A5B83b2",
+    "gauge": "0x41CB0cb61C11039459Dc81DB76BD64d3EdE704F2",
     "rewards": [
       {
         "token": "0xa3Fa99A148fA48D14Ed51d610c367C61876997F1",
@@ -23,9 +23,9 @@
   },
   {
     "name": "curve-poly-asdcrv",
-    "pool": "0x5d8c2b31e80a35e211d51e62b1c7fb70322cbf25",
-    "token": "0x7101308daf4e16c822083a458dc9395039c08f2d",
-    "gauge": "0xf8b31183e3db3b109f37db573121fda13c216dd6",
+    "pool": "0x5D8c2b31e80a35E211D51e62B1c7FB70322cbf25",
+    "token": "0x7101308DAF4E16c822083A458dC9395039c08f2D",
+    "gauge": "0xf8b31183E3DB3b109F37DB573121fDA13c216DD6",
     "convex": true,
     "tokens": [
       {
@@ -40,8 +40,8 @@
   },
   {
     "name": "curve-poly-crvusd-usdc.e",
-    "pool": "0x864490cf55dc2dee3f0ca4d06f5f80b2bb154a03",
-    "gauge": "0x6a9d992c456e65d3b55203b71137c37de054d149",
+    "pool": "0x864490Cf55dc2Dee3f0ca4D06F5f80b2BB154a03",
+    "gauge": "0x6a9d992c456e65d3b55203B71137c37De054d149",
     "convex": true,
     "rewards": [
       {
@@ -64,8 +64,8 @@
   },
   {
     "name": "curve-poly-crvusd-usdc",
-    "pool": "0x5225010a0ae133b357861782b0b865a48471b2c5",
-    "gauge": "0x63a4f929b93a8859098622de821159695a55030a",
+    "pool": "0x5225010A0AE133B357861782B0B865a48471b2C5",
+    "gauge": "0x63A4f929b93A8859098622dE821159695a55030A",
     "convex": true,
     "rewards": [
       {
@@ -88,8 +88,8 @@
   },
   {
     "name": "curve-poly-crvusd-usdt",
-    "pool": "0xa70af99bff6b168327f9d1480e29173e757c7904",
-    "gauge": "0x30831d8c8480d106a6f043356a2bed652c98e44b",
+    "pool": "0xA70Af99bFF6b168327f9D1480e29173e757c7904",
+    "gauge": "0x30831D8C8480D106A6F043356A2bED652c98e44B",
     "convex": true,
     "rewards": [
       {
@@ -112,8 +112,8 @@
   },
   {
     "name": "curve-poly-crvusd-dai",
-    "pool": "0x62c949ee985b125ff2d7ddcf4fe7aecb0a040e2a",
-    "gauge": "0x360dd7ba9e0811c2168dad495fb393977a3eaba5",
+    "pool": "0x62c949ee985b125Ff2d7ddcf4Fe7AEcB0a040E2a",
+    "gauge": "0x360Dd7BA9e0811c2168Dad495fb393977A3eAba5",
     "convex": true,
     "rewards": [
       {
@@ -232,7 +232,7 @@
   {
     "name": "curve-poly-ren",
     "pool": "0xC2d95EEF97Ec6C17551d45e77B590dc1F9117C67",
-    "token": "0xf8a57c1d3b9629b77b6726a042ca48990a84fb49",
+    "token": "0xf8a57c1d3b9629b77b6726a042ca48990A84Fb49",
     "gauge": "0x8D9649e50A0d1da8E939f800fB926cdE8f18B47D",
     "baseApyKey": "ren",
     "oracleId": "WBTC",
@@ -271,7 +271,7 @@
   {
     "name": "curve-am3crv",
     "pool": "0x445FE580eF8d70FF569aB36e80c647af338db351",
-    "token": "0xe7a24ef0c5e95ffb0f6684b813a78f2a3ad7d171",
+    "token": "0xE7a24EF0C5e95Ffb0f6684b813A78F2a3AD7D171",
     "gauge": "0x20759F567BB3EcDB55c817c9a1d13076aB215EdC",
     "baseApyKey": "aave",
     "tokens": [

@@ -1,10 +1,10 @@
+import { addressBookByChainId } from '@beefyfinance/blockchain-addressbook';
+import type { ChainId } from '@beefyfinance/blockchain-addressbook/types/chainid';
+import type { TokenWithId } from '@beefyfinance/blockchain-addressbook/types/token';
 import type { BigNumber } from 'bignumber.js';
 import { getUnixTime } from 'date-fns';
 import type { GetContractReturnType } from 'viem';
 import { type Address, type Client, getAddress } from 'viem';
-import { addressBookByChainId } from '../../../../packages/address-book/src/address-book/index.ts';
-import type { ChainId } from '../../../../packages/address-book/src/types/chainid.ts';
-import type { TokenWithId } from '../../../../packages/address-book/src/types/token.ts';
 import ERC20Abi from '../../../abis/ERC20Abi.ts';
 import { IBeefyRewardPool } from '../../../abis/IBeefyRewardPool.ts';
 import { ZERO_ADDRESS } from '../../../utils/address.ts';
@@ -18,7 +18,7 @@ import { SECONDS_PER_YEAR } from '../../../utils/time.ts';
 import { fetchContract } from '../../rpc/client.ts';
 import { getAmmPrice } from '../getAmmPrices.ts';
 
-const logger = getLoggerFor({ module: 'apy', platform: 'beefyRewardPoolV2' });
+const logger = getLoggerFor({ module: 'apy', component: 'beefyRewardPoolV2' });
 
 const WARN_STAKED_IS_ZERO: boolean = false;
 const WARN_STAKED_MISSING_PRICE: boolean = true;
@@ -137,12 +137,7 @@ async function getRewardConfigsFromContract(
   rewardPoolContract: GetContractReturnType<typeof IBeefyRewardPool, Client>,
   tokenAddressMap: Record<string, TokenWithId>
 ): Promise<RewardConfig[]> {
-  const earned = await rewardPoolContract.read.earned([ZERO_ADDRESS] as const);
-  if (typeof earned === 'bigint') {
-    throw new Error(`earned(address) returned uint256, expected (address[],uint256[])`);
-  }
-
-  const [rewardAddresses] = earned;
+  const [rewardAddresses] = await rewardPoolContract.read.earned([ZERO_ADDRESS] as const);
   if (rewardAddresses.length === 0) {
     if (WARN_REWARDS_NONE_IN_CONTRACT) {
       logger.warn({ vault: pool.oracleId }, 'no rewards found via contract');

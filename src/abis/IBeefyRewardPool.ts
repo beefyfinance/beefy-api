@@ -1,4 +1,4 @@
-import type { Abi } from 'abitype';
+import type { Abi } from 'viem';
 
 export const IBeefyRewardPool = [
   {
@@ -248,20 +248,6 @@ export const IBeefyRewardPool = [
       },
       { internalType: 'uint256[]', name: 'earnedAmounts', type: 'uint256[]' },
     ],
-    stateMutability: 'view',
-    type: 'function',
-  },
-  {
-    inputs: [
-      { internalType: 'address', name: '_user', type: 'address' },
-      {
-        internalType: 'address',
-        name: '_reward',
-        type: 'address',
-      },
-    ],
-    name: 'earned',
-    outputs: [{ internalType: 'uint256', name: 'earnedAmount', type: 'uint256' }],
     stateMutability: 'view',
     type: 'function',
   },

@@ -2,8 +2,9 @@ import { orderBy, uniqBy } from 'lodash-es';
 import type { ApiChain } from './chain.ts';
 import { getLoggerFor } from './logger/index.ts';
 import { isFiniteNumber } from './number.ts';
+import { isValidPrice } from './prices.ts';
 
-const logger = getLoggerFor({ module: 'prices', platform: 'dexScreener' });
+const logger = getLoggerFor({ module: 'prices', component: 'dex-screener' });
 
 const MAX_VALID_PRICE_USD = 1_000_000;
 
@@ -83,13 +84,14 @@ function enhancePairs(pairs: DexScreenerPair[]): EnhancedPair[] {
   return (
     pairs
       // Have price, and on supported chain
-      .filter(({ priceUsd, chainId }) => {
+      .filter((pair): pair is DexScreenerPair & { priceUsd: string } => {
+        const { priceUsd, chainId } = pair;
         if (!priceUsd || !(chainId in dexScreenerChainIdToChainId)) {
           return false;
         }
 
         const parsedPriceUsd = parseFloat(priceUsd);
-        if (!isFiniteNumber(parsedPriceUsd) || parsedPriceUsd <= 0 || parsedPriceUsd > MAX_VALID_PRICE_USD) {
+        if (!isValidPrice(parsedPriceUsd) || parsedPriceUsd > MAX_VALID_PRICE_USD) {
           return false;
         }
 

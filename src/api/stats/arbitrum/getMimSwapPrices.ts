@@ -1,0 +1,61 @@
+import { BigNumber } from 'bignumber.js';
+import { parseAbi } from 'viem';
+import { ARBITRUM_CHAIN_ID as chainId } from '../../../constants.ts';
+import type { PricesById, StandardLpBreakdown } from '../../../types/prices.ts';
+import { getLoggerFor } from '../../../utils/logger/index.ts';
+import { withTracing } from '../../../utils/tracing.ts';
+import { fetchContract } from '../../rpc/client.ts';
+import pools from '../../../data/arbitrum/mimPools.json' with { type: 'json' };
+
+const logger = getLoggerFor({ module: 'prices', component: 'mim-swap' });
+
+const abi = parseAbi([
+  'function getReserves() view returns (uint256 baseReserve, uint256 quoteReserve)',
+  'function totalSupply() view returns (uint256)',
+]);
+
+export const getMimSwapPrices = withTracing(
+  async (tokenPrices: PricesById) => {
+    let prices: Record<string, StandardLpBreakdown> = {};
+
+    const [reserveCalls, supplyCalls] = pools.reduce<[Promise<readonly [bigint, bigint]>[], Promise<bigint>[]]>(
+      (acc, pool) => {
+        const contract = fetchContract(pool.address, abi, chainId);
+        acc[0].push(contract.read.getReserves());
+        acc[1].push(contract.read.totalSupply());
+        return acc;
+      },
+      [[], []]
+    );
+
+    const [reserveResults, supplyResults] = await Promise.all([Promise.all(reserveCalls), Promise.all(supplyCalls)]);
+
+    const poolsData = reserveResults.map((_, i) => {
+      return {
+        lp0Bal: new BigNumber(reserveResults[i][0]),
+        lp1Bal: new BigNumber(reserveResults[i][1]),
+        totalSupply: new BigNumber(supplyResults[i]),
+      };
+    });
+
+    for (let i = 0; i < pools.length; i++) {
+      const pool = pools[i];
+      const lp0Bal = poolsData[i].lp0Bal;
+      const lp1Bal = poolsData[i].lp1Bal;
+      const totalSupply = poolsData[i].totalSupply;
+
+      const lp0 = lp0Bal.multipliedBy(tokenPrices[pool.lp0.oracleId] ?? 0).dividedBy(pool.lp0.decimals);
+      const lp1 = lp1Bal.multipliedBy(tokenPrices[pool.lp1.oracleId] ?? 0).dividedBy(pool.lp1.decimals);
+      const price = lp0.plus(lp1).multipliedBy('1e18').dividedBy(totalSupply).toNumber();
+
+      prices[pool.name] = {
+        price,
+        tokens: [pool.lp0.address, pool.lp1.address],
+        balances: [lp0Bal.dividedBy(pool.lp0.decimals).toString(10), lp1Bal.dividedBy(pool.lp1.decimals).toString(10)],
+        totalSupply: totalSupply.dividedBy('1e18').toString(10),
+      };
+    }
+    return prices;
+  },
+  { logger }
+);

@@ -1,23 +1,24 @@
-import { addressBookByChainId } from '../../../packages/address-book/src/address-book/index.ts';
+import { addressBookByChainId } from '@beefyfinance/blockchain-addressbook';
+import type { BreakdownsById, PricesById } from '../../types/prices.ts';
 import { getKey, setKey } from '../../utils/cache/index.ts';
 import { fetchAmmPrices } from '../../utils/fetchAmmPrices.ts';
-import { fetchBalancerLinearPoolPrice } from '../../utils/fetchBalancerStablePoolPrices.js';
+import { fetchBalancerLinearPoolPrice } from '../../utils/fetchBalancerStablePoolPrices.ts';
 import { fetchChainLinkPrices } from '../../utils/fetchChainLinkPrices.ts';
-import { fetchCoinGeckoPrices } from '../../utils/fetchCoinGeckoPrices.js';
+import { fetchCoinGeckoPrices } from '../../utils/fetchCoinGeckoPrices.ts';
 import { fetchConcentratedLiquidityTokenPrices } from '../../utils/fetchConcentratedLiquidityTokenPrices.ts';
 import { fetchCurveTokenPrices } from '../../utils/fetchCurveTokenPrices.ts';
-import { fetchDefillamaPrices } from '../../utils/fetchDefillamaPrices.js';
+import { fetchDefillamaPrices } from '../../utils/fetchDefillamaPrices.ts';
 import { fetchDexScreenerPriceOracles, type OraclePriceRequest } from '../../utils/fetchDexScreenerPrices.ts';
 import { fetchErc4626TokenPrices } from '../../utils/fetchErc4626TokenPrices.ts';
 import { fetchOptionTokenPrices } from '../../utils/fetchOptionTokenPrices.ts';
 import { fetchSolidlyStableTokenPrices } from '../../utils/fetchSolidlyStableTokenPrices.ts';
-import { fetchWrappedAavePrices } from '../../utils/fetchWrappedAaveTokenPrices.js';
+import { fetchWrappedAavePrices } from '../../utils/fetchWrappedAaveTokenPrices.ts';
 import { getLoggerFor } from '../../utils/logger/index.ts';
 import { debugNativeWrappedPrices, normalizeNativeWrappedPrices } from '../../utils/normalizeNativeWrappedPrices.ts';
 import { isFiniteNumber } from '../../utils/number.ts';
+import { isValidPrice } from '../../utils/prices.ts';
 import { serviceEventBus } from '../../utils/ServiceEventBus.ts';
 import { sleep } from '../../utils/time.ts';
-import { promiseTiming } from '../../utils/timing.ts';
 import { getBeTokenPrices } from './getBeTokenPrices.ts';
 import getNonAmmPrices from './getNonAmmPrices.ts';
 import ramsesPools from '../../data/arbitrum/ramsesLpPools.json' with { type: 'json' };
@@ -45,8 +46,6 @@ const logger = getLoggerFor({ module: 'prices' });
 const INIT_DELAY = 2 * 1000;
 const REFRESH_INTERVAL = 5 * 60 * 1000;
 
-// FIXME: if this list grows too big we might hit the ratelimit on initialization everytime
-// Implement in case of emergency -> https://github.com/beefyfinance/beefy-api/issues/103
 const pools = normalizePoolOracleIds([
   ...up33Pools,
   ...pancakeBscLpPools,
@@ -316,27 +315,12 @@ const seedPeggedPrices = {
   USDCe: 'USDC',
 };
 
-export type BaseLpBreakdown = {
-  price: number;
-  tokens: string[];
-  balances: string[];
-  totalSupply: string;
-};
-export type ClmLpBreakdown = BaseLpBreakdown & {
-  underlyingLiquidity: string;
-  underlyingBalances: string[];
-  underlyingPrice: number;
-};
-export type LpBreakdown = BaseLpBreakdown | ClmLpBreakdown;
-export type PricesById = Record<string, number>;
-export type BreakdownsById = Record<string, LpBreakdown>;
-
 const cachedTokenPrices: PricesById = {};
 const cachedLpPrices: PricesById = {};
 const cachedAllPrices: PricesById = {};
 const cachedLpBreakdowns: BreakdownsById = {};
 
-const ORACLES_TO_BE_CLEARED = [];
+const ORACLES_TO_BE_CLEARED: string[] = [];
 
 async function fetchSeedPrices() {
   logger.debug('fetching seed prices from external apis');
@@ -344,19 +328,19 @@ async function fetchSeedPrices() {
   try {
     const [seedPrices, coinGeckoPrices, defillamaPrices, dexscreenerPrices] = await Promise.all([
       // ChainLink gives: ETH, BTC, MATIC, AVAX, BNB, LINK, USDT, DAI, USDC
-      fetchChainLinkPrices().catch(err => {
+      fetchChainLinkPrices().catch((err): PricesById => {
         logger.warn({ err }, 'chainlink fetch failed');
         return {};
       }),
-      fetchCoinGeckoPrices(Object.keys(coinGeckoCoins)).catch(err => {
+      fetchCoinGeckoPrices(Object.keys(coinGeckoCoins)).catch((err): PricesById => {
         logger.warn({ err }, 'coingecko fetch failed');
         return {};
       }),
-      fetchDefillamaPrices(Object.keys(coinGeckoCoins)).catch(err => {
+      fetchDefillamaPrices(Object.keys(coinGeckoCoins)).catch((err): PricesById => {
         logger.warn({ err }, 'defillama fetch failed');
         return {};
       }),
-      fetchDexScreenerPriceOracles(dexscreenerCoins).catch(err => {
+      fetchDexScreenerPriceOracles(dexscreenerCoins).catch((err): PricesById => {
         logger.warn({ err }, 'dexscreener fetch failed');
         return {};
       }),
@@ -377,34 +361,43 @@ async function fetchSeedPrices() {
       for (const oracleId of oracleIds) {
         const cg = coinGeckoPrices[geckoId];
         const dl = defillamaPrices[geckoId];
-        if (!cg) seedPrices[oracleId] = dl;
-        else if (!dl) seedPrices[oracleId] = cg;
-        else {
+
+        if (isValidPrice(cg)) {
           seedPrices[oracleId] = cg;
-          const diff = (Math.abs(cg - dl) / cg) * 100;
-          if (diff > 10) {
-            logger.warn({ token: oracleId, cg, dl }, 'coingecko and defillama price too different');
+
+          if (isValidPrice(dl)) {
+            const diff = (Math.abs(cg - dl) / cg) * 100;
+            if (diff > 10) {
+              logger.warn({ token: oracleId, cg, dl }, 'coingecko and defillama price too different, picked coingecko');
+            }
           }
+        } else if (isValidPrice(dl)) {
+          seedPrices[oracleId] = dl;
+        } else {
+          logger.warn({ oracleId, geckoId }, 'missing seed price from coingecko and defillama');
         }
       }
     }
 
     // DexScreener
-    for (const [oracleId, price] of Object.entries(dexscreenerPrices)) {
-      seedPrices[oracleId] = price;
-    }
-
-    // Set pegged prices
-    for (const [oracle, peggedOracle] of Object.entries(seedPeggedPrices)) {
-      if (peggedOracle in seedPrices) {
-        seedPrices[oracle] = seedPrices[peggedOracle];
+    for (const { oracleId } of dexscreenerCoins) {
+      const price = dexscreenerPrices[oracleId];
+      if (isValidPrice(price)) {
+        seedPrices[oracleId] = price;
       } else {
-        logger.warn({ oracle, peggedOracle }, 'pegged oracle not found');
+        logger.warn({ oracleId }, 'missing seed price from dexscreener');
       }
     }
 
-    // Static
-    seedPrices['GAS'] = 0; // Saga, users don't pay for gas
+    // Set pegged prices
+    for (const [oracleId, peggedOracleId] of Object.entries(seedPeggedPrices)) {
+      const peggedPrice = seedPrices[peggedOracleId];
+      if (isValidPrice(peggedPrice)) {
+        seedPrices[oracleId] = peggedPrice;
+      } else {
+        logger.warn({ oracleId, peggedOracleId }, 'pegged oracle not found');
+      }
+    }
 
     logger.debug({ count: Object.keys(seedPrices).length }, 'total seed prices');
     return normalizeNativeWrappedPrices(seedPrices);
@@ -414,182 +407,87 @@ async function fetchSeedPrices() {
   }
 }
 
+/** depend only on the amm token prices */
+async function fetchDerivedTokenPrices(ammTokenPrices: PricesById): Promise<PricesById> {
+  const [beTokenPrices, curvePrices, solidlyStablePrices, linearPoolPrices, optionPrices, erc4626Prices] =
+    await Promise.all([
+      getBeTokenPrices(ammTokenPrices),
+      fetchCurveTokenPrices(ammTokenPrices),
+      fetchSolidlyStableTokenPrices(ammTokenPrices),
+      fetchWrappedAaveAndDependantPrices(ammTokenPrices),
+      fetchCowcentratedAndDependantPrices(ammTokenPrices),
+      fetchErc4626TokenPrices(ammTokenPrices),
+    ]);
+
+  return {
+    ...ammTokenPrices,
+    ...beTokenPrices,
+    ...curvePrices,
+    ...solidlyStablePrices,
+    ...linearPoolPrices,
+    ...optionPrices,
+    ...erc4626Prices,
+  };
+}
+
+async function fetchCowcentratedAndDependantPrices(tokenPrices: PricesById): Promise<PricesById> {
+  const concLiqPrices = await fetchConcentratedLiquidityTokenPrices(tokenPrices);
+  const optionPrices = await fetchOptionTokenPrices({ ...tokenPrices, ...concLiqPrices });
+
+  return {
+    ...optionPrices,
+    ...concLiqPrices,
+  };
+}
+
+async function fetchWrappedAaveAndDependantPrices(tokenPrices: PricesById): Promise<PricesById> {
+  const wrappedAavePrices = await fetchWrappedAavePrices(tokenPrices);
+  const linearPrices = await fetchBalancerLinearPoolPrice({ ...tokenPrices, ...wrappedAavePrices });
+
+  return {
+    ...linearPrices,
+    ...wrappedAavePrices,
+  };
+}
+
+/** needs the fully merged token prices, so it can only start once every derived price is in */
+async function fetchLpData(tokenPrices: PricesById, poolPrices: PricesById, lpsBreakdown: BreakdownsById) {
+  const nonAmmPrices = await getNonAmmPrices(tokenPrices, poolPrices);
+
+  return {
+    prices: { ...poolPrices, ...nonAmmPrices.prices },
+    breakdown: { ...lpsBreakdown, ...nonAmmPrices.breakdown },
+  };
+}
+
 async function performUpdateAmmPrices() {
   const startTime = Date.now();
-  logger.debug('performUpdateAmmPrices started');
 
-  logger.debug('fetching seed prices');
   // Seed with chain link + coin gecko prices
   const knownPrices = await fetchSeedPrices();
   logger.debug({ count: Object.keys(knownPrices).length, durationMs: Date.now() - startTime }, 'seed prices fetched');
 
-  logger.debug('fetching amm prices');
-  const ammPrices = fetchAmmPrices(pools, knownPrices);
-  logger.debug('amm prices fetch initiated');
+  const { tokenPrices: ammTokenPrices, poolPrices, lpsBreakdown } = await fetchAmmPrices(pools, knownPrices);
 
-  logger.debug('starting curve token prices');
-  const curveTokenPrices = ammPrices.then(async ({ tokenPrices }) => {
-    logger.debug('curve token prices fetch started');
-    const result = await promiseTiming(fetchCurveTokenPrices(tokenPrices), 'fetchCurveTokenPrices');
-    logger.debug('curve token prices completed');
-    return result;
-  });
+  const tokenPrices = await fetchDerivedTokenPrices(ammTokenPrices);
+  const { prices: lpPrices, breakdown: lpBreakdown } = await fetchLpData(tokenPrices, poolPrices, lpsBreakdown);
 
-  logger.debug('starting solidly stable token prices');
-  const solidlyStableTokenPrices = ammPrices.then(async ({ tokenPrices }) => {
-    logger.debug('solidly stable token prices fetch started');
-    const result = await promiseTiming(fetchSolidlyStableTokenPrices(tokenPrices), 'fetchSolidlyStableTokenPrices');
-    logger.debug('solidly stable token prices completed');
-    return result;
-  });
+  logger.debug({ durationMs: Date.now() - startTime }, 'performUpdateAmmPrices completed');
 
-  logger.debug('starting option prices');
-  const optionPrices = ammPrices.then(async ({ tokenPrices }) => {
-    logger.debug('option prices fetch started');
-    const concLiqPrices = await promiseTiming(
-      fetchConcentratedLiquidityTokenPrices(tokenPrices),
-      'fetchConcentratedLiquidityTokenPrices'
-    );
-    logger.debug('concentrated liquidity prices completed');
-    const prices = { ...tokenPrices, ...concLiqPrices };
-    const optionPrices = await promiseTiming(fetchOptionTokenPrices(prices), 'fetchOptionTokenPrices');
-    logger.debug('option token prices completed');
-    return {
-      ...optionPrices,
-      ...concLiqPrices,
-    };
-  });
-
-  logger.debug('starting linear pool prices');
-  const linearPoolPrice = ammPrices.then(async ({ tokenPrices }): Promise<Record<string, number>> => {
-    logger.debug('linear pool prices fetch started');
-    const wrappedAavePrices = await promiseTiming(fetchWrappedAavePrices(tokenPrices), 'fetchWrappedAavePrices');
-    logger.debug('wrapped aave prices completed');
-    const prices = {
-      ...tokenPrices,
-      ...wrappedAavePrices,
-    };
-
-    const linearPrices = await promiseTiming(fetchBalancerLinearPoolPrice(prices), 'fetchBalancerLinearPoolPrice');
-    logger.debug('balancer linear pool prices completed');
-
-    return {
-      ...linearPrices,
-      ...wrappedAavePrices,
-    };
-  });
-
-  logger.debug('starting erc-4626 token prices');
-  const erc4626Prices = ammPrices.then(async ({ tokenPrices }) => {
-    logger.debug('erc-4626 token prices fetch started');
-    const result = await promiseTiming(fetchErc4626TokenPrices(tokenPrices), 'fetchErc4626TokenPrices');
-    logger.debug('erc-4626 token prices completed');
-    return result;
-  });
-
-  logger.debug('starting be token prices');
-  const beTokenPrice = ammPrices.then(async ({ tokenPrices }) => {
-    logger.debug('be token prices fetch started');
-    const result = getBeTokenPrices(tokenPrices);
-    logger.debug('be token prices completed');
-    return result;
-  });
-
-  logger.debug('consolidating all token prices');
-  const tokenPrices = ammPrices.then(async ({ tokenPrices }) => {
-    logger.debug('awaiting all token price dependencies');
-    const curvePrices = await curveTokenPrices;
-    logger.debug('curve prices resolved');
-    const solidlyStablePrices = await solidlyStableTokenPrices;
-    logger.debug('solidly stable prices resolved');
-    const beTokenTokenPrice = await beTokenPrice;
-    logger.debug('be token prices resolved');
-    const linearPoolTokenPrice = await linearPoolPrice;
-    logger.debug('linear pool prices resolved');
-    const optionTokenPrice = await optionPrices;
-    logger.debug('option prices resolved');
-    const erc4626TokenPrices = await erc4626Prices;
-    logger.debug('erc-4626 token prices resolved');
-    logger.debug('all token price dependencies resolved, consolidating');
-    return {
-      ...tokenPrices,
-      ...beTokenTokenPrice,
-      ...curvePrices,
-      ...solidlyStablePrices,
-      ...linearPoolTokenPrice,
-      ...optionTokenPrice,
-      ...erc4626TokenPrices,
-    };
-  });
-
-  logger.debug('starting lp data processing');
-  const lpData = ammPrices.then(async ({ poolPrices, lpsBreakdown }) => {
-    logger.debug('lp data processing started, awaiting token prices');
-    const resolvedTokenPrices = await tokenPrices;
-    logger.debug({ count: Object.keys(resolvedTokenPrices).length }, 'token prices resolved');
-
-    logger.debug('fetching non-amm prices');
-    const nonAmmPrices = await promiseTiming(getNonAmmPrices(resolvedTokenPrices, poolPrices), 'getNonAmmPrices');
-    logger.debug('non-amm prices completed');
-    logger.debug('consolidating lp data');
-    return {
-      prices: { ...poolPrices, ...nonAmmPrices.prices },
-      breakdown: {
-        ...lpsBreakdown,
-        ...nonAmmPrices.breakdown,
-      },
-    };
-  });
-
-  logger.debug('extracting final results');
-  const lpBreakdown = lpData.then(({ breakdown }) => {
-    logger.debug('lp breakdown extracted');
-    return breakdown;
-  });
-  const lpPrices = lpData.then(({ prices }) => {
-    logger.debug('lp prices extracted');
-    return prices;
-  });
-
-  logger.debug('awaiting final resolution');
-  await tokenPrices;
-  logger.debug('token prices final await completed');
-  await lpData;
-  logger.debug('lp data final await completed');
-
-  const endTime = Date.now();
-  logger.debug({ durationMs: endTime - startTime }, 'performUpdateAmmPrices completed');
-
-  return {
-    tokenPrices,
-    lpPrices,
-    lpBreakdown,
-  };
+  return { tokenPrices, lpPrices, lpBreakdown };
 }
 
 async function updateAmmPrices() {
   logger.info('updating amm prices');
-  let start = Date.now();
+  const start = Date.now();
 
   try {
-    logger.debug('starting performUpdateAmmPrices');
-    const {
-      tokenPrices: tokenPricesPromise,
-      lpPrices: lpPricesPromise,
-      lpBreakdown: lpBreakdownPromise,
-    } = await performUpdateAmmPrices();
+    const { tokenPrices, lpPrices, lpBreakdown } = await performUpdateAmmPrices();
+    const normalizedTokenPrices = normalizeNativeWrappedPrices(tokenPrices);
 
-    logger.debug('awaiting price resolution');
-    const [tokenPrices, lpPrices, lpBreakdowns] = await Promise.all([
-      tokenPricesPromise.then(normalizeNativeWrappedPrices),
-      lpPricesPromise,
-      lpBreakdownPromise,
-    ]);
+    debugNativeWrappedPrices(normalizedTokenPrices, 'updateAmmPrices');
 
-    logger.debug('price resolution complete');
-    debugNativeWrappedPrices(tokenPrices, 'updateAmmPrices');
-
-    if (addToCache(tokenPrices, lpPrices, lpBreakdowns)) {
+    if (addToCache(normalizedTokenPrices, lpPrices, lpBreakdown)) {
       logger.debug('cache updated, saving to redis');
       clearCacheOracles(); // Delete specific oracleIds
       await saveToRedis();

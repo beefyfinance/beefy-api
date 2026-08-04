@@ -24,7 +24,7 @@ export type TypedOmit<TEntry, TKeys extends keyof TEntry> = {
   [K in keyof TEntry as K extends TKeys ? never : K]: TEntry[K];
 };
 
-export function typedOmit<TEntry, TKeys extends keyof TEntry>(
+export function typedOmit<TEntry extends {}, TKeys extends keyof TEntry>(
   entry: TEntry,
   ...keys: TKeys[]
 ): TypedOmit<TEntry, TKeys> {

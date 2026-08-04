@@ -1,18 +1,58 @@
+import { sonic } from '@beefyfinance/blockchain-addressbook/sonic';
 import { BigNumber } from 'bignumber.js';
-import { sonic } from '../../../packages/address-book/src/address-book/sonic/index.ts';
 import { beSonicAbi } from '../../abis/sonic/beSonicAbi.ts';
 import { sonicStakingAbi } from '../../abis/sonic/sonicStakingAbi.ts';
+import type { PricesById } from '../../types/prices.ts';
 import { bigintRange } from '../../utils/array.ts';
 import { BIG_ONE, BIG_UNIT_18, BIG_ZERO } from '../../utils/big-number.ts';
+import { getLoggerFor } from '../../utils/logger/index.ts';
+import { isValidPrice } from '../../utils/prices.ts';
 import { fetchContract } from '../rpc/client.ts';
 
-export async function getBeTokenPrices(tokenPrices: Record<string, number>): Promise<Record<string, number>> {
+const logger = getLoggerFor({ module: 'prices', component: 'be-tokens' });
+
+/** be* tokens that are worth exactly one of their underlying */
+const staticMap = {
+  beJOE: 'JOE',
+  beQI: 'QI',
+  beCAKE: 'Cake',
+  beVelo: 'BeVELO',
+};
+
+export async function getBeTokenPrices(tokenPrices: PricesById): Promise<PricesById> {
+  const staticPrices = Object.entries(staticMap).reduce<PricesById>((prices, [oracleId, source]) => {
+    const sourcePrice = tokenPrices[source];
+    if (!isValidPrice(sourcePrice)) {
+      logger.warn({ oracleId, source, price: sourcePrice }, 'missing underlying price');
+      return prices;
+    }
+
+    prices[oracleId] = sourcePrice;
+    return prices;
+  }, {});
+
+  const wsPrice = tokenPrices['WS'];
+  if (!isValidPrice(wsPrice)) {
+    logger.warn({ oracleId: 'beS', source: 'WS', price: wsPrice }, 'missing underlying price');
+    return staticPrices;
+  }
+
+  let beSPrice: number;
+  try {
+    beSPrice = await getBeSonicRedeemablePrice(wsPrice);
+  } catch (err) {
+    logger.warn({ oracleId: 'beS', err }, 'failed to read price per full share');
+    return staticPrices;
+  }
+
+  if (!isValidPrice(beSPrice)) {
+    logger.warn({ oracleId: 'beS', price: beSPrice }, 'invalid price calculated');
+    return staticPrices;
+  }
+
   return {
-    beJOE: tokenPrices['JOE'] ?? 0,
-    beQI: tokenPrices['QI'] ?? 0,
-    beCAKE: tokenPrices['Cake'] ?? 0,
-    beVelo: tokenPrices['BeVELO'] ?? 0,
-    beS: await getBeSonicRedeemablePrice(tokenPrices['WS'] ?? 0),
+    ...staticPrices,
+    beS: beSPrice,
   };
 }
 

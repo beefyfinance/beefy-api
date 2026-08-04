@@ -1,12 +1,12 @@
+import type { ChainId } from '@beefyfinance/blockchain-addressbook';
 import { BigNumber } from 'bignumber.js';
-import type { ChainId } from '../../../../../packages/address-book/src/address-book/index.ts';
 import EulerVault from '../../../../abis/EulerVault.ts';
 import { getLoggerFor } from '../../../../utils/logger/index.ts';
 import { fetchContract } from '../../../rpc/client.ts';
 import { getApyBreakdown } from '../getApyBreakdownNew.ts';
-import { getMerklApys } from '../getMerklApys.js';
+import { getMerklApys } from '../getMerklApys.ts';
 
-const logger = getLoggerFor({ module: 'apy', platform: 'euler' });
+const logger = getLoggerFor({ module: 'apy', component: 'euler' });
 
 const SECONDS_PER_YEAR = 31536000;
 
@@ -100,7 +100,7 @@ const getPoolsApysFromApi = async (chainId: ChainId, pools: EulerPool[]): Promis
         return new BigNumber(0);
       }
 
-      const data: EulerApiResponse = await response.json();
+      const data = (await response.json()) as EulerApiResponse;
       const apyValue = data.apyCurrent;
       if (apyValue !== undefined && apyValue !== null) {
         // console.log(`${pool.name} APY:`, apyValue);

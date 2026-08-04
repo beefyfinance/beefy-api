@@ -1,5 +1,6 @@
+import type { PricesById } from '../../../types/prices.ts';
 import { getBeefyCowcentratedVaultPrices } from '../common/getBeefyCowcentratedVaultPrices.ts';
 
-export const getBeefyCowMegaethPrices = async tokenPrices => {
+export const getBeefyCowMegaethPrices = async (tokenPrices: PricesById) => {
   return await getBeefyCowcentratedVaultPrices('megaeth', tokenPrices);
 };

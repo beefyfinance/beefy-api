@@ -2,7 +2,7 @@ import { BigNumber } from 'bignumber.js';
 import { getLoggerFor } from '../../../../utils/logger/index.ts';
 import { getApyBreakdown } from '../getApyBreakdownNew.ts';
 
-const logger = getLoggerFor({ module: 'apy', platform: 'aave' });
+const logger = getLoggerFor({ module: 'apy', component: 'aave-v4' });
 
 const AAVE_V4_GRAPHQL_URL = 'https://api.v4.aave.com/graphql';
 
@@ -115,11 +115,11 @@ const fetchAaveV4Reserves = async (chainId: number): Promise<AaveV4Reserve[]> =>
   }`;
 
   try {
-    const response: AaveV4GraphqlResponse = await fetch(AAVE_V4_GRAPHQL_URL, {
+    const response = (await fetch(AAVE_V4_GRAPHQL_URL, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ query }),
-    }).then(res => res.json());
+    }).then(res => res.json())) as AaveV4GraphqlResponse;
 
     if (response.errors) {
       logger.warn({ err: response.errors, chain: chainId }, 'graphql reserve query errors');

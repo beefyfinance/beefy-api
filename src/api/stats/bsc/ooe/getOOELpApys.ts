@@ -1,9 +1,9 @@
+import { addressBook } from '@beefyfinance/blockchain-addressbook';
 import { BigNumber } from 'bignumber.js';
-import { addressBook } from '../../../../../packages/address-book/src/address-book/index.ts';
 import IOOEStaking from '../../../../abis/bsc/IOOEStaking.ts';
 import { BSC_CHAIN_ID as chainId } from '../../../../constants.ts';
 import { fetchPrice } from '../../../../utils/fetchPrice.ts';
-import getBlockTime from '../../../../utils/getBlockTime.js';
+import getBlockTime from '../../../../utils/getBlockTime.ts';
 import { getEDecimals } from '../../../../utils/getEDecimals.ts';
 import { fetchContract } from '../../../rpc/client.ts';
 import { getApyBreakdown } from '../../common/getApyBreakdown.ts';
@@ -48,8 +48,8 @@ const getFarmApys = async () => {
 };
 
 const getPoolsData = async () => {
-  const balanceCalls = [];
-  const rewardRateCalls = [];
+  const balanceCalls: Promise<bigint>[] = [];
+  const rewardRateCalls: Promise<bigint>[] = [];
   pools.forEach(pool => {
     const rewardPool = fetchContract(pool.rewardPool, IOOEStaking, chainId);
     balanceCalls.push(rewardPool.read.totalCollateral());

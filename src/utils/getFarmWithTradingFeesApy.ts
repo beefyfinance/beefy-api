@@ -1,4 +1,4 @@
-import { compound } from './compound.js';
+import { compound } from './compound.ts';
 
 export const getFarmWithTradingFeesApy = (
   farmApr: number,
@@ -8,5 +8,5 @@ export const getFarmWithTradingFeesApy = (
   shareAfterBeefyPerformanceFee: number
 ) => {
   const farmApy = farmApr ? compound(farmApr, compoundingsPerYear, t, shareAfterBeefyPerformanceFee) : 0;
-  return (1 + farmApy) * (1 + Number(tradingApr || 0)) - 1;
+  return (1 + farmApy) * (1 + (tradingApr || 0)) - 1;
 };

@@ -1,0 +1,126 @@
+import type { ChainId } from '@beefyfinance/blockchain-addressbook';
+import { BigNumber } from 'bignumber.js';
+import { getLoggerFor } from '../../../../utils/logger/index.ts';
+import type { OptionalRecord } from '../../../../utils/object.ts';
+import { getApyBreakdown } from '../getApyBreakdownNew.ts';
+
+const logger = getLoggerFor({ module: 'apy', component: 'silo' });
+
+export type SiloApyPool = {
+  name: string;
+  address: string;
+  v2?: boolean;
+  vaultId?: number;
+};
+
+type SiloApiResponse = {
+  silo0: {
+    underlyingApy?: string | number | null;
+    protectedRewards?: { apr?: string | number | null }[] | null;
+  };
+  supplyApr?: string | number | null;
+  supplyBaseApr?: string | number | null;
+};
+
+export const getSiloApys = async (chainId: ChainId, pools: SiloApyPool[]) => {
+  const chainName = getChainName(chainId);
+
+  // Create promises for all pool API calls
+  const apiPromises = pools.map(async pool => {
+    if (pool.v2) {
+      try {
+        const url = `https://v2.silo.finance/api/lending-market/${chainName}/${pool.vaultId}`;
+        const response = await fetch(url);
+
+        if (!response.ok) {
+          logger.warn({ chain: chainId, address: pool.address, status: response.status }, 'silo v2 api error');
+          return { pool, data: null };
+        }
+
+        // FIXME(unsafe-cast): unchecked response shape
+        const data = (await response.json()) as SiloApiResponse;
+        return { pool, data };
+      } catch (err) {
+        logger.warn({ chain: chainId, address: pool.address, err }, 'silo v2 api fetch error');
+        return { pool, data: null };
+      }
+    } else {
+      try {
+        const url = `https://v2.silo.finance/api/detailed-vault/${chainName}-${pool.address}`;
+        const response = await fetch(url);
+
+        if (!response.ok) {
+          logger.warn({ chain: chainId, address: pool.address, status: response.status }, 'silo api error');
+          return { pool, data: null };
+        }
+
+        // FIXME(unsafe-cast): unchecked response shape
+        const data = (await response.json()) as SiloApiResponse;
+        return { pool, data };
+      } catch (err) {
+        logger.warn({ chain: chainId, address: pool.address, err }, 'silo api fetch error');
+        return { pool, data: null };
+      }
+    }
+  });
+
+  // Wait for all API calls to complete
+  const results = await Promise.all(apiPromises);
+
+  return getApyBreakdown(
+    results.map(({ pool, data }) => {
+      if (!data) {
+        return {
+          vaultId: pool.name,
+          vault: new BigNumber(0),
+          lending: new BigNumber(0),
+        };
+      }
+
+      if (pool.v2) {
+        // Handle v2 API response structure
+        const underlyingApy = new BigNumber(data.silo0.underlyingApy || 0).div(1e18);
+
+        // Calculate cumulative APR from protectedRewards array
+        let protectedRewardsApr = new BigNumber(0);
+        if (data.silo0.protectedRewards && Array.isArray(data.silo0.protectedRewards)) {
+          protectedRewardsApr = data.silo0.protectedRewards.reduce((total, reward) => {
+            return total.plus(new BigNumber(reward.apr || 0).div(1e18));
+          }, new BigNumber(0));
+        }
+        return {
+          vaultId: pool.name,
+          vault: protectedRewardsApr.isNegative() ? new BigNumber(0) : protectedRewardsApr,
+          lending: underlyingApy.isNegative() ? new BigNumber(0) : underlyingApy,
+        };
+      } else {
+        // Handle vault API response structure (existing logic)
+        const totalApr = new BigNumber(data.supplyApr || 0).div(1e18);
+        const baseApr = new BigNumber(data.supplyBaseApr || 0).div(1e18);
+
+        const lending = baseApr;
+        const vault = totalApr.minus(baseApr);
+
+        return {
+          vaultId: pool.name,
+          vault: vault.isNegative() ? new BigNumber(0) : vault,
+          lending: lending.isNegative() ? new BigNumber(0) : lending,
+        };
+      }
+    })
+  );
+};
+
+// Helper function to map chain IDs to chain names used by Silo API
+const getChainName = (chainId: ChainId) => {
+  const chainMap: OptionalRecord<ChainId, string> = {
+    1: 'ethereum',
+    43114: 'avalanche',
+    42161: 'arbitrum',
+    10: 'optimism',
+    8453: 'base',
+    137: 'polygon',
+  };
+
+  return chainMap[chainId] || 'ethereum';
+};

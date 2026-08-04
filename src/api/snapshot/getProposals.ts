@@ -1,14 +1,23 @@
 import { isBefore, sub } from 'date-fns';
 import { keyBy, omit } from 'lodash-es';
 import { getKey, setKey } from '../../utils/cache/index.ts';
+import { envNumber } from '../../utils/env.ts';
 import { getLoggerFor } from '../../utils/logger/index.ts';
 import { retryPromiseWithBackOff } from '../../utils/promise.ts';
 import { getSnapshotApi } from './getSnapshotApi.ts';
-import type { Cached, CachedProposals, CachedSpaces, Proposal, Proposals, SpaceWithAuthors } from './types.ts';
+import type {
+  Cached,
+  CachedProposals,
+  CachedSpaces,
+  Proposal,
+  Proposals,
+  SpaceConfig,
+  SpaceWithAuthors,
+} from './types.ts';
 
 const logger = getLoggerFor({ module: 'snapshot' });
 
-const SPACES = {
+const SPACES: Record<string, SpaceConfig> = {
   'beefydao.eth': {
     proposalUrl: (proposalId: string, _spaceId: string) => `https://vote.beefy.finance/#/proposal/${proposalId}`,
   },
@@ -27,7 +36,7 @@ const ALLOW_FROM_LIST: boolean = true;
 const ALLOW_FROM_ANYONE: boolean = true;
 
 const ALLOW_LIST: string[] = ['0x280A53cBf252F1B5F6Bde7471299c94Ec566a7C8'];
-const INIT_DELAY = Number(process.env.PROPOSALS_INIT_DELAY || 0);
+const INIT_DELAY = envNumber('PROPOSALS_INIT_DELAY', 0);
 
 let cachedSpaces: CachedSpaces | null = null;
 let cachedProposals: CachedProposals | null = null;
@@ -68,9 +77,9 @@ async function updateSpaces() {
   await setKey(CACHE_KEY_SPACES, cachedSpaces);
 }
 
-function getSpacesWithAllowedAuthors(): Record<string, SpaceWithAuthors> {
+function getSpacesWithAllowedAuthors(cached: CachedSpaces): Record<string, SpaceWithAuthors> {
   return keyBy(
-    cachedSpaces.spaces.map((space): SpaceWithAuthors => {
+    cached.spaces.map((space): SpaceWithAuthors => {
       const local = SPACES[space.id];
       if (!local) {
         throw new Error(`Unknown space: ${space.id}`);
@@ -108,7 +117,8 @@ async function setProposals(proposals: Proposals) {
 
 async function updateProposals() {
   logger.debug('updating proposals');
-  if (!cachedSpaces) {
+  const spacesCache = cachedSpaces;
+  if (!spacesCache) {
     logger.warn('can not update proposals without updating spaces first');
     return;
   }
@@ -116,7 +126,7 @@ async function updateProposals() {
   const api = await getSnapshotApi();
   const proposalResponse = await api.getProposals(Object.keys(SPACES), 'open', 10, 0);
 
-  const spaces = getSpacesWithAllowedAuthors();
+  const spaces = getSpacesWithAllowedAuthors(spacesCache);
   const proposals: Proposal[] = proposalResponse
     .map(p => {
       const space = spaces[p.space.id];

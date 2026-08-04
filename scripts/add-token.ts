@@ -1,9 +1,9 @@
-import { ethers } from 'ethers';
+import { ChainId } from '@beefyfinance/blockchain-addressbook';
+import { createPublicClient, getAddress, getContract, http } from 'viem';
 import yargs from 'yargs';
 import { hideBin } from 'yargs/helpers';
-import { ChainId } from '../packages/address-book/src/address-book/index.ts';
+import ERC20ABI from '../src/abis/ERC20Abi.ts';
 import { MULTICHAIN_RPC } from '../src/constants.ts';
-import ERC20ABI from '../src/abis/ERC20.json' with { type: 'json' };
 
 const args = yargs(hideBin(process.argv))
   .options({
@@ -21,18 +21,18 @@ const args = yargs(hideBin(process.argv))
   })
   .parseSync();
 
-const chainId = ChainId[args['network']];
-const provider = new ethers.providers.JsonRpcProvider(MULTICHAIN_RPC[chainId]);
+const chainId = ChainId[args['network'] as keyof typeof ChainId];
+const client = createPublicClient({ transport: http(MULTICHAIN_RPC[chainId]) });
 
-async function fetchToken(tokenAddress) {
-  const tokenContract = new ethers.Contract(tokenAddress, ERC20ABI, provider);
-  const checksummedTokenAddress = ethers.utils.getAddress(tokenAddress);
+async function fetchToken(tokenAddress: string) {
+  const checksummedTokenAddress = getAddress(tokenAddress);
+  const tokenContract = getContract({ address: checksummedTokenAddress, abi: ERC20ABI, client });
   const token = {
-    name: await tokenContract.name(),
-    symbol: await tokenContract.symbol(),
+    name: await tokenContract.read.name(),
+    symbol: await tokenContract.read.symbol(),
     address: checksummedTokenAddress,
     chainId: chainId,
-    decimals: await tokenContract.decimals(),
+    decimals: await tokenContract.read.decimals(),
     website: '',
     description: '',
   };

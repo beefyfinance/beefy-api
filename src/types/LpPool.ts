@@ -1,4 +1,4 @@
-import type { ChainId } from '../../packages/address-book/src/address-book/index.ts';
+import type { ChainId } from '@beefyfinance/blockchain-addressbook';
 
 export interface LpPool {
   name: string;

@@ -1,4 +1,4 @@
-import { ChainId } from '../../../packages/address-book/src/address-book/index.ts';
+import { ChainId } from '@beefyfinance/blockchain-addressbook';
 
 // FIXME we should only have one list of rpcs
 const rpcs: Record<ChainId, string[]> = {

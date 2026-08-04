@@ -3,7 +3,7 @@
     "name": "aavev3-megaeth-usdm",
     "token": "0xFAfDdbb3FC7688494971a79cc65DCa3EF82079E7",
     "aToken": "0x5dF82810CB4B8f3e0Da3c031cCc9208ee9cF9500",
-    "debtToken": "0x6b408D6C479C304794abc60A4693A3aD2D3C2D0D",
+    "debtToken": "0x6B408d6c479C304794abC60a4693A3AD2D3c2D0D",
     "identifier": "7d445104efdd2da0",
     "oracle": "tokens",
     "oracleId": "USDm",

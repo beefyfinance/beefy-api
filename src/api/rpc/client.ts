@@ -1,19 +1,21 @@
-import type { Abi } from 'abitype';
+import type { ChainId } from '@beefyfinance/blockchain-addressbook';
 import PQueue from 'p-queue';
+import type { Abi } from 'viem';
 import {
+  type Address,
   type Client,
   createClient,
   createPublicClient,
+  type FallbackTransport,
+  fallback,
   getContract,
   type HttpTransport,
   type HttpTransportConfig,
   http,
   type PublicClient,
 } from 'viem';
-import type { ChainId } from '../../../packages/address-book/src/address-book/index.ts';
 import { envBoolean, envNumber } from '../../utils/env.ts';
 import { getChain } from './chains.ts';
-import { type CustomFallbackTransport, customFallback } from './fallbackTransport.ts';
 import { rateLimitedHttp } from './transport.ts';
 
 const BATCH_WAIT = envNumber('BATCH_WAIT', 1500);
@@ -55,7 +57,7 @@ function makeHttpTransport(url: string, config: HttpTransportConfig = {}): HttpT
   return http(url, config);
 }
 
-function makeCustomFallbackTransport(rpcUrls: string[] | readonly string[]): CustomFallbackTransport {
+function makeFallbackTransport(rpcUrls: string[] | readonly string[]): FallbackTransport {
   const transports = rpcUrls.map((url: string) =>
     makeHttpTransport(url, {
       timeout: 15000,
@@ -63,7 +65,7 @@ function makeCustomFallbackTransport(rpcUrls: string[] | readonly string[]): Cus
       retryDelay: 100,
     })
   );
-  return customFallback(transports, { rank: true });
+  return fallback(transports);
 }
 
 export const getMulticallClientForChain = (chainId: ChainId): Client => {
@@ -78,7 +80,7 @@ export const getMulticallClientForChain = (chainId: ChainId): Client => {
         },
       },
       chain: chain,
-      transport: makeCustomFallbackTransport(chain.rpcUrls.public.http),
+      transport: makeFallbackTransport(chain.rpcUrls.default.http),
     });
   }
   return multicallClientsByChain[chain.id];
@@ -96,7 +98,7 @@ const getPublicClientForChain = (chainId: ChainId): PublicClient => {
         },
       },
       chain: chain,
-      transport: makeCustomFallbackTransport(chain.rpcUrls.public.http),
+      transport: makeFallbackTransport(chain.rpcUrls.default.http),
     });
   }
   return publicClientsByChain[chain.id];
@@ -108,67 +110,15 @@ const getSingleCallClientForChain = (chainId: ChainId): Client => {
   if (!singleCallClientsByChain[chain.id]) {
     singleCallClientsByChain[chain.id] = createClient({
       chain: chain,
-      transport: makeCustomFallbackTransport(chain.rpcUrls.public.http),
+      transport: makeFallbackTransport(chain.rpcUrls.default.http),
     });
   }
   return singleCallClientsByChain[chain.id];
 };
 
-// Helper function to trim verbose viem contract errors
-export const trimContractError = (error: any): any => {
-  if (error && typeof error === 'object') {
-    // Use shortMessage if available (already trimmed by transport)
-    const coreMessage = error.shortMessage || error.message || 'Contract call failed';
-
-    // Trim the original error by removing verbose properties and updating message
-    error.message = coreMessage;
-    if (error.shortMessage) error.shortMessage = coreMessage;
-
-    // Remove verbose properties that create massive logs
-    delete error.stack;
-    delete error.cause;
-    delete error.metaMessages;
-    delete error.docsPath;
-    delete error.details;
-    delete error.version;
-    delete error.abi;
-    delete error.args;
-    delete error.formattedArgs;
-    delete error.functionName;
-    delete error.sender;
-
-    return error;
-  }
-  return error;
-};
-
 export const fetchContract = <ContractAbi extends Abi>(address: string, abi: ContractAbi, chainId: ChainId) => {
-  const publicClient = getMulticallClientForChain(chainId);
-  const contract = getContract({ address: address as `0x${string}`, abi, publicClient });
-
-  // Wrap contract methods to trim errors
-  return new Proxy(contract as any, {
-    get(target, prop) {
-      if (prop === 'read') {
-        return new Proxy(target.read, {
-          get(readTarget: any, readProp) {
-            const originalMethod = readTarget[readProp];
-            if (typeof originalMethod === 'function') {
-              return async (...args: any[]) => {
-                try {
-                  return await originalMethod.apply(readTarget, args);
-                } catch (error) {
-                  throw trimContractError(error);
-                }
-              };
-            }
-            return originalMethod;
-          },
-        });
-      }
-      return target[prop];
-    },
-  }) as typeof contract;
+  const client = getMulticallClientForChain(chainId);
+  return getContract({ address: address as Address, abi, client });
 };
 
 export const fetchNoMulticallContract = <ContractAbi extends Abi>(
@@ -176,8 +126,8 @@ export const fetchNoMulticallContract = <ContractAbi extends Abi>(
   abi: ContractAbi,
   chainId: ChainId
 ) => {
-  const publicClient = getSingleCallClientForChain(chainId);
-  return getContract({ address: address as `0x${string}`, abi, publicClient });
+  const client = getSingleCallClientForChain(chainId);
+  return getContract({ address: address as Address, abi, client });
 };
 
 export const getRPCClient = (chainId: ChainId): PublicClient => getPublicClientForChain(chainId);

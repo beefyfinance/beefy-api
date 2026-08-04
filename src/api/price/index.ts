@@ -1,0 +1,51 @@
+import type { Context } from 'koa';
+import { errorToString, isError } from '../../utils/error.ts';
+import { getLoggerFor } from '../../utils/logger/index.ts';
+import { getAmmLpPrices, getAmmTokensPrices, getLpBreakdown } from '../stats/getAmmPrices.ts';
+import { getMooTokenPrices } from '../stats/getMooTokenPrices.ts';
+
+const logger = getLoggerFor({ module: 'prices', component: 'routes' });
+
+async function lpsPrices(ctx: Context) {
+  try {
+    const lpTokenPrices = await getAmmLpPrices();
+    ctx.status = 200;
+    ctx.body = { ...lpTokenPrices };
+  } catch (err) {
+    logger.warn({ err }, 'failed to get lp prices');
+    ctx.status = 500;
+  }
+}
+
+async function tokenPrices(ctx: Context) {
+  try {
+    const prices = await getAmmTokensPrices();
+    ctx.status = 200;
+    ctx.body = prices;
+  } catch (err) {
+    ctx.throw(500, isError(err) ? err : errorToString(err));
+  }
+}
+
+async function mooTokenPrices(ctx: Context) {
+  try {
+    const prices = await getMooTokenPrices();
+    ctx.status = 200;
+    ctx.body = prices;
+  } catch (err) {
+    ctx.throw(500, isError(err) ? err : errorToString(err));
+  }
+}
+
+async function lpsBreakdown(ctx: Context) {
+  try {
+    const lpTokenBreakdown = await getLpBreakdown();
+    ctx.status = 200;
+    ctx.body = { ...lpTokenBreakdown };
+  } catch (err) {
+    logger.warn({ err }, 'failed to get lp breakdown');
+    ctx.status = 500;
+  }
+}
+
+export { lpsBreakdown, lpsPrices, mooTokenPrices, tokenPrices };

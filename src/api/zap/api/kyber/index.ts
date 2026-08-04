@@ -44,19 +44,22 @@ export function getKyberApi(chain: AnyChain): IKyberApi {
     throw new Error(`Kyber api is not supported on ${apiChain}`);
   }
 
-  if (!swapApiByChain[apiChain]) {
-    if (!swapApiQueue) {
-      swapApiQueue = new PQueue(API_QUEUE_CONFIG);
-    }
-
-    const baseUrl = `https://aggregator-api.kyberswap.com/${kyberChain}/api/v1`;
-    const clientId = process.env.KYBER_CLIENT_ID;
-    if (!clientId) {
-      throw new Error(`KYBER_CLIENT_ID env variable is not set`);
-    }
-
-    swapApiByChain[apiChain] = new RateLimitedKyberApi(baseUrl, clientId, swapApiQueue);
+  const existing = swapApiByChain[apiChain];
+  if (existing) {
+    return existing;
   }
 
-  return swapApiByChain[apiChain];
+  if (!swapApiQueue) {
+    swapApiQueue = new PQueue(API_QUEUE_CONFIG);
+  }
+
+  const baseUrl = `https://aggregator-api.kyberswap.com/${kyberChain}/api/v1`;
+  const clientId = process.env.KYBER_CLIENT_ID;
+  if (!clientId) {
+    throw new Error(`KYBER_CLIENT_ID env variable is not set`);
+  }
+
+  const api = new RateLimitedKyberApi(baseUrl, clientId, swapApiQueue);
+  swapApiByChain[apiChain] = api;
+  return api;
 }

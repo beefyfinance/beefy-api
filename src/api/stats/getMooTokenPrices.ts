@@ -1,16 +1,18 @@
+import type { PricesById } from '../../types/prices.ts';
 import { BIG_ZERO, isFiniteBigNumber } from '../../utils/big-number.ts';
 import { getKey, setKey } from '../../utils/cache/index.ts';
+import { envNumber } from '../../utils/env.ts';
 import { fetchPrice } from '../../utils/fetchPrice.ts';
 import { getLoggerFor } from '../../utils/logger/index.ts';
-import { isFiniteNumber } from '../../utils/number.ts';
+import { isValidPrice } from '../../utils/prices.ts';
 import { serviceEventBus } from '../../utils/ServiceEventBus.ts';
 import { getMultichainVaults } from './getMultichainVaults.ts';
 
 const logger = getLoggerFor({ module: 'prices' });
 
-let mooTokenPrices = {};
+let mooTokenPrices: Record<string, PricesById> = {};
 
-const INIT_DELAY = Number(process.env.MOOTOKEN_INIT_DELAY || 60 * 1000);
+const INIT_DELAY = envNumber('MOOTOKEN_INIT_DELAY', 60 * 1000);
 const REFRESH_INTERVAL = 60 * 1000;
 
 export const getMooTokenPrices = () => {
@@ -42,7 +44,7 @@ const updateMooTokenPrices = async () => {
       );
 
       // Skip vault if price is missing
-      if (!isFiniteNumber(price) || price <= 0) {
+      if (!isValidPrice(price)) {
         ++missing;
         continue;
       }
@@ -73,7 +75,7 @@ const updateMooTokenPrices = async () => {
 };
 
 export const initMooTokenPriceService = async () => {
-  let cachedMooTokenPrices = await getKey('MOO_TOKEN_PRICES');
+  const cachedMooTokenPrices = await getKey<Record<string, PricesById>>('MOO_TOKEN_PRICES');
   mooTokenPrices = cachedMooTokenPrices ?? {};
 
   await Promise.all([

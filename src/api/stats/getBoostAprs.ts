@@ -116,7 +116,12 @@ const updateBoostAprsForChain = async (chain: ApiChain, boosts: Boost[]): Promis
 /**
  * @returns -1 if boost has expired, null if error occurred, apr number value if successful
  */
-const mapResponseToBoostApr = async (boost: Boost, supply: bigint, rate: bigint, finish: bigint): Promise<number> => {
+const mapResponseToBoostApr = async (
+  boost: Boost,
+  supply: bigint,
+  rate: bigint,
+  finish: bigint
+): Promise<number | null> => {
   const totalSupply = new BigNumber(supply.toString());
   const rewardRate = new BigNumber(rate.toString());
   const periodFinish = new BigNumber(finish.toString());
@@ -174,7 +179,7 @@ const mapResponseToBoostApr = async (boost: Boost, supply: bigint, rate: bigint,
 };
 
 export const fetchBoostAprs = async () => {
-  const boostByChain: { [chain: string]: Boost[] } = getAllNewBoosts().reduce((allBoosts, previousBoost) => {
+  const boostByChain = getAllNewBoosts().reduce<Record<string, Boost[]>>((allBoosts, previousBoost) => {
     if (!allBoosts[previousBoost.chain]) allBoosts[previousBoost.chain] = [];
     allBoosts[previousBoost.chain].push(previousBoost);
     return allBoosts;

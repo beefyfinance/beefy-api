@@ -1,4 +1,5 @@
-import { ChainId } from '../../packages/address-book/src/types/chainid.ts';
+import type { ChainId } from '@beefyfinance/blockchain-addressbook/types/chainid';
+import type { Address } from 'viem';
 import IAlgebraPool from '../abis/IAlgebraPool.ts';
 import IAlgebraPoolV1 from '../abis/IAlgebraPoolV1.ts';
 import IAlgebraPoolV2 from '../abis/IAlgebraPoolV2.ts';
@@ -6,20 +7,26 @@ import IKyberElasticPoolAbi from '../abis/IKyberElasticPool.ts';
 import ISlipstreamPool from '../abis/ISlipstreamPool.ts';
 import IUniV3PoolAbi from '../abis/IUniV3Pool.ts';
 import { fetchContract } from '../api/rpc/client.ts';
+import type { PricesById } from '../types/prices.ts';
+import { toChainId } from './chain.ts';
 import { getLoggerFor } from './logger/index.ts';
+import { typedEntries } from './object.ts';
+import { isValidPrice } from './prices.ts';
+import { contextAllSettled, isContextResultRejected } from './promise.ts';
+import { withTracing } from './tracing.ts';
 
-const logger = getLoggerFor({ module: 'prices' });
+const logger = getLoggerFor({ module: 'prices', component: 'concentrated-liquidity' });
 
 type ConcentratedLiquidityToken = {
-  type: string;
+  type: SourceType;
   oracleId: string;
   decimalDelta: number;
-  pool: `0x${string}`;
+  pool: Address;
   firstToken: string;
   secondToken: string;
 };
 
-const tokens: Partial<Record<keyof typeof ChainId, ConcentratedLiquidityToken[]>> = {
+const tokens = {
   ethereum: [
     {
       type: 'Kyber',
@@ -33,7 +40,7 @@ const tokens: Partial<Record<keyof typeof ChainId, ConcentratedLiquidityToken[]>
       type: 'UniV3',
       oracleId: 'R',
       decimalDelta: 1e12,
-      pool: '0x190ed02adaf1ef8039fcd3f006b42553467d5045',
+      pool: '0x190Ed02Adaf1Ef8039fCD3f006b42553467D5045',
       firstToken: 'USDC',
       secondToken: 'R',
     },
@@ -121,7 +128,7 @@ const tokens: Partial<Record<keyof typeof ChainId, ConcentratedLiquidityToken[]>
       type: 'UniV3',
       oracleId: 'ethAUSD',
       decimalDelta: 1,
-      pool: '0xbafead7c60ea473758ed6c6021505e8bbd7e8e5d',
+      pool: '0xbAFeAd7c60Ea473758ED6c6021505E8BBd7e8E5d',
       firstToken: 'USDC',
       secondToken: 'ethAUSD',
     },
@@ -129,7 +136,7 @@ const tokens: Partial<Record<keyof typeof ChainId, ConcentratedLiquidityToken[]>
       type: 'UniV3',
       oracleId: 'ethrUSD',
       decimalDelta: 1e12,
-      pool: '0x5e1ea25a1cd7e94adeb18221b94efe7fd7ff0d23',
+      pool: '0x5e1eA25a1Cd7e94ADeb18221B94Efe7FD7FF0d23',
       firstToken: 'ethrUSD',
       secondToken: 'USDC',
     },
@@ -137,7 +144,7 @@ const tokens: Partial<Record<keyof typeof ChainId, ConcentratedLiquidityToken[]>
       type: 'UniV3',
       oracleId: 'ethDAM',
       decimalDelta: 1,
-      pool: '0xda915b6b14ad0bb6a14c66d57136772f4582c7ba',
+      pool: '0xDa915b6b14ad0bB6A14c66d57136772f4582C7ba',
       firstToken: 'WETH',
       secondToken: 'ethDAM',
     },
@@ -277,7 +284,7 @@ const tokens: Partial<Record<keyof typeof ChainId, ConcentratedLiquidityToken[]>
       type: 'UniV3',
       oracleId: 'arbUSDCe',
       decimalDelta: 1e12,
-      pool: '0xc31e54c7a869b9fcbecc14363cf510d1c41fa443',
+      pool: '0xC31E54c7a869B9FcBEcc14363CF510d1c41fa443',
       firstToken: 'arbUSDCe',
       secondToken: 'WETH',
     },
@@ -867,7 +874,7 @@ const tokens: Partial<Record<keyof typeof ChainId, ConcentratedLiquidityToken[]>
       type: 'Slipstream',
       oracleId: 'LMTS',
       decimalDelta: 1e-12,
-      pool: '0xa5e0da329ee5aa03f09228e534953496334080f5',
+      pool: '0xa5E0Da329eE5AA03f09228e534953496334080f5',
       firstToken: 'LMTS',
       secondToken: 'USDC',
     },
@@ -875,7 +882,7 @@ const tokens: Partial<Record<keyof typeof ChainId, ConcentratedLiquidityToken[]>
       type: 'Slipstream',
       oracleId: 'SEDA',
       decimalDelta: 1,
-      pool: '0x681d6e4b0b020656ca04956ddaf76add7ef022f6',
+      pool: '0x681D6e4B0b020656cA04956dDAf76aDd7EF022F6',
       firstToken: 'WETH',
       secondToken: 'SEDA',
     },
@@ -891,7 +898,7 @@ const tokens: Partial<Record<keyof typeof ChainId, ConcentratedLiquidityToken[]>
       type: 'Slipstream',
       oracleId: 'FUN',
       decimalDelta: 1e12,
-      pool: '0x659be70647b0f63217d60e077f4417b1ecc65064',
+      pool: '0x659bE70647B0f63217D60e077F4417b1eCC65064',
       firstToken: 'USDC',
       secondToken: 'FUN',
     },
@@ -907,7 +914,7 @@ const tokens: Partial<Record<keyof typeof ChainId, ConcentratedLiquidityToken[]>
       type: 'Slipstream',
       oracleId: 'ZEN',
       decimalDelta: 1,
-      pool: '0x0392b12a1ceb0cd13af5ea448cf5586ea609852d',
+      pool: '0x0392B12a1cEb0cd13af5Ea448CF5586EA609852D',
       firstToken: 'ZEN',
       secondToken: 'WETH',
     },
@@ -915,7 +922,7 @@ const tokens: Partial<Record<keyof typeof ChainId, ConcentratedLiquidityToken[]>
       type: 'Slipstream',
       oracleId: 'bLSK',
       decimalDelta: 1,
-      pool: '0x275be3a43b66516e532bcaa36ee453edd47614ea',
+      pool: '0x275BE3a43B66516e532BcaA36eE453EDd47614ea',
       firstToken: 'bLSK',
       secondToken: 'WETH',
     },
@@ -923,7 +930,7 @@ const tokens: Partial<Record<keyof typeof ChainId, ConcentratedLiquidityToken[]>
       type: 'Slipstream',
       oracleId: 'bLINK',
       decimalDelta: 1,
-      pool: '0x72be417afb0abea66913141c605d313bb389b59c',
+      pool: '0x72bE417AFB0aBEa66913141C605D313BB389b59C',
       firstToken: 'bLINK',
       secondToken: 'WETH',
     },
@@ -939,7 +946,7 @@ const tokens: Partial<Record<keyof typeof ChainId, ConcentratedLiquidityToken[]>
       type: 'Slipstream',
       oracleId: 'bTOWER',
       decimalDelta: 1e-12,
-      pool: '0xd59858f403ab4246db7a29aedf0bfd7573d9b8e5',
+      pool: '0xd59858F403aB4246Db7a29Aedf0BfD7573d9B8E5',
       firstToken: 'bTOWER',
       secondToken: 'USDC',
     },
@@ -947,7 +954,7 @@ const tokens: Partial<Record<keyof typeof ChainId, ConcentratedLiquidityToken[]>
       type: 'Slipstream',
       oracleId: 'MOCA',
       decimalDelta: 1e12,
-      pool: '0xbf4f004307f623c2fa2c6cf8ce8095200e389b13',
+      pool: '0xbf4f004307F623C2Fa2c6cf8Ce8095200e389B13',
       firstToken: 'USDC',
       secondToken: 'MOCA',
     },
@@ -955,7 +962,7 @@ const tokens: Partial<Record<keyof typeof ChainId, ConcentratedLiquidityToken[]>
       type: 'Slipstream',
       oracleId: 'bTITN',
       decimalDelta: 1e-12,
-      pool: '0x611865e603862a3d1cd29146458564a684e1cbbb',
+      pool: '0x611865e603862a3D1cd29146458564a684e1cBbb',
       firstToken: 'bTITN',
       secondToken: 'USDC',
     },
@@ -995,7 +1002,7 @@ const tokens: Partial<Record<keyof typeof ChainId, ConcentratedLiquidityToken[]>
       type: 'Slipstream',
       oracleId: 'bHYPE',
       decimalDelta: 1,
-      pool: '0x9e48d016ee76cf53e2de8dc8058c7549c8c202df',
+      pool: '0x9E48d016eE76cf53e2De8dc8058c7549c8c202DF',
       firstToken: 'WETH',
       secondToken: 'bHYPE',
     },
@@ -1035,7 +1042,7 @@ const tokens: Partial<Record<keyof typeof ChainId, ConcentratedLiquidityToken[]>
       type: 'UniV3',
       oracleId: 'OPG',
       decimalDelta: 1,
-      pool: '0x2b75b90fb01e5fc87d4d263033841397b015ceeb',
+      pool: '0x2B75B90fb01e5fc87d4D263033841397B015ceeB',
       firstToken: 'OPG',
       secondToken: 'VIRTUAL',
     },
@@ -1123,7 +1130,7 @@ const tokens: Partial<Record<keyof typeof ChainId, ConcentratedLiquidityToken[]>
       type: 'Slipstream',
       oracleId: 'basRAVE',
       decimalDelta: 1e12,
-      pool: '0x51663b8a28e7ea197c5ccf983afc084da0a8023d',
+      pool: '0x51663B8A28E7Ea197c5CcF983AfC084Da0a8023D',
       firstToken: 'USDC',
       secondToken: 'basRAVE',
     },
@@ -1131,15 +1138,15 @@ const tokens: Partial<Record<keyof typeof ChainId, ConcentratedLiquidityToken[]>
       type: 'Slipstream',
       oracleId: 'bCHIP',
       decimalDelta: 1e12,
-      pool: '0x592e01edeb601016a20a3e6cd5bf533ebbadbc8b',
+      pool: '0x592E01EDEb601016a20A3E6cD5bF533eBBadBC8b',
       firstToken: 'USDC',
-      secondToken: 'CHIP',
+      secondToken: 'bCHIP',
     },
     {
       type: 'Slipstream',
       oracleId: 'cbMEGA',
       decimalDelta: 1e-12,
-      pool: '0x0150e3d89e161518c044ad191c4bdf6b40df6e83',
+      pool: '0x0150e3d89E161518C044ad191c4bdf6b40Df6E83',
       firstToken: 'cbMEGA',
       secondToken: 'USDC',
     },
@@ -1147,7 +1154,7 @@ const tokens: Partial<Record<keyof typeof ChainId, ConcentratedLiquidityToken[]>
       type: 'Slipstream',
       oracleId: 'AORA',
       decimalDelta: 1e12,
-      pool: '0x0aed2bd5abdffcde57c0bcf30e75cd594b8876a9',
+      pool: '0x0aeD2Bd5AbdFfCDe57c0bCf30E75cd594b8876A9',
       firstToken: 'USDC',
       secondToken: 'AORA',
     },
@@ -1163,7 +1170,7 @@ const tokens: Partial<Record<keyof typeof ChainId, ConcentratedLiquidityToken[]>
       type: 'Slipstream',
       oracleId: 'TEA',
       decimalDelta: 1e-12,
-      pool: '0xabe1f289107c20081F591bB3972B8289ADD64F6C',
+      pool: '0xAbe1f289107C20081F591BB3972b8289aDd64f6C',
       firstToken: 'TEA',
       secondToken: 'USDC',
     },
@@ -1195,7 +1202,7 @@ const tokens: Partial<Record<keyof typeof ChainId, ConcentratedLiquidityToken[]>
       type: 'UniV3',
       oracleId: 'LFI',
       decimalDelta: 1,
-      pool: '0x588f68b9fa04366f33f8ce095c13f0cebab9406a',
+      pool: '0x588f68b9fA04366F33f8Ce095C13F0cebaB9406a',
       firstToken: 'WETH',
       secondToken: 'LFI',
     },
@@ -1223,7 +1230,7 @@ const tokens: Partial<Record<keyof typeof ChainId, ConcentratedLiquidityToken[]>
       type: 'Slipstream',
       oracleId: 'XVELO',
       decimalDelta: 1,
-      pool: '0xc2026f3fb6fc51f4ecae40a88b4509cb6c143ed4',
+      pool: '0xc2026f3fb6fc51F4EcAE40a88b4509cB6C143ed4',
       firstToken: 'XVELO',
       secondToken: 'WETH',
     },
@@ -1305,7 +1312,7 @@ const tokens: Partial<Record<keyof typeof ChainId, ConcentratedLiquidityToken[]>
       type: 'AlgebraV2',
       oracleId: 'SWPx',
       decimalDelta: 1,
-      pool: '0xbeca246a76942502f61bfe88f60bbc87dafefe80',
+      pool: '0xbeca246A76942502f61bFe88F60bbc87DaFefe80',
       firstToken: 'SWPx',
       secondToken: 'WS',
     },
@@ -1403,7 +1410,7 @@ const tokens: Partial<Record<keyof typeof ChainId, ConcentratedLiquidityToken[]>
       type: 'UniV3',
       oracleId: 'RAMEN',
       decimalDelta: 1,
-      pool: '0xd52fefe5b7ee099514c971bb87f318b51d098db9',
+      pool: '0xd52FEFe5b7EE099514c971bB87F318b51D098dB9',
       firstToken: 'RAMEN',
       secondToken: 'WBERA',
     },
@@ -1669,7 +1676,7 @@ const tokens: Partial<Record<keyof typeof ChainId, ConcentratedLiquidityToken[]>
       type: 'UniV3',
       oracleId: 'GENIUS',
       decimalDelta: 1,
-      pool: '0xe0f837648bd575edbc47bf579bce786c73e50243',
+      pool: '0xe0F837648bD575EDbc47Bf579BCe786C73E50243',
       firstToken: 'USDT',
       secondToken: 'GENIUS',
     },
@@ -1677,7 +1684,7 @@ const tokens: Partial<Record<keyof typeof ChainId, ConcentratedLiquidityToken[]>
       type: 'UniV3',
       oracleId: 'bnbZEC',
       decimalDelta: 1,
-      pool: '0xbf3693031c272be6d539d79a9715561229a8fba9',
+      pool: '0xbF3693031c272be6d539d79a9715561229a8fBa9',
       firstToken: 'BTCB',
       secondToken: 'bnbZEC',
     },
@@ -1703,7 +1710,7 @@ const tokens: Partial<Record<keyof typeof ChainId, ConcentratedLiquidityToken[]>
       type: 'UniV3',
       oracleId: 'bCSPX',
       decimalDelta: 1,
-      pool: '0x0439847e20dac107ddacc19a4530c694c465e9c0',
+      pool: '0x0439847E20dac107DDACc19A4530c694c465E9C0',
       firstToken: 'gsDAI',
       secondToken: 'bCSPX',
     },
@@ -1711,7 +1718,7 @@ const tokens: Partial<Record<keyof typeof ChainId, ConcentratedLiquidityToken[]>
       type: 'UniV3',
       oracleId: 'wbTSLA',
       decimalDelta: 1,
-      pool: '0x0cf44132a7df09ba82d5c4010e73e151d31a42ae',
+      pool: '0x0Cf44132a7Df09ba82D5c4010e73e151d31a42Ae',
       firstToken: 'gsDAI',
       secondToken: 'wbTSLA',
     },
@@ -1719,7 +1726,7 @@ const tokens: Partial<Record<keyof typeof ChainId, ConcentratedLiquidityToken[]>
       type: 'UniV3',
       oracleId: 'gUSDCe',
       decimalDelta: 1e-12,
-      pool: '0xf5e40cc12f69121b0329c256a99f4ab3ebdfaa2e',
+      pool: '0xf5E40cC12f69121B0329c256A99F4ab3ebDfAA2E',
       firstToken: 'WXDAI',
       secondToken: 'gUSDCe',
     },
@@ -1818,7 +1825,7 @@ const tokens: Partial<Record<keyof typeof ChainId, ConcentratedLiquidityToken[]>
       oracleId: 'XAUt0',
       decimalDelta: 1,
       pool: '0xc096DA06e8fa70386deDbc5D4D6B2a453B9106F5',
-      firstToken: 'XAUTt0',
+      firstToken: 'XAUt0',
       secondToken: 'USDT0',
     },
     {
@@ -1856,7 +1863,7 @@ const tokens: Partial<Record<keyof typeof ChainId, ConcentratedLiquidityToken[]>
       secondToken: 'XAUt0',
     },
   ],
-  monad: [],
+  monad: [] as ConcentratedLiquidityToken[],
   megaeth: [
     {
       type: 'UniV3',
@@ -1928,7 +1935,7 @@ const tokens: Partial<Record<keyof typeof ChainId, ConcentratedLiquidityToken[]>
       type: 'Slipstream',
       oracleId: 'UP33',
       decimalDelta: 1,
-      pool: '0x23d641feccd207e8794c593e8240444a0674c4ba',
+      pool: '0x23D641FeCcD207E8794c593e8240444A0674C4Ba',
       firstToken: 'UP33',
       secondToken: 'WETH',
     },
@@ -1941,61 +1948,126 @@ const tokens: Partial<Record<keyof typeof ChainId, ConcentratedLiquidityToken[]>
       secondToken: 'WETH',
     },
   ],
+} satisfies Partial<Record<keyof typeof ChainId, ConcentratedLiquidityToken[]>>;
+
+type Context = {
+  token: ConcentratedLiquidityToken;
+  chainId: ChainId;
+};
+type ReadTickFn = (ctx: Context) => Promise<number>;
+type SourceTypeFunctions = {
+  readTick: ReadTickFn;
 };
 
-async function getConcentratedLiquidityPrices(
-  tokenPrices: Record<string, number>,
-  chainTokens: ConcentratedLiquidityToken[],
-  chainId: ChainId
-): Promise<number[]> {
-  const concentratedLiquidityPriceCalls = chainTokens.map(token => {
-    if (token.type == 'Kyber') {
-      const tokenContract = fetchContract(token.pool, IKyberElasticPoolAbi, chainId);
-      return tokenContract.read.getPoolState();
-    } else if (token.type == 'Algebra') {
-      const tokenContract = fetchContract(token.pool, IAlgebraPool, chainId);
-      return tokenContract.read.globalState();
-    } else if (token.type == 'AlgebraV1') {
-      const tokenContract = fetchContract(token.pool, IAlgebraPoolV1, chainId);
-      return tokenContract.read.globalState();
-    } else if (token.type == 'AlgebraV2') {
-      const tokenContract = fetchContract(token.pool, IAlgebraPoolV2, chainId);
-      return tokenContract.read.globalState();
-    } else if (token.type == 'Slipstream') {
-      const tokenContract = fetchContract(token.pool, ISlipstreamPool, chainId);
-      return tokenContract.read.slot0();
-    } else {
-      const tokenContract = fetchContract(token.pool, IUniV3PoolAbi, chainId);
-      return tokenContract.read.slot0();
-    }
-  });
+const sourceTypes = {
+  UniV3: {
+    async readTick({ token, chainId }: Context) {
+      const [, tick] = await fetchContract(token.pool, IUniV3PoolAbi, chainId).read.slot0();
+      return tick;
+    },
+  },
+  Slipstream: {
+    async readTick({ token, chainId }: Context) {
+      const [, tick] = await fetchContract(token.pool, ISlipstreamPool, chainId).read.slot0();
+      return tick;
+    },
+  },
+  Kyber: {
+    async readTick({ token, chainId }: Context) {
+      const [, tick] = await fetchContract(token.pool, IKyberElasticPoolAbi, chainId).read.getPoolState();
+      return tick;
+    },
+  },
+  Algebra: {
+    async readTick({ token, chainId }: Context) {
+      const [, tick] = await fetchContract(token.pool, IAlgebraPool, chainId).read.globalState();
+      return tick;
+    },
+  },
+  AlgebraV1: {
+    async readTick({ token, chainId }: Context) {
+      const [, tick] = await fetchContract(token.pool, IAlgebraPoolV1, chainId).read.globalState();
+      return tick;
+    },
+  },
+  AlgebraV2: {
+    async readTick({ token, chainId }: Context) {
+      const [, tick] = await fetchContract(token.pool, IAlgebraPoolV2, chainId).read.globalState();
+      return tick;
+    },
+  },
+} as const satisfies Record<string, SourceTypeFunctions>;
 
-  try {
-    const res = await Promise.all(concentratedLiquidityPriceCalls);
-    const tokenPrice = res.map(v => Number(v[1]));
-    const prices = {};
-    tokenPrice.forEach((v, i) => {
-      const first = chainTokens[i].firstToken;
-      const second = chainTokens[i].secondToken;
-      prices[chainTokens[i].oracleId] =
-        first == chainTokens[i].oracleId
-          ? (tokenPrices[second] || prices[second]) / (chainTokens[i].decimalDelta * Math.pow(1.0001, v))
-          : (tokenPrices[first] || prices[first]) * (chainTokens[i].decimalDelta * Math.pow(1.0001, v));
-    });
-    return Object.values(prices);
-  } catch (e) {
-    logger.warn({ err: e, chain: chainId }, 'concentrated liquidity price fetch failed');
-    return chainTokens.map(() => 0);
+type SourceType = keyof typeof sourceTypes;
+
+/** The oracleId must be one side of the pool pair, and is priced against the other */
+function getPairing(token: ConcentratedLiquidityToken): { pairedId: string; divide: boolean } {
+  const { oracleId, firstToken, secondToken, pool } = token;
+  if (firstToken === oracleId) {
+    return { pairedId: secondToken, divide: true };
+  } else if (secondToken === oracleId) {
+    return { pairedId: firstToken, divide: false };
+  } else {
+    throw new Error(`Incorrectly configured concentrated liquidity price, ${oracleId} is not in pool ${pool}`);
   }
 }
 
-export async function fetchConcentratedLiquidityTokenPrices(tokenPrices): Promise<Record<string, number>> {
-  const pricesByChain: Record<string, number>[] = await Promise.all(
-    Object.entries(tokens).map(async ([chainId, chainTokens]) => {
-      const prices = await getConcentratedLiquidityPrices(tokenPrices, chainTokens, ChainId[chainId]);
-      return Object.fromEntries(chainTokens.map((token, i) => [token.oracleId, prices[i] || 0]));
-    })
-  );
+async function getConcentratedLiquidityPrices(
+  tokenPrices: PricesById,
+  chainTokens: ConcentratedLiquidityToken[],
+  chainId: ChainId
+): Promise<PricesById> {
+  const contexts = chainTokens.map((token): Context => ({ token, chainId }));
 
-  return Object.assign({}, ...pricesByChain);
+  const tickResults = await contextAllSettled(contexts, async (ctx: Context) => {
+    const source = sourceTypes[ctx.token.type];
+    if (!source) {
+      throw new Error(`Incorrectly configured concentrated liquidity price, unexpected type ${ctx.token.type}`);
+    }
+    return source.readTick(ctx);
+  });
+
+  // sequential, so an entry can use the price of a token listed above it
+  const prices: PricesById = {};
+  for (const result of tickResults) {
+    const { oracleId, decimalDelta, pool } = result.context.token;
+    const fields = { chain: chainId, oracleId, pool };
+
+    if (isContextResultRejected(result)) {
+      logger.warn({ ...fields, err: result.reason }, 'failed to read tick');
+      continue;
+    }
+
+    const { pairedId, divide } = getPairing(result.context.token);
+    const externalPrice = tokenPrices[pairedId];
+    const pairedPrice = isValidPrice(externalPrice) ? externalPrice : prices[pairedId];
+    if (!isValidPrice(pairedPrice)) {
+      logger.warn({ ...fields, paired: pairedId }, 'missing paired price');
+      continue;
+    }
+
+    const ratio = decimalDelta * Math.pow(1.0001, result.value);
+    const price = divide ? pairedPrice / ratio : pairedPrice * ratio;
+    if (!isValidPrice(price)) {
+      logger.warn({ ...fields, price, tick: result.value }, 'invalid price calculated');
+      continue;
+    }
+
+    prices[oracleId] = price;
+  }
+
+  return prices;
 }
+
+export const fetchConcentratedLiquidityTokenPrices = withTracing(
+  async (tokenPrices: PricesById): Promise<PricesById> => {
+    const pricesByChain = await Promise.all(
+      typedEntries(tokens).map(([chainId, chainTokens]) =>
+        getConcentratedLiquidityPrices(tokenPrices, chainTokens, toChainId(chainId))
+      )
+    );
+
+    return Object.assign({}, ...pricesByChain);
+  },
+  { logger }
+);

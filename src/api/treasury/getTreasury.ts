@@ -1,6 +1,6 @@
+import { addressBook } from '@beefyfinance/blockchain-addressbook';
+import { chainIdMap } from '@beefyfinance/blockchain-addressbook/util/chainIdMap';
 import { BigNumber } from 'bignumber.js';
-import { addressBook } from '../../../packages/address-book/src/address-book/index.ts';
-import { chainIdMap } from '../../../packages/address-book/src/util/chainIdMap.ts';
 import { ZERO_ADDRESS } from '../../utils/address.ts';
 import { keysToObject } from '../../utils/array.ts';
 import { getKey, setKey } from '../../utils/cache/index.ts';
@@ -40,7 +40,7 @@ let treasurySummary: TreasuryReport = keysToObject(SupportedChains, () => ({}));
 function updateTreasuryAddressesByChain() {
   treasuryAddressesByChain = keysToObject(SupportedChains, chain => {
     const chainAddressbook = addressBook[chain];
-    const addresses = {};
+    const addresses: Record<string, { address: string; label: string }> = {};
     const treasuryMultisig = chainAddressbook.platforms.beefyfinance.treasuryMultisig;
     const treasury = chainAddressbook.platforms.beefyfinance.treasury;
 
@@ -90,8 +90,8 @@ async function updateSingleChainTreasuryBalance(chain: ApiChain) {
 }
 
 async function updateSingleChainTreasuryBalanceImpl(chain: ApiChain) {
-  const assetsToCheck = Object.values(assetsByChain[chain]);
-  const treasuryAddressesForChain = Object.values(treasuryAddressesByChain[chain]);
+  const assetsToCheck = Object.values(assetsByChain[chain] ?? {});
+  const treasuryAddressesForChain = Object.values(treasuryAddressesByChain[chain] ?? {});
 
   const assetCalls = assetsToCheck.map(asset =>
     Promise.all(mapAssetToCall(asset, treasuryAddressesForChain, chainIdMap[chain]))
@@ -105,7 +105,7 @@ async function updateSingleChainTreasuryBalanceImpl(chain: ApiChain) {
       'treasury update had at least one failed call'
     );
   }
-  const balancesForChain = {};
+  const balancesForChain: Record<string, Record<string, unknown>> = {};
   treasuryAddressesForChain.forEach((treasuryData: any) => {
     balancesForChain[treasuryData.address.toLowerCase()] = {};
   });
@@ -153,10 +153,10 @@ async function buildTreasuryReport() {
 }
 
 async function buildTreasuryReportForChain(chain: ApiChain): Promise<TreasuryReport[ApiChain]> {
-  const chainBalancesByAddress = tokenBalancesByChain[chain];
+  const chainBalancesByAddress = tokenBalancesByChain[chain] ?? {};
   const balanceReport: TreasuryReport[ApiChain] = {};
 
-  const chainTreasuryWallets = treasuryAddressesByChain[chain];
+  const chainTreasuryWallets = treasuryAddressesByChain[chain] ?? {};
   for (const [address, wallet] of Object.entries(chainTreasuryWallets)) {
     balanceReport[address] = {
       name: wallet.label,
@@ -165,7 +165,7 @@ async function buildTreasuryReportForChain(chain: ApiChain): Promise<TreasuryRep
   }
 
   for (const assetBalance of Object.values(chainBalancesByAddress)) {
-    const treasuryAsset = assetsByChain[chain][assetBalance.address];
+    const treasuryAsset = (assetsByChain[chain] ?? {})[assetBalance.address];
 
     if (treasuryAsset === undefined) {
       continue; // cached asset hasn't been deleted yet

@@ -2,7 +2,7 @@ import type Koa from 'koa';
 import { getLoggerFor } from '../../utils/logger/index.ts';
 import { getActiveProposals, getLatestProposal } from './getProposals.ts';
 
-const logger = getLoggerFor({ module: 'snapshot' });
+const logger = getLoggerFor({ module: 'snapshot', component: 'routes' });
 
 // latest proposal to display on app
 function latest(ctx: Koa.Context) {

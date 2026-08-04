@@ -41,8 +41,8 @@
   },
   {
     "name": "curve-fraxtal-scrvusd-sfrxusd",
-    "pool": "0xac5dd1861bcf660a788e5f1f3d4d09bcf661946c",
-    "gauge": "0x660622adba5339e62d800be440d6d0c8c1838559",
+    "pool": "0xaC5dD1861BCf660a788e5F1F3d4d09bCf661946c",
+    "gauge": "0x660622Adba5339e62D800BE440d6D0C8c1838559",
     "convex": true,
     "tokens": [
       {
@@ -57,8 +57,8 @@
   },
   {
     "name": "curve-fraxtal-fxs-sdfxs",
-    "pool": "0x3df1658e3e76d14ef3c4d410829ea7575bb83b9b",
-    "gauge": "0xa40c1e9aa3781c74c437212cd0353eaab3ebba6f",
+    "pool": "0x3df1658e3E76d14eF3C4d410829EA7575bB83B9B",
+    "gauge": "0xa40C1E9aA3781c74c437212cd0353eAAB3EBBa6F",
     "convex": true,
     "getDy": ["v1", 1, 0],
     "tokens": [
@@ -74,8 +74,8 @@
   },
   {
     "name": "curve-fraxtal-trifxb",
-    "pool": "0x2421176aea0def263805a9c87f6c9d10147b8a93",
-    "gauge": "0xbd4af2a6510b988878805956e5111839e55de069",
+    "pool": "0x2421176AeA0dEF263805a9C87F6c9d10147b8A93",
+    "gauge": "0xBd4Af2a6510b988878805956e5111839e55de069",
     "convex": true,
     "rewards": [
       {
@@ -100,8 +100,8 @@
   },
   {
     "name": "curve-fraxtal-fxb_20291231",
-    "pool": "0xee454138083b9b9714cac3c7cf12560248d76d6b",
-    "gauge": "0x48100238c4a3cf44cfbf6c7693ed5c216881face",
+    "pool": "0xeE454138083b9B9714cac3c7cF12560248d76D6B",
+    "gauge": "0x48100238C4a3CF44cFbF6C7693eD5C216881fAcE",
     "convex": true,
     "getDy": ["v1", 1, 0],
     "rewards": [
@@ -123,8 +123,8 @@
   },
   {
     "name": "curve-fraxtal-fxb_20551231",
-    "pool": "0x4cfc391d75c43cf1bdb368e8bf680aed1228df39",
-    "gauge": "0x7ba1e40dae22847e6c521ba297d40ff1c5fd97dd",
+    "pool": "0x4Cfc391d75c43Cf1Bdb368e8bF680AEd1228df39",
+    "gauge": "0x7bA1e40dAe22847E6c521bA297d40fF1c5fD97dd",
     "convex": true,
     "getDy": ["v1", 1, 0],
     "rewards": [
@@ -146,8 +146,8 @@
   },
   {
     "name": "curve-fraxtal-fxb_20251231",
-    "pool": "0x63d64a76c2d616676cbac3068d3c6548f8485314",
-    "gauge": "0xaa45cd0b2d22df00832ae70d9db8ebadab176a60",
+    "pool": "0x63d64A76C2D616676CBAC3068D3C6548F8485314",
+    "gauge": "0xaA45cD0b2d22df00832Ae70D9DB8EBadAB176a60",
     "getDy": ["v1", 1, 0],
     "rewards": [
       {
@@ -168,8 +168,8 @@
   },
   {
     "name": "curve-fraxtal-frax-susde",
-    "pool": "0x8b4e5263e8d6cc0bbf31edf14491fc6077b88229",
-    "gauge": "0x59005665c5060d3abee291a21de0375cf1bbed03",
+    "pool": "0x8b4E5263E8D6cc0bbF31EDF14491fc6077B88229",
+    "gauge": "0x59005665c5060D3abEE291A21DE0375cf1BBed03",
     "convex": true,
     "rewards": [
       {
@@ -190,8 +190,8 @@
   },
   {
     "name": "curve-fraxtal-frax-usde",
-    "pool": "0x1e199dbe1f7aa237282fe941d5bcc3b167c8ce48",
-    "gauge": "0x86a79cee2734e5357ff6b5495c4a30915921223a",
+    "pool": "0x1e199DbE1f7aa237282fE941d5Bcc3b167c8Ce48",
+    "gauge": "0x86A79cEE2734E5357FF6B5495c4a30915921223a",
     "convex": true,
     "getDy": ["v1", 1, 0],
     "rewards": [
@@ -213,8 +213,8 @@
   },
   {
     "name": "curve-fraxtal-fxb_20261231",
-    "pool": "0xbc3705b2bfd42d38e8fa2c8efdc3fdda645c3b2a",
-    "gauge": "0xaa1bdffab337c11c34afb56eee1da95cc3d09a65",
+    "pool": "0xbC3705b2bfD42d38e8FA2c8EFDC3Fdda645C3b2a",
+    "gauge": "0xaa1bDFfAb337c11c34AfB56eee1Da95cc3D09A65",
     "getDy": ["v1", 1, 0],
     "rewards": [
       {
@@ -235,8 +235,8 @@
   },
   {
     "name": "curve-fraxtal-frax-sdai",
-    "pool": "0x385540fda649a114ffeb943fd73ae82ce7908da3",
-    "gauge": "0xcdbfcbf18d504f5bd6b29bac5d91405f9f59980f",
+    "pool": "0x385540FdA649A114Ffeb943fD73ae82cE7908Da3",
+    "gauge": "0xcdBfCBf18D504F5BD6b29Bac5d91405F9f59980F",
     "rewards": [
       {
         "token": "0xFc00000000000000000000000000000000000002",
@@ -256,8 +256,8 @@
   },
   {
     "name": "curve-fraxtal-wfrxeth-weth",
-    "pool": "0xf8474c80dfe3af4794eac64672137ad390aabb0a",
-    "gauge": "0xee8ca91b8bff51db3f95949bf9d109e95ecd1a4c",
+    "pool": "0xf8474c80dfE3AF4794Eac64672137ad390AAbB0A",
+    "gauge": "0xEE8Ca91B8Bff51db3f95949bF9d109E95ecd1a4C",
     "rewards": [
       {
         "token": "0xFc00000000000000000000000000000000000002",
@@ -277,8 +277,8 @@
   },
   {
     "name": "curve-fraxtal-fxs-cvxfxs",
-    "pool": "0x3a38e9b0b5cb034de01d5298fc2ed2d793c0c36f",
-    "gauge": "0x070ebc9f46d0a6a523d31eb4ae7901c56ad97ae2",
+    "pool": "0x3a38e9b0B5cB034De01d5298Fc2Ed2D793C0C36F",
+    "gauge": "0x070EBC9F46d0a6A523D31eb4aE7901C56AD97ae2",
     "convex": true,
     "rewards": [
       {
@@ -299,8 +299,8 @@
   },
   {
     "name": "curve-fraxtal-tricrv",
-    "pool": "0xf593ae314749d0c92b450f0a13e7e1791f352bb7",
-    "gauge": "0x9ccc509a5b4869bac6be86e79ea00c25942852f4",
+    "pool": "0xF593aE314749d0c92B450F0a13E7e1791f352bB7",
+    "gauge": "0x9ccC509a5b4869bAC6BE86e79Ea00c25942852F4",
     "convex": true,
     "rewards": [
       {
@@ -325,8 +325,8 @@
   },
   {
     "name": "curve-fraxtal-frax-dai",
-    "pool": "0x86d7fa03a70c428d3e28092f4509a16f16ec5b7c",
-    "gauge": "0x64100c172d5dc8007e3ee701ecd99468619b6583",
+    "pool": "0x86d7FA03a70c428D3E28092F4509a16f16eC5b7C",
+    "gauge": "0x64100c172D5DC8007E3ee701ECD99468619B6583",
     "convex": true,
     "rewards": [
       {
@@ -347,8 +347,8 @@
   },
   {
     "name": "curve-fraxtal-frax-pyusd",
-    "pool": "0x35c6c59277f8fa9ae98dea29b0546d79957acdd8",
-    "gauge": "0x72bd89f2e3470fa5d188cf04eda17e8145eb4bf1",
+    "pool": "0x35c6c59277f8fA9Ae98dea29b0546D79957ACDd8",
+    "gauge": "0x72Bd89F2E3470fA5d188cF04eda17E8145eb4BF1",
     "convex": true,
     "rewards": [
       {
@@ -369,8 +369,8 @@
   },
   {
     "name": "curve-fraxtal-crvusd-frax",
-    "pool": "0x63eb7846642630456707c3efbb50a03c79b89d81",
-    "gauge": "0x98a6c35546be6f7c545c99efb48f4673ed2c99fc",
+    "pool": "0x63Eb7846642630456707C3efBb50A03c79B89D81",
+    "gauge": "0x98a6C35546be6F7c545c99EfB48F4673eD2c99fc",
     "convex": true,
     "rewards": [
       {
@@ -391,8 +391,8 @@
   },
   {
     "name": "curve-fraxtal-fraxusdc",
-    "pool": "0xa8eb7b41fe8df7ea3de982397ad183721784d987",
-    "gauge": "0xaa6ddba00de48d41e41543ef0a78ab31aae4de8d",
+    "pool": "0xa8eB7B41fe8dF7Ea3de982397AD183721784D987",
+    "gauge": "0xAA6dDbA00DE48D41E41543eF0a78AB31aae4dE8d",
     "convex": true,
     "rewards": [
       {
@@ -413,8 +413,8 @@
   },
   {
     "name": "curve-fraxtal-trifxs",
-    "pool": "0xa0d3911349e701a1f49c1ba2dda34b4ce9636569",
-    "gauge": "0x8882eb84d0c4894753c0450f2d514e39883c0c82",
+    "pool": "0xa0D3911349e701A1F49C1Ba2dDA34b4ce9636569",
+    "gauge": "0x8882eB84d0c4894753C0450f2D514E39883c0C82",
     "convex": true,
     "rewards": [
       {
@@ -439,8 +439,8 @@
   },
   {
     "name": "curve-fraxtal-sfrxeth",
-    "pool": "0xf2f426fe123de7b769b2d4f8c911512f065225d3",
-    "gauge": "0xd1d981ddd0c9a0469e7d8cee877f83b5877d7260",
+    "pool": "0xF2f426Fe123De7b769b2D4F8c911512F065225d3",
+    "gauge": "0xD1D981dDD0c9A0469E7d8cEE877f83B5877D7260",
     "convex": true,
     "rewards": [
       {
@@ -462,8 +462,8 @@
   },
   {
     "name": "curve-fraxtal-frax-usdt",
-    "pool": "0xcaef324bea3ff5c7a08710081294f3344ffadc54",
-    "gauge": "0xe049aa6fbd64210bdeddc15f5a861084e6ee8b57",
+    "pool": "0xcAEF324bea3Ff5c7a08710081294F3344fFAdC54",
+    "gauge": "0xE049AA6fbd64210bDEddC15F5a861084E6eE8b57",
     "convex": true,
     "rewards": [
       {

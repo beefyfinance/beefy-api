@@ -1,5 +1,21 @@
 {
-  // we develop in CommonJS because the api imports from source
-  // however we build for both CommonJS and ES modules when the package is published
-  "extends": "./tsconfig.cjs.json",
+  "compilerOptions": {
+    "target": "ES2023",
+    "lib": ["ES2023", "DOM", "DOM.Iterable"],
+    "module": "ES2020",
+    "moduleResolution": "bundler",
+    "allowJs": false,
+    "skipLibCheck": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "noFallthroughCasesInSwitch": true,
+    "resolveJsonModule": false,
+    "isolatedModules": true,
+    "pretty": true,
+    "declaration": true,
+    "noEmit": true,
+    "verbatimModuleSyntax": true,
+    "types": ["node"]
+  },
+  "include": ["./src/**/*", "./scripts/**/*"]
 }

@@ -1,28 +1,20 @@
 {
-  "include": [
-    "src/",
-    "scripts/"
-  ],
+  "include": ["src/", "scripts/"],
   "compilerOptions": {
     "module": "nodenext",
     "moduleResolution": "nodenext",
-    "target": "es2022",
-    "lib": [
-      "es2022"
-    ],
+    "target": "es2025",
+    "lib": ["es2025"],
     "esModuleInterop": true,
     "resolveJsonModule": true,
-    "allowJs": true,
-    "checkJs": false,
+    "allowJs": false,
     "isolatedModules": true,
     "allowImportingTsExtensions": true,
-    "strict": false,
+    "strict": true,
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
     "noEmit": true,
     "noErrorTruncation": true,
-    "types": [
-      "node"
-    ]
+    "types": ["node"]
   }
 }

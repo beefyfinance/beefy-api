@@ -1,0 +1,25 @@
+engine biome(1.0)
+language js(typescript)
+
+// Bans silently coercing an absent value to a number in the price/fee/TVL pipeline.
+//
+// `price ?? 0` turns "we don't know the price" into "the price is zero", which propagates
+// into TVL and APY maths and is published to users as a real number. The same applies to
+// `?? 1` for ratios and multipliers.
+//
+// The right answers, in order of preference:
+//   1. omit the key entirely  -- `isFiniteNumber(v) ? { [k]: v } : {}`  (src/utils/number.ts)
+//   2. let it propagate as NaN, where downstream control flow tests for it
+//   3. `toFiniteNumber(v, 0)` (src/utils/number.ts) when zero is a genuine business value
+or {
+    `$a ?? 0`,
+    `$a ?? 1`,
+    `$a || 0`,
+    `$a || 1`
+} as $node where {
+    register_diagnostic(
+        span = $node,
+        message = "Silent numeric coercion in a financial path. `?? 0` makes an unknown price indistinguishable from a real zero. Omit the key instead (see isFiniteNumber), let it propagate as NaN, or use toFiniteNumber(v, 0) from src/utils/number.ts if zero is genuinely the right value.",
+        severity = "error"
+    )
+}

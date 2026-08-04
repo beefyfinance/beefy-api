@@ -23,8 +23,8 @@
   },
   {
     "name": "curve-arb-usde-usdx",
-    "pool": "0x096a8865367686290639bc50bf8d85c0110d9fea",
-    "gauge": "0x99178264ec6b9de40689ee4f2f561ca3885a4bd2",
+    "pool": "0x096A8865367686290639bc50bF8D85C0110d9Fea",
+    "gauge": "0x99178264ec6b9de40689eE4F2f561cA3885a4BD2",
     "convex": true,
     "tokens": [
       {
@@ -39,8 +39,8 @@
   },
   {
     "name": "curve-arb-dlcbtc",
-    "pool": "0xe957ce03ccdd88f02ed8b05c9a3a28abef38514a",
-    "gauge": "0x02b8e750e68cb648db2c2ac4bbb47a10a5c12588",
+    "pool": "0xe957cE03cCdd88f02ed8b05C9a3A28ABEf38514A",
+    "gauge": "0x02b8e750E68cb648dB2c2ac4BBb47A10A5c12588",
     "rewards": [
       {
         "token": "0x050C24dBf1eEc17babE5fc585F06116A259CC77A",
@@ -62,8 +62,8 @@
   },
   {
     "name": "curve-arb-knox-eusd-v2",
-    "pool": "0x86ea1191a219989d2da3a85c949a12a92f8ed3db",
-    "gauge": "0x8d4fc7ccb459722fdc675bfbe6fa52540bb70a4b",
+    "pool": "0x86EA1191a219989d2dA3a85c949a12A92f8ED3Db",
+    "gauge": "0x8d4Fc7cCB459722Fdc675BfBe6Fa52540bb70A4B",
     "convex": true,
     "rewards": [
       {
@@ -88,8 +88,8 @@
   },
   {
     "name": "curve-arb-eth+-eth-v2",
-    "pool": "0x1fb84fa6d252762e8367ea607a6586e09dcebe3d",
-    "gauge": "0x6e9a99f8b3e22c3ee81d888d7e29293e939b6f9c",
+    "pool": "0x1Fb84Fa6D252762e8367eA607A6586E09dceBe3D",
+    "gauge": "0x6E9a99F8b3e22c3Ee81d888d7e29293E939B6f9C",
     "convex": true,
     "rewards": [
       {
@@ -114,8 +114,8 @@
   },
   {
     "name": "curve-arb-tbtc-ng",
-    "pool": "0x186cf879186986a20aadfb7ead50e3c20cb26cec",
-    "gauge": "0xb7e23a438c9cad2575d3c048248a943a7a03f3fa",
+    "pool": "0x186cF879186986A20aADFb7eAD50e3C20cb26CeC",
+    "gauge": "0xB7e23A438C9cad2575d3C048248A943a7a03f3fA",
     "convex": true,
     "sdSideCar": "0xa24bf33657ed905246E3cDdE9c3B0567DB63403f",
     "rewards": [
@@ -137,8 +137,8 @@
   },
   {
     "name": "curve-arb-trirsr",
-    "pool": "0x45b47fe1bed067de6b4b89e0285e6b571a64c57c",
-    "gauge": "0xf7205c995b7e5f8f755ecbe7eebb92ec742633c9",
+    "pool": "0x45B47fE1bed067de6B4b89e0285E6B571A64c57C",
+    "gauge": "0xF7205c995b7E5f8F755ecbe7eEbb92eC742633C9",
     "rewards": [
       {
         "token": "0xCa5Ca9083702c56b481D1eec86F1776FDbd2e594",
@@ -166,8 +166,8 @@
   },
   {
     "name": "curve-arb-eusd-usdc",
-    "pool": "0x93a416206b4ae3204cfe539edfee6bc05a62963e",
-    "gauge": "0xad85fb8a5ed9e2f338d2798a9eef176d31ca6a57",
+    "pool": "0x93a416206B4ae3204cFE539edfeE6BC05a62963e",
+    "gauge": "0xad85FB8A5eD9E2f338d2798A9eEF176D31cA6A57",
     "convex": true,
     "rewards": [
       {
@@ -192,8 +192,8 @@
   },
   {
     "name": "curve-arb-eusd-crvusd",
-    "pool": "0x67d11005af05bb1e9fdb1cfc261c23de3e1055a1",
-    "gauge": "0x71d97aeeefe4715e05354d009b8b7a77c325cc2d",
+    "pool": "0x67D11005AF05Bb1e9fDb1CFc261C23DE3E1055a1",
+    "gauge": "0x71D97aEEEfe4715E05354D009B8B7a77c325CC2d",
     "rewards": [
       {
         "token": "0xCa5Ca9083702c56b481D1eec86F1776FDbd2e594",
@@ -217,8 +217,8 @@
   },
   {
     "name": "curve-arb-eth+-eth",
-    "pool": "0x95f425c7d730eb7673fca272c2c305f48ed546c3",
-    "gauge": "0xb224cf7c17db373ecef550cf957b8a4dd40c8109",
+    "pool": "0x95F425c7d730Eb7673fca272c2c305f48Ed546c3",
+    "gauge": "0xB224cf7c17dB373EceF550CF957B8a4dD40C8109",
     "rewards": [
       {
         "token": "0xCa5Ca9083702c56b481D1eec86F1776FDbd2e594",
@@ -242,8 +242,8 @@
   },
   {
     "name": "curve-arb-usdc-usdm",
-    "pool": "0x4bd135524897333bec344e50ddd85126554e58b4",
-    "gauge": "0xbdbb71914ddb650f96449b54d2ca15132be56aca",
+    "pool": "0x4bD135524897333bec344e50ddD85126554E58B4",
+    "gauge": "0xbdBb71914DdB650F96449b54d2CA15132Be56Aca",
     "rewards": [
       {
         "token": "0x59D9356E565Ab3A36dD77763Fc0d87fEaf85508C",
@@ -268,8 +268,8 @@
   },
   {
     "name": "curve-arb-usd+usdt+",
-    "pool": "0x1446999b0b0e4f7ada6ee73f2ae12a2cfdc5d9e7",
-    "gauge": "0xd68089d9daa2da7888b7ef54158480e09ecc3580",
+    "pool": "0x1446999B0b0E4f7aDA6Ee73f2Ae12a2cfdc5D9E7",
+    "gauge": "0xd68089D9dAa2da7888B7Ef54158480e09ecC3580",
     "convex": true,
     "getDy": ["v1", 1, 0],
     "tokens": [
@@ -315,8 +315,8 @@
   },
   {
     "name": "curve-arb-asdcrv-v2.1",
-    "pool": "0x5c959d2c1a49b637fb988c40d663265f8bf6d289",
-    "gauge": "0xf1bb643f953836725c6e48bdd6f1816f871d3e07",
+    "pool": "0x5C959D2c1a49B637Fb988c40d663265F8Bf6d289",
+    "gauge": "0xF1bb643F953836725c6E48BdD6f1816f871d3E07",
     "convex": true,
     "sdSideCar": "0x670F119a2509Fb0D25B62d409334D0D254400984",
     "getDy": ["v2", 2, 0],
@@ -340,12 +340,12 @@
   },
   {
     "name": "curve-arb-tricrvarb",
-    "pool": "0x845c8bc94610807fcbab5dd2bc7ac9dabaff3c55",
-    "gauge": "0xb08fef57bfcc5f7bf0ef69c0c090849d497c8f8a",
+    "pool": "0x845C8bc94610807fCbaB5dd2bc7aC9DAbaFf3c55",
+    "gauge": "0xB08FEf57bFcc5f7bF0EF69C0c090849d497C8F8A",
     "convex": true,
     "rewards": [
       {
-        "token": "0x498bf2b1e120fed3ad3d42ea2165e9b73f99c1e5",
+        "token": "0x498Bf2B1e120FeD3ad3D42EA2165E9b73f99C1e5",
         "oracleId": "crvUSD"
       },
       {
@@ -373,12 +373,12 @@
   },
   {
     "name": "curve-arb-crvusd-mim",
-    "pool": "0x4070c044abc8d9d22447dfe4b032405970878d06",
-    "gauge": "0xd2ce52833a2a70cf6255c6374bc44525a0fb93d8",
+    "pool": "0x4070C044ABc8d9d22447DFE4B032405970878d06",
+    "gauge": "0xd2cE52833a2a70Cf6255c6374Bc44525a0FB93D8",
     "convex": true,
     "rewards": [
       {
-        "token": "0x498bf2b1e120fed3ad3d42ea2165e9b73f99c1e5",
+        "token": "0x498Bf2B1e120FeD3ad3D42EA2165E9b73f99C1e5",
         "oracleId": "crvUSD"
       },
       {
@@ -401,12 +401,12 @@
   },
   {
     "name": "curve-arb-crvusd-frax",
-    "pool": "0x2fe7ae43591e534c256a1594d326e5779e302ff4",
-    "gauge": "0x059e0db6bf882f5fe680dc5409c7adeb99753736",
+    "pool": "0x2FE7AE43591E534C256A1594D326e5779E302Ff4",
+    "gauge": "0x059E0db6BF882f5fe680dc5409C7adeB99753736",
     "convex": true,
     "rewards": [
       {
-        "token": "0x498bf2b1e120fed3ad3d42ea2165e9b73f99c1e5",
+        "token": "0x498Bf2B1e120FeD3ad3D42EA2165E9b73f99C1e5",
         "oracleId": "crvUSD"
       },
       {
@@ -429,12 +429,12 @@
   },
   {
     "name": "curve-arb-crvusd-usdc",
-    "pool": "0xec090cf6dd891d2d014bea6edada6e05e025d93d",
-    "gauge": "0xb12600d06753df7c706225c901e6c1346a654d0b",
+    "pool": "0xec090cf6DD891D2d014beA6edAda6e05E025D93d",
+    "gauge": "0xb12600D06753Df7c706225c901E6C1346A654D0b",
     "convex": true,
     "rewards": [
       {
-        "token": "0x498bf2b1e120fed3ad3d42ea2165e9b73f99c1e5",
+        "token": "0x498Bf2B1e120FeD3ad3D42EA2165E9b73f99C1e5",
         "oracleId": "crvUSD"
       },
       {
@@ -457,12 +457,12 @@
   },
   {
     "name": "curve-arb-crvusd-usdc.e",
-    "pool": "0x3adf984c937fa6846e5a24e0a68521bdaf767ce1",
-    "gauge": "0x7ae49935b8bc11023e5b04d86a44055f999fca31",
+    "pool": "0x3aDf984c937FA6846E5a24E0A68521Bdaf767cE1",
+    "gauge": "0x7AE49935b8BC11023e5b04d86a44055f999fca31",
     "convex": true,
     "rewards": [
       {
-        "token": "0x498bf2b1e120fed3ad3d42ea2165e9b73f99c1e5",
+        "token": "0x498Bf2B1e120FeD3ad3D42EA2165E9b73f99C1e5",
         "oracleId": "crvUSD"
       },
       {
@@ -485,12 +485,12 @@
   },
   {
     "name": "curve-arb-crvusd-usdt",
-    "pool": "0x73af1150f265419ef8a5db41908b700c32d49135",
-    "gauge": "0x030786336bc7833d4325404a25fe451e4fde9807",
+    "pool": "0x73aF1150F265419Ef8a5DB41908B700C32D49135",
+    "gauge": "0x030786336Bc7833D4325404A25FE451e4fde9807",
     "convex": true,
     "rewards": [
       {
-        "token": "0x498bf2b1e120fed3ad3d42ea2165e9b73f99c1e5",
+        "token": "0x498Bf2B1e120FeD3ad3D42EA2165E9b73f99C1e5",
         "oracleId": "crvUSD"
       },
       {
@@ -513,12 +513,12 @@
   },
   {
     "name": "curve-arb-tricrypto-crvusd",
-    "pool": "0x82670f35306253222f8a165869b28c64739ac62e",
-    "gauge": "0x23194e30e54d713c6954ebcd2d5bdcd0171ee2c4",
+    "pool": "0x82670f35306253222F8a165869B28c64739ac62e",
+    "gauge": "0x23194e30E54d713C6954ebCD2d5bdCD0171eE2C4",
     "convex": true,
     "rewards": [
       {
-        "token": "0x498bf2b1e120fed3ad3d42ea2165e9b73f99c1e5",
+        "token": "0x498Bf2B1e120FeD3ad3D42EA2165E9b73f99C1e5",
         "oracleId": "crvUSD"
       },
       {
@@ -546,8 +546,8 @@
   },
   {
     "name": "curve-arb-fethxeth",
-    "pool": "0xf7fed8ae0c5b78c19aadd68b700696933b0cefd9",
-    "gauge": "0x5839337bf070fea56595a5027e83cd7126b23884",
+    "pool": "0xF7Fed8Ae0c5B78c19Aadd68b700696933B0Cefd9",
+    "gauge": "0x5839337bf070Fea56595A5027e83Cd7126b23884",
     "convex": true,
     "rewards": [
       {
@@ -572,8 +572,8 @@
   },
   {
     "name": "curve-arb-usd+fraxbp",
-    "pool": "0xb34a7d1444a707349bc7b981b7f2e1f20f81f013",
-    "gauge": "0x4645e6476d3a5595be9efd39426cc10586a8393d",
+    "pool": "0xb34a7d1444a707349Bc7b981B7F2E1f20F81F013",
+    "gauge": "0x4645e6476D3A5595Be9Efd39426cc10586a8393D",
     "convex": true,
     "getDy": ["v1", 0, 2, "USDC"],
     "tokens": [

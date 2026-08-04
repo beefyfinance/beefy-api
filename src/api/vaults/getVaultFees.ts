@@ -1,11 +1,13 @@
+import { addressBookByChainId, ChainId } from '@beefyfinance/blockchain-addressbook';
 import { BigNumber } from 'bignumber.js';
 import { chunk } from 'lodash-es';
 import { type Address, BaseError } from 'viem';
-import { addressBookByChainId, ChainId } from '../../../packages/address-book/src/address-book/index.ts';
 import FeeABI from '../../abis/FeeABI.ts';
 import { getKey, setKey } from '../../utils/cache/index.ts';
 import { SupportedChains } from '../../utils/chain.ts';
+import { envNumber } from '../../utils/env.ts';
 import { getLoggerFor } from '../../utils/logger/index.ts';
+import { orNaN } from '../../utils/number.ts';
 import { fetchContract } from '../rpc/client.ts';
 import { getHarvestableVaultsByChain } from '../stats/getMultichainVaults.ts';
 import type { HarvestableVault } from './types.ts';
@@ -22,7 +24,7 @@ const feeBatchTreasurySplitMethodABI = [
   },
 ] as const;
 
-const INIT_DELAY = Number(process.env.FEES_INIT_DELAY || 15000);
+const INIT_DELAY = envNumber('FEES_INIT_DELAY', 15000);
 const REFRESH_INTERVAL = 5 * 60 * 1000;
 const CACHE_EXPIRY = 12 * 60 * 60 * 1000;
 const VAULT_FEES_KEY = 'VAULT_FEES';
@@ -100,6 +102,13 @@ const updateVaultFees = async () => {
   const start = Date.now();
 
   const expiredBefore = start - CACHE_EXPIRY;
+  const ethereumFeeBatch = feeBatches[ChainId.ethereum];
+  if (!ethereumFeeBatch) {
+    logger.warn('no ethereum feeBatch, skipping vault fee update');
+    setTimeout(updateVaultFees, REFRESH_INTERVAL);
+    return;
+  }
+
   for (const chain of SupportedChains) {
     const chainVaults = getHarvestableVaultsByChain(chain).filter(
       v => (vaultFees[v.id]?.lastUpdated || 0) < expiredBefore
@@ -113,7 +122,7 @@ const updateVaultFees = async () => {
     }
     if (haveStrategy.length > 0) {
       // Use ethereum feeBatch for all chains (only place where revenue is split)
-      await getChainFees(haveStrategy, ChainId[chain], feeBatches[ChainId.ethereum]);
+      await getChainFees(haveStrategy, ChainId[chain], ethereumFeeBatch);
     }
   }
 
@@ -210,7 +219,11 @@ const getChainFees = async (vaults: HarvestableVault[], chainId: number, feeBatc
     let failed = 0;
     for (const batch of vaultSlices) {
       const calls = batch.map(async vault => {
+        if (!vault.strategy) {
+          return undefined;
+        }
         const contract = fetchContract(vault.strategy, FeeABI, chainId);
+        // FIXME(unsafe-cast): unchecked response shape
         const results = Object.fromEntries(
           (
             await Promise.all(
@@ -232,7 +245,7 @@ const getChainFees = async (vaults: HarvestableVault[], chainId: number, feeBatc
       failed += results.filter(res => res.status === 'rejected').length;
 
       results.forEach((res, index) => {
-        if (res.status === 'fulfilled') {
+        if (res.status === 'fulfilled' && res.value) {
           const callResponse: StrategyCallResponse = res.value;
           const vault = batch[index]!;
           const fees = mapStrategyCallsToFeeBreakdown(callResponse, feeBatch);
@@ -256,8 +269,8 @@ const getChainFees = async (vaults: HarvestableVault[], chainId: number, feeBatc
 const mapStrategyCallsToFeeBreakdown = (
   contractCalls: StrategyCallResponse,
   feeBatch: FeeBatchDetail
-): VaultFeeBreakdown => {
-  let withdrawFee = withdrawalFeeFromCalls(contractCalls);
+): VaultFeeBreakdown | undefined => {
+  const withdrawFee = withdrawalFeeFromCalls(contractCalls);
 
   let performanceFee = performanceFeesFromCalls(contractCalls, feeBatch);
 
@@ -279,7 +292,7 @@ const mapStrategyCallsToFeeBreakdown = (
   };
 };
 
-const depositFeeFromCalls = (contractCalls: StrategyCallResponse): number => {
+const depositFeeFromCalls = (contractCalls: StrategyCallResponse): number | null => {
   if (contractCalls.allFees) {
     return Number(contractCalls.allFees.deposit) / 10000;
   }
@@ -296,13 +309,19 @@ const withdrawalFeeFromCalls = (contractCalls: StrategyCallResponse): number => 
   ) {
     return 0;
   } else {
-    let withdrawFee = contractCalls.withdraw ?? contractCalls.withdraw2;
-    let maxWithdrawFee = contractCalls.withdrawMax ?? contractCalls.withdrawMax2;
+    const withdrawFee = contractCalls.withdraw ?? contractCalls.withdraw2;
+    const maxWithdrawFee = contractCalls.withdrawMax ?? contractCalls.withdrawMax2;
+    if (withdrawFee === undefined || maxWithdrawFee === undefined) {
+      return 0;
+    }
     return withdrawFee / maxWithdrawFee;
   }
 };
 
-const performanceFeesFromCalls = (contractCalls: StrategyCallResponse, feeBatch: FeeBatchDetail): PerformanceFee => {
+const performanceFeesFromCalls = (
+  contractCalls: StrategyCallResponse,
+  feeBatch: FeeBatchDetail
+): PerformanceFee | undefined => {
   if (contractCalls.liquidityFee && contractCalls.allFees) {
     // beSonic as additional liquidity fee
     return performanceFromGetFeesWithLiquidity(contractCalls.allFees.performance, feeBatch, contractCalls.liquidityFee);
@@ -317,17 +336,20 @@ const performanceFeesFromCalls = (contractCalls: StrategyCallResponse, feeBatch:
   }
 };
 
-const legacyFeeMappings = (contractCalls: StrategyCallResponse, feeBatch: FeeBatchDetail): PerformanceFee => {
+const legacyFeeMappings = (
+  contractCalls: StrategyCallResponse,
+  feeBatch: FeeBatchDetail
+): PerformanceFee | undefined => {
   let total = 0.045;
-  let performanceFee: PerformanceFee;
+  let performanceFee: PerformanceFee | undefined;
 
-  let callFee = contractCalls.call ?? contractCalls.call2 ?? contractCalls.call3 ?? contractCalls.call4;
-  let strategistFee = contractCalls.strategist ?? contractCalls.strategist2;
-  let maxFee = contractCalls.maxFee ?? contractCalls.maxFee2 ?? contractCalls.maxFee3;
-  let beefyFee = contractCalls.beefy;
-  let fee = contractCalls.fee;
-  let treasury = contractCalls.treasury;
-  let rewards = contractCalls.rewards ?? contractCalls.rewards2;
+  const callFee = orNaN(contractCalls.call ?? contractCalls.call2 ?? contractCalls.call3 ?? contractCalls.call4);
+  const strategistFee = orNaN(contractCalls.strategist ?? contractCalls.strategist2);
+  const maxFee = orNaN(contractCalls.maxFee ?? contractCalls.maxFee2 ?? contractCalls.maxFee3);
+  const beefyFee = orNaN(contractCalls.beefy);
+  const fee = orNaN(contractCalls.fee);
+  const treasury = orNaN(contractCalls.treasury);
+  const rewards = orNaN(contractCalls.rewards ?? contractCalls.rewards2);
 
   if (callFee + strategistFee + beefyFee === maxFee) {
     performanceFee = {
@@ -435,13 +457,13 @@ const performanceFromGetFeesWithLiquidity = (
   };
 };
 
-const performanceForMaxi = (contractCalls: StrategyCallResponse): PerformanceFee => {
-  let performanceFee: PerformanceFee;
+const performanceForMaxi = (contractCalls: StrategyCallResponse): PerformanceFee | undefined => {
+  let performanceFee: PerformanceFee | undefined;
 
-  let callFee = contractCalls.call ?? contractCalls.call2 ?? contractCalls.call3 ?? contractCalls.call4;
-  let maxCallFee = contractCalls.maxCallFee ?? 1000;
-  let maxFee = contractCalls.maxFee ?? contractCalls.maxFee2 ?? contractCalls.maxFee3;
-  let rewards = contractCalls.rewards ?? contractCalls.rewards2;
+  const callFee = orNaN(contractCalls.call ?? contractCalls.call2 ?? contractCalls.call3 ?? contractCalls.call4);
+  const maxCallFee = contractCalls.maxCallFee ?? 1000;
+  const maxFee = orNaN(contractCalls.maxFee ?? contractCalls.maxFee2 ?? contractCalls.maxFee3);
+  const rewards = orNaN(contractCalls.rewards ?? contractCalls.rewards2);
 
   let strategyAddress = contractCalls.strategy.toLowerCase();
 

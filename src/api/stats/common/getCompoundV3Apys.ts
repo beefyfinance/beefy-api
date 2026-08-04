@@ -1,16 +1,25 @@
-import { BigNumber } from 'bignumber.js';
+import type { ChainId } from '@beefyfinance/blockchain-addressbook';
+import type { BigNumber } from 'bignumber.js';
 import type { Abi } from 'viem';
-import type { ChainId } from '../../../../packages/address-book/src/address-book/index.ts';
 import cv3Token from '../../../abis/cv3Token.ts';
+import { isBigNumberish, toBigNumber } from '../../../utils/big-number.ts';
 import { fetchPrice } from '../../../utils/fetchPrice.ts';
-import getBlockTime from '../../../utils/getBlockTime.js';
+import getBlockTime from '../../../utils/getBlockTime.ts';
 import { getLoggerFor } from '../../../utils/logger/index.ts';
 import { fetchContract, fetchNoMulticallContract } from '../../rpc/client.ts';
 import { getApyBreakdown } from './getApyBreakdownNew.ts';
 
-const logger = getLoggerFor({ module: 'apy', platform: 'compound' });
+const logger = getLoggerFor({ module: 'apy', component: 'compound' });
 
 const SECONDS_PER_YEAR = 31536000;
+
+const toBigNumbers = (results: unknown[], call: string): BigNumber[] =>
+  results.map(result => {
+    if (!isBigNumberish(result)) {
+      throw new Error(`Unexpected non-numeric result from ${call}`);
+    }
+    return toBigNumber(result);
+  });
 
 const getCompoundV3ApyData = async (params: CompoundV3ApyParams) => {
   const poolsData = await getPoolsData(params);
@@ -40,7 +49,7 @@ const getPoolsApys = async (params: CompoundV3ApyParams, data: PoolsData) => {
   const compOracle = params.compOracle ?? 'tokens';
   const compPrice = await fetchPrice({ oracle: compOracle, id: params.compOracleId });
   const secondsPerBlock = params.secondsPerBlock ?? (await getBlockTime(params.chainId));
-  const BLOCKS_PER_YEAR = SECONDS_PER_YEAR / secondsPerBlock;
+  const BLOCKS_PER_YEAR = SECONDS_PER_YEAR / Number(secondsPerBlock);
   const trackingIndexScale = 1000000000000000;
 
   const supplyApys = data.supplyRates.map(v => v.times(BLOCKS_PER_YEAR).div('1e18'));
@@ -87,9 +96,9 @@ const getPoolsData = async (params: CompoundV3ApyParams): Promise<PoolsData> => 
     Promise.all(pricePromises),
   ]);
 
-  const supplyRates: BigNumber[] = res[0].map(v => new BigNumber(v.toString()));
-  const compSupplySpeeds: BigNumber[] = res[1].map(v => new BigNumber(v.toString()));
-  const totalSupplies: BigNumber[] = res[2].map(v => new BigNumber(v.toString()));
+  const supplyRates = toBigNumbers(res[0], 'getSupplyRate');
+  const compSupplySpeeds = toBigNumbers(res[1], 'baseTrackingSupplySpeed');
+  const totalSupplies = toBigNumbers(res[2], 'totalSupply');
 
   const tokenPrices = res[3];
 

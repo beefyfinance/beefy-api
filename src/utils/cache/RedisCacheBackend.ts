@@ -2,7 +2,7 @@ import { createClient, type RedisClientType } from 'redis';
 import { getLoggerFor } from '../logger/index.ts';
 import type { ICacheBackend } from './ICacheBackend.ts';
 
-const logger = getLoggerFor({ module: 'cache' });
+const logger = getLoggerFor({ module: 'cache', component: 'redis' });
 
 export class RedisCacheBackend implements ICacheBackend {
   private client: RedisClientType;
@@ -20,7 +20,7 @@ export class RedisCacheBackend implements ICacheBackend {
     });
   }
 
-  private async withTimeout<T>(operation: () => Promise<T>, operationName: string): Promise<T> {
+  private async withTimeout<T>(operation: () => Promise<T>, operationName: string): Promise<T | undefined> {
     const timeout = new Promise<never>((_, reject) =>
       setTimeout(
         () => reject(new Error(`Redis ${operationName} operation timed out after ${this.timeoutMs}ms`)),
@@ -45,7 +45,7 @@ export class RedisCacheBackend implements ICacheBackend {
     return instance;
   }
 
-  async get(key: string): Promise<string> {
+  async get(key: string): Promise<string | undefined> {
     return this.withTimeout(async () => {
       const result = await this.client.get(key);
       // can return empty object when there's a serialization issue

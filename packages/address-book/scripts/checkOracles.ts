@@ -1,9 +1,9 @@
-import { addressBook } from '../src/address-book';
+import { addressBook } from '../src/address-book/index.js';
 
 type ChainId = keyof typeof addressBook;
 const allChains = Object.keys(addressBook) as ChainId[];
 
-const skipPrices = true;
+const checkPrices = process.argv.includes('--prices');
 
 type Vault = {
   id: string;
@@ -72,7 +72,7 @@ function checkChain(chainId: ChainId, vaults: Vault[], prices: Record<string, nu
       }
     }
 
-    if (!skipPrices) {
+    if (checkPrices) {
       if (token.oracleId && !(token.oracleId in prices)) {
         ++errors;
         console.error(`Missing price for ${id} on ${chainId} via oracle ${token.oracleId}`);
@@ -84,7 +84,7 @@ function checkChain(chainId: ChainId, vaults: Vault[], prices: Record<string, nu
 }
 
 async function start() {
-  const [vaults, prices] = await Promise.all([fetchVaults(), fetchPrices()]);
+  const [vaults, prices] = await Promise.all([fetchVaults(), checkPrices ? fetchPrices() : {}]);
   const errors = allChains
     .map(chain => checkChain(chain, vaults[chain] || [], prices))
     .reduce((acc, e) => acc + e, 0);

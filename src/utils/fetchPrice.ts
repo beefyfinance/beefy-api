@@ -1,7 +1,7 @@
+import { addressBookByChainId } from '@beefyfinance/blockchain-addressbook';
+import { ChainId } from '@beefyfinance/blockchain-addressbook/types/chainid';
+import type { Token } from '@beefyfinance/blockchain-addressbook/types/token';
 import { getAddress } from 'viem';
-import { addressBookByChainId } from '../../packages/address-book/src/address-book/index.ts';
-import { ChainId } from '../../packages/address-book/src/types/chainid.ts';
-import type { Token } from '../../packages/address-book/src/types/token.ts';
 import { getAmmLpPrice, getAmmPrice, getAmmTokenPrice } from '../api/stats/getAmmPrices.ts';
 import { getLoggerFor } from './logger/index.ts';
 
@@ -27,7 +27,10 @@ export type FetchPriceParams = FetchPriceOracleParams | FetchPriceHardcodeParams
  * Fetches the price of a given oracle id.
  * @dev This function no longer has a built-in cache as the underlying getAmmXPrice functions already have one.
  */
-export async function fetchPrice({ oracle, id }, withUnknownLogging: boolean | string = true): Promise<number> {
+export async function fetchPrice(
+  { oracle, id }: { oracle: unknown; id: unknown },
+  withUnknownLogging: boolean | string = true
+): Promise<number> {
   if ((oracle === 'lps' || oracle === 'tokens' || oracle === 'any') && typeof id === 'string') {
     return fetchPriceTyped({ oracle, id }, withUnknownLogging);
   }
@@ -55,7 +58,7 @@ export async function fetchPriceTyped(
     return 0;
   }
 
-  let price = 0;
+  let price: number | undefined = 0;
   switch (oracle) {
     case 'any': {
       price = await getAmmPrice(id, withUnknownLogging);

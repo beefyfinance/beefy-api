@@ -18,30 +18,35 @@ jobs:
       id-token: write # Required for OIDC
       contents: write
       packages: write
-    defaults:
-      run:
-        working-directory: packages/address-book
     steps:
       - name: 'Checkout Repository'
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
+      - name: 'Setup pnpm'
+        uses: pnpm/action-setup@v6.0.9
       - name: 'Setup Node'
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v7
         with:
           node-version-file: '.nvmrc'
+          cache: 'pnpm'
           registry-url: 'https://registry.npmjs.org'
           scope: 'beefyfinance'
       - name: 'Install Packages'
-        run: npm ci
-      - name: 'Run Checksum Test'
-        run: npm run checksum
-      - name: 'Compile Package'
-        run: npm run compile
+        run: pnpm install --frozen-lockfile
+      - name: 'Lint'
+        run: pnpm --filter @beefyfinance/blockchain-addressbook exec biome ci --reporter github
+      - name: 'Typecheck'
+        run: pnpm --filter @beefyfinance/blockchain-addressbook run typecheck
+      - name: 'Checksum Test'
+        run: pnpm exec tsx scripts/check-addresses.ts packages/address-book/src
+      - name: 'Build Package'
+        run: pnpm --filter @beefyfinance/blockchain-addressbook run build
       - name: 'Automated Version Bump'
-        uses: 'phips28/gh-action-bump-version@v9.1.0'
+        uses: 'phips28/gh-action-bump-version@v11.0.7'
         if: github.repository == 'beefyfinance/beefy-api'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           PACKAGEJSON_DIR: 'packages/address-book'
       - name: 'Publish Package'
         if: github.repository == 'beefyfinance/beefy-api'
-        run: npm publish
+        run: pnpm publish --provenance --no-git-checks
+        working-directory: packages/address-book

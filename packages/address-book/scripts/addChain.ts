@@ -1,5 +1,5 @@
-import * as fs from 'fs';
-import * as path from 'path';
+import * as fs from 'node:fs';
+import * as path from 'node:path';
 
 function addChain() {
   // Get chain name and chain ID from command-line arguments
@@ -11,9 +11,9 @@ function addChain() {
     process.exit(1);
   }
 
-  const addressBookPath = path.join(__dirname, '..', 'src', 'address-book');
-  const typesPath = path.join(__dirname, '..', 'src', 'types');
-  const utilPath = path.join(__dirname, '..', 'src', 'util');
+  const addressBookPath = path.join(import.meta.dirname, '..', 'src', 'address-book');
+  const typesPath = path.join(import.meta.dirname, '..', 'src', 'types');
+  const utilPath = path.join(import.meta.dirname, '..', 'src', 'util');
 
   // Create a new folder in the address book
   const newChainPath = path.join(addressBookPath, chainName);
@@ -49,10 +49,10 @@ export const ${chainName} = {
   // Add import statement after the last import
   const importStatement = `import { ${chainName} } from './${chainName}/index.js';`;
   indexContent =
-    indexContent.slice(0, nextLineIndex + 1) +
-    importStatement +
-    '\n' +
-    indexContent.slice(nextLineIndex + 1);
+    indexContent.slice(0, nextLineIndex + 1)
+    + importStatement
+    + '\n'
+    + indexContent.slice(nextLineIndex + 1);
 
   // Add to addressBook object
   const addressBookRegex = /export const addressBook: ReadonlyRecord<ChainIdKey, Chain> = {[^}]*}/;
@@ -164,9 +164,9 @@ export const tokens = {
   if (lastEntryIndex !== -1) {
     // Insert the new chain entry after the last existing entry
     chainIdContent =
-      chainIdContent.slice(0, lastEntryIndex + 1) +
-      `\n  ${chainName} = ${chainId},` +
-      chainIdContent.slice(lastEntryIndex + 1);
+      chainIdContent.slice(0, lastEntryIndex + 1)
+      + `\n  ${chainName} = ${chainId},`
+      + chainIdContent.slice(lastEntryIndex + 1);
 
     fs.writeFileSync(chainIdPath, chainIdContent);
     console.log(`Added ${chainName} to chainid.ts`);
@@ -183,9 +183,9 @@ export const tokens = {
   if (lastEntryIndex !== -1) {
     // Insert the new chain entry after the last existing entry
     chainIdMapContent =
-      chainIdMapContent.slice(0, lastEntryIndex + 1) +
-      `\n  ${chainName}: ${chainId},` +
-      chainIdMapContent.slice(lastEntryIndex + 1);
+      chainIdMapContent.slice(0, lastEntryIndex + 1)
+      + `\n  ${chainName}: ${chainId},`
+      + chainIdMapContent.slice(lastEntryIndex + 1);
 
     fs.writeFileSync(chainIdMapPath, chainIdMapContent);
     console.log(`Added ${chainName} to chainIdMap.ts`);

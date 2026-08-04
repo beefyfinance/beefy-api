@@ -28,5 +28,5 @@ export function convertSymbolTokenMapToAddressTokenMap<T extends Record<string, 
 
       return idOrToken;
     },
-  }) as unknown as AddressToTokenMap<T>;
+  }) as AddressToTokenMap<T>;
 }

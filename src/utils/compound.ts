@@ -1,0 +1,5 @@
+function compound(r: number, n = 365, t = 1, c = 1) {
+  return (1 + (r * c) / n) ** (n * t) - 1;
+}
+
+export { compound };

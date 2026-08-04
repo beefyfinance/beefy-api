@@ -1,7 +1,7 @@
+import { ChainId } from '@beefyfinance/blockchain-addressbook/types/chainid';
 import { BigNumber } from 'bignumber.js';
 import { first, groupBy, orderBy, sumBy } from 'lodash-es';
 import type { Address } from 'viem';
-import { ChainId } from '../../../packages/address-book/src/types/chainid.ts';
 import BeefyVaultV6Abi from '../../abis/BeefyVault.ts';
 import { getVaultPpfsOverride } from '../../data/vaultOverrides.ts';
 import { deleteKey, getKey, setKey } from '../../utils/cache/index.ts';
@@ -156,8 +156,8 @@ class Storage {
     vaults: VaultOfType<T>[],
     rebuild: boolean = true
   ) {
-    this.byTypeChain[type] ??= {};
-    (this.byTypeChain[type][chain] as VaultOfType<T>[]) = sortVaults(vaults.filter(v => isVaultOfType(v, type)));
+    const byChain = (this.byTypeChain[type] ??= {}) as Partial<Record<ApiChain, VaultOfType<T>[]>>;
+    byChain[chain] = sortVaults(vaults.filter(v => isVaultOfType(v, type)));
     this.lastUpdate = Date.now();
     if (rebuild) {
       this.build();
@@ -179,8 +179,8 @@ class Storage {
       byType[vault.type] ??= [];
       (byType[vault.type] as Array<typeof vault>).push(vault);
 
-      byChain[vault.chain] ??= [];
-      byChain[vault.chain].push(vault);
+      const chainVaults = (byChain[vault.chain] ??= []);
+      chainVaults.push(vault);
     }
 
     this.byId = byId;

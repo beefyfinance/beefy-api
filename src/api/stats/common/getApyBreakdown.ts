@@ -1,5 +1,6 @@
 import type { BigNumber } from 'bignumber.js';
 import { BASE_HPY } from '../../../constants.ts';
+import type { BigNumberish } from '../../../utils/big-number.ts';
 import { type ApyBreakdownResult, getApyBreakdownOnly as getApyBreakdownNew } from './getApyBreakdownNew.ts';
 
 // back-compat export
@@ -11,10 +12,10 @@ export type { ApyBreakdownResult };
  * */
 export const getApyBreakdown = (
   pools: { name: string; address: string; beefyFee?: number }[],
-  tradingAprs?: Record<string, BigNumber> | undefined,
+  tradingAprs?: Record<string, BigNumberish> | undefined,
   farmAprs?: BigNumber[] | undefined,
   providerFee?: number | BigNumber[] | undefined,
-  liquidStakingAprs?: number[] | undefined,
+  liquidStakingAprs?: BigNumberish[] | undefined,
   composablePoolAprs?: number[] | undefined,
   clmAprs?: number[] | undefined,
   merklAprs?: number[] | undefined
@@ -24,16 +25,14 @@ export const getApyBreakdown = (
     apyBreakdowns: {},
   };
 
-  if (providerFee === undefined) {
-    providerFee = 0;
-  }
+  const providerFees = providerFee === undefined ? 0 : providerFee;
 
   pools.forEach((pool, i) => {
     const breakdown = getApyBreakdownNew({
       vaultId: pool.name,
       beefyFee: pool.beefyFee,
       compoundingsPerYear: BASE_HPY,
-      providerFee: typeof providerFee === 'number' ? providerFee : providerFee[i],
+      providerFee: typeof providerFees === 'number' ? providerFees : providerFees[i],
       trading: tradingAprs?.[pool.address.toLowerCase()],
       vault: farmAprs?.[i],
       liquidStaking: liquidStakingAprs?.[i],

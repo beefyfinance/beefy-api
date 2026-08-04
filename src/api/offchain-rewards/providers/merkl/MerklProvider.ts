@@ -11,7 +11,7 @@ import { getMerklOpportunitiesForChain } from './proxyClient.ts';
 import type { MerklProxyCampaign, MerklProxyOpportunity } from './proxyTypes.ts';
 import type { CampaignTypeSetting, MerklApiCampaignType } from './types.ts';
 
-const logger = getLoggerFor({ module: 'rewards', platform: 'merkl' });
+const logger = getLoggerFor({ module: 'rewards', component: 'merkl' });
 
 const providerId = 'merkl' as const;
 const supportedChains = new Set<AppChain>([
@@ -94,13 +94,13 @@ export class MerklProvider implements IOffchainRewardProvider {
         && !(o.campaigns ?? []).some(c => receiptMatchedRootCampaigns.has(c.id))
     );
 
-    const vaultOpportunities = receiptMatches
-      .flatMap(opportunity => this.getCampaignsFromVaultOpportunity(opportunity, chainId, vaultsByAddress))
-      .filter(isDefined);
+    const vaultOpportunities = receiptMatches.flatMap(opportunity =>
+      this.getCampaignsFromVaultOpportunity(opportunity, chainId, vaultsByAddress)
+    );
 
-    const poolOpportunities = poolMatches
-      .flatMap(opportunity => this.getCampaignsFromPoolOpportunity(opportunity, chainId, vaultsByPoolAddress))
-      .filter(isDefined);
+    const poolOpportunities = poolMatches.flatMap(opportunity =>
+      this.getCampaignsFromPoolOpportunity(opportunity, chainId, vaultsByPoolAddress)
+    );
 
     return [...vaultOpportunities, ...poolOpportunities];
   }
@@ -110,7 +110,9 @@ export class MerklProvider implements IOffchainRewardProvider {
     chainId: AppChain,
     vaultsByAddress: Record<string, Vault[]>
   ): MerklCampaign[] {
-    return (opportunity.campaigns ?? []).map(c => this.getCampaign(opportunity, c, 1, chainId, vaultsByAddress));
+    return (opportunity.campaigns ?? [])
+      .map(c => this.getCampaign(opportunity, c, 1, chainId, vaultsByAddress))
+      .filter(isDefined);
   }
 
   protected getCampaignsFromPoolOpportunity(
@@ -125,9 +127,11 @@ export class MerklProvider implements IOffchainRewardProvider {
         .map(b => [b.identifier, cumulated > 0 ? b.value / cumulated : 0])
     );
 
-    return (opportunity.campaigns ?? []).map(c =>
-      this.getCampaign(opportunity, c, campaignToAprShare.get(c.campaignId) ?? 0, chainId, vaultsByPoolAddress)
-    );
+    return (opportunity.campaigns ?? [])
+      .map(c =>
+        this.getCampaign(opportunity, c, campaignToAprShare.get(c.campaignId) ?? 0, chainId, vaultsByPoolAddress)
+      )
+      .filter(isDefined);
   }
 
   protected getCampaignType(creator: Address, chain: AppChain): CampaignType {

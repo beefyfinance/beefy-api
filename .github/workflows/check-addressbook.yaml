@@ -1,0 +1,91 @@
+name: Check Address Book
+
+on:
+  pull_request:
+    branches:
+      - master
+    paths:
+      - packages/address-book/**
+      - '!packages/address-book/package.json'
+      - '!packages/address-book/CHANGELOG.md'
+      - '!packages/address-book/README.md'
+
+jobs:
+  duplicates:
+    name: 'Check tokens'
+    runs-on: ubuntu-latest
+    steps:
+      - name: 'Checkout Repository'
+        uses: actions/checkout@v7
+      - name: 'Setup pnpm'
+        uses: pnpm/action-setup@v6.0.9
+      - name: 'Setup Node'
+        uses: actions/setup-node@v7
+        with:
+          node-version-file: '.nvmrc'
+          cache: 'pnpm'
+      - name: 'Install Packages'
+        run: pnpm install --frozen-lockfile
+      - name: 'Check for duplicates'
+        run: pnpm --filter @beefyfinance/blockchain-addressbook run checkDuplicates
+
+  pack:
+    name: 'Check package builds'
+    runs-on: ubuntu-latest
+    steps:
+      - name: 'Checkout Repository'
+        uses: actions/checkout@v7
+      - name: 'Setup pnpm'
+        uses: pnpm/action-setup@v6.0.9
+      - name: 'Setup Node'
+        uses: actions/setup-node@v7
+        with:
+          node-version-file: '.nvmrc'
+          cache: 'pnpm'
+      - name: 'Install Packages'
+        run: pnpm install --frozen-lockfile
+      - name: 'Build Package'
+        run: pnpm --filter @beefyfinance/blockchain-addressbook run build
+      - name: 'Pack Package'
+        run: |
+          set -euo pipefail
+          cd packages/address-book
+          pnpm pack --pack-destination "$RUNNER_TEMP"
+          tar -xzf "$RUNNER_TEMP"/*.tgz -C "$RUNNER_TEMP"
+      - name: 'Check Packed Manifest'
+        run: |
+          node -e "
+          const p = require('$RUNNER_TEMP/package/package.json');
+          if (JSON.stringify(p.exports).includes('/src/')) throw new Error('exports point at source');
+          if (Object.keys(p.publishConfig ?? {}).some(k => k !== 'access')) throw new Error('publishConfig not stripped');
+          for (const [n, r] of Object.entries({ ...p.dependencies, ...p.devDependencies })) {
+            if (/^(catalog|workspace):/.test(r)) throw new Error(n + ' unresolved: ' + r);
+          }
+          console.log('packed manifest ok');
+          "
+      - name: 'Test Imports'
+        run: |
+          set -euo pipefail
+          mkdir -p "$RUNNER_TEMP/consumer"
+          cd "$RUNNER_TEMP/consumer"
+          echo '{"name":"test","version":"1.0.0","private":true,"type":"module"}' > package.json
+          pnpm add "$RUNNER_TEMP"/*.tgz --ignore-workspace
+          node --input-type=module -e "
+          import { addressBook, ChainId } from '@beefyfinance/blockchain-addressbook';
+          import { ethereum } from '@beefyfinance/blockchain-addressbook/ethereum';
+          import { chainIdMap } from '@beefyfinance/blockchain-addressbook/util/chainIdMap';
+          import '@beefyfinance/blockchain-addressbook/types/token';
+          const n = Object.keys(addressBook).length;
+          if (n !== Object.keys(chainIdMap).length) throw new Error('chain count mismatch');
+          if (ChainId.ethereum !== 1 || !ethereum.tokens.WNATIVE.symbol) throw new Error('bad barrel data');
+          console.log('esm ok: ' + n + ' chains');
+          "
+          node -e "
+          const { addressBook, ChainId } = require('@beefyfinance/blockchain-addressbook');
+          const { ethereum } = require('@beefyfinance/blockchain-addressbook/ethereum');
+          const { chainIdMap } = require('@beefyfinance/blockchain-addressbook/util/chainIdMap');
+          const n = Object.keys(addressBook).length;
+          if (n !== Object.keys(chainIdMap).length) throw new Error('chain count mismatch');
+          if (ChainId.ethereum !== 1 || !ethereum.tokens.WNATIVE.symbol) throw new Error('bad barrel data');
+          console.log('cjs ok: ' + n + ' chains');
+          "

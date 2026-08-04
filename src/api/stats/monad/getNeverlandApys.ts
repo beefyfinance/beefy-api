@@ -8,11 +8,11 @@ import { BIG_ZERO } from '../../../utils/big-number.ts';
 import { fetchPrice } from '../../../utils/fetchPrice.ts';
 import { getLoggerFor } from '../../../utils/logger/index.ts';
 import { fetchContract } from '../../rpc/client.ts';
-import { getMerklApys } from '../common/curve/getCurveApysCommon.js';
+import { getMerklApys } from '../common/curve/getCurveApysCommon.ts';
 import { type ApyBreakdownResult, getApyBreakdown } from '../common/getApyBreakdownNew.ts';
 import pools from '../../../data/monad/neverlandPools.json' with { type: 'json' };
 
-const logger = getLoggerFor({ module: 'apy', platform: 'neverland', chain: MONAD_CHAIN_ID });
+const logger = getLoggerFor({ module: 'apy', component: 'neverland', chain: MONAD_CHAIN_ID });
 
 const aaveProtocolDataProvider = '0xfd0b6b6F736376F7B99ee989c749007c7757fDba';
 const neverlandIncentiveController = '0x57ea245cCbFAb074baBb9d01d1F0c60525E52cec';

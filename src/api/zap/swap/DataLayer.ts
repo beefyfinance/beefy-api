@@ -3,6 +3,7 @@ import { keysToObject } from '../../../utils/array.ts';
 import { getKey, setKey } from '../../../utils/cache/index.ts';
 import { type ApiChain, SupportedChains } from '../../../utils/chain.ts';
 import { getLoggerFor } from '../../../utils/logger/index.ts';
+import { typedKeys } from '../../../utils/object.ts';
 import { blockedTokensByChain } from './blocked-tokens.ts';
 import type { ProviderId } from './providers/index.ts';
 import type {
@@ -116,14 +117,18 @@ export class DataLayer {
     const now = Date.now();
 
     // Delete old provider support
-    for (const apiChain of Object.keys(this.tokenSupport)) {
-      const blockedTokens = blockedTokensByChain[apiChain];
+    for (const apiChain of typedKeys(this.tokenSupport)) {
+      const blockedTokens = (blockedTokensByChain as Partial<Record<ApiChain, Set<string>>>)[apiChain];
 
-      for (const providerId of Object.keys(this.tokenSupport[apiChain])) {
+      for (const providerId of typedKeys(this.tokenSupport[apiChain])) {
         const supportByAddress = this.tokenSupport[apiChain][providerId];
+        if (!supportByAddress) {
+          continue;
+        }
+
         for (const address of Object.keys(supportByAddress)) {
           const support = supportByAddress[address];
-          if (support.updatedAt + this.maxAge < now || blockedTokens.has(address)) {
+          if (support.updatedAt + this.maxAge < now || blockedTokens?.has(address)) {
             delete supportByAddress[address];
             ++deleted;
           }
@@ -183,7 +188,7 @@ export class DataLayer {
               acc[address] = {};
             }
 
-            acc[address][providerId] = support.supported;
+            acc[address][providerId as ProviderId] = support.supported;
           }
         }
         return acc;

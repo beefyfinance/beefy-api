@@ -26,4 +26,4 @@ function isResponseSuccess(response: CampaignInfoResponse): response is Campaign
   return response.err === null;
 }
 
-export const getIgnitionAprs = (_: string) => ({});
+export const getIgnitionAprs = (_: string): IgnitionAprs => ({});

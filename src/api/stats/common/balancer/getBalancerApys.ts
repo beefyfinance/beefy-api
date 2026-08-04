@@ -1,13 +1,14 @@
 import type { NormalizedCacheObject } from '@apollo/client/cache/inmemory/types.js';
-import type { ApolloClient } from '@apollo/client/core/index.js';
+import type { ApolloClient } from '@apollo/client/core/ApolloClient.js';
+import type { ChainId } from '@beefyfinance/blockchain-addressbook';
 import { BigNumber } from 'bignumber.js';
-import { getBalTradingAndLstApr } from '../../../../utils/getBalancerTradingFeeAndLstApr.js';
+import { getBalTradingAndLstApr } from '../../../../utils/getBalancerTradingFeeAndLstApr.ts';
 import { getLoggerFor } from '../../../../utils/logger/index.ts';
 import { getMerklAprByExplorerAddress } from '../../../offchain-rewards/providers/merkl/proxyClient.ts';
 import { type ApyBreakdownResult, getApyBreakdown } from '../getApyBreakdown.ts';
-import { getTotalStakedInUsd, getYearlyRewardsInUsd } from './balancerUtils.js';
+import { getTotalStakedInUsd, getYearlyRewardsInUsd } from './balancerUtils.ts';
 
-const logger = getLoggerFor({ module: 'apy', platform: 'balancer' });
+const logger = getLoggerFor({ module: 'apy', component: 'balancer' });
 
 interface Token {
   newGauge?: boolean;
@@ -67,14 +68,14 @@ export const getBalancerApys = async (params: BalancerParams): Promise<ApyBreakd
 
   return getApyBreakdown(
     params.pools,
-    tradingAprs.tradingAprMap as Record<string, BigNumber>,
+    tradingAprs.tradingAprMap,
     poolApys.farmAprs,
     liquidityProviderFee,
     tradingAprs.lstAprs
   );
 };
 
-const getTradingFeeAprBalancer = async (chainId, pairAddresses) => {
+const getTradingFeeAprBalancer = async (chainId: ChainId, pairAddresses: string[]) => {
   const data = await getBalTradingAndLstApr(chainId, pairAddresses);
   return data;
 };

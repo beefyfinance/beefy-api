@@ -1,8 +1,8 @@
 import { promises as fsPromises } from 'node:fs';
+import { addressBookByChainId } from '@beefyfinance/blockchain-addressbook';
 import commandLineArgs from 'command-line-args';
 import fg from 'fast-glob';
 import { groupBy, uniq } from 'lodash-es';
-import { addressBookByChainId } from '../packages/address-book/src/address-book/index.ts';
 
 type PoolToken = {
   address: string;
@@ -52,11 +52,11 @@ function areAllNativeWrappedOracles(oracleIds: string[]) {
 }
 
 function isObject(item: unknown): item is Record<string | number | symbol, unknown> {
-  return item && typeof item === 'object';
+  return !!item && typeof item === 'object';
 }
 
 function isPoolToken(token: unknown): token is PoolToken {
-  return token && isObject(token) && 'address' in token && 'oracleId' in token && 'decimals' in token;
+  return !!token && isObject(token) && 'address' in token && 'oracleId' in token && 'decimals' in token;
 }
 
 function isBasePool(pool: unknown): pool is BasePool {
@@ -110,7 +110,7 @@ async function processFile(path: string, ignorePools: boolean): Promise<Token[]>
       continue;
     }
 
-    for (const key of ['lp0', 'lp1']) {
+    for (const key of ['lp0', 'lp1'] as const) {
       tokens.push({
         pool: pool.name,
         address: pool[key].address.toLowerCase(),

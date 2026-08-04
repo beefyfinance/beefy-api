@@ -1,0 +1,35 @@
+{
+  "$schema": "https://biomejs.dev/schemas/2.5.5/schema.json",
+  "extends": "//",
+  "formatter": {
+    "lineWidth": 100
+  },
+  "linter": {
+    "domains": {
+      "types": "all",
+      "project": "recommended"
+    },
+    "rules": {
+      "correctness": {
+        "useImportExtensions": {
+          "level": "error",
+          "options": {
+            "forceJsExtensions": true
+          }
+        },
+        "noUnusedVariables": "error",
+        "noPrecisionLoss": "error"
+      },
+      "suspicious": {
+        "noDoubleEquals": "error",
+        "noExplicitAny": "error"
+      },
+      "nursery": {
+        "noFloatingPromises": "error",
+        "useAwaitThenable": "error",
+        "noBaseToString": "error",
+        "noMisusedPromises": "error"
+      }
+    }
+  }
+}

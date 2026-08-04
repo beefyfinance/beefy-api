@@ -1,5 +1,6 @@
 import type Koa from 'koa';
 import type { AnyChain } from '../../../utils/chain.ts';
+import { errorToString } from '../../../utils/error.ts';
 import { getLoggerFor } from '../../../utils/logger/index.ts';
 import { redactSecrets } from '../../../utils/secrets.ts';
 import { type ApiResponse, type ExtraQuoteResponse, isSuccessApiResponse } from '../api/common.ts';
@@ -7,7 +8,7 @@ import { getKyberApi } from '../api/kyber/index.ts';
 import type { QuoteData, QuoteRequest, SwapData, SwapRequest } from '../api/kyber/types.ts';
 import { isQuoteValueTooLow, setNoCacheHeaders } from './common.ts';
 
-const logger = getLoggerFor({ module: 'zap', platform: 'kyber' });
+const logger = getLoggerFor({ module: 'zap', component: 'kyber' });
 
 const postProxiedSwap = async (request: SwapRequest, chain: AnyChain): Promise<ApiResponse<SwapData>> => {
   try {
@@ -16,7 +17,7 @@ const postProxiedSwap = async (request: SwapRequest, chain: AnyChain): Promise<A
   } catch (err) {
     return {
       code: 500,
-      message: redactSecrets(err.message || 'Unknown error'),
+      message: redactSecrets(errorToString(err)),
     };
   }
 };
@@ -36,7 +37,7 @@ const getProxiedQuote = async (
   } catch (err) {
     return {
       code: 500,
-      message: redactSecrets(err.message || 'Unknown error'),
+      message: redactSecrets(errorToString(err)),
     };
   }
 };

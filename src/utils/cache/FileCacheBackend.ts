@@ -3,7 +3,7 @@ import { access, constants, promises as fsPromises } from 'node:fs';
 import type { ICacheBackend } from './ICacheBackend.ts';
 
 export class FileCacheBackend implements ICacheBackend {
-  async get(key: string): Promise<string> {
+  async get(key: string): Promise<string | undefined> {
     const path = this.makePath(key);
 
     if (await this.fileExists(path)) {

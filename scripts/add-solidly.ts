@@ -1,14 +1,15 @@
 import fs from 'node:fs';
 import path from 'node:path';
-import { ethers } from 'ethers';
+import { addressBook, ChainId } from '@beefyfinance/blockchain-addressbook';
+import { createPublicClient, getAddress, getContract, http, parseAbi } from 'viem';
 import yargs from 'yargs';
 import { hideBin } from 'yargs/helpers';
-import { addressBook, ChainId } from '../packages/address-book/src/address-book/index.ts';
+import ERC20ABI from '../src/abis/ERC20Abi.ts';
 import ISolidlyPair from '../src/abis/ISolidlyPair.ts';
 import { MULTICHAIN_RPC } from '../src/constants.ts';
-import ERC20ABI from '../src/abis/ERC20.json' with { type: 'json' };
-import etherexVoterABI from '../src/abis/EtherexVoter.json' with { type: 'json' };
-import voterABI from '../src/abis/Voter.json' with { type: 'json' };
+
+const voterABI = parseAbi(['function gauges(address) view returns (address)']);
+const etherexVoterABI = parseAbi(['function gaugeForPool(address) view returns (address)']);
 
 const {
   fantom: {
@@ -61,7 +62,7 @@ const {
   },
 } = addressBook;
 
-const projects = {
+const projects: Record<string, { prefix: string; voter: string; stableFile?: string; volatileFile?: string }> = {
   equilibre: {
     prefix: 'equilibre',
     stableFile: '../src/data/kava/equilibreStableLpPools.json',
@@ -245,51 +246,59 @@ const args = yargs(hideBin(process.argv))
   })
   .parseSync();
 
-const poolPrefix = projects[args['project']].prefix;
+const project = projects[args['project'] as keyof typeof projects];
+const poolPrefix = project.prefix;
 const lpAddress = args['lp'];
 
-const chainId = ChainId[args['network']];
-const provider = new ethers.providers.JsonRpcProvider(MULTICHAIN_RPC[chainId]);
+const chainId = ChainId[args['network'] as keyof typeof ChainId];
+const client = createPublicClient({ transport: http(MULTICHAIN_RPC[chainId]) });
 
-async function fetchGauge(lp) {
+async function fetchGauge(lp: string) {
   console.log(`fetchGauge(${lp})`);
-  if (projects[args['project']] === projects['etherex']) {
-    const voterContract = new ethers.Contract(projects['etherex'].voter, etherexVoterABI, provider);
-    const rewardsContract = await voterContract.gaugeForPool(lp);
+  if (project === projects['etherex']) {
+    const voterContract = getContract({
+      address: getAddress(projects['etherex'].voter),
+      abi: etherexVoterABI,
+      client,
+    });
+    const rewardsContract = await voterContract.read.gaugeForPool([getAddress(lp)]);
     return {
       newGauge: rewardsContract,
     };
   } else {
-    const voterContract = new ethers.Contract(projects[args['project']].voter, voterABI, provider);
-    const rewardsContract = await voterContract.gauges(lp);
+    const voterContract = getContract({
+      address: getAddress(project.voter),
+      abi: voterABI,
+      client,
+    });
+    const rewardsContract = await voterContract.read.gauges([getAddress(lp)]);
     return {
       newGauge: rewardsContract,
     };
   }
 }
 
-async function fetchLiquidityPair(lp) {
+async function fetchLiquidityPair(lp: string) {
   console.log(`fetchLiquidityPair(${lp})`);
-  const lpContract = new ethers.Contract(lp, ISolidlyPair as any, provider);
-  const lpTokenContract = new ethers.Contract(lp, ERC20ABI, provider);
+  const lpContract = getContract({ address: getAddress(lp), abi: ISolidlyPair, client });
   return {
-    address: ethers.utils.getAddress(lpAddress),
-    token0: await lpContract.token0(),
-    token1: await lpContract.token1(),
-    decimals: await lpTokenContract.decimals(),
-    stable: await lpContract.stable(),
+    address: getAddress(lpAddress),
+    token0: await lpContract.read.token0(),
+    token1: await lpContract.read.token1(),
+    decimals: await lpContract.read.decimals(),
+    stable: await lpContract.read.stable(),
   };
 }
 
-async function fetchToken(tokenAddress) {
-  const tokenContract = new ethers.Contract(tokenAddress, ERC20ABI, provider);
-  const checksummedTokenAddress = ethers.utils.getAddress(tokenAddress);
+async function fetchToken(tokenAddress: string) {
+  const checksummedTokenAddress = getAddress(tokenAddress);
+  const tokenContract = getContract({ address: checksummedTokenAddress, abi: ERC20ABI, client });
   const token = {
-    name: await tokenContract.name(),
-    symbol: await tokenContract.symbol(),
+    name: await tokenContract.read.name(),
+    symbol: await tokenContract.read.symbol(),
     address: checksummedTokenAddress,
     chainId: chainId,
-    decimals: await tokenContract.decimals(),
+    decimals: await tokenContract.read.decimals(),
     website: '',
     description: '',
     documentation: '',
@@ -305,7 +314,10 @@ async function main() {
   const token0 = await fetchToken(lp.token0);
   const token1 = await fetchToken(lp.token1);
 
-  const poolsJsonFile = lp.stable ? projects[args['project']].stableFile : projects[args['project']].volatileFile;
+  const poolsJsonFile = lp.stable ? project.stableFile : project.volatileFile;
+  if (!poolsJsonFile) {
+    throw new Error(`No ${lp.stable ? 'stable' : 'volatile'} pools file configured for project ${args['project']}`);
+  }
   const poolsJson = JSON.parse(fs.readFileSync(path.resolve(import.meta.dirname, poolsJsonFile), 'utf8'));
 
   const newPoolName = `${poolPrefix}-${token0.symbol.toLowerCase()}-${token1.symbol.toLowerCase()}`;
@@ -330,7 +342,7 @@ async function main() {
     },
   };
 
-  poolsJson.forEach(pool => {
+  poolsJson.forEach((pool: { name: string }) => {
     if (pool.name === newPoolName) {
       throw Error(`Duplicate: pool with name ${newPoolName} already exists`);
     }

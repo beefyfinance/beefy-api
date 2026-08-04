@@ -1,0 +1,65 @@
+import { addressBook } from '@beefyfinance/blockchain-addressbook';
+import { OPTIMISM_CHAIN_ID as chainId } from '../../../constants.ts';
+import { getEDecimals } from '../../../utils/getEDecimals.ts';
+import { getSolidlyGaugeApys } from '../common/getSolidlyGaugeApys.ts';
+import oldVolatilePools from '../../../data/optimism/oldVelodromeLpPools.json' with { type: 'json' };
+import oldStablePools from '../../../data/optimism/oldVelodromeStableLpPools.json' with { type: 'json' };
+import volatilePools from '../../../data/optimism/velodromeLpPools.json' with { type: 'json' };
+import stablePools from '../../../data/optimism/velodromeStableLpPools.json' with { type: 'json' };
+
+const {
+  optimism: {
+    tokens: { VELO, VELOV2 },
+  },
+} = addressBook;
+
+import { getLoggerFor } from '../../../utils/logger/index.ts';
+
+const logger = getLoggerFor({ module: 'apy', component: 'velodrome', chain: chainId });
+
+const pools = [...stablePools, ...volatilePools];
+const oldPools = [...oldStablePools, ...oldVolatilePools];
+const getVelodromeApys = async () => {
+  const oldGaugeApys = getSolidlyGaugeApys({
+    chainId: chainId,
+    pools: oldPools,
+    oracleId: 'VELO',
+    oracle: 'tokens',
+    decimals: getEDecimals(VELO.decimals),
+    reward: VELO.address,
+    boosted: false,
+    // log: true,
+  });
+
+  const gaugeApys = getSolidlyGaugeApys({
+    chainId: chainId,
+    pools: pools,
+    oracleId: 'VELOV2',
+    oracle: 'tokens',
+    decimals: getEDecimals(VELOV2.decimals),
+    reward: VELOV2.address,
+    boosted: false,
+    singleReward: true,
+    // log: true,
+  });
+
+  let apys = {};
+  let apyBreakdowns = {};
+
+  const results = await Promise.allSettled([oldGaugeApys, gaugeApys]);
+  for (const result of results) {
+    if (result.status !== 'fulfilled') {
+      logger.warn({ err: result.reason }, 'apy sub-calculation failed');
+    } else {
+      apys = { ...apys, ...result.value.apys };
+      apyBreakdowns = { ...apyBreakdowns, ...result.value.apyBreakdowns };
+    }
+  }
+
+  return {
+    apys,
+    apyBreakdowns,
+  };
+};
+
+export default getVelodromeApys;

@@ -1,11 +1,11 @@
 export { beefyfinance } from './beefyfinance.js';
 export { beethovenx } from './beethovenx.js';
-export { spookyswap } from './spookyswap.js';
-export { spiritswap } from './spiritswap.js';
-export { sushiFtm } from './sushiFtm.js';
-export { solidly } from './solidly.js';
-export { tombswap } from './tombswap.js';
-export { solace } from './solace.js';
 export { equalizer } from './equalizer.js';
 export { fvm } from './fvm.js';
+export { solace } from './solace.js';
+export { solidly } from './solidly.js';
+export { spiritswap } from './spiritswap.js';
+export { spookyswap } from './spookyswap.js';
+export { sushiFtm } from './sushiFtm.js';
+export { tombswap } from './tombswap.js';
 export { wigoswap } from './wigoswap.js';

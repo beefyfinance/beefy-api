@@ -1,7 +1,7 @@
 [
   {
     "name": "up33-weth-up",
-    "address": "0x8697bb63743678640710b1270e98772a29642b3c",
+    "address": "0x8697bB63743678640710b1270E98772a29642B3c",
     "gauge": "0x57101f7d45B6Acf5F9f01380110a54155a469E98",
     "decimals": "1e18",
     "chainId": 4663,

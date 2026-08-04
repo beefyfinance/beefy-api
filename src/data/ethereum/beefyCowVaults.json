@@ -7,7 +7,7 @@
     "decimals": [8, 18],
     "oracleId": "uniswap-cow-ethereum-wbtc-weth",
     "rewardPool": {
-      "address": "0xef958e249c089fb2c378fdf5fedfb8a6d6374000",
+      "address": "0xEF958E249c089fB2C378fDf5FedFb8A6D6374000",
       "oracleId": "uniswap-cow-ethereum-wbtc-weth-rp"
     }
   },
@@ -19,7 +19,7 @@
     "decimals": [8, 6],
     "oracleId": "uniswap-cow-ethereum-wbtc-usdc",
     "rewardPool": {
-      "address": "0x7431d63132167d3ddd7990a90e26601d3ea9e6eb",
+      "address": "0x7431d63132167d3DDd7990a90E26601d3EA9e6EB",
       "oracleId": "uniswap-cow-ethereum-wbtc-usdc-rp"
     }
   },
@@ -31,7 +31,7 @@
     "decimals": [18, 6],
     "oracleId": "uniswap-cow-ethereum-weth-usdt",
     "rewardPool": {
-      "address": "0x8e15fcaa3eb4f7b111c4d3dd237b36ca49331786",
+      "address": "0x8e15FcAA3EB4F7b111C4D3dd237b36ca49331786",
       "oracleId": "uniswap-cow-ethereum-weth-usdt-rp"
     }
   },
