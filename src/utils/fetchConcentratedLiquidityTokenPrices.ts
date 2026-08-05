@@ -1932,6 +1932,14 @@ const tokens = {
       secondToken: 'WETH',
     },
     {
+      type: 'UniV3',
+      oracleId: 'FRONG',
+      decimalDelta: 1,
+      pool: '0x09a431261E3d0F1dc2f7e0b14718DBBBCBe19Ae4',
+      firstToken: 'FRONG',
+      secondToken: 'WETH',
+    },
+    {
       type: 'Slipstream',
       oracleId: 'UP33',
       decimalDelta: 1,
