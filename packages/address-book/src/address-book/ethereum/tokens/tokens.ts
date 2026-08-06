@@ -3171,6 +3171,20 @@ export const tokens = {
     bridge: 'native',
     tags: ['BLUECHIP'],
   },
+  ybWBTC: {
+    name: 'Yield Basis liquidity for WBTC ',
+    symbol: 'yb-WBTC',
+    oracleId: 'ybWBTC',
+    oracle: 'lps',
+    address: '0x651D4b8168488FA163D85304662E8278d4c55BAa',
+    chainId: 1,
+    decimals: 18,
+    website: 'https://yieldbasis.com/earn/0x651D4b8168488FA163D85304662E8278d4c55BAa',
+    documentation: 'https://docs.yieldbasis.com/user/introduction',
+    description:
+      'YieldBasis is a decentralized protocol that lets liquidity providers earn trading fees on volatile-asset pairs without the impermanent loss a normal LP suffers.',
+    bridge: 'native',
+  },
   PAXG: {
     name: 'Paxos Gold',
     symbol: 'PAXG',
