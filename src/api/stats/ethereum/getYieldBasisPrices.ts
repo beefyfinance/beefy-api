@@ -21,14 +21,14 @@ export const getYieldBasisPrices = withTracing(
     let prices: Record<string, StandardLpBreakdown> = {};
 
     const gaugeToYbCalls = pools.map(p => fetchContract(p.gauge, abi, chainId).read.previewRedeem([BIGINT_UNIT_18]));
-    const ybToAssetCalls = pools.map(p =>
-      fetchContract(p.address, abi, chainId).read.preview_withdraw([BIGINT_UNIT_18])
-    );
+    const ybPpsCalls = pools.map(p => fetchContract(p.address, abi, chainId).read.preview_withdraw([BIGINT_UNIT_18]));
     const supplyCalls = pools.map(p => fetchContract(p.gauge, ERC20Abi, chainId).read.totalSupply());
-    const [gaugePpsRes, ybPpsRes, supplyRes] = await Promise.all([
+    const ybSupplyCalls = pools.map(p => fetchContract(p.address, ERC20Abi, chainId).read.totalSupply());
+    const [gaugePpsRes, ybPpsRes, supplyRes, ybSupplyRes] = await Promise.all([
       Promise.all(gaugeToYbCalls),
-      Promise.all(ybToAssetCalls),
+      Promise.all(ybPpsCalls),
       Promise.all(supplyCalls),
+      Promise.all(ybSupplyCalls),
     ]);
 
     for (let i = 0; i < pools.length; i++) {
@@ -38,13 +38,11 @@ export const getYieldBasisPrices = withTracing(
       const tokenPrice = getTokenPrice(tokenPrices, pool.oracleId);
       const price = gaugePps.times(pps).times(tokenPrice).toNumber();
       const totalSupply = new BigNumber(supplyRes[i]).div('1e18').toString(10);
-      // console.log(`YB ${pool.name} tokenPrice: ${tokenPrice} price: ${price}`);
-      prices[pool.name] = {
-        price,
-        totalSupply,
-        tokens: [],
-        balances: [],
-      };
+      const ybPrice = pps.times(tokenPrice).toNumber();
+      const ybSupply = new BigNumber(ybSupplyRes[i]).div('1e18').toString(10);
+      // console.log(`YB ${pool.name} tokenPrice: ${tokenPrice} price: ${price} ybPrice: ${ybPrice}`);
+      prices[pool.name] = { price, totalSupply, tokens: [], balances: [] };
+      prices[`yb${pool.oracleId}`] = { price: ybPrice, totalSupply: ybSupply, tokens: [], balances: [] };
     }
     return prices;
   },
