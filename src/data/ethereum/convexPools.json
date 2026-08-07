@@ -764,6 +764,7 @@
     "pool": "0xa4c567c662349BeC3D0fB94C4e7f85bA95E208e4",
     "gauge": "0x4e227d29b33B77113F84bcC189a6F886755a1f24",
     "rewardPool": "0x442E773FFB0043551417D5A37E10c17990fB075c",
+    "getDy": ["v1", 0, 1],
     "stakeDao": true,
     "tokens": [
       {

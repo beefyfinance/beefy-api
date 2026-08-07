@@ -209,7 +209,7 @@ export const fetchAmmPrices = withTracing(
           const betterPrice = weight > existingWeight;
 
           if (DEBUG_ORACLES.includes(unknownToken.oracleId)) {
-            logger.debug(
+            logger.warn(
               {
                 action: betterPrice ? 'setting' : 'skipping',
                 oracleId: unknownToken.oracleId,
