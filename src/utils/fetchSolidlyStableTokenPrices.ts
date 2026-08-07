@@ -111,14 +111,6 @@ const tokens = {
   ],
   bsc: [
     {
-      oracleId: 'liveTHE',
-      pool: '0x3765476BfFE43Cf4c0656bF3A7529c54ae247056',
-      firstTokenDecimals: 18,
-      secondToken: 'THE',
-      secondTokenDecimals: 18,
-      secondTokenAddress: '0xF4C8E32EaDEC4BFe97E0F595AdD0f4450a863a11',
-    },
-    {
       oracleId: 'mCAKE',
       firstTokenDecimals: 18,
       pool: '0x7569Ae71A1832fa5F403471a01289222b1Daacb5',
