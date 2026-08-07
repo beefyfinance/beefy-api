@@ -14,7 +14,6 @@ const logger = getLoggerFor({ module: 'prices', component: 'be-tokens' });
 /** be* tokens that are worth exactly one of their underlying */
 const staticMap = {
   beJOE: 'JOE',
-  beQI: 'QI',
   beCAKE: 'Cake',
   beVelo: 'BeVELO',
 };
