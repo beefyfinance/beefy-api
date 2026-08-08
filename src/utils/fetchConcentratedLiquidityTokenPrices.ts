@@ -202,6 +202,14 @@ const tokens = {
   arbitrum: [
     {
       type: 'UniV3',
+      oracleId: 'arbcbBTC',
+      decimalDelta: 1,
+      pool: '0x9b42809aaae8d088ee01fe637e948784730f0386',
+      firstToken: 'WBTC',
+      secondToken: 'arbcbBTC',
+    },
+    {
+      type: 'UniV3',
       oracleId: 'GNS',
       decimalDelta: 1,
       pool: '0xC91B7b39BBB2c733f0e7459348FD0c80259c8471',
