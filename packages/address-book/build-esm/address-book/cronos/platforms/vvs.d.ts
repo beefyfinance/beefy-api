@@ -1,0 +1,5 @@
+export declare const vvs: {
+    readonly masterchef: "0xDccd6455AE04b03d785F12196B492b18129564bc";
+    readonly router: "0x145863Eb42Cf62847A6Ca784e6416C1682b1b2Ae";
+    readonly bifiCroLp: "0x1803E360393A472beC6E1A688BDF7048d3076b1A";
+};

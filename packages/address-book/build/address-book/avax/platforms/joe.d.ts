@@ -1,0 +1,8 @@
+export declare const joe: {
+    readonly router: "0x60aE616a2155Ee3d9A68541Ba4544862310933d4";
+    readonly chef: "0xd6a4F121CA35509aF06A0Be99093d08462f53052";
+    readonly masterchefV3: "0x188bED1968b795d5c9022F6a0bb5931Ac4c18F00";
+    readonly boostedMasterChef: "0x4483f0b6e2F5486D06958C20f8C39A7aBe87bf8F";
+    readonly boostStaker: "0x1F2A8034f444dc55F963fb5925A9b6eb744EeE2c";
+    readonly avaxBifiLp: "0x361221991B3B6282fF3a62Bc874d018bfAF1f8C8";
+};

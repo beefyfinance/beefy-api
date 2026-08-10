@@ -1,0 +1,12 @@
+import { convertSymbolTokenMapToAddressTokenMap } from '../../util/convertSymbolTokenMapToAddressTokenMap.js';
+import * as platforms from './platforms/index.js';
+import { tokens } from './tokens/tokens.js';
+export const fraxtal = {
+    platforms,
+    tokens,
+    tokenAddressMap: convertSymbolTokenMapToAddressTokenMap(tokens),
+    native: {
+        symbol: 'FRAX',
+        oracleId: 'FXS',
+    },
+};

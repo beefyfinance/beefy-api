@@ -1,0 +1,113 @@
+export declare const tokens: {
+    readonly WNATIVE: {
+        readonly name: "Wrapped GAS";
+        readonly address: "0xE3dbcD53f4Ce1b06Ab200f4912BD35672e68f1FA";
+        readonly symbol: "WGAS";
+        readonly oracleId: "WGAS";
+        readonly decimals: 18;
+        readonly chainId: 5464;
+        readonly website: "https://www.saga.xyz/";
+        readonly description: "Meta-token for gas on Saga. Saga is gasless for users. Do not use the token at this address.";
+        readonly bridge: "native";
+        readonly documentation: "https://docs.saga.xyz/";
+    };
+    readonly FEES: {
+        readonly name: "USDC";
+        readonly address: "0xfc960C233B8E98e0Cf282e29BDE8d3f105fc24d5";
+        readonly symbol: "USDC";
+        readonly oracleId: "USDC";
+        readonly decimals: 6;
+        readonly chainId: 5464;
+        readonly website: "https://www.centre.io/";
+        readonly description: "USDC is a fully collateralized US dollar stablecoin. USDC is issued by regulated financial institutions, backed by fully reserved assets, redeemable on a 1:1 basis for US dollars.";
+        readonly bridge: "saga-canonical";
+        readonly documentation: "https://www.circle.com/en/usdc-multichain/arbitrum";
+    };
+    readonly GAS: {
+        readonly name: "Wrapped GAS";
+        readonly address: "0xE3dbcD53f4Ce1b06Ab200f4912BD35672e68f1FA";
+        readonly symbol: "WGAS";
+        readonly oracleId: "WGAS";
+        readonly decimals: 18;
+        readonly chainId: 5464;
+        readonly website: "https://www.saga.xyz/";
+        readonly description: "Meta-token for gas on Saga. Saga is gasless for users. Do not use the token at this address.";
+        readonly bridge: "native";
+        readonly documentation: "https://docs.saga.xyz/";
+    };
+    readonly WGAS: {
+        readonly name: "Wrapped GAS";
+        readonly address: "0xE3dbcD53f4Ce1b06Ab200f4912BD35672e68f1FA";
+        readonly symbol: "WGAS";
+        readonly oracleId: "WGAS";
+        readonly decimals: 18;
+        readonly chainId: 5464;
+        readonly website: "https://www.saga.xyz/";
+        readonly description: "Meta-token for gas on Saga. Saga is gasless for users. Do not use the token at this address.";
+        readonly bridge: "native";
+        readonly documentation: "https://docs.saga.xyz/";
+    };
+    readonly USDC: {
+        readonly name: "USDC";
+        readonly address: "0xfc960C233B8E98e0Cf282e29BDE8d3f105fc24d5";
+        readonly symbol: "USDC";
+        readonly oracleId: "USDC";
+        readonly decimals: 6;
+        readonly chainId: 5464;
+        readonly website: "https://www.centre.io/";
+        readonly description: "USDC is a fully collateralized US dollar stablecoin. USDC is issued by regulated financial institutions, backed by fully reserved assets, redeemable on a 1:1 basis for US dollars.";
+        readonly bridge: "saga-canonical";
+        readonly documentation: "https://www.circle.com/en/usdc-multichain/arbitrum";
+    };
+    readonly SAGA: {
+        readonly name: "Saga";
+        readonly address: "0xA19377761FED745723B90993988E04d641c2CfFE";
+        readonly symbol: "SAGA";
+        readonly oracleId: "SAGA";
+        readonly decimals: 6;
+        readonly chainId: 5464;
+        readonly website: "https://www.saga.xyz/";
+        readonly description: "Saga is a layer 1 to launch L1s, or “Chainlets.” Instead of competing for blockspace on one monolithic chain, each application on Saga is hosted on one or more parallelized and interoperable dedicated chains that can be elastically scaled with the application needs. Saga is better for users, developers and the blockchain ecosystem.";
+        readonly bridge: "saga-canonical";
+        readonly documentation: "https://www.saga.xyz/saga-protocol";
+    };
+    readonly WETH: {
+        readonly name: "Wrapped Ether";
+        readonly symbol: "WETH";
+        readonly oracleId: "WETH";
+        readonly address: "0xeb41D53F14Cb9a67907f2b8b5DBc223944158cCb";
+        readonly chainId: 5464;
+        readonly decimals: 18;
+        readonly website: "https://weth.io/";
+        readonly description: "Ether or ETH is the native currency built on the Ethereum blockchain.";
+        readonly bridge: "saga-canonical";
+        readonly documentation: "https://ethereum.org/en/developers/docs/";
+        readonly tags: readonly ["BLUECHIP"];
+    };
+    readonly USDT: {
+        readonly name: "Tether";
+        readonly symbol: "USDT";
+        readonly oracleId: "USDT";
+        readonly address: "0xC8fe3C1de344854f4429bB333AFFAeF97eF88CEa";
+        readonly chainId: 5464;
+        readonly decimals: 6;
+        readonly website: "https://www.tether.to/";
+        readonly description: "Tether is a stablecoin pegged to the US dollar. Tether is issued by Tether Limited, a Gibraltar-based company.";
+        readonly bridge: "saga-canonical";
+        readonly documentation: "https://www.tether.to/";
+        readonly tags: readonly ["STABLECOIN"];
+    };
+    readonly UNI: {
+        readonly name: "Uniswap";
+        readonly symbol: "UNI";
+        readonly oracleId: "UNI";
+        readonly address: "0x4E33613adD93463E82A14080021f2FfaF1e062CF";
+        readonly chainId: 5464;
+        readonly decimals: 18;
+        readonly website: "https://www.uniswap.org/";
+        readonly description: "Uniswap is a decentralized exchange (DEX) on the Ethereum blockchain.";
+        readonly bridge: "saga-canonical";
+        readonly documentation: "https://www.uniswap.org/";
+        readonly tags: readonly ["BLUECHIP"];
+    };
+};

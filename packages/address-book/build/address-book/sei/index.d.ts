@@ -1,0 +1,236 @@
+import * as platforms from './platforms/index.js';
+export declare const sei: {
+    readonly platforms: typeof platforms;
+    readonly tokens: {
+        readonly WNATIVE: {
+            readonly name: "Wrapped SEI";
+            readonly address: "0xE30feDd158A2e3b13e9badaeABaFc5516e95e8C7";
+            readonly symbol: "WSEI";
+            readonly oracleId: "WSEI";
+            readonly decimals: 18;
+            readonly chainId: 1329;
+            readonly website: "https://www.sei.io/";
+            readonly description: "Pushing the boundaries of blockchain technology through open source development, Sei stands to unlock a brand new design space for consumer facing applications.";
+            readonly bridge: "native";
+            readonly documentation: "https://www.docs.sei.io/";
+        };
+        readonly FEES: {
+            readonly name: "Wrapped SEI";
+            readonly address: "0xE30feDd158A2e3b13e9badaeABaFc5516e95e8C7";
+            readonly symbol: "WSEI";
+            readonly oracleId: "WSEI";
+            readonly decimals: 18;
+            readonly chainId: 1329;
+            readonly website: "https://www.sei.io/";
+            readonly description: "Pushing the boundaries of blockchain technology through open source development, Sei stands to unlock a brand new design space for consumer facing applications.";
+            readonly bridge: "native";
+            readonly documentation: "https://www.docs.sei.io/";
+        };
+        readonly SEI: {
+            readonly name: "Wrapped SEI";
+            readonly address: "0xE30feDd158A2e3b13e9badaeABaFc5516e95e8C7";
+            readonly symbol: "WSEI";
+            readonly oracleId: "WSEI";
+            readonly decimals: 18;
+            readonly chainId: 1329;
+            readonly website: "https://www.sei.io/";
+            readonly description: "Pushing the boundaries of blockchain technology through open source development, Sei stands to unlock a brand new design space for consumer facing applications.";
+            readonly bridge: "native";
+            readonly documentation: "https://www.docs.sei.io/";
+        };
+        readonly WSEI: {
+            readonly name: "Wrapped SEI";
+            readonly address: "0xE30feDd158A2e3b13e9badaeABaFc5516e95e8C7";
+            readonly symbol: "WSEI";
+            readonly oracleId: "WSEI";
+            readonly decimals: 18;
+            readonly chainId: 1329;
+            readonly website: "https://www.sei.io/";
+            readonly description: "Pushing the boundaries of blockchain technology through open source development, Sei stands to unlock a brand new design space for consumer facing applications.";
+            readonly bridge: "native";
+            readonly documentation: "https://www.docs.sei.io/";
+        };
+        readonly USDCn: {
+            readonly name: "Sei Bridged USD Coin";
+            readonly address: "0x3894085Ef7Ff0f0aeDf52E2A2704928d1Ec074F1";
+            readonly symbol: "USDCn";
+            readonly oracleId: "USDCn";
+            readonly decimals: 6;
+            readonly website: "https://www.centre.io/";
+            readonly description: "Sei-based USDC bridged via the official SEI Bridge.";
+            readonly bridge: "sei-canonical";
+            readonly chainId: 1329;
+            readonly documentation: "https://developers.circle.com/docs";
+            readonly tags: readonly ["STABLECOIN"];
+        };
+        readonly WETH: {
+            readonly name: "Wrapped Ether";
+            readonly address: "0x160345fC359604fC6e70E3c5fAcbdE5F7A9342d8";
+            readonly symbol: "WETH";
+            readonly oracleId: "WETH";
+            readonly decimals: 18;
+            readonly chainId: 1329;
+            readonly website: "https://weth.io/";
+            readonly description: "Ether or ETH is the native currency built on the Ethereum blockchain.";
+            readonly bridge: "layerzero";
+            readonly documentation: "https://ethereum.org/en/developers/docs/";
+            readonly tags: readonly ["BLUECHIP"];
+        };
+        readonly USDT: {
+            readonly name: "USDT";
+            readonly symbol: "USDT";
+            readonly oracleId: "USDT";
+            readonly address: "0xB75D0B03c06A926e488e2659DF1A861F860bD3d1";
+            readonly chainId: 1329;
+            readonly decimals: 6;
+            readonly website: "https://tether.to/";
+            readonly description: "Tether is a stablecoin pegged to the US Dollar. A stablecoin is a type of cryptocurrency whose value is pegged to another fiat currency like the US Dollar or to a commodity like Gold. Tether is the first stablecoin to be created and it is the most popular stablecoin used in the ecosystem.";
+            readonly bridge: "sei-canonical";
+            readonly documentation: "https://tether.to/en/how-it-works";
+            readonly tags: readonly ["STABLECOIN"];
+        };
+        readonly iSEI: {
+            readonly name: "iSEI";
+            readonly symbol: "iSEI";
+            readonly oracleId: "iSEI";
+            readonly address: "0x5Cf6826140C1C56Ff49C808A1A75407Cd1DF9423";
+            readonly chainId: 1329;
+            readonly decimals: 6;
+            readonly website: "https://app.silostaking.io/stake";
+            readonly description: "iSEI is a liquid staking wrapper for SEI, managed by Silo.";
+            readonly bridge: "sei-canonical";
+            readonly documentation: "https://silostaking.gitbook.io/silo-staking";
+        };
+        readonly USDC: {
+            readonly name: "USDC";
+            readonly symbol: "USDC";
+            readonly oracleId: "USDC";
+            readonly address: "0xe15fC38F6D8c56aF07bbCBe3BAf5708A2Bf42392";
+            readonly chainId: 1329;
+            readonly decimals: 6;
+            readonly website: "https://www.centre.io/";
+            readonly description: "Sei-based USDC bridged via the official SEI Bridge.";
+            readonly bridge: "native";
+            readonly documentation: "https://developers.circle.com/docs";
+            readonly tags: readonly ["STABLECOIN"];
+        };
+    };
+    readonly tokenAddressMap: import("../../util/convertSymbolTokenMapToAddressTokenMap.js").AddressToTokenMap<{
+        readonly WNATIVE: {
+            readonly name: "Wrapped SEI";
+            readonly address: "0xE30feDd158A2e3b13e9badaeABaFc5516e95e8C7";
+            readonly symbol: "WSEI";
+            readonly oracleId: "WSEI";
+            readonly decimals: 18;
+            readonly chainId: 1329;
+            readonly website: "https://www.sei.io/";
+            readonly description: "Pushing the boundaries of blockchain technology through open source development, Sei stands to unlock a brand new design space for consumer facing applications.";
+            readonly bridge: "native";
+            readonly documentation: "https://www.docs.sei.io/";
+        };
+        readonly FEES: {
+            readonly name: "Wrapped SEI";
+            readonly address: "0xE30feDd158A2e3b13e9badaeABaFc5516e95e8C7";
+            readonly symbol: "WSEI";
+            readonly oracleId: "WSEI";
+            readonly decimals: 18;
+            readonly chainId: 1329;
+            readonly website: "https://www.sei.io/";
+            readonly description: "Pushing the boundaries of blockchain technology through open source development, Sei stands to unlock a brand new design space for consumer facing applications.";
+            readonly bridge: "native";
+            readonly documentation: "https://www.docs.sei.io/";
+        };
+        readonly SEI: {
+            readonly name: "Wrapped SEI";
+            readonly address: "0xE30feDd158A2e3b13e9badaeABaFc5516e95e8C7";
+            readonly symbol: "WSEI";
+            readonly oracleId: "WSEI";
+            readonly decimals: 18;
+            readonly chainId: 1329;
+            readonly website: "https://www.sei.io/";
+            readonly description: "Pushing the boundaries of blockchain technology through open source development, Sei stands to unlock a brand new design space for consumer facing applications.";
+            readonly bridge: "native";
+            readonly documentation: "https://www.docs.sei.io/";
+        };
+        readonly WSEI: {
+            readonly name: "Wrapped SEI";
+            readonly address: "0xE30feDd158A2e3b13e9badaeABaFc5516e95e8C7";
+            readonly symbol: "WSEI";
+            readonly oracleId: "WSEI";
+            readonly decimals: 18;
+            readonly chainId: 1329;
+            readonly website: "https://www.sei.io/";
+            readonly description: "Pushing the boundaries of blockchain technology through open source development, Sei stands to unlock a brand new design space for consumer facing applications.";
+            readonly bridge: "native";
+            readonly documentation: "https://www.docs.sei.io/";
+        };
+        readonly USDCn: {
+            readonly name: "Sei Bridged USD Coin";
+            readonly address: "0x3894085Ef7Ff0f0aeDf52E2A2704928d1Ec074F1";
+            readonly symbol: "USDCn";
+            readonly oracleId: "USDCn";
+            readonly decimals: 6;
+            readonly website: "https://www.centre.io/";
+            readonly description: "Sei-based USDC bridged via the official SEI Bridge.";
+            readonly bridge: "sei-canonical";
+            readonly chainId: 1329;
+            readonly documentation: "https://developers.circle.com/docs";
+            readonly tags: readonly ["STABLECOIN"];
+        };
+        readonly WETH: {
+            readonly name: "Wrapped Ether";
+            readonly address: "0x160345fC359604fC6e70E3c5fAcbdE5F7A9342d8";
+            readonly symbol: "WETH";
+            readonly oracleId: "WETH";
+            readonly decimals: 18;
+            readonly chainId: 1329;
+            readonly website: "https://weth.io/";
+            readonly description: "Ether or ETH is the native currency built on the Ethereum blockchain.";
+            readonly bridge: "layerzero";
+            readonly documentation: "https://ethereum.org/en/developers/docs/";
+            readonly tags: readonly ["BLUECHIP"];
+        };
+        readonly USDT: {
+            readonly name: "USDT";
+            readonly symbol: "USDT";
+            readonly oracleId: "USDT";
+            readonly address: "0xB75D0B03c06A926e488e2659DF1A861F860bD3d1";
+            readonly chainId: 1329;
+            readonly decimals: 6;
+            readonly website: "https://tether.to/";
+            readonly description: "Tether is a stablecoin pegged to the US Dollar. A stablecoin is a type of cryptocurrency whose value is pegged to another fiat currency like the US Dollar or to a commodity like Gold. Tether is the first stablecoin to be created and it is the most popular stablecoin used in the ecosystem.";
+            readonly bridge: "sei-canonical";
+            readonly documentation: "https://tether.to/en/how-it-works";
+            readonly tags: readonly ["STABLECOIN"];
+        };
+        readonly iSEI: {
+            readonly name: "iSEI";
+            readonly symbol: "iSEI";
+            readonly oracleId: "iSEI";
+            readonly address: "0x5Cf6826140C1C56Ff49C808A1A75407Cd1DF9423";
+            readonly chainId: 1329;
+            readonly decimals: 6;
+            readonly website: "https://app.silostaking.io/stake";
+            readonly description: "iSEI is a liquid staking wrapper for SEI, managed by Silo.";
+            readonly bridge: "sei-canonical";
+            readonly documentation: "https://silostaking.gitbook.io/silo-staking";
+        };
+        readonly USDC: {
+            readonly name: "USDC";
+            readonly symbol: "USDC";
+            readonly oracleId: "USDC";
+            readonly address: "0xe15fC38F6D8c56aF07bbCBe3BAf5708A2Bf42392";
+            readonly chainId: 1329;
+            readonly decimals: 6;
+            readonly website: "https://www.centre.io/";
+            readonly description: "Sei-based USDC bridged via the official SEI Bridge.";
+            readonly bridge: "native";
+            readonly documentation: "https://developers.circle.com/docs";
+            readonly tags: readonly ["STABLECOIN"];
+        };
+    }>;
+    readonly native: {
+        readonly symbol: "SEI";
+        readonly oracleId: "SEI";
+    };
+};
