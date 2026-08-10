@@ -88,6 +88,18 @@ export const tokens = {
     bridge: 'native',
     tags: ['MEMECOIN'],
   },
+  STONKBROKER: {
+    name: 'StonkBroker',
+    address: '0xe934e36A439C94017B64a3FecE66AF12099aBF50',
+    symbol: 'STONKBROKER',
+    oracleId: 'STONKBROKER',
+    decimals: 18,
+    chainId: 4663,
+    website: 'https://stonkbrokers.cash/',
+    description: 'StonkBroker is a community/meme token on Robinhood Chain.',
+    bridge: 'native',
+    tags: ['MEMECOIN'],
+  },
   FRONG: {
     name: 'frong',
     address: '0x6245e67affA44a23077f0Ea7f981a8DC743a0c47',

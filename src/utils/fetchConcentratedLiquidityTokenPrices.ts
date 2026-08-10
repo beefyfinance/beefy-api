@@ -1933,6 +1933,14 @@ const tokens = {
     },
     {
       type: 'UniV3',
+      oracleId: 'STONKBROKER',
+      decimalDelta: 1,
+      pool: '0x9cd74d5980A4BF60408B9bA2B0F6a3d368EBf594',
+      firstToken: 'STONKBROKER',
+      secondToken: 'WETH',
+    },
+    {
+      type: 'UniV3',
       oracleId: 'FRONG',
       decimalDelta: 1,
       pool: '0x09a431261E3d0F1dc2f7e0b14718DBBBCBe19Ae4',
