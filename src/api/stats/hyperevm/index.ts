@@ -3,12 +3,11 @@ import { getLoggerFor } from '../../../utils/logger/index.ts';
 import type { ApyBreakdownResult } from '../common/getApyBreakdownNew.ts';
 import { getMorphoApys } from '../common/morpho/getMorphoApys.ts';
 import { getBeefyCowHyperevmApys } from './getBeefyCowHyperevmApys.ts';
-import { getKittenswapApys } from './getKittenswapApys.ts';
 import morphoPoolsData from '../../../data/hyperevm/morphoPools.json' with { type: 'json' };
 
 const logger = getLoggerFor({ module: 'apy', chain: HYPEREVM_CHAIN_ID });
 
-const getApys = [getBeefyCowHyperevmApys, getKittenswapApys, () => getMorphoApys(HYPEREVM_CHAIN_ID, morphoPoolsData)];
+const getApys = [getBeefyCowHyperevmApys, () => getMorphoApys(HYPEREVM_CHAIN_ID, morphoPoolsData)];
 
 const getHyperevmApys = async () => {
   const start = Date.now();
