@@ -2,6 +2,7 @@ import { AVAX_CHAIN_ID } from '../../../constants.ts';
 import { getLoggerFor } from '../../../utils/logger/index.ts';
 import type { ApyBreakdownResult } from '../common/getApyBreakdownNew.ts';
 import { getSiloApys } from '../common/silo/getSiloApys.ts';
+import { getAaveV4Apys } from './getAaveV4Apys.ts';
 import { getBeefyAvaxCowApys } from './getBeefyAvaxCowApys.ts';
 import { getBlackholeApys } from './getBlackholeApys.ts';
 import { getGmxApys } from './getGmxApys.ts';
@@ -10,7 +11,14 @@ import siloPoolsData from '../../../data/avax/siloPools.json' with { type: 'json
 
 const logger = getLoggerFor({ module: 'apy', chain: AVAX_CHAIN_ID });
 
-const getApys = [getGmxApys, getJoeApy, getBeefyAvaxCowApys, getBlackholeApys, () => getSiloApys(43114, siloPoolsData)];
+const getApys = [
+  getGmxApys,
+  getJoeApy,
+  getBeefyAvaxCowApys,
+  getBlackholeApys,
+  () => getSiloApys(43114, siloPoolsData),
+  getAaveV4Apys,
+];
 
 const getAvaxApys = async () => {
   const start = Date.now();

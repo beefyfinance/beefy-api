@@ -1,0 +1,22 @@
+[
+  {
+    "name": "aavev4-avax-usdc",
+    "spoke": "0x435272CefF93a1E657E8ABfdf0A13e95900A3a56",
+    "reserveId": 2,
+    "aaveTokenSymbol": "USDC",
+    "aaveSpokeName": "Main",
+    "identifier": "56782defb7cf0788",
+    "oracleId": "USDC",
+    "decimals": "1e6"
+  },
+  {
+    "name": "aavev4-avax-usdt",
+    "spoke": "0x435272CefF93a1E657E8ABfdf0A13e95900A3a56",
+    "reserveId": 3,
+    "aaveTokenSymbol": "USDt",
+    "aaveSpokeName": "Main",
+    "identifier": "1aa1374dd9a6fe37",
+    "oracleId": "USDT",
+    "decimals": "1e6"
+  }
+]

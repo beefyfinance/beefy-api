@@ -77,6 +77,7 @@ import { getBeefyCowSonicPrices } from './sonic/getBeefySonicCowPrices.ts';
 import getBeetsSonicPrices from './sonic/getBeetsSonicPrices.ts';
 import { getBeefyCowZkSyncPrices } from './zksync/getBeefyCowZkSyncPrices.ts';
 import arbitrumMorphoPools from '../../data/arbitrum/morphoPools.json' with { type: 'json' };
+import avaxAaveV4Pools from '../../data/avax/aaveV4Pools.json' with { type: 'json' };
 import avaxBlackStableLpPools from '../../data/avax/blackStableLpPools.json' with { type: 'json' };
 import avaxSiloPools from '../../data/avax/siloPools.json' with { type: 'json' };
 import baseAaveV3Pools from '../../data/base/aaveV3Pools.json' with { type: 'json' };
@@ -116,6 +117,7 @@ export const getNonAmmPrices = withTracing(
 
     const promises = [
       getAaveV4Prices(ETH_CHAIN_ID, ethereumAaveV4Pools, tokenPrices),
+      getAaveV4Prices(AVAX_CHAIN_ID, avaxAaveV4Pools, tokenPrices),
       getAaveV3Prices(BASE_CHAIN_ID, baseAaveV3Pools, tokenPrices),
       getAaveV3Prices(MANTLE_CHAIN_ID, mantleAaveV3Pools, tokenPrices),
       getAaveV3Prices(MEGAETH_CHAIN_ID, megaethAaveV3Pools, tokenPrices),
