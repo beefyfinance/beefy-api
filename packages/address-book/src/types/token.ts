@@ -19,6 +19,7 @@ export interface Token {
     | 'LARGE_HOLDERS'
     | 'BLUECHIP'
     | 'MEMECOIN'
+    | 'STOCK'
   >;
 }
 
