@@ -1,5 +1,17 @@
 [
   {
+    "address": "0x9CcCE25f82f37ef777552E3BBB2A01BC5574AbE8",
+    "lpAddress": "0x9cd74d5980A4BF60408B9bA2B0F6a3d368EBf594",
+    "tokens": ["0x0Bd7D308f8E1639FAb988df18A8011f41EAcAD73", "0xe934e36A439C94017B64a3FecE66AF12099aBF50"],
+    "tokenOracleIds": ["WETH", "STONKBROKER"],
+    "decimals": [18, 18],
+    "oracleId": "uniswap-cow-robinhood-stonkbroker-weth",
+    "rewardPool": {
+      "address": "0xDAceb29D88ee1b5eFE8ac134523dC93A35548703",
+      "oracleId": "uniswap-cow-robinhood-stonkbroker-weth-rp"
+    }
+  },
+  {
     "address": "0xd5319D37F56C70F10da99BFB3A38694D5BD1fF22",
     "lpAddress": "0x09a431261E3d0F1dc2f7e0b14718DBBBCBe19Ae4",
     "tokens": ["0x0Bd7D308f8E1639FAb988df18A8011f41EAcAD73", "0x6245e67affA44a23077f0Ea7f981a8DC743a0c47"],
