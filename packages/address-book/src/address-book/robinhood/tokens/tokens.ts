@@ -60,7 +60,7 @@ export const tokens = {
     documentation:
       'https://cdn.robinhood.com/assets/robinhood/legal/rhj_final_terms_for_tokenised_debt_securities_linked_to_gamestop.pdf',
     bridge: 'native',
-    tags: ['LARGE_HOLDERS'],
+    tags: ['LARGE_HOLDERS', 'STOCK'],
   },
   CASHCAT: {
     name: 'Cash Cat',
