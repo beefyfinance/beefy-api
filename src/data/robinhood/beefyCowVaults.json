@@ -17,23 +17,6 @@
     }
   },
   {
-    "address": "0x79DBEFb3D1c938c316bE8213EDACc826bD5aDfba",
-    "lpAddress": "0x5C4cA790d5944e0D5Eb46456FD1B700bf6040849",
-    "tokens": ["0x5fc5360D0400a0Fd4f2af552ADD042D716F1d168", "0xc2362AfF2A2a4CC1f48cF3Dab2C4e2605eb94BA3"],
-    "tokenOracleIds": ["USDG", "GME"],
-    "decimals": [6, 18],
-    "oracleId": "up33-cow-robinhood-usdg-gme",
-    "providerId": "up33",
-    "rewardPool": {
-      "address": "0x739Ee0c3Cb02436DEc819d1bb3aE0ac024205365",
-      "oracleId": "up33-cow-robinhood-usdg-gme-rp"
-    },
-    "vault": {
-      "address": "0x89F26C033ff3F9d9DBcB1fFf0DE0176487B4925d",
-      "oracleId": "up33-cow-robinhood-usdg-gme-vault"
-    }
-  },
-  {
     "address": "0x37698C12ecc727178617c5b7d694377eb98dE058",
     "lpAddress": "0x851d1B0342d2257a4172826b68221D2366C1c6B5",
     "tokens": ["0x0Bd7D308f8E1639FAb988df18A8011f41EAcAD73", "0xc6911796042b15d7Fa4F6CDe69e245DdCd3d9c31"],
