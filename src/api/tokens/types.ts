@@ -1,3 +1,4 @@
+import type { Token as AddressBookToken } from '@beefyfinance/blockchain-addressbook';
 import type { Address } from 'viem';
 import type { ApiChain } from '../../utils/chain.ts';
 
@@ -11,6 +12,7 @@ type TokenBase = {
   decimals: number;
   bridge?: string;
   staked?: boolean;
+  tags?: AddressBookToken['tags'];
 };
 
 export type TokenErc20 = TokenBase & {

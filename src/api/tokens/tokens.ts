@@ -247,6 +247,7 @@ async function fetchAddressBookTokensForChain(
       decimals: token.decimals,
       ...(token.bridge ? { bridge: token.bridge } : {}),
       ...(token.staked ? { staked: token.staked } : {}),
+      ...(token.tags ? { tags: token.tags } : {}),
     });
 
     return tokens;
@@ -304,11 +305,14 @@ async function fetchTokensForChain(chainId: ApiChain): Promise<ChainTokens> {
     addToken(token, byId, byAddress)
   );
 
-  // Address book oracle id and symbol takes precedence now
+  // Address book oracle id, symbol and tags take precedence now
   abTokens.erc20Tokens.forEach(token => {
     const addressKey = token.address.toLowerCase();
     byAddress[addressKey].oracleId = token.oracleId;
     byAddress[addressKey].symbol = token.symbol;
+    if (token.tags) {
+      byAddress[addressKey].tags = token.tags;
+    }
   });
 
   if (!byId['NATIVE']) {
