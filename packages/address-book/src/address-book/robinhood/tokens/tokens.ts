@@ -73,7 +73,7 @@ export const tokens = {
     description:
       'SpaceX Robinhood Token is a tokenized debt security issued by Robinhood Assets (Jersey) Limited that provides price exposure to Class A common stock of Space Exploration Technologies Corp. without conferring ownership or shareholder rights.',
     bridge: 'native',
-    tags: ['LARGE_HOLDERS', 'STOCK'],
+    tags: ['STOCK'],
   },
   rhSPY: {
     name: 'SPDR S&P 500 ETF Trust • Robinhood Token',
@@ -86,7 +86,7 @@ export const tokens = {
     description:
       'SPY Robinhood Token is a tokenized debt security issued by Robinhood Assets (Jersey) Limited that provides price exposure to shares of the SPDR S&P 500 ETF Trust without conferring ownership or shareholder rights.',
     bridge: 'native',
-    tags: ['LARGE_HOLDERS', 'STOCK'],
+    tags: ['STOCK'],
   },
   rhCOIN: {
     name: 'Coinbase • Robinhood Token',
@@ -101,7 +101,7 @@ export const tokens = {
     documentation:
       'https://cdn.robinhood.com/assets/robinhood/legal/rhj_final_terms_for_tokenised_debt_securities_linked_to_coinbase.pdf',
     bridge: 'native',
-    tags: ['LARGE_HOLDERS', 'STOCK'],
+    tags: ['STOCK'],
   },
   CASHCAT: {
     name: 'Cash Cat',
