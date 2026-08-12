@@ -62,6 +62,81 @@ export const tokens = {
     bridge: 'native',
     tags: ['STOCK'],
   },
+  USOrh: {
+    name: 'United States Oil Fund • Robinhood Token',
+    address: '0xa30FA36Db767ad9eD3f7a60fC79526fB4d56D344',
+    symbol: 'USO',
+    oracleId: 'USOrh',
+    decimals: 18,
+    chainId: 4663,
+    website: 'https://robinhood.com/rhj/stocktokens/',
+    description:
+      'United States Oil Fund Robinhood Token is a tokenized debt security issued by Robinhood Assets (Jersey) Limited that provides price exposure to United States Oil Fund shares without conferring ownership or shareholder rights.',
+    documentation:
+      'https://cdn.robinhood.com/assets/robinhood/legal/rhj_final_terms_for_tokenised_debt_securities_linked_to_united_states_oil_fund.pdf',
+    bridge: 'native',
+    tags: ['STOCK'],
+  },
+  AAPLrh: {
+    name: 'Apple • Robinhood Token',
+    address: '0xaF3D76f1834A1d425780943C99Ea8A608f8a93f9',
+    symbol: 'AAPL',
+    oracleId: 'AAPLrh',
+    decimals: 18,
+    chainId: 4663,
+    website: 'https://robinhood.com/rhj/stocktokens/',
+    description:
+      'Apple Robinhood Token is a tokenized debt security issued by Robinhood Assets (Jersey) Limited that provides price exposure to Apple shares without conferring ownership or shareholder rights.',
+    documentation:
+      'https://cdn.robinhood.com/assets/robinhood/legal/rhj_final_terms_for_tokenised_debt_securities_linked_to_apple.pdf',
+    bridge: 'native',
+    tags: ['STOCK'],
+  },
+  TSLArh: {
+    name: 'Tesla • Robinhood Token',
+    address: '0x322F0929c4625eD5bAd873c95208D54E1c003b2d',
+    symbol: 'TSLA',
+    oracleId: 'TSLArh',
+    decimals: 18,
+    chainId: 4663,
+    website: 'https://robinhood.com/rhj/stocktokens/',
+    description:
+      'Tesla Robinhood Token is a tokenized debt security issued by Robinhood Assets (Jersey) Limited that provides price exposure to Tesla shares without conferring ownership or shareholder rights.',
+    documentation:
+      'https://cdn.robinhood.com/assets/robinhood/legal/rhj_final_terms_for_tokenised_debt_securities_linked_to_tesla.pdf',
+    bridge: 'native',
+    tags: ['STOCK'],
+  },
+  MSFTrh: {
+    name: 'Microsoft • Robinhood Token',
+    address: '0xe93237C50D904957Cf27E7B1133b510C669c2e74',
+    symbol: 'MSFT',
+    oracleId: 'MSFTrh',
+    decimals: 18,
+    chainId: 4663,
+    website: 'https://robinhood.com/rhj/stocktokens/',
+    description:
+      'Microsoft Robinhood Token is a tokenized debt security issued by Robinhood Assets (Jersey) Limited that provides price exposure to Microsoft shares without conferring ownership or shareholder rights.',
+    documentation:
+      'https://cdn.robinhood.com/assets/robinhood/legal/rhj_final_terms_for_tokenised_debt_securities_linked_to_microsoft.pdf',
+    bridge: 'native',
+    tags: ['STOCK'],
+  },
+  RDDTrh: {
+    name: 'Reddit • Robinhood Token',
+    address: '0x05b37Fb53A299a1b874A619e1c4C404D52C36F4C',
+    symbol: 'RDDT',
+    oracleId: 'RDDTrh',
+    decimals: 18,
+    chainId: 4663,
+    website: 'https://robinhood.com/rhj/stocktokens/',
+    description:
+      'Reddit Robinhood Token is a tokenized debt security issued by Robinhood Assets (Jersey) Limited that provides price exposure to Reddit shares without conferring ownership or shareholder rights.',
+    documentation:
+      'https://cdn.robinhood.com/assets/robinhood/legal/rhj_final_terms_for_tokenised_debt_securities_linked_to_reddit.pdf',
+    bridge: 'native',
+    tags: ['STOCK'],
+  },
   CASHCAT: {
     name: 'Cash Cat',
     address: '0x020bfC650A365f8BB26819deAAbF3E21291018b4',
