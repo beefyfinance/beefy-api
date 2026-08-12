@@ -37,7 +37,7 @@
     "address": "0x37698C12ecc727178617c5b7d694377eb98dE058",
     "lpAddress": "0x851d1B0342d2257a4172826b68221D2366C1c6B5",
     "tokens": ["0x0Bd7D308f8E1639FAb988df18A8011f41EAcAD73", "0xc6911796042b15d7Fa4F6CDe69e245DdCd3d9c31"],
-    "tokenOracleIds": ["WETH", "VIRTUAL"],
+    "tokenOracleIds": ["WETH", "rhVIRTUAL"],
     "decimals": [18, 18],
     "oracleId": "up33-cow-robinhood-weth-virtual",
     "providerId": "up33",
@@ -105,7 +105,7 @@
     "address": "0xc61b3b381C34A636451ba66A62792Bd84A78E112",
     "lpAddress": "0x9cc8c4F6118419A27f113723F1DeA646685Be55F",
     "tokens": ["0x0Bd7D308f8E1639FAb988df18A8011f41EAcAD73", "0xc6911796042b15d7Fa4F6CDe69e245DdCd3d9c31"],
-    "tokenOracleIds": ["WETH", "VIRTUAL"],
+    "tokenOracleIds": ["WETH", "rhVIRTUAL"],
     "decimals": [18, 18],
     "oracleId": "uniswap-cow-robinhood-weth-virtual",
     "rewardPool": {
