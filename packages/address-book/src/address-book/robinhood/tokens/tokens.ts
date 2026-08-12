@@ -127,4 +127,18 @@ export const tokens = {
     documentation: '',
     bridge: 'native',
   },
+  VIRTUAL: {
+    name: 'VIRTUAL',
+    symbol: 'VIRTUAL',
+    oracleId: 'rhVIRTUAL',
+    address: '0xc6911796042b15d7Fa4F6CDe69e245DdCd3d9c31',
+    chainId: 4663,
+    decimals: 18,
+    description:
+      'Virtuals Protocol is building the co-ownership layer for AI agents in gaming and entertainment. These agents can operate across a wide range of applications and games, significantly expanding their revenue surface area.',
+    website: 'https://www.virtuals.io/',
+    documentation: 'https://whitepaper.virtuals.io/',
+    bridge: 'chainlink-ccip',
+    tags: ['LARGE_HOLDERS', 'NO_TIMELOCK'],
+  },
 } as const satisfies Record<string, Token>;
