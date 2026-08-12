@@ -62,6 +62,47 @@ export const tokens = {
     bridge: 'native',
     tags: ['LARGE_HOLDERS', 'STOCK'],
   },
+  rhSPCX: {
+    name: 'SpaceX • Robinhood Token',
+    address: '0x4a0E65A3EcceC6dBe60AE065F2e7bb85Fae35eEa',
+    symbol: 'SPCX',
+    oracleId: 'rhSPCX',
+    decimals: 18,
+    chainId: 4663,
+    website: 'https://robinhood.com/rhj/stocktokens/',
+    description:
+      'SpaceX Robinhood Token is a tokenized debt security issued by Robinhood Assets (Jersey) Limited that provides price exposure to Class A common stock of Space Exploration Technologies Corp. without conferring ownership or shareholder rights.',
+    bridge: 'native',
+    tags: ['LARGE_HOLDERS', 'STOCK'],
+  },
+  rhSPY: {
+    name: 'SPDR S&P 500 ETF Trust • Robinhood Token',
+    address: '0x117cc2133c37B721F49dE2A7a74833232B3B4C0C',
+    symbol: 'SPY',
+    oracleId: 'rhSPY',
+    decimals: 18,
+    chainId: 4663,
+    website: 'https://robinhood.com/rhj/stocktokens/',
+    description:
+      'SPY Robinhood Token is a tokenized debt security issued by Robinhood Assets (Jersey) Limited that provides price exposure to shares of the SPDR S&P 500 ETF Trust without conferring ownership or shareholder rights.',
+    bridge: 'native',
+    tags: ['LARGE_HOLDERS', 'STOCK'],
+  },
+  rhCOIN: {
+    name: 'Coinbase • Robinhood Token',
+    address: '0x6330D8C3178a418788dF01a47479c0ce7CCF450b',
+    symbol: 'COIN',
+    oracleId: 'rhCOIN',
+    decimals: 18,
+    chainId: 4663,
+    website: 'https://robinhood.com/rhj/stocktokens/',
+    description:
+      'Coinbase Robinhood Token is a tokenized debt security issued by Robinhood Assets (Jersey) Limited that provides price exposure to Coinbase Global shares without conferring ownership or shareholder rights.',
+    documentation:
+      'https://cdn.robinhood.com/assets/robinhood/legal/rhj_final_terms_for_tokenised_debt_securities_linked_to_coinbase.pdf',
+    bridge: 'native',
+    tags: ['LARGE_HOLDERS', 'STOCK'],
+  },
   CASHCAT: {
     name: 'Cash Cat',
     address: '0x020bfC650A365f8BB26819deAAbF3E21291018b4',
