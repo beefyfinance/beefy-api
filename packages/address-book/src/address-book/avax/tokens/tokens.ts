@@ -3928,7 +3928,6 @@ export const tokens = {
     name: 'COMPLUS',
     symbol: 'COM',
     oracleId: 'COM',
-    website: 'https://complus.exchange/',
     description:
       'Complus Network is a multi-chain exchange protocol for ERC-20 tokens on several blockchains.',
   },

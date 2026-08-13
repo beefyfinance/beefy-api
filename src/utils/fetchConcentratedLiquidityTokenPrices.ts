@@ -1987,6 +1987,38 @@ const tokens = {
       firstToken: 'PONS',
       secondToken: 'WETH',
     },
+    {
+      type: 'UniV3',
+      oracleId: 'rhVIRTUAL',
+      decimalDelta: 1,
+      pool: '0x9cc8c4F6118419A27f113723F1DeA646685Be55F',
+      firstToken: 'rhVIRTUAL',
+      secondToken: 'WETH',
+    },
+    {
+      type: 'UniV3',
+      oracleId: 'NVDArh',
+      decimalDelta: 1e-12,
+      pool: '0xd4EB21209C4D6093f80B5b84f5C45cc093EA14a3',
+      firstToken: 'NVDArh',
+      secondToken: 'USDG',
+    },
+    {
+      type: 'UniV3',
+      oracleId: 'INTCrh',
+      decimalDelta: 1e-12,
+      pool: '0x2e5a92f5013a64661A49312111be2e8aBd33F56a',
+      firstToken: 'INTCrh',
+      secondToken: 'USDG',
+    },
+    {
+      type: 'UniV3',
+      oracleId: 'MSTRrh',
+      decimalDelta: 1,
+      pool: '0x70504a6FafdbfB75fE971FAA4dD716e79aC5624c',
+      firstToken: 'MSTRrh',
+      secondToken: 'WETH',
+    },
   ],
 } satisfies Partial<Record<keyof typeof ChainId, ConcentratedLiquidityToken[]>>;
 

@@ -1461,6 +1461,20 @@ export const tokens = {
       'GHO is a decentralized multi-collateral stablecoin that is fully backed, transparent and native to the Aave Protocol.',
     tags: ['STABLECOIN', 'SYNTHETIC'],
   },
+  sGHO: {
+    name: 'Savings GHO',
+    symbol: 'sGHO',
+    oracleId: 'sGHO',
+    address: '0xE1753F2e00940cC31213dd92013cF019DFE4ca1d',
+    chainId: 1,
+    decimals: 18,
+    website: 'https://aave.com/',
+    documentation: 'https://docs.aave.com/faq/gho-stablecoin',
+    bridge: 'native',
+    description:
+      'GHO is a decentralized multi-collateral stablecoin that is fully backed, transparent and native to the Aave Protocol.',
+    tags: ['STABLECOIN', 'SYNTHETIC'],
+  },
   mkUSD: {
     name: 'Prisma mkUSD',
     symbol: 'mkUSD',

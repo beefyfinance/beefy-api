@@ -1718,7 +1718,6 @@ export const tokens = {
     address: '0x2849b1aE7E04A3D9Bc288673A92477CF63F28aF4',
     chainId: 56,
     decimals: 18,
-    website: 'https://www.saltswap.finance/',
     description: 'SALT is the native token of Saltswap.finance yield aggregator.',
   },
   RAMEN: {
@@ -1728,7 +1727,6 @@ export const tokens = {
     address: '0x4F47A0d15c1E53F3d94c069C7D16977c29F9CB6B',
     chainId: 56,
     decimals: 18,
-    website: 'https://ramenswap.finance/',
     description:
       'RamenSwap Finance is a community driven Yield Farming, DeFi Yield Aggregator and DEX Aggregator on Binance Smart Chain.',
   },
@@ -2269,7 +2267,6 @@ export const tokens = {
     address: '0x0abd3E3502c15ec252f90F64341cbA74a24fba06',
     chainId: 56,
     decimals: 18,
-    website: 'https://farm.space/',
     description: 'SPACE is the native token of the farm.space yield aggregator.',
   },
   WIN: {
