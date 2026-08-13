@@ -1963,6 +1963,14 @@ const tokens = {
       firstToken: 'PONS',
       secondToken: 'WETH',
     },
+    {
+      type: 'UniV3',
+      oracleId: 'rhVIRTUAL',
+      decimalDelta: 1,
+      pool: '0x9cc8c4F6118419A27f113723F1DeA646685Be55F',
+      firstToken: 'rhVIRTUAL',
+      secondToken: 'WETH',
+    },
   ],
 } satisfies Partial<Record<keyof typeof ChainId, ConcentratedLiquidityToken[]>>;
 

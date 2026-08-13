@@ -1,5 +1,102 @@
 [
   {
+    "address": "0x9818f01EDCcc3d8EB86B859931C3B877cf44A108",
+    "lpAddress": "0x9334BbCBE77C0883d704f71Db35CCF636639334c",
+    "tokens": ["0x0Bd7D308f8E1639FAb988df18A8011f41EAcAD73", "0x6245e67affA44a23077f0Ea7f981a8DC743a0c47"],
+    "tokenOracleIds": ["WETH", "FRONG"],
+    "decimals": [18, 18],
+    "oracleId": "up33-cow-robinhood-weth-frong",
+    "providerId": "up33",
+    "rewardPool": {
+      "address": "0xa3EDa31c3d7C886a6Ff3ccB69D4045C05EAaf3b3",
+      "oracleId": "up33-cow-robinhood-weth-frong-rp"
+    },
+    "vault": {
+      "address": "0x75588e48f7b4Ed9365d78C6cD509f3C7B804Ca47",
+      "oracleId": "up33-cow-robinhood-weth-frong-vault"
+    }
+  },
+  {
+    "address": "0x37698C12ecc727178617c5b7d694377eb98dE058",
+    "lpAddress": "0x851d1B0342d2257a4172826b68221D2366C1c6B5",
+    "tokens": ["0x0Bd7D308f8E1639FAb988df18A8011f41EAcAD73", "0xc6911796042b15d7Fa4F6CDe69e245DdCd3d9c31"],
+    "tokenOracleIds": ["WETH", "rhVIRTUAL"],
+    "decimals": [18, 18],
+    "oracleId": "up33-cow-robinhood-weth-virtual",
+    "providerId": "up33",
+    "rewardPool": {
+      "address": "0x5eD2B060b7f8809E6aC41DD769fE3528Fe44f424",
+      "oracleId": "up33-cow-robinhood-weth-virtual-rp"
+    },
+    "vault": {
+      "address": "0xEbFB46b7A3E37aF48352c1Dd2FAc61EBBb907EC8",
+      "oracleId": "up33-cow-robinhood-weth-virtual-vault"
+    }
+  },
+  {
+    "address": "0x9619bFB1f2D97E2B23F23310205e4c2089c1A45d",
+    "lpAddress": "0xD53a623c17A5853838FA140cE5706eA008565dA8",
+    "tokens": ["0x0Bd7D308f8E1639FAb988df18A8011f41EAcAD73", "0x45242320DBB855EeA8Fd36804C6487E10E97FCF9"],
+    "tokenOracleIds": ["WETH", "TENDIES"],
+    "decimals": [18, 18],
+    "oracleId": "up33-cow-robinhood-weth-tendies",
+    "providerId": "up33",
+    "rewardPool": {
+      "address": "0xF8AB44EA77cE06E9b42De8021449Af01B3De977d",
+      "oracleId": "up33-cow-robinhood-weth-tendies-rp"
+    },
+    "vault": {
+      "address": "0x97DCDc29a3B3e2F556564279f7D09eE40eB74E45",
+      "oracleId": "up33-cow-robinhood-weth-tendies-vault"
+    }
+  },
+  {
+    "address": "0x5794bB61E83397049c40D87BbF3d44AF583A27Ce",
+    "lpAddress": "0xB11ba9a4d345434c25d625C076f23Ad14abC6B3c",
+    "tokens": ["0x0Bd7D308f8E1639FAb988df18A8011f41EAcAD73", "0xe934e36A439C94017B64a3FecE66AF12099aBF50"],
+    "tokenOracleIds": ["WETH", "STONKBROKER"],
+    "decimals": [18, 18],
+    "oracleId": "up33-cow-robinhood-weth-stonkbroker",
+    "providerId": "up33",
+    "rewardPool": {
+      "address": "0x10f9e8B973B5EA104618bd334f3CC2c0ff7E15F2",
+      "oracleId": "up33-cow-robinhood-weth-stonkbroker-rp"
+    },
+    "vault": {
+      "address": "0x544c7Ef9265dc08d93B5394116E68aE7D9e60730",
+      "oracleId": "up33-cow-robinhood-weth-stonkbroker-vault"
+    }
+  },
+  {
+    "address": "0xd922173C136443a1F7795A86B28Da964ea2BF6bc",
+    "lpAddress": "0x73eF7245B40392ae8710dFB5398f270b07E20d1D",
+    "tokens": ["0x57C0E45cB534413D1C20A4240955d6bB250BB4F1", "0xe934e36A439C94017B64a3FecE66AF12099aBF50"],
+    "tokenOracleIds": ["UP", "STONKBROKER"],
+    "decimals": [18, 18],
+    "oracleId": "up33-cow-robinhood-up-stonkbroker",
+    "providerId": "up33",
+    "rewardPool": {
+      "address": "0x788D31D39da6252F228b5842d9215bb7abB83F8B",
+      "oracleId": "up33-cow-robinhood-up-stonkbroker-rp"
+    },
+    "vault": {
+      "address": "0x658b48154b96D4aCA3Fe9531305C546c0E2de950",
+      "oracleId": "up33-cow-robinhood-up-stonkbroker-vault"
+    }
+  },
+  {
+    "address": "0xc61b3b381C34A636451ba66A62792Bd84A78E112",
+    "lpAddress": "0x9cc8c4F6118419A27f113723F1DeA646685Be55F",
+    "tokens": ["0x0Bd7D308f8E1639FAb988df18A8011f41EAcAD73", "0xc6911796042b15d7Fa4F6CDe69e245DdCd3d9c31"],
+    "tokenOracleIds": ["WETH", "rhVIRTUAL"],
+    "decimals": [18, 18],
+    "oracleId": "uniswap-cow-robinhood-weth-virtual",
+    "rewardPool": {
+      "address": "0x093f6613Dc96AF7c834A439F0a0aF18836B2dFdf",
+      "oracleId": "uniswap-cow-robinhood-weth-virtual-rp"
+    }
+  },
+  {
     "address": "0x9CcCE25f82f37ef777552E3BBB2A01BC5574AbE8",
     "lpAddress": "0x9cd74d5980A4BF60408B9bA2B0F6a3d368EBf594",
     "tokens": ["0x0Bd7D308f8E1639FAb988df18A8011f41EAcAD73", "0xe934e36A439C94017B64a3FecE66AF12099aBF50"],
