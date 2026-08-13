@@ -47,11 +47,11 @@ export const tokens = {
     documentation: 'https://docs.paxos.com/guides/stablecoin/usdg',
     tags: ['STABLECOIN'],
   },
-  rhGME: {
+  GMErh: {
     name: 'GameStop • Robinhood Token',
     address: '0x1b0E319c6A659F002271B69dB8A7df2F911c153E',
     symbol: 'GME',
-    oracleId: 'rhGME',
+    oracleId: 'GMErh',
     decimals: 18,
     chainId: 4663,
     website: 'https://robinhood.com/rhj/stocktokens/',
@@ -62,11 +62,11 @@ export const tokens = {
     bridge: 'native',
     tags: ['LARGE_HOLDERS', 'STOCK'],
   },
-  rhSPCX: {
+  SPCXrh: {
     name: 'SpaceX • Robinhood Token',
     address: '0x4a0E65A3EcceC6dBe60AE065F2e7bb85Fae35eEa',
     symbol: 'SPCX',
-    oracleId: 'rhSPCX',
+    oracleId: 'SPCXrh',
     decimals: 18,
     chainId: 4663,
     website: 'https://robinhood.com/rhj/stocktokens/',
@@ -75,11 +75,11 @@ export const tokens = {
     bridge: 'native',
     tags: ['STOCK'],
   },
-  rhSPY: {
+  SPYrh: {
     name: 'SPDR S&P 500 ETF Trust • Robinhood Token',
     address: '0x117cc2133c37B721F49dE2A7a74833232B3B4C0C',
     symbol: 'SPY',
-    oracleId: 'rhSPY',
+    oracleId: 'SPYrh',
     decimals: 18,
     chainId: 4663,
     website: 'https://robinhood.com/rhj/stocktokens/',
@@ -88,11 +88,11 @@ export const tokens = {
     bridge: 'native',
     tags: ['STOCK'],
   },
-  rhCOIN: {
+  COINrh: {
     name: 'Coinbase • Robinhood Token',
     address: '0x6330D8C3178a418788dF01a47479c0ce7CCF450b',
     symbol: 'COIN',
-    oracleId: 'rhCOIN',
+    oracleId: 'COINrh',
     decimals: 18,
     chainId: 4663,
     website: 'https://robinhood.com/rhj/stocktokens/',
