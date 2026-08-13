@@ -1,5 +1,14 @@
 [
   {
+    "name": "morpho-v2-ethereum-armitage-pendle-ecosystem-usdc",
+    "address": "0x55C1B6e461a6334B567bAF0FEb5D728715446f05",
+    "oracle": "tokens",
+    "oracleId": "USDC",
+    "decimals": "1e6",
+    "v2": true,
+    "skim": true
+  },
+  {
     "name": "morpho-v2-ethereum-clearstar-3jane-ecosystem-vault-usdc",
     "address": "0xe05faDf242331808f504661BEA65972594869826",
     "oracle": "tokens",
