@@ -1214,6 +1214,38 @@ const tokens = {
       firstToken: 'basMOR',
       secondToken: 'WETH',
     },
+    {
+      type: 'Slipstream',
+      oracleId: 'AAPLc',
+      decimalDelta: 1e2,
+      pool: '0xA3b1E3f9747065e2073722Ff4c9027d3eA4994F0',
+      firstToken: 'AAPLc',
+      secondToken: 'USDC',
+    },
+    {
+      type: 'Slipstream',
+      oracleId: 'GOOGLc',
+      decimalDelta: 1e-2,
+      pool: '0xB1987CAD1682841b4b641d50E520777eC5Ab5542',
+      firstToken: 'GOOGLc',
+      secondToken: 'USDC',
+    },
+    {
+      type: 'Slipstream',
+      oracleId: 'NVDAc',
+      decimalDelta: 1e2,
+      pool: '0x853F5f1B92b16714Fe6CDA67CAad0856B83C7ab9',
+      firstToken: 'NVDAc',
+      secondToken: 'USDC',
+    },
+    {
+      type: 'Slipstream',
+      oracleId: 'METAc',
+      decimalDelta: 1e-2,
+      pool: '0xEAF57753BC382E0324a1D43F72E7027705a2273E',
+      firstToken: 'METAc',
+      secondToken: 'USDC',
+    },
   ],
   zksync: [
     {
