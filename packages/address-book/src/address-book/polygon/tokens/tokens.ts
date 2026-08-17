@@ -838,7 +838,7 @@ export const tokens = {
     chainId: 137,
     website: 'https://pearzap.com/',
     description:
-      'PearZap is a high yield farm & pool on the Polygon Chain (MATIC) and Binance Smart Chain',
+      'PearZap is a high yield farm & pool on the Polygon Chain (MATIC) and Binance Smart Chain.',
   },
   SPADE: {
     name: 'PolygonFarm',
