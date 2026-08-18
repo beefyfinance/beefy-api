@@ -1,5 +1,21 @@
 [
   {
+    "name": "curve-frxusd-trusd",
+    "pool": "0xd1D954BC94c843815EC7b8119f2de00AF27Fa6Ff",
+    "stakeDao": true,
+    "getDy": ["v1", 1, 0],
+    "tokens": [
+      {
+        "oracleId": "frxUSD",
+        "decimals": "1e18"
+      },
+      {
+        "oracleId": "trUSD",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
     "name": "curve-frxusd-sgho",
     "pool": "0x68e392E7875CC23806a8bBC5b1A5D53a366C2C7E",
     "stakeDao": true,
