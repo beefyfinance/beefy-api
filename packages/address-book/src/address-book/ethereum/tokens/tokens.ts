@@ -3199,6 +3199,20 @@ export const tokens = {
       'YieldBasis is a decentralized protocol that lets liquidity providers earn trading fees on volatile-asset pairs without the impermanent loss a normal LP suffers.',
     bridge: 'native',
   },
+  trUSD: {
+    name: 'trUSD',
+    symbol: 'trUSD',
+    oracleId: 'trUSD',
+    address: '0xd0580192E98eA6CEB9c7b6191Ed2E27560911697',
+    chainId: 1,
+    decimals: 18,
+    website: 'https://app.tori.finance/',
+    documentation: 'https://docs.tori.finance/',
+    description:
+      'trUSD is Tori Finance’s synthetic dollar token. It is designed to track the value of USD and is the foundation of the Tori ecosystem.',
+    bridge: 'native',
+    tags: ['NO_TIMELOCK', 'SYNTHETIC', 'STABLECOIN'],
+  },
   PAXG: {
     name: 'Paxos Gold',
     symbol: 'PAXG',
