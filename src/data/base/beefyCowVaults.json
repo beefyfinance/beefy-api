@@ -648,18 +648,18 @@
     }
   },
   {
-    "address": "0xB539C843B67312e7edDDFB69B009bC9e7AbFbddE",
+    "address": "0x6359E6352409839038df76E5e498A682A39B46e8",
     "lpAddress": "0x428E80cF6633CdA60af98079fcD8bE0d9a3a33a7",
     "tokens": ["0x311935Cd80B76769bF2ecC9D8Ab7635b2139cf82", "0xcbB7C0000aB88B473b1f5aFd9ef808440eed33Bf"],
     "tokenOracleIds": ["SOL", "cbBTC"],
     "decimals": [9, 8],
     "oracleId": "uniswap-cow-base-sol-cbbtc",
     "rewardPool": {
-      "address": "0x3DC90F18FC8AC2fFd8c88D569A454EAA103b7296",
+      "address": "0xB11c0970014b006C7E2116f948B51AFABb9E5AA7",
       "oracleId": "uniswap-cow-base-sol-cbbtc-rp"
     },
     "vault": {
-      "address": "0x0F1B23c0E3734a3E85812B1387637C59059D5E21",
+      "address": "0xFfEb03A87F703D50a6fa53dCcCf6b7D93b5A2C41",
       "oracleId": "uniswap-cow-base-sol-cbbtc-vault"
     }
   },
