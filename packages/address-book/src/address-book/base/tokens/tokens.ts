@@ -3656,7 +3656,7 @@ export const tokens = {
   },
   AAPLc: {
     name: 'Apple Inc.',
-    symbol: 'AAPLc',
+    symbol: 'AAPL',
     oracleId: 'AAPLc',
     address: '0xb200000000000000000000C2e324d24d7eEcd1fb',
     chainId: 8453,
@@ -3669,7 +3669,7 @@ export const tokens = {
   },
   GOOGLc: {
     name: 'Alphabet Inc.',
-    symbol: 'GOOGLc',
+    symbol: 'GOOGL',
     oracleId: 'GOOGLc',
     address: '0xb2000000000000000000002D0BA3164cc74f58B7',
     chainId: 8453,
@@ -3682,7 +3682,7 @@ export const tokens = {
   },
   NVDAc: {
     name: 'NVIDIA Corporation',
-    symbol: 'NVDAc',
+    symbol: 'NVDA',
     oracleId: 'NVDAc',
     address: '0xb20000000000000000000078ee7ce2fE4908108C',
     chainId: 8453,
@@ -3695,7 +3695,7 @@ export const tokens = {
   },
   METAc: {
     name: 'Meta Platforms Inc.',
-    symbol: 'METAc',
+    symbol: 'META',
     oracleId: 'METAc',
     address: '0xb2000000000000000000008bC8786B856E61707C',
     chainId: 8453,
