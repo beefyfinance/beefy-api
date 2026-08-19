@@ -1217,7 +1217,7 @@ const tokens = {
     {
       type: 'Slipstream',
       oracleId: 'AAPLc',
-      decimalDelta: 1e2,
+      decimalDelta: 1e-2,
       pool: '0xA3b1E3f9747065e2073722Ff4c9027d3eA4994F0',
       firstToken: 'AAPLc',
       secondToken: 'USDC',
@@ -1233,7 +1233,7 @@ const tokens = {
     {
       type: 'Slipstream',
       oracleId: 'NVDAc',
-      decimalDelta: 1e2,
+      decimalDelta: 1e-2,
       pool: '0x853F5f1B92b16714Fe6CDA67CAad0856B83C7ab9',
       firstToken: 'NVDAc',
       secondToken: 'USDC',
