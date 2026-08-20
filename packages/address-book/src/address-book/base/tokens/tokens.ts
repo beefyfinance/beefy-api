@@ -3666,6 +3666,7 @@ export const tokens = {
       "Apple Inc. Coinbase Token is a tokenized debt security issued by Coinbase Onchain SPV Ltd that provides beneficial ownership of custodied Apple Inc. shares to KYC'd holders.",
     documentation: 'https://docs.base.org/',
     bridge: 'native',
+    tags: ['STOCK'],
   },
   GOOGLc: {
     name: 'Alphabet Inc.',
@@ -3679,6 +3680,7 @@ export const tokens = {
       "Alphabet Inc. Coinbase Token is a tokenized debt security issued by Coinbase Onchain SPV Ltd that provides beneficial ownership of custodied Alphabet Inc. shares to KYC'd holders.",
     documentation: 'https://docs.base.org/',
     bridge: 'native',
+    tags: ['STOCK'],
   },
   NVDAc: {
     name: 'NVIDIA Corporation',
@@ -3692,6 +3694,7 @@ export const tokens = {
       "NVIDIA Corporation Coinbase Token is a tokenized debt security issued by Coinbase Onchain SPV Ltd that provides beneficial ownership of custodied NVIDIA Corporation shares to KYC'd holders.",
     documentation: 'https://docs.base.org/',
     bridge: 'native',
+    tags: ['STOCK'],
   },
   METAc: {
     name: 'Meta Platforms Inc.',
@@ -3705,5 +3708,6 @@ export const tokens = {
       "Meta Platforms Inc. Coinbase Token is a tokenized debt security issued by Coinbase Onchain SPV Ltd that provides beneficial ownership of custodied Meta Platforms Inc. shares to KYC'd holders.",
     documentation: 'https://docs.base.org/',
     bridge: 'native',
+    tags: ['STOCK'],
   },
 } as const satisfies Record<string, Token>;
