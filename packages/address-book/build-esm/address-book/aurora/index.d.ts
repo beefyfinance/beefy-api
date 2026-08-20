@@ -1,0 +1,592 @@
+import * as platforms from './platforms/index.js';
+export declare const aurora: {
+    readonly platforms: typeof platforms;
+    readonly tokens: {
+        readonly WNATIVE: {
+            readonly name: "Wrapped Ether ";
+            readonly address: "0xC9BdeEd33CD01541e1eeD10f90519d2C06Fe3feB";
+            readonly symbol: "WETH";
+            readonly oracleId: "WETH";
+            readonly decimals: 18;
+            readonly chainId: 1313161554;
+            readonly website: "https://weth.io/";
+            readonly description: "Ether or ETH is the native currency built on the Ethereum blockchain.";
+            readonly documentation: "https://ethereum.org/en/developers/docs/";
+            readonly tags: readonly ["BLUECHIP"];
+        };
+        readonly FEES: {
+            readonly name: "Wrapped Ether ";
+            readonly address: "0xC9BdeEd33CD01541e1eeD10f90519d2C06Fe3feB";
+            readonly symbol: "WETH";
+            readonly oracleId: "WETH";
+            readonly decimals: 18;
+            readonly chainId: 1313161554;
+            readonly website: "https://weth.io/";
+            readonly description: "Ether or ETH is the native currency built on the Ethereum blockchain.";
+            readonly documentation: "https://ethereum.org/en/developers/docs/";
+            readonly tags: readonly ["BLUECHIP"];
+        };
+        readonly ETH: {
+            readonly name: "Wrapped Ether ";
+            readonly address: "0xC9BdeEd33CD01541e1eeD10f90519d2C06Fe3feB";
+            readonly symbol: "WETH";
+            readonly oracleId: "WETH";
+            readonly decimals: 18;
+            readonly chainId: 1313161554;
+            readonly website: "https://weth.io/";
+            readonly description: "Ether or ETH is the native currency built on the Ethereum blockchain.";
+            readonly documentation: "https://ethereum.org/en/developers/docs/";
+            readonly tags: readonly ["BLUECHIP"];
+        };
+        readonly WETH: {
+            readonly name: "Wrapped Ether ";
+            readonly address: "0xC9BdeEd33CD01541e1eeD10f90519d2C06Fe3feB";
+            readonly symbol: "WETH";
+            readonly oracleId: "WETH";
+            readonly decimals: 18;
+            readonly chainId: 1313161554;
+            readonly website: "https://weth.io/";
+            readonly description: "Ether or ETH is the native currency built on the Ethereum blockchain.";
+            readonly documentation: "https://ethereum.org/en/developers/docs/";
+            readonly tags: readonly ["BLUECHIP"];
+        };
+        readonly oldBIFI: {
+            readonly name: "Beefy.Finance";
+            readonly symbol: "oldBIFI";
+            readonly oracleId: "oldBIFI";
+            readonly address: "0x218c3c3D49d0E7B37aff0D8bB079de36Ae61A4c0";
+            readonly chainId: 1313161554;
+            readonly decimals: 18;
+            readonly website: "https://www.beefy.finance/";
+            readonly description: "Beefy Finance is a Decentralized, Multi-Chain Yield Optimizer platform that allows its users to earn compound interest on their crypto holdings.";
+            readonly documentation: "https://docs.beefy.finance/";
+        };
+        readonly NEAR: {
+            readonly name: "NEAR";
+            readonly symbol: "NEAR";
+            readonly oracleId: "NEAR";
+            readonly address: "0xC42C30aC6Cc15faC9bD938618BcaA1a1FaE8501d";
+            readonly chainId: 1313161554;
+            readonly decimals: 24;
+            readonly website: "https://near.org/";
+            readonly description: "Through simple, secure, and scalable technology, NEAR empowers millions to invent and explore new experiences. Business, creativity, and community are being reimagined for a more sustainable and inclusive future.";
+        };
+        readonly USDC: {
+            readonly name: "USD Coin ";
+            readonly symbol: "USDC";
+            readonly oracleId: "USDC";
+            readonly address: "0xB12BFcA5A55806AaF64E99521918A4bf0fC40802";
+            readonly chainId: 1313161554;
+            readonly decimals: 6;
+            readonly website: "https://www.circle.com/usdc";
+            readonly description: "USDC is a fully collateralized US dollar stablecoin. USDC is issued by regulated financial institutions, backed by fully reserved assets, redeemable on a 1:1 basis for US dollars.";
+            readonly tags: readonly ["STABLECOIN"];
+        };
+        readonly USDT: {
+            readonly name: "Tether USD";
+            readonly symbol: "USDT";
+            readonly oracleId: "USDT";
+            readonly address: "0x4988a896b1227218e4A686fdE5EabdcAbd91571f";
+            readonly chainId: 1313161554;
+            readonly decimals: 6;
+            readonly website: "https://tether.to/";
+            readonly description: "Tether is a stablecoin pegged to the US Dollar. A stablecoin is a type of cryptocurrency whose value is pegged to another fiat currency like the US Dollar or to a commodity like Gold. Tether is the first stablecoin to be created and it is the most popular stablecoin used in the ecosystem.";
+            readonly tags: readonly ["STABLECOIN"];
+        };
+        readonly WBTC: {
+            readonly name: "Wrapped BTC";
+            readonly symbol: "WBTC";
+            readonly oracleId: "WBTC";
+            readonly address: "0xF4eB217Ba2454613b15dBdea6e5f22276410e89e";
+            readonly chainId: 1313161554;
+            readonly decimals: 8;
+            readonly website: "https://wbtc.network/";
+            readonly description: "Wrapped Bitcoin (WBTC) is the first ERC20 token backed 1:1 with Bitcoin. Completely transparent. 100% verifiable. Community led.";
+            readonly tags: readonly ["BLUECHIP"];
+        };
+        readonly TRI: {
+            readonly name: "Trisolaris";
+            readonly symbol: "TRI";
+            readonly oracleId: "TRI";
+            readonly address: "0xFa94348467f64D5A457F75F8bc40495D33c65aBB";
+            readonly chainId: 1313161554;
+            readonly decimals: 18;
+            readonly website: "https://www.trisolaris.io/#/swap";
+            readonly description: "Trisolaris is #1 Dex on the Aurora engine, an EVM compatible blockchain running in the near ecosystem.";
+        };
+        readonly AURORA: {
+            readonly name: "Aurora";
+            readonly symbol: "AURORA";
+            readonly oracleId: "AURORA";
+            readonly address: "0x8BEc47865aDe3B172A928df8f990Bc7f2A3b9f79";
+            readonly chainId: 1313161554;
+            readonly decimals: 18;
+            readonly website: "https://www.aurorachain.io/";
+            readonly description: "Aurora is a decentralized application platform based on third-generation blockchain technology dedicated to providing mature blockchain technology solutions for the entire industry.";
+        };
+        readonly atUST: {
+            readonly name: "UST Terra";
+            readonly symbol: "UST";
+            readonly oracleId: "atUST";
+            readonly address: "0x5ce9F0B6AFb36135b5ddBF11705cEB65E634A9dC";
+            readonly chainId: 1313161554;
+            readonly decimals: 18;
+            readonly website: "https://www.terra.money/";
+            readonly description: "Terra stablecoins offer instant settlements, low fees and seamless cross-border exchange - loved by millions of users and merchants.";
+            readonly tags: readonly ["SYNTHETIC"];
+        };
+        readonly atLUNA: {
+            readonly name: "Luna Terra";
+            readonly symbol: "LUNA";
+            readonly oracleId: "atLUNA";
+            readonly address: "0xC4bdd27c33ec7daa6fcfd8532ddB524Bf4038096";
+            readonly chainId: 1313161554;
+            readonly decimals: 18;
+            readonly website: "https://www.terra.money/";
+            readonly description: "Terra's native token, LUNA, is used to stabilize the price of the protocol's stablecoins. LUNA holders are also able to submit and vote on governance proposals, giving it the functionality of a governance token.";
+        };
+        readonly AVAX: {
+            readonly name: "Avalanche";
+            readonly symbol: "AVAX";
+            readonly oracleId: "AVAX";
+            readonly address: "0x80A16016cC4A2E6a2CACA8a4a498b1699fF0f844";
+            readonly chainId: 1313161554;
+            readonly decimals: 18;
+            readonly website: "https://www.avalabs.org/";
+            readonly description: "Avalanche is the fastest smart contracts platform in the blockchain industry, as measured by time-to-finality, and has the most validators securing its activity of any proof-of-stake protocol.";
+            readonly tags: readonly ["BLUECHIP"];
+        };
+        readonly BNB: {
+            readonly name: "Binance";
+            readonly symbol: "BNB";
+            readonly oracleId: "BNB";
+            readonly address: "0x2bF9b864cdc97b08B6D79ad4663e71B8aB65c45c";
+            readonly chainId: 1313161554;
+            readonly decimals: 18;
+            readonly website: "https://www.binance.com/";
+            readonly description: "Binance Coin (BNB) is an exchange-based token created and issued by the cryptocurrency exchange Binance. Initially created on the Ethereum blockchain as an ERC-20 token in July 2017, BNB was migrated over to Binance Chain in February 2019 and became the native coin of the Binance Chain.";
+            readonly tags: readonly ["BLUECHIP"];
+        };
+        readonly MATIC: {
+            readonly name: "Matic";
+            readonly symbol: "MATIC";
+            readonly oracleId: "MATIC";
+            readonly address: "0x6aB6d61428fde76768D7b45D8BFeec19c6eF91A8";
+            readonly chainId: 1313161554;
+            readonly decimals: 18;
+            readonly website: "https://polygon.technology/";
+            readonly description: "The MATIC token serves dual purposes: securing the Polygon network via staking and being used for the payment of transaction fees.";
+            readonly tags: readonly ["BLUECHIP"];
+        };
+        readonly FLX: {
+            readonly name: "Flux Token";
+            readonly symbol: "FLX";
+            readonly oracleId: "FLX";
+            readonly address: "0xea62791aa682d455614eaA2A12Ba3d9A2fD197af";
+            readonly chainId: 1313161554;
+            readonly decimals: 18;
+            readonly website: "https://www.fluxprotocol.org/";
+            readonly description: "Flux is the trustless data layer for web3. Flux is a cross-chain oracle that provides smart contracts with access to economically secure data feeds on anything.";
+        };
+        readonly MECHA: {
+            readonly name: "Mecha";
+            readonly symbol: "MECHA";
+            readonly oracleId: "MECHA";
+            readonly address: "0xa33C3B53694419824722C10D99ad7cB16Ea62754";
+            readonly chainId: 1313161554;
+            readonly decimals: 18;
+            readonly website: "https://www.mechatracker.finance/#/";
+            readonly description: "Our mission is making Aurora easier, thus making it bigger. Track your assets and DeFi portfolio with #MechaDashboards, easily swap tokens on a tap, visualize your NFTs and unleash the platform full power through the MECHA token.";
+        };
+        readonly SOLACE: {
+            readonly name: "solace";
+            readonly symbol: "SOLACE";
+            readonly oracleId: "SOLACE";
+            readonly address: "0x501acE9c35E60f03A2af4d484f49F9B1EFde9f40";
+            readonly chainId: 1313161554;
+            readonly decimals: 18;
+            readonly website: "https://solace.fi/";
+            readonly description: "Solace is building a community around making this space safe, secure and trusted so that we can onboard and de-risk DeFi and other crypto applications while opening the space to millions of users. We recently launched a coverage policy protocol that enables protection for liquidity providers, Defi protocols or DAOs to mitigate loss from hacks, bugs and exploits. Our purpose is to transform DeFi by delivering intelligent and empowering tools for a safe, secure and trusted industry.";
+        };
+        readonly STNEAR: {
+            readonly name: "Staked NEAR";
+            readonly symbol: "STNEAR";
+            readonly oracleId: "STNEAR";
+            readonly address: "0x07F9F7f963C5cD2BBFFd30CcfB964Be114332E30";
+            readonly chainId: 1313161554;
+            readonly decimals: 24;
+            readonly website: "https://near.org/";
+            readonly description: "Staked NEAR. Through simple, secure, and scalable technology, NEAR empowers millions to invent and explore new experiences. Business, creativity, and community are being reimagined for a more sustainable and inclusive future.";
+        };
+        readonly xTRI: {
+            readonly name: "TriBar";
+            readonly symbol: "xTRI";
+            readonly oracleId: "xTRI";
+            readonly address: "0x802119e4e253D5C19aA06A5d567C5a41596D6803";
+            readonly chainId: 1313161554;
+            readonly decimals: 18;
+            readonly website: "https://www.trisolaris.io/#/swap";
+            readonly description: "Staked TRI. Trisolaris is #1 Dex on the Aurora engine, an EVM compatible blockchain running in the near ecosystem.";
+        };
+        readonly USDO: {
+            readonly name: "aUSDO";
+            readonly symbol: "aUSDO";
+            readonly oracleId: "USDO";
+            readonly address: "0x293074789b247cab05357b08052468B5d7A23c5a";
+            readonly chainId: 1313161554;
+            readonly decimals: 8;
+            readonly website: "https://omnifarms.ocp.finance/";
+            readonly description: "USDO is a decentralised stablecoin backed by a verifiable collateral pool of on-chain assets.";
+            readonly tags: readonly ["SYNTHETIC"];
+        };
+        readonly ROSE: {
+            readonly name: "Rose";
+            readonly symbol: "ROSE";
+            readonly oracleId: "ROSE";
+            readonly address: "0xdcD6D4e2B3e1D1E1E6Fa8C21C8A323DcbecfF970";
+            readonly chainId: 1313161554;
+            readonly decimals: 18;
+            readonly website: "https://rose.fi/";
+            readonly description: "Rose is a liquidity protocol on Aurora composed of a stablecoin & wrapped assets exchange, and a Collateralized Debt Position (CDP) based stablecoin utilizing interest bearing tokens as collateral.";
+        };
+        readonly MAI: {
+            readonly name: "QI DAO Stable Coin Mai";
+            readonly symbol: "MAI";
+            readonly oracleId: "aurMAI";
+            readonly address: "0xdFA46478F9e5EA86d57387849598dbFB2e964b02";
+            readonly chainId: 1313161554;
+            readonly decimals: 18;
+            readonly website: "https://mai.finance/";
+            readonly description: "MAI is a stable coin collateralized by your MATIC holdings. Its powered by Qi Dao, a protocol that enables any cryptocurrency community to create stablecoins backed by their native tokens.";
+            readonly tags: readonly ["STABLECOIN", "SYNTHETIC"];
+        };
+        readonly PAD: {
+            readonly name: "NearPad Token";
+            readonly symbol: "PAD";
+            readonly oracleId: "PAD";
+            readonly address: "0x885f8CF6E45bdd3fdcDc644efdcd0AC93880c781";
+            readonly chainId: 1313161554;
+            readonly decimals: 18;
+            readonly website: "https://www.nearpad.io/";
+            readonly description: "Launchpad & DeFi hub of the NEAR ecosystem. The DeFi hub on NEAR ecosystem to bootstrap innovations, monitor and manage digital assets.";
+        };
+        readonly DAI: {
+            readonly name: "DAI Stablecoin";
+            readonly symbol: "DAI";
+            readonly oracleId: "DAI";
+            readonly address: "0xe3520349F477A5F6EB06107066048508498A291b";
+            readonly chainId: 1313161554;
+            readonly decimals: 18;
+            readonly website: "https://makerdao.com/en/";
+            readonly description: "Dai is a stablecoin cryptocurrency which aims to keep its value as close to one United States dollar as possible through an automated system of smart contracts on the Ethereum blockchain";
+            readonly tags: readonly ["STABLECOIN", "SYNTHETIC"];
+        };
+        readonly USN: {
+            readonly name: "USN Token";
+            readonly symbol: "USN";
+            readonly oracleId: "USN";
+            readonly address: "0x5183e1B1091804BC2602586919E6880ac1cf2896";
+            readonly chainId: 1313161554;
+            readonly decimals: 18;
+            readonly website: "https://decentral-bank.finance/";
+            readonly description: "USN is a NEAR-native stablecoin collateralized 1:1 by USDT.";
+            readonly tags: readonly ["STABLECOIN", "SYNTHETIC"];
+        };
+    };
+    readonly tokenAddressMap: import("../../util/convertSymbolTokenMapToAddressTokenMap.js").AddressToTokenMap<{
+        readonly WNATIVE: {
+            readonly name: "Wrapped Ether ";
+            readonly address: "0xC9BdeEd33CD01541e1eeD10f90519d2C06Fe3feB";
+            readonly symbol: "WETH";
+            readonly oracleId: "WETH";
+            readonly decimals: 18;
+            readonly chainId: 1313161554;
+            readonly website: "https://weth.io/";
+            readonly description: "Ether or ETH is the native currency built on the Ethereum blockchain.";
+            readonly documentation: "https://ethereum.org/en/developers/docs/";
+            readonly tags: readonly ["BLUECHIP"];
+        };
+        readonly FEES: {
+            readonly name: "Wrapped Ether ";
+            readonly address: "0xC9BdeEd33CD01541e1eeD10f90519d2C06Fe3feB";
+            readonly symbol: "WETH";
+            readonly oracleId: "WETH";
+            readonly decimals: 18;
+            readonly chainId: 1313161554;
+            readonly website: "https://weth.io/";
+            readonly description: "Ether or ETH is the native currency built on the Ethereum blockchain.";
+            readonly documentation: "https://ethereum.org/en/developers/docs/";
+            readonly tags: readonly ["BLUECHIP"];
+        };
+        readonly ETH: {
+            readonly name: "Wrapped Ether ";
+            readonly address: "0xC9BdeEd33CD01541e1eeD10f90519d2C06Fe3feB";
+            readonly symbol: "WETH";
+            readonly oracleId: "WETH";
+            readonly decimals: 18;
+            readonly chainId: 1313161554;
+            readonly website: "https://weth.io/";
+            readonly description: "Ether or ETH is the native currency built on the Ethereum blockchain.";
+            readonly documentation: "https://ethereum.org/en/developers/docs/";
+            readonly tags: readonly ["BLUECHIP"];
+        };
+        readonly WETH: {
+            readonly name: "Wrapped Ether ";
+            readonly address: "0xC9BdeEd33CD01541e1eeD10f90519d2C06Fe3feB";
+            readonly symbol: "WETH";
+            readonly oracleId: "WETH";
+            readonly decimals: 18;
+            readonly chainId: 1313161554;
+            readonly website: "https://weth.io/";
+            readonly description: "Ether or ETH is the native currency built on the Ethereum blockchain.";
+            readonly documentation: "https://ethereum.org/en/developers/docs/";
+            readonly tags: readonly ["BLUECHIP"];
+        };
+        readonly oldBIFI: {
+            readonly name: "Beefy.Finance";
+            readonly symbol: "oldBIFI";
+            readonly oracleId: "oldBIFI";
+            readonly address: "0x218c3c3D49d0E7B37aff0D8bB079de36Ae61A4c0";
+            readonly chainId: 1313161554;
+            readonly decimals: 18;
+            readonly website: "https://www.beefy.finance/";
+            readonly description: "Beefy Finance is a Decentralized, Multi-Chain Yield Optimizer platform that allows its users to earn compound interest on their crypto holdings.";
+            readonly documentation: "https://docs.beefy.finance/";
+        };
+        readonly NEAR: {
+            readonly name: "NEAR";
+            readonly symbol: "NEAR";
+            readonly oracleId: "NEAR";
+            readonly address: "0xC42C30aC6Cc15faC9bD938618BcaA1a1FaE8501d";
+            readonly chainId: 1313161554;
+            readonly decimals: 24;
+            readonly website: "https://near.org/";
+            readonly description: "Through simple, secure, and scalable technology, NEAR empowers millions to invent and explore new experiences. Business, creativity, and community are being reimagined for a more sustainable and inclusive future.";
+        };
+        readonly USDC: {
+            readonly name: "USD Coin ";
+            readonly symbol: "USDC";
+            readonly oracleId: "USDC";
+            readonly address: "0xB12BFcA5A55806AaF64E99521918A4bf0fC40802";
+            readonly chainId: 1313161554;
+            readonly decimals: 6;
+            readonly website: "https://www.circle.com/usdc";
+            readonly description: "USDC is a fully collateralized US dollar stablecoin. USDC is issued by regulated financial institutions, backed by fully reserved assets, redeemable on a 1:1 basis for US dollars.";
+            readonly tags: readonly ["STABLECOIN"];
+        };
+        readonly USDT: {
+            readonly name: "Tether USD";
+            readonly symbol: "USDT";
+            readonly oracleId: "USDT";
+            readonly address: "0x4988a896b1227218e4A686fdE5EabdcAbd91571f";
+            readonly chainId: 1313161554;
+            readonly decimals: 6;
+            readonly website: "https://tether.to/";
+            readonly description: "Tether is a stablecoin pegged to the US Dollar. A stablecoin is a type of cryptocurrency whose value is pegged to another fiat currency like the US Dollar or to a commodity like Gold. Tether is the first stablecoin to be created and it is the most popular stablecoin used in the ecosystem.";
+            readonly tags: readonly ["STABLECOIN"];
+        };
+        readonly WBTC: {
+            readonly name: "Wrapped BTC";
+            readonly symbol: "WBTC";
+            readonly oracleId: "WBTC";
+            readonly address: "0xF4eB217Ba2454613b15dBdea6e5f22276410e89e";
+            readonly chainId: 1313161554;
+            readonly decimals: 8;
+            readonly website: "https://wbtc.network/";
+            readonly description: "Wrapped Bitcoin (WBTC) is the first ERC20 token backed 1:1 with Bitcoin. Completely transparent. 100% verifiable. Community led.";
+            readonly tags: readonly ["BLUECHIP"];
+        };
+        readonly TRI: {
+            readonly name: "Trisolaris";
+            readonly symbol: "TRI";
+            readonly oracleId: "TRI";
+            readonly address: "0xFa94348467f64D5A457F75F8bc40495D33c65aBB";
+            readonly chainId: 1313161554;
+            readonly decimals: 18;
+            readonly website: "https://www.trisolaris.io/#/swap";
+            readonly description: "Trisolaris is #1 Dex on the Aurora engine, an EVM compatible blockchain running in the near ecosystem.";
+        };
+        readonly AURORA: {
+            readonly name: "Aurora";
+            readonly symbol: "AURORA";
+            readonly oracleId: "AURORA";
+            readonly address: "0x8BEc47865aDe3B172A928df8f990Bc7f2A3b9f79";
+            readonly chainId: 1313161554;
+            readonly decimals: 18;
+            readonly website: "https://www.aurorachain.io/";
+            readonly description: "Aurora is a decentralized application platform based on third-generation blockchain technology dedicated to providing mature blockchain technology solutions for the entire industry.";
+        };
+        readonly atUST: {
+            readonly name: "UST Terra";
+            readonly symbol: "UST";
+            readonly oracleId: "atUST";
+            readonly address: "0x5ce9F0B6AFb36135b5ddBF11705cEB65E634A9dC";
+            readonly chainId: 1313161554;
+            readonly decimals: 18;
+            readonly website: "https://www.terra.money/";
+            readonly description: "Terra stablecoins offer instant settlements, low fees and seamless cross-border exchange - loved by millions of users and merchants.";
+            readonly tags: readonly ["SYNTHETIC"];
+        };
+        readonly atLUNA: {
+            readonly name: "Luna Terra";
+            readonly symbol: "LUNA";
+            readonly oracleId: "atLUNA";
+            readonly address: "0xC4bdd27c33ec7daa6fcfd8532ddB524Bf4038096";
+            readonly chainId: 1313161554;
+            readonly decimals: 18;
+            readonly website: "https://www.terra.money/";
+            readonly description: "Terra's native token, LUNA, is used to stabilize the price of the protocol's stablecoins. LUNA holders are also able to submit and vote on governance proposals, giving it the functionality of a governance token.";
+        };
+        readonly AVAX: {
+            readonly name: "Avalanche";
+            readonly symbol: "AVAX";
+            readonly oracleId: "AVAX";
+            readonly address: "0x80A16016cC4A2E6a2CACA8a4a498b1699fF0f844";
+            readonly chainId: 1313161554;
+            readonly decimals: 18;
+            readonly website: "https://www.avalabs.org/";
+            readonly description: "Avalanche is the fastest smart contracts platform in the blockchain industry, as measured by time-to-finality, and has the most validators securing its activity of any proof-of-stake protocol.";
+            readonly tags: readonly ["BLUECHIP"];
+        };
+        readonly BNB: {
+            readonly name: "Binance";
+            readonly symbol: "BNB";
+            readonly oracleId: "BNB";
+            readonly address: "0x2bF9b864cdc97b08B6D79ad4663e71B8aB65c45c";
+            readonly chainId: 1313161554;
+            readonly decimals: 18;
+            readonly website: "https://www.binance.com/";
+            readonly description: "Binance Coin (BNB) is an exchange-based token created and issued by the cryptocurrency exchange Binance. Initially created on the Ethereum blockchain as an ERC-20 token in July 2017, BNB was migrated over to Binance Chain in February 2019 and became the native coin of the Binance Chain.";
+            readonly tags: readonly ["BLUECHIP"];
+        };
+        readonly MATIC: {
+            readonly name: "Matic";
+            readonly symbol: "MATIC";
+            readonly oracleId: "MATIC";
+            readonly address: "0x6aB6d61428fde76768D7b45D8BFeec19c6eF91A8";
+            readonly chainId: 1313161554;
+            readonly decimals: 18;
+            readonly website: "https://polygon.technology/";
+            readonly description: "The MATIC token serves dual purposes: securing the Polygon network via staking and being used for the payment of transaction fees.";
+            readonly tags: readonly ["BLUECHIP"];
+        };
+        readonly FLX: {
+            readonly name: "Flux Token";
+            readonly symbol: "FLX";
+            readonly oracleId: "FLX";
+            readonly address: "0xea62791aa682d455614eaA2A12Ba3d9A2fD197af";
+            readonly chainId: 1313161554;
+            readonly decimals: 18;
+            readonly website: "https://www.fluxprotocol.org/";
+            readonly description: "Flux is the trustless data layer for web3. Flux is a cross-chain oracle that provides smart contracts with access to economically secure data feeds on anything.";
+        };
+        readonly MECHA: {
+            readonly name: "Mecha";
+            readonly symbol: "MECHA";
+            readonly oracleId: "MECHA";
+            readonly address: "0xa33C3B53694419824722C10D99ad7cB16Ea62754";
+            readonly chainId: 1313161554;
+            readonly decimals: 18;
+            readonly website: "https://www.mechatracker.finance/#/";
+            readonly description: "Our mission is making Aurora easier, thus making it bigger. Track your assets and DeFi portfolio with #MechaDashboards, easily swap tokens on a tap, visualize your NFTs and unleash the platform full power through the MECHA token.";
+        };
+        readonly SOLACE: {
+            readonly name: "solace";
+            readonly symbol: "SOLACE";
+            readonly oracleId: "SOLACE";
+            readonly address: "0x501acE9c35E60f03A2af4d484f49F9B1EFde9f40";
+            readonly chainId: 1313161554;
+            readonly decimals: 18;
+            readonly website: "https://solace.fi/";
+            readonly description: "Solace is building a community around making this space safe, secure and trusted so that we can onboard and de-risk DeFi and other crypto applications while opening the space to millions of users. We recently launched a coverage policy protocol that enables protection for liquidity providers, Defi protocols or DAOs to mitigate loss from hacks, bugs and exploits. Our purpose is to transform DeFi by delivering intelligent and empowering tools for a safe, secure and trusted industry.";
+        };
+        readonly STNEAR: {
+            readonly name: "Staked NEAR";
+            readonly symbol: "STNEAR";
+            readonly oracleId: "STNEAR";
+            readonly address: "0x07F9F7f963C5cD2BBFFd30CcfB964Be114332E30";
+            readonly chainId: 1313161554;
+            readonly decimals: 24;
+            readonly website: "https://near.org/";
+            readonly description: "Staked NEAR. Through simple, secure, and scalable technology, NEAR empowers millions to invent and explore new experiences. Business, creativity, and community are being reimagined for a more sustainable and inclusive future.";
+        };
+        readonly xTRI: {
+            readonly name: "TriBar";
+            readonly symbol: "xTRI";
+            readonly oracleId: "xTRI";
+            readonly address: "0x802119e4e253D5C19aA06A5d567C5a41596D6803";
+            readonly chainId: 1313161554;
+            readonly decimals: 18;
+            readonly website: "https://www.trisolaris.io/#/swap";
+            readonly description: "Staked TRI. Trisolaris is #1 Dex on the Aurora engine, an EVM compatible blockchain running in the near ecosystem.";
+        };
+        readonly USDO: {
+            readonly name: "aUSDO";
+            readonly symbol: "aUSDO";
+            readonly oracleId: "USDO";
+            readonly address: "0x293074789b247cab05357b08052468B5d7A23c5a";
+            readonly chainId: 1313161554;
+            readonly decimals: 8;
+            readonly website: "https://omnifarms.ocp.finance/";
+            readonly description: "USDO is a decentralised stablecoin backed by a verifiable collateral pool of on-chain assets.";
+            readonly tags: readonly ["SYNTHETIC"];
+        };
+        readonly ROSE: {
+            readonly name: "Rose";
+            readonly symbol: "ROSE";
+            readonly oracleId: "ROSE";
+            readonly address: "0xdcD6D4e2B3e1D1E1E6Fa8C21C8A323DcbecfF970";
+            readonly chainId: 1313161554;
+            readonly decimals: 18;
+            readonly website: "https://rose.fi/";
+            readonly description: "Rose is a liquidity protocol on Aurora composed of a stablecoin & wrapped assets exchange, and a Collateralized Debt Position (CDP) based stablecoin utilizing interest bearing tokens as collateral.";
+        };
+        readonly MAI: {
+            readonly name: "QI DAO Stable Coin Mai";
+            readonly symbol: "MAI";
+            readonly oracleId: "aurMAI";
+            readonly address: "0xdFA46478F9e5EA86d57387849598dbFB2e964b02";
+            readonly chainId: 1313161554;
+            readonly decimals: 18;
+            readonly website: "https://mai.finance/";
+            readonly description: "MAI is a stable coin collateralized by your MATIC holdings. Its powered by Qi Dao, a protocol that enables any cryptocurrency community to create stablecoins backed by their native tokens.";
+            readonly tags: readonly ["STABLECOIN", "SYNTHETIC"];
+        };
+        readonly PAD: {
+            readonly name: "NearPad Token";
+            readonly symbol: "PAD";
+            readonly oracleId: "PAD";
+            readonly address: "0x885f8CF6E45bdd3fdcDc644efdcd0AC93880c781";
+            readonly chainId: 1313161554;
+            readonly decimals: 18;
+            readonly website: "https://www.nearpad.io/";
+            readonly description: "Launchpad & DeFi hub of the NEAR ecosystem. The DeFi hub on NEAR ecosystem to bootstrap innovations, monitor and manage digital assets.";
+        };
+        readonly DAI: {
+            readonly name: "DAI Stablecoin";
+            readonly symbol: "DAI";
+            readonly oracleId: "DAI";
+            readonly address: "0xe3520349F477A5F6EB06107066048508498A291b";
+            readonly chainId: 1313161554;
+            readonly decimals: 18;
+            readonly website: "https://makerdao.com/en/";
+            readonly description: "Dai is a stablecoin cryptocurrency which aims to keep its value as close to one United States dollar as possible through an automated system of smart contracts on the Ethereum blockchain";
+            readonly tags: readonly ["STABLECOIN", "SYNTHETIC"];
+        };
+        readonly USN: {
+            readonly name: "USN Token";
+            readonly symbol: "USN";
+            readonly oracleId: "USN";
+            readonly address: "0x5183e1B1091804BC2602586919E6880ac1cf2896";
+            readonly chainId: 1313161554;
+            readonly decimals: 18;
+            readonly website: "https://decentral-bank.finance/";
+            readonly description: "USN is a NEAR-native stablecoin collateralized 1:1 by USDT.";
+            readonly tags: readonly ["STABLECOIN", "SYNTHETIC"];
+        };
+    }>;
+    readonly native: {
+        readonly symbol: "ETH";
+        readonly oracleId: "ETH";
+    };
+};

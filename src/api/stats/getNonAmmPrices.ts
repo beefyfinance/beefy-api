@@ -4,6 +4,7 @@ import {
   BASE_CHAIN_ID,
   ETH_CHAIN_ID,
   FRAXTAL_CHAIN_ID as FRX_CHAIN_ID,
+  HYPEREVM_CHAIN_ID,
   MANTLE_CHAIN_ID,
   MEGAETH_CHAIN_ID,
   MONAD_CHAIN_ID,
@@ -90,6 +91,7 @@ import ethereumPendlePools from '../../data/ethereum/pendlePools.json' with { ty
 import ethereumPendleUnboostedPools from '../../data/ethereum/pendleUnboostedPools.json' with { type: 'json' };
 import fraxtalCurveLendPools from '../../data/fraxtal/curveLendPools.json' with { type: 'json' };
 import fraxtalCurvePools from '../../data/fraxtal/curvePools.json' with { type: 'json' };
+import hyperevmMorphoPools from '../../data/hyperevm/morphoPools.json' with { type: 'json' };
 import mantleAaveV3Pools from '../../data/mantle/aaveV3Pools.json' with { type: 'json' };
 import maticMorphoPools from '../../data/matic/morphoPools.json' with { type: 'json' };
 import megaethAaveV3Pools from '../../data/megaeth/aaveV3Pools.json' with { type: 'json' };
@@ -184,6 +186,7 @@ export const getNonAmmPrices = withTracing(
       getMorphoPrices(MONAD_CHAIN_ID, monadMorphoPools, tokenPrices),
       getMorphoPrices(ARB_CHAIN_ID, arbitrumMorphoPools, tokenPrices),
       getMorphoPrices(OPTIMISM_CHAIN_ID, optimismMorphoPools, tokenPrices),
+      getMorphoPrices(HYPEREVM_CHAIN_ID, hyperevmMorphoPools, tokenPrices),
       getIchiPrices(SONIC_CHAIN_ID, sonicSwapxIchiPools, tokenPrices),
       getEulerPrices(MONAD_CHAIN_ID, monadEulerPools, tokenPrices),
       getSolidlyStablePrices(AVAX_CHAIN_ID, avaxBlackStableLpPools, tokenPrices),

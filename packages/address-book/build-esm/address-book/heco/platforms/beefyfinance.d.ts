@@ -1,0 +1,16 @@
+export declare const beefyfinance: {
+    readonly devMultisig: "0x0000000000000000000000000000000000000000";
+    readonly treasuryMultisig: "0xdbB72c8B7eBdD52A4813B9D262386dfDAB69c9bA";
+    readonly strategyOwner: "0x587479672077fBD7cb08EE1fd13fca6a9ef69d9e";
+    readonly vaultOwner: "0xBB54a8F862e2D4Cc03634a26974c5C3bEfd06836";
+    readonly keeper: "0x4fED5491693007f0CD49f4614FFC38Ab6A04B619";
+    readonly treasurer: "0x3Eb7fB70C03eC4AEEC97C6C6C1B59B014600b7F7";
+    readonly launchpoolOwner: "0x3Eb7fB70C03eC4AEEC97C6C6C1B59B014600b7F7";
+    readonly rewardPool: "0x5f7347fedfD0b374e8CE8ed19Fc839F59FB59a3B";
+    readonly treasury: "0xf4859A3f36fBcA24BF8299bf56359fB441b03034";
+    readonly beefyFeeRecipient: "0x250EB557D7a767ee711c7C11988470669a5306BB";
+    readonly zapFeeRecipient: "0xdbB72c8B7eBdD52A4813B9D262386dfDAB69c9bA";
+    readonly multicall: "0x2776CF9B6E2Fa7B33A37139C3CB1ee362Ff0356e";
+    readonly bifiMaxiStrategy: "0xfdF1088F5B9Bd338D5197aCfB00b468f04bCC374";
+    readonly voter: "0x5e1caC103F943Cd84A1E92dAde4145664ebf692A";
+};

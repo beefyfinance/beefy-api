@@ -1,0 +1,101 @@
+export declare const tokens: {
+    readonly WNATIVE: {
+        readonly name: "Wrapped Ether ";
+        readonly address: "0x0Dc808adcE2099A9F62AA87D9670745AbA741746";
+        readonly symbol: "WETH";
+        readonly oracleId: "WETH";
+        readonly decimals: 18;
+        readonly chainId: 169;
+        readonly website: "https://weth.io/";
+        readonly description: "Ether or ETH is the native currency built on the Ethereum blockchain.";
+        readonly documentation: "https://ethereum.org/en/developers/docs/";
+        readonly tags: readonly ["BLUECHIP"];
+    };
+    readonly FEES: {
+        readonly name: "Wrapped Ether ";
+        readonly address: "0x0Dc808adcE2099A9F62AA87D9670745AbA741746";
+        readonly symbol: "WETH";
+        readonly oracleId: "WETH";
+        readonly decimals: 18;
+        readonly chainId: 169;
+        readonly website: "https://weth.io/";
+        readonly description: "Ether or ETH is the native currency built on the Ethereum blockchain.";
+        readonly documentation: "https://ethereum.org/en/developers/docs/";
+        readonly tags: readonly ["BLUECHIP"];
+    };
+    readonly ETH: {
+        readonly name: "Wrapped Ether ";
+        readonly address: "0x0Dc808adcE2099A9F62AA87D9670745AbA741746";
+        readonly symbol: "WETH";
+        readonly oracleId: "WETH";
+        readonly decimals: 18;
+        readonly chainId: 169;
+        readonly website: "https://weth.io/";
+        readonly description: "Ether or ETH is the native currency built on the Ethereum blockchain.";
+        readonly documentation: "https://ethereum.org/en/developers/docs/";
+        readonly tags: readonly ["BLUECHIP"];
+    };
+    readonly WETH: {
+        readonly name: "Wrapped Ether ";
+        readonly address: "0x0Dc808adcE2099A9F62AA87D9670745AbA741746";
+        readonly symbol: "WETH";
+        readonly oracleId: "WETH";
+        readonly decimals: 18;
+        readonly chainId: 169;
+        readonly website: "https://weth.io/";
+        readonly description: "Ether or ETH is the native currency built on the Ethereum blockchain.";
+        readonly documentation: "https://ethereum.org/en/developers/docs/";
+        readonly tags: readonly ["BLUECHIP"];
+    };
+    readonly STONE: {
+        readonly name: "StakeStone Ether";
+        readonly symbol: "STONE";
+        readonly oracleId: "STONE";
+        readonly address: "0xEc901DA9c68E90798BbBb74c11406A32A70652C3";
+        readonly chainId: 169;
+        readonly decimals: 18;
+        readonly website: "https://stakestone.io/";
+        readonly documentation: "https://docs.stakestone.io/stakestone";
+        readonly description: "StakeStone is an omni-chain LST (Liquid Staking Token) protocol aiming to bring native staking yields and liquidity to Layer 2s in a decentralized manner.";
+        readonly bridge: "layer-zero";
+        readonly tags: readonly ["NO_TIMELOCK"];
+    };
+    readonly USDC: {
+        readonly name: "USDC";
+        readonly symbol: "USDC";
+        readonly oracleId: "USDC";
+        readonly address: "0xb73603C5d87fA094B7314C74ACE2e64D165016fb";
+        readonly chainId: 169;
+        readonly decimals: 6;
+        readonly website: "https://www.circle.com/usdc";
+        readonly documentation: "https://developers.circle.com/docs";
+        readonly description: "USDC is a fully collateralized US dollar stablecoin. USDC is issued by regulated financial institutions, backed by fully reserved assets, redeemable on a 1:1 basis for US dollars.";
+        readonly bridge: "manta-canonical";
+        readonly tags: readonly ["STABLECOIN"];
+    };
+    readonly USDT: {
+        readonly name: "USDT";
+        readonly symbol: "USDT";
+        readonly oracleId: "USDT";
+        readonly address: "0xf417F5A458eC102B90352F697D6e2Ac3A3d2851f";
+        readonly chainId: 169;
+        readonly decimals: 6;
+        readonly website: "https://tether.to/";
+        readonly documentation: "https://tether.to/en/how-it-works";
+        readonly description: "Tether is a stablecoin pegged to the US Dollar. A stablecoin is a type of cryptocurrency whose value is pegged to another fiat currency like the US Dollar or to a commodity like Gold. Tether is the first stablecoin to be created and it is the most popular stablecoin used in the ecosystem.";
+        readonly bridge: "manta-canonical";
+        readonly tags: readonly ["STABLECOIN"];
+    };
+    readonly MANTA: {
+        readonly name: "MANTA";
+        readonly symbol: "MANTA";
+        readonly oracleId: "MANTA";
+        readonly address: "0x95CeF13441Be50d20cA4558CC0a27B601aC544E5";
+        readonly chainId: 169;
+        readonly decimals: 18;
+        readonly website: "https://pacific.manta.network/";
+        readonly documentation: "https://mantanetwork.medium.com/manta-tokenomics-b226f911c84c";
+        readonly description: "MANTA is the network gas token of Manta Atlantic and also benefits from the sequencer revenue of Manta Pacific. Holders can also vote in governance proposals of both chains.";
+        readonly bridge: "manta-canonical";
+    };
+};

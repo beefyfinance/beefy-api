@@ -1,0 +1,238 @@
+import * as platforms from './platforms/index.js';
+export declare const robinhood: {
+    readonly platforms: typeof platforms;
+    readonly tokens: {
+        readonly WNATIVE: {
+            readonly name: "Wrapped Ether";
+            readonly address: "0x0Bd7D308f8E1639FAb988df18A8011f41EAcAD73";
+            readonly symbol: "WETH";
+            readonly oracleId: "WETH";
+            readonly decimals: 18;
+            readonly chainId: 4663;
+            readonly website: "https://weth.io/";
+            readonly description: "Ether or ETH is the native currency built on the Ethereum blockchain.";
+            readonly bridge: "robinhood-canonical";
+            readonly documentation: "https://ethereum.org/en/developers/docs/";
+            readonly tags: readonly ["BLUECHIP"];
+        };
+        readonly FEES: {
+            readonly name: "Wrapped Ether";
+            readonly address: "0x0Bd7D308f8E1639FAb988df18A8011f41EAcAD73";
+            readonly symbol: "WETH";
+            readonly oracleId: "WETH";
+            readonly decimals: 18;
+            readonly chainId: 4663;
+            readonly website: "https://weth.io/";
+            readonly description: "Ether or ETH is the native currency built on the Ethereum blockchain.";
+            readonly bridge: "robinhood-canonical";
+            readonly documentation: "https://ethereum.org/en/developers/docs/";
+            readonly tags: readonly ["BLUECHIP"];
+        };
+        readonly ETH: {
+            readonly name: "Wrapped Ether";
+            readonly address: "0x0Bd7D308f8E1639FAb988df18A8011f41EAcAD73";
+            readonly symbol: "WETH";
+            readonly oracleId: "WETH";
+            readonly decimals: 18;
+            readonly chainId: 4663;
+            readonly website: "https://weth.io/";
+            readonly description: "Ether or ETH is the native currency built on the Ethereum blockchain.";
+            readonly bridge: "robinhood-canonical";
+            readonly documentation: "https://ethereum.org/en/developers/docs/";
+            readonly tags: readonly ["BLUECHIP"];
+        };
+        readonly WETH: {
+            readonly name: "Wrapped Ether";
+            readonly address: "0x0Bd7D308f8E1639FAb988df18A8011f41EAcAD73";
+            readonly symbol: "WETH";
+            readonly oracleId: "WETH";
+            readonly decimals: 18;
+            readonly chainId: 4663;
+            readonly website: "https://weth.io/";
+            readonly description: "Ether or ETH is the native currency built on the Ethereum blockchain.";
+            readonly bridge: "robinhood-canonical";
+            readonly documentation: "https://ethereum.org/en/developers/docs/";
+            readonly tags: readonly ["BLUECHIP"];
+        };
+        readonly USDG: {
+            readonly name: "Global Dollar";
+            readonly address: "0x5fc5360D0400a0Fd4f2af552ADD042D716F1d168";
+            readonly symbol: "USDG";
+            readonly oracleId: "USDG";
+            readonly decimals: 6;
+            readonly chainId: 4663;
+            readonly website: "https://globaldollar.com/";
+            readonly description: "Global Dollar (USDG) is a single-currency stablecoin pegged to the US dollar, issued by Paxos. Built for payments, settlements and treasury, USDG can be used as an interoperable building block for open-source smart contracts.";
+            readonly bridge: "layer-zero";
+            readonly documentation: "https://docs.paxos.com/guides/stablecoin/usdg";
+            readonly tags: readonly ["STABLECOIN"];
+        };
+        readonly CASHCAT: {
+            readonly name: "Cash Cat";
+            readonly address: "0x020bfC650A365f8BB26819deAAbF3E21291018b4";
+            readonly symbol: "CASHCAT";
+            readonly oracleId: "CASHCAT";
+            readonly decimals: 18;
+            readonly chainId: 4663;
+            readonly website: "https://cashcattoken.xyz/";
+            readonly description: "The cat that became a hood. The mascot of the movement before the movement had a logo. $CASHCAT honors the origin story of Robinhood Chain.";
+            readonly bridge: "native";
+            readonly documentation: "https://cashcattoken.xyz/#tokenomics";
+            readonly tags: readonly ["MEMECOIN"];
+        };
+        readonly TENDIES: {
+            readonly name: "TENDIES";
+            readonly address: "0x45242320DBB855EeA8Fd36804C6487E10E97FCF9";
+            readonly symbol: "TENDIES";
+            readonly oracleId: "TENDIES";
+            readonly decimals: 18;
+            readonly chainId: 4663;
+            readonly description: "Tendies is a community/meme token. There is no team, there is no supply hoarding.";
+            readonly bridge: "native";
+            readonly tags: readonly ["MEMECOIN"];
+        };
+        readonly UP: {
+            readonly name: "up";
+            readonly symbol: "UP33";
+            readonly oracleId: "UP33";
+            readonly address: "0x57C0E45cB534413D1C20A4240955d6bB250BB4F1";
+            readonly chainId: 4663;
+            readonly decimals: 18;
+            readonly website: "https://up33.xyz/";
+            readonly description: "UP is the protocol token of Up Protocol on Robinhood. It is what emissions pay, what incentives buy votes with, and what trades freely on up. When locked as veUP, it becomes a governance token whose voting power equals the locked amount scaled by the remaining lock time, up to four years.";
+            readonly documentation: "https://up33.xyz/docs";
+            readonly bridge: "native";
+        };
+        readonly UP33: {
+            readonly name: "up";
+            readonly symbol: "UP33";
+            readonly oracleId: "UP33";
+            readonly address: "0x57C0E45cB534413D1C20A4240955d6bB250BB4F1";
+            readonly chainId: 4663;
+            readonly decimals: 18;
+            readonly website: "https://up33.xyz/";
+            readonly description: "UP is the protocol token of Up Protocol on Robinhood. It is what emissions pay, what incentives buy votes with, and what trades freely on up. When locked as veUP, it becomes a governance token whose voting power equals the locked amount scaled by the remaining lock time, up to four years.";
+            readonly documentation: "https://up33.xyz/docs";
+            readonly bridge: "native";
+        };
+    };
+    readonly tokenAddressMap: import("../../util/convertSymbolTokenMapToAddressTokenMap.js").AddressToTokenMap<{
+        readonly WNATIVE: {
+            readonly name: "Wrapped Ether";
+            readonly address: "0x0Bd7D308f8E1639FAb988df18A8011f41EAcAD73";
+            readonly symbol: "WETH";
+            readonly oracleId: "WETH";
+            readonly decimals: 18;
+            readonly chainId: 4663;
+            readonly website: "https://weth.io/";
+            readonly description: "Ether or ETH is the native currency built on the Ethereum blockchain.";
+            readonly bridge: "robinhood-canonical";
+            readonly documentation: "https://ethereum.org/en/developers/docs/";
+            readonly tags: readonly ["BLUECHIP"];
+        };
+        readonly FEES: {
+            readonly name: "Wrapped Ether";
+            readonly address: "0x0Bd7D308f8E1639FAb988df18A8011f41EAcAD73";
+            readonly symbol: "WETH";
+            readonly oracleId: "WETH";
+            readonly decimals: 18;
+            readonly chainId: 4663;
+            readonly website: "https://weth.io/";
+            readonly description: "Ether or ETH is the native currency built on the Ethereum blockchain.";
+            readonly bridge: "robinhood-canonical";
+            readonly documentation: "https://ethereum.org/en/developers/docs/";
+            readonly tags: readonly ["BLUECHIP"];
+        };
+        readonly ETH: {
+            readonly name: "Wrapped Ether";
+            readonly address: "0x0Bd7D308f8E1639FAb988df18A8011f41EAcAD73";
+            readonly symbol: "WETH";
+            readonly oracleId: "WETH";
+            readonly decimals: 18;
+            readonly chainId: 4663;
+            readonly website: "https://weth.io/";
+            readonly description: "Ether or ETH is the native currency built on the Ethereum blockchain.";
+            readonly bridge: "robinhood-canonical";
+            readonly documentation: "https://ethereum.org/en/developers/docs/";
+            readonly tags: readonly ["BLUECHIP"];
+        };
+        readonly WETH: {
+            readonly name: "Wrapped Ether";
+            readonly address: "0x0Bd7D308f8E1639FAb988df18A8011f41EAcAD73";
+            readonly symbol: "WETH";
+            readonly oracleId: "WETH";
+            readonly decimals: 18;
+            readonly chainId: 4663;
+            readonly website: "https://weth.io/";
+            readonly description: "Ether or ETH is the native currency built on the Ethereum blockchain.";
+            readonly bridge: "robinhood-canonical";
+            readonly documentation: "https://ethereum.org/en/developers/docs/";
+            readonly tags: readonly ["BLUECHIP"];
+        };
+        readonly USDG: {
+            readonly name: "Global Dollar";
+            readonly address: "0x5fc5360D0400a0Fd4f2af552ADD042D716F1d168";
+            readonly symbol: "USDG";
+            readonly oracleId: "USDG";
+            readonly decimals: 6;
+            readonly chainId: 4663;
+            readonly website: "https://globaldollar.com/";
+            readonly description: "Global Dollar (USDG) is a single-currency stablecoin pegged to the US dollar, issued by Paxos. Built for payments, settlements and treasury, USDG can be used as an interoperable building block for open-source smart contracts.";
+            readonly bridge: "layer-zero";
+            readonly documentation: "https://docs.paxos.com/guides/stablecoin/usdg";
+            readonly tags: readonly ["STABLECOIN"];
+        };
+        readonly CASHCAT: {
+            readonly name: "Cash Cat";
+            readonly address: "0x020bfC650A365f8BB26819deAAbF3E21291018b4";
+            readonly symbol: "CASHCAT";
+            readonly oracleId: "CASHCAT";
+            readonly decimals: 18;
+            readonly chainId: 4663;
+            readonly website: "https://cashcattoken.xyz/";
+            readonly description: "The cat that became a hood. The mascot of the movement before the movement had a logo. $CASHCAT honors the origin story of Robinhood Chain.";
+            readonly bridge: "native";
+            readonly documentation: "https://cashcattoken.xyz/#tokenomics";
+            readonly tags: readonly ["MEMECOIN"];
+        };
+        readonly TENDIES: {
+            readonly name: "TENDIES";
+            readonly address: "0x45242320DBB855EeA8Fd36804C6487E10E97FCF9";
+            readonly symbol: "TENDIES";
+            readonly oracleId: "TENDIES";
+            readonly decimals: 18;
+            readonly chainId: 4663;
+            readonly description: "Tendies is a community/meme token. There is no team, there is no supply hoarding.";
+            readonly bridge: "native";
+            readonly tags: readonly ["MEMECOIN"];
+        };
+        readonly UP: {
+            readonly name: "up";
+            readonly symbol: "UP33";
+            readonly oracleId: "UP33";
+            readonly address: "0x57C0E45cB534413D1C20A4240955d6bB250BB4F1";
+            readonly chainId: 4663;
+            readonly decimals: 18;
+            readonly website: "https://up33.xyz/";
+            readonly description: "UP is the protocol token of Up Protocol on Robinhood. It is what emissions pay, what incentives buy votes with, and what trades freely on up. When locked as veUP, it becomes a governance token whose voting power equals the locked amount scaled by the remaining lock time, up to four years.";
+            readonly documentation: "https://up33.xyz/docs";
+            readonly bridge: "native";
+        };
+        readonly UP33: {
+            readonly name: "up";
+            readonly symbol: "UP33";
+            readonly oracleId: "UP33";
+            readonly address: "0x57C0E45cB534413D1C20A4240955d6bB250BB4F1";
+            readonly chainId: 4663;
+            readonly decimals: 18;
+            readonly website: "https://up33.xyz/";
+            readonly description: "UP is the protocol token of Up Protocol on Robinhood. It is what emissions pay, what incentives buy votes with, and what trades freely on up. When locked as veUP, it becomes a governance token whose voting power equals the locked amount scaled by the remaining lock time, up to four years.";
+            readonly documentation: "https://up33.xyz/docs";
+            readonly bridge: "native";
+        };
+    }>;
+    readonly native: {
+        readonly symbol: "ETH";
+        readonly oracleId: "ETH";
+    };
+};

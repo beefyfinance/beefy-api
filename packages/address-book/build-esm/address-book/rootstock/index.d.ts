@@ -1,0 +1,210 @@
+import * as platforms from './platforms/index.js';
+export declare const rootstock: {
+    readonly platforms: typeof platforms;
+    readonly tokens: {
+        readonly WNATIVE: {
+            readonly name: "Wrapped Rootstock BTC";
+            readonly address: "0x542fDA317318eBF1d3DEAf76E0b632741A7e677d";
+            readonly symbol: "WRBTC";
+            readonly oracleId: "WBTC";
+            readonly decimals: 18;
+            readonly chainId: 30;
+            readonly website: "https://rootstock.io/rbtc/";
+            readonly description: "RBTC, the smart version of Bitcoin. Allowing BTC owners to interact with DeFi protocols and dApps on Rootstock network for minting, swaps, gas fees and more.";
+            readonly bridge: "rootstock-canonical";
+            readonly documentation: "https://dev.rootstock.io/concepts/rbtc/?_gl=1*jp93v6*_gcl_au*ODQ3NTgwNDM3LjE3MjcyNjIwNDI.";
+        };
+        readonly FEES: {
+            readonly name: "Wrapped Rootstock BTC";
+            readonly address: "0x542fDA317318eBF1d3DEAf76E0b632741A7e677d";
+            readonly symbol: "WRBTC";
+            readonly oracleId: "WBTC";
+            readonly decimals: 18;
+            readonly chainId: 30;
+            readonly website: "https://rootstock.io/rbtc/";
+            readonly description: "RBTC, the smart version of Bitcoin. Allowing BTC owners to interact with DeFi protocols and dApps on Rootstock network for minting, swaps, gas fees and more.";
+            readonly bridge: "rootstock-canonical";
+            readonly documentation: "https://dev.rootstock.io/concepts/rbtc/?_gl=1*jp93v6*_gcl_au*ODQ3NTgwNDM3LjE3MjcyNjIwNDI.";
+        };
+        readonly RBTC: {
+            readonly name: "Wrapped Rootstock BTC";
+            readonly address: "0x542fDA317318eBF1d3DEAf76E0b632741A7e677d";
+            readonly symbol: "WRBTC";
+            readonly oracleId: "WBTC";
+            readonly decimals: 18;
+            readonly chainId: 30;
+            readonly website: "https://rootstock.io/rbtc/";
+            readonly description: "RBTC, the smart version of Bitcoin. Allowing BTC owners to interact with DeFi protocols and dApps on Rootstock network for minting, swaps, gas fees and more.";
+            readonly bridge: "rootstock-canonical";
+            readonly documentation: "https://dev.rootstock.io/concepts/rbtc/?_gl=1*jp93v6*_gcl_au*ODQ3NTgwNDM3LjE3MjcyNjIwNDI.";
+        };
+        readonly WRBTC: {
+            readonly name: "Wrapped Rootstock BTC";
+            readonly address: "0x542fDA317318eBF1d3DEAf76E0b632741A7e677d";
+            readonly symbol: "WRBTC";
+            readonly oracleId: "WBTC";
+            readonly decimals: 18;
+            readonly chainId: 30;
+            readonly website: "https://rootstock.io/rbtc/";
+            readonly description: "RBTC, the smart version of Bitcoin. Allowing BTC owners to interact with DeFi protocols and dApps on Rootstock network for minting, swaps, gas fees and more.";
+            readonly bridge: "rootstock-canonical";
+            readonly documentation: "https://dev.rootstock.io/concepts/rbtc/?_gl=1*jp93v6*_gcl_au*ODQ3NTgwNDM3LjE3MjcyNjIwNDI.";
+        };
+        readonly ETHs: {
+            readonly name: "Sovryn ETH";
+            readonly address: "0x1D931Bf8656d795E50eF6D639562C5bD8Ac2B78f";
+            readonly symbol: "ETHs";
+            readonly oracleId: "WETH";
+            readonly decimals: 18;
+            readonly chainId: 30;
+            readonly website: "https://wiki.sovryn.com/en/sovryn-dapp/bridge";
+            readonly description: "Sovryn ETH is a ETH aggregated token on Rootstock";
+            readonly bridge: "sovryn";
+            readonly documentation: "https://wiki.sovryn.com/en/sovryn-dapp/bridge";
+            readonly tags: readonly ["SYNTHETIC"];
+        };
+        readonly rUSDT: {
+            readonly name: "Rootstock USDT";
+            readonly address: "0xef213441A85dF4d7ACbDaE0Cf78004e1E486bB96";
+            readonly symbol: "rUSDT";
+            readonly oracleId: "USDT";
+            readonly decimals: 18;
+            readonly chainId: 30;
+            readonly website: "https://dapp.tokenbridge.rootstock.io/";
+            readonly description: "Rootstock Bridged USDT from the Ethereum Network";
+            readonly bridge: "rootstock-canonical";
+            readonly documentation: "https://dapp.tokenbridge.rootstock.io/";
+            readonly tags: readonly ["STABLECOIN", "SYNTHETIC"];
+        };
+        readonly DOC: {
+            readonly name: "Dollar on Chain";
+            readonly address: "0xe700691dA7b9851F2F35f8b8182c69c53CcaD9Db";
+            readonly symbol: "DOC";
+            readonly oracleId: "DOC";
+            readonly decimals: 18;
+            readonly chainId: 30;
+            readonly website: "https://moneyonchain.com/doc-stablecoin/";
+            readonly description: "Dollar on Chain (DoC) - A token that is pegged 1:1 to the US Dollar, and is crypto-collateralized in Bitcoin";
+            readonly bridge: "native";
+            readonly documentation: "https://api.moneyonchain.com/docs/guide";
+            readonly tags: readonly ["STABLECOIN", "SYNTHETIC"];
+        };
+        readonly RIF: {
+            readonly name: "RIF";
+            readonly address: "0x2AcC95758f8b5F583470ba265EB685a8F45fC9D5";
+            readonly symbol: "RIF";
+            readonly oracleId: "RIF";
+            readonly decimals: 18;
+            readonly chainId: 30;
+            readonly website: "https://rif.technology/";
+            readonly description: "RIF was created to make it easier for developers to build on Bitcoin using Rootstock by proposing and developing a unified set of protocols, rules and interfaces for decentralized infrastructure services, including: Bridges, Name Resolution Services, Payments, Data Feeds (i.e. Oracles) and Bitcoin DeFi Wallets.";
+            readonly bridge: "native";
+            readonly documentation: "https://dev.rootstock.io/";
+        };
+    };
+    readonly tokenAddressMap: import("../../util/convertSymbolTokenMapToAddressTokenMap.js").AddressToTokenMap<{
+        readonly WNATIVE: {
+            readonly name: "Wrapped Rootstock BTC";
+            readonly address: "0x542fDA317318eBF1d3DEAf76E0b632741A7e677d";
+            readonly symbol: "WRBTC";
+            readonly oracleId: "WBTC";
+            readonly decimals: 18;
+            readonly chainId: 30;
+            readonly website: "https://rootstock.io/rbtc/";
+            readonly description: "RBTC, the smart version of Bitcoin. Allowing BTC owners to interact with DeFi protocols and dApps on Rootstock network for minting, swaps, gas fees and more.";
+            readonly bridge: "rootstock-canonical";
+            readonly documentation: "https://dev.rootstock.io/concepts/rbtc/?_gl=1*jp93v6*_gcl_au*ODQ3NTgwNDM3LjE3MjcyNjIwNDI.";
+        };
+        readonly FEES: {
+            readonly name: "Wrapped Rootstock BTC";
+            readonly address: "0x542fDA317318eBF1d3DEAf76E0b632741A7e677d";
+            readonly symbol: "WRBTC";
+            readonly oracleId: "WBTC";
+            readonly decimals: 18;
+            readonly chainId: 30;
+            readonly website: "https://rootstock.io/rbtc/";
+            readonly description: "RBTC, the smart version of Bitcoin. Allowing BTC owners to interact with DeFi protocols and dApps on Rootstock network for minting, swaps, gas fees and more.";
+            readonly bridge: "rootstock-canonical";
+            readonly documentation: "https://dev.rootstock.io/concepts/rbtc/?_gl=1*jp93v6*_gcl_au*ODQ3NTgwNDM3LjE3MjcyNjIwNDI.";
+        };
+        readonly RBTC: {
+            readonly name: "Wrapped Rootstock BTC";
+            readonly address: "0x542fDA317318eBF1d3DEAf76E0b632741A7e677d";
+            readonly symbol: "WRBTC";
+            readonly oracleId: "WBTC";
+            readonly decimals: 18;
+            readonly chainId: 30;
+            readonly website: "https://rootstock.io/rbtc/";
+            readonly description: "RBTC, the smart version of Bitcoin. Allowing BTC owners to interact with DeFi protocols and dApps on Rootstock network for minting, swaps, gas fees and more.";
+            readonly bridge: "rootstock-canonical";
+            readonly documentation: "https://dev.rootstock.io/concepts/rbtc/?_gl=1*jp93v6*_gcl_au*ODQ3NTgwNDM3LjE3MjcyNjIwNDI.";
+        };
+        readonly WRBTC: {
+            readonly name: "Wrapped Rootstock BTC";
+            readonly address: "0x542fDA317318eBF1d3DEAf76E0b632741A7e677d";
+            readonly symbol: "WRBTC";
+            readonly oracleId: "WBTC";
+            readonly decimals: 18;
+            readonly chainId: 30;
+            readonly website: "https://rootstock.io/rbtc/";
+            readonly description: "RBTC, the smart version of Bitcoin. Allowing BTC owners to interact with DeFi protocols and dApps on Rootstock network for minting, swaps, gas fees and more.";
+            readonly bridge: "rootstock-canonical";
+            readonly documentation: "https://dev.rootstock.io/concepts/rbtc/?_gl=1*jp93v6*_gcl_au*ODQ3NTgwNDM3LjE3MjcyNjIwNDI.";
+        };
+        readonly ETHs: {
+            readonly name: "Sovryn ETH";
+            readonly address: "0x1D931Bf8656d795E50eF6D639562C5bD8Ac2B78f";
+            readonly symbol: "ETHs";
+            readonly oracleId: "WETH";
+            readonly decimals: 18;
+            readonly chainId: 30;
+            readonly website: "https://wiki.sovryn.com/en/sovryn-dapp/bridge";
+            readonly description: "Sovryn ETH is a ETH aggregated token on Rootstock";
+            readonly bridge: "sovryn";
+            readonly documentation: "https://wiki.sovryn.com/en/sovryn-dapp/bridge";
+            readonly tags: readonly ["SYNTHETIC"];
+        };
+        readonly rUSDT: {
+            readonly name: "Rootstock USDT";
+            readonly address: "0xef213441A85dF4d7ACbDaE0Cf78004e1E486bB96";
+            readonly symbol: "rUSDT";
+            readonly oracleId: "USDT";
+            readonly decimals: 18;
+            readonly chainId: 30;
+            readonly website: "https://dapp.tokenbridge.rootstock.io/";
+            readonly description: "Rootstock Bridged USDT from the Ethereum Network";
+            readonly bridge: "rootstock-canonical";
+            readonly documentation: "https://dapp.tokenbridge.rootstock.io/";
+            readonly tags: readonly ["STABLECOIN", "SYNTHETIC"];
+        };
+        readonly DOC: {
+            readonly name: "Dollar on Chain";
+            readonly address: "0xe700691dA7b9851F2F35f8b8182c69c53CcaD9Db";
+            readonly symbol: "DOC";
+            readonly oracleId: "DOC";
+            readonly decimals: 18;
+            readonly chainId: 30;
+            readonly website: "https://moneyonchain.com/doc-stablecoin/";
+            readonly description: "Dollar on Chain (DoC) - A token that is pegged 1:1 to the US Dollar, and is crypto-collateralized in Bitcoin";
+            readonly bridge: "native";
+            readonly documentation: "https://api.moneyonchain.com/docs/guide";
+            readonly tags: readonly ["STABLECOIN", "SYNTHETIC"];
+        };
+        readonly RIF: {
+            readonly name: "RIF";
+            readonly address: "0x2AcC95758f8b5F583470ba265EB685a8F45fC9D5";
+            readonly symbol: "RIF";
+            readonly oracleId: "RIF";
+            readonly decimals: 18;
+            readonly chainId: 30;
+            readonly website: "https://rif.technology/";
+            readonly description: "RIF was created to make it easier for developers to build on Bitcoin using Rootstock by proposing and developing a unified set of protocols, rules and interfaces for decentralized infrastructure services, including: Bridges, Name Resolution Services, Payments, Data Feeds (i.e. Oracles) and Bitcoin DeFi Wallets.";
+            readonly bridge: "native";
+            readonly documentation: "https://dev.rootstock.io/";
+        };
+    }>;
+    readonly native: {
+        readonly symbol: "RBTC";
+        readonly oracleId: "WBTC";
+    };
+};

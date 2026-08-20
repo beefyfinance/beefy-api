@@ -1,0 +1,6 @@
+export declare const cone: {
+    readonly router: "0xbf1fc29668e5f5Eaa819948599c9Ac1B1E03E75F";
+    readonly ve: "0xd0C1378c177E961D96c06b0E8F6E7841476C81Ef";
+    readonly voter: "0xC3B5d80E4c094B17603Ea8Bb15d2D31ff5954aAE";
+    readonly gaugeStaker: "0xA13b6c3A855d9fd084d0678cAcb8230B78416F1A";
+};

@@ -1,0 +1,43 @@
+const devMultisig = '0x000000a151650b85742d8c286E09ABa7bE9BDB82';
+const treasuryMultisig = '0xA55e75C4815Ff39eFD76C257857441d9FD99b45b';
+export const beefyfinance = {
+    devMultisig,
+    treasuryMultisig,
+    strategyOwner: '0x09D19184F46A32213DF06b981122e06882B61309',
+    vaultOwner: '0xf2EeC1baC39306C0761c816d1D33cF7C9Ad6C0Fe',
+    keeper: '0x4fED5491693007f0CD49f4614FFC38Ab6A04B619',
+    treasurer: treasuryMultisig,
+    launchpoolOwner: devMultisig,
+    rewardPool: '0x0000000000000000000000000000000000000000',
+    treasury: '0x0000000000000000000000000000000000000000',
+    beefyFeeRecipient: '0x02Ae4716B9D5d48Db1445814b0eDE39f5c28264B',
+    zapFeeRecipient: '0xA55e75C4815Ff39eFD76C257857441d9FD99b45b', // treasuryMultisig
+    multicall: '0x3B60F7f25b09E71356cdFFC6475c222A466a2AC9',
+    bifiMaxiStrategy: '0x0000000000000000000000000000000000000000',
+    voter: '0x5e1caC103F943Cd84A1E92dAde4145664ebf692A',
+    beefyFeeConfig: '0x2b0C9702A4724f2BFe7922DB92c4082098533c62',
+    vaultFactory: '0x9818dF1Bdce8D0E79B982e2C3a93ac821b3c17e0',
+    strategyFactory: '0xE6e5732245b3e886DD8897a93D21D29bb652d683',
+    wrapperFactory: '0x3D498F3A444cE89086d37A5f803058E6E8b45FAD',
+    zap: '0x542Bf9f89c3Ba0edb7aE5EB4Cf582d349fCdC608',
+    zapTokenManager: '0xDBCE7119b8F1fCF8e5145087AB314A82Cb931e52',
+    treasurySwapper: '0x0000000000000000000000000000000000000000',
+    /// CLM Contracts
+    clmFactory: '0x03C2E2e84031d913d45B1F5b5dDC8E50Fcb28652',
+    clmStrategyFactory: '0xc26314091EB7a9c75E5536f7f54A8F63e829547D',
+    clmRewardPoolFactory: '0xaF0f1B33Ef5A61b88F84BA2Ed2388f2C69fEaB55',
+    positionMulticall: '0xAa1E13Eb1A574F3f3581aB784a3b96195C0e1379',
+    /// Beefy Swapper Contracts
+    beefySwapper: '0xBC4a342B0c057501E081484A2d24e576E854F823',
+    beefyOracle: '0x448a3539a591dE3Fb9D5AAE407471D21d40cD315',
+    beefyOracleChainlink: '0x3C0b1765C379833b86A1704997019A7496Afdfae',
+    beefyOracleUniswapV2: '0x70127945067E4224d7B6ABfDc6f57e3ea45d5CA4',
+    beefyOracleUniswapV3: '0xA5Cd8A60a05571141370D184e255777e5c2d5968',
+    beefyOracleERC4626: '0x2b6Cc259c5C779e1c6aF0d24bF1785dD96397549',
+    beefyMultiHopSwapper: '0x822856E9433e7b4C268286Bf004b8c8ecf559d64',
+    beefyUniV4Swapper: '0xa379320eD6636b2f30FaDe3c8b277bF12C089CdA',
+    /// Cross-Chain Contracts
+    circleBeefyReceiver: '0x00000076f6B75081EF1526C5d9c20D5430f0Beef',
+    swappingRelay: '0xfA572f5563411BbF20fC40b0A6A0D5A9fA1aF00D',
+    recovery: '0x911048F2eFcd5801F8cdc04EBf6cdc5EE0e76669',
+};

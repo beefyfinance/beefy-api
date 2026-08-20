@@ -1,0 +1,11 @@
+[
+  {
+    "name": "morpho-v2-hyperevm-gauntlet-usdc",
+    "address": "0x9FA2074E43ef6F6dB4a1bB5eeB72e4bc8558bFDe",
+    "oracle": "tokens",
+    "oracleId": "USDC",
+    "decimals": "1e6",
+    "v2": true,
+    "skim": true
+  }
+]
