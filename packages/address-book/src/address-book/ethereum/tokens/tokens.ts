@@ -3115,6 +3115,20 @@ export const tokens = {
     bridge: 'native',
     tags: ['NO_TIMELOCK', 'SYNTHETIC', 'STABLECOIN'],
   },
+  sUSG: {
+    name: 'Savings USG',
+    symbol: 'sUSG',
+    oracleId: 'sUSG',
+    address: 'Savings USG',
+    chainId: 1,
+    decimals: 18,
+    website: 'https://www.tangent.finance/',
+    documentation: 'https://docs.tangent.finance/docs/overview',
+    description:
+      'sUSG stands for staked Tangent USD, and is the yield-bearing version of USG. It is simply needed to hold it in a wallet to earn yield.',
+    bridge: 'native',
+    tags: ['NO_TIMELOCK', 'SYNTHETIC', 'STABLECOIN'],
+  },
   rUSD: {
     name: 'Reservoir USD',
     symbol: 'rUSD',

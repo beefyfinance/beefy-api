@@ -1,5 +1,21 @@
 [
   {
+    "name": "curve-susg-reusd",
+    "pool": "0xC6ac08424eE6D1373F03611b96f5Da849594B6D8",
+    "stakeDao": true,
+    "getDy": ["v1", 0, 1],
+    "tokens": [
+      {
+        "oracleId": "sUSG",
+        "decimals": "1e18"
+      },
+      {
+        "oracleId": "reUSDxyz",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
     "name": "curve-frxusd-trusd",
     "pool": "0xd1D954BC94c843815EC7b8119f2de00AF27Fa6Ff",
     "stakeDao": true,
