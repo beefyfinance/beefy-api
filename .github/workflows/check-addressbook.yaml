@@ -1,6 +1,14 @@
 name: Check Address Book
 
 on:
+  push:
+    branches:
+      - master
+    paths:
+      - packages/address-book/**
+      - '!packages/address-book/package.json'
+      - '!packages/address-book/CHANGELOG.md'
+      - '!packages/address-book/README.md'
   pull_request:
     branches:
       - master
