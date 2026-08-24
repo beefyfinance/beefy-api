@@ -11,7 +11,7 @@ on:
       - '!packages/address-book/README.md'
 
 jobs:
-  duplicates:
+  addressbook-token-checks:
     name: 'Check tokens'
     runs-on: ubuntu-latest
     steps:
@@ -26,6 +26,8 @@ jobs:
           cache: 'pnpm'
       - name: 'Install Packages'
         run: pnpm install --frozen-lockfile
+      - name: 'Check addresses are valid'
+        run: pnpm --filter @beefyfinance/blockchain-addressbook run checkAddresses
       - name: 'Check for duplicates'
         run: pnpm --filter @beefyfinance/blockchain-addressbook run checkDuplicates
 

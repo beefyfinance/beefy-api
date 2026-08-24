@@ -83,6 +83,7 @@
   "scripts": {
     "addChain": "tsx ./scripts/addChain.ts",
     "build": "tsdown",
+    "checkAddresses": "tsx ./scripts/checkAddresses.ts",
     "checkDecimals": "tsx ./scripts/checkDecimals.ts",
     "checkOracles": "tsx ./scripts/checkOracles.ts",
     "checkDuplicates": "tsx ./scripts/checkDuplicates.ts",
