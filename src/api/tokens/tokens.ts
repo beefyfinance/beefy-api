@@ -1,6 +1,6 @@
 import { addressBook, type Chain } from '@beefyfinance/blockchain-addressbook';
 import type { Token } from '@beefyfinance/blockchain-addressbook/types/token';
-import { type Address, getAddress } from 'viem';
+import { type Address, getAddress, isAddress } from 'viem';
 import { isDefined } from '../../utils/array.ts';
 import { type ApiChain, isApiChain, SupportedChains, toApiChain } from '../../utils/chain.ts';
 import { getLoggerFor } from '../../utils/logger/index.ts';
@@ -235,6 +235,11 @@ async function fetchAddressBookTokensForChain(
       return tokens;
     }
 
+    if (!isAddress(token.address, { strict: false })) {
+      logger.error({ chain: chainId, id, address: token.address }, 'invalid address book token address, skipping');
+      return tokens;
+    }
+
     tokens.push({
       type: 'erc20',
       id,
@@ -341,10 +346,15 @@ async function updateTokens() {
   try {
     logger.debug('updating token service');
     const chains = SupportedChains;
-    const byChain = await Promise.all(chains.map(chainId => fetchTokensForChain(chainId)));
+    const byChain = await Promise.allSettled(chains.map(chainId => fetchTokensForChain(chainId)));
 
     chains.forEach((chainId, i) => {
-      tokensByChain[chainId] = byChain[i];
+      const result = byChain[i];
+      if (result.status === 'rejected') {
+        logger.error({ chain: chainId, err: result.reason }, 'token service update failed for chain');
+        return;
+      }
+      tokensByChain[chainId] = result.value;
       serviceEventBus.emit(`tokens/${chainId}/ready`);
     });
 
