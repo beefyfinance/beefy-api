@@ -3119,7 +3119,7 @@ export const tokens = {
     name: 'Savings USG',
     symbol: 'sUSG',
     oracleId: 'sUSG',
-    address: 'Savings USG',
+    address: '0xF17D6f98A5C6EAA99d149079984119e0A4EF6900',
     chainId: 1,
     decimals: 18,
     website: 'https://www.tangent.finance/',
