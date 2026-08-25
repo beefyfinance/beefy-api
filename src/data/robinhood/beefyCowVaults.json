@@ -1,5 +1,53 @@
 [
   {
+    "address": "0x7A03d794BB44E4CFe55da70E0Ddfc020A054C5f7",
+    "lpAddress": "0x07e8Ea83D4C1340774c8965125e26e12bf943bf1",
+    "tokens": ["0x58FfE4a942d3885bAa22D7520691F611EF09e7AA", "0x5fc5360D0400a0Fd4f2af552ADD042D716F1d168"],
+    "tokenOracleIds": ["TSMrh", "USDG"],
+    "decimals": [18, 6],
+    "oracleId": "uniswap-cow-robinhood-tsm-usdg",
+    "rewardPool": {
+      "address": "0x0A1Aa83108be594dd981BEa4fB46C6E23a9f7B46",
+      "oracleId": "uniswap-cow-robinhood-tsm-usdg-rp"
+    }
+  },
+  {
+    "address": "0x368877FC3931B7231b98E35091a0e31A0Fc90F78",
+    "lpAddress": "0xA1e1C9519cD5ae47e9A935645E1A7b935b944559",
+    "tokens": ["0x5fc5360D0400a0Fd4f2af552ADD042D716F1d168", "0xB90A19fF0Af67f7779afF50A882A9CfF42446400"],
+    "tokenOracleIds": ["USDG", "SNDKrh"],
+    "decimals": [6, 18],
+    "oracleId": "uniswap-cow-robinhood-usdg-sndk",
+    "rewardPool": {
+      "address": "0x6112e370440FaB14844a5Baf1e9D5b16A0b39bD9",
+      "oracleId": "uniswap-cow-robinhood-usdg-sndk-rp"
+    }
+  },
+  {
+    "address": "0xd60BC30CF5E564e0B956AeBB338942273d62F93b",
+    "lpAddress": "0x48D284A2A4d3DC1b3Da08231Fe44317e7e7Aa51f",
+    "tokens": ["0x5fc5360D0400a0Fd4f2af552ADD042D716F1d168", "0x86923f96303D656E4aa86D9d42D1e57ad2023fdC"],
+    "tokenOracleIds": ["USDG", "AMDrh"],
+    "decimals": [6, 18],
+    "oracleId": "uniswap-cow-robinhood-usdg-amd",
+    "rewardPool": {
+      "address": "0x8202478AB592a6B448cf679969aa7ba3f50c18b3",
+      "oracleId": "uniswap-cow-robinhood-usdg-amd-rp"
+    }
+  },
+  {
+    "address": "0x9fb0CC34EE0Bdd2140DC43146f92d46237a20248",
+    "lpAddress": "0xd057B1Bc54917855BBee58eAd58647f47caB35E5",
+    "tokens": ["0x5fc5360D0400a0Fd4f2af552ADD042D716F1d168", "0xfF080c8ce2E5feadaCa0Da81314Ae59D232d4afD"],
+    "tokenOracleIds": ["USDG", "MUrh"],
+    "decimals": [6, 18],
+    "oracleId": "uniswap-cow-robinhood-usdg-mu",
+    "rewardPool": {
+      "address": "0x55b0D30326CA44b5Ab156c0C58fCCF47d91c5a95",
+      "oracleId": "uniswap-cow-robinhood-usdg-mu-rp"
+    }
+  },
+  {
     "address": "0x83c2934FF42756e4FFaF0433c9E246e6888F3EF6",
     "lpAddress": "0x6707aeAc7D0e519B083219d27BB427364363183A",
     "tokens": ["0x0Bd7D308f8E1639FAb988df18A8011f41EAcAD73", "0x6330D8C3178a418788dF01a47479c0ce7CCF450b"],

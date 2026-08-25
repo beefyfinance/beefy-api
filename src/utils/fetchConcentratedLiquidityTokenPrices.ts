@@ -2091,6 +2091,38 @@ const tokens = {
       firstToken: 'COINrh',
       secondToken: 'WETH',
     },
+    {
+      type: 'UniV3',
+      oracleId: 'MUrh',
+      decimalDelta: 1e-12,
+      pool: '0xd057B1Bc54917855BBee58eAd58647f47caB35E5',
+      firstToken: 'MUrh',
+      secondToken: 'USDG',
+    },
+    {
+      type: 'UniV3',
+      oracleId: 'AMDrh',
+      decimalDelta: 1e-12,
+      pool: '0x48D284A2A4d3DC1b3Da08231Fe44317e7e7Aa51f',
+      firstToken: 'AMDrh',
+      secondToken: 'USDG',
+    },
+    {
+      type: 'UniV3',
+      oracleId: 'SDNKrh',
+      decimalDelta: 1e-12,
+      pool: '0xA1e1C9519cD5ae47e9A935645E1A7b935b944559',
+      firstToken: 'SDNKrh',
+      secondToken: 'USDG',
+    },
+    {
+      type: 'UniV3',
+      oracleId: 'TSMrh',
+      decimalDelta: 1e12,
+      pool: '0x07e8Ea83D4C1340774c8965125e26e12bf943bf1',
+      firstToken: 'USDG',
+      secondToken: 'TSMrh',
+    },
   ],
 } satisfies Partial<Record<keyof typeof ChainId, ConcentratedLiquidityToken[]>>;
 
