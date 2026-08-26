@@ -2109,10 +2109,10 @@ const tokens = {
     },
     {
       type: 'UniV3',
-      oracleId: 'SDNKrh',
+      oracleId: 'SNDKrh',
       decimalDelta: 1e-12,
       pool: '0xA1e1C9519cD5ae47e9A935645E1A7b935b944559',
-      firstToken: 'SDNKrh',
+      firstToken: 'SNDKrh',
       secondToken: 'USDG',
     },
     {
