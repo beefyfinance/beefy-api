@@ -358,4 +358,32 @@ export const tokens = {
     bridge: 'native',
     tags: ['STOCK'],
   },
+  GLDrh: {
+    name: 'SPDR Gold Trust • Robinhood Token',
+    symbol: 'GLD',
+    oracleId: 'GLDrh',
+    address: '0xC9a981FEE1F9DEc688bb123ccDeCc63D0deBFC4e',
+    chainId: 4663,
+    decimals: 18,
+    website: 'https://robinhood.com/rhj/stocktokens/',
+    description:
+      'SPDR Gold Trust Robinhood Token is a tokenized debt security issued by Robinhood Assets (Jersey) Limited that provides price exposure to SPDR Gold Trust shares without conferring ownership or shareholder rights.',
+    documentation: 'https://docs.robinhood.com/chain/stock-tokens/',
+    bridge: 'native',
+    tags: ['STOCK'],
+  },
+  SLVrh: {
+    name: 'iShares Silver Trust • Robinhood Token',
+    symbol: 'SLV',
+    oracleId: 'SLVrh',
+    address: '0x411eFb0E7f985935DAec3D4C3ebaEa0d0AD7D89f',
+    chainId: 4663,
+    decimals: 18,
+    website: 'https://robinhood.com/rhj/stocktokens/',
+    description:
+      'iShares Silver Trust Robinhood Token is a tokenized debt security issued by Robinhood Assets (Jersey) Limited that provides price exposure to iShares Silver Trust shares without conferring ownership or shareholder rights.',
+    documentation: 'https://docs.robinhood.com/chain/stock-tokens/',
+    bridge: 'native',
+    tags: ['STOCK'],
+  },
 } as const satisfies Record<string, Token>;
