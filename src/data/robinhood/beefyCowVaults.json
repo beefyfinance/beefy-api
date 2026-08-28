@@ -407,6 +407,54 @@
     }
   },
   {
+    "address": "0xaf5bfA1A18a9b1F77b5f240a8275acE8ADd82716",
+    "lpAddress": "0x8AC92DA74AB5F3b1d024Dc1943Ad7e15Dc4179Ef",
+    "tokens": ["0x12f190a9F9d7D37a250758b26824B97CE941bF54", "0x5fc5360D0400a0Fd4f2af552ADD042D716F1d168"],
+    "tokenOracleIds": ["AMZNrh", "USDG"],
+    "decimals": [18, 6],
+    "oracleId": "uniswap-cow-robinhood-amzn-usdg",
+    "rewardPool": {
+      "address": "0x6e80a9ED1717920d82658681747F050998043A78",
+      "oracleId": "uniswap-cow-robinhood-amzn-usdg-rp"
+    }
+  },
+  {
+    "address": "0xC1a40784f4AEB84D7469cc93BDb6e23f3fBE5749",
+    "lpAddress": "0x59895C0302F41aEaa129D2fa2442CEc01E7eF45E",
+    "tokens": ["0x5fc5360D0400a0Fd4f2af552ADD042D716F1d168", "0xE0444EF8BF4eD74f74FD73686e2ddF4C1c5591E8"],
+    "tokenOracleIds": ["USDG", "NFLXrh"],
+    "decimals": [6, 18],
+    "oracleId": "uniswap-cow-robinhood-nflx-usdg",
+    "rewardPool": {
+      "address": "0x3890B611eb11569072c93244F6A6110074295828",
+      "oracleId": "uniswap-cow-robinhood-nflx-usdg-rp"
+    }
+  },
+  {
+    "address": "0x429D238C62cB0BA523f268aDBC728Cf843C6A330",
+    "lpAddress": "0x0a2121A50A09eD0796ae81F9c53fF9398355a398",
+    "tokens": ["0x4EA005168D7F09a7A0Ba9D1DEf21a479950E44C2", "0x5fc5360D0400a0Fd4f2af552ADD042D716F1d168"],
+    "tokenOracleIds": ["COSTrh", "USDG"],
+    "decimals": [18, 6],
+    "oracleId": "uniswap-cow-robinhood-cost-usdg",
+    "rewardPool": {
+      "address": "0x911Eb23632037dcf7bdf774bDC76E7CE6697F224",
+      "oracleId": "uniswap-cow-robinhood-cost-usdg-rp"
+    }
+  },
+  {
+    "address": "0xe12010f9560BC8b1E54393EDA32FB7ae41d412f8",
+    "lpAddress": "0x107a7Cb40d8665360ba10E59471Af06150A50922",
+    "tokens": ["0x5fc5360D0400a0Fd4f2af552ADD042D716F1d168", "0xc0D6457C16Cc70d6790Dd43521C899C87ce02f35"],
+    "tokenOracleIds": ["USDG", "METArh"],
+    "decimals": [6, 18],
+    "oracleId": "uniswap-cow-robinhood-meta-usdg",
+    "rewardPool": {
+      "address": "0xA04bAd36b73DD807239F4A7B0Fe03B34558c829e",
+      "oracleId": "uniswap-cow-robinhood-meta-usdg-rp"
+    }
+  },
+  {
     "address": "0x4F702C76dd9D7841784922f87470E3F718aAF6DA",
     "lpAddress": "0x10CC6BD38112cAc182db90B6a71d8Bb5939526bA",
     "tokens": ["0x0Bd7D308f8E1639FAb988df18A8011f41EAcAD73", "0x39dBED3a2bd333467115dE45665cC57F813C4571"],
