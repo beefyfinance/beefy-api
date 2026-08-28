@@ -273,7 +273,7 @@
     "address": "0xd922173C136443a1F7795A86B28Da964ea2BF6bc",
     "lpAddress": "0x73eF7245B40392ae8710dFB5398f270b07E20d1D",
     "tokens": ["0x57C0E45cB534413D1C20A4240955d6bB250BB4F1", "0xe934e36A439C94017B64a3FecE66AF12099aBF50"],
-    "tokenOracleIds": ["UP", "STONKBROKER"],
+    "tokenOracleIds": ["UP33", "STONKBROKER"],
     "decimals": [18, 18],
     "oracleId": "up33-cow-robinhood-up-stonkbroker",
     "providerId": "up33",

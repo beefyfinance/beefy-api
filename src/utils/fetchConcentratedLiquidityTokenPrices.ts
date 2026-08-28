@@ -1246,6 +1246,14 @@ const tokens = {
       firstToken: 'METAc',
       secondToken: 'USDC',
     },
+    {
+      type: 'UniV3',
+      oracleId: 'Basecat',
+      decimalDelta: 1,
+      pool: '0xf79478d5a6baE4546F7e489e80b2fC690B558944',
+      firstToken: 'Basecat',
+      secondToken: 'WETH',
+    },
   ],
   zksync: [
     {
