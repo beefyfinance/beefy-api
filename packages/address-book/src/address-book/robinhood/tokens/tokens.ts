@@ -386,4 +386,17 @@ export const tokens = {
     bridge: 'native',
     tags: ['STOCK'],
   },
+  rhcbBTC: {
+    name: 'Coinbase Wrapped BTC',
+    symbol: 'cbBTC',
+    oracleId: 'rhcbBTC',
+    address: '0xCEC185eB182c47d1bA1EFc84e6959e18cd620Be4',
+    chainId: 4663,
+    decimals: 8,
+    website: 'https://www.coinbase.com/',
+    description:
+      'Coinbase Wrapped Bitcoin (cbBTC) is backed 1:1 with Bitcoin, custodied with Coinbase.',
+    documentation: 'https://www.coinbase.com/blog/coinbase-wrapped-btc-cbbtc-is-now-live',
+    bridge: 'chainlink-ccip',
+  },
 } as const satisfies Record<string, Token>;
