@@ -286,59 +286,6 @@
     ]
   },
   {
-    "name": "curve-arb-asdcrv",
-    "pool": "0xB85246768Cfea42b0c935265Db798C9Ae457646f",
-    "gauge": "0x25E822B65a58Ce1A53DbC327d4fA489351FB1Df0",
-    "rewards": [
-      {
-        "token": "0x912CE59144191C1204E64559FE8253a0e49E6548",
-        "oracleId": "ARB"
-      }
-    ],
-    "tokens": [
-      {
-        "oracle": "tokens",
-        "oracleId": "CRV",
-        "decimals": "1e18"
-      },
-      {
-        "oracle": "tokens",
-        "oracleId": "asdCRV",
-        "decimals": "1e18"
-      },
-      {
-        "oracle": "tokens",
-        "oracleId": "vsdCRV",
-        "decimals": "1e18"
-      }
-    ]
-  },
-  {
-    "name": "curve-arb-asdcrv-v2.1",
-    "pool": "0x5C959D2c1a49B637Fb988c40d663265F8Bf6d289",
-    "gauge": "0xF1bb643F953836725c6E48BdD6f1816f871d3E07",
-    "convex": true,
-    "sdSideCar": "0x670F119a2509Fb0D25B62d409334D0D254400984",
-    "getDy": ["v2", 2, 0],
-    "tokens": [
-      {
-        "oracle": "tokens",
-        "oracleId": "CRV",
-        "decimals": "1e18"
-      },
-      {
-        "oracle": "tokens",
-        "oracleId": "vsdCRV",
-        "decimals": "1e18"
-      },
-      {
-        "oracle": "tokens",
-        "oracleId": "asdCRV",
-        "decimals": "1e18"
-      }
-    ]
-  },
-  {
     "name": "curve-arb-tricrvarb",
     "pool": "0x845C8bc94610807fCbaB5dd2bc7aC9DAbaFf3c55",
     "gauge": "0xB08FEf57bFcc5f7bF0EF69C0c090849d497C8F8A",
