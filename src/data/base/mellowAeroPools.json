@@ -1,8 +1,8 @@
 [
   {
-    "name": "mellow-aero-weth-usdc-v2",
-    "address": "0x64838D0266558D45BEfA3C6d492bfea935321C03",
-    "tokens": ["WETH", "USDC"]
+    "name": "mellow-aero-usdc-cbbtc",
+    "address": "0x0Df5f2662e4a8C801c04D83Df717476509816250",
+    "tokens": ["USDC", "cbBTC"]
   },
   {
     "name": "mellow-aero-weth-usdc",

@@ -3710,4 +3710,17 @@ export const tokens = {
     bridge: 'native',
     tags: ['STOCK'],
   },
+  Basecat: {
+    name: 'Basecat',
+    symbol: 'Basecat',
+    oracleId: 'Basecat',
+    address: '0xB2000000000000000000004c27f6523082f41D01',
+    chainId: 8453,
+    decimals: 18,
+    website: 'https://basecatonbase.com/',
+    description:
+      'Basecat is a community-run meme token on Base, built around a cream-coloured cat in a blue hardhat that became a mascot for Base builder culture. It launched with no presale and no team allocation.',
+    bridge: 'native',
+    tags: ['MEMECOIN'],
+  },
 } as const satisfies Record<string, Token>;

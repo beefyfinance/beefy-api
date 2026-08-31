@@ -1246,6 +1246,14 @@ const tokens = {
       firstToken: 'METAc',
       secondToken: 'USDC',
     },
+    {
+      type: 'UniV3',
+      oracleId: 'Basecat',
+      decimalDelta: 1,
+      pool: '0xf79478d5a6baE4546F7e489e80b2fC690B558944',
+      firstToken: 'Basecat',
+      secondToken: 'WETH',
+    },
   ],
   zksync: [
     {
@@ -2138,6 +2146,14 @@ const tokens = {
       pool: '0x8cB787e6c315D464775289BaD00FDD67d53Ecb3D',
       firstToken: 'USDG',
       secondToken: 'SLVrh',
+    },
+    {
+      type: 'UniV3',
+      oracleId: 'AI',
+      decimalDelta: 1,
+      pool: '0xc4a21f9d6485FC5893DD4A491B320a83DAF4Da1D',
+      firstToken: 'AI',
+      secondToken: 'WETH',
     },
     {
       type: 'UniV3',

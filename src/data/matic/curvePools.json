@@ -22,23 +22,6 @@
     ]
   },
   {
-    "name": "curve-poly-asdcrv",
-    "pool": "0x5D8c2b31e80a35E211D51e62B1c7FB70322cbf25",
-    "token": "0x7101308DAF4E16c822083A458dC9395039c08f2D",
-    "gauge": "0xf8b31183E3DB3b109F37DB573121fDA13c216DD6",
-    "convex": true,
-    "tokens": [
-      {
-        "oracleId": "CRV",
-        "decimals": "1e18"
-      },
-      {
-        "oracleId": "asdCRV",
-        "decimals": "1e18"
-      }
-    ]
-  },
-  {
     "name": "curve-poly-crvusd-usdc.e",
     "pool": "0x864490Cf55dc2Dee3f0ca4D06F5f80b2BB154a03",
     "gauge": "0x6a9d992c456e65d3b55203B71137c37De054d149",

@@ -80,16 +80,6 @@ const tokens = {
   arbitrum: [
     ...toCurveTokens(ChainId.arbitrum, arbitrumCurvePools),
     {
-      oracleId: 'vsdCRV',
-      decimals: 18,
-      index0: 1,
-      index1: 0,
-      pool: '0x5C959D2c1a49B637Fb988c40d663265F8Bf6d289',
-      secondToken: 'CRV',
-      secondTokenDecimals: 18,
-      type: 'v2',
-    },
-    {
       oracleId: 'fETH',
       decimals: 18,
       index0: 0,

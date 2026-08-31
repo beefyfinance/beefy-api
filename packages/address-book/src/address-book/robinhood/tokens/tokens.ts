@@ -188,6 +188,17 @@ export const tokens = {
     bridge: 'native',
     tags: ['MEMECOIN'],
   },
+  AI: {
+    name: 'Artificial Inu',
+    address: '0x2E8c31162b855A2ffa90F6F8634643Ad6F111e18',
+    symbol: 'AI',
+    oracleId: 'AI',
+    decimals: 18,
+    chainId: 4663,
+    description: 'Where speculative markets meet productive capital. The INU stays artificial.',
+    bridge: 'native',
+    tags: ['MEMECOIN'],
+  },
   UP,
   UP33: UP,
   PONS: {
