@@ -1,5 +1,17 @@
 [
   {
+    "address": "0xD33E849c1BBec3e50F7C2D1211D382611B968BBa",
+    "lpAddress": "0xc4a21f9d6485FC5893DD4A491B320a83DAF4Da1D",
+    "tokens": ["0x0Bd7D308f8E1639FAb988df18A8011f41EAcAD73", "0x2E8c31162b855A2ffa90F6F8634643Ad6F111e18"],
+    "tokenOracleIds": ["WETH", "AI"],
+    "decimals": [18, 18],
+    "oracleId": "uniswap-cow-robinhood-weth-ai",
+    "rewardPool": {
+      "address": "0x0fb72cDdDAFB710C28dc098DA51AfF7645c1531c",
+      "oracleId": "uniswap-cow-robinhood-weth-ai-rp"
+    }
+  },
+  {
     "address": "0x2e35f0951cFfaF89eb9ADdE94C60475E3745Cc15",
     "lpAddress": "0x7A6A053eCCf1446A2633E05aA6D40D09381997ec",
     "tokens": ["0x5fc5360D0400a0Fd4f2af552ADD042D716F1d168", "0xC9a981FEE1F9DEc688bb123ccDeCc63D0deBFC4e"],
@@ -273,7 +285,7 @@
     "address": "0xd922173C136443a1F7795A86B28Da964ea2BF6bc",
     "lpAddress": "0x73eF7245B40392ae8710dFB5398f270b07E20d1D",
     "tokens": ["0x57C0E45cB534413D1C20A4240955d6bB250BB4F1", "0xe934e36A439C94017B64a3FecE66AF12099aBF50"],
-    "tokenOracleIds": ["UP", "STONKBROKER"],
+    "tokenOracleIds": ["UP33", "STONKBROKER"],
     "decimals": [18, 18],
     "oracleId": "up33-cow-robinhood-up-stonkbroker",
     "providerId": "up33",
