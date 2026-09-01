@@ -137,6 +137,66 @@ export const tokens = {
     bridge: 'native',
     tags: ['STOCK'],
   },
+  AMZNrh: {
+    name: 'Amazon • Robinhood Token',
+    address: '0x12f190a9F9d7D37a250758b26824B97CE941bF54',
+    symbol: 'AMZN',
+    oracleId: 'AMZNrh',
+    decimals: 18,
+    chainId: 4663,
+    website: 'https://robinhood.com/rhj/stocktokens/',
+    description:
+      'Amazon Robinhood Token is a tokenized debt security issued by Robinhood Assets (Jersey) Limited that provides price exposure to Amazon shares without conferring ownership or shareholder rights.',
+    documentation:
+      'https://cdn.robinhood.com/assets/robinhood/legal/rhj_final_terms_for_tokenised_debt_securities_linked_to_amazon.pdf',
+    bridge: 'native',
+    tags: ['STOCK'],
+  },
+  NFLXrh: {
+    name: 'Netflix • Robinhood Token',
+    address: '0xE0444EF8BF4eD74f74FD73686e2ddF4C1c5591E8',
+    symbol: 'NFLX',
+    oracleId: 'NFLXrh',
+    decimals: 18,
+    chainId: 4663,
+    website: 'https://robinhood.com/rhj/stocktokens/',
+    description:
+      'Netflix Robinhood Token is a tokenized debt security issued by Robinhood Assets (Jersey) Limited that provides price exposure to Netflix shares without conferring ownership or shareholder rights.',
+    documentation:
+      'https://cdn.robinhood.com/assets/robinhood/legal/rhj_final_terms_for_tokenised_debt_securities_linked_to_netflix.pdf',
+    bridge: 'native',
+    tags: ['STOCK'],
+  },
+  COSTrh: {
+    name: 'Costco • Robinhood Token',
+    address: '0x4EA005168D7F09a7A0Ba9D1DEf21a479950E44C2',
+    symbol: 'COST',
+    oracleId: 'COSTrh',
+    decimals: 18,
+    chainId: 4663,
+    website: 'https://robinhood.com/rhj/stocktokens/',
+    description:
+      'Costco Robinhood Token is a tokenized debt security issued by Robinhood Assets (Jersey) Limited that provides price exposure to Costco shares without conferring ownership or shareholder rights.',
+    documentation:
+      'https://cdn.robinhood.com/assets/robinhood/legal/rhj_final_terms_for_tokenised_debt_securities_linked_to_costco.pdf',
+    bridge: 'native',
+    tags: ['STOCK'],
+  },
+  METArh: {
+    name: 'Meta Platforms • Robinhood Token',
+    address: '0xc0D6457C16Cc70d6790Dd43521C899C87ce02f35',
+    symbol: 'META',
+    oracleId: 'METArh',
+    decimals: 18,
+    chainId: 4663,
+    website: 'https://robinhood.com/rhj/stocktokens/',
+    description:
+      'Meta Platforms Robinhood Token is a tokenized debt security issued by Robinhood Assets (Jersey) Limited that provides price exposure to Meta Platforms shares without conferring ownership or shareholder rights.',
+    documentation:
+      'https://cdn.robinhood.com/assets/robinhood/legal/rhj_final_terms_for_tokenised_debt_securities_linked_to_meta_platforms.pdf',
+    bridge: 'native',
+    tags: ['STOCK'],
+  },
   CASHCAT: {
     name: 'Cash Cat',
     address: '0x020bfC650A365f8BB26819deAAbF3E21291018b4',
