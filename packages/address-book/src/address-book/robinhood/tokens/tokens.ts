@@ -255,6 +255,7 @@ export const tokens = {
     oracleId: 'AI',
     decimals: 18,
     chainId: 4663,
+    website: 'https://artificialinu.com/',
     description: 'Where speculative markets meet productive capital. The INU stays artificial.',
     bridge: 'native',
     tags: ['MEMECOIN'],
