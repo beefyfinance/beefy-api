@@ -1,6 +1,6 @@
 [
   {
-    "name": "mellow-aero-usdc-cbbtc",
+    "name": "mellow-aero-usdc-cbbtc-v2",
     "address": "0x0Df5f2662e4a8C801c04D83Df717476509816250",
     "tokens": ["USDC", "cbBTC"]
   },
