@@ -9,9 +9,7 @@ import { getBSCApys } from './bsc/index.ts';
 import { getEthereumApys } from './ethereum/index.ts';
 import { getFraxtalApys } from './fraxtal/index.ts';
 import { BOOST_APR_EXPIRED, fetchBoostAprs } from './getBoostAprs.ts';
-import { getGnosisApys } from './gnosis/index.ts';
 import { getHyperevmApys } from './hyperevm/index.ts';
-import { getLineaApys } from './linea/index.ts';
 import { getMaticApys } from './matic/index.ts';
 import { getMegaethApys } from './megaeth/index.ts';
 import { getMonadApys } from './monad/index.ts';
@@ -20,7 +18,6 @@ import { getPlasmaApys } from './plasma/index.ts';
 import { getRobinhoodApys } from './robinhood/index.ts';
 import { getRootstockApys } from './rootstock/index.ts';
 import { getSonicApys } from './sonic/index.ts';
-import { getZksyncApys } from './zksync/index.ts';
 
 const logger = getLoggerFor({ module: 'apy' });
 
@@ -47,25 +44,25 @@ const updateApys = async () => {
   const start = Date.now();
   try {
     const results = await Promise.allSettled([
+      // getScrollApys(), // Sep 2025
+      // getMetisApys(), // April 2026
+      // getMantleApys(), // April 2026
+      // getSeiApys(), // June 2026
+      // getLiskApys(), // June 2026
+      // getBerachainApys(), // July 2026
+      // getZksyncApys(), // August 2026
+      // getGnosisApys(), // August 2026
+      // getLineaApys(), // August 2026
       getMaticApys(),
       getAvaxApys(),
       getBSCApys(),
       getArbitrumApys(),
-      // getMetisApys(),
       getOptimismApys(),
       getEthereumApys(),
-      getZksyncApys(),
       getBaseApys(),
-      getGnosisApys(),
-      getLineaApys(),
-      // getMantleApys(),
       getFraxtalApys(),
-      // getSeiApys(),
       getRootstockApys(),
-      // getScrollApys(),
-      // getLiskApys(),
       getSonicApys(),
-      // getBerachainApys(),
       getHyperevmApys(),
       getPlasmaApys(),
       getMonadApys(),
