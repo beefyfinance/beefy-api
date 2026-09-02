@@ -260,6 +260,18 @@ export const tokens = {
     bridge: 'native',
     tags: ['MEMECOIN'],
   },
+  BONER: {
+    name: 'Boner Coin',
+    address: '0x98096d17e191B3dA1d5f99a6D7b3584351b11E18',
+    symbol: 'BONER',
+    oracleId: 'BONER',
+    decimals: 18,
+    chainId: 4663,
+    website: 'https://x.com/bonercoinlong',
+    description: 'Hard money.',
+    bridge: 'native',
+    tags: ['MEMECOIN'],
+  },
   UP,
   UP33: UP,
   PONS: {
