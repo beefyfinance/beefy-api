@@ -1,9 +1,21 @@
 [
   {
+    "address": "0x3dfd9C1f55546e3281866c81EbfA2Ec707575529",
+    "lpAddress": "0xBd5cd6515ca6285941FbC177381dC8ED4844e6b8",
+    "tokens": ["0x0Bd7D308f8E1639FAb988df18A8011f41EAcAD73", "0x98096d17e191B3dA1d5f99a6D7b3584351b11E18"],
+    "tokenOracleIds": ["WETH", "BONER"],
+    "decimals": [18, 18],
+    "oracleId": "uniswap-cow-robinhood-weth-boner",
+    "rewardPool": {
+      "address": "0x527c1Cbb12B3e6432d48ba77fF1fcd0b025805b0",
+      "oracleId": "uniswap-cow-robinhood-weth-boner-rp"
+    }
+  },
+  {
     "address": "0xb2D5ce49744ED86a7962E6F64DCE597A0126f9d6",
     "lpAddress": "0x31a89afd92F9397465649AD03226c52292fc1ae5",
     "tokens": ["0x1D11f0496982706C5e14A514D4E79F2e6BdE4516", "0x5fc5360D0400a0Fd4f2af552ADD042D716F1d168"],
-    "tokenOracleIds": ["DJT", "USDG"],
+    "tokenOracleIds": ["DJTrh", "USDG"],
     "decimals": [18, 6],
     "oracleId": "uniswap-cow-robinhood-djt-usdg",
     "rewardPool": {
@@ -15,7 +27,7 @@
     "address": "0x938FD2151d61B32140eb172B89D5d03724E64319",
     "lpAddress": "0xEbD78dcfc8a6b3A696f1E191aD1ff321f9579f79",
     "tokens": ["0x5fc5360D0400a0Fd4f2af552ADD042D716F1d168", "0xD5f3879160bc7c32ebb4dC785F8a4F505888de68"],
-    "tokenOracleIds": ["USDG", "QQQ"],
+    "tokenOracleIds": ["USDG", "QQQrh"],
     "decimals": [6, 18],
     "oracleId": "uniswap-cow-robinhood-usdg-qqq",
     "rewardPool": {
@@ -27,7 +39,7 @@
     "address": "0xaB094DEeB58B8f09533930F653594DbCfc423d53",
     "lpAddress": "0x04391780F519B7d3ba59c9590459D76e23d225C4",
     "tokens": ["0x5fc5360D0400a0Fd4f2af552ADD042D716F1d168", "0xd917B029C761D264c6A312BBbcDA868658eF86a6"],
-    "tokenOracleIds": ["USDG", "USAR"],
+    "tokenOracleIds": ["USDG", "USARrh"],
     "decimals": [6, 18],
     "oracleId": "uniswap-cow-robinhood-usdg-usar",
     "rewardPool": {
@@ -39,7 +51,7 @@
     "address": "0xb35200B74159b7dbd18b6bE47CD2B7c2c50F5dFb",
     "lpAddress": "0x17578C0e0D15da44f31677263114F71aE76653EA",
     "tokens": ["0x5fc5360D0400a0Fd4f2af552ADD042D716F1d168", "0xec262a75e413fAfD0dF80480274532C79D42da09"],
-    "tokenOracleIds": ["USDG", "MSTR"],
+    "tokenOracleIds": ["USDG", "MSTRrh"],
     "decimals": [6, 18],
     "oracleId": "uniswap-cow-robinhood-usdg-mstr",
     "rewardPool": {
@@ -51,7 +63,7 @@
     "address": "0xB29b4dC13bBFe3d83b6E041DEeb8663d684c280c",
     "lpAddress": "0x754DdD4bF8E8635B4301a7f4Af2Ea7A82AB6cEA7",
     "tokens": ["0x0Bd7D308f8E1639FAb988df18A8011f41EAcAD73", "0xdF0992E440dD0be65BD8439b609d6D4366bf1CB5"],
-    "tokenOracleIds": ["WETH", "CRCL"],
+    "tokenOracleIds": ["WETH", "CRCLrh"],
     "decimals": [18, 18],
     "oracleId": "uniswap-cow-robinhood-weth-crcl",
     "rewardPool": {
@@ -63,7 +75,7 @@
     "address": "0x237F4629dF8429959c06a3aeB92804F36a284966",
     "lpAddress": "0x654E4143e82a5824445Ade0824351C2A9ACD95a8",
     "tokens": ["0x5fc5360D0400a0Fd4f2af552ADD042D716F1d168", "0xdF0992E440dD0be65BD8439b609d6D4366bf1CB5"],
-    "tokenOracleIds": ["USDG", "CRCL"],
+    "tokenOracleIds": ["USDG", "CRCLrh"],
     "decimals": [6, 18],
     "oracleId": "uniswap-cow-robinhood-usdg-crcl",
     "rewardPool": {
