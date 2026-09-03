@@ -1,5 +1,17 @@
 [
   {
+    "address": "0x5FA82f7E34ea4dfd9Fb81DcA63d6FDD824356cbB",
+    "lpAddress": "0x6f8Dc7122B56017c46892F91D38d871acf787f9b",
+    "tokens": ["0xCEC185eB182c47d1bA1EFc84e6959e18cd620Be4", "0xec262a75e413fAfD0dF80480274532C79D42da09"],
+    "tokenOracleIds": ["rhcbBTC", "MSTRrh"],
+    "decimals": [8, 18],
+    "oracleId": "uniswap-cow-robinhood-cbbtc-mstr",
+    "rewardPool": {
+      "address": "0xfb7aEbCA176Adfd610E264e7fccF814f08D13D9d",
+      "oracleId": "uniswap-cow-robinhood-cbbtc-mstr-rp"
+    }
+  },
+  {
     "address": "0x3dfd9C1f55546e3281866c81EbfA2Ec707575529",
     "lpAddress": "0xBd5cd6515ca6285941FbC177381dC8ED4844e6b8",
     "tokens": ["0x0Bd7D308f8E1639FAb988df18A8011f41EAcAD73", "0x98096d17e191B3dA1d5f99a6D7b3584351b11E18"],
