@@ -207,7 +207,8 @@ export const tokens = {
     website: 'https://robinhood.com/rhj/stocktokens/',
     description:
       'Roblox Corporation Robinhood Token is a tokenized debt security issued by Robinhood Assets (Jersey) Limited that provides price exposure to Roblox Corporation shares without conferring ownership or shareholder rights.',
-    documentation: 'https://docs.robinhood.com/chain/stock-tokens/',
+    documentation:
+      'https://cdn.robinhood.com/assets/robinhood/legal/rhj_final_terms_for_tokenised_debt_securities_linked_to_roblox.pdf',
     bridge: 'native',
     tags: ['STOCK'],
   },
@@ -221,7 +222,8 @@ export const tokens = {
     website: 'https://robinhood.com/rhj/stocktokens/',
     description:
       'Take-Two Interactive Software Robinhood Token is a tokenized debt security issued by Robinhood Assets (Jersey) Limited that provides price exposure to Take-Two Interactive Software shares without conferring ownership or shareholder rights.',
-    documentation: 'https://docs.robinhood.com/chain/stock-tokens/',
+    documentation:
+      'https://cdn.robinhood.com/assets/robinhood/legal/rhj_final_terms_for_tokenised_debt_securities_linked_to_take_two_interactive_software.pdf',
     bridge: 'native',
     tags: ['STOCK'],
   },
@@ -235,7 +237,8 @@ export const tokens = {
     website: 'https://robinhood.com/rhj/stocktokens/',
     description:
       'Hims & Hers Health Robinhood Token is a tokenized debt security issued by Robinhood Assets (Jersey) Limited that provides price exposure to Hims & Hers Health shares without conferring ownership or shareholder rights.',
-    documentation: 'https://docs.robinhood.com/chain/stock-tokens/',
+    documentation:
+      'https://cdn.robinhood.com/assets/robinhood/legal/rhj_final_terms_for_tokenised_debt_securities_linked_to_hims_and_hers_health_inc.pdf',
     bridge: 'native',
     tags: ['STOCK'],
   },
@@ -249,7 +252,8 @@ export const tokens = {
     website: 'https://robinhood.com/rhj/stocktokens/',
     description:
       'Red Cat Holdings Robinhood Token is a tokenized debt security issued by Robinhood Assets (Jersey) Limited that provides price exposure to Red Cat Holdings shares without conferring ownership or shareholder rights.',
-    documentation: 'https://docs.robinhood.com/chain/stock-tokens/',
+    documentation:
+      'https://cdn.robinhood.com/assets/robinhood/legal/rhj_final_terms_for_tokenised_debt_securities_linked_to_red_cat_holdings_inc.pdf',
     bridge: 'native',
     tags: ['STOCK'],
   },
@@ -263,7 +267,8 @@ export const tokens = {
     website: 'https://robinhood.com/rhj/stocktokens/',
     description:
       'Palantir Technologies Robinhood Token is a tokenized debt security issued by Robinhood Assets (Jersey) Limited that provides price exposure to Palantir Technologies shares without conferring ownership or shareholder rights.',
-    documentation: 'https://docs.robinhood.com/chain/stock-tokens/',
+    documentation:
+      'https://cdn.robinhood.com/assets/robinhood/legal/rhj_final_terms_for_tokenised_debt_securities_linked_to_palantir_technologies.pdf',
     bridge: 'native',
     tags: ['STOCK'],
   },
