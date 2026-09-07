@@ -1,5 +1,107 @@
 [
   {
+    "address": "0xD619D7917be5cEEaa104b38B17729b2f72951B02",
+    "lpAddress": "0x469337fDcc5E8f38e2E4B670B04F57865D13a7BB",
+    "tokens": ["0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913", "0xb2000000000000000000001e800a7f5189430cD0"],
+    "tokenOracleIds": ["USDC", "TSLAc"],
+    "decimals": [6, 8],
+    "oracleId": "aerodrome-cow-base-usdc-tslac",
+    "providerId": "aerodrome",
+    "rewardPool": {
+      "address": "0xa3D6aA11F3C1078c44cf57866dF5938A88e37128",
+      "oracleId": "aerodrome-cow-base-usdc-tslac-rp"
+    },
+    "vault": {
+      "address": "0x722A0B2664Cac3C826ecb85dcAd97383e1645Db1",
+      "oracleId": "aerodrome-cow-base-usdc-tslac-vault"
+    }
+  },
+  {
+    "address": "0xb7843158C063e31Bf621ad7CE066315DA369aE07",
+    "lpAddress": "0x0bf58fe0FAc935Ac69595c19B12Ba0d75E3F8c0E",
+    "tokens": ["0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913", "0xb2000000000000000000007b9fcbd005511aCBd5"],
+    "tokenOracleIds": ["USDC", "SPCXc"],
+    "decimals": [6, 8],
+    "oracleId": "aerodrome-cow-base-usdc-spcxc",
+    "providerId": "aerodrome",
+    "rewardPool": {
+      "address": "0x31bd09D99de769e0c7a935d81335E24a5E58E042",
+      "oracleId": "aerodrome-cow-base-usdc-spcxc-rp"
+    },
+    "vault": {
+      "address": "0xf638Acbb5Afa238af95E77f24963335018f51bCc",
+      "oracleId": "aerodrome-cow-base-usdc-spcxc-vault"
+    }
+  },
+  {
+    "address": "0x60d0Fa1978867B4FC92FcdBFC615149574d4dd43",
+    "lpAddress": "0x5A8236f575471e7BfCA2C8462a200c28f737246E",
+    "tokens": ["0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913", "0xb200000000000000000000397293Cb8cda9a10c5"],
+    "tokenOracleIds": ["USDC", "SNDKc"],
+    "decimals": [6, 8],
+    "oracleId": "aerodrome-cow-base-usdc-sndkc",
+    "providerId": "aerodrome",
+    "rewardPool": {
+      "address": "0xABe16425C4898A3E9986ECfF6FF9935172e5460b",
+      "oracleId": "aerodrome-cow-base-usdc-sndkc-rp"
+    },
+    "vault": {
+      "address": "0x8d7F7FDF3C0176b5Bc14830406c3DEAE1dB16dDE",
+      "oracleId": "aerodrome-cow-base-usdc-sndkc-vault"
+    }
+  },
+  {
+    "address": "0x7ec3a9cB1E2512f6318a18aA69eBF113cb1759f0",
+    "lpAddress": "0x8b27f626ab668197000BC722A1012022CAeD10E2",
+    "tokens": ["0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913", "0xb2000000000000000000004884b426556b92883d"],
+    "tokenOracleIds": ["USDC", "MSTRc"],
+    "decimals": [6, 8],
+    "oracleId": "aerodrome-cow-base-usdc-mstrc",
+    "providerId": "aerodrome",
+    "rewardPool": {
+      "address": "0x987c1ED184B9f6BC0507Da9a29f5C1Db202209B3",
+      "oracleId": "aerodrome-cow-base-usdc-mstrc-rp"
+    },
+    "vault": {
+      "address": "0x944A37603ca610ccBaC7a09264b3E73c3b7FbA28",
+      "oracleId": "aerodrome-cow-base-usdc-mstrc-vault"
+    }
+  },
+  {
+    "address": "0x0fFDAB7f531064DB145EE218976953E8d6C46aB5",
+    "lpAddress": "0x7103eB3c9590d1281f7dc03b2A9EE27C39dF5D54",
+    "tokens": ["0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913", "0xB200000000000000000000Ab99cFa739E253872B"],
+    "tokenOracleIds": ["USDC", "MSFTc"],
+    "decimals": [6, 8],
+    "oracleId": "aerodrome-cow-base-usdc-msftc",
+    "providerId": "aerodrome",
+    "rewardPool": {
+      "address": "0x24E6ba590dFd1c5623E2850D27b8584b088A3e3A",
+      "oracleId": "aerodrome-cow-base-usdc-msftc-rp"
+    },
+    "vault": {
+      "address": "0x575Da7570B4eE677bd6002569De9D88B269CbAe4",
+      "oracleId": "aerodrome-cow-base-usdc-msftc-vault"
+    }
+  },
+  {
+    "address": "0xA011f86058AF8ECAD68DE247B134ed0dd6E173b6",
+    "lpAddress": "0xd03Bc8C7F2FAedCe2aac81bF0444AEA08Ea06E9b",
+    "tokens": ["0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913", "0xb200000000000000000000d9192b6B456483C2E8"],
+    "tokenOracleIds": ["USDC", "AMZNc"],
+    "decimals": [6, 8],
+    "oracleId": "aerodrome-cow-base-usdc-amznc",
+    "providerId": "aerodrome",
+    "rewardPool": {
+      "address": "0x9f2e28958dD6B53D5d1a45f7EFd0290D257D49dE",
+      "oracleId": "aerodrome-cow-base-usdc-amznc-rp"
+    },
+    "vault": {
+      "address": "0xB65A7e6749C01F35cCB9258803f5eE15E1b375AE",
+      "oracleId": "aerodrome-cow-base-usdc-amznc-vault"
+    }
+  },
+  {
     "address": "0xCa9Ca9F65Fc5A703091c1995C99f2734443462a9",
     "lpAddress": "0xf79478d5a6baE4546F7e489e80b2fC690B558944",
     "tokens": ["0x4200000000000000000000000000000000000006", "0xB2000000000000000000004c27f6523082f41D01"],
