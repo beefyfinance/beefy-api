@@ -1184,6 +1184,14 @@ const tokens = {
     },
     {
       type: 'Slipstream',
+      oracleId: 'LAPTOP',
+      decimalDelta: 1e-12,
+      pool: '0x99cf3E8bfB02c300312c53Aac5D0B082e3D5975C',
+      firstToken: 'LAPTOP',
+      secondToken: 'USDC',
+    },
+    {
+      type: 'Slipstream',
       oracleId: 'PSG',
       decimalDelta: 1e-12,
       pool: '0x76F9AeFA6aBcbcEb10CC149e071209366f64Ce9D',

@@ -5053,5 +5053,22 @@
       "address": "0x3C30eF5DaaF34aAEA9DCa2e265f676096EB2Bcc8",
       "oracleId": "uniswap-cow-base-usdc-weth-rp"
     }
+  },
+  {
+    "address": "0xf57999852B109CdfF2eF2b3f1Ec405Ee03e1767E",
+    "lpAddress": "0x99cf3E8bfB02c300312c53Aac5D0B082e3D5975C",
+    "tokens": ["0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913", "0xB095274743941e953c746F9C228DA9c18Bb6ec29"],
+    "tokenOracleIds": ["USDC", "LAPTOP"],
+    "decimals": [6, 18],
+    "oracleId": "aerodrome-cow-base-laptop-usdc",
+    "providerId": "aerodrome",
+    "rewardPool": {
+      "address": "0x35bBdCD14a43B887473ED0A808E7a7856c933b6b",
+      "oracleId": "aerodrome-cow-base-laptop-usdc-rp"
+    },
+    "vault": {
+      "address": "0x7839135eDC52B77428a3823D9439A0aD9E65F514",
+      "oracleId": "aerodrome-cow-base-laptop-usdc-vault"
+    }
   }
 ]
