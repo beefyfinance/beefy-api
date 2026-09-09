@@ -1762,6 +1762,14 @@ const tokens = {
     },
     {
       type: 'UniV3',
+      oracleId: '4Stock',
+      decimalDelta: 1,
+      pool: '0x90c3c770087eB9e63ad47E99a66e260aA10c31Ae',
+      firstToken: '4Stock',
+      secondToken: 'USDT',
+    },
+    {
+      type: 'UniV3',
       oracleId: 'GENIUS',
       decimalDelta: 1,
       pool: '0xe0F837648bD575EDbc47Bf579BCe786C73E50243',
