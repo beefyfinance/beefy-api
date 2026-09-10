@@ -399,6 +399,7 @@ export const tokens = {
     oracleId: 'MOO',
     decimals: 18,
     chainId: 4663,
+    website: 'https://x.com/memorycowmoo',
     description: '$MU shall Moo',
     bridge: 'native',
     tags: ['MEMECOIN'],
