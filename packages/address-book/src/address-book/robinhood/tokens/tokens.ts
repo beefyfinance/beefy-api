@@ -399,7 +399,7 @@ export const tokens = {
     oracleId: 'MOO',
     decimals: 18,
     chainId: 4663,
-    description: 'Memory cow Moo is a community/meme token on Robinhood Chain.',
+    description: '$MU shall Moo',
     bridge: 'native',
     tags: ['MEMECOIN'],
   },
