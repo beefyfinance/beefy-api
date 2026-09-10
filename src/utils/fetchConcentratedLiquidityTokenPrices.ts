@@ -2363,6 +2363,14 @@ const tokens = {
       firstToken: 'BONER',
       secondToken: 'WETH',
     },
+    {
+      type: 'UniV3',
+      oracleId: 'MOO',
+      decimalDelta: 1,
+      pool: '0x9036A9406DAC1c252C364D037f489E5F0A752F54',
+      firstToken: 'MOO',
+      secondToken: 'WETH',
+    },
   ],
 } satisfies Partial<Record<keyof typeof ChainId, ConcentratedLiquidityToken[]>>;
 
