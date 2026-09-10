@@ -272,6 +272,51 @@ export const tokens = {
     bridge: 'native',
     tags: ['STOCK'],
   },
+  AMCrh: {
+    name: 'AMC Entertainment • Robinhood Token',
+    address: '0x05a3d1Cd21d0C88145E82600E62e7E496e0F222B',
+    symbol: 'AMC',
+    oracleId: 'AMCrh',
+    decimals: 18,
+    chainId: 4663,
+    website: 'https://robinhood.com/rhj/stocktokens/',
+    description:
+      'AMC Entertainment Robinhood Token is a tokenized debt security issued by Robinhood Assets (Jersey) Limited that provides price exposure to AMC Entertainment shares without conferring ownership or shareholder rights.',
+    documentation:
+      'https://cdn.robinhood.com/assets/robinhood/legal/rhj_final_terms_for_tokenised_debt_securities_linked_to_amc_entertainment_holdings_inc.pdf',
+    bridge: 'native',
+    tags: ['STOCK'],
+  },
+  LULUrh: {
+    name: 'Lululemon • Robinhood Token',
+    address: '0x4e62068525Ab11FE768e29dfD00ef909B9803016',
+    symbol: 'LULU',
+    oracleId: 'LULUrh',
+    decimals: 18,
+    chainId: 4663,
+    website: 'https://robinhood.com/rhj/stocktokens/',
+    description:
+      'Lululemon Robinhood Token is a tokenized debt security issued by Robinhood Assets (Jersey) Limited that provides price exposure to Lululemon shares without conferring ownership or shareholder rights.',
+    documentation:
+      'https://cdn.robinhood.com/assets/robinhood/legal/rhj_final_terms_for_tokenised_debt_securities_linked_to_lululemon.pdf',
+    bridge: 'native',
+    tags: ['STOCK'],
+  },
+  SNAPrh: {
+    name: 'Snap • Robinhood Token',
+    address: '0xF6589F11Bc40b669e584073F428B05562F568733',
+    symbol: 'SNAP',
+    oracleId: 'SNAPrh',
+    decimals: 18,
+    chainId: 4663,
+    website: 'https://robinhood.com/rhj/stocktokens/',
+    description:
+      'Snap Robinhood Token is a tokenized debt security issued by Robinhood Assets (Jersey) Limited that provides price exposure to Snap shares without conferring ownership or shareholder rights.',
+    documentation:
+      'https://cdn.robinhood.com/assets/robinhood/legal/rhj_final_terms_for_tokenised_debt_securities_linked_to_snap_inc.pdf',
+    bridge: 'native',
+    tags: ['STOCK'],
+  },
   CASHCAT: {
     name: 'Cash Cat',
     address: '0x020bfC650A365f8BB26819deAAbF3E21291018b4',
