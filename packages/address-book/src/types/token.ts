@@ -13,6 +13,7 @@ export interface Token {
   staked?: boolean;
   tags?: ReadonlyArray<
     | 'NO_TIMELOCK'
+    | 'NO_AUDIT'
     | 'STABLECOIN'
     | 'SYNTHETIC'
     | 'CURATED'
