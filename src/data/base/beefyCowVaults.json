@@ -1,5 +1,17 @@
 [
   {
+    "address": "0xB851e73A5A597e67D0aF28DdE76eD1EA65276Bd1",
+    "lpAddress": "0x22906596Bd81F53f01d700DdBdB3935baC2E1446",
+    "tokens": ["0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913", "0xB2000000000000000000004c27f6523082f41D01"],
+    "tokenOracleIds": ["USDC", "Basecat"],
+    "decimals": [6, 18],
+    "oracleId": "uniswap-cow-base-usdc-basecat",
+    "rewardPool": {
+      "address": "0x8e539EAd6055F94CF3F323ca407b85701Cb47b1C",
+      "oracleId": "uniswap-cow-base-usdc-basecat-rp"
+    }
+  },
+  {
     "address": "0xD619D7917be5cEEaa104b38B17729b2f72951B02",
     "lpAddress": "0x469337fDcc5E8f38e2E4B670B04F57865D13a7BB",
     "tokens": ["0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913", "0xb2000000000000000000001e800a7f5189430cD0"],
