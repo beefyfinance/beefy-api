@@ -99,16 +99,6 @@ const tokens = {
       secondTokenAddress: '0xaf88d065e77c8cC2239327C5EDb3A432268e5831',
     },
   ],
-  scroll: [
-    {
-      oracleId: 'loreUSD',
-      pool: '0x4775dFFd8762eE4C8DE49f4FD6D02A1f0d8f1698',
-      firstTokenDecimals: 18,
-      secondToken: 'USDC',
-      secondTokenDecimals: 6,
-      secondTokenAddress: '0x06eFdBFf2a14a7c8E15944D1F4A48F9F95F663A4',
-    },
-  ],
   bsc: [
     {
       oracleId: 'mCAKE',

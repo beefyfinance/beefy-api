@@ -44,7 +44,6 @@ const updateApys = async () => {
   const start = Date.now();
   try {
     const results = await Promise.allSettled([
-      // getScrollApys(), // Sep 2025
       // getMetisApys(), // April 2026
       // getMantleApys(), // April 2026
       // getSeiApys(), // June 2026

@@ -499,7 +499,6 @@ export const blockedTokensByChain: Record<SupportedApiChain, Set<string>> = {
   fraxtal: new Set([]),
   sei: new Set([]),
   rootstock: new Set([]),
-  scroll: new Set([]),
   lisk: new Set([]),
   sonic: new Set([]),
   berachain: new Set([]),

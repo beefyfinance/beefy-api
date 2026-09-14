@@ -52,7 +52,6 @@ const DEFAULT_RPCS: ApiChainToRpcs = {
   fraxtal: ['https://rpc.frax.com'],
   sei: ['https://sei-public.nodies.app'],
   rootstock: ['https://rootstock-mainnet.public.blastapi.io'],
-  scroll: ['https://rpc.scroll.io'],
   lisk: ['https://rpc.api.lisk.com'],
   sonic: ['https://rpc.soniclabs.com'],
   berachain: ['https://rpc.berachain.com'],

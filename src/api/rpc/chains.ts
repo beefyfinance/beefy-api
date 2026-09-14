@@ -630,28 +630,6 @@ const liskChain = {
   },
 } as const satisfies Chain;
 
-const scrollChain = {
-  id: 534352,
-  name: 'Scroll',
-  nativeCurrency: {
-    decimals: 18,
-    name: 'WETH',
-    symbol: 'WETH',
-  },
-  rpcUrls: {
-    public: { http: getRpcsForChain('scroll') },
-    default: { http: getRpcsForChain('scroll') },
-  },
-  blockExplorers: {
-    default: { name: 'scroll explorer', url: 'https://scrollscan.com/' },
-  },
-  contracts: {
-    multicall3: {
-      address: '0xcA11bde05977b3631167028862bE2a173976CA11',
-    },
-  },
-} as const satisfies Chain;
-
 const megaethChain = {
   id: 4326,
   name: 'MegaETH',
@@ -742,7 +720,6 @@ export const getChain: Partial<Record<ChainId, Chain>> = {
   [ChainId.fraxtal]: fraxtalChain,
   [ChainId.sei]: seiChain,
   [ChainId.rootstock]: rootstockChain,
-  [ChainId.scroll]: scrollChain,
   [ChainId.lisk]: liskChain,
   [ChainId.sonic]: sonicChain,
   [ChainId.berachain]: berachainChain,
