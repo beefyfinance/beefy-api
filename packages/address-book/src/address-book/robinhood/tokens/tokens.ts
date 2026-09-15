@@ -404,6 +404,18 @@ export const tokens = {
     bridge: 'native',
     tags: ['MEMECOIN'],
   },
+  MEME: {
+    name: 'A Meme Coin',
+    address: '0x385F4f8ae47651ce5F58F5265395a669f8281e18',
+    symbol: 'MEME',
+    oracleId: 'MEME',
+    decimals: 18,
+    chainId: 4663,
+    website: 'https://x.com/amemecoinrh',
+    description: 'A Meme Coin. The theater was a front. It was A Meme Coin all along. 🍿🎬',
+    bridge: 'native',
+    tags: ['MEMECOIN'],
+  },
   UP,
   UP33: UP,
   PONS: {
