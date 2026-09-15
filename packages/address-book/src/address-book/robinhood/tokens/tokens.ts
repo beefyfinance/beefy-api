@@ -418,6 +418,33 @@ export const tokens = {
   },
   UP,
   UP33: UP,
+  RAM: {
+    name: 'Ramses',
+    symbol: 'RAM',
+    oracleId: 'rhRAM',
+    address: '0x5173D45A1191eE33cBB7D8c7e65f21B04eD54802',
+    chainId: 4663,
+    decimals: 18,
+    website: 'https://www.ramses.xyz/',
+    description:
+      'RAM is the token of Ramses, a concentrated liquidity decentralized exchange. On Robinhood Chain, RAM is a LayerZero OFT representation.',
+    documentation: 'https://v3-docs.ramses.exchange/',
+    bridge: 'layer-zero',
+    tags: ['NO_TIMELOCK'],
+  },
+  microduck: {
+    name: 'microduck',
+    symbol: 'microduck',
+    oracleId: 'microduck',
+    address: '0xD5f1afEA47b1A9eab414D2ee740cF1d6d039E725',
+    chainId: 4663,
+    decimals: 18,
+    website: 'https://microduck.net/',
+    description:
+      'microduck is a community meme token on Robinhood Chain inspired by the open-source MicroDuck biped robot.',
+    bridge: 'native',
+    tags: ['MEMECOIN'],
+  },
   PONS: {
     name: 'Pons',
     symbol: 'PONS',
