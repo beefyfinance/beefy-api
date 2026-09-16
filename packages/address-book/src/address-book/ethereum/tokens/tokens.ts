@@ -3200,7 +3200,7 @@ export const tokens = {
     tags: ['BLUECHIP'],
   },
   ybWBTC: {
-    name: 'Yield Basis liquidity for WBTC ',
+    name: 'Yield Basis liquidity for WBTC',
     symbol: 'yb-WBTC',
     oracleId: 'ybWBTC',
     oracle: 'lps',
@@ -3208,6 +3208,20 @@ export const tokens = {
     chainId: 1,
     decimals: 18,
     website: 'https://yieldbasis.com/earn/0x651D4b8168488FA163D85304662E8278d4c55BAa',
+    documentation: 'https://docs.yieldbasis.com/user/introduction',
+    description:
+      'YieldBasis is a decentralized protocol that lets liquidity providers earn trading fees on volatile-asset pairs without the impermanent loss a normal LP suffers.',
+    bridge: 'native',
+  },
+  ybCBBTC: {
+    name: 'Yield Basis liquidity for cbBTC',
+    symbol: 'yb-cbBTC',
+    oracleId: 'ybCBBTC',
+    oracle: 'lps',
+    address: '0x722FC3640BA007C3E9867CCdB0dCa59F2e2F29F9',
+    chainId: 1,
+    decimals: 18,
+    website: 'https://yieldbasis.com/earn/0x722FC3640BA007C3E9867CCdB0dCa59F2e2F29F9',
     documentation: 'https://docs.yieldbasis.com/user/introduction',
     description:
       'YieldBasis is a decentralized protocol that lets liquidity providers earn trading fees on volatile-asset pairs without the impermanent loss a normal LP suffers.',

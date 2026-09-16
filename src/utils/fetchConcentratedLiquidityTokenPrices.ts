@@ -1184,6 +1184,14 @@ const tokens = {
     },
     {
       type: 'Slipstream',
+      oracleId: 'LAPTOP',
+      decimalDelta: 1e-12,
+      pool: '0x99cf3E8bfB02c300312c53Aac5D0B082e3D5975C',
+      firstToken: 'LAPTOP',
+      secondToken: 'USDC',
+    },
+    {
+      type: 'Slipstream',
       oracleId: 'PSG',
       decimalDelta: 1e-12,
       pool: '0x76F9AeFA6aBcbcEb10CC149e071209366f64Ce9D',
@@ -1762,6 +1770,14 @@ const tokens = {
     },
     {
       type: 'UniV3',
+      oracleId: '4Stock',
+      decimalDelta: 1,
+      pool: '0x90c3c770087eB9e63ad47E99a66e260aA10c31Ae',
+      firstToken: '4Stock',
+      secondToken: 'USDT',
+    },
+    {
+      type: 'UniV3',
       oracleId: 'GENIUS',
       decimalDelta: 1,
       pool: '0xe0F837648bD575EDbc47Bf579BCe786C73E50243',
@@ -2117,6 +2133,30 @@ const tokens = {
     },
     {
       type: 'UniV3',
+      oracleId: 'AMCrh',
+      decimalDelta: 1e12,
+      pool: '0xaA34feA710a1A737840329051D81D3B0B7C564d5',
+      firstToken: 'USDG',
+      secondToken: 'AMCrh',
+    },
+    {
+      type: 'UniV3',
+      oracleId: 'LULUrh',
+      decimalDelta: 1e12,
+      pool: '0x0F4227D27082B3BCA6818381b9ea6460275e49f4',
+      firstToken: 'USDG',
+      secondToken: 'LULUrh',
+    },
+    {
+      type: 'UniV3',
+      oracleId: 'SNAPrh',
+      decimalDelta: 1e-12,
+      pool: '0x0EbD4650C9e641E9745b5A508A2D46935DFE753E',
+      firstToken: 'SNAPrh',
+      secondToken: 'USDG',
+    },
+    {
+      type: 'UniV3',
       oracleId: 'CASHCAT',
       decimalDelta: 1,
       pool: '0xA70fc67C9F69da90B63a0e4C05D229954574E313',
@@ -2324,13 +2364,29 @@ const tokens = {
       secondToken: 'WETH',
     },
     {
+      type: 'UniV3',
+      oracleId: 'MOO',
+      decimalDelta: 1,
+      pool: '0x9036A9406DAC1c252C364D037f489E5F0A752F54',
+      firstToken: 'MOO',
+      secondToken: 'WETH',
+    },
+    {
+      type: 'UniV3',
+      oracleId: 'MEME',
+      decimalDelta: 1,
+      pool: '0xE2c12a7379706A291CadAaEc1d22458be2f7239D',
+      firstToken: 'MEME',
+      secondToken: 'WETH',
+    },
+    {
       type: 'AlgebraV2',
       oracleId: 'LUTE',
       decimalDelta: 1,
       pool: '0xFA0b90E406C9A6F08aD2cbB4B367B063D7cf46C2',
       firstToken: 'LUTE',
       secondToken: 'WETH',
-    },
+    }
   ],
 } satisfies Partial<Record<keyof typeof ChainId, ConcentratedLiquidityToken[]>>;
 

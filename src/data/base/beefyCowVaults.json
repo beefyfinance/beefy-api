@@ -1,5 +1,17 @@
 [
   {
+    "address": "0xB851e73A5A597e67D0aF28DdE76eD1EA65276Bd1",
+    "lpAddress": "0x22906596Bd81F53f01d700DdBdB3935baC2E1446",
+    "tokens": ["0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913", "0xB2000000000000000000004c27f6523082f41D01"],
+    "tokenOracleIds": ["USDC", "Basecat"],
+    "decimals": [6, 18],
+    "oracleId": "uniswap-cow-base-usdc-basecat",
+    "rewardPool": {
+      "address": "0x8e539EAd6055F94CF3F323ca407b85701Cb47b1C",
+      "oracleId": "uniswap-cow-base-usdc-basecat-rp"
+    }
+  },
+  {
     "address": "0xD619D7917be5cEEaa104b38B17729b2f72951B02",
     "lpAddress": "0x469337fDcc5E8f38e2E4B670B04F57865D13a7BB",
     "tokens": ["0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913", "0xb2000000000000000000001e800a7f5189430cD0"],
@@ -5052,6 +5064,23 @@
     "rewardPool": {
       "address": "0x3C30eF5DaaF34aAEA9DCa2e265f676096EB2Bcc8",
       "oracleId": "uniswap-cow-base-usdc-weth-rp"
+    }
+  },
+  {
+    "address": "0xf57999852B109CdfF2eF2b3f1Ec405Ee03e1767E",
+    "lpAddress": "0x99cf3E8bfB02c300312c53Aac5D0B082e3D5975C",
+    "tokens": ["0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913", "0xB095274743941e953c746F9C228DA9c18Bb6ec29"],
+    "tokenOracleIds": ["USDC", "LAPTOP"],
+    "decimals": [6, 18],
+    "oracleId": "aerodrome-cow-base-laptop-usdc",
+    "providerId": "aerodrome",
+    "rewardPool": {
+      "address": "0x35bBdCD14a43B887473ED0A808E7a7856c933b6b",
+      "oracleId": "aerodrome-cow-base-laptop-usdc-rp"
+    },
+    "vault": {
+      "address": "0x7839135eDC52B77428a3823D9439A0aD9E65F514",
+      "oracleId": "aerodrome-cow-base-laptop-usdc-vault"
     }
   }
 ]

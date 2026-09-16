@@ -20,7 +20,6 @@ const supportedChains = new Set<AppChain>([
   'optimism',
   'arbitrum',
   'base',
-  'linea',
   'bsc',
   'sonic',
   'hyperevm',

@@ -42,45 +42,13 @@
     "oracleId": "USDT0"
   },
   {
-    "name": "neverland-monad-smon",
-    "address": "0xA3227C5969757783154C60bF0bC1944180ed81B9",
-    "aToken": "0xdFC14d336aea9E49113b1356333FD374e646Bf85",
-    "decimals": "1e18",
-    "oracleId": "sMON",
-    "lsUrl": "https://kintsu.xyz/api/analytics/smon/apy",
-    "dataPath": "$.result"
-  },
-  {
-    "name": "neverland-monad-gmon",
-    "address": "0x8498312A6B3CbD158bf0c93AbdCF29E6e4F55081",
-    "aToken": "0x7f81779736968836582D31D36274Ed82053aD1AE",
-    "decimals": "1e18",
-    "oracleId": "gMON"
-  },
-  {
-    "name": "neverland-monad-shmon",
-    "address": "0x1B68626dCa36c7fE922fD2d55E4f631d962dE19c",
-    "aToken": "0xC64d73Bb8748C6fA7487ace2D0d945B6fBb2EcDe",
-    "decimals": "1e18",
-    "oracleId": "shMON"
-  },
-  {
     "name": "neverland-monad-earnausd",
     "address": "0x103222f020e98Bba0AD9809A011FDF8e6F067496",
     "aToken": "0xaCaaA891b30E13D024AB67b6EcA9c2EcBD8cf52b",
     "decimals": "1e6",
     "oracleId": "earnAUSD",
     "merklId": "0xaCaaA891b30E13D024AB67b6EcA9c2EcBD8cf52b",
-    "lsUrl": "https://app.neverland.money/api/upshift-apy",
     "dataPath": "$.historicalAPY30d",
     "lsAprFactor": 100
-  },
-  {
-    "name": "neverland-monad-loaznd",
-    "address": "0x9c82eB49B51F7Dc61e22Ff347931CA32aDc6cd90",
-    "aToken": "0x293e2f01a38Fe690Eb8E570AB952b24b225113a7",
-    "decimals": "1e18",
-    "oracleId": "loAZND",
-    "lstApr": 0.07
   }
 ]

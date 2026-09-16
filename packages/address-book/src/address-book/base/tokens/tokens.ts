@@ -216,6 +216,20 @@ export const tokens = {
     bridge: 'native',
     tags: ['LARGE_HOLDERS'],
   },
+  LAPTOP: {
+    name: 'LAPTOP',
+    symbol: 'LAPTOP',
+    oracleId: 'LAPTOP',
+    address: '0xB095274743941e953c746F9C228DA9c18Bb6ec29',
+    chainId: 8453,
+    decimals: 18,
+    website: 'https://www.laptoptoken.com/',
+    description:
+      'LAPTOP is a memecoin on Base created by Hunter Biden for entertainment and community participation. The token uses the LayerZero Omnichain Fungible Token standard.',
+    documentation: 'https://www.laptoptoken.com/faq',
+    bridge: 'native',
+    tags: ['MEMECOIN', 'LARGE_HOLDERS', 'NO_TIMELOCK'],
+  },
   OVN: {
     name: 'OVN',
     symbol: 'OVN',

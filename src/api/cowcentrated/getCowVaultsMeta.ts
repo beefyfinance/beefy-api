@@ -16,7 +16,7 @@ const CACHE_KEY = 'COW_VAULTS_META';
 const INIT_DELAY = envNumber('COWCENTRATED_INIT_DELAY', 1000);
 const UPDATE_INTERVAL = 60000;
 const BEEFY_CLM_API = process.env.BEEFY_CLM_API || 'https://clm-api.beefy.finance';
-const API_EOL_CHAINS: ApiChain[] = ['berachain', 'lisk', 'scroll', 'sei', 'mantle'];
+const API_EOL_CHAINS: ApiChain[] = ['berachain', 'lisk', 'scroll', 'sei', 'mantle', 'linea', 'zksync', 'gnosis'];
 const SUPPORTED_CHAINS = new Set(SupportedChains.filter(c => !API_EOL_CHAINS.includes(c)));
 
 const chainToVaults: Partial<Record<ApiChain, CowClmsMeta>> = {};
