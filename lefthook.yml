@@ -14,7 +14,7 @@ pre-commit:
 
     - name: check-clms
       glob: 'src/data/**/beefyCowVaults.json'
-      run: pnpm exec tsx scripts/check-clms.ts --staged
+      run: pnpm exec tsx scripts/check-clms.ts
 
     - name: address-checksum
       glob: '{src,packages/address-book/src}/**/*.{ts,json}'
