@@ -695,6 +695,6 @@ export const tokens = {
       'LUTE is the liquid ERC-20 emission and governance token of Alandale MetaDEX. When locked into veLUTE, it allows users to direct emissions on Alandale and receive trading fees and bribes in exchange.',
     documentation: 'https://alandale.gitbook.io/alandale',
     bridge: 'native',
-    tags: [],
+    tags: ['NO_TIMELOCK'],
   },
 } as const satisfies Record<string, Token>;
