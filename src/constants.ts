@@ -61,6 +61,7 @@ const DEFAULT_RPCS: ApiChainToRpcs = {
   monad: ['https://rpc-mainnet.monadinfra.com'],
   megaeth: ['https://mainnet.megaeth.com/rpc'],
   robinhood: ['https://rpc.mainnet.chain.robinhood.com'],
+  arc: ['https://rpc.mainnet.arc.io'],
 } as const;
 
 const chainToRpcEnvKeyPrefix = {
@@ -152,6 +153,7 @@ const PLASMA_CHAIN_ID = ChainId.plasma;
 const MONAD_CHAIN_ID = ChainId.monad;
 const MEGAETH_CHAIN_ID = ChainId.megaeth;
 const ROBINHOOD_CHAIN_ID = ChainId.robinhood;
+const ARC_CHAIN_ID = ChainId.arc;
 
 /// LP Fee
 const SUSHI_LPF = 0.003;
@@ -244,6 +246,7 @@ const MEGAETH_VAULTS_ENDPOINT =
   'https://raw.githubusercontent.com/beefyfinance/beefy-v2/prod/src/config/vault/megaeth.json';
 const ROBINHOOD_VAULTS_ENDPOINT =
   'https://raw.githubusercontent.com/beefyfinance/beefy-v2/prod/src/config/vault/robinhood.json';
+const ARC_VAULTS_ENDPOINT = 'https://raw.githubusercontent.com/beefyfinance/beefy-v2/prod/src/config/vault/arc.json';
 
 const MULTICHAIN_ENDPOINTS: Partial<Record<ApiChain, string>> = {
   bsc: BSC_VAULTS_ENDPOINT,
@@ -288,6 +291,7 @@ const MULTICHAIN_ENDPOINTS: Partial<Record<ApiChain, string>> = {
   monad: MONAD_VAULTS_ENDPOINT,
   megaeth: MEGAETH_VAULTS_ENDPOINT,
   robinhood: ROBINHOOD_VAULTS_ENDPOINT,
+  arc: ARC_VAULTS_ENDPOINT,
 } as const;
 
 const EXCLUDED_IDS_FROM_TVL = ['venus-wbnb'];
@@ -347,12 +351,15 @@ export const {
   MONAD_RPC,
   MEGAETH_RPC,
   ROBINHOOD_RPC,
+  ARC_RPC,
 } = RPC_BY_ENV_KEY;
 
 export {
   API_BASE_URL,
   ARBITRUM_CHAIN_ID,
   ARBITRUM_VAULTS_ENDPOINT,
+  ARC_CHAIN_ID,
+  ARC_VAULTS_ENDPOINT,
   AURORA_CHAIN_ID,
   AURORA_VAULTS_ENDPOINT,
   AVAX_CHAIN_ID,
