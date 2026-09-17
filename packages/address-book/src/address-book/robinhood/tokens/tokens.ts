@@ -683,4 +683,18 @@ export const tokens = {
     bridge: 'native',
     tags: ['STOCK'],
   },
+  LUTE: {
+    name: 'Alandale',
+    symbol: 'LUTE',
+    oracleId: 'LUTE',
+    address: '0xD1e861CC5Eee7eA88649206b74504D78CCD7AEeA',
+    chainId: 4663,
+    decimals: 18,
+    website: 'https://app.alandale.xyz/',
+    description:
+      'LUTE is the liquid ERC-20 emission and governance token of Alandale MetaDEX. When locked into veLUTE, it allows users to direct emissions on Alandale and receive trading fees and bribes in exchange.',
+    documentation: 'https://alandale.gitbook.io/alandale',
+    bridge: 'native',
+    tags: ['NO_TIMELOCK'],
+  },
 } as const satisfies Record<string, Token>;
