@@ -10,5 +10,6 @@ export const arc = {
   native: {
     symbol: 'USDC',
     oracleId: 'USDC',
+    decimals: 18,
   },
 } as const satisfies Chain;

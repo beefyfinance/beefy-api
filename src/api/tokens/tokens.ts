@@ -209,7 +209,7 @@ function getAddressBookNativeTokens(chainBook: Chain, chainId: ApiChain): TokenN
     oracle: 'tokens',
     oracleId: nativeOracleId,
     address: 'native',
-    decimals: WNATIVE.decimals,
+    decimals: chainBook.native.decimals ?? WNATIVE.decimals,
     bridge: 'native',
   }));
 }

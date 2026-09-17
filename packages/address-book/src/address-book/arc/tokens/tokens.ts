@@ -16,6 +16,7 @@ const USDC = {
 } as const satisfies Token;
 
 export const tokens = {
+  // No wrapper on arc: 0x3600 is the 6-decimal ERC-20 view of the 18-decimal native balance (no deposit/withdraw)
   WNATIVE: USDC,
   FEES: USDC,
   USDC,
