@@ -66,6 +66,11 @@ export const providers = {
       robinhood: [robinhood.tokens.UP33],
     },
   },
+  alandale: {
+    poolTradingRewardTokens: {
+      robinhood: [robinhood.tokens.LUTE],
+    },
+  },
 } as const satisfies Record<string, CowProvider>;
 
 export function getCowProvider(providerId: string | undefined): CowProvider | undefined {
