@@ -204,7 +204,7 @@ export const getPoolsData = async (params: RewardPoolApyParams) => {
       extraCalls.push(
         extra.infrared ? extraPool.read.rewardData([extra.rewardToken as Address]) : extraPool.read.rewardPerSecond()
       );
-      extraData.push({ pool: pool.name, token: extra.oracleId });
+      extraData.push({ pool: pool.name, token: extra.oracleId, decimals: extra.decimals });
     });
   });
 
