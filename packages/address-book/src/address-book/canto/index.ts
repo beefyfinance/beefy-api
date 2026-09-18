@@ -10,5 +10,7 @@ export const canto = {
   native: {
     symbol: 'CANTO',
     oracleId: 'CANTO',
+    name: 'Canto',
+    decimals: 18,
   },
 } as const satisfies Chain;

@@ -10,5 +10,7 @@ export const emerald = {
   native: {
     symbol: 'ROSE',
     oracleId: 'ROSE',
+    name: 'ROSE',
+    decimals: 18,
   },
 } as const satisfies Chain;

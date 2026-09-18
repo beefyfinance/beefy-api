@@ -10,5 +10,7 @@ export const moonriver = {
   native: {
     symbol: 'MOVR',
     oracleId: 'MOVR',
+    name: 'MOVR',
+    decimals: 18,
   },
 } as const satisfies Chain;

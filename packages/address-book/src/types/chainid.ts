@@ -41,6 +41,7 @@ export enum ChainId {
   monad = 143,
   megaeth = 4326,
   robinhood = 4663,
+  arc = 5042,
 }
 
 type ChainIdType = typeof ChainId;

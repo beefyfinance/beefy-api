@@ -10,5 +10,7 @@ export const sonic = {
   native: {
     symbol: 'S',
     oracleId: 'S',
+    name: 'S',
+    decimals: 18,
   },
 } as const satisfies Chain;

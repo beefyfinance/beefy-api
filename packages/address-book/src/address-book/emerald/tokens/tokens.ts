@@ -1,7 +1,7 @@
 import type { Token } from '../../../types/token.js';
 
 const ROSE = {
-  name: 'Wrapped ROSE ',
+  name: 'Wrapped ROSE',
   address: '0x21C718C22D52d0F3a789b752D4c2fD5908a8A733',
   symbol: 'WROSE',
   oracleId: 'WROSE',

@@ -674,6 +674,29 @@ const robinhoodChain = {
   },
 } as const satisfies Chain;
 
+const arcChain = {
+  id: 5042,
+  name: 'Arc',
+  // native USDC is 18 decimals; its ERC-20 view (0x3600...) is 6
+  nativeCurrency: {
+    decimals: 18,
+    name: 'USDC',
+    symbol: 'USDC',
+  },
+  rpcUrls: {
+    public: { http: getRpcsForChain('arc') },
+    default: { http: getRpcsForChain('arc') },
+  },
+  blockExplorers: {
+    default: { name: 'arc explorer', url: 'https://explorer.arc.io/' },
+  },
+  contracts: {
+    multicall3: {
+      address: '0xcA11bde05977b3631167028862bE2a173976CA11',
+    },
+  },
+} as const satisfies Chain;
+
 // const unichainChain = {
 //   id: 130,
 //   name: 'Unichain',
@@ -728,4 +751,5 @@ export const getChain: Partial<Record<ChainId, Chain>> = {
   [ChainId.monad]: monadChain,
   [ChainId.megaeth]: megaethChain,
   [ChainId.robinhood]: robinhoodChain,
+  [ChainId.arc]: arcChain,
 } as const;

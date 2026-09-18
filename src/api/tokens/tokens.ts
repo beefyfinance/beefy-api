@@ -76,24 +76,6 @@ export function getTokenFees(chainId: ApiChain): TokenErc20 {
   return fees;
 }
 
-export function wrappedToNative(token: TokenEntity): TokenEntity {
-  const wnative = getTokenWrappedNative(token.chainId);
-
-  if (areTokensEqual(token, wnative)) {
-    return getTokenNative(token.chainId);
-  }
-
-  return token;
-}
-
-export function nativeToWrapped(token: TokenEntity): TokenErc20 {
-  if (isTokenNative(token)) {
-    return getTokenWrappedNative(token.chainId);
-  }
-
-  return token;
-}
-
 export function isTokenNative(token: TokenEntity): token is TokenNative {
   return token.type === 'native';
 }
@@ -178,13 +160,15 @@ async function fetchBoostTokensForChain(chainId: ApiChain): Promise<TokenEntity[
 }
 
 function getAddressBookNativeTokens(chainBook: Chain, chainId: ApiChain): TokenNative[] {
-  const nativeSymbol = chainBook.native.symbol;
-  const nativeOracleId = chainBook.native.oracleId;
+  const { symbol, oracleId, name, decimals } = chainBook.native;
   const WNATIVE = chainBook.tokens.WNATIVE;
 
+  // find e.g. WMATIC + MATIC + WPOL + POL
   const withWrappedAddress = Object.entries(chainBook.tokens).filter(
     ([id, token]) => token.address === WNATIVE.address && id !== 'WNATIVE' && id !== 'FEES'
   );
+
+  // find e.g. MATIC from WMATIC + POL from WPOL
   const nativeIds = withWrappedAddress
     .map(([id]) => {
       const wid = `W${id}`.toLowerCase();
@@ -196,20 +180,16 @@ function getAddressBookNativeTokens(chainBook: Chain, chainId: ApiChain): TokenN
     })
     .filter(isDefined);
 
-  if (!nativeIds.length) {
-    throw new Error(`No native token ids found for chain ${WNATIVE.chainId}`);
-  }
-
   return ['NATIVE', ...nativeIds].map(id => ({
     type: 'native',
     id,
-    symbol: nativeSymbol,
-    name: WNATIVE.name,
+    symbol,
+    name,
     chainId,
     oracle: 'tokens',
-    oracleId: nativeOracleId,
+    oracleId,
     address: 'native',
-    decimals: WNATIVE.decimals,
+    decimals,
     bridge: 'native',
   }));
 }
@@ -310,11 +290,12 @@ async function fetchTokensForChain(chainId: ApiChain): Promise<ChainTokens> {
     addToken(token, byId, byAddress)
   );
 
-  // Address book oracle id, symbol and tags take precedence now
+  // Address book oracle id, symbol, decimals and tags take precedence now
   abTokens.erc20Tokens.forEach(token => {
     const addressKey = token.address.toLowerCase();
     byAddress[addressKey].oracleId = token.oracleId;
     byAddress[addressKey].symbol = token.symbol;
+    byAddress[addressKey].decimals = token.decimals;
     if (token.tags) {
       byAddress[addressKey].tags = token.tags;
     }

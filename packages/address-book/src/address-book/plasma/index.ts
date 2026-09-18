@@ -8,7 +8,9 @@ export const plasma = {
   tokens,
   tokenAddressMap: convertSymbolTokenMapToAddressTokenMap(tokens),
   native: {
-    symbol: 'WXPL',
+    symbol: 'XPL',
     oracleId: 'XPL',
+    name: 'XPL',
+    decimals: 18,
   },
 } as const satisfies Chain;

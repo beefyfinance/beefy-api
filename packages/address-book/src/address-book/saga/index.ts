@@ -10,5 +10,7 @@ export const saga = {
   native: {
     symbol: 'GAS',
     oracleId: 'GAS',
+    name: 'GAS',
+    decimals: 18,
   },
 } as const satisfies Chain;

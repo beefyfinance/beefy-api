@@ -10,5 +10,7 @@ export const fraxtal = {
   native: {
     symbol: 'FRAX',
     oracleId: 'FXS',
+    name: 'Frax',
+    decimals: 18,
   },
 } as const satisfies Chain;

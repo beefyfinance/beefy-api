@@ -154,10 +154,11 @@ export const fetchAmmPrices = withTracing(
       weights[known] = Number.MAX_SAFE_INTEGER;
     });
 
-    let leftChains = Array.from(MULTICALLS.keys());
+    const chainsWithPools = Array.from(new Set(pools.map(p => p.chainId || ChainId.bsc)));
+    let leftChains = chainsWithPools;
     const poolsWithData = (
       await Promise.all(
-        Array.from(MULTICALLS.keys(), async chain => {
+        chainsWithPools.map(async chain => {
           // Old BSC pools don't have the chainId attr
           const chainPools =
             chain === ChainId.bsc

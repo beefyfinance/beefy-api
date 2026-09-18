@@ -10,5 +10,7 @@ export const fuse = {
   native: {
     symbol: 'FUSE',
     oracleId: 'FUSE',
+    name: 'FUSE',
+    decimals: 18,
   },
 } as const satisfies Chain;
