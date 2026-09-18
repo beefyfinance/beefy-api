@@ -3821,4 +3821,18 @@ export const tokens = {
     bridge: 'native',
     tags: ['STOCK'],
   },
+  BD: {
+    name: 'Base Dollar',
+    symbol: 'BD',
+    oracleId: 'BD',
+    address: '0x252D36F435582EcB01686448d21e8C9eA0B2Ca65',
+    chainId: 8453,
+    decimals: 18,
+    website: 'https://basedollar.org/',
+    description:
+      'Base Dollar is a decentralized borrowing protocol that lets users deposit WETH, wstETH, rETH, cbBTC, cbETH, AERO, and Aero LP tokens as collateral, and mint the stablecoin BD at an interest rate depositors choose.',
+    documentation: 'https://docs.basedollar.org/',
+    bridge: 'native',
+    tags: ['STABLECOIN', 'SYNTHETIC'],
+  },
 } as const satisfies Record<string, Token>;
