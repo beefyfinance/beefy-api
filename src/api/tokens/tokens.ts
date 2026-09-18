@@ -76,24 +76,6 @@ export function getTokenFees(chainId: ApiChain): TokenErc20 {
   return fees;
 }
 
-export function wrappedToNative(token: TokenEntity): TokenEntity {
-  const wnative = getTokenWrappedNative(token.chainId);
-
-  if (areTokensEqual(token, wnative)) {
-    return getTokenNative(token.chainId);
-  }
-
-  return token;
-}
-
-export function nativeToWrapped(token: TokenEntity): TokenErc20 {
-  if (isTokenNative(token)) {
-    return getTokenWrappedNative(token.chainId);
-  }
-
-  return token;
-}
-
 export function isTokenNative(token: TokenEntity): token is TokenNative {
   return token.type === 'native';
 }
