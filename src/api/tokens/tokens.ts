@@ -160,12 +160,7 @@ async function fetchBoostTokensForChain(chainId: ApiChain): Promise<TokenEntity[
 }
 
 function getAddressBookNativeTokens(chainBook: Chain, chainId: ApiChain): TokenNative[] {
-  const {
-    symbol: nativeSymbol,
-    oracleId: nativeOracleId,
-    decimals: nativeDecimals,
-    name: nativeName,
-  } = chainBook.native;
+  const { symbol, oracleId, name, decimals } = chainBook.native;
   const WNATIVE = chainBook.tokens.WNATIVE;
 
   // find e.g. WMATIC + MATIC + WPOL + POL
@@ -188,13 +183,13 @@ function getAddressBookNativeTokens(chainBook: Chain, chainId: ApiChain): TokenN
   return ['NATIVE', ...nativeIds].map(id => ({
     type: 'native',
     id,
-    symbol: nativeSymbol,
-    name: nativeName ?? WNATIVE.name.replace(/^Wrapped /, ''),
+    symbol,
+    name,
     chainId,
     oracle: 'tokens',
-    oracleId: nativeOracleId,
+    oracleId,
     address: 'native',
-    decimals: nativeDecimals ?? WNATIVE.decimals,
+    decimals,
     bridge: 'native',
   }));
 }

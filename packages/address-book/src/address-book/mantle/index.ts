@@ -10,5 +10,7 @@ export const mantle = {
   native: {
     symbol: 'MNT',
     oracleId: 'MNT',
+    name: 'Mantle',
+    decimals: 18,
   },
 } as const satisfies Chain;

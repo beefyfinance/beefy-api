@@ -10,5 +10,7 @@ export const real = {
   native: {
     symbol: 'reETH',
     oracleId: 'reETH',
+    name: 'Re.Al Ether',
+    decimals: 18,
   },
 } as const satisfies Chain;

@@ -10,9 +10,8 @@ export interface Chain {
   readonly native: {
     readonly symbol: string;
     readonly oracleId: string;
-    /** Only needed when it differs from WNATIVE.decimals (e.g. arc) */
-    readonly decimals?: number;
-    readonly name?: string;
+    readonly name: string;
+    readonly decimals: number;
   };
 }
 

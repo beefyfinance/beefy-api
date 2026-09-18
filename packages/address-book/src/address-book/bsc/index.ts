@@ -11,5 +11,6 @@ export const bsc = {
     symbol: 'BNB',
     oracleId: 'BNB',
     name: 'BNB Token',
+    decimals: 18,
   },
 } as const satisfies Chain;

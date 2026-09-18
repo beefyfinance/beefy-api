@@ -10,5 +10,7 @@ export const plasma = {
   native: {
     symbol: 'XPL',
     oracleId: 'XPL',
+    name: 'XPL',
+    decimals: 18,
   },
 } as const satisfies Chain;

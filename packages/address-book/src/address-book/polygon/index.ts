@@ -10,5 +10,7 @@ export const polygon = {
   native: {
     symbol: 'POL',
     oracleId: 'MATIC',
+    name: 'POL',
+    decimals: 18,
   },
 } as const satisfies Chain;

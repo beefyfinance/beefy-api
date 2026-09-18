@@ -10,5 +10,7 @@ export const cronos = {
   native: {
     symbol: 'CRO',
     oracleId: 'CRO',
+    name: 'CRO',
+    decimals: 18,
   },
 } as const satisfies Chain;

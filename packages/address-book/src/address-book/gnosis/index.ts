@@ -10,5 +10,7 @@ export const gnosis = {
   native: {
     symbol: 'XDAI',
     oracleId: 'XDAI',
+    name: 'xDAI',
+    decimals: 18,
   },
 } as const satisfies Chain;

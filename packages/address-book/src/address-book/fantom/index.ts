@@ -10,5 +10,7 @@ export const fantom = {
   native: {
     symbol: 'FTM',
     oracleId: 'FTM',
+    name: 'Fantom',
+    decimals: 18,
   },
 } as const satisfies Chain;

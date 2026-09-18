@@ -10,5 +10,7 @@ export const heco = {
   native: {
     symbol: 'HT',
     oracleId: 'HT',
+    name: 'HT',
+    decimals: 18,
   },
 } as const satisfies Chain;

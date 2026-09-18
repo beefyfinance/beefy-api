@@ -30,6 +30,12 @@ export const ${chainName} = {
   platforms,
   tokens,
   tokenAddressMap: convertSymbolTokenMapToAddressTokenMap(tokens),
+  native: {
+    symbol: 'ETH',
+    oracleId: 'ETH',
+    name: 'Ether',
+    decimals: 18,
+  },
 } as const satisfies Chain;
 `;
 
