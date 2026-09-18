@@ -10,5 +10,6 @@ export const bsc = {
   native: {
     symbol: 'BNB',
     oracleId: 'BNB',
+    name: 'BNB Token',
   },
 } as const satisfies Chain;

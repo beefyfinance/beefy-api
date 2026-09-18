@@ -20,5 +20,4 @@ export const tokens = {
   WNATIVE: USDC,
   FEES: USDC,
   USDC,
-  WUSDC: USDC,
 } as const satisfies Record<string, Token>;

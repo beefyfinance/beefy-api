@@ -178,13 +178,20 @@ async function fetchBoostTokensForChain(chainId: ApiChain): Promise<TokenEntity[
 }
 
 function getAddressBookNativeTokens(chainBook: Chain, chainId: ApiChain): TokenNative[] {
-  const nativeSymbol = chainBook.native.symbol;
-  const nativeOracleId = chainBook.native.oracleId;
+  const {
+    symbol: nativeSymbol,
+    oracleId: nativeOracleId,
+    decimals: nativeDecimals,
+    name: nativeName,
+  } = chainBook.native;
   const WNATIVE = chainBook.tokens.WNATIVE;
 
+  // find e.g. WMATIC + MATIC + WPOL + POL
   const withWrappedAddress = Object.entries(chainBook.tokens).filter(
     ([id, token]) => token.address === WNATIVE.address && id !== 'WNATIVE' && id !== 'FEES'
   );
+
+  // find e.g. MATIC from WMATIC + POL from WPOL
   const nativeIds = withWrappedAddress
     .map(([id]) => {
       const wid = `W${id}`.toLowerCase();
@@ -196,20 +203,16 @@ function getAddressBookNativeTokens(chainBook: Chain, chainId: ApiChain): TokenN
     })
     .filter(isDefined);
 
-  if (!nativeIds.length) {
-    throw new Error(`No native token ids found for chain ${WNATIVE.chainId}`);
-  }
-
   return ['NATIVE', ...nativeIds].map(id => ({
     type: 'native',
     id,
     symbol: nativeSymbol,
-    name: WNATIVE.name,
+    name: nativeName ?? WNATIVE.name.replace(/^Wrapped /, ''),
     chainId,
     oracle: 'tokens',
     oracleId: nativeOracleId,
     address: 'native',
-    decimals: chainBook.native.decimals ?? WNATIVE.decimals,
+    decimals: nativeDecimals ?? WNATIVE.decimals,
     bridge: 'native',
   }));
 }
