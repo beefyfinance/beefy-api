@@ -2380,6 +2380,14 @@ const tokens = {
       secondToken: 'WETH',
     },
     {
+      type: 'UniV3',
+      oracleId: 'INU',
+      decimalDelta: 1,
+      pool: '0xa95D3882FB3fF32b6D8CC411f88cf7a2413f1a1c',
+      firstToken: 'INU',
+      secondToken: 'WETH',
+    },
+    {
       type: 'AlgebraV2',
       oracleId: 'LUTE',
       decimalDelta: 1,
