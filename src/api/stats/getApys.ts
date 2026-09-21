@@ -16,7 +16,6 @@ import { getMonadApys } from './monad/index.ts';
 import { getOptimismApys } from './optimism/index.ts';
 import { getPlasmaApys } from './plasma/index.ts';
 import { getRobinhoodApys } from './robinhood/index.ts';
-import { getRootstockApys } from './rootstock/index.ts';
 import { getSonicApys } from './sonic/index.ts';
 
 const logger = getLoggerFor({ module: 'apy' });
@@ -60,7 +59,6 @@ const updateApys = async () => {
       getEthereumApys(),
       getBaseApys(),
       getFraxtalApys(),
-      getRootstockApys(),
       getSonicApys(),
       getHyperevmApys(),
       getPlasmaApys(),

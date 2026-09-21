@@ -70,6 +70,14 @@ const tokens = {
       secondTokenDecimals: 18,
       secondTokenAddress: '0x526728DBc96689597F85ae4cd716d4f7fCcBAE9d',
     },
+    {
+      oracleId: 'BD',
+      pool: '0xfFDf1e3160b60C2E499fA25E51b5C192b9b15E3B',
+      firstTokenDecimals: 18,
+      secondToken: 'USDC',
+      secondTokenDecimals: 6,
+      secondTokenAddress: '0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913',
+    },
   ],
   linea: [
     {

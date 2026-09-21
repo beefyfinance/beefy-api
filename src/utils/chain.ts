@@ -7,6 +7,7 @@ export type AppChain = Exclude<ApiChain, 'one'> | 'harmony';
 export type AnyChain = AppChain | ApiChain;
 
 const DEPRECATED_CHAINS = [
+  'rootstock',
   'scroll',
   'heco',
   'real',

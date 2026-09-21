@@ -18,7 +18,6 @@ import monadPools from '../../data/monad/beefyCowVaults.json' with { type: 'json
 import optimismPools from '../../data/optimism/beefyCowVaults.json' with { type: 'json' };
 import plasmaPools from '../../data/plasma/beefyCowVaults.json' with { type: 'json' };
 import robinhoodPools from '../../data/robinhood/beefyCowVaults.json' with { type: 'json' };
-import rootstockPools from '../../data/rootstock/beefyCowVaults.json' with { type: 'json' };
 import seiPools from '../../data/sei/beefyCowVaults.json' with { type: 'json' };
 import sonicPools from '../../data/sonic/beefyCowVaults.json' with { type: 'json' };
 import zksyncPools from '../../data/zksync/beefyCowVaults.json' with { type: 'json' };
@@ -34,7 +33,6 @@ const chainToClms: Readonly<Partial<Record<ApiChain, CowClm[]>>> = {
   sei: validateCowClms(seiPools),
   bsc: validateCowClms(bscPools),
   avax: validateCowClms(avaxPools),
-  rootstock: validateCowClms(rootstockPools),
   lisk: validateCowClms(liskPools),
   sonic: validateCowClms(sonicPools),
   berachain: validateCowClms(berachainPools),
