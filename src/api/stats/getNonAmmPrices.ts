@@ -70,7 +70,6 @@ import getCurveOptimismPrices from './optimism/getCurvePrices.ts';
 import getVelodromeStablePrices from './optimism/getVelodromeStablePrices.ts';
 import { getBeefyCowPlasmaPrices } from './plasma/getBeefyPlasmaCowPrices.ts';
 import { getBeefyCowRobinhoodPrices } from './robinhood/getBeefyRobinhoodCowPrices.ts';
-import { getBeefyCowRootstockPrices } from './rootstock/getBeefyRootstockCowPrices.ts';
 import { getBeefyCowSeiPrices } from './sei/getBeefySeiCowPrices.ts';
 import { getBeefyCowSonicPrices } from './sonic/getBeefySonicCowPrices.ts';
 import getBeetsSonicPrices from './sonic/getBeetsSonicPrices.ts';
@@ -161,7 +160,6 @@ export const getNonAmmPrices = withTracing(
       getBeefyCowSeiPrices(tokenPrices),
       getBeefyCowBscPrices(tokenPrices),
       getBeefyCowAvaxPrices(tokenPrices),
-      getBeefyCowRootstockPrices(tokenPrices),
       getBeefyCowLiskPrices(tokenPrices),
       getBeefyCowSonicPrices(tokenPrices),
       getBeefyCowBerachainPrices(tokenPrices),

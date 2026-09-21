@@ -474,28 +474,6 @@ const seiChain = {
   },
 } as const satisfies Chain;
 
-const rootstockChain = {
-  id: 30,
-  name: 'Rootstock',
-  nativeCurrency: {
-    decimals: 18,
-    name: 'WRBTC',
-    symbol: 'WRBTC',
-  },
-  rpcUrls: {
-    public: { http: getRpcsForChain('rootstock') },
-    default: { http: getRpcsForChain('rootstock') },
-  },
-  blockExplorers: {
-    default: { name: 'rootstock explorer', url: 'https://rootstock.blockscout.com/' },
-  },
-  contracts: {
-    multicall3: {
-      address: '0xcA11bde05977b3631167028862bE2a173976CA11',
-    },
-  },
-} as const satisfies Chain;
-
 /// New Chains
 
 const plasmaChain = {
@@ -719,7 +697,6 @@ export const getChain: Partial<Record<ChainId, Chain>> = {
   [ChainId.mantle]: mantleChain,
   [ChainId.fraxtal]: fraxtalChain,
   [ChainId.sei]: seiChain,
-  [ChainId.rootstock]: rootstockChain,
   [ChainId.lisk]: liskChain,
   [ChainId.sonic]: sonicChain,
   [ChainId.berachain]: berachainChain,

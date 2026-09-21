@@ -51,7 +51,6 @@ const DEFAULT_RPCS: ApiChainToRpcs = {
   mantle: ['https://rpc.mantle.xyz'],
   fraxtal: ['https://rpc.frax.com'],
   sei: ['https://sei-public.nodies.app'],
-  rootstock: ['https://rootstock-mainnet.public.blastapi.io'],
   lisk: ['https://rpc.api.lisk.com'],
   sonic: ['https://rpc.soniclabs.com'],
   berachain: ['https://rpc.berachain.com'],
@@ -297,7 +296,7 @@ const EXCLUDED_IDS_FROM_TVL = ['venus-wbnb'];
  * @param chain
  * @returns RPCs from environment variables, followed by shuffled default RPCs
  */
-export function getRpcsForChain(chain: ApiChain | ChainId): readonly string[] {
+export function getRpcsForChain(chain: SupportedApiChain): readonly string[] {
   const apiChain = typeof chain === 'string' ? chain : fromChainId(chain);
   const rpcs = (RPCS_BY_CHAIN as Partial<Record<ApiChain, ReadonlyArray<string>>>)[apiChain];
   if (!rpcs) {
