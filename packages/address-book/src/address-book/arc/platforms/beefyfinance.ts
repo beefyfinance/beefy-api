@@ -25,10 +25,10 @@ export const beefyfinance = {
   treasurySwapper: '0x0000000000000000000000000000000000000000',
 
   /// CLM Contracts
-  clmFactory: '0x0000000000000000000000000000000000000000',
-  clmStrategyFactory: '0x0000000000000000000000000000000000000000',
-  clmRewardPoolFactory: '0x0000000000000000000000000000000000000000',
-  positionMulticall: '0x0000000000000000000000000000000000000000',
+  clmFactory: '0x7881036d5DE71CE2ed5f2916025460A2AcA69ac4',
+  clmStrategyFactory: '0xD4E968d673bc2C4Ba5abcB773de6f07e65E94E44',
+  clmRewardPoolFactory: '0x45efE862a9c6Dba32221c040885b794A9589103F',
+  positionMulticall: '0x119cad4333D74536a4d7E288d9E7108fB507A1B5',
 
   /// Beefy Swapper Contracts
   beefySwapper: '0x3e810a6bf0418c53eAAC24221375A166F77841EE',
@@ -39,7 +39,7 @@ export const beefyfinance = {
   beefyOracleSolidly: '0xb78CFc9e16fcE56d0bD28f5D1f8E4c8519CAb627',
   beefyOracleERC4626: '0xd0cbe245008AD6BcD9d00D8bD2C68a783AC73aD0',
   beefyMultiHopSwapper: '0xb035c4f8FB32CE442e6b58DD3EdAFBE01F780310',
-  beefyUniV4Swapper: '0xf78a4555474Ad1356b4efCfD9169EBA85fd96546',
+  beefyUniV4Swapper: '0xAb99f02931eD3FD4DBa68424c7fC7d4b9dDbbd09',
 
   /// Cross-Chain Contracts
   circleBeefyReceiver: '0x00000076f6B75081EF1526C5d9c20D5430f0Beef',
