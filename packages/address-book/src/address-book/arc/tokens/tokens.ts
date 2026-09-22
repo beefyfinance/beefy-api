@@ -32,6 +32,7 @@ export const tokens = {
       'Circle Wrapped Bitcoin is a BTC-backed token issued by Circle that provides exposure to Bitcoin on Arc and unlocks utility for institutional markets.',
     documentation: 'https://developers.circle.com/docs/cirbtc',
     bridge: 'native',
+    tags: ['BLUECHIP'],
   },
   arcEURC: {
     name: 'EURC',
@@ -58,5 +59,6 @@ export const tokens = {
       'Argus is the native token launchpad on Arc blockchain, facilitating discovery, launch configuration, market activity and holder rewards through a single protocol. ARGUS is the native token of Argus, launched with its own launchpad. By charging a 1% buy and sell tax on pool trades, ARGUS generates tax from volume which is used to buy back and burn ARGUS, accruing value to its holders.',
     documentation: 'https://argus.world/docs',
     bridge: 'native',
+    tags: ['NO_TIMELOCK', 'MEMECOIN'],
   },
 } as const satisfies Record<string, Token>;
