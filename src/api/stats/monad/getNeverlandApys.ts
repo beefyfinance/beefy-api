@@ -29,7 +29,7 @@ export const getNeverlandApys = async (): Promise<ApyBreakdownResult> => {
   const [{ supplyAprs, suppliesInUsd }, rewardInUsdPerSecond, liquidStakingAprs, merklApys] = await Promise.all([
     getPoolData(),
     getIncentiveControllerData(),
-    getLiquidStakingData(),
+    getLiquidStakingData(pools),
     getMerklApys(MONAD_CHAIN_ID, pools),
   ]);
 
@@ -99,7 +99,7 @@ const getIncentiveControllerData = async (): Promise<BigNumber[]> => {
   return rewardInUsdPerSecond;
 };
 
-const getLiquidStakingData = async (): Promise<number[]> => {
+const getLiquidStakingData = async (pools: any[]): Promise<number[]> => {
   // Fetch once
   const uniqueUrls = [...new Set(pools.filter(p => !!p.lsUrl).map(p => p.lsUrl!))];
   const responseByUrl = new Map<string, any>();

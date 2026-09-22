@@ -606,7 +606,7 @@ export const tokens = {
     decimals: 18,
     website: 'https://solidlizard.finance/home',
     description:
-      'SolidLizard is a decentralized exchange built on Arbitrum that offers low-cost token exchanges and reduced swap fees, using a governance model called the ve(3,3) system, which was developed by Andre Cronje and introduced in Solidly. ',
+      'SolidLizard is a decentralized exchange built on Arbitrum that offers low-cost token exchanges and reduced swap fees, using a governance model called the ve(3,3) system, which was developed by Andre Cronje and introduced in Solidly.',
     bridge: 'native',
     documentation: 'https://solidlizard.gitbook.io/solidlizard/solidlizard-protocol/welcome',
   },

@@ -35,24 +35,16 @@ const DEFAULT_RPCS: ApiChainToRpcs = {
   avax: ['https://avalanche-public.nodies.app/ext/bc/C/rpc'],
   polygon: ['https://polygon-rpc.com/'],
   arbitrum: ['https://arbitrum.gateway.tenderly.co'],
-  celo: ['https://forno.celo.org'],
-  moonriver: ['https://rpc.api.moonriver.moonbeam.network'],
-  aurora: ['https://mainnet.aurora.dev/Fon6fPMs5rCdJc4mxX4kiSK1vsKdzc3D8k6UF8aruek'],
-  fuse: ['https://rpc.fuse.io'],
   metis: ['https://metis-mainnet.public.blastapi.io'],
-  emerald: ['https://emerald.oasis.dev'],
   optimism: ['https://optimism-rpc.publicnode.com'],
   ethereum: ['https://rpc.eth.gateway.fm'],
   zksync: ['https://mainnet.era.zksync.io'],
-  zkevm: ['https://zkevm-rpc.com'],
   base: ['https://base-mainnet.public.blastapi.io'],
   gnosis: ['https://gnosis.publicnode.com'],
   linea: ['https://rpc.linea.build'],
   mantle: ['https://rpc.mantle.xyz'],
   fraxtal: ['https://rpc.frax.com'],
   sei: ['https://sei-public.nodies.app'],
-  rootstock: ['https://rootstock-mainnet.public.blastapi.io'],
-  scroll: ['https://rpc.scroll.io'],
   lisk: ['https://rpc.api.lisk.com'],
   sonic: ['https://rpc.soniclabs.com'],
   berachain: ['https://rpc.berachain.com'],
@@ -298,7 +290,7 @@ const EXCLUDED_IDS_FROM_TVL = ['venus-wbnb'];
  * @param chain
  * @returns RPCs from environment variables, followed by shuffled default RPCs
  */
-export function getRpcsForChain(chain: ApiChain | ChainId): readonly string[] {
+export function getRpcsForChain(chain: SupportedApiChain): readonly string[] {
   const apiChain = typeof chain === 'string' ? chain : fromChainId(chain);
   const rpcs = (RPCS_BY_CHAIN as Partial<Record<ApiChain, ReadonlyArray<string>>>)[apiChain];
   if (!rpcs) {

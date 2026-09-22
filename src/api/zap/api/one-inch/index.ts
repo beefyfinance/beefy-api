@@ -26,7 +26,8 @@ export const supportedSwapChains: Partial<Record<ApiChain, boolean>> = {
   linea: true,
   sonic: true,
   robinhood: true,
-  // unichain: true,
+  monad: true,
+  hyperevm: true,
 } as const;
 
 const swapApiByChain: Partial<Record<ApiChain, IOneInchSwapApi>> = {};

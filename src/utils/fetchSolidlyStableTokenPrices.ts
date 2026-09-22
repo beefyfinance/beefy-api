@@ -70,6 +70,14 @@ const tokens = {
       secondTokenDecimals: 18,
       secondTokenAddress: '0x526728DBc96689597F85ae4cd716d4f7fCcBAE9d',
     },
+    {
+      oracleId: 'BD',
+      pool: '0xfFDf1e3160b60C2E499fA25E51b5C192b9b15E3B',
+      firstTokenDecimals: 18,
+      secondToken: 'USDC',
+      secondTokenDecimals: 6,
+      secondTokenAddress: '0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913',
+    },
   ],
   linea: [
     {
@@ -97,16 +105,6 @@ const tokens = {
       secondToken: 'USDC',
       secondTokenDecimals: 6,
       secondTokenAddress: '0xaf88d065e77c8cC2239327C5EDb3A432268e5831',
-    },
-  ],
-  scroll: [
-    {
-      oracleId: 'loreUSD',
-      pool: '0x4775dFFd8762eE4C8DE49f4FD6D02A1f0d8f1698',
-      firstTokenDecimals: 18,
-      secondToken: 'USDC',
-      secondTokenDecimals: 6,
-      secondTokenAddress: '0x06eFdBFf2a14a7c8E15944D1F4A48F9F95F663A4',
     },
   ],
   bsc: [

@@ -65,6 +65,201 @@
     }
   },
   {
+    "address": "0x449b98bf76e1284E502148d54F42d7AF1285FC9e",
+    "lpAddress": "0xa95D3882FB3fF32b6D8CC411f88cf7a2413f1a1c",
+    "tokens": ["0x0Bd7D308f8E1639FAb988df18A8011f41EAcAD73", "0x63Ee32Ac3077d1fbd8a77eBBA2a6ed4b8e9c1e18"],
+    "tokenOracleIds": ["WETH", "INU"],
+    "decimals": [18, 18],
+    "oracleId": "uniswap-cow-robinhood-weth-inu",
+    "rewardPool": {
+      "address": "0x34980Db21351DFDa310493eCE6F50D0CfCfdafc4",
+      "oracleId": "uniswap-cow-robinhood-weth-inu-rp"
+    }
+  },
+  {
+    "address": "0x0674d06804C8E134eDa798263a1FB93036212dAf",
+    "lpAddress": "0x5860dD468B4FC1740EaF80a3b7F22e78D70a076a",
+    "tokens": ["0x0Bd7D308f8E1639FAb988df18A8011f41EAcAD73", "0x5173D45A1191eE33cBB7D8c7e65f21B04eD54802"],
+    "tokenOracleIds": ["WETH", "rhRAM"],
+    "decimals": [18, 18],
+    "oracleId": "ramses-cow-robinhood-ram-weth",
+    "providerId": "ramses",
+    "rewardPool": {
+      "address": "0xdb1BC7E2b788FA359D92706D80a6bfdEf0cd31bd",
+      "oracleId": "ramses-cow-robinhood-ram-weth-rp"
+    }
+  },
+  {
+    "address": "0x324F6Dd622e8ee5EA3d5181d8B927443f9566e42",
+    "lpAddress": "0x47A2a145308d55eaa957920876Ab626730eAF90b",
+    "tokens": ["0x117cc2133c37B721F49dE2A7a74833232B3B4C0C", "0x5fc5360D0400a0Fd4f2af552ADD042D716F1d168"],
+    "tokenOracleIds": ["SPYrh", "USDG"],
+    "decimals": [18, 6],
+    "oracleId": "ramses-cow-robinhood-spy-usdg",
+    "providerId": "ramses",
+    "rewardPool": {
+      "address": "0x03Cd8b8E7122F2B9649Fb7d3408C26F6617AF2aa",
+      "oracleId": "ramses-cow-robinhood-spy-usdg-rp"
+    }
+  },
+  {
+    "address": "0x13805bAfC3800d14a14BDbab038C5750f6D54077",
+    "lpAddress": "0xF8996E22ac7A67fAe741830Ad83B3b4D5e5de203",
+    "tokens": ["0x0Bd7D308f8E1639FAb988df18A8011f41EAcAD73", "0xd0601CE157Db5bdC3162BbaC2a2C8aF5320D9EEC"],
+    "tokenOracleIds": ["WETH", "NVDArh"],
+    "decimals": [18, 18],
+    "oracleId": "ramses-cow-robinhood-nvda-weth",
+    "providerId": "ramses",
+    "rewardPool": {
+      "address": "0x2e752ac0d35E707f6f2f8fcfA3c68844fd238329",
+      "oracleId": "ramses-cow-robinhood-nvda-weth-rp"
+    }
+  },
+  {
+    "address": "0xe2B1c9DCdF2cbe25F33b1d245FfD8ad943ABAf98",
+    "lpAddress": "0xa7b68ce0cF9Eb5A3d3880D3a4853aa4C77DB2567",
+    "tokens": ["0x5fc5360D0400a0Fd4f2af552ADD042D716F1d168", "0xD5f1afEA47b1A9eab414D2ee740cF1d6d039E725"],
+    "tokenOracleIds": ["USDG", "microduck"],
+    "decimals": [6, 18],
+    "oracleId": "ramses-cow-robinhood-microduck-usdg",
+    "providerId": "ramses",
+    "rewardPool": {
+      "address": "0x45C08056a1B5Dd4Af73303b29c0bFdB9b939C8FA",
+      "oracleId": "ramses-cow-robinhood-microduck-usdg-rp"
+    }
+  },
+  {
+    "address": "0x8866F1E2b251606E9Da67a462D18e4c15c7979e9",
+    "lpAddress": "0xf2A0bE59AB76b96f957bd5E5b967F2B75e8dB269",
+    "tokens": ["0x39dBED3a2bd333467115dE45665cC57F813C4571", "0x5fc5360D0400a0Fd4f2af552ADD042D716F1d168"],
+    "tokenOracleIds": ["PONS", "USDG"],
+    "decimals": [18, 6],
+    "oracleId": "ramses-cow-robinhood-pons-usdg",
+    "providerId": "ramses",
+    "rewardPool": {
+      "address": "0xD6c823b6298463F4AE3c4F4F29A8601ffF3d5332",
+      "oracleId": "ramses-cow-robinhood-pons-usdg-rp"
+    }
+  },
+  {
+    "address": "0x0186715dEB2d13Fe0B440A69Da910b442889919C",
+    "lpAddress": "0x78B4382721830f573916858c3fF10f6072D09897",
+    "tokens": ["0x5fc5360D0400a0Fd4f2af552ADD042D716F1d168", "0xCEC185eB182c47d1bA1EFc84e6959e18cd620Be4"],
+    "tokenOracleIds": ["USDG", "rhcbBTC"],
+    "decimals": [6, 8],
+    "oracleId": "ramses-cow-robinhood-cbbtc-usdg",
+    "providerId": "ramses",
+    "rewardPool": {
+      "address": "0x13E34Af4e2cF9ca039A6875A4477FDC7aA533f97",
+      "oracleId": "ramses-cow-robinhood-cbbtc-usdg-rp"
+    }
+  },
+  {
+    "address": "0xeE429A657b2495336049456745eBBA962fB63CEc",
+    "lpAddress": "0xF896fD1E9076355F2F2d0A1F2dC1cD7b2acD18f6",
+    "tokens": ["0x020bfC650A365f8BB26819deAAbF3E21291018b4", "0x5fc5360D0400a0Fd4f2af552ADD042D716F1d168"],
+    "tokenOracleIds": ["CASHCAT", "USDG"],
+    "decimals": [18, 6],
+    "oracleId": "ramses-cow-robinhood-cashcat-usdg",
+    "providerId": "ramses",
+    "rewardPool": {
+      "address": "0x3AD4ab7c15f6051cBa66252257cc60BB1fFCa0eA",
+      "oracleId": "ramses-cow-robinhood-cashcat-usdg-rp"
+    }
+  },
+  {
+    "address": "0xd9B95DcECf21528D5e98D4167EBd30Eb5fd1666f",
+    "lpAddress": "0x43343e5881C9382BbDC7b8FB44e837D7A6C254Ad",
+    "tokens": ["0x0Bd7D308f8E1639FAb988df18A8011f41EAcAD73", "0x117cc2133c37B721F49dE2A7a74833232B3B4C0C"],
+    "tokenOracleIds": ["WETH", "SPYrh"],
+    "decimals": [18, 18],
+    "oracleId": "alandale-cow-robinhood-weth-spy",
+    "providerId": "alandale",
+    "rewardPool": {
+      "address": "0x2fc28A2C2c8878eD084505b5Ff840b17E6aCf87F",
+      "oracleId": "alandale-cow-robinhood-weth-spy-rp"
+    },
+    "vault": {
+      "address": "0x87673A619Fc4F3Fc08068A0BB04f60aA2D04ca62",
+      "oracleId": "alandale-cow-robinhood-weth-spy-vault"
+    }
+  },
+  {
+    "address": "0xAC82Faa24D9139D5abB943DCdEE18995847A4525",
+    "lpAddress": "0xaD8D8C09ab39BbF7E65f4B6896860D956dc8580e",
+    "tokens": ["0x5fc5360D0400a0Fd4f2af552ADD042D716F1d168", "0xD1e861CC5Eee7eA88649206b74504D78CCD7AEeA"],
+    "tokenOracleIds": ["USDG", "LUTE"],
+    "decimals": [6, 18],
+    "oracleId": "alandale-cow-robinhood-usdg-lute",
+    "providerId": "alandale",
+    "rewardPool": {
+      "address": "0xC9A35694e569B17EeDB32dCf283D9558F8c28e19",
+      "oracleId": "alandale-cow-robinhood-usdg-lute-rp"
+    },
+    "vault": {
+      "address": "0xe50D89C43D0D13eE1439Bb5E94876A1163a26434",
+      "oracleId": "alandale-cow-robinhood-usdg-lute-vault"
+    }
+  },
+  {
+    "address": "0xE232CC0841445c39A0de44F887277a6882067aE6",
+    "lpAddress": "0xFA0b90E406C9A6F08aD2cbB4B367B063D7cf46C2",
+    "tokens": ["0x0Bd7D308f8E1639FAb988df18A8011f41EAcAD73", "0xD1e861CC5Eee7eA88649206b74504D78CCD7AEeA"],
+    "tokenOracleIds": ["WETH", "LUTE"],
+    "decimals": [18, 18],
+    "oracleId": "alandale-cow-robinhood-weth-lute",
+    "providerId": "alandale",
+    "rewardPool": {
+      "address": "0x8Fdb3E3B78341661346c0692086908e2E414c158",
+      "oracleId": "alandale-cow-robinhood-weth-lute-rp"
+    },
+    "vault": {
+      "address": "0xd4A452bB077618b931603DbcB60ea43c05eBEa45",
+      "oracleId": "alandale-cow-robinhood-weth-lute-vault"
+    }
+  },
+  {
+    "address": "0x9fB66d84764c66A7f5C11F8eE3074d0e9F610C59",
+    "lpAddress": "0x7A35168956F129c032eC035cC47383A605a71dF0",
+    "tokens": ["0x0Bd7D308f8E1639FAb988df18A8011f41EAcAD73", "0x5fc5360D0400a0Fd4f2af552ADD042D716F1d168"],
+    "tokenOracleIds": ["WETH", "USDG"],
+    "decimals": [18, 6],
+    "oracleId": "alandale-cow-robinhood-weth-usdg",
+    "providerId": "alandale",
+    "rewardPool": {
+      "address": "0xC5a4561D4bA56Be43dD36547f70e6E8795Db9824",
+      "oracleId": "alandale-cow-robinhood-weth-usdg-rp"
+    },
+    "vault": {
+      "address": "0x4ED469Ac0080bE3CD192530D482E4d321823e743",
+      "oracleId": "alandale-cow-robinhood-weth-usdg-vault"
+    }
+  },
+  {
+    "address": "0x73dCFF137234f773d5a13fb2F65B508F7dC34D5b",
+    "lpAddress": "0xE2c12a7379706A291CadAaEc1d22458be2f7239D",
+    "tokens": ["0x0Bd7D308f8E1639FAb988df18A8011f41EAcAD73", "0x385F4f8ae47651ce5F58F5265395a669f8281e18"],
+    "tokenOracleIds": ["WETH", "MEME"],
+    "decimals": [18, 18],
+    "oracleId": "uniswap-cow-robinhood-weth-meme",
+    "rewardPool": {
+      "address": "0x62B90D6F133b0e52eF39A7B5FdCCB1DF78c392f4",
+      "oracleId": "uniswap-cow-robinhood-weth-meme-rp"
+    }
+  },
+  {
+    "address": "0xEA321e8E37eC67EC748005421Db8cB057e6A15f2",
+    "lpAddress": "0x9036A9406DAC1c252C364D037f489E5F0A752F54",
+    "tokens": ["0x0Bd7D308f8E1639FAb988df18A8011f41EAcAD73", "0xD9dB30BB0D2b8d2eae3826A1372117E058791e18"],
+    "tokenOracleIds": ["WETH", "MOO"],
+    "decimals": [18, 18],
+    "oracleId": "uniswap-cow-robinhood-weth-moo",
+    "rewardPool": {
+      "address": "0x7b6a30E2000F7CE3e61Ba21Fe45b23c851b10c49",
+      "oracleId": "uniswap-cow-robinhood-weth-moo-rp"
+    }
+  },
+  {
     "address": "0xcc3f8971d2b30a8E0a4E7aC98b295442A53A2AE9",
     "lpAddress": "0xaA34feA710a1A737840329051D81D3B0B7C564d5",
     "tokens": ["0x05a3d1Cd21d0C88145E82600E62e7E496e0F222B", "0x5fc5360D0400a0Fd4f2af552ADD042D716F1d168"],
