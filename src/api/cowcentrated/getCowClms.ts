@@ -2,6 +2,7 @@ import type { ApiChain } from '../../utils/chain.ts';
 import { typedEntries } from '../../utils/object.ts';
 import { type CowClm, validateCowClms } from './types.ts';
 import arbitrumPools from '../../data/arbitrum/beefyCowVaults.json' with { type: 'json' };
+import arcPools from '../../data/arc/beefyCowVaults.json' with { type: 'json' };
 import avaxPools from '../../data/avax/beefyCowVaults.json' with { type: 'json' };
 import basePools from '../../data/base/beefyCowVaults.json' with { type: 'json' };
 import berachainPools from '../../data/berachain/beefyCowVaults.json' with { type: 'json' };
@@ -24,6 +25,7 @@ import sonicPools from '../../data/sonic/beefyCowVaults.json' with { type: 'json
 import zksyncPools from '../../data/zksync/beefyCowVaults.json' with { type: 'json' };
 
 const chainToClms: Readonly<Partial<Record<ApiChain, CowClm[]>>> = {
+  arc: validateCowClms(arcPools),
   optimism: validateCowClms(optimismPools),
   base: validateCowClms(basePools),
   arbitrum: validateCowClms(arbitrumPools),

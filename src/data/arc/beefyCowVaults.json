@@ -1,0 +1,38 @@
+[
+  {
+    "address": "0xAAa8C1e4F75Ec7DF802607D827Ea0efE8dCDDbDD",
+    "lpAddress": "0x82916bee18fCEF517B26C72d7Cb5F13694E1dB41",
+    "tokens": ["0x171A4217b86A807A64eB94757Db6849fb4bDbAA0", "0x3600000000000000000000000000000000000000"],
+    "tokenOracleIds": ["cirBTC", "USDC"],
+    "decimals": [8, 6],
+    "oracleId": "uniswap-cow-arc-cirbtc-usdc",
+    "rewardPool": {
+      "address": "0xcD68b5A8850E5A10531bDE1BC657329575E40E2C",
+      "oracleId": "uniswap-cow-arc-cirbtc-usdc-rp"
+    }
+  },
+  {
+    "address": "0x104E6823bAB0be3fe9b48c5fB0F0413301d935a4",
+    "lpAddress": "0x6fd5F2fb831940DcD61A98c5B3aCB7D8C6f3bFc1",
+    "tokens": ["0x3600000000000000000000000000000000000000", "0xbEf5f6d51CB62b58e6A8f77868681825C6fe21c1"],
+    "tokenOracleIds": ["USDC", "arcEURC"],
+    "decimals": [6, 6],
+    "oracleId": "uniswap-cow-arc-usdc-eurc",
+    "rewardPool": {
+      "address": "0x8f6E62ac78B06F4f45DB8dE37C8A8B6e1F3e3a13",
+      "oracleId": "uniswap-cow-arc-usdc-eurc-rp"
+    }
+  },
+  {
+    "address": "0x0BF46176b181D8bB5bbF57C5d200c79daF416221",
+    "lpAddress": "0x6A3bAcAa6493734c1Ac221EBF42CF530A96C1e02",
+    "tokens": ["0x3600000000000000000000000000000000000000", "0xeCe5cA8bf9220718E5727754026757512212cb3c"],
+    "tokenOracleIds": ["USDC", "ARGUS"],
+    "decimals": [6, 18],
+    "oracleId": "uniswap-cow-arc-usdc-argus",
+    "rewardPool": {
+      "address": "0xA79fF9Ca6250A0ddEbc051dD898A4a892Caa4859",
+      "oracleId": "uniswap-cow-arc-usdc-argus-rp"
+    }
+  }
+]

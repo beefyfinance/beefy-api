@@ -20,4 +20,43 @@ export const tokens = {
   WNATIVE: USDC,
   FEES: USDC,
   USDC,
+  cirBTC: {
+    name: 'Circle Wrapped Bitcoin',
+    symbol: 'cirBTC',
+    oracleId: 'cirBTC',
+    address: '0x171A4217b86A807A64eB94757Db6849fb4bDbAA0',
+    chainId: 5042,
+    decimals: 8,
+    website: 'https://www.circle.com/cirbtc',
+    description:
+      'Circle Wrapped Bitcoin is a BTC-backed token issued by Circle that provides exposure to Bitcoin on Arc and unlocks utility for institutional markets.',
+    documentation: 'https://developers.circle.com/docs/cirbtc',
+    bridge: 'native',
+  },
+  arcEURC: {
+    name: 'EURC',
+    symbol: 'EURC',
+    oracleId: 'arcEURC',
+    address: '0xbEf5f6d51CB62b58e6A8f77868681825C6fe21c1',
+    chainId: 5042,
+    decimals: 6,
+    website: 'https://www.circle.com/en/eurc',
+    description:
+      'EURC is a euro-backed stablecoin that’s accessible globally on Avalanche, Ethereum, Base and Stellar. Similar to USDC, EURC is issued by Circle under a full-reserve model.',
+    bridge: 'native',
+    tags: ['STABLECOIN'],
+  },
+  ARGUS: {
+    name: 'Argus',
+    symbol: 'ARGUS',
+    oracleId: 'ARGUS',
+    address: '0xeCe5cA8bf9220718E5727754026757512212cb3c',
+    chainId: 5042,
+    decimals: 18,
+    website: 'https://argus.world/',
+    description:
+      'Argus is the native token launchpad on Arc blockchain, facilitating discovery, launch configuration, market activity and holder rewards through a single protocol. ARGUS is the native token of Argus, launched with its own launchpad. By charging a 1% buy and sell tax on pool trades, ARGUS generates tax from volume which is used to buy back and burn ARGUS, accruing value to its holders.',
+    documentation: 'https://argus.world/docs',
+    bridge: 'native',
+  },
 } as const satisfies Record<string, Token>;
