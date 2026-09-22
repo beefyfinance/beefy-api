@@ -2449,7 +2449,7 @@ const tokens = {
       decimalDelta: 1e-3,
       pool: '0x99e70A5b06215e5D2F3BeC773b4f59c008fc1673',
       firstToken: 'NET',
-      secondToken: 'WETH',
+      secondToken: 'USDG',
     },
   ],
 } satisfies Partial<Record<keyof typeof ChainId, ConcentratedLiquidityToken[]>>;
