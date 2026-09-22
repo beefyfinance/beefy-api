@@ -416,6 +416,18 @@ export const tokens = {
     bridge: 'native',
     tags: ['MEMECOIN'],
   },
+  INU: {
+    name: 'iNu',
+    address: '0x63Ee32Ac3077d1fbd8a77eBBA2a6ed4b8e9c1e18',
+    symbol: 'INU',
+    oracleId: 'INU',
+    decimals: 18,
+    chainId: 4663,
+    website: 'https://inuapple.com/',
+    description: 'Think Different. Think iNu.',
+    bridge: 'native',
+    tags: ['MEMECOIN'],
+  },
   UP,
   UP33: UP,
   RAM: {
