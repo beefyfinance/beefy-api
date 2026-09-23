@@ -3835,4 +3835,17 @@ export const tokens = {
     bridge: 'native',
     tags: ['STABLECOIN', 'SYNTHETIC'],
   },
+  Surplus: {
+    name: 'Surplus Intelligence',
+    symbol: 'Surplus',
+    oracleId: 'Surplus',
+    address: '0xC52aeDec3374422d7510E294cfAa90799595CBa3',
+    chainId: 8453,
+    decimals: 18,
+    website: 'https://www.surplusintelligence.ai/',
+    description:
+      'The Surplus token is the primary utility asset of Surplus Intelligence, an AI-inference marketplace where sellers compete to serve inference requests and earn USDC on Base. Surplus is used to facilitate inference transactions and incentivize the provision of computational resources.',
+    documentation: 'https://www.surplusintelligence.ai/docs',
+    bridge: 'native',
+  },
 } as const satisfies Record<string, Token>;
