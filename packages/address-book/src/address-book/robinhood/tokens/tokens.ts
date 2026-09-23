@@ -722,6 +722,20 @@ export const tokens = {
     bridge: 'native',
     tags: ['STOCK'],
   },
+  GOOGLrh: {
+    name: 'Alphabet Class A • Robinhood Token',
+    symbol: 'GOOGL',
+    oracleId: 'GOOGLrh',
+    address: '0x2e0847E8910a9732eB3fb1bb4b70a580ADAD4FE3',
+    chainId: 4663,
+    decimals: 18,
+    website: 'https://robinhood.com/rhj/stocktokens/',
+    description:
+      'Alphabet Class A • Robinhood Token is a tokenized debt security issued by Robinhood Assets (Jersey) Limited that provides price exposure to Alphabet Class A shares without conferring ownership or shareholder rights.',
+    documentation: 'https://docs.robinhood.com/chain/stock-tokens/',
+    bridge: 'native',
+    tags: ['STOCK'],
+  },
   PAIR: {
     name: 'PAIR',
     symbol: 'PAIR',

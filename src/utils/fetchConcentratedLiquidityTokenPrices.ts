@@ -2357,6 +2357,14 @@ const tokens = {
     },
     {
       type: 'UniV3',
+      oracleId: 'GOOGLrh',
+      decimalDelta: 1e-12,
+      pool: '0x34D0dC122CF9A8Eb296fC5e0D3A233625D7d19b7',
+      firstToken: 'GOOGLrh',
+      secondToken: 'USDG',
+    },
+    {
+      type: 'UniV3',
       oracleId: 'BONER',
       decimalDelta: 1,
       pool: '0xBd5cd6515ca6285941FbC177381dC8ED4844e6b8',
