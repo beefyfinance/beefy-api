@@ -2358,10 +2358,10 @@ const tokens = {
     {
       type: 'UniV3',
       oracleId: 'GOOGLrh',
-      decimalDelta: 1e-12,
+      decimalDelta: 1e12,
       pool: '0x34D0dC122CF9A8Eb296fC5e0D3A233625D7d19b7',
-      firstToken: 'GOOGLrh',
-      secondToken: 'USDG',
+      firstToken: 'USDG',
+      secondToken: 'GOOGLrh',
     },
     {
       type: 'UniV3',
