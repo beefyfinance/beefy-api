@@ -2597,6 +2597,7 @@ export const tokens = {
     description:
       'Truemarkets is a news and information source on the frontier of alternative media.',
     bridge: 'native',
+    tags: ['LARGE_HOLDERS'],
   },
   noice: {
     name: 'noice',
@@ -3847,5 +3848,6 @@ export const tokens = {
       'The Surplus token is the primary utility asset of Surplus Intelligence, an AI-inference marketplace where sellers compete to serve inference requests and earn USDC on Base. Surplus is used to facilitate inference transactions and incentivize the provision of computational resources.',
     documentation: 'https://www.surplusintelligence.ai/docs',
     bridge: 'native',
+    tags: ['MEMECOIN', 'NO_AUDIT', 'LARGE_HOLDERS'],
   },
 } as const satisfies Record<string, Token>;
