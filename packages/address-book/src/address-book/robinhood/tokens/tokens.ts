@@ -806,6 +806,19 @@ export const tokens = {
     bridge: 'native',
     tags: ['NO_AUDIT', 'NO_TIMELOCK', 'MEMECOIN'],
   },
+  musebook: {
+    name: 'musebook',
+    symbol: 'musebook',
+    oracleId: 'musebook',
+    address: '0x91A2DAe9699f0B82540B5886b0d8759C22820bA3',
+    chainId: 4663,
+    decimals: 18,
+    website:
+      'https://bankr.bot/terminal/trade?out=0x91a2dae9699f0b82540b5886b0d8759c22820ba3&chain=robinhood',
+    description: 'musebook',
+    bridge: 'native',
+    tags: ['NO_AUDIT', 'LARGE_HOLDERS', 'MEMECOIN'],
+  },
   LUTE: {
     name: 'Alandale',
     symbol: 'LUTE',

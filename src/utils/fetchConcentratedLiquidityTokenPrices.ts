@@ -2397,6 +2397,14 @@ const tokens = {
     },
     {
       type: 'UniV3',
+      oracleId: 'musebook',
+      decimalDelta: 1,
+      pool: '0xe972Dfc9032D148f4B1618fb914FBbD2fC41D6dC',
+      firstToken: 'musebook',
+      secondToken: 'WETH',
+    },
+    {
+      type: 'UniV3',
       oracleId: 'MEME',
       decimalDelta: 1,
       pool: '0xE2c12a7379706A291CadAaEc1d22458be2f7239D',
