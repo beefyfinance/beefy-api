@@ -22,17 +22,5 @@
       "address": "0x8f6E62ac78B06F4f45DB8dE37C8A8B6e1F3e3a13",
       "oracleId": "uniswap-cow-arc-usdc-eurc-rp"
     }
-  },
-  {
-    "address": "0x0BF46176b181D8bB5bbF57C5d200c79daF416221",
-    "lpAddress": "0x6A3bAcAa6493734c1Ac221EBF42CF530A96C1e02",
-    "tokens": ["0x3600000000000000000000000000000000000000", "0xeCe5cA8bf9220718E5727754026757512212cb3c"],
-    "tokenOracleIds": ["USDC", "ARGUS"],
-    "decimals": [6, 18],
-    "oracleId": "uniswap-cow-arc-usdc-argus",
-    "rewardPool": {
-      "address": "0xA79fF9Ca6250A0ddEbc051dD898A4a892Caa4859",
-      "oracleId": "uniswap-cow-arc-usdc-argus-rp"
-    }
   }
 ]

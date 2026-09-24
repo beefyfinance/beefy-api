@@ -2405,14 +2405,6 @@ const tokens = {
       firstToken: 'arcEURC',
       secondToken: 'USDC',
     },
-    {
-      type: 'UniV3',
-      oracleId: 'ARGUS',
-      decimalDelta: 1e-12,
-      pool: '0x6A3bAcAa6493734c1Ac221EBF42CF530A96C1e02',
-      firstToken: 'ARGUS',
-      secondToken: 'USDC',
-    },
   ],
 } satisfies Partial<Record<keyof typeof ChainId, ConcentratedLiquidityToken[]>>;
 

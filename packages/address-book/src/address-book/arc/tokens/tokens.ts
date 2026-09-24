@@ -47,18 +47,4 @@ export const tokens = {
     bridge: 'native',
     tags: ['STABLECOIN'],
   },
-  ARGUS: {
-    name: 'Argus',
-    symbol: 'ARGUS',
-    oracleId: 'ARGUS',
-    address: '0xeCe5cA8bf9220718E5727754026757512212cb3c',
-    chainId: 5042,
-    decimals: 18,
-    website: 'https://argus.world/',
-    description:
-      'Argus is the native token launchpad on Arc blockchain, facilitating discovery, launch configuration, market activity and holder rewards through a single protocol. ARGUS is the native token of Argus, launched with its own launchpad. By charging a 1% buy and sell tax on pool trades, ARGUS generates tax from volume which is used to buy back and burn ARGUS, accruing value to its holders.',
-    documentation: 'https://argus.world/docs',
-    bridge: 'native',
-    tags: ['NO_TIMELOCK', 'MEMECOIN'],
-  },
 } as const satisfies Record<string, Token>;
