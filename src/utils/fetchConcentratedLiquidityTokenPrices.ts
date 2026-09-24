@@ -1310,6 +1310,22 @@ const tokens = {
       firstToken: 'TSLAc',
       secondToken: 'USDC',
     },
+    {
+      type: 'UniV3',
+      oracleId: 'TRUE',
+      decimalDelta: 1,
+      pool: '0x61E715f97a76E3EbE2282A309A4FfEB61ea22971',
+      firstToken: 'WETH',
+      secondToken: 'TRUE',
+    },
+    {
+      type: 'UniV3',
+      oracleId: 'Surplus',
+      decimalDelta: 1,
+      pool: '0xbCf23F30a90f6D7c288fACdc932fF8F8B68b0f30',
+      firstToken: 'Surplus',
+      secondToken: 'WETH',
+    },
   ],
   zksync: [
     {
