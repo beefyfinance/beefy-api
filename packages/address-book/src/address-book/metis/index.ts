@@ -10,5 +10,7 @@ export const metis = {
   native: {
     symbol: 'METIS',
     oracleId: 'METIS',
+    name: 'METIS',
+    decimals: 18,
   },
 } as const satisfies Chain;

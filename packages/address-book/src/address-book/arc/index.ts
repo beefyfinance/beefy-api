@@ -3,14 +3,14 @@ import { convertSymbolTokenMapToAddressTokenMap } from '../../util/convertSymbol
 import * as platforms from './platforms/index.js';
 import { tokens } from './tokens/tokens.js';
 
-export const mode = {
+export const arc = {
   platforms,
   tokens,
   tokenAddressMap: convertSymbolTokenMapToAddressTokenMap(tokens),
   native: {
-    symbol: 'ETH',
-    oracleId: 'ETH',
-    name: 'Ether',
+    symbol: 'USDC',
+    oracleId: 'USDC',
+    name: 'USD Coin',
     decimals: 18,
   },
 } as const satisfies Chain;

@@ -10,5 +10,7 @@ export const kava = {
   native: {
     symbol: 'KAVA',
     oracleId: 'KAVA',
+    name: 'KAVA',
+    decimals: 18,
   },
 } as const satisfies Chain;

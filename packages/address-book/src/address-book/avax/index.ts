@@ -10,5 +10,7 @@ export const avax = {
   native: {
     symbol: 'AVAX',
     oracleId: 'AVAX',
+    name: 'AVAX',
+    decimals: 18,
   },
 } as const satisfies Chain;

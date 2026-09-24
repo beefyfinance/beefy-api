@@ -10,5 +10,7 @@ export const sei = {
   native: {
     symbol: 'SEI',
     oracleId: 'SEI',
+    name: 'SEI',
+    decimals: 18,
   },
 } as const satisfies Chain;

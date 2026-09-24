@@ -10,5 +10,7 @@ export const monad = {
   native: {
     symbol: 'MON',
     oracleId: 'MON',
+    name: 'Monad',
+    decimals: 18,
   },
 } as const satisfies Chain;

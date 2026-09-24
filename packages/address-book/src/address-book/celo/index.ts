@@ -10,5 +10,7 @@ export const celo = {
   native: {
     symbol: 'CELO',
     oracleId: 'CELO',
+    name: 'CELO',
+    decimals: 18,
   },
 } as const satisfies Chain;

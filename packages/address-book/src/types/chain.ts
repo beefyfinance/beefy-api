@@ -10,6 +10,8 @@ export interface Chain {
   readonly native: {
     readonly symbol: string;
     readonly oracleId: string;
+    readonly name: string;
+    readonly decimals: number;
   };
 }
 

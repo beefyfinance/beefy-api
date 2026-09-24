@@ -10,5 +10,7 @@ export const moonbeam = {
   native: {
     symbol: 'GLMR',
     oracleId: 'GLMR',
+    name: 'Moonbeam',
+    decimals: 18,
   },
 } as const satisfies Chain;

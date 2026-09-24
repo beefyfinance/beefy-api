@@ -2,6 +2,7 @@ import type { Chain } from '../types/chain.js';
 import { ChainId, type ChainIdKey } from '../types/chainid.js';
 import type { ReadonlyRecord } from '../types/readonly-record.js';
 import { arbitrum } from './arbitrum/index.js';
+import { arc } from './arc/index.js';
 import { aurora } from './aurora/index.js';
 import { avax } from './avax/index.js';
 import { base } from './base/index.js';
@@ -91,6 +92,7 @@ export const addressBook: ReadonlyRecord<ChainIdKey, Chain> = {
   monad,
   megaeth,
   robinhood,
+  arc,
 } as const;
 
 export const addressBookByChainId: ReadonlyRecord<`${ChainId}`, Chain> = {
@@ -136,4 +138,5 @@ export const addressBookByChainId: ReadonlyRecord<`${ChainId}`, Chain> = {
   [ChainId.monad]: monad,
   [ChainId.megaeth]: megaeth,
   [ChainId.robinhood]: robinhood,
+  [ChainId.arc]: arc,
 } as const;

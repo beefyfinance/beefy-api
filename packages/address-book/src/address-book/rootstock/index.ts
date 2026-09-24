@@ -10,5 +10,7 @@ export const rootstock = {
   native: {
     symbol: 'RBTC',
     oracleId: 'WBTC',
+    name: 'Rootstock BTC',
+    decimals: 18,
   },
 } as const satisfies Chain;

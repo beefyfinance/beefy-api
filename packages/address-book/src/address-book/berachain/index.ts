@@ -10,5 +10,7 @@ export const berachain = {
   native: {
     symbol: 'BERA',
     oracleId: 'BERA',
+    name: 'Bera',
+    decimals: 18,
   },
 } as const satisfies Chain;

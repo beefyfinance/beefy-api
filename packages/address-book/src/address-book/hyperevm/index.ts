@@ -10,5 +10,7 @@ export const hyperevm = {
   native: {
     symbol: 'HYPE',
     oracleId: 'HYPE',
+    name: 'HYPE',
+    decimals: 18,
   },
 } as const satisfies Chain;
