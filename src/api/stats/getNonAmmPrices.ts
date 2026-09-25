@@ -20,6 +20,7 @@ import { getBeefyCowArbPrices } from './arbitrum/getBeefyCowArbPrices.ts';
 import getCurveArbitrumPrices from './arbitrum/getCurvePrices.ts';
 import { getGmxArbitrumPrices } from './arbitrum/getGmxPrices.ts';
 import { getMimSwapPrices } from './arbitrum/getMimSwapPrices.ts';
+import { getBeefyArcCowPrices } from './arc/getBeefyArcCowPrices.ts';
 import getBalancerAvaxPrices from './avax/getBalancerPrices.ts';
 import { getBeefyCowAvaxPrices } from './avax/getBeefyCowAvaxPrices.ts';
 import { getGmxAvalanchePrices } from './avax/getGmxPrices.ts';
@@ -169,6 +170,7 @@ export const getNonAmmPrices = withTracing(
       getBeefyCowMonadPrices(tokenPrices),
       getBeefyCowMegaethPrices(tokenPrices),
       getBeefyCowRobinhoodPrices(tokenPrices),
+      getBeefyArcCowPrices(tokenPrices),
       getBeefyCowEthereumPrices(tokenPrices),
       getPendleCommonPrices(ETH_CHAIN_ID, ethereumPendlePools, tokenPrices),
       getPendleCommonPrices(ETH_CHAIN_ID, ethereumPendleUnboostedPools, tokenPrices),

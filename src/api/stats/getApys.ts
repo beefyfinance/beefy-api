@@ -3,6 +3,7 @@ import { envNumber } from '../../utils/env.ts';
 import { getLoggerFor } from '../../utils/logger/index.ts';
 import { serviceEventBus } from '../../utils/ServiceEventBus.ts';
 import { getArbitrumApys } from './arbitrum/index.ts';
+import { getArcApys } from './arc/index.ts';
 import { getAvaxApys } from './avax/index.ts';
 import { getBaseApys } from './base/index.ts';
 import { getBSCApys } from './bsc/index.ts';
@@ -65,6 +66,7 @@ const updateApys = async () => {
       getMonadApys(),
       getMegaethApys(),
       getRobinhoodApys(),
+      getArcApys(),
     ]);
 
     for (const result of results) {
