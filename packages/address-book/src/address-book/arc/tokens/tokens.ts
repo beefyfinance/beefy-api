@@ -20,4 +20,31 @@ export const tokens = {
   WNATIVE: USDC,
   FEES: USDC,
   USDC,
+  cirBTC: {
+    name: 'Circle Wrapped Bitcoin',
+    symbol: 'cirBTC',
+    oracleId: 'cirBTC',
+    address: '0x171A4217b86A807A64eB94757Db6849fb4bDbAA0',
+    chainId: 5042,
+    decimals: 8,
+    website: 'https://www.circle.com/cirbtc',
+    description:
+      'Circle Wrapped Bitcoin is a BTC-backed token issued by Circle that provides exposure to Bitcoin on Arc and unlocks utility for institutional markets.',
+    documentation: 'https://developers.circle.com/assets/what-is-cirbtc',
+    bridge: 'native',
+    tags: ['BLUECHIP'],
+  },
+  arcEURC: {
+    name: 'EURC',
+    symbol: 'EURC',
+    oracleId: 'arcEURC',
+    address: '0xbEf5f6d51CB62b58e6A8f77868681825C6fe21c1',
+    chainId: 5042,
+    decimals: 6,
+    website: 'https://www.circle.com/en/eurc',
+    description:
+      'EURC is a euro-backed stablecoin that’s accessible globally on Arc, Avalanche, Ethereum, Base and Stellar. Similar to USDC, EURC is issued by Circle under a full-reserve model.',
+    bridge: 'native',
+    tags: ['STABLECOIN'],
+  },
 } as const satisfies Record<string, Token>;

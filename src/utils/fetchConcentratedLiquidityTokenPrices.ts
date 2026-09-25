@@ -2484,6 +2484,24 @@ const tokens = {
       secondToken: 'USDG',
     },
   ],
+  arc: [
+    {
+      type: 'UniV3',
+      oracleId: 'cirBTC',
+      decimalDelta: 1e2,
+      pool: '0x82916bee18fCEF517B26C72d7Cb5F13694E1dB41',
+      firstToken: 'USDC',
+      secondToken: 'cirBTC',
+    },
+    {
+      type: 'UniV3',
+      oracleId: 'arcEURC',
+      decimalDelta: 1,
+      pool: '0x6fd5F2fb831940DcD61A98c5B3aCB7D8C6f3bFc1',
+      firstToken: 'arcEURC',
+      secondToken: 'USDC',
+    },
+  ],
 } satisfies Partial<Record<keyof typeof ChainId, ConcentratedLiquidityToken[]>>;
 
 type Context = {
