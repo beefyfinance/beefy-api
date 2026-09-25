@@ -98,111 +98,6 @@ const arbitrumChain = {
   },
 } as const satisfies Chain;
 
-const celoChain = {
-  id: 42220,
-  name: 'Celo',
-  nativeCurrency: {
-    decimals: 18,
-    name: 'Celo',
-    symbol: 'CELO',
-  },
-  rpcUrls: {
-    public: { http: getRpcsForChain('celo') },
-    default: { http: getRpcsForChain('celo') },
-  },
-  blockExplorers: {
-    default: { name: 'Celo Explorer', url: 'https://explorer.celo.org' },
-  },
-  contracts: {
-    multicall3: {
-      address: '0xcA11bde05977b3631167028862bE2a173976CA11',
-      blockCreated: 13_112_599,
-    },
-  },
-} as const satisfies Chain;
-
-//Moonriver chain object
-const moonriverChain = {
-  id: 1285,
-  name: 'Moonriver',
-  nativeCurrency: {
-    decimals: 18,
-    name: 'Moonriver',
-    symbol: 'MOVR',
-  },
-  rpcUrls: {
-    public: { http: getRpcsForChain('moonriver') },
-    default: { http: getRpcsForChain('moonriver') },
-  },
-  blockExplorers: {
-    etherscan: { name: 'Moonriver Explorer', url: 'https://moonriver.subscan.io' },
-    default: { name: 'Moonriver Explorer', url: 'https://moonriver.subscan.io' },
-  },
-  contracts: {
-    multicall3: {
-      address: '0xcA11bde05977b3631167028862bE2a173976CA11',
-      blockCreated: 1_597_904,
-    },
-  },
-} as const satisfies Chain;
-
-const auroraChain = {
-  id: 1313161554,
-  name: 'Aurora',
-  nativeCurrency: {
-    decimals: 18,
-    name: 'Ether',
-    symbol: 'ETH',
-  },
-  rpcUrls: {
-    default: {
-      http: getRpcsForChain('aurora'),
-    },
-    public: {
-      http: getRpcsForChain('aurora'),
-    },
-  },
-  blockExplorers: {
-    etherscan: {
-      name: 'Aurorascan',
-      url: 'https://aurorascan.dev',
-    },
-    default: {
-      name: 'Aurorascan',
-      url: 'https://aurorascan.dev',
-    },
-  },
-  contracts: {
-    multicall3: {
-      address: '0xcA11bde05977b3631167028862bE2a173976CA11',
-      blockCreated: 62_907_816,
-    },
-  },
-} as const satisfies Chain;
-
-const fuseChain = {
-  id: 122,
-  name: 'Fuse',
-  nativeCurrency: {
-    decimals: 18,
-    name: 'Fuse',
-    symbol: 'FUSE',
-  },
-  rpcUrls: {
-    public: { http: getRpcsForChain('fuse') },
-    default: { http: getRpcsForChain('fuse') },
-  },
-  blockExplorers: {
-    default: { name: 'FuseScan', url: 'https://explorer.fuse.io' },
-  },
-  contracts: {
-    multicall3: {
-      address: '0xcA11bde05977b3631167028862bE2a173976CA11',
-      blockCreated: 16_146_628,
-    },
-  },
-} as const satisfies Chain;
-
 const metisChain = {
   id: 1088,
   name: 'Metis',
@@ -222,29 +117,6 @@ const metisChain = {
     multicall3: {
       address: '0xcA11bde05977b3631167028862bE2a173976CA11',
       blockCreated: 2_338_552,
-    },
-  },
-} as const satisfies Chain;
-
-const emeraldChain = {
-  id: 42262,
-  name: 'Emerald',
-  nativeCurrency: {
-    decimals: 18,
-    name: 'Rose',
-    symbol: 'ROSE',
-  },
-  rpcUrls: {
-    public: { http: getRpcsForChain('emerald') },
-    default: { http: getRpcsForChain('emerald') },
-  },
-  blockExplorers: {
-    default: { name: 'Emerald Explorer', url: 'https://explorer.emerald.oasis.dev/' },
-  },
-  contracts: {
-    multicall3: {
-      address: '0xcA11bde05977b3631167028862bE2a173976CA11',
-      blockCreated: 1_481_392,
     },
   },
 } as const satisfies Chain;
@@ -316,28 +188,6 @@ const zkSyncChain = {
     multicall3: {
       address: '0x9A04a9e1d67151AB1E742E6D8965e0602410f91d',
       blockCreated: 0,
-    },
-  },
-} as const satisfies Chain;
-
-const zkEvmChain = {
-  id: 1101,
-  name: 'zkEvm',
-  nativeCurrency: {
-    decimals: 18,
-    name: 'ETH',
-    symbol: 'ETH',
-  },
-  rpcUrls: {
-    public: { http: getRpcsForChain('zkevm') },
-    default: { http: getRpcsForChain('zkevm') },
-  },
-  blockExplorers: {
-    default: { name: 'zkEvm Explorer', url: 'https://zkevm.polygonscan.com/' },
-  },
-  contracts: {
-    multicall3: {
-      address: '0xcA11bde05977b3631167028862bE2a173976CA11',
     },
   },
 } as const satisfies Chain;
@@ -466,28 +316,6 @@ const seiChain = {
   },
   blockExplorers: {
     default: { name: 'sei explorer', url: 'https://seitrace.com/' },
-  },
-  contracts: {
-    multicall3: {
-      address: '0xcA11bde05977b3631167028862bE2a173976CA11',
-    },
-  },
-} as const satisfies Chain;
-
-const rootstockChain = {
-  id: 30,
-  name: 'Rootstock',
-  nativeCurrency: {
-    decimals: 18,
-    name: 'WRBTC',
-    symbol: 'WRBTC',
-  },
-  rpcUrls: {
-    public: { http: getRpcsForChain('rootstock') },
-    default: { http: getRpcsForChain('rootstock') },
-  },
-  blockExplorers: {
-    default: { name: 'rootstock explorer', url: 'https://rootstock.blockscout.com/' },
   },
   contracts: {
     multicall3: {
@@ -726,23 +554,16 @@ export const getChain: Partial<Record<ChainId, Chain>> = {
   [ChainId.bsc]: bscChain,
   [ChainId.polygon]: polygonChain,
   [ChainId.arbitrum]: arbitrumChain,
-  [ChainId.celo]: celoChain,
-  [ChainId.moonriver]: moonriverChain,
-  [ChainId.aurora]: auroraChain,
-  [ChainId.fuse]: fuseChain,
   [ChainId.metis]: metisChain,
-  [ChainId.emerald]: emeraldChain,
   [ChainId.optimism]: optimismChain,
   [ChainId.ethereum]: ethereumChain,
   [ChainId.zksync]: zkSyncChain,
-  [ChainId.zkevm]: zkEvmChain,
   [ChainId.base]: baseChain,
   [ChainId.gnosis]: gnosisChain,
   [ChainId.linea]: lineaChain,
   [ChainId.mantle]: mantleChain,
   [ChainId.fraxtal]: fraxtalChain,
   [ChainId.sei]: seiChain,
-  [ChainId.rootstock]: rootstockChain,
   [ChainId.lisk]: liskChain,
   [ChainId.sonic]: sonicChain,
   [ChainId.berachain]: berachainChain,

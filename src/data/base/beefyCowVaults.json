@@ -1,5 +1,29 @@
 [
   {
+    "address": "0x18fc65FFD4E059Ba769F64FAE1EE95F38a3b3152",
+    "lpAddress": "0xbCf23F30a90f6D7c288fACdc932fF8F8B68b0f30",
+    "tokens": ["0x4200000000000000000000000000000000000006", "0xC52aeDec3374422d7510E294cfAa90799595CBa3"],
+    "tokenOracleIds": ["WETH", "Surplus"],
+    "decimals": [18, 18],
+    "oracleId": "uniswap-cow-base-weth-surplus",
+    "rewardPool": {
+      "address": "0x5aeD150ecc86465D0B4aE5Ae60d8B99ddAF42D2B",
+      "oracleId": "uniswap-cow-base-weth-surplus-rp"
+    }
+  },
+  {
+    "address": "0x95f91190d6D09496239588a356a98151904C34Af",
+    "lpAddress": "0x61E715f97a76E3EbE2282A309A4FfEB61ea22971",
+    "tokens": ["0x21CFCFc3d8F98fC728f48341D10Ad8283F6EB7AB", "0x4200000000000000000000000000000000000006"],
+    "tokenOracleIds": ["TRUE", "WETH"],
+    "decimals": [18, 18],
+    "oracleId": "uniswap-cow-base-true-weth",
+    "rewardPool": {
+      "address": "0x3F452f2e0ccb43978C5Fe86592a2c876434A322a",
+      "oracleId": "uniswap-cow-base-true-weth-rp"
+    }
+  },
+  {
     "address": "0xB851e73A5A597e67D0aF28DdE76eD1EA65276Bd1",
     "lpAddress": "0x22906596Bd81F53f01d700DdBdB3935baC2E1446",
     "tokens": ["0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913", "0xB2000000000000000000004c27f6523082f41D01"],
