@@ -1,4 +1,4 @@
-import { ARBITRUM_CHAIN_ID as chainId } from '../../../constants.ts';
+import { ARC_CHAIN_ID as chainId } from '../../../constants.ts';
 import { getLoggerFor } from '../../../utils/logger/index.ts';
 import type { ApyBreakdownResult } from '../common/getApyBreakdownNew.ts';
 import { getBeefyCowArcApys } from './getBeefyCowArcApys.ts';
