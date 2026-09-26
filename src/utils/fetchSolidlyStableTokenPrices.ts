@@ -78,6 +78,14 @@ const tokens = {
       secondTokenDecimals: 6,
       secondTokenAddress: '0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913',
     },
+    {
+      oracleId: 'alUSDb',
+      pool: '0x32d6Ec4400fBdd4085ce1e1664C48F8D21c4f9aa',
+      firstTokenDecimals: 18,
+      secondToken: 'USDC',
+      secondTokenDecimals: 6,
+      secondTokenAddress: '0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913',
+    },
   ],
   linea: [
     {
