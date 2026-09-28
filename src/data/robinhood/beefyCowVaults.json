@@ -1,5 +1,17 @@
 [
   {
+    "address": "0x563267A634a8f762046aDeBd9B128880f46BAAaA",
+    "lpAddress": "0xc30c89cB7815A1488b7998D15eEC73961707Fc5a",
+    "tokens": ["0x5fc5360D0400a0Fd4f2af552ADD042D716F1d168", "0x941AE714EC6D8130c7B75d67160Ca08f1e7d11Dd"],
+    "tokenOracleIds": ["USDG", "DELLrh"],
+    "decimals": [6, 18],
+    "oracleId": "uniswap-cow-robinhood-usdg-dell",
+    "rewardPool": {
+      "address": "0x892A7C3D9Ba8d456e405e35e736b1a44a7A74794",
+      "oracleId": "uniswap-cow-robinhood-usdg-dell-rp"
+    }
+  },
+  {
     "address": "0xC17f60D0278AaCb2CFa83f3C1731746329d6dd7C",
     "lpAddress": "0x7F0aCE18D1dCEd47063CF26e649bc8AB14D09e67",
     "tokens": ["0x03DfbBE0AC4E7bCDaFd08eD41A400326B77D8c80", "0x5fc5360D0400a0Fd4f2af552ADD042D716F1d168"],

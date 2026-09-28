@@ -903,4 +903,18 @@ export const tokens = {
     bridge: 'native',
     tags: ['STOCK'],
   },
+  DELLrh: {
+    name: 'Dell • Robinhood Token',
+    symbol: 'DELL',
+    oracleId: 'DELLrh',
+    address: '0x941AE714EC6D8130c7B75d67160Ca08f1e7d11Dd',
+    chainId: 4663,
+    decimals: 18,
+    website: 'https://robinhood.com/rhj/stocktokens/',
+    description:
+      'Dell • Robinhood Token is a tokenized debt security issued by Robinhood Assets (Jersey) Limited that provides price exposure to Dell shares without conferring ownership or shareholder rights.',
+    documentation: 'https://docs.robinhood.com/chain/stock-tokens/',
+    bridge: 'native',
+    tags: ['STOCK'],
+  },
 } as const satisfies Record<string, Token>;
