@@ -1326,6 +1326,30 @@ const tokens = {
       firstToken: 'Surplus',
       secondToken: 'WETH',
     },
+    {
+      type: 'UniV3',
+      oracleId: 'TAO',
+      decimalDelta: 1,
+      pool: '0x82dD34C6631C286cDD1dB16f2c232f60E402Dd5A',
+      firstToken: 'TAO',
+      secondToken: 'WETH',
+    },
+    {
+      type: 'Slipstream',
+      oracleId: 'cbZEC',
+      decimalDelta: 1e-2,
+      pool: '0x0Fc47C17AF86078d809358db1b4db2DeBC988566',
+      firstToken: 'cbZEC',
+      secondToken: 'USDC',
+    },
+    {
+      type: 'Slipstream',
+      oracleId: 'cbHYPE',
+      decimalDelta: 1e-12,
+      pool: '0xD5Eaea9da564217EA101D1E369fDA168A3025686',
+      firstToken: 'cbHYPE',
+      secondToken: 'USDC',
+    },
   ],
   zksync: [
     {
