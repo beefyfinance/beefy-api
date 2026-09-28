@@ -1,6 +1,6 @@
 import fs from 'node:fs';
 import path from 'node:path';
-import { ChainId } from '@beefyfinance/blockchain-addressbook';
+import { addressBookByChainId, ChainId } from '@beefyfinance/blockchain-addressbook';
 import { type Address, createPublicClient, getAddress, getContract, http } from 'viem';
 import yargs from 'yargs';
 import { hideBin } from 'yargs/helpers';
@@ -158,6 +158,23 @@ async function main() {
       throw Error(`Duplicate: pool with name ${newPoolName} already exists`);
     }
   });
+
+  {
+    const tokens = addressBookByChainId[chainId].tokens;
+    const oracleId = tokens[token0.symbol] === undefined ? token0.symbol : token1.symbol;
+    const firstToken = token1.symbol;
+    const secondToken = token0.symbol;
+    const decimalDelta = token0.decimals === token1.decimals ? 1 : 10 ** token0.decimals / 10 ** token1.decimals;
+    const fetchPrice = {
+      type: 'UniV3',
+      pool: lp.address,
+      oracleId,
+      decimalDelta,
+      firstToken,
+      secondToken,
+    };
+    console.log(fetchPrice);
+  }
 
   const newPools = [newPool, ...poolsJson];
 
