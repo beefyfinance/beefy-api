@@ -3850,4 +3850,17 @@ export const tokens = {
     bridge: 'native',
     tags: ['MEMECOIN', 'NO_AUDIT', 'LARGE_HOLDERS'],
   },
+  alUSDb: {
+    name: 'Alchemic USD Base',
+    symbol: 'alUSDb',
+    oracleId: 'alUSDb',
+    address: '0x877014E21c32feA108B6A1f45f367efc9a2d9B9F',
+    chainId: 8453,
+    decimals: 18,
+    website: 'https://alchemix.fi/',
+    description: 'Alchemix is a protocol for saving, borrowing, and earning fixed-yield returns.',
+    documentation: 'https://docs.alchemix.fi/',
+    bridge: 'base-canonical',
+    tags: ['STABLECOIN', 'SYNTHETIC'],
+  },
 } as const satisfies Record<string, Token>;
