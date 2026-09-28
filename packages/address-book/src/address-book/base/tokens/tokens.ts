@@ -3861,6 +3861,6 @@ export const tokens = {
     description: 'Alchemix is a protocol for saving, borrowing, and earning fixed-yield returns.',
     documentation: 'https://docs.alchemix.fi/',
     bridge: 'base-canonical',
-    tags: ['STABLECOIN', 'SYNTHETIC'],
+    tags: ['STABLECOIN', 'SYNTHETIC', 'NO_TIMELOCK'],
   },
 } as const satisfies Record<string, Token>;
