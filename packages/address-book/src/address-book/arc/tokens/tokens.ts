@@ -34,7 +34,7 @@ export const tokens = {
     bridge: 'native',
     tags: ['BLUECHIP'],
   },
-  arcEURC: {
+  EURC: {
     name: 'EURC',
     symbol: 'EURC',
     oracleId: 'arcEURC',
