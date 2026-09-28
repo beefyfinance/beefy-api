@@ -1,5 +1,65 @@
 [
   {
+    "address": "0xC17f60D0278AaCb2CFa83f3C1731746329d6dd7C",
+    "lpAddress": "0x7F0aCE18D1dCEd47063CF26e649bc8AB14D09e67",
+    "tokens": ["0x03DfbBE0AC4E7bCDaFd08eD41A400326B77D8c80", "0x5fc5360D0400a0Fd4f2af552ADD042D716F1d168"],
+    "tokenOracleIds": ["JNJrh", "USDG"],
+    "decimals": [18, 6],
+    "oracleId": "uniswap-cow-robinhood-jnj-usdg",
+    "rewardPool": {
+      "address": "0x6149a536035b424EA7fcaABD8C9Dc5EfD2907538",
+      "oracleId": "uniswap-cow-robinhood-jnj-usdg-rp"
+    }
+  },
+  {
+    "address": "0x04AAd47F04296cf20231eC2054013193608bC847",
+    "lpAddress": "0xF212D02146a897F5F686E9d629F6A73da534324a",
+    "tokens": ["0x5fc5360D0400a0Fd4f2af552ADD042D716F1d168", "0x8005d266423c7ea827372c9c864491e5786600ea"],
+    "tokenOracleIds": ["USDG", "LLYrh"],
+    "decimals": [6, 18],
+    "oracleId": "uniswap-cow-robinhood-usdg-lly",
+    "rewardPool": {
+      "address": "0xBd6613ea70a3998c10471E55958b660d3cB5d097",
+      "oracleId": "uniswap-cow-robinhood-usdg-lly-rp"
+    }
+  },
+  {
+    "address": "0x7611d8E8D7D551D325b11C93b714565953710eA9",
+    "lpAddress": "0xC7d573Fcda6D2107C97fb582ae18411F9Db32E7f",
+    "tokens": ["0x5fc5360D0400a0Fd4f2af552ADD042D716F1d168", "0x7066A64c24e4206CD62E83bf198c1E7EB361F51e"],
+    "tokenOracleIds": ["USDG", "PFErh"],
+    "decimals": [6, 18],
+    "oracleId": "uniswap-cow-robinhood-usdg-pfe",
+    "rewardPool": {
+      "address": "0xEEbD4785b6960447Af5dCA4f85Fb90A11F976FDE",
+      "oracleId": "uniswap-cow-robinhood-usdg-pfe-rp"
+    }
+  },
+  {
+    "address": "0xC7F77395Dc6f39cfF9E435491EC2286C53454F99",
+    "lpAddress": "0xfAb520051f96F4D2a32c22B6a3dD7fFfdf231bFe",
+    "tokens": ["0x5fc5360D0400a0Fd4f2af552ADD042D716F1d168", "0x92FD66527192E3e61d4DDd13322Aa222DE86F9B5"],
+    "tokenOracleIds": ["USDG", "SGOVrh"],
+    "decimals": [6, 18],
+    "oracleId": "uniswap-cow-robinhood-usdg-sgov",
+    "rewardPool": {
+      "address": "0x3161cf7421899ffA37c6387d8ea2434524BA74D2",
+      "oracleId": "uniswap-cow-robinhood-usdg-sgov-rp"
+    }
+  },
+  {
+    "address": "0x4Acf44E509c5481704eb660a4616bA5DE3a1857a",
+    "lpAddress": "0xa57ab582b310dd6f9e934EA1EEEa152741545E6A",
+    "tokens": ["0x5fc5360D0400a0Fd4f2af552ADD042D716F1d168", "0xad25Ac6C84D497db898fa1E8387bf6Af3532a1c4"],
+    "tokenOracleIds": ["USDG", "BABArh"],
+    "decimals": [6, 18],
+    "oracleId": "uniswap-cow-robinhood-usdg-baba",
+    "rewardPool": {
+      "address": "0xB1fa0b71286443a7aBc6f8296AcB9c1bCA07B5AA",
+      "oracleId": "uniswap-cow-robinhood-usdg-baba-rp"
+    }
+  },
+  {
     "address": "0x8cf7bAE9ac9d3E8BF81dEbCd2b6171335B0d7fC3",
     "lpAddress": "0xe972Dfc9032D148f4B1618fb914FBbD2fC41D6dC",
     "tokens": ["0x0Bd7D308f8E1639FAb988df18A8011f41EAcAD73", "0x91A2DAe9699f0B82540B5886b0d8759C22820bA3"],
