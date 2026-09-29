@@ -917,4 +917,32 @@ export const tokens = {
     bridge: 'native',
     tags: ['STOCK'],
   },
+  BErh: {
+    name: 'Bloom Energy • Robinhood Token',
+    symbol: 'BE',
+    oracleId: 'BErh',
+    address: '0x822CC93fFD030293E9842c30BBD678F530701867',
+    chainId: 4663,
+    decimals: 18,
+    website: 'https://robinhood.com/rhj/stocktokens/',
+    description:
+      'Bloom Energy • Robinhood Token is a tokenized debt security issued by Robinhood Assets (Jersey) Limited that provides price exposure to Bloom Energy shares without conferring ownership or shareholder rights.',
+    documentation: 'https://docs.robinhood.com/chain/stock-tokens/',
+    bridge: 'native',
+    tags: ['STOCK'],
+  },
+  IBMrh: {
+    name: 'IBM • Robinhood Token',
+    symbol: 'IBM',
+    oracleId: 'IBMrh',
+    address: '0x980dcf6766FA79f5Cf0c4AAdb3ab477ff15a9619',
+    chainId: 4663,
+    decimals: 18,
+    website: 'https://robinhood.com/rhj/stocktokens/',
+    description:
+      'IBM • Robinhood Token is a tokenized debt security issued by Robinhood Assets (Jersey) Limited that provides price exposure to IBM shares without conferring ownership or shareholder rights.',
+    documentation: 'https://docs.robinhood.com/chain/stock-tokens/',
+    bridge: 'native',
+    tags: ['STOCK'],
+  },
 } as const satisfies Record<string, Token>;

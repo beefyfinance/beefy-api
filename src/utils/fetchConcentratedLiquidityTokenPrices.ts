@@ -2549,6 +2549,22 @@ const tokens = {
     },
     {
       type: 'UniV3',
+      pool: '0x8cD848ce18b829C5c769AFf27164078bB52e0E97',
+      oracleId: 'IBMrh',
+      decimalDelta: 1e-12,
+      firstToken: 'IBMrh',
+      secondToken: 'USDG',
+    },
+    {
+      type: 'UniV3',
+      pool: '0x1baD145C8F06444E0dF81c28257cd20231Bd1f16',
+      oracleId: 'BErh',
+      decimalDelta: 1e-12,
+      firstToken: 'BErh',
+      secondToken: 'USDG',
+    },
+    {
+      type: 'UniV3',
       oracleId: 'JNJrh',
       decimalDelta: 1e12,
       pool: '0x7F0aCE18D1dCEd47063CF26e649bc8AB14D09e67',
