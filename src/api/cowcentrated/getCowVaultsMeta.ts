@@ -16,7 +16,7 @@ const CACHE_KEY = 'COW_VAULTS_META';
 const INIT_DELAY = envNumber('COWCENTRATED_INIT_DELAY', 1000);
 const UPDATE_INTERVAL = 60000;
 const BEEFY_CLM_API = process.env.BEEFY_CLM_API || 'https://clm-api.beefy.finance';
-const API_EOL_CHAINS: ApiChain[] = ['berachain', 'lisk', 'scroll', 'sei', 'mantle', 'linea', 'zksync', 'gnosis'];
+const API_EOL_CHAINS: ApiChain[] = ['berachain', 'lisk', 'sei', 'mantle', 'linea', 'zksync', 'gnosis'];
 const SUPPORTED_CHAINS = new Set(SupportedChains.filter(c => !API_EOL_CHAINS.includes(c)));
 
 const chainToVaults: Partial<Record<ApiChain, CowClmsMeta>> = {};
@@ -39,11 +39,7 @@ async function fetchCowVaultsMeta(chainId: ApiChain): Promise<AnyCowClmMeta[]> {
     return [];
   }
 
-  // rootstock is expensive to harvest so we don't harvest it as often
-  // ask the api to compute metrics over a longer period of time
-  // to ensure we have some data to base metrics on
-  const period = chainId === 'rootstock' ? '3.1d' : '1.1d';
-  const url = `${BEEFY_CLM_API}/api/v1/vaults/${chainId}/${period}`;
+  const url = `${BEEFY_CLM_API}/api/v1/vaults/${chainId}/1.1d`;
   const response = await fetch(url);
   if (!response.ok) {
     throw new Error(`Failed to fetch vaults from CLM API for ${chainId}: ${response.status} ${response.statusText}`);

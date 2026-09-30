@@ -1,14 +1,10 @@
-import type { NormalizedCacheObject } from '@apollo/client/cache/inmemory/types.js';
-import type { ApolloClient } from '@apollo/client/core/ApolloClient.js';
 import type { ChainId } from '@beefyfinance/blockchain-addressbook';
 import { BigNumber } from 'bignumber.js';
 import IMultiRewardMasterChef from '../../../abis/IMultiRewardMasterChef.ts';
-import { isBeetClient, isSushiClient } from '../../../apollo/client.ts';
 import type { LpPool, SingleAssetPool } from '../../../types/LpPool.ts';
 import { fetchPrice } from '../../../utils/fetchPrice.ts';
 import getBlockTime from '../../../utils/getBlockTime.ts';
 import { getEDecimals } from '../../../utils/getEDecimals.ts';
-import { getTradingFeeApr, getTradingFeeAprBalancer, getTradingFeeAprSushi } from '../../../utils/getTradingFeeApr.ts';
 import { getLoggerFor } from '../../../utils/logger/index.ts';
 import type { TypedOmit } from '../../../utils/object.ts';
 import { fetchContract } from '../../rpc/client.ts';
@@ -34,7 +30,6 @@ export interface MasterChefApysParams {
   oracle: string;
   oracleId: string;
   decimals: string;
-  tradingFeeInfoClient?: ApolloClient<NormalizedCacheObject>;
   liquidityProviderFee?: number;
   log?: boolean;
   tradingAprs?: {
@@ -55,27 +50,12 @@ export const getMultiRewardMasterChefApys = async (
     pools: [...(masterchefParams.pools ?? []), ...(masterchefParams.singlePools ?? [])],
   };
 
-  const [tradingAprs, farmApys] = await Promise.all([getTradingAprs(params), getFarmApys(params)]);
+  const tradingAprs = params.tradingAprs ?? {};
+  const farmApys = await getFarmApys(params);
 
   const liquidityProviderFee = params.liquidityProviderFee ?? 0.003;
 
   return getApyBreakdown(params.pools, tradingAprs, farmApys, liquidityProviderFee);
-};
-
-const getTradingAprs = async (params: NormalizedMasterChefApysParams) => {
-  let tradingAprs = params.tradingAprs ?? {};
-  const client = params.tradingFeeInfoClient;
-  const fee = params.liquidityProviderFee;
-  if (client && fee) {
-    const pairAddresses = params.pools.map(pool => pool.address.toLowerCase());
-    const aprs = isSushiClient(client)
-      ? await getTradingFeeAprSushi(client, pairAddresses, fee)
-      : isBeetClient(client)
-        ? await getTradingFeeAprBalancer(client, pairAddresses, fee, params.chainId)
-        : await getTradingFeeApr(client, pairAddresses, fee);
-    tradingAprs = { ...tradingAprs, ...aprs };
-  }
-  return tradingAprs;
 };
 
 const getFarmApys = async (params: NormalizedMasterChefApysParams): Promise<BigNumber[]> => {

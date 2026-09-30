@@ -59,7 +59,7 @@ export type BoostPromoConfig = MakePromo<{
 }>;
 
 export type OffChainPromoConfig = MakePromo<{
-  /** boost of vault via extra off chain merkl/stellaswap rewards */
+  /** boost of vault via extra off chain merkl rewards */
   type: 'offchain';
   /** which `type` from our offchain api should this apply to */
   campaignType: string;

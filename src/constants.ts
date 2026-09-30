@@ -4,14 +4,8 @@ import { getChainRpcs } from './api/rpc/rpcs.ts';
 import { type ApiChain, fromChainId, type SupportedApiChain, toChainId } from './utils/chain.ts';
 import { mapValues, typedEntries } from './utils/object.ts';
 
-const API_BASE_URL = process.env.API_BASE_URL || 'http://localhost:3000';
-
 const BASE_HPY = 2190;
-const MINUTELY_HPY = 525600;
-const HOURLY_HPY = 8760;
 const DAILY_HPY = 365;
-const ETH_HPY = DAILY_HPY / 3;
-const WEEKLY_HPY = 52;
 
 type ApiChainToRpcs = Readonly<Record<SupportedApiChain, ReadonlyArray<string>>>;
 
@@ -147,20 +141,6 @@ const MONAD_CHAIN_ID = ChainId.monad;
 const MEGAETH_CHAIN_ID = ChainId.megaeth;
 const ROBINHOOD_CHAIN_ID = ChainId.robinhood;
 const ARC_CHAIN_ID = ChainId.arc;
-
-/// LP Fee
-const SUSHI_LPF = 0.003;
-const PCS_LPF = 0.0017;
-const SPOOKY_LPF = 0.002;
-const JOE_LPF = 0.003;
-const SOLAR_LPF = 0.0025;
-const FUSEFI_LPF = 0.003;
-const NET_LPF = 0.003;
-const PANGOLIN_LPF = 0.003;
-const TETHYS_LPF = 0.002;
-const BEAMSWAP_LPF = 0.0017;
-const BISWAP_LPF = 0.0005;
-const HOP_LPF = 0.0004;
 
 const MULTICHAIN_RPC: Record<ChainId, string> = Object.fromEntries(
   typedEntries(RPCS_BY_CHAIN).map(([chain, rpcs]) => [ChainId[chain], rpcs[0]])
@@ -348,7 +328,6 @@ export const {
 } = RPC_BY_ENV_KEY;
 
 export {
-  API_BASE_URL,
   ARBITRUM_CHAIN_ID,
   ARBITRUM_VAULTS_ENDPOINT,
   ARC_CHAIN_ID,
@@ -360,10 +339,8 @@ export {
   BASE_CHAIN_ID,
   BASE_HPY,
   BASE_VAULTS_ENDPOINT,
-  BEAMSWAP_LPF,
   BERACHAIN_CHAIN_ID,
   BERACHAIN_VAULTS_ENDPOINT,
-  BISWAP_LPF,
   BSC_CHAIN_ID,
   BSC_VAULTS_ENDPOINT,
   CANTO_CHAIN_ID,
@@ -384,15 +361,11 @@ export {
   FRAXTAL_VAULTS_ENDPOINT,
   FUSE_CHAIN_ID,
   FUSE_VAULTS_ENDPOINT,
-  FUSEFI_LPF,
   GNOSIS_CHAIN_ID,
   GNOSIS_VAULTS_ENDPOINT,
   HECO_VAULTS_ENDPOINT,
-  HOP_LPF,
-  HOURLY_HPY,
   HYPEREVM_CHAIN_ID,
   HYPEREVM_VAULTS_ENDPOINT,
-  JOE_LPF,
   KAVA_CHAIN_ID,
   KAVA_VAULTS_ENDPOINT,
   LINEA_CHAIN_ID,
@@ -407,7 +380,6 @@ export {
   MEGAETH_VAULTS_ENDPOINT,
   METIS_CHAIN_ID,
   METIS_VAULTS_ENDPOINT,
-  MINUTELY_HPY,
   MODE_CHAIN_ID,
   MODE_VAULTS_ENDPOINT,
   MONAD_CHAIN_ID,
@@ -418,12 +390,9 @@ export {
   MOONRIVER_VAULTS_ENDPOINT,
   MULTICHAIN_ENDPOINTS,
   MULTICHAIN_RPC,
-  NET_LPF,
   ONE_VAULTS_ENDPOINT,
   OPTIMISM_CHAIN_ID,
   OPTIMISM_VAULTS_ENDPOINT,
-  PANGOLIN_LPF,
-  PCS_LPF,
   PLASMA_CHAIN_ID,
   PLASMA_VAULTS_ENDPOINT,
   POLYGON_CHAIN_ID,
@@ -439,15 +408,10 @@ export {
   SCROLL_VAULTS_ENDPOINT,
   SEI_CHAIN_ID,
   SEI_VAULTS_ENDPOINT,
-  SOLAR_LPF,
   SONIC_CHAIN_ID,
   SONIC_VAULTS_ENDPOINT,
-  SPOOKY_LPF,
-  SUSHI_LPF,
-  TETHYS_LPF,
   UNICHAIN_CHAIN_ID,
   UNICHAIN_VAULTS_ENDPOINT,
-  WEEKLY_HPY,
   ZKEVM_CHAIN_ID,
   ZKEVM_VAULTS_ENDPOINT,
   ZKSYNC_CHAIN_ID,

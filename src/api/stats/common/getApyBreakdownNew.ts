@@ -19,10 +19,8 @@ const nonCompoundableComponents = [
   'liquidStaking',
   'composablePool',
   'merkl',
-  'stellaSwap',
   'rewardPool',
   'rewardPoolTrading', // CLM fees sent to reward pool e.g. VELO, RAM etc
-  'lineaIgnition',
 ] as const;
 
 /** special component */

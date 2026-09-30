@@ -4,10 +4,8 @@ import { base } from '@beefyfinance/blockchain-addressbook/base';
 import { bsc } from '@beefyfinance/blockchain-addressbook/bsc';
 import { linea } from '@beefyfinance/blockchain-addressbook/linea';
 import { lisk } from '@beefyfinance/blockchain-addressbook/lisk';
-import { mode } from '@beefyfinance/blockchain-addressbook/mode';
 import { optimism } from '@beefyfinance/blockchain-addressbook/optimism';
 import { robinhood } from '@beefyfinance/blockchain-addressbook/robinhood';
-import { scroll } from '@beefyfinance/blockchain-addressbook/scroll';
 import { sonic } from '@beefyfinance/blockchain-addressbook/sonic';
 import type { AnyCowClm, CowProvider } from './types.ts';
 
@@ -27,7 +25,6 @@ export const providers = {
   velodrome: {
     poolTradingRewardTokens: {
       optimism: [optimism.tokens.VELOV2],
-      mode: [mode.tokens.XVELO],
       lisk: [lisk.tokens.XVELO],
     },
   },
@@ -44,11 +41,6 @@ export const providers = {
   pharaoh: {
     poolTradingRewardTokens: {
       avax: [avax.tokens.PHAR, avax.tokens.sAVAX],
-    },
-  },
-  nuri: {
-    poolTradingRewardTokens: {
-      scroll: [scroll.tokens.NURI],
     },
   },
   shadow: {

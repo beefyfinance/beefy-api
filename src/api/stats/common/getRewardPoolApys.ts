@@ -1,5 +1,3 @@
-import type { NormalizedCacheObject } from '@apollo/client/cache/inmemory/types.js';
-import type { ApolloClient } from '@apollo/client/core/ApolloClient.js';
 import type { ChainId } from '@beefyfinance/blockchain-addressbook';
 import { BigNumber } from 'bignumber.js';
 import type { Abi, Address } from 'viem';
@@ -7,11 +5,9 @@ import ERC20Abi from '../../../abis/ERC20Abi.ts';
 import InfraredGauge from '../../../abis/InfraredGauge.ts';
 import IRewardPool from '../../../abis/IRewardPool.ts';
 import IWrapper from '../../../abis/IWrapper.ts';
-import { isSushiClient } from '../../../apollo/client.ts';
 import { fetchPrice } from '../../../utils/fetchPrice.ts';
 import getBlockNumber from '../../../utils/getBlockNumber.ts';
 import getBlockTime from '../../../utils/getBlockTime.ts';
-import { getTradingFeeApr, getTradingFeeAprSushi } from '../../../utils/getTradingFeeApr.ts';
 import { getLoggerFor } from '../../../utils/logger/index.ts';
 import { fetchContract } from '../../rpc/client.ts';
 import { getApyBreakdown } from '../common/getApyBreakdown.ts';
@@ -49,7 +45,6 @@ export type RewardPoolApyParams = {
   periodFinish?: string;
   liquidityProviderFee?: number;
   tradingAprs?: Record<string, BigNumber>;
-  tradingFeeInfoClient?: ApolloClient<NormalizedCacheObject>;
   gammaClient?: string;
   isRewardInXToken?: boolean;
   tokenAddress?: string;
@@ -78,16 +73,7 @@ export const getRewardPoolApys = async (params: RewardPoolApyParams) => {
 };
 
 const getTradingAprs = async (params: RewardPoolApyParams) => {
-  let tradingAprs = params.tradingAprs ?? {};
-  const client = params.tradingFeeInfoClient;
-  const fee = params.liquidityProviderFee;
-  if (client && fee) {
-    const pairAddresses = params.pools.map(pool => pool.address.toLowerCase());
-    const getAprs = isSushiClient(client) ? getTradingFeeAprSushi : getTradingFeeApr;
-    const aprs = await getAprs(client, pairAddresses, fee);
-    tradingAprs = { ...tradingAprs, ...aprs };
-  }
-
+  const tradingAprs = params.tradingAprs ?? {};
   if (params.gammaClient) {
     // FIXME(unsafe-cast): unchecked response shape
     const response = await fetch(params.gammaClient).then(res => res.json() as Promise<GammaFeeApiResponse>);

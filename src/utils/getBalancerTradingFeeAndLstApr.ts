@@ -40,8 +40,6 @@ const getChainName = (chain: ChainId) => {
       return 'AVALANCHE';
     case 252:
       return 'FRAXTAL';
-    case 34443:
-      return 'MODE';
     case 137:
       return 'POLYGON';
     case 100:

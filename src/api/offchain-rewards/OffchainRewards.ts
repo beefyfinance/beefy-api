@@ -9,7 +9,6 @@ import { createCachedFactory } from '../../utils/factory.ts';
 import { getLoggerFor } from '../../utils/logger/index.ts';
 import { typedEntries, typedKeys } from '../../utils/object.ts';
 import { MerklProvider } from './providers/merkl/MerklProvider.ts';
-import { StellaSwapProvider } from './providers/stellaswap/StellaSwapProvider.ts';
 import { isUpdateResolved } from './typeguards.ts';
 import type {
   Campaign,
@@ -63,11 +62,6 @@ const NO_DATA: ChainCampaigns = {
 
 export class OffchainRewards {
   protected readonly byProvider: ByProvider = {
-    stellaswap: {
-      providerId: 'stellaswap',
-      provider: new StellaSwapProvider(),
-      byChain: {},
-    },
     merkl: {
       providerId: 'merkl',
       provider: new MerklProvider(),
