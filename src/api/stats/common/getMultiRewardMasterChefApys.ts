@@ -1,7 +1,7 @@
-import type { ChainId } from '@beefyfinance/blockchain-addressbook';
 import { BigNumber } from 'bignumber.js';
 import IMultiRewardMasterChef from '../../../abis/IMultiRewardMasterChef.ts';
 import type { LpPool, SingleAssetPool } from '../../../types/LpPool.ts';
+import type { ApiChainId } from '../../../utils/chain.ts';
 import { fetchPrice } from '../../../utils/fetchPrice.ts';
 import getBlockTime from '../../../utils/getBlockTime.ts';
 import { getEDecimals } from '../../../utils/getEDecimals.ts';
@@ -12,18 +12,18 @@ import { type ApyBreakdownResult, getApyBreakdown } from '../common/getApyBreakd
 
 const logger = getLoggerFor({ module: 'apy', component: 'multiRewardMasterChef' });
 
-type WithOptionalDecimalsAndChainId<T extends { decimals: string; chainId: ChainId }> = TypedOmit<
+type WithOptionalDecimalsAndChainId<T extends { decimals: string; chainId: ApiChainId }> = TypedOmit<
   T,
   'decimals' | 'chainId'
 > & {
   decimals?: string;
-  chainId?: ChainId;
+  chainId?: ApiChainId;
 };
 
 export type MasterChefPool = WithOptionalDecimalsAndChainId<LpPool> | WithOptionalDecimalsAndChainId<SingleAssetPool>;
 
 export interface MasterChefApysParams {
-  chainId: ChainId;
+  chainId: ApiChainId;
   masterchef: string;
   singlePools?: SingleAssetPool[];
   pools?: MasterChefPool[];

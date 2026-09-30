@@ -1,4 +1,4 @@
-import { POLYGON_CHAIN_ID } from '../../../constants.ts';
+import { ApiChainId } from '../../../utils/chain.ts';
 import { getConvexApyData } from '../common/curve/getConvexApyData.ts';
 import { getCurveSubgraphApys } from '../common/curve/getCurveApyData.ts';
 import { getApyBreakdown } from '../common/getApyBreakdown.ts';
@@ -11,7 +11,7 @@ const tradingFees = 0.0002;
 export const getConvexApys = async () => {
   const [baseApys, farmApys] = await Promise.all([
     getCurveSubgraphApys(pools, baseApyUrl),
-    getConvexApyData(POLYGON_CHAIN_ID, pools),
+    getConvexApyData(ApiChainId.polygon, pools),
   ]);
   const poolsMap = pools.map(p => ({ name: p.name, address: p.name }));
   return getApyBreakdown(poolsMap, baseApys, farmApys, tradingFees);

@@ -1,7 +1,8 @@
 import { BigNumber } from 'bignumber.js';
 import { default as StableJoeStaking } from '../../../abis/avax/StableJoeStaking.ts';
 import { sjoeClient } from '../../../apollo/client.ts';
-import { AVAX_CHAIN_ID, DAILY_HPY } from '../../../constants.ts';
+import { DAILY_HPY } from '../../../constants.ts';
+import { ApiChainId } from '../../../utils/chain.ts';
 import { compound } from '../../../utils/compound.ts';
 import { fetchPrice } from '../../../utils/fetchPrice.ts';
 import { getYearlyRemittedUsdForSJOE } from '../../../utils/getTradingFeeApr.ts';
@@ -22,7 +23,7 @@ const liquidityProviderFee = 0.0005;
 const getJoeApy = async () => {
   const joePrice = await fetchPrice({ oracle, id: JOE });
 
-  const rewardPool = fetchContract(pool.rewardPool, StableJoeStaking, AVAX_CHAIN_ID);
+  const rewardPool = fetchContract(pool.rewardPool, StableJoeStaking, ApiChainId.avax);
   const [totalStaked, yearlyRemittedUsd] = await Promise.all([
     rewardPool.read.internalJoeBalance().then(v => new BigNumber(v)),
     getYearlyRemittedUsdForSJOE(sjoeClient),

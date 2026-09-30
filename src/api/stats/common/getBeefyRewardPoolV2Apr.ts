@@ -1,5 +1,4 @@
 import { addressBookByChainId } from '@beefyfinance/blockchain-addressbook';
-import type { ChainId } from '@beefyfinance/blockchain-addressbook/types/chainid';
 import type { TokenWithId } from '@beefyfinance/blockchain-addressbook/types/token';
 import type { BigNumber } from 'bignumber.js';
 import { getUnixTime } from 'date-fns';
@@ -10,6 +9,7 @@ import { IBeefyRewardPool } from '../../../abis/IBeefyRewardPool.ts';
 import { ZERO_ADDRESS } from '../../../utils/address.ts';
 import { isDefined, isNonEmptyArray, type NonEmptyArray } from '../../../utils/array.ts';
 import { BIG_ONE, BIG_ZERO, fromWei, toBigNumber } from '../../../utils/big-number.ts';
+import type { ApiChainId } from '../../../utils/chain.ts';
 import { envBoolean } from '../../../utils/env.ts';
 import { getLoggerFor } from '../../../utils/logger/index.ts';
 import { isFiniteNumber } from '../../../utils/number.ts';
@@ -74,7 +74,7 @@ export type RewardApr = RewardConfigPrice & {
 };
 
 export type BeefyRewardPoolV2Result = Pick<BeefyRewardPoolV2Config, 'oracleId' | 'address' | 'stakedToken'> & {
-  chainId: ChainId;
+  chainId: ApiChainId;
   totalApr?: number | undefined;
   rewardsApr?: Array<RewardApr> | undefined;
 };
@@ -86,7 +86,7 @@ export type BeefyRewardPoolV2Result = Pick<BeefyRewardPoolV2Config, 'oracleId' |
  * @returns successful results only
  */
 export const getBeefyRewardPoolV2Aprs = async (
-  chainId: ChainId,
+  chainId: ApiChainId,
   pools: BeefyRewardPoolV2Config[]
 ): Promise<BeefyRewardPoolV2Result[]> => {
   const results = await Promise.allSettled(pools.map(pool => getBeefyRewardPoolV2Apr(chainId, pool)));
@@ -103,7 +103,7 @@ export const getBeefyRewardPoolV2Aprs = async (
  * @returns successful result or undefined
  */
 export const getBeefyRewardPoolV2Apr = async (
-  chainId: ChainId,
+  chainId: ApiChainId,
   pool: BeefyRewardPoolV2Config
 ): Promise<BeefyRewardPoolV2Result | undefined> => {
   try {
@@ -267,7 +267,7 @@ async function getRewardConfigsInfo(
   return activeRewards;
 }
 
-async function getYearlyRewardsInUsd(chainId: ChainId, pool: BeefyRewardPoolV2Config): Promise<RewardYearlyUsd[]> {
+async function getYearlyRewardsInUsd(chainId: ApiChainId, pool: BeefyRewardPoolV2Config): Promise<RewardYearlyUsd[]> {
   const rewardPoolContract = fetchContract(pool.address, IBeefyRewardPool, chainId);
   const rewardConfigs =
     pool.rewards && pool.rewards.length > 0
@@ -293,7 +293,7 @@ async function getYearlyRewardsInUsd(chainId: ChainId, pool: BeefyRewardPoolV2Co
   }));
 }
 
-async function getTotalStakedInUsd(chainId: ChainId, pool: BeefyRewardPoolV2Config): Promise<BigNumber> {
+async function getTotalStakedInUsd(chainId: ApiChainId, pool: BeefyRewardPoolV2Config): Promise<BigNumber> {
   const stakedTokenContract = fetchContract(pool.stakedToken.address, ERC20Abi, chainId);
 
   const [price, totalStaked] = await Promise.all([

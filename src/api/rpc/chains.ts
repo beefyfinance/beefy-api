@@ -1,4 +1,4 @@
-import { addressBook, type ChainId } from '@beefyfinance/blockchain-addressbook';
+import { addressBook } from '@beefyfinance/blockchain-addressbook';
 import type { Chain } from 'viem';
 import { keysToObject } from '../../utils/array.ts';
 import { type ApiChain, ApiChainId, fromChainId, getChainConfig, toChainId } from '../../utils/chain.ts';
@@ -17,11 +17,9 @@ function buildChain(chain: ApiChain): Chain {
   };
 }
 
-const chainsById: Partial<Record<ChainId, Chain>> = keysToObject(Object.values(ApiChainId), chainId =>
-  buildChain(fromChainId(chainId))
-);
+const chainsById = keysToObject(Object.values(ApiChainId), chainId => buildChain(fromChainId(chainId)));
 
-export function getChain(chainId: ChainId): Chain {
+export function getChain(chainId: ApiChainId): Chain {
   const chain = chainsById[chainId];
   if (!chain) throw new Error(`Unknown chainId ${chainId}`);
   return chain;

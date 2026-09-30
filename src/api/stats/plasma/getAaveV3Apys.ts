@@ -1,4 +1,4 @@
-import { PLASMA_CHAIN_ID } from '../../../constants.ts';
+import { ApiChainId } from '../../../utils/chain.ts';
 import { getAaveV3ApyData } from '../common/aave/getAaveV3Apys.ts';
 import pools from '../../../data/plasma/aaveV3Pools.json' with { type: 'json' };
 
@@ -9,5 +9,5 @@ const config = {
 };
 
 export const getAaveV3Apys = async () => {
-  return getAaveV3ApyData(config, pools, PLASMA_CHAIN_ID);
+  return getAaveV3ApyData(config, pools, ApiChainId.plasma);
 };

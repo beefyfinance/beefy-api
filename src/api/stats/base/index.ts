@@ -1,4 +1,4 @@
-import { BASE_CHAIN_ID } from '../../../constants.ts';
+import { ApiChainId } from '../../../utils/chain.ts';
 import { getLoggerFor } from '../../../utils/logger/index.ts';
 import type { ApyBreakdownResult } from '../common/getApyBreakdownNew.ts';
 import { getMellowVeloApys } from '../common/getMellowVeloApys.ts';
@@ -11,15 +11,15 @@ import { getCurveApys } from './getCurveApys.ts';
 import mellowAeroPoolsData from '../../../data/base/mellowAeroPools.json' with { type: 'json' };
 import morphoPoolsData from '../../../data/base/morphoPools.json' with { type: 'json' };
 
-const logger = getLoggerFor({ module: 'apy', chain: BASE_CHAIN_ID });
+const logger = getLoggerFor({ module: 'apy', chain: ApiChainId.base });
 
 const getApys = [
   getAaveV3Apys,
   getAerodromeApys,
   getCurveApys,
   getAlienBaseApys,
-  () => getMellowVeloApys(BASE_CHAIN_ID, mellowAeroPoolsData),
-  () => getMorphoApys(BASE_CHAIN_ID, morphoPoolsData),
+  () => getMellowVeloApys(ApiChainId.base, mellowAeroPoolsData),
+  () => getMorphoApys(ApiChainId.base, morphoPoolsData),
   getBeefyBaseCowApys,
 ];
 

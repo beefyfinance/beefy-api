@@ -1,15 +1,8 @@
 import { BigNumber } from 'bignumber.js';
 import { type Address, parseAbi } from 'viem';
 import ERC20Abi from '../../../abis/ERC20Abi.ts';
-import {
-  ARBITRUM_CHAIN_ID,
-  BASE_CHAIN_ID,
-  BSC_CHAIN_ID,
-  ETH_CHAIN_ID,
-  PLASMA_CHAIN_ID,
-  SONIC_CHAIN_ID,
-} from '../../../constants.ts';
 import type { PricesById, StandardLpBreakdown } from '../../../types/prices.ts';
+import { ApiChainId } from '../../../utils/chain.ts';
 import { getLoggerFor } from '../../../utils/logger/index.ts';
 import type { OptionalRecord } from '../../../utils/object.ts';
 import { withTracing } from '../../../utils/tracing.ts';
@@ -18,12 +11,12 @@ import { fetchContract } from '../../rpc/client.ts';
 const logger = getLoggerFor({ module: 'prices', component: 'pendle' });
 
 const routerStatic = {
-  [ARBITRUM_CHAIN_ID]: '0xAdB09F65bd90d19e3148D9ccb693F3161C6DB3E8',
-  [ETH_CHAIN_ID]: '0x263833d47eA3fA4a30f269323aba6a107f9eB14C',
-  [BSC_CHAIN_ID]: '0x2700ADB035F82a11899ce1D3f1BF8451c296eABb',
-  [BASE_CHAIN_ID]: '0xB4205a645c7e920BD8504181B1D7f2c5C955C3e7',
-  [SONIC_CHAIN_ID]: '0x0013ACc071f732fd6BF8210AB46A3794a7D8945e',
-  [PLASMA_CHAIN_ID]: '0x6813d43782395A1F2AAb42f39aeEDE03ac655e09',
+  [ApiChainId.arbitrum]: '0xAdB09F65bd90d19e3148D9ccb693F3161C6DB3E8',
+  [ApiChainId.ethereum]: '0x263833d47eA3fA4a30f269323aba6a107f9eB14C',
+  [ApiChainId.bsc]: '0x2700ADB035F82a11899ce1D3f1BF8451c296eABb',
+  [ApiChainId.base]: '0xB4205a645c7e920BD8504181B1D7f2c5C955C3e7',
+  [ApiChainId.sonic]: '0x0013ACc071f732fd6BF8210AB46A3794a7D8945e',
+  [ApiChainId.plasma]: '0x6813d43782395A1F2AAb42f39aeEDE03ac655e09',
 };
 const routerAbi = parseAbi([
   'function isExpired() external view returns (bool)',
@@ -40,12 +33,12 @@ export type PendlePool = {
 };
 
 type PendleChainId =
-  | typeof ARBITRUM_CHAIN_ID
-  | typeof ETH_CHAIN_ID
-  | typeof BSC_CHAIN_ID
-  | typeof BASE_CHAIN_ID
-  | typeof SONIC_CHAIN_ID
-  | typeof PLASMA_CHAIN_ID;
+  | typeof ApiChainId.arbitrum
+  | typeof ApiChainId.ethereum
+  | typeof ApiChainId.bsc
+  | typeof ApiChainId.base
+  | typeof ApiChainId.sonic
+  | typeof ApiChainId.plasma;
 
 export const getPendleCommonPrices = withTracing(
   async (chainId: PendleChainId, pools: PendlePool[], tokenPrices: PricesById, lpPrices?: PricesById) => {

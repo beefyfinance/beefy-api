@@ -1,8 +1,8 @@
-import type { ChainId } from '@beefyfinance/blockchain-addressbook';
 import { BigNumber } from 'bignumber.js';
 import ThenaLPAbi from '../../../abis/bsc/ThenaLP.ts';
 import type { LpToken } from '../../../types/LpPool.ts';
 import type { PricesById, StandardLpBreakdown } from '../../../types/prices.ts';
+import type { ApiChainId } from '../../../utils/chain.ts';
 import { getLoggerFor } from '../../../utils/logger/index.ts';
 import { withTracing } from '../../../utils/tracing.ts';
 import { fetchContract } from '../../rpc/client.ts';
@@ -19,7 +19,7 @@ export type GammaPool = {
 type GammaTotalAmounts = readonly [bigint, bigint];
 
 export const getGammaPrices = withTracing(
-  async (chainId: ChainId, pools: GammaPool[], tokenPrices: PricesById) => {
+  async (chainId: ApiChainId, pools: GammaPool[], tokenPrices: PricesById) => {
     const [amountCalls, totalSupplyCalls] = pools.reduce<[Promise<GammaTotalAmounts>[], Promise<bigint>[]]>(
       (acc, pool) => {
         const contract = fetchContract(pool.address, ThenaLPAbi, chainId);
@@ -57,7 +57,7 @@ export const getGammaPrices = withTracing(
     }
     return prices;
   },
-  { logger, fieldsFn: (chainId: ChainId) => ({ chain: chainId }) }
+  { logger, fieldsFn: (chainId: ApiChainId) => ({ chain: chainId }) }
 );
 
 const getTokenPrice = (tokenPrices: PricesById, oracleId: string) => {

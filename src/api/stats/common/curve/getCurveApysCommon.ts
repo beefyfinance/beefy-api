@@ -1,7 +1,7 @@
-import type { ChainId } from '@beefyfinance/blockchain-addressbook';
 import { BigNumber } from 'bignumber.js';
 import type { Address } from 'viem';
 import ICurveGauge from '../../../../abis/ICurveGauge.ts';
+import type { ApiChainId } from '../../../../utils/chain.ts';
 import { fetchPrice } from '../../../../utils/fetchPrice.ts';
 import { getLoggerFor } from '../../../../utils/logger/index.ts';
 import { getMerklAprByIdentifier } from '../../../offchain-rewards/providers/merkl/proxyClient.ts';
@@ -35,7 +35,7 @@ type CurveExtraRewardData = {
   token: string;
 };
 
-export async function getCurveApysCommon(chainId: ChainId, pools: CurveApyPool[]) {
+export async function getCurveApysCommon(chainId: ApiChainId, pools: CurveApyPool[]) {
   const apys: BigNumber[] = [];
 
   const weekEpoch = Math.floor(Date.now() / 1000 / (86400 * 7));
@@ -119,7 +119,7 @@ export async function getCurveApysCommon(chainId: ChainId, pools: CurveApyPool[]
   return apys;
 }
 
-export async function getMerklApys(chainId: ChainId, pools: CurveMerklPool[]) {
+export async function getMerklApys(chainId: ApiChainId, pools: CurveMerklPool[]) {
   // FIXME(unsafe-cast): may be undefined
   const ids = pools.filter(p => p.merklId).map(p => p.merklId) as string[];
   let aprById: Record<string, number> = {};

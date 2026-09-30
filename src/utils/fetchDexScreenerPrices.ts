@@ -1,5 +1,5 @@
 import { orderBy, uniqBy } from 'lodash-es';
-import type { ApiChain } from './chain.ts';
+import { type ApiChain, getChainConfig, SupportedChains } from './chain.ts';
 import { getLoggerFor } from './logger/index.ts';
 import { isFiniteNumber } from './number.ts';
 import { isValidPrice } from './prices.ts';
@@ -8,26 +8,12 @@ const logger = getLoggerFor({ module: 'prices', component: 'dex-screener' });
 
 const MAX_VALID_PRICE_USD = 1_000_000;
 
-const chainIdToDexScreenerChainId = {
-  ethereum: 'ethereum',
-  bsc: 'bsc',
-  base: 'base',
-  arbitrum: 'arbitrum',
-  polygon: 'polygon',
-  avax: 'avalanche',
-  optimism: 'optimism',
-  zksync: 'zksync',
-  linea: 'linea',
-  metis: 'metis',
-  gnosis: 'gnosischain',
-  mantle: 'mantle',
-  sonic: 'sonic',
-  plasma: 'plasma',
-} as const satisfies Partial<Record<ApiChain, string>>;
-
-const dexScreenerChainIdToChainId = Object.fromEntries(
-  Object.entries(chainIdToDexScreenerChainId).map(([k, v]) => [v, k])
-) as Record<string, ApiChain>;
+const dexScreenerChainIdToChainId: Record<string, ApiChain> = Object.fromEntries(
+  SupportedChains.flatMap(chain => {
+    const dexScreenerChain = getChainConfig(chain).integrations.dexScreener;
+    return dexScreenerChain ? [[dexScreenerChain, chain] as const] : [];
+  })
+);
 
 type DexScreenerToken = {
   address: string;

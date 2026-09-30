@@ -1,4 +1,5 @@
 import { BigNumber } from 'bignumber.js';
+import type { ApiChainId } from '../../../../utils/chain.ts';
 import { getLoggerFor } from '../../../../utils/logger/index.ts';
 import { getApyBreakdown } from '../getApyBreakdownNew.ts';
 
@@ -56,7 +57,7 @@ type MerklAprData = {
   apr: BigNumber;
 };
 
-export const getAaveV4ApyData = async (chainId: number, pools: AaveV4Pool[]) => {
+export const getAaveV4ApyData = async (chainId: ApiChainId, pools: AaveV4Pool[]) => {
   const data = await getAaveV4PoolData(chainId, pools);
 
   return getApyBreakdown(
@@ -68,7 +69,7 @@ export const getAaveV4ApyData = async (chainId: number, pools: AaveV4Pool[]) => 
   );
 };
 
-export const getAaveV4PoolData = async (chainId: number, pools: AaveV4Pool[]): Promise<AaveV4PoolData[]> => {
+export const getAaveV4PoolData = async (chainId: ApiChainId, pools: AaveV4Pool[]): Promise<AaveV4PoolData[]> => {
   const [aaveData, merklAprData] = await Promise.all([
     getAaveV4ReserveData(chainId, pools),
     getAaveV4MerklAprData(chainId, pools),
@@ -80,7 +81,7 @@ export const getAaveV4PoolData = async (chainId: number, pools: AaveV4Pool[]): P
   }));
 };
 
-const getAaveV4ReserveData = async (chainId: number, pools: AaveV4Pool[]): Promise<BigNumber[]> => {
+const getAaveV4ReserveData = async (chainId: ApiChainId, pools: AaveV4Pool[]): Promise<BigNumber[]> => {
   const reserves = await fetchAaveV4Reserves(chainId);
 
   return pools.map(pool => {
@@ -93,7 +94,7 @@ const getAaveV4ReserveData = async (chainId: number, pools: AaveV4Pool[]): Promi
   });
 };
 
-const fetchAaveV4Reserves = async (chainId: number): Promise<AaveV4Reserve[]> => {
+const fetchAaveV4Reserves = async (chainId: ApiChainId): Promise<AaveV4Reserve[]> => {
   const query = `query Reserves {
     reserves(request: { query: { chainIds: [${chainId}] } }) {
       spoke {
@@ -133,7 +134,7 @@ const fetchAaveV4Reserves = async (chainId: number): Promise<AaveV4Reserve[]> =>
   }
 };
 
-const getAaveV4MerklAprData = async (chainId: number, pools: AaveV4Pool[]): Promise<MerklAprData[]> => {
+const getAaveV4MerklAprData = async (chainId: ApiChainId, pools: AaveV4Pool[]): Promise<MerklAprData[]> => {
   let merklData: Record<string, number> = {};
   if (pools.some(pool => pool.identifier)) {
     merklData = await fetchAaveMerklAprs(chainId);
@@ -144,7 +145,7 @@ const getAaveV4MerklAprData = async (chainId: number, pools: AaveV4Pool[]): Prom
   }));
 };
 
-const fetchAaveMerklAprs = async (chainId: number): Promise<Record<string, number>> => {
+const fetchAaveMerklAprs = async (chainId: ApiChainId): Promise<Record<string, number>> => {
   try {
     const opportunities = await fetchAaveMerklOpportunities(chainId);
     return opportunities.reduce(
@@ -162,7 +163,7 @@ const fetchAaveMerklAprs = async (chainId: number): Promise<Record<string, numbe
   }
 };
 
-const fetchAaveMerklOpportunities = async (chainId: number): Promise<MerklOpportunity[]> => {
+const fetchAaveMerklOpportunities = async (chainId: ApiChainId): Promise<MerklOpportunity[]> => {
   const url = `https://api.merkl.xyz/v4/opportunities?chainId=${chainId}&mainProtocolId=aave`;
   const data = await fetch(url).then(res => res.json());
 

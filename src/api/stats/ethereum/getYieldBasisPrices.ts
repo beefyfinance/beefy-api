@@ -1,13 +1,15 @@
 import BigNumber from 'bignumber.js';
 import { parseAbi } from 'viem';
 import ERC20Abi from '../../../abis/ERC20Abi.ts';
-import { ETH_CHAIN_ID as chainId } from '../../../constants.ts';
 import type { PricesById, StandardLpBreakdown } from '../../../types/prices.ts';
 import { BIGINT_UNIT_18 } from '../../../utils/big-int.ts';
+import { ApiChainId } from '../../../utils/chain.ts';
 import { getLoggerFor } from '../../../utils/logger/index.ts';
 import { withTracing } from '../../../utils/tracing.ts';
 import { fetchContract } from '../../rpc/client.ts';
 import pools from '../../../data/ethereum/ybPools.json' with { type: 'json' };
+
+const chainId = ApiChainId.ethereum;
 
 const abi = parseAbi([
   'function previewRedeem(uint shares) view returns (uint)',

@@ -1,9 +1,9 @@
-import type { ChainId } from '@beefyfinance/blockchain-addressbook';
 import { BigNumber } from 'bignumber.js';
 import type { Address } from 'viem';
 import { default as ICurvePool } from '../../../../abis/CurvePool.ts';
 import { default as ERC20Abi } from '../../../../abis/ERC20Abi.ts';
 import type { PricesById, StandardLpBreakdown } from '../../../../types/prices.ts';
+import type { ApiChainId } from '../../../../utils/chain.ts';
 import { getLoggerFor } from '../../../../utils/logger/index.ts';
 import { withTracing } from '../../../../utils/tracing.ts';
 import { fetchContract } from '../../../rpc/client.ts';
@@ -37,7 +37,7 @@ type CurvePoolSupplyInfo = {
 };
 
 const getCurvePricesCommon = withTracing(
-  async (chainId: ChainId, pools: CurvePricePool[], tokenPrices: PricesById) => {
+  async (chainId: ApiChainId, pools: CurvePricePool[], tokenPrices: PricesById) => {
     let prices: Record<string, StandardLpBreakdown> = {};
 
     //Split needed pool data and calls
@@ -113,7 +113,7 @@ const getCurvePricesCommon = withTracing(
   },
   {
     logger,
-    fieldsFn: (chainId: ChainId) => ({ chain: chainId }),
+    fieldsFn: (chainId: ApiChainId) => ({ chain: chainId }),
   }
 );
 

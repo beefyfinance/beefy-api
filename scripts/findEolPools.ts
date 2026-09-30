@@ -1,19 +1,22 @@
 import fs from 'node:fs';
 import path from 'node:path';
-import { ChainId } from '@beefyfinance/blockchain-addressbook/types/chainid';
-import type { ApiChain } from '../src/utils/chain.ts';
+import { type ApiChain, fromChainNumber, isApiChain } from '../src/utils/chain.ts';
 import { getVaults } from '../src/utils/getVaults.ts';
 
 type PoolConfig = {
   address: string;
   name?: string;
   oracleId?: string;
-  chainId?: ChainId;
+  chainId?: number;
   rewardPool?: { oracleId: string };
   vault?: { oracleId: string };
 };
 
 type TvlByChainApiResponse = Record<string, Record<string, number>>;
+
+function folderChainAlias(folder: string): string {
+  return folder === 'matic' ? 'polygon' : folder;
+}
 
 async function main() {
   const paths = process.argv.splice(2);
@@ -22,21 +25,22 @@ async function main() {
     poolsFiles = fs.readdirSync(paths[0]).map(file => path.join(paths[0], file));
   }
   const pools: PoolConfig[] = [];
-  const chains: string[] = [];
+  const chains: ApiChain[] = [];
   poolsFiles.forEach(file => {
     // FIXME(unsafe-cast): unchecked response shape
     const filePools = JSON.parse(fs.readFileSync(file, 'utf8')) as PoolConfig[];
     pools.push(...filePools);
     const poolChainId = filePools.find(p => p.chainId)?.chainId;
-    let chain =
-      (poolChainId !== undefined ? ChainId[poolChainId] : undefined) || file.split('/')[file.split('/').length - 2];
-    if (chain === 'matic') chain = 'polygon';
+    const folder = file.split('/')[file.split('/').length - 2];
+    const chain = (poolChainId !== undefined ? fromChainNumber(poolChainId) : undefined) ?? folderChainAlias(folder);
+    if (!isApiChain(chain)) {
+      throw new Error(`unsupported chain ${chain} for ${file}`);
+    }
     if (!chains.includes(chain)) chains.push(chain);
   });
   console.log(`check ${pools.length} pools on ${chains}`);
 
-  // FIXME(unsafe-cast): unsafe narrow
-  const chainVaults = await Promise.all(chains.map(c => getVaults(c as ApiChain)));
+  const chainVaults = await Promise.all(chains.map(c => getVaults(c)));
   const vaults = chainVaults.flat();
 
   // FIXME(unsafe-cast): unchecked response shape

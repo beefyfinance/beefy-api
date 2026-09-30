@@ -2,7 +2,7 @@ import Router from 'koa-router';
 import { getArticles, getLatestArticle } from './api/articles/index.ts';
 import { handleAxelarEstimateGasFee } from './api/beefy-bridge/axelar.ts';
 import { boosts, boostsV2, chainBoosts, chainBoostsV2 } from './api/boosts/index.ts';
-import { getChainConfig, getConfigs } from './api/config/index.ts';
+import { getChainConfigHandler, getConfigs } from './api/config/index.ts';
 import { handleCowcentratedLTIPPCampaignsForDune, handleCowcentratedPriceRanges } from './api/cowcentrated/index.ts';
 import { getCountry } from './api/geo/index.ts';
 import noop from './api/noop.ts';
@@ -101,7 +101,7 @@ router.get('/tokens/:chainId/native', getChainNatives);
 router.get('/tokens/:chainId/:tokenId', getChainToken);
 
 router.get('/config', getConfigs);
-router.get('/config/:chainId', getChainConfig);
+router.get('/config/:chainId', getChainConfigHandler);
 
 router.get('/treasury', getTreasury);
 

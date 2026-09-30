@@ -1,3 +1,4 @@
+import type { ApiChainId } from '../../../../utils/chain.ts';
 import { getJson } from '../../../../utils/http/index.ts';
 import type { FetchParams } from '../../../../utils/http/types.ts';
 import type { MerklProxyOpportunity } from './proxyTypes.ts';
@@ -37,7 +38,7 @@ export function merklAprFromOpportunity(o: MerklProxyOpportunity | undefined): n
  * highest-APR one — the proxy returns all matches and we resolve here.
  */
 export async function getMerklAprByExplorerAddress(
-  chainId: number | string,
+  chainId: ApiChainId,
   explorerAddresses: string[]
 ): Promise<Record<string, number>> {
   const result: Record<string, number> = {};
@@ -68,7 +69,7 @@ export async function getMerklAprByExplorerAddress(
 
 /** Decimal APR keyed by lower-cased opportunity identifier. */
 export async function getMerklAprByIdentifier(
-  chainId: number | string,
+  chainId: ApiChainId,
   identifiers: string[]
 ): Promise<Record<string, number>> {
   const result: Record<string, number> = {};
@@ -90,17 +91,14 @@ export async function getMerklAprByIdentifier(
 
 /** Opportunities for a mainProtocolId (e.g. 'aave') on a single chain (no campaigns). */
 export function getMerklOpportunitiesByProtocol(
-  chainId: number | string,
+  chainId: ApiChainId,
   mainProtocolId: string
 ): Promise<MerklProxyOpportunity[]> {
   return merklProxyGet(`/v1/opportunities/${chainId}`, { mainProtocolId });
 }
 
 /** Opportunities + their campaigns for a chain, optionally filtered to the given opportunity types. */
-export function getMerklOpportunitiesForChain(
-  chainId: number | string,
-  types?: string[]
-): Promise<MerklProxyOpportunity[]> {
+export function getMerklOpportunitiesForChain(chainId: ApiChainId, types?: string[]): Promise<MerklProxyOpportunity[]> {
   return merklProxyGet(`/v1/opportunities/${chainId}`, {
     campaigns: 'true',
     ...(types && types.length ? { types: types.join(',') } : {}),

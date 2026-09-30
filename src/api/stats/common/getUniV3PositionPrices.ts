@@ -1,8 +1,8 @@
-import type { ChainId } from '@beefyfinance/blockchain-addressbook';
 import { BigNumber } from 'bignumber.js';
 import type { Address } from 'viem';
 import BeefyUniswapPositionHelperAbi from '../../../abis/BeefyUniswapPositionHelper.ts';
 import type { StandardLpBreakdown } from '../../../types/prices.ts';
+import type { ApiChainId } from '../../../utils/chain.ts';
 import { getLoggerFor } from '../../../utils/logger/index.ts';
 import { withTracing } from '../../../utils/tracing.ts';
 import { fetchContract } from '../../rpc/client.ts';
@@ -29,7 +29,7 @@ interface UniV3Pool {
 interface UniV3PositionPricesParams {
   pools: UniV3Pool[];
   tokenPrices: Record<string, number>;
-  chainId: ChainId;
+  chainId: ApiChainId;
   beefyHelper: string;
   nftManager: string;
 }

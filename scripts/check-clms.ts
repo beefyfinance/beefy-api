@@ -1,6 +1,5 @@
 import { promises as fsPromises } from 'node:fs';
 import { addressBook } from '@beefyfinance/blockchain-addressbook';
-import { ChainId } from '@beefyfinance/blockchain-addressbook/types/chainid';
 import fg from 'fast-glob';
 import { groupBy } from 'lodash-es';
 import { type Client, parseAbi } from 'viem';
@@ -15,7 +14,7 @@ import {
   validateCowClms,
 } from '../src/api/cowcentrated/types.ts';
 import { getRPCClient } from '../src/api/rpc/client.ts';
-import { type ApiChain, isApiChain, SupportedChains } from '../src/utils/chain.ts';
+import { type ApiChain, isApiChain, SupportedChains, toChainId } from '../src/utils/chain.ts';
 
 /**
  * This script checks the beefyCowVaults.json configs against the on-chain contracts.
@@ -60,7 +59,7 @@ async function checkFile(
   path: string
 ): Promise<{ apiChain: ApiChain; errors: Array<{ oracleId: string; error: string }> }> {
   const apiChain = extractChainIdFromPath(path);
-  const chainId = ChainId[apiChain];
+  const chainId = toChainId(apiChain);
   const localData = validateCowClms(await loadJson<JsonCowClm[]>(path));
   const client = getRPCClient(chainId);
   const data = await Promise.all(

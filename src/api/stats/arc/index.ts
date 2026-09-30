@@ -1,9 +1,9 @@
-import { ARC_CHAIN_ID as chainId } from '../../../constants.ts';
+import { ApiChainId } from '../../../utils/chain.ts';
 import { getLoggerFor } from '../../../utils/logger/index.ts';
 import type { ApyBreakdownResult } from '../common/getApyBreakdownNew.ts';
 import { getBeefyCowArcApys } from './getBeefyCowArcApys.ts';
 
-const logger = getLoggerFor({ module: 'apy', chain: chainId });
+const logger = getLoggerFor({ module: 'apy', chain: ApiChainId.arc });
 
 const getApys = [getBeefyCowArcApys];
 

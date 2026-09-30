@@ -1,13 +1,15 @@
-import { addressBookByChainId } from '@beefyfinance/blockchain-addressbook';
+import { addressBook } from '@beefyfinance/blockchain-addressbook';
 import { BigNumber } from 'bignumber.js';
 import RangeAbi from '../../../abis/Range.ts';
-import { BERACHAIN_CHAIN_ID as chainId } from '../../../constants.ts';
 import type { PricesById, StandardLpBreakdown } from '../../../types/prices.ts';
+import { ApiChainId } from '../../../utils/chain.ts';
 import { getLoggerFor } from '../../../utils/logger/index.ts';
 import { withTracing } from '../../../utils/tracing.ts';
 import { fetchContract } from '../../rpc/client.ts';
 import berapaw from '../../../data/berachain/kodiakBeraPawPools.json' with { type: 'json' };
 import kodiak from '../../../data/berachain/kodiakPools.json' with { type: 'json' };
+
+const chainId = ApiChainId.berachain;
 
 const logger = getLoggerFor({ module: 'prices', component: 'kodiak', chain: chainId });
 
@@ -23,8 +25,8 @@ export const getKodiakPrices = withTracing(
 
     let prices: Record<string, StandardLpBreakdown> = {};
     pools.forEach((pool, i) => {
-      const t0 = addressBookByChainId[chainId].tokens[pool.tokens[0]];
-      const t1 = addressBookByChainId[chainId].tokens[pool.tokens[1]];
+      const t0 = addressBook.berachain.tokens[pool.tokens[0]];
+      const t1 = addressBook.berachain.tokens[pool.tokens[1]];
       if (!t0) logger.error({ token: pool.tokens[0], pool: pool.name }, 'token missing from address book');
       if (!t1) logger.error({ token: pool.tokens[1], pool: pool.name }, 'token missing from address book');
       const lp0Bal = new BigNumber(amounts[i][0]).div(`1e${t0.decimals}`);

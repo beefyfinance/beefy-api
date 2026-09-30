@@ -1,6 +1,7 @@
 import { BigNumber } from 'bignumber.js';
 import type { Abi } from 'viem';
 import type { StandardLpBreakdown } from '../../../../types/prices.ts';
+import type { ApiChainId } from '../../../../utils/chain.ts';
 import { getLoggerFor } from '../../../../utils/logger/index.ts';
 import { withTracing } from '../../../../utils/tracing.ts';
 import { fetchContract } from '../../../rpc/client.ts';
@@ -19,7 +20,7 @@ const ISpokeAbi = [
 ] as const satisfies Abi;
 
 export const getAaveV4Prices = withTracing(
-  async (chainId: number, pools: AaveV4Pool[], tokenPrices: Record<string, number>) => {
+  async (chainId: ApiChainId, pools: AaveV4Pool[], tokenPrices: Record<string, number>) => {
     const supplyCalls = pools.map(pool =>
       fetchContract(pool.spoke, ISpokeAbi, chainId).read.getReserveSuppliedAssets([BigInt(pool.reserveId)])
     );
@@ -41,5 +42,5 @@ export const getAaveV4Prices = withTracing(
 
     return prices;
   },
-  { logger, fieldsFn: (chainId: number) => ({ chain: chainId }) }
+  { logger, fieldsFn: (chainId: ApiChainId) => ({ chain: chainId }) }
 );

@@ -3,7 +3,7 @@ import type { Address } from 'viem';
 import ERC20Abi from '../../../abis/ERC20Abi.ts';
 import ICvxCrvStaking from '../../../abis/ethereum/ICvxCrvStaking.ts';
 import IRewardPool from '../../../abis/IRewardPool.ts';
-import { ETH_CHAIN_ID } from '../../../constants.ts';
+import { ApiChainId } from '../../../utils/chain.ts';
 import { fetchPrice } from '../../../utils/fetchPrice.ts';
 import { fetchContract } from '../../rpc/client.ts';
 import { getApyBreakdown } from '../common/getApyBreakdown.ts';
@@ -38,7 +38,7 @@ const pool = {
 
 export const getConvexCrvApy = async () => {
   // RewardPool calls
-  const rewardPool = fetchContract(pool.rewardPool, IRewardPool, ETH_CHAIN_ID);
+  const rewardPool = fetchContract(pool.rewardPool, IRewardPool, ApiChainId.ethereum);
   const totalSupplyCall = rewardPool.read.totalSupply();
   const rewardRateCall = rewardPool.read.rewardRate();
   const periodFinishCall = rewardPool.read.periodFinish();
@@ -48,23 +48,23 @@ export const getConvexCrvApy = async () => {
     extraRewardRateCalls: Promise<bigint>[] = [],
     extraRewardRatePeriodFinishCalls: Promise<bigint>[] = [];
   pool.extras?.forEach(extra => {
-    const extraRewards = fetchContract(extra.rewardPool, IRewardPool, ETH_CHAIN_ID);
+    const extraRewards = fetchContract(extra.rewardPool, IRewardPool, ApiChainId.ethereum);
     extraRewardInfo.push({ rewardPool: extra.rewardPool });
     extraRewardRateCalls.push(extraRewards.read.rewardRate());
     extraRewardRatePeriodFinishCalls.push(extraRewards.read.periodFinish());
   });
 
   //staking contract calls
-  const stakingContract = fetchContract(pool.staking, ICvxCrvStaking, ETH_CHAIN_ID);
+  const stakingContract = fetchContract(pool.staking, ICvxCrvStaking, ApiChainId.ethereum);
   const supplyWeightCall = stakingContract.read.supplyWeight();
   const stakingTotalSupplyCall = stakingContract.read.totalSupply();
 
   //CVX calls
-  const cvx = fetchContract(cvxAddress, ERC20Abi, ETH_CHAIN_ID);
+  const cvx = fetchContract(cvxAddress, ERC20Abi, ApiChainId.ethereum);
   const cvxTotalSupply = cvx.read.totalSupply();
 
   //Distributor calls
-  const cvxDistributor = fetchContract(pool.cvxDistributor, IRewardPool, ETH_CHAIN_ID);
+  const cvxDistributor = fetchContract(pool.cvxDistributor, IRewardPool, ApiChainId.ethereum);
   const cvxDistributorRewardRateCall = cvxDistributor.read.rewardRate();
   const cvxDistributorPeriodFinishCall = cvxDistributor.read.periodFinish();
   const cvxDistributorTotalSupplyCall = cvxDistributor.read.totalSupply();

@@ -1,5 +1,5 @@
-import type { ChainId } from '@beefyfinance/blockchain-addressbook';
 import { BigNumber } from 'bignumber.js';
+import type { ApiChainId } from '../../../../utils/chain.ts';
 import { getLoggerFor } from '../../../../utils/logger/index.ts';
 import { getApyBreakdown } from '../getApyBreakdownNew.ts';
 
@@ -55,7 +55,7 @@ const calculateApyBreakdown = (apy: MorphoVaultApy | undefined, isV2: boolean | 
 };
 
 // Helper function to create GraphQL query
-const createGraphQLQuery = (chainId: ChainId, addresses: string[], isV2: boolean): MorphoGraphQLQuery | null => {
+const createGraphQLQuery = (chainId: ApiChainId, addresses: string[], isV2: boolean): MorphoGraphQLQuery | null => {
   if (addresses.length === 0) return null;
 
   const entityName = isV2 ? 'vaultV2s' : 'vaults';
@@ -74,7 +74,7 @@ const createGraphQLQuery = (chainId: ChainId, addresses: string[], isV2: boolean
   };
 };
 
-export const getMorphoApys = async (chainId: ChainId, pools: MorphoPool[]) => {
+export const getMorphoApys = async (chainId: ApiChainId, pools: MorphoPool[]) => {
   // Separate pools and create address arrays
   const poolsV1 = pools.filter(p => !p.v2);
   const poolsV2 = pools.filter(p => p.v2);

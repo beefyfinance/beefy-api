@@ -1,4 +1,3 @@
-import type { ChainId } from '@beefyfinance/blockchain-addressbook';
 import { BigNumber } from 'bignumber.js';
 import type { Abi, Address } from 'viem';
 import ISpiritGauge from '../../../abis/fantom/ISpiritGauge.ts';
@@ -6,6 +5,7 @@ import InfraredGauge from '../../../abis/InfraredGauge.ts';
 import ISolidlyGauge from '../../../abis/ISolidlyGauge.ts';
 import IVe from '../../../abis/IVe.ts';
 import RamsesGauge from '../../../abis/RamsesGauge.ts';
+import type { ApiChainId } from '../../../utils/chain.ts';
 import { fetchPrice } from '../../../utils/fetchPrice.ts';
 import { getLoggerFor } from '../../../utils/logger/index.ts';
 import { fetchContract } from '../../rpc/client.ts';
@@ -87,7 +87,7 @@ export type SolidlyGaugePool = {
 };
 
 type SolidlyGaugeApyParamsFields = {
-  chainId: ChainId;
+  chainId: ApiChainId;
   pools: SolidlyGaugePool[];
   oracle: string;
   oracleId: string;

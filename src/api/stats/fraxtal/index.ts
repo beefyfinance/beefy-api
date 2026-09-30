@@ -1,10 +1,10 @@
-import { FRAXTAL_CHAIN_ID } from '../../../constants.ts';
+import { ApiChainId } from '../../../utils/chain.ts';
 import { getLoggerFor } from '../../../utils/logger/index.ts';
 import type { ApyBreakdownResult } from '../common/getApyBreakdownNew.ts';
 import { getConvexCvxFxsApys } from './getConvexCvxFxsApys.ts';
 import { getCurveApys } from './getCurveApys.ts';
 
-const logger = getLoggerFor({ module: 'apy', chain: FRAXTAL_CHAIN_ID });
+const logger = getLoggerFor({ module: 'apy', chain: ApiChainId.fraxtal });
 
 const getApys = [getCurveApys, getConvexCvxFxsApys];
 

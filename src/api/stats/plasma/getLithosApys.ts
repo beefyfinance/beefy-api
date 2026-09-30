@@ -1,4 +1,4 @@
-import { PLASMA_CHAIN_ID as chainId } from '../../../constants.ts';
+import { ApiChainId } from '../../../utils/chain.ts';
 import { getRewardPoolApys } from '../common/getRewardPoolApys.ts';
 import volatilePools from '../../../data/plasma/lithosPools.json' with { type: 'json' };
 import stablePools from '../../../data/plasma/lithosStablePools.json' with { type: 'json' };
@@ -6,7 +6,7 @@ import stablePools from '../../../data/plasma/lithosStablePools.json' with { typ
 const pools = [...stablePools, ...volatilePools];
 export const getLithosApys = async () => {
   return getRewardPoolApys({
-    chainId: chainId,
+    chainId: ApiChainId.plasma,
     pools: pools,
     oracleId: 'LITH',
     oracle: 'tokens',

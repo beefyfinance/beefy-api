@@ -1,4 +1,4 @@
-import type { ChainId } from '@beefyfinance/blockchain-addressbook';
+import type { ApiChainId } from '../../../utils/chain.ts';
 import { getLoggerFor } from '../../../utils/logger/index.ts';
 import { getMerklAprByExplorerAddress } from '../../offchain-rewards/providers/merkl/proxyClient.ts';
 
@@ -8,7 +8,7 @@ export type MerklApyPool = {
   address: string;
 };
 
-export const getMerklApys = async (chainId: ChainId, pools: MerklApyPool[]) => {
+export const getMerklApys = async (chainId: ApiChainId, pools: MerklApyPool[]) => {
   const merklAprByAddress = await getMerklV4AprByExplorerAddress(
     chainId,
     pools.map(p => p.address)
@@ -18,7 +18,7 @@ export const getMerklApys = async (chainId: ChainId, pools: MerklApyPool[]) => {
 };
 
 const getMerklV4AprByExplorerAddress = async (
-  chainId: ChainId,
+  chainId: ApiChainId,
   explorerAddresses: string[]
 ): Promise<Record<string, number>> => {
   if (explorerAddresses.length === 0) return {};

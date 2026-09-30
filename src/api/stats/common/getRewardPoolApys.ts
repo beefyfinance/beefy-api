@@ -1,10 +1,10 @@
-import type { ChainId } from '@beefyfinance/blockchain-addressbook';
 import { BigNumber } from 'bignumber.js';
 import type { Abi, Address } from 'viem';
 import ERC20Abi from '../../../abis/ERC20Abi.ts';
 import InfraredGauge from '../../../abis/InfraredGauge.ts';
 import IRewardPool from '../../../abis/IRewardPool.ts';
 import IWrapper from '../../../abis/IWrapper.ts';
+import type { ApiChainId } from '../../../utils/chain.ts';
 import { fetchPrice } from '../../../utils/fetchPrice.ts';
 import getBlockNumber from '../../../utils/getBlockNumber.ts';
 import getBlockTime from '../../../utils/getBlockTime.ts';
@@ -25,7 +25,7 @@ export type RewardPoolExtra = {
 export type RewardPoolPool = {
   name: string;
   address: string;
-  chainId?: ChainId;
+  chainId?: ApiChainId;
   rewardPool?: string;
   gauge?: string;
   oracle?: string;
@@ -36,7 +36,7 @@ export type RewardPoolPool = {
 };
 
 export type RewardPoolApyParams = {
-  chainId: ChainId;
+  chainId: ApiChainId;
   pools: RewardPoolPool[];
   oracle: string;
   oracleId: string;

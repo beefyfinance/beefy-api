@@ -1,7 +1,7 @@
 import { BigNumber } from 'bignumber.js';
 import type { Address } from 'viem';
 import ICvxFxsStaking from '../../../abis/ethereum/ICvxFxsStaking.ts';
-import { ETH_CHAIN_ID } from '../../../constants.ts';
+import { ApiChainId } from '../../../utils/chain.ts';
 import { fetchPrice } from '../../../utils/fetchPrice.ts';
 import { fetchContract } from '../../rpc/client.ts';
 import { getApyBreakdown } from '../common/getApyBreakdown.ts';
@@ -33,7 +33,7 @@ export const getConvexCvxTokensApy = async () => {
   const rewardDataCalls: Promise<CvxTokenRewardData>[] = [];
   const totalSupplyCalls: Promise<bigint>[] = [];
   pools.forEach(pool => {
-    const rewardPool = fetchContract(pool.address, ICvxFxsStaking, ETH_CHAIN_ID);
+    const rewardPool = fetchContract(pool.address, ICvxFxsStaking, ApiChainId.ethereum);
     totalSupplyCalls.push(rewardPool.read.totalSupply());
     pool.rewards?.forEach(r => {
       rewardsInfo.push({ pool: pool.name, oracleId: r.oracleId });

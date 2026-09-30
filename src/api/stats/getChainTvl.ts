@@ -1,11 +1,10 @@
-import type { ChainId } from '@beefyfinance/blockchain-addressbook';
 import { BigNumber } from 'bignumber.js';
 import BeefyVaultV6Abi from '../../abis/BeefyVault.ts';
 import ERC20Abi from '../../abis/ERC20Abi.ts';
 import { beSonicAbi } from '../../abis/sonic/beSonicAbi.ts';
 import { EXCLUDED_IDS_FROM_TVL } from '../../constants.ts';
 import { getVaultBalanceOverride } from '../../data/vaultOverrides.ts';
-import { type ApiChain, toChainId } from '../../utils/chain.ts';
+import { type ApiChain, type ApiChainId, toChainId } from '../../utils/chain.ts';
 import { fetchPrice } from '../../utils/fetchPrice.ts';
 import { getLoggerFor } from '../../utils/logger/index.ts';
 import { fetchContract } from '../rpc/client.ts';
@@ -74,7 +73,12 @@ const getChainTvl = async (apiChain: ApiChain) => {
   return tvls;
 };
 
-const setVaultsTvl = async (vaults: ExcludingVault[], balances: BigNumber[], chainId: ChainId, tvls: TvlByChainId) => {
+const setVaultsTvl = async (
+  vaults: ExcludingVault[],
+  balances: BigNumber[],
+  chainId: ApiChainId,
+  tvls: TvlByChainId
+) => {
   for (let i = 0; i < vaults.length; i++) {
     const vault = vaults[i];
 
@@ -113,7 +117,7 @@ const setVaultsTvl = async (vaults: ExcludingVault[], balances: BigNumber[], cha
   return tvls;
 };
 
-const getVaultBalances = async (chainId: ChainId, vaults: StandardVault[]) => {
+const getVaultBalances = async (chainId: ApiChainId, vaults: StandardVault[]) => {
   if (!vaults) {
     throw new Error(`getVaultBalances: undefined vaults passed for ${chainId}`);
   }
@@ -128,7 +132,7 @@ const getVaultBalances = async (chainId: ChainId, vaults: StandardVault[]) => {
   return res.map((v, i) => getVaultBalanceOverride(vaults[i].id) ?? new BigNumber(v.toString()));
 };
 
-const getGovVaultBalances = async (chainId: ChainId, govPools: GovVault[]) => {
+const getGovVaultBalances = async (chainId: ApiChainId, govPools: GovVault[]) => {
   if (!govPools) {
     throw new Error(`getGovVaultBalances: undefined govPools passed for ${chainId}`);
   }
@@ -145,7 +149,7 @@ const getGovVaultBalances = async (chainId: ChainId, govPools: GovVault[]) => {
   return res.map(v => new BigNumber(v.toString()));
 };
 
-const getCowVaultBalances = async (chainId: ChainId, cowVaults: CowVault[]) => {
+const getCowVaultBalances = async (chainId: ApiChainId, cowVaults: CowVault[]) => {
   if (!cowVaults) {
     throw new Error(`getCowVaultBalances: undefined cowVaults passed for ${chainId}`);
   }
@@ -162,7 +166,7 @@ const getCowVaultBalances = async (chainId: ChainId, cowVaults: CowVault[]) => {
   return res.map(v => new BigNumber(v.toString()));
 };
 
-const getErc4626VaultBalances = async (chainId: ChainId, vaults: Erc4626Vault[]) => {
+const getErc4626VaultBalances = async (chainId: ApiChainId, vaults: Erc4626Vault[]) => {
   if (!vaults) {
     throw new Error(`getErc4626VaultBalances: undefined vaults passed for ${chainId}`);
   }

@@ -1,8 +1,7 @@
-import type { ChainId } from '@beefyfinance/blockchain-addressbook';
 import { BigNumber } from 'bignumber.js';
 import { type Address, parseAbi } from 'viem';
 import ICurveGauge from '../../../../abis/ICurveGauge.ts';
-import { FRAXTAL_CHAIN_ID } from '../../../../constants.ts';
+import { ApiChainId } from '../../../../utils/chain.ts';
 import { fetchPrice } from '../../../../utils/fetchPrice.ts';
 import { fetchContract } from '../../../rpc/client.ts';
 import type { CurveApyPool, CurveApyReward } from './getCurveApysCommon.ts';
@@ -19,13 +18,13 @@ type ConvexExtraRewardData = {
   token: string;
 };
 
-function getBooster(chainId: ChainId) {
-  return chainId === FRAXTAL_CHAIN_ID
+function getBooster(chainId: ApiChainId) {
+  return chainId === ApiChainId.fraxtal
     ? '0xd3327cb05a8E0095A543D582b5B3Ce3e19270389'
     : '0xF403C135812408BFbE8713b5A23a04b3D48AAE31';
 }
 
-export const getConvexApyData = async (chainId: ChainId, pools: CurveApyPool[]) => {
+export const getConvexApyData = async (chainId: ApiChainId, pools: CurveApyPool[]) => {
   const apys: BigNumber[] = [];
 
   const { fees, poolInfo, extras } = await getData(chainId, pools);
@@ -70,7 +69,7 @@ export const getConvexApyData = async (chainId: ChainId, pools: CurveApyPool[]) 
   return apys;
 };
 
-const getData = async (chainId: ChainId, pools: CurveApyPool[]) => {
+const getData = async (chainId: ApiChainId, pools: CurveApyPool[]) => {
   const boosterContract = fetchContract(getBooster(chainId), IBooster, chainId);
   const feeCall = boosterContract.read.fees().then(v => new BigNumber(v));
 

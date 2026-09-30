@@ -1,6 +1,6 @@
-import type { ChainId } from '@beefyfinance/blockchain-addressbook';
 import { BigNumber } from 'bignumber.js';
 import GearboxVault from '../../../../abis/GearboxVault.ts';
+import type { ApiChainId } from '../../../../utils/chain.ts';
 import { fetchContract } from '../../../rpc/client.ts';
 import { getApyBreakdown } from '../getApyBreakdownNew.ts';
 import { getMerklApys } from '../getMerklApys.ts';
@@ -10,7 +10,7 @@ export type GearboxApyPool = {
   address: string;
 };
 
-export const getGearboxApys = async (chainId: ChainId, pools: GearboxApyPool[]) => {
+export const getGearboxApys = async (chainId: ApiChainId, pools: GearboxApyPool[]) => {
   const [supplyApys, merklApys] = await Promise.all([getPoolsApys(chainId, pools), getMerklApys(chainId, pools)]);
 
   return getApyBreakdown(
@@ -22,7 +22,7 @@ export const getGearboxApys = async (chainId: ChainId, pools: GearboxApyPool[]) 
   );
 };
 
-const getPoolsApys = async (chainId: ChainId, pools: GearboxApyPool[]) => {
+const getPoolsApys = async (chainId: ApiChainId, pools: GearboxApyPool[]) => {
   const supplyRateCalls: Promise<bigint>[] = [];
   for (const pool of pools) {
     supplyRateCalls.push(fetchContract(pool.address, GearboxVault, chainId).read.supplyRate());
