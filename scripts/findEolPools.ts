@@ -25,8 +25,9 @@ async function main() {
   const chains: string[] = [];
   poolsFiles.forEach(file => {
     // FIXME(unsafe-cast): unchecked response shape
-    pools.push(...(JSON.parse(fs.readFileSync(file, 'utf8')) as PoolConfig[]));
-    const poolChainId = pools.find(p => p.chainId)?.chainId;
+    const filePools = JSON.parse(fs.readFileSync(file, 'utf8')) as PoolConfig[];
+    pools.push(...filePools);
+    const poolChainId = filePools.find(p => p.chainId)?.chainId;
     let chain =
       (poolChainId !== undefined ? ChainId[poolChainId] : undefined) || file.split('/')[file.split('/').length - 2];
     if (chain === 'matic') chain = 'polygon';
