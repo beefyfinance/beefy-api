@@ -12,5 +12,6 @@ export const arc = {
     oracleId: 'USDC',
     name: 'USD Coin',
     decimals: 18,
+    balanceSharedWithWrapped: true,
   },
 } as const satisfies Chain;
