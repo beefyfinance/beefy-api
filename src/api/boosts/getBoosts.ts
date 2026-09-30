@@ -1,3 +1,4 @@
+import { pick } from 'lodash-es';
 import { getKey, setKey } from '../../utils/cache/index.ts';
 import { type ApiChain, SupportedChains } from '../../utils/chain.ts';
 import { envNumber } from '../../utils/env.ts';
@@ -132,7 +133,7 @@ async function loadFromRedis() {
     && 'data' in cached
     && cached.version === CACHE_SCHEMA_VERSION
   ) {
-    boostsByChain = cached.data;
+    boostsByChain = pick(cached.data, SupportedChains);
     buildFromChains();
   }
 }
