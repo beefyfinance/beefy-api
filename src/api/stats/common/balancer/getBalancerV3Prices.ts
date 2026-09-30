@@ -1,9 +1,9 @@
-import type { ChainId } from '@beefyfinance/blockchain-addressbook';
 import { BigNumber } from 'bignumber.js';
 import type { Address } from 'viem';
 import { default as ERC20Abi } from '../../../../abis/ERC20Abi.ts';
 import { default as IBalancerVaultV3 } from '../../../../abis/IBalancerVaultV3.ts';
 import type { PricesById, StandardLpBreakdown } from '../../../../types/prices.ts';
+import type { ApiChainId } from '../../../../utils/chain.ts';
 import { getLoggerFor } from '../../../../utils/logger/index.ts';
 import { isValidPrice } from '../../../../utils/prices.ts';
 import { contextAllSettled, isContextResultRejected } from '../../../../utils/promise.ts';
@@ -43,7 +43,7 @@ type BalancerV3PoolReads = {
 };
 
 const getBalancerV3Prices = withTracing(
-  async (chainId: ChainId, pools: BalancerV3PricePool[], tokenPrices: PricesById) => {
+  async (chainId: ApiChainId, pools: BalancerV3PricePool[], tokenPrices: PricesById) => {
     const prices: Record<string, StandardLpBreakdown> = {};
 
     for (const result of await getPoolsData(chainId, pools)) {
@@ -60,10 +60,10 @@ const getBalancerV3Prices = withTracing(
 
     return prices;
   },
-  { logger, fieldsFn: (chainId: ChainId) => ({ chain: chainId }) }
+  { logger, fieldsFn: (chainId: ApiChainId) => ({ chain: chainId }) }
 );
 
-const getPoolsData = (chainId: ChainId, pools: BalancerV3PricePool[]) =>
+const getPoolsData = (chainId: ApiChainId, pools: BalancerV3PricePool[]) =>
   contextAllSettled(pools, async (pool): Promise<BalancerV3PoolReads> => {
     const [[tokenAddresses, /* tokenInfo */ , balancesRaw], totalSupply] = await Promise.all([
       fetchContract(pool.address, IBalancerVaultV3, chainId).read.getTokenInfo(),
@@ -78,7 +78,7 @@ const getPoolsData = (chainId: ChainId, pools: BalancerV3PricePool[]) =>
   });
 
 const getPoolPrice = (
-  chainId: ChainId,
+  chainId: ApiChainId,
   pool: BalancerV3PricePool,
   { tokenAddresses, balance, totalSupply }: BalancerV3PoolReads,
   tokenPrices: PricesById

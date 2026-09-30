@@ -1,9 +1,8 @@
-import { ChainId } from '@beefyfinance/blockchain-addressbook';
 import BeefyBoostAbi from '../../abis/BeefyBoost.ts';
 import { IBeefyRewardPool } from '../../abis/IBeefyRewardPool.ts';
 import { bigintRange } from '../../utils/array.ts';
 import { bigintToNumber } from '../../utils/big-int.ts';
-import { type ApiChain, toAppChain } from '../../utils/chain.ts';
+import { type ApiChain, toAppChain, toChainId } from '../../utils/chain.ts';
 import { fetchContract } from '../rpc/client.ts';
 import type { Boost, BoostEntity, BoostPromoConfig, PromoConfig } from './types.ts';
 
@@ -39,7 +38,7 @@ export const getBoosts = async (chain: ApiChain): Promise<BoostEntity[]> => {
 };
 
 export const getBoostPeriodFinish = async (chain: ApiChain, boosts: BoostEntity[]): Promise<Boost[]> => {
-  const chainId = ChainId[chain];
+  const chainId = toChainId(chain);
   const periodFinishCalls = boosts.map(async (boost): Promise<number[]> => {
     if (boost.version >= 2) {
       const poolContract = fetchContract(boost.contractAddress, IBeefyRewardPool, chainId);

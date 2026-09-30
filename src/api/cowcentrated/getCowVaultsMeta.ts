@@ -1,7 +1,7 @@
 import { partition } from 'lodash-es';
 import { isAddressEqual } from 'viem';
 import { getKey, setKey } from '../../utils/cache/index.ts';
-import { type ApiChain, SupportedChains } from '../../utils/chain.ts';
+import { type ApiChain, getChainConfig } from '../../utils/chain.ts';
 import { envNumber } from '../../utils/env.ts';
 import { getLoggerFor } from '../../utils/logger/index.ts';
 import { isResultFulfilled } from '../../utils/promise.ts';
@@ -16,8 +16,6 @@ const CACHE_KEY = 'COW_VAULTS_META';
 const INIT_DELAY = envNumber('COWCENTRATED_INIT_DELAY', 1000);
 const UPDATE_INTERVAL = 60000;
 const BEEFY_CLM_API = process.env.BEEFY_CLM_API || 'https://clm-api.beefy.finance';
-const API_EOL_CHAINS: ApiChain[] = ['berachain', 'lisk', 'sei', 'mantle', 'linea', 'zksync', 'gnosis'];
-const SUPPORTED_CHAINS = new Set(SupportedChains.filter(c => !API_EOL_CHAINS.includes(c)));
 
 const chainToVaults: Partial<Record<ApiChain, CowClmsMeta>> = {};
 
@@ -35,7 +33,7 @@ export function getAllCowVaultsMeta(): Partial<Record<ApiChain, CowClmsMeta>> {
 
 async function fetchCowVaultsMeta(chainId: ApiChain): Promise<AnyCowClmMeta[]> {
   const pools = getCowClms(chainId);
-  if (!pools || !pools.length || !SUPPORTED_CHAINS.has(chainId)) {
+  if (!pools || !pools.length || !getChainConfig(chainId).features.clmApi) {
     return [];
   }
 

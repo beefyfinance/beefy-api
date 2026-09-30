@@ -1,5 +1,5 @@
 import { balancerBaseClient as client } from '../../../apollo/client.ts';
-import { MONAD_CHAIN_ID as chainId } from '../../../constants.ts';
+import { ApiChainId } from '../../../utils/chain.ts';
 import { getBalancerApys } from '../common/balancer/getBalancerApys.ts';
 import balancerV3Pools from '../../../data/monad/balancerV3Pools.json' with { type: 'json' };
 
@@ -9,7 +9,7 @@ const pools = [...balancerV3Pools];
 
 const getBalancerMonadApys = async () => {
   return getBalancerApys({
-    chainId: chainId,
+    chainId: ApiChainId.monad,
     client: client,
     pools: pools as any,
     balancerVault: '0xBA12222222228d8Ba445958a75a0704d566BF2C8',

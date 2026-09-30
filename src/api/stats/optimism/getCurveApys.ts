@@ -1,4 +1,4 @@
-import { OPTIMISM_CHAIN_ID } from '../../../constants.ts';
+import { ApiChainId } from '../../../utils/chain.ts';
 import { getCurveSubgraphApys } from '../common/curve/getCurveApyData.ts';
 import { type CurveApyPool, getCurveApysCommon } from '../common/curve/getCurveApysCommon.ts';
 import { getApyBreakdown } from '../common/getApyBreakdown.ts';
@@ -11,7 +11,7 @@ const tradingFees = 0.0002;
 export const getCurveApys = async () => {
   const [baseApys, farmApys] = await Promise.all([
     getCurveSubgraphApys(pools, baseApyUrl),
-    getCurveApysCommon(OPTIMISM_CHAIN_ID, pools),
+    getCurveApysCommon(ApiChainId.optimism, pools),
   ]);
   const poolsMap = pools.map(p => ({ name: p.name, address: p.name }));
   return getApyBreakdown(poolsMap, baseApys, farmApys, tradingFees);

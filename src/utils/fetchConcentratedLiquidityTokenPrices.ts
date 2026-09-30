@@ -1,4 +1,3 @@
-import type { ChainId } from '@beefyfinance/blockchain-addressbook/types/chainid';
 import type { Address } from 'viem';
 import IAlgebraPool from '../abis/IAlgebraPool.ts';
 import IAlgebraPoolV1 from '../abis/IAlgebraPoolV1.ts';
@@ -8,7 +7,7 @@ import ISlipstreamPool from '../abis/ISlipstreamPool.ts';
 import IUniV3PoolAbi from '../abis/IUniV3Pool.ts';
 import { fetchContract } from '../api/rpc/client.ts';
 import type { PricesById } from '../types/prices.ts';
-import { toChainId } from './chain.ts';
+import { type ApiChain, type ApiChainId, toChainId } from './chain.ts';
 import { getLoggerFor } from './logger/index.ts';
 import { typedEntries } from './object.ts';
 import { isValidPrice } from './prices.ts';
@@ -2622,11 +2621,11 @@ const tokens = {
       secondToken: 'USDC',
     },
   ],
-} satisfies Partial<Record<keyof typeof ChainId, ConcentratedLiquidityToken[]>>;
+} satisfies Partial<Record<ApiChain, ConcentratedLiquidityToken[]>>;
 
 type Context = {
   token: ConcentratedLiquidityToken;
-  chainId: ChainId;
+  chainId: ApiChainId;
 };
 type ReadTickFn = (ctx: Context) => Promise<number>;
 type SourceTypeFunctions = {
@@ -2689,7 +2688,7 @@ function getPairing(token: ConcentratedLiquidityToken): { pairedId: string; divi
 async function getConcentratedLiquidityPrices(
   tokenPrices: PricesById,
   chainTokens: ConcentratedLiquidityToken[],
-  chainId: ChainId
+  chainId: ApiChainId
 ): Promise<PricesById> {
   const contexts = chainTokens.map((token): Context => ({ token, chainId }));
 

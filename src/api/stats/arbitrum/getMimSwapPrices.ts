@@ -1,7 +1,7 @@
 import { BigNumber } from 'bignumber.js';
 import { parseAbi } from 'viem';
-import { ARBITRUM_CHAIN_ID as chainId } from '../../../constants.ts';
 import type { PricesById, StandardLpBreakdown } from '../../../types/prices.ts';
+import { ApiChainId } from '../../../utils/chain.ts';
 import { getLoggerFor } from '../../../utils/logger/index.ts';
 import { withTracing } from '../../../utils/tracing.ts';
 import { fetchContract } from '../../rpc/client.ts';
@@ -20,7 +20,7 @@ export const getMimSwapPrices = withTracing(
 
     const [reserveCalls, supplyCalls] = pools.reduce<[Promise<readonly [bigint, bigint]>[], Promise<bigint>[]]>(
       (acc, pool) => {
-        const contract = fetchContract(pool.address, abi, chainId);
+        const contract = fetchContract(pool.address, abi, ApiChainId.arbitrum);
         acc[0].push(contract.read.getReserves());
         acc[1].push(contract.read.totalSupply());
         return acc;

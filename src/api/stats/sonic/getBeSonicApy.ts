@@ -1,13 +1,14 @@
 import { sonic } from '@beefyfinance/blockchain-addressbook/sonic';
 import { beSonicAbi } from '../../../abis/sonic/beSonicAbi.ts';
-import { DAILY_HPY, SONIC_CHAIN_ID } from '../../../constants.ts';
+import { DAILY_HPY } from '../../../constants.ts';
 import { fromWeiString } from '../../../utils/big-number.ts';
+import { ApiChainId } from '../../../utils/chain.ts';
 import { getLoggerFor } from '../../../utils/logger/index.ts';
 import { SECONDS_PER_YEAR } from '../../../utils/time.ts';
 import { fetchContract } from '../../rpc/client.ts';
 import { getApyBreakdown } from '../common/getApyBreakdownNew.ts';
 
-const logger = getLoggerFor({ module: 'apy', chain: SONIC_CHAIN_ID });
+const logger = getLoggerFor({ module: 'apy', chain: ApiChainId.sonic });
 
 export async function getBeSonicApy() {
   const token = sonic.tokens.beS;

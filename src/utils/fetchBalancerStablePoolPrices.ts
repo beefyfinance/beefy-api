@@ -1,13 +1,13 @@
-import type { ChainId } from '@beefyfinance/blockchain-addressbook';
 import getBalancerPrices, { type BalancerPricePool } from '../api/stats/common/balancer/getBalancerPrices.ts';
 import type { PricesById } from '../types/prices.ts';
+import type { ApiChainId } from './chain.ts';
 import { getLoggerFor } from './logger/index.ts';
 import { withTracing } from './tracing.ts';
 import balancerLinearPools from '../data/ethereum/balancerLinearPools.json' with { type: 'json' };
 
 const logger = getLoggerFor({ module: 'prices', component: 'balancer-linear' });
 
-type MultiChainBalancerPricePool = BalancerPricePool & { chainId: ChainId };
+type MultiChainBalancerPricePool = BalancerPricePool & { chainId: ApiChainId };
 
 const linearPoolPools = [...balancerLinearPools];
 
@@ -37,7 +37,11 @@ const fetchPoolPrice = async (tokenPrices: PricesById, pools: MultiChainBalancer
   return prices;
 };
 
-const getPrice = async (chainId: ChainId, pools: BalancerPricePool[], tokenPrices: PricesById): Promise<PricesById> => {
+const getPrice = async (
+  chainId: ApiChainId,
+  pools: BalancerPricePool[],
+  tokenPrices: PricesById
+): Promise<PricesById> => {
   let prices: PricesById = {};
   let results = await getBalancerPrices(chainId, pools, tokenPrices);
   for (const [key, value] of Object.entries(results)) {

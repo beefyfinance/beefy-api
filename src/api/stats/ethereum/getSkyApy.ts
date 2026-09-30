@@ -1,3 +1,4 @@
+import { ApiChainId } from '../../../utils/chain.ts';
 import { getRewardPoolApys } from '../common/getRewardPoolApys.ts';
 
 const pools = [
@@ -38,7 +39,7 @@ export const getSkyApy = async () => {
         oracleId: p.reward,
         oracle: 'tokens',
         decimals: '1e18',
-        chainId: 1,
+        chainId: ApiChainId.ethereum,
         // log: true,
       })
     )

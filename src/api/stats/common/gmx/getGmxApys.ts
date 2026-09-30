@@ -1,9 +1,9 @@
-import type { ChainId } from '@beefyfinance/blockchain-addressbook';
 import { BigNumber } from 'bignumber.js';
 import type { Address } from 'viem';
 import DistributorAbi from '../../../../abis/arbitrum/Distributor.ts';
 import RewardTrackerAbi from '../../../../abis/arbitrum/RewardTracker.ts';
 import StrategyABI from '../../../../abis/StrategyABI.ts';
+import type { ApiChainId } from '../../../../utils/chain.ts';
 import { fetchPrice } from '../../../../utils/fetchPrice.ts';
 import { fetchContract } from '../../../rpc/client.ts';
 import { type ApyBreakdownResult, getApyBreakdown } from '../getApyBreakdown.ts';
@@ -12,7 +12,7 @@ import type { GmxPool } from './types.ts';
 export interface GmxApysParams {
   pools: GmxPool[];
   trackers: Tracker[];
-  chainId: ChainId;
+  chainId: ApiChainId;
 }
 
 export interface Tracker {

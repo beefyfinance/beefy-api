@@ -1,5 +1,5 @@
-import type { ChainId } from '@beefyfinance/blockchain-addressbook';
 import { BigNumber } from 'bignumber.js';
+import type { ApiChainId } from './chain.ts';
 import { getLoggerFor } from './logger/index.ts';
 
 const logger = getLoggerFor({ module: 'apy', component: 'balancer' });
@@ -24,7 +24,7 @@ type BalancerPoolsAprResponse = {
   };
 };
 
-const getChainName = (chain: ChainId) => {
+const getChainName = (chain: ApiChainId) => {
   switch (chain) {
     case 146:
       return 'SONIC';
@@ -49,7 +49,7 @@ const getChainName = (chain: ChainId) => {
   }
 };
 
-export const getBalTradingAndLstApr = async (chain: ChainId, poolAddresses: string[]) => {
+export const getBalTradingAndLstApr = async (chain: ApiChainId, poolAddresses: string[]) => {
   let tradingAprMap: Record<string, number> = {};
   // Keep order aligned with `poolAddresses` (index used downstream)
   let lstAprs = poolAddresses.map(() => new BigNumber(0));

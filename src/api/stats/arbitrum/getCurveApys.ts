@@ -1,10 +1,12 @@
-import { ARBITRUM_CHAIN_ID as chainId } from '../../../constants.ts';
+import { ApiChainId } from '../../../utils/chain.ts';
 import { getConvexApyData } from '../common/curve/getConvexApyData.ts';
 import { getCurveSubgraphApys } from '../common/curve/getCurveApyData.ts';
 import { getCurveApysCommon } from '../common/curve/getCurveApysCommon.ts';
 import { getStakeDaoV2Apys } from '../common/curve/getStakeDaoV2Apys.ts';
 import { getApyBreakdown } from '../common/getApyBreakdownNew.ts';
 import curvePoolsData from '../../../data/arbitrum/curvePools.json' with { type: 'json' };
+
+const chainId = ApiChainId.arbitrum;
 
 const pools = curvePoolsData.filter(p => p.gauge);
 const baseApyUrl = 'https://api.curve.finance/api/getSubgraphData/arbitrum';

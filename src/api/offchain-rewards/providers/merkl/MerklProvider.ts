@@ -1,7 +1,14 @@
 import { groupBy, pick } from 'lodash-es';
 import { type Address, getAddress, isAddressEqual } from 'viem';
 import { isDefined } from '../../../../utils/array.ts';
-import { type AppChain, fromChainNumber, toAppChain, toChainId } from '../../../../utils/chain.ts';
+import {
+  type AppChain,
+  fromChainNumber,
+  getChainConfig,
+  SupportedChains,
+  toAppChain,
+  toChainId,
+} from '../../../../utils/chain.ts';
 import { getUnixNow, isUnixBetween } from '../../../../utils/date.ts';
 import { getLoggerFor } from '../../../../utils/logger/index.ts';
 import { isFiniteNumber } from '../../../../utils/number.ts';
@@ -14,21 +21,9 @@ import type { CampaignTypeSetting, MerklApiCampaignType } from './types.ts';
 const logger = getLoggerFor({ module: 'rewards', component: 'merkl' });
 
 const providerId = 'merkl' as const;
-const supportedChains = new Set<AppChain>([
-  'ethereum',
-  'polygon',
-  'optimism',
-  'arbitrum',
-  'base',
-  'bsc',
-  'sonic',
-  'hyperevm',
-  'plasma',
-  'monad',
-  'megaeth',
-  'robinhood',
-  'arc',
-]);
+const supportedChains = new Set<AppChain>(
+  SupportedChains.filter(chain => getChainConfig(chain).integrations.merkl).map(toAppChain)
+);
 const supportedCampaignTypeToVaultType: Map<MerklApiCampaignType, Set<Vault['type']>> = new Map([
   ['ERC20', new Set<Vault['type']>(['standard'])],
   ['CLAMM', new Set<Vault['type']>(['cowcentrated', 'cowcentrated-pool'])],

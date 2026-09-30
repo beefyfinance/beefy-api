@@ -1,6 +1,6 @@
-import type { ChainId } from '@beefyfinance/blockchain-addressbook';
 import { BigNumber } from 'bignumber.js';
 import EulerVault from '../../../../abis/EulerVault.ts';
+import type { ApiChainId } from '../../../../utils/chain.ts';
 import { getLoggerFor } from '../../../../utils/logger/index.ts';
 import { fetchContract } from '../../../rpc/client.ts';
 import { getApyBreakdown } from '../getApyBreakdownNew.ts';
@@ -38,7 +38,7 @@ const getEulerApyData = async (params: EulerApyParams) => {
   );
 };
 
-const getPoolsApys = async (chainId: ChainId, pools: EulerPool[]): Promise<BigNumber[]> => {
+const getPoolsApys = async (chainId: ApiChainId, pools: EulerPool[]): Promise<BigNumber[]> => {
   // Split pools into earn and non-earn pools
   const earnPools: { pool: EulerPool; index: number }[] = [];
   const contractPools: { pool: EulerPool; index: number }[] = [];
@@ -89,7 +89,7 @@ const getPoolsApys = async (chainId: ChainId, pools: EulerPool[]): Promise<BigNu
   return results;
 };
 
-const getPoolsApysFromApi = async (chainId: ChainId, pools: EulerPool[]): Promise<BigNumber[]> => {
+const getPoolsApysFromApi = async (chainId: ApiChainId, pools: EulerPool[]): Promise<BigNumber[]> => {
   const apiCalls = pools.map(async pool => {
     try {
       const url = `https://indexer-main.euler.finance/v1/earn/vault?chainId=${chainId}&vaultAddress=${pool.address}`;
@@ -118,7 +118,7 @@ const getPoolsApysFromApi = async (chainId: ChainId, pools: EulerPool[]): Promis
   return Promise.all(apiCalls);
 };
 
-const getPoolsApysFromContracts = async (chainId: ChainId, pools: EulerPool[]): Promise<BigNumber[]> => {
+const getPoolsApysFromContracts = async (chainId: ApiChainId, pools: EulerPool[]): Promise<BigNumber[]> => {
   const interestRateCalls = [];
   const interestFeeCalls = [];
   const totalBorrowedCalls = [];
@@ -162,7 +162,7 @@ export interface EulerPool {
 }
 
 export interface EulerApyParams {
-  chainId: ChainId;
+  chainId: ApiChainId;
   pools: EulerPool[];
   log?: boolean;
 }

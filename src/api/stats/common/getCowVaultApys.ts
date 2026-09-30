@@ -1,7 +1,7 @@
 import { partition } from 'lodash-es';
 import { DAILY_HPY } from '../../../constants.ts';
 import { isDefined } from '../../../utils/array.ts';
-import { type ApiChain, toChainId } from '../../../utils/chain.ts';
+import { type ApyChain, type ClmApiChain, toChainId } from '../../../utils/chain.ts';
 import { envBoolean } from '../../../utils/env.ts';
 import { getLoggerFor } from '../../../utils/logger/index.ts';
 import type { OptionalRecord } from '../../../utils/object.ts';
@@ -19,6 +19,8 @@ import { type ApyBreakdownRequest, type ApyBreakdownResult, getApyBreakdown } fr
 import { getBeefyRewardPoolV2Apr } from './getBeefyRewardPoolV2Apr.ts';
 
 const logger = getLoggerFor({ module: 'apy' });
+
+type CowApyChain = ApyChain & ClmApiChain;
 
 type OffchainAprProvider = Campaign['providerId'];
 
@@ -38,7 +40,7 @@ const THROW_ON_EMPTY_COW_META: boolean = envBoolean('THROW_ON_EMPTY_COW_META', t
 /**
  * Base CLMs + Reward Pools
  */
-export const getCowApys = async (apiChain: ApiChain) => {
+export const getCowApys = async (apiChain: CowApyChain) => {
   const clms = getCowVaultsMeta(apiChain);
   if (!clms.length) {
     if (THROW_ON_EMPTY_COW_META) {
@@ -109,7 +111,7 @@ function addOffchainApr(
   vaultApr.byProvider[providerId] = providerApr === undefined ? apr : providerApr + apr;
 }
 
-async function getOffchainCampaignsByVault(apiChain: ApiChain): Promise<Record<string, OffchainVaultApr>> {
+async function getOffchainCampaignsByVault(apiChain: CowApyChain): Promise<Record<string, OffchainVaultApr>> {
   const campaigns = await getCampaignsForChain(apiChain);
   const byVaultId: Record<string, OffchainVaultApr> = {};
 
@@ -184,7 +186,7 @@ function getCowRewardPoolApyBreakdown(
 }
 
 const getCowRewardPoolAprs = async (
-  apiChain: ApiChain,
+  apiChain: CowApyChain,
   clms: AnyCowClmMeta[]
 ): Promise<(RewardPoolApr | undefined)[]> => {
   const resolveUndefined = Promise.resolve(undefined);
@@ -194,7 +196,7 @@ const getCowRewardPoolAprs = async (
 };
 
 const getCowRewardPoolApr = async (
-  apiChain: ApiChain,
+  apiChain: CowApyChain,
   clm: CowClmWithRewardPoolMeta
 ): Promise<RewardPoolApr | undefined> => {
   try {

@@ -1,10 +1,10 @@
-import type { ChainId } from '@beefyfinance/blockchain-addressbook';
 import { BigNumber } from 'bignumber.js';
 import type { Address } from 'viem';
 import SiloAbi from '../../../abis/arbitrum/Silo.ts';
 import SiloTokenAbi from '../../../abis/arbitrum/SiloToken.ts';
 import SiloV2Abi from '../../../abis/SiloV2.ts';
 import type { PricesById, StandardLpBreakdown } from '../../../types/prices.ts';
+import type { ApiChainId } from '../../../utils/chain.ts';
 import { getLoggerFor } from '../../../utils/logger/index.ts';
 import { withTracing } from '../../../utils/tracing.ts';
 import { fetchContract } from '../../rpc/client.ts';
@@ -28,7 +28,7 @@ type SiloPool = {
 type SiloAmount = bigint | { collateralOnlyDeposits: bigint; totalDeposits: bigint };
 
 export const getSiloPrices = withTracing(
-  async (chainId: ChainId, pools: SiloPool[], tokenPrices: PricesById) => {
+  async (chainId: ApiChainId, pools: SiloPool[], tokenPrices: PricesById) => {
     const [amountCalls, totalSupplyCalls, decimalsCalls] = pools.reduce<
       [Promise<SiloAmount>[], Promise<bigint>[], Promise<number>[]]
     >(
@@ -80,7 +80,7 @@ export const getSiloPrices = withTracing(
     }
     return prices;
   },
-  { logger, fieldsFn: (chainId: ChainId) => ({ chain: chainId }) }
+  { logger, fieldsFn: (chainId: ApiChainId) => ({ chain: chainId }) }
 );
 
 const getTokenPrice = (tokenPrices: PricesById, oracleId: string) => {

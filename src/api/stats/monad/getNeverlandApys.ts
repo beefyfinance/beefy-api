@@ -3,8 +3,8 @@ import jp from 'jsonpath';
 import type { Address } from 'viem';
 import IAaveV3PoolDataProvider from '../../../abis/AaveV3PoolDataProvider.ts';
 import NeverlandIncentiveController from '../../../abis/monad/NeverlandIncentiveController.ts';
-import { MONAD_CHAIN_ID } from '../../../constants.ts';
 import { BIG_ZERO } from '../../../utils/big-number.ts';
+import { ApiChainId } from '../../../utils/chain.ts';
 import { fetchPrice } from '../../../utils/fetchPrice.ts';
 import { getLoggerFor } from '../../../utils/logger/index.ts';
 import { fetchContract } from '../../rpc/client.ts';
@@ -12,7 +12,7 @@ import { getMerklApys } from '../common/curve/getCurveApysCommon.ts';
 import { type ApyBreakdownResult, getApyBreakdown } from '../common/getApyBreakdownNew.ts';
 import pools from '../../../data/monad/neverlandPools.json' with { type: 'json' };
 
-const logger = getLoggerFor({ module: 'apy', component: 'neverland', chain: MONAD_CHAIN_ID });
+const logger = getLoggerFor({ module: 'apy', component: 'neverland', chain: ApiChainId.monad });
 
 const aaveProtocolDataProvider = '0xfd0b6b6F736376F7B99ee989c749007c7757fDba';
 const neverlandIncentiveController = '0x57ea245cCbFAb074baBb9d01d1F0c60525E52cec';
@@ -30,7 +30,7 @@ export const getNeverlandApys = async (): Promise<ApyBreakdownResult> => {
     getPoolData(),
     getIncentiveControllerData(),
     getLiquidStakingData(pools),
-    getMerklApys(MONAD_CHAIN_ID, pools),
+    getMerklApys(ApiChainId.monad, pools),
   ]);
 
   for (let i = 0; i < pools.length; ++i) {
@@ -54,7 +54,7 @@ const getPoolData = async () => {
   );
   const suppliesInUsd: BigNumber[] = pools.map(() => BIG_ZERO);
 
-  const dataProvider = fetchContract(aaveProtocolDataProvider, IAaveV3PoolDataProvider, MONAD_CHAIN_ID);
+  const dataProvider = fetchContract(aaveProtocolDataProvider, IAaveV3PoolDataProvider, ApiChainId.monad);
   await Promise.allSettled(
     pools.map(async (pool, i) => {
       const [poolData, tokenPrice] = await Promise.all([
@@ -77,7 +77,7 @@ const getIncentiveControllerData = async (): Promise<BigNumber[]> => {
   const incentivesControllerContract = fetchContract(
     neverlandIncentiveController,
     NeverlandIncentiveController,
-    MONAD_CHAIN_ID
+    ApiChainId.monad
   );
   const poolInfoCalls = pools.map(pool => {
     return incentivesControllerContract.read.getRewardsData([pool.aToken as Address, rewardAddress]);

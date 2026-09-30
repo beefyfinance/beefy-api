@@ -1,11 +1,10 @@
-import { ChainId } from '@beefyfinance/blockchain-addressbook/types/chainid';
 import { BigNumber } from 'bignumber.js';
 import { orderBy } from 'lodash-es';
 import type { Address } from 'viem';
 import { default as BeefyPriceMulticall } from '../abis/BeefyPriceMulticall.ts';
 import { fetchContract } from '../api/rpc/client.ts';
 import { isDefined } from './array.ts';
-import { fromChainNumber, getChainConfig } from './chain.ts';
+import { ApiChainId, fromChainNumber, getChainConfig } from './chain.ts';
 import { envBoolean, envNumber } from './env.ts';
 import { getLoggerFor } from './logger/index.ts';
 import { normalizeNativeWrappedPrices } from './normalizeNativeWrappedPrices.ts';
@@ -115,14 +114,14 @@ export const fetchAmmPrices = withTracing(
       weights[known] = Number.MAX_SAFE_INTEGER;
     });
 
-    const chainsWithPools = Array.from(new Set(pools.map(p => p.chainId || ChainId.bsc)));
+    const chainsWithPools = Array.from(new Set(pools.map(p => p.chainId || ApiChainId.bsc)));
     let leftChains = chainsWithPools;
     const poolsWithData = (
       await Promise.all(
         chainsWithPools.map(async chain => {
           // Old BSC pools don't have the chainId attr
           const chainPools =
-            chain === ChainId.bsc
+            chain === ApiChainId.bsc
               ? pools.filter(p => p.chainId === chain || p.chainId === undefined)
               : pools.filter(p => p.chainId === chain);
 
@@ -285,7 +284,7 @@ type Pool = {
   name: string;
   address: string;
   decimals: string;
-  chainId?: ChainId;
+  chainId?: ApiChainId;
   lp0: PoolToken;
   lp1: PoolToken;
 };
@@ -301,7 +300,7 @@ type PoolData = Omit<Pool, 'lp0' | 'lp1'> & {
 };
 
 const fetchChainPools = withTracing(
-  async (chain: ChainId, pools: Pool[]): Promise<PoolData[]> => {
+  async (chain: ApiChainId, pools: Pool[]): Promise<PoolData[]> => {
     if (pools.length === 0) {
       return [];
     }
@@ -346,5 +345,5 @@ const fetchChainPools = withTracing(
 
     return results.filter(isContextResultFulfilled).map(r => r.value);
   },
-  { logger, fieldsFn: (chain: ChainId) => ({ chain }) }
+  { logger, fieldsFn: (chain: ApiChainId) => ({ chain }) }
 );

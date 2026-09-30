@@ -1,11 +1,10 @@
-import { ChainId } from '@beefyfinance/blockchain-addressbook/types/chainid';
 import { BigNumber } from 'bignumber.js';
 import { first, groupBy, orderBy, sumBy } from 'lodash-es';
 import type { Address } from 'viem';
 import BeefyVaultV6Abi from '../../abis/BeefyVault.ts';
 import { getVaultPpfsOverride } from '../../data/vaultOverrides.ts';
 import { deleteKey, getKey, setKey } from '../../utils/cache/index.ts';
-import { type ApiChain, SupportedChains } from '../../utils/chain.ts';
+import { type ApiChain, SupportedChains, toChainId } from '../../utils/chain.ts';
 import { envNumber } from '../../utils/env.ts';
 import { getVaults } from '../../utils/getVaults.ts';
 import { getLoggerFor } from '../../utils/logger/index.ts';
@@ -443,7 +442,7 @@ const vaultTypeHandlers: VaultTypeHandlers = {
 };
 
 async function getStrategyAddress(chain: ApiChain, vaultAddress: Address): Promise<Address> {
-  const chainId = ChainId[chain];
+  const chainId = toChainId(chain);
   const vaultContract = fetchContract(vaultAddress, BeefyVaultV6Abi, chainId);
   const strategyAddress = await vaultContract.read.strategy();
   return strategyAddress;
@@ -458,14 +457,14 @@ async function getPricePerFullShare(chain: ApiChain, vaultAddress: Address, vaul
   const override = vaultId && getVaultPpfsOverride(vaultId);
   if (override) return override;
 
-  const chainId = ChainId[chain];
+  const chainId = toChainId(chain);
   const vaultContract = fetchContract(vaultAddress, BeefyVaultV6Abi, chainId);
   const result = await vaultContract.read.getPricePerFullShare();
   return new BigNumber(result.toString(10));
 }
 
 async function getLastHarvest(chain: ApiChain, strategyAddress: Address): Promise<number> {
-  const chainId = ChainId[chain];
+  const chainId = toChainId(chain);
   try {
     const vaultContract = fetchContract(
       strategyAddress,
@@ -489,7 +488,7 @@ async function getLastHarvest(chain: ApiChain, strategyAddress: Address): Promis
 }
 
 async function getTotalSupply(chain: ApiChain, vaultAddress: Address): Promise<number> {
-  const chainId = ChainId[chain];
+  const chainId = toChainId(chain);
   const vaultContract = fetchContract(vaultAddress, BeefyVaultV6Abi, chainId);
   const totalSupply = await vaultContract.read.totalSupply();
   return Number(totalSupply.toString(10));

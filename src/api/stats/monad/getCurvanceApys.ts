@@ -1,7 +1,7 @@
 import { BigNumber } from 'bignumber.js';
 import ICurvanceIRM from '../../../abis/CurvanceIRM.ts';
 import CurvanceVault from '../../../abis/CurvanceVault.ts';
-import { MONAD_CHAIN_ID } from '../../../constants.ts';
+import { ApiChainId } from '../../../utils/chain.ts';
 import { fetchContract } from '../../rpc/client.ts';
 import { getMerklApys } from '../common/curve/getCurveApysCommon.ts';
 import { getApyBreakdown } from '../common/getApyBreakdownNew.ts';
@@ -11,7 +11,7 @@ const pools: CurvancePool[] = curvancePoolsData;
 const SECONDS_PER_YEAR = 31536000;
 
 export const getCurvanceApys = async () => {
-  const [supplyApys, merklApys] = await Promise.all([getPoolsApys(pools), getMerklApys(MONAD_CHAIN_ID, pools)]);
+  const [supplyApys, merklApys] = await Promise.all([getPoolsApys(pools), getMerklApys(ApiChainId.monad, pools)]);
 
   return getApyBreakdown(
     pools.map(p => ({
@@ -31,7 +31,7 @@ const getPoolsApys = async (pools: CurvancePool[]): Promise<BigNumber[]> => {
 
   for (let i = 0; i < pools.length; i++) {
     const pool = pools[i];
-    const curvanceVaultContract = fetchContract(pool.address, CurvanceVault, MONAD_CHAIN_ID) as any;
+    const curvanceVaultContract = fetchContract(pool.address, CurvanceVault, ApiChainId.monad) as any;
     assetsHeldCalls.push(curvanceVaultContract.read.assetsHeld());
     outstandingDebtCalls.push(curvanceVaultContract.read.marketOutstandingDebt());
     interestFeeCalls.push(curvanceVaultContract.read.interestFee());
@@ -45,7 +45,7 @@ const getPoolsApys = async (pools: CurvancePool[]): Promise<BigNumber[]> => {
 
   for (let i = 0; i < pools.length; i++) {
     const pool = pools[i];
-    const IRMContract = fetchContract(pool.irm, ICurvanceIRM, MONAD_CHAIN_ID) as any;
+    const IRMContract = fetchContract(pool.irm, ICurvanceIRM, ApiChainId.monad) as any;
     supplyRates.push(IRMContract.read.supplyRate([res[0][i].toString(), res[1][i].toString(), res[2][i].toString()]));
   }
 

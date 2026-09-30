@@ -7,7 +7,7 @@ export const getConfigs = (ctx: Context) => {
   ctx.body = allConfigs;
 };
 
-export const getChainConfig = (ctx: Context & { params: Record<string, string> }) => {
+export const getChainConfigHandler = (ctx: Context & { params: Record<string, string> }) => {
   const chainConfigs = getSingleChainConfig(ctx.params.chainId);
   ctx.status = 200;
   ctx.body = chainConfigs;

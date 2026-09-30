@@ -1,10 +1,10 @@
-import { ROBINHOOD_CHAIN_ID } from '../../../constants.ts';
+import { ApiChainId } from '../../../utils/chain.ts';
 import { getLoggerFor } from '../../../utils/logger/index.ts';
 import type { ApyBreakdownResult } from '../common/getApyBreakdownNew.ts';
 import { getBeefyCowRobinhoodApys } from './getBeefyCowRobinhoodApys.ts';
 import { getUp33Apys } from './getUp33Apys.ts';
 
-const logger = getLoggerFor({ module: 'apy', chain: ROBINHOOD_CHAIN_ID });
+const logger = getLoggerFor({ module: 'apy', chain: ApiChainId.robinhood });
 
 const getApys = [getBeefyCowRobinhoodApys, getUp33Apys];
 

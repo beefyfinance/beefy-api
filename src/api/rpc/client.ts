@@ -1,4 +1,3 @@
-import type { ChainId } from '@beefyfinance/blockchain-addressbook';
 import PQueue from 'p-queue';
 import type { Abi } from 'viem';
 import {
@@ -14,16 +13,17 @@ import {
   http,
   type PublicClient,
 } from 'viem';
+import type { ApiChainId } from '../../utils/chain.ts';
 import { envBoolean, envNumber } from '../../utils/env.ts';
 import { getChain } from './chains.ts';
 import { rateLimitedHttp } from './transport.ts';
 
 const BATCH_WAIT = envNumber('BATCH_WAIT', 1500);
 
-const multicallClientsByChain: Record<number, Client> = {};
-const singleCallClientsByChain: Record<number, Client> = {};
+const multicallClientsByChain: Partial<Record<ApiChainId, Client>> = {};
+const singleCallClientsByChain: Partial<Record<ApiChainId, Client>> = {};
 
-const publicClientsByChain: Record<number, PublicClient> = {};
+const publicClientsByChain: Partial<Record<ApiChainId, PublicClient>> = {};
 const queueByDomain: Record<string, PQueue> = {};
 
 /**
@@ -68,10 +68,10 @@ function makeFallbackTransport(rpcUrls: string[] | readonly string[]): FallbackT
   return fallback(transports);
 }
 
-export const getMulticallClientForChain = (chainId: ChainId): Client => {
+export const getMulticallClientForChain = (chainId: ApiChainId): Client => {
   const chain = getChain(chainId);
-  if (!multicallClientsByChain[chain.id]) {
-    multicallClientsByChain[chain.id] = createClient({
+  if (!multicallClientsByChain[chainId]) {
+    multicallClientsByChain[chainId] = createClient({
       batch: {
         multicall: {
           batchSize: 1024,
@@ -82,13 +82,13 @@ export const getMulticallClientForChain = (chainId: ChainId): Client => {
       transport: makeFallbackTransport(chain.rpcUrls.default.http),
     });
   }
-  return multicallClientsByChain[chain.id];
+  return multicallClientsByChain[chainId];
 };
 
-const getPublicClientForChain = (chainId: ChainId): PublicClient => {
+const getPublicClientForChain = (chainId: ApiChainId): PublicClient => {
   const chain = getChain(chainId);
-  if (!publicClientsByChain[chain.id]) {
-    publicClientsByChain[chain.id] = createPublicClient({
+  if (!publicClientsByChain[chainId]) {
+    publicClientsByChain[chainId] = createPublicClient({
       batch: {
         multicall: {
           batchSize: 1024,
@@ -99,21 +99,21 @@ const getPublicClientForChain = (chainId: ChainId): PublicClient => {
       transport: makeFallbackTransport(chain.rpcUrls.default.http),
     });
   }
-  return publicClientsByChain[chain.id];
+  return publicClientsByChain[chainId];
 };
 
-const getSingleCallClientForChain = (chainId: ChainId): Client => {
+const getSingleCallClientForChain = (chainId: ApiChainId): Client => {
   const chain = getChain(chainId);
-  if (!singleCallClientsByChain[chain.id]) {
-    singleCallClientsByChain[chain.id] = createClient({
+  if (!singleCallClientsByChain[chainId]) {
+    singleCallClientsByChain[chainId] = createClient({
       chain: chain,
       transport: makeFallbackTransport(chain.rpcUrls.default.http),
     });
   }
-  return singleCallClientsByChain[chain.id];
+  return singleCallClientsByChain[chainId];
 };
 
-export const fetchContract = <ContractAbi extends Abi>(address: string, abi: ContractAbi, chainId: ChainId) => {
+export const fetchContract = <ContractAbi extends Abi>(address: string, abi: ContractAbi, chainId: ApiChainId) => {
   const client = getMulticallClientForChain(chainId);
   return getContract({ address: address as Address, abi, client });
 };
@@ -121,10 +121,10 @@ export const fetchContract = <ContractAbi extends Abi>(address: string, abi: Con
 export const fetchNoMulticallContract = <ContractAbi extends Abi>(
   address: string,
   abi: ContractAbi,
-  chainId: ChainId
+  chainId: ApiChainId
 ) => {
   const client = getSingleCallClientForChain(chainId);
   return getContract({ address: address as Address, abi, client });
 };
 
-export const getRPCClient = (chainId: ChainId): PublicClient => getPublicClientForChain(chainId);
+export const getRPCClient = (chainId: ApiChainId): PublicClient => getPublicClientForChain(chainId);

@@ -1,5 +1,5 @@
 import PQueue from 'p-queue';
-import { type AnyChain, type ApiChain, toApiChain } from '../../../../utils/chain.ts';
+import { type AnyChain, type ApiChain, getChainConfig, SupportedChains, toApiChain } from '../../../../utils/chain.ts';
 import { RateLimitedKyberApi } from './RateLimitedKyberApi.ts';
 import type { IKyberApi } from './types.ts';
 
@@ -14,33 +14,19 @@ const API_QUEUE_CONFIG = {
 };
 
 // @see https://docs.kyberswap.com/kyberswap-solutions/kyberswap-aggregator/aggregator-api-specification/evm-swaps
-export const supportedChains: Partial<Record<ApiChain, string>> = {
-  ethereum: 'ethereum',
-  bsc: 'bsc',
-  arbitrum: 'arbitrum',
-  polygon: 'polygon',
-  optimism: 'optimism',
-  avax: 'avalanche',
-  base: 'base',
-  linea: 'linea',
-  mantle: 'mantle',
-  sonic: 'sonic',
-  berachain: 'berachain',
-  // unichain: 'unichain',
-  hyperevm: 'hyperevm',
-  plasma: 'plasma',
-  monad: 'monad',
-  megaeth: 'megaeth',
-  robinhood: 'robinhood',
-  arc: 'arc',
-} as const;
+export const supportedChains = new Map<ApiChain, string>(
+  SupportedChains.flatMap(chain => {
+    const kyberChain = getChainConfig(chain).integrations.kyber;
+    return kyberChain ? [[chain, kyberChain] as const] : [];
+  })
+);
 
 const swapApiByChain: Partial<Record<ApiChain, IKyberApi>> = {};
 let swapApiQueue: PQueue | undefined;
 
 export function getKyberApi(chain: AnyChain): IKyberApi {
   const apiChain = toApiChain(chain);
-  const kyberChain = supportedChains[apiChain];
+  const kyberChain = supportedChains.get(apiChain);
   if (!kyberChain) {
     throw new Error(`Kyber api is not supported on ${apiChain}`);
   }

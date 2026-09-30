@@ -1,7 +1,7 @@
-import type { ChainId } from '@beefyfinance/blockchain-addressbook';
 import { BigNumber } from 'bignumber.js';
 import ERC20Abi from '../../../../abis/ERC20Abi.ts';
 import type { PricesById, StandardLpBreakdown } from '../../../../types/prices.ts';
+import type { ApiChainId } from '../../../../utils/chain.ts';
 import { getLoggerFor } from '../../../../utils/logger/index.ts';
 import { withTracing } from '../../../../utils/tracing.ts';
 import { fetchContract } from '../../../rpc/client.ts';
@@ -16,7 +16,7 @@ export type AaveV3PricePool = {
 };
 
 export const getAaveV3Prices = withTracing(
-  async (chainId: ChainId, pools: AaveV3PricePool[], tokenPrices: PricesById) => {
+  async (chainId: ApiChainId, pools: AaveV3PricePool[], tokenPrices: PricesById) => {
     const supplyCalls = pools.map(pool => fetchContract(pool.aToken, ERC20Abi, chainId).read.totalSupply());
     const [supplyRes] = await Promise.all([Promise.all(supplyCalls)]);
 
@@ -34,5 +34,5 @@ export const getAaveV3Prices = withTracing(
     }
     return prices;
   },
-  { logger, fieldsFn: (chainId: ChainId) => ({ chain: chainId }) }
+  { logger, fieldsFn: (chainId: ApiChainId) => ({ chain: chainId }) }
 );

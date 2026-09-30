@@ -1,7 +1,8 @@
-import { addressBookByChainId, type ChainId } from '@beefyfinance/blockchain-addressbook';
+import { addressBookByChainId } from '@beefyfinance/blockchain-addressbook';
 import { BigNumber } from 'bignumber.js';
 import { parseAbi } from 'viem';
 import type { PricesById, StandardLpBreakdown } from '../../../types/prices.ts';
+import type { ApiChainId } from '../../../utils/chain.ts';
 import { getLoggerFor } from '../../../utils/logger/index.ts';
 import { withTracing } from '../../../utils/tracing.ts';
 import { fetchContract } from '../../rpc/client.ts';
@@ -21,7 +22,7 @@ export type MellowVeloPool = {
 };
 
 export const getMellowVeloPrices = withTracing(
-  async (chainId: ChainId, pools: MellowVeloPool[], tokenPrices: PricesById) => {
+  async (chainId: ApiChainId, pools: MellowVeloPool[], tokenPrices: PricesById) => {
     let prices: Record<string, StandardLpBreakdown> = {};
 
     const contracts = pools.map(p => fetchContract(p.address, abi, chainId));
@@ -55,7 +56,7 @@ export const getMellowVeloPrices = withTracing(
 
     return prices;
   },
-  { logger, fieldsFn: (chainId: ChainId) => ({ chain: chainId }) }
+  { logger, fieldsFn: (chainId: ApiChainId) => ({ chain: chainId }) }
 );
 
 const getTokenPrice = (tokenPrices: PricesById, token: string) => {

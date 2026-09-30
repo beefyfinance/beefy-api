@@ -1,10 +1,9 @@
 import { addressBook } from '@beefyfinance/blockchain-addressbook';
-import type { ChainId } from '@beefyfinance/blockchain-addressbook/types/chainid';
 import type { Token } from '@beefyfinance/blockchain-addressbook/types/token';
 import OptionsToken from '../abis/OptionsToken.ts';
 import { fetchContract } from '../api/rpc/client.ts';
 import type { PricesById } from '../types/prices.ts';
-import { toChainId } from './chain.ts';
+import { type ApiChain, type ApiChainId, toChainId } from './chain.ts';
 import { getLoggerFor } from './logger/index.ts';
 import { typedEntries } from './object.ts';
 import { isValidPrice } from './prices.ts';
@@ -24,18 +23,18 @@ type OptionTokenGroup = [underlying: Token, option: Token];
 
 const tokens = {
   linea: [[LYNX, oLYNX]],
-} satisfies Partial<Record<keyof typeof ChainId, OptionTokenGroup[]>>;
+} satisfies Partial<Record<ApiChain, OptionTokenGroup[]>>;
 
 type Context = {
   underlying: Token;
   option: Token;
-  chainId: ChainId;
+  chainId: ApiChainId;
 };
 
 async function getOptionTokenPrices(
   tokenPrices: PricesById,
   chainTokens: OptionTokenGroup[],
-  chainId: ChainId
+  chainId: ApiChainId
 ): Promise<PricesById> {
   const contexts = chainTokens.map(([underlying, option]): Context => ({ underlying, option, chainId }));
 
