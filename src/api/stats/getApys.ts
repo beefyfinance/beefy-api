@@ -49,9 +49,6 @@ const updateApys = async () => {
       // getSeiApys(), // June 2026
       // getLiskApys(), // June 2026
       // getBerachainApys(), // July 2026
-      // getZksyncApys(), // August 2026
-      // getGnosisApys(), // August 2026
-      // getLineaApys(), // August 2026
       getMaticApys(),
       getAvaxApys(),
       getBSCApys(),

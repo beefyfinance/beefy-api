@@ -5,11 +5,9 @@ import { getApyBreakdown } from '../common/getApyBreakdownNew.ts';
 import curvePoolsData from '../../../data/monad/curvePools.json' with { type: 'json' };
 
 const pools = curvePoolsData.filter(p => p.gauge);
-const subgraphApyUrl = 'https://api.curve.finance/api/getSubgraphData/plasma';
 
 export const getCurveApys = async () => {
   const [baseApys, curveApys]: [Record<string, BigNumber>, BigNumber[]] = await Promise.all([
-    // getCurveSubgraphApys(pools, subgraphApyUrl),
     {},
     getMerklApys(chainId, pools),
   ]);

@@ -16,13 +16,12 @@ import {
 } from '../../cowcentrated/types.ts';
 import { getCampaignsForChain } from '../../offchain-rewards/index.ts';
 import type { Campaign } from '../../offchain-rewards/types.ts';
-import { getIgnitionAprs, type IgnitionAprs } from '../linea/getIgnitionAprs.ts';
 import { type ApyBreakdownRequest, type ApyBreakdownResult, getApyBreakdown } from './getApyBreakdownNew.ts';
 import { getBeefyRewardPoolV2Apr } from './getBeefyRewardPoolV2Apr.ts';
 
 const logger = getLoggerFor({ module: 'apy' });
 
-type OffchainAprProvider = Campaign['providerId'] | 'lineaIgnition';
+type OffchainAprProvider = Campaign['providerId'];
 
 type OffchainVaultApr = {
   total: number;
@@ -48,7 +47,7 @@ export const getCowApys = async (apiChain: ApiChain) => {
     } else return {};
   }
 
-  const offchainCampaignsByVault = await getOffchainCampaignsByVault(apiChain, clms);
+  const offchainCampaignsByVault = await getOffchainCampaignsByVault(apiChain);
   const chainId = toChainId(apiChain);
   const [clmBreakdownsResult, rewardPoolAprsResult] = await Promise.allSettled([
     getCowClmApyBreakdown(clms, offchainCampaignsByVault),
@@ -112,14 +111,8 @@ function addOffchainApr(
   vaultApr.byProvider[providerId] = providerApr === undefined ? apr : providerApr + apr;
 }
 
-async function getOffchainCampaignsByVault(
-  apiChain: ApiChain,
-  clms: AnyCowClmMeta[]
-): Promise<Record<string, OffchainVaultApr>> {
-  const [campaigns, lineaIgnition] = await Promise.all([
-    getCampaignsForChain(apiChain),
-    apiChain === 'linea' ? getIgnitionAprs('Etherex') : Promise.resolve({} as IgnitionAprs),
-  ]);
+async function getOffchainCampaignsByVault(apiChain: ApiChain): Promise<Record<string, OffchainVaultApr>> {
+  const campaigns = await getCampaignsForChain(apiChain);
   const byVaultId: Record<string, OffchainVaultApr> = {};
 
   if (campaigns) {
@@ -129,26 +122,6 @@ async function getOffchainCampaignsByVault(
           if (vault.apr > 0) {
             addOffchainApr(byVaultId, vault.id, campaign.providerId, vault.apr);
           }
-        }
-      }
-    }
-  }
-
-  if (apiChain === 'linea') {
-    // linea ignition manual claims
-    for (const clm of clms) {
-      const ignitionApr = lineaIgnition[clm.lpAddress];
-      if (ignitionApr && ignitionApr > 0) {
-        const vaultIds = [clm.oracleId];
-        if (isCowClmWithRewardPoolMeta(clm)) {
-          vaultIds.push(clm.rewardPool.oracleId);
-        }
-        if (isCowClmWithVaultMeta(clm)) {
-          vaultIds.push(clm.vault.oracleId);
-        }
-
-        for (const vaultId of vaultIds) {
-          addOffchainApr(byVaultId, vaultId, 'lineaIgnition', ignitionApr);
         }
       }
     }
@@ -171,12 +144,7 @@ function getCowVaultApyBreakdown(
         return {
           vaultId: clm.vault.oracleId,
           clm: clm.apr,
-          vault:
-            (clmPoolBreakdown?.rewardPoolApr || 0)
-            + (clmPoolBreakdown?.rewardPoolTradingApr || 0)
-            + merklApr
-            + (clmPoolBreakdown?.stellaSwapApr || 0),
-          lineaIgnition: clmPoolBreakdown?.lineaIgnitionApr, // user claims
+          vault: (clmPoolBreakdown?.rewardPoolApr || 0) + (clmPoolBreakdown?.rewardPoolTradingApr || 0) + merklApr,
           compoundingsPerYear: DAILY_HPY,
         };
       }
@@ -207,8 +175,6 @@ function getCowRewardPoolApyBreakdown(
           rewardPoolTrading: poolApr?.rewardPoolTrading || undefined,
           clm: clmBreakdown?.clmApr || undefined, // after fee from CLM; reward pool fee = 0; so this works
           merkl: offchainAprs?.byProvider.merkl || undefined, // we can't copy from CLM in case it is not forwarded correctly
-          stellaSwap: offchainAprs?.byProvider.stellaswap || undefined,
-          lineaIgnition: offchainAprs?.byProvider.lineaIgnition || undefined,
           compoundingsPerYear: DAILY_HPY,
         };
       }
@@ -300,8 +266,6 @@ const getCowClmApyBreakdown = async (
       vaultId: clm.oracleId,
       clm: clm.apr,
       merkl: offchainById[clm.oracleId]?.byProvider.merkl || undefined,
-      stellaSwap: offchainById[clm.oracleId]?.byProvider.stellaswap || undefined,
-      lineaIgnition: offchainById[clm.oracleId]?.byProvider.lineaIgnition || undefined,
       compoundingsPerYear: DAILY_HPY,
     }))
   );

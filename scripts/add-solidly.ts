@@ -12,126 +12,29 @@ const voterABI = parseAbi(['function gauges(address) view returns (address)']);
 const etherexVoterABI = parseAbi(['function gaugeForPool(address) view returns (address)']);
 
 const {
-  fantom: {
-    platforms: { spiritswap, equalizer, fvm },
-  },
   optimism: {
     platforms: { velodrome },
   },
-  polygon: {
-    platforms: { dystopia },
-  },
-  bsc: {
-    platforms: { cone, thena },
-  },
-  ethereum: {
-    platforms: { solidly },
-  },
-  arbitrum: {
-    platforms: { solidlizard },
-  },
-  canto: {
-    platforms: { cvm },
-  },
-  kava: {
-    platforms: { equilibre },
-  },
   zksync: {
-    platforms: { velocore, vesync, dracula },
+    platforms: { vesync },
   },
   base: {
-    platforms: { bvm, aerodrome, equalizer: scale },
+    platforms: { aerodrome },
   },
   linea: {
-    platforms: { lynex, nile, etherex },
-  },
-  fraxtal: {
-    platforms: { ra },
-  },
-  scroll: {
-    platforms: { nuri, tokan },
-  },
-  sonic: {
-    platforms: { equalizer: sonicEqualizer },
+    platforms: { etherex },
   },
   hyperevm: {
     platforms: { kittenswap },
   },
-  plasma: {
-    platforms: { lithos },
-  },
 } = addressBook;
 
 const projects: Record<string, { prefix: string; voter: string; stableFile?: string; volatileFile?: string }> = {
-  equilibre: {
-    prefix: 'equilibre',
-    stableFile: '../src/data/kava/equilibreStableLpPools.json',
-    volatileFile: '../src/data/kava/equilibreLpPools.json',
-    voter: equilibre.voter,
-  },
   velodrome: {
     prefix: 'velodrome-v2',
     stableFile: '../src/data/optimism/velodromeStableLpPools.json',
     volatileFile: '../src/data/optimism/velodromeLpPools.json',
     voter: velodrome.voter,
-  },
-  dystopia: {
-    prefix: 'dystopia',
-    stableFile: '../src/data/matic/dystopiaStableLpPools.json',
-    volatileFile: '../src/data/matic/dystopiaLpPools.json',
-    voter: dystopia.voter,
-  },
-  cone: {
-    prefix: 'cone',
-    stableFile: '../src/data/coneStableLpPools.json',
-    volatileFile: '../src/data/coneLpPools.json',
-    voter: cone.voter,
-  },
-  thena: {
-    prefix: 'thena',
-    stableFile: '../src/data/bsc/thenaStableLpPools.json',
-    volatileFile: '../src/data/bsc/thenaLpPools.json',
-    voter: thena.voter,
-  },
-  spiritVolatile: {
-    prefix: 'spiritV2',
-    volatileFile: '../src/data/fantom/spiritVolatileLpPools.json',
-    voter: spiritswap.volatileVoter,
-  },
-  spiritStable: {
-    prefix: 'spiritV2',
-    stableFile: '../src/data/fantom/spiritStableLpPools.json',
-    voter: spiritswap.stableVoter,
-  },
-  equalizer: {
-    prefix: 'equalizer',
-    stableFile: '../src/data/fantom/equalizerV2StableLpPools.json',
-    volatileFile: '../src/data/fantom/equalizerV2LpPools.json',
-    voter: equalizer.voter,
-  },
-  fvm: {
-    prefix: 'fvm',
-    stableFile: '../src/data/fantom/fvmStableLpPools.json',
-    volatileFile: '../src/data/fantom/fvmLpPools.json',
-    voter: fvm.voter,
-  },
-  solidly: {
-    prefix: 'monolith',
-    stableFile: '../src/data/ethereum/solidlyStableLpPools.json',
-    volatileFile: '../src/data/ethereum/solidlyLpPools.json',
-    voter: solidly.voter,
-  },
-  cvm: {
-    prefix: 'cvm',
-    stableFile: '../src/data/canto/cvmStableLpPools.json',
-    volatileFile: '../src/data/canto/cvmLpPools.json',
-    voter: cvm.voter,
-  },
-  velocore: {
-    prefix: 'velocore',
-    stableFile: '../src/data/zksync/velocoreStableLpPools.json',
-    volatileFile: '../src/data/zksync/velocoreLpPools.json',
-    voter: velocore.voter,
   },
   vesync: {
     prefix: 'vesync',
@@ -139,65 +42,11 @@ const projects: Record<string, { prefix: string; voter: string; stableFile?: str
     volatileFile: '../src/data/zksync/veSyncLpPools.json',
     voter: vesync.voter,
   },
-  dracula: {
-    prefix: 'dracula',
-    stableFile: '../src/data/zksync/draculaStableLpPools.json',
-    volatileFile: '../src/data/zksync/draculaLpPools.json',
-    voter: dracula.voter,
-  },
-  bvm: {
-    prefix: 'bvm',
-    stableFile: '../src/data/base/bvmStableLpPools.json',
-    volatileFile: '../src/data/base/bvmLpPools.json',
-    voter: bvm.voter,
-  },
   aerodrome: {
     prefix: 'aerodrome',
     stableFile: '../src/data/base/aerodromeStableLpPools.json',
     volatileFile: '../src/data/base/aerodromeLpPools.json',
     voter: aerodrome.voter,
-  },
-  equalizerBase: {
-    prefix: 'equalizer-base',
-    stableFile: '../src/data/base/equalizerStableLpPools.json',
-    volatileFile: '../src/data/base/equalizerLpPools.json',
-    voter: scale.voter,
-  },
-  lynex: {
-    prefix: 'lynex',
-    stableFile: '../src/data/linea/lynexStablePools.json',
-    volatileFile: '../src/data/linea/lynexVolatilePools.json',
-    voter: lynex.voter,
-  },
-  nile: {
-    prefix: 'nile',
-    stableFile: '../src/data/linea/nileStablePools.json',
-    volatileFile: '../src/data/linea/nileVolatilePools.json',
-    voter: nile.voter,
-  },
-  ra: {
-    prefix: 'ra',
-    stableFile: '../src/data/fraxtal/raStablePools.json',
-    volatileFile: '../src/data/fraxtal/raPools.json',
-    voter: ra.voter,
-  },
-  nuri: {
-    prefix: 'nuri',
-    stableFile: '../src/data/scroll/nuriStablePools.json',
-    volatileFile: '../src/data/scroll/nuriVolatilePools.json',
-    voter: nuri.voter,
-  },
-  tokan: {
-    prefix: 'tokan',
-    stableFile: '../src/data/scroll/tokanStablePools.json',
-    volatileFile: '../src/data/scroll/tokanVolatilePools.json',
-    voter: tokan.voter,
-  },
-  sonicEqualizer: {
-    prefix: 'equalizer-sonic',
-    stableFile: '../src/data/sonic/equalizerStableLpPools.json',
-    volatileFile: '../src/data/sonic/equalizerLpPools.json',
-    voter: sonicEqualizer.voter,
   },
   kittenswap: {
     prefix: 'kittenswap',

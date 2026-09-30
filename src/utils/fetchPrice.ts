@@ -1,7 +1,3 @@
-import { addressBookByChainId } from '@beefyfinance/blockchain-addressbook';
-import { ChainId } from '@beefyfinance/blockchain-addressbook/types/chainid';
-import type { Token } from '@beefyfinance/blockchain-addressbook/types/token';
-import { getAddress } from 'viem';
 import { getAmmLpPrice, getAmmPrice, getAmmTokenPrice } from '../api/stats/getAmmPrices.ts';
 import { getLoggerFor } from './logger/index.ts';
 
@@ -81,56 +77,4 @@ export async function fetchPriceTyped(
   }
 
   return price ?? 0;
-}
-
-/**
- * Fetches the price of a given oracleId from either the lps or tokens oracle
- */
-export async function fetchPriceFromOracleId(
-  oracleId: string,
-  withUnknownLogging: boolean | string = true
-): Promise<number> {
-  return fetchPriceTyped({ oracle: 'any', id: oracleId }, withUnknownLogging);
-}
-
-/**
- * Fetches the price of a given address book token
- */
-export async function fetchPriceFromToken(token: Token, withUnknownLogging: boolean | string = true): Promise<number> {
-  return fetchPriceFromOracleId(token.oracleId, withUnknownLogging);
-}
-
-/**
- * Fetches the price of a given address book token id
- */
-export async function fetchPriceFromTokenId(
-  id: string,
-  chainId: ChainId | keyof typeof ChainId,
-  withUnknownLogging: boolean | string = true
-): Promise<number> {
-  const enumChainId: ChainId = typeof chainId === 'string' ? ChainId[chainId] : chainId;
-  const token = addressBookByChainId[enumChainId].tokens[id];
-  if (!token) {
-    throw new Error(`Could not find token with id ${id} on chain ${chainId} in address book`);
-  }
-  return fetchPriceFromToken(token, withUnknownLogging);
-}
-
-/**
- * Fetches the price of a given address book token address
- */
-export async function fetchPriceFromTokenAddress(
-  address: string,
-  chainId: ChainId | keyof typeof ChainId,
-  withUnknownLogging: boolean | string = true
-): Promise<number> {
-  const enumChainId: ChainId = typeof chainId === 'string' ? ChainId[chainId] : chainId;
-  const checksumAddress = getAddress(address);
-  const token = addressBookByChainId[enumChainId].tokenAddressMap[checksumAddress];
-  if (!token) {
-    throw new Error(
-      `Could not find token with address ${checksumAddress} on chain ${ChainId[enumChainId]} in address book`
-    );
-  }
-  return fetchPriceFromToken(token, withUnknownLogging);
 }
