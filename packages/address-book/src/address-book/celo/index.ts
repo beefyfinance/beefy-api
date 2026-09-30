@@ -12,5 +12,6 @@ export const celo = {
     oracleId: 'CELO',
     name: 'CELO',
     decimals: 18,
+    balanceSharedWithWrapped: true,
   },
 } as const satisfies Chain;
