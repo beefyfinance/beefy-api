@@ -1834,6 +1834,14 @@ const tokens = {
     },
     {
       type: 'UniV3',
+      pool: '0x320e8096e5e7a46E43446141A5B15d801FC596f5',
+      oracleId: 'BNCB',
+      decimalDelta: 1,
+      firstToken: 'WBNB',
+      secondToken: 'BNCB',
+    },
+    {
+      type: 'UniV3',
       oracleId: 'ZEST',
       decimalDelta: 1,
       pool: '0x6d299F4bAD5392af1e55e3E86A0339399543032b',

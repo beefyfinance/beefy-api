@@ -4742,4 +4742,18 @@ export const tokens = {
     bridge: 'native',
     tags: ['LARGE_HOLDERS'],
   },
+  BNCB: {
+    name: 'CEA Industries',
+    symbol: 'BNCB',
+    oracleId: 'BNCB',
+    address: '0x4902C5ebc598265Ed2212b559B042De8a5Eeec3f',
+    chainId: 56,
+    decimals: 18,
+    website: 'https://www.bstocks.finance/',
+    description:
+      'bStocks are tokenized securities that give you economic exposure to popular US-listed companies with the right to convert to the underlying security on the Binance.com platform subject to applicable laws.',
+    documentation: 'https://www.bstocks.finance/faq',
+    bridge: 'native',
+    tags: ['STOCK'],
+  },
 } as const satisfies Record<string, Token>;
