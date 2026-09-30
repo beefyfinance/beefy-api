@@ -1,3 +1,4 @@
+import { isArrayValue } from '../../utils/array.ts';
 import { sendBadRequest, sendNotFound, sendSuccess, withErrorHandling } from '../../utils/koa.ts';
 import {
   getAllHarvestableVaults,
@@ -11,7 +12,7 @@ import {
   getVaultsByTypeChain,
 } from '../stats/getMultichainVaults.ts';
 import { getVaultFees } from './getVaultFees.ts';
-import { withChainId } from './helpers.ts';
+import { HARVESTABLE_VAULT_TYPES, withChainId } from './helpers.ts';
 
 // Multichain
 
@@ -165,7 +166,7 @@ export const singleHarvestableVault = withErrorHandling(async ctx => {
     return;
   }
 
-  if (!['standard', 'cowcentrated', 'erc4624'].includes(vault.type)) {
+  if (!isArrayValue(vault.type, HARVESTABLE_VAULT_TYPES)) {
     sendBadRequest(ctx, { error: `Vault with id ${vaultId} is not harvestable` });
     return;
   }
