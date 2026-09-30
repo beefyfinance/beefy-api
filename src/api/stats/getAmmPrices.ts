@@ -305,7 +305,6 @@ const seedPeggedPrices = {
   USDS: 'DAI',
   agETH: 'ETH', // Aave
   agwstETH: 'wstETH', // Aave
-  agGNO: 'GNO', // Aave
   USDL: 'USDC',
   arbETHx: 'ETHx',
   WHYPE: 'HYPE',

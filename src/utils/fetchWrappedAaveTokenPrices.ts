@@ -240,7 +240,6 @@ const tokens = {
     [EURA, stEUR, 'erc4626'],
     [agETH, wagETH, 'erc4626'],
     [agwstETH, wagwstETH, 'erc4626'],
-    [agGNO, wagGNO, 'erc4626'],
   ],
   base: [
     [baseGHO, waBasGHO, 'erc4626'],

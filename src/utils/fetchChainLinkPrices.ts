@@ -178,12 +178,6 @@ const oracles: Oracle[] = [
     heartbeat: 864000,
   },
   {
-    oracleId: 'GNO',
-    address: '0x22441d81416430A54336aB28765abd31a792Ad37',
-    chain: 'gnosis',
-    heartbeat: 864000,
-  },
-  {
     oracleId: 'USDe',
     address: '0xa569d910839Ae8865Da8F8e70FfFb0cBA869F961',
     chain: 'ethereum',
