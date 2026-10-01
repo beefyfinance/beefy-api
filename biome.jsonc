@@ -98,6 +98,20 @@
       "includes": ["**/src/**/*.ts", "!**/src/**/*.test.ts"]
     },
     {
+      "path": "./tooling/biome/noComputedApiChainId.grit",
+      "includes": ["**/src/**/*.ts", "**/scripts/**/*.ts", "!**/src/config.ts", "!**/src/utils/chain.ts"]
+    },
+    {
+      "path": "./tooling/biome/noChainTypeCasts.grit",
+      "includes": [
+        "**/src/**/*.ts",
+        "**/scripts/**/*.ts",
+        "!**/src/config.ts",
+        "!**/src/utils/chain.ts",
+        "!**/src/api/zap/swap/DataLayer.ts"
+      ]
+    },
+    {
       // The price/fee/TVL pipeline. The `!` entries are files that already contain `?? <num>`
       // and are exempt until the stage that touches them cleans them up -- delete an entry as
       // each file is done, so this list shrinking is the progress signal.
@@ -157,6 +171,69 @@
     }
   ],
   "overrides": [
+    {
+      // Chain types must come from src/utils/chain.ts (ApiChain / ApiChainId / FeatureChain), which derives
+      // them from src/config.ts, so disabling a chain surfaces every remaining reference as a type error.
+      // The address book is allow-listed (and relative paths into it banned) so nothing else can reach ChainId.
+      "includes": [
+        "src/**",
+        "scripts/**",
+        "!src/config.ts",
+        "!src/utils/chain.ts",
+        "!src/utils/logger/serializers.ts",
+        "!scripts/add-chain.ts"
+      ],
+      "linter": {
+        "rules": {
+          "style": {
+            "noRestrictedImports": {
+              "level": "error",
+              "options": {
+                "paths": {
+                  "@beefyfinance/blockchain-addressbook": {
+                    "allowImportNames": ["addressBook", "addressBookByChainId", "Chain", "Token"],
+                    "message": "Use ApiChainId / ApiChain from src/utils/chain.ts instead of the address book ChainId."
+                  },
+                  "@beefyfinance/blockchain-addressbook/types/chainid": "Use ApiChainId / ApiChain from src/utils/chain.ts instead of the address book ChainId.",
+                  "@beefyfinance/blockchain-addressbook/util/chainIdMap": "Use ApiChainId from src/utils/chain.ts instead of the address book chainIdMap."
+                },
+                "patterns": [
+                  {
+                    "group": ["**/config.ts"],
+                    "message": "Import chain types and helpers from src/utils/chain.ts; src/config.ts is only the chain data."
+                  },
+                  {
+                    "group": ["**/packages/address-book/**"],
+                    "message": "Import the address book via @beefyfinance/blockchain-addressbook, not by relative path."
+                  }
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      // Logs name every address book chain (disabled included), so this may read ChainId directly.
+      "includes": ["src/utils/logger/serializers.ts"],
+      "linter": {
+        "rules": {
+          "style": {
+            "noRestrictedImports": {
+              "level": "error",
+              "options": {
+                "patterns": [
+                  {
+                    "group": ["**/config.ts"],
+                    "message": "Import chain types and helpers from src/utils/chain.ts; src/config.ts is only the chain data."
+                  }
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
     {
       "includes": ["scripts/**"],
       "linter": {
