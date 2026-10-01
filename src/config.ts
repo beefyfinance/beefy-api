@@ -9,6 +9,8 @@ export type ChainFeature = 'apy' | 'clmApi';
 
 type DisabledChainConfigInput = {
   readonly status: 'disabled';
+  /** defaults to the chain key */
+  readonly appChain?: string;
 };
 
 type EnabledChainConfigInput = {
@@ -56,6 +58,7 @@ const featureDefaultByStatus = { active: true, eol: false } as const satisfies R
 type DisabledChainConfig = {
   readonly id: AddressBookChain;
   readonly status: 'disabled';
+  readonly appChain: string;
 };
 
 type EnabledChainConfig = {
@@ -98,7 +101,7 @@ type FeaturesOf<T extends EnabledChainConfigInput> = {
 
 type ResolvedChainConfigs<T extends Partial<Record<AddressBookChain, ChainConfigInput>>> = {
   readonly [K in keyof T & AddressBookChain]: T[K] extends DisabledChainConfigInput
-    ? DisabledChainConfig & { readonly id: K }
+    ? DisabledChainConfig & { readonly id: K; readonly appChain: AppChainOf<K, T[K]> }
     : T[K] extends EnabledChainConfigInput
       ? EnabledChainConfig & {
           readonly id: K;
@@ -111,7 +114,7 @@ type ResolvedChainConfigs<T extends Partial<Record<AddressBookChain, ChainConfig
 
 function resolveChainConfig(chain: AddressBookChain, input: ChainConfigInput): ChainConfig {
   if (input.status === 'disabled') {
-    return { id: chain, status: input.status };
+    return { id: chain, status: input.status, appChain: input.appChain ?? chain };
   }
 
   const { multicall3, beefyPriceMulticall } = input.contracts;
@@ -230,7 +233,7 @@ export const chainConfigs = makeChainConfigs({
   },
   fantom: { status: 'disabled' },
   heco: { status: 'disabled' },
-  one: { status: 'disabled' },
+  one: { status: 'disabled', appChain: 'harmony' },
   arbitrum: {
     status: 'active',
     name: 'Arbitrum',

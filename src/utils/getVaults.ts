@@ -1,20 +1,12 @@
 import type { AnyVault } from '../api/vaults/types.ts';
-import { type ApiChain, toAppChain } from './chain.ts';
+import { fetchAppVaults } from './appConfigs.ts';
+import type { ApiChain } from './chain.ts';
 
 export async function getVaults(chainId: ApiChain): Promise<AnyVault[]> {
-  const endpoint = `https://raw.githubusercontent.com/beefyfinance/beefy-v2/prod/src/config/vault/${toAppChain(chainId)}.json`;
-  const response = await fetch(endpoint);
-  if (response.status !== 200) {
-    throw new Error(`Failed to fetch vaults for ${endpoint}: ${response.status} ${response.statusText}`);
-  }
-
-  const vaults = await response.json();
-  if (!vaults || !Array.isArray(vaults)) {
-    throw new Error(`Invalid vaults data for ${endpoint}`);
-  }
+  const vaults = await fetchAppVaults(chainId);
 
   // older standard vaults have no type
-  return vaults.map(vault => {
+  return vaults.map((vault: any) => {
     if ('type' in vault) {
       return {
         ...vault,
