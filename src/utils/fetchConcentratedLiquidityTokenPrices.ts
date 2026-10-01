@@ -2579,6 +2579,14 @@ const tokens = {
       firstToken: 'USDG',
       secondToken: 'JNJrh',
     },
+    {
+      type: 'AlgebraV2',
+      oracleId: 'SHOPrh',
+      decimalDelta: 1,
+      pool: '0x74d6E6a1221B2aE5BB4EDefD230b621bbb7B235a',
+      firstToken: 'SHOPrh',
+      secondToken: 'WETH',
+    },
   ],
   arc: [
     {

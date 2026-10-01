@@ -945,4 +945,18 @@ export const tokens = {
     bridge: 'native',
     tags: ['STOCK'],
   },
+  SHOPrh: {
+    name: 'Shopify • Robinhood Token',
+    symbol: 'SHOP',
+    oracleId: 'SHOPrh',
+    address: '0xF53F66751B1Eff985311b693531E3290F600c410',
+    chainId: 4663,
+    decimals: 18,
+    website: 'https://robinhood.com/rhj/stocktokens/',
+    description:
+      'Shopify • Robinhood Token is a tokenized debt security issued by Robinhood Assets (Jersey) Limited that provides price exposure to Shopify shares without conferring ownership or shareholder rights.',
+    documentation: 'https://docs.robinhood.com/chain/stock-tokens/',
+    bridge: 'native',
+    tags: ['STOCK'],
+  },
 } as const satisfies Record<string, Token>;

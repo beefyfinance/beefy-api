@@ -1,5 +1,39 @@
 [
   {
+    "address": "0xBC712b9726e6346E9C700Df14B2a6a558Efd222A",
+    "lpAddress": "0x146a67CAa3Ff12cB019B2E46d5fb8a1bedDC18D3",
+    "tokens": ["0x5fc5360D0400a0Fd4f2af552ADD042D716F1d168", "0xCA9c78Dd337A67F6e0077F65F5E9218719d30eDf"],
+    "tokenOracleIds": ["USDG", "NET"],
+    "decimals": [6, 9],
+    "oracleId": "alandale-cow-robinhood-usdg-net",
+    "providerId": "alandale",
+    "rewardPool": {
+      "address": "0xa9d7DAd97AAbEE16252D71C699892BE8A9cb8853",
+      "oracleId": "alandale-cow-robinhood-usdg-net-rp"
+    },
+    "vault": {
+      "address": "0x857b3971E8038a8f8E2C0Da797145447eFbf6b86",
+      "oracleId": "alandale-cow-robinhood-usdg-net-vault"
+    }
+  },
+  {
+    "address": "0x530fa5699EB20be4D18BED24e57A6D0DEFdE218C",
+    "lpAddress": "0x74d6E6a1221B2aE5BB4EDefD230b621bbb7B235a",
+    "tokens": ["0x0Bd7D308f8E1639FAb988df18A8011f41EAcAD73", "0xF53F66751B1Eff985311b693531E3290F600c410"],
+    "tokenOracleIds": ["WETH", "SHOPrh"],
+    "decimals": [18, 18],
+    "oracleId": "alandale-cow-robinhood-weth-shop",
+    "providerId": "alandale",
+    "rewardPool": {
+      "address": "0xf4976dC296c76ea73a65bCEC91BF7113Bb7300d3",
+      "oracleId": "alandale-cow-robinhood-weth-shop-rp"
+    },
+    "vault": {
+      "address": "0xEBe70034de92614ebe06Cde98C12257f9397dC0e",
+      "oracleId": "alandale-cow-robinhood-weth-shop-vault"
+    }
+  },
+  {
     "address": "0x9d27627827119F212186698824fB45f660a242C5",
     "lpAddress": "0x8cD848ce18b829C5c769AFf27164078bB52e0E97",
     "tokens": ["0x5fc5360D0400a0Fd4f2af552ADD042D716F1d168", "0x980dcf6766FA79f5Cf0c4AAdb3ab477ff15a9619"],
