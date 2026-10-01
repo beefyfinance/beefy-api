@@ -25,7 +25,6 @@ export type RewardPoolExtra = {
 export type RewardPoolPool = {
   name: string;
   address: string;
-  chainId?: ApiChainId;
   rewardPool?: string;
   gauge?: string;
   oracle?: string;

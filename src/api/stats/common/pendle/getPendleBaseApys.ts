@@ -7,7 +7,6 @@ const logger = getLoggerFor({ module: 'apy', component: 'pendle-base' });
 export type PendlePool = {
   name: string;
   address: string;
-  chainId: ApiChainId;
 };
 
 type PendleTokenApi = {

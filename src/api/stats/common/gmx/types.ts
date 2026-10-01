@@ -1,5 +1,3 @@
-import type { ApiChainId } from '../../../../utils/chain.ts';
-
 export interface GmxPoolToken {
   address: string;
   decimals: string;
@@ -13,7 +11,6 @@ export interface GmxPool {
   oracleId: string;
   strat: string;
   decimals: string;
-  chainId: ApiChainId;
   stakedTracker?: string;
   glp?: boolean;
   glpManager?: string;

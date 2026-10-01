@@ -2,7 +2,7 @@ import { addressBook, type Chain } from '@beefyfinance/blockchain-addressbook';
 import type { Token } from '@beefyfinance/blockchain-addressbook/types/token';
 import { type Address, getAddress, isAddress } from 'viem';
 import { isDefined } from '../../utils/array.ts';
-import { type ApiChain, isApiChain, SupportedChains, toApiChain } from '../../utils/chain.ts';
+import { type ApiChain, SupportedChains, toApiChain } from '../../utils/chain.ts';
 import { getLoggerFor } from '../../utils/logger/index.ts';
 import { serviceEventBus } from '../../utils/ServiceEventBus.ts';
 import { getChainNewBoosts } from '../boosts/getBoosts.ts';
@@ -198,10 +198,6 @@ async function fetchAddressBookTokensForChain(
   chainId: ApiChain
 ): Promise<{ nativeTokens: TokenNative[]; erc20Tokens: TokenErc20[] }> {
   const chainBook = addressBook[chainId];
-  if (!chainBook) {
-    logger.warn({ chain: chainId }, 'missing address book');
-    return { nativeTokens: [], erc20Tokens: [] };
-  }
   const abTokens: Record<string, Token> = chainBook.tokens;
   if (!abTokens || !Object.keys(abTokens).length || !abTokens.WNATIVE) {
     logger.warn({ chain: chainId }, 'no address book tokens found');
@@ -273,10 +269,6 @@ function addToken(
 }
 
 async function fetchTokensForChain(chainId: ApiChain): Promise<ChainTokens> {
-  if (!isApiChain(chainId)) {
-    throw new Error(`Invalid chain ${chainId}`);
-  }
-
   const [vaultTokens, boostTokens, abTokens] = await Promise.all([
     fetchVaultTokensForChain(chainId),
     fetchBoostTokensForChain(chainId),

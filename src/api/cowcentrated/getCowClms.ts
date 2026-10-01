@@ -1,6 +1,6 @@
 import type { ApiChain } from '../../utils/chain.ts';
 import { typedEntries } from '../../utils/object.ts';
-import { type CowClm, validateCowClms } from './types.ts';
+import { type AnyCowClm, validateCowClms } from './types.ts';
 import arbitrumPools from '../../data/arbitrum/beefyCowVaults.json' with { type: 'json' };
 import arcPools from '../../data/arc/beefyCowVaults.json' with { type: 'json' };
 import avaxPools from '../../data/avax/beefyCowVaults.json' with { type: 'json' };
@@ -23,7 +23,7 @@ import seiPools from '../../data/sei/beefyCowVaults.json' with { type: 'json' };
 import sonicPools from '../../data/sonic/beefyCowVaults.json' with { type: 'json' };
 import zksyncPools from '../../data/zksync/beefyCowVaults.json' with { type: 'json' };
 
-const chainToClms: Readonly<Partial<Record<ApiChain, CowClm[]>>> = {
+const chainToClms: Readonly<Record<ApiChain, readonly AnyCowClm[]>> = {
   arc: validateCowClms(arcPools),
   optimism: validateCowClms(optimismPools),
   base: validateCowClms(basePools),
@@ -45,18 +45,20 @@ const chainToClms: Readonly<Partial<Record<ApiChain, CowClm[]>>> = {
   megaeth: validateCowClms(megaethPools),
   robinhood: validateCowClms(robinhoodPools),
   ethereum: validateCowClms(ethereumPools),
+  metis: [],
+  fraxtal: [],
 };
 
 const chainsWithClms: ReadonlyArray<ApiChain> = typedEntries(chainToClms)
-  .filter(([, clms]) => clms !== undefined && clms.length > 0)
+  .filter(([, clms]) => clms.length > 0)
   .map(([chainId]) => chainId);
 
 export function getCowClmChains(): ReadonlyArray<ApiChain> {
   return chainsWithClms;
 }
 
-export function getCowClms(chainId: ApiChain): ReadonlyArray<CowClm> {
-  return chainToClms[chainId] || [];
+export function getCowClms(chainId: ApiChain): ReadonlyArray<AnyCowClm> {
+  return chainToClms[chainId];
 }
 
 export function getAllCowClmsByChain() {

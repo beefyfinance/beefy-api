@@ -68,8 +68,8 @@ function updateAssetsByChain() {
 
   assetsByChain = keysToObject(SupportedChains, chain => {
     return {
-      ...(tokenAssets[chain] || {}),
-      ...(vaultAssets[chain] || {}),
+      ...tokenAssets[chain],
+      ...vaultAssets[chain],
     };
   });
 }
@@ -89,8 +89,8 @@ async function updateSingleChainTreasuryBalance(chain: ApiChain) {
 }
 
 async function updateSingleChainTreasuryBalanceImpl(chain: ApiChain) {
-  const assetsToCheck = Object.values(assetsByChain[chain] ?? {});
-  const treasuryAddressesForChain = Object.values(treasuryAddressesByChain[chain] ?? {});
+  const assetsToCheck = Object.values(assetsByChain[chain]);
+  const treasuryAddressesForChain = Object.values(treasuryAddressesByChain[chain]);
 
   const assetCalls = assetsToCheck.map(asset => Promise.all(mapAssetToCall(asset, treasuryAddressesForChain, chain)));
   const callResults = await Promise.allSettled(assetCalls);
@@ -153,7 +153,7 @@ async function buildTreasuryReportForChain(chain: ApiChain): Promise<TreasuryRep
   const chainBalancesByAddress = tokenBalancesByChain[chain] ?? {};
   const balanceReport: TreasuryReport[ApiChain] = {};
 
-  const chainTreasuryWallets = treasuryAddressesByChain[chain] ?? {};
+  const chainTreasuryWallets = treasuryAddressesByChain[chain];
   for (const [address, wallet] of Object.entries(chainTreasuryWallets)) {
     balanceReport[address] = {
       name: wallet.label,
@@ -162,7 +162,7 @@ async function buildTreasuryReportForChain(chain: ApiChain): Promise<TreasuryRep
   }
 
   for (const assetBalance of Object.values(chainBalancesByAddress)) {
-    const treasuryAsset = (assetsByChain[chain] ?? {})[assetBalance.address];
+    const treasuryAsset = assetsByChain[chain][assetBalance.address];
 
     if (treasuryAsset === undefined) {
       continue; // cached asset hasn't been deleted yet

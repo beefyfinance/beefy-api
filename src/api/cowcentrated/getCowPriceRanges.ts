@@ -1,4 +1,5 @@
-import type { ApiChain } from '../../utils/chain.ts';
+import { keysToObject } from '../../utils/array.ts';
+import { type ClmApiChain, ClmApiChains } from '../../utils/chain.ts';
 import { getLoggerFor } from '../../utils/logger/index.ts';
 import { serviceEventBus } from '../../utils/ServiceEventBus.ts';
 import { getAllCowVaultsMeta } from './getCowVaultsMeta.ts';
@@ -14,7 +15,7 @@ type VaultCowData = Record<
   }
 >;
 
-const chainToCowData: Partial<Record<ApiChain, VaultCowData>> = {};
+const chainToCowData: Record<ClmApiChain, VaultCowData> = keysToObject(ClmApiChains, () => ({}));
 
 async function updateCowcentratedData() {
   logger.debug('updating cow vaults price ranges');
@@ -22,8 +23,8 @@ async function updateCowcentratedData() {
 
   const meta = getAllCowVaultsMeta();
   let count = 0;
-  for (const [chain, data] of Object.entries(meta)) {
-    chainToCowData[chain as ApiChain] = data.vaults.reduce<VaultCowData>((acc, vault) => {
+  for (const chain of ClmApiChains) {
+    chainToCowData[chain] = meta[chain].vaults.reduce<VaultCowData>((acc, vault) => {
       acc[vault.oracleId] = {
         currentPrice: vault.currentPrice,
         priceRangeMin: vault.priceRangeMin,
@@ -31,7 +32,7 @@ async function updateCowcentratedData() {
       };
       ++count;
       return acc;
-    }, {} as VaultCowData);
+    }, {});
   }
 
   logger.info({ count, durationMs: Date.now() - start }, 'cow vaults price ranges updated');

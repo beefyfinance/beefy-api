@@ -15,7 +15,8 @@ export type ClmApiChain = FeatureChain<'clmApi'>;
 export type AppChain = ApiChainConfig['appChain'];
 export type AnyChain = AppChain | ApiChain;
 
-export type ApiChainId = (typeof ChainId)[ApiChain];
+type NumericChainId<K extends ApiChain> = `${(typeof ChainId)[K]}` extends `${infer N extends number}` ? N : never;
+export type ApiChainId = { [K in ApiChain]: NumericChainId<K> }[ApiChain];
 
 function isApiChainConfig(config: AnyChainConfig): config is ApiChainConfig {
   return config.status !== 'disabled';
@@ -36,7 +37,7 @@ export const ApyChains = apiChainConfigs.filter(hasFeature('apy')).map(config =>
 export const ClmApiChains = apiChainConfigs.filter(hasFeature('clmApi')).map(config => config.id);
 
 export const ApiChainId = Object.fromEntries(SupportedChains.map(chain => [chain, ChainId[chain]])) as {
-  readonly [K in ApiChain]: (typeof ChainId)[K];
+  readonly [K in ApiChain]: NumericChainId<K>;
 };
 
 export function getChainConfig(chain: ApiChain): ApiChainConfig {

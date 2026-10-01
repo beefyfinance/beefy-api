@@ -1,14 +1,15 @@
 import type { Context } from 'koa';
 import { sortBy, uniqBy } from 'lodash-es';
 import type { Address } from 'viem';
-import { type AnyChain, isApiChain, toAppChain } from '../../utils/chain.ts';
+import { type AnyChain, toAppChain } from '../../utils/chain.ts';
 import { createFactory } from '../../utils/factory.ts';
-import { sendBadRequest, sendServiceUnavailable, sendSuccess } from '../../utils/koa.ts';
+import { sendNotFound, sendServiceUnavailable, sendSuccess } from '../../utils/koa.ts';
 import { getLoggerFor } from '../../utils/logger/index.ts';
 import { serviceEventBus } from '../../utils/ServiceEventBus.ts';
 import { getCowClmChains, getCowClms } from '../cowcentrated/getCowClms.ts';
 import { isCowClmWithRewardPool, isCowClmWithVault } from '../cowcentrated/types.ts';
 import { getVaultsByType } from '../stats/getMultichainVaults.ts';
+import { getChainIdParam } from '../vaults/helpers.ts';
 import { OffchainRewards } from './OffchainRewards.ts';
 import type { Campaign, CampaignsWithMeta, ProviderId, Vault } from './types.ts';
 
@@ -129,9 +130,9 @@ export async function getAllCampaignsWithMeta() {
 function makeRequestHandler(options: { chain: boolean; active: boolean }) {
   const getMeta = options.chain
     ? (ctx: Context) => {
-        const chainId = ctx.params.chainId;
-        if (!chainId || !isApiChain(chainId)) {
-          sendBadRequest(ctx, 'Invalid chain id');
+        const chainId = getChainIdParam(ctx);
+        if (!chainId) {
+          sendNotFound(ctx, 'chainId not found');
           return;
         }
 

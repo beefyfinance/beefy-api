@@ -29,7 +29,6 @@ const INIT_DELAY = envNumber('FEES_INIT_DELAY', 15000);
 const REFRESH_INTERVAL = 5 * 60 * 1000;
 const CACHE_EXPIRY = 12 * 60 * 60 * 1000;
 const VAULT_FEES_KEY = 'VAULT_FEES';
-const FEE_BATCH_KEY = 'FEE_BATCHES';
 
 interface PerformanceFee {
   total: number;
@@ -71,7 +70,7 @@ type StrategyCallResponse = {
   strategy: Address;
 } & CallResponseMap;
 
-let feeBatches: Partial<Record<ApiChainId, FeeBatchDetail>> = {};
+let ethereumFeeBatch: FeeBatchDetail | undefined;
 let vaultFees: Record<string, VaultFeeBreakdown> = {};
 
 const updateFeeBatch = async () => {
@@ -88,14 +87,13 @@ const updateFeeBatch = async () => {
     treasurySplit = 640;
   }
 
-  feeBatches[chainId] = {
+  ethereumFeeBatch = {
     address: feeBatchAddress,
     treasurySplit: treasurySplit / 1000,
     stakerSplit: 1 - treasurySplit / 1000,
   };
 
-  await setKey(FEE_BATCH_KEY, feeBatches);
-  logger.debug('feeBatches updated');
+  logger.debug('feeBatch updated');
 };
 
 const updateVaultFees = async () => {
@@ -103,7 +101,6 @@ const updateVaultFees = async () => {
   const start = Date.now();
 
   const expiredBefore = start - CACHE_EXPIRY;
-  const ethereumFeeBatch = feeBatches[ApiChainId.ethereum];
   if (!ethereumFeeBatch) {
     logger.warn('no ethereum feeBatch, skipping vault fee update');
     setTimeout(updateVaultFees, REFRESH_INTERVAL);
@@ -533,10 +530,6 @@ const performanceForMaxi = (contractCalls: StrategyCallResponse): PerformanceFee
 
 export const initVaultFeeService = async () => {
   const cachedVaultFees = await getKey<Record<string, VaultFeeBreakdown>>(VAULT_FEES_KEY);
-  // const cachedFeeBatches = await getKey<Record<ChainId, FeeBatchDetail>>(FEE_BATCH_KEY);
-
-  // feeBatches = cachedFeeBatches ?? {};
-  feeBatches = {};
   vaultFees = cachedVaultFees ?? {};
 
   setTimeout(async () => {

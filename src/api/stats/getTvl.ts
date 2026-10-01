@@ -3,14 +3,14 @@ import { SupportedChains } from '../../utils/chain.ts';
 import { envNumber } from '../../utils/env.ts';
 import { getLoggerFor } from '../../utils/logger/index.ts';
 import { contextAllSettled, isContextResultFulfilled, isContextResultRejected } from '../../utils/promise.ts';
-import getChainTvl from './getChainTvl.ts';
+import getChainTvl, { type TvlByChainId } from './getChainTvl.ts';
 
 const logger = getLoggerFor({ module: 'tvl' });
 
 const INIT_DELAY = envNumber('TVL_INIT_DELAY', 40 * 1000);
 const REFRESH_INTERVAL = 15 * 60 * 1000;
 
-let tvl = {};
+let tvl: TvlByChainId = {};
 
 const CACHE_KEY = 'TVL';
 
@@ -57,7 +57,7 @@ const updateTvl = async () => {
 };
 
 export const initTvlService = async () => {
-  const cachedTvl = await getKey(CACHE_KEY);
+  const cachedTvl = await getKey<TvlByChainId>(CACHE_KEY);
   tvl = cachedTvl ?? {};
 
   setTimeout(updateTvl, INIT_DELAY);

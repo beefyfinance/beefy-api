@@ -18,7 +18,6 @@ type SiloPool = {
   underlying: string;
   oracleId: string;
   decimals: string;
-  chainId: number;
   v2?: boolean;
   vault?: boolean;
   vaultId?: number;

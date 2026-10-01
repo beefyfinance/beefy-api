@@ -1,12 +1,5 @@
 import PQueue from 'p-queue';
-import {
-  type AnyChain,
-  type ApiChain,
-  getChainConfig,
-  SupportedChains,
-  toApiChain,
-  toChainId,
-} from '../../../../utils/chain.ts';
+import { type ApiChain, getChainConfig, SupportedChains, toChainId } from '../../../../utils/chain.ts';
 import { RateLimitedOneInchSwapApi } from './RateLimitedOneInchSwapApi.ts';
 import type { IOneInchSwapApi } from './types.ts';
 
@@ -28,8 +21,7 @@ const swapApiByChain: Partial<Record<ApiChain, IOneInchSwapApi>> = {};
 
 let swapApiQueue: PQueue | undefined;
 
-export function getOneInchSwapApi(chain: AnyChain): IOneInchSwapApi {
-  const apiChain = toApiChain(chain);
+export function getOneInchSwapApi(apiChain: ApiChain): IOneInchSwapApi {
   if (!supportedSwapChains.has(apiChain)) {
     throw new Error(`OneInch swap api is not supported on ${apiChain}`);
   }

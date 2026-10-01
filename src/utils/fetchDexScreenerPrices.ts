@@ -8,7 +8,7 @@ const logger = getLoggerFor({ module: 'prices', component: 'dex-screener' });
 
 const MAX_VALID_PRICE_USD = 1_000_000;
 
-const dexScreenerChainIdToChainId: Record<string, ApiChain> = Object.fromEntries(
+const dexScreenerChainIdToChainId = new Map<string, ApiChain>(
   SupportedChains.flatMap(chain => {
     const dexScreenerChain = getChainConfig(chain).integrations.dexScreener;
     return dexScreenerChain ? [[dexScreenerChain, chain] as const] : [];
@@ -55,36 +55,35 @@ type EnhancedPair = {
 };
 
 function enhancePairs(pairs: DexScreenerPair[]): EnhancedPair[] {
-  return (
-    pairs
-      // Have price, and on supported chain
-      .filter((pair): pair is DexScreenerPair & { priceUsd: string } => {
-        const { priceUsd, chainId } = pair;
-        if (!priceUsd || !(chainId in dexScreenerChainIdToChainId)) {
-          return false;
-        }
+  return pairs.flatMap(pair => {
+    // Have price, and on supported chain
+    const { priceUsd } = pair;
+    const chainId = dexScreenerChainIdToChainId.get(pair.chainId);
+    if (!priceUsd || !chainId) {
+      return [];
+    }
 
-        const parsedPriceUsd = parseFloat(priceUsd);
-        if (!isValidPrice(parsedPriceUsd) || parsedPriceUsd > MAX_VALID_PRICE_USD) {
-          return false;
-        }
+    const parsedPriceUsd = parseFloat(priceUsd);
+    if (!isValidPrice(parsedPriceUsd) || parsedPriceUsd > MAX_VALID_PRICE_USD) {
+      return [];
+    }
 
-        return true;
-      })
-      // Calculate price of quote token in USD
-      .map(pair => ({
-        chainId: dexScreenerChainIdToChainId[pair.chainId],
+    // Calculate price of quote token in USD
+    return [
+      {
+        chainId,
         baseToken: {
           ...pair.baseToken,
-          priceUsd: parseFloat(pair.priceUsd),
+          priceUsd: parsedPriceUsd,
         },
         quoteToken: {
           ...pair.quoteToken,
-          priceUsd: (1 / parseFloat(pair.priceNative)) * parseFloat(pair.priceUsd),
+          priceUsd: (1 / parseFloat(pair.priceNative)) * parsedPriceUsd,
         },
         liquidityUsd: pair.liquidity?.usd || 0,
-      }))
-  );
+      },
+    ];
+  });
 }
 
 type PriceRequest = {

@@ -1,5 +1,5 @@
 import { BigNumber } from 'bignumber.js';
-import type { ApiChainId } from './chain.ts';
+import { ApiChainId } from './chain.ts';
 import { getLoggerFor } from './logger/index.ts';
 
 const logger = getLoggerFor({ module: 'apy', component: 'balancer' });
@@ -24,39 +24,29 @@ type BalancerPoolsAprResponse = {
   };
 };
 
-const getChainName = (chain: ApiChainId) => {
-  switch (chain) {
-    case 146:
-      return 'SONIC';
-    case 10:
-      return 'OPTIMISM';
-    case 1:
-      return 'MAINNET';
-    case 42161:
-      return 'ARBITRUM';
-    case 8453:
-      return 'BASE';
-    case 43114:
-      return 'AVALANCHE';
-    case 252:
-      return 'FRAXTAL';
-    case 137:
-      return 'POLYGON';
-    case 100:
-      return 'GNOSIS';
-    case 143:
-      return 'MONAD';
-  }
-};
+const balancerChainNames = {
+  [ApiChainId.sonic]: 'SONIC',
+  [ApiChainId.optimism]: 'OPTIMISM',
+  [ApiChainId.ethereum]: 'MAINNET',
+  [ApiChainId.arbitrum]: 'ARBITRUM',
+  [ApiChainId.base]: 'BASE',
+  [ApiChainId.avax]: 'AVALANCHE',
+  [ApiChainId.fraxtal]: 'FRAXTAL',
+  [ApiChainId.polygon]: 'POLYGON',
+  [ApiChainId.gnosis]: 'GNOSIS',
+  [ApiChainId.monad]: 'MONAD',
+} as const satisfies Partial<Record<ApiChainId, string>>;
 
-export const getBalTradingAndLstApr = async (chain: ApiChainId, poolAddresses: string[]) => {
+export type BalancerApiChainId = keyof typeof balancerChainNames;
+
+export const getBalTradingAndLstApr = async (chain: BalancerApiChainId, poolAddresses: string[]) => {
   let tradingAprMap: Record<string, number> = {};
   // Keep order aligned with `poolAddresses` (index used downstream)
   let lstAprs = poolAddresses.map(() => new BigNumber(0));
   const api = 'https://api-v3.balancer.fi/graphql';
 
   const queryString = `query apr {
-            poolGetPools (where: {chainIn: ${getChainName(chain)}, idIn: ${JSON.stringify(poolAddresses)}}) {
+            poolGetPools (where: {chainIn: ${balancerChainNames[chain]}, idIn: ${JSON.stringify(poolAddresses)}}) {
                 address
                 dynamicData {
                 aprItems {
@@ -78,7 +68,7 @@ export const getBalTradingAndLstApr = async (chain: ApiChainId, poolAddresses: s
       body: JSON.stringify({
         operationName: 'apr',
         query: queryString,
-        variables: { chainIn: `"${getChainName(chain)}"` },
+        variables: { chainIn: `"${balancerChainNames[chain]}"` },
       }),
     });
 

@@ -1,4 +1,4 @@
-import type { ApiChain } from '../chain.ts';
+import type { ApiChain, ApiChainId } from '../chain.ts';
 
 export type LogScope = {
   /** top-level domain, e.g. 'apy', 'prices', 'tvl', 'zap', 'articles' */
@@ -6,11 +6,11 @@ export type LogScope = {
   /** named part of the module: an integration ('curve', 'merkl') or a sub-piece ('price-ranges', 'meta') */
   component?: string;
   /** chain slug or numeric chain id (normalized to the slug on the log line) */
-  chain?: ApiChain | number;
+  chain?: ApiChain | ApiChainId;
 };
 
 export type ResolveLogScope = {
   module: LogScope['module'];
   component?: LogScope['component'];
-  chain?: Exclude<LogScope['chain'], number>;
+  chain?: ApiChain;
 };

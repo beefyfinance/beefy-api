@@ -12,15 +12,11 @@ import { type ApyBreakdownResult, getApyBreakdown } from '../common/getApyBreakd
 
 const logger = getLoggerFor({ module: 'apy', component: 'multiRewardMasterChef' });
 
-type WithOptionalDecimalsAndChainId<T extends { decimals: string; chainId: ApiChainId }> = TypedOmit<
-  T,
-  'decimals' | 'chainId'
-> & {
+type WithOptionalDecimals<T extends { decimals: string }> = TypedOmit<T, 'decimals'> & {
   decimals?: string;
-  chainId?: ApiChainId;
 };
 
-export type MasterChefPool = WithOptionalDecimalsAndChainId<LpPool> | WithOptionalDecimalsAndChainId<SingleAssetPool>;
+export type MasterChefPool = WithOptionalDecimals<LpPool> | WithOptionalDecimals<SingleAssetPool>;
 
 export interface MasterChefApysParams {
   chainId: ApiChainId;

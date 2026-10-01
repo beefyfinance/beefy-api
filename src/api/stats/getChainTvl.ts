@@ -15,11 +15,11 @@ const logger = getLoggerFor({ module: 'tvl' });
 
 type VaultTvlById = Record<string, number>;
 
-type TvlByChainId = Record<number, VaultTvlById>;
+export type TvlByChainId = Partial<Record<ApiChainId, VaultTvlById>>;
 
 type ExcludingVault = AnyVault & { excluded?: string };
 
-const getChainTvl = async (apiChain: ApiChain) => {
+const getChainTvl = async (apiChain: ApiChain): Promise<TvlByChainId> => {
   const chainId = toChainId(apiChain);
 
   const lpVaults = getVaultsByTypeChain('standard', apiChain);
@@ -34,13 +34,13 @@ const getChainTvl = async (apiChain: ApiChain) => {
   ];
   const [vaultBalances, govVaultBalances, cowVaultBalances, erc4624VaultBalances] = await Promise.all(vaultsCalls);
 
-  let tvls: TvlByChainId = { [chainId]: {} };
+  const tvls: VaultTvlById = {};
 
   //first set lp vaults since some gov vaults can exlude from tvl from those
-  tvls = await setVaultsTvl(lpVaults, vaultBalances, chainId, tvls);
-  tvls = await setVaultsTvl(cowVaults, cowVaultBalances, chainId, tvls);
-  tvls = await setVaultsTvl(govVaults, govVaultBalances, chainId, tvls);
-  tvls = await setVaultsTvl(erc4626Vaults, erc4624VaultBalances, chainId, tvls);
+  await setVaultsTvl(lpVaults, vaultBalances, chainId, tvls);
+  await setVaultsTvl(cowVaults, cowVaultBalances, chainId, tvls);
+  await setVaultsTvl(govVaults, govVaultBalances, chainId, tvls);
+  await setVaultsTvl(erc4626Vaults, erc4624VaultBalances, chainId, tvls);
 
   // separate CLM / CLM Pool / CLM Vault TVL
   for (const clm of cowVaults) {
@@ -51,33 +51,31 @@ const getChainTvl = async (apiChain: ApiChain) => {
     const clmVault = lpVaults.find(vault => vault.tokenAddress === clmAddress);
     const clmPool = govVaults.find(pool => pool.tokenAddress === clmAddress);
 
-    const clmVaultTvl = clmVault ? tvls[chainId]?.[clmVault.id] || 0 : 0;
-    const clmPoolTvl = clmPool ? tvls[chainId]?.[clmPool.id] || 0 : 0;
-    const clmTvl = tvls[chainId]?.[clmId] || 0;
+    const clmVaultTvl = clmVault ? tvls[clmVault.id] || 0 : 0;
+    const clmPoolTvl = clmPool ? tvls[clmPool.id] || 0 : 0;
+    const clmTvl = tvls[clmId] || 0;
 
     // Vault deposits in to Pool
     if (clmPool && clmVault) {
       // On-chain pool TVL therefore also includes vault deposits, so remove them
-      const clmPoolItem = { [clmPool.id]: Math.max(0, clmPoolTvl - clmVaultTvl) };
-      tvls[chainId] = { ...tvls[chainId], ...clmPoolItem };
+      tvls[clmPool.id] = Math.max(0, clmPoolTvl - clmVaultTvl);
     }
 
     // Pool deposits in to CLM
     if (clmPool) {
       // On-chain CLM TVL therefore also includes pool deposits, so remove them
-      const clmItem = { [clmId]: Math.max(0, clmTvl - clmPoolTvl) };
-      tvls[chainId] = { ...tvls[chainId], ...clmItem };
+      tvls[clmId] = Math.max(0, clmTvl - clmPoolTvl);
     }
   }
 
-  return tvls;
+  return { [chainId]: tvls };
 };
 
 const setVaultsTvl = async (
   vaults: ExcludingVault[],
   balances: BigNumber[],
   chainId: ApiChainId,
-  tvls: TvlByChainId
+  tvls: VaultTvlById
 ) => {
   for (let i = 0; i < vaults.length; i++) {
     const vault = vaults[i];
@@ -102,25 +100,15 @@ const setVaultsTvl = async (
     if (vault.excluded) {
       const excludedVault = getVaultById(vault.excluded);
       if (excludedVault && excludedVault.status === 'active') {
-        tvl = tvl.minus(new BigNumber(tvls[chainId][excludedVault.id] || 0));
+        tvl = tvl.minus(new BigNumber(tvls[excludedVault.id] || 0));
       }
     }
 
-    let item = { [vault.id]: 0 };
-    if (!tvl.isNaN()) {
-      item = { [vault.id]: tvl.toNumber() };
-    }
-
-    tvls[chainId] = { ...tvls[chainId], ...item };
+    tvls[vault.id] = tvl.isNaN() ? 0 : tvl.toNumber();
   }
-
-  return tvls;
 };
 
 const getVaultBalances = async (chainId: ApiChainId, vaults: StandardVault[]) => {
-  if (!vaults) {
-    throw new Error(`getVaultBalances: undefined vaults passed for ${chainId}`);
-  }
   const calls = vaults.map(vault => {
     const contract = fetchContract(vault.earnContractAddress, BeefyVaultV6Abi, chainId);
     return contract.read.balance().catch(err => {
@@ -133,10 +121,6 @@ const getVaultBalances = async (chainId: ApiChainId, vaults: StandardVault[]) =>
 };
 
 const getGovVaultBalances = async (chainId: ApiChainId, govPools: GovVault[]) => {
-  if (!govPools) {
-    throw new Error(`getGovVaultBalances: undefined govPools passed for ${chainId}`);
-  }
-
   const calls = govPools.map(vault => {
     const tokenContract = fetchContract(vault.tokenAddress, ERC20Abi, chainId);
     return tokenContract.read.balanceOf([vault.earnContractAddress]).catch(err => {
@@ -150,10 +134,6 @@ const getGovVaultBalances = async (chainId: ApiChainId, govPools: GovVault[]) =>
 };
 
 const getCowVaultBalances = async (chainId: ApiChainId, cowVaults: CowVault[]) => {
-  if (!cowVaults) {
-    throw new Error(`getCowVaultBalances: undefined cowVaults passed for ${chainId}`);
-  }
-
   const calls = cowVaults.map(vault => {
     const tokenContract = fetchContract(vault.earnContractAddress, ERC20Abi, chainId);
     return tokenContract.read.totalSupply().catch(err => {
@@ -167,9 +147,6 @@ const getCowVaultBalances = async (chainId: ApiChainId, cowVaults: CowVault[]) =
 };
 
 const getErc4626VaultBalances = async (chainId: ApiChainId, vaults: Erc4626Vault[]) => {
-  if (!vaults) {
-    throw new Error(`getErc4626VaultBalances: undefined vaults passed for ${chainId}`);
-  }
   const calls = vaults.map(vault => {
     const contract = fetchContract(vault.earnContractAddress, beSonicAbi, chainId);
     return contract.read.totalAssets().catch(err => {

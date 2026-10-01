@@ -232,6 +232,20 @@ export class MerklProvider implements IOffchainRewardProvider {
       return undefined;
     }
 
+    const computeChain = fromChainNumber(apiCampaign.computeChainId);
+    const claimChain = fromChainNumber(apiCampaign.distributionChainId);
+    if (!computeChain || !claimChain) {
+      logger.warn(
+        {
+          campaignId: apiCampaign.campaignId,
+          computeChainId: apiCampaign.computeChainId,
+          distributionChainId: apiCampaign.distributionChainId,
+        },
+        'skipping campaign on unsupported chain'
+      );
+      return undefined;
+    }
+
     const vaultsWithApr = this.getVaultsWithAprFromCampaign(
       vaultsSupportingCampaignType,
       apiOpportunity,
@@ -239,16 +253,13 @@ export class MerklProvider implements IOffchainRewardProvider {
       aprShare
     );
 
-    const computeChain = fromChainNumber(apiCampaign.computeChainId);
-    const claimChain = fromChainNumber(apiCampaign.distributionChainId);
-
     return {
       id: `merkl:${apiCampaign.campaignId}`,
       providerId,
       campaignId: apiCampaign.campaignId,
       campaignStatus: pick(apiCampaign.campaignStatus, ['computedUntil', 'processingStarted', 'status']),
       opportunityId: apiOpportunity.id,
-      chainId: toAppChain(computeChain ?? claimChain ?? chainId),
+      chainId: toAppChain(computeChain),
       startTimestamp: apiCampaign.startTimestamp,
       endTimestamp: apiCampaign.endTimestamp,
       active: isUnixBetween(apiCampaign.startTimestamp, apiCampaign.endTimestamp),
@@ -256,7 +267,7 @@ export class MerklProvider implements IOffchainRewardProvider {
         address: getAddress(apiCampaign.rewardToken.address),
         symbol: apiCampaign.rewardToken.symbol,
         decimals: apiCampaign.rewardToken.decimals,
-        chainId: toAppChain(claimChain ?? chainId),
+        chainId: toAppChain(claimChain),
         type: 'erc20',
       },
       vaults: vaultsWithApr,

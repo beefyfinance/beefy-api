@@ -275,9 +275,6 @@ export class OffchainRewards {
     }
     const provider: IOffchainRewardProvider = providerEntry.provider;
     const byChain: ByProviderValue['byChain'] = providerEntry.byChain;
-    if (!provider.supportsChain(chainId)) {
-      return reject(new Error(`Offchain rewards provider ${providerId} does not support chain ${chainId}`));
-    }
     const vaults = this.getVaultsForChainProvider(chainId, provider, this.vaults);
 
     return await this.lock.acquire(providerId, async () => {

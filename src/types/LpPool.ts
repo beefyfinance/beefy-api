@@ -1,5 +1,3 @@
-import type { ApiChainId } from '../utils/chain.ts';
-
 export interface LpPool {
   name: string;
   farmType?: string;
@@ -9,7 +7,6 @@ export interface LpPool {
   strat?: string;
   decimals: string;
   poolId?: number;
-  chainId: ApiChainId;
   lp0: LpToken;
   lp1: LpToken;
   oracle?: string;
@@ -29,7 +26,6 @@ export interface SingleAssetPool {
   oracle?: string;
   oracleId?: string;
   decimals: string;
-  chainId: ApiChainId;
   depositFee?: number;
   swap?: string; // used in swap contracts, like IronSwap (0x837503e8A8753ae17fB8C8151B8e6f586defCb57) on polygon
   beefyFee?: number;

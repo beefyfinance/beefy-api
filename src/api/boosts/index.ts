@@ -1,4 +1,5 @@
 import { getLoggerFor } from '../../utils/logger/index.ts';
+import { withChainId } from '../vaults/helpers.ts';
 import { getAllNewBoosts, getAllOldBoosts, getChainNewBoosts, getChainOldBoosts } from './getBoosts.ts';
 
 const logger = getLoggerFor({ module: 'boosts', component: 'routes' });
@@ -14,16 +15,10 @@ export const boosts = async (ctx: any) => {
   }
 };
 
-export const chainBoosts = async (ctx: any) => {
-  try {
-    const chainBoosts = getChainOldBoosts(ctx.params.chainId);
-    ctx.status = 200;
-    ctx.body = [...chainBoosts];
-  } catch (err) {
-    logger.error({ err, chain: ctx.params.chainId }, 'failed to get chain boosts');
-    ctx.status = 500;
-  }
-};
+export const chainBoosts = withChainId(async (ctx, chainId) => {
+  ctx.status = 200;
+  ctx.body = getChainOldBoosts(chainId);
+});
 
 export const boostsV2 = async (ctx: any) => {
   try {
@@ -36,13 +31,7 @@ export const boostsV2 = async (ctx: any) => {
   }
 };
 
-export const chainBoostsV2 = async (ctx: any) => {
-  try {
-    const chainBoosts = getChainNewBoosts(ctx.params.chainId);
-    ctx.status = 200;
-    ctx.body = [...chainBoosts];
-  } catch (err) {
-    logger.error({ err, chain: ctx.params.chainId }, 'failed to get chain boosts');
-    ctx.status = 500;
-  }
-};
+export const chainBoostsV2 = withChainId(async (ctx, chainId) => {
+  ctx.status = 200;
+  ctx.body = [...getChainNewBoosts(chainId)];
+});
