@@ -1842,6 +1842,22 @@ const tokens = {
     },
     {
       type: 'UniV3',
+      pool: '0x8FB4243b553aC29BA088aCf00B9B7dA24bD6690C',
+      oracleId: 'NVDAB',
+      decimalDelta: 1,
+      firstToken: 'USDT',
+      secondToken: 'NVDAB',
+    },
+    {
+      type: 'UniV3',
+      pool: '0x8768C8969e177575e37435B8295aFa2DFB231C86',
+      oracleId: 'FXIon',
+      decimalDelta: 1,
+      firstToken: 'FXIon',
+      secondToken: 'USDT',
+    },
+    {
+      type: 'UniV3',
       oracleId: 'ZEST',
       decimalDelta: 1,
       pool: '0x6d299F4bAD5392af1e55e3E86A0339399543032b',

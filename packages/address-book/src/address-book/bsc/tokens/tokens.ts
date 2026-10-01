@@ -4742,6 +4742,34 @@ export const tokens = {
     bridge: 'native',
     tags: ['LARGE_HOLDERS'],
   },
+  FXIon: {
+    name: 'iShares China Large-Cap ETF',
+    symbol: 'FXIon',
+    oracleId: 'FXIon',
+    address: '0x9b8E987e6fEc8Cf1380C4dcA7071e2C7853AEEA1',
+    chainId: 56,
+    decimals: 18,
+    website: 'https://app.ondo.finance/',
+    description:
+      'Ondo Tokenized version of the iShares China Large-Cap ETF, giving tokenholders economic exposure similar to holding FXI and reinvesting any dividends.',
+    documentation: 'https://docs.ondo.finance/ondo-stocks',
+    bridge: 'native',
+    tags: ['STOCK'],
+  },
+  NVDAB: {
+    name: 'NVIDIA Corp',
+    symbol: 'NVDAB',
+    oracleId: 'NVDAB',
+    address: '0x02Fca66C1D1aFB4E2A7884261eB00F63598a7436',
+    chainId: 56,
+    decimals: 18,
+    website: 'https://www.bstocks.finance/',
+    description:
+      'NVIDIA issued by bStocks. bStocks are tokenized securities that give you economic exposure to popular US-listed companies with the right to convert to the underlying security on the Binance.com platform subject to applicable laws.',
+    documentation: 'https://www.bstocks.finance/faq',
+    bridge: 'native',
+    tags: ['STOCK'],
+  },
   BNCB: {
     name: 'CEA Industries',
     symbol: 'BNCB',
@@ -4751,7 +4779,7 @@ export const tokens = {
     decimals: 18,
     website: 'https://www.bstocks.finance/',
     description:
-      'bStocks are tokenized securities that give you economic exposure to popular US-listed companies with the right to convert to the underlying security on the Binance.com platform subject to applicable laws.',
+      'CEA Industries issued by bStocks. bStocks are tokenized securities that give you economic exposure to popular US-listed companies with the right to convert to the underlying security on the Binance.com platform subject to applicable laws.',
     documentation: 'https://www.bstocks.finance/faq',
     bridge: 'native',
     tags: ['STOCK'],
