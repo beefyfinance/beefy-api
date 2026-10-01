@@ -1,0 +1,23 @@
+engine biome(1.0)
+language js(typescript)
+
+// `ApiChainId[chain]` silently yields undefined when `chain` came from an unchecked cast; aliases and renames would hide it.
+or {
+    JsComputedMemberExpression(object = $obj) where {
+        $obj <: or {
+            `ApiChainId`,
+            JsStaticMemberExpression(member = `ApiChainId`),
+            JsParenthesizedExpression(expression = contains `ApiChainId`)
+        }
+    },
+    JsVariableDeclarator(id = $id, initializer = JsInitializerClause(expression = `ApiChainId`)) where {
+        $id <: or { JsIdentifierBinding(), contains JsComputedMemberName() }
+    },
+    JsNamedImportSpecifier(name = $name) where { $name <: r"ApiChainId" }
+} as $node where {
+    register_diagnostic(
+        span = $node,
+        message = "Only access ApiChainId as ApiChainId.<chain>; use toChainId(chain) from src/utils/chain.ts for a variable chain.",
+        severity = "error"
+    )
+}
