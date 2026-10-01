@@ -1,5 +1,5 @@
 import { orderBy, uniqBy } from 'lodash-es';
-import type { ApiChain, SupportedApiChain } from './chain.ts';
+import type { ApiChain } from './chain.ts';
 import { getLoggerFor } from './logger/index.ts';
 import { isFiniteNumber } from './number.ts';
 import { isValidPrice } from './prices.ts';
@@ -23,7 +23,7 @@ const chainIdToDexScreenerChainId = {
   mantle: 'mantle',
   sonic: 'sonic',
   plasma: 'plasma',
-} as const satisfies Partial<Record<SupportedApiChain, string>>;
+} as const satisfies Partial<Record<ApiChain, string>>;
 
 const dexScreenerChainIdToChainId = Object.fromEntries(
   Object.entries(chainIdToDexScreenerChainId).map(([k, v]) => [v, k])
@@ -102,7 +102,7 @@ function enhancePairs(pairs: DexScreenerPair[]): EnhancedPair[] {
 }
 
 type PriceRequest = {
-  chainId: SupportedApiChain;
+  chainId: ApiChain;
   tokenAddress: string;
 };
 

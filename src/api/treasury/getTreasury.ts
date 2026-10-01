@@ -1,5 +1,4 @@
 import { addressBook } from '@beefyfinance/blockchain-addressbook';
-import { chainIdMap } from '@beefyfinance/blockchain-addressbook/util/chainIdMap';
 import { BigNumber } from 'bignumber.js';
 import { ZERO_ADDRESS } from '../../utils/address.ts';
 import { keysToObject } from '../../utils/array.ts';
@@ -93,9 +92,7 @@ async function updateSingleChainTreasuryBalanceImpl(chain: ApiChain) {
   const assetsToCheck = Object.values(assetsByChain[chain] ?? {});
   const treasuryAddressesForChain = Object.values(treasuryAddressesByChain[chain] ?? {});
 
-  const assetCalls = assetsToCheck.map(asset =>
-    Promise.all(mapAssetToCall(asset, treasuryAddressesForChain, chainIdMap[chain]))
-  );
+  const assetCalls = assetsToCheck.map(asset => Promise.all(mapAssetToCall(asset, treasuryAddressesForChain, chain)));
   const callResults = await Promise.allSettled(assetCalls);
   const failedCalls = callResults.filter(res => res.status === 'rejected').length;
   const hasOneFailedCall = failedCalls > 0;

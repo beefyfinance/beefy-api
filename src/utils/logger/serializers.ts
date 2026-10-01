@@ -1,4 +1,5 @@
 import { resolve } from 'node:path';
+import { ChainId } from '@beefyfinance/blockchain-addressbook';
 import { BaseError } from 'viem';
 import { isDefined } from '../array.ts';
 import { type ApiChain, fromChainNumber } from '../chain.ts';
@@ -15,7 +16,10 @@ export function toChainSlug(chain: ApiChain | number): ApiChain | undefined {
 
 export function serializeChain(v: unknown): unknown {
   if (typeof v === 'number' || isIntegerString(v)) {
-    return toChainSlug(Number(v));
+    const chainId = Number(v);
+    // address book lookup so disabled chains keep their names in logs
+    const name: string | undefined = ChainId[chainId];
+    return name ?? chainId;
   }
   return v;
 }

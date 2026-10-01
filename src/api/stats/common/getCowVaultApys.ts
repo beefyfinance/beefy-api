@@ -1,8 +1,7 @@
-import type { ChainId } from '@beefyfinance/blockchain-addressbook';
 import { partition } from 'lodash-es';
 import { DAILY_HPY } from '../../../constants.ts';
 import { isDefined } from '../../../utils/array.ts';
-import { type ApiChain, fromChainId, toChainId } from '../../../utils/chain.ts';
+import { type ApiChain, toChainId } from '../../../utils/chain.ts';
 import { envBoolean } from '../../../utils/env.ts';
 import { getLoggerFor } from '../../../utils/logger/index.ts';
 import type { OptionalRecord } from '../../../utils/object.ts';
@@ -48,10 +47,9 @@ export const getCowApys = async (apiChain: ApiChain) => {
   }
 
   const offchainCampaignsByVault = await getOffchainCampaignsByVault(apiChain);
-  const chainId = toChainId(apiChain);
   const [clmBreakdownsResult, rewardPoolAprsResult] = await Promise.allSettled([
     getCowClmApyBreakdown(clms, offchainCampaignsByVault),
-    getCowRewardPoolAprs(chainId, clms),
+    getCowRewardPoolAprs(apiChain, clms),
   ]);
 
   if (clmBreakdownsResult.status === 'rejected') {
@@ -186,21 +184,21 @@ function getCowRewardPoolApyBreakdown(
 }
 
 const getCowRewardPoolAprs = async (
-  chainId: ChainId,
+  apiChain: ApiChain,
   clms: AnyCowClmMeta[]
 ): Promise<(RewardPoolApr | undefined)[]> => {
   const resolveUndefined = Promise.resolve(undefined);
   return Promise.all(
-    clms.map(clm => (isCowClmWithRewardPoolMeta(clm) ? getCowRewardPoolApr(chainId, clm) : resolveUndefined))
+    clms.map(clm => (isCowClmWithRewardPoolMeta(clm) ? getCowRewardPoolApr(apiChain, clm) : resolveUndefined))
   );
 };
 
 const getCowRewardPoolApr = async (
-  chainId: ChainId,
+  apiChain: ApiChain,
   clm: CowClmWithRewardPoolMeta
 ): Promise<RewardPoolApr | undefined> => {
   try {
-    const rewardPoolData = await getBeefyRewardPoolV2Apr(chainId, {
+    const rewardPoolData = await getBeefyRewardPoolV2Apr(toChainId(apiChain), {
       oracleId: clm.rewardPool.oracleId,
       address: clm.rewardPool.address,
       stakedToken: {
@@ -216,13 +214,13 @@ const getCowRewardPoolApr = async (
     };
 
     if (!rewardPoolData) {
-      logger.warn({ chain: chainId, vault: clm.rewardPool.oracleId }, 'getBeefyRewardPoolV2Apr returned undefined');
+      logger.warn({ chain: apiChain, vault: clm.rewardPool.oracleId }, 'getBeefyRewardPoolV2Apr returned undefined');
       return result;
     }
 
     const { totalApr } = rewardPoolData;
     if (totalApr === undefined) {
-      logger.warn({ chain: chainId, vault: clm.rewardPool.oracleId }, 'getBeefyRewardPoolV2Apr returned no total apr');
+      logger.warn({ chain: apiChain, vault: clm.rewardPool.oracleId }, 'getBeefyRewardPoolV2Apr returned no total apr');
       return result;
     }
 
@@ -233,7 +231,7 @@ const getCowRewardPoolApr = async (
       return result;
     }
 
-    const tradingRewardTokens = provider.poolTradingRewardTokens?.[fromChainId(chainId)];
+    const tradingRewardTokens = provider.poolTradingRewardTokens?.[apiChain];
     if (!tradingRewardTokens || tradingRewardTokens.length === 0) {
       return result;
     }
@@ -252,7 +250,7 @@ const getCowRewardPoolApr = async (
       total,
     };
   } catch (err) {
-    logger.warn({ chain: chainId, vault: clm.rewardPool.oracleId, err }, 'reward pool apr calculation failed');
+    logger.warn({ chain: apiChain, vault: clm.rewardPool.oracleId, err }, 'reward pool apr calculation failed');
     return undefined;
   }
 };

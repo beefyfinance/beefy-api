@@ -1,11 +1,10 @@
-import type { ChainId } from '@beefyfinance/blockchain-addressbook';
 import { BigNumber } from 'bignumber.js';
 import type { Address } from 'viem';
 import MulticallAbi from '../../abis/common/Multicall/MulticallAbi.ts';
 import ERC20Abi from '../../abis/ERC20Abi.ts';
 import type { LpBreakdown, StandardLpBreakdown } from '../../types/prices.ts';
+import { type ApiChain, getChainConfig, toChainId } from '../../utils/chain.ts';
 import { getLoggerFor } from '../../utils/logger/index.ts';
-import { MULTICALL_V3 } from '../../utils/multicallHelpers.ts';
 import { fetchContract } from '../rpc/client.ts';
 import { getLpBreakdownForOracle } from '../stats/getAmmPrices.ts';
 import {
@@ -25,15 +24,13 @@ import { getValidatorBalanceCall } from './validatorHelpers.ts';
 
 const logger = getLoggerFor({ module: 'treasury' });
 
-export const mapAssetToCall = (asset: TreasuryAsset, treasuryAddressesForChain: TreasuryWallet[], chainId: ChainId) => {
+export const mapAssetToCall = (asset: TreasuryAsset, treasuryAddressesForChain: TreasuryWallet[], chain: ApiChain) => {
+  const chainId = toChainId(chain);
   if (isTokenAsset(asset) || isVaultAsset(asset) || isGovAsset(asset)) {
     const contract = fetchContract(asset.address, ERC20Abi, chainId);
     return treasuryAddressesForChain.map(treasuryData => contract.read.balanceOf([treasuryData.address as Address]));
   } else if (isNativeAsset(asset)) {
-    const multicall = MULTICALL_V3[chainId];
-    if (!multicall) {
-      throw new Error(`no multicall3 address for chain ${chainId}`);
-    }
+    const multicall = getChainConfig(chain).contracts.multicall3.address;
     const multicallContract = fetchContract(multicall, MulticallAbi, chainId);
     return treasuryAddressesForChain.map(treasuryData =>
       multicallContract.read.getEthBalance([treasuryData.address as Address])
