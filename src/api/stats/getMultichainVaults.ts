@@ -132,20 +132,20 @@ class Storage {
   }
 
   protected setFromCache(cached: StorageSchema<VaultsByTypeChain>) {
-    this.byTypeChain = cached.data;
-    this.lastUpdate = cached.meta.lastUpdate;
-
-    // BigNumbers are stored as strings
-    for (const vaultsByChain of Object.values(this.byTypeChain)) {
-      for (const vaults of Object.values(vaultsByChain)) {
+    this.byTypeChain = {};
+    for (const type of VAULT_TYPES) {
+      for (const chain of SupportedChains) {
+        const vaults = cached.data[type]?.[chain] ?? [];
+        // BigNumbers are stored as strings
         for (const vault of vaults) {
-          if (vault.pricePerFullShare) {
+          if ('pricePerFullShare' in vault && vault.pricePerFullShare) {
             vault.pricePerFullShare = new BigNumber(vault.pricePerFullShare);
           }
         }
+        this.setTypeOfChain(chain, type, vaults, false);
       }
     }
-
+    this.lastUpdate = cached.meta.lastUpdate;
     this.build();
   }
 
