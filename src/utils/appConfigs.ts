@@ -64,7 +64,7 @@ function restoreEntry(path: string): Promise<void> {
 async function saveEntry(path: string, entry: Entry): Promise<void> {
   entries.set(path, entry);
   try {
-    await setKey<CachedEntry>(getCacheKey(path), { version: CACHE_VERSION, ...entry });
+    await setKey<CachedEntry>(getCacheKey(path), { version: CACHE_VERSION, ...entry }, { compress: true });
   } catch (err) {
     logger.debug({ err, path }, 'failed to persist app config');
   }

@@ -1,11 +1,11 @@
-import type { ICacheBackend } from './ICacheBackend.ts';
+import type { CacheSetOptions, ICacheBackend } from './ICacheBackend.ts';
 
 export class DummyCacheBackend implements ICacheBackend {
   async get(key: string): Promise<string | undefined> {
     return undefined;
   }
 
-  async set(key: string, value: string): Promise<void> {
+  async set(key: string, value: string, options?: CacheSetOptions): Promise<void> {
     return;
   }
 

@@ -1,6 +1,6 @@
 import { createHash } from 'node:crypto';
 import { access, constants, promises as fsPromises } from 'node:fs';
-import type { ICacheBackend } from './ICacheBackend.ts';
+import type { CacheSetOptions, ICacheBackend } from './ICacheBackend.ts';
 
 export class FileCacheBackend implements ICacheBackend {
   async get(key: string): Promise<string | undefined> {
@@ -13,7 +13,7 @@ export class FileCacheBackend implements ICacheBackend {
     return undefined;
   }
 
-  async set(key: string, value: string): Promise<void> {
+  async set(key: string, value: string, _options?: CacheSetOptions): Promise<void> {
     const path = this.makePath(key);
     await this.saveString(path, value);
   }
