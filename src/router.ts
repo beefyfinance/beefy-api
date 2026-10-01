@@ -14,6 +14,7 @@ import {
 } from './api/offchain-rewards/index.ts';
 import { pointStructures } from './api/points/index.ts';
 import * as price from './api/price/index.ts';
+import * as raw from './api/raw/index.ts';
 import * as snapshot from './api/snapshot/index.ts';
 import * as stats from './api/stats/index.ts';
 import * as supply from './api/supply/index.ts';
@@ -93,6 +94,11 @@ router.get('/boosts/v2/:chainId', chainBoostsV2);
 router.get('/boosts/v2', boostsV2);
 router.get('/boosts/:chainId', chainBoosts);
 router.get('/boosts', boosts);
+
+router.get('/raw/vaults/:chainId', raw.chainRawVaults);
+router.get('/raw/vaults', raw.rawVaults);
+router.get('/raw/boosts/:chainId', raw.chainRawBoosts);
+router.get('/raw/boosts', raw.rawBoosts);
 
 router.get('/tokens', getTokens);
 router.get('/tokens/native', getNativesFromAllChains);

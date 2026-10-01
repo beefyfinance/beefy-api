@@ -27,15 +27,18 @@ export function withSupportedRewards<T extends Pick<BoostPromoConfig, 'id' | 're
   return boost.rewards && rewards.length === boost.rewards.length ? boost : { ...boost, rewards };
 }
 
+/** `promos` is unchecked json */
+export function getBoostPromos(promos: readonly unknown[]): BoostPromoConfig[] {
+  return (promos as readonly PromoConfig[]).filter(isBoostPromo);
+}
+
+export function withBoostDefaults<TChain extends string>(boost: BoostPromoConfig, chain: TChain) {
+  return { ...boost, version: boost.version || 1, chain };
+}
+
 export const getBoosts = async (chain: ApiChain): Promise<BoostEntity[]> => {
   const promos = await fetchAppPromos(chain);
-  return (promos as readonly PromoConfig[]).filter(isBoostPromo).map(
-    (b): BoostEntity => ({
-      ...withSupportedRewards(b, chain),
-      version: b.version || 1,
-      chain,
-    })
-  );
+  return getBoostPromos(promos).map((b): BoostEntity => withBoostDefaults(withSupportedRewards(b, chain), chain));
 };
 
 export const getBoostPeriodFinish = async (chain: ApiChain, boosts: BoostEntity[]): Promise<Boost[]> => {

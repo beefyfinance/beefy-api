@@ -4,22 +4,23 @@ import type { ApiChain } from './chain.ts';
 
 export async function getVaults(chainId: ApiChain): Promise<AnyVault[]> {
   const vaults = await fetchAppVaults(chainId);
+  return vaults.map(vault => withVaultDefaults(vault, chainId));
+}
 
-  // older standard vaults have no type
-  return vaults.map((vault: any) => {
-    if ('type' in vault) {
-      return {
-        ...vault,
-        isGovVault: vault.type === 'gov',
-        chain: chainId,
-      };
-    } else {
-      return {
-        ...vault,
-        isGovVault: false,
-        type: 'standard',
-        chain: chainId,
-      };
-    }
-  });
+/** `vault` is unchecked json; older standard vaults have no type */
+export function withVaultDefaults(vault: any, chain: string) {
+  if ('type' in vault) {
+    return {
+      ...vault,
+      isGovVault: vault.type === 'gov',
+      chain,
+    };
+  } else {
+    return {
+      ...vault,
+      isGovVault: false,
+      type: 'standard',
+      chain,
+    };
+  }
 }
