@@ -131,7 +131,7 @@ async function fetchVaultTokensForChain(chainId: ApiChain): Promise<TokenEntity[
 }
 
 async function fetchBoostTokensForChain(chainId: ApiChain): Promise<TokenEntity[]> {
-  const boosts = getChainNewBoosts(chainId) || [];
+  const boosts = getChainNewBoosts(chainId);
   const vaultAddresses = new Set((getSingleChainVaults(chainId) || []).map(vault => vault.earnContractAddress));
 
   return boosts.reduce((tokens: TokenEntity[], boost) => {

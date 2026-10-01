@@ -103,13 +103,7 @@
     },
     {
       "path": "./tooling/biome/noChainTypeCasts.grit",
-      "includes": [
-        "**/src/**/*.ts",
-        "**/scripts/**/*.ts",
-        "!**/src/config.ts",
-        "!**/src/utils/chain.ts",
-        "!**/src/api/zap/swap/DataLayer.ts"
-      ]
+      "includes": ["**/src/**/*.ts", "**/scripts/**/*.ts", "!**/src/config.ts", "!**/src/utils/chain.ts"]
     },
     {
       // The price/fee/TVL pipeline. The `!` entries are files that already contain `?? <num>`

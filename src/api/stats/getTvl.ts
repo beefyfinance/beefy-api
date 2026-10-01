@@ -1,5 +1,5 @@
 import { getKey, setKey } from '../../utils/cache/index.ts';
-import { SupportedChains } from '../../utils/chain.ts';
+import { SupportedChains, toChainId } from '../../utils/chain.ts';
 import { envNumber } from '../../utils/env.ts';
 import { getLoggerFor } from '../../utils/logger/index.ts';
 import { contextAllSettled, isContextResultFulfilled, isContextResultRejected } from '../../utils/promise.ts';
@@ -58,7 +58,15 @@ const updateTvl = async () => {
 
 export const initTvlService = async () => {
   const cachedTvl = await getKey<TvlByChainId>(CACHE_KEY);
-  tvl = cachedTvl ?? {};
+  if (cachedTvl) {
+    for (const chain of SupportedChains) {
+      const chainId = toChainId(chain);
+      const chainTvl = cachedTvl[chainId];
+      if (chainTvl) {
+        tvl[chainId] = chainTvl;
+      }
+    }
+  }
 
   setTimeout(updateTvl, INIT_DELAY);
 };

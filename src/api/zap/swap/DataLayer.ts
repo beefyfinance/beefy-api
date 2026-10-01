@@ -1,4 +1,4 @@
-import { mapValues, pickBy } from 'lodash-es';
+import { pickBy } from 'lodash-es';
 import { keysToObject } from '../../../utils/array.ts';
 import { getKey, setKey } from '../../../utils/cache/index.ts';
 import { type ApiChain, SupportedChains } from '../../../utils/chain.ts';
@@ -44,7 +44,7 @@ export class DataLayer {
       }
 
       // Load the data
-      let data = await getKey<TokenSupportByChainByProviderByAddress | undefined>(`${this.rootKey}/data`);
+      const data = await getKey<Partial<TokenSupportByChainByProviderByAddress> | undefined>(`${this.rootKey}/data`);
       if (!data) {
         return;
       }
@@ -60,10 +60,11 @@ export class DataLayer {
         chain.add(providerId);
       }
 
-      // Filter out any unsupported chain providers from the loaded data
-      this.tokenSupport = mapValues(data, (byProvider, chainId) => {
-        const validChainProviders = chainProviderSupport.get(chainId as ApiChain);
-        if (!validChainProviders) {
+      // Keep only supported chains and their valid providers from the loaded data
+      this.tokenSupport = keysToObject(SupportedChains, chain => {
+        const byProvider = data[chain];
+        const validChainProviders = chainProviderSupport.get(chain);
+        if (!byProvider || !validChainProviders) {
           return {};
         }
 
@@ -84,10 +85,6 @@ export class DataLayer {
    * Sets token support for a provider on a chain, then updates the provider support object and saves to cache
    */
   async set(apiChain: ApiChain, providerId: ProviderId, supportByAddress: TokenSupportByAddress) {
-    if (!this.tokenSupport[apiChain]) {
-      this.tokenSupport[apiChain] = {};
-    }
-
     this.tokenSupport[apiChain][providerId] = supportByAddress;
     this.buildProviderSupportForChain(apiChain);
 
@@ -95,7 +92,7 @@ export class DataLayer {
   }
 
   get(apiChain: ApiChain, providerId: ProviderId): TokenSupportByAddress {
-    return this.tokenSupport[apiChain]?.[providerId] || {};
+    return this.tokenSupport[apiChain][providerId] || {};
   }
 
   getProviderSupport() {
@@ -118,7 +115,7 @@ export class DataLayer {
 
     // Delete old provider support
     for (const apiChain of typedKeys(this.tokenSupport)) {
-      const blockedTokens = (blockedTokensByChain as Partial<Record<ApiChain, Set<string>>>)[apiChain];
+      const blockedTokens = blockedTokensByChain[apiChain];
 
       for (const providerId of typedKeys(this.tokenSupport[apiChain])) {
         const supportByAddress = this.tokenSupport[apiChain][providerId];
@@ -128,7 +125,7 @@ export class DataLayer {
 
         for (const address of Object.keys(supportByAddress)) {
           const support = supportByAddress[address];
-          if (support.updatedAt + this.maxAge < now || blockedTokens?.has(address)) {
+          if (support.updatedAt + this.maxAge < now || blockedTokens.has(address)) {
             delete supportByAddress[address];
             ++deleted;
           }
@@ -167,8 +164,8 @@ export class DataLayer {
   }
 
   protected buildProviderSupport() {
-    for (const chain of Object.keys(this.tokenSupport)) {
-      this.buildProviderSupportForChain(chain as ApiChain);
+    for (const chain of SupportedChains) {
+      this.buildProviderSupportForChain(chain);
     }
   }
 

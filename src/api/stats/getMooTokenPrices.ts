@@ -1,7 +1,7 @@
 import type { PricesById } from '../../types/prices.ts';
 import { BIG_ZERO, isFiniteBigNumber } from '../../utils/big-number.ts';
 import { getKey, setKey } from '../../utils/cache/index.ts';
-import type { ApiChain } from '../../utils/chain.ts';
+import { type ApiChain, SupportedChains } from '../../utils/chain.ts';
 import { envNumber } from '../../utils/env.ts';
 import { fetchPrice } from '../../utils/fetchPrice.ts';
 import { getLoggerFor } from '../../utils/logger/index.ts';
@@ -77,7 +77,14 @@ const updateMooTokenPrices = async () => {
 
 export const initMooTokenPriceService = async () => {
   const cachedMooTokenPrices = await getKey<MooTokenPricesByChain>('MOO_TOKEN_PRICES');
-  mooTokenPrices = cachedMooTokenPrices ?? {};
+  if (cachedMooTokenPrices) {
+    for (const chain of SupportedChains) {
+      const chainPrices = cachedMooTokenPrices[chain];
+      if (chainPrices) {
+        mooTokenPrices[chain] = chainPrices;
+      }
+    }
+  }
 
   await Promise.all([
     serviceEventBus.waitForFirstEvent('vaults/updated'),

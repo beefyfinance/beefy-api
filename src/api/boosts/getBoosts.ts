@@ -1,4 +1,3 @@
-import { pick } from 'lodash-es';
 import { keysToObject } from '../../utils/array.ts';
 import { getKey, setKey } from '../../utils/cache/index.ts';
 import { type ApiChain, SupportedChains } from '../../utils/chain.ts';
@@ -11,7 +10,7 @@ import {
   withTimeout,
 } from '../../utils/promise.ts';
 import { serviceEventBus } from '../../utils/ServiceEventBus.ts';
-import { getBoostPeriodFinish, getBoosts } from './fetchBoostData.ts';
+import { getBoostPeriodFinish, getBoosts, withSupportedRewards } from './fetchBoostData.ts';
 import type { Boost, BoostEntity, OldBoost, PromoTokenRewardConfig } from './types.ts';
 
 const logger = getLoggerFor({ module: 'boosts' });
@@ -26,7 +25,7 @@ type BoostsByChain = Record<ApiChain, Boost[]>;
 type BoostsByChainCacheSchema = {
   version: number;
   timestamp: number;
-  data: BoostsByChain;
+  data: Partial<BoostsByChain>;
 };
 
 let boostsByChain: BoostsByChain = keysToObject(SupportedChains, () => []);
@@ -64,7 +63,7 @@ export const getAllOldBoosts = () => {
 };
 
 export const getChainOldBoosts = (chain: ApiChain) => {
-  return (boostsByChain[chain] || []).map(convertBoostToOldFormat);
+  return boostsByChain[chain].map(convertBoostToOldFormat);
 };
 
 export const getAllNewBoosts = () => {
@@ -134,7 +133,10 @@ async function loadFromRedis() {
     && 'data' in cached
     && cached.version === CACHE_SCHEMA_VERSION
   ) {
-    boostsByChain = pick(cached.data, SupportedChains);
+    const { data } = cached;
+    boostsByChain = keysToObject(SupportedChains, chain =>
+      (data[chain] ?? []).map(boost => withSupportedRewards(boost, chain))
+    );
     buildFromChains();
   }
 }
