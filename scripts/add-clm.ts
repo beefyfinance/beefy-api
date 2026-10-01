@@ -1,6 +1,6 @@
 import fs from 'node:fs';
 import path from 'node:path';
-import { addressBookByChainId, ChainId } from '@beefyfinance/blockchain-addressbook';
+import { addressBook } from '@beefyfinance/blockchain-addressbook';
 import { type Address, createPublicClient, getAddress, getContract, http } from 'viem';
 import yargs from 'yargs';
 import { hideBin } from 'yargs/helpers';
@@ -8,7 +8,8 @@ import CowVault from '../src/abis/CowVault.ts';
 import ERC20ABI from '../src/abis/ERC20Abi.ts';
 import UniV3LPPairABI from '../src/abis/IUniV3Pool.ts';
 import StratUniV3 from '../src/abis/StratUniV3.ts';
-import { MULTICHAIN_RPC } from '../src/constants.ts';
+import { MULTICHAIN_RPC } from '../src/api/rpc/rpcs.ts';
+import { SupportedChains, toChainId } from '../src/utils/chain.ts';
 
 let vaultsFile = '../src/data/$network/beefyCowVaults.json';
 
@@ -18,7 +19,7 @@ const args = yargs(hideBin(process.argv))
       type: 'string',
       demandOption: true,
       describe: 'blockchain network',
-      choices: Object.keys(ChainId),
+      choices: SupportedChains,
     },
     platform: {
       type: 'string',
@@ -37,7 +38,7 @@ const poolsJsonFile = vaultsFile.replace('$network', args['network']);
 const poolsJson = JSON.parse(fs.readFileSync(path.resolve(import.meta.dirname, poolsJsonFile), 'utf8'));
 const chainName = args['network'];
 
-const chainId = ChainId[args['network'] as keyof typeof ChainId];
+const chainId = toChainId(args['network']);
 const client = createPublicClient({ transport: http(MULTICHAIN_RPC[chainId]) });
 
 function formatCowVaultsJson(pools: unknown) {
@@ -160,7 +161,7 @@ async function main() {
   });
 
   {
-    const tokens = addressBookByChainId[chainId].tokens;
+    const tokens = addressBook[args['network']].tokens;
     const oracleId = tokens[token0.symbol] === undefined ? token0.symbol : token1.symbol;
     const firstToken = token1.symbol;
     const secondToken = token0.symbol;

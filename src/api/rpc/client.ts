@@ -69,8 +69,7 @@ function makeFallbackTransport(rpcUrls: string[] | readonly string[]): FallbackT
 }
 
 export const getMulticallClientForChain = (chainId: ChainId): Client => {
-  const chain = getChain[chainId];
-  if (!chain) throw new Error('Unknown chainId ' + chainId);
+  const chain = getChain(chainId);
   if (!multicallClientsByChain[chain.id]) {
     multicallClientsByChain[chain.id] = createClient({
       batch: {
@@ -87,8 +86,7 @@ export const getMulticallClientForChain = (chainId: ChainId): Client => {
 };
 
 const getPublicClientForChain = (chainId: ChainId): PublicClient => {
-  const chain = getChain[chainId];
-  if (!chain) throw new Error('Unknown chainId ' + chainId);
+  const chain = getChain(chainId);
   if (!publicClientsByChain[chain.id]) {
     publicClientsByChain[chain.id] = createPublicClient({
       batch: {
@@ -105,8 +103,7 @@ const getPublicClientForChain = (chainId: ChainId): PublicClient => {
 };
 
 const getSingleCallClientForChain = (chainId: ChainId): Client => {
-  const chain = getChain[chainId];
-  if (!chain) throw new Error('Unknown chainId ' + chainId);
+  const chain = getChain(chainId);
   if (!singleCallClientsByChain[chain.id]) {
     singleCallClientsByChain[chain.id] = createClient({
       chain: chain,

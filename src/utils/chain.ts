@@ -1,58 +1,45 @@
-import { addressBook, ChainId } from '@beefyfinance/blockchain-addressbook';
-import { chainIdMap } from '@beefyfinance/blockchain-addressbook/util/chainIdMap';
-import { invert } from 'lodash-es';
+import { ChainId } from '@beefyfinance/blockchain-addressbook';
+import { chainConfigs } from '../config.ts';
 
-export type ApiChain = keyof typeof ChainId;
-export type AppChain = Exclude<ApiChain, 'one'> | 'harmony';
+type AnyChainConfig = (typeof chainConfigs)[keyof typeof chainConfigs];
+/** Resolved config of each enabled chain */
+export type ApiChainConfig = Extract<AnyChainConfig, { status: 'active' | 'eol' }>;
+
+/** Chains supported by the api (i.e. not disabled) */
+export type ApiChain = ApiChainConfig['id'];
+export type AppChain = ApiChainConfig['appChain'];
 export type AnyChain = AppChain | ApiChain;
 
-const DEPRECATED_CHAINS = [
-  'moonriver',
-  'aurora',
-  'fuse',
-  'celo',
-  'emerald',
-  'zkevm',
-  'rootstock',
-  'scroll',
-  'heco',
-  'real',
-  'one',
-  'unichain',
-  'saga',
-  'moonbeam',
-  'fantom',
-  'manta',
-  'kava',
-  'canto',
-  'mode',
-  'cronos',
-] as const;
+export type ApiChainId = (typeof ChainId)[ApiChain];
 
-export type SupportedApiChain = Exclude<ApiChain, (typeof DEPRECATED_CHAINS)[number]>;
+function isApiChainConfig(config: AnyChainConfig): config is ApiChainConfig {
+  return config.status !== 'disabled';
+}
 
-const appChainToApiChain: Partial<Record<AppChain, ApiChain>> = {
-  harmony: 'one',
-} as const;
-const apiChainToAppChain: Partial<Record<ApiChain, AppChain>> = invert(appChainToApiChain);
+const apiChainConfigs = Object.values(chainConfigs).filter(isApiChainConfig);
 
-export const ApiChains: ApiChain[] = Object.keys(addressBook) as ApiChain[];
-export const AppChains: AppChain[] = ApiChains.map(toAppChain);
-export const SupportedChains: ApiChain[] = Object.entries(addressBook)
-  .filter(([key]) => !DEPRECATED_CHAINS.includes(key as any))
-  .map(([key]) => key as ApiChain);
+/** all enabled chains (i.e. active or eol) */
+export const SupportedChains: ApiChain[] = apiChainConfigs.map(config => config.id);
+
+export const ApiChainId = Object.fromEntries(SupportedChains.map(chain => [chain, ChainId[chain]])) as {
+  readonly [K in ApiChain]: (typeof ChainId)[K];
+};
+
+export function getChainConfig(chain: ApiChain): ApiChainConfig {
+  return chainConfigs[chain];
+}
+
+const supportedChainSet = new Set<string>(SupportedChains);
+const chainIdToApiChain = new Map<number, ApiChain>(SupportedChains.map(chain => [ApiChainId[chain], chain]));
+const appChainToApiChain = new Map<string, ApiChain>(apiChainConfigs.map(config => [config.appChain, config.id]));
+const apiChainToAppChain = new Map<ApiChain, AppChain>(apiChainConfigs.map(config => [config.id, config.appChain]));
 
 export function toAppChain(chain: AnyChain): AppChain {
-  if (isAppChain(chain)) {
-    return chain;
+  const appChain = isApiChain(chain) ? apiChainToAppChain.get(chain) : isAppChain(chain) ? chain : undefined;
+  if (!appChain) {
+    throw new Error(`Invalid chain: ${chain}`);
   }
-
-  const appChain = apiChainToAppChain[chain];
-  if (appChain) {
-    return appChain;
-  }
-
-  throw new Error(`Invalid api chain: ${chain}`);
+  return appChain;
 }
 
 export function toApiChain(chain: AnyChain): ApiChain {
@@ -60,36 +47,33 @@ export function toApiChain(chain: AnyChain): ApiChain {
     return chain;
   }
 
-  const apiChain = appChainToApiChain[chain];
-  if (apiChain) {
-    return apiChain;
+  const apiChain = appChainToApiChain.get(chain);
+  if (!apiChain) {
+    throw new Error(`Invalid app chain: ${chain}`);
   }
-
-  throw new Error(`Invalid app chain: ${chain}`);
+  return apiChain;
 }
 
 export function isApiChain(chain: string): chain is ApiChain {
-  return chain in chainIdMap;
+  return supportedChainSet.has(chain);
 }
 
 export function isAppChain(chain: string): chain is AppChain {
-  return chain in appChainToApiChain || (chain in chainIdMap && !(chain in apiChainToAppChain));
+  return appChainToApiChain.has(chain);
 }
 
-export function toChainId(chain: AnyChain): number {
-  const apiChain = toApiChain(chain);
-  return ChainId[apiChain];
+export function toChainId(chain: AnyChain): ApiChainId {
+  return ApiChainId[toApiChain(chain)];
 }
 
-export function fromChainId(chainId: ChainId): ApiChain {
-  return ChainId[chainId] as ApiChain;
+export function fromChainId(chainId: ApiChainId): ApiChain {
+  const chain = chainIdToApiChain.get(chainId);
+  if (!chain) {
+    throw new Error(`Invalid chain id: ${chainId}`);
+  }
+  return chain;
 }
 
 export function fromChainNumber(chainId: number): ApiChain | undefined {
-  const maybeApiChain = ChainId[chainId];
-  if (isApiChain(maybeApiChain)) {
-    return maybeApiChain;
-  }
-
-  return undefined;
+  return chainIdToApiChain.get(chainId);
 }

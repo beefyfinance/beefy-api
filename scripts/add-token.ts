@@ -1,9 +1,9 @@
-import { ChainId } from '@beefyfinance/blockchain-addressbook';
 import { createPublicClient, getAddress, getContract, http } from 'viem';
 import yargs from 'yargs';
 import { hideBin } from 'yargs/helpers';
 import ERC20ABI from '../src/abis/ERC20Abi.ts';
-import { MULTICHAIN_RPC } from '../src/constants.ts';
+import { MULTICHAIN_RPC } from '../src/api/rpc/rpcs.ts';
+import { SupportedChains, toChainId } from '../src/utils/chain.ts';
 
 const args = yargs(hideBin(process.argv))
   .options({
@@ -11,7 +11,7 @@ const args = yargs(hideBin(process.argv))
       type: 'string',
       demandOption: true,
       describe: 'blockchain network',
-      choices: Object.keys(ChainId),
+      choices: SupportedChains,
     },
     address: {
       type: 'string',
@@ -21,7 +21,7 @@ const args = yargs(hideBin(process.argv))
   })
   .parseSync();
 
-const chainId = ChainId[args['network'] as keyof typeof ChainId];
+const chainId = toChainId(args['network']);
 const client = createPublicClient({ transport: http(MULTICHAIN_RPC[chainId]) });
 
 async function fetchToken(tokenAddress: string) {

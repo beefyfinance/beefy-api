@@ -1,13 +1,8 @@
 import type { AnyVault } from '../api/vaults/types.ts';
-import { MULTICHAIN_ENDPOINTS } from '../constants.ts';
-import type { ApiChain } from './chain.ts';
+import { type ApiChain, toAppChain } from './chain.ts';
 
 export async function getVaults(chainId: ApiChain): Promise<AnyVault[]> {
-  const endpoint = MULTICHAIN_ENDPOINTS[chainId];
-  if (!endpoint) {
-    throw new Error(`No endpoint found for chain ${chainId}`);
-  }
-
+  const endpoint = `https://raw.githubusercontent.com/beefyfinance/beefy-v2/prod/src/config/vault/${toAppChain(chainId)}.json`;
   const response = await fetch(endpoint);
   if (response.status !== 200) {
     throw new Error(`Failed to fetch vaults for ${endpoint}: ${response.status} ${response.statusText}`);

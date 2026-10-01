@@ -1,12 +1,13 @@
 import fs from 'node:fs';
 import path from 'node:path';
-import { addressBook, ChainId } from '@beefyfinance/blockchain-addressbook';
+import { addressBook } from '@beefyfinance/blockchain-addressbook';
 import { createPublicClient, getAddress, getContract, http, parseAbi } from 'viem';
 import yargs from 'yargs';
 import { hideBin } from 'yargs/helpers';
 import ERC20ABI from '../src/abis/ERC20Abi.ts';
 import ISolidlyPair from '../src/abis/ISolidlyPair.ts';
-import { MULTICHAIN_RPC } from '../src/constants.ts';
+import { MULTICHAIN_RPC } from '../src/api/rpc/rpcs.ts';
+import { SupportedChains, toChainId } from '../src/utils/chain.ts';
 
 const voterABI = parseAbi(['function gauges(address) view returns (address)']);
 const etherexVoterABI = parseAbi(['function gaugeForPool(address) view returns (address)']);
@@ -74,7 +75,7 @@ const args = yargs(hideBin(process.argv))
       type: 'string',
       demandOption: true,
       describe: 'blockchain network',
-      choices: Object.keys(ChainId),
+      choices: SupportedChains,
     },
     project: {
       type: 'string',
@@ -99,7 +100,7 @@ const project = projects[args['project'] as keyof typeof projects];
 const poolPrefix = project.prefix;
 const lpAddress = args['lp'];
 
-const chainId = ChainId[args['network'] as keyof typeof ChainId];
+const chainId = toChainId(args['network']);
 const client = createPublicClient({ transport: http(MULTICHAIN_RPC[chainId]) });
 
 async function fetchGauge(lp: string) {

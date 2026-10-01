@@ -1,5 +1,5 @@
 import { addressBook } from '@beefyfinance/blockchain-addressbook';
-import type { SupportedApiChain } from '../../../utils/chain.ts';
+import type { ApiChain } from '../../../utils/chain.ts';
 
 /**
  * Tokens addresses that are blocked from being swapped on a given chain.
@@ -8,7 +8,7 @@ import type { SupportedApiChain } from '../../../utils/chain.ts';
  * We use a block list over an allow list so new tokens can be supported without a code change.
  * Tokens are sourced from vaults and boosts.
  */
-export const blockedTokensByChain: Record<SupportedApiChain, Set<string>> = {
+export const blockedTokensByChain: Record<ApiChain, Set<string>> = {
   bsc: new Set([
     '0x13F6751ba11337BC67aBBdAd638a56194ee133B8', // SDUMP
     '0x1446f3CEdf4d86a9399E49f7937766E6De2A3AAB', // KRW
