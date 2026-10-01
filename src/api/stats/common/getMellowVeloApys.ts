@@ -8,7 +8,7 @@ import { getApyBreakdown } from './getApyBreakdownNew.ts';
 const helpers = {
   [ApiChainId.optimism]: '0x2a8Db8028B379b75CC1662D04279367b88Dc3692',
   [ApiChainId.base]: '0xBFcE247f6aA04Fc5141d25BB65C86F9463DD13d7',
-};
+} as const satisfies Partial<Record<ApiChainId, Address>>;
 
 const abi = parseAbi([
   'function rewardRate(address[] lps) external view returns (uint[] rates)',
@@ -20,7 +20,7 @@ export type MellowVeloApyPool = {
   address: string;
 };
 
-type MellowVeloChainId = typeof ApiChainId.optimism | typeof ApiChainId.base;
+type MellowVeloChainId = keyof typeof helpers;
 
 export const getMellowVeloApys = async (chainId: MellowVeloChainId, pools: MellowVeloApyPool[]) => {
   const token = chainId === ApiChainId.base ? 'AERO' : 'VELO';

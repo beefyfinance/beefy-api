@@ -1,4 +1,5 @@
 import { pick } from 'lodash-es';
+import { keysToObject } from '../../utils/array.ts';
 import { getKey, setKey } from '../../utils/cache/index.ts';
 import { type ApiChain, SupportedChains } from '../../utils/chain.ts';
 import { envNumber } from '../../utils/env.ts';
@@ -21,14 +22,14 @@ const INIT_DELAY = envNumber('BOOSTS_INIT_DELAY', 4 * 1000);
 const REFRESH_INTERVAL = 5 * 60 * 1000;
 const CACHE_SCHEMA_VERSION: number = 2; // increment when changing cache schema
 
-type BoostsByChain = Record<string, Boost[]>;
+type BoostsByChain = Record<ApiChain, Boost[]>;
 type BoostsByChainCacheSchema = {
   version: number;
   timestamp: number;
   data: BoostsByChain;
 };
 
-let boostsByChain: BoostsByChain = {};
+let boostsByChain: BoostsByChain = keysToObject(SupportedChains, () => []);
 let allBoosts: Boost[] = [];
 
 function convertBoostToOldFormat(boost: Boost): OldBoost {
@@ -62,7 +63,7 @@ export const getAllOldBoosts = () => {
   return allBoosts.map(convertBoostToOldFormat);
 };
 
-export const getChainOldBoosts = (chain: string) => {
+export const getChainOldBoosts = (chain: ApiChain) => {
   return (boostsByChain[chain] || []).map(convertBoostToOldFormat);
 };
 
@@ -70,7 +71,7 @@ export const getAllNewBoosts = () => {
   return allBoosts;
 };
 
-export const getChainNewBoosts = (chain: string) => {
+export const getChainNewBoosts = (chain: ApiChain) => {
   return boostsByChain[chain];
 };
 

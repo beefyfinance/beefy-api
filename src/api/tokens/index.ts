@@ -1,4 +1,4 @@
-import { type ApiChain, isApiChain } from '../../utils/chain.ts';
+import type { ApiChain } from '../../utils/chain.ts';
 import {
   sendInternalServerError,
   sendNotFound,
@@ -6,7 +6,7 @@ import {
   sendSuccess,
   withErrorHandling,
 } from '../../utils/koa.ts';
-import { mapValues } from '../../utils/object.ts';
+import { mapValues, typedKeys } from '../../utils/object.ts';
 import { withChainId } from '../vaults/helpers.ts';
 import {
   getAllTokensByChain,
@@ -61,14 +61,12 @@ export const getChainNatives = withChainId(async (ctx, chainId) => {
 
 export const getNativesFromAllChains = withErrorHandling(async ctx => {
   const natives: Partial<Record<ApiChain, { NATIVE: TokenEntity; WNATIVE: TokenEntity; FEES: TokenEntity }>> = {};
-  Object.keys(getAllTokensByChain()).forEach(chainId => {
-    if (isApiChain(chainId)) {
-      const native = getTokenNative(chainId);
-      const wrapped = getTokenWrappedNative(chainId);
-      const fees = getTokenFees(chainId);
+  typedKeys(getAllTokensByChain()).forEach(chainId => {
+    const native = getTokenNative(chainId);
+    const wrapped = getTokenWrappedNative(chainId);
+    const fees = getTokenFees(chainId);
 
-      natives[chainId] = { NATIVE: native, WNATIVE: wrapped, FEES: fees };
-    }
+    natives[chainId] = { NATIVE: native, WNATIVE: wrapped, FEES: fees };
   });
   if (Object.keys(natives).length) {
     sendSuccess(ctx, natives);

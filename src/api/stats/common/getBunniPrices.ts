@@ -12,7 +12,7 @@ const logger = getLoggerFor({ module: 'prices', component: 'bunni' });
 
 const lens = {
   [ApiChainId.base]: '0x3eD7357337853E2Fd8d4b6CbABCDAA0858b40f01',
-};
+} as const satisfies Partial<Record<ApiChainId, Address>>;
 
 export type BunniPool = {
   name: string;
@@ -24,7 +24,7 @@ export type BunniPool = {
 type BunniTokenBalances = readonly [bigint, bigint, bigint];
 
 export const getBunniPrices = withTracing(
-  async (chainId: typeof ApiChainId.base, pools: BunniPool[], tokenPrices: PricesById) => {
+  async (chainId: keyof typeof lens, pools: BunniPool[], tokenPrices: PricesById) => {
     const [calls] = pools.reduce<[Promise<BunniTokenBalances>[], unknown[]]>(
       (acc, pool) => {
         const contract = fetchContract(lens[chainId], BunniLensAbi, chainId);
@@ -58,7 +58,7 @@ export const getBunniPrices = withTracing(
     }
     return prices;
   },
-  { logger, fieldsFn: (chainId: typeof ApiChainId.base) => ({ chain: chainId }) }
+  { logger, fieldsFn: (chainId: keyof typeof lens) => ({ chain: chainId }) }
 );
 
 const getTokenPrice = (tokenPrices: PricesById, oracleId: string) => {

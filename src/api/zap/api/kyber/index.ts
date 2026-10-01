@@ -1,5 +1,5 @@
 import PQueue from 'p-queue';
-import { type AnyChain, type ApiChain, getChainConfig, SupportedChains, toApiChain } from '../../../../utils/chain.ts';
+import { type ApiChain, getChainConfig, SupportedChains } from '../../../../utils/chain.ts';
 import { RateLimitedKyberApi } from './RateLimitedKyberApi.ts';
 import type { IKyberApi } from './types.ts';
 
@@ -24,8 +24,7 @@ export const supportedChains = new Map<ApiChain, string>(
 const swapApiByChain: Partial<Record<ApiChain, IKyberApi>> = {};
 let swapApiQueue: PQueue | undefined;
 
-export function getKyberApi(chain: AnyChain): IKyberApi {
-  const apiChain = toApiChain(chain);
+export function getKyberApi(apiChain: ApiChain): IKyberApi {
   const kyberChain = supportedChains.get(apiChain);
   if (!kyberChain) {
     throw new Error(`Kyber api is not supported on ${apiChain}`);

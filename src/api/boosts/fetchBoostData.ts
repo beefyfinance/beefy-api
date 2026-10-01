@@ -2,12 +2,28 @@ import BeefyBoostAbi from '../../abis/BeefyBoost.ts';
 import { IBeefyRewardPool } from '../../abis/IBeefyRewardPool.ts';
 import { bigintRange } from '../../utils/array.ts';
 import { bigintToNumber } from '../../utils/big-int.ts';
-import { type ApiChain, toAppChain, toChainId } from '../../utils/chain.ts';
+import { type ApiChain, isAppChain, toAppChain, toChainId } from '../../utils/chain.ts';
+import { getLoggerFor } from '../../utils/logger/index.ts';
 import { fetchContract } from '../rpc/client.ts';
 import type { Boost, BoostEntity, BoostPromoConfig, PromoConfig } from './types.ts';
 
+const logger = getLoggerFor({ module: 'boosts' });
+
 function isBoostPromo(promo: PromoConfig): promo is BoostPromoConfig {
   return promo.type === 'boost';
+}
+
+// promos json is unchecked, drop rewards whose chain is not supported
+export function withSupportedRewards<T extends Pick<BoostPromoConfig, 'id' | 'rewards'>>(boost: T, chain: ApiChain): T {
+  const allRewards = boost.rewards ?? [];
+  const rewards = allRewards.filter(reward => {
+    if (!reward.chainId || isAppChain(reward.chainId)) {
+      return true;
+    }
+    logger.warn({ chain, boost: boost.id, rewardChain: reward.chainId }, 'skipping reward on unsupported chain');
+    return false;
+  });
+  return boost.rewards && rewards.length === boost.rewards.length ? boost : { ...boost, rewards };
 }
 
 export const getBoosts = async (chain: ApiChain): Promise<BoostEntity[]> => {
@@ -30,7 +46,7 @@ export const getBoosts = async (chain: ApiChain): Promise<BoostEntity[]> => {
 
   return (promos as PromoConfig[]).filter(isBoostPromo).map(
     (b): BoostEntity => ({
-      ...b,
+      ...withSupportedRewards(b, chain),
       version: b.version || 1,
       chain,
     })

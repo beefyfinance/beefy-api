@@ -4,7 +4,7 @@ import type { Address } from 'viem';
 import { default as BeefyPriceMulticall } from '../abis/BeefyPriceMulticall.ts';
 import { fetchContract } from '../api/rpc/client.ts';
 import { isDefined } from './array.ts';
-import { ApiChainId, fromChainNumber, getChainConfig } from './chain.ts';
+import { type ApiChain, getChainConfig, toChainId } from './chain.ts';
 import { envBoolean, envNumber } from './env.ts';
 import { getLoggerFor } from './logger/index.ts';
 import { normalizeNativeWrappedPrices } from './normalizeNativeWrappedPrices.ts';
@@ -51,7 +51,7 @@ type LpBreakdown = {
 };
 
 function calcLpPrice(pool: PoolData, tokenPrices: Record<string, number>): LpBreakdown | undefined {
-  const fields = { chain: pool.chainId, pool: pool.name };
+  const fields = { chain: pool.chain, pool: pool.name };
 
   const lp0Price = tokenPrices[pool.lp0.oracleId];
   if (!isValidPrice(lp0Price)) {
@@ -104,7 +104,7 @@ export type FetchAmmPricesResult = {
 };
 
 export const fetchAmmPrices = withTracing(
-  async (pools: Pool[], knownPrices: Record<string, number>): Promise<FetchAmmPricesResult> => {
+  async (pools: AmmPool[], knownPrices: Record<string, number>): Promise<FetchAmmPricesResult> => {
     const prices: Record<string, number> = { ...knownPrices };
     const lps: Record<string, number> = {};
     const breakdown: FetchAmmPricesResult['lpsBreakdown'] = {};
@@ -114,17 +114,11 @@ export const fetchAmmPrices = withTracing(
       weights[known] = Number.MAX_SAFE_INTEGER;
     });
 
-    const chainsWithPools = Array.from(new Set(pools.map(p => p.chainId || ApiChainId.bsc)));
-    let leftChains = chainsWithPools;
+    const poolsByChain = Map.groupBy(pools, pool => pool.chain);
+    let leftChains = Array.from(poolsByChain.keys());
     const poolsWithData = (
       await Promise.all(
-        chainsWithPools.map(async chain => {
-          // Old BSC pools don't have the chainId attr
-          const chainPools =
-            chain === ApiChainId.bsc
-              ? pools.filter(p => p.chainId === chain || p.chainId === undefined)
-              : pools.filter(p => p.chainId === chain);
-
+        Array.from(poolsByChain, async ([chain, chainPools]) => {
           try {
             return await fetchChainPools(chain, chainPools);
           } finally {
@@ -280,11 +274,11 @@ type PoolToken = {
   decimals: string;
 };
 
-type Pool = {
+export type AmmPool = {
   name: string;
   address: string;
   decimals: string;
-  chainId?: ApiChainId;
+  chain: ApiChain;
   lp0: PoolToken;
   lp1: PoolToken;
 };
@@ -293,25 +287,21 @@ type PoolTokenBalance = PoolToken & {
   balance: BigNumber;
 };
 
-type PoolData = Omit<Pool, 'lp0' | 'lp1'> & {
+type PoolData = Omit<AmmPool, 'lp0' | 'lp1'> & {
   totalSupply: BigNumber;
   lp0: PoolTokenBalance;
   lp1: PoolTokenBalance;
 };
 
 const fetchChainPools = withTracing(
-  async (chain: ApiChainId, pools: Pool[]): Promise<PoolData[]> => {
-    if (pools.length === 0) {
-      return [];
-    }
-    const apiChain = fromChainNumber(chain);
-    const multicallAddress = apiChain ? getChainConfig(apiChain).contracts.beefyPriceMulticall : undefined;
+  async (chain: ApiChain, pools: AmmPool[]): Promise<PoolData[]> => {
+    const multicallAddress = getChainConfig(chain).contracts.beefyPriceMulticall;
     if (!multicallAddress) {
       throw new Error(`No price multicall address for chain ${chain}`);
     }
 
-    const multicallContract = fetchContract(multicallAddress, BeefyPriceMulticall, chain);
-    const results = await batchMapRetry<Pool, PoolData>({
+    const multicallContract = fetchContract(multicallAddress, BeefyPriceMulticall, toChainId(chain));
+    const results = await batchMapRetry<AmmPool, PoolData>({
       items: pools,
       batchSize: BATCH_SIZE,
       retryLabel: `fetchAmmChainPools ${chain}`,
@@ -345,5 +335,5 @@ const fetchChainPools = withTracing(
 
     return results.filter(isContextResultFulfilled).map(r => r.value);
   },
-  { logger, fieldsFn: (chain: ApiChainId) => ({ chain }) }
+  { logger, fieldsFn: (chain: ApiChain) => ({ chain }) }
 );

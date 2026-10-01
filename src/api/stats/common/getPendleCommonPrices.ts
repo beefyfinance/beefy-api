@@ -17,7 +17,7 @@ const routerStatic = {
   [ApiChainId.base]: '0xB4205a645c7e920BD8504181B1D7f2c5C955C3e7',
   [ApiChainId.sonic]: '0x0013ACc071f732fd6BF8210AB46A3794a7D8945e',
   [ApiChainId.plasma]: '0x6813d43782395A1F2AAb42f39aeEDE03ac655e09',
-};
+} as const satisfies Partial<Record<ApiChainId, Address>>;
 const routerAbi = parseAbi([
   'function isExpired() external view returns (bool)',
   'function readState(address router) external view returns (uint pt, uint sy, uint lp)',
@@ -32,13 +32,7 @@ export type PendlePool = {
   oracleId?: string;
 };
 
-type PendleChainId =
-  | typeof ApiChainId.arbitrum
-  | typeof ApiChainId.ethereum
-  | typeof ApiChainId.bsc
-  | typeof ApiChainId.base
-  | typeof ApiChainId.sonic
-  | typeof ApiChainId.plasma;
+type PendleChainId = keyof typeof routerStatic;
 
 export const getPendleCommonPrices = withTracing(
   async (chainId: PendleChainId, pools: PendlePool[], tokenPrices: PricesById, lpPrices?: PricesById) => {
@@ -63,7 +57,7 @@ export const getPendleCommonPrices = withTracing(
           return await fetchContract(router, routerAbi, chainId).read.getLpToAssetRate([market]);
         } catch (e) {
           logger.warn({ chain: chainId, pool: pool.name, err: e }, 'lpToAssetRate failed');
-          const [pt, sy, lp] = await fetchContract(market, routerAbi, chainId).read.readState([router as Address]);
+          const [pt, sy, lp] = await fetchContract(market, routerAbi, chainId).read.readState([router]);
           return new BigNumber(pt).plus(sy).times('1e18').div(lp);
         }
       }

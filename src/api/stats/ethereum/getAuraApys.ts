@@ -6,7 +6,7 @@ import AuraGauge from '../../../abis/ethereum/AuraGauge.ts';
 import AuraToken from '../../../abis/ethereum/AuraToken.ts';
 import { ApiChainId } from '../../../utils/chain.ts';
 import { fetchPrice } from '../../../utils/fetchPrice.ts';
-import { getBalTradingAndLstApr } from '../../../utils/getBalancerTradingFeeAndLstApr.ts';
+import { type BalancerApiChainId, getBalTradingAndLstApr } from '../../../utils/getBalancerTradingFeeAndLstApr.ts';
 import { getEDecimals } from '../../../utils/getEDecimals.ts';
 import { fetchContract } from '../../rpc/client.ts';
 import { getApyBreakdown } from '../common/getApyBreakdown.ts';
@@ -71,7 +71,7 @@ const getAuraApys = async () => {
   );
 };
 
-const getTradingFeeAprBalancer = async (chainId: ApiChainId, pairAddresses: string[]) => {
+const getTradingFeeAprBalancer = async (chainId: BalancerApiChainId, pairAddresses: string[]) => {
   const data = await getBalTradingAndLstApr(chainId, pairAddresses);
   return data;
 };

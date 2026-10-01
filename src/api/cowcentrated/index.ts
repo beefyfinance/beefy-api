@@ -24,12 +24,7 @@ export function initCowcentratedService() {
 }
 
 export async function handleCowcentratedPriceRanges(ctx: Context) {
-  const priceRanges = getCowPriceRanges();
-  if (priceRanges) {
-    sendSuccess(ctx, priceRanges);
-  } else {
-    sendServiceUnavailable(ctx, 'Not available yet');
-  }
+  sendSuccess(ctx, getCowPriceRanges());
 }
 
 export async function handleCowcentratedLTIPPCampaignsForDune(ctx: Context) {

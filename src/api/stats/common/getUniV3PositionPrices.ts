@@ -21,7 +21,6 @@ interface UniV3Pool {
   address: string;
   nftId: number;
   poolFee?: number;
-  chainId?: number;
   lp0: LpTokenConfig;
   lp1: LpTokenConfig;
 }

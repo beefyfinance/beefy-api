@@ -1,13 +1,11 @@
+import type { ApiChainId } from '../../../../utils/chain.ts';
 import { getLoggerFor } from '../../../../utils/logger/index.ts';
 import { getApyBreakdown } from '../getApyBreakdownNew.ts';
 import { getPendleApys, type PendlePool } from './getPendleBaseApys.ts';
 
 const logger = getLoggerFor({ module: 'apy', component: 'pendle-unboosted' });
 
-export async function getPendleUnboostedApys(allPools: PendlePool[]) {
-  const chainId = allPools[0].chainId;
-  if (!chainId) throw new Error(`Add chainId to first pendle pool: ${allPools[0].name}`);
-
+export async function getPendleUnboostedApys(chainId: ApiChainId, allPools: PendlePool[]) {
   const [expiredPools, pools] = filterExpired(allPools);
   const { tradingApys, pendleApys, syRewardsApys } = await getPendleApys(chainId, pools);
 

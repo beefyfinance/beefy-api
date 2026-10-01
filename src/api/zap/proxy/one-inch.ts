@@ -1,8 +1,8 @@
-import type Koa from 'koa';
-import type { AnyChain } from '../../../utils/chain.ts';
+import type { ApiChain } from '../../../utils/chain.ts';
 import { errorToString } from '../../../utils/error.ts';
 import { getLoggerFor } from '../../../utils/logger/index.ts';
 import { redactSecrets } from '../../../utils/secrets.ts';
+import { withChainId } from '../../vaults/helpers.ts';
 import { type ApiResponse, type ExtraQuoteResponse, isSuccessApiResponse } from '../api/common.ts';
 import { getOneInchSwapApi } from '../api/one-inch/index.ts';
 import type { QuoteRequest, QuoteResponse, SwapRequest, SwapResponse } from '../api/one-inch/types.ts';
@@ -10,7 +10,7 @@ import { isQuoteValueTooLow, setNoCacheHeaders } from './common.ts';
 
 const logger = getLoggerFor({ module: 'zap', component: 'one-inch' });
 
-const getProxiedSwap = async (request: SwapRequest, chain: AnyChain): Promise<ApiResponse<SwapResponse>> => {
+const getProxiedSwap = async (request: SwapRequest, chain: ApiChain): Promise<ApiResponse<SwapResponse>> => {
   try {
     const api = getOneInchSwapApi(chain);
     return await api.getProxiedSwap(request);
@@ -24,7 +24,7 @@ const getProxiedSwap = async (request: SwapRequest, chain: AnyChain): Promise<Ap
 
 const getProxiedQuote = async (
   request: QuoteRequest,
-  chain: AnyChain
+  chain: ApiChain
 ): Promise<ApiResponse<QuoteResponse, ExtraQuoteResponse>> => {
   try {
     const tooLowError = await isQuoteValueTooLow(request.amount, request.src, chain);
@@ -42,9 +42,8 @@ const getProxiedQuote = async (
   }
 };
 
-export async function proxyOneInchSwap(ctx: Koa.Context) {
+export const proxyOneInchSwap = withChainId(async (ctx, chain) => {
   const start = Date.now();
-  const chain = ctx.params.chainId;
   const requestObject: SwapRequest = ctx.query as any;
   const proxiedSwap = await getProxiedSwap(requestObject, chain);
   if (isSuccessApiResponse(proxiedSwap)) {
@@ -53,11 +52,10 @@ export async function proxyOneInchSwap(ctx: Koa.Context) {
   setNoCacheHeaders(ctx);
   ctx.status = proxiedSwap.code;
   ctx.body = isSuccessApiResponse(proxiedSwap) ? proxiedSwap.data : proxiedSwap.message;
-}
+});
 
-export async function proxyOneInchQuote(ctx: Koa.Context) {
+export const proxyOneInchQuote = withChainId(async (ctx, chain) => {
   const start = Date.now();
-  const chain = ctx.params.chainId;
   const requestObject: QuoteRequest = ctx.query as any;
   const proxiedQuote = await getProxiedQuote(requestObject, chain);
   if (isSuccessApiResponse(proxiedQuote)) {
@@ -68,4 +66,4 @@ export async function proxyOneInchQuote(ctx: Koa.Context) {
   ctx.body = isSuccessApiResponse(proxiedQuote)
     ? { ...proxiedQuote.data, extra: proxiedQuote.extra }
     : proxiedQuote.message;
-}
+});

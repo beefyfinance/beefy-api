@@ -1,6 +1,7 @@
-import { addressBookByChainId } from '@beefyfinance/blockchain-addressbook';
+import { addressBook } from '@beefyfinance/blockchain-addressbook';
 import type { BreakdownsById, PricesById } from '../../types/prices.ts';
 import { getKey, setKey } from '../../utils/cache/index.ts';
+import { type ApiChain, fromChainNumber, SupportedChains } from '../../utils/chain.ts';
 import { fetchAmmPrices } from '../../utils/fetchAmmPrices.ts';
 import { fetchBalancerLinearPoolPrice } from '../../utils/fetchBalancerStablePoolPrices.ts';
 import { fetchChainLinkPrices } from '../../utils/fetchChainLinkPrices.ts';
@@ -66,7 +67,7 @@ const pools = normalizePoolOracleIds([
   ...velodromePools,
   ...oldVelodromePools,
   ...netswapPools,
-]);
+]).map(withPoolChain);
 
 /**
  * Map of coingecko ids to oracleIds
@@ -607,7 +608,7 @@ export async function getAmmPrice(
  */
 function normalizePoolOracleIds<T extends { lp0: { oracleId: string }; lp1: { oracleId: string } }>(pools: T[]): T[] {
   const nativeToWrappedOracleId = new Map<string, string>(
-    Object.values(addressBookByChainId).map(chainBook => [chainBook.native.oracleId, chainBook.tokens.WNATIVE.oracleId])
+    SupportedChains.map(chain => [addressBook[chain].native.oracleId, addressBook[chain].tokens.WNATIVE.oracleId])
   );
 
   pools.forEach(pool => {
@@ -621,6 +622,14 @@ function normalizePoolOracleIds<T extends { lp0: { oracleId: string }; lp1: { or
   });
 
   return pools;
+}
+
+function withPoolChain<T extends { name: string; chainId: number }>(pool: T): T & { chain: ApiChain } {
+  const chain = fromChainNumber(pool.chainId);
+  if (!chain) {
+    throw new Error(`Unsupported chainId ${pool.chainId} for amm pool ${pool.name}`);
+  }
+  return { ...pool, chain };
 }
 
 function addTokenPricesToCache(tokenPrices: PricesById): boolean {

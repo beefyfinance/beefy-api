@@ -2,7 +2,7 @@ import type { NormalizedCacheObject } from '@apollo/client/cache/inmemory/types.
 import type { ApolloClient } from '@apollo/client/core/ApolloClient.js';
 import { BigNumber } from 'bignumber.js';
 import type { ApiChainId } from '../../../../utils/chain.ts';
-import { getBalTradingAndLstApr } from '../../../../utils/getBalancerTradingFeeAndLstApr.ts';
+import { type BalancerApiChainId, getBalTradingAndLstApr } from '../../../../utils/getBalancerTradingFeeAndLstApr.ts';
 import { getLoggerFor } from '../../../../utils/logger/index.ts';
 import { getMerklAprByExplorerAddress } from '../../../offchain-rewards/providers/merkl/proxyClient.ts';
 import { type ApyBreakdownResult, getApyBreakdown } from '../getApyBreakdown.ts';
@@ -48,7 +48,7 @@ interface Pool {
 }
 
 interface BalancerParams {
-  chainId: ApiChainId;
+  chainId: BalancerApiChainId;
   client: ApolloClient<NormalizedCacheObject>;
   pools: Pool[];
   balancerVault: string;
@@ -75,7 +75,7 @@ export const getBalancerApys = async (params: BalancerParams): Promise<ApyBreakd
   );
 };
 
-const getTradingFeeAprBalancer = async (chainId: ApiChainId, pairAddresses: string[]) => {
+const getTradingFeeAprBalancer = async (chainId: BalancerApiChainId, pairAddresses: string[]) => {
   const data = await getBalTradingAndLstApr(chainId, pairAddresses);
   return data;
 };
