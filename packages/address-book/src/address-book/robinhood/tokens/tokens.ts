@@ -493,7 +493,8 @@ export const tokens = {
     website: 'https://robinhood.com/rhj/stocktokens/',
     description:
       'Cloudflare Robinhood Token is a tokenized debt security issued by Robinhood Assets (Jersey) Limited that provides price exposure to Cloudflare shares without conferring ownership or shareholder rights.',
-    documentation: 'https://docs.robinhood.com/chain/stock-tokens/',
+    documentation:
+      'https://cdn.robinhood.com/assets/robinhood/legal/rhj_final_terms_for_tokenised_debt_securities_linked_to_cloudflare_inc.pdf',
     bridge: 'native',
     tags: ['STOCK'],
   },
@@ -507,7 +508,8 @@ export const tokens = {
     website: 'https://robinhood.com/rhj/stocktokens/',
     description:
       'Moderna Robinhood Token is a tokenized debt security issued by Robinhood Assets (Jersey) Limited that provides price exposure to Moderna shares without conferring ownership or shareholder rights.',
-    documentation: 'https://docs.robinhood.com/chain/stock-tokens/',
+    documentation:
+      'https://cdn.robinhood.com/assets/robinhood/legal/rhj_final_terms_for_tokenised_debt_securities_linked_to_moderna_inc.pdf',
     bridge: 'native',
     tags: ['STOCK'],
   },
@@ -521,7 +523,8 @@ export const tokens = {
     website: 'https://robinhood.com/rhj/stocktokens/',
     description:
       'Boeing Robinhood Token is a tokenized debt security issued by Robinhood Assets (Jersey) Limited that provides price exposure to Boeing shares without conferring ownership or shareholder rights.',
-    documentation: 'https://docs.robinhood.com/chain/stock-tokens/',
+    documentation:
+      'https://cdn.robinhood.com/assets/robinhood/legal/rhj_final_terms_for_tokenised_debt_securities_linked_to_boeing.pdf',
     bridge: 'native',
     tags: ['STOCK'],
   },
@@ -535,7 +538,8 @@ export const tokens = {
     website: 'https://robinhood.com/rhj/stocktokens/',
     description:
       'Ford Motor Robinhood Token is a tokenized debt security issued by Robinhood Assets (Jersey) Limited that provides price exposure to Ford Motor shares without conferring ownership or shareholder rights.',
-    documentation: 'https://docs.robinhood.com/chain/stock-tokens/',
+    documentation:
+      'https://cdn.robinhood.com/assets/robinhood/legal/rhj_final_terms_for_tokenised_debt_securities_linked_to_ford_motor.pdf',
     bridge: 'native',
     tags: ['STOCK'],
   },
