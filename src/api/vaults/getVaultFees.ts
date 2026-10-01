@@ -10,6 +10,7 @@ import { getLoggerFor } from '../../utils/logger/index.ts';
 import { orNaN } from '../../utils/number.ts';
 import { fetchContract } from '../rpc/client.ts';
 import { getHarvestableVaultsByChain } from '../stats/getMultichainVaults.ts';
+import { PAUSED_WITHDRAW_FEE_VAULT_IDS } from './paused-withdraw-fee-vaults.ts';
 import type { HarvestableVault } from './types.ts';
 
 const logger = getLoggerFor({ module: 'vault-fees' });
@@ -305,7 +306,7 @@ const withdrawalFeeFromCalls = (contractCalls: StrategyCallResponse): number => 
   } else if (
     (contractCalls.withdraw === undefined && contractCalls.withdraw2 === undefined)
     || (contractCalls.withdrawMax === undefined && contractCalls.withdrawMax2 === undefined)
-    || contractCalls.paused
+    || (contractCalls.paused && !PAUSED_WITHDRAW_FEE_VAULT_IDS.has(contractCalls.id))
   ) {
     return 0;
   } else {
