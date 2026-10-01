@@ -1,8 +1,9 @@
 import BeefyBoostAbi from '../../abis/BeefyBoost.ts';
 import { IBeefyRewardPool } from '../../abis/IBeefyRewardPool.ts';
+import { fetchAppPromos } from '../../utils/appConfigs.ts';
 import { bigintRange } from '../../utils/array.ts';
 import { bigintToNumber } from '../../utils/big-int.ts';
-import { type ApiChain, isAppChain, toAppChain, toChainId } from '../../utils/chain.ts';
+import { type ApiChain, isAppChain, toChainId } from '../../utils/chain.ts';
 import { getLoggerFor } from '../../utils/logger/index.ts';
 import { fetchContract } from '../rpc/client.ts';
 import type { Boost, BoostEntity, BoostPromoConfig, PromoConfig } from './types.ts';
@@ -27,24 +28,8 @@ export function withSupportedRewards<T extends Pick<BoostPromoConfig, 'id' | 're
 }
 
 export const getBoosts = async (chain: ApiChain): Promise<BoostEntity[]> => {
-  const promosEndpoint = `https://raw.githubusercontent.com/beefyfinance/beefy-v2/prod/src/config/promos/chain/${toAppChain(
-    chain
-  )}.json`;
-  const response = await fetch(promosEndpoint);
-  if (response.status === 404) {
-    return []; // 0 boosts = OK
-  }
-
-  if (response.status !== 200) {
-    throw new Error(`Failed to fetch boosts for ${chain}: ${response.status} ${response.statusText}`);
-  }
-
-  const promos = await response.json();
-  if (!promos || !Array.isArray(promos)) {
-    throw new Error(`Invalid promos data for ${chain}`);
-  }
-
-  return (promos as PromoConfig[]).filter(isBoostPromo).map(
+  const promos = await fetchAppPromos(chain);
+  return (promos as readonly PromoConfig[]).filter(isBoostPromo).map(
     (b): BoostEntity => ({
       ...withSupportedRewards(b, chain),
       version: b.version || 1,
