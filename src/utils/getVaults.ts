@@ -13,18 +13,12 @@ export async function getVaults(chainId: ApiChain): Promise<AnyVault[]> {
     throw new Error(`Invalid vaults data for ${endpoint}`);
   }
 
-  // Backwards compatibility
+  // older standard vaults have no type
   return vaults.map(vault => {
     if ('type' in vault) {
       return {
         ...vault,
         isGovVault: vault.type === 'gov',
-        chain: chainId,
-      };
-    } else if ('isGovVault' in vault) {
-      return {
-        ...vault,
-        type: vault.isGovVault ? 'gov' : 'standard',
         chain: chainId,
       };
     } else {
