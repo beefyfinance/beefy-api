@@ -43,7 +43,7 @@ export const providers = {
   },
   pharaoh: {
     poolTradingRewardTokens: {
-      avax: [avax.tokens.PHAR, avax.tokens.sAVAX, avax.tokens.ggAVAX],
+      avax: [avax.tokens.PHAR, avax.tokens.sAVAX],
     },
   },
   nuri: {
