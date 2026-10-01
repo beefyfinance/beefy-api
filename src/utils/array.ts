@@ -1,14 +1,12 @@
-/**
- * Returns an object with the keys of the given array and the values of the given function
- * Assumes the keys array contains an entry for each key in the object
- * @param keys
- * @param fn
- */
-export function keysToObject<T extends object>(keys: (keyof T)[], fn: (key: keyof T) => T[keyof T]): T {
-  return keys.reduce((acc: T, key: keyof T) => {
-    acc[key] = fn(key);
-    return acc;
-  }, {} as T);
+/** Returns an object mapping each of `keys` to `fn(key)` */
+export function keysToObject<K extends PropertyKey, V>(keys: readonly K[], fn: (key: K) => V): Record<K, V> {
+  return keys.reduce(
+    (acc, key) => {
+      acc[key] = fn(key);
+      return acc;
+    },
+    {} as Record<K, V>
+  );
 }
 
 export type NonEmptyArray<T> = [T, ...T[]];
