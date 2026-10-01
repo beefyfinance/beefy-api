@@ -1,6 +1,7 @@
 import { getKey, setKey } from './cache/index.ts';
-import { type ApiChain, toAppChain } from './chain.ts';
+import { type RawChain, toRawAppChain } from './chain.ts';
 import { getLoggerFor } from './logger/index.ts';
+import { typedKeys } from './object.ts';
 
 const logger = getLoggerFor({ module: 'app-configs' });
 
@@ -11,6 +12,7 @@ const CACHE_VERSION = 1;
 type AppConfigFile = 'vault' | 'promos';
 
 const fileDirs = { vault: 'vault', promos: 'promos/chain' } as const satisfies Record<AppConfigFile, string>;
+const files = typedKeys(fileDirs);
 
 type Entry = {
   /** undefined when the file does not exist */
@@ -30,8 +32,8 @@ function isNotFound(entry: Entry): boolean {
 const entries = new Map<string, Entry>();
 const restores = new Map<string, Promise<void>>();
 
-function getPath(file: AppConfigFile, chain: ApiChain): string {
-  return `${fileDirs[file]}/${toAppChain(chain)}.json`;
+function getPath(file: AppConfigFile, chain: RawChain): string {
+  return `${fileDirs[file]}/${toRawAppChain(chain)}.json`;
 }
 
 function getCacheKey(path: string): string {
@@ -101,10 +103,25 @@ async function fetchEntry(path: string): Promise<Entry> {
   return entry;
 }
 
-export async function fetchAppVaults(chain: ApiChain): Promise<readonly unknown[]> {
+export async function fetchAppVaults(chain: RawChain): Promise<readonly unknown[]> {
   return (await fetchEntry(getPath('vault', chain))).data;
 }
 
-export async function fetchAppPromos(chain: ApiChain): Promise<readonly unknown[]> {
+export async function fetchAppPromos(chain: RawChain): Promise<readonly unknown[]> {
   return (await fetchEntry(getPath('promos', chain))).data;
+}
+
+/** loads the persisted files of `chains` without fetching */
+export async function restoreAppConfigs(chains: readonly RawChain[]): Promise<void> {
+  await Promise.all(chains.flatMap(chain => files.map(file => restoreEntry(getPath(file, chain)))));
+}
+
+/** last known vaults, empty if never loaded */
+export function getAppVaults(chain: RawChain): readonly unknown[] {
+  return entries.get(getPath('vault', chain))?.data ?? [];
+}
+
+/** last known promos, empty if never loaded */
+export function getAppPromos(chain: RawChain): readonly unknown[] {
+  return entries.get(getPath('promos', chain))?.data ?? [];
 }

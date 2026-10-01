@@ -92,3 +92,36 @@ export function fromChainId(chainId: ApiChainId): ApiChain {
 export function fromChainNumber(chainId: number): ApiChain | undefined {
   return chainIdToApiChain.get(chainId);
 }
+
+/** Every address book chain, disabled included; only for serving raw beefy-v2 configs */
+export type RawChain = AnyChainConfig['id'];
+export type RawAppChain = AnyChainConfig['appChain'];
+
+const rawChainConfigs: AnyChainConfig[] = Object.values(chainConfigs);
+
+export const RawChains: RawChain[] = rawChainConfigs.map(config => config.id);
+
+const rawChainSet = new Set<string>(RawChains);
+const rawChainToAppChain = new Map<RawChain, RawAppChain>(rawChainConfigs.map(config => [config.id, config.appChain]));
+const rawAppChainToChain = new Map<string, RawChain>(rawChainConfigs.map(config => [config.appChain, config.id]));
+const rawChainIdToChain = new Map<number, RawChain>(RawChains.map(chain => [ChainId[chain], chain]));
+
+export function toRawAppChain(chain: RawChain): RawAppChain {
+  const appChain = rawChainToAppChain.get(chain);
+  if (!appChain) {
+    throw new Error(`Invalid raw chain: ${chain}`);
+  }
+  return appChain;
+}
+
+function isRawChain(value: string): value is RawChain {
+  return rawChainSet.has(value);
+}
+
+/** chain key, app chain or numeric chain id */
+export function parseRawChain(value: string): RawChain | undefined {
+  if (isRawChain(value)) {
+    return value;
+  }
+  return rawAppChainToChain.get(value) ?? (/^[0-9]+$/.test(value) ? rawChainIdToChain.get(Number(value)) : undefined);
+}
