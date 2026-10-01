@@ -1,6 +1,7 @@
 import Router from 'koa-router';
 import { getArticles, getLatestArticle } from './api/articles/index.ts';
 import { boosts, boostsV2, chainBoosts, chainBoostsV2 } from './api/boosts/index.ts';
+import { allChains, singleChain } from './api/chains/routes.ts';
 import { getChainConfigHandler, getConfigs } from './api/config/index.ts';
 import { handleCowcentratedLTIPPCampaignsForDune, handleCowcentratedPriceRanges } from './api/cowcentrated/index.ts';
 import { getCountry } from './api/geo/index.ts';
@@ -122,6 +123,9 @@ router.get('/articles/latest', getLatestArticle);
 router.get('/points-structures', pointStructures);
 
 router.get('/geo/country', getCountry);
+
+router.get('/chains/:chainId', singleChain);
+router.get('/chains', allChains);
 
 router.get('/', noop);
 
