@@ -1,5 +1,5 @@
 import { getLoggerFor } from '../logger/index.ts';
-import type { ICacheBackend } from './ICacheBackend.ts';
+import type { CacheSetOptions, ICacheBackend } from './ICacheBackend.ts';
 
 const logger = getLoggerFor({ module: 'cache' });
 
@@ -23,13 +23,13 @@ export class Cache {
     }
   }
 
-  async set<T extends any>(key: string, value: T): Promise<void> {
+  async set<T extends any>(key: string, value: T, options?: CacheSetOptions): Promise<void> {
     if (!key) {
       throw new Error('Cache key cannot be empty');
     }
 
     try {
-      await this.backend.set(key, JSON.stringify(value));
+      await this.backend.set(key, JSON.stringify(value), options);
       if (this.options.logWrites) {
         logger.debug({ key }, 'saved to cache');
       }
