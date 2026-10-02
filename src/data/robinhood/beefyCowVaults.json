@@ -1,5 +1,53 @@
 [
   {
+    "address": "0xA06faD8b3A6B97a0931e884777a9827690aacD0b",
+    "lpAddress": "0xA9Caebb1b2fB2b954F192572b309aEf1cAf6a330",
+    "tokens": ["0x116F00968269B7bfbaD4109cE591d6E74c0601d4", "0x5fc5360D0400a0Fd4f2af552ADD042D716F1d168"],
+    "tokenOracleIds": ["NETrh", "USDG"],
+    "decimals": [18, 6],
+    "oracleId": "uniswap-cow-robinhood-net-usdg",
+    "rewardPool": {
+      "address": "0x3fcA34D254969A7447f64871E5BA5EBaD999E911",
+      "oracleId": "uniswap-cow-robinhood-net-usdg-rp"
+    }
+  },
+  {
+    "address": "0xE6f3BC3C458597bef1845274DEDeA0EB20995a1D",
+    "lpAddress": "0xB40196272A6d2EB5edF6d93bc4DC39856AD95E0E",
+    "tokens": ["0x43B07D15cE533bEc5476d70C22a78a1B2B662155", "0x5fc5360D0400a0Fd4f2af552ADD042D716F1d168"],
+    "tokenOracleIds": ["MRNArh", "USDG"],
+    "decimals": [18, 6],
+    "oracleId": "uniswap-cow-robinhood-mrna-usdg",
+    "rewardPool": {
+      "address": "0xCE84fA38C16b9dd9438397D68fb3c27a2C616E82",
+      "oracleId": "uniswap-cow-robinhood-mrna-usdg-rp"
+    }
+  },
+  {
+    "address": "0x2F049ad5F34584e1A97563273D1bC85A05a4FAd4",
+    "lpAddress": "0xc6517047b189c72D3bAa9eF37D1d28F27a63638a",
+    "tokens": ["0x4D21483a44Bf67a86b77E3dA301411880797D452", "0x5fc5360D0400a0Fd4f2af552ADD042D716F1d168"],
+    "tokenOracleIds": ["BArh", "USDG"],
+    "decimals": [18, 6],
+    "oracleId": "uniswap-cow-robinhood-ba-usdg",
+    "rewardPool": {
+      "address": "0xb1778679ab4BB8f6B80f76EE425C6ECD188a522E",
+      "oracleId": "uniswap-cow-robinhood-ba-usdg-rp"
+    }
+  },
+  {
+    "address": "0xAee2BEF291dffDF178f9b46AA8D254d52Da22CC8",
+    "lpAddress": "0x4dbAC19E895322ac5b93abad9008691632bFFC05",
+    "tokens": ["0x25C288E6D899b9BC30160965aD9644c67e73bE0C", "0x5fc5360D0400a0Fd4f2af552ADD042D716F1d168"],
+    "tokenOracleIds": ["Frh", "USDG"],
+    "decimals": [18, 6],
+    "oracleId": "uniswap-cow-robinhood-f-usdg",
+    "rewardPool": {
+      "address": "0x0D80f05CD739bc057c1D94A5A66Dd14D719DA7B1",
+      "oracleId": "uniswap-cow-robinhood-f-usdg-rp"
+    }
+  },
+  {
     "address": "0xBC712b9726e6346E9C700Df14B2a6a558Efd222A",
     "lpAddress": "0x146a67CAa3Ff12cB019B2E46d5fb8a1bedDC18D3",
     "tokens": ["0x5fc5360D0400a0Fd4f2af552ADD042D716F1d168", "0xCA9c78Dd337A67F6e0077F65F5E9218719d30eDf"],
