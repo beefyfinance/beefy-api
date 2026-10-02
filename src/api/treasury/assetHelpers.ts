@@ -1,3 +1,4 @@
+import { addressBook } from '@beefyfinance/blockchain-addressbook';
 import BigNumber from 'bignumber.js';
 import { keyBy } from 'lodash-es';
 import { keysToObject } from '../../utils/array.ts';
@@ -15,18 +16,13 @@ const ONE_PPFS = new BigNumber('1e18');
 export function getTokenAddressesByChain(): TreasuryAssetRegistry {
   return keysToObject(SupportedChains, chain => {
     const tokens: Record<string, TreasuryAsset> = {};
+    const { native, tokens: abTokens } = addressBook[chain];
+    const sharedWrappedAddress = native.balanceSharedWithWrapped ? abTokens.WNATIVE.address.toLowerCase() : undefined;
 
     for (const [tokenAddress, token] of Object.entries(getTokensForChain(chain))) {
-      // WCELO/WMETIS/WGLMR/arc USDC: duplicate as same as native
-      if (
-        [
-          '0x471EcE3750Da237f93B8E339c536989b8978a438',
-          '0xDeadDeAddeAddEAddeadDEaDDEAdDeaDDeAD0000',
-          '0x0000000000000000000000000000000000000802',
-          '0x3600000000000000000000000000000000000000',
-        ].includes(token.address)
-      )
+      if (token.address.toLowerCase() === sharedWrappedAddress) {
         continue;
+      }
 
       tokens[tokenAddress] = {
         name: token.name,

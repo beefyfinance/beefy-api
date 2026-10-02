@@ -1,13 +1,15 @@
 import { addressBook } from '@beefyfinance/blockchain-addressbook';
 import { BigNumber } from 'bignumber.js';
 import IOOEStaking from '../../../../abis/bsc/IOOEStaking.ts';
-import { BSC_CHAIN_ID as chainId } from '../../../../constants.ts';
+import { ApiChainId } from '../../../../utils/chain.ts';
 import { fetchPrice } from '../../../../utils/fetchPrice.ts';
 import getBlockTime from '../../../../utils/getBlockTime.ts';
 import { getEDecimals } from '../../../../utils/getEDecimals.ts';
 import { fetchContract } from '../../../rpc/client.ts';
 import { getApyBreakdown } from '../../common/getApyBreakdown.ts';
 import pools from '../../../../data/bsc/ooeV2LpPools.json' with { type: 'json' };
+
+const chainId = ApiChainId.bsc;
 
 const {
   bsc: {

@@ -1,44 +1,26 @@
 import type { AnyVault } from '../api/vaults/types.ts';
-import { MULTICHAIN_ENDPOINTS } from '../constants.ts';
+import { fetchAppVaults } from './appConfigs.ts';
 import type { ApiChain } from './chain.ts';
 
 export async function getVaults(chainId: ApiChain): Promise<AnyVault[]> {
-  const endpoint = MULTICHAIN_ENDPOINTS[chainId];
-  if (!endpoint) {
-    throw new Error(`No endpoint found for chain ${chainId}`);
-  }
+  const vaults = await fetchAppVaults(chainId);
+  return vaults.map(vault => withVaultDefaults(vault, chainId));
+}
 
-  const response = await fetch(endpoint);
-  if (response.status !== 200) {
-    throw new Error(`Failed to fetch vaults for ${endpoint}: ${response.status} ${response.statusText}`);
+/** `vault` is unchecked json; older standard vaults have no type */
+export function withVaultDefaults(vault: any, chain: string) {
+  if ('type' in vault) {
+    return {
+      ...vault,
+      isGovVault: vault.type === 'gov',
+      chain,
+    };
+  } else {
+    return {
+      ...vault,
+      isGovVault: false,
+      type: 'standard',
+      chain,
+    };
   }
-
-  const vaults = await response.json();
-  if (!vaults || !Array.isArray(vaults)) {
-    throw new Error(`Invalid vaults data for ${endpoint}`);
-  }
-
-  // Backwards compatibility
-  return vaults.map(vault => {
-    if ('type' in vault) {
-      return {
-        ...vault,
-        isGovVault: vault.type === 'gov',
-        chain: chainId,
-      };
-    } else if ('isGovVault' in vault) {
-      return {
-        ...vault,
-        type: vault.isGovVault ? 'gov' : 'standard',
-        chain: chainId,
-      };
-    } else {
-      return {
-        ...vault,
-        isGovVault: false,
-        type: 'standard',
-        chain: chainId,
-      };
-    }
-  });
 }

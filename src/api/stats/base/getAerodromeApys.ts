@@ -1,4 +1,4 @@
-import { BASE_CHAIN_ID as chainId } from '../../../constants.ts';
+import { ApiChainId } from '../../../utils/chain.ts';
 import { getSolidlyGaugeApys } from '../common/getSolidlyGaugeApys.ts';
 import volatilePools from '../../../data/base/aerodromeLpPools.json' with { type: 'json' };
 import stablePools from '../../../data/base/aerodromeStableLpPools.json' with { type: 'json' };
@@ -6,7 +6,7 @@ import stablePools from '../../../data/base/aerodromeStableLpPools.json' with { 
 const pools = [...stablePools, ...volatilePools];
 export const getAerodromeApys = async () => {
   return getSolidlyGaugeApys({
-    chainId: chainId,
+    chainId: ApiChainId.base,
     pools: pools.filter(p => p.gauge),
     oracleId: 'AERO',
     oracle: 'tokens',

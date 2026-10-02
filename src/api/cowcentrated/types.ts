@@ -110,18 +110,18 @@ function isValidCowProviderId(id: string | undefined): boolean {
   return !!id && id in providers;
 }
 
+/** reward pool is optional only for beta clms; vault requires a reward pool; provider is optional */
 function isValidCowClmConfig(clm: JsonCowClm): clm is AnyCowClm {
   return (
-    (clm.tokens.length === 2
-      && clm.tokenOracleIds.length === 2
-      && clm.decimals.length === 2
-      && isAddress(clm.address)
-      && isAddress(clm.lpAddress)
-      && clm.tokens.every(token => isAddress(token)) // no reward pool if beta clm, or valid reward pool
-      && ((!clm.rewardPool && clm.beta) || isValidCowClmRewardPoolConfig(clm.rewardPool)) // no vault, or reward pool and valid vault
-      && (!clm.vault || (clm.rewardPool && isValidCowClmVaultConfig(clm.vault))) // no provider, or valid provider
-      && !clm.providerId)
-    || isValidCowProviderId(clm.providerId)
+    clm.tokens.length === 2
+    && clm.tokenOracleIds.length === 2
+    && clm.decimals.length === 2
+    && isAddress(clm.address)
+    && isAddress(clm.lpAddress)
+    && clm.tokens.every(token => isAddress(token))
+    && ((!clm.rewardPool && clm.beta) || isValidCowClmRewardPoolConfig(clm.rewardPool))
+    && (!clm.vault || (!!clm.rewardPool && isValidCowClmVaultConfig(clm.vault)))
+    && (!clm.providerId || isValidCowProviderId(clm.providerId))
   );
 }
 

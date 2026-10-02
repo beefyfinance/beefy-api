@@ -8,7 +8,7 @@ export class OneInchSwapProvider implements ISwapProvider {
   public readonly id = 'one-inch';
 
   supportsChain(chain: ApiChain): boolean {
-    return supportedSwapChains[chain] || false;
+    return supportedSwapChains.has(chain);
   }
 
   async quotes(swaps: SwapRequest[]): Promise<SwapResponse[]> {

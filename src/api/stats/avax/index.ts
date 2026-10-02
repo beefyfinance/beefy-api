@@ -1,4 +1,4 @@
-import { AVAX_CHAIN_ID } from '../../../constants.ts';
+import { ApiChainId } from '../../../utils/chain.ts';
 import { getLoggerFor } from '../../../utils/logger/index.ts';
 import type { ApyBreakdownResult } from '../common/getApyBreakdownNew.ts';
 import { getAaveV4Apys } from './getAaveV4Apys.ts';
@@ -7,7 +7,7 @@ import { getBlackholeApys } from './getBlackholeApys.ts';
 import { getGmxApys } from './getGmxApys.ts';
 import getJoeApy from './getJoeApy.ts';
 
-const logger = getLoggerFor({ module: 'apy', chain: AVAX_CHAIN_ID });
+const logger = getLoggerFor({ module: 'apy', chain: ApiChainId.avax });
 
 const getApys = [getGmxApys, getJoeApy, getBeefyAvaxCowApys, getBlackholeApys, getAaveV4Apys];
 

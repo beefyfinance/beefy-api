@@ -1,11 +1,11 @@
-import type { ChainId } from '@beefyfinance/blockchain-addressbook';
 import { default as BigNumber } from 'bignumber.js';
 import { getRPCClient } from '../api/rpc/client.ts';
+import type { ApiChainId } from './chain.ts';
 
 const fastestChainBlockTimeInMilliseconds = 3000;
 
-let cache: Record<number, Record<number, BigNumber>> = {};
-const getBlockNumber = async (chainId: ChainId) => {
+const cache: Partial<Record<ApiChainId, Record<number, BigNumber>>> = {};
+const getBlockNumber = async (chainId: ApiChainId) => {
   const cacheKey = Math.floor(Date.now() / fastestChainBlockTimeInMilliseconds);
 
   if (cache[chainId]?.hasOwnProperty(cacheKey)) {

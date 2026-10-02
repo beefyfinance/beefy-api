@@ -1,20 +1,20 @@
 import { BigNumber } from 'bignumber.js';
 import ERC20Abi from '../../../abis/ERC20Abi.ts';
-import { MONAD_CHAIN_ID } from '../../../constants.ts';
 import type { PricesById, StandardLpBreakdown } from '../../../types/prices.ts';
+import { ApiChainId } from '../../../utils/chain.ts';
 import { getLoggerFor } from '../../../utils/logger/index.ts';
 import { withTracing } from '../../../utils/tracing.ts';
 import { fetchContract } from '../../rpc/client.ts';
 import pools from '../../../data/monad/neverlandPools.json' with { type: 'json' };
 
-const logger = getLoggerFor({ module: 'prices', component: 'neverland', chain: MONAD_CHAIN_ID });
+const logger = getLoggerFor({ module: 'prices', component: 'neverland', chain: ApiChainId.monad });
 
 export const getNeverlandPrices = withTracing(
   async (tokenPrices: PricesById) => {
     const totalSupplyCalls = [];
 
     for (const pool of pools) {
-      const erc20Contract = fetchContract(pool.aToken, ERC20Abi, MONAD_CHAIN_ID) as any;
+      const erc20Contract = fetchContract(pool.aToken, ERC20Abi, ApiChainId.monad) as any;
       totalSupplyCalls.push(erc20Contract.read.totalSupply());
     }
 

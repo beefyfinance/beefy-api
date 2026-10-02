@@ -1,14 +1,6 @@
-import type { ChainId } from '@beefyfinance/blockchain-addressbook';
 import { BigNumber } from 'bignumber.js';
 import { type Address, parseAbi } from 'viem';
-import {
-  ARBITRUM_CHAIN_ID,
-  BASE_CHAIN_ID,
-  BSC_CHAIN_ID,
-  ETH_CHAIN_ID,
-  PLASMA_CHAIN_ID,
-  SONIC_CHAIN_ID,
-} from '../../../../constants.ts';
+import { ApiChainId } from '../../../../utils/chain.ts';
 import { getLoggerFor } from '../../../../utils/logger/index.ts';
 import type { OptionalRecord } from '../../../../utils/object.ts';
 import { fetchContract } from '../../../rpc/client.ts';
@@ -24,31 +16,28 @@ const abi = parseAbi([
 const penpieAfterFees = 1 - 0.22;
 const eqbAfterFees = 1 - 0.225;
 
-const penpieProxy: OptionalRecord<ChainId, Address> = {
-  [PLASMA_CHAIN_ID]: '0xfFf28A2845aEB11394ed63dDFC62161af6310701',
-  [ETH_CHAIN_ID]: '0x6E799758CEE75DAe3d84e09D40dc416eCf713652',
-  [SONIC_CHAIN_ID]: '0xF9619e8B01Acc23FAc7Ee0AEb1258433b85814ec',
-  [ARBITRUM_CHAIN_ID]: '0x6DB96BBEB081d2a85E0954C252f2c1dC108b3f81',
-  [BSC_CHAIN_ID]: '0x782D9D67FeaA4d1CDF8222D9053c8CBA1c3B7982',
-  [BASE_CHAIN_ID]: '0x7A89614B596720D4D0f51A69D6C1d55dB97E9aAB',
-};
-const eqbPendleProxy: OptionalRecord<ChainId, Address> = {
-  [PLASMA_CHAIN_ID]: '0xfE80D611c6403f70e5B1b9B722D2B3510B740B2B',
-  [ETH_CHAIN_ID]: '0x64627901dAdb46eD7f275fD4FC87d086cfF1e6E3',
-  [SONIC_CHAIN_ID]: '0x479603DE0a8B6D2f4D4eaA1058Eea0d7Ac9E218d',
-  [ARBITRUM_CHAIN_ID]: '0x64627901dAdb46eD7f275fD4FC87d086cfF1e6E3',
-  [BSC_CHAIN_ID]: '0x64627901dAdb46eD7f275fD4FC87d086cfF1e6E3',
-  [BASE_CHAIN_ID]: '0x920873E5b302A619C54c908aDFB77a1C4256A3B8',
-};
+const penpieProxy = {
+  [ApiChainId.plasma]: '0xfFf28A2845aEB11394ed63dDFC62161af6310701',
+  [ApiChainId.ethereum]: '0x6E799758CEE75DAe3d84e09D40dc416eCf713652',
+  [ApiChainId.sonic]: '0xF9619e8B01Acc23FAc7Ee0AEb1258433b85814ec',
+  [ApiChainId.arbitrum]: '0x6DB96BBEB081d2a85E0954C252f2c1dC108b3f81',
+  [ApiChainId.bsc]: '0x782D9D67FeaA4d1CDF8222D9053c8CBA1c3B7982',
+  [ApiChainId.base]: '0x7A89614B596720D4D0f51A69D6C1d55dB97E9aAB',
+} as const satisfies Partial<Record<ApiChainId, Address>>;
+const eqbPendleProxy = {
+  [ApiChainId.plasma]: '0xfE80D611c6403f70e5B1b9B722D2B3510B740B2B',
+  [ApiChainId.ethereum]: '0x64627901dAdb46eD7f275fD4FC87d086cfF1e6E3',
+  [ApiChainId.sonic]: '0x479603DE0a8B6D2f4D4eaA1058Eea0d7Ac9E218d',
+  [ApiChainId.arbitrum]: '0x64627901dAdb46eD7f275fD4FC87d086cfF1e6E3',
+  [ApiChainId.bsc]: '0x64627901dAdb46eD7f275fD4FC87d086cfF1e6E3',
+  [ApiChainId.base]: '0x920873E5b302A619C54c908aDFB77a1C4256A3B8',
+} as const satisfies Partial<Record<ApiChainId, Address>>;
 
-export async function getPendleApys(allPools: PendlePool[]) {
-  const chainId = allPools[0].chainId;
-  if (!chainId) throw new Error(`Add chainId to first pendle pool: ${allPools[0].name}`);
+type PendleProxyChainId = keyof typeof penpieProxy & keyof typeof eqbPendleProxy;
 
+export async function getPendleApys(chainId: PendleProxyChainId, allPools: PendlePool[]) {
   const penpieStaking = penpieProxy[chainId];
-  if (!penpieStaking) throw new Error(`No penpieProxy for chainId: ${chainId}`);
   const eqbStaking = eqbPendleProxy[chainId];
-  if (!eqbStaking) throw new Error(`No eqbProxy for chainId: ${chainId}`);
 
   const [expiredPools, pools] = filterExpired(allPools);
   const { tradingApys, pendleApys, syRewardsApys } = await getPendleBaseApys(chainId, pools);

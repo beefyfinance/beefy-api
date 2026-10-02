@@ -1,4 +1,4 @@
-import { MONAD_CHAIN_ID } from '../../../constants.ts';
+import { ApiChainId } from '../../../utils/chain.ts';
 import { getLoggerFor } from '../../../utils/logger/index.ts';
 import { getGearboxApys } from '../common/gearbox/getGearboxApys.ts';
 import type { ApyBreakdownResult } from '../common/getApyBreakdownNew.ts';
@@ -14,17 +14,17 @@ import { getUniswapApys } from './getUniswapApys.ts';
 import gearboxPoolsData from '../../../data/monad/gearboxPools.json' with { type: 'json' };
 import morphoPoolsData from '../../../data/monad/morphoPools.json' with { type: 'json' };
 
-const logger = getLoggerFor({ module: 'apy', chain: MONAD_CHAIN_ID });
+const logger = getLoggerFor({ module: 'apy', chain: ApiChainId.monad });
 
 const getApys = [
   getEulerApys,
   getAaveV3Apys,
   getCurveApys,
   getBeefyCowMonadApys,
-  () => getMorphoApys(MONAD_CHAIN_ID, morphoPoolsData),
+  () => getMorphoApys(ApiChainId.monad, morphoPoolsData),
   getCurvanceApys,
   getNeverlandApys,
-  () => getGearboxApys(MONAD_CHAIN_ID, gearboxPoolsData),
+  () => getGearboxApys(ApiChainId.monad, gearboxPoolsData),
   getUniswapApys,
   getBalancerMonadApys,
 ];

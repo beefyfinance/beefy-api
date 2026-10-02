@@ -1,7 +1,7 @@
 import { BigNumber } from 'bignumber.js';
 import CurvanceVault from '../../../abis/CurvanceVault.ts';
-import { MONAD_CHAIN_ID } from '../../../constants.ts';
 import type { PricesById, StandardLpBreakdown } from '../../../types/prices.ts';
+import { ApiChainId } from '../../../utils/chain.ts';
 import { getLoggerFor } from '../../../utils/logger/index.ts';
 import { withTracing } from '../../../utils/tracing.ts';
 import { fetchContract } from '../../rpc/client.ts';
@@ -9,7 +9,7 @@ import type { CurvancePool } from './getCurvanceApys.ts';
 import curvancePoolsData from '../../../data/monad/curvancePools.json' with { type: 'json' };
 
 const pools: CurvancePool[] = curvancePoolsData;
-const logger = getLoggerFor({ module: 'prices', component: 'curvance', chain: MONAD_CHAIN_ID });
+const logger = getLoggerFor({ module: 'prices', component: 'curvance', chain: ApiChainId.monad });
 
 export const getCurvanceMonadPrices = withTracing(
   async (tokenPrices: PricesById) => {
@@ -17,7 +17,7 @@ export const getCurvanceMonadPrices = withTracing(
     const totalSupplyCalls = [];
 
     for (const pool of pools) {
-      const curvanceVaultContract = fetchContract(pool.address, CurvanceVault, MONAD_CHAIN_ID) as any;
+      const curvanceVaultContract = fetchContract(pool.address, CurvanceVault, ApiChainId.monad) as any;
       totalAssetsCalls.push(curvanceVaultContract.read.totalAssets());
       totalSupplyCalls.push(curvanceVaultContract.read.totalSupply());
     }

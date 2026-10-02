@@ -1,5 +1,4 @@
 import { addressBook } from '@beefyfinance/blockchain-addressbook';
-import { chainIdMap } from '@beefyfinance/blockchain-addressbook/util/chainIdMap';
 import { BigNumber } from 'bignumber.js';
 import { ZERO_ADDRESS } from '../../utils/address.ts';
 import { keysToObject } from '../../utils/array.ts';
@@ -69,8 +68,8 @@ function updateAssetsByChain() {
 
   assetsByChain = keysToObject(SupportedChains, chain => {
     return {
-      ...(tokenAssets[chain] || {}),
-      ...(vaultAssets[chain] || {}),
+      ...tokenAssets[chain],
+      ...vaultAssets[chain],
     };
   });
 }
@@ -90,12 +89,10 @@ async function updateSingleChainTreasuryBalance(chain: ApiChain) {
 }
 
 async function updateSingleChainTreasuryBalanceImpl(chain: ApiChain) {
-  const assetsToCheck = Object.values(assetsByChain[chain] ?? {});
-  const treasuryAddressesForChain = Object.values(treasuryAddressesByChain[chain] ?? {});
+  const assetsToCheck = Object.values(assetsByChain[chain]);
+  const treasuryAddressesForChain = Object.values(treasuryAddressesByChain[chain]);
 
-  const assetCalls = assetsToCheck.map(asset =>
-    Promise.all(mapAssetToCall(asset, treasuryAddressesForChain, chainIdMap[chain]))
-  );
+  const assetCalls = assetsToCheck.map(asset => Promise.all(mapAssetToCall(asset, treasuryAddressesForChain, chain)));
   const callResults = await Promise.allSettled(assetCalls);
   const failedCalls = callResults.filter(res => res.status === 'rejected').length;
   const hasOneFailedCall = failedCalls > 0;
@@ -112,7 +109,7 @@ async function updateSingleChainTreasuryBalanceImpl(chain: ApiChain) {
 
   //If we have at least one failed call, we keep the previous cache, if not we purge outdated values
   tokenBalancesByChain[chain] = {
-    ...(tokenBalancesByChain[chain] && hasOneFailedCall ? tokenBalancesByChain[chain] : {}),
+    ...(hasOneFailedCall ? tokenBalancesByChain[chain] : {}),
     ...extractBalancesFromTreasuryCallResults(
       assetsToCheck,
       treasuryAddressesForChain.map(t => t.address),
@@ -153,10 +150,10 @@ async function buildTreasuryReport() {
 }
 
 async function buildTreasuryReportForChain(chain: ApiChain): Promise<TreasuryReport[ApiChain]> {
-  const chainBalancesByAddress = tokenBalancesByChain[chain] ?? {};
+  const chainBalancesByAddress = tokenBalancesByChain[chain];
   const balanceReport: TreasuryReport[ApiChain] = {};
 
-  const chainTreasuryWallets = treasuryAddressesByChain[chain] ?? {};
+  const chainTreasuryWallets = treasuryAddressesByChain[chain];
   for (const [address, wallet] of Object.entries(chainTreasuryWallets)) {
     balanceReport[address] = {
       name: wallet.label,
@@ -165,7 +162,7 @@ async function buildTreasuryReportForChain(chain: ApiChain): Promise<TreasuryRep
   }
 
   for (const assetBalance of Object.values(chainBalancesByAddress)) {
-    const treasuryAsset = (assetsByChain[chain] ?? {})[assetBalance.address];
+    const treasuryAsset = assetsByChain[chain][assetBalance.address];
 
     if (treasuryAsset === undefined) {
       continue; // cached asset hasn't been deleted yet
@@ -219,13 +216,13 @@ async function saveToRedis() {
 }
 
 async function restoreFromRedis() {
-  const cachedSummary = await getKey<TreasuryReport>('TREASURY_REPORT');
-  const cachedBalances = await getKey<TreasuryBalances>('TREASURY_BALANCES');
+  const cachedSummary = await getKey<Partial<TreasuryReport>>('TREASURY_REPORT');
+  const cachedBalances = await getKey<Partial<TreasuryBalances>>('TREASURY_BALANCES');
   if (cachedSummary) {
-    treasurySummary = cachedSummary;
+    treasurySummary = keysToObject(SupportedChains, chain => cachedSummary[chain] ?? {});
   }
   if (cachedBalances) {
-    tokenBalancesByChain = cachedBalances;
+    tokenBalancesByChain = keysToObject(SupportedChains, chain => cachedBalances[chain] ?? {});
     //Need balance values as bignumbers, not strings
     Object.values(tokenBalancesByChain).forEach(chainBalances => {
       Object.values(chainBalances).forEach(walletBalance => {

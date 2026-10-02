@@ -1,11 +1,10 @@
-import type { ChainId } from '@beefyfinance/blockchain-addressbook/types/chainid';
 import { BigNumber } from 'bignumber.js';
 import type { Address } from 'viem';
 import ISolidlyPair from '../abis/ISolidlyPair.ts';
 import { fetchContract } from '../api/rpc/client.ts';
 import type { PricesById } from '../types/prices.ts';
 import { bigintDecimals } from './big-int.ts';
-import { toChainId } from './chain.ts';
+import { type ApiChain, type ApiChainId, toChainId } from './chain.ts';
 import { getLoggerFor } from './logger/index.ts';
 import { typedEntries } from './object.ts';
 import { isValidPrice } from './prices.ts';
@@ -25,7 +24,7 @@ type StablePoolLiquidityToken = {
 
 type Context = {
   token: StablePoolLiquidityToken;
-  chainId: ChainId;
+  chainId: ApiChainId;
 };
 
 const tokens = {
@@ -133,12 +132,12 @@ const tokens = {
       secondTokenAddress: '0x7130d2A12B9BCbFAe4f2634d864A1Ee1Ce3Ead9c',
     },
   ],
-} satisfies Partial<Record<keyof typeof ChainId, StablePoolLiquidityToken[]>>;
+} satisfies Partial<Record<ApiChain, StablePoolLiquidityToken[]>>;
 
 async function getStablePoolPrices(
   tokenPrices: PricesById,
   chainTokens: StablePoolLiquidityToken[],
-  chainId: ChainId
+  chainId: ApiChainId
 ): Promise<PricesById> {
   const contexts = chainTokens.map((token): Context => ({ token, chainId }));
 

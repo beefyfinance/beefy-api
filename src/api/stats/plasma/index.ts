@@ -1,4 +1,4 @@
-import { PLASMA_CHAIN_ID } from '../../../constants.ts';
+import { ApiChainId } from '../../../utils/chain.ts';
 import { getLoggerFor } from '../../../utils/logger/index.ts';
 import type { ApyBreakdownResult } from '../common/getApyBreakdownNew.ts';
 import { getAaveV3Apys } from './getAaveV3Apys.ts';
@@ -6,7 +6,7 @@ import { getBeefyCowPlasmaApys } from './getBeefyCowPlasmaApys.ts';
 import { getCurveApys } from './getCurveApys.ts';
 import { getLithosApys } from './getLithosApys.ts';
 
-const logger = getLoggerFor({ module: 'apy', chain: PLASMA_CHAIN_ID });
+const logger = getLoggerFor({ module: 'apy', chain: ApiChainId.plasma });
 
 const getApys = [getBeefyCowPlasmaApys, getAaveV3Apys, getCurveApys, getLithosApys];
 

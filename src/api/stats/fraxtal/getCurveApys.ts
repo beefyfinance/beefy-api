@@ -1,9 +1,11 @@
-import { FRAXTAL_CHAIN_ID as chainId } from '../../../constants.ts';
+import { ApiChainId } from '../../../utils/chain.ts';
 import { getConvexApyData } from '../common/curve/getConvexApyData.ts';
 import { getCurveVolumeApys } from '../common/curve/getCurveApyData.ts';
 import { getCurveApysCommon } from '../common/curve/getCurveApysCommon.ts';
 import { getApyBreakdown } from '../common/getApyBreakdownNew.ts';
 import curvePoolsData from '../../../data/fraxtal/curvePools.json' with { type: 'json' };
+
+const chainId = ApiChainId.fraxtal;
 
 const pools = curvePoolsData.filter(p => p.gauge);
 const baseApyUrl = 'https://api.curve.finance/api/getVolumes/fraxtal';

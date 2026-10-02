@@ -1,0 +1,27 @@
+engine biome(1.0)
+language js(typescript)
+
+// A cast to a chain type skips the runtime check; narrow with isApiChain / toApiChain / fromChainId etc. instead.
+pattern chain_type() {
+    TsReferenceType(name = or { `ApiChain`, `ApiChainId`, `AppChain`, `AnyChain`, `ApyChain`, `ClmApiChain`, `FeatureChain` })
+}
+
+pattern chain_cast_target() {
+    or {
+        chain_type(),
+        TsArrayType(element_type = chain_type()),
+        TsTypeOperatorType(ty = TsArrayType(element_type = chain_type())),
+        TsUnionType(types = some chain_type())
+    }
+}
+
+or {
+    TsAsExpression(ty = chain_cast_target()),
+    TsTypeAssertionExpression(ty = chain_cast_target())
+} as $node where {
+    register_diagnostic(
+        span = $node,
+        message = "Don't cast to chain types; validate with the guards in src/utils/chain.ts (isApiChain, isAppChain, fromChainNumber).",
+        severity = "error"
+    )
+}

@@ -1,6 +1,6 @@
-import type { ChainId } from '@beefyfinance/blockchain-addressbook';
 import { BigNumber } from 'bignumber.js';
 import { parseAbi } from 'viem';
+import type { ApiChainId } from '../../../../utils/chain.ts';
 import { compound } from '../../../../utils/compound.ts';
 import { fetchContract } from '../../../rpc/client.ts';
 
@@ -11,7 +11,7 @@ export type CurveLendPool = {
   address?: string;
 };
 
-export const getCurveLendSupplyApys = async (chainId: ChainId, pools: CurveLendPool[]) => {
+export const getCurveLendSupplyApys = async (chainId: ApiChainId, pools: CurveLendPool[]) => {
   const apys: Record<string, BigNumber> = {};
 
   // FIXME(unsafe-cast): checked previously; add typeguard

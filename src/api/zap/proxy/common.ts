@@ -1,6 +1,6 @@
 import type Koa from 'koa';
 import { fromWeiString } from '../../../utils/big-number.ts';
-import { type AnyChain, type ApiChain, toApiChain } from '../../../utils/chain.ts';
+import type { ApiChain } from '../../../utils/chain.ts';
 import { getAmmPrice } from '../../stats/getAmmPrices.ts';
 import { getTokenByAddress, getTokenNative } from '../../tokens/tokens.ts';
 
@@ -13,8 +13,7 @@ export function setNoCacheHeaders(ctx: Koa.Context) {
   ctx.set('Expires', '0');
 }
 
-export async function isQuoteValueTooLow(inputAmount: string, inputAddress: string, chainId: AnyChain) {
-  const apiChainId = toApiChain(chainId);
+export async function isQuoteValueTooLow(inputAmount: string, inputAddress: string, apiChainId: ApiChain) {
   const minQuoteValue = MIN_QUOTE_VALUE[apiChainId];
   if (!minQuoteValue) {
     return undefined;

@@ -1,9 +1,9 @@
-import type { ChainId } from '@beefyfinance/blockchain-addressbook';
 import { BigNumber } from 'bignumber.js';
 import type { Address } from 'viem';
 import GlpManagerAbi from '../../../../abis/arbitrum/GlpManager.ts';
 import ERC20Abi from '../../../../abis/ERC20Abi.ts';
 import type { PricesById } from '../../../../types/prices.ts';
+import type { ApiChainId } from '../../../../utils/chain.ts';
 import { getLoggerFor } from '../../../../utils/logger/index.ts';
 import { withTracing } from '../../../../utils/tracing.ts';
 import { fetchContract } from '../../../rpc/client.ts';
@@ -12,7 +12,7 @@ import type { GmxPool } from './types.ts';
 const logger = getLoggerFor({ module: 'prices', component: 'gmx' });
 
 export const getGmxPrices = withTracing(
-  async (chainId: ChainId, pools: GmxPool[], tokenPrices: PricesById) => {
+  async (chainId: ApiChainId, pools: GmxPool[], tokenPrices: PricesById) => {
     let prices = {};
     const values = await Promise.all(pools.map(pool => getPrice(chainId, pool, tokenPrices)));
 
@@ -22,10 +22,10 @@ export const getGmxPrices = withTracing(
 
     return prices;
   },
-  { logger, fieldsFn: (chainId: ChainId) => ({ chain: chainId }) }
+  { logger, fieldsFn: (chainId: ApiChainId) => ({ chain: chainId }) }
 );
 
-const getPrice = async (chainId: ChainId, pool: GmxPool, tokenPrices: PricesById) => {
+const getPrice = async (chainId: ApiChainId, pool: GmxPool, tokenPrices: PricesById) => {
   if (pool.oracle == 'lps') {
     const [{ price, totalSupply }, { tokens, shiftedBalances }] = await Promise.all([
       getLpPrice(chainId, pool),
@@ -57,7 +57,7 @@ const getTokenPrice = (tokenPrices: PricesById, oracleId: string | undefined) =>
   return tokenPrice;
 };
 
-const getLpTokenBalances = async (chainId: ChainId, pool: GmxPool) => {
+const getLpTokenBalances = async (chainId: ApiChainId, pool: GmxPool) => {
   const poolTokens = pool.tokens ?? [];
   const balanceCalls = poolTokens.map(token => {
     const contract = fetchContract(token.address, ERC20Abi, chainId);
@@ -77,7 +77,7 @@ const getLpTokenBalances = async (chainId: ChainId, pool: GmxPool) => {
   return { tokens, shiftedBalances };
 };
 
-const getLpPrice = async (chainId: ChainId, pool: GmxPool) => {
+const getLpPrice = async (chainId: ApiChainId, pool: GmxPool) => {
   if (!pool.glpManager) {
     throw new Error(`gmx pool ${pool.name} is missing glpManager`);
   }

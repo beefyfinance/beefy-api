@@ -1,5 +1,5 @@
 import PQueue from 'p-queue';
-import { type AnyChain, type ApiChain, toApiChain } from '../../../../utils/chain.ts';
+import { type ApiChain, getChainConfig, SupportedChains } from '../../../../utils/chain.ts';
 import { RateLimitedLiquidSwapApi } from './RateLimitedLiquidSwapApi.ts';
 import type { ILiquidSwapApi } from './types.ts';
 
@@ -13,13 +13,14 @@ const API_QUEUE_CONFIG = {
   timeout: 30 * 1000,
 };
 
-export const supportedChains = new Set<ApiChain>(['hyperevm']);
+export const supportedChains = new Set<ApiChain>(
+  SupportedChains.filter(chain => getChainConfig(chain).integrations.liquidSwap)
+);
 
 const swapApiByChain: Partial<Record<ApiChain, ILiquidSwapApi>> = {};
 let swapApiQueue: PQueue | undefined;
 
-export function getLiquidSwapApi(chain: AnyChain): ILiquidSwapApi {
-  const apiChain = toApiChain(chain);
+export function getLiquidSwapApi(apiChain: ApiChain): ILiquidSwapApi {
   if (!supportedChains.has(apiChain)) {
     throw new Error(`LiquidSwap api is not supported on ${apiChain}`);
   }

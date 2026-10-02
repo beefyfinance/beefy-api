@@ -1,4 +1,4 @@
-import { OPTIMISM_CHAIN_ID } from '../../../constants.ts';
+import { ApiChainId } from '../../../utils/chain.ts';
 import { getLoggerFor } from '../../../utils/logger/index.ts';
 import type { ApyBreakdownResult } from '../common/getApyBreakdownNew.ts';
 import { getMorphoApys } from '../common/morpho/getMorphoApys.ts';
@@ -8,14 +8,14 @@ import { getCurveApys } from './getCurveApys.ts';
 import getVelodromeApys from './getVelodromeApys.ts';
 import morphoPoolsData from '../../../data/optimism/morphoPools.json' with { type: 'json' };
 
-const logger = getLoggerFor({ module: 'apy', chain: OPTIMISM_CHAIN_ID });
+const logger = getLoggerFor({ module: 'apy', chain: ApiChainId.optimism });
 
 const getApys = [
   getCurveApys,
   getVelodromeApys,
   getBeVeloV2Apr,
   getBeefyOPCowApys,
-  () => getMorphoApys(OPTIMISM_CHAIN_ID, morphoPoolsData),
+  () => getMorphoApys(ApiChainId.optimism, morphoPoolsData),
 ];
 
 const getOptimismApys = async () => {

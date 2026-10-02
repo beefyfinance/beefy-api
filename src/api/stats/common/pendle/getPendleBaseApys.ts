@@ -1,5 +1,5 @@
-import type { ChainId } from '@beefyfinance/blockchain-addressbook';
 import { BigNumber } from 'bignumber.js';
+import type { ApiChainId } from '../../../../utils/chain.ts';
 import { getLoggerFor } from '../../../../utils/logger/index.ts';
 
 const logger = getLoggerFor({ module: 'apy', component: 'pendle-base' });
@@ -7,7 +7,6 @@ const logger = getLoggerFor({ module: 'apy', component: 'pendle-base' });
 export type PendlePool = {
   name: string;
   address: string;
-  chainId: ChainId;
 };
 
 type PendleTokenApi = {
@@ -37,7 +36,7 @@ type PendleMarketsApiResponse = {
   results: PendleMarketApi[];
 };
 
-export const getPendleApys = async (chainId: ChainId, pools: PendlePool[]) => {
+export const getPendleApys = async (chainId: ApiChainId, pools: PendlePool[]) => {
   let tradingApys: Record<string, BigNumber> = {};
   const pendleApys: BigNumber[] = [];
   const syRewardsApys: BigNumber[] = [];

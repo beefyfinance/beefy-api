@@ -39,7 +39,7 @@ produces.
 
 **Vaults, pools and boosts** are configured as JSON under `src/data/<chain>/`. The `scripts/`
 directory has helpers that read a pool on-chain and append a correctly shaped entry for you —
-`add-solidly.ts` for Solidly-style gauges, `add-univ3.ts` and
+`add-solidly.ts` for Solidly-style gauges and
 `add-clm.ts` for concentrated liquidity. Each takes a `--network` flag plus its own arguments, so
 read the one you need before running it.
 
@@ -52,7 +52,7 @@ number before opening the PR.
 - Addresses must be EIP-55 checksummed. The commit hook rewrites them for you, so a wrong-case address is staged corrected rather than rejected. Run `pnpm run check-addresses` to check by hand, or `:fix` to rewrite.
 - Never edit the package version by hand — it is bumped and published automatically when your PR merges.
 
-**New endpoints** need a handler under `src/api/` and a route in `src/router.js`. If the data needs
+**New endpoints** need a handler under `src/api/` and a route in `src/router.ts`. If the data needs
 fetching on a schedule rather than per request, follow an existing service in `src/api/` and
 initialise it in `src/app.ts`.
 

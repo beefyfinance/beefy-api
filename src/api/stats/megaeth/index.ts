@@ -1,10 +1,10 @@
-import { MEGAETH_CHAIN_ID } from '../../../constants.ts';
+import { ApiChainId } from '../../../utils/chain.ts';
 import { getLoggerFor } from '../../../utils/logger/index.ts';
 import type { ApyBreakdownResult } from '../common/getApyBreakdownNew.ts';
 import { getAaveV3Apys } from './getAaveV3Apys.ts';
 import { getBeefyCowMegaethApys } from './getBeefyCowMegaethApys.ts';
 
-const logger = getLoggerFor({ module: 'apy', chain: MEGAETH_CHAIN_ID });
+const logger = getLoggerFor({ module: 'apy', chain: ApiChainId.megaeth });
 
 const getApys = [getBeefyCowMegaethApys, getAaveV3Apys];
 

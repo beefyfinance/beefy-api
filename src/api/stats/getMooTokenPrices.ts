@@ -1,6 +1,7 @@
 import type { PricesById } from '../../types/prices.ts';
 import { BIG_ZERO, isFiniteBigNumber } from '../../utils/big-number.ts';
 import { getKey, setKey } from '../../utils/cache/index.ts';
+import { type ApiChain, SupportedChains } from '../../utils/chain.ts';
 import { envNumber } from '../../utils/env.ts';
 import { fetchPrice } from '../../utils/fetchPrice.ts';
 import { getLoggerFor } from '../../utils/logger/index.ts';
@@ -10,7 +11,9 @@ import { getMultichainVaults } from './getMultichainVaults.ts';
 
 const logger = getLoggerFor({ module: 'prices' });
 
-let mooTokenPrices: Record<string, PricesById> = {};
+type MooTokenPricesByChain = Partial<Record<ApiChain, PricesById>>;
+
+let mooTokenPrices: MooTokenPricesByChain = {};
 
 const INIT_DELAY = envNumber('MOOTOKEN_INIT_DELAY', 60 * 1000);
 const REFRESH_INTERVAL = 60 * 1000;
@@ -53,10 +56,8 @@ const updateMooTokenPrices = async () => {
       const mooPrice = vault.pricePerFullShare.times(price).dividedBy(1e18);
 
       // Save
-      if (!mooTokenPrices[vault.chain]) {
-        mooTokenPrices[vault.chain] = {};
-      }
-      mooTokenPrices[vault.chain][vault.earnedToken] = mooPrice.toNumber();
+      const chainPrices = (mooTokenPrices[vault.chain] ??= {});
+      chainPrices[vault.earnedToken] = mooPrice.toNumber();
       ++successes;
     } catch (error) {
       ++failures;
@@ -75,8 +76,15 @@ const updateMooTokenPrices = async () => {
 };
 
 export const initMooTokenPriceService = async () => {
-  const cachedMooTokenPrices = await getKey<Record<string, PricesById>>('MOO_TOKEN_PRICES');
-  mooTokenPrices = cachedMooTokenPrices ?? {};
+  const cachedMooTokenPrices = await getKey<MooTokenPricesByChain>('MOO_TOKEN_PRICES');
+  if (cachedMooTokenPrices) {
+    for (const chain of SupportedChains) {
+      const chainPrices = cachedMooTokenPrices[chain];
+      if (chainPrices) {
+        mooTokenPrices[chain] = chainPrices;
+      }
+    }
+  }
 
   await Promise.all([
     serviceEventBus.waitForFirstEvent('vaults/updated'),

@@ -1,6 +1,5 @@
 import { BigNumber } from 'bignumber.js';
 import { subSeconds } from 'date-fns';
-import { groupBy } from 'lodash-es';
 import { chainLinkOracleAbi } from '../abis/ChainLinkOracle.ts';
 import { fetchContract } from '../api/rpc/client.ts';
 import { fromWei } from './big-number.ts';
@@ -210,16 +209,14 @@ const oracles: Oracle[] = [
 ];
 
 export async function fetchChainLinkPrices(): Promise<Record<string, number>> {
-  const oraclesByChain: Partial<Record<ApiChain, Oracle[]>> = groupBy(oracles, 'chain');
-  const chains = Object.keys(oraclesByChain) as ApiChain[];
+  const oraclesByChain = Array.from(Map.groupBy(oracles, oracle => oracle.chain));
   const pricesPerChain = await Promise.allSettled(
-    Object.entries(oraclesByChain).map(([chain, oracles]) => fetchPricesForChain(chain as ApiChain, oracles))
+    oraclesByChain.map(([chain, chainOracles]) => fetchPricesForChain(chain, chainOracles))
   );
 
   const pricesByOracle: Record<string, number[]> = {};
-  for (const i in pricesPerChain) {
-    const chain = chains[i];
-    const result = pricesPerChain[i];
+  for (const [i, result] of pricesPerChain.entries()) {
+    const [chain] = oraclesByChain[i];
 
     if (isResultFulfilled(result)) {
       const prices = result.value;

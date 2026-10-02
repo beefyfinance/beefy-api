@@ -1,7 +1,7 @@
 import { BigNumber } from 'bignumber.js';
 import ERC20Abi from '../../../abis/ERC20Abi.ts';
 import IRewardPool from '../../../abis/IRewardPool.ts';
-import { ETH_CHAIN_ID } from '../../../constants.ts';
+import { ApiChainId } from '../../../utils/chain.ts';
 import { fetchPrice } from '../../../utils/fetchPrice.ts';
 import { fetchContract } from '../../rpc/client.ts';
 import { getCurveSubgraphApys } from '../common/curve/getCurveApyData.ts';
@@ -48,18 +48,18 @@ const getPoolApys = async (pools: ConvexApyPool[]) => {
     extraPeriodFinishCalls: Promise<bigint>[] = [];
   pools.forEach(pool => {
     // FIXME(unsafe-cast): may be undefined
-    const rewardPool = fetchContract(pool.rewardPool as string, IRewardPool, ETH_CHAIN_ID);
+    const rewardPool = fetchContract(pool.rewardPool as string, IRewardPool, ApiChainId.ethereum);
     totalSupplyCalls.push(rewardPool.read.totalSupply());
     rewardRateCalls.push(rewardPool.read.rewardRate());
     periodFinishCalls.push(rewardPool.read.periodFinish());
     pool.extras?.forEach(extra => {
-      const extraRewards = fetchContract(extra.rewardPool, IRewardPool, ETH_CHAIN_ID);
+      const extraRewards = fetchContract(extra.rewardPool, IRewardPool, ApiChainId.ethereum);
       extraRewardInfo.push({ pool: pool.name, rewardPool: extra.rewardPool });
       extraRewardRateCalls.push(extraRewards.read.rewardRate());
       extraPeriodFinishCalls.push(extraRewards.read.periodFinish());
     });
   });
-  const cvx = fetchContract(cvxAddress, ERC20Abi, ETH_CHAIN_ID);
+  const cvx = fetchContract(cvxAddress, ERC20Abi, ApiChainId.ethereum);
   const cvxSupplyCall = cvx.read.totalSupply();
 
   const res = await Promise.all([

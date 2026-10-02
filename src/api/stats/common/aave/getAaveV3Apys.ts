@@ -1,9 +1,9 @@
-import type { ChainId } from '@beefyfinance/blockchain-addressbook';
 import { BigNumber } from 'bignumber.js';
 import jp from 'jsonpath';
 import type { Address } from 'viem';
 import { default as IAaveV3Incentives } from '../../../../abis/AaveV3Incentives.ts';
 import { default as IAaveV3PoolDataProvider } from '../../../../abis/AaveV3PoolDataProvider.ts';
+import type { ApiChainId } from '../../../../utils/chain.ts';
 import { fetchPrice } from '../../../../utils/fetchPrice.ts';
 import { getLoggerFor } from '../../../../utils/logger/index.ts';
 import { getMerklOpportunitiesByProtocol } from '../../../offchain-rewards/providers/merkl/proxyClient.ts';
@@ -63,7 +63,7 @@ type AaveMeritAprsResponse = {
 };
 
 // config = { dataProvider: address, incentives: address, rewards: []}
-const getAaveV3ApyData = async (config: AaveV3Config, pools: AaveV3Pool[], chainId: ChainId) => {
+const getAaveV3ApyData = async (config: AaveV3Config, pools: AaveV3Pool[], chainId: ApiChainId) => {
   const rewardApys: BigNumber[] = [];
   const lendingApys: BigNumber[] = [];
   const lsApys: number[] = [];
@@ -106,7 +106,7 @@ async function getMeritApys(pools: AaveV3Pool[]) {
   return pools.map(p => new BigNumber(p.merit ? meritData[p.merit] || 0 : 0).div(100));
 }
 
-async function getMerklApys(chainId: ChainId, pools: AaveV3Pool[]) {
+async function getMerklApys(chainId: ApiChainId, pools: AaveV3Pool[]) {
   let merklData: Record<string, number> = {};
   if (pools.some(p => p.identifier)) {
     try {
@@ -125,7 +125,7 @@ async function getMerklApys(chainId: ChainId, pools: AaveV3Pool[]) {
 const getPoolApy = async (
   config: AaveV3Config,
   pool: AaveV3Pool,
-  chainId: ChainId
+  chainId: ApiChainId
 ): Promise<[BigNumber, BigNumber, number]> => {
   const { supplyBase, supplyNative, borrowBase, borrowNative } = await getAaveV3PoolData(config, pool, chainId);
   const { leveragedSupplyBase, leveragedBorrowBase, leveragedSupplyNative, leveragedBorrowNative } = getLeveragedApys(
@@ -151,7 +151,7 @@ const getPoolApy = async (
   return [rewardsApy, lendingApy, lsApy];
 };
 
-const getAaveV3PoolData = async (config: AaveV3Config, pool: AaveV3Pool, chainId: ChainId) => {
+const getAaveV3PoolData = async (config: AaveV3Config, pool: AaveV3Pool, chainId: ApiChainId) => {
   const dataProvider = fetchContract(config.dataProvider, IAaveV3PoolDataProvider, chainId);
 
   const [reserveData, { supplyNativeInUsd, borrowNativeInUsd }] = await Promise.all([
@@ -177,7 +177,7 @@ const getAaveV3PoolData = async (config: AaveV3Config, pool: AaveV3Pool, chainId
   return { supplyBase, supplyNative, borrowBase, borrowNative };
 };
 
-const getRewardsPerYear = async (config: AaveV3Config, pool: AaveV3Pool, chainId: ChainId) => {
+const getRewardsPerYear = async (config: AaveV3Config, pool: AaveV3Pool, chainId: ApiChainId) => {
   const distribution = fetchContract(config.incentives, IAaveV3Incentives, chainId);
 
   const aTokenRewardsDataCalls = config.rewards.map(reward =>

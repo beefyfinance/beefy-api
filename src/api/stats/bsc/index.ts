@@ -1,10 +1,10 @@
-import { BSC_CHAIN_ID } from '../../../constants.ts';
+import { ApiChainId } from '../../../utils/chain.ts';
 import { getLoggerFor } from '../../../utils/logger/index.ts';
 import type { ApyBreakdownResult } from '../common/getApyBreakdownNew.ts';
 import { getBeefyBscCowApys } from './getBeefyBscCowApys.ts';
 import { getOOELpApys } from './ooe/getOOELpApys.ts';
 
-const logger = getLoggerFor({ module: 'apy', chain: BSC_CHAIN_ID });
+const logger = getLoggerFor({ module: 'apy', chain: ApiChainId.bsc });
 
 const getApys = [getOOELpApys, getBeefyBscCowApys];
 

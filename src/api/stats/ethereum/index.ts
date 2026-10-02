@@ -1,4 +1,4 @@
-import { ETH_CHAIN_ID } from '../../../constants.ts';
+import { ApiChainId } from '../../../utils/chain.ts';
 import { getLoggerFor } from '../../../utils/logger/index.ts';
 import type { ApyBreakdownResult } from '../common/getApyBreakdownNew.ts';
 import { getMorphoApys } from '../common/morpho/getMorphoApys.ts';
@@ -22,7 +22,7 @@ import morphoPoolsData from '../../../data/ethereum/morphoPools.json' with { typ
 import pendlePoolsData from '../../../data/ethereum/pendlePools.json' with { type: 'json' };
 import pendleUnboostedPoolsData from '../../../data/ethereum/pendleUnboostedPools.json' with { type: 'json' };
 
-const logger = getLoggerFor({ module: 'apy', chain: ETH_CHAIN_ID });
+const logger = getLoggerFor({ module: 'apy', chain: ApiChainId.ethereum });
 
 const getApys = [
   getAuraApys,
@@ -35,9 +35,9 @@ const getApys = [
   getConvexCvxTokensApy,
   getFxApys,
   getBifiMaxiApy,
-  () => getPendleApys(pendlePoolsData),
-  () => getPendleUnboostedApys(pendleUnboostedPoolsData),
-  () => getMorphoApys(ETH_CHAIN_ID, morphoPoolsData),
+  () => getPendleApys(ApiChainId.ethereum, pendlePoolsData),
+  () => getPendleUnboostedApys(ApiChainId.ethereum, pendleUnboostedPoolsData),
+  () => getMorphoApys(ApiChainId.ethereum, morphoPoolsData),
   getYieldBasisApys,
   getSkyApy,
   getAaveV4Apys,

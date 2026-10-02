@@ -5,7 +5,7 @@ import ERC20Abi from '../../../abis/ERC20Abi.ts';
 import ICrv from '../../../abis/ethereum/ICrv.ts';
 import ICurveGaugeController from '../../../abis/ethereum/ICurveGaugeController.ts';
 import IFxGauge from '../../../abis/IFxGauge.ts';
-import { ETH_CHAIN_ID } from '../../../constants.ts';
+import { ApiChainId } from '../../../utils/chain.ts';
 import { fetchPrice } from '../../../utils/fetchPrice.ts';
 import { fetchContract } from '../../rpc/client.ts';
 import { getCurveSubgraphApys } from '../common/curve/getCurveApyData.ts';
@@ -68,7 +68,7 @@ const getPoolApys = async (pools: FxApyPool[]) => {
   const extraRewardDataCalls: Promise<FxGaugeRewardData>[] = [];
   const weightCalls: Promise<bigint>[] = [];
   pools.forEach(pool => {
-    const gauge = fetchContract(pool.gauge, IFxGauge, ETH_CHAIN_ID);
+    const gauge = fetchContract(pool.gauge, IFxGauge, ApiChainId.ethereum);
     totalSupplyCalls.push(gauge.read.totalSupply());
     workingCalls.push(gauge.read.workingSupply());
     sharedBalCalls.push(gauge.read.sharedBalanceOf([cvxVoterProxy]));
@@ -76,10 +76,10 @@ const getPoolApys = async (pools: FxApyPool[]) => {
       extraInfo.push({ pool: pool.name, token: reward.token });
       extraRewardDataCalls.push(gauge.read.rewardData([reward.token as Address]));
     });
-    const controller = fetchContract(gaugeController, ICurveGaugeController, ETH_CHAIN_ID);
+    const controller = fetchContract(gaugeController, ICurveGaugeController, ApiChainId.ethereum);
     weightCalls.push(controller.read.gauge_relative_weight([pool.gauge as Address]));
   });
-  const inflationRateCall = fetchContract(fxn, ICrv, ETH_CHAIN_ID)
+  const inflationRateCall = fetchContract(fxn, ICrv, ApiChainId.ethereum)
     .read.rate()
     .then(v => new BigNumber(v));
   const res = await Promise.all([
@@ -89,9 +89,9 @@ const getPoolApys = async (pools: FxApyPool[]) => {
     Promise.all(weightCalls),
     inflationRateCall,
     Promise.all(sharedBalCalls),
-    fetchContract(veFxn, ERC20Abi, ETH_CHAIN_ID).read.balanceOf([cvxVoterProxy]),
-    fetchContract(veFxn, ERC20Abi, ETH_CHAIN_ID).read.totalSupply(),
-    fetchContract(cvxFees, ConvexFeeRegistry, ETH_CHAIN_ID).read.totalFees(),
+    fetchContract(veFxn, ERC20Abi, ApiChainId.ethereum).read.balanceOf([cvxVoterProxy]),
+    fetchContract(veFxn, ERC20Abi, ApiChainId.ethereum).read.totalSupply(),
+    fetchContract(cvxFees, ConvexFeeRegistry, ApiChainId.ethereum).read.totalFees(),
   ]);
   const poolInfo = res[0].map((_, i) => ({
     rewardRate: res[4].times(res[3][i]).div('1e18'),

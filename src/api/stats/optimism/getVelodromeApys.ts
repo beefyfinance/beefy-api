@@ -1,11 +1,13 @@
 import { addressBook } from '@beefyfinance/blockchain-addressbook';
-import { OPTIMISM_CHAIN_ID as chainId } from '../../../constants.ts';
+import { ApiChainId } from '../../../utils/chain.ts';
 import { getEDecimals } from '../../../utils/getEDecimals.ts';
 import { getSolidlyGaugeApys } from '../common/getSolidlyGaugeApys.ts';
 import oldVolatilePools from '../../../data/optimism/oldVelodromeLpPools.json' with { type: 'json' };
 import oldStablePools from '../../../data/optimism/oldVelodromeStableLpPools.json' with { type: 'json' };
 import volatilePools from '../../../data/optimism/velodromeLpPools.json' with { type: 'json' };
 import stablePools from '../../../data/optimism/velodromeStableLpPools.json' with { type: 'json' };
+
+const chainId = ApiChainId.optimism;
 
 const {
   optimism: {

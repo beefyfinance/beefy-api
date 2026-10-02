@@ -2,7 +2,7 @@ import { addressBook } from '@beefyfinance/blockchain-addressbook';
 import { BigNumber } from 'bignumber.js';
 import ERC20Abi from '../../../abis/ERC20Abi.ts';
 import IRewardPool from '../../../abis/IRewardPool.ts';
-import { OPTIMISM_CHAIN_ID } from '../../../constants.ts';
+import { ApiChainId } from '../../../utils/chain.ts';
 import { fetchPrice } from '../../../utils/fetchPrice.ts';
 import { fetchContract } from '../../rpc/client.ts';
 
@@ -39,7 +39,7 @@ const getBeVeloV2Apr = async () => {
 const getYearlyRewardsInUsd = async () => {
   const nativePrice = await fetchPrice({ oracle: ORACLE, id: REWARD_ORACLE });
 
-  const rewardPool = fetchContract(rewards, IRewardPool, OPTIMISM_CHAIN_ID);
+  const rewardPool = fetchContract(rewards, IRewardPool, ApiChainId.optimism);
   const rewardRate = new BigNumber((await rewardPool.read.rewardRate()).toString());
   const yearlyRewards = rewardRate.times(3).times(BLOCKS_PER_DAY).times(365);
   const yearlyRewardsInUsd = yearlyRewards.times(nativePrice).dividedBy(DECIMALS);
@@ -48,7 +48,7 @@ const getYearlyRewardsInUsd = async () => {
 };
 
 const getTotalStakedInUsd = async () => {
-  const tokenContract = fetchContract(beVELO.address, ERC20Abi, OPTIMISM_CHAIN_ID);
+  const tokenContract = fetchContract(beVELO.address, ERC20Abi, ApiChainId.optimism);
   const totalStaked = new BigNumber((await tokenContract.read.balanceOf([rewards])).toString());
   const tokenPrice = await fetchPrice({ oracle: ORACLE, id: ORACLE_ID });
 

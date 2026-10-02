@@ -1,13 +1,14 @@
 import { partition } from 'lodash-es';
 import { isAddressEqual } from 'viem';
+import { keysToObject } from '../../utils/array.ts';
 import { getKey, setKey } from '../../utils/cache/index.ts';
-import { type ApiChain, SupportedChains } from '../../utils/chain.ts';
+import { type ApiChain, type ClmApiChain, ClmApiChains } from '../../utils/chain.ts';
 import { envNumber } from '../../utils/env.ts';
 import { getLoggerFor } from '../../utils/logger/index.ts';
 import { isResultFulfilled } from '../../utils/promise.ts';
 import { serviceEventBus } from '../../utils/ServiceEventBus.ts';
 import { sleep } from '../../utils/time.ts';
-import { getCowClmChains, getCowClms } from './getCowClms.ts';
+import { getCowClms } from './getCowClms.ts';
 import { type AnyCowClmMeta, type CowClmsMeta, isClmApiVaultsResponse } from './types.ts';
 
 const logger = getLoggerFor({ module: 'clm', component: 'meta' });
@@ -16,34 +17,26 @@ const CACHE_KEY = 'COW_VAULTS_META';
 const INIT_DELAY = envNumber('COWCENTRATED_INIT_DELAY', 1000);
 const UPDATE_INTERVAL = 60000;
 const BEEFY_CLM_API = process.env.BEEFY_CLM_API || 'https://clm-api.beefy.finance';
-const API_EOL_CHAINS: ApiChain[] = ['berachain', 'lisk', 'scroll', 'sei', 'mantle', 'linea', 'zksync', 'gnosis'];
-const SUPPORTED_CHAINS = new Set(SupportedChains.filter(c => !API_EOL_CHAINS.includes(c)));
+const chainToVaults: Record<ClmApiChain, CowClmsMeta> = keysToObject(ClmApiChains, () => ({
+  updatedAt: 0,
+  vaults: [],
+}));
 
-const chainToVaults: Partial<Record<ApiChain, CowClmsMeta>> = {};
-
-export function getCowVaultsMeta(chainId: ApiChain): AnyCowClmMeta[] {
-  if (!(chainId in chainToVaults)) {
-    return [];
-  }
-
-  return chainToVaults[chainId]?.vaults || [];
+export function getCowVaultsMeta(chainId: ClmApiChain): AnyCowClmMeta[] {
+  return chainToVaults[chainId].vaults;
 }
 
-export function getAllCowVaultsMeta(): Partial<Record<ApiChain, CowClmsMeta>> {
+export function getAllCowVaultsMeta(): Readonly<Record<ClmApiChain, CowClmsMeta>> {
   return chainToVaults;
 }
 
-async function fetchCowVaultsMeta(chainId: ApiChain): Promise<AnyCowClmMeta[]> {
+async function fetchCowVaultsMeta(chainId: ClmApiChain): Promise<AnyCowClmMeta[]> {
   const pools = getCowClms(chainId);
-  if (!pools || !pools.length || !SUPPORTED_CHAINS.has(chainId)) {
+  if (!pools.length) {
     return [];
   }
 
-  // rootstock is expensive to harvest so we don't harvest it as often
-  // ask the api to compute metrics over a longer period of time
-  // to ensure we have some data to base metrics on
-  const period = chainId === 'rootstock' ? '3.1d' : '1.1d';
-  const url = `${BEEFY_CLM_API}/api/v1/vaults/${chainId}/${period}`;
+  const url = `${BEEFY_CLM_API}/api/v1/vaults/${chainId}/1.1d`;
   const response = await fetch(url);
   if (!response.ok) {
     throw new Error(`Failed to fetch vaults from CLM API for ${chainId}: ${response.status} ${response.statusText}`);
@@ -79,7 +72,7 @@ async function fetchCowVaultsMeta(chainId: ApiChain): Promise<AnyCowClmMeta[]> {
   });
 }
 
-async function updateChain(chainId: ApiChain) {
+async function updateChain(chainId: ClmApiChain) {
   const vaults = await fetchCowVaultsMeta(chainId);
   return {
     updatedAt: Date.now(),
@@ -92,7 +85,7 @@ async function updateAll() {
   try {
     logger.debug('updating cow vaults metadata');
     const start = Date.now();
-    const updates = await Promise.allSettled(getCowClmChains().map(updateChain));
+    const updates = await Promise.allSettled(ClmApiChains.map(updateChain));
     const [fulfilled, rejected] = partition(updates, isResultFulfilled);
 
     if (fulfilled.length) {
@@ -135,7 +128,12 @@ export async function initCowVaultsMetaService() {
 async function loadFromCache() {
   const cached = await getKey<Partial<Record<ApiChain, CowClmsMeta>>>(CACHE_KEY);
   if (cached) {
-    Object.assign(chainToVaults, cached);
+    for (const chain of ClmApiChains) {
+      const meta = cached[chain];
+      if (meta) {
+        chainToVaults[chain] = meta;
+      }
+    }
     serviceEventBus.emit('cowcentrated/vaults-meta/loaded');
   }
 }

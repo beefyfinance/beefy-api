@@ -2,7 +2,7 @@ import { getLoggerFor } from '../logger/index.ts';
 import { Cache } from './Cache.ts';
 import { DummyCacheBackend } from './DummyCacheBackend.ts';
 import { FileCacheBackend } from './FileCacheBackend.ts';
-import type { ICacheBackend } from './ICacheBackend.ts';
+import type { CacheSetOptions, ICacheBackend } from './ICacheBackend.ts';
 import { RedisCacheBackend } from './RedisCacheBackend.ts';
 
 const logger = getLoggerFor({ module: 'cache' });
@@ -35,11 +35,11 @@ export async function initCache() {
   cache = new Cache(backend);
 }
 
-export async function setKey<T extends any>(key: string, value: T): Promise<void> {
+export async function setKey<T extends any>(key: string, value: T, options?: CacheSetOptions): Promise<void> {
   if (!cache) {
     throw new Error('Cache not initialized');
   }
-  await cache.set(key, value);
+  await cache.set(key, value, options);
 }
 
 export async function getKey<T extends any>(key: string): Promise<T | undefined> {

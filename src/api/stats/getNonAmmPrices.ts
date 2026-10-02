@@ -1,43 +1,26 @@
-import {
-  ARBITRUM_CHAIN_ID as ARB_CHAIN_ID,
-  AVAX_CHAIN_ID,
-  BASE_CHAIN_ID,
-  ETH_CHAIN_ID,
-  FRAXTAL_CHAIN_ID as FRX_CHAIN_ID,
-  MANTLE_CHAIN_ID,
-  MEGAETH_CHAIN_ID,
-  MONAD_CHAIN_ID,
-  OPTIMISM_CHAIN_ID,
-  PLASMA_CHAIN_ID,
-  POLYGON_CHAIN_ID,
-  SONIC_CHAIN_ID,
-} from '../../constants.ts';
 import type { BreakdownsById, PricesById } from '../../types/prices.ts';
+import { ApiChainId } from '../../utils/chain.ts';
 import { getLoggerFor } from '../../utils/logger/index.ts';
 import { withTracing } from '../../utils/tracing.ts';
+import { getCowClmChains } from '../cowcentrated/getCowClms.ts';
 import getBalancerArbPrices from './arbitrum/getBalancerArbPrices.ts';
-import { getBeefyCowArbPrices } from './arbitrum/getBeefyCowArbPrices.ts';
 import getCurveArbitrumPrices from './arbitrum/getCurvePrices.ts';
 import { getGmxArbitrumPrices } from './arbitrum/getGmxPrices.ts';
 import { getMimSwapPrices } from './arbitrum/getMimSwapPrices.ts';
-import { getBeefyArcCowPrices } from './arc/getBeefyArcCowPrices.ts';
 import getBalancerAvaxPrices from './avax/getBalancerPrices.ts';
-import { getBeefyCowAvaxPrices } from './avax/getBeefyCowAvaxPrices.ts';
 import { getGmxAvalanchePrices } from './avax/getGmxPrices.ts';
 import getAerodromePositionPrices from './base/getAerodromePositionPrices.ts';
 import { getAerodromeStablePrices } from './base/getAerodromeStablePrices.ts';
 import getBalancerBasePrices from './base/getBalancerPrices.ts';
-import { getBeefyCowBasePrices } from './base/getBeefyCowBasePrices.ts';
 import { getCurveBasePrices } from './base/getCurvePrices.ts';
-import { getBeefyCowBerachainPrices } from './berachain/getBeefyBerachainCowPrices.ts';
 import { getKodiakPrices } from './berachain/getKodiakPrices.ts';
-import { getBeefyCowBscPrices } from './bsc/getBeefyCowBscPrices.ts';
 import { getAaveV3Prices } from './common/aave/getAaveV3Prices.ts';
 import { getAaveV4Prices } from './common/aave/getAaveV4Prices.ts';
 import { getCurveLendPricesCommon } from './common/curve/getCurveLendPricesCommon.ts';
 import getCurvePricesCommon from './common/curve/getCurvePricesCommon.ts';
 import { getEulerPrices } from './common/euler/getEulerPrices.ts';
 import { getGearboxPrices } from './common/gearbox/getGearboxPrices.ts';
+import { getBeefyCowcentratedVaultPrices } from './common/getBeefyCowcentratedVaultPrices.ts';
 import { getBunniPrices } from './common/getBunniPrices.ts';
 import { getIchiPrices } from './common/getIchiPrices.ts';
 import { getMellowVeloPrices } from './common/getMellowVeloPrices.ts';
@@ -46,35 +29,20 @@ import { getSiloPrices } from './common/getSiloPrices.ts';
 import getSolidlyStablePrices from './common/getSolidlyStablePrices.ts';
 import { getMorphoPrices } from './common/morpho/getMorphoPrices.ts';
 import getAuraBalancerPrices from './ethereum/getAuraBalancerPrices.ts';
-import { getBeefyCowEthereumPrices } from './ethereum/getBeefyCowEthereumPrices.ts';
 import { getCurveEthereumPrices } from './ethereum/getCurvePrices.ts';
 import getUniswapEthereumPrices from './ethereum/getUniswapPositionPrices.ts';
 import { getYieldBasisPrices } from './ethereum/getYieldBasisPrices.ts';
 import getBalancerGnosisPrices from './gnosis/getBalancerGnosisPrices.ts';
-import { getBeefyCowGnosisPrices } from './gnosis/getBeefyGnosisCowPrices.ts';
-import { getBeefyCowHyperevmPrices } from './hyperevm/getBeefyHyperevmCowPrices.ts';
-import { getBeefyCowLineaPrices } from './linea/getBeefyLineaCowPrices.ts';
 import getGammaLineaPrices from './linea/getGammaPrices.ts';
-import { getBeefyCowLiskPrices } from './lisk/getBeefyLiskCowPrices.ts';
 import getVelodromeLiskStablePrices from './lisk/getVelodromeLiskStablePrices.ts';
-import { getBeefyCowMantlePrices } from './mantle/getBeefyMantleCowPrices.ts';
-import { getBeefyCowPolyPrices } from './matic/getBeefyPolyCowPrices.ts';
 import getCurvePolygonPrices from './matic/getCurvePrices.ts';
-import { getBeefyCowMegaethPrices } from './megaeth/getBeefyMegaethCowPrices.ts';
 import getBalancerMonadPrices from './monad/getBalancerMonadPrices.ts';
-import { getBeefyCowMonadPrices } from './monad/getBeefyMonadCowPrices.ts';
 import { getCurvanceMonadPrices } from './monad/getCurvanceMonadPrices.ts';
 import { getNeverlandPrices } from './monad/getNeverlandPrices.ts';
-import { getBeefyCowOPPrices } from './optimism/getBeefyCowOPPrices.ts';
 import getBeetsOPPrices from './optimism/getBeetsOPPrices.ts';
 import getCurveOptimismPrices from './optimism/getCurvePrices.ts';
 import getVelodromeStablePrices from './optimism/getVelodromeStablePrices.ts';
-import { getBeefyCowPlasmaPrices } from './plasma/getBeefyPlasmaCowPrices.ts';
-import { getBeefyCowRobinhoodPrices } from './robinhood/getBeefyRobinhoodCowPrices.ts';
-import { getBeefyCowSeiPrices } from './sei/getBeefySeiCowPrices.ts';
-import { getBeefyCowSonicPrices } from './sonic/getBeefySonicCowPrices.ts';
 import getBeetsSonicPrices from './sonic/getBeetsSonicPrices.ts';
-import { getBeefyCowZkSyncPrices } from './zksync/getBeefyCowZkSyncPrices.ts';
 import arbitrumMorphoPools from '../../data/arbitrum/morphoPools.json' with { type: 'json' };
 import avaxAaveV4Pools from '../../data/avax/aaveV4Pools.json' with { type: 'json' };
 import avaxBlackStableLpPools from '../../data/avax/blackStableLpPools.json' with { type: 'json' };
@@ -115,13 +83,13 @@ export const getNonAmmPrices = withTracing(
     const breakdown: BreakdownsById = {};
 
     const promises = [
-      getAaveV4Prices(ETH_CHAIN_ID, ethereumAaveV4Pools, tokenPrices),
-      getAaveV4Prices(AVAX_CHAIN_ID, avaxAaveV4Pools, tokenPrices),
-      getAaveV3Prices(BASE_CHAIN_ID, baseAaveV3Pools, tokenPrices),
-      getAaveV3Prices(MANTLE_CHAIN_ID, mantleAaveV3Pools, tokenPrices),
-      getAaveV3Prices(MEGAETH_CHAIN_ID, megaethAaveV3Pools, tokenPrices),
-      getAaveV3Prices(MONAD_CHAIN_ID, monadAaveV3Pools, tokenPrices),
-      getGearboxPrices(MONAD_CHAIN_ID, monadGearboxPools, tokenPrices),
+      getAaveV4Prices(ApiChainId.ethereum, ethereumAaveV4Pools, tokenPrices),
+      getAaveV4Prices(ApiChainId.avax, avaxAaveV4Pools, tokenPrices),
+      getAaveV3Prices(ApiChainId.base, baseAaveV3Pools, tokenPrices),
+      getAaveV3Prices(ApiChainId.mantle, mantleAaveV3Pools, tokenPrices),
+      getAaveV3Prices(ApiChainId.megaeth, megaethAaveV3Pools, tokenPrices),
+      getAaveV3Prices(ApiChainId.monad, monadAaveV3Pools, tokenPrices),
+      getGearboxPrices(ApiChainId.monad, monadGearboxPools, tokenPrices),
       getNeverlandPrices(tokenPrices),
       getCurvanceMonadPrices(tokenPrices),
       getUniswapEthereumPrices(tokenPrices),
@@ -143,50 +111,30 @@ export const getNonAmmPrices = withTracing(
       getCurveEthereumPrices(tokenPrices),
       getCurvePolygonPrices(tokenPrices),
       getCurveArbitrumPrices(tokenPrices),
-      getCurveLendPricesCommon(FRX_CHAIN_ID, fraxtalCurveLendPools, tokenPrices),
+      getCurveLendPricesCommon(ApiChainId.fraxtal, fraxtalCurveLendPools, tokenPrices),
       getCurveOptimismPrices(tokenPrices),
-      getCurvePricesCommon(FRX_CHAIN_ID, fraxtalCurvePools, tokenPrices),
-      getCurvePricesCommon(PLASMA_CHAIN_ID, plasmaCurvePools, tokenPrices),
-      getCurvePricesCommon(MONAD_CHAIN_ID, monadCurvePools, tokenPrices),
+      getCurvePricesCommon(ApiChainId.fraxtal, fraxtalCurvePools, tokenPrices),
+      getCurvePricesCommon(ApiChainId.plasma, plasmaCurvePools, tokenPrices),
+      getCurvePricesCommon(ApiChainId.monad, monadCurvePools, tokenPrices),
       getCurveBasePrices(tokenPrices),
       getYieldBasisPrices(tokenPrices),
       getGammaLineaPrices(tokenPrices),
-      getBeefyCowArbPrices(tokenPrices),
-      getBeefyCowOPPrices(tokenPrices),
-      getBeefyCowBasePrices(tokenPrices),
-      getBeefyCowLineaPrices(tokenPrices),
-      getBeefyCowPolyPrices(tokenPrices),
-      getBeefyCowZkSyncPrices(tokenPrices),
-      getBeefyCowMantlePrices(tokenPrices),
-      getBeefyCowSeiPrices(tokenPrices),
-      getBeefyCowBscPrices(tokenPrices),
-      getBeefyCowAvaxPrices(tokenPrices),
-      getBeefyCowLiskPrices(tokenPrices),
-      getBeefyCowSonicPrices(tokenPrices),
-      getBeefyCowBerachainPrices(tokenPrices),
-      getBeefyCowGnosisPrices(tokenPrices),
-      getBeefyCowHyperevmPrices(tokenPrices),
-      getBeefyCowPlasmaPrices(tokenPrices),
-      getBeefyCowMonadPrices(tokenPrices),
-      getBeefyCowMegaethPrices(tokenPrices),
-      getBeefyCowRobinhoodPrices(tokenPrices),
-      getBeefyArcCowPrices(tokenPrices),
-      getBeefyCowEthereumPrices(tokenPrices),
-      getPendleCommonPrices(ETH_CHAIN_ID, ethereumPendlePools, tokenPrices),
-      getPendleCommonPrices(ETH_CHAIN_ID, ethereumPendleUnboostedPools, tokenPrices),
-      getMellowVeloPrices(BASE_CHAIN_ID, baseMellowAeroPools, tokenPrices),
-      getBunniPrices(BASE_CHAIN_ID, baseAlienBaseBunniPools, tokenPrices),
-      getMorphoPrices(BASE_CHAIN_ID, baseMorphoPools, tokenPrices),
-      getMorphoPrices(ETH_CHAIN_ID, ethereumMorphoPools, tokenPrices),
-      getMorphoPrices(POLYGON_CHAIN_ID, maticMorphoPools, tokenPrices),
-      getMorphoPrices(MONAD_CHAIN_ID, monadMorphoPools, tokenPrices),
-      getMorphoPrices(ARB_CHAIN_ID, arbitrumMorphoPools, tokenPrices),
-      getMorphoPrices(OPTIMISM_CHAIN_ID, optimismMorphoPools, tokenPrices),
-      getIchiPrices(SONIC_CHAIN_ID, sonicSwapxIchiPools, tokenPrices),
-      getEulerPrices(MONAD_CHAIN_ID, monadEulerPools, tokenPrices),
-      getSolidlyStablePrices(AVAX_CHAIN_ID, avaxBlackStableLpPools, tokenPrices),
-      getSolidlyStablePrices(PLASMA_CHAIN_ID, plasmaLithosStablePools, tokenPrices),
-      getSiloPrices(AVAX_CHAIN_ID, avaxSiloPools, tokenPrices),
+      ...getCowClmChains().map(chain => getBeefyCowcentratedVaultPrices(chain, tokenPrices)),
+      getPendleCommonPrices(ApiChainId.ethereum, ethereumPendlePools, tokenPrices),
+      getPendleCommonPrices(ApiChainId.ethereum, ethereumPendleUnboostedPools, tokenPrices),
+      getMellowVeloPrices(ApiChainId.base, baseMellowAeroPools, tokenPrices),
+      getBunniPrices(ApiChainId.base, baseAlienBaseBunniPools, tokenPrices),
+      getMorphoPrices(ApiChainId.base, baseMorphoPools, tokenPrices),
+      getMorphoPrices(ApiChainId.ethereum, ethereumMorphoPools, tokenPrices),
+      getMorphoPrices(ApiChainId.polygon, maticMorphoPools, tokenPrices),
+      getMorphoPrices(ApiChainId.monad, monadMorphoPools, tokenPrices),
+      getMorphoPrices(ApiChainId.arbitrum, arbitrumMorphoPools, tokenPrices),
+      getMorphoPrices(ApiChainId.optimism, optimismMorphoPools, tokenPrices),
+      getIchiPrices(ApiChainId.sonic, sonicSwapxIchiPools, tokenPrices),
+      getEulerPrices(ApiChainId.monad, monadEulerPools, tokenPrices),
+      getSolidlyStablePrices(ApiChainId.avax, avaxBlackStableLpPools, tokenPrices),
+      getSolidlyStablePrices(ApiChainId.plasma, plasmaLithosStablePools, tokenPrices),
+      getSiloPrices(ApiChainId.avax, avaxSiloPools, tokenPrices),
       getAerodromePositionPrices(tokenPrices),
     ];
 

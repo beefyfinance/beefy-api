@@ -1,4 +1,4 @@
-import { ROBINHOOD_CHAIN_ID as chainId } from '../../../constants.ts';
+import { ApiChainId } from '../../../utils/chain.ts';
 import { getSolidlyGaugeApys, type SolidlyGaugePool } from '../common/getSolidlyGaugeApys.ts';
 import volatilePools from '../../../data/robinhood/up33Pools.json' with { type: 'json' };
 
@@ -7,7 +7,7 @@ const stablePools: SolidlyGaugePool[] = [];
 const pools = [...stablePools, ...volatilePools];
 export const getUp33Apys = async () => {
   return getSolidlyGaugeApys({
-    chainId: chainId,
+    chainId: ApiChainId.robinhood,
     pools: pools.filter(p => p.gauge),
     oracleId: 'UP33',
     oracle: 'tokens',
