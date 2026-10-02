@@ -39,7 +39,7 @@ export const beefyfinance = {
   beefyOracleSolidly: '0xb78CFc9e16fcE56d0bD28f5D1f8E4c8519CAb627',
   beefyOracleERC4626: '0xd0cbe245008AD6BcD9d00D8bD2C68a783AC73aD0',
   beefyMultiHopSwapper: '0xb035c4f8FB32CE442e6b58DD3EdAFBE01F780310',
-  beefyUniV4Swapper: '0xAb99f02931eD3FD4DBa68424c7fC7d4b9dDbbd09',
+  beefyUniV4Swapper: '0x12c43C913AF978A0fF0c5E18830BEd6A6546A28C',
 
   /// Cross-Chain Contracts
   circleBeefyReceiver: '0x00000076f6B75081EF1526C5d9c20D5430f0Beef',
