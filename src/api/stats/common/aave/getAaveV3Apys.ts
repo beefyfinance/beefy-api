@@ -112,7 +112,10 @@ async function getMerklApys(chainId: ChainId, pools: AaveV3Pool[]) {
     try {
       const opportunities = await getMerklOpportunitiesByProtocol(chainId, 'aave');
       merklData = opportunities.reduce<Record<string, number>>((acc, opportunity) => {
-        acc[opportunity.identifier] = opportunity.apr;
+        acc[opportunity.identifier] =
+          opportunity.type === 'AAVE_NET_LENDING'
+            ? (opportunity.dailyRewards / opportunity.tvl) * 365 * 100
+            : opportunity.apr;
         return acc;
       }, {});
     } catch (e) {
