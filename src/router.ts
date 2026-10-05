@@ -1,5 +1,6 @@
 import Router from 'koa-router';
 import { getArticles, getLatestArticle } from './api/articles/index.ts';
+import { handleAxelarEstimateGasFee } from './api/beefy-bridge/axelar.ts';
 import { boosts, boostsV2, chainBoosts, chainBoostsV2 } from './api/boosts/index.ts';
 import { getChainConfig, getConfigs } from './api/config/index.ts';
 import { handleCowcentratedLTIPPCampaignsForDune, handleCowcentratedPriceRanges } from './api/cowcentrated/index.ts';
@@ -122,6 +123,8 @@ router.get('/articles/latest', getLatestArticle);
 router.get('/points-structures', pointStructures);
 
 router.get('/geo/country', getCountry);
+
+router.get('/beefy-bridge/axelar/:sourceChainId/:destChainId', handleAxelarEstimateGasFee);
 
 router.get('/', noop);
 
