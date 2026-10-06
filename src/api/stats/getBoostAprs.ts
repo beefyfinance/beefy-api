@@ -3,7 +3,7 @@ import { partition } from 'lodash-es';
 import { getAddress } from 'viem';
 import BeefyBoostAbi from '../../abis/BeefyBoost.ts';
 import { isDefined } from '../../utils/array.ts';
-import { type ApiChain, toChainId } from '../../utils/chain.ts';
+import { type ApiChain, getChainConfig, toChainId } from '../../utils/chain.ts';
 import { fetchPrice } from '../../utils/fetchPrice.ts';
 import { getLoggerFor } from '../../utils/logger/index.ts';
 import { isFiniteNumber } from '../../utils/number.ts';
@@ -105,6 +105,10 @@ const updateBoostV1AprsForChain = async (chain: ApiChain, boosts: Boost[]) => {
 };
 
 const updateBoostAprsForChain = async (chain: ApiChain, boosts: Boost[]): Promise<Record<string, number>> => {
+  if (!getChainConfig(chain).features.apy) {
+    return Object.fromEntries(boosts.map(boost => [boost.id, BOOST_APR_EXPIRED]));
+  }
+
   const [boostsV2, boostsV1] = partition(boosts, boost => boost.version >= 2);
   const [aprsV2, aprsV1] = await Promise.all([
     updateBoostV2AprsForChain(chain, boostsV2),
