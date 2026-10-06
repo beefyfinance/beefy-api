@@ -51,12 +51,14 @@ type RewardConfigPrice = RewardConfig & {
   price: number;
 };
 
-type RewardConfigInfo = RewardConfigPrice & {
+type RewardConfigInfo = RewardConfig & {
   periodFinish: bigint;
   duration: bigint;
   lastUpdateTime: bigint;
   rewardRate: bigint;
 };
+
+type RewardConfigInfoPrice = RewardConfigInfo & RewardConfigPrice;
 
 export type BeefyRewardPoolV2Config = {
   oracleId: string;
@@ -65,7 +67,7 @@ export type BeefyRewardPoolV2Config = {
   rewards?: NonEmptyArray<RewardConfig> | undefined;
 };
 
-type RewardYearlyUsd = RewardConfigInfo & {
+type RewardYearlyUsd = RewardConfigInfoPrice & {
   yearlyUsd: BigNumber;
 };
 
@@ -107,10 +109,12 @@ export const getBeefyRewardPoolV2Apr = async (
   pool: BeefyRewardPoolV2Config
 ): Promise<BeefyRewardPoolV2Result | undefined> => {
   try {
-    const [yearlyRewardsInUsd, totalStakedInUsd] = await Promise.all([
+    const [yearlyRewardsInUsd, totalStaked] = await Promise.all([
       getYearlyRewardsInUsd(chainId, pool),
-      getTotalStakedInUsd(chainId, pool),
+      getTotalStaked(chainId, pool),
     ]);
+    const totalStakedInUsd =
+      yearlyRewardsInUsd.length > 0 ? await getTotalStakedInUsd(chainId, pool, totalStaked) : BIG_ZERO;
 
     const rewardsApr: RewardApr[] = yearlyRewardsInUsd.map(reward => ({
       ...reward,
@@ -177,8 +181,8 @@ async function getRewardConfigsFromContract(
 
 async function getRewardConfigsPrices(
   pool: BeefyRewardPoolV2Config,
-  rewards: NonEmptyArray<RewardConfig>
-): Promise<RewardConfigPrice[] | undefined> {
+  rewards: NonEmptyArray<RewardConfigInfo>
+): Promise<RewardConfigInfoPrice[]> {
   const prices = await Promise.allSettled(rewards.map(reward => getAmmPrice(reward.oracleId)));
   const rewardsWithPrices = rewards
     .map((reward, index) => {
@@ -215,7 +219,7 @@ async function getRewardConfigsPrices(
 
 async function getRewardConfigsInfo(
   pool: BeefyRewardPoolV2Config,
-  rewards: NonEmptyArray<RewardConfigPrice>,
+  rewards: NonEmptyArray<RewardConfig>,
   rewardPoolContract: GetContractReturnType<typeof IBeefyRewardPool, Client>
 ): Promise<RewardConfigInfo[]> {
   const rewardsInfo = await Promise.allSettled(
@@ -277,30 +281,32 @@ async function getYearlyRewardsInUsd(chainId: ApiChainId, pool: BeefyRewardPoolV
     return [];
   }
 
-  const rewardsWithPrices = await getRewardConfigsPrices(pool, rewardConfigs);
+  const activeRewards = await getRewardConfigsInfo(pool, rewardConfigs, rewardPoolContract);
+  if (!isNonEmptyArray(activeRewards)) {
+    return [];
+  }
+
+  const rewardsWithPrices = await getRewardConfigsPrices(pool, activeRewards);
   if (!isNonEmptyArray(rewardsWithPrices)) {
     return [];
   }
 
-  const rewardsWithInfo = await getRewardConfigsInfo(pool, rewardsWithPrices, rewardPoolContract);
-  if (!isNonEmptyArray(rewardsWithInfo)) {
-    return [];
-  }
-
-  return rewardsWithInfo.map(reward => ({
+  return rewardsWithPrices.map(reward => ({
     ...reward,
     yearlyUsd: fromWei(toBigNumber(reward.rewardRate), reward.decimals).times(reward.price).times(SECONDS_PER_YEAR),
   }));
 }
 
-async function getTotalStakedInUsd(chainId: ApiChainId, pool: BeefyRewardPoolV2Config): Promise<BigNumber> {
+async function getTotalStaked(chainId: ApiChainId, pool: BeefyRewardPoolV2Config): Promise<bigint> {
   const stakedTokenContract = fetchContract(pool.stakedToken.address, ERC20Abi, chainId);
+  return stakedTokenContract.read.balanceOf([pool.address]);
+}
 
-  const [price, totalStaked] = await Promise.all([
-    getAmmPrice(pool.stakedToken.oracleId),
-    stakedTokenContract.read.balanceOf([pool.address]),
-  ]);
-
+async function getTotalStakedInUsd(
+  chainId: ApiChainId,
+  pool: BeefyRewardPoolV2Config,
+  totalStaked: bigint
+): Promise<BigNumber> {
   if (totalStaked === 0n) {
     if (WARN_STAKED_IS_ZERO) {
       logger.warn({ chain: chainId, vault: pool.oracleId }, 'total staked is zero');
@@ -308,6 +314,7 @@ async function getTotalStakedInUsd(chainId: ApiChainId, pool: BeefyRewardPoolV2C
     return BIG_ZERO;
   }
 
+  const price = await getAmmPrice(pool.stakedToken.oracleId);
   if (!isFiniteNumber(price)) {
     if (WARN_STAKED_MISSING_PRICE) {
       logger.warn(
