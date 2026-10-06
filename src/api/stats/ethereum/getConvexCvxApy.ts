@@ -1,6 +1,6 @@
 import { BigNumber } from 'bignumber.js';
 import IRewardPool from '../../../abis/IRewardPool.ts';
-import { ETH_CHAIN_ID } from '../../../constants.ts';
+import { ApiChainId } from '../../../utils/chain.ts';
 import { fetchPrice } from '../../../utils/fetchPrice.ts';
 import { fetchContract } from '../../rpc/client.ts';
 import { getApyBreakdown } from '../common/getApyBreakdown.ts';
@@ -13,7 +13,7 @@ const pool = {
 };
 
 export const getConvexCvxApy = async () => {
-  const rewardPool = fetchContract(pool.rewardPool, IRewardPool, ETH_CHAIN_ID);
+  const rewardPool = fetchContract(pool.rewardPool, IRewardPool, ApiChainId.ethereum);
   const res = await Promise.all([rewardPool.read.totalSupply(), rewardPool.read.rewardRate()]);
 
   const totalSupply = new BigNumber(res[0].toString());

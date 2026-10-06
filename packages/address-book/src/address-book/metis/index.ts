@@ -12,5 +12,6 @@ export const metis = {
     oracleId: 'METIS',
     name: 'METIS',
     decimals: 18,
+    balanceSharedWithWrapped: true,
   },
 } as const satisfies Chain;

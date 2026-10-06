@@ -1,10 +1,10 @@
-import { POLYGON_CHAIN_ID } from '../../../constants.ts';
+import { ApiChainId } from '../../../utils/chain.ts';
 import { getLoggerFor } from '../../../utils/logger/index.ts';
 import type { ApyBreakdownResult } from '../common/getApyBreakdownNew.ts';
 import { getBeefyCowPolyApys } from './getBeefyCowPolyApys.ts';
 import { getCurveApys } from './getCurveApys.ts';
 
-const logger = getLoggerFor({ module: 'apy', chain: POLYGON_CHAIN_ID });
+const logger = getLoggerFor({ module: 'apy', chain: ApiChainId.polygon });
 
 const getApys = [
   getCurveApys,

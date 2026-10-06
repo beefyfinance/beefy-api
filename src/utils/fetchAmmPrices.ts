@@ -1,10 +1,10 @@
-import { ChainId } from '@beefyfinance/blockchain-addressbook/types/chainid';
 import { BigNumber } from 'bignumber.js';
 import { orderBy } from 'lodash-es';
 import type { Address } from 'viem';
 import { default as BeefyPriceMulticall } from '../abis/BeefyPriceMulticall.ts';
 import { fetchContract } from '../api/rpc/client.ts';
 import { isDefined } from './array.ts';
+import { type ApiChain, getChainConfig, toChainId } from './chain.ts';
 import { envBoolean, envNumber } from './env.ts';
 import { getLoggerFor } from './logger/index.ts';
 import { normalizeNativeWrappedPrices } from './normalizeNativeWrappedPrices.ts';
@@ -17,46 +17,6 @@ const logger = getLoggerFor({ module: 'prices', component: 'amm' });
 /** Output a warning if LP (balance0*price0) != (balance1*price1) within a threshold % */
 const AMM_PRICES_CHECK_POOLS = envBoolean('AMM_PRICES_CHECK_POOLS', false);
 const AMM_PRICES_CHECK_POOLS_THRESHOLD = envNumber('AMM_PRICES_CHECK_POOLS_THRESHOLD', 2); // %
-
-const MULTICALLS = new Map<ChainId, Address>([
-  [56, '0xbcf79F67c2d93AD5fd1b919ac4F5613c493ca34F'],
-  [128, '0x6066F766f47aC8dbf6F21aDF2493316A8ACB7e34'],
-  [137, '0x2D955C68f8c687242d7475cD0Cc86E6a4A6D968e'],
-  [250, '0x1E715c49A810ff428a128b1bBdee221eF9548F67'],
-  [43114, '0x294d57F60f71036d9C96b008E32744D0909FABbA'],
-  [1666600000, '0xa9E6E271b27b20F65394914f8784B3B860dBd259'],
-  [42161, '0x405EE7F4f067604b787346bC22ACb66b06b15A4B'],
-  [42220, '0xE99c8A590c98c7Ae9FB3B7ecbC115D2eBD533B50'],
-  [1285, '0x8a198BCbF313A5565c64A7Ed61FaA413eB4E0931'],
-  [25, '0x405EE7F4f067604b787346bC22ACb66b06b15A4B'],
-  [1313161554, '0xFE40f6eAD11099D91D51a945c145CFaD1DD15Bb8'],
-  [122, '0xE99c8A590c98c7Ae9FB3B7ecbC115D2eBD533B50'],
-  [1088, '0xfcDD5a02C611ba6Fe2802f885281500EC95805d7'],
-  [1284, '0xd1d13EaAb9A92c47E8D11628AE6cb6C824E85E4B'],
-  [42262, '0xE99c8A590c98c7Ae9FB3B7ecbC115D2eBD533B50'],
-  [10, '0x13C6bCC2411861A31dcDC2f990ddbe2325482222'],
-  [2222, '0xA338D34c5de06B88197609956a2dEAAfF7Af46c8'],
-  [1, '0x9D55cAEE108aBdd4C47E42088C97ecA43510E969'],
-  [7700, '0xe6CcE165Aa3e52B2cC55F17b1dBC6A8fe5D66610'],
-  [324, '0x8BBbA444553e149968A52f46d1294C280C1458B6'],
-  [1101, '0x448a3539a591dE3Fb9D5AAE407471D21d40cD315'],
-  [8453, '0x3AA76f4aD5cc43E530a6C51c8eb13c40a3753aae'],
-  [100, '0x07f1ad98b725Af45485646aC431b7757f50C598A'],
-  [59144, '0xe103ab2f922aa1a56EC058AbfDA2CeEa1e95bCd7'],
-  [5000, '0xee59DE6E749cc6cF6ebD30878D8B4222C4aea37C'],
-  [252, '0xBC4a342B0c057501E081484A2d24e576E854F823'],
-  [34443, '0x448a3539a591dE3Fb9D5AAE407471D21d40cD315'],
-  [169, '0xD4F05538e8e79f3413B4A4E693eC0299E03e3151'],
-  [1329, '0xD535BDbc82cc04Ccc360E9f948cD8F9f76084088'],
-  [534352, '0xD985027E547a34d4F7E569B365F24aB87c5a9F73'],
-  [111188, '0x3D6B199Ccc223283fd2f5000c3f3585d558aCf39'],
-  [1135, '0x679d78307720CCdDFf572cc56E3C35F9861033Bc'],
-  [146, '0xf2068e1FE1A80E7f5Ba80D6ABD6e8618aD4E959E'],
-  [999, '0x99D7d8b7d4873F277CEDc7e1F4eDE57f4747e003'],
-  [9745, '0xd32C07b78ee7e02393f020eAbdd40fE2cCe20bf7'],
-  [143, '0x52A225f89a4AF9b24b00d4b52F3e7a72B7Fca75B'],
-  [4663, '0x43Cf4f684Ec0bcB5f09Bbf1851E693FF0b24cDd6'],
-]);
 
 const BATCH_SIZE = 128;
 const DEBUG_ORACLES: string[] = [];
@@ -91,7 +51,7 @@ type LpBreakdown = {
 };
 
 function calcLpPrice(pool: PoolData, tokenPrices: Record<string, number>): LpBreakdown | undefined {
-  const fields = { chain: pool.chainId, pool: pool.name };
+  const fields = { chain: pool.chain, pool: pool.name };
 
   const lp0Price = tokenPrices[pool.lp0.oracleId];
   if (!isValidPrice(lp0Price)) {
@@ -144,7 +104,7 @@ export type FetchAmmPricesResult = {
 };
 
 export const fetchAmmPrices = withTracing(
-  async (pools: Pool[], knownPrices: Record<string, number>): Promise<FetchAmmPricesResult> => {
+  async (pools: AmmPool[], knownPrices: Record<string, number>): Promise<FetchAmmPricesResult> => {
     const prices: Record<string, number> = { ...knownPrices };
     const lps: Record<string, number> = {};
     const breakdown: FetchAmmPricesResult['lpsBreakdown'] = {};
@@ -154,17 +114,11 @@ export const fetchAmmPrices = withTracing(
       weights[known] = Number.MAX_SAFE_INTEGER;
     });
 
-    const chainsWithPools = Array.from(new Set(pools.map(p => p.chainId || ChainId.bsc)));
-    let leftChains = chainsWithPools;
+    const poolsByChain = Map.groupBy(pools, pool => pool.chain);
+    let leftChains = Array.from(poolsByChain.keys());
     const poolsWithData = (
       await Promise.all(
-        chainsWithPools.map(async chain => {
-          // Old BSC pools don't have the chainId attr
-          const chainPools =
-            chain === ChainId.bsc
-              ? pools.filter(p => p.chainId === chain || p.chainId === undefined)
-              : pools.filter(p => p.chainId === chain);
-
+        Array.from(poolsByChain, async ([chain, chainPools]) => {
           try {
             return await fetchChainPools(chain, chainPools);
           } finally {
@@ -320,11 +274,11 @@ type PoolToken = {
   decimals: string;
 };
 
-type Pool = {
+export type AmmPool = {
   name: string;
   address: string;
   decimals: string;
-  chainId?: ChainId;
+  chain: ApiChain;
   lp0: PoolToken;
   lp1: PoolToken;
 };
@@ -333,24 +287,21 @@ type PoolTokenBalance = PoolToken & {
   balance: BigNumber;
 };
 
-type PoolData = Omit<Pool, 'lp0' | 'lp1'> & {
+type PoolData = Omit<AmmPool, 'lp0' | 'lp1'> & {
   totalSupply: BigNumber;
   lp0: PoolTokenBalance;
   lp1: PoolTokenBalance;
 };
 
 const fetchChainPools = withTracing(
-  async (chain: ChainId, pools: Pool[]): Promise<PoolData[]> => {
-    if (pools.length === 0) {
-      return [];
-    }
-    const multicallAddress = MULTICALLS.get(chain);
+  async (chain: ApiChain, pools: AmmPool[]): Promise<PoolData[]> => {
+    const multicallAddress = getChainConfig(chain).contracts.beefyPriceMulticall;
     if (!multicallAddress) {
       throw new Error(`No price multicall address for chain ${chain}`);
     }
 
-    const multicallContract = fetchContract(multicallAddress, BeefyPriceMulticall, chain);
-    const results = await batchMapRetry<Pool, PoolData>({
+    const multicallContract = fetchContract(multicallAddress, BeefyPriceMulticall, toChainId(chain));
+    const results = await batchMapRetry<AmmPool, PoolData>({
       items: pools,
       batchSize: BATCH_SIZE,
       retryLabel: `fetchAmmChainPools ${chain}`,
@@ -384,5 +335,5 @@ const fetchChainPools = withTracing(
 
     return results.filter(isContextResultFulfilled).map(r => r.value);
   },
-  { logger, fieldsFn: (chain: ChainId) => ({ chain }) }
+  { logger, fieldsFn: (chain: ApiChain) => ({ chain }) }
 );

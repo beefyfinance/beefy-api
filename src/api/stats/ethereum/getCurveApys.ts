@@ -3,7 +3,7 @@ import type { Address } from 'viem';
 import ICrv from '../../../abis/ethereum/ICrv.ts';
 import ICurveGaugeController from '../../../abis/ethereum/ICurveGaugeController.ts';
 import ICurveGauge from '../../../abis/ICurveGauge.ts';
-import { ETH_CHAIN_ID } from '../../../constants.ts';
+import { ApiChainId } from '../../../utils/chain.ts';
 import { fetchPrice } from '../../../utils/fetchPrice.ts';
 import { fetchContract } from '../../rpc/client.ts';
 import { getCurveVolumeApys } from '../common/curve/getCurveApyData.ts';
@@ -41,18 +41,18 @@ const getPoolApys = async (pools: CurveApyPool[]) => {
   const weightCalls: Promise<bigint>[] = [];
   pools.forEach(pool => {
     // FIXME(unsafe-cast): checked previously; add typeguard
-    const gauge = fetchContract(pool.gauge as string, ICurveGauge, ETH_CHAIN_ID);
+    const gauge = fetchContract(pool.gauge as string, ICurveGauge, ApiChainId.ethereum);
     totalSupplyCalls.push(gauge.read.totalSupply());
     workingCalls.push(gauge.read.working_supply());
     pool.rewards?.forEach(reward => {
       extraInfo.push({ pool: pool.name, token: reward.token });
       extraRewardDataCalls.push(gauge.read.reward_data([reward.token as Address]));
     });
-    const controller = fetchContract(gaugeController, ICurveGaugeController, ETH_CHAIN_ID);
+    const controller = fetchContract(gaugeController, ICurveGaugeController, ApiChainId.ethereum);
     // FIXME(unsafe-cast): checked previously; add typeguard
     weightCalls.push(controller.read.gauge_relative_weight([pool.gauge as Address]));
   });
-  const inflationRateCall = fetchContract(crv, ICrv, ETH_CHAIN_ID)
+  const inflationRateCall = fetchContract(crv, ICrv, ApiChainId.ethereum)
     .read.rate()
     .then(v => new BigNumber(v));
   const res = await Promise.all([

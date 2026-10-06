@@ -1,9 +1,9 @@
-import type { ChainId } from '@beefyfinance/blockchain-addressbook';
 import { BigNumber } from 'bignumber.js';
 import type { Address } from 'viem';
 import { default as ICurveGauge } from '../../../../abis/ICurveGauge.ts';
 import { default as ICurveRewardStream } from '../../../../abis/ICurveRewardStream.ts';
 import { default as ICurveRewards } from '../../../../abis/ICurveRewards.ts';
+import type { ApiChainId } from '../../../../utils/chain.ts';
 import { fetchPrice } from '../../../../utils/fetchPrice.ts';
 import { fetchContract } from '../../../rpc/client.ts';
 
@@ -33,7 +33,7 @@ type BalancerGaugedPool = BalancerApyPool & { gauge: string };
 const hasGauge = (pool: BalancerApyPool | undefined): pool is BalancerGaugedPool =>
   !!pool?.gauge && typeof pool.gauge === 'string' && pool.gauge.toLowerCase() !== ZERO_ADDRESS;
 
-export const getTotalStakedInUsd = async (chainId: ChainId, pool: BalancerApyPool) => {
+export const getTotalStakedInUsd = async (chainId: ApiChainId, pool: BalancerApyPool) => {
   if (!hasGauge(pool)) return new BigNumber(1);
   const gauge = fetchContract(pool.gauge, ICurveGauge, chainId);
   const totalSupply = new BigNumber(await gauge.read.totalSupply());
@@ -41,7 +41,7 @@ export const getTotalStakedInUsd = async (chainId: ChainId, pool: BalancerApyPoo
   return totalSupply.multipliedBy(lpPrice).dividedBy('1e18');
 };
 
-export const getBoostedYearlyRewardsInUsd = async (chainId: ChainId, pool: BalancerApyPool, tokenID?: string) => {
+export const getBoostedYearlyRewardsInUsd = async (chainId: ApiChainId, pool: BalancerApyPool, tokenID?: string) => {
   if (!hasGauge(pool)) return new BigNumber(0);
   const id = tokenID !== undefined ? tokenID : 'CRV';
   const crvPrice = await fetchPrice({ oracle: 'tokens', id: id });
@@ -69,7 +69,7 @@ export const getBoostedYearlyRewardsInUsd = async (chainId: ChainId, pool: Balan
     .dividedBy('1e18');
 };
 
-export const getYearlyRewardsInUsd = async (chainId: ChainId, pool: BalancerApyPool) => {
+export const getYearlyRewardsInUsd = async (chainId: ApiChainId, pool: BalancerApyPool) => {
   let [yearRewardsInUsd, ratesAndPeriods] = await Promise.all([
     pool.boosted
       ? getBoostedYearlyRewardsInUsd(chainId, pool)
@@ -98,7 +98,7 @@ export const getYearlyRewardsInUsd = async (chainId: ChainId, pool: BalancerApyP
   return yearRewardsInUsd;
 };
 
-const getPoolsRatesAndPeriodFinish = async (chainId: ChainId, pool: BalancerApyPool) => {
+const getPoolsRatesAndPeriodFinish = async (chainId: ApiChainId, pool: BalancerApyPool) => {
   const periodFinishCalls: Promise<number | bigint>[] = [];
   const rewardRateCalls: Promise<number | bigint>[] = [];
   (pool.rewards ?? []).forEach(rewards => {

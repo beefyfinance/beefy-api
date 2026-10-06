@@ -1,5 +1,5 @@
 import type { BigNumber } from 'bignumber.js';
-import { PLASMA_CHAIN_ID as chainId } from '../../../constants.ts';
+import { ApiChainId } from '../../../utils/chain.ts';
 import { getMerklApys } from '../common/curve/getCurveApysCommon.ts';
 import { getApyBreakdown } from '../common/getApyBreakdownNew.ts';
 import curvePoolsData from '../../../data/plasma/curvePools.json' with { type: 'json' };
@@ -12,7 +12,7 @@ export const getCurveApys = async () => {
   const [baseApys, curveApys] = await Promise.all([
     // getCurveSubgraphApys(pools, subgraphApyUrl),
     {} as Record<string, BigNumber>,
-    getMerklApys(chainId, pools),
+    getMerklApys(ApiChainId.plasma, pools),
   ]);
 
   return getApyBreakdown(pools.map((p, i) => ({ vaultId: p.name, vault: curveApys[i], trading: baseApys[p.name] })));

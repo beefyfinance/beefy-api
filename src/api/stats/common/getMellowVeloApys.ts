@@ -1,14 +1,14 @@
 import { BigNumber } from 'bignumber.js';
 import { type Address, parseAbi } from 'viem';
-import { BASE_CHAIN_ID, OPTIMISM_CHAIN_ID } from '../../../constants.ts';
+import { ApiChainId } from '../../../utils/chain.ts';
 import { fetchPrice } from '../../../utils/fetchPrice.ts';
 import { fetchContract } from '../../rpc/client.ts';
 import { getApyBreakdown } from './getApyBreakdownNew.ts';
 
 const helpers = {
-  [OPTIMISM_CHAIN_ID]: '0x2a8Db8028B379b75CC1662D04279367b88Dc3692',
-  [BASE_CHAIN_ID]: '0xBFcE247f6aA04Fc5141d25BB65C86F9463DD13d7',
-};
+  [ApiChainId.optimism]: '0x2a8Db8028B379b75CC1662D04279367b88Dc3692',
+  [ApiChainId.base]: '0xBFcE247f6aA04Fc5141d25BB65C86F9463DD13d7',
+} as const satisfies Partial<Record<ApiChainId, Address>>;
 
 const abi = parseAbi([
   'function rewardRate(address[] lps) external view returns (uint[] rates)',
@@ -20,10 +20,10 @@ export type MellowVeloApyPool = {
   address: string;
 };
 
-type MellowVeloChainId = typeof OPTIMISM_CHAIN_ID | typeof BASE_CHAIN_ID;
+type MellowVeloChainId = keyof typeof helpers;
 
 export const getMellowVeloApys = async (chainId: MellowVeloChainId, pools: MellowVeloApyPool[]) => {
-  const token = chainId === BASE_CHAIN_ID ? 'AERO' : 'VELO';
+  const token = chainId === ApiChainId.base ? 'AERO' : 'VELO';
   const price = await fetchPrice({ oracle: 'tokens', id: token });
 
   const totalSupply = pools.map(p => fetchContract(p.address, abi, chainId).read.totalSupply());

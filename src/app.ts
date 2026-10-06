@@ -10,6 +10,7 @@ import { initConfigService } from './api/config/getConfig.ts';
 import { initCowcentratedService } from './api/cowcentrated/index.ts';
 import { initOffchainRewardsService } from './api/offchain-rewards/index.ts';
 import { initPointsStructureService } from './api/points/getPointsStructures.ts';
+import { initRawConfigService } from './api/raw/getRawConfigs.ts';
 import { initProposalsService } from './api/snapshot/getProposals.ts';
 import { initPriceService } from './api/stats/getAmmPrices.ts';
 import { initApyService } from './api/stats/getApys.ts';
@@ -48,6 +49,7 @@ async function startServices() {
   initPriceService();
   initVaultService();
   initBoostService();
+  initRawConfigService();
   initVaultFeeService();
   initTvlService();
   initMooTokenPriceService();

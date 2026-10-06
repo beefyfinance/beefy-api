@@ -8,7 +8,7 @@ export class KyberSwapProvider implements ISwapProvider {
   public readonly id = 'kyber';
 
   supportsChain(chain: ApiChain): boolean {
-    return !!supportedChains[chain];
+    return supportedChains.has(chain);
   }
 
   async quotes(swaps: SwapRequest[]): Promise<SwapResponse[]> {

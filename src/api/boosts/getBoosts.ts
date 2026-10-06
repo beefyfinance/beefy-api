@@ -1,3 +1,4 @@
+import { keysToObject } from '../../utils/array.ts';
 import { getKey, setKey } from '../../utils/cache/index.ts';
 import { type ApiChain, SupportedChains } from '../../utils/chain.ts';
 import { envNumber } from '../../utils/env.ts';
@@ -9,7 +10,7 @@ import {
   withTimeout,
 } from '../../utils/promise.ts';
 import { serviceEventBus } from '../../utils/ServiceEventBus.ts';
-import { getBoostPeriodFinish, getBoosts } from './fetchBoostData.ts';
+import { getBoostPeriodFinish, getBoosts, withSupportedRewards } from './fetchBoostData.ts';
 import type { Boost, BoostEntity, OldBoost, PromoTokenRewardConfig } from './types.ts';
 
 const logger = getLoggerFor({ module: 'boosts' });
@@ -20,14 +21,14 @@ const INIT_DELAY = envNumber('BOOSTS_INIT_DELAY', 4 * 1000);
 const REFRESH_INTERVAL = 5 * 60 * 1000;
 const CACHE_SCHEMA_VERSION: number = 2; // increment when changing cache schema
 
-type BoostsByChain = Record<string, Boost[]>;
+type BoostsByChain = Record<ApiChain, Boost[]>;
 type BoostsByChainCacheSchema = {
   version: number;
   timestamp: number;
-  data: BoostsByChain;
+  data: Partial<BoostsByChain>;
 };
 
-let boostsByChain: BoostsByChain = {};
+let boostsByChain: BoostsByChain = keysToObject(SupportedChains, () => []);
 let allBoosts: Boost[] = [];
 
 function convertBoostToOldFormat(boost: Boost): OldBoost {
@@ -61,15 +62,15 @@ export const getAllOldBoosts = () => {
   return allBoosts.map(convertBoostToOldFormat);
 };
 
-export const getChainOldBoosts = (chain: string) => {
-  return (boostsByChain[chain] || []).map(convertBoostToOldFormat);
+export const getChainOldBoosts = (chain: ApiChain) => {
+  return boostsByChain[chain].map(convertBoostToOldFormat);
 };
 
 export const getAllNewBoosts = () => {
   return allBoosts;
 };
 
-export const getChainNewBoosts = (chain: string) => {
+export const getChainNewBoosts = (chain: ApiChain) => {
   return boostsByChain[chain];
 };
 
@@ -132,7 +133,10 @@ async function loadFromRedis() {
     && 'data' in cached
     && cached.version === CACHE_SCHEMA_VERSION
   ) {
-    boostsByChain = cached.data;
+    const { data } = cached;
+    boostsByChain = keysToObject(SupportedChains, chain =>
+      (data[chain] ?? []).map(boost => withSupportedRewards(boost, chain))
+    );
     buildFromChains();
   }
 }

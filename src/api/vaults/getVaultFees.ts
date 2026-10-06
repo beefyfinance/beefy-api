@@ -1,10 +1,10 @@
-import { addressBookByChainId, ChainId } from '@beefyfinance/blockchain-addressbook';
+import { addressBookByChainId } from '@beefyfinance/blockchain-addressbook';
 import { BigNumber } from 'bignumber.js';
 import { chunk } from 'lodash-es';
 import { type Address, BaseError } from 'viem';
 import FeeABI from '../../abis/FeeABI.ts';
 import { getKey, setKey } from '../../utils/cache/index.ts';
-import { SupportedChains } from '../../utils/chain.ts';
+import { ApiChainId, SupportedChains, toChainId } from '../../utils/chain.ts';
 import { envNumber } from '../../utils/env.ts';
 import { getLoggerFor } from '../../utils/logger/index.ts';
 import { orNaN } from '../../utils/number.ts';
@@ -29,7 +29,6 @@ const INIT_DELAY = envNumber('FEES_INIT_DELAY', 15000);
 const REFRESH_INTERVAL = 5 * 60 * 1000;
 const CACHE_EXPIRY = 12 * 60 * 60 * 1000;
 const VAULT_FEES_KEY = 'VAULT_FEES';
-const FEE_BATCH_KEY = 'FEE_BATCHES';
 
 interface PerformanceFee {
   total: number;
@@ -71,13 +70,13 @@ type StrategyCallResponse = {
   strategy: Address;
 } & CallResponseMap;
 
-let feeBatches: Partial<Record<ChainId, FeeBatchDetail>> = {};
+let ethereumFeeBatch: FeeBatchDetail | undefined;
 let vaultFees: Record<string, VaultFeeBreakdown> = {};
 
 const updateFeeBatch = async () => {
-  const chainId = ChainId.ethereum;
+  const chainId = ApiChainId.ethereum;
   const { beefyFeeRecipient: feeBatchAddress } = addressBookByChainId[chainId].platforms.beefyfinance;
-  const feeBatchContract = fetchContract(feeBatchAddress, feeBatchTreasurySplitMethodABI, Number(chainId));
+  const feeBatchContract = fetchContract(feeBatchAddress, feeBatchTreasurySplitMethodABI, chainId);
 
   let treasurySplit;
 
@@ -88,14 +87,13 @@ const updateFeeBatch = async () => {
     treasurySplit = 640;
   }
 
-  feeBatches[chainId] = {
+  ethereumFeeBatch = {
     address: feeBatchAddress,
     treasurySplit: treasurySplit / 1000,
     stakerSplit: 1 - treasurySplit / 1000,
   };
 
-  await setKey(FEE_BATCH_KEY, feeBatches);
-  logger.debug('feeBatches updated');
+  logger.debug('feeBatch updated');
 };
 
 const updateVaultFees = async () => {
@@ -103,7 +101,6 @@ const updateVaultFees = async () => {
   const start = Date.now();
 
   const expiredBefore = start - CACHE_EXPIRY;
-  const ethereumFeeBatch = feeBatches[ChainId.ethereum];
   if (!ethereumFeeBatch) {
     logger.warn('no ethereum feeBatch, skipping vault fee update');
     setTimeout(updateVaultFees, REFRESH_INTERVAL);
@@ -123,7 +120,7 @@ const updateVaultFees = async () => {
     }
     if (haveStrategy.length > 0) {
       // Use ethereum feeBatch for all chains (only place where revenue is split)
-      await getChainFees(haveStrategy, ChainId[chain], ethereumFeeBatch);
+      await getChainFees(haveStrategy, toChainId(chain), ethereumFeeBatch);
     }
   }
 
@@ -212,7 +209,7 @@ type CallResponseMap = {
 };
 
 // I'm so sorry for whoever comes across this file, it was a nightmare to get working, blame the strategists, ily
-const getChainFees = async (vaults: HarvestableVault[], chainId: number, feeBatch: FeeBatchDetail) => {
+const getChainFees = async (vaults: HarvestableVault[], chainId: ApiChainId, feeBatch: FeeBatchDetail) => {
   try {
     const batchSize = 128;
     const vaultSlices = chunk(vaults, batchSize);
@@ -533,10 +530,6 @@ const performanceForMaxi = (contractCalls: StrategyCallResponse): PerformanceFee
 
 export const initVaultFeeService = async () => {
   const cachedVaultFees = await getKey<Record<string, VaultFeeBreakdown>>(VAULT_FEES_KEY);
-  // const cachedFeeBatches = await getKey<Record<ChainId, FeeBatchDetail>>(FEE_BATCH_KEY);
-
-  // feeBatches = cachedFeeBatches ?? {};
-  feeBatches = {};
   vaultFees = cachedVaultFees ?? {};
 
   setTimeout(async () => {

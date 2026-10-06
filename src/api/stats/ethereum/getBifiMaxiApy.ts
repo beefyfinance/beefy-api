@@ -3,7 +3,7 @@ import { BigNumber } from 'bignumber.js';
 import type { Address } from 'viem';
 import ERC20Abi from '../../../abis/ERC20Abi.ts';
 import { IBeefyRewardPool } from '../../../abis/IBeefyRewardPool.ts';
-import { ETH_CHAIN_ID } from '../../../constants.ts';
+import { ApiChainId } from '../../../utils/chain.ts';
 import { fetchPrice } from '../../../utils/fetchPrice.ts';
 import { fetchContract } from '../../rpc/client.ts';
 import { getApyBreakdown } from '../common/getApyBreakdownNew.ts';
@@ -46,7 +46,7 @@ export const getBifiMaxiApy = async () => {
 
 const getYearlyRewardsInUsd = async () => {
   let yearlyRewards = new BigNumber(0);
-  const rewardPoolContract = fetchContract(rewardPool, IBeefyRewardPool, ETH_CHAIN_ID);
+  const rewardPoolContract = fetchContract(rewardPool, IBeefyRewardPool, ApiChainId.ethereum);
   for (let i = 0; i < rewards.length; ++i) {
     const rewardPrice = await fetchPrice({ oracle: 'tokens', id: rewards[i].symbol });
     const rewardInfo = await rewardPoolContract.read.rewardInfo([BigInt(rewards[i].id)]);
@@ -62,7 +62,7 @@ const getYearlyRewardsInUsd = async () => {
 };
 
 const getTotalStakedInUsd = async () => {
-  const tokenContract = fetchContract(BIFI.address, ERC20Abi, ETH_CHAIN_ID);
+  const tokenContract = fetchContract(BIFI.address, ERC20Abi, ApiChainId.ethereum);
   const totalStaked = new BigNumber(await tokenContract.read.balanceOf([rewardPool as Address]));
   const tokenPrice = await fetchPrice({ oracle: 'tokens', id: 'BIFI' });
 

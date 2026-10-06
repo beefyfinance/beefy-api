@@ -7,6 +7,7 @@ import { type ApiChain, toChainId } from '../../utils/chain.ts';
 import { fetchPrice } from '../../utils/fetchPrice.ts';
 import { getLoggerFor } from '../../utils/logger/index.ts';
 import { isFiniteNumber } from '../../utils/number.ts';
+import { contextAllSettled, isContextResultFulfilled } from '../../utils/promise.ts';
 import { getAllNewBoosts } from '../boosts/getBoosts.ts';
 import type { Boost } from '../boosts/types.ts';
 import { fetchContract } from '../rpc/client.ts';
@@ -179,27 +180,18 @@ const mapResponseToBoostApr = async (
 };
 
 export const fetchBoostAprs = async () => {
-  const boostByChain = getAllNewBoosts().reduce<Record<string, Boost[]>>((allBoosts, previousBoost) => {
-    if (!allBoosts[previousBoost.chain]) allBoosts[previousBoost.chain] = [];
-    allBoosts[previousBoost.chain].push(previousBoost);
-    return allBoosts;
-  }, {});
-
-  const chainPromises = Object.keys(boostByChain).map(chain =>
-    updateBoostAprsForChain(chain as ApiChain, boostByChain[chain])
+  const boostsByChain = Map.groupBy(getAllNewBoosts(), boost => boost.chain);
+  const results = await contextAllSettled(Array.from(boostsByChain), ([chain, boosts]) =>
+    updateBoostAprsForChain(chain, boosts)
   );
 
-  try {
-    let results = await Promise.all(chainPromises);
-    return results.reduce(
-      (allBoostAprs, currentChainBoostChainAprs) => ({
-        ...allBoostAprs,
-        ...currentChainBoostChainAprs,
-      }),
-      {}
-    );
-  } catch (error) {
-    logger.error({ err: error }, 'failed to update boost aprs');
-    return {};
+  const boostAprs: Record<string, number> = {};
+  for (const result of results) {
+    if (isContextResultFulfilled(result)) {
+      Object.assign(boostAprs, result.value);
+    } else {
+      logger.error({ err: result.reason, chain: result.context[0] }, 'failed to update boost aprs');
+    }
   }
+  return boostAprs;
 };

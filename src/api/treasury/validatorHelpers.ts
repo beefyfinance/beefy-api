@@ -1,7 +1,6 @@
-import type { ChainId } from '@beefyfinance/blockchain-addressbook';
 import { BigNumber } from 'bignumber.js';
 import type { Address } from 'viem';
-import type { ApiChain } from '../../utils/chain.ts';
+import type { ApiChain, ApiChainId } from '../../utils/chain.ts';
 import { fetchContract } from '../rpc/client.ts';
 import type { TreasuryApiResult, ValidatorAsset } from './types.ts';
 
@@ -71,7 +70,7 @@ const sonicValidatorContractAbi = [
   },
 ] as const;
 
-export const fetchSonicValidatorBalance = async (asset: SonicValidator, chainId: number): Promise<bigint> => {
+export const fetchSonicValidatorBalance = async (asset: SonicValidator, chainId: ApiChainId): Promise<bigint> => {
   const contract = fetchContract(asset.helper, sonicValidatorContractAbi, chainId);
   const [selfStaked, pending] = await Promise.all([
     contract.read.getSelfStake([BigInt(asset.numberId)]),
@@ -91,7 +90,7 @@ export const fetchAPIValidatorBalance = async (apiAsset: ValidatorAsset): Promis
   };
 };
 
-export const getValidatorBalanceCall = (asset: ValidatorAsset, chainId: ChainId) => {
+export const getValidatorBalanceCall = (asset: ValidatorAsset, chainId: ApiChainId) => {
   if (isSonicValidator(asset)) {
     return [fetchSonicValidatorBalance(asset, chainId)];
   } else {

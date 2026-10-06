@@ -1,10 +1,12 @@
-import { ARBITRUM_CHAIN_ID as chainId } from '../../../constants.ts';
+import { ApiChainId } from '../../../utils/chain.ts';
 import { getLoggerFor } from '../../../utils/logger/index.ts';
 import type { ApyBreakdownResult } from '../common/getApyBreakdownNew.ts';
 import { getMorphoApys } from '../common/morpho/getMorphoApys.ts';
 import { getBeefyArbCowApys } from './getBeefyArbCowApys.ts';
 import { getCurveApys } from './getCurveApys.ts';
 import morphoPoolsData from '../../../data/arbitrum/morphoPools.json' with { type: 'json' };
+
+const chainId = ApiChainId.arbitrum;
 
 const logger = getLoggerFor({ module: 'apy', chain: chainId });
 

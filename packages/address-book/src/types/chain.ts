@@ -12,6 +12,7 @@ export interface Chain {
     readonly oracleId: string;
     readonly name: string;
     readonly decimals: number;
+    readonly balanceSharedWithWrapped?: boolean | undefined;
   };
 }
 

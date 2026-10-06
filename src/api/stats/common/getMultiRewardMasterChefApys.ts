@@ -1,14 +1,10 @@
-import type { NormalizedCacheObject } from '@apollo/client/cache/inmemory/types.js';
-import type { ApolloClient } from '@apollo/client/core/ApolloClient.js';
-import type { ChainId } from '@beefyfinance/blockchain-addressbook';
 import { BigNumber } from 'bignumber.js';
 import IMultiRewardMasterChef from '../../../abis/IMultiRewardMasterChef.ts';
-import { isBeetClient, isSushiClient } from '../../../apollo/client.ts';
 import type { LpPool, SingleAssetPool } from '../../../types/LpPool.ts';
+import type { ApiChainId } from '../../../utils/chain.ts';
 import { fetchPrice } from '../../../utils/fetchPrice.ts';
 import getBlockTime from '../../../utils/getBlockTime.ts';
 import { getEDecimals } from '../../../utils/getEDecimals.ts';
-import { getTradingFeeApr, getTradingFeeAprBalancer, getTradingFeeAprSushi } from '../../../utils/getTradingFeeApr.ts';
 import { getLoggerFor } from '../../../utils/logger/index.ts';
 import type { TypedOmit } from '../../../utils/object.ts';
 import { fetchContract } from '../../rpc/client.ts';
@@ -16,25 +12,20 @@ import { type ApyBreakdownResult, getApyBreakdown } from '../common/getApyBreakd
 
 const logger = getLoggerFor({ module: 'apy', component: 'multiRewardMasterChef' });
 
-type WithOptionalDecimalsAndChainId<T extends { decimals: string; chainId: ChainId }> = TypedOmit<
-  T,
-  'decimals' | 'chainId'
-> & {
+type WithOptionalDecimals<T extends { decimals: string }> = TypedOmit<T, 'decimals'> & {
   decimals?: string;
-  chainId?: ChainId;
 };
 
-export type MasterChefPool = WithOptionalDecimalsAndChainId<LpPool> | WithOptionalDecimalsAndChainId<SingleAssetPool>;
+export type MasterChefPool = WithOptionalDecimals<LpPool> | WithOptionalDecimals<SingleAssetPool>;
 
 export interface MasterChefApysParams {
-  chainId: ChainId;
+  chainId: ApiChainId;
   masterchef: string;
   singlePools?: SingleAssetPool[];
   pools?: MasterChefPool[];
   oracle: string;
   oracleId: string;
   decimals: string;
-  tradingFeeInfoClient?: ApolloClient<NormalizedCacheObject>;
   liquidityProviderFee?: number;
   log?: boolean;
   tradingAprs?: {
@@ -55,27 +46,12 @@ export const getMultiRewardMasterChefApys = async (
     pools: [...(masterchefParams.pools ?? []), ...(masterchefParams.singlePools ?? [])],
   };
 
-  const [tradingAprs, farmApys] = await Promise.all([getTradingAprs(params), getFarmApys(params)]);
+  const tradingAprs = params.tradingAprs ?? {};
+  const farmApys = await getFarmApys(params);
 
   const liquidityProviderFee = params.liquidityProviderFee ?? 0.003;
 
   return getApyBreakdown(params.pools, tradingAprs, farmApys, liquidityProviderFee);
-};
-
-const getTradingAprs = async (params: NormalizedMasterChefApysParams) => {
-  let tradingAprs = params.tradingAprs ?? {};
-  const client = params.tradingFeeInfoClient;
-  const fee = params.liquidityProviderFee;
-  if (client && fee) {
-    const pairAddresses = params.pools.map(pool => pool.address.toLowerCase());
-    const aprs = isSushiClient(client)
-      ? await getTradingFeeAprSushi(client, pairAddresses, fee)
-      : isBeetClient(client)
-        ? await getTradingFeeAprBalancer(client, pairAddresses, fee, params.chainId)
-        : await getTradingFeeApr(client, pairAddresses, fee);
-    tradingAprs = { ...tradingAprs, ...aprs };
-  }
-  return tradingAprs;
 };
 
 const getFarmApys = async (params: NormalizedMasterChefApysParams): Promise<BigNumber[]> => {

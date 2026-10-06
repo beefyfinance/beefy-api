@@ -1,8 +1,8 @@
 import type { NormalizedCacheObject } from '@apollo/client/cache/inmemory/types.js';
 import type { ApolloClient } from '@apollo/client/core/ApolloClient.js';
-import type { ChainId } from '@beefyfinance/blockchain-addressbook';
 import { BigNumber } from 'bignumber.js';
-import { getBalTradingAndLstApr } from '../../../../utils/getBalancerTradingFeeAndLstApr.ts';
+import type { ApiChainId } from '../../../../utils/chain.ts';
+import { type BalancerApiChainId, getBalTradingAndLstApr } from '../../../../utils/getBalancerTradingFeeAndLstApr.ts';
 import { getLoggerFor } from '../../../../utils/logger/index.ts';
 import { getMerklAprByExplorerAddress } from '../../../offchain-rewards/providers/merkl/proxyClient.ts';
 import { type ApyBreakdownResult, getApyBreakdown } from '../getApyBreakdown.ts';
@@ -48,7 +48,7 @@ interface Pool {
 }
 
 interface BalancerParams {
-  chainId: number;
+  chainId: BalancerApiChainId;
   client: ApolloClient<NormalizedCacheObject>;
   pools: Pool[];
   balancerVault: string;
@@ -75,7 +75,7 @@ export const getBalancerApys = async (params: BalancerParams): Promise<ApyBreakd
   );
 };
 
-const getTradingFeeAprBalancer = async (chainId: ChainId, pairAddresses: string[]) => {
+const getTradingFeeAprBalancer = async (chainId: BalancerApiChainId, pairAddresses: string[]) => {
   const data = await getBalTradingAndLstApr(chainId, pairAddresses);
   return data;
 };
@@ -135,7 +135,7 @@ const getPoolApy = async (pool: Pool, params: BalancerParams) => {
 };
 
 const getMerklV4AprByExplorerAddress = async (
-  chainId: number,
+  chainId: ApiChainId,
   explorerAddresses: string[]
 ): Promise<Record<string, number>> => {
   if (explorerAddresses.length === 0) return {};

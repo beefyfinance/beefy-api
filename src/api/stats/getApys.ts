@@ -1,6 +1,9 @@
 import { getKey, setKey } from '../../utils/cache/index.ts';
+import type { ApyChain } from '../../utils/chain.ts';
 import { envNumber } from '../../utils/env.ts';
 import { getLoggerFor } from '../../utils/logger/index.ts';
+import { typedKeys } from '../../utils/object.ts';
+import { contextAllSettled, isContextResultRejected } from '../../utils/promise.ts';
 import { serviceEventBus } from '../../utils/ServiceEventBus.ts';
 import { getArbitrumApys } from './arbitrum/index.ts';
 import { getArcApys } from './arc/index.ts';
@@ -20,6 +23,30 @@ import { getRobinhoodApys } from './robinhood/index.ts';
 import { getSonicApys } from './sonic/index.ts';
 
 const logger = getLoggerFor({ module: 'apy' });
+
+type ChainApys = {
+  apys: Record<string, unknown>;
+  apyBreakdowns: Record<string, unknown>;
+};
+
+// order matters: later results overwrite earlier ones
+const chainApyFetchers: Record<ApyChain, () => Promise<ChainApys>> = {
+  polygon: getMaticApys,
+  avax: getAvaxApys,
+  bsc: getBSCApys,
+  arbitrum: getArbitrumApys,
+  optimism: getOptimismApys,
+  ethereum: getEthereumApys,
+  base: getBaseApys,
+  fraxtal: getFraxtalApys,
+  sonic: getSonicApys,
+  hyperevm: getHyperevmApys,
+  plasma: getPlasmaApys,
+  monad: getMonadApys,
+  megaeth: getMegaethApys,
+  robinhood: getRobinhoodApys,
+  arc: getArcApys,
+};
 
 const INIT_DELAY = envNumber('INIT_DELAY', 30 * 1000);
 const BOOST_APR_INIT_DELAY = 5 * 1000;
@@ -43,60 +70,16 @@ const updateApys = async () => {
   logger.info('updating apys');
   const start = Date.now();
   try {
-    const results = await Promise.allSettled([
-      // getMetisApys(), // April 2026
-      // getMantleApys(), // April 2026
-      // getSeiApys(), // June 2026
-      // getLiskApys(), // June 2026
-      // getBerachainApys(), // July 2026
-      // getZksyncApys(), // August 2026
-      // getGnosisApys(), // August 2026
-      // getLineaApys(), // August 2026
-      getMaticApys(),
-      getAvaxApys(),
-      getBSCApys(),
-      getArbitrumApys(),
-      getOptimismApys(),
-      getEthereumApys(),
-      getBaseApys(),
-      getFraxtalApys(),
-      getSonicApys(),
-      getHyperevmApys(),
-      getPlasmaApys(),
-      getMonadApys(),
-      getMegaethApys(),
-      getRobinhoodApys(),
-      getArcApys(),
-    ]);
+    const results = await contextAllSettled(typedKeys(chainApyFetchers), chain => chainApyFetchers[chain]());
 
     for (const result of results) {
-      if (result.status !== 'fulfilled') {
-        logger.warn({ err: result.reason }, 'apy sub-calculation failed');
+      if (isContextResultRejected(result)) {
+        logger.warn({ chain: result.context, err: result.reason }, 'apy sub-calculation failed');
         continue;
       }
 
-      // Set default APY values
-      let mappedApyValues: Record<string, unknown> | undefined = result.value;
-      let mappedApyBreakdownValues: Record<string, unknown> | undefined = {};
-
-      // Loop through key values and move default breakdown format
-      // To require totalApy key
-      for (const [key, value] of Object.entries(result.value)) {
-        mappedApyBreakdownValues[key] = {
-          totalApy: value,
-        };
-      }
-
-      // Break out to apy and breakdowns if possible
-      let hasApyBreakdowns = 'apyBreakdowns' in result.value;
-      if (hasApyBreakdowns) {
-        mappedApyValues = result.value.apys;
-        mappedApyBreakdownValues = result.value.apyBreakdowns;
-      }
-
-      apys = { ...apys, ...mappedApyValues };
-
-      apyBreakdowns = { ...apyBreakdowns, ...mappedApyBreakdownValues };
+      apys = { ...apys, ...result.value.apys };
+      apyBreakdowns = { ...apyBreakdowns, ...result.value.apyBreakdowns };
     }
 
     logger.info({ durationMs: Date.now() - start }, 'updated apys');

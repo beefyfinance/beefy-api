@@ -1,10 +1,8 @@
-import type { ChainId } from '@beefyfinance/blockchain-addressbook';
 import { BigNumber } from 'bignumber.js';
 import { type Address, parseAbi } from 'viem';
 import ICurveGauge from '../../../../abis/ICurveGauge.ts';
-import { ARBITRUM_CHAIN_ID, BASE_CHAIN_ID, FRAXTAL_CHAIN_ID, SONIC_CHAIN_ID } from '../../../../constants.ts';
+import { ApiChainId } from '../../../../utils/chain.ts';
 import { fetchPrice } from '../../../../utils/fetchPrice.ts';
-import type { OptionalRecord } from '../../../../utils/object.ts';
 import { fetchContract } from '../../../rpc/client.ts';
 import type { CurveApyPool, CurveApyReward } from './getCurveApysCommon.ts';
 
@@ -39,34 +37,33 @@ const convex: StakeDaoV2ConvexAddresses = {
   convexVoterProxy: '0x989AEb4d175e16225E39E87d0D97A3360524AD80',
   convexBooster: '0xF403C135812408BFbE8713b5A23a04b3D48AAE31',
 };
-const addresses: OptionalRecord<ChainId, StakeDaoV2Addresses> = {
-  [BASE_CHAIN_ID]: {
+const addresses = {
+  [ApiChainId.base]: {
     ...convex,
     accountant: '0x8f872cE018898ae7f218E5a3cE6Fe267206697F8',
     locker: '0x52f541764E6e90eeBc5c21Ff570De0e2D63766B6',
   },
-  [ARBITRUM_CHAIN_ID]: {
+  [ApiChainId.arbitrum]: {
     ...convex,
     accountant: '0x93b4B9bd266fFA8AF68e39EDFa8cFe2A62011Ce0',
     locker: '0xe5d6D047DF95c6627326465cB27B64A8b77A8b91',
   },
-  [FRAXTAL_CHAIN_ID]: {
+  [ApiChainId.fraxtal]: {
     ...convex,
     accountant: '0x93b4B9bd266fFA8AF68e39EDFa8cFe2A62011Ce0',
     locker: '0x52f541764E6e90eeBc5c21Ff570De0e2D63766B6',
     convexBooster: '0xd3327cb05a8E0095A543D582b5B3Ce3e19270389',
   },
-  [SONIC_CHAIN_ID]: {
+  [ApiChainId.sonic]: {
     ...convex,
     accountant: '0x8f872cE018898ae7f218E5a3cE6Fe267206697F8',
     locker: '0x52f541764E6e90eeBc5c21Ff570De0e2D63766B6',
   },
-};
+} satisfies Partial<Record<ApiChainId, StakeDaoV2Addresses>>;
 
-export async function getStakeDaoV2Apys(chainId: ChainId, pools: StakeDaoV2Pool[]) {
+export async function getStakeDaoV2Apys(chainId: keyof typeof addresses, pools: StakeDaoV2Pool[]) {
   const apys: BigNumber[] = [];
   const addr = addresses[chainId];
-  if (!addr) throw new Error(`StakeDaoV2: no config for chain ${chainId}`);
 
   const hasConvex = pools.some(p => p.sdSideCar);
   const weekEpoch = Math.floor(Date.now() / 1000 / (86400 * 7));

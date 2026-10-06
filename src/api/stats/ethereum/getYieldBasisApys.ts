@@ -1,7 +1,7 @@
 import BigNumber from 'bignumber.js';
 import { type Address, parseAbi } from 'viem';
 import ERC20Abi from '../../../abis/ERC20Abi.ts';
-import { ETH_CHAIN_ID } from '../../../constants.ts';
+import { ApiChainId } from '../../../utils/chain.ts';
 import { getUnixNow } from '../../../utils/date.ts';
 import { fetchPrice } from '../../../utils/fetchPrice.ts';
 import { fetchContract } from '../../rpc/client.ts';
@@ -21,15 +21,15 @@ export async function getYieldBasisApys() {
 
   const secondsPerYear = 31536000;
   const gaugeController = '0x1Be14811A3a06F6aF4fA64310a636e1Df04c1c21';
-  const gc = fetchContract(gaugeController, abi, ETH_CHAIN_ID);
-  const yb = fetchContract('0x01791F726B4103694969820be083196cC7c045fF', abi, ETH_CHAIN_ID);
+  const gc = fetchContract(gaugeController, abi, ApiChainId.ethereum);
+  const yb = fetchContract('0x01791F726B4103694969820be083196cC7c045fF', abi, ApiChainId.ethereum);
 
   const [wSum, awSum, lastMinted, adjustedGaugeW, supplies] = await Promise.all([
     gc.read.gauge_weight_sum(),
     gc.read.adjusted_gauge_weight_sum(),
     yb.read.last_minted(),
     Promise.all(pools.map(p => gc.read.adjusted_gauge_weight([p.gauge as Address]))),
-    Promise.all(pools.map(p => fetchContract(p.gauge, ERC20Abi, ETH_CHAIN_ID).read.totalSupply())),
+    Promise.all(pools.map(p => fetchContract(p.gauge, ERC20Abi, ApiChainId.ethereum).read.totalSupply())),
   ]);
 
   const now = getUnixNow();

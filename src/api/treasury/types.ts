@@ -65,7 +65,7 @@ export type ConcLiquidityAsset = Asset & {
 export type TreasuryAsset = Asset | VaultAsset | GovAsset | NativeAsset | ValidatorAsset | ConcLiquidityAsset;
 
 export type TreasuryAssetRegistry = {
-  [chain in ApiChain]?: {
+  [chain in ApiChain]: {
     [address: string]: TreasuryAsset;
   };
 };
@@ -111,11 +111,11 @@ export type ChainTreasuryBalance = {
 };
 
 export type TreasuryBalances = {
-  [chain in ApiChain]?: ChainTreasuryBalance;
+  [chain in ApiChain]: ChainTreasuryBalance;
 };
 
 export type TreasuryReport = {
-  [chain in ApiChain]?: {
+  [chain in ApiChain]: {
     [treasuryAddress: string]: {
       name: string;
       balances: {

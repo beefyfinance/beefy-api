@@ -1,11 +1,11 @@
-import { SONIC_CHAIN_ID } from '../../../constants.ts';
+import { ApiChainId } from '../../../utils/chain.ts';
 import { getLoggerFor } from '../../../utils/logger/index.ts';
 import type { ApyBreakdownResult } from '../common/getApyBreakdownNew.ts';
 import { getBeefyCowSonicApys } from './getBeefyCowSonicApys.ts';
 import { getBeSonicApy } from './getBeSonicApy.ts';
 import { getSwapxApys } from './getSwapxApys.ts';
 
-const logger = getLoggerFor({ module: 'apy', chain: SONIC_CHAIN_ID });
+const logger = getLoggerFor({ module: 'apy', chain: ApiChainId.sonic });
 
 const getApys = [getBeefyCowSonicApys, getSwapxApys, getBeSonicApy];
 

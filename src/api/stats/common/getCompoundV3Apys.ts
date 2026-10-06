@@ -1,8 +1,8 @@
-import type { ChainId } from '@beefyfinance/blockchain-addressbook';
 import type { BigNumber } from 'bignumber.js';
 import type { Abi } from 'viem';
 import cv3Token from '../../../abis/cv3Token.ts';
 import { isBigNumberish, toBigNumber } from '../../../utils/big-number.ts';
+import type { ApiChainId } from '../../../utils/chain.ts';
 import { fetchPrice } from '../../../utils/fetchPrice.ts';
 import getBlockTime from '../../../utils/getBlockTime.ts';
 import { getLoggerFor } from '../../../utils/logger/index.ts';
@@ -129,7 +129,7 @@ export interface CompoundV3Pool {
 }
 
 export interface CompoundV3ApyParams {
-  chainId: ChainId;
+  chainId: ApiChainId;
   comptrollerAbi?: Abi;
   compOracle?: string;
   compOracleId: string;

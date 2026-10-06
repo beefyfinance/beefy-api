@@ -1,4 +1,4 @@
-import { addressBookByChainId, ChainId } from '@beefyfinance/blockchain-addressbook';
+import { addressBookByChainId } from '@beefyfinance/blockchain-addressbook';
 import { BigNumber } from 'bignumber.js';
 import type { Address } from 'viem';
 import ICurvePoolAbi from '../abis/CurvePool.ts';
@@ -6,7 +6,7 @@ import ICurvePoolV2Abi from '../abis/CurvePoolV2.ts';
 import { fetchContract } from '../api/rpc/client.ts';
 import type { PricesById } from '../types/prices.ts';
 import { bigintDecimals } from './big-int.ts';
-import { toChainId } from './chain.ts';
+import { type ApiChain, ApiChainId, toChainId } from './chain.ts';
 import { getLoggerFor } from './logger/index.ts';
 import { typedEntries } from './object.ts';
 import { isValidPrice } from './prices.ts';
@@ -24,7 +24,7 @@ const logger = getLoggerFor({ module: 'prices', component: 'curve' });
 
 type Context = {
   token: CurveToken;
-  chainId: ChainId;
+  chainId: ApiChainId;
 };
 type ReadAmountOutFn = (ctx: Context) => Promise<bigint>;
 type SourceTypeFunctions = {
@@ -74,11 +74,11 @@ function toDecimals(value: string): number {
 }
 
 const tokens = {
-  optimism: toCurveTokens(ChainId.optimism, optimismCurvePools),
-  fraxtal: toCurveTokens(ChainId.fraxtal, fraxtalCurvePools).slice().reverse(),
-  monad: toCurveTokens(ChainId.monad, monadCurvePools).slice().reverse(),
+  optimism: toCurveTokens(ApiChainId.optimism, optimismCurvePools),
+  fraxtal: toCurveTokens(ApiChainId.fraxtal, fraxtalCurvePools).slice().reverse(),
+  monad: toCurveTokens(ApiChainId.monad, monadCurvePools).slice().reverse(),
   arbitrum: [
-    ...toCurveTokens(ChainId.arbitrum, arbitrumCurvePools),
+    ...toCurveTokens(ApiChainId.arbitrum, arbitrumCurvePools),
     {
       oracleId: 'fETH',
       decimals: 18,
@@ -100,14 +100,14 @@ const tokens = {
       type: 'v2',
     },
   ],
-  polygon: toCurveTokens(ChainId.polygon, [...maticCurvePools]),
+  polygon: toCurveTokens(ApiChainId.polygon, [...maticCurvePools]),
   ethereum: [
-    ...toCurveTokens(ChainId.ethereum, [
+    ...toCurveTokens(ApiChainId.ethereum, [
       ...ethereumConvexPools.slice().reverse(),
       ...ethereumFxPools.slice().reverse(),
     ]),
   ],
-} satisfies Partial<Record<keyof typeof ChainId, CurveToken[]>>;
+} satisfies Partial<Record<ApiChain, CurveToken[]>>;
 
 type CurveToken = {
   oracleId: string;
@@ -142,7 +142,7 @@ function isGetDy(value: unknown[] | undefined): value is GetDy {
   );
 }
 
-function toCurveTokens(chainId: ChainId, pools: CurvePoolConfig[]): CurveToken[] {
+function toCurveTokens(chainId: ApiChainId, pools: CurvePoolConfig[]): CurveToken[] {
   return pools
     .filter(p => p.getDy !== undefined)
     .map(p => {
@@ -187,7 +187,7 @@ function toCurveTokens(chainId: ChainId, pools: CurvePoolConfig[]): CurveToken[]
 async function getCurveTokenPrices(
   tokenPrices: PricesById,
   chainTokens: CurveToken[],
-  chainId: ChainId
+  chainId: ApiChainId
 ): Promise<PricesById> {
   const contexts = chainTokens.map((token): Context => ({ token, chainId }));
 

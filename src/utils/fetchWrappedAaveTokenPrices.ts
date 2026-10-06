@@ -1,4 +1,3 @@
-import type { ChainId } from '@beefyfinance/blockchain-addressbook';
 import { addressBook } from '@beefyfinance/blockchain-addressbook';
 import type { Token } from '@beefyfinance/blockchain-addressbook/types/token';
 import { BigNumber } from 'bignumber.js';
@@ -9,7 +8,7 @@ import WrappedAaveTokenAbi from '../abis/WrappedAaveToken.ts';
 import { fetchContract } from '../api/rpc/client.ts';
 import type { PricesById } from '../types/prices.ts';
 import { bigintDecimals } from './big-int.ts';
-import { toChainId } from './chain.ts';
+import { type ApiChain, type ApiChainId, toChainId } from './chain.ts';
 import { getLoggerFor } from './logger/index.ts';
 import { typedEntries } from './object.ts';
 import { isValidPrice } from './prices.ts';
@@ -262,13 +261,13 @@ const tokens = {
     [loAZND, wnloAZND, 'erc4626'],
   ],
   sonic: [[S, wawS, 'erc4626']],
-} satisfies Record<string, WrappedAaveTokenGroup[]>;
+} satisfies Partial<Record<ApiChain, WrappedAaveTokenGroup[]>>;
 
 type Context = {
   wrapped: Token;
   unwrapped: Token;
   type: SourceType;
-  chainId: ChainId;
+  chainId: ApiChainId;
 };
 type ReadRateFn = (ctx: Context) => Promise<bigint>;
 type CalculatePriceFn = (rate: bigint, unwrappedPrice: number, ctx: Context) => number;
@@ -318,7 +317,7 @@ const sourceTypes = {
 
 type SourceType = keyof typeof sourceTypes;
 
-const getWrappedAavePrices = async (tokenPrices: PricesById, tokens: WrappedAaveTokenGroup[], chainId: ChainId) => {
+const getWrappedAavePrices = async (tokenPrices: PricesById, tokens: WrappedAaveTokenGroup[], chainId: ApiChainId) => {
   const contexts = tokens.map((tokenGroup): Context => {
     const [unwrapped, wrapped, type] = tokenGroup;
     return { unwrapped, wrapped, type, chainId };

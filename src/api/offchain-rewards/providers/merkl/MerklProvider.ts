@@ -1,7 +1,14 @@
 import { groupBy, pick } from 'lodash-es';
 import { type Address, getAddress, isAddressEqual } from 'viem';
 import { isDefined } from '../../../../utils/array.ts';
-import { type AppChain, fromChainNumber, toAppChain, toChainId } from '../../../../utils/chain.ts';
+import {
+  type AppChain,
+  fromChainNumber,
+  getChainConfig,
+  SupportedChains,
+  toAppChain,
+  toChainId,
+} from '../../../../utils/chain.ts';
 import { getUnixNow, isUnixBetween } from '../../../../utils/date.ts';
 import { getLoggerFor } from '../../../../utils/logger/index.ts';
 import { isFiniteNumber } from '../../../../utils/number.ts';
@@ -14,21 +21,9 @@ import type { CampaignTypeSetting, MerklApiCampaignType } from './types.ts';
 const logger = getLoggerFor({ module: 'rewards', component: 'merkl' });
 
 const providerId = 'merkl' as const;
-const supportedChains = new Set<AppChain>([
-  'ethereum',
-  'polygon',
-  'optimism',
-  'arbitrum',
-  'base',
-  'bsc',
-  'sonic',
-  'hyperevm',
-  'plasma',
-  'monad',
-  'megaeth',
-  'robinhood',
-  'arc',
-]);
+const supportedChains = new Set<AppChain>(
+  SupportedChains.filter(chain => getChainConfig(chain).integrations.merkl).map(toAppChain)
+);
 const supportedCampaignTypeToVaultType: Map<MerklApiCampaignType, Set<Vault['type']>> = new Map([
   ['ERC20', new Set<Vault['type']>(['standard'])],
   ['CLAMM', new Set<Vault['type']>(['cowcentrated', 'cowcentrated-pool'])],
@@ -50,10 +45,6 @@ const campaignCreatorToType: Record<Address, CampaignTypeSetting> = {
   '0x55A0f096EA315C93809D9a1D5E3667f6dae3fB15': {
     base: 'zap-v3',
     default: 'external', // we do not own this address on other chains
-  },
-  '0x2cf13cEd9960Fd3a081108f283b7725Fe8d48C9e': {
-    mode: 'mode-grant',
-    default: 'external',
   },
 };
 const MAX_CAMPAIGN_AGE = 60 * 60 * 24 * 30; // 30 days in seconds, used to filter out campaigns that ended a long time ago
@@ -241,6 +232,20 @@ export class MerklProvider implements IOffchainRewardProvider {
       return undefined;
     }
 
+    const computeChain = fromChainNumber(apiCampaign.computeChainId);
+    const claimChain = fromChainNumber(apiCampaign.distributionChainId);
+    if (!computeChain || !claimChain) {
+      logger.warn(
+        {
+          campaignId: apiCampaign.campaignId,
+          computeChainId: apiCampaign.computeChainId,
+          distributionChainId: apiCampaign.distributionChainId,
+        },
+        'skipping campaign on unsupported chain'
+      );
+      return undefined;
+    }
+
     const vaultsWithApr = this.getVaultsWithAprFromCampaign(
       vaultsSupportingCampaignType,
       apiOpportunity,
@@ -248,16 +253,13 @@ export class MerklProvider implements IOffchainRewardProvider {
       aprShare
     );
 
-    const computeChain = fromChainNumber(apiCampaign.computeChainId);
-    const claimChain = fromChainNumber(apiCampaign.distributionChainId);
-
     return {
       id: `merkl:${apiCampaign.campaignId}`,
       providerId,
       campaignId: apiCampaign.campaignId,
       campaignStatus: pick(apiCampaign.campaignStatus, ['computedUntil', 'processingStarted', 'status']),
       opportunityId: apiOpportunity.id,
-      chainId: toAppChain(computeChain ?? claimChain ?? chainId),
+      chainId: toAppChain(computeChain),
       startTimestamp: apiCampaign.startTimestamp,
       endTimestamp: apiCampaign.endTimestamp,
       active: isUnixBetween(apiCampaign.startTimestamp, apiCampaign.endTimestamp),
@@ -265,7 +267,7 @@ export class MerklProvider implements IOffchainRewardProvider {
         address: getAddress(apiCampaign.rewardToken.address),
         symbol: apiCampaign.rewardToken.symbol,
         decimals: apiCampaign.rewardToken.decimals,
-        chainId: toAppChain(claimChain ?? chainId),
+        chainId: toAppChain(claimChain),
         type: 'erc20',
       },
       vaults: vaultsWithApr,

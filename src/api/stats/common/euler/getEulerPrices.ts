@@ -1,9 +1,9 @@
-import type { ChainId } from '@beefyfinance/blockchain-addressbook';
 import { BigNumber } from 'bignumber.js';
 import { parseAbi } from 'viem';
 import ERC20Abi from '../../../../abis/ERC20Abi.ts';
 import type { PricesById, StandardLpBreakdown } from '../../../../types/prices.ts';
 import { BIGINT_UNIT_18 } from '../../../../utils/big-int.ts';
+import type { ApiChainId } from '../../../../utils/chain.ts';
 import { getLoggerFor } from '../../../../utils/logger/index.ts';
 import { withTracing } from '../../../../utils/tracing.ts';
 import { fetchContract } from '../../../rpc/client.ts';
@@ -19,7 +19,7 @@ export type EulerPricePool = EulerPool & {
 };
 
 export const getEulerPrices = withTracing(
-  async (chainId: ChainId, pools: EulerPricePool[], tokenPrices: PricesById) => {
+  async (chainId: ApiChainId, pools: EulerPricePool[], tokenPrices: PricesById) => {
     const ppsCalls = pools.map(pool =>
       fetchContract(pool.address, abi, chainId).read.convertToAssets([BIGINT_UNIT_18])
     );
@@ -42,5 +42,5 @@ export const getEulerPrices = withTracing(
     }
     return prices;
   },
-  { logger, fieldsFn: (chainId: ChainId) => ({ chain: chainId }) }
+  { logger, fieldsFn: (chainId: ApiChainId) => ({ chain: chainId }) }
 );

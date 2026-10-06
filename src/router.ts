@@ -2,7 +2,8 @@ import Router from 'koa-router';
 import { getArticles, getLatestArticle } from './api/articles/index.ts';
 import { handleAxelarEstimateGasFee } from './api/beefy-bridge/axelar.ts';
 import { boosts, boostsV2, chainBoosts, chainBoostsV2 } from './api/boosts/index.ts';
-import { getChainConfig, getConfigs } from './api/config/index.ts';
+import { allChains, singleChain } from './api/chains/routes.ts';
+import { getChainConfigHandler, getConfigs } from './api/config/index.ts';
 import { handleCowcentratedLTIPPCampaignsForDune, handleCowcentratedPriceRanges } from './api/cowcentrated/index.ts';
 import { getCountry } from './api/geo/index.ts';
 import noop from './api/noop.ts';
@@ -14,6 +15,7 @@ import {
 } from './api/offchain-rewards/index.ts';
 import { pointStructures } from './api/points/index.ts';
 import * as price from './api/price/index.ts';
+import * as raw from './api/raw/index.ts';
 import * as snapshot from './api/snapshot/index.ts';
 import * as stats from './api/stats/index.ts';
 import * as supply from './api/supply/index.ts';
@@ -94,6 +96,11 @@ router.get('/boosts/v2', boostsV2);
 router.get('/boosts/:chainId', chainBoosts);
 router.get('/boosts', boosts);
 
+router.get('/raw/vaults/:chainId', raw.chainRawVaults);
+router.get('/raw/vaults', raw.rawVaults);
+router.get('/raw/boosts/:chainId', raw.chainRawBoosts);
+router.get('/raw/boosts', raw.rawBoosts);
+
 router.get('/tokens', getTokens);
 router.get('/tokens/native', getNativesFromAllChains);
 router.get('/tokens/:chainId', getChainTokens);
@@ -101,7 +108,7 @@ router.get('/tokens/:chainId/native', getChainNatives);
 router.get('/tokens/:chainId/:tokenId', getChainToken);
 
 router.get('/config', getConfigs);
-router.get('/config/:chainId', getChainConfig);
+router.get('/config/:chainId', getChainConfigHandler);
 
 router.get('/treasury', getTreasury);
 
@@ -125,6 +132,8 @@ router.get('/points-structures', pointStructures);
 router.get('/geo/country', getCountry);
 
 router.get('/beefy-bridge/axelar/:sourceChainId/:destChainId', handleAxelarEstimateGasFee);
+router.get('/chains/:chainId', singleChain);
+router.get('/chains', allChains);
 
 router.get('/', noop);
 

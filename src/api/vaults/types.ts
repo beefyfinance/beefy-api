@@ -4,7 +4,7 @@ import type { ApiChain, AppChain } from '../../utils/chain.ts';
 
 /** Added to all vault configs by API */
 type ApiCommonVault = {
-  /** Same as {network} except for harmony->one */
+  /** {network} mapped to its ApiChain */
   chain: ApiChain;
   /** @deprecated use type === 'gov' */
   isGovVault?: boolean;
