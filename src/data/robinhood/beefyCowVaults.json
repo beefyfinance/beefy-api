@@ -1,5 +1,29 @@
 [
   {
+    "address": "0x274BAf3728092896DD9CBC6587AAE99457FEDa59",
+    "lpAddress": "0x75Ee717303F5212CC1bE3C52ea21f7128954902e",
+    "tokens": ["0x5fc5360D0400a0Fd4f2af552ADD042D716F1d168", "0xAa07A0e9209e16aC99708C3EC70159c6eF3128A3"],
+    "tokenOracleIds": ["USDG", "ORBIO"],
+    "decimals": [6, 18],
+    "oracleId": "uniswap-cow-robinhood-usdg-orbio",
+    "rewardPool": {
+      "address": "0x53c42366Aece357aE947cE675EbF7528d4DCE603",
+      "oracleId": "uniswap-cow-robinhood-usdg-orbio-rp"
+    }
+  },
+  {
+    "address": "0x713523c2B3842aDC8A99c456868f5FC4670F9893",
+    "lpAddress": "0x34f73F488309208b8Cb6012EB47FfEb086ca1c2D",
+    "tokens": ["0x0Bd7D308f8E1639FAb988df18A8011f41EAcAD73", "0xAa07A0e9209e16aC99708C3EC70159c6eF3128A3"],
+    "tokenOracleIds": ["WETH", "ORBIO"],
+    "decimals": [18, 18],
+    "oracleId": "uniswap-cow-robinhood-weth-orbio",
+    "rewardPool": {
+      "address": "0x7fc80bBaE94E72d941aEA99647B4cD55Fb103907",
+      "oracleId": "uniswap-cow-robinhood-weth-orbio-rp"
+    }
+  },
+  {
     "address": "0xA06faD8b3A6B97a0931e884777a9827690aacD0b",
     "lpAddress": "0xA9Caebb1b2fB2b954F192572b309aEf1cAf6a330",
     "tokens": ["0x116F00968269B7bfbaD4109cE591d6E74c0601d4", "0x5fc5360D0400a0Fd4f2af552ADD042D716F1d168"],

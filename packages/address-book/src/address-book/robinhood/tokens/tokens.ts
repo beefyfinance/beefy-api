@@ -1019,4 +1019,18 @@ export const tokens = {
     bridge: 'native',
     tags: ['STOCK'],
   },
+  ORBIO: {
+    name: 'Orbio.so',
+    symbol: 'ORBIO',
+    oracleId: 'ORBIO',
+    address: '0xAa07A0e9209e16aC99708C3EC70159c6eF3128A3',
+    chainId: 4663,
+    decimals: 18,
+    website: 'https://www.orbio.so/',
+    description:
+      'Orbio is a marketplace for inference credits that unites sellers with unused credits and buyers looking for discounts. Holders of the ORBIO token earn inference credits from trading-fee proceeds.',
+    documentation: 'https://www.orbio.so/protocol',
+    bridge: 'native',
+    tags: ['NO_AUDIT', 'NO_TIMELOCK', 'MEMECOIN'],
+  },
 } as const satisfies Record<string, Token>;
