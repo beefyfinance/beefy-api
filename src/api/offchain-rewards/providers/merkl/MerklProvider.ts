@@ -3,9 +3,9 @@ import { type Address, getAddress, isAddressEqual } from 'viem';
 import { isDefined } from '../../../../utils/array.ts';
 import {
   type AppChain,
+  ApyChains,
   fromChainNumber,
   getChainConfig,
-  SupportedChains,
   toAppChain,
   toChainId,
 } from '../../../../utils/chain.ts';
@@ -22,7 +22,7 @@ const logger = getLoggerFor({ module: 'rewards', component: 'merkl' });
 
 const providerId = 'merkl' as const;
 const supportedChains = new Set<AppChain>(
-  SupportedChains.filter(chain => getChainConfig(chain).integrations.merkl).map(toAppChain)
+  ApyChains.filter(chain => getChainConfig(chain).integrations.merkl).map(toAppChain)
 );
 const supportedCampaignTypeToVaultType: Map<MerklApiCampaignType, Set<Vault['type']>> = new Map([
   ['ERC20', new Set<Vault['type']>(['standard'])],
