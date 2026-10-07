@@ -50,7 +50,9 @@ type AaveV4GraphqlResponse = {
 
 type MerklOpportunity = {
   identifier?: string;
-  apr?: number;
+  apr: number;
+  dailyRewards: number;
+  tvl: number;
 };
 
 type MerklAprData = {
@@ -151,7 +153,8 @@ const fetchAaveMerklAprs = async (chainId: ApiChainId): Promise<Record<string, n
     return opportunities.reduce(
       (acc, opportunity) => {
         if (typeof opportunity.identifier === 'string') {
-          acc[opportunity.identifier] = opportunity.apr || 0;
+          const derived = opportunity.tvl > 0 ? (opportunity.dailyRewards * 365 * 100) / opportunity.tvl : 0;
+          acc[opportunity.identifier] = Math.min(opportunity.apr, derived);
         }
         return acc;
       },
