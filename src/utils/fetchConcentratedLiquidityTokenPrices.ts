@@ -1857,6 +1857,14 @@ const tokens = {
     },
     {
       type: 'UniV3',
+      pool: '0xEEE6C8b83bE11E53388227F161ba9C0962e785Df',
+      oracleId: 'MarsCoin',
+      decimalDelta: 1,
+      firstToken: 'MarsCoin',
+      secondToken: 'USDT',
+    },
+    {
+      type: 'UniV3',
       oracleId: 'ZEST',
       decimalDelta: 1,
       pool: '0x6d299F4bAD5392af1e55e3E86A0339399543032b',

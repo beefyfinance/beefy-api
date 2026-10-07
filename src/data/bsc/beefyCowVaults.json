@@ -1,5 +1,17 @@
 [
   {
+    "address": "0x7A45574aFFa7fb74E4C9Bb5b1193bc5d5c735f9B",
+    "lpAddress": "0xEEE6C8b83bE11E53388227F161ba9C0962e785Df",
+    "tokens": ["0x55d398326f99059fF775485246999027B3197955", "0xFe189E97832DA1573e4e4Ff034F4fFC3a15c7777"],
+    "tokenOracleIds": ["USDT", "MarsCoin"],
+    "decimals": [18, 18],
+    "oracleId": "uniswap-cow-bsc-usdt-marscoin",
+    "rewardPool": {
+      "address": "0x916d954389d4415cF03961508350E88Da075d63D",
+      "oracleId": "uniswap-cow-bsc-usdt-marscoin-rp"
+    }
+  },
+  {
     "address": "0xB0ddc9924f778de638abf22F4f10F22889bAb8BB",
     "lpAddress": "0x8FB4243b553aC29BA088aCf00B9B7dA24bD6690C",
     "tokens": ["0x02Fca66C1D1aFB4E2A7884261eB00F63598a7436", "0x55d398326f99059fF775485246999027B3197955"],

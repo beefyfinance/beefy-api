@@ -4742,6 +4742,19 @@ export const tokens = {
     bridge: 'native',
     tags: ['LARGE_HOLDERS'],
   },
+  MarsCoin: {
+    name: 'MarsCoin',
+    symbol: 'MarsCoin',
+    oracleId: 'MarsCoin',
+    address: '0xFe189E97832DA1573e4e4Ff034F4fFC3a15c7777',
+    chainId: 56,
+    decimals: 18,
+    website: 'https://www.marscoinbnb.com/',
+    description:
+      'MARSCOIN is a token launched on the BNB Chain that introduces a unique concept by pairing a crypto asset directly with a stock.',
+    bridge: 'native',
+    tags: ['MEMECOIN'],
+  },
   FXIon: {
     name: 'iShares China Large-Cap ETF',
     symbol: 'FXIon',
