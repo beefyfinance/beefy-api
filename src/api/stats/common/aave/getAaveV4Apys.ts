@@ -1,6 +1,7 @@
 import { BigNumber } from 'bignumber.js';
 import type { ApiChainId } from '../../../../utils/chain.ts';
 import { getLoggerFor } from '../../../../utils/logger/index.ts';
+import { getMerklOpportunitiesByProtocol } from '../../../offchain-rewards/providers/merkl/proxyClient.ts';
 import { getApyBreakdown } from '../getApyBreakdownNew.ts';
 
 const logger = getLoggerFor({ module: 'apy', component: 'aave-v4' });
@@ -46,13 +47,6 @@ type AaveV4GraphqlResponse = {
     reserves?: AaveV4Reserve[];
   };
   errors?: unknown;
-};
-
-type MerklOpportunity = {
-  identifier?: string;
-  apr: number;
-  dailyRewards: number;
-  tvl: number;
 };
 
 type MerklAprData = {
@@ -149,30 +143,15 @@ const getAaveV4MerklAprData = async (chainId: ApiChainId, pools: AaveV4Pool[]): 
 
 const fetchAaveMerklAprs = async (chainId: ApiChainId): Promise<Record<string, number>> => {
   try {
-    const opportunities = await fetchAaveMerklOpportunities(chainId);
-    return opportunities.reduce(
-      (acc, opportunity) => {
-        if (typeof opportunity.identifier === 'string') {
-          const derived = opportunity.tvl > 0 ? (opportunity.dailyRewards * 365 * 100) / opportunity.tvl : 0;
-          acc[opportunity.identifier] = Math.min(opportunity.apr, derived);
-        }
-        return acc;
-      },
-      {} as Record<string, number>
-    );
+    const opportunities = await getMerklOpportunitiesByProtocol(chainId, 'aave');
+    return opportunities.reduce<Record<string, number>>((acc, opportunity) => {
+      // AAVE_NET_LENDING/AAVE_V4_HUB_NET_LENDING are returning over-inflated `apr`; for other types `derived` matches `apr`
+      const derived = opportunity.tvl > 0 ? (opportunity.dailyRewards * 365 * 100) / opportunity.tvl : 0;
+      acc[opportunity.identifier] = Math.min(opportunity.apr, derived);
+      return acc;
+    }, {});
   } catch (e) {
     logger.warn({ err: e, chain: chainId }, 'merkl apr fetch failed');
     return {};
   }
-};
-
-const fetchAaveMerklOpportunities = async (chainId: ApiChainId): Promise<MerklOpportunity[]> => {
-  const url = `https://api.merkl.xyz/v4/opportunities?chainId=${chainId}&mainProtocolId=aave`;
-  const data = await fetch(url).then(res => res.json());
-
-  if (!Array.isArray(data)) {
-    return [];
-  }
-
-  return data;
 };

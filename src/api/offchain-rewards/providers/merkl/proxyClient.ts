@@ -45,6 +45,7 @@ export async function getMerklAprByExplorerAddress(
   if (explorerAddresses.length === 0) return result;
   const opps = await merklProxyGet<MerklProxyOpportunity[]>(`/v1/opportunities/${chainId}`, {
     explorerAddress: explorerAddresses.join(','),
+    status: 'LIVE',
   });
   const byAddress = new Map<string, MerklProxyOpportunity[]>();
   for (const o of opps) {
@@ -76,6 +77,7 @@ export async function getMerklAprByIdentifier(
   if (identifiers.length === 0) return result;
   const opps = await merklProxyGet<MerklProxyOpportunity[]>(`/v1/opportunities/${chainId}`, {
     identifier: identifiers.join(','),
+    status: 'LIVE',
   });
   const byIdentifier = new Map<string, MerklProxyOpportunity>();
   for (const o of opps) {
@@ -89,12 +91,12 @@ export async function getMerklAprByIdentifier(
   return result;
 }
 
-/** Opportunities for a mainProtocolId (e.g. 'aave') on a single chain (no campaigns). */
+/** Live opportunities for a mainProtocolId (e.g. 'aave') on a single chain (no campaigns). */
 export function getMerklOpportunitiesByProtocol(
   chainId: ApiChainId,
   mainProtocolId: string
 ): Promise<MerklProxyOpportunity[]> {
-  return merklProxyGet(`/v1/opportunities/${chainId}`, { mainProtocolId });
+  return merklProxyGet(`/v1/opportunities/${chainId}`, { mainProtocolId, status: 'LIVE' });
 }
 
 /** Opportunities + their campaigns for a chain, optionally filtered to the given opportunity types. */
