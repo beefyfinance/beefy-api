@@ -224,7 +224,7 @@ export const chainConfigs = makeChainConfigs({
       'https://43114.rpc.thirdweb.com',
       'https://spectrum-01.simplystaking.xyz/avalanche-mn-rpc/ext/bc/C/rpc',
     ],
-    explorer: { name: 'SnowTrace', url: 'https://snowtrace.io' },
+    explorer: { name: 'SnowScan', url: 'https://snowscan.xyz' },
     contracts: {
       multicall3: { address: '0xcA11bde05977b3631167028862bE2a173976CA11', blockCreated: 11_907_934 },
       beefyPriceMulticall: '0x294d57F60f71036d9C96b008E32744D0909FABbA',
@@ -272,7 +272,7 @@ export const chainConfigs = makeChainConfigs({
       'https://metis-andromeda.rpc.thirdweb.com',
       'https://metis-pokt.nodies.app',
     ],
-    explorer: { name: 'Metis Explorer', url: 'https://explorer.metis.io' },
+    explorer: { name: 'Metis Explorer', url: 'https://andromeda-explorer.metis.io' },
     contracts: {
       multicall3: { address: '0xcA11bde05977b3631167028862bE2a173976CA11', blockCreated: 2_338_552 },
       beefyPriceMulticall: '0xfcDD5a02C611ba6Fe2802f885281500EC95805d7',
@@ -413,7 +413,7 @@ export const chainConfigs = makeChainConfigs({
       'https://linea.drpc.org',
       'https://59144.rpc.thirdweb.com',
     ],
-    explorer: { name: 'Linea Explorer', url: 'https://explorer.linea.build/' },
+    explorer: { name: 'Linea Explorer', url: 'https://lineascan.build/' },
     contracts: {
       multicall3: { address: '0xcA11bde05977b3631167028862bE2a173976CA11' },
       beefyPriceMulticall: '0xe103ab2f922aa1a56EC058AbfDA2CeEa1e95bCd7',
@@ -430,7 +430,7 @@ export const chainConfigs = makeChainConfigs({
       'https://rpc-mantle.blockmachine.io',
       'https://5000.rpc.thirdweb.com',
     ],
-    explorer: { name: 'Mantle Explorer', url: 'https://mantlescan.info/' },
+    explorer: { name: 'Mantle Explorer', url: 'https://mantlescan.xyz/' },
     contracts: {
       multicall3: { address: '0xcA11bde05977b3631167028862bE2a173976CA11' },
       beefyPriceMulticall: '0xee59DE6E749cc6cF6ebD30878D8B4222C4aea37C',
@@ -465,7 +465,7 @@ export const chainConfigs = makeChainConfigs({
     status: 'eol',
     name: 'Sei',
     rpcs: ['https://evm-rpc.sei-apis.com', 'https://sei-evm-rpc.stakeme.pro', 'https://1329.rpc.thirdweb.com'],
-    explorer: { name: 'Sei Explorer', url: 'https://seitrace.com/' },
+    explorer: { name: 'Sei Explorer', url: 'https://seiscan.io/' },
     contracts: {
       multicall3: { address: '0xcA11bde05977b3631167028862bE2a173976CA11' },
       beefyPriceMulticall: '0xD535BDbc82cc04Ccc360E9f948cD8F9f76084088',
@@ -519,7 +519,7 @@ export const chainConfigs = makeChainConfigs({
       'https://80094.rpc.thirdweb.com',
       'https://bera.api.pocket.network',
     ],
-    explorer: { name: 'Berachain Explorer', url: 'https://berachainscan.com/' },
+    explorer: { name: 'Berachain Explorer', url: 'https://berascan.com/' },
     contracts: {
       multicall3: { address: '0xcA11bde05977b3631167028862bE2a173976CA11' },
     },
@@ -539,7 +539,7 @@ export const chainConfigs = makeChainConfigs({
       'https://rpc.hypurrscan.io',
       'https://999.rpc.thirdweb.com',
     ],
-    explorer: { name: 'Hyperevm Explorer', url: 'https://www.hyperscan.com/' },
+    explorer: { name: 'Hyperevm Explorer', url: 'https://hyperevmscan.io/' },
     contracts: {
       multicall3: { address: '0xcA11bde05977b3631167028862bE2a173976CA11' },
       beefyPriceMulticall: '0x99D7d8b7d4873F277CEDc7e1F4eDE57f4747e003',
@@ -603,7 +603,7 @@ export const chainConfigs = makeChainConfigs({
       'https://robinhood-rpc.publicnode.com',
       'https://rpc-robinhood.blockmachine.io',
     ],
-    explorer: { name: 'robinhood explorer', url: 'https://robinhoodchain.blockscout.com/' },
+    explorer: { name: 'robinhood explorer', url: 'https://robin.etherscan.io/' },
     contracts: {
       multicall3: { address: '0xcA11bde05977b3631167028862bE2a173976CA11' },
       beefyPriceMulticall: '0x43Cf4f684Ec0bcB5f09Bbf1851E693FF0b24cDd6',
