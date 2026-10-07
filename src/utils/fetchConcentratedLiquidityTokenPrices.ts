@@ -2634,6 +2634,14 @@ const tokens = {
       firstToken: 'SHOPrh',
       secondToken: 'WETH',
     },
+    {
+      type: 'UniV3',
+      oracleId: 'ORBIO',
+      decimalDelta: 1,
+      pool: '0x34f73F488309208b8Cb6012EB47FfEb086ca1c2D',
+      firstToken: 'ORBIO',
+      secondToken: 'WETH',
+    },
   ],
   arc: [
     {
