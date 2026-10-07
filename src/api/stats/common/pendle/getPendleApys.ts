@@ -19,7 +19,6 @@ const eqbAfterFees = 1 - 0.225;
 const penpieProxy = {
   [ApiChainId.plasma]: '0xfFf28A2845aEB11394ed63dDFC62161af6310701',
   [ApiChainId.ethereum]: '0x6E799758CEE75DAe3d84e09D40dc416eCf713652',
-  [ApiChainId.sonic]: '0xF9619e8B01Acc23FAc7Ee0AEb1258433b85814ec',
   [ApiChainId.arbitrum]: '0x6DB96BBEB081d2a85E0954C252f2c1dC108b3f81',
   [ApiChainId.bsc]: '0x782D9D67FeaA4d1CDF8222D9053c8CBA1c3B7982',
   [ApiChainId.base]: '0x7A89614B596720D4D0f51A69D6C1d55dB97E9aAB',
@@ -27,7 +26,6 @@ const penpieProxy = {
 const eqbPendleProxy = {
   [ApiChainId.plasma]: '0xfE80D611c6403f70e5B1b9B722D2B3510B740B2B',
   [ApiChainId.ethereum]: '0x64627901dAdb46eD7f275fD4FC87d086cfF1e6E3',
-  [ApiChainId.sonic]: '0x479603DE0a8B6D2f4D4eaA1058Eea0d7Ac9E218d',
   [ApiChainId.arbitrum]: '0x64627901dAdb46eD7f275fD4FC87d086cfF1e6E3',
   [ApiChainId.bsc]: '0x64627901dAdb46eD7f275fD4FC87d086cfF1e6E3',
   [ApiChainId.base]: '0x920873E5b302A619C54c908aDFB77a1C4256A3B8',

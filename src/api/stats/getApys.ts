@@ -20,7 +20,6 @@ import { getMonadApys } from './monad/index.ts';
 import { getOptimismApys } from './optimism/index.ts';
 import { getPlasmaApys } from './plasma/index.ts';
 import { getRobinhoodApys } from './robinhood/index.ts';
-import { getSonicApys } from './sonic/index.ts';
 
 const logger = getLoggerFor({ module: 'apy' });
 
@@ -39,7 +38,6 @@ const chainApyFetchers: Record<ApyChain, () => Promise<ChainApys>> = {
   ethereum: getEthereumApys,
   base: getBaseApys,
   fraxtal: getFraxtalApys,
-  sonic: getSonicApys,
   hyperevm: getHyperevmApys,
   plasma: getPlasmaApys,
   monad: getMonadApys,

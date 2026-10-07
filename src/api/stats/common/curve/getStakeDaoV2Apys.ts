@@ -54,11 +54,6 @@ const addresses = {
     locker: '0x52f541764E6e90eeBc5c21Ff570De0e2D63766B6',
     convexBooster: '0xd3327cb05a8E0095A543D582b5B3Ce3e19270389',
   },
-  [ApiChainId.sonic]: {
-    ...convex,
-    accountant: '0x8f872cE018898ae7f218E5a3cE6Fe267206697F8',
-    locker: '0x52f541764E6e90eeBc5c21Ff570De0e2D63766B6',
-  },
 } satisfies Partial<Record<ApiChainId, StakeDaoV2Addresses>>;
 
 export async function getStakeDaoV2Apys(chainId: keyof typeof addresses, pools: StakeDaoV2Pool[]) {

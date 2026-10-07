@@ -25,7 +25,6 @@ type BalancerPoolsAprResponse = {
 };
 
 const balancerChainNames = {
-  [ApiChainId.sonic]: 'SONIC',
   [ApiChainId.optimism]: 'OPTIMISM',
   [ApiChainId.ethereum]: 'MAINNET',
   [ApiChainId.arbitrum]: 'ARBITRUM',
@@ -33,7 +32,6 @@ const balancerChainNames = {
   [ApiChainId.avax]: 'AVALANCHE',
   [ApiChainId.fraxtal]: 'FRAXTAL',
   [ApiChainId.polygon]: 'POLYGON',
-  [ApiChainId.gnosis]: 'GNOSIS',
   [ApiChainId.monad]: 'MONAD',
 } as const satisfies Partial<Record<ApiChainId, string>>;
 

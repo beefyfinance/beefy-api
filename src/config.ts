@@ -489,7 +489,7 @@ export const chainConfigs = makeChainConfigs({
     },
   },
   sonic: {
-    status: 'active',
+    status: 'eol',
     name: 'Sonic',
     rpcs: [
       'https://rpc.soniclabs.com',
