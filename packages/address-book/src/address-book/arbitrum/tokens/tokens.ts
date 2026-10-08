@@ -2359,7 +2359,7 @@ export const tokens = {
     oracleId: 'arbUSDG',
     address: '0x004B506865409877C9fA29bfb1ebA929984B9bbC',
     chainId: 42161,
-    decimals: 18,
+    decimals: 6,
     website: 'https://globaldollar.com/',
     description:
       'Global Dollar (USDG) is a single-currency stablecoin pegged to the US dollar, issued by Paxos. Built for payments, settlements and treasury, USDG can be used as an interoperable building block for open-source smart contracts.',
