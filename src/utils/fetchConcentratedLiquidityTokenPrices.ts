@@ -1871,6 +1871,14 @@ const tokens = {
       firstToken: 'USDT',
       secondToken: 'ZEST',
     },
+    {
+      type: 'UniV3',
+      oracleId: 'bnbXAUt',
+      decimalDelta: 1e-12,
+      pool: '0x83A0A8A723262651Ae9C54BBbA929F167443bC59',
+      firstToken: 'USDT',
+      secondToken: 'bnbXAUt',
+    },
   ],
   gnosis: [
     {

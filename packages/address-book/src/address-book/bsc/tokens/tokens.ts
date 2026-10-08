@@ -4797,4 +4797,16 @@ export const tokens = {
     bridge: 'native',
     tags: ['STOCK'],
   },
+  bnbXAUt: {
+    name: 'Tether Gold',
+    symbol: 'XAUt',
+    oracleId: 'bnbXAUt',
+    address: '0x21cAef8A43163Eea865baeE23b9C2E327696A3bf',
+    chainId: 56,
+    decimals: 6,
+    website: 'https://gold.tether.to/',
+    description:
+      'Tether Gold tokens (XAUt) represents ownership of one troy ounce of physical gold held in a Swiss vault, combining the stability of precious metals with the utility of digital assets. It has become a trusted store of value for individuals and institutions seeking the security of gold without the burdens of physical custody. However, as the blockchain ecosystem expands, the movement of XAUT across chains remains disjointed and dependent on inconsistent bridging solutions, fragmented liquidity, and opaque backend processes that limit usability and access.',
+    bridge: 'native',
+  },
 } as const satisfies Record<string, Token>;
