@@ -4783,6 +4783,20 @@ export const tokens = {
     bridge: 'native',
     tags: ['STOCK'],
   },
+  AAPLB: {
+    name: 'Apple',
+    symbol: 'AAPLB',
+    oracleId: 'AAPLB',
+    address: '0x431a3BEE82E2ca41e49895CbECE5bB0F76A89b7A',
+    chainId: 56,
+    decimals: 18,
+    website: 'https://www.bstocks.finance/',
+    description:
+      'Apple issued by bStocks. bStocks are tokenized securities that give you economic exposure to popular US-listed companies with the right to convert to the underlying security on the Binance.com platform subject to applicable laws.',
+    documentation: 'https://www.bstocks.finance/faq',
+    bridge: 'native',
+    tags: ['STOCK'],
+  },
   BNCB: {
     name: 'CEA Industries',
     symbol: 'BNCB',
