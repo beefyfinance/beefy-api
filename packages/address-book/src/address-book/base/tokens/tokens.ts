@@ -3904,7 +3904,7 @@ export const tokens = {
   },
   RBLXc: {
     name: 'Roblox Corporation',
-    symbol: 'RBLXc',
+    symbol: 'RBLX',
     oracleId: 'RBLXc',
     address: '0xB2000000000000000000005bd7AE89b9E6189Bb5',
     chainId: 8453,
@@ -3918,7 +3918,7 @@ export const tokens = {
   },
   PYPLc: {
     name: 'PayPal Holdings, Inc.',
-    symbol: 'PYPLc',
+    symbol: 'PYPL',
     oracleId: 'PYPLc',
     address: '0xb200000000000000000000450ad3abE5d4846c6E',
     chainId: 8453,
