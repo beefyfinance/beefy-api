@@ -1349,6 +1349,22 @@ const tokens = {
       firstToken: 'cbHYPE',
       secondToken: 'USDC',
     },
+    {
+      type: 'Slipstream',
+      oracleId: 'RBLXc',
+      decimalDelta: 1e-2,
+      pool: '0x54dC3FdAeD298cA9a945771aE994f558a8f61e83',
+      firstToken: 'RBLXc',
+      secondToken: 'USDC',
+    },
+    {
+      type: 'Slipstream',
+      oracleId: 'PYPLc',
+      decimalDelta: 1e-2,
+      pool: '0x0A63679f5F15AEE25EAeE62Ca299D6802Ff163C0',
+      firstToken: 'PYPLc',
+      secondToken: 'USDC',
+    },
   ],
   zksync: [
     {

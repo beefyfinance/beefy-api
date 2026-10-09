@@ -3902,4 +3902,32 @@ export const tokens = {
     documentation: 'https://docs.forevermoney.ai/',
     bridge: 'chainlink-ccip',
   },
+  RBLXc: {
+    name: 'Roblox Corporation',
+    symbol: 'RBLXc',
+    oracleId: 'RBLXc',
+    address: '0xB2000000000000000000005bd7AE89b9E6189Bb5',
+    chainId: 8453,
+    decimals: 8,
+    website: 'https://www.coinbase.com/en-gb/tokenize',
+    description:
+      "Roblox Corporation Coinbase Token is a tokenized debt security issued by Coinbase Onchain SPV Ltd that provides beneficial ownership of custodied Roblox Corporation shares to KYC'd holders.",
+    documentation: 'https://docs.base.org/',
+    bridge: 'native',
+    tags: ['STOCK'],
+  },
+  PYPLc: {
+    name: 'PayPal Holdings, Inc.',
+    symbol: 'PYPLc',
+    oracleId: 'PYPLc',
+    address: '0xb200000000000000000000450ad3abE5d4846c6E',
+    chainId: 8453,
+    decimals: 8,
+    website: 'https://www.coinbase.com/en-gb/tokenize',
+    description:
+      "PayPal Holdings, Inc. Coinbase Token is a tokenized debt security issued by Coinbase Onchain SPV Ltd that provides beneficial ownership of custodied PayPal Holdings, Inc. shares to KYC'd holders.",
+    documentation: 'https://docs.base.org/',
+    bridge: 'native',
+    tags: ['STOCK'],
+  },
 } as const satisfies Record<string, Token>;
