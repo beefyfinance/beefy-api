@@ -1881,6 +1881,14 @@ const tokens = {
     },
     {
       type: 'UniV3',
+      pool: '0xe9b9998B2EC5430D2246c7f1F8D9f298c97D7365',
+      oracleId: 'AAPLB',
+      decimalDelta: 1,
+      firstToken: 'USDT',
+      secondToken: 'AAPLB',
+    },
+    {
+      type: 'UniV3',
       oracleId: 'ZEST',
       decimalDelta: 1,
       pool: '0x6d299F4bAD5392af1e55e3E86A0339399543032b',
