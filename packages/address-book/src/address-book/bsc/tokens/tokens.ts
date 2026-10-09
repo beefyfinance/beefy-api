@@ -4797,10 +4797,10 @@ export const tokens = {
     bridge: 'native',
     tags: ['STOCK'],
   },
-  bnbXAUt: {
+  XAUt: {
     name: 'Tether Gold',
     symbol: 'XAUt',
-    oracleId: 'bnbXAUt',
+    oracleId: 'XAUt',
     address: '0x21cAef8A43163Eea865baeE23b9C2E327696A3bf',
     chainId: 56,
     decimals: 6,
