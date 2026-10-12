@@ -4797,6 +4797,20 @@ export const tokens = {
     bridge: 'native',
     tags: ['STOCK'],
   },
+  QQQB: {
+    name: 'Invesqo QQQ',
+    symbol: 'QQQB',
+    oracleId: 'QQQB',
+    address: '0x205812CdBed920aFf76C6580abD681a46D11efc7',
+    chainId: 56,
+    decimals: 18,
+    website: 'https://www.bstocks.finance/',
+    description:
+      'Invesqo QQQ issued by bStocks. bStocks are tokenized securities that give you economic exposure to popular US-listed companies with the right to convert to the underlying security on the Binance.com platform subject to applicable laws.',
+    documentation: 'https://www.bstocks.finance/faq',
+    bridge: 'native',
+    tags: ['STOCK'],
+  },
   BNCB: {
     name: 'CEA Industries',
     symbol: 'BNCB',
