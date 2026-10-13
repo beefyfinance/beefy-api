@@ -47,4 +47,31 @@ export const tokens = {
     bridge: 'native',
     tags: ['STABLECOIN'],
   },
+  COOL: {
+    name: 'usdc is cool',
+    symbol: 'COOL',
+    oracleId: 'COOL',
+    address: '0xEb64987643db71c76b2a2BE7E723DECC995E5b37',
+    chainId: 5042,
+    decimals: 18,
+    website: 'https://usdcis.cool/',
+    description:
+      '	Cool shades on a stablecoin. COOL ("USDC is cool") is an independent community memecoin build on Arc.',
+    bridge: 'native',
+    tags: ['MEMECOIN', 'NO_AUDIT', 'LARGE_HOLDERS'],
+  },
+  TOLLY: {
+    name: 'Tolly',
+    symbol: 'TOLLY',
+    oracleId: 'TOLLY',
+    address: '0xBc43CE8DEc648EA298C4275559b81D6261c90b67',
+    chainId: 5042,
+    decimals: 18,
+    website: 'https://tollylabs.com/tokens',
+    description:
+      '	TOLLY is the native protocol token of TOLLY Labs’ Arc market terminal and token launchpad. Protocol buy fees are used to fund market purchases and removal of TOLLY from circulation.',
+    documentation: 'https://tollylabs.com/guide',
+    bridge: 'native',
+    tags: ['MEMECOIN', 'NO_AUDIT', 'NO_TIMELOCK', 'LARGE_HOLDERS'],
+  },
 } as const satisfies Record<string, Token>;
