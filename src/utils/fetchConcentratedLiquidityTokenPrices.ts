@@ -1905,6 +1905,14 @@ const tokens = {
     },
     {
       type: 'UniV3',
+      pool: '0xD7d30F434b12F7Ed9b0Ae11fF1C754745a10aD52',
+      oracleId: 'SKHYB',
+      decimalDelta: 1,
+      firstToken: 'SKHYB',
+      secondToken: 'USDT',
+    },
+    {
+      type: 'UniV3',
       oracleId: 'XAUt',
       decimalDelta: 1e-12,
       pool: '0x83A0A8A723262651Ae9C54BBbA929F167443bC59',

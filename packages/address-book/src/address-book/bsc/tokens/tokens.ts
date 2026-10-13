@@ -4825,6 +4825,20 @@ export const tokens = {
     bridge: 'native',
     tags: ['STOCK'],
   },
+  SKHYB: {
+    name: 'SK Hynix',
+    symbol: 'SKHYB',
+    oracleId: 'SKHYB',
+    address: '0xCA750eF65f295BBECd685Abf54e82CAf297BDB61',
+    chainId: 56,
+    decimals: 18,
+    website: 'https://www.bstocks.finance/',
+    description:
+      'SK Hynix issued by bStocks. bStocks are tokenized securities that give you economic exposure to popular US-listed companies with the right to convert to the underlying security on the Binance.com platform subject to applicable laws.',
+    documentation: 'https://www.bstocks.finance/faq',
+    bridge: 'native',
+    tags: ['STOCK'],
+  },
   XAUt: {
     name: 'Tether Gold',
     symbol: 'XAUt',

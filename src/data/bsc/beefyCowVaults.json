@@ -1,5 +1,17 @@
 [
   {
+    "address": "0xDEF5BE4F6e340C46f68D02398dbD99F0242dc237",
+    "lpAddress": "0xD7d30F434b12F7Ed9b0Ae11fF1C754745a10aD52",
+    "tokens": ["0x55d398326f99059fF775485246999027B3197955", "0xCA750eF65f295BBECd685Abf54e82CAf297BDB61"],
+    "tokenOracleIds": ["USDT", "SKHYB"],
+    "decimals": [18, 18],
+    "oracleId": "pancake-cow-bsc-usdt-skhyb",
+    "rewardPool": {
+      "address": "0xAd757F2fc4339849056F987Ddc8aa71a51Ae89Cc",
+      "oracleId": "pancake-cow-bsc-usdt-skhyb-rp"
+    }
+  },
+  {
     "address": "0xB0a2281c29c0314f047b7C9171164cDEE956EB09",
     "lpAddress": "0xA8552bd2bd061885ab04C0CbfDC8493744D9318d",
     "tokens": ["0x21cAef8A43163Eea865baeE23b9C2E327696A3bf", "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c"],
