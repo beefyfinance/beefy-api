@@ -1,5 +1,17 @@
 [
   {
+    "address": "0xd494B050e7fef39a3Bb41d25FFC8BcD68FDd9E93",
+    "lpAddress": "0xF7B5a9B7Ef764606f900C9c1db39aFc682049bc4",
+    "tokens": ["0x444045B0EE1ee319A660a5E3d604CA0ffA35ACaA", "0x55d398326f99059fF775485246999027B3197955"],
+    "tokenOracleIds": ["BTW", "USDT"],
+    "decimals": [18, 18],
+    "oracleId": "uniswap-cow-bsc-btw-usdt",
+    "rewardPool": {
+      "address": "0xc19000f1E754e764AbFf8f76235952f40185D94d",
+      "oracleId": "uniswap-cow-bsc-btw-usdt-rp"
+    }
+  },
+  {
     "address": "0xDEF5BE4F6e340C46f68D02398dbD99F0242dc237",
     "lpAddress": "0xD7d30F434b12F7Ed9b0Ae11fF1C754745a10aD52",
     "tokens": ["0x55d398326f99059fF775485246999027B3197955", "0xCA750eF65f295BBECd685Abf54e82CAf297BDB61"],

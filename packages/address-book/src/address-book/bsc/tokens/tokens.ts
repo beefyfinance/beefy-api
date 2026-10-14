@@ -4825,6 +4825,20 @@ export const tokens = {
     bridge: 'native',
     tags: ['STOCK'],
   },
+  BTW: {
+    name: 'Bitway Token',
+    symbol: 'BTW',
+    oracleId: 'BTW',
+    address: '0x444045B0EE1ee319A660a5E3d604CA0ffA35ACaA',
+    chainId: 56,
+    decimals: 18,
+    website: 'https://bitway.com/',
+    description:
+      'BTW is the native utility and governance token of the Bitway ecosystem. It powers network operations, enables staking and governance participation, and aligns incentives across Bitway’s yield, payment, and financing products.',
+    documentation: 'https://docs.bitway.com/',
+    bridge: 'native',
+    tags: ['LARGE_HOLDERS', 'NO_TIMELOCK'],
+  },
   SKHYB: {
     name: 'SK Hynix',
     symbol: 'SKHYB',

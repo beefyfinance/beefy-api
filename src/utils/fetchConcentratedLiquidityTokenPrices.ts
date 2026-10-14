@@ -1913,6 +1913,14 @@ const tokens = {
     },
     {
       type: 'UniV3',
+      pool: '0xF7B5a9B7Ef764606f900C9c1db39aFc682049bc4',
+      oracleId: 'BTW',
+      decimalDelta: 1,
+      firstToken: 'USDT',
+      secondToken: 'BTW',
+    },
+    {
+      type: 'UniV3',
       oracleId: 'XAUt',
       decimalDelta: 1e-12,
       pool: '0x83A0A8A723262651Ae9C54BBbA929F167443bC59',
