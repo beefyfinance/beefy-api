@@ -15,12 +15,12 @@
     "address": "0xca9567fd9A07971216417291551b07eA5dC40f4E",
     "lpAddress": "0xec52A53D7AA278b2027C83449B425Cde8ff8015b",
     "tokens": ["0x0Bd7D308f8E1639FAb988df18A8011f41EAcAD73", "0xcEEBF25B318201f1F949be2FabBFcEe231737139"],
-    "tokenOracleIds": ["WETH", "富贵"],
+    "tokenOracleIds": ["WETH", "FUGUI"],
     "decimals": [18, 18],
-    "oracleId": "uniswap-cow-robinhood-weth-富贵",
+    "oracleId": "uniswap-cow-robinhood-weth-fugui",
     "rewardPool": {
       "address": "0x68cdfe4cf9BcE685142d029Ed9B74e42d5573759",
-      "oracleId": "uniswap-cow-robinhood-weth-富贵-rp"
+      "oracleId": "uniswap-cow-robinhood-weth-fugui-rp"
     }
   },
   {

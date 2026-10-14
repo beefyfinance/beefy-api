@@ -2709,9 +2709,9 @@ const tokens = {
     {
       type: 'UniV3',
       pool: '0xec52A53D7AA278b2027C83449B425Cde8ff8015b',
-      oracleId: '富贵',
+      oracleId: 'FUGUI',
       decimalDelta: 1,
-      firstToken: '富贵',
+      firstToken: 'FUGUI',
       secondToken: 'WETH',
     },
     {

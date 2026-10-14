@@ -1033,10 +1033,10 @@ export const tokens = {
     bridge: 'native',
     tags: ['NO_AUDIT', 'NO_TIMELOCK', 'MEMECOIN'],
   },
-  富贵: {
+  FUGUI: {
     name: '富贵',
     symbol: '富贵',
-    oracleId: '富贵',
+    oracleId: 'FUGUI',
     address: '0xcEEBF25B318201f1F949be2FabBFcEe231737139',
     chainId: 4663,
     decimals: 18,
