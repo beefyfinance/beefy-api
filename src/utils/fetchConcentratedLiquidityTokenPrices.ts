@@ -2716,6 +2716,22 @@ const tokens = {
       firstToken: 'arcEURC',
       secondToken: 'USDC',
     },
+    {
+      type: 'UniV3',
+      oracleId: 'COOL',
+      decimalDelta: 1,
+      pool: '0x40732e01ba7A829DEA44f51a10e7C58cd9F37765',
+      firstToken: 'COOL',
+      secondToken: 'USDC',
+    },
+    {
+      type: 'UniV3',
+      oracleId: 'TOLLY',
+      decimalDelta: 1,
+      pool: '0x162Df51C504e7b8321e07387932f333D9be16a72',
+      firstToken: 'TOLLY',
+      secondToken: 'USDC',
+    },
   ],
 } satisfies Partial<Record<ApiChain, ConcentratedLiquidityToken[]>>;
 

@@ -1,5 +1,29 @@
 [
   {
+    "address": "0xd5319D37F56C70F10da99BFB3A38694D5BD1fF22",
+    "lpAddress": "0x162Df51C504e7b8321e07387932f333D9be16a72",
+    "tokens": ["0x3600000000000000000000000000000000000000", "0xBc43CE8DEc648EA298C4275559b81D6261c90b67"],
+    "tokenOracleIds": ["USDC", "TOLLY"],
+    "decimals": [6, 18],
+    "oracleId": "uniswap-cow-arc-usdc-tolly",
+    "rewardPool": {
+      "address": "0x5bc50ABa09C285529C14290179AC345D0baA033e",
+      "oracleId": "uniswap-cow-arc-usdc-tolly-rp"
+    }
+  },
+  {
+    "address": "0x4f95D85389de296869A5a815A1AA05ec32F7efb5",
+    "lpAddress": "0x40732e01ba7A829DEA44f51a10e7C58cd9F37765",
+    "tokens": ["0x3600000000000000000000000000000000000000", "0xEb64987643db71c76b2a2BE7E723DECC995E5b37"],
+    "tokenOracleIds": ["USDC", "COOL"],
+    "decimals": [6, 18],
+    "oracleId": "uniswap-cow-arc-usdc-cool",
+    "rewardPool": {
+      "address": "0x0365ce42fbe05C07Cb835c06d3B68dD871E94Ae4",
+      "oracleId": "uniswap-cow-arc-usdc-cool-rp"
+    }
+  },
+  {
     "address": "0xAAa8C1e4F75Ec7DF802607D827Ea0efE8dCDDbDD",
     "lpAddress": "0x82916bee18fCEF517B26C72d7Cb5F13694E1dB41",
     "tokens": ["0x171A4217b86A807A64eB94757Db6849fb4bDbAA0", "0x3600000000000000000000000000000000000000"],
