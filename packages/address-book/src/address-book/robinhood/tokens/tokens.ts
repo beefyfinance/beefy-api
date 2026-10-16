@@ -1033,4 +1033,32 @@ export const tokens = {
     bridge: 'native',
     tags: ['NO_AUDIT', 'NO_TIMELOCK', 'MEMECOIN'],
   },
+  FUGUI: {
+    name: '富贵',
+    symbol: '富贵',
+    oracleId: 'FUGUI',
+    address: '0xcEEBF25B318201f1F949be2FabBFcEe231737139',
+    chainId: 4663,
+    decimals: 18,
+    website: 'https://www.ponsfamily.com/launchpad/0x7E2E7363290Cf3dA6E1476b3e29758Bdb7b979f5',
+    description:
+      '富贵 (Wealth & Prosperity) is a Pons V1 fair-launch community/meme token on Robinhood Chain.',
+    documentation: 'https://docs.ponsfamily.com/',
+    bridge: 'native',
+    tags: ['MEMECOIN', 'NO_AUDIT'],
+  },
+  SHROOM: {
+    name: 'MUSHROOM',
+    symbol: 'SHROOM',
+    oracleId: 'SHROOM',
+    address: '0xab093dEF657F15dF31b33922A95e047aDd645B29',
+    chainId: 4663,
+    decimals: 18,
+    website: 'https://www.shroomnetwork.com/',
+    description:
+      'SHROOM is a fair-launch, fixed-supply token intended to coordinate liquidity across Robinhood Chain stock-token markets and capture pool fees.',
+    documentation: 'https://docs.ponsfamily.com/',
+    bridge: 'native',
+    tags: ['MEMECOIN', 'NO_AUDIT'],
+  },
 } as const satisfies Record<string, Token>;

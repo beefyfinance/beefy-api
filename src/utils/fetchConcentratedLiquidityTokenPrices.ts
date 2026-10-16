@@ -2706,6 +2706,22 @@ const tokens = {
       firstToken: 'ORBIO',
       secondToken: 'WETH',
     },
+    {
+      type: 'UniV3',
+      pool: '0xec52A53D7AA278b2027C83449B425Cde8ff8015b',
+      oracleId: 'FUGUI',
+      decimalDelta: 1,
+      firstToken: 'FUGUI',
+      secondToken: 'WETH',
+    },
+    {
+      type: 'UniV3',
+      pool: '0xC641a0DC848E7aadd7c69d800BAE2FEA9b258610',
+      oracleId: 'SHROOM',
+      decimalDelta: 1,
+      firstToken: 'SHROOM',
+      secondToken: 'WETH',
+    },
   ],
   arc: [
     {
