@@ -29,6 +29,7 @@ import {
 import { getTreasury } from './api/treasury/index.ts';
 import * as tvl from './api/tvl/index.ts';
 import * as multichainVaults from './api/vaults/index.ts';
+import { proxyEnsoQuote, proxyEnsoSwap } from './api/zap/proxy/enso.ts';
 import { proxyKyberQuote, proxyKyberSwap } from './api/zap/proxy/kyber.ts';
 import { proxyLiquidSwapQuote, proxyLiquidSwapSwap } from './api/zap/proxy/liquid-swap.ts';
 import { proxyOneInchQuote, proxyOneInchSwap } from './api/zap/proxy/one-inch.ts';
@@ -123,6 +124,8 @@ router.get('/zap/providers/kyber/:chainId/quote', proxyKyberQuote);
 router.post('/zap/providers/kyber/:chainId/swap', proxyKyberSwap);
 router.get('/zap/providers/liquid-swap/:chainId/quote', proxyLiquidSwapQuote);
 router.post('/zap/providers/liquid-swap/:chainId/swap', proxyLiquidSwapSwap);
+router.get('/zap/providers/enso/:chainId/quote', proxyEnsoQuote);
+router.get('/zap/providers/enso/:chainId/swap', proxyEnsoSwap);
 
 router.get('/articles', getArticles);
 router.get('/articles/latest', getLatestArticle);
