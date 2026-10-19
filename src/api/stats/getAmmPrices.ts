@@ -188,6 +188,7 @@ const coinGeckoCoins: Record<string, string[]> = {
   'grove-2': ['GROVE'],
   'avant-usd': ['avUSD'],
   'cap-usd': ['cUSD'],
+  evausdt: ['evaUSDT'],
 };
 
 /**

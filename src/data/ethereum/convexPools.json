@@ -1,5 +1,21 @@
 [
   {
+    "name": "curve-evausdt-evausdc",
+    "pool": "0x3C0965582dB7A0F660D491aA6174B9438f911c21",
+    "stakeDao": true,
+    "getDy": ["v1", 1, 0],
+    "tokens": [
+      {
+        "oracleId": "evaUSDT",
+        "decimals": "1e6"
+      },
+      {
+        "oracleId": "evaUSDC",
+        "decimals": "1e6"
+      }
+    ]
+  },
+  {
     "name": "curve-susg-reusd",
     "pool": "0xC6ac08424eE6D1373F03611b96f5Da849594B6D8",
     "stakeDao": true,
