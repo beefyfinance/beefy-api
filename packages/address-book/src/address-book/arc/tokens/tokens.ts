@@ -20,6 +20,18 @@ export const tokens = {
   WNATIVE: USDC,
   FEES: USDC,
   USDC,
+  WETH: {
+    name: 'Wrapped Ether',
+    symbol: 'WETH',
+    oracleId: 'WETH',
+    address: '0x128cC466B61f542da60c70e3aA11c10e19B84EDB',
+    chainId: 5042,
+    decimals: 18,
+    website: 'https://weth.io/',
+    description: 'Wrapped Ether is an ERC-20 token representing Ether (ETH).',
+    documentation: 'https://ethereum.org/en/developers/docs/',
+    tags: ['BLUECHIP'],
+  },
   cirBTC: {
     name: 'Circle Wrapped Bitcoin',
     symbol: 'cirBTC',

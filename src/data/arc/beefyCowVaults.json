@@ -1,5 +1,73 @@
 [
   {
+    "address": "0xcB968f8382e3Fd875F47fbbde59Fdf46feB8b447",
+    "lpAddress": "0xbe080aC37ad1305DFCc9521F5e6F68CFDc41B7fa",
+    "tokens": ["0x3600000000000000000000000000000000000000", "0xbEf5f6d51CB62b58e6A8f77868681825C6fe21c1"],
+    "tokenOracleIds": ["USDC", "arcEURC"],
+    "decimals": [6, 6],
+    "oracleId": "aerodrome-cow-arc-eurc-usdc",
+    "providerId": "aerodrome",
+    "rewardPool": {
+      "address": "0x41691Cb706ed97eF1AaF675D627EF5B01145E7d6",
+      "oracleId": "aerodrome-cow-arc-eurc-usdc-rp"
+    },
+    "vault": {
+      "address": "0x9804a9454E63F6aFE9775BBd793340E508451Df8",
+      "oracleId": "aerodrome-cow-arc-eurc-usdc-vault"
+    }
+  },
+  {
+    "address": "0x4319C71984790f96ac190a7709B380F6F27DD238",
+    "lpAddress": "0x6F302dECb49fB30B2D2c609BDD16e04e7Dd096FC",
+    "tokens": ["0x128cC466B61f542da60c70e3aA11c10e19B84EDB", "0x3600000000000000000000000000000000000000"],
+    "tokenOracleIds": ["WETH", "USDC"],
+    "decimals": [18, 6],
+    "oracleId": "aerodrome-cow-arc-weth-usdc",
+    "providerId": "aerodrome",
+    "rewardPool": {
+      "address": "0x55fD3b49Ef7E5f9a31DA68051989F5f749658f99",
+      "oracleId": "aerodrome-cow-arc-weth-usdc-rp"
+    },
+    "vault": {
+      "address": "0xFd7F2B10d0384195D6f1bb89179dda20A0189FbE",
+      "oracleId": "aerodrome-cow-arc-weth-usdc-vault"
+    }
+  },
+  {
+    "address": "0x137731B8B2D7Cd24aB4A4A9061f2D7b4Fd1aBFEE",
+    "lpAddress": "0xd945cAEe4635BcD7FB8A9fA74dC1D0c4C1472782",
+    "tokens": ["0x171A4217b86A807A64eB94757Db6849fb4bDbAA0", "0x3600000000000000000000000000000000000000"],
+    "tokenOracleIds": ["cirBTC", "USDC"],
+    "decimals": [8, 6],
+    "oracleId": "aerodrome-cow-arc-cirbtc-usdc",
+    "providerId": "aerodrome",
+    "rewardPool": {
+      "address": "0x3B2162ea5C3F6f20Eb05818f40d54857d1Aa3B45",
+      "oracleId": "aerodrome-cow-arc-cirbtc-usdc-rp"
+    },
+    "vault": {
+      "address": "0x305Be0f7d4bA28D13803c2186Bc0F95c79d487F5",
+      "oracleId": "aerodrome-cow-arc-cirbtc-usdc-vault"
+    }
+  },
+  {
+    "address": "0x4F702C76dd9D7841784922f87470E3F718aAF6DA",
+    "lpAddress": "0x72DfF32c9C5c28758565bE0a7d4E6E42FB498506",
+    "tokens": ["0x128cC466B61f542da60c70e3aA11c10e19B84EDB", "0x171A4217b86A807A64eB94757Db6849fb4bDbAA0"],
+    "tokenOracleIds": ["WETH", "cirBTC"],
+    "decimals": [18, 8],
+    "oracleId": "aerodrome-cow-arc-cirbtc-weth",
+    "providerId": "aerodrome",
+    "rewardPool": {
+      "address": "0xedBAa34DCBA4250F6BF9582ddED03244e623268D",
+      "oracleId": "aerodrome-cow-arc-cirbtc-weth-rp"
+    },
+    "vault": {
+      "address": "0x5b9Bc16e6C142BabF0b5C33571459FAD98Bd2E10",
+      "oracleId": "aerodrome-cow-arc-cirbtc-weth-vault"
+    }
+  },
+  {
     "address": "0xd5319D37F56C70F10da99BFB3A38694D5BD1fF22",
     "lpAddress": "0x162Df51C504e7b8321e07387932f333D9be16a72",
     "tokens": ["0x3600000000000000000000000000000000000000", "0xBc43CE8DEc648EA298C4275559b81D6261c90b67"],
