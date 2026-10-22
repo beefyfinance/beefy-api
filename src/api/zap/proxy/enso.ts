@@ -9,9 +9,10 @@ import {
   type ApiResponse,
   type ErrorApiResponse,
   type ExtraQuoteResponse,
+  getZapRouter,
   isSuccessApiResponse,
 } from '../api/common.ts';
-import { getEnsoApi, getZapRouter } from '../api/enso/index.ts';
+import { getEnsoApi } from '../api/enso/index.ts';
 import {
   ENSO_NATIVE_ADDRESS,
   type EnsoQuoteRequest,

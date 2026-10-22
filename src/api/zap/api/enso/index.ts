@@ -1,7 +1,7 @@
-import { addressBook } from '@beefyfinance/blockchain-addressbook';
 import PQueue from 'p-queue';
 import type { Address } from 'viem';
 import { type ApiChain, getChainConfig, SupportedChains, toChainId } from '../../../../utils/chain.ts';
+import { getZapRouter } from '../common.ts';
 import { RateLimitedEnsoApi } from './RateLimitedEnsoApi.ts';
 
 export { isEnsoCircuitOpenedSince } from './EnsoApi.ts';
@@ -44,11 +44,6 @@ const ENSO_ROUTERS: Partial<Record<ApiChain, readonly Address[]>> = {
   robinhood: ['0xCfBAa9Cfce952Ca4F4069874fF1Df8c05e37a3c7'],
   arc: ['0xCfBAa9Cfce952Ca4F4069874fF1Df8c05e37a3c7'],
 };
-
-/** BeefyZapRouter; the only allowed fromAddress/receiver for proxied swaps */
-export function getZapRouter(apiChain: ApiChain): Address | undefined {
-  return addressBook[apiChain].platforms.beefyfinance.zap as Address | undefined;
-}
 
 export const supportedSwapChains = new Set<ApiChain>(
   SupportedChains.filter(chain => getChainConfig(chain).integrations.enso)

@@ -2,7 +2,9 @@ import { URLSearchParams } from 'node:url';
 import { decodeAbiParameters, decodeFunctionData, isHex, parseAbi } from 'viem';
 import { getLoggerFor } from '../../../../utils/logger/index.ts';
 import { redactSecrets } from '../../../../utils/secrets.ts';
+import { CircuitBreaker } from '../circuit-breaker.ts';
 import { type ApiResponse, type ExtraQuoteResponse, isErrorApiResponse } from '../common.ts';
+import { QuoteCache } from '../quote-cache.ts';
 import {
   ENSO_NATIVE_ADDRESS,
   type EnsoErrorResponse,
@@ -32,88 +34,14 @@ const PROXY_FETCH_TIMEOUT_MS = 10 * 1000;
 // The app re-quotes the same swap often; short enough that /swap's minAmountOut (from this quote) stays reachable
 const QUOTE_CACHE_TTL_MS = 10 * 1000;
 
-/** Stops all Enso calls (which cost credits even when they fail) after an auth or quota error */
-class EnsoCircuitBreaker {
-  protected openUntil = 0;
-  protected openedAt = 0;
-  protected reason = '';
-
-  isOpen(): boolean {
-    return Date.now() < this.openUntil;
-  }
-
-  openedSince(timestamp: number): boolean {
-    return this.isOpen() || this.openedAt >= timestamp;
-  }
-
-  get message(): string {
-    return `Enso API disabled: ${this.reason}`;
-  }
-
-  open(durationMs: number, reason: string) {
-    const wasOpen = this.isOpen();
-    this.openUntil = Math.max(this.openUntil, Date.now() + durationMs);
-    this.reason = reason;
-    if (!wasOpen) {
-      this.openedAt = Date.now();
-      logger.error({ durationMs, reason }, 'enso circuit breaker opened');
-    }
-  }
-}
-
-const ensoCircuitBreaker = new EnsoCircuitBreaker();
+// Every Enso call costs credits, even when it fails
+const ensoCircuitBreaker = new CircuitBreaker('Enso', logger);
 
 export function isEnsoCircuitOpenedSince(timestamp: number): boolean {
   return ensoCircuitBreaker.openedSince(timestamp);
 }
 
 type ProxiedQuoteResponse = ApiResponse<EnsoQuoteResponse, ExtraQuoteResponse>;
-
-/** Shares identical in-flight proxied quotes and caches successful ones, so repeats cost no credits */
-class EnsoQuoteCache {
-  protected readonly entries = new Map<string, { expiresAt: number; response: Promise<ProxiedQuoteResponse> }>();
-
-  constructor(protected readonly ttlMs: number) {}
-
-  async get(key: string, fetchQuote: () => Promise<ProxiedQuoteResponse>): Promise<ProxiedQuoteResponse> {
-    const now = Date.now();
-    const existing = this.entries.get(key);
-    if (existing && existing.expiresAt > now) {
-      return existing.response;
-    }
-
-    this.prune(now);
-    const response = fetchQuote();
-    const entry = { expiresAt: Infinity, response };
-    this.entries.set(key, entry);
-    try {
-      const result = await response;
-      if (isErrorApiResponse(result)) {
-        this.delete(key, entry);
-      } else {
-        entry.expiresAt = Date.now() + this.ttlMs;
-      }
-      return result;
-    } catch (err) {
-      this.delete(key, entry);
-      throw err;
-    }
-  }
-
-  protected delete(key: string, entry: unknown) {
-    if (this.entries.get(key) === entry) {
-      this.entries.delete(key);
-    }
-  }
-
-  protected prune(now: number) {
-    for (const [key, entry] of this.entries) {
-      if (entry.expiresAt <= now) {
-        this.entries.delete(key);
-      }
-    }
-  }
-}
 
 export class EnsoApi implements IEnsoApi {
   constructor(
@@ -125,7 +53,7 @@ export class EnsoApi implements IEnsoApi {
   ) {}
 
   protected readonly breaker = ensoCircuitBreaker;
-  protected readonly quoteCache = new EnsoQuoteCache(QUOTE_CACHE_TTL_MS);
+  protected readonly quoteCache = new QuoteCache<ProxiedQuoteResponse>(QUOTE_CACHE_TTL_MS);
 
   async getQuote(request: EnsoQuoteRequest): Promise<EnsoQuoteResponse> {
     const response = await this.get<EnsoQuoteResponse>('/shortcuts/quote', this.buildQuoteParams(request));
