@@ -4853,6 +4853,33 @@ export const tokens = {
     bridge: 'native',
     tags: ['STOCK'],
   },
+  SPCXB: {
+    name: 'SpaceX',
+    symbol: 'SPCXB',
+    oracleId: 'SPCXB',
+    address: '0xbe9D156892E55e7154BcD3cB0FEA677F9D3103E1',
+    chainId: 56,
+    decimals: 18,
+    website: 'https://www.bstocks.finance/',
+    description:
+      'SpaceX issued by bStocks. bStocks are tokenized securities that give you economic exposure to popular US-listed companies with the right to convert to the underlying security on the Binance.com platform subject to applicable laws.',
+    documentation: 'https://www.bstocks.finance/faq',
+    bridge: 'native',
+    tags: ['STOCK'],
+  },
+  TSLAB: {
+    name: 'Tesla, Inc. ',
+    symbol: 'TSLAB',
+    oracleId: 'TSLAB',
+    address: '0x5b1910eAaD6450E50f816082Aa078C41F10C292f',
+    chainId: 56,
+    decimals: 18,
+    description:
+      'Tesla, Inc. issued by bStocks. bStocks are tokenized securities that give you economic exposure to popular US-listed companies with the right to convert to the underlying security on the Binance.com platform subject to applicable laws.',
+    documentation: 'https://www.bstocks.finance/faq',
+    bridge: 'native',
+    tags: ['STOCK'],
+  },
   XAUt: {
     name: 'Tether Gold',
     symbol: 'XAUt',

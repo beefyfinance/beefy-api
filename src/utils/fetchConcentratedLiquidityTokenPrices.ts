@@ -1609,6 +1609,22 @@ const tokens = {
   bsc: [
     {
       type: 'UniV3',
+      pool: '0x977DaFFC095b33872E2741c19568925015C35b4d',
+      oracleId: 'SPCXB',
+      decimalDelta: 1,
+      firstToken: 'SPCXB',
+      secondToken: 'USDT',
+    },
+    {
+      type: 'UniV3',
+      pool: '0xB0f5E5400E8F0F7C242F2b7740C004f020579c41',
+      oracleId: 'TSLAB',
+      decimalDelta: 1,
+      firstToken: 'TSLAB',
+      secondToken: 'USDT',
+    },
+    {
+      type: 'UniV3',
       oracleId: 'SHELL',
       decimalDelta: 1,
       pool: '0x1D519280255d5D90F469f79dC8f5ABE05F64429f',
