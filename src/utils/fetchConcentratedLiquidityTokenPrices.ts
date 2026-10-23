@@ -351,6 +351,30 @@ const tokens = {
   base: [
     {
       type: 'Slipstream',
+      oracleId: 'AEROv2',
+      decimalDelta: 1,
+      pool: '0xc85D5CB72d1aaD6f152A8decAd228AE4A59Ac9B3',
+      firstToken: 'WETH',
+      secondToken: 'AEROv2',
+    },
+    {
+      type: 'Slipstream',
+      oracleId: 'PLTRc',
+      decimalDelta: 1e-2,
+      pool: '0xA0473ceD0cd1bfB857e3E04B5FA4b6aF18C5e44d',
+      firstToken: 'PLTRc',
+      secondToken: 'USDC',
+    },
+    {
+      type: 'Slipstream',
+      oracleId: 'MUc',
+      decimalDelta: 1e-2,
+      pool: '0x41e21950362B1014bC629252ecFFF8fcA5F1646C',
+      firstToken: 'MUc',
+      secondToken: 'USDC',
+    },
+    {
+      type: 'Slipstream',
       oracleId: 'ODOS',
       decimalDelta: 1e-12,
       pool: '0xb7068556049dF8Fb3ae77CCbb9611FE0e85B2641',

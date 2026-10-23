@@ -28,6 +28,11 @@ export const providers = {
       lisk: [lisk.tokens.XVELO],
     },
   },
+  aero: {
+    poolTradingRewardTokens: {
+      base: [base.tokens.AEROv2],
+    },
+  },
   aerodrome: {
     poolTradingRewardTokens: {
       base: [base.tokens.AERO],
