@@ -1381,14 +1381,6 @@ const tokens = {
       firstToken: 'RBLXc',
       secondToken: 'USDC',
     },
-    {
-      type: 'Slipstream',
-      oracleId: 'PYPLc',
-      decimalDelta: 1e-2,
-      pool: '0x0A63679f5F15AEE25EAeE62Ca299D6802Ff163C0',
-      firstToken: 'PYPLc',
-      secondToken: 'USDC',
-    },
   ],
   zksync: [
     {
