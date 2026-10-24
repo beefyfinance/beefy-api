@@ -41,6 +41,8 @@ export type DecodedRouterCall = {
   toToken: string | undefined;
   amount: bigint;
   minReturn: bigint;
+  /** unix seconds; undefined for variants without a deadline */
+  deadline: bigint | undefined;
   /** set when okx keeps positive slippage above this amount */
   trimExpectAmountOut: bigint | undefined;
 };
@@ -53,7 +55,13 @@ function toAddress(value: bigint): string {
 
 function fromBaseRequest(
   receiver: string | undefined,
-  baseRequest: { fromToken: bigint; toToken: string; fromTokenAmount: bigint; minReturnAmount: bigint }
+  baseRequest: {
+    fromToken: bigint;
+    toToken: string;
+    fromTokenAmount: bigint;
+    minReturnAmount: bigint;
+    deadLine: bigint;
+  }
 ): Omit<DecodedRouterCall, 'trimExpectAmountOut'> {
   return {
     receiver,
@@ -61,6 +69,7 @@ function fromBaseRequest(
     toToken: toAddress(BigInt(baseRequest.toToken)),
     amount: baseRequest.fromTokenAmount,
     minReturn: baseRequest.minReturnAmount,
+    deadline: baseRequest.deadLine,
   };
 }
 
@@ -122,6 +131,7 @@ function decodeArgs({
         toToken: undefined,
         amount: args[1],
         minReturn: args[2],
+        deadline: undefined,
       };
     case 'unxswapTo':
       return {
@@ -130,6 +140,7 @@ function decodeArgs({
         toToken: undefined,
         amount: args[1],
         minReturn: args[2],
+        deadline: undefined,
       };
     case 'uniswapV3SwapTo':
       return {
@@ -138,6 +149,7 @@ function decodeArgs({
         toToken: undefined,
         amount: args[1],
         minReturn: args[2],
+        deadline: undefined,
       };
   }
 }

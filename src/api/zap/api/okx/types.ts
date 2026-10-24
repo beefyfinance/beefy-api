@@ -12,6 +12,8 @@ export type OkxQuoteRequest = {
   amountIn: string;
   /** "true" sends disableRFQ, RFQ quotes expire too fast for delayed (cross-chain) execution */
   excludeRfq?: string;
+  /** comma separated OKX dexIds (from get-liquidity) to exclude from routing */
+  excludeDexIds?: string;
 };
 
 /** GET request to /aggregator/swap (userWalletAddress and swapReceiverAddress are set to fromAddress) */

@@ -30,6 +30,8 @@ const FETCH_TIMEOUT_MS = 25 * 1000;
 const PROXY_FETCH_TIMEOUT_MS = 10 * 1000;
 // The app re-quotes the same swap often, and every call counts against the 1 RPS key limit
 const QUOTE_CACHE_TTL_MS = 10 * 1000;
+// The app assumes swaps stay valid for 1h (cross-chain dest swaps execute later); 1m allows for latency/clock skew
+const MIN_DEADLINE_SECONDS = 60 * 60 - 60;
 
 const okxCircuitBreaker = new CircuitBreaker('OKX', logger);
 
@@ -66,7 +68,13 @@ export class OkxApi implements IOkxApi {
 
   async getProxiedQuote(request: OkxQuoteRequest): Promise<ProxiedQuoteResponse> {
     const params = this.buildQuoteParams(request);
-    const key = [params.fromTokenAddress, params.toTokenAddress, params.amount, params.disableRFQ].join(':');
+    const key = [
+      params.fromTokenAddress,
+      params.toTokenAddress,
+      params.amount,
+      params.disableRFQ,
+      params.excludeDexIds,
+    ].join(':');
     return await this.quoteCache.get(key, () =>
       this.priorityGet(QUOTE_PATH, params, {
         fee: {
@@ -97,6 +105,7 @@ export class OkxApi implements IOkxApi {
       toTokenAddress: request.tokenOut.toLowerCase(),
       swapMode: 'exactIn',
       ...(request.excludeRfq === 'true' ? { disableRFQ: 'true' } : {}),
+      ...(request.excludeDexIds ? { excludeDexIds: request.excludeDexIds } : {}),
     };
   }
 
@@ -324,6 +333,9 @@ function validateSwapResponse(
   }
   if (call.minReturn !== minToAmount) {
     return invalidSwap('calldata minReturn mismatch');
+  }
+  if (call.deadline !== undefined && call.deadline < BigInt(Math.floor(Date.now() / 1000) + MIN_DEADLINE_SECONDS)) {
+    return invalidSwap(`deadline too soon ${call.deadline}`);
   }
   // The quoted toAmount must reach the zap router, okx may only keep output above it
   if (call.trimExpectAmountOut !== undefined && call.trimExpectAmountOut < toAmount) {
