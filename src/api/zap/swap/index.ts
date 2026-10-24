@@ -51,10 +51,15 @@ async function updateChainProvider(apiChain: ApiChain, providerId: ProviderId) {
     throw new Error(`${providerId} circuit breaker opened during update`);
   }
 
+  // A crawl with no supported tokens is likely an API outage, so keep the last good data and retry next cycle
+  const hasSupported = Object.values(supportByAddress).some(support => support.supported);
+  if (!hasSupported && getLastSupportedUpdate(dataLayer.get(apiChain, providerId)) !== undefined) {
+    throw new Error(`${providerId} found no supported tokens on ${apiChain}, keeping previous data`);
+  }
+
   // Save to locally and cache to redis
   await dataLayer.set(apiChain, providerId, supportByAddress);
-  // A crawl with no supported tokens is likely an API outage, so retry it on the next cycle
-  if (Object.values(supportByAddress).some(support => support.supported)) {
+  if (hasSupported) {
     lastUpdateStartedAt.set(`${apiChain}:${providerId}`, start);
   }
 
