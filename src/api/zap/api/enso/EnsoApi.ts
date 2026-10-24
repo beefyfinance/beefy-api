@@ -67,7 +67,12 @@ export class EnsoApi implements IEnsoApi {
 
   async getProxiedQuote(request: EnsoQuoteRequest): Promise<ProxiedQuoteResponse> {
     const params = this.buildQuoteParams(request);
-    const key = [params.tokenIn.toLowerCase(), params.tokenOut.toLowerCase(), params.amountIn].join(':');
+    const key = [
+      params.tokenIn.toLowerCase(),
+      params.tokenOut.toLowerCase(),
+      params.amountIn,
+      params.ignoreAggregators,
+    ].join(':');
     return await this.quoteCache.get(key, () =>
       this.priorityGet('/shortcuts/quote', params, {
         fee: {
@@ -97,6 +102,7 @@ export class EnsoApi implements IEnsoApi {
       tokenIn: normalizeTokenAddress(request.tokenIn),
       tokenOut: normalizeTokenAddress(request.tokenOut),
       amountIn: request.amountIn,
+      ...(request.ignoreAggregators ? { ignoreAggregators: request.ignoreAggregators } : {}),
     };
   }
 
@@ -105,9 +111,10 @@ export class EnsoApi implements IEnsoApi {
       ...this.buildQuoteParams(request),
       fromAddress: request.fromAddress,
       receiver: request.fromAddress,
-      spender: request.fromAddress,
       refundReceiver: request.fromAddress,
+      // Never with slippage: Enso rejects both together
       minAmountOut: request.minAmountOut,
+      referralCode: 'beefy',
     };
   }
 

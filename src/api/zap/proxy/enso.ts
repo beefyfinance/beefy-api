@@ -14,6 +14,7 @@ import {
 } from '../api/common.ts';
 import { getEnsoApi } from '../api/enso/index.ts';
 import {
+  ENSO_AGGREGATORS,
   ENSO_NATIVE_ADDRESS,
   type EnsoQuoteRequest,
   type EnsoQuoteResponse,
@@ -21,12 +22,13 @@ import {
   type EnsoSwapResponse,
 } from '../api/enso/types.ts';
 import { getTokenSwapSupport } from '../swap/index.ts';
-import { isQuoteValueTooLow, setNoCacheHeaders } from './common.ts';
+import { isQuoteValueTooLow, isRateLimited, setNoCacheHeaders, setRateLimitedResponse } from './common.ts';
 
 const logger = getLoggerFor({ module: 'zap', component: 'enso' });
 
 const QUOTE_PARAMS = ['tokenIn', 'tokenOut', 'amountIn'] as const;
 const SWAP_PARAMS = [...QUOTE_PARAMS, 'fromAddress', 'minAmountOut'] as const;
+const OPTIONAL_PARAMS = ['ignoreAggregators'] as const;
 const ADDRESS_PARAMS = new Set<string>(['tokenIn', 'tokenOut', 'fromAddress']);
 const AMOUNT_REGEX = /^[1-9]\d{0,77}$/;
 
@@ -37,8 +39,11 @@ function badRequest(message: string): ErrorApiResponse {
 /**
  * Only forward known params, so callers can't use our key for anything else (e.g. adding a fee)
  */
-function parseParams<K extends string>(query: ParsedUrlQuery, keys: readonly K[]): ApiResponse<Record<K, string>> {
-  const allowed = new Set<string>(keys);
+function parseParams<K extends string>(
+  query: ParsedUrlQuery,
+  keys: readonly K[]
+): ApiResponse<Record<K, string> & { ignoreAggregators?: string }> {
+  const allowed = new Set<string>([...keys, ...OPTIONAL_PARAMS]);
   const unknownKey = Object.keys(query).find(key => !allowed.has(key));
   if (unknownKey !== undefined) {
     return badRequest(`Unsupported parameter: ${unknownKey}`);
@@ -62,11 +67,20 @@ function parseParams<K extends string>(query: ParsedUrlQuery, keys: readonly K[]
     params[key] = value;
   }
 
+  const { ignoreAggregators } = query;
+  if (ignoreAggregators !== undefined) {
+    const aggregators = typeof ignoreAggregators === 'string' ? ignoreAggregators.split(',') : [];
+    if (aggregators.length === 0 || !aggregators.every(aggregator => ENSO_AGGREGATORS.has(aggregator))) {
+      return badRequest('Invalid ignoreAggregators: must be a comma separated list of Enso aggregators');
+    }
+    params.ignoreAggregators = ignoreAggregators as string;
+  }
+
   if (params.tokenIn.toLowerCase() === params.tokenOut.toLowerCase()) {
     return badRequest('tokenIn and tokenOut must differ');
   }
 
-  return { code: 200, data: params as Record<K, string> };
+  return { code: 200, data: params as Record<K, string> & { ignoreAggregators?: string } };
 }
 
 function parseEnsoQuoteRequest(query: ParsedUrlQuery): ApiResponse<EnsoQuoteRequest> {
@@ -156,6 +170,10 @@ const getProxiedQuote = async (
 };
 
 export const proxyEnsoSwap = withChainId(async (ctx, chain) => {
+  // Own bucket, so quoting can't block building a swap that already won
+  if (isRateLimited(ctx, 'enso-swap')) {
+    return setRateLimitedResponse(ctx);
+  }
   const start = Date.now();
   const request = parseEnsoSwapRequest(ctx.query);
   const proxiedSwap = isSuccessApiResponse(request) ? await getProxiedSwap(request.data, chain) : request;
@@ -168,6 +186,9 @@ export const proxyEnsoSwap = withChainId(async (ctx, chain) => {
 });
 
 export const proxyEnsoQuote = withChainId(async (ctx, chain) => {
+  if (isRateLimited(ctx, 'enso')) {
+    return setRateLimitedResponse(ctx);
+  }
   const start = Date.now();
   const request = parseEnsoQuoteRequest(ctx.query);
   const proxiedQuote = isSuccessApiResponse(request) ? await getProxiedQuote(request.data, chain) : request;
