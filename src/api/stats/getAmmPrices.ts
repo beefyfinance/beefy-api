@@ -189,6 +189,7 @@ const coinGeckoCoins: Record<string, string[]> = {
   'avant-usd': ['avUSD'],
   'cap-usd': ['cUSD'],
   evausdt: ['evaUSDT'],
+  'paypal-holdings-inc-coinbase-tokenized-stock': ['PYPLc'],
 };
 
 /**
