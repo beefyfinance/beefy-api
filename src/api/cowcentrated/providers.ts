@@ -31,6 +31,7 @@ export const providers = {
   aero: {
     poolTradingRewardTokens: {
       base: [base.tokens.AEROv2],
+      optimism: [optimism.tokens.opxAERO],
     },
   },
   aerodrome: {
@@ -66,11 +67,6 @@ export const providers = {
   alandale: {
     poolTradingRewardTokens: {
       robinhood: [robinhood.tokens.LUTE],
-    },
-  },
-  aero: {
-    poolTradingRewardTokens: {
-      optimism: [optimism.tokens.opxAERO],
     },
   },
 } as const satisfies Record<string, CowProvider>;
