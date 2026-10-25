@@ -347,6 +347,14 @@ const tokens = {
       firstToken: 'uniBTC',
       secondToken: 'WBTC',
     },
+    {
+      type: 'UniV3',
+      oracleId: 'opxAERO',
+      decimalDelta: 1e-12,
+      pool: '0xedAf309a5FD5AdDF5AA2D024793Ec68780045c7A',
+      firstToken: 'opxAERO',
+      secondToken: 'USDC',
+    },
   ],
   base: [
     {

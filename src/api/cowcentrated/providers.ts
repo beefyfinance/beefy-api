@@ -63,6 +63,11 @@ export const providers = {
       robinhood: [robinhood.tokens.LUTE],
     },
   },
+  aero: {
+    poolTradingRewardTokens: {
+      optimism: [optimism.tokens.opxAERO],
+    },
+  },
 } as const satisfies Record<string, CowProvider>;
 
 export function getCowProvider(providerId: string | undefined): CowProvider | undefined {

@@ -1,5 +1,90 @@
 [
   {
+    "address": "0x821986eA14a072de89d5b5037F1Bb09dcfe509AD",
+    "lpAddress": "0x2839fAd4E8dE6137F3D1Ae26EBe224A4CB033d9c",
+    "tokens": ["0x0b2C639c533813f4Aa9D7837CAf62653d097Ff85", "0xc55E93C62874D8100dBd2DfE307EDc1036ad5434"],
+    "tokenOracleIds": ["USDC", "opmooBIFI"],
+    "decimals": [6, 18],
+    "oracleId": "aero-cow-optimism-usdc-moobifi",
+    "providerId": "aero",
+    "rewardPool": {
+      "address": "0xAf3AA7AD78452d556cE37Cb730892170834f130D",
+      "oracleId": "aero-cow-optimism-usdc-moobifi-rp"
+    },
+    "vault": {
+      "address": "0x5727Ff41f59285871FB554362E75598A6b401E59",
+      "oracleId": "aero-cow-optimism-usdc-moobifi-vault"
+    }
+  },
+  {
+    "address": "0x7A4999357B0F1Dd733d5F1e9ba0d149D2fCB196a",
+    "lpAddress": "0xe8bb3b3088657B3F48FAD475732D1ca9DAa5A02E",
+    "tokens": ["0x0b2C639c533813f4Aa9D7837CAf62653d097Ff85", "0x1F32b1c2345538c0c6f582fCB022739c4A194Ebb"],
+    "tokenOracleIds": ["USDC", "wstETH"],
+    "decimals": [6, 18],
+    "oracleId": "aero-cow-optimism-usdc-wsteth",
+    "providerId": "aero",
+    "rewardPool": {
+      "address": "0x86FcA765E6b606c11f6D6328aF9758EAb402e5F7",
+      "oracleId": "aero-cow-optimism-usdc-wsteth-rp"
+    },
+    "vault": {
+      "address": "0x64de32e3C353c091361A652850548dD99680D5d3",
+      "oracleId": "aero-cow-optimism-usdc-wsteth-vault"
+    }
+  },
+  {
+    "address": "0x14f7C41AfC2ec7657c38960a3Fc974f81eA87929",
+    "lpAddress": "0x2A7606F119Fd933076e550AE87b5B30adc50725c",
+    "tokens": ["0x4200000000000000000000000000000000000006", "0x68f180fcCe6836688e9084f035309E29Bf0A2095"],
+    "tokenOracleIds": ["WETH", "WBTC"],
+    "decimals": [18, 8],
+    "oracleId": "aero-cow-optimism-weth-wbtc",
+    "providerId": "aero",
+    "rewardPool": {
+      "address": "0xc2890C3F4f9a3A68905bA7715497FAE1D0Ad88d3",
+      "oracleId": "aero-cow-optimism-weth-wbtc-rp"
+    },
+    "vault": {
+      "address": "0xf045220751f7C565351800772305ed6b38fa192f",
+      "oracleId": "aero-cow-optimism-weth-wbtc-vault"
+    }
+  },
+  {
+    "address": "0xbdb1772c090D0c137c52C73152E0F2201dC000d1",
+    "lpAddress": "0x36B34113Cd2dAEF6782558Ac1647B70407afAEb3",
+    "tokens": ["0x4200000000000000000000000000000000000006", "0x4200000000000000000000000000000000000042"],
+    "tokenOracleIds": ["WETH", "OP"],
+    "decimals": [18, 18],
+    "oracleId": "aero-cow-optimism-weth-op",
+    "providerId": "aero",
+    "rewardPool": {
+      "address": "0x52B5d3ccf04EcCD52Dcb2467b67854e8AA952FE4",
+      "oracleId": "aero-cow-optimism-weth-op-rp"
+    },
+    "vault": {
+      "address": "0xD13e9Ed037643995bB426D4348650a1f181D6Da6",
+      "oracleId": "aero-cow-optimism-weth-op-vault"
+    }
+  },
+  {
+    "address": "0x75b74fdAc409409aC40cbcB67Ae80f7F10C24c2f",
+    "lpAddress": "0x0b134DA3eb8A6A65652F2DD8cB55034FC4E0e38D",
+    "tokens": ["0x0b2C639c533813f4Aa9D7837CAf62653d097Ff85", "0x4200000000000000000000000000000000000042"],
+    "tokenOracleIds": ["USDC", "OP"],
+    "decimals": [6, 18],
+    "oracleId": "aero-cow-optimism-usdc-op",
+    "providerId": "aero",
+    "rewardPool": {
+      "address": "0x57385c4b9dA3A4b18BFEBf87A018a68960252cdb",
+      "oracleId": "aero-cow-optimism-usdc-op-rp"
+    },
+    "vault": {
+      "address": "0x35E90f991fa9f664661cB207493b9A6cb1BeD9a3",
+      "oracleId": "aero-cow-optimism-usdc-op-vault"
+    }
+  },
+  {
     "address": "0x5B3434216FA9644904CBcb23F76614C494EE478b",
     "lpAddress": "0x7673ebf148581b5dA4b9E174dcF7AcA4AfA98c28",
     "tokens": ["0x4200000000000000000000000000000000000006", "0x9560e827aF36c94D2Ac33a39bCE1Fe78631088Db"],
