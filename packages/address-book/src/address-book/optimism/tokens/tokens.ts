@@ -1756,7 +1756,7 @@ export const tokens = {
     bridge: 'frax',
     documentation: 'https://docs.frax.finance/frax-ether/frxeth-and-sfrxeth',
   },
-  opxAERO: {
+  xAERO: {
     name: 'Aero',
     symbol: 'xAERO',
     oracleId: 'opxAERO',
