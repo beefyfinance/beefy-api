@@ -136,40 +136,6 @@
     }
   },
   {
-    "address": "0x8ca1176e9e3a84344fAdAE6B7cab35233327697C",
-    "lpAddress": "0xBb22EF3349401f24Ac7feCe69D708759964AfFe6",
-    "tokens": ["0x4200000000000000000000000000000000000006", "0x6c84a8f1c29108F47a79964b5Fe888D4f4D0dE40"],
-    "tokenOracleIds": ["WETH", "tBTC"],
-    "decimals": [18, 18],
-    "oracleId": "aero-cow-optimism-weth-tbtc",
-    "providerId": "aero",
-    "rewardPool": {
-      "address": "0x36708aFd31E747CCB2dA3Ca37504d49d7f3703BA",
-      "oracleId": "aero-cow-optimism-weth-tbtc-rp"
-    },
-    "vault": {
-      "address": "0xaB6bCf7d091157290d03D74B89fBEe20d346AfA1",
-      "oracleId": "aero-cow-optimism-weth-tbtc-vault"
-    }
-  },
-  {
-    "address": "0x40578C62De33b1f8aD43852eF58EB7c53916908d",
-    "lpAddress": "0x91399e790b6d61C482B15F801439fF92927CEd22",
-    "tokens": ["0x3E29D3A9316dAB217754d13b28646B76607c5f04", "0xCB8FA9a76b8e203D8C3797bF438d8FB81Ea3326A"],
-    "tokenOracleIds": ["alETH", "alUSD"],
-    "decimals": [18, 18],
-    "oracleId": "aero-cow-optimism-aleth-alusd",
-    "providerId": "aero",
-    "rewardPool": {
-      "address": "0x0f5D4c3F38392d209D37d9B6293054D8Ae0316C3",
-      "oracleId": "aero-cow-optimism-aleth-alusd-rp"
-    },
-    "vault": {
-      "address": "0x03FfD68389dBF27a1B2ecEA71277eA9a41CA539e",
-      "oracleId": "aero-cow-optimism-aleth-alusd-vault"
-    }
-  },
-  {
     "address": "0x5B3434216FA9644904CBcb23F76614C494EE478b",
     "lpAddress": "0x7673ebf148581b5dA4b9E174dcF7AcA4AfA98c28",
     "tokens": ["0x4200000000000000000000000000000000000006", "0x9560e827aF36c94D2Ac33a39bCE1Fe78631088Db"],
