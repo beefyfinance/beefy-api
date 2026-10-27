@@ -3227,6 +3227,20 @@ export const tokens = {
       'YieldBasis is a decentralized protocol that lets liquidity providers earn trading fees on volatile-asset pairs without the impermanent loss a normal LP suffers.',
     bridge: 'native',
   },
+  ybWETH: {
+    name: 'Yield Basis liquidity for WETH',
+    symbol: 'yb-WETH',
+    oracleId: 'ybWETH',
+    oracle: 'lps',
+    address: '0x2B9c9f3BdcEb5d8E36a4704F08a78Fca53343cEa',
+    chainId: 1,
+    decimals: 18,
+    website: 'https://yieldbasis.com/earn/0x2B9c9f3BdcEb5d8E36a4704F08a78Fca53343cEa',
+    documentation: 'https://docs.yieldbasis.com/user/introduction',
+    description:
+      'YieldBasis is a decentralized protocol that lets liquidity providers earn trading fees on volatile-asset pairs without the impermanent loss a normal LP suffers.',
+    bridge: 'native',
+  },
   trUSD: {
     name: 'trUSD',
     symbol: 'trUSD',
