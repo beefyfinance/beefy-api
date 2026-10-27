@@ -1,16 +1,7 @@
 import escapeStringRegexp from 'escape-string-regexp';
 import { pick, pickBy } from 'lodash-es';
 
-const SECRET_ENV_KEYS = [
-  'ONE_INCH_API_KEY',
-  'ENSO_API_KEY',
-  'OKX_API_KEY',
-  'OKX_API_SECRET',
-  'OKX_API_PASSPHRASE',
-  'KYBER_CLIENT_ID',
-  'ODOS_CODE',
-  'ODOS_API',
-];
+const SECRET_ENV_KEYS = ['ONE_INCH_API_KEY', 'ENSO_API_KEY', 'KYBER_CLIENT_ID', 'ODOS_CODE', 'ODOS_API'];
 const SECRET_ENV_SUFFIXES = ['_RPC', '_KEY', '_TOKEN', '_URL'];
 
 function isNonBlankString(value: unknown): value is string {

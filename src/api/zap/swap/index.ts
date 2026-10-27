@@ -6,7 +6,6 @@ import { isResultFulfilled } from '../../../utils/promise.ts';
 import { serviceEventBus } from '../../../utils/ServiceEventBus.ts';
 import { sleep } from '../../../utils/time.ts';
 import { isEnsoCircuitOpenedSince } from '../api/enso/index.ts';
-import { isOkxCircuitOpenedSince } from '../api/okx/index.ts';
 import { type ChainProvider, DataLayer } from './DataLayer.ts';
 import { fetchProviderSupportForChainTokens, getProvidersForChain } from './fetch.ts';
 import type { ProviderId } from './providers/index.ts';
@@ -19,12 +18,6 @@ const MIN_UPDATE_DELAY = 2 * 60 * 60 * 1000; // 2 hours; actual update runs afte
 /** Per provider minimum time between updates; must stay below DATA_DELETE_AFTER */
 const MIN_PROVIDER_UPDATE_DELAY: Partial<Record<ProviderId, number>> = {
   enso: 6 * 60 * 60 * 1000, // 6 hours; every call costs api credits
-  okx: 6 * 60 * 60 * 1000, // 6 hours; api key is rate limited
-};
-/** Providers whose api stops all calls after an auth/quota error */
-const CIRCUIT_OPENED_SINCE: Partial<Record<ProviderId, (timestamp: number) => boolean>> = {
-  enso: isEnsoCircuitOpenedSince,
-  okx: isOkxCircuitOpenedSince,
 };
 const DATA_DELETE_AFTER = 12 * 60 * 60 * 1000; // 12 hours; delete provider token support +/- DATA_GC_INTERVAL
 const DATA_GC_INTERVAL = 60 * 60 * 1000; // 1 hour; garbage collect provider token support every hour
@@ -47,8 +40,8 @@ async function updateChainProvider(apiChain: ApiChain, providerId: ProviderId) {
   );
 
   // Quotes refused by an open breaker say nothing about support, so keep the previous data and retry next cycle
-  if (CIRCUIT_OPENED_SINCE[providerId]?.(start)) {
-    throw new Error(`${providerId} circuit breaker opened during update`);
+  if (providerId === 'enso' && isEnsoCircuitOpenedSince(start)) {
+    throw new Error('enso circuit breaker opened during update');
   }
 
   // A crawl with no supported tokens is likely an API outage, so keep the last good data and retry next cycle

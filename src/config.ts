@@ -43,7 +43,6 @@ type EnabledChainConfigInput = {
     readonly kyber?: string;
     readonly liquidSwap?: true;
     readonly enso?: true;
-    readonly okx?: true;
     readonly merkl?: true;
     /** dexscreener chain slug */
     readonly dexScreener?: string;
@@ -87,7 +86,6 @@ type EnabledChainConfig = {
     readonly kyber: string | undefined;
     readonly liquidSwap: boolean;
     readonly enso: boolean;
-    readonly okx: boolean;
     readonly merkl: boolean;
     readonly dexScreener: string | undefined;
   };
@@ -145,7 +143,6 @@ function resolveChainConfig(chain: AddressBookChain, input: ChainConfigInput): C
       kyber: integrations.kyber,
       liquidSwap: integrations.liquidSwap ?? false,
       enso: integrations.enso ?? false,
-      okx: integrations.okx ?? false,
       merkl: integrations.merkl ?? false,
       dexScreener: integrations.dexScreener,
     },
@@ -180,7 +177,7 @@ export const chainConfigs = makeChainConfigs({
       multicall3: { address: '0xcA11bde05977b3631167028862bE2a173976CA11', blockCreated: 25_770_160 },
       beefyPriceMulticall: '0x2D955C68f8c687242d7475cD0Cc86E6a4A6D968e',
     },
-    integrations: { oneInch: true, kyber: 'polygon', enso: true, okx: true, merkl: true, dexScreener: 'polygon' },
+    integrations: { oneInch: true, kyber: 'polygon', enso: true, merkl: true, dexScreener: 'polygon' },
   },
   bsc: {
     status: 'active',
@@ -214,7 +211,7 @@ export const chainConfigs = makeChainConfigs({
       multicall3: { address: '0xcA11bde05977b3631167028862bE2a173976CA11', blockCreated: 15_921_452 },
       beefyPriceMulticall: '0xbcf79F67c2d93AD5fd1b919ac4F5613c493ca34F',
     },
-    integrations: { oneInch: true, kyber: 'bsc', enso: true, okx: true, merkl: true, dexScreener: 'bsc' },
+    integrations: { oneInch: true, kyber: 'bsc', enso: true, merkl: true, dexScreener: 'bsc' },
   },
   avax: {
     status: 'active',
@@ -235,7 +232,7 @@ export const chainConfigs = makeChainConfigs({
       multicall3: { address: '0xcA11bde05977b3631167028862bE2a173976CA11', blockCreated: 11_907_934 },
       beefyPriceMulticall: '0x294d57F60f71036d9C96b008E32744D0909FABbA',
     },
-    integrations: { oneInch: true, kyber: 'avalanche', enso: true, okx: true, dexScreener: 'avalanche' },
+    integrations: { oneInch: true, kyber: 'avalanche', enso: true, dexScreener: 'avalanche' },
   },
   fantom: { status: 'disabled' },
   heco: { status: 'disabled' },
@@ -260,7 +257,7 @@ export const chainConfigs = makeChainConfigs({
       multicall3: { address: '0xcA11bde05977b3631167028862bE2a173976CA11', blockCreated: 7_654_707 },
       beefyPriceMulticall: '0x405EE7F4f067604b787346bC22ACb66b06b15A4B',
     },
-    integrations: { oneInch: true, kyber: 'arbitrum', enso: true, okx: true, merkl: true, dexScreener: 'arbitrum' },
+    integrations: { oneInch: true, kyber: 'arbitrum', enso: true, merkl: true, dexScreener: 'arbitrum' },
   },
   celo: { status: 'disabled' },
   moonriver: { status: 'disabled' },
@@ -306,7 +303,7 @@ export const chainConfigs = makeChainConfigs({
       multicall3: { address: '0xcA11bde05977b3631167028862bE2a173976CA11', blockCreated: 4_286_263 },
       beefyPriceMulticall: '0x13C6bCC2411861A31dcDC2f990ddbe2325482222',
     },
-    integrations: { oneInch: true, kyber: 'optimism', enso: true, okx: true, merkl: true, dexScreener: 'optimism' },
+    integrations: { oneInch: true, kyber: 'optimism', enso: true, merkl: true, dexScreener: 'optimism' },
   },
   kava: { status: 'disabled' },
   ethereum: {
@@ -343,7 +340,7 @@ export const chainConfigs = makeChainConfigs({
       multicall3: { address: '0xcA11bde05977b3631167028862bE2a173976CA11', blockCreated: 14_353_601 },
       beefyPriceMulticall: '0x9D55cAEE108aBdd4C47E42088C97ecA43510E969',
     },
-    integrations: { oneInch: true, kyber: 'ethereum', enso: true, okx: true, merkl: true, dexScreener: 'ethereum' },
+    integrations: { oneInch: true, kyber: 'ethereum', enso: true, merkl: true, dexScreener: 'ethereum' },
   },
   canto: { status: 'disabled' },
   zksync: {
@@ -386,7 +383,7 @@ export const chainConfigs = makeChainConfigs({
       multicall3: { address: '0xcA11bde05977b3631167028862bE2a173976CA11' },
       beefyPriceMulticall: '0x3AA76f4aD5cc43E530a6C51c8eb13c40a3753aae',
     },
-    integrations: { oneInch: true, kyber: 'base', enso: true, okx: true, merkl: true, dexScreener: 'base' },
+    integrations: { oneInch: true, kyber: 'base', enso: true, merkl: true, dexScreener: 'base' },
   },
   gnosis: {
     status: 'eol',
@@ -550,7 +547,7 @@ export const chainConfigs = makeChainConfigs({
       multicall3: { address: '0xcA11bde05977b3631167028862bE2a173976CA11' },
       beefyPriceMulticall: '0x99D7d8b7d4873F277CEDc7e1F4eDE57f4747e003',
     },
-    integrations: { oneInch: true, kyber: 'hyperevm', enso: true, okx: true, liquidSwap: true, merkl: true },
+    integrations: { oneInch: true, kyber: 'hyperevm', enso: true, liquidSwap: true, merkl: true },
   },
   plasma: {
     status: 'active',
@@ -561,7 +558,7 @@ export const chainConfigs = makeChainConfigs({
       multicall3: { address: '0xcA11bde05977b3631167028862bE2a173976CA11' },
       beefyPriceMulticall: '0xd32C07b78ee7e02393f020eAbdd40fE2cCe20bf7',
     },
-    integrations: { kyber: 'plasma', enso: true, okx: true, merkl: true, dexScreener: 'plasma' },
+    integrations: { kyber: 'plasma', enso: true, merkl: true, dexScreener: 'plasma' },
   },
   monad: {
     status: 'active',
@@ -583,7 +580,7 @@ export const chainConfigs = makeChainConfigs({
       multicall3: { address: '0xcA11bde05977b3631167028862bE2a173976CA11' },
       beefyPriceMulticall: '0x52A225f89a4AF9b24b00d4b52F3e7a72B7Fca75B',
     },
-    integrations: { oneInch: true, kyber: 'monad', enso: true, okx: true, merkl: true },
+    integrations: { oneInch: true, kyber: 'monad', enso: true, merkl: true },
   },
   megaeth: {
     status: 'active',
@@ -614,7 +611,7 @@ export const chainConfigs = makeChainConfigs({
       multicall3: { address: '0xcA11bde05977b3631167028862bE2a173976CA11' },
       beefyPriceMulticall: '0x43Cf4f684Ec0bcB5f09Bbf1851E693FF0b24cDd6',
     },
-    integrations: { oneInch: true, kyber: 'robinhood', enso: true, okx: true, merkl: true },
+    integrations: { oneInch: true, kyber: 'robinhood', enso: true, merkl: true },
   },
   arc: {
     status: 'active',
@@ -630,7 +627,7 @@ export const chainConfigs = makeChainConfigs({
     contracts: {
       multicall3: { address: '0xcA11bde05977b3631167028862bE2a173976CA11' },
     },
-    integrations: { oneInch: true, kyber: 'arc', enso: true, okx: true, merkl: true },
+    integrations: { oneInch: true, kyber: 'arc', enso: true, merkl: true },
   },
 } as const satisfies Partial<Record<AddressBookChain, ChainConfigInput>>);
 
