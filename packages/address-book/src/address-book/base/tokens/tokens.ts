@@ -23,6 +23,9 @@ export const tokens = {
     chainId: 8453,
     decimals: 18,
     website: 'https://aero.xyz/',
+    documentation: 'https://app.aero.xyz/docs/',
+    description:
+      'AERO is the native token of Aero, the unified cross-chain exchange formed by the merger of Aerodrome and Velodrome. It replaces both AERO and VELO, and holders can stake it to direct liquidity rewards to pools and earn a share of the exchange revenue those pools generate.',
   },
   PAXG: {
     name: 'PAX Gold',
