@@ -20,6 +20,16 @@ export const tokens = {
   WNATIVE: USDC,
   FEES: USDC,
   USDC,
+  xAERO: {
+    name: 'Aero',
+    symbol: 'xAERO',
+    oracleId: 'arcXAERO',
+    address: '0x20077cC0d5E385A0Fe9C91bbC7DC744f51559307',
+    chainId: 5042,
+    decimals: 18,
+    website: 'https://aero.xyz/',
+    description: 'Aero receipt token on Arc.',
+  },
   WETH: {
     name: 'Wrapped Ether',
     symbol: 'WETH',

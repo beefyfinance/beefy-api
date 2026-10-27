@@ -1,5 +1,56 @@
 [
   {
+    "address": "0xCf65C5ab9E90ADb45d10d66b81BC9b0D95278423",
+    "lpAddress": "0xAd5eea00214715cce97cdc4D0D13E9Ee2B57EacE",
+    "tokens": ["0x128cC466B61f542da60c70e3aA11c10e19B84EDB", "0x3600000000000000000000000000000000000000"],
+    "tokenOracleIds": ["WETH", "USDC"],
+    "decimals": [18, 6],
+    "oracleId": "aero-cow-arc-weth-usdc",
+    "providerId": "aero",
+    "rewardPool": {
+      "address": "0x541EC9D0523F18B48309B8914D8E424fC144CeB9",
+      "oracleId": "aero-cow-arc-weth-usdc-rp"
+    },
+    "vault": {
+      "address": "0x6F1df3B2974877f8Db9aA42e29621c362ba84D42",
+      "oracleId": "aero-cow-arc-weth-usdc-vault"
+    }
+  },
+  {
+    "address": "0x9CcCE25f82f37ef777552E3BBB2A01BC5574AbE8",
+    "lpAddress": "0x86A68d86465bCf19779454e1b4d31368740503c7",
+    "tokens": ["0x171A4217b86A807A64eB94757Db6849fb4bDbAA0", "0x3600000000000000000000000000000000000000"],
+    "tokenOracleIds": ["cirBTC", "USDC"],
+    "decimals": [8, 6],
+    "oracleId": "aero-cow-arc-cirbtc-usdc",
+    "providerId": "aero",
+    "rewardPool": {
+      "address": "0xDAceb29D88ee1b5eFE8ac134523dC93A35548703",
+      "oracleId": "aero-cow-arc-cirbtc-usdc-rp"
+    },
+    "vault": {
+      "address": "0x98fF4C9BbB06aC23beeEF038c14D0B8c485a414A",
+      "oracleId": "aero-cow-arc-cirbtc-usdc-vault"
+    }
+  },
+  {
+    "address": "0x3AB58808c6feC9CC0Ec56A04800e306C08fFB5e0",
+    "lpAddress": "0x5E4D45a31beab080b73123B07F4757573e69f922",
+    "tokens": ["0x128cC466B61f542da60c70e3aA11c10e19B84EDB", "0x171A4217b86A807A64eB94757Db6849fb4bDbAA0"],
+    "tokenOracleIds": ["WETH", "cirBTC"],
+    "decimals": [18, 8],
+    "oracleId": "aero-cow-arc-cirbtc-weth",
+    "providerId": "aero",
+    "rewardPool": {
+      "address": "0x28a7d169942bb50F51A2E53262Ca736980FE183f",
+      "oracleId": "aero-cow-arc-cirbtc-weth-rp"
+    },
+    "vault": {
+      "address": "0xA798397117C38949796DBBEA38b33ea7F880C77d",
+      "oracleId": "aero-cow-arc-cirbtc-weth-vault"
+    }
+  },
+  {
     "address": "0xcB968f8382e3Fd875F47fbbde59Fdf46feB8b447",
     "lpAddress": "0xbe080aC37ad1305DFCc9521F5e6F68CFDc41B7fa",
     "tokens": ["0x3600000000000000000000000000000000000000", "0xbEf5f6d51CB62b58e6A8f77868681825C6fe21c1"],
