@@ -1756,4 +1756,17 @@ export const tokens = {
     bridge: 'frax',
     documentation: 'https://docs.frax.finance/frax-ether/frxeth-and-sfrxeth',
   },
+  xAERO: {
+    name: 'Aero',
+    symbol: 'xAERO',
+    oracleId: 'opxAERO',
+    address: '0xbdEaeA5205d16f34Cb40038052d91235D87B4C54',
+    chainId: 10,
+    decimals: 18,
+    website: 'https://aero.xyz/',
+    description:
+      'xAERO is a standard ERC-20 receipt token issued by Aero Protocol on non-native blockchains. Each xAERO token represents one AERO token on Base and can be bridged back to Base for redemption. xAERO can only be bridged back to Base, but not to other chains.',
+    documentation: 'https://app.aero.xyz/docs',
+    bridge: 'hyperlane',
+  },
 } as const satisfies Record<string, Token>;

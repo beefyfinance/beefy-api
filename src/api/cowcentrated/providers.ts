@@ -31,6 +31,7 @@ export const providers = {
   aero: {
     poolTradingRewardTokens: {
       base: [base.tokens.AEROv2],
+      optimism: [optimism.tokens.xAERO],
     },
   },
   aerodrome: {
