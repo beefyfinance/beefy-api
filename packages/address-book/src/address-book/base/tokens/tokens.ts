@@ -44,7 +44,7 @@ export const tokens = {
     chainId: 8453,
     decimals: 8,
     website: 'https://www.coinbase.com/en-gb/tokenize',
-    tags: ['STOCK'],
+    tags: ['NO_TIMELOCK', 'STOCK'],
   },
   MUc: {
     name: 'Micron Technology, Inc.',
@@ -54,7 +54,7 @@ export const tokens = {
     chainId: 8453,
     decimals: 8,
     website: 'https://www.coinbase.com/en-gb/tokenize',
-    tags: ['STOCK'],
+    tags: ['NO_TIMELOCK', 'STOCK'],
   },
   WNATIVE: ETH,
   FEES: ETH,
@@ -3722,7 +3722,7 @@ export const tokens = {
       "Apple Inc. Coinbase Token is a tokenized debt security issued by Coinbase Onchain SPV Ltd that provides beneficial ownership of custodied Apple Inc. shares to KYC'd holders.",
     documentation: 'https://docs.base.org/',
     bridge: 'native',
-    tags: ['STOCK'],
+    tags: ['NO_TIMELOCK', 'STOCK'],
   },
   GOOGLc: {
     name: 'Alphabet Inc.',
@@ -3736,7 +3736,7 @@ export const tokens = {
       "Alphabet Inc. Coinbase Token is a tokenized debt security issued by Coinbase Onchain SPV Ltd that provides beneficial ownership of custodied Alphabet Inc. shares to KYC'd holders.",
     documentation: 'https://docs.base.org/',
     bridge: 'native',
-    tags: ['STOCK'],
+    tags: ['NO_TIMELOCK', 'STOCK'],
   },
   NVDAc: {
     name: 'NVIDIA Corporation',
@@ -3750,7 +3750,7 @@ export const tokens = {
       "NVIDIA Corporation Coinbase Token is a tokenized debt security issued by Coinbase Onchain SPV Ltd that provides beneficial ownership of custodied NVIDIA Corporation shares to KYC'd holders.",
     documentation: 'https://docs.base.org/',
     bridge: 'native',
-    tags: ['STOCK'],
+    tags: ['NO_TIMELOCK', 'STOCK'],
   },
   METAc: {
     name: 'Meta Platforms Inc.',
@@ -3764,7 +3764,7 @@ export const tokens = {
       "Meta Platforms Inc. Coinbase Token is a tokenized debt security issued by Coinbase Onchain SPV Ltd that provides beneficial ownership of custodied Meta Platforms Inc. shares to KYC'd holders.",
     documentation: 'https://docs.base.org/',
     bridge: 'native',
-    tags: ['STOCK'],
+    tags: ['NO_TIMELOCK', 'STOCK'],
   },
   Basecat: {
     name: 'Basecat',
@@ -3791,7 +3791,7 @@ export const tokens = {
       "Amazon.com Inc. Coinbase Token is a tokenized debt security issued by Coinbase Onchain SPV Ltd that provides beneficial ownership of custodied Amazon.com Inc. shares to KYC'd holders.",
     documentation: 'https://docs.base.org/',
     bridge: 'native',
-    tags: ['STOCK'],
+    tags: ['NO_TIMELOCK', 'STOCK'],
   },
   MSFTc: {
     name: 'Microsoft Corporation',
@@ -3805,7 +3805,7 @@ export const tokens = {
       "Microsoft Corporation Coinbase Token is a tokenized debt security issued by Coinbase Onchain SPV Ltd that provides beneficial ownership of custodied Microsoft Corporation shares to KYC'd holders.",
     documentation: 'https://docs.base.org/',
     bridge: 'native',
-    tags: ['STOCK'],
+    tags: ['NO_TIMELOCK', 'STOCK'],
   },
   MSTRc: {
     name: 'Strategy Inc.',
@@ -3819,7 +3819,7 @@ export const tokens = {
       "Strategy Inc. Coinbase Token is a tokenized debt security issued by Coinbase Onchain SPV Ltd that provides beneficial ownership of custodied Strategy Inc. shares to KYC'd holders.",
     documentation: 'https://docs.base.org/',
     bridge: 'native',
-    tags: ['STOCK'],
+    tags: ['NO_TIMELOCK', 'STOCK'],
   },
   SNDKc: {
     name: 'Sandisk Corporation',
@@ -3833,7 +3833,7 @@ export const tokens = {
       "Sandisk Corporation Coinbase Token is a tokenized debt security issued by Coinbase Onchain SPV Ltd that provides beneficial ownership of custodied Sandisk Corporation shares to KYC'd holders.",
     documentation: 'https://docs.base.org/',
     bridge: 'native',
-    tags: ['STOCK'],
+    tags: ['NO_TIMELOCK', 'STOCK'],
   },
   SPCXc: {
     name: 'Space Exploration Technologies Corp.',
@@ -3847,7 +3847,7 @@ export const tokens = {
       "Space Exploration Technologies Corp. Coinbase Token is a tokenized debt security issued by Coinbase Onchain SPV Ltd that provides beneficial ownership of custodied Space Exploration Technologies Corp. shares to KYC'd holders.",
     documentation: 'https://docs.base.org/',
     bridge: 'native',
-    tags: ['STOCK'],
+    tags: ['NO_TIMELOCK', 'STOCK'],
   },
   TSLAc: {
     name: 'Tesla Inc.',
@@ -3861,7 +3861,7 @@ export const tokens = {
       "Tesla Inc. Coinbase Token is a tokenized debt security issued by Coinbase Onchain SPV Ltd that provides beneficial ownership of custodied Tesla Inc. shares to KYC'd holders.",
     documentation: 'https://docs.base.org/',
     bridge: 'native',
-    tags: ['STOCK'],
+    tags: ['NO_TIMELOCK', 'STOCK'],
   },
   BD: {
     name: 'Base Dollar',
@@ -3928,7 +3928,7 @@ export const tokens = {
     description: 'Coinbase Wrapped ZEC (cbZEC) is backed 1:1 with ZEC, custodied with Coinbase.',
     documentation: 'https://www.coinbase.com/blog/',
     bridge: 'native',
-    tags: ['BLUECHIP'],
+    tags: ['BLUECHIP', 'NO_TIMELOCK'],
   },
   TAO: {
     name: 'Bittensor',
@@ -3955,7 +3955,7 @@ export const tokens = {
       "Roblox Corporation Coinbase Token is a tokenized debt security issued by Coinbase Onchain SPV Ltd that provides beneficial ownership of custodied Roblox Corporation shares to KYC'd holders.",
     documentation: 'https://docs.base.org/',
     bridge: 'native',
-    tags: ['STOCK'],
+    tags: ['NO_TIMELOCK', 'STOCK'],
   },
   PYPLc: {
     name: 'PayPal Holdings, Inc.',
@@ -3969,6 +3969,6 @@ export const tokens = {
       "PayPal Holdings, Inc. Coinbase Token is a tokenized debt security issued by Coinbase Onchain SPV Ltd that provides beneficial ownership of custodied PayPal Holdings, Inc. shares to KYC'd holders.",
     documentation: 'https://docs.base.org/',
     bridge: 'native',
-    tags: ['STOCK'],
+    tags: ['NO_TIMELOCK', 'STOCK'],
   },
 } as const satisfies Record<string, Token>;
