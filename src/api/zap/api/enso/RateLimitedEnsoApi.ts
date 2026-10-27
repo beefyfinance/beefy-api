@@ -2,6 +2,7 @@ import type PQueue from 'p-queue';
 import { getLoggerFor } from '../../../../utils/logger/index.ts';
 import type { ApiResponse } from '../common.ts';
 import { EnsoApi } from './EnsoApi.ts';
+import type { EnsoEffort } from './types.ts';
 
 const MAX_PENDING_REQUESTS = 50;
 // Caps public quote credit burn across all chains, before a quota 429 opens the breaker for everyone;
@@ -31,10 +32,11 @@ export class RateLimitedEnsoApi extends EnsoApi {
     routers: readonly string[],
     zapRouter: string,
     apiKey: string,
+    effort: EnsoEffort,
     protected readonly queue: PQueue,
     protected readonly proxyQueue: PQueue
   ) {
-    super(baseUrl, chainId, routers, zapRouter, apiKey);
+    super(baseUrl, chainId, routers, zapRouter, apiKey, effort);
   }
 
   protected async get<ResponseType extends object>(

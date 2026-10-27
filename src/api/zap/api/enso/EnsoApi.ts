@@ -7,6 +7,7 @@ import { type ApiResponse, type ExtraQuoteResponse, isErrorApiResponse } from '.
 import { QuoteCache } from '../quote-cache.ts';
 import {
   ENSO_NATIVE_ADDRESS,
+  type EnsoEffort,
   type EnsoErrorResponse,
   type EnsoQuoteRequest,
   type EnsoQuoteResponse,
@@ -49,7 +50,8 @@ export class EnsoApi implements IEnsoApi {
     protected readonly chainId: number,
     protected readonly routers: readonly string[],
     protected readonly zapRouter: string,
-    protected readonly apiKey: string
+    protected readonly apiKey: string,
+    protected readonly effort: EnsoEffort
   ) {}
 
   protected readonly breaker = ensoCircuitBreaker;
@@ -99,6 +101,7 @@ export class EnsoApi implements IEnsoApi {
     return {
       chainId: this.chainId.toString(),
       routingStrategy: 'router',
+      effort: this.effort,
       tokenIn: normalizeTokenAddress(request.tokenIn),
       tokenOut: normalizeTokenAddress(request.tokenOut),
       amountIn: request.amountIn,

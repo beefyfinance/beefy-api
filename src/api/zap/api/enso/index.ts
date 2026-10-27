@@ -6,7 +6,7 @@ import { RateLimitedEnsoApi } from './RateLimitedEnsoApi.ts';
 
 export { isEnsoCircuitOpenedSince } from './EnsoApi.ts';
 
-import type { IEnsoApi } from './types.ts';
+import type { EnsoEffort, IEnsoApi } from './types.ts';
 
 // Configure rate limiting; worst case across both queues is 9 requests in any second (Enso limit is 10 RPS)
 const API_QUEUE_CONFIG = {
@@ -43,6 +43,11 @@ const ENSO_ROUTERS: Partial<Record<ApiChain, readonly Address[]>> = {
   megaeth: ['0xCfBAa9Cfce952Ca4F4069874fF1Df8c05e37a3c7'],
   robinhood: ['0xCfBAa9Cfce952Ca4F4069874fF1Df8c05e37a3c7'],
   arc: ['0xCfBAa9Cfce952Ca4F4069874fF1Df8c05e37a3c7'],
+};
+
+/** medium still searches every path but answers faster; chains not listed use medium */
+const ENSO_EFFORT: Partial<Record<ApiChain, EnsoEffort>> = {
+  robinhood: 'high',
 };
 
 export const supportedSwapChains = new Set<ApiChain>(
@@ -88,6 +93,7 @@ export function getEnsoApi(apiChain: ApiChain): IEnsoApi {
     routers,
     zapRouter,
     apiKey,
+    ENSO_EFFORT[apiChain] ?? 'medium',
     swapApiQueue,
     proxyApiQueue
   );

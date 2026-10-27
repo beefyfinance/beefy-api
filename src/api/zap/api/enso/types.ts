@@ -31,7 +31,10 @@ export const ENSO_AGGREGATORS = new Set([
   'akka',
 ]);
 
-/** GET request to /shortcuts/quote with url params (chainId and routingStrategy are added by the api) */
+/** How long Enso searches for a route; Enso's default is high */
+export type EnsoEffort = 'light' | 'medium' | 'high';
+
+/** GET request to /shortcuts/quote with url params (chainId, routingStrategy and effort are added by the api) */
 export type EnsoQuoteRequest = {
   /** input token address, or ENSO_NATIVE_ADDRESS */
   tokenIn: string;
