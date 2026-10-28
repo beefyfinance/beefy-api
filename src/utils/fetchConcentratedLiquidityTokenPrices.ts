@@ -2765,6 +2765,14 @@ const tokens = {
   ],
   arc: [
     {
+      type: 'Slipstream',
+      oracleId: 'arcXAERO',
+      decimalDelta: 1e12,
+      pool: '0x588afcb966645Dc00132c797986D4934a7B2c035',
+      firstToken: 'USDC',
+      secondToken: 'arcXAERO',
+    },
+    {
       type: 'UniV3',
       oracleId: 'cirBTC',
       decimalDelta: 1e2,

@@ -1,4 +1,5 @@
 import { arbitrum } from '@beefyfinance/blockchain-addressbook/arbitrum';
+import { arc } from '@beefyfinance/blockchain-addressbook/arc';
 import { avax } from '@beefyfinance/blockchain-addressbook/avax';
 import { base } from '@beefyfinance/blockchain-addressbook/base';
 import { bsc } from '@beefyfinance/blockchain-addressbook/bsc';
@@ -30,6 +31,7 @@ export const providers = {
   },
   aero: {
     poolTradingRewardTokens: {
+      arc: [arc.tokens.xAERO],
       base: [base.tokens.AEROv2],
       optimism: [optimism.tokens.xAERO],
     },
