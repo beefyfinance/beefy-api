@@ -33,6 +33,7 @@ export const providers = {
     poolTradingRewardTokens: {
       arc: [arc.tokens.xAERO],
       base: [base.tokens.AEROv2],
+      robinhood: [robinhood.tokens.xAERO],
       optimism: [optimism.tokens.xAERO],
     },
   },
