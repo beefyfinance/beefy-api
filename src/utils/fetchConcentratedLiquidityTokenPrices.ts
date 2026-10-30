@@ -52,11 +52,11 @@ const tokens = {
       secondToken: 'AXL',
     },
     {
-      type: 'UniV3',
+      type: 'Slipstream',
       oracleId: 'BIFI',
       decimalDelta: 1,
-      pool: '0xfBa26C3F9C8eCeF989def3C5c8aD037487462d83',
-      firstToken: 'WETH',
+      pool: '0xff35aa95669b5668AC6727FdcFc0D5582cdd78D1',
+      firstToken: 'ETH',
       secondToken: 'BIFI',
     },
     {
@@ -393,7 +393,7 @@ const tokens = {
       type: 'Slipstream',
       oracleId: 'basemooBIFI',
       decimalDelta: 1,
-      pool: '0xb378137c90444BbceCD44a1f766851fbf53D2a9E',
+      pool: '0xEEBE78d734dC4bAC027061cEE9bc12C5803fE4f8',
       firstToken: 'basemooBIFI',
       secondToken: 'ETH',
     },
