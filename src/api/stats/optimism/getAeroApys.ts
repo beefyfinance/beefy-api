@@ -15,7 +15,6 @@ const getAeroApys = () =>
     pools,
     rewardOracleId: xAERO.oracleId,
     rewardDecimals: xAERO.decimals,
-    secondsPerBlock: 2,
   });
 
 export default getAeroApys;

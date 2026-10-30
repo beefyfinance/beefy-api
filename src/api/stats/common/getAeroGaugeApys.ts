@@ -1,32 +1,22 @@
 import { BigNumber } from 'bignumber.js';
-import type { Address } from 'viem';
+import { type Address, parseAbi, zeroAddress } from 'viem';
 import { isDefined } from '../../../utils/array.ts';
 import type { ApiChainId } from '../../../utils/chain.ts';
 import { fetchPrice } from '../../../utils/fetchPrice.ts';
 import { getLoggerFor } from '../../../utils/logger/index.ts';
+import { isValidPrice } from '../../../utils/prices.ts';
 import { SECONDS_PER_YEAR } from '../../../utils/time.ts';
-import { getRPCClient } from '../../rpc/client.ts';
+import { fetchContract } from '../../rpc/client.ts';
 import { type ApyBreakdownRequest, getApyBreakdown } from './getApyBreakdownNew.ts';
 
-const LOOKBACK_SECONDS = 24 * 60 * 60;
-const REWARD_PRECISION = new BigNumber('1e18');
+const gaugeAbi = parseAbi(['function gaugeFactory() view returns (address)']);
+const gaugeFactoryAbi = parseAbi(['function gaugeTape() view returns (address)']);
+const gaugeTapeAbi = parseAbi([
+  'function observe(address gauge, uint48[] secondsAgo) view returns ((uint224 rewardPerToken, uint32 blockTimestamp)[])',
+]);
 
-const gaugeAbi = [
-  {
-    inputs: [],
-    name: 'projectedRewardPerToken',
-    outputs: [{ type: 'uint256' }],
-    stateMutability: 'view',
-    type: 'function',
-  },
-  {
-    inputs: [],
-    name: 'totalSupply',
-    outputs: [{ type: 'uint256' }],
-    stateMutability: 'view',
-    type: 'function',
-  },
-] as const;
+const LOOKBACK_SECONDS = 24 * 60 * 60;
+const REWARD_PER_TOKEN_PRECISION = 18;
 
 type AeroGaugePool = {
   name: string;
@@ -40,72 +30,46 @@ type AeroGaugeApyParams = {
   pools: AeroGaugePool[];
   rewardOracleId: string;
   rewardDecimals: number;
-  secondsPerBlock: number;
 };
 
-export const getAeroGaugeApys = async ({
-  chainId,
-  pools,
-  rewardOracleId,
-  rewardDecimals,
-  secondsPerBlock,
-}: AeroGaugeApyParams) => {
+export const getAeroGaugeApys = async ({ chainId, pools, rewardOracleId, rewardDecimals }: AeroGaugeApyParams) => {
   const logger = getLoggerFor({ module: 'apy', component: 'aero', chain: chainId });
-  const client = getRPCClient(chainId);
-  const rewardTokenScale = new BigNumber(`1e${rewardDecimals}`);
+  const rewardPrice = await fetchPrice({ oracle: 'tokens', id: rewardOracleId });
+  const rewardScale = new BigNumber(10).pow(REWARD_PER_TOKEN_PRECISION + rewardDecimals);
 
-  const currentBlock = await client.getBlockNumber();
-  const previousBlock = currentBlock - BigInt(Math.ceil(LOOKBACK_SECONDS / secondsPerBlock));
-
-  const [currentBlockData, previousBlockData] = await Promise.all([
-    client.getBlock({ blockNumber: currentBlock }),
-    client.getBlock({ blockNumber: previousBlock }),
-  ]);
-  const elapsedSeconds = Number(currentBlockData.timestamp - previousBlockData.timestamp);
+  const tapeByFactory = new Map<Address, Promise<Address>>();
+  const getTape = (factory: Address) => {
+    let tape = tapeByFactory.get(factory);
+    if (!tape) {
+      tape = fetchContract(factory, gaugeFactoryAbi, chainId).read.gaugeTape();
+      tapeByFactory.set(factory, tape);
+    }
+    return tape;
+  };
 
   const getPoolApr = async (pool: AeroGaugePool) => {
-    const gaugeAddress = pool.gauge as Address;
-
-    const [currentRewardPerToken, previousRewardPerToken, totalSupply, rewardPrice, lpPrice] = await Promise.all([
-      client.readContract({
-        address: gaugeAddress,
-        abi: gaugeAbi,
-        functionName: 'projectedRewardPerToken',
-        blockNumber: currentBlock,
-      }),
-      client.readContract({
-        address: gaugeAddress,
-        abi: gaugeAbi,
-        functionName: 'projectedRewardPerToken',
-        blockNumber: previousBlock,
-      }),
-      client.readContract({
-        address: gaugeAddress,
-        abi: gaugeAbi,
-        functionName: 'totalSupply',
-        blockNumber: currentBlock,
-      }),
-      fetchPrice({ oracle: 'tokens', id: rewardOracleId }),
+    const factory = await fetchContract(pool.gauge, gaugeAbi, chainId).read.gaugeFactory();
+    const tape = await getTape(factory);
+    if (tape === zeroAddress) {
+      return new BigNumber(0);
+    }
+    const [[start, end], lpPrice] = await Promise.all([
+      fetchContract(tape, gaugeTapeAbi, chainId).read.observe([pool.gauge as Address, [LOOKBACK_SECONDS, 0]]),
       fetchPrice({ oracle: 'lps', id: pool.name }),
     ]);
 
-    if (
-      totalSupply === 0n
-      || elapsedSeconds <= 0
-      || currentRewardPerToken <= previousRewardPerToken
-      || rewardPrice <= 0
-      || lpPrice <= 0
-    ) {
+    const elapsed = end.blockTimestamp - start.blockTimestamp;
+    if (elapsed <= 0 || !isValidPrice(rewardPrice) || !isValidPrice(lpPrice)) {
       return new BigNumber(0);
     }
 
-    // Gauge reward-per-token values use 1e18 precision and accrue reward-token units per LP-token unit.
-    const rewardPerLpPerYear = new BigNumber(currentRewardPerToken - previousRewardPerToken)
+    return new BigNumber((end.rewardPerToken - start.rewardPerToken).toString())
       .times(pool.decimals)
+      .dividedBy(rewardScale)
+      .times(rewardPrice)
       .times(SECONDS_PER_YEAR)
-      .dividedBy(REWARD_PRECISION.times(elapsedSeconds).times(rewardTokenScale));
-
-    return rewardPerLpPerYear.times(rewardPrice).dividedBy(lpPrice);
+      .dividedBy(elapsed)
+      .dividedBy(lpPrice);
   };
 
   const requests = await Promise.all(
