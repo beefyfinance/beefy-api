@@ -1,11 +1,13 @@
 import { addressBook } from '@beefyfinance/blockchain-addressbook';
 import { BigNumber } from 'bignumber.js';
 import type { Address } from 'viem';
+import { isDefined } from '../../../utils/array.ts';
 import { ApiChainId } from '../../../utils/chain.ts';
 import { fetchPrice } from '../../../utils/fetchPrice.ts';
 import { getLoggerFor } from '../../../utils/logger/index.ts';
+import { SECONDS_PER_YEAR } from '../../../utils/time.ts';
 import { getRPCClient } from '../../rpc/client.ts';
-import { getApyBreakdown } from '../common/getApyBreakdown.ts';
+import { type ApyBreakdownRequest, getApyBreakdown } from '../common/getApyBreakdownNew.ts';
 import pools from '../../../data/optimism/aeroLpPools.json' with { type: 'json' };
 
 const {
@@ -20,7 +22,6 @@ const LOOKBACK_SECONDS = 24 * 60 * 60;
 const OPTIMISM_SECONDS_PER_BLOCK = 2;
 const REWARD_PRECISION = new BigNumber('1e18');
 const REWARD_TOKEN_SCALE = new BigNumber(`1e${xAERO.decimals}`);
-const SECONDS_PER_YEAR = 365 * LOOKBACK_SECONDS;
 
 const gaugeAbi = [
   {
@@ -101,23 +102,22 @@ const getAeroApys = async () => {
   ]);
   const elapsedSeconds = Number(currentBlockData.timestamp - previousBlockData.timestamp);
 
-  const validPools: (typeof pools)[number][] = [];
-  const farmApys: BigNumber[] = [];
-  const results = await Promise.allSettled(
-    pools.map(pool => getPoolApy(pool, currentBlock, previousBlock, elapsedSeconds))
+  const requests = await Promise.all(
+    pools.map(async (pool): Promise<ApyBreakdownRequest | undefined> => {
+      try {
+        return {
+          vaultId: pool.name,
+          beefyFee: pool.beefyFee,
+          vault: await getPoolApy(pool, currentBlock, previousBlock, elapsedSeconds),
+        };
+      } catch (err) {
+        logger.warn({ err, pool: pool.name }, 'pool apy calculation failed');
+        return undefined;
+      }
+    })
   );
 
-  results.forEach((result, index) => {
-    if (result.status === 'rejected') {
-      logger.warn({ err: result.reason, pool: pools[index].name }, 'pool apy calculation failed');
-      return;
-    }
-
-    validPools.push(pools[index]);
-    farmApys.push(result.value);
-  });
-
-  return getApyBreakdown(validPools, undefined, farmApys, 0);
+  return getApyBreakdown(requests.filter(isDefined));
 };
 
 export default getAeroApys;
