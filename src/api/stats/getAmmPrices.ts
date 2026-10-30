@@ -34,6 +34,7 @@ import velodromeLiskPools from '../../data/lisk/velodromeLiskPools.json' with { 
 import moePools from '../../data/mantle/moeLpPools.json' with { type: 'json' };
 import netswapPools from '../../data/metis/netswapLpPools.json' with { type: 'json' };
 import uniswapMonadPools from '../../data/monad/uniswapLpPools.json' with { type: 'json' };
+import aeroPools from '../../data/optimism/aeroLpPools.json' with { type: 'json' };
 import oldVelodromePools from '../../data/optimism/oldVelodromeLpPools.json' with { type: 'json' };
 import velodromePools from '../../data/optimism/velodromeLpPools.json' with { type: 'json' };
 import lithosPools from '../../data/plasma/lithosPools.json' with { type: 'json' };
@@ -61,6 +62,7 @@ const pools = normalizePoolOracleIds([
   ...moePools,
   ...alienBasePools,
   ...aerodromePools,
+  ...aeroPools,
   ...ooeV2Pools,
   ...veSyncPools,
   ...ramsesPools,

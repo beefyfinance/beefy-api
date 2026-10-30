@@ -2,6 +2,7 @@ import { ApiChainId } from '../../../utils/chain.ts';
 import { getLoggerFor } from '../../../utils/logger/index.ts';
 import type { ApyBreakdownResult } from '../common/getApyBreakdownNew.ts';
 import { getMorphoApys } from '../common/morpho/getMorphoApys.ts';
+import getAeroApys from './getAeroApys.ts';
 import { getBeefyOPCowApys } from './getBeefyOPCowApys.ts';
 import getBeVeloV2Apr from './getBeVeloV2Apr.ts';
 import { getCurveApys } from './getCurveApys.ts';
@@ -13,6 +14,7 @@ const logger = getLoggerFor({ module: 'apy', chain: ApiChainId.optimism });
 const getApys = [
   getCurveApys,
   getVelodromeApys,
+  getAeroApys,
   getBeVeloV2Apr,
   getBeefyOPCowApys,
   () => getMorphoApys(ApiChainId.optimism, morphoPoolsData),
