@@ -28,6 +28,7 @@ import { getPendleCommonPrices } from './common/getPendleCommonPrices.ts';
 import { getSiloPrices } from './common/getSiloPrices.ts';
 import getSolidlyStablePrices from './common/getSolidlyStablePrices.ts';
 import { getMorphoPrices } from './common/morpho/getMorphoPrices.ts';
+import getAeroEthereumPrices from './ethereum/getAeroPositionPrices.ts';
 import getAuraBalancerPrices from './ethereum/getAuraBalancerPrices.ts';
 import { getCurveEthereumPrices } from './ethereum/getCurvePrices.ts';
 import getUniswapEthereumPrices from './ethereum/getUniswapPositionPrices.ts';
@@ -93,6 +94,7 @@ export const getNonAmmPrices = withTracing(
       getNeverlandPrices(tokenPrices),
       getCurvanceMonadPrices(tokenPrices),
       getUniswapEthereumPrices(tokenPrices),
+      getAeroEthereumPrices(tokenPrices),
       getMimSwapPrices(tokenPrices),
       getAuraBalancerPrices(tokenPrices),
       getGmxAvalanchePrices(tokenPrices),

@@ -16,7 +16,7 @@ interface LpTokenConfig {
   decimals: string;
 }
 
-interface UniV3Pool {
+export interface UniV3Pool {
   name: string;
   address: string;
   nftId: number;
@@ -33,7 +33,7 @@ interface UniV3PositionPricesParams {
   nftManager: string;
 }
 
-type PositionTokens = readonly [bigint, bigint, bigint];
+export type PositionTokens = readonly [bigint, bigint, bigint];
 
 export const getUniV3PositionPrices = withTracing(
   async (params: UniV3PositionPricesParams): Promise<Record<string, StandardLpBreakdown>> => {
@@ -50,7 +50,7 @@ export const getUniV3PositionPrices = withTracing(
   { logger, fieldsFn: (params: UniV3PositionPricesParams) => ({ chain: params.chainId }) }
 );
 
-const getPrice = (
+export const getPrice = (
   pool: UniV3Pool,
   positionTokens: PositionTokens,
   tokenPrices: Record<string, number>
