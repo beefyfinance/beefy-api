@@ -52,8 +52,9 @@ const updateMooTokenPrices = async () => {
         continue;
       }
 
-      // Price per share
-      const mooPrice = vault.pricePerFullShare.times(price).dividedBy(1e18);
+      // Price per 1e18 share units; shares are minted in deposit token decimals
+      const tokenDecimals = Number.isFinite(vault.tokenDecimals) ? vault.tokenDecimals : 18;
+      const mooPrice = vault.pricePerFullShare.times(price).shiftedBy(-tokenDecimals);
 
       // Save
       const chainPrices = (mooTokenPrices[vault.chain] ??= {});
