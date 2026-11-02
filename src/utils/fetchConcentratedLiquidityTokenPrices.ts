@@ -2179,6 +2179,14 @@ const tokens = {
       secondToken: 'WETH',
     },
     {
+      type: 'Slipstream',
+      oracleId: 'rhxAERO',
+      decimalDelta: 1e-12,
+      pool: '0x816907EB23068c2fb30D0FC832f3069B213EDFF9',
+      firstToken: 'rhxAERO',
+      secondToken: 'USDG',
+    },
+    {
       type: 'UniV3',
       oracleId: 'NETrh',
       decimalDelta: 1e12,

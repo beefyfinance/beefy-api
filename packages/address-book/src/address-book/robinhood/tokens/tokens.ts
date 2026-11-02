@@ -33,6 +33,16 @@ export const tokens = {
   FEES: ETH,
   ETH,
   WETH: ETH,
+  xAERO: {
+    name: 'Aero',
+    symbol: 'xAERO',
+    oracleId: 'rhxAERO',
+    address: '0x9e148C5716b5aAdCFD3B71cEAE9EE7a9e22C29E2',
+    chainId: 4663,
+    decimals: 18,
+    website: 'https://aero.xyz/',
+    description: 'Aero receipt token on Robinhood, minted and burned by the local LeafVoter.',
+  },
   USDG: {
     name: 'Global Dollar',
     address: '0x5fc5360D0400a0Fd4f2af552ADD042D716F1d168',
