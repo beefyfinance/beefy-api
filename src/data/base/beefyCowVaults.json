@@ -1,5 +1,22 @@
 [
   {
+    "address": "0x9beed5c9d776d8af992201BD0C569fc1F86f8dF5",
+    "lpAddress": "0x8803B6E002f0E9c779F611EB7189Dec4a65e3502",
+    "tokens": ["0x4200000000000000000000000000000000000006", "0x58538e6A46E07434d7E7375Bc268D3cb839C0133"],
+    "tokenOracleIds": ["WETH", "ENA"],
+    "decimals": [18, 18],
+    "oracleId": "aero-cow-base-weth-ena",
+    "providerId": "aero",
+    "rewardPool": {
+      "address": "0x5597B3c9EdBe6fB50A71366bDc255dCAc5bdA3e3",
+      "oracleId": "aero-cow-base-weth-ena-rp"
+    },
+    "vault": {
+      "address": "0xF1dB961d9012C56de8Edd3690323570F0f51Bc7C",
+      "oracleId": "aero-cow-base-weth-ena-vault"
+    }
+  },
+  {
     "address": "0xf4B7A4c6dB6f268a654Bcbb9D3D493FD6EB77814",
     "lpAddress": "0xB305829bBB29f21f760c8EE23c021E603A2Db416",
     "tokens": ["0x4200000000000000000000000000000000000006", "0xb2000000000000000000008bC8786B856E61707C"],

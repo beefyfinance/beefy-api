@@ -3971,4 +3971,18 @@ export const tokens = {
     bridge: 'native',
     tags: ['NO_TIMELOCK', 'STOCK'],
   },
+  ENA: {
+    name: 'ENA',
+    symbol: 'ENA',
+    oracleId: 'ENA',
+    address: '0x58538e6A46E07434d7E7375Bc268D3cb839C0133',
+    chainId: 8453,
+    decimals: 18,
+    website: 'https://ethena.fi/',
+    description:
+      "ENA is Ethena's governance token. Ethena is a synthetic dollar protocol built on Ethereum that provides a crypto-native solution for money not reliant on traditional banking system infrastructure, alongside a globally accessible dollar denominated instrument: USDe.",
+    documentation: 'https://ethena-labs.gitbook.io/ethena-labs',
+    bridge: 'layer-zero',
+    tags: ['NO_TIMELOCK'],
+  },
 } as const satisfies Record<string, Token>;
