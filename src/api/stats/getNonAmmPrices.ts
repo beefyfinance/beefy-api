@@ -48,6 +48,7 @@ import avaxAaveV4Pools from '../../data/avax/aaveV4Pools.json' with { type: 'jso
 import avaxBlackStableLpPools from '../../data/avax/blackStableLpPools.json' with { type: 'json' };
 import avaxSiloPools from '../../data/avax/siloPools.json' with { type: 'json' };
 import baseAaveV3Pools from '../../data/base/aaveV3Pools.json' with { type: 'json' };
+import baseAaveV4Pools from '../../data/base/aaveV4Pools.json' with { type: 'json' };
 import baseAlienBaseBunniPools from '../../data/base/alienBaseBunniPools.json' with { type: 'json' };
 import baseMellowAeroPools from '../../data/base/mellowAeroPools.json' with { type: 'json' };
 import baseMorphoPools from '../../data/base/morphoPools.json' with { type: 'json' };
@@ -85,6 +86,7 @@ export const getNonAmmPrices = withTracing(
     const promises = [
       getAaveV4Prices(ApiChainId.ethereum, ethereumAaveV4Pools, tokenPrices),
       getAaveV4Prices(ApiChainId.avax, avaxAaveV4Pools, tokenPrices),
+      getAaveV4Prices(ApiChainId.base, baseAaveV4Pools, tokenPrices),
       getAaveV3Prices(ApiChainId.base, baseAaveV3Pools, tokenPrices),
       getAaveV3Prices(ApiChainId.mantle, mantleAaveV3Pools, tokenPrices),
       getAaveV3Prices(ApiChainId.megaeth, megaethAaveV3Pools, tokenPrices),
