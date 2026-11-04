@@ -1453,6 +1453,22 @@ const tokens = {
       firstToken: 'RBLXc',
       secondToken: 'USDC',
     },
+    {
+      type: 'Slipstream',
+      oracleId: 'ENA',
+      decimalDelta: 1,
+      pool: '0x8803B6E002f0E9c779F611EB7189Dec4a65e3502',
+      firstToken: 'ENA',
+      secondToken: 'WETH',
+    },
+    {
+      type: 'Slipstream',
+      oracleId: 'ICP',
+      decimalDelta: 1e-10,
+      pool: '0x3ECA1A7D881E12D2C7D8111269CEa0bcbF12192a',
+      firstToken: 'WETH',
+      secondToken: 'ICP',
+    },
   ],
   zksync: [
     {
