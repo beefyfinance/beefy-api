@@ -3,6 +3,7 @@ import { getLoggerFor } from '../../../utils/logger/index.ts';
 import type { ApyBreakdownResult } from '../common/getApyBreakdownNew.ts';
 import { getMorphoApys } from '../common/morpho/getMorphoApys.ts';
 import { getAaveV3Apys } from './getAaveV3Apys.ts';
+import { getAaveV4Apys } from './getAaveV4Apys.ts';
 import { getAerodromeApys } from './getAerodromeApys.ts';
 import { getBeefyBaseCowApys } from './getBeefyBaseCowApys.ts';
 import { getCurveApys } from './getCurveApys.ts';
@@ -12,6 +13,7 @@ const logger = getLoggerFor({ module: 'apy', chain: ApiChainId.base });
 
 const getApys = [
   getAaveV3Apys,
+  getAaveV4Apys,
   getAerodromeApys,
   getCurveApys,
   () => getMorphoApys(ApiChainId.base, morphoPoolsData),

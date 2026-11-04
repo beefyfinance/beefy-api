@@ -1,0 +1,82 @@
+[
+  {
+    "name": "aavev4-base-aaplc",
+    "spoke": "0x17905Db0e4A3514467539956c084180616AE7B8D",
+    "reserveId": 0,
+    "aaveTokenSymbol": "AAPLc",
+    "aaveSpokeName": "Coinbase Stocks",
+    "identifier": "0xBE38E20BA23A3a3B1B26B1ca3DaF60A54963B1b5",
+    "oracleId": "AAPLc",
+    "decimals": "1e8"
+  },
+  {
+    "name": "aavev4-base-amznc",
+    "spoke": "0x17905Db0e4A3514467539956c084180616AE7B8D",
+    "reserveId": 1,
+    "aaveTokenSymbol": "AMZNc",
+    "aaveSpokeName": "Coinbase Stocks",
+    "identifier": "0xA2e65A100D6318d38BAf58dDb2beaf45374B5cEB",
+    "oracleId": "AMZNc",
+    "decimals": "1e8"
+  },
+  {
+    "name": "aavev4-base-googlc",
+    "spoke": "0x17905Db0e4A3514467539956c084180616AE7B8D",
+    "reserveId": 2,
+    "aaveTokenSymbol": "GOOGLc",
+    "aaveSpokeName": "Coinbase Stocks",
+    "identifier": "0x1d5b9B650d8b5eD88068D93d342E7aD34FB54C74",
+    "oracleId": "GOOGLc",
+    "decimals": "1e8"
+  },
+  {
+    "name": "aavev4-base-metac",
+    "spoke": "0x17905Db0e4A3514467539956c084180616AE7B8D",
+    "reserveId": 3,
+    "aaveTokenSymbol": "METAc",
+    "aaveSpokeName": "Coinbase Stocks",
+    "identifier": "0xf7b710F94D9dd8595258420Ee54f100B3C9c7A3c",
+    "oracleId": "METAc",
+    "decimals": "1e8"
+  },
+  {
+    "name": "aavev4-base-msftc",
+    "spoke": "0x17905Db0e4A3514467539956c084180616AE7B8D",
+    "reserveId": 4,
+    "aaveTokenSymbol": "MSFTc",
+    "aaveSpokeName": "Coinbase Stocks",
+    "identifier": "0x8DC2396ADACD8169FB0ad922556d08924D433DB5",
+    "oracleId": "MSFTc",
+    "decimals": "1e8"
+  },
+  {
+    "name": "aavev4-base-nvdac",
+    "spoke": "0x17905Db0e4A3514467539956c084180616AE7B8D",
+    "reserveId": 5,
+    "aaveTokenSymbol": "NVDAc",
+    "aaveSpokeName": "Coinbase Stocks",
+    "identifier": "0x1e9f4337dAe7ebf8a17Da6971634d99bC8c37d72",
+    "oracleId": "NVDAc",
+    "decimals": "1e8"
+  },
+  {
+    "name": "aavev4-base-tslac",
+    "spoke": "0x17905Db0e4A3514467539956c084180616AE7B8D",
+    "reserveId": 6,
+    "aaveTokenSymbol": "TSLAc",
+    "aaveSpokeName": "Coinbase Stocks",
+    "identifier": "0x02DD811b863BE3B00080eD9A91C3Fc692C9a8aA5",
+    "oracleId": "TSLAc",
+    "decimals": "1e8"
+  },
+  {
+    "name": "aavev4-base-spcxc",
+    "spoke": "0x17905Db0e4A3514467539956c084180616AE7B8D",
+    "reserveId": 8,
+    "aaveTokenSymbol": "SPCXc",
+    "aaveSpokeName": "Coinbase Stocks",
+    "identifier": "0xe1621d76316a5567677848a4a2F4758d134f67a7",
+    "oracleId": "SPCXc",
+    "decimals": "1e8"
+  }
+]
