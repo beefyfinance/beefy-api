@@ -104,7 +104,7 @@ async function main() {
     lp0,
     lp1,
   };
-  const file = path.resolve(import.meta.dirname, '../src/data', network, 'aeroLpPools.json');
+  const file = path.resolve(import.meta.dirname, '../src/data', network, 'aeroV2LpPools.json');
   const pools: { name: string; address: string }[] = fs.existsSync(file)
     ? JSON.parse(fs.readFileSync(file, 'utf8'))
     : [];
