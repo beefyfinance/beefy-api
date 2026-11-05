@@ -25,7 +25,7 @@ import getNonAmmPrices from './getNonAmmPrices.ts';
 import ramsesPools from '../../data/arbitrum/ramsesLpPools.json' with { type: 'json' };
 import blackholePools from '../../data/avax/blackLpPools.json' with { type: 'json' };
 import aerodromePools from '../../data/base/aerodromeLpPools.json' with { type: 'json' };
-import baseAeroPools from '../../data/base/aeroLpPools.json' with { type: 'json' };
+import baseAeroV2Pools from '../../data/base/aeroV2LpPools.json' with { type: 'json' };
 import alienBasePools from '../../data/base/alienBaseLpPools.json' with { type: 'json' };
 import ooeV2Pools from '../../data/bsc/ooeV2LpPools.json' with { type: 'json' };
 import pancakeBscLpPools from '../../data/bsc/pancakeLpPools.json' with { type: 'json' };
@@ -35,7 +35,7 @@ import velodromeLiskPools from '../../data/lisk/velodromeLiskPools.json' with { 
 import moePools from '../../data/mantle/moeLpPools.json' with { type: 'json' };
 import netswapPools from '../../data/metis/netswapLpPools.json' with { type: 'json' };
 import uniswapMonadPools from '../../data/monad/uniswapLpPools.json' with { type: 'json' };
-import optimismAeroPools from '../../data/optimism/aeroLpPools.json' with { type: 'json' };
+import optimismAeroV2Pools from '../../data/optimism/aeroV2LpPools.json' with { type: 'json' };
 import oldVelodromePools from '../../data/optimism/oldVelodromeLpPools.json' with { type: 'json' };
 import velodromePools from '../../data/optimism/velodromeLpPools.json' with { type: 'json' };
 import lithosPools from '../../data/plasma/lithosPools.json' with { type: 'json' };
@@ -63,8 +63,8 @@ const pools = normalizePoolOracleIds([
   ...moePools,
   ...alienBasePools,
   ...aerodromePools,
-  ...baseAeroPools,
-  ...optimismAeroPools,
+  ...baseAeroV2Pools,
+  ...optimismAeroV2Pools,
   ...ooeV2Pools,
   ...veSyncPools,
   ...ramsesPools,

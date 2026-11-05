@@ -49,6 +49,7 @@ import avaxBlackStableLpPools from '../../data/avax/blackStableLpPools.json' wit
 import avaxSiloPools from '../../data/avax/siloPools.json' with { type: 'json' };
 import baseAaveV3Pools from '../../data/base/aaveV3Pools.json' with { type: 'json' };
 import baseAaveV4Pools from '../../data/base/aaveV4Pools.json' with { type: 'json' };
+import baseAeroV2StablePools from '../../data/base/aeroV2StableLpPools.json' with { type: 'json' };
 import baseAlienBaseBunniPools from '../../data/base/alienBaseBunniPools.json' with { type: 'json' };
 import baseMellowAeroPools from '../../data/base/mellowAeroPools.json' with { type: 'json' };
 import baseMorphoPools from '../../data/base/morphoPools.json' with { type: 'json' };
@@ -66,6 +67,7 @@ import monadCurvePools from '../../data/monad/curvePools.json' with { type: 'jso
 import monadEulerPools from '../../data/monad/eulerPools.json' with { type: 'json' };
 import monadGearboxPools from '../../data/monad/gearboxPools.json' with { type: 'json' };
 import monadMorphoPools from '../../data/monad/morphoPools.json' with { type: 'json' };
+import optimismAeroV2StablePools from '../../data/optimism/aeroV2StableLpPools.json' with { type: 'json' };
 import optimismMorphoPools from '../../data/optimism/morphoPools.json' with { type: 'json' };
 import plasmaCurvePools from '../../data/plasma/curvePools.json' with { type: 'json' };
 import plasmaLithosStablePools from '../../data/plasma/lithosStablePools.json' with { type: 'json' };
@@ -136,6 +138,8 @@ export const getNonAmmPrices = withTracing(
       getEulerPrices(ApiChainId.monad, monadEulerPools, tokenPrices),
       getSolidlyStablePrices(ApiChainId.avax, avaxBlackStableLpPools, tokenPrices),
       getSolidlyStablePrices(ApiChainId.plasma, plasmaLithosStablePools, tokenPrices),
+      getSolidlyStablePrices(ApiChainId.base, baseAeroV2StablePools, tokenPrices),
+      getSolidlyStablePrices(ApiChainId.optimism, optimismAeroV2StablePools, tokenPrices),
       getSiloPrices(ApiChainId.avax, avaxSiloPools, tokenPrices),
       getAerodromePositionPrices(tokenPrices),
     ];
