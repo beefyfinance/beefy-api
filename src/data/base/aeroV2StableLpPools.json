@@ -1,0 +1,22 @@
+[
+  {
+    "name": "aero-v2-base-usdc-alusdb",
+    "address": "0xA5e16dC9A5cae37563116D9407D8C73927675674",
+    "gauge": "0xBd18BdD2C99cE1C8FaB955451b035CAa03184d75",
+    "decimals": "1e18",
+    "chainId": 8453,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+      "oracle": "tokens",
+      "oracleId": "USDC",
+      "decimals": "1e6"
+    },
+    "lp1": {
+      "address": "0x877014E21c32feA108B6A1f45f367efc9a2d9B9F",
+      "oracle": "tokens",
+      "oracleId": "alUSDb",
+      "decimals": "1e18"
+    }
+  }
+]
