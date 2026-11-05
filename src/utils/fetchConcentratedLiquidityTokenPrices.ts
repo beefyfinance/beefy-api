@@ -1057,9 +1057,17 @@ const tokens = {
       type: 'Slipstream',
       oracleId: 'UP',
       decimalDelta: 1e10,
-      pool: '0x1E726F3177a933cc134Fd0ea7C326EAb270E0137',
+      pool: '0xc6D8E2Ec135fF406A4abe0571476aee128fD7359',
       firstToken: 'cbBTC',
       secondToken: 'UP',
+    },
+    {
+      type: 'Slipstream',
+      oracleId: 'DIEM',
+      decimalDelta: 1,
+      pool: '0x8fC836D9650a9839E8e5c4EDC22912378779aD03',
+      firstToken: 'DIEM',
+      secondToken: 'VVV',
     },
     {
       type: 'UniV3',
