@@ -6,6 +6,7 @@ import {
   ContractFunctionZeroDataError,
   createPublicClient,
   getAddress,
+  hexToString,
   http,
   parseAbi,
   zeroAddress,
@@ -25,6 +26,7 @@ const abi = parseAbi([
   'function token1() view returns (address)',
   'function decimals() view returns (uint8)',
   'function symbol() view returns (string)',
+  'function POOL_TYPE() view returns (bytes32)',
 ]);
 
 const args = yargs(hideBin(process.argv))
@@ -76,12 +78,17 @@ async function main() {
   if (!resolvedPool || resolvedPool === zeroAddress) throw new Error(`No pool found for ${input}`);
   const pool = getAddress(resolvedPool);
 
-  const [factory, token0, token1, decimals] = await Promise.all([
+  const [factory, token0, token1, decimals, encodedPoolType] = await Promise.all([
     client.readContract({ address: pool, abi, functionName: 'factory' }),
     client.readContract({ address: pool, abi, functionName: 'token0' }),
     client.readContract({ address: pool, abi, functionName: 'token1' }),
     client.readContract({ address: pool, abi, functionName: 'decimals' }),
+    client.readContract({ address: pool, abi, functionName: 'POOL_TYPE' }),
   ]);
+  const poolType = hexToString(encodedPoolType, { size: 32 });
+  if (poolType !== 'V2_STABLE' && poolType !== 'V2_VOLATILE') {
+    throw new Error(`Unsupported Aero V2 pool type ${poolType} for ${pool}`);
+  }
   const registry = await client.readContract({ address: factory, abi, functionName: 'factoryRegistry' });
   const gauge = await client.readContract({ address: registry, abi, functionName: 'targetToGauge', args: [pool] });
   if (gauge === zeroAddress) throw new Error(`No gauge found for pool ${pool}`);
@@ -96,6 +103,7 @@ async function main() {
   const [lp0, lp1] = await Promise.all([token(token0), token(token1)]);
   const entry = {
     name: `aero-v2-${network}-${lp0.oracleId.toLowerCase()}-${lp1.oracleId.toLowerCase()}`,
+    poolType,
     address: pool,
     gauge: getAddress(gauge),
     decimals: `1e${decimals}`,

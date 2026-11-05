@@ -63,8 +63,8 @@ const pools = normalizePoolOracleIds([
   ...moePools,
   ...alienBasePools,
   ...aerodromePools,
-  ...baseAeroPools,
-  ...optimismAeroPools,
+  ...baseAeroPools.filter(pool => pool.poolType === 'V2_VOLATILE'),
+  ...optimismAeroPools.filter(pool => pool.poolType === 'V2_VOLATILE'),
   ...ooeV2Pools,
   ...veSyncPools,
   ...ramsesPools,
@@ -72,6 +72,8 @@ const pools = normalizePoolOracleIds([
   ...oldVelodromePools,
   ...netswapPools,
 ]).map(withPoolChain);
+
+const aeroStablePools = [...baseAeroPools, ...optimismAeroPools].filter(pool => pool.poolType === 'V2_STABLE');
 
 /**
  * Map of coingecko ids to oracleIds
@@ -686,9 +688,23 @@ function addLpBreakdownsToCache(lpBreakdowns: BreakdownsById): boolean {
 }
 
 function addToCache(tokenPrices: PricesById, lpPrices: PricesById, lpBreakdowns: BreakdownsById): boolean {
+  // These LPs must have a fresh, complete NAV result; never retain an earlier
+  // reserve-ratio valuation when an underlying price or pool read is unavailable.
+  let stablePriceRemoved = false;
+  for (const { name } of aeroStablePools) {
+    if (!isValidPrice(lpPrices[name]) || lpBreakdowns[name]?.price !== lpPrices[name]) {
+      stablePriceRemoved = name in cachedLpPrices || name in cachedLpBreakdowns || stablePriceRemoved;
+      delete tokenPrices[name];
+      delete lpPrices[name];
+      delete lpBreakdowns[name];
+      delete cachedLpPrices[name];
+      delete cachedLpBreakdowns[name];
+      delete cachedAllPrices[name];
+    }
+  }
   const tokenPriceUpdated = addTokenPricesToCache(tokenPrices);
-  const lpPriceUpdated = addLpPricesToCache(lpPrices);
-  const lpBreakdownUpdated = addLpBreakdownsToCache(lpBreakdowns);
+  const lpPriceUpdated = addLpPricesToCache(lpPrices) || stablePriceRemoved;
+  const lpBreakdownUpdated = addLpBreakdownsToCache(lpBreakdowns) || stablePriceRemoved;
 
   if (tokenPriceUpdated) {
     serviceEventBus.emit('prices/tokens/updated');
@@ -737,6 +753,14 @@ async function loadFromRedis() {
   const tokenPrices = await getKey<PricesById>('TOKEN_PRICES');
   const lpPrices = await getKey<PricesById>('LP_PRICES');
   const lpBreakdowns = await getKey<BreakdownsById>('LP_BREAKDOWN');
+
+  // Persisted entries may predate stable/volatile dispatch. Rebuild these NAVs
+  // before serving them, even if the first price update fails.
+  for (const { name } of aeroStablePools) {
+    if (tokenPrices) delete tokenPrices[name];
+    if (lpPrices) delete lpPrices[name];
+    if (lpBreakdowns) delete lpBreakdowns[name];
+  }
 
   addToCache(
     tokenPrices && typeof tokenPrices === 'object' ? tokenPrices : {},

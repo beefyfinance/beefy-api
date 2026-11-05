@@ -61,6 +61,11 @@ const getPoolPrice = (
 ): StandardLpBreakdown | undefined => {
   const fields = { chain: chainId, pool: pool.name };
 
+  if (!totalSupply.isFinite() || !totalSupply.isPositive() || totalSupply.isZero()) {
+    logger.warn({ ...fields, totalSupply: totalSupply.toString(10) }, 'invalid total supply');
+    return undefined;
+  }
+
   const lp0Price = tokenPrices[pool.lp0.oracleId];
   if (!isValidPrice(lp0Price)) {
     logger.warn({ ...fields, token: pool.lp0.oracleId }, 'missing token price');

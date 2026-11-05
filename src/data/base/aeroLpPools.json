@@ -1,6 +1,7 @@
 [
   {
     "name": "aero-v2-base-usdc-alusdb",
+    "poolType": "V2_STABLE",
     "address": "0xA5e16dC9A5cae37563116D9407D8C73927675674",
     "gauge": "0xBd18BdD2C99cE1C8FaB955451b035CAa03184d75",
     "decimals": "1e18",
@@ -21,6 +22,7 @@
   },
   {
     "name": "aero-v2-base-weth-veil",
+    "poolType": "V2_VOLATILE",
     "address": "0x0B09f2f7b096016B797943807558Fa38119EDC8C",
     "gauge": "0x93f12d770f03Dd296ADa46b590a129ce7816580b",
     "decimals": "1e18",

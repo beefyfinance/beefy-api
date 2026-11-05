@@ -1,6 +1,7 @@
 [
   {
     "name": "aero-v2-optimism-aleth-weth",
+    "poolType": "V2_STABLE",
     "address": "0x98BeB54c7F46514C9045D9d2B9221F52611dDfED",
     "gauge": "0x988511ea49A3Cc7e0D6eF36f500b0f72f6A30df7",
     "decimals": "1e18",
@@ -21,6 +22,7 @@
   },
   {
     "name": "aero-v2-optimism-weth-moobifi",
+    "poolType": "V2_VOLATILE",
     "address": "0xC71B571aA9F06BFA096c24e9Df5C45fC4fAB4151",
     "gauge": "0x5E68a6541560DFB8ae5625256A5Fcb6759197B39",
     "decimals": "1e18",
