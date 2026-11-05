@@ -79,7 +79,7 @@ const tokens = {
     },
     {
       oracleId: 'alUSDb',
-      pool: '0x32d6Ec4400fBdd4085ce1e1664C48F8D21c4f9aa',
+      pool: '0xA5e16dC9A5cae37563116D9407D8C73927675674',
       firstTokenDecimals: 18,
       secondToken: 'USDC',
       secondTokenDecimals: 6,
