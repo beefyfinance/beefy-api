@@ -4,6 +4,7 @@ import type { ApyBreakdownResult } from '../common/getApyBreakdownNew.ts';
 import { getMorphoApys } from '../common/morpho/getMorphoApys.ts';
 import { getAaveV3Apys } from './getAaveV3Apys.ts';
 import { getAaveV4Apys } from './getAaveV4Apys.ts';
+import getAeroApys from './getAeroApys.ts';
 import { getAerodromeApys } from './getAerodromeApys.ts';
 import { getBeefyBaseCowApys } from './getBeefyBaseCowApys.ts';
 import { getCurveApys } from './getCurveApys.ts';
@@ -15,6 +16,7 @@ const getApys = [
   getAaveV3Apys,
   getAaveV4Apys,
   getAerodromeApys,
+  getAeroApys,
   getCurveApys,
   () => getMorphoApys(ApiChainId.base, morphoPoolsData),
   getBeefyBaseCowApys,
