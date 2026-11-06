@@ -1,3 +1,4 @@
+import { EnsoSwapProvider } from './EnsoSwapProvider.ts';
 import type { ISwapProvider } from './ISwapProvider.ts';
 import { KyberSwapProvider } from './KyberSwapProvider.ts';
 import { LiquidSwapSwapProvider } from './LiquidSwapSwapProvider.ts';
@@ -7,6 +8,7 @@ export const providersById = {
   'one-inch': new OneInchSwapProvider(),
   kyber: new KyberSwapProvider(),
   'liquid-swap': new LiquidSwapSwapProvider(),
+  enso: new EnsoSwapProvider(),
 } as const satisfies Record<string, ISwapProvider>;
 
 export type ProviderId = keyof typeof providersById;
