@@ -4083,4 +4083,31 @@ export const tokens = {
     bridge: 'native',
     tags: ['NO_TIMELOCK', 'STOCK'],
   },
+  ENA: {
+    name: 'ENA',
+    symbol: 'ENA',
+    oracleId: 'ENA',
+    address: '0x58538e6A46E07434d7E7375Bc268D3cb839C0133',
+    chainId: 8453,
+    decimals: 18,
+    website: 'https://ethena.fi/',
+    description:
+      "ENA is Ethena's governance token. Ethena is a synthetic dollar protocol built on Ethereum that provides a crypto-native solution for money not reliant on traditional banking system infrastructure, alongside a globally accessible dollar denominated instrument: USDe.",
+    documentation: 'https://ethena-labs.gitbook.io/ethena-labs',
+    bridge: 'layer-zero',
+    tags: ['NO_TIMELOCK'],
+  },
+  ICP: {
+    name: 'Internet Computer',
+    symbol: 'ICP',
+    oracleId: 'ICP',
+    address: '0x00f3C42833C3170159af4E92dbb451Fb3F708917',
+    chainId: 8453,
+    decimals: 8,
+    website: 'https://internetcomputer.org/',
+    description:
+      'ICP is the native token of the Internet Computer, a blockchain that hosts smart contracts and full-stack web applications. It is used for governance, staking and to pay for computation.',
+    documentation: 'https://internetcomputer.org/docs/',
+    tags: ['NO_TIMELOCK'],
+  },
 } as const satisfies Record<string, Token>;
