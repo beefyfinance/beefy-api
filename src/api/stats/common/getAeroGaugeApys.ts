@@ -15,7 +15,7 @@ const gaugeTapeAbi = parseAbi([
   'function observe(address gauge, uint48[] secondsAgo) view returns ((uint224 rewardPerToken, uint32 blockTimestamp)[])',
 ]);
 
-const LOOKBACK_SECONDS = 24 * 60 * 60;
+const LOOKBACK_SECONDS = 6 * 60 * 60;
 const REWARD_PER_TOKEN_PRECISION = 18;
 
 type AeroGaugePool = {
