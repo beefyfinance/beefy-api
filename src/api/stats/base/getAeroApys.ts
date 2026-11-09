@@ -6,7 +6,7 @@ import stablePools from '../../../data/base/aeroV2StableLpPools.json' with { typ
 
 const {
   base: {
-    tokens: { AERO },
+    tokens: { AEROv2 },
   },
 } = addressBook;
 
@@ -16,8 +16,8 @@ const getAeroApys = () =>
   getAeroGaugeApys({
     chainId: ApiChainId.base,
     pools,
-    rewardOracleId: AERO.oracleId,
-    rewardDecimals: AERO.decimals,
+    rewardOracleId: AEROv2.oracleId,
+    rewardDecimals: AEROv2.decimals,
   });
 
 export default getAeroApys;
