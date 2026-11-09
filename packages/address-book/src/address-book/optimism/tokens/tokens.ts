@@ -1532,7 +1532,7 @@ export const tokens = {
   msETH: {
     name: 'Metronome Synth ETH',
     symbol: 'msETH',
-    oracleId: 'msETH',
+    oracleId: 'opmsETH',
     address: '0x1610e3c85dd44Af31eD7f33a63642012Dca0C5A5',
     chainId: 10,
     decimals: 18,

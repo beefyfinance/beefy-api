@@ -1,5 +1,225 @@
 [
   {
+    "name": "aero-v2-base-weth-wsteth",
+    "address": "0xfc071b43E8F3819BE0D55bcB715eFe293BE02a13",
+    "gauge": "0x490F32121dEd5FbB5Ba9f9cD9651D8ee40a4A801",
+    "decimals": "1e18",
+    "chainId": 8453,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0x4200000000000000000000000000000000000006",
+      "oracle": "tokens",
+      "oracleId": "WETH",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xc1CBa3fCea344f92D9239c08C0568f6F2F0ee452",
+      "oracle": "tokens",
+      "oracleId": "wstETH",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "aero-v2-base-weth-edel",
+    "address": "0xb01Cc306BC018535aA0425efa0cF735008100A33",
+    "gauge": "0xa66B448100Dc494a26daFb3a0Bf694FCAfD79AC0",
+    "decimals": "1e18",
+    "chainId": 8453,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0x4200000000000000000000000000000000000006",
+      "oracle": "tokens",
+      "oracleId": "WETH",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xFb31f85A8367210B2e4Ed2360D2dA9Dc2D2Ccc95",
+      "oracle": "tokens",
+      "oracleId": "EDEL",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "aero-v2-base-virtual-cbbtc",
+    "address": "0x2429f6e9B7FB96a42C8b4c73C7126E3748C9866b",
+    "gauge": "0x01d64514dBB04Be291119bD7ac7c71DBFE1837B2",
+    "decimals": "1e18",
+    "chainId": 8453,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0x0b3e328455c4059EEb9e3f84b5543F74E24e7E1b",
+      "oracle": "tokens",
+      "oracleId": "VIRTUAL",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xcbB7C0000aB88B473b1f5aFd9ef808440eed33Bf",
+      "oracle": "tokens",
+      "oracleId": "cbBTC",
+      "decimals": "1e8"
+    }
+  },
+  {
+    "name": "aero-v2-base-weth-drv",
+    "address": "0x002Ae5AE3653A1E46387542c0f68c2dC2A687036",
+    "gauge": "0xf443C8450D4C995e8b031a78f6e811DFae9D26CA",
+    "decimals": "1e18",
+    "chainId": 8453,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0x4200000000000000000000000000000000000006",
+      "oracle": "tokens",
+      "oracleId": "WETH",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x9d0E8f5b25384C7310CB8C6aE32C8fbeb645d083",
+      "oracle": "tokens",
+      "oracleId": "DRV",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "aero-v2-base-weth-cbbtc",
+    "address": "0xceCd99D62556836F3Ec245775c3dE97aC25C286b",
+    "gauge": "0x5589587d6512688634929465610D975aBD71DcF7",
+    "decimals": "1e18",
+    "chainId": 8453,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0x4200000000000000000000000000000000000006",
+      "oracle": "tokens",
+      "oracleId": "WETH",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xcbB7C0000aB88B473b1f5aFd9ef808440eed33Bf",
+      "oracle": "tokens",
+      "oracleId": "cbBTC",
+      "decimals": "1e8"
+    }
+  },
+  {
+    "name": "aero-v2-base-virtual-weth",
+    "address": "0x95e739b854299D184F1740EEe919b09335D2E173",
+    "gauge": "0x2416952B8b2CaCaB88B75d0212200E43ea900383",
+    "decimals": "1e18",
+    "chainId": 8453,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0x0b3e328455c4059EEb9e3f84b5543F74E24e7E1b",
+      "oracle": "tokens",
+      "oracleId": "VIRTUAL",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x4200000000000000000000000000000000000006",
+      "oracle": "tokens",
+      "oracleId": "WETH",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "aero-v2-base-weth-well",
+    "address": "0xc3467Fbf371Ab0C0395C66af634c2921E6De0e60",
+    "gauge": "0x1b9a4CBe66635ceF9288Bc2218734C2FB5E0a1E7",
+    "decimals": "1e18",
+    "chainId": 8453,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0x4200000000000000000000000000000000000006",
+      "oracle": "tokens",
+      "oracleId": "WETH",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xA88594D404727625A9437C3f886C7643872296AE",
+      "oracle": "tokens",
+      "oracleId": "bWELL",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "aero-v2-base-aero-weth",
+    "address": "0xC04Ba378E83ff61cDb542ee4dA88e1241cC54E60",
+    "gauge": "0x25D0DaF0Efc41400e385b69Cd5376C3dd609a5b8",
+    "decimals": "1e18",
+    "chainId": 8453,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0x3f5bF3EdAc59d650D8fDf9657a71F2f904A3a4Ee",
+      "oracle": "tokens",
+      "oracleId": "AEROv2",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x4200000000000000000000000000000000000006",
+      "oracle": "tokens",
+      "oracleId": "WETH",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "aero-v2-base-weth-usdc",
+    "address": "0x800EB395B577B234C5065c8E0cCb0F3A1401B2c2",
+    "gauge": "0x1D12EF783D557393a2780CB39a9d288aDe8c13B6",
+    "decimals": "1e18",
+    "chainId": 8453,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0x4200000000000000000000000000000000000006",
+      "oracle": "tokens",
+      "oracleId": "WETH",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+      "oracle": "tokens",
+      "oracleId": "USDC",
+      "decimals": "1e6"
+    }
+  },
+  {
+    "name": "aero-v2-base-weth-vvv",
+    "address": "0xcFC7dC24e9D302976f0B1EFB90a4D9B22b54b2A5",
+    "gauge": "0x0201fb8297B493c084d201721D816Fd414BbFcfa",
+    "decimals": "1e18",
+    "chainId": 8453,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0x4200000000000000000000000000000000000006",
+      "oracle": "tokens",
+      "oracleId": "WETH",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xacfE6019Ed1A7Dc6f7B508C02d1b04ec88cC21bf",
+      "oracle": "tokens",
+      "oracleId": "VVV",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "aero-v2-base-aero-usdc",
+    "address": "0xF634058dC94e6BF8e828E27621320C423bC8B18E",
+    "gauge": "0xd424BA8ca9d4E278753DE76651a0095451e65cD1",
+    "decimals": "1e18",
+    "chainId": 8453,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0x3f5bF3EdAc59d650D8fDf9657a71F2f904A3a4Ee",
+      "oracle": "tokens",
+      "oracleId": "AEROv2",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+      "oracle": "tokens",
+      "oracleId": "USDC",
+      "decimals": "1e6"
+    }
+  },
+  {
     "name": "aero-v2-base-weth-veil",
     "address": "0x0B09f2f7b096016B797943807558Fa38119EDC8C",
     "gauge": "0x93f12d770f03Dd296ADa46b590a129ce7816580b",

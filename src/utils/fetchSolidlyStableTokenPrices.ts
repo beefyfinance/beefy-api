@@ -30,6 +30,22 @@ type Context = {
 const tokens = {
   base: [
     {
+      oracleId: 'basemsETH',
+      pool: '0x45ADCE4be5f602273c6E883a4C94133309aF1D09',
+      firstTokenDecimals: 18,
+      secondToken: 'WETH',
+      secondTokenDecimals: 18,
+      secondTokenAddress: '0x4200000000000000000000000000000000000006',
+    },
+    {
+      oracleId: 'basemsUSD',
+      pool: '0xdD2A5DAc93e62c27Fe0A3236d22FCEa29E19c62C',
+      firstTokenDecimals: 18,
+      secondToken: 'USDC',
+      secondTokenDecimals: 6,
+      secondTokenAddress: '0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913',
+    },
+    {
       oracleId: 'bMAI',
       pool: '0xf6Aec4F97623E691a9426a69BaF5501509fCa05D',
       firstTokenDecimals: 18,
@@ -84,6 +100,24 @@ const tokens = {
       secondToken: 'USDC',
       secondTokenDecimals: 6,
       secondTokenAddress: '0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913',
+    },
+  ],
+  optimism: [
+    {
+      oracleId: 'opmsETH',
+      pool: '0xB02cCECebBC7415F8A557112a51e42a22f0c4B33',
+      firstTokenDecimals: 18,
+      secondToken: 'WETH',
+      secondTokenDecimals: 18,
+      secondTokenAddress: '0x4200000000000000000000000000000000000006',
+    },
+    {
+      oracleId: 'opmsUSD',
+      pool: '0x12e078Cc562d5c422563e217c81324AAEfC3bC91',
+      firstTokenDecimals: 18,
+      secondToken: 'USDC',
+      secondTokenDecimals: 6,
+      secondTokenAddress: '0x0b2C639c533813f4Aa9D7837CAf62653d097Ff85',
     },
   ],
   linea: [
