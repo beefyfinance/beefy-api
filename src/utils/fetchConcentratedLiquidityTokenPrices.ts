@@ -945,7 +945,7 @@ const tokens = {
       type: 'Slipstream',
       oracleId: 'ZEN',
       decimalDelta: 1,
-      pool: '0x0392B12a1cEb0cd13af5Ea448CF5586EA609852D',
+      pool: '0x5CA1da1ED90a6Cf15974C0A0D2808bfdE76314c1',
       firstToken: 'ZEN',
       secondToken: 'WETH',
     },
