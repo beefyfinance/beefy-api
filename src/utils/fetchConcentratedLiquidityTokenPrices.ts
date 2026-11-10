@@ -985,7 +985,7 @@ const tokens = {
       type: 'Slipstream',
       oracleId: 'MOCA',
       decimalDelta: 1e12,
-      pool: '0xbf4f004307F623C2Fa2c6cf8Ce8095200e389B13',
+      pool: '0x225d996A33b1d058A09C44a14DEf30556Fa40ec9',
       firstToken: 'USDC',
       secondToken: 'MOCA',
     },
