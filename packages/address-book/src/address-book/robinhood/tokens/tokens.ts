@@ -1029,6 +1029,20 @@ export const tokens = {
     bridge: 'native',
     tags: ['STOCK'],
   },
+  AVGOrh: {
+    name: 'Broadcom • Robinhood Token',
+    symbol: 'AVGO',
+    oracleId: 'AVGOrh',
+    address: '0x156E175DD063a8cE274C50654eF40e0032b3fbcF',
+    chainId: 4663,
+    decimals: 18,
+    website: 'https://robinhood.com/rhj/stocktokens/',
+    description:
+      'Broadcom • Robinhood Token is a tokenized debt security issued by Robinhood Assets (Jersey) Limited that provides price exposure to Broadcom shares without conferring ownership or shareholder rights.',
+    documentation: 'https://docs.robinhood.com/chain/stock-tokens/',
+    bridge: 'native',
+    tags: ['STOCK'],
+  },
   ORBIO: {
     name: 'Orbio.so',
     symbol: 'ORBIO',
