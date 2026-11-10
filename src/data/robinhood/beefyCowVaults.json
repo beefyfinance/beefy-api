@@ -1,5 +1,17 @@
 [
   {
+    "address": "0xa0d6e1E3A65C4113a066208bC4c9ac077BaB98ac",
+    "lpAddress": "0xa4BdB396a69617eb7F70E2cc1EF526f7340b1B0d",
+    "tokens": ["0x0Bd7D308f8E1639FAb988df18A8011f41EAcAD73", "0xc0D6457C16Cc70d6790Dd43521C899C87ce02f35"],
+    "tokenOracleIds": ["WETH", "METArh"],
+    "decimals": [18, 18],
+    "oracleId": "uniswap-cow-robinhood-weth-meta",
+    "rewardPool": {
+      "address": "0x26a2F14A63cE4F44563a336061aaA57DB4f29f85",
+      "oracleId": "uniswap-cow-robinhood-weth-meta-rp"
+    }
+  },
+  {
     "address": "0xE9b28194eE8B1C9d53bD6FB3B8c25890D9DB0aa1",
     "lpAddress": "0x5B7C404f1d7d77F9f3885aB13d7764F8a173028c",
     "tokens": ["0x156E175DD063a8cE274C50654eF40e0032b3fbcF", "0x5fc5360D0400a0Fd4f2af552ADD042D716F1d168"],
