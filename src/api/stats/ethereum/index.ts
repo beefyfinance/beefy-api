@@ -5,6 +5,7 @@ import { getMorphoApys } from '../common/morpho/getMorphoApys.ts';
 import { getPendleApys } from '../common/pendle/getPendleApys.ts';
 import { getPendleUnboostedApys } from '../common/pendle/getPendleUnboostedApys.ts';
 import { getAaveV4Apys } from './getAaveV4Apys.ts';
+import getAeroApys from './getAeroApys.ts';
 import { getAuraApys } from './getAuraApys.ts';
 import { getBeefyCowEthereumApys } from './getBeefyCowEthereumApys.ts';
 import { getBifiMaxiApy } from './getBifiMaxiApy.ts';
@@ -25,6 +26,7 @@ import pendleUnboostedPoolsData from '../../../data/ethereum/pendleUnboostedPool
 const logger = getLoggerFor({ module: 'apy', chain: ApiChainId.ethereum });
 
 const getApys = [
+  getAeroApys,
   getAuraApys,
   getbeQIApy,
   getCurveApys,

@@ -1,5 +1,73 @@
 [
   {
+    "address": "0x5C5952487c2eE6D4643274Fe542f1EAfaF9733ff",
+    "lpAddress": "0xACE88ccC9F71C811ea38Ea93d707d036579166D4",
+    "tokens": ["0x68749665FF8D2d112Fa859AA293F07A622782F38", "0xdAC17F958D2ee523a2206206994597C13D831ec7"],
+    "tokenOracleIds": ["ethXAUt", "USDT"],
+    "decimals": [6, 6],
+    "oracleId": "aero-cow-ethereum-xaut-usdt",
+    "providerId": "aero",
+    "rewardPool": {
+      "address": "0x93938f2185ccbc117a2D02b00E1cf31F82e6E93a",
+      "oracleId": "aero-cow-ethereum-xaut-usdt-rp"
+    },
+    "vault": {
+      "address": "0x700Ef44f325Ad363E1DB8EDA49265582D2DE99C7",
+      "oracleId": "aero-cow-ethereum-xaut-usdt-vault"
+    }
+  },
+  {
+    "address": "0x25bE73F29B44A8Fbb498E2c181c57fd3489B0842",
+    "lpAddress": "0xff35aa95669b5668AC6727FdcFc0D5582cdd78D1",
+    "tokens": ["0xB1F1ee126e9c96231Cc3d3fAD7C08b4cf873b1f1", "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2"],
+    "tokenOracleIds": ["BIFI", "WETH"],
+    "decimals": [18, 18],
+    "oracleId": "aero-cow-ethereum-bifi-weth",
+    "providerId": "aero",
+    "rewardPool": {
+      "address": "0xc4aF7ba9c847B05D857214408534A9419D512AbA",
+      "oracleId": "aero-cow-ethereum-bifi-weth-rp"
+    },
+    "vault": {
+      "address": "0x4ea0F6015a104f5c3Ce82960aCe94c6935020df0",
+      "oracleId": "aero-cow-ethereum-bifi-weth-vault"
+    }
+  },
+  {
+    "address": "0x3994f78e21f07f018E2099acf6FBABc495ee5b91",
+    "lpAddress": "0x941dDC62f8699f448e86C798e62520550616503D",
+    "tokens": ["0x2260FAC5E5542a773Aa44fBCfeDf7C193bc2C599", "0xdAC17F958D2ee523a2206206994597C13D831ec7"],
+    "tokenOracleIds": ["WBTC", "USDT"],
+    "decimals": [8, 6],
+    "oracleId": "aero-cow-ethereum-wbtc-usdt",
+    "providerId": "aero",
+    "rewardPool": {
+      "address": "0x074264f4e35F0473ab25dA44526c45dd3e28c64E",
+      "oracleId": "aero-cow-ethereum-wbtc-usdt-rp"
+    },
+    "vault": {
+      "address": "0xC3648c5C80C26c5AF8496b2b26E701cD9693EE31",
+      "oracleId": "aero-cow-ethereum-wbtc-usdt-vault"
+    }
+  },
+  {
+    "address": "0xff51c10c324B6017C9435b5124Dc7fdc6A787739",
+    "lpAddress": "0xd661623947EF2Ead12D577b47021C167d163B0c5",
+    "tokens": ["0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48", "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2"],
+    "tokenOracleIds": ["USDC", "WETH"],
+    "decimals": [6, 18],
+    "oracleId": "aero-cow-ethereum-usdc-weth",
+    "providerId": "aero",
+    "rewardPool": {
+      "address": "0x9DDBaFa6c63F3D20D8dfB37e697b82E39a3f8f9C",
+      "oracleId": "aero-cow-ethereum-usdc-weth-rp"
+    },
+    "vault": {
+      "address": "0xC3ee1d1786f0097040BD53314D093e473de99B8D",
+      "oracleId": "aero-cow-ethereum-usdc-weth-vault"
+    }
+  },
+  {
     "address": "0xC7AFdB8Ef47C058E8F4094Cca09080BcAb662e80",
     "lpAddress": "0xCBCdF9626bC03E24f779434178A73a0B4bad62eD",
     "tokens": ["0x2260FAC5E5542a773Aa44fBCfeDf7C193bc2C599", "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2"],
