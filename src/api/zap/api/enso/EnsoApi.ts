@@ -2,7 +2,6 @@ import { URLSearchParams } from 'node:url';
 import { decodeAbiParameters, decodeFunctionData, isHex, parseAbi } from 'viem';
 import { getLoggerFor } from '../../../../utils/logger/index.ts';
 import { redactSecrets } from '../../../../utils/secrets.ts';
-import { CircuitBreaker } from '../circuit-breaker.ts';
 import { type ApiResponse, type ExtraQuoteResponse, isErrorApiResponse } from '../common.ts';
 import {
   ENSO_NATIVE_ADDRESS,
@@ -25,19 +24,10 @@ const routerAbi = parseAbi(['function routeSingle((uint8 tokenType, bytes data) 
 const TOKEN_TYPE_NATIVE = 0;
 const TOKEN_TYPE_ERC20 = 1;
 
-const INVALID_KEY_OPEN_MS = 60 * 60 * 1000;
-const QUOTA_EXHAUSTED_OPEN_MS = 10 * 60 * 1000;
 // Below the queue timeout, so timed out requests are actually cancelled
 const FETCH_TIMEOUT_MS = 25 * 1000;
 // Slowest measured successful call was ~3s; fail fast so a hung request doesn't hold a proxy slot
 const PROXY_FETCH_TIMEOUT_MS = 10 * 1000;
-
-// Every Enso call costs credits, even when it fails
-const ensoCircuitBreaker = new CircuitBreaker('Enso', logger);
-
-export function isEnsoCircuitOpenedSince(timestamp: number): boolean {
-  return ensoCircuitBreaker.openedSince(timestamp);
-}
 
 type ProxiedQuoteResponse = ApiResponse<EnsoQuoteResponse, ExtraQuoteResponse>;
 
@@ -50,8 +40,6 @@ export class EnsoApi implements IEnsoApi {
     protected readonly apiKey: string,
     protected readonly effort: EnsoEffort
   ) {}
-
-  protected readonly breaker = ensoCircuitBreaker;
 
   async getQuote(request: EnsoQuoteRequest): Promise<EnsoQuoteResponse> {
     const response = await this.get<EnsoQuoteResponse>('/shortcuts/quote', this.buildQuoteParams(request));
@@ -119,10 +107,6 @@ export class EnsoApi implements IEnsoApi {
     extra?: Extra,
     timeoutMs: number = FETCH_TIMEOUT_MS
   ): Promise<ApiResponse<ResponseType, Extra>> {
-    if (this.breaker.isOpen()) {
-      return { code: 503, message: this.breaker.message };
-    }
-
     const start = Date.now();
     const response = await fetch(this.buildUrl(path, request), {
       headers: {
@@ -160,12 +144,6 @@ export class EnsoApi implements IEnsoApi {
   protected async handleResponse<ResponseType extends object>(response: Response): Promise<ApiResponse<ResponseType>> {
     const isJson = !!response.headers.get('content-type')?.includes('application/json');
     const body: unknown = isJson ? await response.json().catch(() => undefined) : undefined;
-
-    if (response.status === 401) {
-      this.breaker.open(INVALID_KEY_OPEN_MS, 'api key rejected');
-    } else if (response.status === 429 && isQuotaExhausted(response, body)) {
-      this.breaker.open(QUOTA_EXHAUSTED_OPEN_MS, 'api quota exhausted');
-    }
 
     if (response.status === 200 && isEnsoSuccessResponse(body)) {
       return {
@@ -211,14 +189,6 @@ export class EnsoApi implements IEnsoApi {
 
 function normalizeTokenAddress(address: string): string {
   return address.toLowerCase() === ENSO_NATIVE_ADDRESS ? ENSO_NATIVE_ADDRESS : address;
-}
-
-/** Rate limit 429s also carry portalUrl, so only a credits/quota error stops all calls */
-function isQuotaExhausted(response: Response, body: unknown): boolean {
-  if (response.headers.get('x-enso-credits-remaining') === '0') {
-    return true;
-  }
-  return isEnsoErrorResponse(body) && /credit|quota/i.test(ensoErrorMessage(body));
 }
 
 function ensoErrorMessage(body: EnsoErrorResponse): string {

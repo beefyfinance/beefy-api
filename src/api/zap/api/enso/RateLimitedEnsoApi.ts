@@ -5,7 +5,7 @@ import { EnsoApi } from './EnsoApi.ts';
 import type { EnsoEffort } from './types.ts';
 
 const MAX_PENDING_REQUESTS = 50;
-// Caps public quote credit burn across all chains, before a quota 429 opens the breaker for everyone;
+// Caps public quote credit burn across all chains, since every Enso call costs credits;
 // route calls are exempt so a swap that already won a quote still builds
 const MAX_PROXY_QUOTES_PER_WINDOW = 1000;
 const PROXY_BUDGET_WINDOW_MS = 60 * 60 * 1000;
@@ -51,10 +51,7 @@ export class RateLimitedEnsoApi extends EnsoApi {
     Extra extends Record<string, unknown> | undefined = undefined,
   >(path: string, request: Record<string, string>, extra?: Extra): Promise<ApiResponse<ResponseType, Extra>> {
     // Shed load rather than queue unbounded public requests
-    if (
-      this.proxyQueue.size >= MAX_PENDING_REQUESTS
-      || (path === '/shortcuts/quote' && !this.breaker.isOpen() && isProxyBudgetExhausted())
-    ) {
+    if (this.proxyQueue.size >= MAX_PENDING_REQUESTS || (path === '/shortcuts/quote' && isProxyBudgetExhausted())) {
       return { code: 429, message: 'Enso proxy busy, try again later' };
     }
     // Own queue, so app requests never wait behind in-flight crawler requests

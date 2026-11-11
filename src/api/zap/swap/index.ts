@@ -5,7 +5,6 @@ import { getLoggerFor } from '../../../utils/logger/index.ts';
 import { isResultFulfilled } from '../../../utils/promise.ts';
 import { serviceEventBus } from '../../../utils/ServiceEventBus.ts';
 import { sleep } from '../../../utils/time.ts';
-import { isEnsoCircuitOpenedSince } from '../api/enso/index.ts';
 import { type ChainProvider, DataLayer } from './DataLayer.ts';
 import { fetchProviderSupportForChainTokens, getProvidersForChain } from './fetch.ts';
 import type { ProviderId } from './providers/index.ts';
@@ -39,20 +38,10 @@ async function updateChainProvider(apiChain: ApiChain, providerId: ProviderId) {
     SWAP_TEST_AMOUNT
   );
 
-  // Quotes refused by an open breaker say nothing about support, so keep the previous data and retry next cycle
-  if (providerId === 'enso' && isEnsoCircuitOpenedSince(start)) {
-    throw new Error('enso circuit breaker opened during update');
-  }
-
-  // A crawl with no supported tokens is likely an API outage, so keep the last good data and retry next cycle
-  const hasSupported = Object.values(supportByAddress).some(support => support.supported);
-  if (!hasSupported && getLastSupportedUpdate(dataLayer.get(apiChain, providerId)) !== undefined) {
-    throw new Error(`${providerId} found no supported tokens on ${apiChain}, keeping previous data`);
-  }
-
   // Save to locally and cache to redis
   await dataLayer.set(apiChain, providerId, supportByAddress);
-  if (hasSupported) {
+  // A crawl with no supported tokens is likely an outage, so retry next cycle rather than wait out the provider delay
+  if (Object.values(supportByAddress).some(support => support.supported)) {
     lastUpdateStartedAt.set(`${apiChain}:${providerId}`, start);
   }
 

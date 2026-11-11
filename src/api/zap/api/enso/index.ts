@@ -3,9 +3,6 @@ import type { Address } from 'viem';
 import { type ApiChain, getChainConfig, SupportedChains, toChainId } from '../../../../utils/chain.ts';
 import { getZapRouter } from '../common.ts';
 import { RateLimitedEnsoApi } from './RateLimitedEnsoApi.ts';
-
-export { isEnsoCircuitOpenedSince } from './EnsoApi.ts';
-
 import type { EnsoEffort, IEnsoApi } from './types.ts';
 
 // Configure rate limiting; worst case across both queues is 9 requests in any second (Enso limit is 10 RPS)
