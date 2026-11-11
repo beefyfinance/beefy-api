@@ -4,7 +4,6 @@ import { getLoggerFor } from '../../../../utils/logger/index.ts';
 import { redactSecrets } from '../../../../utils/secrets.ts';
 import { CircuitBreaker } from '../circuit-breaker.ts';
 import { type ApiResponse, type ExtraQuoteResponse, isErrorApiResponse } from '../common.ts';
-import { QuoteCache } from '../quote-cache.ts';
 import {
   ENSO_NATIVE_ADDRESS,
   type EnsoEffort,
@@ -32,8 +31,6 @@ const QUOTA_EXHAUSTED_OPEN_MS = 10 * 60 * 1000;
 const FETCH_TIMEOUT_MS = 25 * 1000;
 // Slowest measured successful call was ~3s; fail fast so a hung request doesn't hold a proxy slot
 const PROXY_FETCH_TIMEOUT_MS = 10 * 1000;
-// The app re-quotes the same swap often; short enough that /swap's minAmountOut (from this quote) stays reachable
-const QUOTE_CACHE_TTL_MS = 10 * 1000;
 
 // Every Enso call costs credits, even when it fails
 const ensoCircuitBreaker = new CircuitBreaker('Enso', logger);
@@ -55,7 +52,6 @@ export class EnsoApi implements IEnsoApi {
   ) {}
 
   protected readonly breaker = ensoCircuitBreaker;
-  protected readonly quoteCache = new QuoteCache<ProxiedQuoteResponse>(QUOTE_CACHE_TTL_MS);
 
   async getQuote(request: EnsoQuoteRequest): Promise<EnsoQuoteResponse> {
     const response = await this.get<EnsoQuoteResponse>('/shortcuts/quote', this.buildQuoteParams(request));
@@ -68,20 +64,11 @@ export class EnsoApi implements IEnsoApi {
   }
 
   async getProxiedQuote(request: EnsoQuoteRequest): Promise<ProxiedQuoteResponse> {
-    const params = this.buildQuoteParams(request);
-    const key = [
-      params.tokenIn.toLowerCase(),
-      params.tokenOut.toLowerCase(),
-      params.amountIn,
-      params.ignoreAggregators,
-    ].join(':');
-    return await this.quoteCache.get(key, () =>
-      this.priorityGet('/shortcuts/quote', params, {
-        fee: {
-          value: 0,
-        },
-      })
-    );
+    return await this.priorityGet('/shortcuts/quote', this.buildQuoteParams(request), {
+      fee: {
+        value: 0,
+      },
+    });
   }
 
   async getProxiedSwap(request: EnsoSwapRequest): Promise<ApiResponse<EnsoSwapResponse>> {
