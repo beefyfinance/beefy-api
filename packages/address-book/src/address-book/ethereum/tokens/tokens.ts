@@ -3296,4 +3296,30 @@ export const tokens = {
       'Paxos Gold (PAXG) is a regulated tokenized gold product where each token represents one fine troy ounce of London Good Delivery gold held in LBMA-accredited vaults.',
     bridge: 'native',
   },
+  XAUt: {
+    name: 'Tether Gold',
+    symbol: 'XAUt',
+    oracleId: 'ethXAUt',
+    address: '0x68749665FF8D2d112Fa859AA293F07A622782F38',
+    chainId: 1,
+    decimals: 6,
+    website: 'https://gold.tether.to/',
+    description:
+      'Tether Gold tokens (XAUt) represents ownership of one troy ounce of physical gold held in a Swiss vault, combining the stability of precious metals with the utility of digital assets. It has become a trusted store of value for individuals and institutions seeking the security of gold without the burdens of physical custody. However, as the blockchain ecosystem expands, the movement of XAUT across chains remains disjointed and dependent on inconsistent bridging solutions, fragmented liquidity, and opaque backend processes that limit usability and access.',
+    bridge: 'native',
+    tags: ['NO_TIMELOCK'],
+  },
+  xAERO: {
+    name: 'Aero',
+    symbol: 'xAERO',
+    oracleId: 'ethxAERO',
+    address: '0x9e148C5716b5aAdCFD3B71cEAE9EE7a9e22C29E2',
+    chainId: 1,
+    decimals: 18,
+    website: 'https://aero.xyz/',
+    description:
+      'xAERO is a standard ERC-20 receipt token issued by Aero Protocol on non-native blockchains. Each xAERO token represents one AERO token on Base and can be bridged back to Base for redemption. xAERO can only be bridged back to Base, but not to other chains.',
+    documentation: 'https://app.aero.xyz/docs',
+    bridge: 'hyperlane',
+  },
 } as const satisfies Record<string, Token>;

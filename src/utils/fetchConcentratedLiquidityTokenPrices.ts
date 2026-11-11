@@ -163,6 +163,22 @@ const tokens = {
       firstToken: 'USDC',
       secondToken: 'PAXG',
     },
+    {
+      type: 'UniV3',
+      oracleId: 'ethXAUt',
+      decimalDelta: 1,
+      pool: '0x6546055f46e866a4B9a4A13e81273e3152BAE5dA',
+      firstToken: 'USDT',
+      secondToken: 'ethXAUt',
+    },
+    {
+      type: 'Slipstream',
+      oracleId: 'ethxAERO',
+      decimalDelta: 1e12,
+      pool: '0x1f9E5e57Caf5f19F5119e725643f4bd47325f844',
+      firstToken: 'USDC',
+      secondToken: 'ethxAERO',
+    },
   ],
   polygon: [
     {
