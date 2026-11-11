@@ -85,7 +85,7 @@
     }
   },
   {
-    "address": "0xcf2243BeE2AF87d4a3721392993217e894F0f6b7",
+    "address": "0x93657088c39676e7B58Caa114B5EC7Af35FD7354",
     "lpAddress": "0xc6D8E2Ec135fF406A4abe0571476aee128fD7359",
     "tokens": ["0x5b2193fDc451C1f847bE09CA9d13A4Bf60f8c86B", "0xcbB7C0000aB88B473b1f5aFd9ef808440eed33Bf"],
     "tokenOracleIds": ["UP", "cbBTC"],
@@ -93,11 +93,11 @@
     "oracleId": "aero-cow-base-up-cbbtc",
     "providerId": "aero",
     "rewardPool": {
-      "address": "0xEEadC2c25060Bc23Ee8E43FAdFE409988BdabafA",
+      "address": "0xA4958548860669F534f7E2a1c187D54c65CE0128",
       "oracleId": "aero-cow-base-up-cbbtc-rp"
     },
     "vault": {
-      "address": "0x00F94F7fdf343dc118675048097787313709dFae",
+      "address": "0x94F62C565ecA2315BeE1FE8483f3448b78fEc5B9",
       "oracleId": "aero-cow-base-up-cbbtc-vault"
     }
   },
