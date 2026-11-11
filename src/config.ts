@@ -602,7 +602,6 @@ export const chainConfigs = makeChainConfigs({
     name: 'Robinhood',
     rpcs: [
       'https://rpc.mainnet.chain.robinhood.com',
-      'https://rpc.ordofi.network',
       'https://robinhood-rpc.publicnode.com',
       'https://rpc-robinhood.blockmachine.io',
     ],

@@ -1,5 +1,148 @@
 [
   {
+    "address": "0xCf65C5ab9E90ADb45d10d66b81BC9b0D95278423",
+    "lpAddress": "0xAd5eea00214715cce97cdc4D0D13E9Ee2B57EacE",
+    "tokens": ["0x128cC466B61f542da60c70e3aA11c10e19B84EDB", "0x3600000000000000000000000000000000000000"],
+    "tokenOracleIds": ["WETH", "USDC"],
+    "decimals": [18, 6],
+    "oracleId": "aero-cow-arc-weth-usdc",
+    "providerId": "aero",
+    "rewardPool": {
+      "address": "0x541EC9D0523F18B48309B8914D8E424fC144CeB9",
+      "oracleId": "aero-cow-arc-weth-usdc-rp"
+    },
+    "vault": {
+      "address": "0x6F1df3B2974877f8Db9aA42e29621c362ba84D42",
+      "oracleId": "aero-cow-arc-weth-usdc-vault"
+    }
+  },
+  {
+    "address": "0x9CcCE25f82f37ef777552E3BBB2A01BC5574AbE8",
+    "lpAddress": "0x86A68d86465bCf19779454e1b4d31368740503c7",
+    "tokens": ["0x171A4217b86A807A64eB94757Db6849fb4bDbAA0", "0x3600000000000000000000000000000000000000"],
+    "tokenOracleIds": ["cirBTC", "USDC"],
+    "decimals": [8, 6],
+    "oracleId": "aero-cow-arc-cirbtc-usdc",
+    "providerId": "aero",
+    "rewardPool": {
+      "address": "0xDAceb29D88ee1b5eFE8ac134523dC93A35548703",
+      "oracleId": "aero-cow-arc-cirbtc-usdc-rp"
+    },
+    "vault": {
+      "address": "0x98fF4C9BbB06aC23beeEF038c14D0B8c485a414A",
+      "oracleId": "aero-cow-arc-cirbtc-usdc-vault"
+    }
+  },
+  {
+    "address": "0x3AB58808c6feC9CC0Ec56A04800e306C08fFB5e0",
+    "lpAddress": "0x5E4D45a31beab080b73123B07F4757573e69f922",
+    "tokens": ["0x128cC466B61f542da60c70e3aA11c10e19B84EDB", "0x171A4217b86A807A64eB94757Db6849fb4bDbAA0"],
+    "tokenOracleIds": ["WETH", "cirBTC"],
+    "decimals": [18, 8],
+    "oracleId": "aero-cow-arc-cirbtc-weth",
+    "providerId": "aero",
+    "rewardPool": {
+      "address": "0x28a7d169942bb50F51A2E53262Ca736980FE183f",
+      "oracleId": "aero-cow-arc-cirbtc-weth-rp"
+    },
+    "vault": {
+      "address": "0xA798397117C38949796DBBEA38b33ea7F880C77d",
+      "oracleId": "aero-cow-arc-cirbtc-weth-vault"
+    }
+  },
+  {
+    "address": "0xcB968f8382e3Fd875F47fbbde59Fdf46feB8b447",
+    "lpAddress": "0xbe080aC37ad1305DFCc9521F5e6F68CFDc41B7fa",
+    "tokens": ["0x3600000000000000000000000000000000000000", "0xbEf5f6d51CB62b58e6A8f77868681825C6fe21c1"],
+    "tokenOracleIds": ["USDC", "arcEURC"],
+    "decimals": [6, 6],
+    "oracleId": "aerodrome-cow-arc-eurc-usdc",
+    "providerId": "aerodrome",
+    "rewardPool": {
+      "address": "0x41691Cb706ed97eF1AaF675D627EF5B01145E7d6",
+      "oracleId": "aerodrome-cow-arc-eurc-usdc-rp"
+    },
+    "vault": {
+      "address": "0x9804a9454E63F6aFE9775BBd793340E508451Df8",
+      "oracleId": "aerodrome-cow-arc-eurc-usdc-vault"
+    }
+  },
+  {
+    "address": "0x4319C71984790f96ac190a7709B380F6F27DD238",
+    "lpAddress": "0x6F302dECb49fB30B2D2c609BDD16e04e7Dd096FC",
+    "tokens": ["0x128cC466B61f542da60c70e3aA11c10e19B84EDB", "0x3600000000000000000000000000000000000000"],
+    "tokenOracleIds": ["WETH", "USDC"],
+    "decimals": [18, 6],
+    "oracleId": "aerodrome-cow-arc-weth-usdc",
+    "providerId": "aerodrome",
+    "rewardPool": {
+      "address": "0x55fD3b49Ef7E5f9a31DA68051989F5f749658f99",
+      "oracleId": "aerodrome-cow-arc-weth-usdc-rp"
+    },
+    "vault": {
+      "address": "0xFd7F2B10d0384195D6f1bb89179dda20A0189FbE",
+      "oracleId": "aerodrome-cow-arc-weth-usdc-vault"
+    }
+  },
+  {
+    "address": "0x137731B8B2D7Cd24aB4A4A9061f2D7b4Fd1aBFEE",
+    "lpAddress": "0xd945cAEe4635BcD7FB8A9fA74dC1D0c4C1472782",
+    "tokens": ["0x171A4217b86A807A64eB94757Db6849fb4bDbAA0", "0x3600000000000000000000000000000000000000"],
+    "tokenOracleIds": ["cirBTC", "USDC"],
+    "decimals": [8, 6],
+    "oracleId": "aerodrome-cow-arc-cirbtc-usdc",
+    "providerId": "aerodrome",
+    "rewardPool": {
+      "address": "0x3B2162ea5C3F6f20Eb05818f40d54857d1Aa3B45",
+      "oracleId": "aerodrome-cow-arc-cirbtc-usdc-rp"
+    },
+    "vault": {
+      "address": "0x305Be0f7d4bA28D13803c2186Bc0F95c79d487F5",
+      "oracleId": "aerodrome-cow-arc-cirbtc-usdc-vault"
+    }
+  },
+  {
+    "address": "0x4F702C76dd9D7841784922f87470E3F718aAF6DA",
+    "lpAddress": "0x72DfF32c9C5c28758565bE0a7d4E6E42FB498506",
+    "tokens": ["0x128cC466B61f542da60c70e3aA11c10e19B84EDB", "0x171A4217b86A807A64eB94757Db6849fb4bDbAA0"],
+    "tokenOracleIds": ["WETH", "cirBTC"],
+    "decimals": [18, 8],
+    "oracleId": "aerodrome-cow-arc-cirbtc-weth",
+    "providerId": "aerodrome",
+    "rewardPool": {
+      "address": "0xedBAa34DCBA4250F6BF9582ddED03244e623268D",
+      "oracleId": "aerodrome-cow-arc-cirbtc-weth-rp"
+    },
+    "vault": {
+      "address": "0x5b9Bc16e6C142BabF0b5C33571459FAD98Bd2E10",
+      "oracleId": "aerodrome-cow-arc-cirbtc-weth-vault"
+    }
+  },
+  {
+    "address": "0xd5319D37F56C70F10da99BFB3A38694D5BD1fF22",
+    "lpAddress": "0x162Df51C504e7b8321e07387932f333D9be16a72",
+    "tokens": ["0x3600000000000000000000000000000000000000", "0xBc43CE8DEc648EA298C4275559b81D6261c90b67"],
+    "tokenOracleIds": ["USDC", "TOLLY"],
+    "decimals": [6, 18],
+    "oracleId": "uniswap-cow-arc-usdc-tolly",
+    "rewardPool": {
+      "address": "0x5bc50ABa09C285529C14290179AC345D0baA033e",
+      "oracleId": "uniswap-cow-arc-usdc-tolly-rp"
+    }
+  },
+  {
+    "address": "0x4f95D85389de296869A5a815A1AA05ec32F7efb5",
+    "lpAddress": "0x40732e01ba7A829DEA44f51a10e7C58cd9F37765",
+    "tokens": ["0x3600000000000000000000000000000000000000", "0xEb64987643db71c76b2a2BE7E723DECC995E5b37"],
+    "tokenOracleIds": ["USDC", "COOL"],
+    "decimals": [6, 18],
+    "oracleId": "uniswap-cow-arc-usdc-cool",
+    "rewardPool": {
+      "address": "0x0365ce42fbe05C07Cb835c06d3B68dD871E94Ae4",
+      "oracleId": "uniswap-cow-arc-usdc-cool-rp"
+    }
+  },
+  {
     "address": "0xAAa8C1e4F75Ec7DF802607D827Ea0efE8dCDDbDD",
     "lpAddress": "0x82916bee18fCEF517B26C72d7Cb5F13694E1dB41",
     "tokens": ["0x171A4217b86A807A64eB94757Db6849fb4bDbAA0", "0x3600000000000000000000000000000000000000"],

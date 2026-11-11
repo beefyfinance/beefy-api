@@ -3227,6 +3227,20 @@ export const tokens = {
       'YieldBasis is a decentralized protocol that lets liquidity providers earn trading fees on volatile-asset pairs without the impermanent loss a normal LP suffers.',
     bridge: 'native',
   },
+  ybWETH: {
+    name: 'Yield Basis liquidity for WETH',
+    symbol: 'yb-WETH',
+    oracleId: 'ybWETH',
+    oracle: 'lps',
+    address: '0x2B9c9f3BdcEb5d8E36a4704F08a78Fca53343cEa',
+    chainId: 1,
+    decimals: 18,
+    website: 'https://yieldbasis.com/earn/0x2B9c9f3BdcEb5d8E36a4704F08a78Fca53343cEa',
+    documentation: 'https://docs.yieldbasis.com/user/introduction',
+    description:
+      'YieldBasis is a decentralized protocol that lets liquidity providers earn trading fees on volatile-asset pairs without the impermanent loss a normal LP suffers.',
+    bridge: 'native',
+  },
   trUSD: {
     name: 'trUSD',
     symbol: 'trUSD',
@@ -3238,6 +3252,34 @@ export const tokens = {
     documentation: 'https://docs.tori.finance/',
     description:
       'trUSD is Tori Finance’s synthetic dollar token. It is designed to track the value of USD and is the foundation of the Tori ecosystem.',
+    bridge: 'native',
+    tags: ['NO_TIMELOCK', 'SYNTHETIC', 'STABLECOIN'],
+  },
+  evaUSDT: {
+    name: 'evaUSDT',
+    symbol: 'evaUSDT',
+    oracleId: 'evaUSDT',
+    address: '0x501eBf66d76A96D4FB26ccead42957653e16B8B8',
+    chainId: 1,
+    decimals: 6,
+    website: 'https://www.eva.markets/',
+    documentation: 'https://www.eva.markets/docs',
+    description:
+      'Eva wraps isolated lending positions into portable ERC-20 tokens. Each product maps to a single borrower, a single market, and a defined set of terms, fully transparent and verifiable onchain.',
+    bridge: 'native',
+    tags: ['NO_TIMELOCK', 'SYNTHETIC', 'STABLECOIN'],
+  },
+  evaUSDC: {
+    name: 'evaUSDC',
+    symbol: 'evaUSDC',
+    oracleId: 'evaUSDC',
+    address: '0x741bD193B6b40f8703d2e116FD1965421f290F58',
+    chainId: 1,
+    decimals: 6,
+    website: 'https://www.eva.markets/',
+    documentation: 'https://www.eva.markets/docs',
+    description:
+      'Eva wraps isolated lending positions into portable ERC-20 tokens. Each product maps to a single borrower, a single market, and a defined set of terms, fully transparent and verifiable onchain.',
     bridge: 'native',
     tags: ['NO_TIMELOCK', 'SYNTHETIC', 'STABLECOIN'],
   },
@@ -3253,5 +3295,31 @@ export const tokens = {
     description:
       'Paxos Gold (PAXG) is a regulated tokenized gold product where each token represents one fine troy ounce of London Good Delivery gold held in LBMA-accredited vaults.',
     bridge: 'native',
+  },
+  XAUt: {
+    name: 'Tether Gold',
+    symbol: 'XAUt',
+    oracleId: 'ethXAUt',
+    address: '0x68749665FF8D2d112Fa859AA293F07A622782F38',
+    chainId: 1,
+    decimals: 6,
+    website: 'https://gold.tether.to/',
+    description:
+      'Tether Gold tokens (XAUt) represents ownership of one troy ounce of physical gold held in a Swiss vault, combining the stability of precious metals with the utility of digital assets. It has become a trusted store of value for individuals and institutions seeking the security of gold without the burdens of physical custody. However, as the blockchain ecosystem expands, the movement of XAUT across chains remains disjointed and dependent on inconsistent bridging solutions, fragmented liquidity, and opaque backend processes that limit usability and access.',
+    bridge: 'native',
+    tags: ['NO_TIMELOCK'],
+  },
+  xAERO: {
+    name: 'Aero',
+    symbol: 'xAERO',
+    oracleId: 'ethxAERO',
+    address: '0x9e148C5716b5aAdCFD3B71cEAE9EE7a9e22C29E2',
+    chainId: 1,
+    decimals: 18,
+    website: 'https://aero.xyz/',
+    description:
+      'xAERO is a standard ERC-20 receipt token issued by Aero Protocol on non-native blockchains. Each xAERO token represents one AERO token on Base and can be bridged back to Base for redemption. xAERO can only be bridged back to Base, but not to other chains.',
+    documentation: 'https://app.aero.xyz/docs',
+    bridge: 'hyperlane',
   },
 } as const satisfies Record<string, Token>;

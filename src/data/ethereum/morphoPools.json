@@ -1,5 +1,14 @@
 [
   {
+    "name": "morpho-v2-ethereum-armitage-pendle-ecosystem-high-yield-usdc",
+    "address": "0xcf609F8327E68b42AF54F9D529b9f65d68038435",
+    "oracle": "tokens",
+    "oracleId": "USDC",
+    "decimals": "1e6",
+    "v2": true,
+    "skim": true
+  },
+  {
     "name": "morpho-v2-ethereum-armitage-pendle-ecosystem-usdc",
     "address": "0x55C1B6e461a6334B567bAF0FEb5D728715446f05",
     "oracle": "tokens",

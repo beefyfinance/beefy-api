@@ -1532,7 +1532,7 @@ export const tokens = {
   msETH: {
     name: 'Metronome Synth ETH',
     symbol: 'msETH',
-    oracleId: 'msETH',
+    oracleId: 'opmsETH',
     address: '0x1610e3c85dd44Af31eD7f33a63642012Dca0C5A5',
     chainId: 10,
     decimals: 18,
@@ -1755,5 +1755,18 @@ export const tokens = {
       'sfrxETH is a ERC-4626 vault designed to accrue the staking yield of the Frax ETH validators. At any time, frxETH can be exchanged for sfrxETH by depositing it into the sfrxETH vault, which allows users to earn staking yield on their frxETH. Over time, as validators accrue staking yield, an equivalent amount of frxETH is minted and added to the vault, allowing users to redeem their sfrxETH for an greater amount of frxETH than they deposited. ',
     bridge: 'frax',
     documentation: 'https://docs.frax.finance/frax-ether/frxeth-and-sfrxeth',
+  },
+  xAERO: {
+    name: 'Aero',
+    symbol: 'xAERO',
+    oracleId: 'opxAERO',
+    address: '0xbdEaeA5205d16f34Cb40038052d91235D87B4C54',
+    chainId: 10,
+    decimals: 18,
+    website: 'https://aero.xyz/',
+    description:
+      'xAERO is a standard ERC-20 receipt token issued by Aero Protocol on non-native blockchains. Each xAERO token represents one AERO token on Base and can be bridged back to Base for redemption. xAERO can only be bridged back to Base, but not to other chains.',
+    documentation: 'https://app.aero.xyz/docs',
+    bridge: 'hyperlane',
   },
 } as const satisfies Record<string, Token>;

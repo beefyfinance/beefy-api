@@ -1,5 +1,14 @@
 [
   {
+    "name": "morpho-v2-arbitrum-gauntlet-premium-usdg",
+    "address": "0x390c1bb01F3F627144a40617e287d4cE3D5aBCfa",
+    "oracle": "tokens",
+    "oracleId": "arbUSDG",
+    "decimals": "1e6",
+    "v2": true,
+    "skim": true
+  },
+  {
     "name": "morpho-arb-steakhouse-usdc",
     "address": "0x5c0C306Aaa9F877de636f4d5822cA9F2E81563BA",
     "oracle": "tokens",

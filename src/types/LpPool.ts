@@ -17,21 +17,6 @@ export interface LpPool {
   tokens?: LpToken[];
 }
 
-export interface SingleAssetPool {
-  name: string;
-  farmType?: string;
-  poolId?: number;
-  address: string;
-  strat?: string;
-  oracle?: string;
-  oracleId?: string;
-  decimals: string;
-  depositFee?: number;
-  swap?: string; // used in swap contracts, like IronSwap (0x837503e8A8753ae17fB8C8151B8e6f586defCb57) on polygon
-  beefyFee?: number;
-  extraRewards?: Reward[];
-}
-
 export interface LpToken {
   address: string;
   oracle: string;

@@ -6,7 +6,7 @@
   "private": true,
   "type": "module",
   "engines": {
-    "node": "24.x"
+    "node": "^24.22.1"
   },
   "scripts": {
     "start": "node --env-file-if-exists=.env --import tsx src/app.ts",
@@ -32,7 +32,8 @@
     "zksync:vesync:add": "node --env-file-if-exists=.env --import tsx scripts/add-solidly.ts --network zksync --project vesync --newFee true --lp",
     "hyperevm:kittenswap:add": "node --env-file-if-exists=.env --import tsx scripts/add-solidly.ts --network hyperevm --project kittenswap --newFee true --lp",
     "lithos": "node --env-file-if-exists=.env --import tsx scripts/add-solidly.ts --network plasma --project lithos --newFee true --lp",
-    "eols": "node --env-file-if-exists=.env --import tsx scripts/findEolPools.ts"
+    "eols": "node --env-file-if-exists=.env --import tsx scripts/findEolPools.ts",
+    "add:aerov2": "node --env-file-if-exists=.env --import tsx scripts/add-aerov2.ts"
   },
   "dependencies": {
     "jsonpath": "catalog:",

@@ -56,6 +56,7 @@ export const tokens = {
       'Tether Gold tokens (XAUt) represents ownership of one troy ounce of physical gold held in a Swiss vault, combining the stability of precious metals with the utility of digital assets. It has become a trusted store of value for individuals and institutions seeking the security of gold without the burdens of physical custody. However, as the blockchain ecosystem expands, the movement of XAUT across chains remains disjointed and dependent on inconsistent bridging solutions, fragmented liquidity, and opaque backend processes that limit usability and access.',
     bridge: 'layer-zero',
     documentation: 'https://usdt0.gitbook.io/xaut0',
+    tags: ['NO_TIMELOCK'],
   },
   USDe: {
     name: 'USDe',

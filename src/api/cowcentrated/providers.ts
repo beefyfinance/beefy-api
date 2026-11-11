@@ -1,7 +1,9 @@
 import { arbitrum } from '@beefyfinance/blockchain-addressbook/arbitrum';
+import { arc } from '@beefyfinance/blockchain-addressbook/arc';
 import { avax } from '@beefyfinance/blockchain-addressbook/avax';
 import { base } from '@beefyfinance/blockchain-addressbook/base';
 import { bsc } from '@beefyfinance/blockchain-addressbook/bsc';
+import { ethereum } from '@beefyfinance/blockchain-addressbook/ethereum';
 import { linea } from '@beefyfinance/blockchain-addressbook/linea';
 import { lisk } from '@beefyfinance/blockchain-addressbook/lisk';
 import { optimism } from '@beefyfinance/blockchain-addressbook/optimism';
@@ -26,6 +28,15 @@ export const providers = {
     poolTradingRewardTokens: {
       optimism: [optimism.tokens.VELOV2],
       lisk: [lisk.tokens.XVELO],
+    },
+  },
+  aero: {
+    poolTradingRewardTokens: {
+      arc: [arc.tokens.xAERO],
+      base: [base.tokens.AEROv2],
+      robinhood: [robinhood.tokens.xAERO],
+      optimism: [optimism.tokens.xAERO],
+      ethereum: [ethereum.tokens.xAERO],
     },
   },
   aerodrome: {
