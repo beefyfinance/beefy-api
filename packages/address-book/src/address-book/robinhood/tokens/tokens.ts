@@ -1043,7 +1043,7 @@ export const tokens = {
     bridge: 'native',
     tags: ['STOCK'],
   },
-  SKHY: {
+  SKHYrh: {
     name: 'SK hynix Inc. American Depositary Shares • Robinhood Token',
     symbol: 'SKHY',
     oracleId: 'SKHYrh',
