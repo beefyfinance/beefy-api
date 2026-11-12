@@ -1489,9 +1489,17 @@ const tokens = {
       type: 'Slipstream',
       oracleId: 'ICP',
       decimalDelta: 1e-10,
-      pool: '0x3ECA1A7D881E12D2C7D8111269CEa0bcbF12192a',
+      pool: '0xCFb3E708B485082Ac2f5798E5cd9C4180C162e26',
       firstToken: 'WETH',
       secondToken: 'ICP',
+    },
+    {
+      type: 'Slipstream',
+      oracleId: 'LCAP',
+      decimalDelta: 1,
+      pool: '0xCFb3E708B485082Ac2f5798E5cd9C4180C162e26',
+      firstToken: 'WETH',
+      secondToken: 'LCAP',
     },
   ],
   zksync: [
