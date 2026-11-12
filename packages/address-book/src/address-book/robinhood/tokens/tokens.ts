@@ -1043,6 +1043,20 @@ export const tokens = {
     bridge: 'native',
     tags: ['STOCK'],
   },
+  SKHY: {
+    name: 'SK hynix Inc. American Depositary Shares • Robinhood Token',
+    symbol: 'SKHY',
+    oracleId: 'SKHYrh',
+    address: '0x84CAb63bc87912E71ad199ff14A0bA45de68FeF8',
+    chainId: 4663,
+    decimals: 18,
+    website: 'https://robinhood.com/rhj/stocktokens/',
+    description:
+      'SK hynix Inc. American Depositary Shares • Robinhood Token is a tokenized debt security issued by Robinhood Assets (Jersey) Limited that provides price exposure to SK hynix shares without conferring ownership or shareholder rights.',
+    documentation: 'https://docs.robinhood.com/chain/stock-tokens/',
+    bridge: 'native',
+    tags: ['STOCK'],
+  },
   ORBIO: {
     name: 'Orbio.so',
     symbol: 'ORBIO',

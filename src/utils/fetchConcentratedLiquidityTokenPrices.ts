@@ -2308,6 +2308,14 @@ const tokens = {
     },
     {
       type: 'UniV3',
+      pool: '0x5F2a5025feb93a4C44DA4E3B37e4fD3Fb0ab5171',
+      oracleId: 'SKHYrh',
+      decimalDelta: 1e-12,
+      firstToken: 'SKHYrh',
+      secondToken: 'USDG',
+    },
+    {
+      type: 'UniV3',
       oracleId: 'MRNArh',
       decimalDelta: 1e12,
       pool: '0xB40196272A6d2EB5edF6d93bc4DC39856AD95E0E',
