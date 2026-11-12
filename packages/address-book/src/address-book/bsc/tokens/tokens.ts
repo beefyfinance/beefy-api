@@ -1971,6 +1971,8 @@ export const tokens = {
     website: 'https://near.org/',
     description:
       'NEAR is an open source platform that enables creators, communities, and markets to drive a more open, interconnected and consumer-empowered world.',
+    bridge: 'binance-peg',
+    tags: ['BLUECHIP'],
   },
   SWAMP: {
     name: 'Swampy Token',

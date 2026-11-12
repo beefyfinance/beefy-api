@@ -2071,6 +2071,14 @@ const tokens = {
       firstToken: 'USDT',
       secondToken: 'XAUt',
     },
+    {
+      type: 'UniV3',
+      oracleId: 'NEAR',
+      decimalDelta: 1,
+      pool: '0x4a978a2D4fb7393063BaBfb0CEE741b8bCd4dd4B',
+      firstToken: 'WBNB',
+      secondToken: 'NEAR',
+    },
   ],
   gnosis: [
     {
