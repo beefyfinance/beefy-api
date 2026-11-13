@@ -1498,8 +1498,8 @@ const tokens = {
       oracleId: 'LCAP',
       decimalDelta: 1,
       pool: '0xCFb3E708B485082Ac2f5798E5cd9C4180C162e26',
-      firstToken: 'WETH',
-      secondToken: 'LCAP',
+      firstToken: 'LCAP',
+      secondToken: 'WETH',
     },
   ],
   zksync: [
