@@ -1,3 +1,7 @@
+import { addressBook } from '@beefyfinance/blockchain-addressbook';
+import type { Address } from 'viem';
+import type { ApiChain } from '../../../utils/chain.ts';
+
 export type SuccessApiResponse<T, E extends Record<string, unknown> | undefined = undefined> = {
   code: 200;
   data: T;
@@ -28,3 +32,8 @@ export function isErrorApiResponse<T, E extends Record<string, unknown> | undefi
 export type ExtraQuoteResponse = {
   fee: { value: number } | { value: number; original: number };
 };
+
+/** BeefyZapRouter; the only allowed fromAddress/receiver for proxied swaps */
+export function getZapRouter(apiChain: ApiChain): Address | undefined {
+  return addressBook[apiChain].platforms.beefyfinance.zap as Address | undefined;
+}
