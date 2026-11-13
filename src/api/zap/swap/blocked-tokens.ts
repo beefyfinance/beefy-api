@@ -173,7 +173,6 @@ export const blockedTokensByChain: Record<ApiChain, Set<string>> = {
     addressBook.bsc.tokens.NABOX.address,
     addressBook.bsc.tokens.NAOS.address,
     addressBook.bsc.tokens.NAUT.address,
-    addressBook.bsc.tokens.NEAR.address,
     addressBook.bsc.tokens.NFT.address,
     addressBook.bsc.tokens.NUGGET.address,
     addressBook.bsc.tokens.O3.address,
