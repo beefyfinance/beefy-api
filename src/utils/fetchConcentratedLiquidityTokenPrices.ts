@@ -1489,7 +1489,7 @@ const tokens = {
       type: 'Slipstream',
       oracleId: 'ICP',
       decimalDelta: 1e-10,
-      pool: '0xCFb3E708B485082Ac2f5798E5cd9C4180C162e26',
+      pool: '0x3ECA1A7D881E12D2C7D8111269CEa0bcbF12192a',
       firstToken: 'WETH',
       secondToken: 'ICP',
     },
