@@ -4083,6 +4083,20 @@ export const tokens = {
     bridge: 'native',
     tags: ['NO_TIMELOCK', 'STOCK'],
   },
+  TTWOc: {
+    name: 'Take-Two Interactive Software, Inc.',
+    symbol: 'TTWO',
+    oracleId: 'TTWOc',
+    address: '0xB200000000000000000000f720C26062Bc3067Da',
+    chainId: 8453,
+    decimals: 8,
+    website: 'https://www.coinbase.com/en-gb/tokenize',
+    description:
+      "Take-Two Interactive Software, Inc. Coinbase Token is a tokenized debt security issued by Coinbase Onchain SPV Ltd that provides beneficial ownership of custodied Take-Two Interactive Software, Inc. shares to KYC'd holders.",
+    documentation: 'https://docs.base.org/',
+    bridge: 'native',
+    tags: ['NO_TIMELOCK', 'STOCK'],
+  },
   ENA: {
     name: 'ENA',
     symbol: 'ENA',
