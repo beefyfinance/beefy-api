@@ -1,5 +1,17 @@
 [
   {
+    "address": "0x954f7f9F1988d8387B57E898d7e742B9bC1CfE85",
+    "lpAddress": "0xb040ea24a4Ef35a3ED400B0fF26D8B6F30DEEcaD",
+    "tokens": ["0x000Ae314E2A2172a039B26378814C252734f556A", "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c"],
+    "tokenOracleIds": ["ASTER", "WBNB"],
+    "decimals": [18, 18],
+    "oracleId": "pancake-cow-bsc-aster-wbnb",
+    "rewardPool": {
+      "address": "0xabe57167c76D56Caa3043Ef07c7c3bFBE9B13c98",
+      "oracleId": "pancake-cow-bsc-aster-wbnb-rp"
+    }
+  },
+  {
     "address": "0x7c6af91706680ae7d712423fD80e2269D69f0b54",
     "lpAddress": "0x66faaD27cf481f82d0089ec8156B3AA3636010C7",
     "tokens": ["0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c", "0xbe9D156892E55e7154BcD3cB0FEA677F9D3103E1"],
