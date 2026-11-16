@@ -36,7 +36,6 @@ export class EnsoApi implements IEnsoApi {
     protected readonly baseUrl: string,
     protected readonly chainId: number,
     protected readonly routers: readonly string[],
-    protected readonly zapRouter: string,
     protected readonly apiKey: string,
     protected readonly effort: EnsoEffort
   ) {}
@@ -65,7 +64,7 @@ export class EnsoApi implements IEnsoApi {
       return response;
     }
 
-    const validated = validateRouteResponse(request, response.data, this.routers, this.zapRouter);
+    const validated = validateRouteResponse(request, response.data, this.routers);
     if (isErrorApiResponse(validated)) {
       logger.warn({ chainId: this.chainId, reason: validated.message }, 'enso route rejected');
     }
@@ -215,15 +214,11 @@ function invalidRoute(reason: string): ApiResponse<EnsoSwapResponse> {
 function validateRouteResponse(
   request: EnsoSwapRequest,
   route: EnsoRouteResponse,
-  routers: readonly string[],
-  zapRouter: string
+  routers: readonly string[]
 ): ApiResponse<EnsoSwapResponse> {
   const { tx } = route;
   if (!tx || typeof tx.to !== 'string' || typeof tx.data !== 'string') {
     return invalidRoute('missing tx');
-  }
-  if (tx.from !== undefined && !isSameAddress(tx.from, zapRouter)) {
-    return invalidRoute(`unexpected from ${tx.from}`);
   }
   if (typeof route.amountOut !== 'string' || typeof route.minAmountOut !== 'string') {
     return invalidRoute('missing amountOut/minAmountOut');

@@ -10,13 +10,12 @@ export class RateLimitedEnsoApi extends EnsoApi {
     baseUrl: string,
     chainId: number,
     routers: readonly string[],
-    zapRouter: string,
     apiKey: string,
     effort: EnsoEffort,
     protected readonly queue: PQueue,
     protected readonly proxyQueue: PQueue
   ) {
-    super(baseUrl, chainId, routers, zapRouter, apiKey, effort);
+    super(baseUrl, chainId, routers, apiKey, effort);
   }
 
   protected async get<ResponseType extends object>(

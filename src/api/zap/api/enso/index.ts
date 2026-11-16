@@ -1,7 +1,6 @@
 import PQueue from 'p-queue';
 import type { Address } from 'viem';
 import { type ApiChain, getChainConfig, SupportedChains, toChainId } from '../../../../utils/chain.ts';
-import { getZapRouter } from '../common.ts';
 import { RateLimitedEnsoApi } from './RateLimitedEnsoApi.ts';
 import type { EnsoEffort, IEnsoApi } from './types.ts';
 
@@ -71,11 +70,6 @@ export function getEnsoApi(apiChain: ApiChain): IEnsoApi {
     throw new Error(`Enso router address is not configured for ${apiChain}`);
   }
 
-  const zapRouter = getZapRouter(apiChain);
-  if (!zapRouter) {
-    throw new Error(`Zap router address is not configured for ${apiChain}`);
-  }
-
   swapApiQueue ??= new PQueue(API_QUEUE_CONFIG);
   proxyApiQueue ??= new PQueue(PROXY_QUEUE_CONFIG);
 
@@ -88,7 +82,6 @@ export function getEnsoApi(apiChain: ApiChain): IEnsoApi {
     'https://api.enso.build/api/v1',
     toChainId(apiChain),
     routers,
-    zapRouter,
     apiKey,
     ENSO_EFFORT[apiChain] ?? 'medium',
     swapApiQueue,

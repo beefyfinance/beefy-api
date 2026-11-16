@@ -9,7 +9,6 @@ import {
   type ApiResponse,
   type ErrorApiResponse,
   type ExtraQuoteResponse,
-  getZapRouter,
   isSuccessApiResponse,
 } from '../api/common.ts';
 import { getEnsoApi } from '../api/enso/index.ts';
@@ -114,19 +113,11 @@ function checkTokensSupported(request: EnsoQuoteRequest, chain: ApiChain): Error
   return undefined;
 }
 
-function checkFromAddress(request: EnsoSwapRequest, chain: ApiChain): ErrorApiResponse | undefined {
-  const zapRouter = getZapRouter(chain);
-  if (!zapRouter || zapRouter.toLowerCase() !== request.fromAddress.toLowerCase()) {
-    return badRequest('fromAddress must be the zap router');
-  }
-  return undefined;
-}
-
 const getProxiedSwap = async (request: EnsoSwapRequest, chain: ApiChain): Promise<ApiResponse<EnsoSwapResponse>> => {
   try {
-    const invalid = checkFromAddress(request, chain) || checkTokensSupported(request, chain);
-    if (invalid) {
-      return invalid;
+    const unsupported = checkTokensSupported(request, chain);
+    if (unsupported) {
+      return unsupported;
     }
 
     const tooLowError = await isQuoteValueTooLow(request.amountIn, request.tokenIn, chain);
