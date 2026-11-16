@@ -34,6 +34,7 @@ export class RateLimitedEnsoApi extends EnsoApi {
       return { code: 429, message: 'Enso proxy busy, try again later' };
     }
     // Own queue, so app requests never wait behind in-flight crawler requests
-    return this.proxyQueue.add(() => super.priorityGet(path, request, extra));
+    const priority = path === '/shortcuts/route' ? 1 : 0; // swaps before quotes
+    return this.proxyQueue.add(() => super.priorityGet(path, request, extra), { priority });
   }
 }
