@@ -13,7 +13,6 @@ import {
 } from '../api/common.ts';
 import { getEnsoApi } from '../api/enso/index.ts';
 import {
-  ENSO_AGGREGATORS,
   ENSO_NATIVE_ADDRESS,
   type EnsoQuoteRequest,
   type EnsoQuoteResponse,
@@ -68,11 +67,10 @@ function parseParams<K extends string>(
 
   const { ignoreAggregators } = query;
   if (ignoreAggregators !== undefined) {
-    const aggregators = typeof ignoreAggregators === 'string' ? ignoreAggregators.split(',') : [];
-    if (aggregators.length === 0 || !aggregators.every(aggregator => ENSO_AGGREGATORS.has(aggregator))) {
-      return badRequest('Invalid ignoreAggregators: must be a comma separated list of Enso aggregators');
+    if (typeof ignoreAggregators !== 'string') {
+      return badRequest('Repeated parameter: ignoreAggregators');
     }
-    params.ignoreAggregators = ignoreAggregators as string;
+    params.ignoreAggregators = ignoreAggregators;
   }
 
   if (params.tokenIn.toLowerCase() === params.tokenOut.toLowerCase()) {

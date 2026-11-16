@@ -3,34 +3,6 @@ import type { ApiResponse, ExtraQuoteResponse } from '../common.ts';
 // Enso rejects the checksummed form
 export const ENSO_NATIVE_ADDRESS = '0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE'.toLowerCase();
 
-/** ignoreAggregators values accepted by /shortcuts/quote and /shortcuts/route */
-export const ENSO_AGGREGATORS = new Set([
-  '0x',
-  '1inch',
-  'openocean',
-  'kyberswap',
-  'native',
-  'paraswap',
-  'bebop',
-  'barter',
-  'sushiswap-router',
-  'ooga-booga',
-  'renegade',
-  'uniswap',
-  'rooster',
-  'wowmax',
-  'grapher',
-  'hyperbloom',
-  'hyperswap',
-  'hyperflow',
-  'fly',
-  'eisen',
-  'nordstern',
-  'everlong',
-  'bitget',
-  'akka',
-]);
-
 /** How long Enso searches for a route; Enso's default is high */
 export type EnsoEffort = 'light' | 'medium' | 'high';
 
@@ -42,7 +14,7 @@ export type EnsoQuoteRequest = {
   tokenOut: string;
   /** wei string */
   amountIn: string;
-  /** comma separated Enso aggregator slugs (ENSO_AGGREGATORS) to exclude from routing */
+  /** comma separated Enso aggregator slugs to exclude from routing */
   ignoreAggregators?: string;
 };
 
