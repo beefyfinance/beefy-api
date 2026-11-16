@@ -1479,6 +1479,14 @@ const tokens = {
     },
     {
       type: 'Slipstream',
+      oracleId: 'TTWOc',
+      decimalDelta: 1e-2,
+      pool: '0x18907cAE5a9c7b45F85c5d2e1F7508C27c134f83',
+      firstToken: 'TTWOc',
+      secondToken: 'USDC',
+    },
+    {
+      type: 'Slipstream',
       oracleId: 'ENA',
       decimalDelta: 1,
       pool: '0x8803B6E002f0E9c779F611EB7189Dec4a65e3502',
