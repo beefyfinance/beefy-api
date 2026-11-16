@@ -4136,7 +4136,7 @@ export const tokens = {
       "Doppler Finance's native utility and governance token. The documentation makes governance subject to implementation and describes staking and the Safety Module as current or future utilities.",
     documentation: 'https://docs.doppler.finance/xdp/xdp',
     bridge: 'native',
-    tags: ['NO_AUDIT', 'LARGE_HOLDERS'],
+    tags: ['NO_AUDIT'],
   },
   WHUF: {
     name: 'Whuffie',
@@ -4164,6 +4164,6 @@ export const tokens = {
       ' | POD is the utility token of Dolphin Network. It is used to reward GPU node operators for processing AI inference requests, can be used to purchase inference credits, and can be staked in the xPOD vault.',
     documentation: 'https://dphn.ai/docs',
     bridge: 'native',
-    tags: ['NO_AUDIT', 'NO_TIMELOCK'],
+    tags: ['NO_AUDIT', 'NO_TIMELOCK', 'LARGE_HOLDERS'],
   },
 } as const satisfies Record<string, Token>;
