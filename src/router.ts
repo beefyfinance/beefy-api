@@ -4,7 +4,11 @@ import { handleAxelarEstimateGasFee } from './api/beefy-bridge/axelar.ts';
 import { boosts, boostsV2, chainBoosts, chainBoostsV2 } from './api/boosts/index.ts';
 import { allChains, singleChain } from './api/chains/routes.ts';
 import { getChainConfigHandler, getConfigs } from './api/config/index.ts';
-import { handleCowcentratedLTIPPCampaignsForDune, handleCowcentratedPriceRanges } from './api/cowcentrated/index.ts';
+import {
+  handleCowcentratedLTIPPCampaignsForDune,
+  handleCowcentratedPriceRanges,
+  handleCowcentratedSwapFees,
+} from './api/cowcentrated/index.ts';
 import { getCountry } from './api/geo/index.ts';
 import noop from './api/noop.ts';
 import {
@@ -82,6 +86,7 @@ router.get('/clm-vaults/:chainId', multichainVaults.singleChainClms);
 router.get('/clm-vaults', multichainVaults.multiChainClms);
 
 router.get('/cow-price-ranges', handleCowcentratedPriceRanges);
+router.get('/cow-swap-fees', handleCowcentratedSwapFees);
 router.get('/cow-dune-ltipp-merkl-campaigns', handleCowcentratedLTIPPCampaignsForDune);
 
 router.get('/offchain-rewards/active/:chainId', handleOffChainRewardsActiveForChain);
