@@ -4876,6 +4876,7 @@ export const tokens = {
     address: '0x5b1910eAaD6450E50f816082Aa078C41F10C292f',
     chainId: 56,
     decimals: 18,
+    website: 'https://www.bstocks.finance/',
     description:
       'Tesla, Inc. issued by bStocks. bStocks are tokenized securities that give you economic exposure to popular US-listed companies with the right to convert to the underlying security on the Binance.com platform subject to applicable laws.',
     documentation: 'https://www.bstocks.finance/faq',
@@ -4889,6 +4890,7 @@ export const tokens = {
     address: '0x7138b48df7D98D7e3cc221BfE7192D0a178182D8',
     chainId: 56,
     decimals: 18,
+    website: 'https://www.bstocks.finance/',
     description:
       'SPDR S&P 500 ETF Trust issued by bStocks. bStocks are tokenized securities that give you economic exposure to popular US-listed companies with the right to convert to the underlying security on the Binance.com platform subject to applicable laws.',
     documentation: 'https://www.bstocks.finance/faq',
