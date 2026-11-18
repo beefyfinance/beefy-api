@@ -4166,4 +4166,18 @@ export const tokens = {
     bridge: 'native',
     tags: ['NO_AUDIT', 'NO_TIMELOCK', 'LARGE_HOLDERS'],
   },
+  INFI: {
+    name: 'InfiniFi Governance Token',
+    symbol: 'INFI',
+    oracleId: 'baseINFI',
+    address: '0x9f4c76F421f47b3C234f841F477897f1D895177D',
+    chainId: 8453,
+    decimals: 18,
+    website: 'https://infinifi.xyz/',
+    description:
+      'INFI is the governance token of infiniFi, a protocol that applies fractional reserve banking to DeFi: USDC deposits mint the iUSD stablecoin, which can be staked as siUSD or locked as liUSD for amplified yield.',
+    documentation: 'https://docs.infinifi.xyz/',
+    bridge: 'chainlink-ccip',
+    tags: ['NO_AUDIT', 'NO_TIMELOCK', 'LARGE_HOLDERS'],
+  },
 } as const satisfies Record<string, Token>;

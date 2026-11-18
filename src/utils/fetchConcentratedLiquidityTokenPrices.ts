@@ -1541,6 +1541,14 @@ const tokens = {
       firstToken: 'POD',
       secondToken: 'USDC',
     },
+    {
+      type: 'Slipstream',
+      oracleId: 'baseINFI',
+      decimalDelta: 1e-12,
+      pool: '0xeDb67E8E9F77b8e48A4Ff81b376699D5c8ba2C98',
+      firstToken: 'baseINFI',
+      secondToken: 'USDC',
+    },
   ],
   zksync: [
     {
