@@ -44,6 +44,12 @@ type CurveBaseApysApiResponse = {
   };
 };
 
+// Curve's daily figure annualizes a single day. Pools that book their fees in one weekly
+// step show a week of fees as a daily rate on that day, so prefer the weekly figure and
+// only fall back to the daily one when there is no weekly data yet.
+export const pickCurveApy = (daily: number, weekly: number) =>
+  Number.isFinite(weekly) && weekly > 0 ? weekly : Number.isFinite(daily) ? daily : 0;
+
 export async function getCurveVolumeApys(pools: CurveApyDataPool[], url: string) {
   let apys: Record<string, BigNumber> = {};
   try {
@@ -53,7 +59,7 @@ export async function getCurveVolumeApys(pools: CurveApyDataPool[], url: string)
     pools.forEach(pool => {
       const poolData = apyData.find(p => p.address.toLowerCase() === pool.pool.toLowerCase());
       let apy: number | BigNumber = 0;
-      if (poolData) apy = Math.max(poolData.latestDailyApyPcent, poolData.latestWeeklyApyPcent);
+      if (poolData) apy = pickCurveApy(poolData.latestDailyApyPcent, poolData.latestWeeklyApyPcent);
       apy = new BigNumber(Number(apy) / 100);
       apys = { ...apys, ...{ [pool.name]: apy } };
     });
@@ -83,7 +89,7 @@ const getSubgraphDataApy = (apyData: CurveSubgraphApiPool[], poolAddress: string
   try {
     let pool = apyData.find(p => p.address.toLowerCase() === poolAddress.toLowerCase());
     if (!pool) return 0;
-    let apy = Math.max(pool.latestDailyApy, pool.latestWeeklyApy);
+    let apy = pickCurveApy(pool.latestDailyApy, pool.latestWeeklyApy);
     return Number(apy) / 100;
   } catch (err) {
     logger.warn({ pool: poolAddress, err }, 'subgraph apy parse failed');
@@ -102,7 +108,7 @@ export const getCurveGetBaseApys = async (pools: CurveApyDataPool[], url: string
       // FIXME(unsafe-cast): may be undefined
       let poolData = apyData.find(p => p.address.toLowerCase() === pool.pool.toLowerCase()) as CurveBaseApysApiPool;
       let apy: number | BigNumber = 0;
-      if (pool) apy = Math.max(poolData.latestDailyApyPcent, poolData.latestWeeklyApyPcent);
+      if (pool) apy = pickCurveApy(poolData.latestDailyApyPcent, poolData.latestWeeklyApyPcent);
       apy = new BigNumber(Number(apy) / 100);
       apys = { ...apys, ...{ [pool.name]: apy } };
     });
