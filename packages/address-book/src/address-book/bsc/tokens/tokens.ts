@@ -4882,6 +4882,19 @@ export const tokens = {
     bridge: 'native',
     tags: ['STOCK'],
   },
+  SPYB: {
+    name: 'SPY',
+    symbol: 'SPYB',
+    oracleId: 'SPYB',
+    address: '0x7138b48df7D98D7e3cc221BfE7192D0a178182D8',
+    chainId: 56,
+    decimals: 18,
+    description:
+      'SPDR S&P 500 ETF Trust issued by bStocks. bStocks are tokenized securities that give you economic exposure to popular US-listed companies with the right to convert to the underlying security on the Binance.com platform subject to applicable laws.',
+    documentation: 'https://www.bstocks.finance/faq',
+    bridge: 'native',
+    tags: ['STOCK'],
+  },
   XAUt: {
     name: 'Tether Gold',
     symbol: 'XAUt',

@@ -2113,6 +2113,14 @@ const tokens = {
     },
     {
       type: 'UniV3',
+      pool: '0x7e8D083BE335dc9eD1aB661d3d3fA0Cf5c9B8926',
+      oracleId: 'SPYB',
+      decimalDelta: 1,
+      firstToken: 'SPYB',
+      secondToken: 'USDT',
+    },
+    {
+      type: 'UniV3',
       pool: '0xF7B5a9B7Ef764606f900C9c1db39aFc682049bc4',
       oracleId: 'BTW',
       decimalDelta: 1,
