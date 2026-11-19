@@ -1479,6 +1479,14 @@ const tokens = {
     },
     {
       type: 'Slipstream',
+      oracleId: 'ANTc',
+      decimalDelta: 1e-2,
+      pool: '0x599C4225FE90214795a0be228D20d7680f8CED15',
+      firstToken: 'ANTc',
+      secondToken: 'USDC',
+    },
+    {
+      type: 'Slipstream',
       oracleId: 'TTWOc',
       decimalDelta: 1e-2,
       pool: '0x18907cAE5a9c7b45F85c5d2e1F7508C27c134f83',
