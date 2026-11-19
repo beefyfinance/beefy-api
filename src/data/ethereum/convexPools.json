@@ -981,6 +981,7 @@
     "name": "curve-bold-usdc-new",
     "pool": "0xEFc6516323FbD28e80B85A497B65A86243a54B3E",
     "gauge": "0x07a01471fA544D9C6531B631E6A96A79a9AD05E9",
+    "rewardPool": "0x5451716CB79A51fEA5f8331B028b45f10452f7e8",
     "getDy": ["v1", 0, 1],
     "rewards": [
       {
