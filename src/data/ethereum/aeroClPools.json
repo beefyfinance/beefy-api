@@ -1,9 +1,8 @@
 [
   {
-    "name": "uniswap-ethereum-bifi-eth-0.3",
-    "address": "0xfBa26C3F9C8eCeF989def3C5c8aD037487462d83",
-    "nftId": 697353,
-    "beefyFee": 0,
+    "name": "aero-cl-ethereum-bifi-weth-3147",
+    "address": "0xff35aa95669b5668AC6727FdcFc0D5582cdd78D1",
+    "nftId": 3147,
     "poolFee": 0.3,
     "chainId": 1,
     "lp0": {
@@ -20,10 +19,9 @@
     }
   },
   {
-    "name": "uniswap-ethereum-bifi-eth-0.3-tight",
-    "address": "0xfBa26C3F9C8eCeF989def3C5c8aD037487462d83",
-    "nftId": 697355,
-    "beefyFee": 0,
+    "name": "aero-cl-ethereum-bifi-weth-3171",
+    "address": "0xff35aa95669b5668AC6727FdcFc0D5582cdd78D1",
+    "nftId": 3171,
     "poolFee": 0.3,
     "chainId": 1,
     "lp0": {
@@ -40,10 +38,9 @@
     }
   },
   {
-    "name": "uniswap-ethereum-bifi-eth-0.3-tighter",
-    "address": "0xfBa26C3F9C8eCeF989def3C5c8aD037487462d83",
-    "nftId": 697697,
-    "beefyFee": 0,
+    "name": "aero-cl-ethereum-bifi-weth-18362",
+    "address": "0xff35aa95669b5668AC6727FdcFc0D5582cdd78D1",
+    "nftId": 18362,
     "poolFee": 0.3,
     "chainId": 1,
     "lp0": {
@@ -60,10 +57,9 @@
     }
   },
   {
-    "name": "uniswap-ethereum-bifi-eth-0.3-tighter-1",
-    "address": "0xfBa26C3F9C8eCeF989def3C5c8aD037487462d83",
-    "nftId": 747836,
-    "beefyFee": 0,
+    "name": "aero-cl-ethereum-bifi-weth-18369",
+    "address": "0xff35aa95669b5668AC6727FdcFc0D5582cdd78D1",
+    "nftId": 18369,
     "poolFee": 0.3,
     "chainId": 1,
     "lp0": {
@@ -80,10 +76,9 @@
     }
   },
   {
-    "name": "uniswap-ethereum-bifi-eth-0.3-tighter-2",
-    "address": "0xfBa26C3F9C8eCeF989def3C5c8aD037487462d83",
-    "nftId": 1005753,
-    "beefyFee": 0,
+    "name": "aero-cl-ethereum-bifi-weth-18378",
+    "address": "0xff35aa95669b5668AC6727FdcFc0D5582cdd78D1",
+    "nftId": 18378,
     "poolFee": 0.3,
     "chainId": 1,
     "lp0": {
