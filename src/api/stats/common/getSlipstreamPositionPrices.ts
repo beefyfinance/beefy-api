@@ -1,4 +1,12 @@
-import { type Address, decodeFunctionResult, encodeFunctionData, maxUint128, maxUint256 } from 'viem';
+import {
+  type Address,
+  BaseError,
+  ContractFunctionRevertedError,
+  decodeFunctionResult,
+  encodeFunctionData,
+  maxUint128,
+  maxUint256,
+} from 'viem';
 import SlipstreamPositionManagerAbi from '../../../abis/SlipstreamPositionManager.ts';
 import type { StandardLpBreakdown } from '../../../types/prices.ts';
 import type { ApiChainId } from '../../../utils/chain.ts';
@@ -35,10 +43,17 @@ export const getSlipstreamPositionPrices = withTracing(
 const getPositionTokens = async (pool: UniV3Pool, params: SlipstreamPositionPricesParams): Promise<PositionTokens> => {
   const tokenId = BigInt(pool.nftId);
   const nftManager = fetchContract(params.nftManager, SlipstreamPositionManagerAbi, params.chainId);
-  const [position, owner] = await Promise.all([
-    nftManager.read.positions([tokenId]),
-    nftManager.read.ownerOf([tokenId]),
-  ]);
+  const position = await nftManager.read.positions([tokenId]).catch(err => {
+    // Burned NFTs revert with 'ID'; anything else (e.g. RPC errors viem also labels as reverts) should still throw
+    const revert = err instanceof BaseError && err.walk(e => e instanceof ContractFunctionRevertedError);
+    if (revert instanceof ContractFunctionRevertedError && revert.reason === 'ID') return undefined;
+    throw err;
+  });
+  if (!position) {
+    logger.warn({ chain: params.chainId, nftId: pool.nftId }, 'position burned, using 0');
+    return [0n, 0n, 0n];
+  }
+  const owner = await nftManager.read.ownerOf([tokenId]);
   const liquidity = position[7];
 
   const calls = [

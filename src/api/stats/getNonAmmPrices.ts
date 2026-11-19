@@ -31,7 +31,6 @@ import { getMorphoPrices } from './common/morpho/getMorphoPrices.ts';
 import getAeroEthereumPrices from './ethereum/getAeroPositionPrices.ts';
 import getAuraBalancerPrices from './ethereum/getAuraBalancerPrices.ts';
 import { getCurveEthereumPrices } from './ethereum/getCurvePrices.ts';
-import getUniswapEthereumPrices from './ethereum/getUniswapPositionPrices.ts';
 import { getYieldBasisPrices } from './ethereum/getYieldBasisPrices.ts';
 import getBalancerGnosisPrices from './gnosis/getBalancerGnosisPrices.ts';
 import getGammaLineaPrices from './linea/getGammaPrices.ts';
@@ -93,7 +92,6 @@ export const getNonAmmPrices = withTracing(
       getGearboxPrices(ApiChainId.monad, monadGearboxPools, tokenPrices),
       getNeverlandPrices(tokenPrices),
       getCurvanceMonadPrices(tokenPrices),
-      getUniswapEthereumPrices(tokenPrices),
       getAeroEthereumPrices(tokenPrices),
       getMimSwapPrices(tokenPrices),
       getAuraBalancerPrices(tokenPrices),
