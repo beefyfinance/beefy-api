@@ -4083,6 +4083,20 @@ export const tokens = {
     bridge: 'native',
     tags: ['NO_TIMELOCK', 'STOCK'],
   },
+  ANTc: {
+    name: 'Anthropic, PBC',
+    symbol: 'ANT',
+    oracleId: 'ANTc',
+    address: '0xb20000000000000000000016e38FD364d271Ba28',
+    chainId: 8453,
+    decimals: 8,
+    website: 'https://www.coinbase.com/en-gb/tokenize',
+    description:
+      "ANTc is a tokenized debt security issued by Coinbase Onchain SPV Ltd that provides beneficial ownership of custodied Anthropic, PBC shares to KYC'd holders.",
+    documentation: 'https://docs.base.org/',
+    bridge: 'native',
+    tags: ['NO_TIMELOCK', 'STOCK'],
+  },
   TTWOc: {
     name: 'Take-Two Interactive Software, Inc.',
     symbol: 'TTWO',
