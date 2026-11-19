@@ -81,7 +81,12 @@ export const extractBalancesFromTreasuryCallResults = (
           });
         }
       } else if (isConcLiquidityAsset(asset)) {
-        const value = callResult.value as StandardLpBreakdown[];
+        const value = callResult.value as (StandardLpBreakdown | undefined)[];
+        // Missing when the price source failed, skip so the rest of the chain still updates
+        if (!value[0]) {
+          logger.warn({ oracleId: asset.oracleId }, 'missing lp breakdown for treasury asset');
+          return;
+        }
         allBalances.push({
           address: asset.address.toLowerCase(),
           balances: {
