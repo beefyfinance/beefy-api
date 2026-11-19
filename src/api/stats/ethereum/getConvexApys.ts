@@ -5,7 +5,9 @@ import { ApiChainId } from '../../../utils/chain.ts';
 import { fetchPrice } from '../../../utils/fetchPrice.ts';
 import { fetchContract } from '../../rpc/client.ts';
 import { getCurveSubgraphApys } from '../common/curve/getCurveApyData.ts';
+import { getMerklApys } from '../common/curve/getCurveApysCommon.ts';
 import { getApyBreakdown } from '../common/getApyBreakdownNew.ts';
+import convexPools from '../../../data/ethereum/convexPools.json' with { type: 'json' };
 
 type ConvexExtraReward = {
   rewardPool: string;
@@ -28,13 +30,21 @@ const subgraphUrl = 'https://api.curve.finance/api/getSubgraphData/ethereum';
 const secondsPerYear = 31536000;
 const cvxAddress = '0x4e3FBD56CD56c3e72c1403e103b45Db9da5B9D2B';
 
-import convexPools from '../../../data/ethereum/convexPools.json' with { type: 'json' };
-
 const pools = convexPools.filter(p => p.rewardPool);
 
 export const getConvexApys = async () => {
-  const [baseApys, farmApys] = await Promise.all([getCurveSubgraphApys(pools, subgraphUrl), getPoolApys(pools)]);
-  return getApyBreakdown(pools.map((p, i) => ({ vaultId: p.name, trading: baseApys[p.name], vault: farmApys[i] })));
+  const [baseApys, farmApys, merklApys] = await Promise.all([
+    getCurveSubgraphApys(pools, subgraphUrl),
+    getPoolApys(pools),
+    getMerklApys(1, pools),
+  ]);
+  return getApyBreakdown(
+    pools.map((p, i) => ({
+      vaultId: p.name,
+      trading: baseApys[p.name],
+      vault: farmApys[i].plus(merklApys[i]),
+    }))
+  );
 };
 
 const getPoolApys = async (pools: ConvexApyPool[]) => {
