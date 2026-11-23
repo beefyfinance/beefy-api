@@ -7,7 +7,10 @@ export type ClmSwapFee = {
   /** bounds of a dynamic fee, omitted when the pool has none (keeper-set fees) */
   min?: number;
   max?: number;
-  /** fee charged instead on the first swap of a block, when the pool has one enabled */
+  /**
+   * fee charged instead on the first swap of a block, when the pool has one enabled;
+   * Aero hooks charge it on every swap of the first transaction to swap in the pool that block
+   */
   firstSwap?: number;
 };
 
