@@ -1,51 +1,32 @@
-import { parseAbi } from 'viem';
-import { poolAbi } from '../../abis.ts';
 import { fixedFee, rangedFee } from '../../fee.ts';
-import { contractOf, defineKind, probe } from '../../kind.ts';
+import { defineKind, probe } from '../../kind.ts';
 import type { ClmSwapFee } from '../../types.ts';
 import {
-  effectiveScaling,
-  maxVolatilityFee,
+  clFactoryAbi,
+  clPoolAbi,
+  matchFeeSource,
   readDynamicFeeConfig,
   readVolatilityFeeParams,
   type VolatilityFeeParams,
-  volatilityFee,
+  volatilityFeeBounds,
 } from './helpers.ts';
-
-const factoryAbi = parseAbi(['function swapFeeModule() view returns (address)']);
 
 /** Slipstream factories ignore a fee module answer above this and fall back to the tick spacing fee */
 const MAX_MODULE_FEE = 100_000;
 
 /**
- * Classic Slipstream DynamicSwapFeeModule, as returned via CLFactory.getSwapFee:
- * min(base + |tick - twap| * K / 1e6, cap), where the factory replaces any answer above 10% with the tick spacing fee.
- * The first swap in a block can pay a separate (uncapped) initial fee.
+ * Classic Slipstream DynamicSwapFeeModule, as returned via CLFactory.getSwapFee: the zero fee indicator means no fee,
+ * and the factory replaces any fee above MAX_MODULE_FEE with the tick spacing fee.
  */
 export function slipstreamModuleFee(params: VolatilityFeeParams): ClmSwapFee {
-  const { config, zeroFeeIndicator, tickSpacingFee } = params;
-  const factoryGuard = (fee: number) => (fee > MAX_MODULE_FEE ? tickSpacingFee : fee);
-  if (config.baseFee === zeroFeeIndicator) {
-    return fixedFee(0);
-  }
-
-  const base = config.baseFee || tickSpacingFee;
-  const { scalingFactor, feeCap } = effectiveScaling(params);
-  const current = Math.min(base + volatilityFee(params.tick, params.twapTick, scalingFactor), feeCap);
-  const min = Math.min(base, feeCap);
-  const max = scalingFactor === 0n ? min : Math.min(base + maxVolatilityFee(scalingFactor), feeCap);
-  const firstSwap = config.initialFeeEnabled
-    ? config.initialFee === zeroFeeIndicator
-      ? 0
-      : config.initialFee || base
-    : undefined;
-
+  const guard = (fee: number) => (fee > MAX_MODULE_FEE ? params.tickSpacingFee : fee);
+  const { current, min, max, firstSwap } = volatilityFeeBounds(params);
   return rangedFee(
-    factoryGuard(current),
-    factoryGuard(min),
+    guard(current),
+    guard(min),
     // fees past the factory limit fall back, so the limit is the highest fee that can be charged
-    Math.max(factoryGuard(min), Math.min(max, MAX_MODULE_FEE)),
-    firstSwap === undefined ? undefined : factoryGuard(firstSwap)
+    Math.max(guard(min), Math.min(max, MAX_MODULE_FEE)),
+    firstSwap === undefined ? undefined : guard(firstSwap)
   );
 }
 
@@ -53,15 +34,12 @@ export function slipstreamModuleFee(params: VolatilityFeeParams): ClmSwapFee {
 export const slipstream = defineKind({
   name: 'velodrome/slipstream',
   probe: pool =>
-    pool.factory && { module: probe({ address: pool.factory, abi: factoryAbi, functionName: 'swapFeeModule' }) },
-  match: (pool, { module }) => {
-    const source = contractOf(module);
-    return source && pool.factory && { source, factory: pool.factory };
-  },
+    pool.factory && { module: probe({ address: pool.factory, abi: clFactoryAbi, functionName: 'swapFeeModule' }) },
+  match: (pool, { module }) => matchFeeSource(pool, module),
   fee: async (pool, reader) => {
     const config = await readDynamicFeeConfig(pool, reader, { allowLegacy: true });
     // custom fee modules have no dynamic fee config: they charge a fixed fee per pool, which pool.fee() returns
-    if (!config) return fixedFee(await reader.read({ address: pool.address, abi: poolAbi, functionName: 'fee' }));
+    if (!config) return fixedFee(await reader.read({ address: pool.address, abi: clPoolAbi, functionName: 'fee' }));
 
     const params = await readVolatilityFeeParams(pool, config, reader, {
       twapRounding: 'truncate',

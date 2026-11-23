@@ -31,23 +31,25 @@ export type ReadCall<
   account?: Address;
 };
 
-export type ReadReturn<call> =
-  call extends ReadCall<infer abi, infer functionName, infer args>
-    ? ContractFunctionReturnType<abi, ReadMutability, functionName, args>
-    : never;
-
 type UntypedCall = { address: Address; abi: Abi; functionName: string; args?: readonly unknown[]; account?: Address };
 
 export type ReadResult<value> = { ok: true; value: value } | { ok: false };
 
+/** The call itself failed (reverted, or the address has no code) or returned data its abi can't decode */
+export class CallFailedError extends Error {
+  constructor(cause: BaseError) {
+    super(cause.shortMessage, { cause });
+  }
+}
+
 /**
- * The call itself failed (reverted, or the address has no code) or returned data that does not decode with its abi,
- * as opposed to the rpc request failing.
+ * Whether the call failed, rather than the rpc request. Within a multicall, a call fails on its own as a
+ * RawContractError; when the whole multicall request fails, even as "execution reverted" (e.g. out of gas under the
+ * node's eth_call limit), its calls can't be told apart, so that is an rpc failure.
  */
-export function isCallFailure(err: unknown): boolean {
-  if (!(err instanceof BaseError)) return false;
+function isCallFailure(err: BaseError, batched: boolean): boolean {
   if (!err.walk(e => e instanceof CallExecutionError)) return true;
-  return err.walk(e => e instanceof RawContractError || e instanceof ExecutionRevertedError) !== null;
+  return err.walk(e => e instanceof RawContractError || (!batched && e instanceof ExecutionRevertedError)) !== null;
 }
 
 /**
@@ -60,9 +62,14 @@ export class Reader {
   constructor(
     private readonly client: PublicClient,
     readonly block: { number: bigint; timestamp: bigint }
-  ) {}
+  ) {
+    // reads without an account are told apart as batched, which viem only does with both
+    if (!client.batch?.multicall || !client.chain?.contracts?.multicall3) {
+      throw new Error('Reader needs a client that batches reads through multicall3');
+    }
+  }
 
-  /** Rejects if the call fails or the rpc request fails */
+  /** Rejects with a CallFailedError if the call fails, or with the rpc error if the request fails */
   read<
     const abi extends Abi,
     functionName extends ContractFunctionName<abi, ReadMutability>,
@@ -87,7 +94,7 @@ export class Reader {
     try {
       return { ok: true, value: await this.read(call) };
     } catch (err) {
-      if (isCallFailure(err)) return { ok: false };
+      if (err instanceof CallFailedError) return { ok: false };
       throw err;
     }
   }
@@ -98,7 +105,8 @@ export class Reader {
       return decodeFunctionResult({ abi, functionName, args, data: data ?? '0x' });
     } catch (err) {
       if (!(err instanceof BaseError)) throw err;
-      throw getContractError(err, { abi, address, args, functionName, sender: account });
+      const error = getContractError(err, { abi, address, args, functionName, sender: account });
+      throw isCallFailure(error, account === undefined) ? new CallFailedError(error) : error;
     }
   }
 

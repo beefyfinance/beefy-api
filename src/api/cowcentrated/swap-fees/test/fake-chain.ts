@@ -120,10 +120,10 @@ export class FakeChain {
     return address;
   }
 
-  client(batchWait = 0): PublicClient {
+  client({ batch = true, multicall3 = true }: { batch?: boolean; multicall3?: boolean } = {}): PublicClient {
     return createPublicClient({
-      chain: fakeChain,
-      batch: { multicall: { batchSize: 1024, wait: batchWait } },
+      chain: multicall3 ? fakeChain : { ...fakeChain, contracts: {} },
+      batch: batch ? { multicall: { batchSize: 1024, wait: 0 } } : undefined,
       transport: fallback([custom({ request: args => this.request(args) }, { retryCount: 0 })], { retryCount: 0 }),
     });
   }

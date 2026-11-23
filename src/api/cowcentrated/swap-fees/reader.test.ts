@@ -1,6 +1,6 @@
 import { parseAbi, toHex } from 'viem';
 import { describe, expect, it } from 'vitest';
-import { Reader } from './reader.ts';
+import { CallFailedError, Reader } from './reader.ts';
 import { clPoolAbi, legacyFeeModuleAbi, volatilityFeeSourceAbi } from './test/abis.ts';
 import { FakeChain, type Handlers, revert, rpcFailure } from './test/fake-chain.ts';
 import { MODULE, POOL } from './test/world.ts';
@@ -72,9 +72,25 @@ describe('Reader.read', () => {
     });
   });
 
-  it('rejects on a revert', async () => {
+  it('rejects with a CallFailedError when the call reverts', async () => {
     const { reader } = setup({ fee: () => revert() });
-    await expect(reader.read(fee)).rejects.toThrow(/reverted/);
+    const read = reader.read(fee);
+    await expect(read).rejects.toBeInstanceOf(CallFailedError);
+    await expect(read).rejects.toThrow(/reverted/);
+  });
+
+  it('rejects with the rpc error when the request fails', async () => {
+    const { reader } = setup({ fee: () => rpcFailure() });
+    const read = reader.read(fee);
+    await expect(read).rejects.not.toBeInstanceOf(CallFailedError);
+    await expect(read).rejects.toThrow(/header not found/);
+  });
+
+  it('needs a client that batches reads through multicall3', () => {
+    const chain = new FakeChain();
+    const block = { number: BLOCK, timestamp: chain.timestamp };
+    expect(() => new Reader(chain.client({ batch: false }), block)).toThrow(/multicall3/);
+    expect(() => new Reader(chain.client({ multicall3: false }), block)).toThrow(/multicall3/);
   });
 });
 
@@ -122,6 +138,22 @@ describe('Reader.tryRead', () => {
     await expect(reader.tryRead({ address: POOL, abi: badBool, functionName: 'slot0' })).resolves.toStrictEqual({
       ok: false,
     });
+  });
+
+  it.each([
+    ['code 3 "execution reverted"', 'execution reverted', 3],
+    ['-32000 "execution reverted"', 'execution reverted', -32000],
+    ['"gas required exceeds allowance"', 'gas required exceeds allowance', -32000],
+  ])('rejects every read in a multicall that fails as a whole with %s', async (_, message, code) => {
+    const { reader } = setup({ fee: () => rpcFailure(message, code) });
+    const reads = [reader.tryRead(fee), reader.tryRead({ address: POOL, abi: clPoolAbi, functionName: 'tickSpacing' })];
+    await expect(reads[0]).rejects.toThrow();
+    await expect(reads[1]).rejects.toThrow();
+  });
+
+  it('fails a direct call whose request reports "execution reverted"', async () => {
+    const { reader } = setup({ fee: () => rpcFailure('execution reverted', -32000) });
+    await expect(reader.tryRead({ ...fee, account: POOL })).resolves.toStrictEqual({ ok: false });
   });
 
   it('rejects when the rpc request of a batched call fails', async () => {

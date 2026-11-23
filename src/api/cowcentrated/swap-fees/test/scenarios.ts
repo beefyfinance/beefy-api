@@ -473,6 +473,13 @@ const rpcFailures: Scenario[] = [
     ],
     expected: { other: { current: 0.0005, dynamic: false } },
   },
+  {
+    name: 'a multicall failing as a whole with "execution reverted" drops its vaults rather than misreading them',
+    setup: chain => [
+      vaultFor(chain, aeroHookPool(chain, { factory: { getPoolSwapHook: () => rpcFailure('execution reverted', 3) } })),
+    ],
+    expected: {},
+  },
 ];
 
 export const scenarios: Scenario[] = [

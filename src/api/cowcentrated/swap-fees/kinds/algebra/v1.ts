@@ -9,7 +9,7 @@ import {
   volatilityPart,
 } from './helpers.ts';
 
-const poolAbi = parseAbi([
+const v1PoolAbi = parseAbi([
   'function dataStorageOperator() view returns (address)',
   'function liquidity() view returns (uint128)',
   'function globalState() view returns (uint160 price, int24 tick, uint16 fee, uint16 timepointIndex, uint16 communityFeeToken0, uint16 communityFeeToken1, bool unlocked)',
@@ -55,7 +55,7 @@ function feeRange([alpha1, alpha2, beta1, beta2, gamma1, gamma2, volumeBeta, vol
 export const algebraV1 = defineKind({
   name: 'algebra/v1',
   probe: pool => ({
-    dataStorageOperator: probe({ address: pool.address, abi: poolAbi, functionName: 'dataStorageOperator' }),
+    dataStorageOperator: probe({ address: pool.address, abi: v1PoolAbi, functionName: 'dataStorageOperator' }),
   }),
   match: (_, results) => {
     const dataStorageOperator = contractOf(results.dataStorageOperator);
@@ -67,7 +67,7 @@ export const algebraV1 = defineKind({
       reader.tryRead({ ...dataStorage, functionName: 'feeConfig' }),
       reader.tryRead({ ...dataStorage, functionName: 'feeConfigZto' }),
       reader.tryRead({ ...dataStorage, functionName: 'feeConfigOtz' }),
-      reader.read({ address: pool.address, abi: poolAbi, functionName: 'liquidity' }),
+      reader.read({ address: pool.address, abi: v1PoolAbi, functionName: 'liquidity' }),
     ]);
     const time = Number(reader.block.timestamp);
 
@@ -91,7 +91,7 @@ export const algebraV1 = defineKind({
     if (!config.ok) throw new FeeUnavailableError('data storage operator has no fee config');
     const [, tick, , timepointIndex] = await reader.read({
       address: pool.address,
-      abi: poolAbi,
+      abi: v1PoolAbi,
       functionName: 'globalState',
     });
     const fee = await reader.read({

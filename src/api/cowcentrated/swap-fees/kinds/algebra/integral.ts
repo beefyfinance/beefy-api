@@ -3,7 +3,7 @@ import { fixedFee, managedFee } from '../../fee.ts';
 import { contractOf, defineKind, probe } from '../../kind.ts';
 import { ALGEBRA_MAX_FEE, type AlgebraSigmoids, algebraFee, type FeeRange, volatilityPart } from './helpers.ts';
 
-const poolAbi = parseAbi([
+const integralPoolAbi = parseAbi([
   'function plugin() view returns (address)',
   'function globalState() view returns (uint160 price, int24 tick, uint16 lastFee, uint8 pluginConfig, uint16 communityFee, bool unlocked)',
 ]);
@@ -30,14 +30,14 @@ export function isAlgebraIntegralFeeActive(pluginConfig: number): boolean {
 /** The pool's plugin sets the fee before each swap, if the pool lets it */
 export const algebraIntegral = defineKind({
   name: 'algebra/integral',
-  probe: pool => ({ plugin: probe({ address: pool.address, abi: poolAbi, functionName: 'plugin' }) }),
+  probe: pool => ({ plugin: probe({ address: pool.address, abi: integralPoolAbi, functionName: 'plugin' }) }),
   match: (_, results) => {
     const plugin = contractOf(results.plugin);
     return plugin && { plugin };
   },
   fee: async (pool, reader) => {
     const [[, , lastFee, pluginConfig], currentFee, feeConfig] = await Promise.all([
-      reader.read({ address: pool.address, abi: poolAbi, functionName: 'globalState' }),
+      reader.read({ address: pool.address, abi: integralPoolAbi, functionName: 'globalState' }),
       reader.tryRead({ address: pool.plugin, abi: pluginAbi, functionName: 'getCurrentFee' }),
       reader.tryRead({ address: pool.plugin, abi: pluginAbi, functionName: 'feeConfig' }),
     ]);

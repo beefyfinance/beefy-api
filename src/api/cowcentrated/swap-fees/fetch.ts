@@ -7,7 +7,7 @@ import type { CowVault } from '../../vaults/types.ts';
 import { poolAbi, vaultAbi } from './abis.ts';
 import { contractOf, FeeUnavailableError, type PoolBase } from './kind.ts';
 import { kinds } from './kinds/index.ts';
-import { isCallFailure, Reader } from './reader.ts';
+import { CallFailedError, Reader } from './reader.ts';
 import type { ClmSwapFee, ClmSwapFees } from './types.ts';
 
 const logger = getLoggerFor({ module: 'clm', component: 'swap-fees' });
@@ -62,8 +62,7 @@ async function resolvePool(vault: CowVault, reader: Reader): Promise<PoolBase> {
 
 function reason(error: unknown): string {
   if (error instanceof FeeUnavailableError) return error.message;
-  if (error instanceof BaseError) {
-    return `${isCallFailure(error) ? 'call failed' : 'rpc failed'}: ${error.shortMessage}`;
-  }
+  if (error instanceof CallFailedError) return `call failed: ${error.message}`;
+  if (error instanceof BaseError) return `rpc failed: ${error.shortMessage}`;
   return String(error);
 }
