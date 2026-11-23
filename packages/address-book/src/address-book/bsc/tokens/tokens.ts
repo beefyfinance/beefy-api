@@ -4897,6 +4897,20 @@ export const tokens = {
     bridge: 'native',
     tags: ['STOCK'],
   },
+  MSFTB: {
+    name: 'Microsoft',
+    symbol: 'MSFTB',
+    oracleId: 'MSFTB',
+    address: '0x80106cb3EAD06659A5ad19DF39D9b4733863B9b0',
+    chainId: 56,
+    decimals: 18,
+    website: 'https://www.bstocks.finance/',
+    description:
+      'Microsoft issued by bStocks. bStocks are tokenized securities that give you economic exposure to popular US-listed companies with the right to convert to the underlying security on the Binance.com platform subject to applicable laws.',
+    documentation: 'https://www.bstocks.finance/faq',
+    bridge: 'native',
+    tags: ['STOCK'],
+  },
   XAUt: {
     name: 'Tether Gold',
     symbol: 'XAUt',

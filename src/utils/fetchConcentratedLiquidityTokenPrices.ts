@@ -2129,6 +2129,14 @@ const tokens = {
     },
     {
       type: 'UniV3',
+      pool: '0x6a1d40c050289cC8daD85ae2C1ad705222F596D2',
+      oracleId: 'MSFTB',
+      decimalDelta: 1,
+      firstToken: 'MSFTB',
+      secondToken: 'USDT',
+    },
+    {
+      type: 'UniV3',
       pool: '0xF7B5a9B7Ef764606f900C9c1db39aFc682049bc4',
       oracleId: 'BTW',
       decimalDelta: 1,
