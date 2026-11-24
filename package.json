@@ -18,6 +18,9 @@
     "lint": "biome check",
     "lint:fix": "biome check --fix",
     "lint:fix:unsafe": "biome check --fix --unsafe",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:coverage": "vitest run --coverage",
     "check-addresses": "node --import tsx scripts/check-addresses.ts",
     "check-addresses:fix": "node --import tsx scripts/check-addresses.ts --fix",
     "add:chain": "node --env-file-if-exists=.env --import tsx scripts/add-chain.ts",
@@ -56,6 +59,7 @@
     "@types/lodash-es": "catalog:",
     "@types/node": "catalog:",
     "@types/yargs": "catalog:",
+    "@vitest/coverage-v8": "catalog:",
     "async-lock": "catalog:",
     "bignumber.js": "catalog:",
     "command-line-args": "catalog:",
@@ -80,6 +84,7 @@
     "tsx": "catalog:",
     "typescript": "catalog:",
     "viem": "catalog:",
+    "vitest": "catalog:",
     "yargs": "catalog:"
   },
   "packageManager": "pnpm@11.17.0"

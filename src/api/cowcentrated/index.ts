@@ -7,11 +7,12 @@ import { getCampaignsForChainProviderWithMeta } from '../offchain-rewards/index.
 import { isMerklCampaign } from '../offchain-rewards/typeguards.ts';
 import { getCowPriceRanges, initCowPriceRangeService } from './getCowPriceRanges.ts';
 import { initCowVaultsMetaService } from './getCowVaultsMeta.ts';
+import { getCowSwapFees, initCowSwapFeesService } from './swap-fees/index.ts';
 
 const logger = getLoggerFor({ module: 'clm' });
 
 export function initCowcentratedService() {
-  Promise.allSettled([initCowVaultsMetaService(), initCowPriceRangeService()])
+  Promise.allSettled([initCowVaultsMetaService(), initCowPriceRangeService(), initCowSwapFeesService()])
     .then(results => {
       const failures = results.filter(isResultRejected);
       if (failures.length) {
@@ -25,6 +26,15 @@ export function initCowcentratedService() {
 
 export async function handleCowcentratedPriceRanges(ctx: Context) {
   sendSuccess(ctx, getCowPriceRanges());
+}
+
+export async function handleCowcentratedSwapFees(ctx: Context) {
+  const fees = getCowSwapFees();
+  if (fees) {
+    sendSuccess(ctx, fees);
+  } else {
+    sendServiceUnavailable(ctx, 'Not available yet');
+  }
 }
 
 export async function handleCowcentratedLTIPPCampaignsForDune(ctx: Context) {
