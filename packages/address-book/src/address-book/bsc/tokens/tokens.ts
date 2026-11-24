@@ -4911,6 +4911,20 @@ export const tokens = {
     bridge: 'native',
     tags: ['STOCK'],
   },
+  ANTB: {
+    name: 'Anthropic',
+    symbol: 'ANTB',
+    oracleId: 'ANTB',
+    address: '0x38Dd26788Cf2d901E3aBf04efE3007d459d0Fc53',
+    chainId: 56,
+    decimals: 18,
+    website: 'https://www.bstocks.finance/',
+    description:
+      'Anthropic issued by bStocks. bStocks are tokenized securities that give you economic exposure to popular US-listed companies with the right to convert to the underlying security on the Binance.com platform subject to applicable laws.',
+    documentation: 'https://www.bstocks.finance/faq',
+    bridge: 'native',
+    tags: ['STOCK'],
+  },
   XAUt: {
     name: 'Tether Gold',
     symbol: 'XAUt',

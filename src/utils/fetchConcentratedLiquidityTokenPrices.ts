@@ -2137,6 +2137,14 @@ const tokens = {
     },
     {
       type: 'UniV3',
+      pool: '0x5AFB6E189A268c6adFC9DA13CA13e3BA91171a31',
+      oracleId: 'ANTB',
+      decimalDelta: 1,
+      firstToken: 'USDT',
+      secondToken: 'ANTB',
+    },
+    {
+      type: 'UniV3',
       pool: '0xF7B5a9B7Ef764606f900C9c1db39aFc682049bc4',
       oracleId: 'BTW',
       decimalDelta: 1,
