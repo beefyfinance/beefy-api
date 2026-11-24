@@ -18,7 +18,7 @@ import { envBoolean, envNumber } from '../../utils/env.ts';
 import { getChain } from './chains.ts';
 import { rateLimitedHttp } from './transport.ts';
 
-const BATCH_WAIT = envNumber('BATCH_WAIT', 1500);
+const BATCH_WAIT = envNumber('BATCH_WAIT', 500);
 
 const multicallClientsByChain: Partial<Record<ApiChainId, Client>> = {};
 const singleCallClientsByChain: Partial<Record<ApiChainId, Client>> = {};
