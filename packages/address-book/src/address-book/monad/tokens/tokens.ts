@@ -414,7 +414,7 @@ export const tokens = {
     symbol: 'avUSD',
     oracleId: 'avUSD',
     address: '0x0D9D741FE423Cd5419e4BCb6cB2FfA87AFa93bA4',
-    chainId: 1,
+    chainId: 143,
     decimals: 18,
     website: 'https://app.avantprotocol.com/products',
     documentation: 'https://docs.avantprotocol.com/overview/core-tokens#avusd',
