@@ -1,5 +1,6 @@
 import { getAddress, isAddress } from 'viem';
 import { addressBook } from '../src/address-book/index.js';
+import { chainIdMap } from '../src/util/chainIdMap.js';
 
 type ChainId = keyof typeof addressBook;
 const allChains = Object.keys(addressBook) as ChainId[];
@@ -8,9 +9,13 @@ function isChainId(chainId: string): chainId is ChainId {
   return !!addressBook[chainId as ChainId];
 }
 
-/** Checks every token address is a valid, EIP-55 checksummed 20-byte hex address. */
+/**
+ * Checks every token address is a valid, EIP-55 checksummed 20-byte hex address,
+ * and that every token's chainId matches the chain it is listed under.
+ */
 function checkChain(chainId: ChainId) {
   const { tokens } = addressBook[chainId];
+  const expectedChainId = chainIdMap[chainId];
   let errors = 0;
 
   for (const [id, token] of Object.entries(tokens)) {
@@ -24,6 +29,13 @@ function checkChain(chainId: ChainId) {
       );
       ++errors;
     }
+
+    if (token.chainId !== expectedChainId) {
+      console.error(
+        `[ERROR] chainId for ${id} on ${chainId} is ${token.chainId} (expected ${expectedChainId})`
+      );
+      ++errors;
+    }
   }
 
   return errors;
@@ -32,7 +44,7 @@ function checkChain(chainId: ChainId) {
 function start(chains: ChainId[] = allChains) {
   const errors = chains.map(checkChain).reduce((acc, e) => acc + e, 0);
   if (errors > 0) {
-    throw new Error(`Found ${errors} invalid addresses, see above`);
+    throw new Error(`Found ${errors} errors, see above`);
   }
   console.log(`All token addresses valid on ${chains.length} chains`);
 }
