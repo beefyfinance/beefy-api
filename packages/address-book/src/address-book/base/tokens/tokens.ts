@@ -4194,4 +4194,17 @@ export const tokens = {
     bridge: 'chainlink-ccip',
     tags: ['NO_AUDIT', 'NO_TIMELOCK', 'LARGE_HOLDERS'],
   },
+  INJ: {
+    name: 'Injective',
+    symbol: 'INJ',
+    oracleId: 'bINJ',
+    address: '0xB783f2D2e031a7C4aA48AedaC4c58bE85BfA04d3',
+    chainId: 8453,
+    decimals: 18,
+    website: 'https://injective.com/',
+    description:
+      'Injective is a layer 1 blockchain built for finance, with interoperable DeFi apps and native orderbook infrastructure.',
+    documentation: 'https://docs.injective.network/',
+    bridge: 'layer-zero',
+  },
 } as const satisfies Record<string, Token>;

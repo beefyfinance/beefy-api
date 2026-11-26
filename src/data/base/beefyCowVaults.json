@@ -1,5 +1,22 @@
 [
   {
+    "address": "0x97aD4Ec4325D00975f238C6950d812fFF977d4Bc",
+    "lpAddress": "0x4AaA3B7e83d3A85237e7E32EBa7e723F59e83F88",
+    "tokens": ["0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913", "0xB783f2D2e031a7C4aA48AedaC4c58bE85BfA04d3"],
+    "tokenOracleIds": ["USDC", "bINJ"],
+    "decimals": [6, 18],
+    "oracleId": "aero-cow-base-usdc-inj",
+    "providerId": "aero",
+    "rewardPool": {
+      "address": "0x52C8ea0cAA9695a1b4016372165C06282c247eC3",
+      "oracleId": "aero-cow-base-usdc-inj-rp"
+    },
+    "vault": {
+      "address": "0x9962E8EDe2Bfa61120B43876e859Da0aA86D8d67",
+      "oracleId": "aero-cow-base-usdc-inj-vault"
+    }
+  },
+  {
     "address": "0x1C7877051af66a0BC519f1245Eb1FaCFdB2F2A41",
     "lpAddress": "0x599C4225FE90214795a0be228D20d7680f8CED15",
     "tokens": ["0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913", "0xb20000000000000000000016e38FD364d271Ba28"],
