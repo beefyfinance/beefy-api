@@ -17,7 +17,7 @@ const ETH = {
 export const tokens = {
   AEROv2: {
     name: 'Aero',
-    symbol: 'AERO',
+    symbol: 'AEROv2',
     oracleId: 'AEROv2',
     address: '0x3f5bF3EdAc59d650D8fDf9657a71F2f904A3a4Ee',
     chainId: 8453,

@@ -2986,6 +2986,14 @@ const tokens = {
       firstToken: 'SHROOM',
       secondToken: 'WETH',
     },
+    {
+      type: 'UniV3',
+      pool: '0x75aE79FD767A7cC410AB4EED13f8d3498e878d6A',
+      oracleId: 'ANTrh',
+      decimalDelta: 1e-12,
+      firstToken: 'ANTrh',
+      secondToken: 'USDG',
+    },
   ],
   arc: [
     {

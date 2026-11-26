@@ -1099,4 +1099,18 @@ export const tokens = {
     bridge: 'native',
     tags: ['MEMECOIN', 'NO_AUDIT'],
   },
+  ANTrh: {
+    name: 'Anthropic, PBC Class A Common Stock • Robinhood Token',
+    symbol: 'ANT',
+    oracleId: 'ANTrh',
+    address: '0xbbB6c29bCc3a1028A2B54310DF73F4F7A3bcB373',
+    chainId: 4663,
+    decimals: 18,
+    website: 'https://robinhood.com/rhj/stocktokens/',
+    description:
+      'Anthropic, PBC Class A Common Stock • Robinhood Token is a tokenized debt security issued by Robinhood Assets (Jersey) Limited that provides price exposure to Anthropic shares without conferring ownership or shareholder rights.',
+    documentation: 'https://docs.robinhood.com/chain/stock-tokens/',
+    bridge: 'native',
+    tags: ['STOCK'],
+  },
 } as const satisfies Record<string, Token>;
