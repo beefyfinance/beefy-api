@@ -375,6 +375,14 @@ const tokens = {
   base: [
     {
       type: 'Slipstream',
+      oracleId: 'bINJ',
+      decimalDelta: 1e-12,
+      pool: '0x4AaA3B7e83d3A85237e7E32EBa7e723F59e83F88',
+      firstToken: 'bINJ',
+      secondToken: 'USDC',
+    },
+    {
+      type: 'Slipstream',
       oracleId: 'AEROv2',
       decimalDelta: 1,
       pool: '0xc85D5CB72d1aaD6f152A8decAd228AE4A59Ac9B3',
