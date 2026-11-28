@@ -217,7 +217,7 @@ export const tokens = {
     name: 'oldBIFI-WFUSE LP',
     symbol: 'oldBIFI-WFUSE LP',
     address: '0xbD8923A4028c5D6b6B8698ad4342104302611914',
-    chainId: 1666600000,
+    chainId: 122,
     decimals: 18,
     website: 'https://app.beefy.com/',
     oracleId: 'sushi-fuse-bifi-wfuse',

@@ -254,7 +254,7 @@ export const tokens = {
     symbol: 'DAI',
     oracleId: 'DAI',
     decimals: 18,
-    chainId: 137,
+    chainId: 42161,
     website: 'https://makerdao.com/',
     description:
       'Multi-Collateral Dai, brings a lot of new and exciting features, such as support for new CDP collateral types and Dai Savings Rate.',

@@ -1790,7 +1790,7 @@ export const tokens = {
     symbol: 'LBTC',
     oracleId: 'LBTC',
     address: '0xecAc9C5F704e954931349Da37F60E39f515c11c1',
-    chainId: 1,
+    chainId: 8453,
     decimals: 8,
     website: 'https://www.lombard.finance/app/',
     description:
